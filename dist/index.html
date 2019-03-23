@@ -24,11 +24,13 @@
 /* Use Shift-Enter to render */
 
 let x = union(sphere().as('a'),
-              cube({ size: 1, center: true }).translate([0.5, 0.5, 0.5]).as('b'))
+              cube({ size: 1, center: true }).translate([0.5, 0.5, 0.5]).as('b'),
+              cube({ size: 1, center: true }).translate([0.5, 0, 0]).as('c'))
 
 writePaths({ path: 'window' },
            x.toPaths({ tags: ['a'] }),
-           x.toPaths({ tags: ['b'] }))
+           x.toPaths({ tags: ['b'] }),
+           x.toPaths({ tags: ['c'] }))
     </textarea>
     <div id="viewer" height="200"></div>
     <div id="container"></div>
@@ -115,7 +117,7 @@ writePaths({ path: 'window' },
       function init() {
         //
         camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 3500 );
-        [camera.position.x, camera.position.y, camera.position.z] = [0,0,16];
+        [camera.position.x, camera.position.y, camera.position.z] = [0,0,8];
         //
         controls = new THREE.TrackballControls(camera);
         controls.rotateSpeed = 4.0;
