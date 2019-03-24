@@ -21,10 +21,8 @@
   </head>
   <body>
     <textarea id="editor">
-/* Use Shift-Enter to render */
-
 let x = union(sphere().as('a'),
-              cube({ size: 1, center: true }).translate([0.5, 0.5, 0.5]).as('b'),
+              cube({ size: 1, center: true }).translate([0.5, 0.5, 0.5]).as('b').material('metal'),
               cube({ size: 1, center: true }).translate([0.5, 0, 0]).as('c'))
 
 writePaths({ path: 'window' },
@@ -36,9 +34,9 @@ writePaths({ path: 'window' },
     <div id="container"></div>
 
     <!-- CodeMirror -->
-    <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
-    <script src="https://codemirror.net/lib/codemirror.js"></script>
-    <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+    <script src="http://codemirror.net/lib/codemirror.js"></script>
+    <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
 
     <!-- ThreeJS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js"></script>
@@ -63,19 +61,36 @@ writePaths({ path: 'window' },
       let mesh;
       let gui;
 
+      const makeMaterial = (material) => {
+        switch (material) {
+          case 'metal':
+            return new THREE.MeshStandardMaterial({
+                     // FIX: There is something strange with the normals.
+                     color: 0x779aac,
+                     roughness: 0.75,
+                     metalness: 1
+                   });
+          default:
+            return new THREE.MeshNormalMaterial();
+        }
+      }
+
       watchFile('window', ({ data }) => {
                             for (const { controller, mesh } of datasets) {
-                              gui.remove(controller);
+                              if (controller) {
+                                gui.remove(controller);
+                              }
                               scene.remove(mesh);
                             }
                             datasets = trianglesToThreejsDatasets({}, ...data);
                             for (const dataset of datasets) {
                               let geometry = new THREE.BufferGeometry();
-                              let { tags, material, indices, positions, normals } = dataset;
+                              let { properties = {}, indices, positions, normals } = dataset;
+                              let { material, tags = [] } = properties;
                               geometry.setIndex( indices );
                               geometry.addAttribute('position', new THREE.Float32BufferAttribute( positions, 3));
                               geometry.addAttribute('normal', new THREE.Float32BufferAttribute( normals, 3));
-                              let threeMaterial = new THREE.MeshNormalMaterial();
+                              let threeMaterial = makeMaterial(material);
                               dataset.mesh = new THREE.Mesh(geometry, threeMaterial);
                               scene.add(dataset.mesh);
                               if (tags.length >= 1) {
@@ -117,7 +132,7 @@ writePaths({ path: 'window' },
       function init() {
         //
         camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 1, 3500 );
-        [camera.position.x, camera.position.y, camera.position.z] = [0,0,8];
+        [camera.position.x, camera.position.y, camera.position.z] = [0,0,16];
         //
         controls = new THREE.TrackballControls(camera);
         controls.rotateSpeed = 4.0;
@@ -136,10 +151,10 @@ writePaths({ path: 'window' },
         var ambientLight = new THREE.AmbientLight( 0x222222 );
         scene.add( ambientLight );
         var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-        light1.position.set( 1, 1, 1 );
+        light1.position.set( -1, -1, 16 );
         scene.add( light1 );
         var light2 = new THREE.DirectionalLight( 0xffffff, 1 );
-        light2.position.set( 0, - 1, 0 );
+        light2.position.set( 1, 1, 16 );
         scene.add( light2 );
 
         //
