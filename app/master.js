@@ -51648,6 +51648,7 @@ define("./master.js",[],function () { 'use strict';
     style.type = 'text/css';
     style.media = 'screen';
     style.href = href;
+    style.async = false;
     document.head.appendChild(style);
   };
 
