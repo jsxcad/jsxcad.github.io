@@ -80,7 +80,7 @@ if (!self.define) {
     });
   };
 }
-define("./master.js",['require'], function (require) { 'use strict';
+define("./master.js",[],function () { 'use strict';
 
   const installConsole = ({ addPage, document, watchFile }) => {
     addPage({ title: 'Console', content: '<div id="console"></div>', position: 'bottom-left', size: '600 200' });
@@ -51636,6 +51636,21 @@ define("./master.js",['require'], function (require) { 'use strict';
   }
   var GUI$1 = GUI;
 
+  const installCSS = (document, text) => {
+    const style = document.createElement('style');
+    style.textContent = text;
+    document.head.appendChild(style);
+  };
+
+  const installCSSLink = (document, href) => {
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.media = 'screen';
+    style.href = href;
+    document.head.appendChild(style);
+  };
+
   /**
    * @author Eberhard Graether / http://egraether.com/
    * @author Mark Lundin 	/ http://mark-lundin.com
@@ -52290,21 +52305,6 @@ define("./master.js",['require'], function (require) { 'use strict';
   };
 
   TrackballControls.prototype = Object.create( THREE$2.EventDispatcher.prototype );
-
-  const installCSS = (document, text) => {
-    const style = document.createElement('style');
-    style.textContent = text;
-    document.head.appendChild(style);
-  };
-
-  const installCSSLink = (document, href) => {
-    var style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.type = 'text/css';
-    style.media = 'screen';
-    style.href = href;
-    document.head.appendChild(style);
-  };
 
   /* jspanel.js - License MIT, copyright 2013 - 2019 Stefan Straesser <info@jspanel.de> (https://jspanel.de) */
 
@@ -56350,9 +56350,37 @@ define("./master.js",['require'], function (require) { 'use strict';
       module.exports = jsPanel;
   }
 
+  var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+  function commonjsRequire () {
+  	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
+  }
+
+  function unwrapExports (x) {
+  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+  }
+
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
+
+  function getCjsExportFromNamespace (n) {
+  	return n && n['default'] || n;
+  }
+
+  var commonjsHelpers = /*#__PURE__*/Object.freeze({
+    commonjsGlobal: commonjsGlobal,
+    commonjsRequire: commonjsRequire,
+    unwrapExports: unwrapExports,
+    createCommonjsModule: createCommonjsModule,
+    getCjsExportFromNamespace: getCjsExportFromNamespace
+  });
+
+  var FileSaver_min = createCommonjsModule(function (module, exports) {
+  (function(a,b){b();})(commonjsGlobal,function(){function b(a,b){return "undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d);},e.onerror=function(){console.error("could not download file");},e.send();}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send();}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"));}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b);}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof commonjsGlobal&&commonjsGlobal.global===commonjsGlobal?commonjsGlobal:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href);},4E4),setTimeout(function(){e(j);},0));}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i);});}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null;},j.readAsDataURL(a);}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l);},4E4);}});f.saveAs=a.saveAs=a,module.exports=a;});
+
+
+  });
 
   //[4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
   //[4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
@@ -66894,19 +66922,41 @@ define("./master.js",['require'], function (require) { 'use strict';
 
   const installDisplayCSS = (document) => {
     installCSSLink(document, 'https://unpkg.com/jspanel4@4.6.0/es6module/jspanel.css');
-    installCSS(document, `.dg { position: absolute; top: 2px; left: 2px }`);
+    installCSS(document, `
+               .dg { position: absolute; top: 2px; left: 2px; background: #ffffff; color: #000000 }
+               .dg.main.taller-than-window .close-button { border-top: 1px solid #ddd; }
+               .dg.main .close-button { background-color: #ccc; } 
+               .dg.main .close-button:hover { background-color: #ddd; }
+               .dg { color: #555; text-shadow: none !important; } 
+               .dg.main::-webkit-scrollbar { background: #fafafa; } 
+               .dg.main::-webkit-scrollbar-thumb { background: #bbb; } 
+               .dg li:not(.folder) { background: #fafafa; border-bottom: 1px solid #ddd; } 
+               .dg li.save-row .button { text-shadow: none !important; } 
+               .dg li.title { background: #e8e8e8 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat; }
+               .dg .cr.function:hover,.dg .cr.boolean:hover { background: #fff; } 
+               .dg .c input[type=text] { background: #e9e9e9; } 
+               .dg .c input[type=text]:hover { background: #eee; } 
+               .dg .c input[type=text]:focus { background: #eee; color: #555; } 
+               .dg .c .slider { background: #e9e9e9; } 
+               .dg .c .slider:hover { background: #eee; }
+             `);
   };
 
   const installDisplay = async ({ document, readFile, watchFile, watchFileCreation, window }) => {
+    jsPanel.autopositionSpacing = 20;
+
     let pages = [];
 
-    const addPage = ({ title = 'Window', content = '', contentOverflow = 'scroll', position = 'top-left', size = '600 600' }) => {
+    const addPage = ({ title = 'Window', content = '', contentOverflow = 'scroll', position = 'left-top', autoposition = 'down', size = '600 600', footerToolbar, callback }) => {
       const panel = jsPanel.create({
+        autoposition,
         headerTitle: title,
         contentSize: size,
         content,
         contentOverflow,
-        position: { my: position, at: position },
+        'position': { my: position, at: position },
+        footerToolbar,
+        callback
       });
       pages.push(panel);
       return panel;
@@ -66922,7 +66972,8 @@ define("./master.js",['require'], function (require) { 'use strict';
       pages[0].front();
     };
 
-    const addDisplay = ({ cameraPosition = [0, 0, 16], geometry } = {}, path) => {
+    const addDisplay = ({ view = {}, geometry } = {}, path) => {
+      const { target = [0, 0, 0], position = [40, 40, 40], up = [0, 0, 1] } = view;
       // Add a new display when we see a new file written.
       let datasets = [];
       let camera;
@@ -66931,16 +66982,28 @@ define("./master.js",['require'], function (require) { 'use strict';
       let renderer;
       let gui;
       // FIX: Injection.
-      const page = addPage({ title: path, content: `<div id="${path}"></div>`, contentOverflow: 'hidden', position: 'top-right' });
+      const page = addPage({
+        title: path,
+        content: `<div id="${path}"></div>`,
+        contentOverflow: 'hidden',
+        position: 'right-top',
+        footerToolbar: `<span class="jsPanel-ftr-btn" id="download/${path}">Download ${path}</span>`,
+        callback: (panel) => {
+                    document.getElementById(`download/${path}`)
+                            .addEventListener('click',
+                                              async () => {
+                                                const blob = new Blob([await readFile({}, path)],
+                                                                      {type: "text/plain;charset=utf-8"});
+                                                FileSaver_min(blob, path);
+                                              });
+                  },
+      });
       let viewerElement;
-      // let downloadButton;
-
       const toName = (geometry) => {
         if (geometry.tags !== undefined && geometry.tags.length >= 1) {
           return geometry.tags[0];
         }
       };
-
       const updateDatasets = (geometry) => {
         // Delete any previous dataset in the window.
         for (const { controller, mesh } of datasets) {
@@ -67019,11 +67082,22 @@ define("./master.js",['require'], function (require) { 'use strict';
       function init () {
         //
         camera = new PerspectiveCamera(27, page.offsetWidth / page.offsetHeight, 1, 3500);
-        [camera.position.x, camera.position.y, camera.position.z] = cameraPosition;
+        [camera.position.x, camera.position.y, camera.position.z] = position;
+        camera.lookAt(...target);
+        camera.up.set(...up);
         //
         scene = new Scene();
-        scene.background = new Color(0x050505);
+        scene.background = new Color(0xffffff);
         scene.add(camera);
+
+        {
+          const grid = new GridHelper(1000, 100, 0x000080, 0xc0c0c0);
+          grid.material.opacity = 0.5;
+          grid.rotation.x = - Math.PI / 2;
+          grid.material.transparent = true;
+          scene.add(grid);
+        }
+
         //
         var ambientLight = new AmbientLight(0x222222);
         scene.add(ambientLight);
@@ -67080,8 +67154,8 @@ define("./master.js",['require'], function (require) { 'use strict';
     };
 
     if (typeof watchFileCreation !== 'undefined') {
-      watchFileCreation(({ path }) => {
-        if (path.startsWith('window/')) {
+      watchFileCreation(({ preview }, { path }) => {
+        if (preview === true) {
           addDisplay({}, path);
         }
       });
@@ -77101,16 +77175,18 @@ define("./master.js",['require'], function (require) { 'use strict';
     }
   };
 
+  const promises = {};
+
   const files = {};
   const fileCreationWatchers = [];
 
-  const getFile = (path) => {
+  const getFile = (options, path) => {
     let file = files[path];
     if (file === undefined) {
       file = { path: path, watchers: [] };
       files[path] = file;
       for (const watcher of fileCreationWatchers) {
-        watcher(file);
+        watcher(options, file);
       }
     }
     return file;
@@ -77118,14 +77194,16 @@ define("./master.js",['require'], function (require) { 'use strict';
 
   const watchFileCreation = (thunk) => fileCreationWatchers.push(thunk);
 
+  /* global self */
+
   const writeFile = async (options, path, data) => {
     if (isWebWorker) {
-      return await self.ask({ writeFile: { options, path, data: await data }});
+      return self.ask({ writeFile: { options, path, data: await data } });
     }
     const { ephemeral } = options;
 
     data = await data;
-    const file = getFile(path);
+    const file = getFile(options, path);
     file.data = data;
 
     for (const watcher of file.watchers) {
@@ -77134,29 +77212,33 @@ define("./master.js",['require'], function (require) { 'use strict';
 
     if (!ephemeral) {
       if (isNode) {
-        const fs = await new Promise(function (resolve, reject) { require(['./fs-b077e889'], resolve, reject) });
-        let result = await fs.promises.writeFile(path, data);
-        return result;
+        return promises.writeFile(path, data);
       }
     }
   };
 
   const log = (text) => writeFile({ ephemeral: true }, 'console/out', text);
 
+
+
+  var nodeFetch = /*#__PURE__*/Object.freeze({
+
+  });
+
+  /* global self */
+
   const getUrlFetcher = async () => {
     if (typeof window !== 'undefined') {
       return window.fetch;
     } else {
-      const module = await new Promise(function (resolve, reject) { require(['./node-fetch-b077e889'], resolve, reject) });
-      return module.default;
+      return nodeFetch;
     }
   };
 
   const getFileFetcher = async () => {
     if (isNode) {
       // FIX: Put this through getFile, also.
-      const fs = await new Promise(function (resolve, reject) { require(['./fs-b077e889'], resolve, reject) });
-      return fs.promises.readFile;
+      return promises.readFile;
     } else if (isBrowser) {
       // This will always fail, but maybe it should use local storage.
       return () => {};
@@ -77202,10 +77284,10 @@ define("./master.js",['require'], function (require) { 'use strict';
 
   const readFile = async (options, path) => {
     if (isWebWorker) {
-      return await self.ask({ readFile: { options, path }});
+      return self.ask({ readFile: { options, path } });
     }
     const { sources = [] } = options;
-    const file = getFile(path);
+    const file = getFile(options, path);
     if (file.data === undefined) {
       file.data = await fetchPersistent(path);
     }
@@ -77221,17 +77303,17 @@ define("./master.js",['require'], function (require) { 'use strict';
     return file.data;
   };
 
-  const watchFile = (path, thunk) => getFile(path).watchers.push(thunk);
+  const watchFile = (path, thunk) => getFile({}, path).watchers.push(thunk);
 
   const agent = async ({ ask, question }) => {
-                  if (question.readFile) {
-                    const { options, path } = question.readFile;
-                    return await readFile(options, path);
-                  } else if (question.writeFile) {
-                    const { options, path, data } = question.writeFile;
-                    return await writeFile(options, path, data);
-                  }
-                };
+    if (question.readFile) {
+      const { options, path } = question.readFile;
+      return readFile(options, path);
+    } else if (question.writeFile) {
+      const { options, path, data } = question.writeFile;
+      return writeFile(options, path, data);
+    }
+  };
 
   const installEvaluator = async () => {
     const { ask } = await createService({ webWorker: './webworker.js', agent });
@@ -77247,8 +77329,8 @@ define("./master.js",['require'], function (require) { 'use strict';
     const viewerElement = document.getElementById('reference');
     viewerElement.id = `viewer:reference`;
     const frame = document.createElement('iframe');
-    frame.src = `https://en.wikibooks.org/wiki/JSxCAD_User_Guide`;
-    // frame.src = `https://jsxcad.js.org/reference/user_guide.html?a=a`;
+    // frame.src = `https://en.wikibooks.org/wiki/JSxCAD_User_Guide`;
+    frame.src = `https://jsxcad.js.org/reference/user_guide.html?a=a`;
     frame.classList.add('Reference');
     viewerElement.appendChild(frame);
     return {};
@@ -77264,9 +77346,11 @@ define("./master.js",['require'], function (require) { 'use strict';
     const initialScript =
 `
 const main = async () => {
-  const scene = assemble(sphere().as('s'),
-                         cube().as('c'));
-  await writeStl({ path: 'window/example' }, scene);
+  const scene = assemble(sphere(10).as('sphere'),
+                         cube(10).as('cube'),
+                         cylinder({ r: 3, h: 30 }).as('cylinder'));
+  await writeStl({ path: 'example.stl' }, scene);
+  await writeStl({ path: 'sphere.stl' }, scene.toSolid({ requires: ['sphere'] }));
 }
 `  ;
     const { addPage, nextPage, lastPage } = await installDisplay({ document, readFile, watchFile, watchFileCreation, window });
