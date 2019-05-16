@@ -76829,12 +76829,20 @@ define("./master.js",[],function () { 'use strict';
   const installEditor = ({ addPage, document, evaluator, initialScript, nextPage, lastPage }) => {
     let editor;
 
+    // FIX: Need some visual indicator that the script is running.
     const runScript = async () => evaluator(editor.getDoc().getValue('\n'));
 
     const setupDocument = () => {
       editor = CodeMirror((domElement) => {
         domElement.id = 'editor';
-        addPage({ title: 'Source', content: '<div id="editor"></div>', contentOverflow: 'hidden', position: 'top-left' });
+        addPage({
+          title: 'Source',
+          content: '<div id="editor"></div>',
+          contentOverflow: 'hidden',
+          position: 'top-left',
+          footerToolbar: `<span class="jsPanel-ftr-btn" id="runScript">Run Script</span>`,
+          callback: (panel) => document.getElementById(`runScript`).addEventListener('click', runScript),
+        });
         document.getElementById('editor').appendChild(domElement);
       },
                           {
