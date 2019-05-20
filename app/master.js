@@ -51636,22 +51636,6 @@ define("./master.js",[],function () { 'use strict';
   }
   var GUI$1 = GUI;
 
-  const installCSS = (document, text) => {
-    const style = document.createElement('style');
-    style.textContent = text;
-    document.head.appendChild(style);
-  };
-
-  const installCSSLink = (document, href) => {
-    var style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.type = 'text/css';
-    style.media = 'screen';
-    style.href = href;
-    style.async = false;
-    document.head.appendChild(style);
-  };
-
   /**
    * @author Eberhard Graether / http://egraether.com/
    * @author Mark Lundin 	/ http://mark-lundin.com
@@ -52306,6 +52290,22 @@ define("./master.js",[],function () { 'use strict';
   };
 
   TrackballControls.prototype = Object.create( THREE$2.EventDispatcher.prototype );
+
+  const installCSS = (document, text) => {
+    const style = document.createElement('style');
+    style.textContent = text;
+    document.head.appendChild(style);
+  };
+
+  const installCSSLink = (document, href) => {
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.media = 'screen';
+    style.href = href;
+    style.async = false;
+    document.head.appendChild(style);
+  };
 
   /* jspanel.js - License MIT, copyright 2013 - 2019 Stefan Straesser <info@jspanel.de> (https://jspanel.de) */
 
@@ -59400,8 +59400,6 @@ define("./master.js",[],function () { 'use strict';
     SVGObject.prototype.constructor = SVGObject;
 
     const SVGRenderer = function () {
-    	console.log('THREE.SVGRenderer', THREE.REVISION);
-
     	var _this = this;
     		var _renderData; var _elements; var _lights;
     		var _projector = new Projector();
@@ -66851,6 +66849,10 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const makeConvex$1 = (options = {}, surface) => {
+    if (surface.length === 0) {
+      // An empty surface is not non-convex.
+      return surface;
+    }
     assertCoplanar(surface);
     const [to, from] = toXYPlaneTransforms(toPlane$1(surface));
     let retessellatedSurface = makeConvex({}, union$1(...transform$2(to, surface).map(polygon => [polygon])));
@@ -66919,10 +66921,10 @@ define("./master.js",[],function () { 'use strict';
 
   const { SVGRenderer } = installSVGRenderer({ THREE: THREE$1, Projector: Projector$1, RenderableFace, RenderableLine, RenderableSprite, document: new domParser_3().parseFromString('<xml></xml>', 'text/xml') });
 
-  /* global ResizeObserver */
+  /* global Blob, ResizeObserver */
 
   const installDisplayCSS = (document) => {
-    installCSSLink(document, 'https://unpkg.com/jspanel4@4.6.0/es6module/jspanel.css');
+    // installCSSLink(document, 'https://unpkg.com/jspanel4@4.6.0/es6module/jspanel.css');
     installCSS(document, `
                .dg { position: absolute; top: 2px; left: 2px; background: #ffffff; color: #000000 }
                .dg.main.taller-than-window .close-button { border-top: 1px solid #ddd; }
@@ -66988,16 +66990,16 @@ define("./master.js",[],function () { 'use strict';
         content: `<div id="${path}"></div>`,
         contentOverflow: 'hidden',
         position: 'right-top',
-        footerToolbar: `<span class="jsPanel-ftr-btn" id="download/${path}">Download ${path}</span>`,
+        footerToolbar: `<button class="jsPanel-ftr-btn" id="download/${path}" style="padding: 5px; margin: 3 px; display: inline-block;">Download ${path}</button>`,
         callback: (panel) => {
-                    document.getElementById(`download/${path}`)
-                            .addEventListener('click',
-                                              async () => {
-                                                const blob = new Blob([await readFile({}, path)],
-                                                                      {type: "text/plain;charset=utf-8"});
-                                                FileSaver_min(blob, path);
-                                              });
-                  },
+          document.getElementById(`download/${path}`)
+              .addEventListener('click',
+                                async () => {
+                                  const blob = new Blob([await readFile({}, path)],
+                                                        { type: 'text/plain;charset=utf-8' });
+                                  FileSaver_min(blob, path);
+                                });
+        }
       });
       let viewerElement;
       const toName = (geometry) => {
@@ -67094,7 +67096,7 @@ define("./master.js",[],function () { 'use strict';
         {
           const grid = new GridHelper(1000, 100, 0x000080, 0xc0c0c0);
           grid.material.opacity = 0.5;
-          grid.rotation.x = - Math.PI / 2;
+          grid.rotation.x = -Math.PI / 2;
           grid.material.transparent = true;
           scene.add(grid);
         }
@@ -76824,7 +76826,7 @@ define("./master.js",[],function () { 'use strict';
 
   const installEditorCSS = (display) => {
     installCSSLink(document, 'https://codemirror.net/lib/codemirror.css');
-    installCSS(document, `.CodeMirror { border-top: 1px solid black; border-bottom: 1px solid black; font-family: Arial, monospace; font-size: 16px; height: 100% }`);
+    installCSS(document, `.CodeMirror { border-top: 1px solid black; border-bottom: 1px solid black; font-family: monospace; font-size: 20px; height: 100% }`);
   };
 
   const installEditor = ({ addPage, document, evaluator, initialScript, nextPage, lastPage }) => {
@@ -76840,9 +76842,10 @@ define("./master.js",[],function () { 'use strict';
           title: 'Source',
           content: '<div id="editor"></div>',
           contentOverflow: 'hidden',
+          size: '1000 600',
           position: 'top-left',
-          footerToolbar: `<span class="jsPanel-ftr-btn" id="runScript">Run Script</span>`,
-          callback: (panel) => document.getElementById(`runScript`).addEventListener('click', runScript),
+          footerToolbar: `<button class="jsPanel-ftr-btn" id="runScript" style="padding: 5px; margin: 3 px;">Run Script</button>`,
+          callback: (panel) => document.getElementById(`runScript`).addEventListener('click', runScript)
         });
         document.getElementById('editor').appendChild(domElement);
       },
@@ -77228,11 +77231,7 @@ define("./master.js",[],function () { 'use strict';
 
   const log = (text) => writeFile({ ephemeral: true }, 'console/out', text);
 
-
-
-  var nodeFetch = /*#__PURE__*/Object.freeze({
-
-  });
+  var nodeFetch = {};
 
   /* global self */
 
@@ -77338,8 +77337,7 @@ define("./master.js",[],function () { 'use strict';
     const viewerElement = document.getElementById('reference');
     viewerElement.id = `viewer:reference`;
     const frame = document.createElement('iframe');
-    // frame.src = `https://en.wikibooks.org/wiki/JSxCAD_User_Guide`;
-    frame.src = `https://jsxcad.js.org/reference/user_guide.html?a=a`;
+    frame.src = `https://jsxcad.js.org/app/UserGuide.html`;
     frame.classList.add('Reference');
     viewerElement.appendChild(frame);
     return {};
@@ -77356,10 +77354,10 @@ define("./master.js",[],function () { 'use strict';
 `
 const main = async () => {
   const scene = assemble(sphere(10).as('sphere'),
-                         cube(10).as('cube'),
-                         cylinder({ r: 3, h: 30 }).as('cylinder'));
-  await writeStl({ path: 'example.stl' }, scene);
-  await writeStl({ path: 'sphere.stl' }, scene.toSolid({ requires: ['sphere'] }));
+                         cube(10).front().right().as('cube'),
+                         cylinder(3, 27).as('cylinder'));
+  await writeStl({ path: 'example.stl', disjoint: false }, Shape.fromGeometry(scene.toDisjointGeometry()));
+  await writeStl({ path: 'sphere.stl', disjoint: false }, scene.toSolid({ requires: ['sphere'] }));
 }
 `  ;
     const { addPage, nextPage, lastPage } = await installDisplay({ document, readFile, watchFile, watchFileCreation, window });

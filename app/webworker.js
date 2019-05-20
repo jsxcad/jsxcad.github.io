@@ -215,6 +215,7 @@ define("./webworker.js",[],function () { 'use strict';
    *
    * @returns {mat4} out
    */
+  const identity = () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
   /**
    * Calculates the absolute value of the give vector
@@ -563,6 +564,7 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {vec2} b the second operand
    * @returns {vec2} out
    */
+  const add$1 = ([ax, ay], [bx, by]) => [ax + bx, ay + by];
 
   // y=sin, x=cos
 
@@ -727,6 +729,8 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {vec2} vector the vector to transform
    * @returns {vec2} out
    */
+  const transform$1 = (matrix, [x, y]) => [matrix[0] * x + matrix[4] * y + matrix[12],
+                                                matrix[1] * x + matrix[5] * y + matrix[13]];
 
   /**
    * Subtracts matrix b from matrix a
@@ -3465,7 +3469,7 @@ define("./webworker.js",[],function () { 'use strict';
    */
 
   // Affine transformation of polygon. Returns a new polygon.
-  const transform$1 = (matrix, polygon) => {
+  const transform$2 = (matrix, polygon) => {
     const transformed = map(polygon, vertex => transform(matrix, vertex));
     if (isMirroring(matrix)) {
       // Reverse the order to preserve the orientation.
@@ -3544,7 +3548,7 @@ define("./webworker.js",[],function () { 'use strict';
   const cutTrianglesByPlane = ({ allowOpenPaths = false }, plane, triangles) => {
     let edges = [];
     const addEdge = (start, end) => {
-      edges.push([start, end]);
+      edges.push([canonicalize(start), canonicalize(end)]);
     };
 
     // Find the edges along the plane and fold them into paths to produce a set of closed loops.
@@ -3802,11 +3806,11 @@ define("./webworker.js",[],function () { 'use strict';
     return segments;
   };
 
-  const transform$2 = (matrix, path) =>
+  const transform$3 = (matrix, path) =>
     path.map((point, index) => (point === null) ? null : transform(matrix, point));
 
-  const translate = (vector, path) => transform$2(fromTranslation(vector), path);
-  const scale$1 = (vector, path) => transform$2(fromScaling(vector), path);
+  const translate = (vector, path) => transform$3(fromTranslation(vector), path);
+  const scale$1 = (vector, path) => transform$3(fromScaling(vector), path);
 
   const isTriangle = (path) => isClosed(path) && path.length === 3;
 
@@ -7301,9 +7305,9 @@ define("./webworker.js",[],function () { 'use strict';
     return blessAsTriangles(triangles);
   };
 
-  const transform$3 = (matrix, polygons) => polygons.map(polygon => transform$1(matrix, polygon));
+  const transform$4 = (matrix, polygons) => polygons.map(polygon => transform$2(matrix, polygon));
 
-  const translate$1 = (vector, polygons) => transform$3(fromTranslation(vector), polygons);
+  const translate$1 = (vector, polygons) => transform$4(fromTranslation(vector), polygons);
 
   /**
    * Construct a regular unit polygon of a given edge count.
@@ -7373,8 +7377,8 @@ define("./webworker.js",[],function () { 'use strict';
   const buildRegularPrism = ({ edges = 32 }) =>
     extrudeLinear({ height: 1 }, [buildRegularPolygon({ edges: edges })]);
 
-  const transform$4 = (matrix, points) => points.map(point => transform(matrix, point));
-  const translate$2 = ([x = 0, y = 0, z = 0], points) => transform$4(fromTranslation([x, y, z]), points);
+  const transform$5 = (matrix, points) => points.map(point => transform(matrix, point));
+  const translate$2 = ([x = 0, y = 0, z = 0], points) => transform$5(fromTranslation([x, y, z]), points);
 
   var subtract_1 = subtract$1;
 
@@ -7730,7 +7734,7 @@ define("./webworker.js",[],function () { 'use strict';
 
   unwrapExports(Vertex_1);
 
-  var add_1 = add$1;
+  var add_1 = add$2;
 
   /**
    * Adds two vec3's
@@ -7740,7 +7744,7 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
-  function add$1(out, a, b) {
+  function add$2(out, a, b) {
       out[0] = a[0] + b[0];
       out[1] = a[1] + b[1];
       out[2] = a[2] + b[2];
@@ -13107,13 +13111,13 @@ define("./webworker.js",[],function () { 'use strict';
     return points;
   };
 
-  const transform$5 = (matrix, paths) => paths.map(path => transform$2(matrix, path));
+  const transform$6 = (matrix, paths) => paths.map(path => transform$3(matrix, path));
 
   // FIX: Deduplication.
 
   const union = (...pathsets) => [].concat(...pathsets);
 
-  const scale$3 = ([x = 1, y = 1, z = 1], paths) => transform$5(fromScaling([x, y, z]), paths);
+  const scale$3 = ([x = 1, y = 1, z = 1], paths) => transform$6(fromScaling([x, y, z]), paths);
 
   const buildRingSphere = ({ resolution = 20 }) => {
     const paths = [];
@@ -13558,7 +13562,7 @@ define("./webworker.js",[],function () { 'use strict';
 
     if (normalizeCoordinateSystem) {
       // Turn it upside down.
-      return transform$5(fromScaling([1, -1, 0]), paths);
+      return transform$6(fromScaling([1, -1, 0]), paths);
     } else {
       return paths;
     }
@@ -13582,7 +13586,7 @@ define("./webworker.js",[],function () { 'use strict';
   const toPlane$1 = (surface) => toPlane(surface[0]);
 
   // Transforms
-  const transform$6 = (matrix, surface) => surface.map(polygon => transform$1(matrix, polygon));
+  const transform$7 = (matrix, surface) => surface.map(polygon => transform$2(matrix, polygon));
 
   const assertCoplanarPolygon = (polygon) => {
     if (!isCoplanar(polygon)) {
@@ -13784,7 +13788,7 @@ define("./webworker.js",[],function () { 'use strict';
    * @param  {Tree}       tree
    * @return {Node}       root
    */
-  function add$2 (i, data, t, comparator, tree) {
+  function add$3 (i, data, t, comparator, tree) {
     const node = new Node$1(i, data);
 
     if (t === null) {
@@ -13919,7 +13923,7 @@ define("./webworker.js",[],function () { 'use strict';
      * @return {Node|null}
      */
     add (key, data) {
-      return this._root = add$2(key, data, this._root, this._comparator, this);
+      return this._root = add$3(key, data, this._root, this._comparator, this);
     }
 
 
@@ -16455,10 +16459,14 @@ define("./webworker.js",[],function () { 'use strict';
   };
 
   const makeConvex$2 = (options = {}, surface) => {
+    if (surface.length === 0) {
+      // An empty surface is not non-convex.
+      return surface;
+    }
     assertCoplanar(surface);
     const [to, from] = toXYPlaneTransforms(toPlane$1(surface));
-    let retessellatedSurface = makeConvex$1({}, union$2(...transform$6(to, surface).map(polygon => [polygon])));
-    return transform$6(from, retessellatedSurface);
+    let retessellatedSurface = makeConvex$1({}, union$2(...transform$7(to, surface).map(polygon => [polygon])));
+    return transform$7(from, retessellatedSurface);
   };
 
   const measureArea$1 = (surface) => {
@@ -16470,7 +16478,7 @@ define("./webworker.js",[],function () { 'use strict';
     return total;
   };
 
-  const multiply$2 = (matrix, solid) => solid.map(surface => transform$6(matrix, surface));
+  const multiply$2 = (matrix, solid) => solid.map(surface => transform$7(matrix, surface));
 
   const rotateX = (radians, solid) => multiply$2(fromXRotation(radians), solid);
   const scale$4 = (vector, solid) => multiply$2(fromScaling(vector), solid);
@@ -17018,6 +17026,28 @@ define("./webworker.js",[],function () { 'use strict';
 
   const flip$8 = (assembly) => assembly.map(flipEntry);
 
+  const getSolids = (geometry) => {
+    const solids = [];
+    eachItem(geometry,
+             item => {
+               if (item.solid) {
+                 solids.push(item.solid);
+               }
+             });
+    return solids;
+  };
+
+  const getZ0Surfaces = (geometry) => {
+    const z0Surfaces = [];
+    eachItem(geometry,
+             item => {
+               if (item.z0Surface) {
+                 z0Surfaces.push(item.z0Surface);
+               }
+             });
+    return z0Surfaces;
+  };
+
   const intersection$4 = (...geometries) => {
     const assembly = { assembly: geometries };
     const pathsData = filterAndFlattenAssemblyData({ form: 'paths' }, assembly);
@@ -17034,24 +17064,6 @@ define("./webworker.js",[],function () { 'use strict';
       intersectioned.assembly.push({ z0Surface: intersection$2(...z0SurfaceData) });
     }
     return intersectioned;
-  };
-
-  const toComponents = ({ requires, excludes }, geometry) => {
-    const components = [];
-
-    const walk = (geometry) => {
-      for (const item of geometry.assembly) {
-        if (hasMatchingTag(excludes, item.tags)) {
-          continue;
-        } else if (hasMatchingTag(requires, item.tags, true)) {
-          components.push(item);
-        } else if (item.assembly !== undefined) {
-          walk(item);
-        }
-      }
-    };
-    walk(geometry);
-    return components;
   };
 
   const differenceItems = (base, ...subtractions) => {
@@ -17083,6 +17095,8 @@ define("./webworker.js",[],function () { 'use strict';
     if (geometry.assembly === undefined) {
       // A singleton is disjoint.
       return geometry;
+    } else if (geometry.disjointGeometry) {
+      return geometry.disjointGeometry;
     } else {
       const subtractions = [];
       const walk = (geometry, disjointed) => {
@@ -17099,14 +17113,38 @@ define("./webworker.js",[],function () { 'use strict';
         return disjointed;
       };
       const result = walk(geometry, { assembly: [], tags: geometry.tags });
+      geometry.disjointGeometry = result;
       return result;
     }
+  };
+
+  const toComponents = ({ requires, excludes }, geometry) => {
+    const components = [];
+    const walk = (geometry) => {
+      for (const item of geometry.assembly) {
+        if (hasMatchingTag(excludes, item.tags)) {
+          continue;
+        } else if (hasMatchingTag(requires, item.tags, true)) {
+          components.push(item);
+        } else if (item.assembly !== undefined) {
+          walk(item);
+        }
+      }
+    };
+    walk(toDisjointGeometry(geometry));
+    return components;
   };
 
   const toPaths$1 = ({ requires, excludes }, assembly) =>
     ({
       paths: union(...filterAndFlattenAssemblyData({ requires, excludes, form: 'paths' }, toDisjointGeometry(assembly)))
     });
+
+  const toPoints$1 = (options = {}, geometry) => {
+    const points = [];
+    eachPoint$4(options, point => points.push(point), geometry);
+    return { points };
+  };
 
   const toSolid = ({ requires, excludes }, assembly) =>
     ({
@@ -17125,23 +17163,23 @@ define("./webworker.js",[],function () { 'use strict';
       transformed.assembly = item.assembly;
     }
     if (item.paths) {
-      transformed.paths = transform$5(matrix, item.paths);
+      transformed.paths = transform$6(matrix, item.paths);
     }
     if (item.points) {
-      transformed.points = transform$4(matrix, item.points);
+      transformed.points = transform$5(matrix, item.points);
     }
     if (item.solid) {
       transformed.solid = multiply$2(matrix, item.solid);
     }
     if (item.z0Surface) {
       // FIX: Handle transformations that take the surface out of z0.
-      transformed.z0Surface = transform$6(matrix, item.z0Surface);
+      transformed.z0Surface = transform$7(matrix, item.z0Surface);
     }
     transformed.tags = item.tags;
     return transformed;
   };
 
-  const transform$7 = (matrix, assembly) => map$2(assembly, item => transformItem(matrix, item));
+  const transform$8 = (matrix, assembly) => map$2(assembly, item => transformItem(matrix, item));
 
   const union$4 = (...geometries) => {
     const assembly = { assembly: geometries };
@@ -30954,6 +30992,10 @@ define("./webworker.js",[],function () { 'use strict';
       return this.geometry;
     }
 
+    toPoints (options = {}) {
+      return fromGeometry(toPoints$1(options, toGeometry(this)));
+    }
+
     toPaths (options = {}) {
       return fromGeometry(toPaths$1(options, toGeometry(this)));
     }
@@ -30971,11 +31013,11 @@ define("./webworker.js",[],function () { 'use strict';
     }
 
     toComponents (options) {
-      return toComponents(toGeometry(this));
+      return toComponents(options, toGeometry(this)).map(fromGeometry);
     }
 
     transform (matrix) {
-      return fromGeometry(transform$7(matrix, toGeometry(this)));
+      return fromGeometry(transform$8(matrix, toGeometry(this)));
     }
 
     union (...geometries) {
@@ -31000,7 +31042,7 @@ define("./webworker.js",[],function () { 'use strict';
     }
 
     close () {
-      const geometry = this.toPaths().toDisjointGeometry();
+      const geometry = this.toGeometry();
       if (!isSingleOpenPath(geometry)) {
         throw Error('Close requires a single open path.');
       }
@@ -31010,7 +31052,7 @@ define("./webworker.js",[],function () { 'use strict';
     concat (...shapes) {
       const paths = [];
       for (const shape of [this, ...shapes]) {
-        const geometry = shape.toPaths().toDisjointGeometry();
+        const geometry = shape.toGeometry();
         if (!isSingleOpenPath(geometry)) {
           throw Error('Concatenation requires single open paths.');
         }
@@ -31044,7 +31086,7 @@ define("./webworker.js",[],function () { 'use strict';
     }
 
     toComponents (options = {}) {
-      return toLazyGeometry(this).toComponents(options);
+      return toLazyGeometry(this).toComponents(options).map(Shape.fromLazyGeometry);
     }
 
     toDisjointGeometry (options = {}) {
@@ -31055,20 +31097,8 @@ define("./webworker.js",[],function () { 'use strict';
       return toLazyGeometry(this).toGeometry(options);
     }
 
-    toPaths (options = {}) {
-      return this.fromLazyGeometry(toLazyGeometry(this).toPaths(options));
-    }
-
     toPoints (options = {}) {
       return this.fromLazyGeometry(toLazyGeometry(this).toPoints(options));
-    }
-
-    toSolid (options = {}) {
-      return this.fromLazyGeometry(toLazyGeometry(this).toSolid(options));
-    }
-
-    toZ0Surface (options = {}) {
-      return this.fromLazyGeometry(toLazyGeometry(this).toZ0Surface(options));
     }
 
     transform (matrix) {
@@ -31077,6 +31107,11 @@ define("./webworker.js",[],function () { 'use strict';
 
     union (...shapes) {
       return this.fromLazyGeometry(toLazyGeometry(this).union(...shapes.map(toLazyGeometry)));
+    }
+
+    withComponents (options = {}) {
+      const components = this.toComponents(options);
+      return assembleLazily(...components);
     }
   }
   const isSingleOpenPath = ({ paths }) => (paths !== undefined) && (paths.length === 1) && (paths[0][0] === null);
@@ -31093,18 +31128,19 @@ define("./webworker.js",[],function () { 'use strict';
     Shape.fromLazyGeometry(toLazyGeometry(shape).difference(...shapes.map(toLazyGeometry)));
 
   const intersectionLazily = (shape, ...shapes) =>
-    Shape.fromLazyGeometry(toLazyGeometry(shape).intersection(...shapes.map(toLazyGeometry())));
+    Shape.fromLazyGeometry(toLazyGeometry(shape).intersection(...shapes.map(toLazyGeometry)));
 
-  Shape.fromClosedPath = (path) => new Shape(fromGeometry({ paths: [close(path)] }));
-  Shape.fromGeometry = (geometry) => new Shape(fromGeometry(geometry));
+  Shape.fromClosedPath = (path) => Shape.fromLazyGeometry(fromGeometry({ paths: [close(path)] }));
+  Shape.fromGeometry = (geometry) => Shape.fromLazyGeometry(fromGeometry(geometry));
   Shape.fromLazyGeometry = (lazyGeometry) => new Shape(lazyGeometry);
-  Shape.fromOpenPath = (path) => new Shape(fromGeometry({ paths: [open(path)] }));
-  Shape.fromPaths = (paths) => new Shape(fromGeometry({ paths: paths }));
-  Shape.fromPathToZ0Surface = (path) => new Shape(fromGeometry({ z0Surface: [path] }));
-  Shape.fromPathsToZ0Surface = (paths) => new Shape(fromGeometry({ z0Surface: paths }));
-  Shape.fromPolygonsToSolid = (polygons) => new Shape(fromGeometry({ solid: fromPolygons({}, polygons) }));
-  Shape.fromPolygonsToZ0Surface = (polygons) => new Shape(fromGeometry({ z0Surface: polygons }));
-  Shape.fromSurfaces = (surfaces) => new Shape(fromGeometry({ solid: surfaces }));
+  Shape.fromOpenPath = (path) => Shape.fromLazyGeometry(fromGeometry({ paths: [open(path)] }));
+  Shape.fromPath = (path) => Shape.fromLazyGeometry(fromGeometry({ paths: [path] }));
+  Shape.fromPaths = (paths) => Shape.fromLazyGeometry(fromGeometry({ paths: paths }));
+  Shape.fromPathToZ0Surface = (path) => Shape.fromLazyGeometry(fromGeometry({ z0Surface: [path] }));
+  Shape.fromPathsToZ0Surface = (paths) => Shape.fromLazyGeometry(fromGeometry({ z0Surface: paths }));
+  Shape.fromPolygonsToSolid = (polygons) => Shape.fromLazyGeometry(fromGeometry({ solid: fromPolygons({}, polygons) }));
+  Shape.fromPolygonsToZ0Surface = (polygons) => Shape.fromLazyGeometry(fromGeometry({ z0Surface: polygons }));
+  Shape.fromSurfaces = (surfaces) => Shape.fromLazyGeometry(fromGeometry({ solid: surfaces }));
 
   const loadFont = ({ path }) => pathnameToFont(path);
 
@@ -31112,6 +31148,80 @@ define("./webworker.js",[],function () { 'use strict';
 
   const text = ({ font, curveSegments }, text) =>
     Shape.fromGeometry(textToSurfaces({ font: font, curveSegments }, text));
+
+  class Cursor {
+    constructor ({ matrix = identity(), path = [null, [0, 0, 0]] } = {}) {
+      this.matrix = matrix;
+      this.path = path.slice();
+    }
+
+    rotateZ (angle) {
+      return this.transform(fromZRotation(angle * Math.PI * 2 / 360));
+    }
+
+    toPoint () {
+      const last = this.path[this.path.length - 1];
+      if (last === null) {
+        return [0, 0, 0];
+      } else {
+        return last;
+      }
+    }
+
+    toPath () {
+      return this.path;
+    }
+
+    toShape () {
+      return Shape.fromPath(this.toPath());
+    }
+
+    transform (matrix) {
+      return new Cursor({ matrix: multiply$1(matrix, this.matrix), path: this.path });
+    }
+
+    translate ([x = 0, y = 0, z = 0]) {
+      const path = this.path.slice();
+      path.push(add$1(this.toPoint(), transform$1(this.matrix, [x, y, z])));
+      return new Cursor({ matrix: this.matrix, path });
+    }
+  }
+
+  const measureBoundingBox$3 = (shape) => {
+    let minPoint = [Infinity, Infinity, Infinity];
+    let maxPoint = [-Infinity, -Infinity, -Infinity];
+    shape.eachPoint({},
+                    (point) => {
+                      minPoint = min(minPoint, point);
+                      maxPoint = max(maxPoint, point);
+                    });
+    return [minPoint, maxPoint];
+  };
+
+  const method = function () { return measureBoundingBox$3(this); };
+
+  Shape.prototype.measureBoundingBox = method;
+
+  const translate$3 = ([x = 0, y = 0, z = 0], shape) => {
+    return shape.transform(fromTranslation([x, y, z]));
+  };
+
+  const method$1 = function (vector) {
+    return translate$3(vector, this);
+  };
+
+  Shape.prototype.translate = method$1;
+
+  const Z$1 = 2;
+
+  const above = (shape) => {
+    const [minPoint] = measureBoundingBox$3(shape);
+    return translate$3(negate([0, 0, minPoint[Z$1]]), shape);
+  };
+
+  const method$2 = function () { return above(this); };
+
+  Shape.prototype.above = method$2;
 
   const acos$1 = (a) => Math.acos(a) / (Math.PI * 2) * 360;
 
@@ -31129,34 +31239,9 @@ define("./webworker.js",[],function () { 'use strict';
     }
   };
 
-  const method = function (...shapes) { return assemble$1(this, ...shapes); };
+  const method$3 = function (...shapes) { return assemble$1(this, ...shapes); };
 
-  Shape.prototype.assemble = method;
-
-  const measureBoundingBox$3 = (shape) => {
-    let minPoint = [Infinity, Infinity, Infinity];
-    let maxPoint = [-Infinity, -Infinity, -Infinity];
-    shape.eachPoint({},
-                    (point) => {
-                      minPoint = min(minPoint, point);
-                      maxPoint = max(maxPoint, point);
-                    });
-    return [minPoint, maxPoint];
-  };
-
-  const method$1 = function () { return measureBoundingBox$3(this); };
-
-  Shape.prototype.measureBoundingBox = method$1;
-
-  const translate$3 = ([x = 0, y = 0, z = 0], shape) => {
-    return shape.transform(fromTranslation([x, y, z]));
-  };
-
-  const method$2 = function (vector) {
-    return translate$3(vector, this);
-  };
-
-  Shape.prototype.translate = method$2;
+  Shape.prototype.assemble = method$3;
 
   const center = (shape) => {
     const [minPoint, maxPoint] = measureBoundingBox$3(shape);
@@ -31164,9 +31249,18 @@ define("./webworker.js",[],function () { 'use strict';
     return translate$3(negate(center), shape);
   };
 
-  const method$3 = function () { return center(this); };
+  const method$4 = function () { return center(this); };
 
-  Shape.prototype.center = method$3;
+  Shape.prototype.center = method$4;
+
+  const chainHull = (...shapes) => {
+    const pointsets = shapes.map(shape => toPoints$1({}, shape.toGeometry()).points);
+    const chain = [];
+    for (let nth = 1; nth < pointsets.length; nth++) {
+      chain.push(Shape.fromPolygonsToSolid(buildConvexHull({}, [...pointsets[nth - 1], ...pointsets[nth]])));
+    }
+    return assemble$1(...chain);
+  };
 
   const assert$1 = (value, message, pass) => {
     if (pass !== true) {
@@ -31260,30 +31354,119 @@ define("./webworker.js",[],function () { 'use strict';
     };
   };
 
+  /**
+   *
+   * # Circle (disc)
+   *
+   * Circles are approximated as surfaces delimeted by regular polygons.
+   *
+   * Properly speaking what is produced here are discs.
+   * The circle perimeter can be extracted via outline().
+   *
+   * ::: illustration { "view": { "position": [0, 0, 10] } }
+   * ```
+   * circle()
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle(10)
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle({ radius: 10,
+   *          resolution: 8 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle({ diameter: 20,
+   *          resolution: 16 })
+   * ```
+   * :::
+   **/
+
   // FIX: This uses the circumradius rather than apothem, so that the produced polygon will fit into the specified circle.
   // Is this the most useful measure?
+
   const unitCircle = ({ resolution = 32 }) =>
     Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: resolution }));
 
-  const fromRadius = ({ radius, resolution }) => unitCircle({ resolution }).scale(radius);
-  const fromDiameter = ({ diameter, resolution }) => unitCircle({ resolution }).scale(diameter / 2);
+  /**
+   *
+   * ## circle.fromValue(value)
+   *
+   * Generate a circle from the radius in mm with a resolution of 32 segments.
+   *
+   * ::: illustration
+   * ```
+   * circle.fromValue(10)
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle.fromValue(10).outline()
+   * ```
+   * :::
+   *
+   **/
+
+  const fromValue = (radius) => unitCircle({ resolution: 32 }).scale(radius);
+
+  /**
+   *
+   * ## circle.fromRadius({ radius, resolution=32 })
+   *
+   * Generate a circle given a radius and resolution.
+   * ::: illustration { "view": { "position": [0, 0, 50] } }
+   * ```
+   * circle.fromRadius({ radius: 5 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle.fromRadius({ radius: 10,
+   *                     resolution: 16 })
+   * ```
+   * :::
+   *
+   **/
+
+  const fromRadius = ({ radius, resolution = 32 }) => unitCircle({ resolution }).scale(radius);
+
+  /**
+   *
+   * ## circle.fromDiameter({ diameter, resolution=32 })
+   *
+   * Generate a circle given a diameter and resolution.
+   *
+   * ::: illustration
+   * ```
+   * circle.fromDiameter({ diameter: 5 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle.fromDiameter({ diameter: 10,
+   *                       resolution: 8 })
+   * ```
+   * :::
+   *
+   **/
+  const fromDiameter = ({ diameter, resolution = 32 }) => unitCircle({ resolution }).scale(diameter / 2);
 
   const circle = dispatch(
     'circle',
     // circle()
     (...rest) => {
       assertEmpty(rest);
-      return () => unitCircle();
+      return () => fromValue(1);
     },
     // circle(2)
-    (radius) => {
-      assertNumber(radius);
-      return () => fromRadius({ radius });
-    },
-    // circle({ r: 2, fn: 32 })
-    ({ r, fn }) => {
-      assertNumber(r);
-      return () => fromRadius({ radius: r, resolution: fn });
+    (value) => {
+      assertNumber(value);
+      return () => fromValue(value);
     },
     // circle({ radius: 2, resolution: 32 })
     ({ radius, resolution }) => {
@@ -31296,48 +31479,62 @@ define("./webworker.js",[],function () { 'use strict';
       return () => fromDiameter({ diameter, resolution });
     });
 
+  circle.fromValue = fromValue;
+  circle.fromRadius = fromRadius;
+  circle.fromDiameter = fromDiameter;
+
   const cos$1 = (a) => Math.cos(a / 360 * Math.PI * 2);
 
   const crossSection = ({ allowOpenPaths = false, z = 0 } = {}, shape) => {
-    const geometry = shape.toSolid().toDisjointGeometry();
-    const polygons = toPolygons({}, geometry.solid);
-    const triangles = toTriangles({}, polygons);
-    const paths = cutTrianglesByPlane({ allowOpenPaths }, fromPoints$1([0, 0, z], [1, 0, z], [0, 1, z]), triangles);
-    return Shape.fromPathsToZ0Surface(paths);
+    const solids = getSolids(shape.toGeometry());
+    const shapes = [];
+    for (const solid of solids) {
+      const polygons = toPolygons({}, solid);
+      const triangles = toTriangles({}, polygons);
+      const paths = cutTrianglesByPlane({ allowOpenPaths }, fromPoints$1([0, 0, z], [1, 0, z], [0, 1, z]), triangles);
+      shapes.push(Shape.fromPathsToZ0Surface(paths));
+    }
+    return assemble$1(...shapes);
   };
 
-  const method$4 = function (options) { return crossSection(options, this); };
+  const method$5 = function (options) { return crossSection(options, this); };
 
-  Shape.prototype.crossSection = method$4;
+  Shape.prototype.crossSection = method$5;
 
-  // TODO: Generalize for more operands?
-  const minkowski = (a, b) => {
-    const aPoints = [];
-    const bPoints = [];
-    a.eachPoint({}, point => aPoints.push(point));
-    b.eachPoint({}, point => bPoints.push(point));
-    return Shape.fromPolygonsToSolid(buildConvexHull({}, buildConvexMinkowskiSum({}, aPoints, bPoints)));
-  };
-
-  // Dispatch mechanism.
-  // TODO: Move this somewhere else.
-
-  const chain = (name, ...dispatches) => {
-    return (...params) => {
-      for (const dispatch of dispatches) {
-        // For each signature
-        let operation;
-        try {
-          // Try to decode it into an operation.
-          operation = dispatch(...params);
-        } catch (e) {
-          continue;
-        }
-        return operation();
-      }
-      throw Error(`Unsupported interface for ${name}: ${JSON.stringify(params)}`);
-    };
-  };
+  /**
+   *
+   * # Cube (cuboid)
+   *
+   * Generates cuboids.
+   *
+   * ::: illustration { "view": { "position": [10, 10, 10] } }
+   * ```
+   * cube()
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube(10)
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube({ radius: 8 })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube({ diameter: 16 })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube({ corner1: [0, 0, 0],
+   *        corner2: [10, 10, 10] })
+   * ```
+   * :::
+   *
+   **/
 
   // Geometry construction.
 
@@ -31348,166 +31545,238 @@ define("./webworker.js",[],function () { 'use strict';
       .rotateZ(45)
       .scale([edgeScale, edgeScale, 1]);
 
-  const centerMaybe = ({ size, center }, shape) => {
-    if (center) {
-      return shape;
-    } else {
-      if (typeof size === 'number') {
-        return shape.translate([size / 2, size / 2, size / 2]);
-      } else {
-        return shape.translate([size[0] / 2, size[1] / 2, size[2] / 2]);
-      }
-    }
-  };
-
   // Cube Interfaces.
 
-  // cube()
-  const cubeDefault = (...rest) => {
-    assertEmpty(rest);
-    return () => unitCube().translate([0.5, 0.5, 0.5]);
-  };
+  /**
+   *
+   * ## cube.fromValue(value)
+   *
+   * Generate a cube with the provided side length.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube.fromValue(10)
+   * ```
+   * :::
+   *
+   **/
+  const fromValue$1 = (value) => unitCube().scale(value);
 
-  // cube(10)
-  const cubeSide = (size, ...rest) => {
-    assertEmpty(rest);
-    assertNumber(size);
-    return () => unitCube().scale(size).translate([size / 2, size / 2, size / 2]);
-  };
+  /**
+   *
+   * ## cube.fromRadius({ radius })
+   *
+   * Generate a cube which fits into a sphere of the given radius.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * assemble(cube.fromRadius({ radius: 10 }).above(),
+   *          circle.fromRadius({ radius: 10 }).outline())
+   * ```
+   * :::
+   *
+   **/
+  const fromRadius$1 = ({ radius }) => Shape.fromPolygonsToSolid(buildRegularPrism({ edges: 4 })).rotateZ(45).scale([radius, radius, radius / edgeScale]);
 
-  // cube({ radius, roundRadius, resolution })
-  const cubeRoundRadiusResolution = ({ radius = 1, roundRadius, resolution = 5 }, ...rest) => {
-    assertEmpty(rest);
-    assertNumber(roundRadius);
-    assertNumber(resolution);
-    return () => minkowski(unitCube().scale(radius - roundRadius * 2),
-                           Shape.fromPolygonsToSolid(buildRingSphere({ resolution })).scale(roundRadius));
-  };
+  /**
+   *
+   * ## cube.fromDiameter({ radius })
+   *
+   * Generate a cube which fits into a sphere of the given diameter.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * assemble(cube.fromDiameter({ diameter: 20 }).above(),
+   *          circle({ diameter: 20 }).outline())
+   * ```
+   * :::
+   *
+   **/
+  const fromDiameter$1 = ({ diameter }) => fromRadius$1({ radius: diameter / 2 });
 
-  // cube({ center: [0, 0, 0], radius: 1 })
-  const cubeCenterRadius = ({ center, radius }, ...rest) => {
-    assertEmpty(rest);
-    assertNumberTriple(center);
-    // PROVE: That radius makes sense when used like this.
-    assertNumber(radius);
-    return () => unitCube().scale(radius).translate(center);
-  };
-
-  // cube({ radius: 1 })
-  const cubeRadius = ({ radius }, ...rest) => {
-    assertEmpty(rest);
-    // PROVE: That radius makes sense when used like this.
-    assertNumber(radius);
-    return () => unitCube().scale(radius).translate([radius / 2, radius / 2, radius / 2]);
-  };
-
-  // cube({ corner1: [4, 4, 4], corner2: [5, 4, 2] });
-  const cubeCorner = ({ corner1, corner2 }, ...rest) => {
-    assertEmpty(rest);
-    assertNumberTriple(corner1);
-    assertNumberTriple(corner2);
+  /**
+   *
+   * ## cube.fromCorners({ corner1, corner2 })
+   *
+   * Generate a cube from two opposite corners.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cube.fromCorners({ corner1: [10, 10, 10],
+   *                    corner2: [0, 0, 0] })
+   * ```
+   * :::
+   *
+   **/
+  const fromCorners = ({ corner1, corner2 }) => {
     const [c1x, c1y, c1z] = corner1;
     const [c2x, c2y, c2z] = corner2;
     const length = c2x - c1x;
     const width = c2y - c1y;
     const height = c2z - c1z;
     const center = [(c1x + c2x) / 2, (c1y + c2y) / 2, (c1z + c2z) / 2];
-    return () => unitCube().scale([length, width, height]).translate(center);
+    return unitCube().scale([length, width, height]).translate(center);
   };
 
-  // cube({size: [1,2,3], center: false });
-  const cubeSizesCenter = ({ size, center = false }, ...rest) => {
-    assertEmpty(rest);
-    const [length, width, height] = size;
-    assertNumber(length);
-    assertNumber(width);
-    assertNumber(height);
-    return () => centerMaybe({ size, center }, unitCube().scale([length, width, height]));
-  };
+  const cube = dispatch(
+    'cube',
+    // cube()
+    (...rest) => {
+      assertEmpty(rest);
+      return () => fromValue$1(1);
+    },
+    // cube(2)
+    (value) => {
+      assertNumber(value);
+      return () => fromValue$1(value);
+    },
+    // cube({ radius: 2 })
+    ({ radius }) => {
+      assertNumber(radius);
+      return () => fromRadius$1({ radius });
+    },
+    // cube({ diameter: 2 })
+    ({ diameter }) => {
+      assertNumber(diameter);
+      return () => fromDiameter$1({ diameter });
+    },
+    // cube({ corner1: [2, 2, 2], corner2: [1, 1, 1] })
+    ({ corner1, corner2 }) => {
+      assertNumberTriple(corner1);
+      assertNumberTriple(corner2);
+      return () => fromCorners({ corner1, corner2 });
+    });
 
-  // cube({ size: 1, center: false });
-  const cubeSizeCenter = ({ size, center = false }, ...rest) => {
-    assertEmpty(rest);
-    assertNumber(size);
-    return () => centerMaybe({ size, center }, unitCube().scale(size));
-  };
+  cube.fromValue = fromValue$1;
+  cube.fromRadius = fromRadius$1;
+  cube.fromDiameter = fromDiameter$1;
+  cube.fromCorners = fromCorners;
 
-  // Cube Operation
-
-  const cube = chain('cube',
-                            cubeDefault,
-                            cubeSide,
-                            cubeRoundRadiusResolution,
-                            cubeCenterRadius,
-                            cubeRadius,
-                            cubeCorner,
-                            cubeSizesCenter,
-                            cubeSizeCenter);
-
-  const buildCylinder = ({ r1 = 1, r2 = 1, h = 1, edges = 32 }) => {
-    return Shape.fromPolygonsToSolid(buildRegularPrism({ edges: edges })).scale([r1, r1, h]);
+  const buildCylinder = ({ radius = 1, height = 1, resolution = 32 }) => {
+    return Shape.fromPolygonsToSolid(buildRegularPrism({ edges: resolution })).scale([radius, radius, height]);
   };
 
   /**
    *
-   * cylinder();              // unit cylinder
-   * cylinder({r: 1, h: 10});                 // openscad like
-   * cylinder({d: 1, h: 10});
-   * cylinder({r: 1, h: 10, center: true});   // default: center:false
-   * cylinder({r: 1, h: 10, center: [true, true, false]});  // individual x,y,z center flags
-   * cylinder({r: 1, h: 10, round: true});
-   * cylinder({r1: 3, r2: 0, h: 10});
-   * cylinder({d1: 1, d2: 0.5, h: 10});
-   * cylinder({start: [0,0,0], end: [0,0,10], r1: 1, r2: 2, fn: 50});
+   * # Cylinder
    *
-   */
-  const cylinder = (...params) => {
+   * Generates cylinders.
+   *
+   * ::: illustration { "view": { "position": [10, 10, 10] } }
+   * ```
+   * cylinder()
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder(10, 2)
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder({ radius: 2,
+   *            height: 10,
+   *            resolution: 8 })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder({ diameter: 6,
+   *            height: 8,
+   *            resolution: 16 })
+   * ```
+   * :::
+   *
+   **/
+
+  /**
+   *
+   * ## cylinder.fromValue(radius, height=1, resolution=32)
+   *
+   * Generate a cylinder of the given radius and height.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder.fromValue(10, 8)
+   * ```
+   * :::
+   *
+   **/
+  const fromValue$2 = (radius, height = 1, resolution = 32) => buildCylinder({ radius, height, resolution });
+
+  /**
+   *
+   * ## cylinder.fromRadius({ radius, height=1, resolution=32 })
+   *
+   * Generate a cylinder of the given radius and height.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder.fromRadius({ radius: 8,
+   *                       height: 10 })
+   * ```
+   * :::
+   *
+   **/
+  const fromRadius$2 = ({ radius, height = 1, resolution = 32 }) => buildCylinder({ radius, height, resolution });
+
+  /**
+   *
+   * ## cylinder.fromDiameter({ diameter, height=1, resolution=32 })
+   *
+   * Generate a cylinder of the given diameter and height.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * cylinder.fromDiameter({ diameter: 12,
+   *                         height: 12 })
+   * ```
+   * :::
+   *
+   **/
+  const fromDiameter$2 = ({ diameter, height = 1, resolution = 32 }) => buildCylinder({ radius: diameter / 2, height, resolution });
+
+  const cylinder = dispatch(
+    'cylinder',
     // cylinder()
-    try {
-      assertEmpty(params);
-      return buildCylinder({});
-    } catch (e) {}
-
-    // cylinder({r: 1, h: 10, center: true});
-    try {
-      const { h, r, fn = 32 } = params[0];
-      assertNumber(h);
-      assertNumber(r);
-      return buildCylinder({ r1: r, r2: r, h: h, edges: fn });
-    } catch (e) {}
-
-    // cylinder({ r1: 1, r2: 2, h: 10, center: true});
-    try {
-      const { h, r1, r2, fn = 32 } = params[0];
-      assertNumber(h);
-      assertNumber(r1);
-      assertNumber(r2);
-      return buildCylinder({ r1: r1, r2: r2, h: h, edges: fn });
-    } catch (e) {}
-
-    // cylinder({ faces: 32, diameter: 1, height: 10 });
-    try {
-      const { diameter, height, faces } = params[0];
-      assertNumber(diameter);
-      assertNumber(faces);
+    (...rest) => {
+      assertEmpty(rest);
+      return () => fromValue$2(1);
+    },
+    (radius, height = 1, resolution = 32) => {
+      assertNumber(radius);
       assertNumber(height);
-      return buildCylinder({ r1: diameter / 2, r2: diameter / 2, h: height, center: true, edges: faces });
-    } catch (e) {}
+      assertNumber(resolution);
+      return () => fromValue$2(radius, height, resolution);
+    },
+    ({ radius, height = 1, resolution = 32 }) => {
+      assertNumber(radius);
+      assertNumber(height);
+      assertNumber(resolution);
+      return () => fromRadius$2({ radius, height, resolution });
+    },
+    ({ diameter, height = 1, resolution = 32 }) => {
+      assertNumber(diameter);
+      assertNumber(height);
+      assertNumber(resolution);
+      return () => fromDiameter$2({ diameter, height, resolution });
+    });
 
-    throw Error(`Unsupported interface for cylinder: ${JSON.stringify(params)}`);
-  };
+  cylinder.fromValue = fromValue$2;
+  cylinder.fromRadius = fromRadius$2;
+  cylinder.fromDiameter = fromDiameter$2;
 
   const difference$5 = (...params) => differenceLazily(...params);
 
-  const method$5 = function (...shapes) { return difference$5(this, ...shapes); };
+  const method$6 = function (...shapes) { return difference$5(this, ...shapes); };
 
-  Shape.prototype.difference = method$5;
+  Shape.prototype.difference = method$6;
 
   const fromHeight = ({ height }, shape) => {
-    const geometry = shape.toZ0Surface();
-    const extrusion = extrudeLinear({ height: height }, geometry.lazyGeometry.geometry.z0Surface);
-    const extrudedShape = Shape.fromPolygonsToSolid(extrusion).translate([0, 0, height / 2]);
-    return extrudedShape;
+    const z0Surfaces = getZ0Surfaces(shape.toGeometry());
+    const extrusions = z0Surfaces.map(z0Surface => extrudeLinear({ height: height }, z0Surface));
+    const extrudedShapes = extrusions.map(extrusion => Shape.fromPolygonsToSolid(extrusion).translate([0, 0, height / 2]));
+    return assemble$1(...extrudedShapes);
   };
 
   const extrude = dispatch(
@@ -31518,9 +31787,20 @@ define("./webworker.js",[],function () { 'use strict';
     }
   );
 
-  const method$6 = function (options) { return extrude(options, this); };
+  const method$7 = function (options) { return extrude(options, this); };
 
-  Shape.prototype.extrude = method$6;
+  Shape.prototype.extrude = method$7;
+
+  const Y$1 = 1;
+
+  const front = (shape) => {
+    const [minPoint] = measureBoundingBox$3(shape);
+    return translate$3(negate([0, minPoint[Y$1], 0]), shape);
+  };
+
+  const method$8 = function () { return front(this); };
+
+  Shape.prototype.front = method$8;
 
   const hull = (...geometries) => {
     // FIX: Support z0Surface hulling.
@@ -31531,9 +31811,9 @@ define("./webworker.js",[],function () { 'use strict';
 
   const intersection$5 = (...params) => intersectionLazily(...params);
 
-  const method$7 = function (...shapes) { return intersection$5(this, ...shapes); };
+  const method$9 = function (...shapes) { return intersection$5(this, ...shapes); };
 
-  Shape.prototype.intersection = method$7;
+  Shape.prototype.intersection = method$9;
 
   const conversation = ({ agent, say }) => {
     let id = 0;
@@ -31657,11 +31937,7 @@ define("./webworker.js",[],function () { 'use strict';
 
   const log = (text) => writeFile({ ephemeral: true }, 'console/out', text);
 
-
-
-  var nodeFetch = /*#__PURE__*/Object.freeze({
-
-  });
+  var nodeFetch = {};
 
   /* global self */
 
@@ -31758,6 +32034,24 @@ define("./webworker.js",[],function () { 'use strict';
   const log$1 = (text) => log(text);
 
   const max$2 = Math.max;
+
+  // TODO: Generalize for more operands?
+  const minkowski = (a, b) => {
+    const aPoints = [];
+    const bPoints = [];
+    a.eachPoint({}, point => aPoints.push(point));
+    b.eachPoint({}, point => bPoints.push(point));
+    return Shape.fromPolygonsToSolid(buildConvexHull({}, buildConvexMinkowskiSum({}, aPoints, bPoints)));
+  };
+
+  const outline = (options = {}, shape) => {
+    // FIX: Handle non-z0surfaces.
+    return Shape.fromPaths(union$2(...getZ0Surfaces(shape.toGeometry())));
+  };
+
+  const method$a = function (options) { return outline(options, this); };
+
+  Shape.prototype.outline = method$a;
 
   const fromPath = ({ points }) => Shape.fromPathToZ0Surface(points);
 
@@ -32041,7 +32335,7 @@ define("./webworker.js",[],function () { 'use strict';
                                           flt(b), flt(e), flt(h), 0.0,
                                           flt(c), flt(f), flt(i), 0.0,
                                           ldu(x), ldu(y), ldu(z), 1.0);
-          polygons.push(...transform$3(matrix, await fromPartToPolygons({ part: subPart, invert: subInvert, stack })));
+          polygons.push(...transform$4(matrix, await fromPartToPolygons({ part: subPart, invert: subInvert, stack })));
           stack.pop();
           break;
         }
@@ -32702,32 +32996,43 @@ define("./webworker.js",[],function () { 'use strict';
     return Shape.fromGeometry(await fromStl(options, await readFile(options, path)));
   };
 
+  const X$1 = 0;
+
+  const right = (shape) => {
+    const [minPoint] = measureBoundingBox$3(shape);
+    return translate$3(negate([minPoint[X$1], 0, 0]), shape);
+  };
+
+  const method$b = function () { return right(this); };
+
+  Shape.prototype.right = method$b;
+
   const a2r = (angle) => angle * 0.017453292519943295;
 
   const rotate = ([x = 0, y = 0, z = 0], shape) =>
     shape.transform(multiply$1(fromZRotation(a2r(z)), multiply$1(fromYRotation(a2r(y)), fromXRotation(a2r(x)))));
 
-  const method$8 = function (angles) { return rotate(angles, this); };
+  const method$c = function (angles) { return rotate(angles, this); };
 
-  Shape.prototype.rotate = method$8;
+  Shape.prototype.rotate = method$c;
 
   const rotateX$1 = (angle, shape) => shape.transform(fromXRotation(angle * 0.017453292519943295));
 
-  const method$9 = function (angle) { return rotateX$1(angle, this); };
+  const method$d = function (angle) { return rotateX$1(angle, this); };
 
-  Shape.prototype.rotateX = method$9;
+  Shape.prototype.rotateX = method$d;
 
   const rotateY = (angle, shape) => shape.transform(fromYRotation(angle * 0.017453292519943295));
 
-  const method$a = function (angle) { return rotateY(angle, this); };
+  const method$e = function (angle) { return rotateY(angle, this); };
 
-  Shape.prototype.rotateY = method$a;
+  Shape.prototype.rotateY = method$e;
 
   const rotateZ = (angle, shape) => shape.transform(fromZRotation(angle * 0.017453292519943295));
 
-  const method$b = function (angle) { return rotateZ(angle, this); };
+  const method$f = function (angle) { return rotateZ(angle, this); };
 
-  Shape.prototype.rotateZ = method$b;
+  Shape.prototype.rotateZ = method$f;
 
   const scale$5 = (factor, shape) => {
     if (factor.length) {
@@ -32739,9 +33044,9 @@ define("./webworker.js",[],function () { 'use strict';
     }
   };
 
-  const method$c = function (factor) { return scale$5(factor, this); };
+  const method$g = function (factor) { return scale$5(factor, this); };
 
-  Shape.prototype.scale = method$c;
+  Shape.prototype.scale = method$g;
 
   const sin$2 = (a) => Math.sin(a / 360 * Math.PI * 2);
 
@@ -32879,12 +33184,12 @@ define("./webworker.js",[],function () { 'use strict';
     }
   };
 
-  const method$d = function (...shapes) { return union$5(this, ...shapes); };
+  const method$h = function (...shapes) { return union$5(this, ...shapes); };
 
-  Shape.prototype.union = method$d;
+  Shape.prototype.union = method$h;
 
-  const X$1 = 0;
-  const Y$1 = 1;
+  const X$2 = 0;
+  const Y$2 = 1;
 
   // Not entirely sure how conformant this is, but it seems to work for simple
   // cases.
@@ -32937,10 +33242,10 @@ define("./webworker.js",[],function () { 'use strict';
     // Subtract the x min, and the y max, then add the page height to bring
     // it up to the top left. This positions the origin nicely for laser
     // cutting and printing.
-    const offset = [-min[X$1] * scale, (height - max[Y$1]) * scale, 0];
+    const offset = [-min[X$2] * scale, (height - max[Y$2]) * scale, 0];
     const matrix = multiply$1(fromTranslation(offset),
                             fromScaling([scale, scale, scale]));
-    for (const path of transform$5(matrix, paths)) {
+    for (const path of transform$6(matrix, paths)) {
       let nth = (path[0] === null) ? 1 : 0;
       const [x1, y1] = path[nth];
       lines.push(`${x1.toFixed(9)} ${y1.toFixed(9)} m`); // move-to.
@@ -32963,7 +33268,7 @@ define("./webworker.js",[],function () { 'use strict';
   const writePdf = async (options, shape) => {
     const { path } = options;
     const geometry = shape.toDisjointGeometry();
-    return writeFile({ geometry }, path, toPdf({ preview: true, ...options }, geometry));
+    return writeFile({ geometry, preview: true }, path, toPdf({ preview: true, ...options }, geometry));
   };
 
   const toGeometry$1 = ({ disjoint = true }, shape) => {
@@ -32980,9 +33285,9 @@ define("./webworker.js",[],function () { 'use strict';
     return writeFile({ preview: true, geometry }, path, toStl(options, geometry));
   };
 
-  const method$e = function (options = {}) { writeStl(options, this); return this; };
+  const method$i = function (options = {}) { writeStl(options, this); return this; };
 
-  Shape.prototype.writeStl = method$e;
+  Shape.prototype.writeStl = method$i;
 
   const writeSvg = async (options, shape) => {
     const { path } = options;
@@ -32990,9 +33295,9 @@ define("./webworker.js",[],function () { 'use strict';
     return writeFile({ geometry, preview: true }, path, toSvg(options, geometry));
   };
 
-  const method$f = function (options = {}) { writeSvg(options, this); return this; };
+  const method$j = function (options = {}) { writeSvg(options, this); return this; };
 
-  Shape.prototype.writeSvg = method$f;
+  Shape.prototype.writeSvg = method$j;
 
   // Polyfills
 
@@ -82931,8 +83236,6 @@ define("./webworker.js",[],function () { 'use strict';
     SVGObject.prototype.constructor = SVGObject;
 
     const SVGRenderer = function () {
-    	console.log('THREE.SVGRenderer', THREE.REVISION);
-
     	var _this = this;
     		var _renderData; var _elements; var _lights;
     		var _projector = new Projector();
@@ -83383,13 +83686,23 @@ define("./webworker.js",[],function () { 'use strict';
   const { SVGRenderer } = installSVGRenderer({ THREE: THREE$1, Projector: Projector$1, RenderableFace, RenderableLine, RenderableSprite, document: new domParser_3().parseFromString('<xml></xml>', 'text/xml') });
   // Bootstrap done.
 
-  const build$1 = ({ cameraPosition = [0, 0, 16], pageSize = [100, 100] }, geometry) => {
+  const build$1 = ({ view = {}, pageSize = [100, 100], grid = false }, geometry) => {
+    const { target = [0, 0, 0], position = [40, 40, 40], up = [0, 0, 1] } = view;
     const [pageWidth, pageHeight] = pageSize;
     const camera = new PerspectiveCamera(27, pageWidth / pageHeight, 1, 3500);
-    [camera.position.x, camera.position.y, camera.position.z] = cameraPosition;
+    [camera.position.x, camera.position.y, camera.position.z] = position;
+    camera.up = new Vector3(...up);
+    camera.lookAt(...target);
     const scene = new Scene();
-    scene.background = new Color(0x050505);
+    scene.background = new Color(0xffffff);
     scene.add(camera);
+    if (grid) {
+      const grid = new GridHelper(100, 10, 'green', 'blue');
+      grid.material = new LineBasicMaterial({ color: 0x000000 });
+      grid.rotation.x = -Math.PI / 2;
+      // grid.material.transparent = true;
+      scene.add(grid);
+    }
     //
     var ambientLight = new AmbientLight(0x222222);
     scene.add(ambientLight);
@@ -83429,7 +83742,9 @@ define("./webworker.js",[],function () { 'use strict';
     return [scene, camera];
   };
 
-  const toSvg$1 = async (options = {}, geometry) => {
+  const toSvg$1 = async (options = {}, geometry) => toSvgSync(options, geometry);
+
+  const toSvgSync = (options = {}, geometry) => {
     const [scene, camera] = build$1(options, geometry);
     const { pageSize = [500, 500] } = options;
     const [pageWidth, pageHeight] = pageSize;
@@ -83502,9 +83817,9 @@ define("./webworker.js",[],function () { 'use strict';
     return writeFile({ geometry, preview: true }, path, toSvg$1(options, geometry));
   };
 
-  const method$g = function (options = {}) { writeSvgPhoto(options, this); return this; };
+  const method$k = function (options = {}) { writeSvgPhoto(options, this); return this; };
 
-  Shape.prototype.writeSvgPhoto = method$g;
+  Shape.prototype.writeSvgPhoto = method$k;
 
   const writeThreejsPage = async (options, shape) => {
     const { path } = options;
@@ -83522,10 +83837,13 @@ define("./webworker.js",[],function () { 'use strict';
    */
 
   var api = /*#__PURE__*/Object.freeze({
+    Cursor: Cursor,
     Shape: Shape,
+    above: above,
     acos: acos$1,
     assemble: assemble$1,
     center: center,
+    chainHull: chainHull,
     circle: circle,
     crossSection: crossSection,
     cos: cos$1,
@@ -83533,6 +83851,7 @@ define("./webworker.js",[],function () { 'use strict';
     cylinder: cylinder,
     difference: difference$5,
     extrude: extrude,
+    front: front,
     hull: hull,
     intersection: intersection$5,
     loadFont: loadFont,
@@ -83540,11 +83859,13 @@ define("./webworker.js",[],function () { 'use strict';
     max: max$2,
     measureBoundingBox: measureBoundingBox$3,
     minkowski: minkowski,
+    outline: outline,
     polygon: polygon,
     polyhedron: polyhedron,
     readDst: readDst,
     readLDraw: readLDraw,
     readStl: readStl,
+    right: right,
     rotate: rotate,
     rotateX: rotateX$1,
     rotateY: rotateY,
