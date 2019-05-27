@@ -77003,6 +77003,19 @@ define("./master.js",[],function () { 'use strict';
     'default': empty
   });
 
+  let base = '';
+
+  const setupFilesystem = ({ fileBase }) => {
+    // A prefix used to partition the filesystem for multiple projects.
+    if (fileBase !== undefined) {
+      if (base.endsWith('/')) {
+        base = fileBase;
+      } else {
+        base = `${fileBase}/`;
+      }
+    }
+  };
+
   // Copyright Joyent, Inc. and other Node contributors.
 
   // Split a filename into [root, dir, basename, ext], unix version
@@ -77046,7 +77059,9 @@ define("./master.js",[],function () { 'use strict';
     return file;
   };
 
-  const watchFileCreation = (thunk) => fileCreationWatchers.push(thunk);
+  const watchFileCreation = (thunk) => {
+    return fileCreationWatchers.push(thunk);
+  };
 
   var localforage = createCommonjsModule(function (module, exports) {
   /*!
@@ -79866,15 +79881,16 @@ define("./master.js",[],function () { 'use strict';
     }
 
     if (!ephemeral) {
+      const persistentPath = `${base}${path}`;
       if (isNode) {
         try {
-          await promises.mkdir(dirname(path), { recursive: true });
+          await promises.mkdir(dirname(persistentPath), { recursive: true });
         } catch (error) {
           console.log(`QQ/mkdir: ${error.toString()}`);
         }
-        return promises.writeFile(path, data);
+        return promises.writeFile(persistentPath, data);
       } else if (isBrowser) {
-        return localforage.setItem(`file/${path}`, data);
+        return localforage.setItem(`file/${persistentPath}`, data);
       }
     }
   };
@@ -81893,7 +81909,7 @@ define("./master.js",[],function () { 'use strict';
         if (data !== null) {
           return data;
         }
-      }
+      };
     } else {
       throw Error('die');
     }
@@ -81903,7 +81919,7 @@ define("./master.js",[],function () { 'use strict';
   const fetchPersistent = async ({ as }, path) => {
     try {
       const fetchFile = await getFileFetcher();
-      const data = await fetchFile(path);
+      const data = await fetchFile(`${base}${path}`);
       return dataAs(as, data);
     } catch (e) {
     }
@@ -82066,7 +82082,18 @@ define("./master.js",[],function () { 'use strict';
     return {};
   };
 
-  const defaultScript = `assemble(circle(10), cube(10), triangle(15).outline())`;
+  /* global location */
+
+  const defaultScript =
+`
+const model = assemble(cube(10).as('cube'),
+                       cylinder(4, 10).as('cylinder'));
+
+model.keep('cube').writeStl({ path: 'cube.stl' });
+model.keep('cube').crossSection().writePfd({ path: 'cut.pdf' });
+
+model;
+`  ;
 
   window.bootstrapCSS = () => {
     installEditorCSS(document);
@@ -82075,6 +82102,8 @@ define("./master.js",[],function () { 'use strict';
   };
 
   window.bootstrap = async () => {
+    // The file prefix partitions projects.
+    setupFilesystem({ fileBase: location.hash.substring(1) });
     let initialScript = await readFile({}, 'script');
     if (initialScript === undefined) {
       initialScript = defaultScript;

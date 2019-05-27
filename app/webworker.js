@@ -15998,7 +15998,17 @@ define("./webworker.js",[],function () { 'use strict';
     );
   };
 
-  const socket = ({ diameter = 5.05, height = 1.8, gripRingHeight = 0.7, faces = 32, play = 0.1 } = {}) => {
+  const studSheet = ({ width = 32, length = 32, height = 1.8, studDiameter = 5, studHeight = 1.8, studFaces = 32, studMarginX = 0, studMarginY = 0 } = {}) => {
+    const studs = [];
+    for (let x = 4 + studMarginX; x < width - studMarginX; x += 8) {
+      for (let y = 4 + studMarginY; y < length - studMarginY; y += 8) {
+        studs.push(stud().translate([x - width / 2, y - length / 2, height / 2]));
+      }
+    }
+    return assemble$1(cube(width, length, height), ...studs);
+  };
+
+  const socket = ({ diameter = 5.05, height = 1.8, gripRingHeight = 0.7, faces = 32, play = 0.0 } = {}) => {
     // A stud is theoretically 1.7 mm tall.
     // We introduce a grip-ring from 0.5 to 1.2 mm (0.7 mm in height)
     const bottom = 0.5;
@@ -16013,24 +16023,15 @@ define("./webworker.js",[],function () { 'use strict';
       cylinder({ diameter: (diameter + play) + expansion, height: bottom }).translate([0, 0, bottom / 2]));
   };
 
-  const studSheet = ({ width = 32, length = 32, height = 1.8, studDiameter = 5, studHeight = 1.8, studFaces = 32, studMarginX = 0, studMarginY = 0 } = {}) => {
-    const studs = [];
-    for (let x = 4 + studMarginX; x < width - studMarginX; x += 8) {
-      for (let y = 4 + studMarginY; y < length - studMarginY; y += 8) {
-        studs.push(stud().translate([x - width / 2, y - length / 2, height / 2]));
-      }
-    }
-    return assemble$1(cube(width, length, height), ...studs);
-  };
-
-  const socketSheet = ({ width = 32, length = 32, height = 1.8, studDiameter = 5, studHeight = 1.8, studFaces = 32, studMarginX = 0, studMarginY = 0 } = {}) => {
+  const socketSheet = ({ width = 32, length = 32, height = 1.8, play = 0.1, studDiameter = 5, studHeight = 1.8, studMarginX = 0, studMarginY = 0, studPlay = 0 } = {}) => {
     const sockets = [];
     for (let x = 4 + studMarginX; x < width - studMarginX; x += 8) {
       for (let y = 4 + studMarginY; y < length - studMarginY; y += 8) {
-        sockets.push(socket().translate([x - width / 2, y - length / 2, height / -2]));
+        sockets.push(socket({ diameter: studDiameter, height: studHeight, play: studPlay })
+            .translate([x - width / 2, y - length / 2, height / -2]));
       }
     }
-    return assemble$1(cube(width, length, height),
+    return assemble$1(cube(width - play * 2, length - play * 2, height),
                     assemble$1(...sockets).as('void'));
   };
 
@@ -16125,6 +16126,19 @@ define("./webworker.js",[],function () { 'use strict';
     'default': require$$0
   });
 
+  let base = '';
+
+  const setupFilesystem = ({ fileBase }) => {
+    // A prefix used to partition the filesystem for multiple projects.
+    if (fileBase !== undefined) {
+      if (base.endsWith('/')) {
+        base = fileBase;
+      } else {
+        base = `${fileBase}/`;
+      }
+    }
+  };
+
   // Copyright Joyent, Inc. and other Node contributors.
 
   // Split a filename into [root, dir, basename, ext], unix version
@@ -16168,7 +16182,9 @@ define("./webworker.js",[],function () { 'use strict';
     return file;
   };
 
-  const watchFileCreation = (thunk) => fileCreationWatchers.push(thunk);
+  const watchFileCreation = (thunk) => {
+    return fileCreationWatchers.push(thunk);
+  };
 
   var localforage = createCommonjsModule(function (module, exports) {
   /*!
@@ -18988,15 +19004,16 @@ define("./webworker.js",[],function () { 'use strict';
     }
 
     if (!ephemeral) {
+      const persistentPath = `${base}${path}`;
       if (isNode) {
         try {
-          await promises.mkdir(dirname(path), { recursive: true });
+          await promises.mkdir(dirname(persistentPath), { recursive: true });
         } catch (error) {
           console.log(`QQ/mkdir: ${error.toString()}`);
         }
-        return promises.writeFile(path, data);
+        return promises.writeFile(persistentPath, data);
       } else if (isBrowser) {
-        return localforage.setItem(`file/${path}`, data);
+        return localforage.setItem(`file/${persistentPath}`, data);
       }
     }
   };
@@ -19049,7 +19066,7 @@ define("./webworker.js",[],function () { 'use strict';
         if (data !== null) {
           return data;
         }
-      }
+      };
     } else {
       throw Error('die');
     }
@@ -19059,7 +19076,7 @@ define("./webworker.js",[],function () { 'use strict';
   const fetchPersistent = async ({ as }, path) => {
     try {
       const fetchFile = await getFileFetcher();
-      const data = await fetchFile(path);
+      const data = await fetchFile(`${base}${path}`);
       return dataAs(as, data);
     } catch (e) {
     }
@@ -19132,6 +19149,7 @@ define("./webworker.js",[],function () { 'use strict';
     conversation: conversation,
     log: log$1,
     readFile: readFile,
+    setupFilesystem: setupFilesystem,
     watchFile: watchFile,
     watchFileCreation: watchFileCreation,
     writeFile: writeFile
@@ -38070,11 +38088,48 @@ define("./webworker.js",[],function () { 'use strict';
                      footer).join('\n');
   };
 
+  /**
+   *
+   * # Write PDF
+   *
+   * ```
+   * cube().crossSection().writePdf({ path: 'cube.pdf' });
+   * ```
+   *
+   * ```
+   * writePdf({ path: 'cube.pdf' }, cube().crossSection());
+   * ```
+   *
+   **/
+
   const writePdf = async (options, shape) => {
     const { path } = options;
     const geometry = shape.toDisjointGeometry();
     return writeFile({ geometry, preview: true }, path, toPdf({ preview: true, ...options }, geometry));
   };
+
+  const method$o = function (options = {}) { writePdf(options, this); return this; };
+
+  Shape.prototype.writePdf = method$o;
+
+  /**
+   *
+   * # Write STL
+   *
+   * ::: illustration { "view": { "position": [5, 5, 5] } }
+   * ```
+   * cube().writeStl({ path: 'cube.stl' });
+   * readStl({ path: 'cube.stl' });
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [5, 5, 5] } }
+   * ```
+   * writeStl({ path: 'cube.stl' }, cube());
+   * readStl({ path: 'cube.stl' });
+   * ```
+   * :::
+   *
+   **/
 
   const toGeometry$2 = ({ disjoint = true }, shape) => {
     if (disjoint) {
@@ -38090,9 +38145,28 @@ define("./webworker.js",[],function () { 'use strict';
     return writeFile({ preview: true, geometry }, path, toStl(options, geometry));
   };
 
-  const method$o = function (options = {}) { writeStl(options, this); return this; };
+  const method$p = function (options = {}) { writeStl(options, this); return this; };
 
-  Shape.prototype.writeStl = method$o;
+  Shape.prototype.writeStl = method$p;
+
+  /**
+   *
+   * # Write SVG
+   *
+   * ::: illustration
+   * ```
+   * cube().crossSection().writeSvg({ path: 'svg/cube1.svg' });
+   * readSvg({ path: 'svg/cube1.svg' })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * writeSvg({ path: 'svg/cube2.svg' }, cube().crossSection());
+   * readSvg({ path: 'svg/cube2.svg' })
+   * ```
+   * :::
+   *
+   **/
 
   const writeSvg = async (options, shape) => {
     const { path } = options;
@@ -38100,9 +38174,9 @@ define("./webworker.js",[],function () { 'use strict';
     return writeFile({ geometry, preview: true }, path, toSvg(options, geometry));
   };
 
-  const method$p = function (options = {}) { writeSvg(options, this); return this; };
+  const method$q = function (options = {}) { writeSvg(options, this); return this; };
 
-  Shape.prototype.writeSvg = method$p;
+  Shape.prototype.writeSvg = method$q;
 
   // Polyfills
 
@@ -88563,9 +88637,15 @@ define("./webworker.js",[],function () { 'use strict';
 
   const toSvg$1 = async (options = {}, geometry) => toSvgSync(options, geometry);
 
+  const header$1 =
+`<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated by jsxcad -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+`  ;
+
   const toSvgSync = (options = {}, geometry) => {
     const [scene, camera] = build$1(options, geometry);
-    const { pageSize = [500, 500] } = options;
+    const { includeXmlHeader = true, pageSize = [500, 500] } = options;
     const [pageWidth, pageHeight] = pageSize;
 
     const renderer = new SVGRenderer({});
@@ -88573,7 +88653,11 @@ define("./webworker.js",[],function () { 'use strict';
     renderer.render(scene, camera);
 
     const serializer = new domParser_2();
-    return serializer.serializeToString(renderer.domElement);
+    let svg = serializer.serializeToString(renderer.domElement) + '\n';
+    if (includeXmlHeader) {
+      svg = header$1 + svg;
+    }
+    return svg;
   };
 
   const toThreejsPage = async ({ cameraPosition = [0, 0, 16], title = 'JSxCAD Viewer', includeEditor = false, includeEvaluator = false, initialScript = '', initialPage = 'editor', previewPage = 'default' }, geometry) => {
@@ -88630,21 +88714,47 @@ define("./webworker.js",[],function () { 'use strict';
     return `<html><head>${head}</head><body id="body">${body}</body></html>`;
   };
 
+  /**
+   *
+   * # Write SVG Photo
+   *
+   * This takes a scene and a camera position and generates a two-dimensional SVG representation
+   * as a svg tag.
+   *
+   * ::: illustration { "view": { "position": [0, -1, 2500] } }
+   * ```
+   * cube().writeSvgPhoto({ path: 'svg/cube3.svg', view: { position: [10, 10, 10], target: [0, 0, 0] } });
+   * readSvg({ path: 'svg/cube3.svg' })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, -1, 2500] } }
+   * ```
+   * writeSvgPhoto({ path: 'svg/cube4.svg', view: { position: [10, 10, 10], target: [0, 0, 0] } }, cube());
+   * readSvg({ path: 'svg/cube4.svg' })
+   * ```
+   * :::
+   *
+   **/
+
   const writeSvgPhoto = async (options, shape) => {
     const { path } = options;
     const geometry = shape.toDisjointGeometry();
     return writeFile({ geometry, preview: true }, path, toSvg$1(options, geometry));
   };
 
-  const method$q = function (options = {}) { writeSvgPhoto(options, this); return this; };
+  const method$r = function (options = {}) { writeSvgPhoto(options, this); return this; };
 
-  Shape.prototype.writeSvgPhoto = method$q;
+  Shape.prototype.writeSvgPhoto = method$r;
 
   const writeThreejsPage = async (options, shape) => {
     const { path } = options;
     const geometry = shape.toDisjointGeometry();
     return writeFile({ geometry, preview: true }, path, toThreejsPage(options, shape.toDisjointGeometry()));
   };
+
+  const method$s = function (options = {}) { writeThreejsPage(options, this); return this; };
+
+  Shape.prototype.writeThreejsPage = method$s;
 
   /**
    *
