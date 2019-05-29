@@ -82094,13 +82094,8 @@ define("./master.js",[],function () { 'use strict';
 
   const defaultScript =
 `
-const model = assemble(cube(10).as('cube'),
-                       cylinder(4, 10).as('cylinder'));
-
-model.keep('cube').writeStl({ path: 'cube.stl' });
-model.keep('cube').crossSection().outline().writePdf({ path: 'cut.pdf' });
-
-return model;
+hull(point(0, 0, 10), circle(10))
+  .writeStl({ path: 'cone.stl' })
 `  ;
 
   const installProject = async () => {
