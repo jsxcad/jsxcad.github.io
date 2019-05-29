@@ -19464,7 +19464,37 @@ define("./webworker.js",[],function () { 'use strict';
    * :::
    * ::: illustration
    * ```
+   * point(1)
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * point(1, 2)
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * point(1, 2, 3)
+   * ```
+   * :::
+   * ::: illustration
+   * ```
    * point([1, 1, 0])
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * point([1])
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * point([1, 2])
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * point([1, 2, 3])
    * ```
    * :::
    *
@@ -19473,14 +19503,19 @@ define("./webworker.js",[],function () { 'use strict';
   const point = dispatch(
     'point',
     // point()
-    (...rest) => {
+    (x = 0, y = 0, z = 0, ...rest) => {
+      assertNumber(x);
+      assertNumber(y);
+      assertNumber(z);
       assertEmpty(rest);
-      return () => fromValue$7([0, 0, 0]);
+      return () => fromValue$7([x, y, z]);
     },
     // point([1, 2, 3])
-    (value) => {
-      assertNumberTriple(value);
-      return () => fromValue$7(value);
+    ([x = 0, y = 0, z = 0]) => {
+      assertNumber(x);
+      assertNumber(y);
+      assertNumber(z);
+      return () => fromValue$7([x, y, z]);
     });
 
   point.fromValue = fromValue$7;

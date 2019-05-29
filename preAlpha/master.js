@@ -66886,7 +66886,7 @@ define("./master.js",[],function () { 'use strict';
             }
             scene.remove(mesh);
           }
-          for (controller of controllers) {
+          for (const controller of controllers) {
             gui.remove(controller);
           }
         }
