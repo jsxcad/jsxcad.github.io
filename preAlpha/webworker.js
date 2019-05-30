@@ -6694,16 +6694,6 @@ define("./webworker.js",[],function () { 'use strict';
 
   const isConvex = (polygon) => areVerticesConvex(polygon, toPlane(polygon));
 
-  const isCoplanar = (polygon) => {
-    const plane = toPlane(polygon);
-    for (const point of polygon) {
-      if (signedDistanceToPoint(plane, point) > 1e-5) {
-        return false;
-      }
-    }
-    return true;
-  };
-
   const isStrictlyCoplanar = (polygon) => {
     const plane = toPlane(polygon);
     for (let nth = 1; nth < polygon.length - 2; nth++) {
@@ -6821,17 +6811,7 @@ define("./webworker.js",[],function () { 'use strict';
   // Transforms
   const transform$5 = (matrix, surface) => surface.map(polygon => transform$4(matrix, polygon));
 
-  const assertCoplanarPolygon = (polygon) => {
-    if (!isCoplanar(polygon)) {
-      throw Error(`die`);
-    }
-  };
-
-  const assertCoplanar = (surface) => {
-    for (const polygon of surface) {
-      assertCoplanarPolygon(polygon);
-    }
-  };
+  // import { isCoplanar } from '@jsxcad/math-poly3';
 
   const eachPoint$2 = (options = {}, thunk, surface) => {
     for (const polygon of surface) {
@@ -13102,7 +13082,6 @@ define("./webworker.js",[],function () { 'use strict';
       // An empty surface is not non-convex.
       return surface;
     }
-    assertCoplanar(surface);
     const [to, from] = toXYPlaneTransforms(toPlane$1(surface));
     let retessellatedSurface = makeConvex({}, transform$5(to, surface));
     return transform$5(from, retessellatedSurface);
@@ -13146,10 +13125,6 @@ define("./webworker.js",[],function () { 'use strict';
 
     // The solid is a list of surfaces, which are lists of coplanar polygons.
     const solid = [...coplanarGroups.values()];
-
-    for (const surface of solid) {
-      assertCoplanar(surface);
-    }
 
     return solid;
   };
@@ -13226,7 +13201,6 @@ define("./webworker.js",[],function () { 'use strict';
   };
 
   const splitSurface = (plane, coplanarFrontSurfaces, coplanarBackSurfaces, frontSurfaces, backSurfaces, surface) => {
-    assertCoplanar(surface);
     const coplanarFrontPolygons = [];
     const coplanarBackPolygons = [];
     const frontPolygons = [];
@@ -13280,12 +13254,6 @@ define("./webworker.js",[],function () { 'use strict';
               frontPoints.push(spanPoint);
               backPoints.push(spanPoint);
               if (Math.abs(signedDistanceToPoint(plane, spanPoint)) > EPSILON) throw Error('die');
-              if (frontPoints.length >= 3) {
-                assertCoplanar([frontPoints]);
-              }
-              if (backPoints.length >= 3) {
-                assertCoplanar([backPoints]);
-              }
             }
             startPoint = endPoint;
             startType = endType;
@@ -13303,19 +13271,15 @@ define("./webworker.js",[],function () { 'use strict';
       }
     }
     if (coplanarFrontPolygons.length > 0) {
-      assertCoplanar(coplanarFrontPolygons);
       coplanarFrontSurfaces.push(coplanarFrontPolygons);
     }
     if (coplanarBackPolygons.length > 0) {
-      assertCoplanar(coplanarBackPolygons);
       coplanarBackSurfaces.push(coplanarBackPolygons);
     }
     if (frontPolygons.length > 0) {
-      assertCoplanar(frontPolygons);
       frontSurfaces.push(frontPolygons);
     }
     if (backPolygons.length > 0) {
-      assertCoplanar(backPolygons);
       backSurfaces.push(backPolygons);
     }
   };
@@ -13416,9 +13380,6 @@ define("./webworker.js",[],function () { 'use strict';
   };
 
   const fromSurfaces = (options = {}, surfaces) => {
-    for (const surface of surfaces) {
-      assertCoplanar(surface);
-    }
     const bsp = create();
     // Build is destructive.
     build(bsp, surfaces.map(surface => surface.slice()));
@@ -13439,9 +13400,6 @@ define("./webworker.js",[],function () { 'use strict';
 
   const toSurfaces = (options = {}, bsp) => {
     const surfaces = gatherSurfaces(bsp);
-    for (const surface of surfaces) {
-      assertCoplanar(surface);
-    }
     // Some of these surfaces may have cracked.
     return surfaces;
   };
@@ -16106,37 +16064,35 @@ define("./webworker.js",[],function () { 'use strict';
     );
   };
 
-  const studSheet = ({ width = 32, length = 32, height = 1.8, studDiameter = 5, studHeight = 1.8, studFaces = 32, studMarginX = 0, studMarginY = 0 } = {}) => {
+  const studSheet = ({ width = 32, length = 32, height = 1.8, studDiameter = 5, studHeight = 1.8, studFaces = 32, studMarginX = 0, studMarginY = 0, play = 0.1 } = {}) => {
     const studs = [];
     for (let x = 4 + studMarginX; x < width - studMarginX; x += 8) {
       for (let y = 4 + studMarginY; y < length - studMarginY; y += 8) {
         studs.push(stud().translate([x - width / 2, y - length / 2, height / 2]));
       }
     }
-    return assemble$1(cube(width, length, height), ...studs);
+    return assemble$1(cube(width - play * 2, length - play * 2, height), ...studs);
   };
 
-  const socket = ({ diameter = 5.05, height = 1.8, gripRingHeight = 0.7, faces = 32, play = 0.0 } = {}) => {
+  const socket = ({ diameter = 5.1, height = 1.8, gripRingHeight = 0.4, gripRingContraction = 0.1, faces = 32, play = 0.0 } = {}) => {
     // A stud is theoretically 1.7 mm tall.
     // We introduce a grip-ring from 0.5 to 1.2 mm (0.7 mm in height)
     const bottom = 0.5;
-    const expansion = 0.5;
     const topHeight = height - gripRingHeight - bottom;
     return assemble$1(
       // flaired top
-      cylinder({ diameter: (diameter + play) + expansion, height: topHeight }).translate([0, 0, topHeight / 2 + bottom + gripRingHeight]),
+      cylinder({ diameter: (diameter + play), height: topHeight }).translate([0, 0, topHeight / 2 + bottom + gripRingHeight]),
       // grip ring
-      cylinder({ diameter: (diameter + play), height: gripRingHeight }).translate([0, 0, gripRingHeight / 2 + bottom]),
+      cylinder({ diameter: (diameter + play) - gripRingContraction, height: gripRingHeight }).translate([0, 0, gripRingHeight / 2 + bottom]),
       // flaired base
-      cylinder({ diameter: (diameter + play) + expansion, height: bottom }).translate([0, 0, bottom / 2]));
+      cylinder({ diameter: (diameter + play), height: bottom }).translate([0, 0, bottom / 2]));
   };
 
-  const socketSheet = ({ width = 32, length = 32, height = 1.8, play = 0.1, studDiameter = 5, studHeight = 1.8, studMarginX = 0, studMarginY = 0, studPlay = 0 } = {}) => {
+  const socketSheet = ({ width = 32, length = 32, height = 1.8, play = 0.1, studMarginX = 0, studMarginY = 0, stud = {} } = {}) => {
     const sockets = [];
     for (let x = 4 + studMarginX; x < width - studMarginX; x += 8) {
       for (let y = 4 + studMarginY; y < length - studMarginY; y += 8) {
-        sockets.push(socket({ diameter: studDiameter, height: studHeight, play: studPlay })
-            .translate([x - width / 2, y - length / 2, height / -2]));
+        sockets.push(socket(stud).translate(x - width / 2, y - length / 2, height / -2));
       }
     }
     return assemble$1(cube(width - play * 2, length - play * 2, height),

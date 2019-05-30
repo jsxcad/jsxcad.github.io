@@ -91,7 +91,7 @@ define("./master.js",[],function () { 'use strict';
               (options, file) => {
                 viewerElement.appendChild(document.createTextNode(file.data));
                 viewerElement.appendChild(document.createElement('br'));
-                viewerElement.scrollTop = viewerElement.scrollHeight;
+                viewerElement.parentNode.scrollTop = viewerElement.parentNode.scrollHeight;
               });
     return {};
   };
@@ -60429,18 +60429,10 @@ define("./master.js",[],function () { 'use strict';
     return [normal[0], normal[1], normal[2], w];
   };
 
-  const W = 3;
-
-  /**
-   * Calculate the distance to the given point
-   * @return {Number} signed distance to point
-   */
-  const signedDistanceToPoint = (plane, point) => dot(plane, point) - plane[W];
-
   const X = 0;
   const Y = 1;
   const Z = 2;
-  const W$1 = 3;
+  const W = 3;
 
   const toXYPlaneTransforms = (plane, rightVector) => {
     if (rightVector === undefined) {
@@ -60449,7 +60441,7 @@ define("./master.js",[],function () { 'use strict';
 
     const v = unit(cross(plane, rightVector));
     const u = cross(v, plane);
-    const p = multiply(plane, fromScalar(plane[W$1]));
+    const p = multiply(plane, fromScalar(plane[W]));
 
     return [
       // to
@@ -60457,7 +60449,7 @@ define("./master.js",[],function () { 'use strict';
         u[X], v[X], plane[X], 0,
         u[Y], v[Y], plane[Y], 0,
         u[Z], v[Z], plane[Z], 0,
-        0, 0, -plane[W$1], 1),
+        0, 0, -plane[W], 1),
       // from
       fromValues(
         u[X], u[Y], u[Z], 0,
@@ -60476,16 +60468,6 @@ define("./master.js",[],function () { 'use strict';
       }
     }
     return polygon.plane;
-  };
-
-  const isCoplanar = (polygon) => {
-    const plane = toPlane(polygon);
-    for (const point of polygon) {
-      if (signedDistanceToPoint(plane, point) > 1e-5) {
-        return false;
-      }
-    }
-    return true;
   };
 
   /**
@@ -63980,17 +63962,7 @@ define("./master.js",[],function () { 'use strict';
   // Transforms
   const transform$2 = (matrix, surface) => surface.map(polygon => transform$1(matrix, polygon));
 
-  const assertCoplanarPolygon = (polygon) => {
-    if (!isCoplanar(polygon)) {
-      throw Error(`die`);
-    }
-  };
-
-  const assertCoplanar = (surface) => {
-    for (const polygon of surface) {
-      assertCoplanarPolygon(polygon);
-    }
-  };
+  // import { isCoplanar } from '@jsxcad/math-poly3';
 
   /**
    * Transforms each polygon of the surface.
@@ -66716,7 +66688,6 @@ define("./master.js",[],function () { 'use strict';
       // An empty surface is not non-convex.
       return surface;
     }
-    assertCoplanar(surface);
     const [to, from] = toXYPlaneTransforms(toPlane$1(surface));
     let retessellatedSurface = makeConvex({}, transform$2(to, surface));
     return transform$2(from, retessellatedSurface);
@@ -66859,7 +66830,7 @@ define("./master.js",[],function () { 'use strict';
         content: `<div id="${path}"></div>`,
         contentOverflow: 'hidden',
         position: 'right-top',
-        footerToolbar: `<button class="jsPanel-ftr-btn" id="download/${path}" style="padding: 5px; margin: 3 px; display: inline-block;">Download ${path}</button>`,
+        footerToolbar: `</span><button class="jsPanel-ftr-btn" id="download/${path}" style="padding: 5px; margin: 3 px; display: inline-block;">Download ${path}</button>`,
         callback: (panel) => {
           document.getElementById(`download/${path}`)
               .addEventListener('click',
@@ -82017,7 +81988,7 @@ define("./master.js",[],function () { 'use strict';
           contentOverflow: 'hidden',
           size: '1000 600',
           position: 'top-left',
-          footerToolbar: `<button class="jsPanel-ftr-btn" id="runScript" style="padding: 5px; margin: 3 px;">Run Script</button>`,
+          footerToolbar: `<span id="evaluatorClock"></span><button class="jsPanel-ftr-btn" id="runScript" style="padding: 5px; margin: 3 px;">Run Script</button>`,
           callback: (panel) => document.getElementById(`runScript`).addEventListener('click', runScript)
         });
         document.getElementById('editor').appendChild(domElement);
@@ -82069,10 +82040,22 @@ define("./master.js",[],function () { 'use strict';
   const installEvaluator = async () => {
     const { ask } = await createService({ webWorker: './webworker.js', agent });
     const evaluator = async (script) => {
+      let start = new Date().getTime();
+      let runClock = true;
+      const clockElement = document.getElementById('evaluatorClock');
+      const tick = () => {
+        if (runClock) {
+          setTimeout(tick, 100);
+          const duration = new Date().getTime() - start;
+          clockElement.textContent = `${(duration / 1000).toFixed(2)}`;
+        }
+      };
+      tick();
       const geometry = await ask({ evaluate: script });
       if (geometry) {
         await writeFile({ preview: true, geometry }, 'preview', 'preview');
       }
+      runClock = false;
     };
     return { evaluator };
   };
