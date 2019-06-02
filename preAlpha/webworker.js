@@ -16413,7 +16413,8 @@ return d[d.length-1];};return ", funcName].join("");
         return fromGeometry({ assembly: [] });
       }
       case 1: {
-        return shapes[0];
+        // We still want to produce a simple shape.
+        return fromGeometry(toKeptGeometry$1(shapes[0]));
       }
       default: {
         return fromGeometry(difference$4(...shapes.map(toKeptGeometry$1)));
@@ -16597,6 +16598,26 @@ return d[d.length-1];};return ", funcName].join("");
 
   /**
    *
+   * # Fuse
+   *
+   * Fuse produces a simple version of a shape. All substructure is discarded.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * assemble(sphere(10), sphere(10).translate(2).drop()).fuse()
+   * ```
+   * :::
+   *
+   **/
+
+  const fuse = (shape) => fromGeometry(toKeptGeometry$1(shape));
+
+  const method$c = function () { return fuse(this); };
+
+  Shape.prototype.fuse = method$c;
+
+  /**
+   *
    * # Hull
    *
    * Builds the convex hull of a set of shapes.
@@ -16640,9 +16661,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$c = function (...shapes) { return hull(this, ...shapes); };
+  const method$d = function (...shapes) { return hull(this, ...shapes); };
 
-  Shape.prototype.hull = method$c;
+  Shape.prototype.hull = method$d;
 
   /**
    *
@@ -16676,9 +16697,9 @@ return d[d.length-1];};return ", funcName].join("");
     return Shape.fromPathsToZ0Surface(union$2(...getPaths(shape.toGeometry())));
   };
 
-  const method$d = function (options) { return interior(options, this); };
+  const method$e = function (options) { return interior(options, this); };
 
-  Shape.prototype.interior = method$d;
+  Shape.prototype.interior = method$e;
 
   /**
    *
@@ -16735,7 +16756,8 @@ return d[d.length-1];};return ", funcName].join("");
         return fromGeometry({ assembly: [] });
       }
       case 1: {
-        return shapes[0];
+        // We still want to produce a simple shape.
+        return fromGeometry(toKeptGeometry$1(shapes[0]));
       }
       default: {
         return fromGeometry(intersection$4(...shapes.map(toKeptGeometry$1)));
@@ -16743,9 +16765,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$e = function (...shapes) { return intersection$5(this, ...shapes); };
+  const method$f = function (...shapes) { return intersection$5(this, ...shapes); };
 
-  Shape.prototype.intersection = method$e;
+  Shape.prototype.intersection = method$f;
 
   /**
    *
@@ -16796,9 +16818,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   keep$1.fromValues = fromValue$6;
 
-  const method$f = function (...tags) { return keep$1(tags, this); };
+  const method$g = function (...tags) { return keep$1(tags, this); };
 
-  Shape.prototype.keep = method$f;
+  Shape.prototype.keep = method$g;
 
   /**
    *
@@ -16847,9 +16869,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$4(shape, reference);
     });
 
-  const method$g = function (...params) { return left(this, ...params); };
+  const method$h = function (...params) { return left(this, ...params); };
 
-  Shape.prototype.left = method$g;
+  Shape.prototype.left = method$h;
 
   /**
    *
@@ -16905,7 +16927,8 @@ return d[d.length-1];};return ", funcName].join("");
         return fromGeometry({ assembly: [] });
       }
       case 1: {
-        return shapes[0];
+        // We still want to produce a simple shape.
+        return fromGeometry(toKeptGeometry$1(shapes[0]));
       }
       default: {
         return fromGeometry(union$4(...shapes.map(toKeptGeometry$1)));
@@ -16913,9 +16936,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$h = function (...shapes) { return union$5(this, ...shapes); };
+  const method$i = function (...shapes) { return union$5(this, ...shapes); };
 
-  Shape.prototype.union = method$h;
+  Shape.prototype.union = method$i;
 
   /**
    *
@@ -20229,9 +20252,9 @@ return d[d.length-1];};return ", funcName].join("");
     return Shape.fromPaths(union$2(...getZ0Surfaces(shape.toGeometry())));
   };
 
-  const method$i = function (options) { return outline(options, this); };
+  const method$j = function (options) { return outline(options, this); };
 
-  Shape.prototype.outline = method$i;
+  Shape.prototype.outline = method$j;
 
   const fromValue$7 = (point) => Shape.fromPoint(point);
 
@@ -38478,9 +38501,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ preview, geometry }, path, JSON.stringify(geometry));
   };
 
-  const method$j = function (options = {}) { return writeShape(options, this); };
+  const method$k = function (options = {}) { return writeShape(options, this); };
 
-  Shape.prototype.writeShape = method$j;
+  Shape.prototype.writeShape = method$k;
 
   /**
    *
@@ -39213,9 +39236,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$5(shape, reference);
     });
 
-  const method$k = function (...params) { return right(this, ...params); };
+  const method$l = function (...params) { return right(this, ...params); };
 
-  Shape.prototype.right = method$k;
+  Shape.prototype.right = method$l;
 
   /**
    *
@@ -39237,9 +39260,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateX$1 = (angle, shape) => shape.transform(fromXRotation(angle * 0.017453292519943295));
 
-  const method$l = function (angle) { return rotateX$1(angle, this); };
+  const method$m = function (angle) { return rotateX$1(angle, this); };
 
-  Shape.prototype.rotateX = method$l;
+  Shape.prototype.rotateX = method$m;
 
   /**
    *
@@ -39261,9 +39284,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateY = (angle, shape) => shape.transform(fromYRotation(angle * 0.017453292519943295));
 
-  const method$m = function (angle) { return rotateY(angle, this); };
+  const method$n = function (angle) { return rotateY(angle, this); };
 
-  Shape.prototype.rotateY = method$m;
+  Shape.prototype.rotateY = method$n;
 
   /**
    *
@@ -39285,9 +39308,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateZ = (angle, shape) => shape.transform(fromZRotation(angle * 0.017453292519943295));
 
-  const method$n = function (angle) { return rotateZ(angle, this); };
+  const method$o = function (angle) { return rotateZ(angle, this); };
 
-  Shape.prototype.rotateZ = method$n;
+  Shape.prototype.rotateZ = method$o;
 
   /**
    *
@@ -39322,9 +39345,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$o = function (factor) { return scale$6(factor, this); };
+  const method$p = function (factor) { return scale$6(factor, this); };
 
-  Shape.prototype.scale = method$o;
+  Shape.prototype.scale = method$p;
 
   /**
    *
@@ -39749,9 +39772,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, pdf);
   };
 
-  const method$p = function (options = {}) { return writePdf(options, this); };
+  const method$q = function (options = {}) { return writePdf(options, this); };
 
-  Shape.prototype.writePdf = method$p;
+  Shape.prototype.writePdf = method$q;
 
   /**
    *
@@ -39781,9 +39804,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ preview: true, geometry }, path, toStl(options, geometry));
   };
 
-  const method$q = function (options = {}) { return writeStl(options, this); };
+  const method$r = function (options = {}) { return writeStl(options, this); };
 
-  Shape.prototype.writeStl = method$q;
+  Shape.prototype.writeStl = method$r;
 
   /**
    *
@@ -39813,9 +39836,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toSvg(options, geometry));
   };
 
-  const method$r = function (options = {}) { return writeSvg(options, this); };
+  const method$s = function (options = {}) { return writeSvg(options, this); };
 
-  Shape.prototype.writeSvg = method$r;
+  Shape.prototype.writeSvg = method$s;
 
   // Polyfills
 
@@ -90386,9 +90409,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toSvg$1(options, geometry));
   };
 
-  const method$s = function (options = {}) { return writeSvgPhoto(options, this); };
+  const method$t = function (options = {}) { return writeSvgPhoto(options, this); };
 
-  Shape.prototype.writeSvgPhoto = method$s;
+  Shape.prototype.writeSvgPhoto = method$t;
 
   const writeThreejsPage = async (options, shape) => {
     if (typeof options === 'string') {
@@ -90399,9 +90422,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toThreejsPage(options, shape.toDisjointGeometry()));
   };
 
-  const method$t = function (options = {}) { return writeThreejsPage(options, this); };
+  const method$u = function (options = {}) { return writeThreejsPage(options, this); };
 
-  Shape.prototype.writeThreejsPage = method$t;
+  Shape.prototype.writeThreejsPage = method$u;
 
   /**
    *
@@ -90431,6 +90454,7 @@ return d[d.length-1];};return ", funcName].join("");
     drop: drop$1,
     extrude: extrude$1,
     front: front,
+    fuse: fuse,
     hull: hull,
     interior: interior,
     intersection: intersection$5,
