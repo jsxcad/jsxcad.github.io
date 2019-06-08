@@ -273,6 +273,12 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} distance between a and b
    */
+  const distance = ([ax, ay, az], [bx, by, bz]) => {
+    const x = bx - ax;
+    const y = by - ay;
+    const z = bz - az;
+    return Math.sqrt(x * x + y * y + z * z);
+  };
 
   /**
    * Divides two vec3's
@@ -293,7 +299,6 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {Number} z Z component
    * @returns {vec3} a new 3D vector
    */
-  const fromPoint = ([x = 0, y = 0, z = 0]) => [x, y, z];
 
   /** create a vec3 from a single scalar value
    * all components of the resulting vec3 have the value of the
@@ -732,21 +737,6 @@ define("./webworker.js",[],function () { 'use strict';
    * @returns {mat4} out
    */
 
-  const addTags = (tags, geometry) => {
-    if (tags === undefined) {
-      return geometry;
-    }
-    const copy = Object.assign({}, geometry);
-    if (copy.tags) {
-      copy.tags = [...tags, ...copy.tags];
-    } else {
-      copy.tags = [...tags];
-    }
-    return copy;
-  };
-
-  const assemble = (...taggedGeometries) => ({ assembly: taggedGeometries });
-
   const canonicalizePoint = (point, index) => {
     if (point === null) {
       if (index !== 0) throw Error('Path has null not at head');
@@ -770,6 +760,14 @@ define("./webworker.js",[],function () { 'use strict';
     return result;
   };
 
+  const flip = (path) => {
+    if (path[0] === null) {
+      return [null, ...path.slice(1).reverse()];
+    } else {
+      return path.slice().reverse();
+    }
+  };
+
   const open = (path) => isClosed(path) ? [null, ...path] : path;
 
   const toSegments = (options = {}, path) => {
@@ -790,6 +788,30 @@ define("./webworker.js",[],function () { 'use strict';
   const translate = (vector, path) => transform$1(fromTranslation(vector), path);
   const scale$1 = (vector, path) => transform$1(fromScaling(vector), path);
 
+  const addTags = (tags, geometry) => {
+    if (tags === undefined) {
+      return geometry;
+    }
+    const copy = Object.assign({}, geometry);
+    if (copy.tags) {
+      copy.tags = [...tags, ...copy.tags];
+    } else {
+      copy.tags = [...tags];
+    }
+    return copy;
+  };
+
+  const assemble = (...taggedGeometries) => ({ assembly: taggedGeometries });
+
+  const canonicalize$2 = (paths) => {
+    let canonicalized = paths.map(canonicalize$1);
+    if (paths.properties !== undefined) {
+      // Transfer properties.
+      canonicalized.properties = paths.properties;
+    }
+    return canonicalized;
+  };
+
   const difference = (pathset, ...pathsets) => { throw Error('Not implemented'); };
 
   const eachPoint = (options = {}, thunk, paths) => {
@@ -802,20 +824,9 @@ define("./webworker.js",[],function () { 'use strict';
     }
   };
 
-  const intersection = (...pathsets) => { throw Error('Not implemented'); };
+  const flip$1 = (paths) => paths.map(flip);
 
-  // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
-  const measureBoundingBox = (paths) => {
-    let minPoint;
-    let maxPoint;
-    eachPoint({},
-              point => {
-                minPoint = (minPoint === undefined) ? fromPoint(point) : min(minPoint, fromPoint(point));
-                maxPoint = (maxPoint === undefined) ? fromPoint(point) : max(maxPoint, fromPoint(point));
-              },
-              paths);
-    return [minPoint, maxPoint];
-  };
+  const intersection = (...pathsets) => { throw Error('Not implemented'); };
 
   /**
    * Transforms each path of Paths.
@@ -855,18 +866,6 @@ define("./webworker.js",[],function () { 'use strict';
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
-
-  function getCjsExportFromNamespace (n) {
-  	return n && n['default'] || n;
-  }
-
-  var commonjsHelpers = /*#__PURE__*/Object.freeze({
-    commonjsGlobal: commonjsGlobal,
-    commonjsRequire: commonjsRequire,
-    unwrapExports: unwrapExports,
-    createCommonjsModule: createCommonjsModule,
-    getCjsExportFromNamespace: getCjsExportFromNamespace
-  });
 
   var subtract_1 = subtract$1;
 
@@ -1305,7 +1304,7 @@ define("./webworker.js",[],function () { 'use strict';
       return out
   }
 
-  var distance_1 = distance;
+  var distance_1 = distance$1;
 
   /**
    * Calculates the euclidian distance between two vec3's
@@ -1314,7 +1313,7 @@ define("./webworker.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} distance between a and b
    */
-  function distance(a, b) {
+  function distance$1(a, b) {
       var x = b[0] - a[0],
           y = b[1] - a[1],
           z = b[2] - a[2];
@@ -2293,11 +2292,6 @@ define("./webworker.js",[],function () { 'use strict';
 
     return parts.join('')
   }
-
-  var base64 = /*#__PURE__*/Object.freeze({
-    toByteArray: toByteArray,
-    fromByteArray: fromByteArray
-  });
 
   function read (buffer, offset, isLE, mLen, nBytes) {
     var e, m;
@@ -3842,7 +3836,7 @@ define("./webworker.js",[],function () { 'use strict';
 
   function writeFloat (buf, value, offset, littleEndian, noAssert) {
     if (!noAssert) {
-      checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38);
+      checkIEEE754(buf, value, offset, 4);
     }
     write(buf, value, offset, littleEndian, 23, 4);
     return offset + 4
@@ -3858,7 +3852,7 @@ define("./webworker.js",[],function () { 'use strict';
 
   function writeDouble (buf, value, offset, littleEndian, noAssert) {
     if (!noAssert) {
-      checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308);
+      checkIEEE754(buf, value, offset, 8);
     }
     write(buf, value, offset, littleEndian, 52, 8);
     return offset + 8
@@ -7170,6 +7164,8 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
+  const flip$2 = (points) => points;
+
   /**
    * Transforms the vertices of a polygon, producing a new poly3.
    *
@@ -7196,7 +7192,7 @@ return d[d.length-1];};return ", funcName].join("");
     return original.map(vertex => transform(vertex));
   };
 
-  const canonicalize$2 = polygon => map(polygon, canonicalize);
+  const canonicalize$3 = polygon => map(polygon, canonicalize);
 
   /**
    * Emits the edges of a polygon in order.
@@ -7220,7 +7216,7 @@ return d[d.length-1];};return ", funcName].join("");
    * @param {poly3} polygon - the polygon to flip
    * @returns {poly3} a new poly3
    */
-  const flip = (polygon) => [...polygon].reverse();
+  const flip$3 = (polygon) => [...polygon].reverse();
 
   /**
    * Create a poly3 from the given points.
@@ -7250,7 +7246,7 @@ return d[d.length-1];};return ", funcName].join("");
    * @param {vec4} vec - plane to flip
    * @return {vec4} flipped plane
    */
-  const flip$1 = ([x = 0, y = 0, z = 0, w = 0]) => [-x, -y, -z, -w];
+  const flip$4 = ([x = 0, y = 0, z = 0, w = 0]) => [-x, -y, -z, -w];
 
   /**
    * Create a new plane from the given points
@@ -7495,7 +7491,7 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   const toPlane$1 = (surface) => toPlane(surface[0]);
-  const canonicalize$3 = (surface) => surface.map(canonicalize$2);
+  const canonicalize$4 = (surface) => surface.map(canonicalize$3);
 
   // Transforms
   const transform$5 = (matrix, surface) => surface.map(polygon => transform$4(matrix, polygon));
@@ -7527,7 +7523,7 @@ return d[d.length-1];};return ", funcName].join("");
     return original.map(polygon => transform(polygon));
   };
 
-  const flip$2 = (surface) => map$1(surface, flip);
+  const flip$5 = (surface) => map$1(surface, flip$3);
 
   const notEmpty = (surface) => surface.length > 0;
 
@@ -13632,556 +13628,7 @@ return d[d.length-1];};return ", funcName].join("");
   const rotateX = (radians, solid) => multiply$2(fromXRotation(radians), solid);
   const scale$4 = (vector, solid) => multiply$2(fromScaling(vector), solid);
 
-  const canonicalize$4 = (solid) => solid.map(canonicalize$3);
-
-  /**
-   * Adds two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
-   *
-   * @param {mat4} a The first matrix.
-   * @param {mat4} b The second matrix.
-   * @returns {Boolean} True if the matrices are equal, false otherwise.
-   */
-
-  /**
-   * Creates a matrix from a vector scaling
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.scale(dest, dest, vec);
-   *
-   * @param {vec3} v Scaling vector
-   * @returns {mat4} out
-   */
-  const fromScaling$1 = ([x = 1, y = 1, z = 1]) => [x, 0, 0, 0, 0, y, 0, 0, 0, 0, z, 0, 0, 0, 0, 1];
-
-  /**
-   * Creates a matrix from a vector translation
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.translate(dest, dest, vec);
-   *
-   * @param {mat4} out mat4 receiving operation result
-   * @param {vec3} v Translation vector
-   * @returns {mat4} out
-   */
-
-  /**
-   * Create a new mat4 with the given values
-   *
-   * @param {Number} m00 Component in column 0, row 0 position (index 0)
-   * @param {Number} m01 Component in column 0, row 1 position (index 1)
-   * @param {Number} m02 Component in column 0, row 2 position (index 2)
-   * @param {Number} m03 Component in column 0, row 3 position (index 3)
-   * @param {Number} m10 Component in column 1, row 0 position (index 4)
-   * @param {Number} m11 Component in column 1, row 1 position (index 5)
-   * @param {Number} m12 Component in column 1, row 2 position (index 6)
-   * @param {Number} m13 Component in column 1, row 3 position (index 7)
-   * @param {Number} m20 Component in column 2, row 0 position (index 8)
-   * @param {Number} m21 Component in column 2, row 1 position (index 9)
-   * @param {Number} m22 Component in column 2, row 2 position (index 10)
-   * @param {Number} m23 Component in column 2, row 3 position (index 11)
-   * @param {Number} m30 Component in column 3, row 0 position (index 12)
-   * @param {Number} m31 Component in column 3, row 1 position (index 13)
-   * @param {Number} m32 Component in column 3, row 2 position (index 14)
-   * @param {Number} m33 Component in column 3, row 3 position (index 15)
-   * @returns {mat4} A new mat4
-   */
-
-  /**
-   * Creates a matrix from the given angle around the X axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateX(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Y axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateY(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Z axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateZ(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Set a mat4 to the identity matrix
-   *
-   * @returns {mat4} out
-   */
-
-  /**
-   * Calculates the absolute value of the give vector
-   *
-   * @param {vec3} [out] - receiving vector
-   * @param {vec3} vec - given value
-   * @returns {vec3} absolute value of the vector
-   */
-
-  /**
-   * Adds two vec3's
-   *
-   * @param {vec3} a the first vector to add
-   * @param {vec3} b the second vector to add
-   * @returns {vec3} the added vectors
-   */
-
-  /**
-   * Calculates the dot product of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} dot product of a and b
-   */
-  const dot$2 = ([ax, ay, az], [bx, by, bz]) => (ax * bx) + (ay * by) + (az * bz);
-
-  /**
-   * Scales a vec3 by a scalar number
-   *
-   * @param {Number} amount amount to scale the vector by
-   * @param {vec3} vector the vector to scale
-   * @returns {vec3} out
-   */
-
-  // radians = degrees * PI / 180
-
-  // TODO: Clean this up.
-
-  // degrees = radians * 180 / PI
-
-  const spatialResolution$1 = 1e5;
-
-  // Quantize values for use in spatial coordinates, and so on, even if the usual quantizeForSpace is disabled.
-  const reallyQuantizeForSpace$1 = (value) => (Math.round(value * spatialResolution$1) / spatialResolution$1);
-
-  const canonicalize$5 = ([x = 0, y = 0, z = 0]) => [reallyQuantizeForSpace$1(x), reallyQuantizeForSpace$1(y), reallyQuantizeForSpace$1(z)];
-
-  /**
-   * Computes the cross product of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-  const cross$2 = ([ax, ay, az], [bx, by, bz]) => [ay * bz - az * by,
-                                                        az * bx - ax * bz,
-                                                        ax * by - ay * bx];
-
-  /**
-   * Calculates the euclidian distance between two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} distance between a and b
-   */
-
-  /**
-   * Divides two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Creates a new vec3 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
-
-  /** create a vec3 from a single scalar value
-   * all components of the resulting vec3 have the value of the
-   * input scalar
-   * @param  {Float} scalar
-   * @returns {Vec3}
-   */
-
-  /**
-   * Creates a new vec3 initialized with the given values
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
-
-  // extend to a 3D vector by adding a z coordinate:
-
-  /**
-   * Calculates the length of a vec3
-   *
-   * @param {vec3} a vector to calculate length of
-   * @returns {Number} length of a
-   */
-
-  /**
-   * Performs a linear interpolation between two vec3's
-   *
-   * @param {Number} t interpolant (0.0 to 1.0) applied between the two inputs
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the maximum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the minimum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Multiplies two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Negates the components of a vec3
-   *
-   * @param {vec3} a vector to negate
-   * @returns {vec3} out
-   */
-
-  /**
-   * Subtracts vector b from vector a
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Calculates the squared euclidian distance between two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} squared distance between a and b
-   */
-
-  /**
-   * Calculates the squared length of a vec3
-   *
-   * @param {vec3} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
-
-  /**
-   * Transforms the vec3 with a mat4.
-   * 4th vector component is implicitly '1'
-   * @param {[[<vec3>], <mat4> , <vec3>]} params
-   * @param {mat4} params[1] matrix matrix to transform with
-   * @param {vec3} params[2] vector the vector to transform
-   * @returns {vec3} out
-   */
-  const transform$6 = (matrix, [x = 0, y = 0, z = 0]) => {
-    let w = matrix[3] * x + matrix[7] * y + matrix[11] * z + matrix[15];
-    w = w || 1.0;
-    return [(matrix[0] * x + matrix[4] * y + matrix[8] * z + matrix[12]) / w,
-            (matrix[1] * x + matrix[5] * y + matrix[9] * z + matrix[13]) / w,
-            (matrix[2] * x + matrix[6] * y + matrix[10] * z + matrix[14]) / w];
-  };
-
-  /**
-   * determine whether the input matrix is a mirroring transformation
-   *
-   * @param {mat4} mat the input matrix
-   * @returns {boolean} output
-   */
-  const isMirroring$1 = (mat) => {
-    const u = [mat[0], mat[4], mat[8]];
-    const v = [mat[1], mat[5], mat[9]];
-    const w = [mat[2], mat[6], mat[10]];
-
-    // for a true orthogonal, non-mirrored base, u.cross(v) == w
-    // If they have an opposite direction then we are mirroring
-    const mirrorvalue = dot$2(cross$2(u, v), w);
-    const ismirror = (mirrorvalue < 0);
-    return ismirror;
-  };
-
-  /**
-   * m the mat4 by the dimensions in the given vec3
-   * create an affine matrix for mirroring into an arbitrary plane:
-   *
-   * @param {vec3} v the vec3 to mirror the matrix by
-   * @param {mat4} a the matrix to mirror
-   * @returns {mat4} out
-   */
-
-  /**
-   * Create an affine matrix for mirroring onto an arbitrary plane
-   *
-   * @param {vec4} plane to mirror the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Multiplies two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Calculates the absolute value of the give vector
-   *
-   * @param {vec2} vec - given value
-   * @returns {vec2} absolute value of the vector
-   */
-
-  /**
-   * Adds two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  // y=sin, x=cos
-
-  /**
-   * Computes the cross product (3D) of two vectors
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec3} cross product
-   */
-
-  /**
-   * Calculates the euclidian distance between two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} distance between a and b
-   */
-
-  /**
-   * Divides two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Calculates the dot product of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} dot product of a and b
-   */
-
-  /**
-   * Creates a new vec2 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec2} a new 2D vector
-   */
-
-  /** Create a vec2 from a single scalar value
-   * @param  {Float} scalar
-   * @returns {Vec2} a new vec2
-   */
-
-  /**
-   * Creates a new vec3 initialized with the given values
-   * Any missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec3} a new 2D vector
-   */
-
-  /**
-   * Calculates the length of a vec2
-   *
-   * @param {vec2} a vector to calculate length of
-   * @returns {Number} length of a
-   */
-
-  /**
-   * Performs a linear interpolation between two vec2's
-   *
-   * @param {Number} t interpolation amount between the two inputs
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the maximum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the minimum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Multiplies two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Negates the components of a vec2
-   *
-   * @param {vec2} a vector to negate
-   * @returns {vec2} out
-   */
-
-  /**
-   * Rotates a vec2 by an angle
-   *
-   * @param {Number} angle the angle of rotation (in radians)
-   * @param {vec2} vector the vector to rotate
-   * @returns {vec2} out
-   */
-
-  /**
-   * Normalize the given vector.
-   *
-   * @param {vec2} a vector to normalize
-   * @returns {vec2} normalized (unit) vector
-   */
-
-  /**
-   * Scales a vec2 by a scalar number
-   *
-   * @param {Number} amount amount to scale the vector by
-   * @param {vec2} vector the vector to scale
-   * @returns {vec2} out
-   */
-
-  /**
-   * Calculates the squared euclidian distance between two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} squared distance between a and b
-   */
-
-  /**
-   * Calculates the squared length of a vec2
-   *
-   * @param {vec2} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
-
-  /**
-   * Subtracts vector b from vector a
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Transforms the vec2 with a mat4
-   * 3rd vector component is implicitly '0'
-   * 4th vector component is implicitly '1'
-   *
-   * @param {mat4} matrix matrix to transform with
-   * @param {vec2} vector the vector to transform
-   * @returns {vec2} out
-   */
-
-  /**
-   * Subtracts matrix b from matrix a
-   *
-   * @param {mat4} out the receiving matrix
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  const canonicalizePoint$1 = (point, index) => {
-    if (point === null) {
-      if (index !== 0) throw Error('Path has null not at head');
-      return point;
-    } else {
-      return canonicalize$5(point);
-    }
-  };
-
-  const canonicalize$6 = (path) => path.map(canonicalizePoint$1);
-
-  const transform$7 = (matrix, path) =>
-    path.map((point, index) => (point === null) ? null : transform$6(matrix, point));
-
-  const canonicalize$7 = (paths) => {
-    let canonicalized = paths.map(canonicalize$6);
-    if (paths.properties !== undefined) {
-      // Transfer properties.
-      canonicalized.properties = paths.properties;
-    }
-    return canonicalized;
-  };
-
-  /**
-   * Transforms each path of Paths.
-   *
-   * @param {Paths} original - the Paths to transform.
-   * @param {Function} [transform=identity] - function used to transform the paths.
-   * @returns {Paths} the transformed paths.
-   */
-
-  const transform$8 = (matrix, paths) => paths.map(path => transform$7(matrix, path));
-
-  // FIX: Deduplication.
+  const canonicalize$5 = (solid) => solid.map(canonicalize$4);
 
   const isDegenerate = (polygon) => {
     for (let nth = 0; nth < polygon.length; nth++) {
@@ -14192,10 +13639,10 @@ return d[d.length-1];};return ", funcName].join("");
     return false;
   };
 
-  const canonicalize$8 = (polygons) => {
+  const canonicalize$6 = (polygons) => {
     const canonicalized = [];
     for (let polygon of polygons) {
-      polygon = canonicalize$2(polygon);
+      polygon = canonicalize$3(polygon);
       if (!isDegenerate(polygon)) {
         canonicalized.push(polygon);
       }
@@ -17933,7 +17380,7 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
-  const measureBoundingBox$1 = (polygons) => {
+  const measureBoundingBox = (polygons) => {
     let max$1 = polygons[0][0];
     let min$1 = polygons[0][0];
     eachPoint$3({},
@@ -17963,9 +17410,9 @@ return d[d.length-1];};return ", funcName].join("");
     return blessAsTriangles(triangles);
   };
 
-  const transform$9 = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
+  const transform$6 = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
 
-  const translate$2 = (vector, polygons) => transform$9(fromTranslation(vector), polygons);
+  const translate$2 = (vector, polygons) => transform$6(fromTranslation(vector), polygons);
 
   const EPSILON$1 = 1e-5;
 
@@ -18141,7 +17588,7 @@ return d[d.length-1];};return ", funcName].join("");
     const back = [];
     const frontEdges = [];
     const backEdges = [];
-    for (const surface of canonicalize$4(solid)) {
+    for (const surface of canonicalize$5(solid)) {
       cutSurface(plane, front, back, front, back, frontEdges, backEdges, surface);
       if (frontEdges.some(edge => edge[1] === undefined)) {
         throw Error(`die/end/missing: ${JSON.stringify(frontEdges)}`);
@@ -18150,12 +17597,12 @@ return d[d.length-1];};return ", funcName].join("");
 
     if (frontEdges.length > 0) {
       // FIX: This can produce a solid with separate coplanar surfaces.
-      front.push(flip$2(toLoops({}, canonicalize$7(frontEdges))));
+      front.push(flip$5(toLoops({}, canonicalize$2(frontEdges))));
     }
 
     if (backEdges.length > 0) {
       // FIX: This can produce a solid with separate coplanar surfaces.
-      back.push(flip$2(toLoops({}, canonicalize$7(backEdges))));
+      back.push(flip$5(toLoops({}, canonicalize$2(backEdges))));
     }
 
     return [front, back];
@@ -18180,6 +17627,8 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
+  const flip$6 = (solid) => solid.map(surface => flip$5(surface));
+
   const fromPolygons = (options = {}, polygons) => {
     const coplanarGroups = new Map();
 
@@ -18201,7 +17650,7 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
-  const measureBoundingBox$2 = (solid) => {
+  const measureBoundingBox$1 = (solid) => {
     if (solid.measureBoundingBox === undefined) {
       let max$1 = solid[0][0][0];
       let min$1 = solid[0][0][0];
@@ -18218,27 +17667,6 @@ return d[d.length-1];};return ", funcName].join("");
 
   // Relax the coplanar arrangement into polygon soup.
   const toPolygons = (options = {}, solid) => [].concat(...solid);
-
-  const eachItem = (geometry, operation) => {
-    const walk = (geometry) => {
-      if (geometry.assembly) {
-        geometry.assembly.forEach(walk);
-      }
-      operation(geometry);
-    };
-    walk(geometry);
-  };
-
-  const map$2 = (geometry, operation) => {
-    const walk = (geometry) => {
-      if (geometry.assembly) {
-        return operation({ assembly: geometry.assembly.map(walk), tags: geometry.tags });
-      } else {
-        return operation(geometry);
-      }
-    };
-    return walk(geometry);
-  };
 
   const create = () => ({ surfaces: [] });
 
@@ -18328,11 +17756,12 @@ return d[d.length-1];};return ", funcName].join("");
             if ((startType | endType) === SPANNING$1) {
               // This should exclude COPLANAR points.
               // Compute the point that touches the splitting plane.
-              const rawSpanPoint = splitLineSegmentByPlane(plane, startPoint, endPoint);
-              const spanPoint = subtract(rawSpanPoint, scale(signedDistanceToPoint(toPlane(polygon), rawSpanPoint), plane));
+              const spanPoint = splitLineSegmentByPlane(plane, ...[startPoint, endPoint].sort());
               frontPoints.push(spanPoint);
               backPoints.push(spanPoint);
-              if (Math.abs(signedDistanceToPoint(plane, spanPoint)) > EPSILON$2) throw Error('die');
+              if (Math.abs(signedDistanceToPoint(plane, spanPoint)) > EPSILON$2) {
+                throw Error(`die: ${Math.abs(signedDistanceToPoint(plane, spanPoint))}`);
+              }
             }
             startPoint = endPoint;
             startType = endType;
@@ -18446,23 +17875,23 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const flip$3 = (bsp) => {
+  const flip$7 = (bsp) => {
     // Flip the polygons.
-    bsp.surfaces = bsp.surfaces.map(flip$2);
+    bsp.surfaces = bsp.surfaces.map(flip$5);
     // Recompute the plane.
     if (bsp.plane !== undefined) {
       // PROVE: General equivalence.
       // const a = toPlane(bsp.polygons[0]);
       // const b = plane.flip(bsp.plane);
       // if (!plane.equals(a, b)) { throw Error(`die: ${JSON.stringify([a, b])}`); }
-      bsp.plane = flip$1(bsp.plane);
+      bsp.plane = flip$4(bsp.plane);
     }
     // Invert the children.
     if (bsp.front !== undefined) {
-      flip$3(bsp.front);
+      flip$7(bsp.front);
     }
     if (bsp.back !== undefined) {
-      flip$3(bsp.back);
+      flip$7(bsp.back);
     }
     // Swap the children.
     [bsp.front, bsp.back] = [bsp.back, bsp.front];
@@ -18521,8 +17950,8 @@ return d[d.length-1];};return ", funcName].join("");
 
   // Tolerates overlap up to one iota.
   const doesNotOverlap = (a, b) => {
-    const [minA, maxA] = measureBoundingBox$2(a);
-    const [minB, maxB] = measureBoundingBox$2(b);
+    const [minA, maxA] = measureBoundingBox$1(a);
+    const [minB, maxB] = measureBoundingBox$1(b);
     if (maxA[X$1] <= minB[X$1] + iota) { return true; }
     if (maxA[Y$1] <= minB[Y$1] + iota) { return true; }
     if (maxA[Z$1] <= minB[Z$1] + iota) { return true; }
@@ -18571,16 +18000,16 @@ return d[d.length-1];};return ", funcName].join("");
       const baseBsp = fromSurfaces({}, base);
       const subtractBsp = fromSurfaces({}, subtractions[i]);
 
-      flip$3(baseBsp);
+      flip$7(baseBsp);
       clipTo(baseBsp, subtractBsp);
       clipTo(subtractBsp, baseBsp);
 
-      flip$3(subtractBsp);
+      flip$7(subtractBsp);
       clipTo(subtractBsp, baseBsp);
-      flip$3(subtractBsp);
+      flip$7(subtractBsp);
 
       build(baseBsp, toSurfaces({}, subtractBsp));
-      flip$3(baseBsp);
+      flip$7(baseBsp);
 
       // PROVE: That the round-trip to solids and back is unnecessary for the intermediate stages.
       base = toSurfaces({}, baseBsp);
@@ -18615,15 +18044,15 @@ return d[d.length-1];};return ", funcName].join("");
       const aBsp = fromSurfaces({}, aSolid);
       const bBsp = fromSurfaces({}, bSolid);
 
-      flip$3(aBsp);
+      flip$7(aBsp);
       clipTo(bBsp, aBsp);
 
-      flip$3(bBsp);
+      flip$7(bBsp);
       clipTo(aBsp, bBsp);
       clipTo(bBsp, aBsp);
       build(aBsp, toSurfaces({}, bBsp));
 
-      flip$3(aBsp);
+      flip$7(aBsp);
 
       // Push back for the next generation.
       solids.push(toSurfaces({}, aBsp));
@@ -18649,9 +18078,9 @@ return d[d.length-1];};return ", funcName].join("");
       clipTo(bBsp, aBsp);
 
       // Turn b inside out and remove the bits that are in a.
-      flip$3(bBsp);
+      flip$7(bBsp);
       clipTo(bBsp, aBsp);
-      flip$3(bBsp);
+      flip$7(bBsp);
 
       // Now merge the two together.
       build(aBsp, toSurfaces({}, bBsp));
@@ -18660,6 +18089,156 @@ return d[d.length-1];};return ", funcName].join("");
       solids.push(toSurfaces({}, aBsp));
     }
     return solids[0];
+  };
+
+  const differenceItems = (base, ...subtractions) => {
+    const differenced = { tags: base.tags };
+    if (base.solid) {
+      differenced.solid = base.solid;
+      for (const subtraction of subtractions) {
+        if (subtraction.solid) {
+          differenced.solid = difference$3(differenced.solid, subtraction.solid);
+        }
+      }
+    } else if (base.z0Surface) {
+      differenced.z0Surface = base.z0Surface;
+      for (const subtraction of subtractions) {
+        if (subtraction.z0Surface) {
+          differenced.z0Surface = difference$2(differenced.z0Surface, subtraction.z0Surface);
+        }
+      }
+      return differenced;
+    } else if (base.paths) {
+      differenced.paths = base.paths;
+      // FIX: Figure out how paths differencing should work.
+    } else if (base.points) {
+      differenced.points = base.points;
+      // FIX: Figure out how points differencing should work.
+    } else {
+      throw Error('die');
+    }
+    return differenced;
+  };
+
+  const transformItem = (matrix, item) => {
+    const transformed = {};
+    if (item.assembly) {
+      transformed.assembly = item.assembly;
+    }
+    if (item.paths) {
+      transformed.paths = transform$2(matrix, item.paths);
+    }
+    if (item.points) {
+      transformed.points = transform$3(matrix, item.points);
+    }
+    if (item.solid) {
+      transformed.solid = multiply$2(matrix, item.solid);
+    }
+    if (item.z0Surface) {
+      // FIX: Handle transformations that take the surface out of z0.
+      transformed.z0Surface = transform$5(matrix, item.z0Surface);
+    }
+    transformed.tags = item.tags;
+    return transformed;
+  };
+
+  const transform$7 = (matrix, untransformed) => ({ matrix, untransformed });
+
+  // Apply the accumulated matrix transformations and produce a geometry without them.
+
+  const toTransformedGeometry = (geometry) => {
+    if (geometry.transformedGeometry === undefined) {
+      const walk = (matrix, geometry) => {
+        if (geometry.matrix) {
+          // Preserve any tags applied to the untransformed geometry.
+          return addTags(geometry.tags,
+                         walk(multiply$1(matrix, geometry.matrix),
+                              geometry.untransformed));
+        }
+
+        if (geometry.assembly) {
+          return {
+            ...geometry,
+            assembly: geometry.assembly.map(geometry => walk(matrix, geometry))
+          };
+        }
+
+        return transformItem(matrix, geometry);
+      };
+
+      geometry.transformed = walk(identity(), geometry);
+    }
+    return geometry.transformed;
+  };
+
+  // Traverse the assembly tree and disjoint it backward.
+  const toDisjointGeometry = (untransformedGeometry) => {
+    const geometry = toTransformedGeometry(untransformedGeometry);
+
+    if (geometry.assembly === undefined) {
+      // A singleton is disjoint.
+      return geometry;
+    } else if (geometry.disjointGeometry) {
+      return geometry.disjointGeometry;
+    } else {
+      const subtractions = [];
+      const walk = (geometry, disjointed) => {
+        for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
+          const item = geometry.assembly[nth];
+          if (item.assembly !== undefined) {
+            disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
+          } else {
+            const differenced = differenceItems(item, ...subtractions);
+            disjointed.assembly.push(differenced);
+            subtractions.push(differenced);
+          }
+        }
+        return disjointed;
+      };
+      const result = walk(geometry, { assembly: [], tags: geometry.tags });
+      geometry.disjointGeometry = result;
+      return result;
+    }
+  };
+
+  // Produce a disjoint geometry suitable for display.
+
+  const toKeptGeometry = (geometry) => {
+    const disjointGeometry = toDisjointGeometry(geometry);
+
+    const walk = (geometry) => {
+      if (geometry.tags === undefined || !geometry.tags.includes('@drop')) {
+        if (geometry.assembly) {
+          return { ...geometry, assembly: geometry.assembly.map(walk).filter(item => item !== undefined) };
+        } else {
+          return geometry;
+        }
+      }
+    };
+
+    const keptGeometry = walk(disjointGeometry);
+    return keptGeometry || {};
+  };
+
+  const eachItem = (geometry, operation) => {
+    const walk = (geometry) => {
+      if (geometry.assembly) {
+        geometry.assembly.forEach(walk);
+      }
+      operation(geometry);
+    };
+    walk(geometry);
+  };
+
+  const map$2 = (geometry, operation) => {
+    const walk = (geometry) => {
+      if (geometry.assembly) {
+        return operation({ assembly: geometry.assembly.map(walk), tags: geometry.tags });
+      } else {
+        return operation(geometry);
+      }
+    };
+    return walk(geometry);
   };
 
   const difference$4 = (geometry, ...geometries) => {
@@ -18731,12 +18310,31 @@ return d[d.length-1];};return ", funcName].join("");
     walk(geometry);
   };
 
+  const flip$8 = (geometry) => {
+    const flipped = {};
+    if (geometry.points) {
+      flipped.points = flip$2(geometry.points);
+    } else if (geometry.paths) {
+      flipped.paths = flip$1(geometry.paths);
+    } else if (geometry.z0Surface) {
+      flipped.surface = flip$5(geometry.z0Surface);
+    } else if (geometry.solid) {
+      flipped.solid = flip$6(geometry.solid);
+    } else if (geometry.assembly) {
+      flipped.assembly = geometry.assembly.map(flip$8);
+    } else {
+      throw Error(`die: ${JSON.stringify(geometry)}`);
+    }
+    flipped.tags = geometry.tags;
+    return flipped;
+  };
+
   const getPaths = (geometry) => {
     const paths = [];
     eachItem(geometry,
              item => {
                if (item.paths) {
-                 paths.push(item.paths);
+                 paths.push(item);
                }
              });
     return paths;
@@ -18747,7 +18345,7 @@ return d[d.length-1];};return ", funcName].join("");
     eachItem(geometry,
              item => {
                if (item.solid) {
-                 solids.push(item.solid);
+                 solids.push(item);
                }
              });
     return solids;
@@ -18758,7 +18356,7 @@ return d[d.length-1];};return ", funcName].join("");
     eachItem(geometry,
              item => {
                if (item.z0Surface) {
-                 z0Surfaces.push(item.z0Surface);
+                 z0Surfaces.push(item);
                }
              });
     return z0Surfaces;
@@ -18808,113 +18406,21 @@ return d[d.length-1];};return ", funcName].join("");
     return walk(geometry);
   };
 
-  const differenceItems = (base, ...subtractions) => {
-    const differenced = { tags: base.tags };
-    if (base.solid) {
-      differenced.solid = base.solid;
-      for (const subtraction of subtractions) {
-        if (subtraction.solid) {
-          differenced.solid = difference$3(differenced.solid, subtraction.solid);
-        }
-      }
-    } else if (base.z0Surface) {
-      differenced.z0Surface = base.z0Surface;
-      for (const subtraction of subtractions) {
-        if (subtraction.z0Surface) {
-          differenced.z0Surface = difference$2(differenced.z0Surface, subtraction.z0Surface);
-        }
-      }
-      return differenced;
-    } else if (base.paths) {
-      differenced.paths = base.paths;
-      // FIX: Figure out how paths differencing should work.
-    } else if (base.points) {
-      differenced.points = base.points;
-      // FIX: Figure out how points differencing should work.
+  const measureBoundingBox$2 = (geometry) => {
+    let minPoint = [Infinity, Infinity, Infinity];
+    let maxPoint = [-Infinity, -Infinity, -Infinity];
+    let empty = true;
+    eachPoint$5({},
+              (point) => {
+                minPoint = min(minPoint, point);
+                maxPoint = max(maxPoint, point);
+                empty = false;
+              },
+              geometry);
+    if (empty) {
+      return [[0, 0, 0], [0, 0, 0]];
     } else {
-      throw Error('die');
-    }
-    return differenced;
-  };
-
-  const transformItem = (matrix, item) => {
-    const transformed = {};
-    if (item.assembly) {
-      transformed.assembly = item.assembly;
-    }
-    if (item.paths) {
-      transformed.paths = transform$2(matrix, item.paths);
-    }
-    if (item.points) {
-      transformed.points = transform$3(matrix, item.points);
-    }
-    if (item.solid) {
-      transformed.solid = multiply$2(matrix, item.solid);
-    }
-    if (item.z0Surface) {
-      // FIX: Handle transformations that take the surface out of z0.
-      transformed.z0Surface = transform$5(matrix, item.z0Surface);
-    }
-    transformed.tags = item.tags;
-    return transformed;
-  };
-
-  const transform$a = (matrix, untransformed) => ({ matrix, untransformed });
-
-  // Apply the accumulated matrix transformations and produce a geometry without them.
-
-  const toTransformedGeometry = (geometry) => {
-    if (geometry.transformedGeometry === undefined) {
-      const walk = (matrix, geometry) => {
-        if (geometry.matrix) {
-          // Preserve any tags applied to the untransformed geometry.
-          return addTags(geometry.tags,
-                         walk(multiply$1(matrix, geometry.matrix),
-                              geometry.untransformed));
-        }
-
-        if (geometry.assembly) {
-          return {
-            ...geometry,
-            assembly: geometry.assembly.map(geometry => walk(matrix, geometry))
-          };
-        }
-
-        return transformItem(matrix, geometry);
-      };
-
-      geometry.transformed = walk(identity(), geometry);
-    }
-    return geometry.transformed;
-  };
-
-  // Traverse the assembly tree and disjoint it backward.
-  const toDisjointGeometry = (untransformedGeometry) => {
-    const geometry = toTransformedGeometry(untransformedGeometry);
-
-    if (geometry.assembly === undefined) {
-      // A singleton is disjoint.
-      return geometry;
-    } else if (geometry.disjointGeometry) {
-      return geometry.disjointGeometry;
-    } else {
-      const subtractions = [];
-      const walk = (geometry, disjointed) => {
-        for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
-          const item = geometry.assembly[nth];
-          if (item.assembly !== undefined) {
-            disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
-          } else {
-            const differenced = differenceItems(item, ...subtractions);
-            disjointed.assembly.push(differenced);
-            subtractions.push(differenced);
-          }
-        }
-        return disjointed;
-      };
-      const result = walk(geometry, { assembly: [], tags: geometry.tags });
-      geometry.disjointGeometry = result;
-      return result;
+      return [minPoint, maxPoint];
     }
   };
 
@@ -18933,25 +18439,6 @@ return d[d.length-1];};return ", funcName].join("");
     };
     walk(toDisjointGeometry(geometry));
     return components;
-  };
-
-  // Produce a disjoint geometry suitable for display.
-
-  const toKeptGeometry = (geometry) => {
-    const disjointGeometry = toDisjointGeometry(geometry);
-
-    const walk = (geometry) => {
-      if (geometry.tags === undefined || !geometry.tags.includes('@drop')) {
-        if (geometry.assembly) {
-          return { ...geometry, assembly: geometry.assembly.map(walk).filter(item => item !== undefined) };
-        } else {
-          return geometry;
-        }
-      }
-    };
-
-    const keptGeometry = walk(disjointGeometry);
-    return keptGeometry || {};
   };
 
   const toPoints$1 = (options = {}, geometry) => {
@@ -18985,11 +18472,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  class Shape {
-    as (...tags) {
-      return fromGeometry(addTags(tags, toGeometry(this)));
-    }
+  const scale$5 = (vector, assembly) => transform$7(fromScaling(vector), assembly);
 
+  class Shape {
     close () {
       const geometry = this.toKeptGeometry();
       if (!isSingleOpenPath(geometry)) {
@@ -19018,6 +18503,10 @@ return d[d.length-1];};return ", funcName].join("");
       eachPoint$5(options, operation, this.toKeptGeometry());
     }
 
+    flip () {
+      return fromGeometry(flip$8(toKeptGeometry$1(this)));
+    }
+
     toComponents (options = {}) {
       return toComponents(options, toGeometry(this)).map(fromGeometry);
     }
@@ -19040,7 +18529,7 @@ return d[d.length-1];};return ", funcName].join("");
 
     transform (matrix) {
       if (matrix.some(item => item === -Infinity)) throw Error('die');
-      return fromGeometry(transform$a(matrix, this.toGeometry()));
+      return fromGeometry(transform$7(matrix, this.toGeometry()));
     }
   }
   const isSingleOpenPath = ({ paths }) => (paths !== undefined) && (paths.length === 1) && (paths[0][0] === null);
@@ -19408,6 +18897,37 @@ return d[d.length-1];};return ", funcName].join("");
 
   /**
    *
+   * # As
+   *
+   * Produces a version of a shape with user defined tags.
+   *
+   * ::: illustration
+   * ```
+   * circle(10).as('A')
+   * ```
+   * :::
+   *
+   **/
+
+  const fromValue$1 = (tags, shape) => Shape.fromGeometry(addTags(tags.map(tag => `user/${tag}`), shape.toGeometry()));
+
+  const as = dispatch(
+    'as',
+    (tags, shape) => {
+      assertStrings(tags);
+      assertShape(shape);
+      return () => fromValue$1(tags, shape);
+    }
+  );
+
+  as.fromValues = fromValue$1;
+
+  const method$4 = function (...tags) { return as(tags, this); };
+
+  Shape.prototype.as = method$4;
+
+  /**
+   *
    * # Back
    *
    * Moves the shape so that it is just before the origin.
@@ -19453,9 +18973,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$1(shape, reference);
     });
 
-  const method$4 = function (...params) { return back(this, ...params); };
+  const method$5 = function (...params) { return back(this, ...params); };
 
-  Shape.prototype.back = method$4;
+  Shape.prototype.back = method$5;
 
   /**
    *
@@ -19504,9 +19024,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$2(shape, reference);
     });
 
-  const method$5 = function (...params) { return below(this, ...params); };
+  const method$6 = function (...params) { return below(this, ...params); };
 
-  Shape.prototype.below = method$5;
+  Shape.prototype.below = method$6;
 
   /**
    *
@@ -19535,9 +19055,9 @@ return d[d.length-1];};return ", funcName].join("");
     return translate$3(negate(center), shape);
   };
 
-  const method$6 = function () { return center(this); };
+  const method$7 = function () { return center(this); };
 
-  Shape.prototype.center = method$6;
+  Shape.prototype.center = method$7;
 
   /**
    *
@@ -19970,6 +19490,102 @@ return d[d.length-1];};return ", funcName].join("");
 
   const regularPolygonEdgeLengthToRadius = (length, edges) => length / (2 * sin(180 / edges));
 
+  const unitPolygon = (sides) => Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: sides }));
+
+  // Note: radius here is circumradius.
+  const toRadiusFromApothem = (apothem, sides) => apothem / Math.cos(Math.PI / sides);
+  const toRadiusFromEdge = (edge, sides) => edge * regularPolygonEdgeLengthToRadius(1, sides);
+
+  const fromEdge = ({ edge, sides }) => unitPolygon(sides).scale(toRadiusFromEdge(edge, sides));
+  const fromApothem = ({ apothem, sides }) => unitPolygon(sides).scale(toRadiusFromApothem(apothem, sides));
+  const fromRadius = ({ radius, sides }) => unitPolygon(sides).scale(radius);
+  const fromDiameter = ({ diameter, sides }) => unitPolygon(sides).scale(diameter / 2);
+  const fromPoints$2 = (points) => Shape.fromPathToZ0Surface(points.map(([x = 0, y = 0, z = 0]) => [x, y, z]));
+
+  /**
+   *
+   * # Polygon
+   *
+   * ::: illustration { "view": { "position": [0, 0, 5] } }
+   * ```
+   * polygon([0, 1],
+   *         [1, 1],
+   *         [1, 0],
+   *         [0.2, 0.2])
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, -1, 50] } }
+   * ```
+   * polygon({ edge: 10, sides: 6 })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, -1, 50] } }
+   * ```
+   * assemble(
+   *   polygon({ apothem: 10, sides: 5 }),
+   *   circle(10).drop())
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, -1, 50] } }
+   * ```
+   * assemble(
+   *   circle(10),
+   *   polygon({ radius: 10, sides: 5 }).drop())
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, -1, 50] } }
+   * ```
+   * polygon({ diameter: 20, sides: 3 })
+   * ```
+   * :::
+   *
+   **/
+
+  const polygon = dispatch(
+    'polygon',
+    // polygon([0, 0], [3, 0], [3, 3])
+    (...points) => {
+      assertPoints(points);
+      assert$2(points, 'Not at least three points', points.length >= 3);
+      return () => fromPoints$2(points);
+    },
+    // polygon({ points: [[0, 0], [3, 0], [3, 3]] })
+    ({ points }) => {
+      assertPoints(points);
+      assert$2(points, 'Not at least three points', points.length >= 3);
+      return () => fromPoints$2(points);
+    },
+    // polygon({ edge: 10, sides: 4 })
+    ({ edge, sides }) => {
+      assertNumber(edge);
+      assertNumber(sides);
+      return () => fromEdge({ edge, sides });
+    },
+    // polygon({ apothem: 10, sides: 27 })
+    ({ apothem, sides }) => {
+      assertNumber(apothem);
+      assertNumber(sides);
+      return () => fromApothem({ apothem, sides });
+    },
+    // polygon({ radius: 10, sides: 8 })
+    ({ radius, sides }) => {
+      assertNumber(radius);
+      assertNumber(sides);
+      return () => fromRadius({ radius, sides });
+    },
+    // polygon({ diameter: 10, sides: 7 })
+    ({ diameter, sides }) => {
+      assertNumber(diameter);
+      assertNumber(sides);
+      return () => fromDiameter({ diameter, sides });
+    });
+
+  polygon.fromEdge = fromEdge;
+  polygon.fromApothem = fromApothem;
+  polygon.fromRadius = fromRadius;
+  polygon.fromDiameter = fromDiameter;
+  polygon.fromPoints = fromPoints$2;
+
   /**
    *
    * # Circle (disc)
@@ -19992,55 +19608,90 @@ return d[d.length-1];};return ", funcName].join("");
    * ::: illustration
    * ```
    * circle({ radius: 10,
-   *          resolution: 8 })
+   *          sides: 8 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * circle({ apothem: 10,
+   *          sides: 8 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * assemble(circle({ apothem: 10, sides: 5 }),
+   *          circle({ radius: 10, sides: 5 }).drop(),
+   *          circle({ radius: 10 }).outline())
    * ```
    * :::
    * ::: illustration
    * ```
    * circle({ diameter: 20,
-   *          resolution: 16 })
+   *          sides: 16 })
    * ```
    * :::
    **/
-
-  // FIX: This uses the circumradius rather than apothem, so that the produced polygon will fit into the specified circle.
-  // Is this the most useful measure?
-
-  const unitCircle = ({ resolution = 32 }) =>
-    Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: resolution }));
-
-  const fromValue$1 = (radius) => unitCircle({ resolution: 32 }).scale(radius);
-
-  const fromRadius = ({ radius, resolution = 32 }) => unitCircle({ resolution }).scale(radius);
-
-  const fromDiameter = ({ diameter, resolution = 32 }) => unitCircle({ resolution }).scale(diameter / 2);
 
   const circle = dispatch(
     'circle',
     // circle()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$1(1);
+      return () => polygon.fromRadius({ radius: 1 });
     },
     // circle(2)
     (value) => {
       assertNumber(value);
-      return () => fromValue$1(value);
+      return () => polygon.fromRadius({ radius: value, sides: 32 });
     },
-    // circle({ radius: 2, resolution: 32 })
-    ({ radius, resolution }) => {
+    // circle({ radius: 2, sides: 32 })
+    ({ radius, sides = 32 }) => {
       assertNumber(radius);
-      return () => fromRadius({ radius, resolution });
+      return () => polygon.fromRadius({ radius, sides });
     },
-    // circle({ diameter: 2, resolution: 32 })
-    ({ diameter, resolution }) => {
+    // circle({ apothem: 2, sides: 32 })
+    ({ apothem, sides = 32 }) => {
+      assertNumber(apothem);
+      assertNumber(sides);
+      return () => polygon.fromApothem({ apothem, sides });
+    },
+    // circle({ diameter: 2, sides: 32 })
+    ({ diameter, sides = 32 }) => {
       assertNumber(diameter);
-      return () => fromDiameter({ diameter, resolution });
+      assertNumber(sides);
+      return () => polygon.fromDiameter({ diameter, sides });
     });
 
-  circle.fromValue = fromValue$1;
-  circle.fromRadius = fromRadius;
-  circle.fromDiameter = fromDiameter;
+  /**
+   *
+   * # Color
+   *
+   * Produces a version of a shape the given color.
+   *
+   * ::: illustration
+   * ```
+   * circle(10).color('blue')
+   * ```
+   * :::
+   *
+   **/
+
+  const fromValue$2 = (tags, shape) => Shape.fromGeometry(addTags(tags.map(tag => `color/${tag}`), shape.toGeometry()));
+
+  const color = dispatch(
+    'color',
+    (tags, shape) => {
+      assertStrings(tags);
+      assertShape(shape);
+      return () => fromValue$2(tags, shape);
+    }
+  );
+
+  color.fromValues = fromValue$2;
+
+  const method$8 = function (...tags) { return color(tags, this); };
+
+  Shape.prototype.color = method$8;
 
   /**
    *
@@ -20058,52 +19709,6 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const cos = (a) => Math.cos(a / 360 * Math.PI * 2);
-
-  /**
-   *
-   * # CrossSection
-   *
-   * Produces a cross-section of a solid as a surface.
-   *
-   * ::: illustration { "view": { "position": [40, 40, 60] } }
-   * ```
-   * difference(cylinder(10, 10),
-   *            cylinder(8, 10))
-   * ```
-   * :::
-   * ::: illustration
-   * ```
-   * difference(sphere(10),
-   *            sphere(8))
-   *   .crossSection()
-   * ```
-   * :::
-   * ::: illustration
-   * ```
-   * difference(sphere(10),
-   *            sphere(8))
-   *   .crossSection()
-   *   .outline()
-   * ```
-   * :::
-   *
-   **/
-
-  const crossSection = ({ allowOpenPaths = false, z = 0 } = {}, shape) => {
-    const solids = getSolids(shape.toKeptGeometry());
-    const shapes = [];
-    for (const solid of solids) {
-      const polygons = toPolygons({}, solid);
-      const triangles = toTriangles({}, polygons);
-      const paths = cutTrianglesByPlane({ allowOpenPaths }, fromPoints$1([0, 0, z], [1, 0, z], [0, 1, z]), triangles);
-      shapes.push(Shape.fromPathsToZ0Surface(paths));
-    }
-    return assemble$1(...shapes);
-  };
-
-  const method$7 = function (options) { return crossSection(options, this); };
-
-  Shape.prototype.crossSection = method$7;
 
   /**
    *
@@ -20156,7 +19761,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   // Cube Interfaces.
 
-  const fromValue$2 = (value) => unitCube().scale(value);
+  const fromValue$3 = (value) => unitCube().scale(value);
 
   const fromValues$2 = (width, breadth, height) => unitCube().scale([width, breadth, height]);
 
@@ -20179,13 +19784,13 @@ return d[d.length-1];};return ", funcName].join("");
     // cube()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$2(1);
+      return () => fromValue$3(1);
     },
     // cube(2)
     (value, ...rest) => {
       assertNumber(value);
       assertEmpty(rest);
-      return () => fromValue$2(value);
+      return () => fromValue$3(value);
     },
     // cube(2, 4, 6)
     (width, breadth, height, ...rest) => {
@@ -20212,7 +19817,7 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromCorners({ corner1, corner2 });
     });
 
-  cube.fromValue = fromValue$2;
+  cube.fromValue = fromValue$3;
   cube.fromValues = fromValues$2;
   cube.fromRadius = fromRadius$1;
   cube.fromDiameter = fromDiameter$1;
@@ -20369,7 +19974,7 @@ return d[d.length-1];};return ", funcName].join("");
     const solids = getSolids(shape.toKeptGeometry());
     const fronts = [];
     const backs = [];
-    for (const solid of solids) {
+    for (const { solid } of solids) {
       const [front, back] = cut(fromPoints$1([0, 0, z], [1, 0, z], [0, 1, z]), solid);
       fronts.push(Shape.fromSolid(front));
       backs.push(Shape.fromSolid(back));
@@ -20377,9 +19982,9 @@ return d[d.length-1];};return ", funcName].join("");
     return [assemble$1(...fronts), assemble$1(...backs)];
   };
 
-  const method$8 = function (options) { return cut$1(options, this); };
+  const method$9 = function (options) { return cut$1(options, this); };
 
-  Shape.prototype.cut = method$8;
+  Shape.prototype.cut = method$9;
 
   const buildCylinder = ({ radius = 1, height = 1, resolution = 32 }) => {
     return Shape.fromPolygonsToSolid(buildRegularPrism({ edges: resolution })).scale([radius, radius, height]);
@@ -20410,6 +20015,13 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    * ::: illustration { "view": { "position": [40, 40, 40] } }
    * ```
+   * cylinder({ apothem: 2,
+   *            height: 10,
+   *            resolution: 8 })
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
    * cylinder({ diameter: 6,
    *            height: 8,
    *            resolution: 16 })
@@ -20418,9 +20030,12 @@ return d[d.length-1];};return ", funcName].join("");
    *
    **/
 
-  const fromValue$3 = (radius, height = 1, resolution = 32) => buildCylinder({ radius, height, resolution });
+  const fromValue$4 = (radius, height = 1, resolution = 32) => buildCylinder({ radius, height, resolution });
 
   const fromRadius$2 = ({ radius, height = 1, resolution = 32 }) => buildCylinder({ radius, height, resolution });
+
+  const toRadiusFromApothem$1 = (apothem, sides) => apothem / Math.cos(Math.PI / sides);
+  const fromApothem$1 = ({ apothem, height = 1, resolution = 32 }) => buildCylinder({ radius: toRadiusFromApothem$1(apothem, resolution), height, resolution });
 
   const fromDiameter$2 = ({ diameter, height = 1, resolution = 32 }) => buildCylinder({ radius: diameter / 2, height, resolution });
 
@@ -20429,19 +20044,25 @@ return d[d.length-1];};return ", funcName].join("");
     // cylinder()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$3(1);
+      return () => fromValue$4(1);
     },
     (radius, height = 1, resolution = 32) => {
       assertNumber(radius);
       assertNumber(height);
       assertNumber(resolution);
-      return () => fromValue$3(radius, height, resolution);
+      return () => fromValue$4(radius, height, resolution);
     },
     ({ radius, height = 1, resolution = 32 }) => {
       assertNumber(radius);
       assertNumber(height);
       assertNumber(resolution);
       return () => fromRadius$2({ radius, height, resolution });
+    },
+    ({ apothem, height = 1, resolution = 32 }) => {
+      assertNumber(apothem);
+      assertNumber(height);
+      assertNumber(resolution);
+      return () => fromApothem$1({ apothem, height, resolution });
     },
     ({ diameter, height = 1, resolution = 32 }) => {
       assertNumber(diameter);
@@ -20450,7 +20071,7 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromDiameter$2({ diameter, height, resolution });
     });
 
-  cylinder.fromValue = fromValue$3;
+  cylinder.fromValue = fromValue$4;
   cylinder.fromRadius = fromRadius$2;
   cylinder.fromDiameter = fromDiameter$2;
 
@@ -20498,9 +20119,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$9 = function (...shapes) { return difference$5(this, ...shapes); };
+  const method$a = function (...shapes) { return difference$5(this, ...shapes); };
 
-  Shape.prototype.difference = method$9;
+  Shape.prototype.difference = method$a;
 
   /**
    *
@@ -20546,7 +20167,7 @@ return d[d.length-1];};return ", funcName].join("");
    *
    **/
 
-  const fromValue$4 = (tags, shape) => fromGeometry(drop(tags, toGeometry(shape)));
+  const fromValue$5 = (tags, shape) => fromGeometry(drop(tags, toGeometry(shape)));
 
   const drop$1 = dispatch(
     'drop',
@@ -20560,15 +20181,15 @@ return d[d.length-1];};return ", funcName].join("");
       // assemble(circle(), circle().as('a')).drop('a')
       assertStrings(tags);
       assertShape(shape);
-      return () => fromValue$4(tags, shape);
+      return () => fromValue$5(tags.map(tag => `user/${tag}`), shape);
     }
   );
 
-  drop$1.fromValues = fromValue$4;
+  drop$1.fromValues = fromValue$5;
 
-  const method$a = function (...tags) { return drop$1(tags, this); };
+  const method$b = function (...tags) { return drop$1(tags, this); };
 
-  Shape.prototype.drop = method$a;
+  Shape.prototype.drop = method$b;
 
   /**
    *
@@ -20594,19 +20215,19 @@ return d[d.length-1];};return ", funcName].join("");
 
   const fromHeight = ({ height }, shape) => {
     const z0Surfaces = getZ0Surfaces(shape.toKeptGeometry());
-    const solids = z0Surfaces.map(z0Surface => extrude({ height: height }, z0Surface));
+    const solids = z0Surfaces.map(({ z0Surface }) => extrude({ height: height }, z0Surface));
     const assembly = assemble$1(...solids.map(Shape.fromSolid));
     return assembly;
   };
 
-  const fromValue$5 = (height, shape) => fromHeight({ height }, shape);
+  const fromValue$6 = (height, shape) => fromHeight({ height }, shape);
 
   const extrude$1 = dispatch(
     'extrude',
     (height, shape) => {
       assertNumber(height);
       assertShape(shape);
-      return () => fromValue$5(height, shape);
+      return () => fromValue$6(height, shape);
     },
     ({ height }, shape) => {
       assertNumber(height);
@@ -20615,11 +20236,11 @@ return d[d.length-1];};return ", funcName].join("");
     }
   );
 
-  extrude$1.fromValue = fromValue$5;
+  extrude$1.fromValue = fromValue$6;
   extrude$1.fromHeight = fromHeight;
 
-  const method$b = function (options) { return extrude$1(options, this); };
-  Shape.prototype.extrude = method$b;
+  const method$c = function (options) { return extrude$1(options, this); };
+  Shape.prototype.extrude = method$c;
 
   /**
    *
@@ -20668,9 +20289,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$3(shape, reference);
     });
 
-  const method$c = function (...params) { return front(this, ...params); };
+  const method$d = function (...params) { return front(this, ...params); };
 
-  Shape.prototype.front = method$c;
+  Shape.prototype.front = method$d;
 
   /**
    *
@@ -20688,9 +20309,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const fuse = (shape) => fromGeometry(toKeptGeometry$1(shape));
 
-  const method$d = function () { return fuse(this); };
+  const method$e = function () { return fuse(this); };
 
-  Shape.prototype.fuse = method$d;
+  Shape.prototype.fuse = method$e;
 
   /**
    *
@@ -20737,9 +20358,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$e = function (...shapes) { return hull(this, ...shapes); };
+  const method$f = function (...shapes) { return hull(this, ...shapes); };
 
-  Shape.prototype.hull = method$e;
+  Shape.prototype.hull = method$f;
 
   /**
    *
@@ -20770,12 +20391,16 @@ return d[d.length-1];};return ", funcName].join("");
 
   const interior = (options = {}, shape) => {
     // FIX: Handle non-z0surfaces.
-    return Shape.fromPathsToZ0Surface(union$2(...getPaths(shape.toGeometry())));
+    const toUnion = [];
+    for (const { paths } of getPaths(shape.toGeometry())) {
+      toUnion.push(paths);
+    }
+    return Shape.fromPathsToZ0Surface(union$2(...toUnion));
   };
 
-  const method$f = function (options) { return interior(options, this); };
+  const method$g = function (options) { return interior(options, this); };
 
-  Shape.prototype.interior = method$f;
+  Shape.prototype.interior = method$g;
 
   /**
    *
@@ -20841,9 +20466,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$g = function (...shapes) { return intersection$5(this, ...shapes); };
+  const method$h = function (...shapes) { return intersection$5(this, ...shapes); };
 
-  Shape.prototype.intersection = method$g;
+  Shape.prototype.intersection = method$h;
 
   /**
    *
@@ -20881,22 +20506,22 @@ return d[d.length-1];};return ", funcName].join("");
    *
    **/
 
-  const fromValue$6 = (tags, shape) => fromGeometry(keep(tags, toGeometry(shape)));
+  const fromValue$7 = (tags, shape) => fromGeometry(keep(tags.map(tag => `user/${tag}`), toGeometry(shape)));
 
   const keep$1 = dispatch(
     'keep',
     (tags, shape) => {
       assertStrings(tags);
       assertShape(shape);
-      return () => fromValue$6(tags, shape);
+      return () => fromValue$7(tags, shape);
     }
   );
 
-  keep$1.fromValues = fromValue$6;
+  keep$1.fromValues = fromValue$7;
 
-  const method$h = function (...tags) { return keep$1(tags, this); };
+  const method$i = function (...tags) { return keep$1(tags, this); };
 
-  Shape.prototype.keep = method$h;
+  Shape.prototype.keep = method$i;
 
   /**
    *
@@ -20945,9 +20570,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$4(shape, reference);
     });
 
-  const method$i = function (...params) { return left(this, ...params); };
+  const method$j = function (...params) { return left(this, ...params); };
 
-  Shape.prototype.left = method$i;
+  Shape.prototype.left = method$j;
 
   /**
    *
@@ -20968,7 +20593,7 @@ return d[d.length-1];};return ", funcName].join("");
    * union(sphere(5).left(),
    *       sphere(5),
    *       sphere(5).right())
-   *   .crossSection()
+   *   .section()
    *   .outline()
    * ```
    * :::
@@ -20990,7 +20615,7 @@ return d[d.length-1];};return ", funcName].join("");
    * union(assemble(cube().left(),
    *                cube().right()),
    *       cube().front())
-   *   .crossSection()
+   *   .section()
    *   .outline()
    * ```
    * :::
@@ -21012,9 +20637,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$j = function (...shapes) { return union$5(this, ...shapes); };
+  const method$k = function (...shapes) { return union$5(this, ...shapes); };
 
-  Shape.prototype.union = method$j;
+  Shape.prototype.union = method$k;
 
   /**
    *
@@ -21146,38 +20771,6 @@ return d[d.length-1];};return ", funcName].join("");
 
   /* global Worker */
 
-  // Sets up a worker with conversational interface.
-  const createService = async ({ nodeWorker, webWorker, agent }) => {
-    if (isNode) {
-      // const { Worker } = await import('worker_threads');
-      const { Worker } = require('worker_threads');
-      const worker = new Worker(nodeWorker);
-      const say = (message) => worker.postMessage(message);
-      const { ask, hear } = conversation({ agent, say });
-      const stop = async () => {
-        return new Promise((resolve, reject) => {
-          worker.terminate((err, exitCode) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(exitCode);
-            }
-          });
-        });
-      };
-      worker.on('message', hear);
-      return { ask, stop };
-    } else if (isBrowser) {
-      const worker = new Worker(webWorker);
-      const say = (message) => worker.postMessage(message);
-      const { ask, hear } = conversation({ agent, say });
-      worker.onmessage = ({ data }) => hear(data);
-      return { ask };
-    } else {
-      throw Error('die');
-    }
-  };
-
   var require$$0 = {};
 
   var fs = /*#__PURE__*/Object.freeze({
@@ -21185,17 +20778,6 @@ return d[d.length-1];};return ", funcName].join("");
   });
 
   let base = '';
-
-  const setupFilesystem = ({ fileBase }) => {
-    // A prefix used to partition the filesystem for multiple projects.
-    if (fileBase !== undefined) {
-      if (base.endsWith('/')) {
-        base = fileBase;
-      } else {
-        base = `${fileBase}/`;
-      }
-    }
-  };
 
   // Copyright Joyent, Inc. and other Node contributors.
 
@@ -21238,10 +20820,6 @@ return d[d.length-1];};return ", funcName].join("");
       }
     }
     return file;
-  };
-
-  const watchFileCreation = (thunk) => {
-    return fileCreationWatchers.push(thunk);
   };
 
   var localforage = createCommonjsModule(function (module, exports) {
@@ -24198,21 +23776,6 @@ return d[d.length-1];};return ", funcName].join("");
     return file.data;
   };
 
-  const watchFile = (path, thunk) => getFile({}, path).watchers.push(thunk);
-
-
-
-  var sys = /*#__PURE__*/Object.freeze({
-    createService: createService,
-    conversation: conversation,
-    log: log$1,
-    readFile: readFile,
-    setupFilesystem: setupFilesystem,
-    watchFile: watchFile,
-    watchFileCreation: watchFileCreation,
-    writeFile: writeFile
-  });
-
   /**
    *
    * # Log
@@ -24226,6 +23789,49 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const log$2 = (text) => log$1(text);
+
+  /**
+   *
+   * # Material
+   *
+   * Produces a version of a shape with a given material.
+   *
+   * Materials supported include 'paper', 'metal', 'glass'.
+   *
+   * ::: illustration
+   * ```
+   * cylinder(5, 10).material('paper').color('pink')
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * cylinder(5, 10).material('metal').color('green')
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * cylinder(5, 10).material('glass').color('blue')
+   * ```
+   * :::
+   *
+   **/
+
+  const fromValue$8 = (tags, shape) => Shape.fromGeometry(addTags(tags.map(tag => `material/${tag}`), shape.toGeometry()));
+
+  const material = dispatch(
+    'material',
+    (tags, shape) => {
+      assertStrings(tags);
+      assertShape(shape);
+      return () => fromValue$8(tags, shape);
+    }
+  );
+
+  material.fromValues = fromValue$8;
+
+  const method$l = function (...tags) { return material(tags, this); };
+
+  Shape.prototype.material = method$l;
 
   /**
    *
@@ -24325,14 +23931,14 @@ return d[d.length-1];};return ", funcName].join("");
   const outline = (options = {}, shape) => {
     const surfaces = getZ0Surfaces(shape.toKeptGeometry());
     // FIX: Handle non-z0surfaces.
-    return assemble$1(...surfaces.map(surface => Shape.fromPaths(surface)));
+    return assemble$1(...surfaces.map(({ z0Surface }) => Shape.fromPaths(z0Surface)));
   };
 
-  const method$k = function (options) { return outline(options, this); };
+  const method$m = function (options) { return outline(options, this); };
 
-  Shape.prototype.outline = method$k;
+  Shape.prototype.outline = method$m;
 
-  const fromValue$7 = (point) => Shape.fromPoint(point);
+  const fromValue$9 = (point) => Shape.fromPoint(point);
 
   /**
    *
@@ -24393,19 +23999,19 @@ return d[d.length-1];};return ", funcName].join("");
       assertNumber(y);
       assertNumber(z);
       assertEmpty(rest);
-      return () => fromValue$7([x, y, z]);
+      return () => fromValue$9([x, y, z]);
     },
     // point([1, 2, 3])
     ([x = 0, y = 0, z = 0]) => {
       assertNumber(x);
       assertNumber(y);
       assertNumber(z);
-      return () => fromValue$7([x, y, z]);
+      return () => fromValue$9([x, y, z]);
     });
 
-  point.fromValue = fromValue$7;
+  point.fromValue = fromValue$9;
 
-  const fromPoints$2 = (points) => Shape.fromPoints(points);
+  const fromPoints$3 = (points) => Shape.fromPoints(points);
 
   /**
    *
@@ -24449,44 +24055,10 @@ return d[d.length-1];};return ", funcName].join("");
       for (const [x = 0, y = 0, z = 0] of points) {
         assertNumberTriple([x, y, z]);
       }
-      return () => fromPoints$2(points);
+      return () => fromPoints$3(points);
     });
 
-  points$1.fromPoints = fromPoints$2;
-
-  const fromValue$8 = (points) => Shape.fromPathToZ0Surface(points.map(([x = 0, y = 0, z = 0]) => [x, y, z]));
-
-  /**
-   *
-   * # Polygon
-   *
-   * ::: illustration { "view": { "position": [0, 0, 5] } }
-   * ```
-   * polygon([0, 1],
-   *         [1, 1],
-   *         [1, 0],
-   *         [0.2, 0.2])
-   * ```
-   * :::
-   *
-   **/
-
-  const polygon = dispatch(
-    'polygon',
-    // polygon([0, 0], [3, 0], [3, 3])
-    (...points) => {
-      assertPoints(points);
-      assert$2(points, 'Not at least three points', points.length >= 3);
-      return () => fromValue$8(points);
-    },
-    // polygon({ points: [[0, 0], [3, 0], [3, 3]] })
-    ({ points }) => {
-      assertPoints(points);
-      assert$2(points, 'Not at least three points', points.length >= 3);
-      return () => fromValue$8(points);
-    });
-
-  polygon.fromValue = fromValue$8;
+  points$1.fromPoints = fromPoints$3;
 
   /**
    *
@@ -24573,10 +24145,10 @@ return d[d.length-1];};return ", funcName].join("");
     readBytes('-X:', 'negativeX', asNumber, 47, 9);
     readBytes('+Y:', 'positiveY', asNumber, 56, 9);
     readBytes('-Y:', 'negativeY', asNumber, 65, 9);
-    readBytes('AX:', 'deltaX', asNumber, 74, 10, 'sign');
-    readBytes('AY:', 'deltaY', asNumber, 84, 10, 'sign');
-    readBytes('MX:', 'previousX', asNumber, 94, 10, 'sign');
-    readBytes('MY:', 'previousY', asNumber, 104, 10, 'sign');
+    readBytes('AX:', 'deltaX', asNumber, 74, 10);
+    readBytes('AY:', 'deltaY', asNumber, 84, 10);
+    readBytes('MX:', 'previousX', asNumber, 94, 10);
+    readBytes('MY:', 'previousY', asNumber, 104, 10);
     readBytes('PD:', 'previousFile', asNumber, 114, 10);
     readBytes('\x1a   ', '', '', 124, 4); // end of header
     readBytes('', '', '', 128, 384); // block padding
@@ -27757,2806 +27329,6 @@ return d[d.length-1];};return ", funcName].join("");
     return pointsToD(points);
   };
 
-  const transform$b = (matrix, points) => points.map(point => transform$6(matrix, point));
-
-  /**
-   * Transforms the vertices of a polygon, producing a new poly3.
-   *
-   * The polygon does not need to be a poly3, but may be any array of
-   * points. The points being represented as arrays of values.
-   *
-   * If the original has a 'plane' property, the result will have a clone
-   * of the plane.
-   *
-   * @param {Function} [transform=vec3.clone] - function used to transform the vertices.
-   * @returns {Array} a copy with transformed vertices and copied properties.
-   *
-   * @example
-   * const vertices = [ [0, 0, 0], [0, 10, 0], [0, 10, 10] ]
-   * let observed = poly3.map(vertices)
-   */
-  const map$3 = (original, transform) => {
-    if (original === undefined) {
-      original = [];
-    }
-    if (transform === undefined) {
-      transform = _ => _;
-    }
-    return original.map(vertex => transform(vertex));
-  };
-
-  /**
-   * Emits the edges of a polygon in order.
-   *
-   * @param {function} the function to call with each edge in order.
-   * @param {Polygon} the polygon of which to emit the edges.
-   */
-
-  /**
-   * Flip the give polygon to face the opposite direction.
-   *
-   * @param {poly3} polygon - the polygon to flip
-   * @returns {poly3} a new poly3
-   */
-
-  /**
-   * Create a poly3 from the given points.
-   *
-   * @param {Array[]} points - list of points
-   * @param {plane} [planeof] - plane of the polygon
-   *
-   * @example
-   * const points = [
-   *   [0,  0, 0],
-   *   [0, 10, 0],
-   *   [0, 10, 10]
-   * ]
-   * const polygon = createFromPoints(points)
-   */
-
-  /**
-   * Compare the given planes for equality
-   * @return {boolean} true if planes are equal
-   */
-
-  /**
-   * Flip the given plane (vec4)
-   *
-   * @param {vec4} vec - plane to flip
-   * @return {vec4} flipped plane
-   */
-
-  /**
-   * Returns the polygon as an array of points.
-   * @param {Polygon}
-   * @returns {Points}
-   */
-
-  // Affine transformation of polygon. Returns a new polygon.
-  const transform$c = (matrix, polygon) => {
-    const transformed = map$3(polygon, vertex => transform$6(matrix, vertex));
-    if (isMirroring$1(matrix)) {
-      // Reverse the order to preserve the orientation.
-      transformed.reverse();
-    }
-    return transformed;
-  };
-
-  // Transforms
-  const transform$d = (matrix, surface) => surface.map(polygon => transform$c(matrix, polygon));
-
-  /**
-   * Transforms each polygon of the surface.
-   *
-   * @param {Polygons} original - the Polygons to transform.
-   * @param {Function} [transform=identity] - function used to transform the polygons.
-   * @returns {Polygons} a copy with transformed polygons.
-   */
-
-  // Internal function to massage data for passing to polygon-clipping.
-
-  /* follows "An implementation of top-down splaying"
-   * by D. Sleator <sleator@cs.cmu.edu> March 1992
-   */
-
-  /**
-   * @typedef {*} Key
-   */
-
-
-  /**
-   * @typedef {*} Value
-   */
-
-
-  /**
-   * @typedef {function(node:Node):void} Visitor
-   */
-
-
-  /**
-   * @typedef {function(a:Key, b:Key):number} Comparator
-   */
-
-
-  /**
-   * @param {function(node:Node):string} NodePrinter
-   */
-
-
-  /**
-   * @typedef {Object}  Node
-   * @property {Key}    Key
-   * @property {Value=} data
-   * @property {Node}   left
-   * @property {Node}   right
-   */
-
-  class Node$2 {
-
-    constructor (key, data) {
-      this.key    = key;
-      this.data   = data;
-      this.left   = null;
-      this.right  = null;
-    }
-  }
-
-  function DEFAULT_COMPARE$1 (a, b) { return a > b ? 1 : a < b ? -1 : 0; }
-
-
-  /**
-   * Simple top down splay, not requiring i to be in the tree t.
-   * @param {Key} i
-   * @param {Node?} t
-   * @param {Comparator} comparator
-   */
-  function splay$1 (i, t, comparator) {
-    if (t === null) return t;
-    let l, r, y;
-    const N = new Node$2();
-    l = r = N;
-
-    while (true) {
-      const cmp = comparator(i, t.key);
-      //if (i < t.key) {
-      if (cmp < 0) {
-        if (t.left === null) break;
-        //if (i < t.left.key) {
-        if (comparator(i, t.left.key) < 0) {
-          y = t.left;                           /* rotate right */
-          t.left = y.right;
-          y.right = t;
-          t = y;
-          if (t.left === null) break;
-        }
-        r.left = t;                               /* link right */
-        r = t;
-        t = t.left;
-      //} else if (i > t.key) {
-      } else if (cmp > 0) {
-        if (t.right === null) break;
-        //if (i > t.right.key) {
-        if (comparator(i, t.right.key) > 0) {
-          y = t.right;                          /* rotate left */
-          t.right = y.left;
-          y.left = t;
-          t = y;
-          if (t.right === null) break;
-        }
-        l.right = t;                              /* link left */
-        l = t;
-        t = t.right;
-      } else {
-        break;
-      }
-    }
-    /* assemble */
-    l.right = t.left;
-    r.left = t.right;
-    t.left = N.right;
-    t.right = N.left;
-    return t;
-  }
-
-
-  /**
-   * @param  {Key}        i
-   * @param  {Value}      data
-   * @param  {Comparator} comparator
-   * @param  {Tree}       tree
-   * @return {Node}      root
-   */
-  function insert$1 (i, data, t, comparator, tree) {
-    const node = new Node$2(i, data);
-
-    tree._size++;
-
-    if (t === null) {
-      node.left = node.right = null;
-      return node;
-    }
-
-    t = splay$1(i, t, comparator);
-    const cmp = comparator(i, t.key);
-    if (cmp < 0) {
-      node.left = t.left;
-      node.right = t;
-      t.left = null;
-    } else if (cmp >= 0) {
-      node.right = t.right;
-      node.left = t;
-      t.right = null;
-    }
-    return node;
-  }
-
-
-  /**
-   * Insert i into the tree t, unless it's already there.
-   * @param  {Key}        i
-   * @param  {Value}      data
-   * @param  {Comparator} comparator
-   * @param  {Tree}       tree
-   * @return {Node}       root
-   */
-  function add$2 (i, data, t, comparator, tree) {
-    const node = new Node$2(i, data);
-
-    if (t === null) {
-      node.left = node.right = null;
-      tree._size++;
-      return node;
-    }
-
-    t = splay$1(i, t, comparator);
-    const cmp = comparator(i, t.key);
-    if (cmp === 0) return t;
-    else {
-      if (cmp < 0) {
-        node.left = t.left;
-        node.right = t;
-        t.left = null;
-      } else if (cmp > 0) {
-        node.right = t.right;
-        node.left = t;
-        t.right = null;
-      }
-      tree._size++;
-      return node;
-    }
-  }
-
-
-  /**
-   * Deletes i from the tree if it's there
-   * @param {Key}        i
-   * @param {Tree}       tree
-   * @param {Comparator} comparator
-   * @param {Tree}       tree
-   * @return {Node}      new root
-   */
-  function remove (i, t, comparator, tree) {
-    let x;
-    if (t === null) return null;
-    t = splay$1(i, t, comparator);
-    var cmp = comparator(i, t.key);
-    if (cmp === 0) {               /* found it */
-      if (t.left === null) {
-        x = t.right;
-      } else {
-        x = splay$1(i, t.left, comparator);
-        x.right = t.right;
-      }
-      tree._size--;
-      return x;
-    }
-    return t;                         /* It wasn't there */
-  }
-
-
-  function split$2 (key, v, comparator) {
-    let left, right;
-    if (v === null) {
-      left = right = null;
-    } else {
-      v = splay$1(key, v, comparator);
-
-      const cmp = comparator(v.key, key);
-      if (cmp === 0) {
-        left  = v.left;
-        right = v.right;
-      } else if (cmp < 0) {
-        right   = v.right;
-        v.right = null;
-        left    = v;
-      } else {
-        left   = v.left;
-        v.left = null;
-        right  = v;
-      }
-    }
-    return { left, right };
-  }
-
-
-  function merge$1 (left, right, comparator) {
-    if (right === null) return left;
-    if (left  === null) return right;
-
-    right = splay$1(left.key, right, comparator);
-    right.left = left;
-    return right;
-  }
-
-
-  /**
-   * Prints level of the tree
-   * @param  {Node}                        root
-   * @param  {String}                      prefix
-   * @param  {Boolean}                     isTail
-   * @param  {Array<string>}               out
-   * @param  {Function(node:Node):String}  printNode
-   */
-  function printRow$1 (root, prefix, isTail, out, printNode) {
-    if (root) {
-      out(`${ prefix }${ isTail ? '└── ' : '├── ' }${ printNode(root) }\n`);
-      const indent = prefix + (isTail ? '    ' : '│   ');
-      if (root.left)  printRow$1(root.left,  indent, false, out, printNode);
-      if (root.right) printRow$1(root.right, indent, true,  out, printNode);
-    }
-  }
-
-
-  class Tree$1 {
-
-    constructor (comparator = DEFAULT_COMPARE$1) {
-      this._comparator = comparator;
-      this._root = null;
-      this._size = 0;
-    }
-
-
-    /**
-     * Inserts a key, allows duplicates
-     * @param  {Key}    key
-     * @param  {Value=} data
-     * @return {Node|null}
-     */
-    insert (key, data) {
-      return this._root = insert$1(key, data, this._root, this._comparator, this);
-    }
-
-
-    /**
-     * Adds a key, if it is not present in the tree
-     * @param  {Key}    key
-     * @param  {Value=} data
-     * @return {Node|null}
-     */
-    add (key, data) {
-      return this._root = add$2(key, data, this._root, this._comparator, this);
-    }
-
-
-    /**
-     * @param  {Key} key
-     * @return {Node|null}
-     */
-    remove (key) {
-      this._root = remove(key, this._root, this._comparator, this);
-    }
-
-
-    /**
-     * Removes and returns the node with smallest key
-     * @return {?Node}
-     */
-    pop () {
-      let node = this._root;
-      if (node) {
-        while (node.left) node = node.left;
-        this._root = splay$1(node.key,  this._root, this._comparator);
-        this._root = remove(node.key, this._root, this._comparator, this);
-        return { key: node.key, data: node.data };
-      }
-      return null;
-    }
-
-
-    /**
-     * @param  {Key} key
-     * @return {Node|null}
-     */
-    findStatic (key) {
-      let current   = this._root;
-      const compare = this._comparator;
-      while (current) {
-        const cmp = compare(key, current.key);
-        if (cmp === 0)    return current;
-        else if (cmp < 0) current = current.left;
-        else              current = current.right;
-      }
-      return null;
-    }
-
-
-    /**
-     * @param  {Key} key
-     * @return {Node|null}
-     */
-    find (key) {
-      if (this._root) {
-        this._root = splay$1(key, this._root, this._comparator);
-        if (this._comparator(key, this._root.key) !== 0) return null;
-      }
-      return this._root;
-    }
-
-
-    /**
-     * @param  {Key} key
-     * @return {Boolean}
-     */
-    contains (key) {
-      let current   = this._root;
-      const compare = this._comparator;
-      while (current) {
-        const cmp = compare(key, current.key);
-        if (cmp === 0)    return true;
-        else if (cmp < 0) current = current.left;
-        else              current = current.right;
-      }
-      return false;
-    }
-
-
-    /**
-     * @param  {Visitor} visitor
-     * @param  {*=}      ctx
-     * @return {SplayTree}
-     */
-    forEach (visitor, ctx) {
-      let current = this._root;
-      const Q = [];  /* Initialize stack s */
-      let done = false;
-
-      while (!done) {
-        if (current !==  null) {
-          Q.push(current);
-          current = current.left;
-        } else {
-          if (Q.length !== 0) {
-            current = Q.pop();
-            visitor.call(ctx, current);
-
-            current = current.right;
-          } else done = true;
-        }
-      }
-      return this;
-    }
-
-
-    /**
-     * Walk key range from `low` to `high`. Stops if `fn` returns a value.
-     * @param  {Key}      low
-     * @param  {Key}      high
-     * @param  {Function} fn
-     * @param  {*?}       ctx
-     * @return {SplayTree}
-     */
-    range (low, high, fn, ctx) {
-      const Q = [];
-      const compare = this._comparator;
-      let node = this._root, cmp;
-
-      while (Q.length !== 0 || node) {
-        if (node) {
-          Q.push(node);
-          node = node.left;
-        } else {
-          node = Q.pop();
-          cmp = compare(node.key, high);
-          if (cmp > 0) {
-            break;
-          } else if (compare(node.key, low) >= 0) {
-            if (fn.call(ctx, node)) return this; // stop if smth is returned
-          }
-          node = node.right;
-        }
-      }
-      return this;
-    }
-
-
-    /**
-     * Returns array of keys
-     * @return {Array<Key>}
-     */
-    keys () {
-      const keys = [];
-      this.forEach(({ key }) => keys.push(key));
-      return keys;
-    }
-
-
-    /**
-     * Returns array of all the data in the nodes
-     * @return {Array<Value>}
-     */
-    values () {
-      const values = [];
-      this.forEach(({ data }) => values.push(data));
-      return values;
-    }
-
-
-    /**
-     * @return {Key|null}
-     */
-    min() {
-      if (this._root) return this.minNode(this._root).key;
-      return null;
-    }
-
-
-    /**
-     * @return {Key|null}
-     */
-    max() {
-      if (this._root) return this.maxNode(this._root).key;
-      return null;
-    }
-
-
-    /**
-     * @return {Node|null}
-     */
-    minNode(t = this._root) {
-      if (t) while (t.left) t = t.left;
-      return t;
-    }
-
-
-    /**
-     * @return {Node|null}
-     */
-    maxNode(t = this._root) {
-      if (t) while (t.right) t = t.right;
-      return t;
-    }
-
-
-    /**
-     * Returns node at given index
-     * @param  {number} index
-     * @return {?Node}
-     */
-    at (index) {
-      let current = this._root, done = false, i = 0;
-      const Q = [];
-
-      while (!done) {
-        if (current) {
-          Q.push(current);
-          current = current.left;
-        } else {
-          if (Q.length > 0) {
-            current = Q.pop();
-            if (i === index) return current;
-            i++;
-            current = current.right;
-          } else done = true;
-        }
-      }
-      return null;
-    }
-
-
-    /**
-     * @param  {Node}   d
-     * @return {Node|null}
-     */
-    next (d) {
-      let root = this._root;
-      let successor = null;
-
-      if (d.right) {
-        successor = d.right;
-        while (successor.left) successor = successor.left;
-        return successor;
-      }
-
-      const comparator = this._comparator;
-      while (root) {
-        const cmp = comparator(d.key, root.key);
-        if (cmp === 0) break;
-        else if (cmp < 0) {
-          successor = root;
-          root = root.left;
-        } else root = root.right;
-      }
-
-      return successor;
-    }
-
-
-    /**
-     * @param  {Node} d
-     * @return {Node|null}
-     */
-    prev (d) {
-      let root = this._root;
-      let predecessor = null;
-
-      if (d.left !== null) {
-        predecessor = d.left;
-        while (predecessor.right) predecessor = predecessor.right;
-        return predecessor;
-      }
-
-      const comparator = this._comparator;
-      while (root) {
-        const cmp = comparator(d.key, root.key);
-        if (cmp === 0) break;
-        else if (cmp < 0) root = root.left;
-        else {
-          predecessor = root;
-          root = root.right;
-        }
-      }
-      return predecessor;
-    }
-
-
-    /**
-     * @return {SplayTree}
-     */
-    clear() {
-      this._root = null;
-      this._size = 0;
-      return this;
-    }
-
-
-    /**
-     * @return {NodeList}
-     */
-    toList() {
-      return toList$1(this._root);
-    }
-
-
-    /**
-     * Bulk-load items. Both array have to be same size
-     * @param  {Array<Key>}    keys
-     * @param  {Array<Value>}  [values]
-     * @param  {Boolean}       [presort=false] Pre-sort keys and values, using
-     *                                         tree's comparator. Sorting is done
-     *                                         in-place
-     * @return {AVLTree}
-     */
-    load (keys = [], values = [], presort = false) {
-      let size = keys.length;
-      const comparator = this._comparator;
-
-      // sort if needed
-      if (presort) sort$1(keys, values, 0, size - 1, comparator);
-
-      if (this._root === null) { // empty tree
-        this._root = loadRecursive$1(this._root, keys, values, 0, size);
-        this._size = size;
-      } else { // that re-builds the whole tree from two in-order traversals
-        const mergedList = mergeLists$1(this.toList(), createList$1(keys, values), comparator);
-        size = this._size + size;
-        this._root = sortedListToBST$1({ head: mergedList }, 0, size);
-      }
-      return this;
-    }
-
-
-    /**
-     * @return {Boolean}
-     */
-    isEmpty() { return this._root === null; }
-
-    get size () { return this._size; }
-
-
-    /**
-     * @param  {NodePrinter=} printNode
-     * @return {String}
-     */
-    toString (printNode = (n) => n.key) {
-      const out = [];
-      printRow$1(this._root, '', true, (v) => out.push(v), printNode);
-      return out.join('');
-    }
-
-
-    update (key, newKey, newData) {
-      const comparator = this._comparator;
-      let { left, right } = split$2(key, this._root, comparator);
-      this._size--;
-      if (comparator(key, newKey) < 0) {
-        right = insert$1(newKey, newData, right, comparator, this);
-      } else {
-        left = insert$1(newKey, newData, left, comparator, this);
-      }
-      this._root = merge$1(left, right, comparator);
-    }
-
-
-    split(key) {
-      return split$2(key, this._root, this._comparator);
-    }
-  }
-
-
-  function loadRecursive$1 (parent, keys, values, start, end) {
-    const size = end - start;
-    if (size > 0) {
-      const middle = start + Math.floor(size / 2);
-      const key    = keys[middle];
-      const data   = values[middle];
-      const node   = { key, data, parent };
-      node.left    = loadRecursive$1(node, keys, values, start, middle);
-      node.right   = loadRecursive$1(node, keys, values, middle + 1, end);
-      return node;
-    }
-    return null;
-  }
-
-
-  function createList$1(keys, values) {
-    const head = { next: null };
-    let p = head;
-    for (let i = 0; i < keys.length; i++) {
-      p = p.next = { key: keys[i], data: values[i] };
-    }
-    p.next = null;
-    return head.next;
-  }
-
-
-  function toList$1 (root) {
-    var current = root;
-    var Q = [], done = false;
-
-    const head = { next: null };
-    let p = head;
-
-    while (!done) {
-      if (current) {
-        Q.push(current);
-        current = current.left;
-      } else {
-        if (Q.length > 0) {
-          current = p = p.next = Q.pop();
-          current = current.right;
-        } else done = true;
-      }
-    }
-    p.next = null; // that'll work even if the tree was empty
-    return head.next;
-  }
-
-
-  function sortedListToBST$1(list, start, end) {
-    const size = end - start;
-    if (size > 0) {
-      const middle = start + Math.floor(size / 2);
-      const left = sortedListToBST$1(list, start, middle);
-
-      const root = list.head;
-      root.left = left;
-
-      list.head = list.head.next;
-
-      root.right = sortedListToBST$1(list, middle + 1, end);
-      return root;
-    }
-    return null;
-  }
-
-
-  function mergeLists$1 (l1, l2, compare = (a, b) => a - b) {
-    const head = {}; // dummy
-    let p = head;
-
-    let p1 = l1;
-    let p2 = l2;
-
-    while (p1 !== null && p2 !== null) {
-      if (compare(p1.key, p2.key) < 0) {
-        p.next = p1;
-        p1 = p1.next;
-      } else {
-        p.next = p2;
-        p2 = p2.next;
-      }
-      p = p.next;
-    }
-
-    if (p1 !== null)      p.next = p1;
-    else if (p2 !== null) p.next = p2;
-
-    return head.next;
-  }
-
-
-  function sort$1(keys, values, left, right, compare) {
-    if (left >= right) return;
-
-    const pivot = keys[(left + right) >> 1];
-    let i = left - 1;
-    let j = right + 1;
-
-    while (true) {
-      do i++; while (compare(keys[i], pivot) < 0);
-      do j--; while (compare(keys[j], pivot) > 0);
-      if (i >= j) break;
-
-      let tmp = keys[i];
-      keys[i] = keys[j];
-      keys[j] = tmp;
-
-      tmp = values[i];
-      values[i] = values[j];
-      values[j] = tmp;
-    }
-
-    sort$1(keys, values,  left,     j, compare);
-    sort$1(keys, values, j + 1, right, compare);
-  }
-
-  function _classCallCheck$1(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  /* Javascript doesn't do integer math. Everything is
-   * floating point with percision Number.EPSILON.
-   *
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON
-   */
-  var epsilon$1 = Number.EPSILON; // IE Polyfill
-
-  if (epsilon$1 === undefined) epsilon$1 = Math.pow(2, -52);
-  var EPSILON_SQ$1 = epsilon$1 * epsilon$1;
-  /* FLP comparator */
-
-  var cmp$1 = function cmp(a, b) {
-    // check if they're both 0
-    if (-epsilon$1 < a && a < epsilon$1) {
-      if (-epsilon$1 < b && b < epsilon$1) {
-        return 0;
-      }
-    } // check if they're flp equal
-
-
-    if ((a - b) * (a - b) < EPSILON_SQ$1 * a * b) {
-      return 0;
-    } // normal comparison
-
-
-    return a < b ? -1 : 1;
-  };
-  /* Greedy comparison. Two numbers are defined to touch
-   * if their midpoint is indistinguishable from either. */
-
-  var touch = function touch(a, b) {
-    var m = (a + b) / 2;
-    return cmp$1(m, a) === 0 || cmp$1(m, b) === 0;
-  };
-  /* Greedy comparison. Two points are defined to touch
-   * if their midpoint is indistinguishable from either. */
-
-  var touchPoints = function touchPoints(aPt, bPt) {
-    // call directly to (skip touch()) cmp() for performance boost
-    var mx = (aPt.x + bPt.x) / 2;
-    var aXMiss = cmp$1(mx, aPt.x) !== 0;
-    if (aXMiss && cmp$1(mx, bPt.x) !== 0) return false;
-    var my = (aPt.y + bPt.y) / 2;
-    var aYMiss = cmp$1(my, aPt.y) !== 0;
-    if (aYMiss && cmp$1(my, bPt.y) !== 0) return false; // we have touching on both x & y, we have to make sure it's
-    // not just on opposite points thou
-
-    if (aYMiss && aYMiss) return true;
-    if (!aYMiss && !aYMiss) return true;
-    return false;
-  };
-
-  /* Cross Product of two vectors with first point at origin */
-
-  var crossProduct$1 = function crossProduct(a, b) {
-    return a.x * b.y - a.y * b.x;
-  };
-  /* Dot Product of two vectors with first point at origin */
-
-  var dotProduct$1 = function dotProduct(a, b) {
-    return a.x * b.x + a.y * b.y;
-  };
-  /* Comparator for two vectors with same starting point */
-
-  var compareVectorAngles$1 = function compareVectorAngles(basePt, endPt1, endPt2) {
-    var v1 = {
-      x: endPt1.x - basePt.x,
-      y: endPt1.y - basePt.y
-    };
-    var v2 = {
-      x: endPt2.x - basePt.x,
-      y: endPt2.y - basePt.y
-    };
-    var kross = crossProduct$1(v1, v2);
-    return cmp$1(kross, 0);
-  };
-  var length$4 = function length(v) {
-    return Math.sqrt(dotProduct$1(v, v));
-  };
-  /* Get the sine of the angle from pShared -> pAngle to pShaed -> pBase */
-
-  var sineOfAngle$1 = function sineOfAngle(pShared, pBase, pAngle) {
-    var vBase = {
-      x: pBase.x - pShared.x,
-      y: pBase.y - pShared.y
-    };
-    var vAngle = {
-      x: pAngle.x - pShared.x,
-      y: pAngle.y - pShared.y
-    };
-    return crossProduct$1(vAngle, vBase) / length$4(vAngle) / length$4(vBase);
-  };
-  /* Get the cosine of the angle from pShared -> pAngle to pShaed -> pBase */
-
-  var cosineOfAngle$1 = function cosineOfAngle(pShared, pBase, pAngle) {
-    var vBase = {
-      x: pBase.x - pShared.x,
-      y: pBase.y - pShared.y
-    };
-    var vAngle = {
-      x: pAngle.x - pShared.x,
-      y: pAngle.y - pShared.y
-    };
-    return dotProduct$1(vAngle, vBase) / length$4(vAngle) / length$4(vBase);
-  };
-  /* Get the closest point on an line (defined by two points)
-   * to another point. */
-
-  var closestPoint$1 = function closestPoint(ptA1, ptA2, ptB) {
-    if (ptA1.x === ptA2.x) return {
-      x: ptA1.x,
-      y: ptB.y // vertical vector
-
-    };
-    if (ptA1.y === ptA2.y) return {
-      x: ptB.x,
-      y: ptA1.y // horizontal vector
-      // determinne which point is further away
-
-    };
-    var v1 = {
-      x: ptA1.x - ptB.x,
-      y: ptA1.y - ptB.y
-    };
-    var v2 = {
-      x: ptA2.x - ptB.x,
-      y: ptA2.y - ptB.y
-    };
-    var nearPt = ptA1;
-    var farPt = ptA2;
-
-    if (dotProduct$1(v1, v1) > dotProduct$1(v2, v2)) {
-      farPt = ptA1;
-      nearPt = ptA2;
-    } // use the further point as our base in the calculation, so that the
-    // vectors are more parallel, providing more accurate dot product
-
-
-    var vA = {
-      x: nearPt.x - farPt.x,
-      y: nearPt.y - farPt.y
-    };
-    var vB = {
-      x: ptB.x - farPt.x,
-      y: ptB.y - farPt.y
-    };
-    var dist = dotProduct$1(vA, vB) / dotProduct$1(vA, vA);
-    return {
-      x: farPt.x + dist * vA.x,
-      y: farPt.y + dist * vA.y
-    };
-  };
-  /* Get the x coordinate where the given line (defined by a point and vector)
-   * crosses the horizontal line with the given y coordiante.
-   * In the case of parrallel lines (including overlapping ones) returns null. */
-
-  var horizontalIntersection$1 = function horizontalIntersection(pt, v, y) {
-    if (v.y === 0) return null;
-    return {
-      x: pt.x + v.x / v.y * (y - pt.y),
-      y: y
-    };
-  };
-  /* Get the y coordinate where the given line (defined by a point and vector)
-   * crosses the vertical line with the given x coordiante.
-   * In the case of parrallel lines (including overlapping ones) returns null. */
-
-  var verticalIntersection$1 = function verticalIntersection(pt, v, x) {
-    if (v.x === 0) return null;
-    return {
-      x: x,
-      y: pt.y + v.y / v.x * (x - pt.x)
-    };
-  };
-  /* Get the intersection of two lines, each defined by a base point and a vector.
-   * In the case of parrallel lines (including overlapping ones) returns null. */
-
-  var intersection$6 = function intersection(pt1, v1, pt2, v2) {
-    // take some shortcuts for vertical and horizontal lines
-    // this also ensures we don't calculate an intersection and then discover
-    // it's actually outside the bounding box of the line
-    if (v1.x === 0) return verticalIntersection$1(pt2, v2, pt1.x);
-    if (v2.x === 0) return verticalIntersection$1(pt1, v1, pt2.x);
-    if (v1.y === 0) return horizontalIntersection$1(pt2, v2, pt1.y);
-    if (v2.y === 0) return horizontalIntersection$1(pt1, v1, pt2.y); // General case for non-overlapping segments.
-    // This algorithm is based on Schneider and Eberly.
-    // http://www.cimec.org.ar/~ncalvo/Schneider_Eberly.pdf - pg 244
-
-    var kross = crossProduct$1(v1, v2);
-    if (kross == 0) return null;
-    var ve = {
-      x: pt2.x - pt1.x,
-      y: pt2.y - pt1.y
-    };
-    var d1 = crossProduct$1(ve, v1) / kross;
-    var d2 = crossProduct$1(ve, v2) / kross; // take the average of the two calculations to minimize rounding error
-
-    var x1 = pt1.x + d2 * v1.x,
-        x2 = pt2.x + d1 * v2.x;
-    var y1 = pt1.y + d2 * v1.y,
-        y2 = pt2.y + d1 * v2.y;
-    var x = (x1 + x2) / 2;
-    var y = (y1 + y2) / 2;
-    return {
-      x: x,
-      y: y
-    };
-  };
-
-  /**
-   * This class rounds incoming values sufficiently so that
-   * floating points problems are, for the most part, avoided.
-   *
-   * Incoming points are have their x & y values tested against
-   * all previously seen x & y values. If either is 'too close'
-   * to a previously seen value, it's value is 'snapped' to the
-   * previously seen value.
-   *
-   * All points should be rounded by this class before being
-   * stored in any data structures in the rest of this algorithm.
-   */
-
-  var PtRounder$1 =
-  /*#__PURE__*/
-  function () {
-    function PtRounder() {
-      _classCallCheck$1(this, PtRounder);
-
-      this.reset();
-    }
-
-    _createClass$1(PtRounder, [{
-      key: "reset",
-      value: function reset() {
-        this.xRounder = new CoordRounder$1();
-        this.yRounder = new CoordRounder$1();
-      }
-    }, {
-      key: "round",
-      value: function round(x, y) {
-        return {
-          x: this.xRounder.round(x),
-          y: this.yRounder.round(y)
-        };
-      }
-    }]);
-
-    return PtRounder;
-  }();
-
-  var CoordRounder$1 =
-  /*#__PURE__*/
-  function () {
-    function CoordRounder() {
-      _classCallCheck$1(this, CoordRounder);
-
-      this.tree = new Tree$1(); // preseed with 0 so we don't end up with values < Number.EPSILON
-
-      this.round(0);
-    } // Note: this can rounds input values backwards or forwards.
-    //       You might ask, why not restrict this to just rounding
-    //       forwards? Wouldn't that allow left endpoints to always
-    //       remain left endpoints during splitting (never change to
-    //       right). No - it wouldn't, because we snap intersections
-    //       to endpoints (to establish independence from the segment
-    //       angle for t-intersections).
-
-
-    _createClass$1(CoordRounder, [{
-      key: "round",
-      value: function round(coord) {
-        var node = this.tree.add(coord);
-        var prevNode = this.tree.prev(node);
-
-        if (prevNode !== null && cmp$1(node.key, prevNode.key) === 0) {
-          this.tree.remove(coord);
-          return prevNode.key;
-        }
-
-        var nextNode = this.tree.next(node);
-
-        if (nextNode !== null && cmp$1(node.key, nextNode.key) === 0) {
-          this.tree.remove(coord);
-          return nextNode.key;
-        }
-
-        return coord;
-      }
-    }]);
-
-    return CoordRounder;
-  }(); // singleton available by import
-
-
-  var rounder$1 = new PtRounder$1();
-
-  /* Given input geometry as a standard array-of-arrays geojson-style
-   * geometry, return one that uses objects as points, for better perf */
-
-  var pointsAsObjects$1 = function pointsAsObjects(geom) {
-    // we can handle well-formed multipolys and polys
-    var output = [];
-
-    if (!Array.isArray(geom)) {
-      throw new Error('Input is not a Polygon or MultiPolygon');
-    }
-
-    for (var i = 0, iMax = geom.length; i < iMax; i++) {
-      if (!Array.isArray(geom[i]) || geom[i].length == 0) {
-        throw new Error('Input is not a Polygon or MultiPolygon');
-      }
-
-      output.push([]);
-
-      for (var j = 0, jMax = geom[i].length; j < jMax; j++) {
-        if (!Array.isArray(geom[i][j]) || geom[i][j].length == 0) {
-          throw new Error('Input is not a Polygon or MultiPolygon');
-        }
-
-        if (Array.isArray(geom[i][j][0])) {
-          // multipolygon
-          output[i].push([]);
-
-          for (var k = 0, kMax = geom[i][j].length; k < kMax; k++) {
-            if (!Array.isArray(geom[i][j][k]) || geom[i][j][k].length < 2) {
-              throw new Error('Input is not a Polygon or MultiPolygon');
-            }
-
-            if (geom[i][j][k].length > 2) {
-              throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
-            }
-
-            output[i][j].push(rounder$1.round(geom[i][j][k][0], geom[i][j][k][1]));
-          }
-        } else {
-          // polygon
-          if (geom[i][j].length < 2) {
-            throw new Error('Input is not a Polygon or MultiPolygon');
-          }
-
-          if (geom[i][j].length > 2) {
-            throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
-          }
-
-          output[i].push(rounder$1.round(geom[i][j][0], geom[i][j][1]));
-        }
-      }
-    }
-
-    return output;
-  };
-  /* WARN: input modified directly */
-
-  var forceMultiPoly$1 = function forceMultiPoly(geom) {
-    if (Array.isArray(geom)) {
-      if (geom.length === 0) return; // allow empty multipolys
-
-      if (Array.isArray(geom[0])) {
-        if (Array.isArray(geom[0][0])) {
-          if (typeof geom[0][0][0].x === 'number' && typeof geom[0][0][0].y === 'number') {
-            // multipolygon
-            return;
-          }
-        }
-
-        if (typeof geom[0][0].x === 'number' && typeof geom[0][0].y === 'number') {
-          // polygon
-          geom.unshift(geom.splice(0));
-          return;
-        }
-      }
-    }
-
-    throw new Error('Unrecognized input - not a polygon nor multipolygon');
-  };
-  /* WARN: input modified directly */
-
-  var cleanMultiPoly$1 = function cleanMultiPoly(multipoly) {
-    var i = 0;
-
-    while (i < multipoly.length) {
-      var poly = multipoly[i];
-
-      if (poly.length === 0) {
-        multipoly.splice(i, 1);
-        continue;
-      }
-
-      var exteriorRing = poly[0];
-      cleanRing$1(exteriorRing); // poly is dropped if exteriorRing is degenerate
-
-      if (exteriorRing.length === 0) {
-        multipoly.splice(i, 1);
-        continue;
-      }
-
-      var j = 1;
-
-      while (j < poly.length) {
-        var interiorRing = poly[j];
-        cleanRing$1(interiorRing);
-        if (interiorRing.length === 0) poly.splice(j, 1);else j++;
-      }
-
-      i++;
-    }
-  };
-  /* Clean ring:
-   *  - remove duplicate points
-   *  - remove colinear points
-   *  - remove rings with no area (less than 3 distinct points)
-   *  - un-close rings (last point should not repeat first)
-   *
-   * WARN: input modified directly */
-
-  var cleanRing$1 = function cleanRing(ring) {
-    if (ring.length === 0) return;
-    var firstPt = ring[0];
-    var lastPt = ring[ring.length - 1];
-    if (firstPt.x === lastPt.x && firstPt.y === lastPt.y) ring.pop();
-
-    var isPointUncessary = function isPointUncessary(prevPt, pt, nextPt) {
-      return prevPt.x === pt.x && prevPt.y === pt.y || nextPt.x === pt.x && nextPt.y === pt.y || compareVectorAngles$1(pt, prevPt, nextPt) === 0;
-    };
-
-    var i = 0;
-    var prevPt, nextPt;
-
-    while (i < ring.length) {
-      prevPt = i === 0 ? ring[ring.length - 1] : ring[i - 1];
-      nextPt = i === ring.length - 1 ? ring[0] : ring[i + 1];
-      if (isPointUncessary(prevPt, ring[i], nextPt)) ring.splice(i, 1);else i++;
-    } // if our ring has less than 3 distinct points now (so is degenerate)
-    // shrink it down to the empty array to communicate to our caller to
-    // drop it
-
-
-    while (ring.length < 3 && ring.length > 0) {
-      ring.pop();
-    }
-  };
-
-  var SweepEvent$1 =
-  /*#__PURE__*/
-  function () {
-    _createClass$1(SweepEvent, null, [{
-      key: "compare",
-      // for ordering sweep events in the sweep event queue
-      value: function compare(a, b) {
-        // favor event with a point that the sweep line hits first
-        var ptCmp = SweepEvent.comparePoints(a.point, b.point);
-        if (ptCmp !== 0) return ptCmp; // the points are the same, so link them if needed
-
-        if (a.point !== b.point) a.link(b); // favor right events over left
-
-        if (a.isLeft !== b.isLeft) return a.isLeft ? 1 : -1; // we have two matching left or right endpoints
-        // ordering of this case is the same as for their segments
-
-        return Segment$1.compare(a.segment, b.segment);
-      } // for ordering points in sweep line order
-
-    }, {
-      key: "comparePoints",
-      value: function comparePoints(aPt, bPt) {
-        if (aPt.x < bPt.x) return -1;
-        if (aPt.x > bPt.x) return 1;
-        if (aPt.y < bPt.y) return -1;
-        if (aPt.y > bPt.y) return 1;
-        return 0;
-      } // Warning: 'point' input will be modified and re-used (for performance)
-
-    }]);
-
-    function SweepEvent(point, isLeft) {
-      _classCallCheck$1(this, SweepEvent);
-
-      if (point.events === undefined) point.events = [this];else point.events.push(this);
-      this.point = point;
-      this.isLeft = isLeft; // this.segment, this.otherSE set by factory
-    }
-
-    _createClass$1(SweepEvent, [{
-      key: "link",
-      value: function link(other) {
-        if (other.point === this.point) {
-          throw new Error('Tried to link already linked events');
-        }
-
-        var otherEvents = other.point.events;
-
-        for (var i = 0, iMax = otherEvents.length; i < iMax; i++) {
-          var evt = otherEvents[i];
-          this.point.events.push(evt);
-          evt.point = this.point;
-        }
-
-        this.checkForConsuming();
-      }
-      /* Do a pass over our linked events and check to see if any pair
-       * of segments match, and should be consumed. */
-
-    }, {
-      key: "checkForConsuming",
-      value: function checkForConsuming() {
-        // FIXME: The loops in this method run O(n^2) => no good.
-        //        Maintain little ordered sweep event trees?
-        //        Can we maintaining an ordering that avoids the need
-        //        for the re-sorting with getLeftmostComparator in geom-out?
-        // Compare each pair of events to see if other events also match
-        var numEvents = this.point.events.length;
-
-        for (var i = 0; i < numEvents; i++) {
-          var evt1 = this.point.events[i];
-          if (evt1.segment.consumedBy !== undefined) continue;
-
-          for (var j = i + 1; j < numEvents; j++) {
-            var evt2 = this.point.events[j];
-            if (evt2.consumedBy !== undefined) continue;
-            if (evt1.otherSE.point.events !== evt2.otherSE.point.events) continue;
-            evt1.segment.consume(evt2.segment);
-          }
-        }
-      }
-    }, {
-      key: "getAvailableLinkedEvents",
-      value: function getAvailableLinkedEvents() {
-        // point.events is always of length 2 or greater
-        var events = [];
-
-        for (var i = 0, iMax = this.point.events.length; i < iMax; i++) {
-          var evt = this.point.events[i];
-
-          if (evt !== this && !evt.segment.ringOut && evt.segment.isInResult()) {
-            events.push(evt);
-          }
-        }
-
-        return events;
-      }
-      /**
-       * Returns a comparator function for sorting linked events that will
-       * favor the event that will give us the smallest left-side angle.
-       * All ring construction starts as low as possible heading to the right,
-       * so by always turning left as sharp as possible we'll get polygons
-       * without uncessary loops & holes.
-       *
-       * The comparator function has a compute cache such that it avoids
-       * re-computing already-computed values.
-       */
-
-    }, {
-      key: "getLeftmostComparator",
-      value: function getLeftmostComparator(baseEvent) {
-        var _this = this;
-
-        var cache = new Map();
-
-        var fillCache = function fillCache(linkedEvent) {
-          var nextEvent = linkedEvent.otherSE;
-          cache.set(linkedEvent, {
-            sine: sineOfAngle$1(_this.point, baseEvent.point, nextEvent.point),
-            cosine: cosineOfAngle$1(_this.point, baseEvent.point, nextEvent.point)
-          });
-        };
-
-        return function (a, b) {
-          if (!cache.has(a)) fillCache(a);
-          if (!cache.has(b)) fillCache(b);
-
-          var _cache$get = cache.get(a),
-              asine = _cache$get.sine,
-              acosine = _cache$get.cosine;
-
-          var _cache$get2 = cache.get(b),
-              bsine = _cache$get2.sine,
-              bcosine = _cache$get2.cosine; // both on or above x-axis
-
-
-          if (asine >= 0 && bsine >= 0) {
-            if (acosine < bcosine) return 1;
-            if (acosine > bcosine) return -1;
-            return 0;
-          } // both below x-axis
-
-
-          if (asine < 0 && bsine < 0) {
-            if (acosine < bcosine) return -1;
-            if (acosine > bcosine) return 1;
-            return 0;
-          } // one above x-axis, one below
-
-
-          if (bsine < asine) return -1;
-          if (bsine > asine) return 1;
-          return 0;
-        };
-      }
-    }]);
-
-    return SweepEvent;
-  }();
-
-  /**
-   * A bounding box has the format:
-   *
-   *  { ll: { x: xmin, y: ymin }, ur: { x: xmax, y: ymax } }
-   *
-   */
-
-  var isInBbox$1 = function isInBbox(bbox, point) {
-    return bbox.ll.x <= point.x && point.x <= bbox.ur.x && bbox.ll.y <= point.y && point.y <= bbox.ur.y;
-  };
-  /* Greedy comparison with a bbox. A point is defined to 'touch'
-   * a bbox if:
-   *  - it is inside the bbox
-   *  - it 'touches' one of the sides (another greedy comparison) */
-
-  var touchesBbox = function touchesBbox(bbox, point) {
-    return (bbox.ll.x <= point.x || touch(bbox.ll.x, point.x)) && (point.x <= bbox.ur.x || touch(point.x, bbox.ur.x)) && (bbox.ll.y <= point.y || touch(bbox.ll.y, point.y)) && (point.y <= bbox.ur.y || touch(point.y, bbox.ur.y));
-  };
-  /* Returns either null, or a bbox (aka an ordered pair of points)
-   * If there is only one point of overlap, a bbox with identical points
-   * will be returned */
-
-  var getBboxOverlap$1 = function getBboxOverlap(b1, b2) {
-    // check if the bboxes overlap at all
-    if (b2.ur.x < b1.ll.x || b1.ur.x < b2.ll.x || b2.ur.y < b1.ll.y || b1.ur.y < b2.ll.y) return null; // find the middle two X values
-
-    var lowerX = b1.ll.x < b2.ll.x ? b2.ll.x : b1.ll.x;
-    var upperX = b1.ur.x < b2.ur.x ? b1.ur.x : b2.ur.x; // find the middle two Y values
-
-    var lowerY = b1.ll.y < b2.ll.y ? b2.ll.y : b1.ll.y;
-    var upperY = b1.ur.y < b2.ur.y ? b1.ur.y : b2.ur.y; // put those middle values together to get the overlap
-
-    return {
-      ll: {
-        x: lowerX,
-        y: lowerY
-      },
-      ur: {
-        x: upperX,
-        y: upperY
-      }
-    };
-  };
-
-  // segments and sweep events when all else is identical
-
-  var segmentId$1 = 0;
-
-  var Segment$1 =
-  /*#__PURE__*/
-  function () {
-    _createClass$1(Segment, null, [{
-      key: "compare",
-
-      /* This compare() function is for ordering segments in the sweep
-       * line tree, and does so according to the following criteria:
-       *
-       * Consider the vertical line that lies an infinestimal step to the
-       * right of the right-more of the two left endpoints of the input
-       * segments. Imagine slowly moving a point up from negative infinity
-       * in the increasing y direction. Which of the two segments will that
-       * point intersect first? That segment comes 'before' the other one.
-       *
-       * If neither segment would be intersected by such a line, (if one
-       * or more of the segments are vertical) then the line to be considered
-       * is directly on the right-more of the two left inputs.
-       */
-      value: function compare(a, b) {
-        var alx = a.leftSE.point.x;
-        var blx = b.leftSE.point.x;
-        var arx = a.rightSE.point.x;
-        var brx = b.rightSE.point.x; // check if they're even in the same vertical plane
-
-        if (brx < alx) return 1;
-        if (arx < blx) return -1;
-        var aly = a.leftSE.point.y;
-        var bly = b.leftSE.point.y;
-        var ary = a.rightSE.point.y;
-        var bry = b.rightSE.point.y; // is left endpoint of segment B the right-more?
-
-        if (alx < blx) {
-          // are the two segments in the same horizontal plane?
-          if (bly < aly && bly < ary) return 1;
-          if (bly > aly && bly > ary) return -1; // is the B left endpoint colinear to segment A?
-
-          var aCmpBLeft = a.comparePoint(b.leftSE.point);
-          if (aCmpBLeft < 0) return 1;
-          if (aCmpBLeft > 0) return -1; // is the A right endpoint colinear to segment B ?
-
-          var bCmpARight = b.comparePoint(a.rightSE.point);
-          if (bCmpARight !== 0) return bCmpARight; // colinear segments, consider the one with left-more
-          // left endpoint to be first (arbitrary?)
-
-          return -1;
-        } // is left endpoint of segment A the right-more?
-
-
-        if (alx > blx) {
-          if (aly < bly && aly < bry) return -1;
-          if (aly > bly && aly > bry) return 1; // is the A left endpoint colinear to segment B?
-
-          var bCmpALeft = b.comparePoint(a.leftSE.point);
-          if (bCmpALeft !== 0) return bCmpALeft; // is the B right endpoint colinear to segment A?
-
-          var aCmpBRight = a.comparePoint(b.rightSE.point);
-          if (aCmpBRight < 0) return 1;
-          if (aCmpBRight > 0) return -1; // colinear segments, consider the one with left-more
-          // left endpoint to be first (arbitrary?)
-
-          return 1;
-        } // if we get here, the two left endpoints are in the same
-        // vertical plane, ie alx === blx
-        // consider the lower left-endpoint to come first
-
-
-        if (aly < bly) return -1;
-        if (aly > bly) return 1; // left endpoints are identical
-        // check for colinearity by using the left-more right endpoint
-        // is the A right endpoint more left-more?
-
-        if (arx < brx) {
-          var _bCmpARight = b.comparePoint(a.rightSE.point);
-
-          if (_bCmpARight !== 0) return _bCmpARight; // colinear segments with matching left endpoints,
-          // consider the one with more left-more right endpoint to be first
-
-          return -1;
-        } // is the B right endpoint more left-more?
-
-
-        if (arx > brx) {
-          var _aCmpBRight = a.comparePoint(b.rightSE.point);
-
-          if (_aCmpBRight < 0) return 1;
-          if (_aCmpBRight > 0) return -1; // colinear segments with matching left endpoints,
-          // consider the one with more left-more right endpoint to be first
-
-          return 1;
-        } // if we get here, two two right endpoints are in the same
-        // vertical plane, ie arx === brx
-        // consider the lower right-endpoint to come first
-
-
-        if (ary < bry) return -1;
-        if (ary > bry) return 1; // right endpoints identical as well, so the segments are idential
-        // fall back on creation order as consistent tie-breaker
-
-        if (a.id < b.id) return -1;
-        if (a.id > b.id) return 1; // identical segment, ie a === b
-
-        return 0;
-      }
-      /* Warning: a reference to ringsIn input will be stored,
-       *  and possibly will be later modified */
-
-    }]);
-
-    function Segment(leftSE, rightSE, ringsIn) {
-      _classCallCheck$1(this, Segment);
-
-      this.id = ++segmentId$1;
-      this.leftSE = leftSE;
-      leftSE.segment = this;
-      leftSE.otherSE = rightSE;
-      this.rightSE = rightSE;
-      rightSE.segment = this;
-      rightSE.otherSE = leftSE;
-      this.ringsIn = ringsIn;
-      this._cache = {}; // left unset for performance, set later in algorithm
-      // this.ringOut, this.consumedBy, this.prev
-    }
-
-    _createClass$1(Segment, [{
-      key: "replaceRightSE",
-
-      /* When a segment is split, the rightSE is replaced with a new sweep event */
-      value: function replaceRightSE(newRightSE) {
-        this.rightSE = newRightSE;
-        this.rightSE.segment = this;
-        this.rightSE.otherSE = this.leftSE;
-        this.leftSE.otherSE = this.rightSE;
-      }
-    }, {
-      key: "bbox",
-      value: function bbox() {
-        var y1 = this.leftSE.point.y;
-        var y2 = this.rightSE.point.y;
-        return {
-          ll: {
-            x: this.leftSE.point.x,
-            y: y1 < y2 ? y1 : y2
-          },
-          ur: {
-            x: this.rightSE.point.x,
-            y: y1 > y2 ? y1 : y2
-          }
-        };
-      }
-      /* A vector from the left point to the right */
-
-    }, {
-      key: "vector",
-      value: function vector() {
-        return {
-          x: this.rightSE.point.x - this.leftSE.point.x,
-          y: this.rightSE.point.y - this.leftSE.point.y
-        };
-      }
-    }, {
-      key: "isAnEndpoint",
-      value: function isAnEndpoint(pt) {
-        return pt.x === this.leftSE.point.x && pt.y === this.leftSE.point.y || pt.x === this.rightSE.point.x && pt.y === this.rightSE.point.y;
-      }
-      /* Compare this segment with a point. Return value indicates:
-       *     1: point lies above or to the left of segment
-       *     0: point is colinear to segment
-       *    -1: point is below or to the right of segment */
-
-    }, {
-      key: "comparePoint",
-      value: function comparePoint(point) {
-        if (this.isAnEndpoint(point)) return 0;
-        var interPt = closestPoint$1(this.leftSE.point, this.rightSE.point, point);
-        if (point.y < interPt.y) return -1;
-        if (point.y > interPt.y) return 1; // depending on if our segment angles up or down,
-        // the x coord comparison means oppposite things
-
-        if (point.x < interPt.x) {
-          if (this.leftSE.point.y < this.rightSE.point.y) return 1;
-          if (this.leftSE.point.y > this.rightSE.point.y) return -1;
-        }
-
-        if (point.x > interPt.x) {
-          if (this.leftSE.point.y < this.rightSE.point.y) return -1;
-          if (this.leftSE.point.y > this.rightSE.point.y) return 1;
-        } // on the line
-
-
-        return 0;
-      }
-      /* Does the point in question touch the given segment?
-       * Greedy - essentially a 2 * Number.EPSILON comparison.
-       * If it's not possible to add an independent point between the
-       * point and the segment, we say the point 'touches' the segment. */
-
-    }, {
-      key: "touches",
-      value: function touches(point) {
-        if (!touchesBbox(this.bbox(), point)) return false; // if the points have been linked already, performance boost use that
-
-        if (point === this.leftSE.point || point === this.rightSE.point) return true; // avoid doing vector math on tiny vectors
-
-        if (touchPoints(this.leftSE.point, point)) return true;
-        if (touchPoints(this.rightSE.point, point)) return true;
-        var cPt1 = closestPoint$1(this.leftSE.point, this.rightSE.point, point);
-        var avgPt1 = {
-          x: (cPt1.x + point.x) / 2,
-          y: (cPt1.y + point.y) / 2
-        };
-        return touchPoints(avgPt1, cPt1) || touchPoints(avgPt1, point);
-      }
-      /**
-       * Given another segment, returns the first non-trivial intersection
-       * between the two segments (in terms of sweep line ordering), if it exists.
-       *
-       * A 'non-trivial' intersection is one that will cause one or both of the
-       * segments to be split(). As such, 'trivial' vs. 'non-trivial' intersection:
-       *
-       *   * endpoint of segA with endpoint of segB --> trivial
-       *   * endpoint of segA with point along segB --> non-trivial
-       *   * endpoint of segB with point along segA --> non-trivial
-       *   * point along segA with point along segB --> non-trivial
-       *
-       * If no non-trivial intersection exists, return null
-       * Else, return null.
-       */
-
-    }, {
-      key: "getIntersection",
-      value: function getIntersection(other) {
-        // If bboxes don't overlap, there can't be any intersections
-        var bboxOverlap = getBboxOverlap$1(this.bbox(), other.bbox());
-        if (bboxOverlap === null) return null; // We first check to see if the endpoints can be considered intersections.
-        // This will 'snap' intersections to endpoints if possible, and will
-        // handle cases of colinearity.
-        // does each endpoint touch the other segment?
-
-        var touchesOtherLSE = this.touches(other.leftSE.point);
-        var touchesThisLSE = other.touches(this.leftSE.point);
-        var touchesOtherRSE = this.touches(other.rightSE.point);
-        var touchesThisRSE = other.touches(this.rightSE.point); // do left endpoints match?
-
-        if (touchesThisLSE && touchesOtherLSE) {
-          // these two cases are for colinear segments with matching left
-          // endpoints, and one segment being longer than the other
-          if (touchesThisRSE && !touchesOtherRSE) return this.rightSE.point;
-          if (!touchesThisRSE && touchesOtherRSE) return other.rightSE.point; // either the two segments match exactly (two trival intersections)
-          // or just on their left endpoint (one trivial intersection
-
-          return null;
-        } // does this left endpoint matches (other doesn't)
-
-
-        if (touchesThisLSE) {
-          // check for segments that just intersect on opposing endpoints
-          if (touchesOtherRSE && touchPoints(this.leftSE.point, other.rightSE.point)) return null; // t-intersection on left endpoint
-
-          return this.leftSE.point;
-        } // does other left endpoint matches (this doesn't)
-
-
-        if (touchesOtherLSE) {
-          // check for segments that just intersect on opposing endpoints
-          if (touchesThisRSE && touchPoints(this.rightSE.point, other.leftSE.point)) return null; // t-intersection on left endpoint
-
-          return other.leftSE.point;
-        } // trivial intersection on right endpoints
-
-
-        if (touchesThisRSE && touchesOtherRSE) return null; // t-intersections on just one right endpoint
-
-        if (touchesThisRSE) return this.rightSE.point;
-        if (touchesOtherRSE) return other.rightSE.point; // None of our endpoints intersect. Look for a general intersection between
-        // infinite lines laid over the segments
-
-        var pt = intersection$6(this.leftSE.point, this.vector(), other.leftSE.point, other.vector()); // are the segments parrallel? Note that if they were colinear with overlap,
-        // they would have an endpoint intersection and that case was already handled above
-
-        if (pt === null) return null; // is the intersection found between the lines not on the segments?
-
-        if (!isInBbox$1(bboxOverlap, pt)) return null; // round the the computed point if needed
-
-        return rounder$1.round(pt.x, pt.y);
-      }
-      /**
-       * Split the given segment into multiple segments on the given points.
-       *  * Each existing segment will retain its leftSE and a new rightSE will be
-       *    generated for it.
-       *  * A new segment will be generated which will adopt the original segment's
-       *    rightSE, and a new leftSE will be generated for it.
-       *  * If there are more than two points given to split on, new segments
-       *    in the middle will be generated with new leftSE and rightSE's.
-       *  * An array of the newly generated SweepEvents will be returned.
-       *
-       * Warning: input array of points is modified
-       */
-
-    }, {
-      key: "split",
-      value: function split(point) {
-        var newEvents = [];
-        var alreadyLinked = point.events !== undefined;
-        var newLeftSE = new SweepEvent$1(point, true);
-        var newRightSE = new SweepEvent$1(point, false);
-        var oldRightSE = this.rightSE;
-        this.replaceRightSE(newRightSE);
-        newEvents.push(newRightSE);
-        newEvents.push(newLeftSE);
-        new Segment(newLeftSE, oldRightSE, this.ringsIn.slice()); // in the point we just used to create new sweep events with was already
-        // linked to other events, we need to check if either of the affected
-        // segments should be consumed
-
-        if (alreadyLinked) {
-          newLeftSE.checkForConsuming();
-          newRightSE.checkForConsuming();
-        }
-
-        return newEvents;
-      }
-      /* Consume another segment. We take their ringsIn under our wing
-       * and mark them as consumed. Use for perfectly overlapping segments */
-
-    }, {
-      key: "consume",
-      value: function consume(other) {
-        var consumer = this;
-        var consumee = other;
-
-        while (consumer.consumedBy) {
-          consumer = consumer.consumedBy;
-        }
-
-        while (consumee.consumedBy) {
-          consumee = consumee.consumedBy;
-        }
-
-        var cmp$$1 = Segment.compare(consumer, consumee);
-        if (cmp$$1 === 0) return; // already consumed
-        // the winner of the consumption is the earlier segment
-        // according to sweep line ordering
-
-        if (cmp$$1 > 0) {
-          var tmp = consumer;
-          consumer = consumee;
-          consumee = tmp;
-        } // make sure a segment doesn't consume it's prev
-
-
-        if (consumer.prev === consumee) {
-          var _tmp = consumer;
-          consumer = consumee;
-          consumee = _tmp;
-        }
-
-        for (var i = 0, iMax = consumee.ringsIn.length; i < iMax; i++) {
-          consumer.ringsIn.push(consumee.ringsIn[i]);
-        }
-
-        consumee.ringsIn = null;
-        consumee.consumedBy = consumer; // mark sweep events consumed as to maintain ordering in sweep event queue
-
-        consumee.leftSE.consumedBy = consumer.leftSE;
-        consumee.rightSE.consumedBy = consumer.rightSE;
-      }
-      /* The first segment previous segment chain that is in the result */
-
-    }, {
-      key: "prevInResult",
-      value: function prevInResult() {
-        var key = 'prevInResult';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_prevInResult",
-      value: function _prevInResult() {
-        if (!this.prev) return null;
-        if (this.prev.isInResult()) return this.prev;
-        return this.prev.prevInResult();
-      }
-    }, {
-      key: "ringsBefore",
-      value: function ringsBefore() {
-        var key = 'ringsBefore';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_ringsBefore",
-      value: function _ringsBefore() {
-        if (!this.prev) return [];
-        return (this.prev.consumedBy || this.prev).ringsAfter();
-      }
-    }, {
-      key: "ringsAfter",
-      value: function ringsAfter() {
-        var key = 'ringsAfter';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_ringsAfter",
-      value: function _ringsAfter() {
-        var rings = this.ringsBefore().slice(0);
-
-        for (var i = 0, iMax = this.ringsIn.length; i < iMax; i++) {
-          var ring = this.ringsIn[i];
-          var index = rings.indexOf(ring);
-          if (index === -1) rings.push(ring);else rings.splice(index, 1);
-        }
-
-        return rings;
-      }
-    }, {
-      key: "multiPolysBefore",
-      value: function multiPolysBefore() {
-        var key = 'multiPolysBefore';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_multiPolysBefore",
-      value: function _multiPolysBefore() {
-        if (!this.prev) return [];
-        return (this.prev.consumedBy || this.prev).multiPolysAfter();
-      }
-    }, {
-      key: "multiPolysAfter",
-      value: function multiPolysAfter() {
-        var key = 'multiPolysAfter';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_multiPolysAfter",
-      value: function _multiPolysAfter() {
-        // first calcualte our polysAfter
-        var polysAfter = [];
-        var polysExclude = [];
-        var ringsAfter = this.ringsAfter();
-
-        for (var i = 0, iMax = ringsAfter.length; i < iMax; i++) {
-          var ring = ringsAfter[i];
-          var poly = ring.poly;
-          if (polysExclude.indexOf(poly) !== -1) continue;
-          if (ring.isExterior) polysAfter.push(poly);else {
-            if (polysExclude.indexOf(poly) === -1) polysExclude.push(poly);
-            var index = polysAfter.indexOf(ring.poly);
-            if (index !== -1) polysAfter.splice(index, 1);
-          }
-        } // now calculate our multiPolysAfter
-
-
-        var mps = [];
-
-        for (var _i = 0, _iMax = polysAfter.length; _i < _iMax; _i++) {
-          var mp = polysAfter[_i].multiPoly;
-          if (mps.indexOf(mp) === -1) mps.push(mp);
-        }
-
-        return mps;
-      }
-      /* Is this segment part of the final result? */
-
-    }, {
-      key: "isInResult",
-      value: function isInResult() {
-        var key = 'isInResult';
-        if (this._cache[key] === undefined) this._cache[key] = this["_".concat(key)]();
-        return this._cache[key];
-      }
-    }, {
-      key: "_isInResult",
-      value: function _isInResult() {
-        // if we've been consumed, we're not in the result
-        if (this.consumedBy) return false;
-        var mpsBefore = this.multiPolysBefore();
-        var mpsAfter = this.multiPolysAfter();
-
-        switch (operation$1.type) {
-          case 'union':
-            {
-              // UNION - included iff:
-              //  * On one side of us there is 0 poly interiors AND
-              //  * On the other side there is 1 or more.
-              var noBefores = mpsBefore.length === 0;
-              var noAfters = mpsAfter.length === 0;
-              return noBefores !== noAfters;
-            }
-
-          case 'intersection':
-            {
-              // INTERSECTION - included iff:
-              //  * on one side of us all multipolys are rep. with poly interiors AND
-              //  * on the other side of us, not all multipolys are repsented
-              //    with poly interiors
-              var least;
-              var most;
-
-              if (mpsBefore.length < mpsAfter.length) {
-                least = mpsBefore.length;
-                most = mpsAfter.length;
-              } else {
-                least = mpsAfter.length;
-                most = mpsBefore.length;
-              }
-
-              return most === operation$1.numMultiPolys && least < most;
-            }
-
-          case 'xor':
-            {
-              // XOR - included iff:
-              //  * the difference between the number of multipolys represented
-              //    with poly interiors on our two sides is an odd number
-              var diff = Math.abs(mpsBefore.length - mpsAfter.length);
-              return diff % 2 === 1;
-            }
-
-          case 'difference':
-            {
-              // DIFFERENCE included iff:
-              //  * on exactly one side, we have just the subject
-              var isJustSubject = function isJustSubject(mps) {
-                return mps.length === 1 && mps[0].isSubject;
-              };
-
-              return isJustSubject(mpsBefore) !== isJustSubject(mpsAfter);
-            }
-
-          default:
-            throw new Error("Unrecognized operation type found ".concat(operation$1.type));
-        }
-      }
-    }], [{
-      key: "fromRing",
-      value: function fromRing(pt1, pt2, ring) {
-        var leftPt, rightPt; // ordering the two points according to sweep line ordering
-
-        var cmpPts = SweepEvent$1.comparePoints(pt1, pt2);
-
-        if (cmpPts < 0) {
-          leftPt = pt1;
-          rightPt = pt2;
-        } else if (cmpPts > 0) {
-          leftPt = pt2;
-          rightPt = pt1;
-        } else throw new Error("Tried to create degenerate segment at [".concat(pt1.x, ", ").concat(pt1.y, "]"));
-
-        var leftSE = new SweepEvent$1(leftPt, true);
-        var rightSE = new SweepEvent$1(rightPt, false);
-        return new Segment(leftSE, rightSE, [ring]);
-      }
-    }]);
-
-    return Segment;
-  }();
-
-  var RingIn$1 =
-  /*#__PURE__*/
-  function () {
-    function RingIn(geomRing, poly, isExterior) {
-      _classCallCheck$1(this, RingIn);
-
-      this.poly = poly;
-      this.isExterior = isExterior;
-      this.segments = [];
-      var prevPoint = geomRing[0];
-
-      for (var i = 1, iMax = geomRing.length; i < iMax; i++) {
-        var point = geomRing[i];
-        this.segments.push(Segment$1.fromRing(prevPoint, point, this));
-        prevPoint = point;
-      }
-
-      this.segments.push(Segment$1.fromRing(prevPoint, geomRing[0], this));
-    }
-
-    _createClass$1(RingIn, [{
-      key: "getSweepEvents",
-      value: function getSweepEvents() {
-        var sweepEvents = [];
-
-        for (var i = 0, iMax = this.segments.length; i < iMax; i++) {
-          var segment = this.segments[i];
-          sweepEvents.push(segment.leftSE);
-          sweepEvents.push(segment.rightSE);
-        }
-
-        return sweepEvents;
-      }
-    }]);
-
-    return RingIn;
-  }();
-  var PolyIn$1 =
-  /*#__PURE__*/
-  function () {
-    function PolyIn(geomPoly, multiPoly) {
-      _classCallCheck$1(this, PolyIn);
-
-      this.exteriorRing = new RingIn$1(geomPoly[0], this, true);
-      this.interiorRings = [];
-
-      for (var i = 1, iMax = geomPoly.length; i < iMax; i++) {
-        this.interiorRings.push(new RingIn$1(geomPoly[i], this, false));
-      }
-
-      this.multiPoly = multiPoly;
-    }
-
-    _createClass$1(PolyIn, [{
-      key: "getSweepEvents",
-      value: function getSweepEvents() {
-        var sweepEvents = this.exteriorRing.getSweepEvents();
-
-        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
-          var ringSweepEvents = this.interiorRings[i].getSweepEvents();
-
-          for (var j = 0, jMax = ringSweepEvents.length; j < jMax; j++) {
-            sweepEvents.push(ringSweepEvents[j]);
-          }
-        }
-
-        return sweepEvents;
-      }
-    }]);
-
-    return PolyIn;
-  }();
-  var MultiPolyIn$1 =
-  /*#__PURE__*/
-  function () {
-    function MultiPolyIn(geomMultiPoly) {
-      _classCallCheck$1(this, MultiPolyIn);
-
-      this.polys = [];
-
-      for (var i = 0, iMax = geomMultiPoly.length; i < iMax; i++) {
-        this.polys.push(new PolyIn$1(geomMultiPoly[i], this));
-      }
-
-      this.isSubject = false;
-    }
-
-    _createClass$1(MultiPolyIn, [{
-      key: "markAsSubject",
-      value: function markAsSubject() {
-        this.isSubject = true;
-      }
-    }, {
-      key: "getSweepEvents",
-      value: function getSweepEvents() {
-        var sweepEvents = [];
-
-        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
-          var polySweepEvents = this.polys[i].getSweepEvents();
-
-          for (var j = 0, jMax = polySweepEvents.length; j < jMax; j++) {
-            sweepEvents.push(polySweepEvents[j]);
-          }
-        }
-
-        return sweepEvents;
-      }
-    }]);
-
-    return MultiPolyIn;
-  }();
-
-  var RingOut$1 =
-  /*#__PURE__*/
-  function () {
-    _createClass$1(RingOut, null, [{
-      key: "factory",
-
-      /* Given the segments from the sweep line pass, compute & return a series
-       * of closed rings from all the segments marked to be part of the result */
-      value: function factory(allSegments) {
-        var ringsOut = [];
-
-        for (var i = 0, iMax = allSegments.length; i < iMax; i++) {
-          var segment = allSegments[i];
-          if (!segment.isInResult() || segment.ringOut) continue;
-          var prevEvent = null;
-          var event = segment.leftSE;
-          var nextEvent = segment.rightSE;
-          var events = [event];
-          var startingPoint = event.point;
-          var intersectionLEs = [];
-          /* Walk the chain of linked events to form a closed ring */
-
-          while (true) {
-            prevEvent = event;
-            event = nextEvent;
-            events.push(event);
-            /* Is the ring complete? */
-
-            if (event.point === startingPoint) break;
-
-            while (true) {
-              var availableLEs = event.getAvailableLinkedEvents();
-              /* Did we hit a dead end? This shouldn't happen. Indicates some earlier
-               * part of the algorithm malfunctioned... please file a bug report. */
-
-              if (availableLEs.length === 0) {
-                var firstPt = events[0].point;
-                var lastPt = events[events.length - 1].point;
-                throw new Error("Unable to complete output ring starting at [".concat(firstPt.x, ",") + " ".concat(firstPt.y, "]. Last matching segment found ends at") + " [".concat(lastPt.x, ", ").concat(lastPt.y, "]."));
-              }
-              /* Only one way to go, so cotinue on the path */
-
-
-              if (availableLEs.length === 1) {
-                nextEvent = availableLEs[0].otherSE;
-                break;
-              }
-              /* We must have an intersection. Check for a completed loop */
-
-
-              var indexLE = null;
-
-              for (var j = 0, jMax = intersectionLEs.length; j < jMax; j++) {
-                if (intersectionLEs[j].point === event.point) {
-                  indexLE = j;
-                  break;
-                }
-              }
-              /* Found a completed loop. Cut that off and make a ring */
-
-
-              if (indexLE !== null) {
-                var intersectionLE = intersectionLEs.splice(indexLE)[0];
-                var ringEvents = events.splice(intersectionLE.index);
-                ringEvents.unshift(ringEvents[0].otherSE);
-                ringsOut.push(new RingOut(ringEvents.reverse()));
-                continue;
-              }
-              /* register the intersection */
-
-
-              intersectionLEs.push({
-                index: events.length,
-                point: event.point
-              });
-              /* Choose the left-most option to continue the walk */
-
-              var comparator = event.getLeftmostComparator(prevEvent);
-              nextEvent = availableLEs.sort(comparator)[0].otherSE;
-              break;
-            }
-          }
-
-          ringsOut.push(new RingOut(events));
-        }
-
-        return ringsOut;
-      }
-    }]);
-
-    function RingOut(events) {
-      _classCallCheck$1(this, RingOut);
-
-      this.events = events;
-
-      for (var i = 0, iMax = events.length; i < iMax; i++) {
-        events[i].segment.ringOut = this;
-      }
-
-      this.poly = null;
-    }
-
-    _createClass$1(RingOut, [{
-      key: "getGeom",
-      value: function getGeom() {
-        // Remove superfluous points (ie extra points along a straight line),
-        var prevPt = this.events[0].point;
-        var points = [prevPt];
-
-        for (var i = 1, iMax = this.events.length - 1; i < iMax; i++) {
-          var _pt = this.events[i].point;
-          var _nextPt = this.events[i + 1].point;
-          if (compareVectorAngles$1(_pt, prevPt, _nextPt) === 0) continue;
-          points.push(_pt);
-          prevPt = _pt;
-        } // ring was all (within rounding error of angle calc) colinear points
-
-
-        if (points.length === 1) return null; // check if the starting point is necessary
-
-        var pt = points[0];
-        var nextPt = points[1];
-        if (compareVectorAngles$1(pt, prevPt, nextPt) === 0) points.shift();
-        points.push(points[0]);
-        var step = this.isExteriorRing() ? 1 : -1;
-        var iStart = this.isExteriorRing() ? 0 : points.length - 1;
-        var iEnd = this.isExteriorRing() ? points.length : -1;
-        var orderedPoints = [];
-
-        for (var _i = iStart; _i != iEnd; _i += step) {
-          orderedPoints.push([points[_i].x, points[_i].y]);
-        }
-
-        return orderedPoints;
-      }
-    }, {
-      key: "isExteriorRing",
-      value: function isExteriorRing() {
-        if (this._isExteriorRing === undefined) {
-          var enclosing = this.enclosingRing();
-          this._isExteriorRing = enclosing ? !enclosing.isExteriorRing() : true;
-        }
-
-        return this._isExteriorRing;
-      }
-    }, {
-      key: "enclosingRing",
-      value: function enclosingRing() {
-        if (this._enclosingRing === undefined) {
-          this._enclosingRing = this._calcEnclosingRing();
-        }
-
-        return this._enclosingRing;
-      }
-      /* Returns the ring that encloses this one, if any */
-
-    }, {
-      key: "_calcEnclosingRing",
-      value: function _calcEnclosingRing() {
-        // start with the ealier sweep line event so that the prevSeg
-        // chain doesn't lead us inside of a loop of ours
-        var leftMostEvt = this.events[0];
-
-        for (var i = 1, iMax = this.events.length; i < iMax; i++) {
-          var evt = this.events[i];
-          if (SweepEvent$1.compare(leftMostEvt, evt) > 0) leftMostEvt = evt;
-        }
-
-        var prevSeg = leftMostEvt.segment.prevInResult();
-        var prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
-
-        while (true) {
-          // no segment found, thus no ring can enclose us
-          if (!prevSeg) return null; // no segments below prev segment found, thus the ring of the prev
-          // segment must loop back around and enclose us
-
-          if (!prevPrevSeg) return prevSeg.ringOut; // if the two segments are of different rings, the ring of the prev
-          // segment must either loop around us or the ring of the prev prev
-          // seg, which would make us and the ring of the prev peers
-
-          if (prevPrevSeg.ringOut !== prevSeg.ringOut) {
-            if (prevPrevSeg.ringOut.enclosingRing() !== prevSeg.ringOut) {
-              return prevSeg.ringOut;
-            } else return prevSeg.ringOut.enclosingRing();
-          } // two segments are from the same ring, so this was a penisula
-          // of that ring. iterate downward, keep searching
-
-
-          prevSeg = prevPrevSeg.prevInResult();
-          prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
-        }
-      }
-    }]);
-
-    return RingOut;
-  }();
-  var PolyOut$1 =
-  /*#__PURE__*/
-  function () {
-    function PolyOut(exteriorRing) {
-      _classCallCheck$1(this, PolyOut);
-
-      this.exteriorRing = exteriorRing;
-      exteriorRing.poly = this;
-      this.interiorRings = [];
-    }
-
-    _createClass$1(PolyOut, [{
-      key: "addInterior",
-      value: function addInterior(ring) {
-        this.interiorRings.push(ring);
-        ring.poly = this;
-      }
-    }, {
-      key: "getGeom",
-      value: function getGeom() {
-        var geom = [this.exteriorRing.getGeom()]; // exterior ring was all (within rounding error of angle calc) colinear points
-
-        if (geom[0] === null) return null;
-
-        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
-          var ringGeom = this.interiorRings[i].getGeom(); // interior ring was all (within rounding error of angle calc) colinear points
-
-          if (ringGeom === null) continue;
-          geom.push(ringGeom);
-        }
-
-        return geom;
-      }
-    }]);
-
-    return PolyOut;
-  }();
-  var MultiPolyOut$1 =
-  /*#__PURE__*/
-  function () {
-    function MultiPolyOut(rings) {
-      _classCallCheck$1(this, MultiPolyOut);
-
-      this.rings = rings;
-      this.polys = this._composePolys(rings);
-    }
-
-    _createClass$1(MultiPolyOut, [{
-      key: "getGeom",
-      value: function getGeom() {
-        var geom = [];
-
-        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
-          var polyGeom = this.polys[i].getGeom(); // exterior ring was all (within rounding error of angle calc) colinear points
-
-          if (polyGeom === null) continue;
-          geom.push(polyGeom);
-        }
-
-        return geom;
-      }
-    }, {
-      key: "_composePolys",
-      value: function _composePolys(rings) {
-        var polys = [];
-
-        for (var i = 0, iMax = rings.length; i < iMax; i++) {
-          var ring = rings[i];
-          if (ring.poly) continue;
-          if (ring.isExteriorRing()) polys.push(new PolyOut$1(ring));else {
-            var enclosingRing = ring.enclosingRing();
-            if (!enclosingRing.poly) polys.push(new PolyOut$1(enclosingRing));
-            enclosingRing.poly.addInterior(ring);
-          }
-        }
-
-        return polys;
-      }
-    }]);
-
-    return MultiPolyOut;
-  }();
-
-  /**
-   * NOTE:  We must be careful not to change any segments while
-   *        they are in the SplayTree. AFAIK, there's no way to tell
-   *        the tree to rebalance itself - thus before splitting
-   *        a segment that's in the tree, we remove it from the tree,
-   *        do the split, then re-insert it. (Even though splitting a
-   *        segment *shouldn't* change its correct position in the
-   *        sweep line tree, the reality is because of rounding errors,
-   *        it sometimes does.)
-   */
-
-  var SweepLine$1 =
-  /*#__PURE__*/
-  function () {
-    function SweepLine(queue) {
-      var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Segment$1.compare;
-
-      _classCallCheck$1(this, SweepLine);
-
-      this.queue = queue;
-      this.tree = new Tree$1(comparator);
-      this.segments = [];
-    }
-
-    _createClass$1(SweepLine, [{
-      key: "process",
-      value: function process(event) {
-        var segment = event.segment;
-        var newEvents = []; // if we've already been consumed by another segment,
-        // clean up our body parts and get out
-
-        if (event.consumedBy) {
-          if (event.isLeft) this.queue.remove(event.otherSE);else this.tree.remove(segment);
-          return newEvents;
-        }
-
-        var node = event.isLeft ? this.tree.insert(segment) : this.tree.find(segment);
-        if (!node) throw new Error("Unable to find segment #".concat(segment.id, " ") + "[".concat(segment.leftSE.point.x, ", ").concat(segment.leftSE.point.y, "] -> ") + "[".concat(segment.rightSE.point.x, ", ").concat(segment.rightSE.point.y, "] ") + 'in SweepLine tree. Please submit a bug report.');
-        var prevNode = node;
-        var nextNode = node;
-        var prevSeg = undefined;
-        var nextSeg = undefined; // skip consumed segments still in tree
-
-        while (prevSeg === undefined) {
-          prevNode = this.tree.prev(prevNode);
-          if (prevNode === null) prevSeg = null;else if (prevNode.key.consumedBy === undefined) prevSeg = prevNode.key;
-        } // skip consumed segments still in tree
-
-
-        while (nextSeg === undefined) {
-          nextNode = this.tree.next(nextNode);
-          if (nextNode === null) nextSeg = null;else if (nextNode.key.consumedBy === undefined) nextSeg = nextNode.key;
-        }
-
-        if (event.isLeft) {
-          // Check for intersections against the previous segment in the sweep line
-          var prevMySplitter = null;
-
-          if (prevSeg) {
-            var prevInter = prevSeg.getIntersection(segment);
-
-            if (prevInter !== null) {
-              if (!segment.isAnEndpoint(prevInter)) prevMySplitter = prevInter;
-
-              if (!prevSeg.isAnEndpoint(prevInter)) {
-                var newEventsFromSplit = this._splitSafely(prevSeg, prevInter);
-
-                for (var i = 0, iMax = newEventsFromSplit.length; i < iMax; i++) {
-                  newEvents.push(newEventsFromSplit[i]);
-                }
-              }
-            }
-          } // Check for intersections against the next segment in the sweep line
-
-
-          var nextMySplitter = null;
-
-          if (nextSeg) {
-            var nextInter = nextSeg.getIntersection(segment);
-
-            if (nextInter !== null) {
-              if (!segment.isAnEndpoint(nextInter)) nextMySplitter = nextInter;
-
-              if (!nextSeg.isAnEndpoint(nextInter)) {
-                var _newEventsFromSplit = this._splitSafely(nextSeg, nextInter);
-
-                for (var _i = 0, _iMax = _newEventsFromSplit.length; _i < _iMax; _i++) {
-                  newEvents.push(_newEventsFromSplit[_i]);
-                }
-              }
-            }
-          } // For simplicity, even if we find more than one intersection we only
-          // spilt on the 'earliest' (sweep-line style) of the intersections.
-          // The other intersection will be handled in a future process().
-
-
-          if (prevMySplitter !== null || nextMySplitter !== null) {
-            var mySplitter = null;
-            if (prevMySplitter === null) mySplitter = nextMySplitter;else if (nextMySplitter === null) mySplitter = prevMySplitter;else {
-              var cmpSplitters = SweepEvent$1.comparePoints(prevMySplitter, nextMySplitter);
-              if (cmpSplitters < 0) mySplitter = prevMySplitter;
-              if (cmpSplitters > 0) mySplitter = nextMySplitter; // the two splitters are the exact same point
-
-              mySplitter = prevMySplitter;
-            } // Rounding errors can cause changes in ordering,
-            // so remove afected segments and right sweep events before splitting
-
-            this.queue.remove(segment.rightSE);
-            newEvents.push(segment.rightSE);
-
-            var _newEventsFromSplit2 = segment.split(mySplitter);
-
-            for (var _i2 = 0, _iMax2 = _newEventsFromSplit2.length; _i2 < _iMax2; _i2++) {
-              newEvents.push(_newEventsFromSplit2[_i2]);
-            }
-          }
-
-          if (newEvents.length > 0) {
-            // We found some intersections, so re-do the current event to
-            // make sure sweep line ordering is totally consistent for later
-            // use with the segment 'prev' pointers
-            this.tree.remove(segment);
-            newEvents.push(event);
-          } else {
-            // done with left event
-            this.segments.push(segment);
-            segment.prev = prevSeg;
-          }
-        } else {
-          // event.isRight
-          // since we're about to be removed from the sweep line, check for
-          // intersections between our previous and next segments
-          if (prevSeg && nextSeg) {
-            var inter = prevSeg.getIntersection(nextSeg);
-
-            if (inter !== null) {
-              if (!prevSeg.isAnEndpoint(inter)) {
-                var _newEventsFromSplit3 = this._splitSafely(prevSeg, inter);
-
-                for (var _i3 = 0, _iMax3 = _newEventsFromSplit3.length; _i3 < _iMax3; _i3++) {
-                  newEvents.push(_newEventsFromSplit3[_i3]);
-                }
-              }
-
-              if (!nextSeg.isAnEndpoint(inter)) {
-                var _newEventsFromSplit4 = this._splitSafely(nextSeg, inter);
-
-                for (var _i4 = 0, _iMax4 = _newEventsFromSplit4.length; _i4 < _iMax4; _i4++) {
-                  newEvents.push(_newEventsFromSplit4[_i4]);
-                }
-              }
-            }
-          }
-
-          this.tree.remove(segment);
-        }
-
-        return newEvents;
-      }
-      /* Safely split a segment that is currently in the datastructures
-       * IE - a segment other than the one that is currently being processed. */
-
-    }, {
-      key: "_splitSafely",
-      value: function _splitSafely(seg, pt) {
-        // Rounding errors can cause changes in ordering,
-        // so remove afected segments and right sweep events before splitting
-        // removeNode() doesn't work, so have re-find the seg
-        // https://github.com/w8r/splay-tree/pull/5
-        this.tree.remove(seg);
-        var rightSE = seg.rightSE;
-        this.queue.remove(rightSE);
-        var newEvents = seg.split(pt);
-        newEvents.push(rightSE); // splitting can trigger consumption
-
-        if (seg.consumedBy === undefined) this.tree.insert(seg);
-        return newEvents;
-      }
-    }]);
-
-    return SweepLine;
-  }();
-
-  var Operation$1 =
-  /*#__PURE__*/
-  function () {
-    function Operation() {
-      _classCallCheck$1(this, Operation);
-    }
-
-    _createClass$1(Operation, [{
-      key: "run",
-      value: function run(type, geom, moreGeoms) {
-        operation$1.type = type;
-        rounder$1.reset();
-        /* Make a copy of the input geometry with rounded points as objects */
-
-        var geoms = [pointsAsObjects$1(geom)];
-
-        for (var i = 0, iMax = moreGeoms.length; i < iMax; i++) {
-          geoms.push(pointsAsObjects$1(moreGeoms[i]));
-        }
-        /* Clean inputs */
-
-
-        for (var _i = 0, _iMax = geoms.length; _i < _iMax; _i++) {
-          forceMultiPoly$1(geoms[_i]);
-          cleanMultiPoly$1(geoms[_i]);
-        }
-        /* Convert inputs to MultiPoly objects, mark subject */
-
-
-        var multipolys = [];
-
-        for (var _i2 = 0, _iMax2 = geoms.length; _i2 < _iMax2; _i2++) {
-          multipolys.push(new MultiPolyIn$1(geoms[_i2]));
-        }
-
-        multipolys[0].markAsSubject();
-        operation$1.numMultiPolys = multipolys.length;
-        /* Put segment endpoints in a priority queue */
-
-        var queue = new Tree$1(SweepEvent$1.compare);
-
-        for (var _i3 = 0, _iMax3 = multipolys.length; _i3 < _iMax3; _i3++) {
-          var sweepEvents = multipolys[_i3].getSweepEvents();
-
-          for (var j = 0, jMax = sweepEvents.length; j < jMax; j++) {
-            queue.insert(sweepEvents[j]);
-          }
-        }
-        /* Pass the sweep line over those endpoints */
-
-
-        var sweepLine = new SweepLine$1(queue);
-        var prevQueueSize = queue.size;
-        var node = queue.pop();
-
-        while (node) {
-          var evt = node.key;
-
-          if (queue.size === prevQueueSize) {
-            // prevents an infinite loop, an otherwise common manifestation of bugs
-            throw new Error("Unable to pop() SweepEvent [".concat(evt.point.x, ", ").concat(evt.point.y, "] from ") + "segment #".concat(evt.segment.id, " from queue. Please file a bug report."));
-          }
-
-          var newEvents = sweepLine.process(evt);
-
-          for (var _i4 = 0, _iMax4 = newEvents.length; _i4 < _iMax4; _i4++) {
-            var _evt = newEvents[_i4];
-            if (_evt.consumedBy === undefined) queue.insert(_evt);
-          }
-
-          prevQueueSize = queue.size;
-          node = queue.pop();
-        } // free some memory we don't need anymore
-
-
-        rounder$1.reset();
-        /* Collect and compile segments we're keeping into a multipolygon */
-
-        var ringsOut = RingOut$1.factory(sweepLine.segments);
-        var result = new MultiPolyOut$1(ringsOut);
-        return result.getGeom();
-      }
-    }]);
-
-    return Operation;
-  }(); // singleton available by import
-
-  var operation$1 = new Operation$1();
-
-  const multiply$3 = (matrix, solid) => solid.map(surface => transform$d(matrix, surface));
-
-  // Relax the coplanar arrangement into polygon soup.
-
-  const map$4 = (geometry, operation) => {
-    const walk = (geometry) => {
-      if (geometry.assembly) {
-        return operation({ assembly: geometry.assembly.map(walk), tags: geometry.tags });
-      } else {
-        return operation(geometry);
-      }
-    };
-    return walk(geometry);
-  };
-
-  const eachItem$1 = (geometry, operation) => {
-    const walk = (geometry) => {
-      if (geometry.assembly) {
-        geometry.assembly.forEach(walk);
-      }
-      operation(geometry);
-    };
-    walk(geometry);
-  };
-
-  const transformItem$1 = (matrix, item) => {
-    const transformed = {};
-    if (item.assembly) {
-      transformed.assembly = item.assembly;
-    }
-    if (item.paths) {
-      transformed.paths = transform$8(matrix, item.paths);
-    }
-    if (item.points) {
-      transformed.points = transform$b(matrix, item.points);
-    }
-    if (item.solid) {
-      transformed.solid = multiply$3(matrix, item.solid);
-    }
-    if (item.z0Surface) {
-      // FIX: Handle transformations that take the surface out of z0.
-      transformed.z0Surface = transform$d(matrix, item.z0Surface);
-    }
-    transformed.tags = item.tags;
-    return transformed;
-  };
-
-  const transform$e = (matrix, assembly) => map$4(assembly, item => transformItem$1(matrix, item));
-
-  const scale$5 = (vector, assembly) => transform$e(fromScaling$1(vector), assembly);
-
   // Normally svgPathToPaths normalized the coordinate system, but this would interfere with our own normalization.
   const fromSvgPath$1 = (options = {}, svgPath) =>
     fromSvgPath(Object.assign({ normalizeCoordinateSystem: false }, options), svgPath);
@@ -30669,8 +27441,18 @@ return d[d.length-1];};return ", funcName].join("");
         case ELEMENT_NODE$1: {
           ({ matrix } = applyTransforms({ matrix }, node.getAttribute('transform')));
 
-          const output = (svgPath) =>
-            geometry.assembly.push(transform$e(scale(matrix), fromSvgPath$1({}, svgPath)));
+          const output = (svgPath) => {
+            const paths = fromSvgPath$1({}, svgPath).paths;
+            const fill = node.getAttribute('fill');
+            if (fill !== undefined && fill !== 'none') {
+              // Does fill, etc, inherit?
+              geometry.assembly.push(transform$7(scale(matrix), { z0Surface: close(paths), tags: [`color/${fill}`] }));
+            }
+            const stroke = node.getAttribute('stroke');
+            if (stroke !== undefined && stroke !== 'none') {
+              geometry.assembly.push(transform$7(scale(matrix), { paths: paths, tags: [`color/${stroke}`] }));
+            }
+          };
 
           // FIX: Should output a path given a stroke, should output a surface given a fill.
           switch (node.tagName) {
@@ -30712,7 +27494,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   const toPolygons$1 = (geometry) => {
     const polygonSets = [];
-    eachItem$1(geometry,
+    eachItem(geometry,
              item => {
                if (item.z0Surface) {
                  polygonSets.push(item.z0Surface);
@@ -30728,11 +27510,11 @@ return d[d.length-1];};return ", funcName].join("");
    */
   const toSvg = async ({ padding = 0 }, geometry) => {
     // FIX: SVG should handle both surfaces and paths.
-    const polygons = canonicalize$8(toPolygons$1(geometry));
-    const min = measureBoundingBox$1(polygons)[0];
+    const polygons = canonicalize$6(toPolygons$1(geometry));
+    const min = measureBoundingBox(polygons)[0];
     // TODO: Add transform and translate support to polygons.
-    const shiftedPolygons = canonicalize$8(translate$2(negate(min), polygons));
-    const [width, height] = measureBoundingBox$1(shiftedPolygons)[1];
+    const shiftedPolygons = canonicalize$6(translate$2(negate(min), polygons));
+    const [width, height] = measureBoundingBox(shiftedPolygons)[1];
 
     return [
       `<?xml version="1.0" encoding="UTF-8"?>`,
@@ -30801,7 +27583,7 @@ return d[d.length-1];};return ", funcName].join("");
   var TINF_OK = 0;
   var TINF_DATA_ERROR = -3;
 
-  function Tree$2() {
+  function Tree$1() {
     this.table = new Uint16Array(16);   /* table of code length counts */
     this.trans = new Uint16Array(288);  /* code -> symbol translation table */
   }
@@ -30815,16 +27597,16 @@ return d[d.length-1];};return ", funcName].join("");
     this.dest = dest;
     this.destLen = 0;
     
-    this.ltree = new Tree$2();  /* dynamic length/symbol tree */
-    this.dtree = new Tree$2();  /* dynamic distance tree */
+    this.ltree = new Tree$1();  /* dynamic length/symbol tree */
+    this.dtree = new Tree$1();  /* dynamic distance tree */
   }
 
   /* --------------------------------------------------- *
    * -- uninitialized global data (static structures) -- *
    * --------------------------------------------------- */
 
-  var sltree = new Tree$2();
-  var sdtree = new Tree$2();
+  var sltree = new Tree$1();
+  var sdtree = new Tree$1();
 
   /* extra bits and base tables for length codes */
   var length_bits = new Uint8Array(30);
@@ -30842,7 +27624,7 @@ return d[d.length-1];};return ", funcName].join("");
   ]);
 
   /* used by tinf_decode_trees, avoids allocations every call */
-  var code_tree = new Tree$2();
+  var code_tree = new Tree$1();
   var lengths = new Uint8Array(288 + 32);
 
   /* ----------------------- *
@@ -43664,8 +40446,7 @@ return d[d.length-1];};return ", funcName].join("");
 
       function assertNamePresent(name) {
           const englishName = _this.getEnglishName(name);
-          assert(englishName && englishName.trim().length > 0,
-                 'No English ' + name + ' specified.');
+          assert();
       }
 
       // Identification information
@@ -43676,7 +40457,7 @@ return d[d.length-1];};return ", funcName].join("");
       assertNamePresent('version');
 
       // Dimension information
-      assert(this.unitsPerEm > 0, 'No unitsPerEm specified.');
+      assert();
   };
 
   /**
@@ -44417,33 +41198,6 @@ return d[d.length-1];};return ", funcName].join("");
       return font;
   }
 
-  /*
-  import { scale, translate } from '@jsxcad/geometry-eager';
-
-  import fontkit from 'fontkit/index.js';
-  import { fromSvgPath } from '@jsxcad/convert-svg';
-  import { union } from '@jsxcad/geometry-z0surface';
-
-  export const toFont = ({ name }, bytes) => {
-    const fontData = fontkit.create(Buffer.from(bytes), name);
-
-    const font = ({ emSize = 1 }, text) => {
-      const { glyphs, positions } = fontData.layout(text);
-      const pathsets = [];
-      const factor = emSize / fontData.unitsPerEm;
-      let xOffset = 0;
-      for (let nth = 0; nth < glyphs.length; nth++) {
-        const { path } = glyphs[nth];
-        const { xAdvance } = positions[nth];
-        pathsets.push(translate([xOffset], fromSvgPath({ curveSegments: 32, normalizeCoordinateSystem: false }, path.toSVG())).paths);
-        xOffset += xAdvance;
-      }
-      return scale([factor, factor, factor], { z0Surface: union(...pathsets) });
-    };
-    return font;
-  };
-  */
-
   const toFont = (options = {}, bytes) => {
     const fontData = parseBuffer(bytes.buffer);
 
@@ -44591,7 +41345,7 @@ return d[d.length-1];};return ", funcName].join("");
                                           flt(b), flt(e), flt(h), 0.0,
                                           flt(c), flt(f), flt(i), 0.0,
                                           ldu(x), ldu(y), ldu(z), 1.0);
-          polygons.push(...transform$9(matrix, await fromPartToPolygons({ part: subPart, invert: subInvert, stack })));
+          polygons.push(...transform$6(matrix, await fromPartToPolygons({ part: subPart, invert: subInvert, stack })));
           stack.pop();
           break;
         }
@@ -44605,7 +41359,7 @@ return d[d.length-1];};return ", funcName].join("");
                          [ldu(x3), ldu(y3), ldu(z3)]];
           if (!isStrictlyCoplanar(polygon)) throw Error('die');
           if (Direction() === 'CW') {
-            polygons.push(flip(polygon));
+            polygons.push(flip$3(polygon));
           } else {
             polygons.push(polygon);
           }
@@ -44619,10 +41373,10 @@ return d[d.length-1];};return ", funcName].join("");
                    [ldu(x4), ldu(y4), ldu(z4)]];
           if (Direction() === 'CW') {
             if (isStrictlyCoplanar(p)) {
-              polygons.push(flip(p));
+              polygons.push(flip$3(p));
             } else {
-              polygons.push(flip([p[0], p[1], p[3]]));
-              polygons.push(flip([p[2], p[3], p[1]]));
+              polygons.push(flip$3([p[0], p[1], p[3]]));
+              polygons.push(flip$3([p[2], p[3], p[1]]));
             }
           } else {
             if (isStrictlyCoplanar(p)) {
@@ -44706,9 +41460,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ preview, geometry }, path, JSON.stringify(geometry));
   };
 
-  const method$l = function (options = {}) { return writeShape(options, this); };
+  const method$n = function (options = {}) { return writeShape(options, this); };
 
-  Shape.prototype.writeShape = method$l;
+  Shape.prototype.writeShape = method$n;
 
   /**
    *
@@ -44901,7 +41655,7 @@ return d[d.length-1];};return ", funcName].join("");
    * @param {vec3} p2 end point of the line segment
    * @returns {line3} a new unbounded 3D line
    */
-  const fromPoints$3 = (p1, p2) => {
+  const fromPoints$4 = (p1, p2) => {
     const direction = subtract(p2, p1);
     return fromPointAndDirection(p1, direction);
   };
@@ -44941,7 +41695,7 @@ return d[d.length-1];};return ", funcName].join("");
     const lines = new Map();
     ends.forEach(end => {
       // These are not actually lines, but they all start at the same position, so we can pretend.
-      const ray = fromPoints$3(start, end);
+      const ray = fromPoints$4(start, end);
       ensureMapElement(lines, toIdentity(ray)).push(end);
     });
 
@@ -45294,6 +42048,58 @@ return d[d.length-1];};return ", funcName].join("");
 
   const makeWatertight = polygons => fixTJunctions(polygons);
 
+  const copy$2 = ({ solid }) => ({ solid: solid.map(surface => surface.map(path => path.map(point => [...point]))) });
+
+  // FIX: This is neither efficient nor principled.
+  // We include this fix for now to better understand the cases where it fails.
+
+  // FIX: This introduces degenerate polygons.
+
+  const fixTJunctions$1 = (solids) => {
+    const points = new Map();
+
+    for (const { solid } of solids) {
+      for (const surface of solid) {
+        for (const path of surface) {
+          for (const point of path) {
+            points.set(JSON.stringify(point), point);
+          }
+        }
+      }
+    }
+
+    const fixed = [];
+
+    for (const geometry of solids) {
+      const { solid } = copy$2(geometry);
+      for (const surface of solid) {
+        for (const path of surface) {
+          let last = path.length - 1;
+          for (let current = 0; current < path.length; last = current++) {
+            const start = path[last];
+            const end = path[current];
+            const span = distance(start, end);
+            const colinear = [];
+            for (const [, point] of points) {
+              if (equals(point, start)) continue;
+              if (equals(point, end)) continue;
+              if (distance(start, point) + distance(point, end) === span) {
+                // The point is approximately colinear.
+                colinear.push(point);
+              }
+            }
+            colinear.sort((a, b) => distance(start, a) - distance(start, b));
+            path.splice(current, 0, ...colinear);
+            current += colinear.length;
+          }
+        }
+      }
+      fixed.push({ solid });
+    }
+
+    return fixed;
+  };
+
   /**
    * Translates a polygon array [[[x, y, z], [x, y, z], ...]] to ascii STL.
    * The exterior side of a polygon is determined by a CCW point ordering.
@@ -45303,31 +42109,29 @@ return d[d.length-1];};return ", funcName].join("");
    * @returns {String} - the ascii STL output.
    */
 
-  const geometryToTriangles = (geometry) => {
-    const triangleSets = [];
-    eachItem(geometry,
-             item => {
-               if (item.solid) {
-                 triangleSets.push(toTriangles({}, toPolygons({}, item.solid)));
-               }
-             });
-    return [].concat(...triangleSets);
+  const geometryToTriangles = (solids) => {
+    const triangles = [];
+    for (const { solid } of solids) {
+      triangles.push(...toTriangles({}, toPolygons({}, solid)));
+    }
+    return triangles;
   };
 
   const toStl = async (options = {}, geometry) => {
     let keptGeometry = toKeptGeometry(geometry);
-    let polygons = geometryToTriangles(keptGeometry);
+    let solids = getSolids(keptGeometry);
+    let polygons = geometryToTriangles(fixTJunctions$1(solids));
     if (!isWatertightPolygons(polygons)) {
       console.log(`polygonsToStla: Polygon is not watertight`);
       if (options.doMakeWatertight) {
         polygons = makeWatertight(polygons);
       }
     }
-    return `solid JSxCAD\n${convertToFacets(options, canonicalize$8(toTriangles({}, polygons)))}\nendsolid JSxCAD\n`;
+    return `solid JSxCAD\n${convertToFacets(options, canonicalize$6(toTriangles({}, polygons)))}\nendsolid JSxCAD\n`;
   };
 
   const convertToFacets = (options, polygons) =>
-    polygons.map(convertToFacet).join('\n');
+    polygons.map(convertToFacet).filter(facet => facet !== undefined).join('\n');
 
   const toStlVector = vector =>
     `${vector[0]} ${vector[1]} ${vector[2]}`;
@@ -45335,14 +42139,18 @@ return d[d.length-1];};return ", funcName].join("");
   const toStlVertex = vertex =>
     `vertex ${toStlVector(vertex)}`;
 
-  const convertToFacet = polygon =>
-    `facet normal ${toStlVector(toPlane(polygon))}\n` +
-    `outer loop\n` +
-    `${toStlVertex(polygon[0])}\n` +
-    `${toStlVertex(polygon[1])}\n` +
-    `${toStlVertex(polygon[2])}\n` +
-    `endloop\n` +
-    `endfacet`;
+  const convertToFacet = (polygon) => {
+    const plane = toPlane(polygon);
+    if (!isNaN(plane[0])) {
+      return `facet normal ${toStlVector(toPlane(polygon))}\n` +
+             `outer loop\n` +
+             `${toStlVertex(polygon[0])}\n` +
+             `${toStlVertex(polygon[1])}\n` +
+             `${toStlVertex(polygon[2])}\n` +
+             `endloop\n` +
+             `endfacet`;
+    }
+  };
 
   /**
    *
@@ -45441,9 +42249,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$5(shape, reference);
     });
 
-  const method$m = function (...params) { return right(this, ...params); };
+  const method$o = function (...params) { return right(this, ...params); };
 
-  Shape.prototype.right = method$m;
+  Shape.prototype.right = method$o;
 
   /**
    *
@@ -45465,9 +42273,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateX$1 = (angle, shape) => shape.transform(fromXRotation(angle * 0.017453292519943295));
 
-  const method$n = function (angle) { return rotateX$1(angle, this); };
+  const method$p = function (angle) { return rotateX$1(angle, this); };
 
-  Shape.prototype.rotateX = method$n;
+  Shape.prototype.rotateX = method$p;
 
   /**
    *
@@ -45489,9 +42297,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateY = (angle, shape) => shape.transform(fromYRotation(angle * 0.017453292519943295));
 
-  const method$o = function (angle) { return rotateY(angle, this); };
+  const method$q = function (angle) { return rotateY(angle, this); };
 
-  Shape.prototype.rotateY = method$o;
+  Shape.prototype.rotateY = method$q;
 
   /**
    *
@@ -45513,9 +42321,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateZ = (angle, shape) => shape.transform(fromZRotation(angle * 0.017453292519943295));
 
-  const method$p = function (angle) { return rotateZ(angle, this); };
+  const method$r = function (angle) { return rotateZ(angle, this); };
 
-  Shape.prototype.rotateZ = method$p;
+  Shape.prototype.rotateZ = method$r;
 
   /**
    *
@@ -45550,9 +42358,55 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$q = function (factor) { return scale$6(factor, this); };
+  const method$s = function (factor) { return scale$6(factor, this); };
 
-  Shape.prototype.scale = method$q;
+  Shape.prototype.scale = method$s;
+
+  /**
+   *
+   * # Section
+   *
+   * Produces a cross-section of a solid as a surface.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 60] } }
+   * ```
+   * difference(cylinder(10, 10),
+   *            cylinder(8, 10))
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * difference(sphere(10),
+   *            sphere(8))
+   *   .section()
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * difference(sphere(10),
+   *            sphere(8))
+   *   .section()
+   *   .outline()
+   * ```
+   * :::
+   *
+   **/
+
+  const section = ({ allowOpenPaths = false, z = 0 } = {}, shape) => {
+    const solids = getSolids(shape.toKeptGeometry());
+    const shapes = [];
+    for (const { solid } of solids) {
+      const polygons = toPolygons({}, solid);
+      const triangles = toTriangles({}, polygons);
+      const paths = cutTrianglesByPlane({ allowOpenPaths }, fromPoints$1([0, 0, z], [1, 0, z], [0, 1, z]), triangles);
+      shapes.push(Shape.fromPathsToZ0Surface(paths));
+    }
+    return assemble$1(...shapes);
+  };
+
+  const method$t = function (options) { return section(options, this); };
+
+  Shape.prototype.section = method$t;
 
   /**
    *
@@ -45602,7 +42456,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   const unitSphere = ({ resolution = 32 } = {}) => Shape.fromPolygonsToSolid(buildRingSphere({ resolution }));
 
-  const fromValue$9 = (value) => unitSphere().scale(value);
+  const fromValue$a = (value) => unitSphere().scale(value);
 
   const fromRadius$3 = ({ radius, resolution = 32 }) => unitSphere({ resolution }).scale(radius);
 
@@ -45613,12 +42467,12 @@ return d[d.length-1];};return ", funcName].join("");
     // sphere()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$9(1);
+      return () => fromValue$a(1);
     },
     // sphere(2)
     (value) => {
       assertNumber(value);
-      return () => fromValue$9(value);
+      return () => fromValue$a(value);
     },
     // sphere({ radius: 2, resolution: 5 })
     ({ radius, resolution = 32 }) => {
@@ -45633,7 +42487,7 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromDiameter$3({ diameter, resolution });
     });
 
-  sphere.fromValue = fromValue$9;
+  sphere.fromValue = fromValue$a;
   sphere.fromRadius = fromRadius$3;
   sphere.fromDiameter = fromDiameter$3;
 
@@ -45677,7 +42531,20 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    * ::: illustration
    * ```
-   * square({ radius: 10 })
+   * square({ edge: 10 })
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * assemble(circle(10),
+   *          square({ radius: 10 })
+   *            .drop())
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * assemble(square({ apothem: 10 }),
+   *          circle(10).drop())
    * ```
    * :::
    * ::: illustration
@@ -45692,8 +42559,6 @@ return d[d.length-1];};return ", funcName].join("");
 
   const fromSize = ({ size }) => unitSquare().scale(size);
   const fromDimensions = ({ width, length }) => unitSquare().scale([width, length, 1]);
-  const fromRadius$4 = ({ radius }) => Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: 4 })).rotateZ(45).scale(radius);
-  const fromDiameter$4 = ({ diameter }) => Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: 4 })).rotateZ(45).scale(diameter / 2);
 
   const square = dispatch(
     'square',
@@ -45715,15 +42580,25 @@ return d[d.length-1];};return ", funcName].join("");
       assertEmpty(rest);
       return () => fromDimensions({ width, length });
     },
-    // square({ radius: 5 })
+    // square({ edge: 10 })
+    ({ edge }) => {
+      assertNumber(edge);
+      return () => polygon.fromEdge({ edge, sides: 4 });
+    },
+    // polygon({ apothem: 10 })
+    ({ apothem }) => {
+      assertNumber(apothem);
+      return () => polygon.fromApothem({ apothem, sides: 4 });
+    },
+    // polygon({ radius: 10})
     ({ radius }) => {
       assertNumber(radius);
-      return () => fromRadius$4({ radius });
+      return () => polygon.fromRadius({ radius, sides: 4 });
     },
-    // square({ diameter: 5 })
+    // polygon({ diameter: 10})
     ({ diameter }) => {
       assertNumber(diameter);
-      return () => fromDiameter$4({ diameter });
+      return () => polygon.fromDiameter({ diameter, sides: 4 });
     });
 
   /**
@@ -45777,51 +42652,51 @@ return d[d.length-1];};return ", funcName].join("");
 
   const unitTetrahedron = () => Shape.fromPolygonsToSolid(buildRegularTetrahedron({}));
 
-  const fromValue$a = (value) => unitTetrahedron().scale(value);
+  const fromValue$b = (value) => unitTetrahedron().scale(value);
 
-  const fromRadius$5 = ({ radius }) => unitTetrahedron().scale(radius);
+  const fromRadius$4 = ({ radius }) => unitTetrahedron().scale(radius);
 
-  const fromDiameter$5 = ({ diameter }) => unitTetrahedron().scale(diameter / 2);
+  const fromDiameter$4 = ({ diameter }) => unitTetrahedron().scale(diameter / 2);
 
   const tetrahedron = dispatch(
     'tetrahedron',
     // tetrahedron()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$a(1);
+      return () => fromValue$b(1);
     },
     // tetrahedron(2)
     (value) => {
       assertNumber(value);
-      return () => fromValue$a(value);
+      return () => fromValue$b(value);
     },
     // tetrahedron({ radius: 2 })
     ({ radius }) => {
       assertNumber(radius);
-      return () => fromRadius$5({ radius });
+      return () => fromRadius$4({ radius });
     },
     // tetrahedron({ diameter: 2 })
     ({ diameter }) => {
       assertNumber(diameter);
-      return () => fromDiameter$5({ diameter });
+      return () => fromDiameter$4({ diameter });
     });
 
-  tetrahedron.fromValue = fromValue$a;
-  tetrahedron.fromRadius = fromRadius$5;
-  tetrahedron.fromDiameter = fromDiameter$5;
+  tetrahedron.fromValue = fromValue$b;
+  tetrahedron.fromRadius = fromRadius$4;
+  tetrahedron.fromDiameter = fromDiameter$4;
 
   /**
    *
    * # Triangle
    *
-   * ::: illustration { "view": { "position": [0, 0, 10] } }
+   * ::: illustration { "view": { "position": [0, 0, 5] } }
    * ```
    * triangle()
    * ```
    * :::
    * ::: illustration
    * ```
-   * triangle(10)
+   * triangle(20)
    * ```
    * :::
    * ::: illustration
@@ -45831,49 +42706,266 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    * ::: illustration
    * ```
-   * triangle({ diameter: 20 })
+   * assemble(circle(10),
+   *          triangle({ radius: 10 })
+   *            .drop())
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * assemble(triangle({ apothem: 5 }),
+   *          circle(5).drop())
+   * ```
+   * :::
+   * ::: illustration
+   * ```
+   * assemble(triangle({ radius: 10 })
+   *            .rotateZ(180),
+   *          triangle({ diameter: 10 })
+   *            .drop())
    * ```
    * :::
    **/
-
-  // FIX: This uses the circumradius rather than apothem, so that the produced polygon will fit into the specified radius.
-  // Is this the most useful measure?
-
-  const unitTriangle = () =>
-    Shape.fromPathToZ0Surface(buildRegularPolygon({ edges: 3 }));
-
-  const fromValue$b = (radius) => unitTriangle({ resolution: 32 }).scale(radius);
-
-  const fromRadius$6 = ({ radius, resolution = 32 }) => unitTriangle({ resolution }).scale(radius);
-
-  const fromDiameter$6 = ({ diameter, resolution = 32 }) => unitTriangle({ resolution }).scale(diameter / 2);
 
   const triangle = dispatch(
     'triangle',
     // triangle()
     (...rest) => {
       assertEmpty(rest);
-      return () => fromValue$b(1);
+      return () => polygon.fromEdge({ edge: 1, sides: 3 });
     },
     // triangle(2)
     (value) => {
       assertNumber(value);
-      return () => fromValue$b(value);
+      return () => polygon.fromEdge({ edge: value, sides: 3 });
     },
-    // triangle({ radius: 2, resolution: 32 })
-    ({ radius, resolution }) => {
+    // triangle({ edge: 10 })
+    ({ edge }) => {
+      assertNumber(edge);
+      return () => polygon.fromEdge({ edge, sides: 3 });
+    },
+    // triangle({ apothem: 10 })
+    ({ apothem }) => {
+      assertNumber(apothem);
+      return () => polygon.fromApothem({ apothem, sides: 3 });
+    },
+    // triangle({ radius: 10})
+    ({ radius }) => {
       assertNumber(radius);
-      return () => fromRadius$6({ radius });
+      return () => polygon.fromRadius({ radius, sides: 3 });
     },
-    // triangle({ diameter: 2, resolution: 32 })
-    ({ diameter, resolution }) => {
+    // triangle({ diameter: 10})
+    ({ diameter }) => {
       assertNumber(diameter);
-      return () => fromDiameter$6({ diameter });
+      return () => polygon.fromDiameter({ diameter, sides: 3 });
     });
 
-  triangle.fromValue = fromValue$b;
-  triangle.fromRadius = fromRadius$6;
-  triangle.fromDiameter = fromDiameter$6;
+  const toWireframe = (solid) => {
+    const paths = [];
+    // for (const surface of makeSurfacesSimple({}, solid)) {
+    for (const surface of solid) {
+      paths.push(...surface);
+    }
+    return Shape.fromPaths(paths);
+  };
+
+  /**
+   *
+   * # Wireframe
+   *
+   * Generates a set of paths outlining a solid.
+   *
+   * ::: illustration { "view": { "position": [-40, -40, 40] } }
+   * ```
+   * cube(10).wireframe()
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [-40, -40, 40] } }
+   * ```
+   * sphere(10).wireframe()
+   * ```
+   * :::
+   *
+   **/
+
+  const wireframe = (options = {}, shape) => {
+    const pieces = [];
+    for (const { solid } of getSolids(shape.toKeptGeometry())) {
+      pieces.push(toWireframe(solid));
+    }
+    return assemble$1(...pieces);
+  };
+
+  const method$u = function (options) { return wireframe(options, this); };
+
+  Shape.prototype.wireframe = method$u;
+
+  const colorToRgbMapping = {
+    'aliceblue': [240, 248, 255],
+    'antiquewhite': [250, 235, 215],
+    'aqua': [0, 255, 255],
+    'aquamarine': [127, 255, 212],
+    'azure': [240, 255, 255],
+    'beige': [245, 245, 220],
+    'bisque': [255, 228, 196],
+    'black': [0, 0, 0],
+    'blanchedalmond': [255, 235, 205],
+    'blue': [0, 0, 255],
+    'blueviolet': [138, 43, 226],
+    'brown': [165, 42, 42],
+    'burlywood': [222, 184, 135],
+    'cadetblue': [95, 158, 160],
+    'chartreuse': [127, 255, 0],
+    'chocolate': [210, 105, 30],
+    'coral': [255, 127, 80],
+    'cornflowerblue': [100, 149, 237],
+    'cornsilk': [255, 248, 220],
+    'crimson': [220, 20, 60],
+    'cyan': [0, 255, 255],
+    'darkblue': [0, 0, 139],
+    'darkcyan': [0, 139, 139],
+    'darkgoldenrod': [184, 134, 11],
+    'darkgray': [169, 169, 169],
+    'darkgreen': [0, 100, 0],
+    'darkgrey': [169, 169, 169],
+    'darkkhaki': [189, 183, 107],
+    'darkmagenta': [139, 0, 139],
+    'darkolivegreen': [85, 107, 47],
+    'darkorange': [255, 140, 0],
+    'darkorchid': [153, 50, 204],
+    'darkred': [139, 0, 0],
+    'darksalmon': [233, 150, 122],
+    'darkseagreen': [143, 188, 143],
+    'darkslateblue': [72, 61, 139],
+    'darkslategray': [47, 79, 79],
+    'darkslategrey': [47, 79, 79],
+    'darkturquoise': [0, 206, 209],
+    'darkviolet': [148, 0, 211],
+    'deeppink': [255, 20, 147],
+    'deepskyblue': [0, 191, 255],
+    'dimgray': [105, 105, 105],
+    'dimgrey': [105, 105, 105],
+    'dodgerblue': [30, 144, 255],
+    'firebrick': [178, 34, 34],
+    'floralwhite': [255, 250, 240],
+    'forestgreen': [34, 139, 34],
+    'fuchsia': [255, 0, 255],
+    'gainsboro': [220, 220, 220],
+    'ghostwhite': [248, 248, 255],
+    'gold': [255, 215, 0],
+    'goldenrod': [218, 165, 32],
+    'gray': [128, 128, 128],
+    'green': [0, 128, 0],
+    'greenyellow': [173, 255, 47],
+    'grey': [128, 128, 128],
+    'honeydew': [240, 255, 240],
+    'hotpink': [255, 105, 180],
+    'indianred': [205, 92, 92],
+    'indigo': [75, 0, 130],
+    'ivory': [255, 255, 240],
+    'khaki': [240, 230, 140],
+    'lavender': [230, 230, 250],
+    'lavenderblush': [255, 240, 245],
+    'lawngreen': [124, 252, 0],
+    'lemonchiffon': [255, 250, 205],
+    'lightblue': [173, 216, 230],
+    'lightcoral': [240, 128, 128],
+    'lightcyan': [224, 255, 255],
+    'lightgoldenrodyellow': [250, 250, 210],
+    'lightgray': [211, 211, 211],
+    'lightgreen': [144, 238, 144],
+    'lightgrey': [211, 211, 211],
+    'lightpink': [255, 182, 193],
+    'lightsalmon': [255, 160, 122],
+    'lightseagreen': [32, 178, 170],
+    'lightskyblue': [135, 206, 250],
+    'lightslategray': [119, 136, 153],
+    'lightslategrey': [119, 136, 153],
+    'lightsteelblue': [176, 196, 222],
+    'lightyellow': [255, 255, 224],
+    'lime': [0, 255, 0],
+    'limegreen': [50, 205, 50],
+    'linen': [250, 240, 230],
+    'magenta': [255, 0, 255],
+    'maroon': [128, 0, 0],
+    'mediumaquamarine': [102, 205, 170],
+    'mediumblue': [0, 0, 205],
+    'mediumorchid': [186, 85, 211],
+    'mediumpurple': [147, 112, 219],
+    'mediumseagreen': [60, 179, 113],
+    'mediumslateblue': [123, 104, 238],
+    'mediumspringgreen': [0, 250, 154],
+    'mediumturquoise': [72, 209, 204],
+    'mediumvioletred': [199, 21, 133],
+    'midnightblue': [25, 25, 112],
+    'mintcream': [245, 255, 250],
+    'mistyrose': [255, 228, 225],
+    'moccasin': [255, 228, 181],
+    'navajowhite': [255, 222, 173],
+    'navy': [0, 0, 128],
+    'oldlace': [253, 245, 230],
+    'olive': [128, 128, 0],
+    'olivedrab': [107, 142, 35],
+    'orange': [255, 165, 0],
+    'orangered': [255, 69, 0],
+    'orchid': [218, 112, 214],
+    'palegoldenrod': [238, 232, 170],
+    'palegreen': [152, 251, 152],
+    'paleturquoise': [175, 238, 238],
+    'palevioletred': [219, 112, 147],
+    'papayawhip': [255, 239, 213],
+    'peachpuff': [255, 218, 185],
+    'peru': [205, 133, 63],
+    'pink': [255, 192, 203],
+    'plum': [221, 160, 221],
+    'powderblue': [176, 224, 230],
+    'purple': [128, 0, 128],
+    'rebeccapurple': [102, 51, 153],
+    'red': [255, 0, 0],
+    'rosybrown': [188, 143, 143],
+    'royalblue': [65, 105, 225],
+    'saddlebrown': [139, 69, 19],
+    'salmon': [250, 128, 114],
+    'sandybrown': [244, 164, 96],
+    'seagreen': [46, 139, 87],
+    'seashell': [255, 245, 238],
+    'sienna': [160, 82, 45],
+    'silver': [192, 192, 192],
+    'skyblue': [135, 206, 235],
+    'slateblue': [106, 90, 205],
+    'slategray': [112, 128, 144],
+    'slategrey': [112, 128, 144],
+    'snow': [255, 250, 250],
+    'springgreen': [0, 255, 127],
+    'steelblue': [70, 130, 180],
+    'tan': [210, 180, 140],
+    'teal': [0, 128, 128],
+    'thistle': [216, 191, 216],
+    'tomato': [255, 99, 71],
+    'turquoise': [64, 224, 208],
+    'violet': [238, 130, 238],
+    'wheat': [245, 222, 179],
+    'white': [255, 255, 255],
+    'whitesmoke': [245, 245, 245],
+    'yellow': [255, 255, 0],
+    'yellowgreen': [154, 205, 50]
+  };
+
+  const toRgb = (tags = [], defaultRgb = [0, 0, 0]) => {
+    let rgb = defaultRgb;
+    for (const tag of tags) {
+      if (tag.startsWith('color/')) {
+        let entry = colorToRgbMapping[tag.substring(6)];
+        if (entry !== undefined) {
+          rgb = entry;
+        }
+      }
+    }
+    return rgb;
+  };
+
+  const toFillColor = (rgb) => `${(rgb[0] / 255).toFixed(9)} ${(rgb[1] / 255).toFixed(9)} ${(rgb[2] / 255).toFixed(9)} rg`;
+  const toStrokeColor = (rgb) => `${(rgb[0] / 255).toFixed(9)} ${(rgb[1] / 255).toFixed(9)} ${(rgb[2] / 255).toFixed(9)} RG`;
 
   const X$4 = 0;
   const Y$4 = 1;
@@ -45903,28 +42995,15 @@ return d[d.length-1];};return ", funcName].join("");
       `trailer << /Root 1 0 R /Size 4 >>`,
       `%%EOF`];
 
-  const geometryToPaths = (geometry) => {
-    const pathsets = [];
-    eachItem$1(geometry,
-             item => {
-               if (item.paths) {
-                 pathsets.push(item.paths);
-               }
-               if (item.z0Surface) {
-                 pathsets.push(item.z0Surface);
-               }
-             });
-    return [].concat(...pathsets);
-  };
-
   const toPdf = async ({ orientation = 'portrait', unit = 'mm', lineWidth = 0.096, size = [210, 297] }, geometry) => {
-    const paths = geometryToPaths(await geometry);
+    geometry = await geometry;
+
     // This is the size of a post-script point in mm.
     const pointSize = 0.352777778;
     const scale = 1 / pointSize;
     const [width, height] = size;
     const lines = [];
-    const [min, max] = measureBoundingBox(paths);
+    const [min, max] = measureBoundingBox$2(geometry);
     // Currently the origin is at the bottom left.
     // Subtract the x min, and the y max, then add the page height to bring
     // it up to the top left. This positions the origin nicely for laser
@@ -45932,19 +43011,37 @@ return d[d.length-1];};return ", funcName].join("");
     const offset = [-min[X$4] * scale, (height - max[Y$4]) * scale, 0];
     const matrix = multiply$1(fromTranslation(offset),
                             fromScaling([scale, scale, scale]));
-    for (const path of transform$2(matrix, paths)) {
-      let nth = (path[0] === null) ? 1 : 0;
-      const [x1, y1] = path[nth];
-      lines.push(`${x1.toFixed(9)} ${y1.toFixed(9)} m`); // move-to.
-      for (nth++; nth < path.length; nth++) {
-        const [x2, y2] = path[nth];
-        lines.push(`${x2.toFixed(9)} ${y2.toFixed(9)} l`); // line-to.
+    const keptGeometry = toKeptGeometry(transform$7(matrix, geometry));
+    for (const { tags, z0Surface } of getZ0Surfaces(keptGeometry)) {
+      lines.push(toFillColor(toRgb(tags)));
+      for (const path of makeConvex({}, z0Surface)) {
+        let nth = (path[0] === null) ? 1 : 0;
+        const [x1, y1] = path[nth];
+        lines.push(`${x1.toFixed(9)} ${y1.toFixed(9)} m`); // move-to.
+        for (nth++; nth < path.length; nth++) {
+          const [x2, y2] = path[nth];
+          lines.push(`${x2.toFixed(9)} ${y2.toFixed(9)} l`); // line-to.
+        }
+        lines.push(`h`); // Surface paths are always closed.
+        lines.push(`f`); // Surface paths are always filled.
       }
-      if (path[0] !== null) {
-        // A leading null indicates an open path.
-        lines.push(`h`); // close path.
+    }
+    for (const { tags, paths } of getPaths(keptGeometry)) {
+      lines.push(toStrokeColor(toRgb(tags)));
+      for (const path of paths) {
+        let nth = (path[0] === null) ? 1 : 0;
+        const [x1, y1] = path[nth];
+        lines.push(`${x1.toFixed(9)} ${y1.toFixed(9)} m`); // move-to.
+        for (nth++; nth < path.length; nth++) {
+          const [x2, y2] = path[nth];
+          lines.push(`${x2.toFixed(9)} ${y2.toFixed(9)} l`); // line-to.
+        }
+        if (path[0] !== null) {
+          // A leading null indicates an open path.
+          lines.push(`h`); // close path.
+        }
+        lines.push(`S`); // stroke.
       }
-      lines.push(`S`); // stroke.
     }
 
     return [].concat(header({ width: width * scale, height: height * scale, lineWidth: lineWidth }),
@@ -45957,11 +43054,11 @@ return d[d.length-1];};return ", funcName].join("");
    * # Write PDF
    *
    * ```
-   * cube().crossSection().writePdf('cube.pdf');
+   * cube().section().writePdf('cube.pdf');
    * ```
    *
    * ```
-   * writePdf({ path: 'cube.pdf' }, cube().crossSection());
+   * writePdf({ path: 'cube.pdf' }, cube().section());
    * ```
    *
    **/
@@ -45977,9 +43074,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, pdf);
   };
 
-  const method$r = function (options = {}) { return writePdf(options, this); };
+  const method$v = function (options = {}) { return writePdf(options, this); };
 
-  Shape.prototype.writePdf = method$r;
+  Shape.prototype.writePdf = method$v;
 
   /**
    *
@@ -46009,9 +43106,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ preview: true, geometry }, path, toStl(options, geometry));
   };
 
-  const method$s = function (options = {}) { return writeStl(options, this); };
+  const method$w = function (options = {}) { return writeStl(options, this); };
 
-  Shape.prototype.writeStl = method$s;
+  Shape.prototype.writeStl = method$w;
 
   /**
    *
@@ -46019,13 +43116,13 @@ return d[d.length-1];};return ", funcName].join("");
    *
    * ::: illustration
    * ```
-   * cube().crossSection().writeSvg('svg/cube1.svg');
+   * cube().section().writeSvg('svg/cube1.svg');
    * readSvg({ path: 'svg/cube1.svg' })
    * ```
    * :::
    * ::: illustration
    * ```
-   * writeSvg({ path: 'svg/cube2.svg' }, cube().crossSection());
+   * writeSvg({ path: 'svg/cube2.svg' }, cube().section());
    * readSvg({ path: 'svg/cube2.svg' })
    * ```
    * :::
@@ -46041,9 +43138,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toSvg(options, geometry));
   };
 
-  const method$t = function (options = {}) { return writeSvg(options, this); };
+  const method$x = function (options = {}) { return writeSvg(options, this); };
 
-  Shape.prototype.writeSvg = method$t;
+  Shape.prototype.writeSvg = method$x;
 
   // Polyfills
 
@@ -75232,8 +72329,8 @@ return d[d.length-1];};return ", funcName].join("");
 
   function splitPolygon( a, b ) {
 
-  	var a2 = new Node$3( a.i, a.x, a.y ),
-  		b2 = new Node$3( b.i, b.x, b.y ),
+  	var a2 = new Node$2( a.i, a.x, a.y ),
+  		b2 = new Node$2( b.i, b.x, b.y ),
   		an = a.next,
   		bp = b.prev;
 
@@ -75257,7 +72354,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   function insertNode( i, x, y, last ) {
 
-  	var p = new Node$3( i, x, y );
+  	var p = new Node$2( i, x, y );
 
   	if ( ! last ) {
 
@@ -75287,7 +72384,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   }
 
-  function Node$3( i, x, y ) {
+  function Node$2( i, x, y ) {
 
   	// vertice index in coordinates array
   	this.i = i;
@@ -96413,7 +93510,7 @@ return d[d.length-1];};return ", funcName].join("");
     };
     for (const triangle of toTriangles({}, makeConvex$1({}, surface))) {
       outputTriangle(triangle);
-      outputTriangle(flip(triangle));
+      outputTriangle(flip$3(triangle));
     }
     return { normals, positions };
   };
@@ -96616,9 +93713,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toSvg$1(options, geometry));
   };
 
-  const method$u = function (options = {}) { return writeSvgPhoto(options, this); };
+  const method$y = function (options = {}) { return writeSvgPhoto(options, this); };
 
-  Shape.prototype.writeSvgPhoto = method$u;
+  Shape.prototype.writeSvgPhoto = method$y;
 
   const writeThreejsPage = async (options, shape) => {
     if (typeof options === 'string') {
@@ -96629,9 +93726,9 @@ return d[d.length-1];};return ", funcName].join("");
     return writeFile({ geometry, preview: true }, path, toThreejsPage(options, shape.toDisjointGeometry()));
   };
 
-  const method$v = function (options = {}) { return writeThreejsPage(options, this); };
+  const method$z = function (options = {}) { return writeThreejsPage(options, this); };
 
-  Shape.prototype.writeThreejsPage = method$v;
+  Shape.prototype.writeThreejsPage = method$z;
 
   /**
    *
@@ -96646,13 +93743,14 @@ return d[d.length-1];};return ", funcName].join("");
     Shape: Shape,
     above: above,
     acos: acos,
+    as: as,
     assemble: assemble$1,
     back: back,
     below: below,
     center: center,
     chainHull: chainHull,
     circle: circle,
-    crossSection: crossSection,
+    color: color,
     cos: cos,
     cube: cube,
     cut: cut$1,
@@ -96669,6 +93767,7 @@ return d[d.length-1];};return ", funcName].join("");
     left: left,
     lego: lego,
     log: log$2,
+    material: material,
     max: max$1,
     measureBoundingBox: measureBoundingBox$3,
     microGearMotor: microGearMotor,
@@ -96689,6 +93788,7 @@ return d[d.length-1];};return ", funcName].join("");
     rotateY: rotateY,
     rotateZ: rotateZ,
     scale: scale$6,
+    section: section,
     sin: sin$2,
     sphere: sphere,
     sqrt: sqrt$1,
@@ -96699,6 +93799,7 @@ return d[d.length-1];};return ", funcName].join("");
     triangle: triangle,
     union: union$5,
     keep: keep$1,
+    wireframe: wireframe,
     writePdf: writePdf,
     writeShape: writeShape,
     writeStl: writeStl,
@@ -101481,7 +98582,7 @@ return d[d.length-1];};return ", funcName].join("");
     return -1;
   };
 
-  var base64$1 = {
+  var base64 = {
   	encode: encode$1,
   	decode: decode$1
   };
@@ -101591,7 +98692,7 @@ return d[d.length-1];};return ", funcName].join("");
         // continuation bit is marked.
         digit |= VLQ_CONTINUATION_BIT;
       }
-      encoded += base64$1.encode(digit);
+      encoded += base64.encode(digit);
     } while (vlq > 0);
 
     return encoded;
@@ -101612,7 +98713,7 @@ return d[d.length-1];};return ", funcName].join("");
         throw new Error("Expected more digits in base 64 VLQ value.");
       }
 
-      digit = base64$1.decode(aStr.charCodeAt(aIndex++));
+      digit = base64.decode(aStr.charCodeAt(aIndex++));
       if (digit === -1) {
         throw new Error("Invalid base64 digit: " + aStr.charAt(aIndex - 1));
       }
@@ -111009,6 +108110,7 @@ return d[d.length-1];};return ", funcName].join("");
   	        }
   	        // First, detect invalid regular expressions.
   	        try {
+  	            RegExp(tmp);
   	        }
   	        catch (e) {
   	            this.throwUnexpectedToken(messages_1.Messages.InvalidRegExp);

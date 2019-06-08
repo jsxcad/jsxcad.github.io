@@ -52324,23 +52324,175 @@ define("./master.js",[],function () { 'use strict';
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  function getCjsExportFromNamespace (n) {
-  	return n && n['default'] || n;
-  }
-
-  var commonjsHelpers = /*#__PURE__*/Object.freeze({
-    commonjsGlobal: commonjsGlobal,
-    commonjsRequire: commonjsRequire,
-    unwrapExports: unwrapExports,
-    createCommonjsModule: createCommonjsModule,
-    getCjsExportFromNamespace: getCjsExportFromNamespace
-  });
-
   var FileSaver_min = createCommonjsModule(function (module, exports) {
   (function(a,b){b();})(commonjsGlobal,function(){function b(a,b){return "undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d);},e.onerror=function(){console.error("could not download file");},e.send();}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send();}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"));}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b);}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof commonjsGlobal&&commonjsGlobal.global===commonjsGlobal?commonjsGlobal:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href);},4E4),setTimeout(function(){e(j);},0));}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i);});}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null;},j.readAsDataURL(a);}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l);},4E4);}});f.saveAs=a.saveAs=a,module.exports=a;});
 
 
   });
+
+  const colorToRgbMapping = {
+    'aliceblue': [240, 248, 255],
+    'antiquewhite': [250, 235, 215],
+    'aqua': [0, 255, 255],
+    'aquamarine': [127, 255, 212],
+    'azure': [240, 255, 255],
+    'beige': [245, 245, 220],
+    'bisque': [255, 228, 196],
+    'black': [0, 0, 0],
+    'blanchedalmond': [255, 235, 205],
+    'blue': [0, 0, 255],
+    'blueviolet': [138, 43, 226],
+    'brown': [165, 42, 42],
+    'burlywood': [222, 184, 135],
+    'cadetblue': [95, 158, 160],
+    'chartreuse': [127, 255, 0],
+    'chocolate': [210, 105, 30],
+    'coral': [255, 127, 80],
+    'cornflowerblue': [100, 149, 237],
+    'cornsilk': [255, 248, 220],
+    'crimson': [220, 20, 60],
+    'cyan': [0, 255, 255],
+    'darkblue': [0, 0, 139],
+    'darkcyan': [0, 139, 139],
+    'darkgoldenrod': [184, 134, 11],
+    'darkgray': [169, 169, 169],
+    'darkgreen': [0, 100, 0],
+    'darkgrey': [169, 169, 169],
+    'darkkhaki': [189, 183, 107],
+    'darkmagenta': [139, 0, 139],
+    'darkolivegreen': [85, 107, 47],
+    'darkorange': [255, 140, 0],
+    'darkorchid': [153, 50, 204],
+    'darkred': [139, 0, 0],
+    'darksalmon': [233, 150, 122],
+    'darkseagreen': [143, 188, 143],
+    'darkslateblue': [72, 61, 139],
+    'darkslategray': [47, 79, 79],
+    'darkslategrey': [47, 79, 79],
+    'darkturquoise': [0, 206, 209],
+    'darkviolet': [148, 0, 211],
+    'deeppink': [255, 20, 147],
+    'deepskyblue': [0, 191, 255],
+    'dimgray': [105, 105, 105],
+    'dimgrey': [105, 105, 105],
+    'dodgerblue': [30, 144, 255],
+    'firebrick': [178, 34, 34],
+    'floralwhite': [255, 250, 240],
+    'forestgreen': [34, 139, 34],
+    'fuchsia': [255, 0, 255],
+    'gainsboro': [220, 220, 220],
+    'ghostwhite': [248, 248, 255],
+    'gold': [255, 215, 0],
+    'goldenrod': [218, 165, 32],
+    'gray': [128, 128, 128],
+    'green': [0, 128, 0],
+    'greenyellow': [173, 255, 47],
+    'grey': [128, 128, 128],
+    'honeydew': [240, 255, 240],
+    'hotpink': [255, 105, 180],
+    'indianred': [205, 92, 92],
+    'indigo': [75, 0, 130],
+    'ivory': [255, 255, 240],
+    'khaki': [240, 230, 140],
+    'lavender': [230, 230, 250],
+    'lavenderblush': [255, 240, 245],
+    'lawngreen': [124, 252, 0],
+    'lemonchiffon': [255, 250, 205],
+    'lightblue': [173, 216, 230],
+    'lightcoral': [240, 128, 128],
+    'lightcyan': [224, 255, 255],
+    'lightgoldenrodyellow': [250, 250, 210],
+    'lightgray': [211, 211, 211],
+    'lightgreen': [144, 238, 144],
+    'lightgrey': [211, 211, 211],
+    'lightpink': [255, 182, 193],
+    'lightsalmon': [255, 160, 122],
+    'lightseagreen': [32, 178, 170],
+    'lightskyblue': [135, 206, 250],
+    'lightslategray': [119, 136, 153],
+    'lightslategrey': [119, 136, 153],
+    'lightsteelblue': [176, 196, 222],
+    'lightyellow': [255, 255, 224],
+    'lime': [0, 255, 0],
+    'limegreen': [50, 205, 50],
+    'linen': [250, 240, 230],
+    'magenta': [255, 0, 255],
+    'maroon': [128, 0, 0],
+    'mediumaquamarine': [102, 205, 170],
+    'mediumblue': [0, 0, 205],
+    'mediumorchid': [186, 85, 211],
+    'mediumpurple': [147, 112, 219],
+    'mediumseagreen': [60, 179, 113],
+    'mediumslateblue': [123, 104, 238],
+    'mediumspringgreen': [0, 250, 154],
+    'mediumturquoise': [72, 209, 204],
+    'mediumvioletred': [199, 21, 133],
+    'midnightblue': [25, 25, 112],
+    'mintcream': [245, 255, 250],
+    'mistyrose': [255, 228, 225],
+    'moccasin': [255, 228, 181],
+    'navajowhite': [255, 222, 173],
+    'navy': [0, 0, 128],
+    'oldlace': [253, 245, 230],
+    'olive': [128, 128, 0],
+    'olivedrab': [107, 142, 35],
+    'orange': [255, 165, 0],
+    'orangered': [255, 69, 0],
+    'orchid': [218, 112, 214],
+    'palegoldenrod': [238, 232, 170],
+    'palegreen': [152, 251, 152],
+    'paleturquoise': [175, 238, 238],
+    'palevioletred': [219, 112, 147],
+    'papayawhip': [255, 239, 213],
+    'peachpuff': [255, 218, 185],
+    'peru': [205, 133, 63],
+    'pink': [255, 192, 203],
+    'plum': [221, 160, 221],
+    'powderblue': [176, 224, 230],
+    'purple': [128, 0, 128],
+    'rebeccapurple': [102, 51, 153],
+    'red': [255, 0, 0],
+    'rosybrown': [188, 143, 143],
+    'royalblue': [65, 105, 225],
+    'saddlebrown': [139, 69, 19],
+    'salmon': [250, 128, 114],
+    'sandybrown': [244, 164, 96],
+    'seagreen': [46, 139, 87],
+    'seashell': [255, 245, 238],
+    'sienna': [160, 82, 45],
+    'silver': [192, 192, 192],
+    'skyblue': [135, 206, 235],
+    'slateblue': [106, 90, 205],
+    'slategray': [112, 128, 144],
+    'slategrey': [112, 128, 144],
+    'snow': [255, 250, 250],
+    'springgreen': [0, 255, 127],
+    'steelblue': [70, 130, 180],
+    'tan': [210, 180, 140],
+    'teal': [0, 128, 128],
+    'thistle': [216, 191, 216],
+    'tomato': [255, 99, 71],
+    'turquoise': [64, 224, 208],
+    'violet': [238, 130, 238],
+    'wheat': [245, 222, 179],
+    'white': [255, 255, 255],
+    'whitesmoke': [245, 245, 245],
+    'yellow': [255, 255, 0],
+    'yellowgreen': [154, 205, 50]
+  };
+
+  const toRgb = (tags = [], defaultRgb = [0, 0, 0]) => {
+    let rgb = defaultRgb;
+    for (const tag of tags) {
+      if (tag.startsWith('color/')) {
+        let entry = colorToRgbMapping[tag.substring(6)];
+        if (entry !== undefined) {
+          rgb = entry;
+        }
+      }
+    }
+    return rgb;
+  };
 
   //[4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
   //[4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
@@ -57738,11 +57890,6 @@ define("./master.js",[],function () { 'use strict';
     return parts.join('')
   }
 
-  var base64 = /*#__PURE__*/Object.freeze({
-    toByteArray: toByteArray,
-    fromByteArray: fromByteArray
-  });
-
   function read (buffer, offset, isLE, mLen, nBytes) {
     var e, m;
     var eLen = nBytes * 8 - mLen - 1;
@@ -59286,7 +59433,7 @@ define("./master.js",[],function () { 'use strict';
 
   function writeFloat (buf, value, offset, littleEndian, noAssert) {
     if (!noAssert) {
-      checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38);
+      checkIEEE754(buf, value, offset, 4);
     }
     write(buf, value, offset, littleEndian, 23, 4);
     return offset + 4
@@ -59302,7 +59449,7 @@ define("./master.js",[],function () { 'use strict';
 
   function writeDouble (buf, value, offset, littleEndian, noAssert) {
     if (!noAssert) {
-      checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308);
+      checkIEEE754(buf, value, offset, 8);
     }
     write(buf, value, offset, littleEndian, 52, 8);
     return offset + 8
@@ -68503,493 +68650,6 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   /**
-   * Adds two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
-   *
-   * @param {mat4} a The first matrix.
-   * @param {mat4} b The second matrix.
-   * @returns {Boolean} True if the matrices are equal, false otherwise.
-   */
-
-  /**
-   * Creates a matrix from a vector scaling
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.scale(dest, dest, vec);
-   *
-   * @param {vec3} v Scaling vector
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from a vector translation
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.translate(dest, dest, vec);
-   *
-   * @param {mat4} out mat4 receiving operation result
-   * @param {vec3} v Translation vector
-   * @returns {mat4} out
-   */
-
-  /**
-   * Create a new mat4 with the given values
-   *
-   * @param {Number} m00 Component in column 0, row 0 position (index 0)
-   * @param {Number} m01 Component in column 0, row 1 position (index 1)
-   * @param {Number} m02 Component in column 0, row 2 position (index 2)
-   * @param {Number} m03 Component in column 0, row 3 position (index 3)
-   * @param {Number} m10 Component in column 1, row 0 position (index 4)
-   * @param {Number} m11 Component in column 1, row 1 position (index 5)
-   * @param {Number} m12 Component in column 1, row 2 position (index 6)
-   * @param {Number} m13 Component in column 1, row 3 position (index 7)
-   * @param {Number} m20 Component in column 2, row 0 position (index 8)
-   * @param {Number} m21 Component in column 2, row 1 position (index 9)
-   * @param {Number} m22 Component in column 2, row 2 position (index 10)
-   * @param {Number} m23 Component in column 2, row 3 position (index 11)
-   * @param {Number} m30 Component in column 3, row 0 position (index 12)
-   * @param {Number} m31 Component in column 3, row 1 position (index 13)
-   * @param {Number} m32 Component in column 3, row 2 position (index 14)
-   * @param {Number} m33 Component in column 3, row 3 position (index 15)
-   * @returns {mat4} A new mat4
-   */
-
-  /**
-   * Creates a matrix from the given angle around the X axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateX(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Y axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateY(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Z axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateZ(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Set a mat4 to the identity matrix
-   *
-   * @returns {mat4} out
-   */
-
-  /**
-   * Calculates the absolute value of the give vector
-   *
-   * @param {vec3} [out] - receiving vector
-   * @param {vec3} vec - given value
-   * @returns {vec3} absolute value of the vector
-   */
-
-  /**
-   * Adds two vec3's
-   *
-   * @param {vec3} a the first vector to add
-   * @param {vec3} b the second vector to add
-   * @returns {vec3} the added vectors
-   */
-
-  /**
-   * Calculates the dot product of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} dot product of a and b
-   */
-
-  /**
-   * Scales a vec3 by a scalar number
-   *
-   * @param {Number} amount amount to scale the vector by
-   * @param {vec3} vector the vector to scale
-   * @returns {vec3} out
-   */
-
-  // radians = degrees * PI / 180
-
-  // TODO: Clean this up.
-
-  // degrees = radians * 180 / PI
-
-  /**
-   * Computes the cross product of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Calculates the euclidian distance between two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} distance between a and b
-   */
-
-  /**
-   * Divides two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Creates a new vec3 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
-
-  /** create a vec3 from a single scalar value
-   * all components of the resulting vec3 have the value of the
-   * input scalar
-   * @param  {Float} scalar
-   * @returns {Vec3}
-   */
-
-  /**
-   * Creates a new vec3 initialized with the given values
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
-
-  // extend to a 3D vector by adding a z coordinate:
-
-  /**
-   * Calculates the length of a vec3
-   *
-   * @param {vec3} a vector to calculate length of
-   * @returns {Number} length of a
-   */
-
-  /**
-   * Performs a linear interpolation between two vec3's
-   *
-   * @param {Number} t interpolant (0.0 to 1.0) applied between the two inputs
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the maximum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the minimum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Multiplies two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Negates the components of a vec3
-   *
-   * @param {vec3} a vector to negate
-   * @returns {vec3} out
-   */
-
-  /**
-   * Subtracts vector b from vector a
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Calculates the squared euclidian distance between two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {Number} squared distance between a and b
-   */
-
-  /**
-   * Calculates the squared length of a vec3
-   *
-   * @param {vec3} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
-
-  /**
-   * Transforms the vec3 with a mat4.
-   * 4th vector component is implicitly '1'
-   * @param {[[<vec3>], <mat4> , <vec3>]} params
-   * @param {mat4} params[1] matrix matrix to transform with
-   * @param {vec3} params[2] vector the vector to transform
-   * @returns {vec3} out
-   */
-
-  /**
-   * m the mat4 by the dimensions in the given vec3
-   * create an affine matrix for mirroring into an arbitrary plane:
-   *
-   * @param {vec3} v the vec3 to mirror the matrix by
-   * @param {mat4} a the matrix to mirror
-   * @returns {mat4} out
-   */
-
-  /**
-   * Create an affine matrix for mirroring onto an arbitrary plane
-   *
-   * @param {vec4} plane to mirror the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Multiplies two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Calculates the absolute value of the give vector
-   *
-   * @param {vec2} vec - given value
-   * @returns {vec2} absolute value of the vector
-   */
-
-  /**
-   * Adds two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  // y=sin, x=cos
-
-  /**
-   * Computes the cross product (3D) of two vectors
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec3} cross product
-   */
-
-  /**
-   * Calculates the euclidian distance between two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} distance between a and b
-   */
-
-  /**
-   * Divides two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Calculates the dot product of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} dot product of a and b
-   */
-
-  /**
-   * Creates a new vec2 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec2} a new 2D vector
-   */
-
-  /** Create a vec2 from a single scalar value
-   * @param  {Float} scalar
-   * @returns {Vec2} a new vec2
-   */
-
-  /**
-   * Creates a new vec3 initialized with the given values
-   * Any missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec3} a new 2D vector
-   */
-
-  /**
-   * Calculates the length of a vec2
-   *
-   * @param {vec2} a vector to calculate length of
-   * @returns {Number} length of a
-   */
-
-  /**
-   * Performs a linear interpolation between two vec2's
-   *
-   * @param {Number} t interpolation amount between the two inputs
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the maximum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the minimum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Multiplies two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Negates the components of a vec2
-   *
-   * @param {vec2} a vector to negate
-   * @returns {vec2} out
-   */
-
-  /**
-   * Rotates a vec2 by an angle
-   *
-   * @param {Number} angle the angle of rotation (in radians)
-   * @param {vec2} vector the vector to rotate
-   * @returns {vec2} out
-   */
-
-  /**
-   * Normalize the given vector.
-   *
-   * @param {vec2} a vector to normalize
-   * @returns {vec2} normalized (unit) vector
-   */
-
-  /**
-   * Scales a vec2 by a scalar number
-   *
-   * @param {Number} amount amount to scale the vector by
-   * @param {vec2} vector the vector to scale
-   * @returns {vec2} out
-   */
-
-  /**
-   * Calculates the squared euclidian distance between two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} squared distance between a and b
-   */
-
-  /**
-   * Calculates the squared length of a vec2
-   *
-   * @param {vec2} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
-
-  /**
-   * Subtracts vector b from vector a
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Transforms the vec2 with a mat4
-   * 3rd vector component is implicitly '0'
-   * 4th vector component is implicitly '1'
-   *
-   * @param {mat4} matrix matrix to transform with
-   * @param {vec2} vector the vector to transform
-   * @returns {vec2} out
-   */
-
-  /**
-   * Subtracts matrix b from matrix a
-   *
-   * @param {mat4} out the receiving matrix
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Transforms each path of Paths.
-   *
-   * @param {Paths} original - the Paths to transform.
-   * @param {Function} [transform=identity] - function used to transform the paths.
-   * @returns {Paths} the transformed paths.
-   */
-
-  // FIX: Deduplication.
-
-  /**
    * Transforms each polygon of Polygons.
    *
    * @param {Polygons} original - the Polygons to transform.
@@ -69129,6 +68789,69 @@ return d[d.length-1];};return ", funcName].join("");
 
   /* global Blob, ResizeObserver */
 
+  const merge$1 = (properties, parameters) => {
+    for (const key of Object.keys(properties)) {
+      parameters[key] = properties[key];
+    }
+  };
+
+  const setColor = (tags, parameters) => {
+    const rgb = toRgb(tags, null);
+    if (rgb !== null) {
+      const [r, g, b] = rgb;
+      const color = ((r << 16) | (g << 8) | b) >>> 0;
+      parameters.color = color;
+    }
+  };
+
+  const materialProperties = {
+    paper: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5
+    },
+    metal: {
+      roughness: 0.75,
+      metalness: 0.5,
+      reflectivity: 1
+    },
+    glass: {
+      roughness: 0.5,
+      metalness: 0.5,
+      reflectivity: 0.9,
+      clearCoat: 1,
+      clearCoatRoughness: 0,
+      opacity: 0.5,
+      transparent: true
+    }
+  };
+
+  const setMaterial = (tags, parameters) => {
+    for (const tag of tags) {
+      if (tag.startsWith('material/')) {
+        const material = tag.substring(9);
+        const properties = materialProperties[material];
+        if (properties !== undefined) {
+          merge$1(properties, parameters);
+        }
+      }
+    }
+  };
+
+  const buildMeshMaterial = (tags) => {
+    if (tags !== undefined) {
+      const parameters = {};
+      setColor(tags, parameters);
+      setMaterial(tags, parameters);
+      if (Object.keys(parameters).length > 0) {
+        return new MeshPhysicalMaterial(parameters);
+      }
+    }
+
+    // Else, default to normal material.
+    return new MeshNormalMaterial();
+  };
+
   const installDisplayCSS = (document) => {
     installCSSLink(document, 'https://unpkg.com/jspanel4@4.6.0/es6module/jspanel.css');
     installCSS(document, `
@@ -69232,14 +68955,17 @@ return d[d.length-1];};return ", funcName].join("");
         datasets = [];
 
         const walk = (geometry) => {
+          const { tags } = geometry;
           if (geometry.assembly) {
             geometry.assembly.forEach(walk);
           } else if (geometry.threejsSegments) {
             const segments = geometry.threejsSegments;
             const dataset = {};
             const threejsGeometry = new Geometry();
-            const material = new LineBasicMaterial({ color: 0xff0000 });
+            const material = new LineBasicMaterial({ color: 0xffffff, vertexColors: VertexColors });
             for (const [[aX, aY, aZ], [bX, bY, bZ]] of segments) {
+              const color = new Color(Math.random(), Math.random(), Math.random());
+              threejsGeometry.colors.push(color, color);
               threejsGeometry.vertices.push(new Vector3(aX, aY, aZ), new Vector3(bX, bY, bZ));
             }
             dataset.mesh = new LineSegments(threejsGeometry, material);
@@ -69252,7 +68978,7 @@ return d[d.length-1];};return ", funcName].join("");
             const threejsGeometry = new BufferGeometry();
             threejsGeometry.addAttribute('position', new Float32BufferAttribute(positions, 3));
             threejsGeometry.addAttribute('normal', new Float32BufferAttribute(normals, 3));
-            const material = new MeshNormalMaterial();
+            const material = buildMeshMaterial(tags);
             dataset.mesh = new Mesh(threejsGeometry, material);
             dataset.name = toName(geometry);
             scene.add(dataset.mesh);
@@ -69263,7 +68989,7 @@ return d[d.length-1];};return ", funcName].join("");
             const threejsGeometry = new BufferGeometry();
             threejsGeometry.addAttribute('position', new Float32BufferAttribute(positions, 3));
             threejsGeometry.addAttribute('normal', new Float32BufferAttribute(normals, 3));
-            const material = new MeshNormalMaterial();
+            const material = buildMeshMaterial(tags);
             dataset.mesh = new Mesh(threejsGeometry, material);
             dataset.name = toName(geometry);
             scene.add(dataset.mesh);
@@ -69317,9 +69043,9 @@ return d[d.length-1];};return ", funcName].join("");
         }
 
         //
-        var ambientLight = new AmbientLight(0x222222);
+        var ambientLight = new AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
-        var light = new DirectionalLight(0xffffff, 1);
+        var light = new DirectionalLight(0xffffff, 0.5);
         light.position.set(1, 1, 1);
         camera.add(light);
         renderer = new WebGLRenderer({ antialias: true });
@@ -82235,16 +81961,15 @@ return d[d.length-1];};return ", funcName].join("");
     return { evaluator };
   };
 
-  const installReferenceCSS = () =>
-    installCSS(document, `iframe { left: 0; top: 0; position: absolute; height: 100%; width: 100%; }`);
+  const content = `
+<h1>Pre-Alpha Version</h1>
+<p>This is a pre-alpha release.</p>
+<p>Please understand that things will probably be broken.</p>
+<p>See the <a href="https://jsxcad.js.org/preAlpha/UserGuide.html" target="_blank">User Guide</a> for examples and more informations</p>
+`;
 
   const installReference = ({ addPage, document, watchFile }) => {
-    addPage({ title: 'Reference', content: '<div id="reference"></div>', position: 'bottom-right', size: '600 200', contentOverflow: 'hidden' });
-    const viewerElement = document.getElementById('reference');
-    viewerElement.id = `viewer:reference`;
-    const frame = document.createElement('iframe');
-    frame.src = `https://jsxcad.js.org/preAlpha/UserGuide.html`;
-    viewerElement.appendChild(frame);
+    addPage({ title: 'Reference', content, position: 'bottom-right', size: '600 200', contentOverflow: 'hidden' });
     return {};
   };
 
@@ -82306,9 +82031,8 @@ hull(point(0, 0, 10), circle(10))
   };
 
   window.bootstrapCSS = () => {
-    installEditorCSS(document);
+    installEditorCSS();
     installDisplayCSS(document);
-    installReferenceCSS(document);
   };
 
   window.bootstrap = async () => {
@@ -82320,7 +82044,7 @@ hull(point(0, 0, 10), circle(10))
       initialScript = defaultScript;
     }
     const { addPage, nextPage, lastPage } = await installDisplay({ document, readFile, watchFile, watchFileCreation, window });
-    const { evaluator } = await installEvaluator({});
+    const { evaluator } = await installEvaluator();
     await installEditor({ addPage, document, evaluator, initialScript, nextPage, lastPage });
     await installConsole({ addPage, document, watchFile });
     await installReference({ addPage, document });
