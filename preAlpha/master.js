@@ -68805,6 +68805,9 @@ return d[d.length-1];};return ", funcName].join("");
     if (rgb === null) {
       rgb = otherwise;
     }
+    if (rgb === null) {
+      return;
+    }
     const [r, g, b] = rgb;
     const color = ((r << 16) | (g << 8) | b) >>> 0;
     parameters.color = color;
@@ -68822,10 +68825,17 @@ return d[d.length-1];};return ", funcName].join("");
       metalness: 0.0,
       reflectivity: 0.5
     },
-    metal: {
+    metalOld: {
       roughness: 0.75,
       metalness: 0.5,
       reflectivity: 1
+    },
+    metal: {
+      roughness: 0.5,
+      metalness: 0.5,
+      reflectivity: 0.9,
+      clearCoat: 1,
+      clearCoatRoughness: 0,
     },
     glass: {
       roughness: 0.5,
@@ -68853,7 +68863,7 @@ return d[d.length-1];};return ", funcName].join("");
   const buildMeshMaterial = (tags) => {
     if (tags !== undefined) {
       const parameters = {};
-      setColor(tags, parameters);
+      setColor(tags, parameters, null);
       setMaterial(tags, parameters);
       if (Object.keys(parameters).length > 0) {
         return new MeshPhysicalMaterial(parameters);
@@ -68983,7 +68993,7 @@ return d[d.length-1];};return ", funcName].join("");
             const dataset = {};
             const threejsGeometry = new Geometry();
             const material = new LineBasicMaterial({ color: 0xffffff, vertexColors: VertexColors });
-            const color = setColor(tags).color;
+            const color = setColor(tags, {}, [0, 0, 0]).color;
             for (const [[aX, aY, aZ], [bX, bY, bZ]] of segments) {
               threejsGeometry.colors.push(color, color);
               threejsGeometry.vertices.push(new Vector3(aX, aY, aZ), new Vector3(bX, bY, bZ));
@@ -81991,7 +82001,7 @@ return d[d.length-1];};return ", funcName].join("");
 <h1>Pre-Alpha Version</h1>
 <p>This is a pre-alpha release.</p>
 <p>Please understand that things will probably be broken.</p>
-<p>See the <a href="https://jsxcad.js.org/preAlpha/UserGuide.html" target="_blank">User Guide</a> for examples and more informations</p>
+<p>See the <a href="https://jsxcad.js.org/preAlpha/UserGuide.html" target="_blank">User Guide</a> for examples and more information.</p>
 `;
 
   const installReference = ({ addPage, document, watchFile }) => {
