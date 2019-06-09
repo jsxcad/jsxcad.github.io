@@ -68766,19 +68766,24 @@ return d[d.length-1];};return ", funcName].join("");
     return { normals, positions };
   };
 
-  const toThreejsGeometry = (geometry) => {
+  const toThreejsGeometry = (geometry, supertags) => {
+    const tags = [...(supertags || []), ...(geometry.tags || [])];
     if (geometry.isThreejsGeometry) {
       return geometry;
     } else if (geometry.assembly) {
-      return { assembly: geometry.assembly.map(toThreejsGeometry), tags: geometry.tags, isThreejsGeometry: true };
+      return {
+        assembly: geometry.assembly.map(item => toThreejsGeometry(item, tags)),
+        tags: tags,
+        isThreejsGeometry: true
+      };
     } else if (geometry.paths) {
-      return { threejsSegments: pathsToThreejsSegments(geometry.paths), tags: geometry.tags, isThreejsGeometry: true };
+      return { threejsSegments: pathsToThreejsSegments(geometry.paths), tags: tags, isThreejsGeometry: true };
     } else if (geometry.points) {
-      return { threejsSegments: pointsToThreejsPoints(geometry.points), tags: geometry.tags, isThreejsGeometry: true };
+      return { threejsSegments: pointsToThreejsPoints(geometry.points), tags: tags, isThreejsGeometry: true };
     } else if (geometry.solid) {
-      return { threejsSolid: solidToThreejsSolid(geometry.solid), tags: geometry.tags, isThreejsGeometry: true };
+      return { threejsSolid: solidToThreejsSolid(geometry.solid), tags: tags, isThreejsGeometry: true };
     } else if (geometry.z0Surface) {
-      return { threejsSurface: z0SurfaceToThreejsSurface(geometry.z0Surface), tags: geometry.tags, isThreejsGeometry: true };
+      return { threejsSurface: z0SurfaceToThreejsSurface(geometry.z0Surface), tags: tags, isThreejsGeometry: true };
     }
   };
 
@@ -68795,17 +68800,24 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const setColor = (tags, parameters) => {
-    const rgb = toRgb(tags, null);
-    if (rgb !== null) {
-      const [r, g, b] = rgb;
-      const color = ((r << 16) | (g << 8) | b) >>> 0;
-      parameters.color = color;
+  const setColor = (tags = [], parameters = {}, otherwise = [0, 0, 0]) => {
+    let rgb = toRgb(tags, null);
+    if (rgb === null) {
+      rgb = otherwise;
     }
+    const [r, g, b] = rgb;
+    const color = ((r << 16) | (g << 8) | b) >>> 0;
+    parameters.color = color;
+    return parameters;
   };
 
   const materialProperties = {
     paper: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5
+    },
+    wood: {
       roughness: 0.5,
       metalness: 0.0,
       reflectivity: 0.5
@@ -68934,7 +68946,12 @@ return d[d.length-1];};return ", funcName].join("");
       let viewerElement;
       const toName = (geometry) => {
         if (geometry.tags !== undefined && geometry.tags.length >= 1) {
-          return geometry.tags[0];
+          for (const tag of geometry.tags) {
+            console.log(`QQ/tag: ${tag}`);
+            if (tag.startsWith('user/')) {
+              return tag.substring(5);
+            }
+          }
         }
       };
       const updateDatasets = (geometry) => {
@@ -68948,7 +68965,10 @@ return d[d.length-1];};return ", funcName].join("");
             scene.remove(mesh);
           }
           for (const controller of controllers) {
-            gui.remove(controller);
+            if (controller.ui === 'zap') {
+              throw Error('die');
+            }
+            gui.remove(controller.ui);
           }
         }
         // Build new datasets from the written data, and display them.
@@ -68963,8 +68983,8 @@ return d[d.length-1];};return ", funcName].join("");
             const dataset = {};
             const threejsGeometry = new Geometry();
             const material = new LineBasicMaterial({ color: 0xffffff, vertexColors: VertexColors });
+            const color = setColor(tags).color;
             for (const [[aX, aY, aZ], [bX, bY, bZ]] of segments) {
-              const color = new Color(Math.random(), Math.random(), Math.random());
               threejsGeometry.colors.push(color, color);
               threejsGeometry.vertices.push(new Vector3(aX, aY, aZ), new Vector3(bX, bY, bZ));
             }
@@ -69005,10 +69025,16 @@ return d[d.length-1];};return ", funcName].join("");
             if (dataset.name === undefined) { continue; }
             let controller = controllers[dataset.name];
             if (controller === undefined) {
-              controller = gui.add({ visible: true }, 'visible').name(`Show ${dataset.name}?`);
+              const ui = gui.add({ visible: true }, 'visible').name(`${dataset.name}`);
+              controller = { ui, datasets: [] };
               controllers[dataset.name] = controller;
+              controller.ui.listen()
+                  .onChange((value) =>
+                    controller.datasets.forEach(dataset => {
+                      dataset.mesh.visible = value;
+                    }));
             }
-            controller.listen().onChange((value) => { dataset.mesh.visible = value; });
+            controller.datasets.push(dataset);
             dataset.controller = controller;
           }
         }
@@ -81867,7 +81893,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   const installEditorCSS = (display) => {
     installCSSLink(document, 'https://codemirror.net/lib/codemirror.css');
-    installCSS(document, `.CodeMirror { border-top: 1px solid black; border-bottom: 1px solid black; font-family: Arial, monospace; font-size: 20px; height: 100% }`);
+    installCSS(document, `.CodeMirror { border-top: 1px solid black; border-bottom: 1px solid black; font-family: "Corier Neu", monospace; font-size: 20px; height: 100% }`);
   };
 
   const installEditor = ({ addPage, document, evaluator, initialScript, nextPage, lastPage }) => {
