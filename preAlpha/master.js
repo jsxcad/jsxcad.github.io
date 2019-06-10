@@ -68705,19 +68705,6 @@ return d[d.length-1];};return ", funcName].join("");
     return blessAsTriangles(triangles);
   };
 
-  /**
-   *
-   * FIX
-   *
-   * Some problematic examples -- try with different resolutions to break tess2.
-   *
-   * const [a, b] = cylinder({ radius: 10, height: 10, resolution: 6 }).rotateY(0).cut();
-   * assemble(a.translate(0, 0, 1),
-   *          b.translate(0, 0, -1),
-   *          cylinder({ radius: 5, height: 20, resolution: 6 }).drop());
-   *
-   **/
-
   // Relax the coplanar arrangement into polygon soup.
 
   const pointsToThreejsPoints = (geometry) => {
@@ -68825,17 +68812,12 @@ return d[d.length-1];};return ", funcName].join("");
       metalness: 0.0,
       reflectivity: 0.5
     },
-    metalOld: {
-      roughness: 0.75,
-      metalness: 0.5,
-      reflectivity: 1
-    },
     metal: {
       roughness: 0.5,
       metalness: 0.5,
       reflectivity: 0.9,
       clearCoat: 1,
-      clearCoatRoughness: 0,
+      clearCoatRoughness: 0
     },
     glass: {
       roughness: 0.5,
@@ -78926,6 +78908,147 @@ return d[d.length-1];};return ", funcName].join("");
     return root + dir;
   }
 
+  var toByteArray_1 = toByteArray$1;
+  var fromByteArray_1 = fromByteArray$1;
+
+  var lookup$1 = [];
+  var revLookup$1 = [];
+  var Arr$1 = typeof Uint8Array !== 'undefined' ? Uint8Array : Array;
+
+  var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  for (var i = 0, len = code.length; i < len; ++i) {
+    lookup$1[i] = code[i];
+    revLookup$1[code.charCodeAt(i)] = i;
+  }
+
+  // Support decoding URL-safe base64 strings, as Node.js does.
+  // See: https://en.wikipedia.org/wiki/Base64#URL_applications
+  revLookup$1['-'.charCodeAt(0)] = 62;
+  revLookup$1['_'.charCodeAt(0)] = 63;
+
+  function getLens (b64) {
+    var len = b64.length;
+
+    if (len % 4 > 0) {
+      throw new Error('Invalid string. Length must be a multiple of 4')
+    }
+
+    // Trim off extra bytes after placeholder bytes are found
+    // See: https://github.com/beatgammit/base64-js/issues/42
+    var validLen = b64.indexOf('=');
+    if (validLen === -1) validLen = len;
+
+    var placeHoldersLen = validLen === len
+      ? 0
+      : 4 - (validLen % 4);
+
+    return [validLen, placeHoldersLen]
+  }
+
+  function _byteLength (b64, validLen, placeHoldersLen) {
+    return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+  }
+
+  function toByteArray$1 (b64) {
+    var tmp;
+    var lens = getLens(b64);
+    var validLen = lens[0];
+    var placeHoldersLen = lens[1];
+
+    var arr = new Arr$1(_byteLength(b64, validLen, placeHoldersLen));
+
+    var curByte = 0;
+
+    // if there are placeholders, only get up to the last complete 4 chars
+    var len = placeHoldersLen > 0
+      ? validLen - 4
+      : validLen;
+
+    for (var i = 0; i < len; i += 4) {
+      tmp =
+        (revLookup$1[b64.charCodeAt(i)] << 18) |
+        (revLookup$1[b64.charCodeAt(i + 1)] << 12) |
+        (revLookup$1[b64.charCodeAt(i + 2)] << 6) |
+        revLookup$1[b64.charCodeAt(i + 3)];
+      arr[curByte++] = (tmp >> 16) & 0xFF;
+      arr[curByte++] = (tmp >> 8) & 0xFF;
+      arr[curByte++] = tmp & 0xFF;
+    }
+
+    if (placeHoldersLen === 2) {
+      tmp =
+        (revLookup$1[b64.charCodeAt(i)] << 2) |
+        (revLookup$1[b64.charCodeAt(i + 1)] >> 4);
+      arr[curByte++] = tmp & 0xFF;
+    }
+
+    if (placeHoldersLen === 1) {
+      tmp =
+        (revLookup$1[b64.charCodeAt(i)] << 10) |
+        (revLookup$1[b64.charCodeAt(i + 1)] << 4) |
+        (revLookup$1[b64.charCodeAt(i + 2)] >> 2);
+      arr[curByte++] = (tmp >> 8) & 0xFF;
+      arr[curByte++] = tmp & 0xFF;
+    }
+
+    return arr
+  }
+
+  function tripletToBase64$1 (num) {
+    return lookup$1[num >> 18 & 0x3F] +
+      lookup$1[num >> 12 & 0x3F] +
+      lookup$1[num >> 6 & 0x3F] +
+      lookup$1[num & 0x3F]
+  }
+
+  function encodeChunk$1 (uint8, start, end) {
+    var tmp;
+    var output = [];
+    for (var i = start; i < end; i += 3) {
+      tmp =
+        ((uint8[i] << 16) & 0xFF0000) +
+        ((uint8[i + 1] << 8) & 0xFF00) +
+        (uint8[i + 2] & 0xFF);
+      output.push(tripletToBase64$1(tmp));
+    }
+    return output.join('')
+  }
+
+  function fromByteArray$1 (uint8) {
+    var tmp;
+    var len = uint8.length;
+    var extraBytes = len % 3; // if we have 1 byte left, pad 2 bytes
+    var parts = [];
+    var maxChunkLength = 16383; // must be multiple of 3
+
+    // go through the array every three bytes, we'll deal with trailing stuff later
+    for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
+      parts.push(encodeChunk$1(
+        uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)
+      ));
+    }
+
+    // pad the end with zeros, but make sure to not forget the extra bytes
+    if (extraBytes === 1) {
+      tmp = uint8[len - 1];
+      parts.push(
+        lookup$1[tmp >> 2] +
+        lookup$1[(tmp << 4) & 0x3F] +
+        '=='
+      );
+    } else if (extraBytes === 2) {
+      tmp = (uint8[len - 2] << 8) + uint8[len - 1];
+      parts.push(
+        lookup$1[tmp >> 10] +
+        lookup$1[(tmp >> 4) & 0x3F] +
+        lookup$1[(tmp << 2) & 0x3F] +
+        '='
+      );
+    }
+
+    return parts.join('')
+  }
+
   const files = {};
   const fileCreationWatchers = [];
 
@@ -81748,14 +81871,16 @@ return d[d.length-1];};return ", funcName].join("");
   // FIX Convert data by representation.
 
   const writeFile = async (options, path, data) => {
-    const { as = 'utf8', ephemeral } = options;
-    if (isWebWorker) {
-      return self.ask({ writeFile: { options: { as, ...options }, path, data: await data } });
-    }
-
     data = await data;
+
+    const { as = 'utf8', ephemeral } = options;
+    if (as === 'bytes') ; else {
+      data = new TextEncoder(as).encode(data);
+    }
+    if (isWebWorker) {
+      return self.ask({ writeFile: { options, path, data: await data } });
+    }
     const file = getFile(options, path);
-    file.as = as;
     file.data = data;
 
     for (const watcher of file.watchers) {
@@ -81772,40 +81897,55 @@ return d[d.length-1];};return ", funcName].join("");
         }
         return promises.writeFile(persistentPath, data);
       } else if (isBrowser) {
-        return localforage.setItem(`file/${persistentPath}`, data);
+        return localforage.setItem(`file/${persistentPath}`, fromByteArray_1(data));
       }
     }
   };
 
   const log$1 = (text) => writeFile({ ephemeral: true }, 'console/out', text);
 
+  var isBase64 = createCommonjsModule(function (module, exports) {
+  (function(root) {
+
+    function isBase64(v, opts) {
+      if (v instanceof Boolean || typeof v === 'boolean') {
+        return false
+      }
+      if (!(opts instanceof Object)) {
+        opts = {};
+      }
+      if (opts.hasOwnProperty('allowBlank') && !opts.allowBlank && v === '') {
+        return false
+      }
+
+      var regex = '(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\/]{3}=)?';
+
+      if (opts.mime) {
+        regex = '(data:\\w+\\/[a-zA-Z\\+\\-\\.]+;base64,)?' + regex;
+      }
+
+      if (opts.paddingRequired === false) {
+        regex = '(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}(==)?|[A-Za-z0-9+\\/]{3}=?)?';
+      }
+
+      return (new RegExp('^' + regex + '$', 'gi')).test(v);
+    }
+
+    {
+      if (module.exports) {
+        exports = module.exports = isBase64;
+      }
+      exports.isBase64 = isBase64;
+    }
+  })();
+  });
+  var isBase64_1 = isBase64.isBase64;
+
   var nodeFetch = {};
 
   /* global self */
 
   const { promises: promises$1 } = fs;
-
-  const dataAs = (as, data) => {
-    if (data !== undefined) {
-      switch (as) {
-        case 'utf8':
-          if (typeof data === 'string') {
-            return data;
-          } else if (Buffer.isBuffer(data)) {
-            const utf8 = data.toString('utf8');
-            return utf8;
-          }
-          break;
-        case 'bytes':
-          if (Buffer.isBuffer(data)) {
-            return data;
-          } else if (data instanceof ArrayBuffer) {
-            return new Uint8Array(data);
-          }
-          break;
-      }
-    }
-  };
 
   const getUrlFetcher = async () => {
     if (typeof window !== 'undefined') {
@@ -81823,7 +81963,11 @@ return d[d.length-1];};return ", funcName].join("");
       return async (path) => {
         const data = await localforage.getItem(`file/${path}`);
         if (data !== null) {
-          return data;
+          if (isBase64_1(data)) {
+            return toByteArray_1(data);
+          } else {
+            return new TextEncoder('utf8').encode(data);
+          }
         }
       };
     } else {
@@ -81835,14 +81979,13 @@ return d[d.length-1];};return ", funcName].join("");
   const fetchPersistent = async ({ as }, path) => {
     try {
       const fetchFile = await getFileFetcher();
-      const data = await fetchFile(`${base}${path}`);
-      return dataAs(as, data);
+      return await fetchFile(`${base}${path}`);
     } catch (e) {
     }
   };
 
   // Fetch from external sources.
-  const fetchSources = async ({ as = 'utf8' }, sources) => {
+  const fetchSources = async (options = {}, sources) => {
     const fetchUrl = await getUrlFetcher();
     const fetchFile = await getFileFetcher();
     // Try to load the data from a source.
@@ -81851,19 +81994,11 @@ return d[d.length-1];};return ", funcName].join("");
         log$1(`# Fetching ${source.url}`);
         const response = await fetchUrl(source.url);
         if (response.ok) {
-          switch (as) {
-            case 'utf8':
-              return dataAs(as, await response.text());
-            case 'bytes':
-              return dataAs(as, await response.arrayBuffer());
-          }
+          return new Uint8Array(await response.arrayBuffer());
         }
       } else if (source.file !== undefined) {
         try {
-          const data = await fetchFile(source.file);
-          if (data !== undefined) {
-            return dataAs(as, data);
-          }
+          return await fetchFile(source.file);
         } catch (e) {}
       } else {
         throw Error('die');
@@ -81878,13 +82013,11 @@ return d[d.length-1];};return ", funcName].join("");
     }
     const { sources = [] } = options;
     const file = getFile(options, path);
-    if (file.data === undefined || file.as !== as) {
+    if (file.data === undefined) {
       file.data = await fetchPersistent({ as }, path);
-      file.as = as;
     }
-    if (file.data === undefined || file.as !== as) {
-      file.data = await fetchSources({ as }, sources);
-      file.as = as;
+    if (file.data === undefined) {
+      file.data = await fetchSources({}, sources);
       if (!ephemeral && file.data !== undefined) {
         // Update persistent storage.
         await writeFile(options, path, file.data);
@@ -81896,7 +82029,13 @@ return d[d.length-1];};return ", funcName].join("");
         file.data = await file.data;
       }
     }
-    return file.data;
+    if (file.data !== undefined) {
+      if (as === 'bytes') {
+        return file.data;
+      } else {
+        return new TextDecoder('utf8').decode(file.data);
+      }
+    }
   };
 
   const watchFile = (path, thunk) => getFile({}, path).watchers.push(thunk);
