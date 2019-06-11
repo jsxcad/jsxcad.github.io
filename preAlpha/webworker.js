@@ -23861,7 +23861,7 @@ return d[d.length-1];};return ", funcName].join("");
       data = new TextEncoder(as).encode(data);
     }
     if (isWebWorker) {
-      return self.ask({ writeFile: { options, path, data: await data } });
+      return self.ask({ writeFile: { options: { ...options, as: 'bytes' }, path, data: await data } });
     }
     const file = getFile(options, path);
     file.data = data;

@@ -68929,8 +68929,9 @@ return d[d.length-1];};return ", funcName].join("");
           document.getElementById(`download/${path}`)
               .addEventListener('click',
                                 async () => {
-                                  const blob = new Blob([await readFile({}, path)],
-                                                        { type: 'text/plain;charset=utf-8' });
+                                  const data = await readFile({ as: 'bytes' }, path);
+                                  const blob = new Blob([data.buffer],
+                                                        { type: 'application/octet-stream' });
                                   FileSaver_min(blob, path);
                                 });
         }
@@ -81878,7 +81879,7 @@ return d[d.length-1];};return ", funcName].join("");
       data = new TextEncoder(as).encode(data);
     }
     if (isWebWorker) {
-      return self.ask({ writeFile: { options, path, data: await data } });
+      return self.ask({ writeFile: { options: { ...options, as: 'bytes' }, path, data: await data } });
     }
     const file = getFile(options, path);
     file.data = data;
