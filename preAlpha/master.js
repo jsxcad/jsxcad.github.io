@@ -69185,8 +69185,7 @@ return d[d.length-1];};return ", funcName].join("");
       pages[0].front();
     };
 
-    const addDisplay = ({ view = {}, geometry } = {}, path) => {
-      const { target = [0, 0, 0], position = [40, 40, 40], up = [0, 0, 1] } = view;
+    const addDisplay = ({ geometry, view = {} } = {}, path) => {
       // Add a new display when we see a new file written.
       let datasets = [];
       let camera;
@@ -69194,6 +69193,7 @@ return d[d.length-1];};return ", funcName].join("");
       let scene;
       let renderer;
       let gui;
+      let start;
       // FIX: Injection.
       const page = addPage({
         title: path,
@@ -69223,7 +69223,15 @@ return d[d.length-1];};return ", funcName].join("");
           }
         }
       };
-      const updateDatasets = (geometry) => {
+      const updateDatasets = ({ geometry, view = {} }) => {
+        {
+          const { target = [0, 0, 0], position = [-40, -40, 40], up = [0, 0, 1] } = view;
+          [camera.position.x, camera.position.y, camera.position.z] = position;
+          camera.up = new Vector3(...up);
+          console.log(`QQ/view: ${JSON.stringify(view)}`);
+          console.log(`QQ/lookAt: ${JSON.stringify(target)}`);
+          controls.target.set(...target);
+        }
         {
           // Delete any previous dataset in the window.
           const controllers = new Set();
@@ -69309,21 +69317,24 @@ return d[d.length-1];};return ", funcName].join("");
         }
       };
 
-      watchFile(path, ({ geometry }, file) => {
+      watchFile(path, ({ geometry, view }, file) => {
         if (geometry !== undefined) {
           // We expect the geometry already includes threejs versions.
-          updateDatasets(toThreejsGeometry(geometry));
+          updateDatasets({ geometry: toThreejsGeometry(geometry), view });
         }
       });
 
-      init();
-      animate();
+      start = () => {
+        init();
+        animate();
+      };
+
       function init () {
         //
+        const { target = [0, 0, 0], position = [-40, -40, 40], up = [0, 0, 1] } = view;
         camera = new PerspectiveCamera(27, page.offsetWidth / page.offsetHeight, 1, 3500);
         [camera.position.x, camera.position.y, camera.position.z] = position;
-        camera.lookAt(...target);
-        camera.up.set(...up);
+        camera.up = new Vector3(...up);
         //
         scene = new Scene();
         scene.background = new Color(0xffffff);
@@ -69366,6 +69377,7 @@ return d[d.length-1];};return ", funcName].join("");
         controls.dynamicDampingFactor = 0.1;
         controls.keys = [65, 83, 68];
         controls.addEventListener('change', render);
+        controls.target.set(...target);
         //
         onResize();
         new ResizeObserver(onResize).observe(container);
@@ -69386,6 +69398,8 @@ return d[d.length-1];};return ", funcName].join("");
       function render () {
         renderer.render(scene, camera);
       }
+
+      start();
 
       if (geometry) {
         updateDatasets(geometry);
