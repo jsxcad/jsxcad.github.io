@@ -771,13 +771,38 @@ define("./webworker.js",[],function () { 'use strict';
    * @returns {mat4} out
    */
 
+  const X = 0;
+  const Y = 1;
+  const Z = 2;
   const W = 3;
+
+  // Newell's method for computing the plane of a polygon.
+  const fromPolygon = (polygon) => {
+    const normal = [0, 0, 0];
+    const reference = [0, 0, 0];
+    let lastPoint = polygon[polygon.length - 1];
+    for (const thisPoint of polygon) {
+      normal[X] += (lastPoint[Y] - thisPoint[Y]) * (lastPoint[Z] + thisPoint[Z]);
+      normal[Y] += (lastPoint[Z] - thisPoint[Z]) * (lastPoint[X] + thisPoint[X]);
+      normal[Z] += (lastPoint[X] - thisPoint[X]) * (lastPoint[Y] + thisPoint[Y]);
+      reference[X] += lastPoint[X];
+      reference[Y] += lastPoint[Y];
+      reference[Z] += lastPoint[Z];
+      lastPoint = thisPoint;
+    }
+    const factor = 1 / length(normal);
+    const plane = scale(factor, normal);
+    plane[W] = dot(reference, normal) * factor / polygon.length;
+    return plane;
+  };
+
+  const W$1 = 3;
 
   /**
    * Calculate the distance to the given point
    * @return {Number} signed distance to point
    */
-  const signedDistanceToPoint = (plane, point) => dot(plane, point) - plane[W];
+  const signedDistanceToPoint = (plane, point) => dot(plane, point) - plane[W$1];
 
   /**
    * Split the given line by the given plane.
@@ -793,33 +818,36 @@ define("./webworker.js",[],function () { 'use strict';
     return add(p1, scale(lambda, direction));
   };
 
-  const X = 0;
-  const Y = 1;
-  const Z = 2;
-  const W$1 = 3;
+  const X$1 = 0;
+  const Y$1 = 1;
+  const Z$1 = 2;
+  const W$2 = 3;
 
   const toXYPlaneTransforms = (plane, rightVector) => {
+    if (isNaN(plane[X$1])) {
+      throw Error('die');
+    }
     if (rightVector === undefined) {
       rightVector = random(plane);
     }
 
     const v = unit(cross(plane, rightVector));
     const u = cross(v, plane);
-    const p = multiply(plane, fromScalar(plane[W$1]));
+    const p = multiply(plane, fromScalar(plane[W$2]));
 
     return [
       // to
       fromValues(
-        u[X], v[X], plane[X], 0,
-        u[Y], v[Y], plane[Y], 0,
-        u[Z], v[Z], plane[Z], 0,
-        0, 0, -plane[W$1], 1),
+        u[X$1], v[X$1], plane[X$1], 0,
+        u[Y$1], v[Y$1], plane[Y$1], 0,
+        u[Z$1], v[Z$1], plane[Z$1], 0,
+        0, 0, -plane[W$2], 1),
       // from
       fromValues(
-        u[X], u[Y], u[Z], 0,
-        v[X], v[Y], v[Z], 0,
-        plane[X], plane[Y], plane[Z], 0,
-        p[X], p[Y], p[Z], 1)
+        u[X$1], u[Y$1], u[Z$1], 0,
+        v[X$1], v[Y$1], v[Z$1], 0,
+        plane[X$1], plane[Y$1], plane[Z$1], 0,
+        p[X$1], p[Y$1], p[Z$1], 1)
     ];
   };
 
@@ -7271,7 +7299,7 @@ return d[d.length-1];};return ", funcName].join("");
     for (const nth of monotoneConvexHull2d(points)) {
       hull.push(points[nth]);
     }
-    return hull;
+    return hull.reverse();
   };
 
   const eachPoint$1 = (options = {}, thunk, points) => {
@@ -7354,15 +7382,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   const toPlane = (polygon) => {
     if (polygon.plane === undefined) {
-      if (polygon.length >= 3) {
-        // FIX: Find a better way to handle polygons with colinear points.
-        for (let nth = 0; nth < polygon.length - 2; nth++) {
-          polygon.plane = fromPoints(polygon[nth], polygon[nth + 1], polygon[nth + 2]);
-          if (!isNaN(polygon.plane[0])) break;
-        }
-      } else {
-        throw Error('die');
-      }
+      polygon.plane = fromPolygon(polygon);
     }
     return polygon.plane;
   };
@@ -9314,17 +9334,17 @@ return d[d.length-1];};return ", funcName].join("");
     if (surfaces.length === 0) {
       return {
         regions: [],
-        inverted: false
+        // inverted: false
       };
     } else if (surfaces.length === 1) {
       return {
         regions: surfaces[0],
-        inverted: false
+        // inverted: false
       };
     } else {
       return {
         regions: [].concat(...surfaces),
-        inverted: false
+        // inverted: false
       };
     }
   };
@@ -9423,23 +9443,29 @@ return d[d.length-1];};return ", funcName].join("");
         last_y = curr_y;
       }
       // this assumes Cartesian coordinates (Y is positive going up)
-      var isclockwise = winding < 0;
-      if (isclockwise !== clockwise) { copy.reverse(); }
+      var isclockwise = winding/0 < 0;
+      if (isclockwise !== clockwise) {
+        copy.reverse();
+      }
       return copy;
     }
 
     var geopolys = [];
 
     function addExterior (node) {
-      var poly = [forceWinding(node.region, false)];
+      var poly = forceWinding(node.region, false);
       geopolys.push(poly);
       // children of exteriors are interior
-      for (var i = 0; i < node.children.length; i++) { poly.push(getInterior(node.children[i])); }
+      for (var i = 0; i < node.children.length; i++) {
+        geopolys.push(getInterior(node.children[i]));
+      }
     }
 
     function getInterior (node) {
       // children of interiors are exterior
-      for (var i = 0; i < node.children.length; i++) { addExterior(node.children[i]); }
+      for (var i = 0; i < node.children.length; i++) {
+        addExterior(node.children[i]);
+      }
       // return the clockwise interior
       return forceWinding(node.region, true);
     }
@@ -9449,8 +9475,10 @@ return d[d.length-1];};return ", funcName].join("");
       addExterior(roots.children[i]);
     }
 
-    return [].concat(...geopolys);
+    return geopolys;
   };
+
+  const clean = (surface) => toSurface(fromSurface(surface));
 
   const eachPoint$3 = (options = {}, thunk, surface) => {
     for (const polygon of surface) {
@@ -9477,8 +9505,8 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   const iota = 1e-5;
-  const X$1 = 0;
-  const Y$1 = 1;
+  const X$2 = 0;
+  const Y$2 = 1;
 
   // Tolerates overlap up to one iota.
   const doesNotOverlap = (a, b) => {
@@ -9487,10 +9515,10 @@ return d[d.length-1];};return ", funcName].join("");
     }
     const [minA, maxA] = measureBoundingBox(a);
     const [minB, maxB] = measureBoundingBox(b);
-    if (maxA[X$1] <= minB[X$1] + iota) { return true; }
-    if (maxA[Y$1] <= minB[Y$1] + iota) { return true; }
-    if (maxB[X$1] <= minA[X$1] + iota) { return true; }
-    if (maxB[Y$1] <= minA[Y$1] + iota) { return true; }
+    if (maxA[X$2] <= minB[X$2] + iota) { return true; }
+    if (maxA[Y$2] <= minB[Y$2] + iota) { return true; }
+    if (maxB[X$2] <= minA[X$2] + iota) { return true; }
+    if (maxB[Y$2] <= minA[Y$2] + iota) { return true; }
     return false;
   };
 
@@ -13456,10 +13484,10 @@ return d[d.length-1];};return ", funcName].join("");
   const BACK$1 = 2;
 
   // Plane Properties.
-  const W$2 = 3;
+  const W$3 = 3;
 
   const toType$1 = (plane, point) => {
-    let t = dot(plane, point) - plane[W$2];
+    let t = dot(plane, point) - plane[W$3];
     if (t < -EPSILON$1) {
       return BACK$1;
     } else if (t > EPSILON$1) {
@@ -13470,7 +13498,7 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   const spanPoint = (plane, startPoint, endPoint) => {
-    let t = (plane[W$2] - dot(plane, startPoint)) / dot(plane, subtract(endPoint, startPoint));
+    let t = (plane[W$3] - dot(plane, startPoint)) / dot(plane, subtract(endPoint, startPoint));
     return canonicalize(lerp(t, startPoint, endPoint));
   };
 
@@ -13660,8 +13688,6 @@ return d[d.length-1];};return ", funcName].join("");
    * @returns {Polygons} a copy with transformed polygons.
    */
 
-  const isTriangle = (path) => isClosed(path) && path.length === 3;
-
   /*
   ** SGI FREE SOFTWARE LICENSE B (Version 2.0, Sept. 18, 2008) 
   ** Copyright (C) [dates of first publication] Silicon Graphics, Inc.
@@ -13709,13 +13735,23 @@ return d[d.length-1];};return ", funcName].join("");
     if (paths.isTriangles) {
       return paths;
     }
-    if (paths.every(isTriangle)) {
-      return blessAsTriangles(paths);
-    }
     const triangles = [];
     for (const path of paths) {
+      const a = path[0];
       for (let nth = 2; nth < path.length; nth++) {
-        triangles.push([path[0], path[nth - 1], path[nth]]);
+        const b = path[nth - 1];
+        const c = path[nth];
+        if (equals$1(a, b) || equals$1(a, c) || equals$1(b, c)) {
+          // Skip degenerate triangles introduced by colinear points.
+          continue;
+        }
+        const triangle = [a, b, c];
+        if (isNaN(toPlane(triangle)[0])) {
+          // FIX: Why isn't this degeneracy detected above?
+          // Skip degenerate triangles introduced by colinear points.
+          continue;
+        }
+        triangles.push([a, b, c]);
       }
     }
     return blessAsTriangles(triangles);
@@ -13773,9 +13809,9 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   const iota$1 = 1e-5;
-  const X$2 = 0;
-  const Y$2 = 1;
-  const Z$1 = 2;
+  const X$3 = 0;
+  const Y$3 = 1;
+  const Z$2 = 2;
 
   // Tolerates overlap up to one iota.
   const doesNotOverlap$1 = (a, b) => {
@@ -13784,12 +13820,12 @@ return d[d.length-1];};return ", funcName].join("");
     }
     const [minA, maxA] = measureBoundingBox$2(a);
     const [minB, maxB] = measureBoundingBox$2(b);
-    if (maxA[X$2] <= minB[X$2] + iota$1) { return true; }
-    if (maxA[Y$2] <= minB[Y$2] + iota$1) { return true; }
-    if (maxA[Z$1] <= minB[Z$1] + iota$1) { return true; }
-    if (maxB[X$2] <= minA[X$2] + iota$1) { return true; }
-    if (maxB[Y$2] <= minA[Y$2] + iota$1) { return true; }
-    if (maxB[Z$1] <= minA[Z$1] + iota$1) { return true; }
+    if (maxA[X$3] <= minB[X$3] + iota$1) { return true; }
+    if (maxA[Y$3] <= minB[Y$3] + iota$1) { return true; }
+    if (maxA[Z$2] <= minB[Z$2] + iota$1) { return true; }
+    if (maxB[X$3] <= minA[X$3] + iota$1) { return true; }
+    if (maxB[Y$3] <= minA[Y$3] + iota$1) { return true; }
+    if (maxB[Z$2] <= minA[Z$2] + iota$1) { return true; }
     return false;
   };
 
@@ -13821,6 +13857,7 @@ return d[d.length-1];};return ", funcName].join("");
   const create = () => ({ surfaces: [] });
 
   const EPSILON$2 = 1e-5;
+  const THRESHOLD2 = 1e-10;
 
   const COPLANAR$2 = 0; // Neither front nor back.
   const FRONT$2 = 1;
@@ -13841,7 +13878,6 @@ return d[d.length-1];};return ", funcName].join("");
   const pointType$1 = [];
 
   const splitSurface = (plane, coplanarFrontSurfaces, coplanarBackSurfaces, frontSurfaces, backSurfaces, surface) => {
-    // assertCoplanar(surface);
     let coplanarFrontPolygons;
     let coplanarBackPolygons;
     let frontPolygons;
@@ -13907,10 +13943,11 @@ return d[d.length-1];};return ", funcName].join("");
               // This should exclude COPLANAR points.
               // Compute the point that touches the splitting plane.
               const spanPoint = splitLineSegmentByPlane(plane, ...[startPoint, endPoint].sort());
-              frontPoints.push(spanPoint);
-              backPoints.push(spanPoint);
-              if (Math.abs(signedDistanceToPoint(plane, spanPoint)) > EPSILON$2) {
-                throw Error(`die: ${Math.abs(signedDistanceToPoint(plane, spanPoint))}`);
+              if (squaredDistance(spanPoint, startPoint) > THRESHOLD2) {
+                frontPoints.push(spanPoint);
+              }
+              if (squaredDistance(spanPoint, endPoint) > THRESHOLD2) {
+                backPoints.push(spanPoint);
               }
             }
             startPoint = endPoint;
@@ -13935,19 +13972,15 @@ return d[d.length-1];};return ", funcName].join("");
       }
     }
     if (coplanarFrontPolygons !== undefined) {
-      // assertCoplanar(coplanarFrontPolygons);
       coplanarFrontSurfaces.push(coplanarFrontPolygons);
     }
     if (coplanarBackPolygons !== undefined) {
-      // assertCoplanar(coplanarBackPolygons);
       coplanarBackSurfaces.push(coplanarBackPolygons);
     }
     if (frontPolygons !== undefined) {
-      // assertCoplanar(frontPolygons);
       frontSurfaces.push(frontPolygons);
     }
     if (backPolygons !== undefined) {
-      // assertCoplanar(backPolygons);
       backSurfaces.push(backPolygons);
     }
   };
@@ -14317,49 +14350,52 @@ return d[d.length-1];};return ", funcName].join("");
   const toDisjointGeometry = (untransformedGeometry) => {
     const geometry = toTransformedGeometry(untransformedGeometry);
 
-    if (geometry.assembly === undefined) {
-      // A singleton is disjoint.
-      return geometry;
-    } else if (geometry.disjointGeometry) {
-      return geometry.disjointGeometry;
-    } else {
-      const subtractions = [];
-      const walk = (geometry, disjointed) => {
-        for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
-          const item = geometry.assembly[nth];
-          if (item.assembly !== undefined) {
-            disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
-          } else {
-            const differenced = differenceItems(item, ...subtractions);
-            disjointed.assembly.push(differenced);
-            subtractions.push(differenced);
+    if (geometry.disjointGeometry === undefined) {
+      if (geometry.assembly === undefined) {
+        // A singleton is disjoint.
+        geometry.disjointGeometry = geometry;
+      } else {
+        const subtractions = [];
+        const walk = (geometry, disjointed) => {
+          for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
+            const item = geometry.assembly[nth];
+            if (item.assembly !== undefined) {
+              disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
+            } else {
+              const differenced = differenceItems(item, ...subtractions);
+              disjointed.assembly.push(differenced);
+              subtractions.push(differenced);
+            }
           }
-        }
-        return disjointed;
-      };
-      const result = walk(geometry, { assembly: [], tags: geometry.tags });
-      geometry.disjointGeometry = result;
-      return result;
+          return disjointed;
+        };
+        const result = walk(geometry, { assembly: [], tags: geometry.tags });
+        geometry.disjointGeometry = result;
+      }
     }
+    return geometry.disjointGeometry;
   };
 
   // Produce a disjoint geometry suitable for display.
 
   const toKeptGeometry = (geometry) => {
-    const disjointGeometry = toDisjointGeometry(geometry);
+    if (geometry.keptGeometry === undefined) {
+      const disjointGeometry = toDisjointGeometry(geometry);
 
-    const walk = (geometry) => {
-      if (geometry.tags === undefined || !geometry.tags.includes('@drop')) {
-        if (geometry.assembly) {
-          return { ...geometry, assembly: geometry.assembly.map(walk).filter(item => item !== undefined) };
-        } else {
-          return geometry;
+      const walk = (geometry) => {
+        if (geometry.tags === undefined || !geometry.tags.includes('@drop')) {
+          if (geometry.assembly) {
+            return { ...geometry, assembly: geometry.assembly.map(walk).filter(item => item !== undefined) };
+          } else {
+            return geometry;
+          }
         }
-      }
-    };
+      };
 
-    const keptGeometry = walk(disjointGeometry);
-    return keptGeometry || {};
+      const keptGeometry = walk(disjointGeometry);
+      geometry.keptGeometry = keptGeometry || {};
+    }
+    return geometry.keptGeometry;
   };
 
   const eachItem = (geometry, operation) => {
@@ -14535,7 +14571,7 @@ return d[d.length-1];};return ", funcName].join("");
 
     const z0Surfaces = getZ0Surfaces(geometry);
     if (z0Surfaces.length > 0) {
-      items.push({ solid: union$2(...z0Surfaces.map(item => item.z0Surface)) });
+      items.push({ z0Surface: union$2(...z0Surfaces.map(item => item.z0Surface)) });
     }
 
     if (items.length === 1) {
@@ -14607,17 +14643,13 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const toComponents = ({ requires, excludes }, geometry) => {
+  const toComponents = (options = {}, geometry) => {
     const components = [];
-    const walk = (geometry) => {
-      for (const item of geometry.assembly) {
-        if (hasMatchingTag(excludes, item.tags)) {
-          continue;
-        } else if (hasMatchingTag(requires, item.tags, true)) {
-          components.push(item);
-        } else if (item.assembly !== undefined) {
-          walk(item);
-        }
+    const walk = (item) => {
+      if (item.assembly) {
+        item.assembly.map(walk);
+      } else {
+        components.push(item);
       }
     };
     walk(toDisjointGeometry(geometry));
@@ -14924,7 +14956,6 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const measureBoundingBox$4 = (shape) => {
-    // FIX: Handle empty geometries.
     let minPoint = [Infinity, Infinity, Infinity];
     let maxPoint = [-Infinity, -Infinity, -Infinity];
     let empty = true;
@@ -15041,17 +15072,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const Z$2 = 2;
+  const Z$3 = 2;
 
   const fromOrigin = (shape) => {
     const [minPoint] = measureBoundingBox$4(shape);
-    return translate$3([0, 0, -minPoint[Z$2]], shape);
+    return translate$3([0, 0, -minPoint[Z$3]], shape);
   };
 
   const fromReference = (shape, reference) => {
     const [minPoint] = measureBoundingBox$4(shape);
     const [, maxRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([0, 0, maxRefPoint[Z$2] - minPoint[Z$2]], shape));
+    return assemble$1(reference, translate$3([0, 0, maxRefPoint[Z$3] - minPoint[Z$3]], shape));
   };
 
   const above = dispatch(
@@ -15333,17 +15364,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const Y$3 = 1;
+  const Y$4 = 1;
 
   const fromOrigin$1 = (shape) => {
     const [minPoint] = measureBoundingBox$4(shape);
-    return translate$3([0, -minPoint[Y$3], 0], shape);
+    return translate$3([0, -minPoint[Y$4], 0], shape);
   };
 
   const fromReference$1 = (shape, reference) => {
     const [minPoint] = measureBoundingBox$4(shape);
     const [, maxRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([0, maxRefPoint[Y$3] - minPoint[Y$3], 0], shape));
+    return assemble$1(reference, translate$3([0, maxRefPoint[Y$4] - minPoint[Y$4], 0], shape));
   };
 
   const back = dispatch(
@@ -15384,17 +15415,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const Z$3 = 2;
+  const Z$4 = 2;
 
   const fromOrigin$2 = (shape) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
-    return translate$3([0, 0, -maxPoint[Z$3]], shape);
+    return translate$3([0, 0, -maxPoint[Z$4]], shape);
   };
 
   const fromReference$2 = (shape, reference) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
     const [minRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([0, 0, minRefPoint[Z$3] - maxPoint[Z$3]], shape));
+    return assemble$1(reference, translate$3([0, 0, minRefPoint[Z$4] - maxPoint[Z$4]], shape));
   };
 
   const below = dispatch(
@@ -16273,17 +16304,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const Y$4 = 1;
+  const Y$5 = 1;
 
   const fromOrigin$3 = (shape) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
-    return translate$3([0, -maxPoint[Y$4], 0], shape);
+    return translate$3([0, -maxPoint[Y$5], 0], shape);
   };
 
   const fromReference$3 = (shape, reference) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
     const [minRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([0, minRefPoint[Y$4] - maxPoint[Y$4], 0], shape));
+    return assemble$1(reference, translate$3([0, minRefPoint[Y$5] - maxPoint[Y$5], 0], shape));
   };
 
   const front = dispatch(
@@ -16358,12 +16389,12 @@ return d[d.length-1];};return ", funcName].join("");
    *
    **/
 
-  const Z$4 = 2;
+  const Z$5 = 2;
 
   const hull = (...shapes) => {
     const points = [];
     shapes.forEach(shape => shape.eachPoint({}, point => points.push(point)));
-    if (points.every(point => point[Z$4] === 0)) {
+    if (points.every(point => point[Z$5] === 0)) {
       return Shape.fromPolygonsToZ0Surface([buildConvexSurfaceHull({}, points)]);
     } else {
       return Shape.fromPolygonsToSolid(buildConvexHull({}, points));
@@ -16554,17 +16585,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const X$3 = 0;
+  const X$4 = 0;
 
   const fromOrigin$4 = (shape) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
-    return translate$3([-maxPoint[X$3], 0, 0], shape);
+    return translate$3([-maxPoint[X$4], 0, 0], shape);
   };
 
   const fromReference$4 = (shape, reference) => {
     const [, maxPoint] = measureBoundingBox$4(shape);
     const [minRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([minRefPoint[X$3] - maxPoint[X$3], 0, 0], shape));
+    return assemble$1(reference, translate$3([minRefPoint[X$4] - maxPoint[X$4], 0, 0], shape));
   };
 
   const left = dispatch(
@@ -16585,73 +16616,6 @@ return d[d.length-1];};return ", funcName].join("");
   const method$j = function (...params) { return left(this, ...params); };
 
   Shape.prototype.left = method$j;
-
-  /**
-   *
-   * # Union
-   *
-   * Union produces a version of the first shape extended to cover the remaining shapes, as applicable.
-   * Different kinds of shapes do not interact. e.g., you cannot union a surface and a solid.
-   *
-   * ::: illustration { "view": { "position": [40, 40, 40] } }
-   * ```
-   * union(sphere(5).left(),
-   *       sphere(5),
-   *       sphere(5).right())
-   * ```
-   * :::
-   * ::: illustration { "view": { "position": [40, 40, 40] } }
-   * ```
-   * union(sphere(5).left(),
-   *       sphere(5),
-   *       sphere(5).right())
-   *   .section()
-   *   .outline()
-   * ```
-   * :::
-   * ::: illustration { "view": { "position": [0, 0, 5] } }
-   * ```
-   * union(triangle(),
-   *       triangle().rotateZ(180))
-   * ```
-   * :::
-   * ::: illustration { "view": { "position": [0, 0, 5] } }
-   * ```
-   * union(triangle(),
-   *       triangle().rotateZ(180))
-   *   .outline()
-   * ```
-   * :::
-   * ::: illustration { "view": { "position": [5, 5, 5] } }
-   * ```
-   * union(assemble(cube().left(),
-   *                cube().right()),
-   *       cube().front())
-   *   .section()
-   *   .outline()
-   * ```
-   * :::
-   *
-   **/
-
-  const union$5 = (...shapes) => {
-    switch (shapes.length) {
-      case 0: {
-        return fromGeometry({ assembly: [] });
-      }
-      case 1: {
-        // We still want to produce a simple shape.
-        return fromGeometry(toKeptGeometry$1(shapes[0]));
-      }
-      default: {
-        return fromGeometry(union$4(...shapes.map(toKeptGeometry$1)));
-      }
-    }
-  };
-
-  const method$k = function (...shapes) { return union$5(this, ...shapes); };
-
-  Shape.prototype.union = method$k;
 
   /**
    *
@@ -16710,7 +16674,7 @@ return d[d.length-1];};return ", funcName].join("");
     // We introduce a grip-ring from 0.5 to 1.2 mm (0.7 mm in height)
     const bottom = 0.5;
     const topHeight = height - gripRingHeight - bottom;
-    return union$5(
+    return assemble$1(
       // flaired top
       cylinder({ diameter: (diameter + play), height: topHeight }).translate([0, 0, topHeight / 2 + bottom + gripRingHeight]),
       // grip ring
@@ -19781,9 +19745,10 @@ return d[d.length-1];};return ", funcName].join("");
     data = await data;
 
     const { as = 'utf8', ephemeral } = options;
-    if (as === 'bytes') ; else {
+    if (typeof data === 'string') {
       data = new TextEncoder(as).encode(data);
     }
+
     if (isWebWorker) {
       return self.ask({ writeFile: { options: { ...options, as: 'bytes' }, path, data: await data } });
     }
@@ -19905,7 +19870,10 @@ return d[d.length-1];};return ", funcName].join("");
         }
       } else if (source.file !== undefined) {
         try {
-          return await fetchFile(source.file);
+          const data = await fetchFile(source.file);
+          if (data !== undefined) {
+            return data;
+          }
         } catch (e) {}
       } else {
         throw Error('die');
@@ -19998,9 +19966,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   material.fromValues = fromValue$8;
 
-  const method$l = function (...tags) { return material(tags, this); };
+  const method$k = function (...tags) { return material(tags, this); };
 
-  Shape.prototype.material = method$l;
+  Shape.prototype.material = method$k;
 
   /**
    *
@@ -20015,6 +19983,95 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const max$1 = Math.max;
+
+  /**
+   *
+   * # Measure Center
+   *
+   * Provides the center of the smallest orthogonal box containing the shape.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * sphere(7)
+   * ```
+   * :::
+   **/
+
+  const measureCenter = (shape) => {
+    const [high, low] = measureBoundingBox$4(shape);
+    return scale(0.5, add(high, low));
+  };
+
+  const method$l = function () { return measureCenter(this); };
+
+  Shape.prototype.measureCenter = method$l;
+
+  /**
+   *
+   * # Union
+   *
+   * Union produces a version of the first shape extended to cover the remaining shapes, as applicable.
+   * Different kinds of shapes do not interact. e.g., you cannot union a surface and a solid.
+   *
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * union(sphere(5).left(),
+   *       sphere(5),
+   *       sphere(5).right())
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [40, 40, 40] } }
+   * ```
+   * union(sphere(5).left(),
+   *       sphere(5),
+   *       sphere(5).right())
+   *   .section()
+   *   .outline()
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, 0, 5] } }
+   * ```
+   * union(triangle(),
+   *       triangle().rotateZ(180))
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [0, 0, 5] } }
+   * ```
+   * union(triangle(),
+   *       triangle().rotateZ(180))
+   *   .outline()
+   * ```
+   * :::
+   * ::: illustration { "view": { "position": [5, 5, 5] } }
+   * ```
+   * union(assemble(cube().left(),
+   *                cube().right()),
+   *       cube().front())
+   *   .section()
+   *   .outline()
+   * ```
+   * :::
+   *
+   **/
+
+  const union$5 = (...shapes) => {
+    switch (shapes.length) {
+      case 0: {
+        return fromGeometry({ assembly: [] });
+      }
+      case 1: {
+        // We still want to produce a simple shape.
+        return fromGeometry(toKeptGeometry$1(shapes[0]));
+      }
+      default: {
+        return fromGeometry(union$4(...shapes.map(toKeptGeometry$1)));
+      }
+    }
+  };
+
+  const method$m = function (...shapes) { return union$5(this, ...shapes); };
+
+  Shape.prototype.union = method$m;
 
   /**
    *
@@ -20123,9 +20180,10 @@ return d[d.length-1];};return ", funcName].join("");
     return assemble$1(...surfaces.map(({ z0Surface }) => Shape.fromPaths(z0Surface)));
   };
 
-  const method$m = function (options) { return outline(options, this); };
+  const method$n = function (options) { return outline(options, this); };
 
-  Shape.prototype.outline = method$m;
+  Shape.prototype.outline = method$n;
+  Shape.prototype.withOutline = function (options) { return assemble$1(this, outline(options, this)); };
 
   const fromValue$9 = (point) => Shape.fromPoint(point);
 
@@ -22941,7 +22999,120 @@ return d[d.length-1];};return ", funcName].join("");
   	return numbers ? numbers.map(Number) : []
   }
 
-  // FIX: Check scaling.
+  function getSqDist(p1, p2) {
+      var dx = p1[0] - p2[0],
+          dy = p1[1] - p2[1];
+
+      return dx * dx + dy * dy;
+  }
+
+  // basic distance-based simplification
+  var radialDistance = function simplifyRadialDist(points, tolerance) {
+      if (points.length<=1)
+          return points;
+      tolerance = typeof tolerance === 'number' ? tolerance : 1;
+      var sqTolerance = tolerance * tolerance;
+      
+      var prevPoint = points[0],
+          newPoints = [prevPoint],
+          point;
+
+      for (var i = 1, len = points.length; i < len; i++) {
+          point = points[i];
+
+          if (getSqDist(point, prevPoint) > sqTolerance) {
+              newPoints.push(point);
+              prevPoint = point;
+          }
+      }
+
+      if (prevPoint !== point) newPoints.push(point);
+
+      return newPoints;
+  };
+
+  // square distance from a point to a segment
+  function getSqSegDist(p, p1, p2) {
+      var x = p1[0],
+          y = p1[1],
+          dx = p2[0] - x,
+          dy = p2[1] - y;
+
+      if (dx !== 0 || dy !== 0) {
+
+          var t = ((p[0] - x) * dx + (p[1] - y) * dy) / (dx * dx + dy * dy);
+
+          if (t > 1) {
+              x = p2[0];
+              y = p2[1];
+
+          } else if (t > 0) {
+              x += dx * t;
+              y += dy * t;
+          }
+      }
+
+      dx = p[0] - x;
+      dy = p[1] - y;
+
+      return dx * dx + dy * dy;
+  }
+
+  function simplifyDPStep(points, first, last, sqTolerance, simplified) {
+      var maxSqDist = sqTolerance,
+          index;
+
+      for (var i = first + 1; i < last; i++) {
+          var sqDist = getSqSegDist(points[i], points[first], points[last]);
+
+          if (sqDist > maxSqDist) {
+              index = i;
+              maxSqDist = sqDist;
+          }
+      }
+
+      if (maxSqDist > sqTolerance) {
+          if (index - first > 1) simplifyDPStep(points, first, index, sqTolerance, simplified);
+          simplified.push(points[index]);
+          if (last - index > 1) simplifyDPStep(points, index, last, sqTolerance, simplified);
+      }
+  }
+
+  // simplification using Ramer-Douglas-Peucker algorithm
+  var douglasPeucker = function simplifyDouglasPeucker(points, tolerance) {
+      if (points.length<=1)
+          return points;
+      tolerance = typeof tolerance === 'number' ? tolerance : 1;
+      var sqTolerance = tolerance * tolerance;
+      
+      var last = points.length - 1;
+
+      var simplified = [points[0]];
+      simplifyDPStep(points, 0, last, sqTolerance, simplified);
+      simplified.push(points[last]);
+
+      return simplified;
+  };
+
+  //simplifies using both algorithms
+  var simplifyPath = function simplify(points, tolerance) {
+      points = radialDistance(points, tolerance);
+      points = douglasPeucker(points, tolerance);
+      return points;
+  };
+
+  var radialDistance$1 = radialDistance;
+  var douglasPeucker$1 = douglasPeucker;
+  simplifyPath.radialDistance = radialDistance$1;
+  simplifyPath.douglasPeucker = douglasPeucker$1;
+
+  const simplify = (path, tolerance) => {
+    if (isClosed(path)) {
+      return simplifyPath(path, tolerance);
+    } else {
+      return [null, ...simplifyPath(path.slice(1), tolerance)];
+    }
+  };
 
   const removeRepeatedPoints = (path) => {
     const unrepeated = [path[0]];
@@ -22955,7 +23126,7 @@ return d[d.length-1];};return ", funcName].join("");
     return unrepeated;
   };
 
-  const toPaths = ({ curveSegments, normalizeCoordinateSystem = true }, svgPath) => {
+  const toPaths = ({ curveSegments, normalizeCoordinateSystem = true, tolerance = 0.01 }, svgPath) => {
     const paths = [];
     let path = [null];
 
@@ -23008,11 +23179,13 @@ return d[d.length-1];};return ", funcName].join("");
     maybeClosePath();
     newPath();
 
+    const simplifiedPaths = paths.map(path => simplify(path, tolerance));
+
     if (normalizeCoordinateSystem) {
       // Turn it upside down.
-      return transform$2(fromScaling([1, -1, 0]), paths);
+      return transform$2(fromScaling([1, -1, 0]), simplifiedPaths);
     } else {
-      return paths;
+      return simplifiedPaths;
     }
   };
 
@@ -37401,9 +37574,9 @@ return d[d.length-1];};return ", funcName].join("");
                             });
       const pathsets = [];
       for (let { paths } of svgPaths.map(svgPath => fromSvgPath({ curveSegments: curveSegments }, svgPath))) {
-        pathsets.push(paths);
+        // Cleaning forces the first path to not be a hole.
+        pathsets.push(clean(paths));
       }
-      // return scale([factor, factor, factor], { z0Surface: union(...pathsets) });
       return scale$5([factor, factor, factor], { assembly: pathsets.map(paths => ({ z0Surface: paths })) });
     };
 
@@ -37650,9 +37823,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ preview, geometry }, path, JSON.stringify(geometry));
   };
 
-  const method$n = function (options = {}) { return writeShape(options, this); };
+  const method$o = function (options = {}) { return writeShape(options, this); };
 
-  Shape.prototype.writeShape = method$n;
+  Shape.prototype.writeShape = method$o;
 
   /**
    *
@@ -37930,7 +38103,7 @@ return d[d.length-1];};return ", funcName].join("");
   const isWatertightPolygons = polygons => findPolygonsViolations(polygons).length === 0;
 
   const EPS$1 = 1e-5;
-  const W$3 = 3;
+  const W$4 = 3;
 
   const tag = vertex => JSON.stringify([...vertex]);
 
@@ -38184,7 +38357,7 @@ return d[d.length-1];};return ", funcName].join("");
                       let newpolygon = fromPoints$1(newvertices);
 
                       // calculate plane with differents point
-                      if (isNaN(toPlane(newpolygon)[W$3])) {
+                      if (isNaN(toPlane(newpolygon)[W$4])) {
                         let found = false;
                         let loop = function (callback) {
                           newpolygon.forEach(function (item) {
@@ -38197,7 +38370,7 @@ return d[d.length-1];};return ", funcName].join("");
                           loop(function (b) {
                             loop(function (c) {
                               newpolygon.plane = fromPoints(a, b, c);
-                              if (!isNaN(toPlane(newpolygon)[W$3])) {
+                              if (!isNaN(toPlane(newpolygon)[W$4])) {
                                 found = true;
                               }
                             });
@@ -38238,28 +38411,450 @@ return d[d.length-1];};return ", funcName].join("");
 
   const makeWatertight = polygons => fixTJunctions(polygons);
 
+  var bounds3 = Bounds3;
+
+  function Bounds3(x, y, z, half) {
+    this.x = typeof x === 'number' ? x : 0;
+    this.y = typeof y === 'number' ? y : 0;
+    this.z = typeof z === 'number' ? z : 0;
+    this.half = typeof half === 'number' ? half : 0;
+  }
+
+  Bounds3.prototype.contains = function contains(x, y, z) {
+    var half = this.half;
+    return this.x - half <= x && x < this.x + half &&
+      this.y - half <= y && y < this.y + half &&
+      this.z - half <= z && z < this.z + half;
+  };
+
+  var MAX_ITEMS = 4;
+
+  var treeNode = TreeNode;
+
+  function TreeNode(bounds) {
+    this.bounds = bounds;
+    this.q0 = null;
+    this.q1 = null;
+    this.q2 = null;
+    this.q3 = null;
+    this.q4 = null;
+    this.q5 = null;
+    this.q6 = null;
+    this.q7 = null;
+    this.items = null;
+  }
+
+  TreeNode.prototype.subdivide = function subdivide() {
+    var bounds = this.bounds;
+    var quarter = bounds.half / 2;
+
+    this.q0 = new TreeNode(new bounds3(bounds.x - quarter, bounds.y - quarter, bounds.z - quarter, quarter));
+    this.q1 = new TreeNode(new bounds3(bounds.x + quarter, bounds.y - quarter, bounds.z - quarter, quarter));
+    this.q2 = new TreeNode(new bounds3(bounds.x - quarter, bounds.y + quarter, bounds.z - quarter, quarter));
+    this.q3 = new TreeNode(new bounds3(bounds.x + quarter, bounds.y + quarter, bounds.z - quarter, quarter));
+    this.q4 = new TreeNode(new bounds3(bounds.x - quarter, bounds.y - quarter, bounds.z + quarter, quarter));
+    this.q5 = new TreeNode(new bounds3(bounds.x + quarter, bounds.y - quarter, bounds.z + quarter, quarter));
+    this.q6 = new TreeNode(new bounds3(bounds.x - quarter, bounds.y + quarter, bounds.z + quarter, quarter));
+    this.q7 = new TreeNode(new bounds3(bounds.x + quarter, bounds.y + quarter, bounds.z + quarter, quarter));
+  };
+
+  TreeNode.prototype.insert = function insert(idx, array, depth) {
+    var isLeaf = this.q0 === null;
+    if (isLeaf) {
+      // TODO: this memory could be recycled to avoid GC
+      if (this.items === null) {
+        this.items = [idx];
+      } else {
+        this.items.push(idx);
+      }
+      if (this.items.length >= MAX_ITEMS && depth < 16) {
+        this.subdivide();
+        for (var i = 0; i < this.items.length; ++i) {
+          this.insert(this.items[i], array, depth + 1);
+        }
+        this.items = null;
+      }
+    } else {
+      var x = array[idx],
+        y = array[idx + 1],
+        z = array[idx + 2];
+      var bounds = this.bounds;
+      var quadIdx = 0; // assume NW
+      if (x > bounds.x) {
+        quadIdx += 1; // nope, we are in E part
+      }
+      if (y > bounds.y) {
+        quadIdx += 2; // Somewhere south.
+      }
+      if (z > bounds.z) {
+        quadIdx += 4; // Somewhere far
+      }
+
+      var child = getChild(this, quadIdx);
+      child.insert(idx, array, depth + 1);
+    }
+  };
+
+  TreeNode.prototype.query = function queryBounds(results, sourceArray, intersects, preciseCheck) {
+    if (!intersects(this.bounds)) return;
+    var items = this.items;
+    var needsCheck = typeof preciseCheck === 'function';
+    if (items) {
+      for (var i = 0; i < items.length; ++i) {
+        var idx = items[i];
+        if (needsCheck) {
+          if (preciseCheck(sourceArray[idx], sourceArray[idx + 1], sourceArray[idx + 2])) {
+            results.push(idx);
+          }
+        } else {
+          results.push(idx);
+        }
+      }
+    }
+
+    if (!this.q0) return;
+
+    this.q0.query(results, sourceArray, intersects, preciseCheck);
+    this.q1.query(results, sourceArray, intersects, preciseCheck);
+    this.q2.query(results, sourceArray, intersects, preciseCheck);
+    this.q3.query(results, sourceArray, intersects, preciseCheck);
+    this.q4.query(results, sourceArray, intersects, preciseCheck);
+    this.q5.query(results, sourceArray, intersects, preciseCheck);
+    this.q6.query(results, sourceArray, intersects, preciseCheck);
+    this.q7.query(results, sourceArray, intersects, preciseCheck);
+  };
+
+  function getChild(node, idx) {
+    if (idx === 0) return node.q0;
+    if (idx === 1) return node.q1;
+    if (idx === 2) return node.q2;
+    if (idx === 3) return node.q3;
+    if (idx === 4) return node.q4;
+    if (idx === 5) return node.q5;
+    if (idx === 6) return node.q6;
+    if (idx === 7) return node.q7;
+  }
+
+  var rafor = asyncFor;
+
+  /**
+   * Iterates over array in async manner. This function attempts to maximize
+   * number of elements visited within single event loop cycle, while at the
+   * same time tries to not exceed a time threshold allowed to stay within
+   * event loop.
+   *
+   * @param {Array} array which needs to be iterated. Array-like objects are OK too.
+   * @param {VisitCalback} visitCallback called for every element within for loop.
+   * @param {DoneCallback} doneCallback called when iterator has reached end of array.
+   * @param {Object=} options - additional configuration:
+   * @param {number} [options.step=1] - default iteration step
+   * @param {number} [options.maxTimeMS=8] - maximum time (in milliseconds) which
+   *   iterator should spend within single event loop.
+   * @param {number} [options.probeElements=5000] - how many elements should iterator
+   *   visit to measure its iteration speed.
+   */
+  function asyncFor(array, visitCallback, doneCallback, options) {
+    var start = 0;
+    var elapsed = 0;
+    options = options || {};
+    var step = options.step || 1;
+    var maxTimeMS = options.maxTimeMS || 8;
+    var pointsPerLoopCycle = options.probeElements || 5000;
+    // we should never block main thread for too long...
+    setTimeout(processSubset, 0);
+
+    function processSubset() {
+      var finish = Math.min(array.length, start + pointsPerLoopCycle);
+      var i = start;
+      var timeStart = new Date();
+      for (i = start; i < finish; i += step) {
+        visitCallback(array[i], i, array);
+      }
+      if (i < array.length) {
+        elapsed += (new Date() - timeStart);
+        start = i;
+
+        pointsPerLoopCycle = Math.round(start * maxTimeMS/elapsed);
+        setTimeout(processSubset, 0);
+      } else {
+        doneCallback(array);
+      }
+    }
+  }
+
+  /**
+   * Represents octree data structure
+   *
+   * https://en.wikipedia.org/wiki/Octree
+   */
+
+
+  var EmptyRegion = new bounds3();
+
+
+  var yaot = createTree;
+
+  function createTree(options) {
+    var noPoints = [];
+
+    var root;
+    var originalArray;
+    var api = {
+      /**
+       * Initializes tree asynchronously. Very useful when you have millions
+       * of points and do not want to block rendering thread for too long.
+       *
+       * @param {number[]} points array of points for which we are building the
+       * tree. Flat sequence of (x, y, z) coordinates. Array length should be
+       * multiple of 3.
+       *
+       * @param {Function=} doneCallback called when tree is initialized. The
+       * callback will be called with single argument which represent current
+       * tree.
+       */
+      initAsync: initAsync,
+
+      /**
+       * Synchronous version of `initAsync()`. Should only be used for small
+       * trees (less than 50-70k of points).
+       *
+       * @param {number[]} points array of points for which we are building the
+       * tree. Flat sequence of (x, y, z) coordinates. Array length should be
+       * multiple of 3.
+       */
+      init: init,
+
+      /**
+       * Gets bounds of the root node. Bounds are represented by center of the
+       * node (x, y, z) and `half` attribute - distance from the center to an
+       * edge of the root node.
+       */
+      bounds: getBounds,
+
+      /**
+       * Fires a ray from `rayOrigin` into `rayDirection` and collects all points
+       * that lie in the octants intersected by the ray.
+       *
+       * This method implements An Efficient Parametric Algorithm for Octree Traversal
+       * described in http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf
+       *
+       * @param {Vector3} rayOrigin x,y,z coordinates where ray starts
+       * @param {Vector3} rayDirection normalized x,y,z direction where ray shoots.
+       * @param {number+} near minimum distance from the ray origin. 0 by default.
+       * @param {number+} far maximum length of the ray. POSITIVE_INFINITY by default
+       *
+       * @return {Array} of indices in the source array. Each index represnts a start
+       * of the x,y,z triplet of a point, that lies in the intersected octant.
+       */
+      intersectRay: intersectRay,
+
+      /**
+       * Once you have collected points from the octants intersected by a ray
+       * (`intersectRay()` method), it may be worth to query points from the surrouning
+       * area.
+       */
+      intersectSphere: intersectSphere,
+
+      /**
+       * Gets root node of the tree
+       */
+      getRoot: getRoot
+    };
+
+    return api;
+
+    function getRoot() {
+      return root;
+    }
+
+    function intersectSphere(cx, cy, cz, r) {
+      if (!root) {
+        // Most likely we are not initialized yet
+        return noPoints;
+      }
+      var indices = [];
+      var r2 = r * r;
+      root.query(indices, originalArray, intersectCheck, preciseCheck);
+      return indices;
+
+      // http://stackoverflow.com/questions/4578967/cube-sphere-intersection-test
+      function intersectCheck(candidate) {
+        var dist = r2;
+        var half = candidate.half;
+        if (cx < candidate.x - half) dist -= sqr(cx - (candidate.x - half));
+        else if (cx > candidate.x + half) dist -= sqr(cx - (candidate.x + half));
+
+        if (cy < candidate.y - half) dist -= sqr(cy - (candidate.y - half));
+        else if (cy > candidate.y + half) dist -= sqr(cy - (candidate.y + half));
+
+        if (cz < candidate.z - half) dist -= sqr(cz - (candidate.z - half));
+        else if (cz > candidate.z + half) dist -= sqr(cz - (candidate.z + half));
+        return dist > 0;
+      }
+
+      function preciseCheck(x, y, z) {
+        return sqr(x - cx) + sqr(y - cy) + sqr(z - cz) < r2;
+      }
+    }
+
+    function sqr(x) {
+      return x * x;
+    }
+
+    function intersectRay(rayOrigin, rayDirection, near, far) {
+      if (!root) {
+        // Most likely we are not initialized yet
+        return noPoints;
+      }
+
+      if (near === undefined) near = 0;
+      if (far === undefined) far = Number.POSITIVE_INFINITY;
+      // we save as squar, to avoid expensive sqrt() operation
+      near *= near;
+      far *= far;
+
+      var indices = [];
+      root.query(indices, originalArray, intersectCheck, farEnough);
+      return indices.sort(byDistanceToCamera);
+
+      function intersectCheck(candidate) {
+        // using http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf
+        var half = candidate.half;
+        var t1 = (candidate.x - half - rayOrigin.x) / rayDirection.x,
+          t2 = (candidate.x + half - rayOrigin.x) / rayDirection.x,
+          t3 = (candidate.y + half - rayOrigin.y) / rayDirection.y,
+          t4 = (candidate.y - half - rayOrigin.y) / rayDirection.y,
+          t5 = (candidate.z - half - rayOrigin.z) / rayDirection.z,
+          t6 = (candidate.z + half - rayOrigin.z) / rayDirection.z,
+          tmax = Math.min(Math.min(Math.max(t1, t2), Math.max(t3, t4)), Math.max(t5, t6)),
+          tmin;
+
+        if (tmax < 0) return false;
+
+        tmin = Math.max(Math.max(Math.min(t1, t2), Math.min(t3, t4)), Math.min(t5, t6));
+        return tmin <= tmax && tmin <= far;
+      }
+
+      function farEnough(x, y, z) {
+        var dist = (x - rayOrigin.x) * (x - rayOrigin.x) +
+                   (y - rayOrigin.y) * (y - rayOrigin.y) +
+                   (z - rayOrigin.z) * (z - rayOrigin.z);
+        return near <= dist && dist <= far;
+      }
+
+      function byDistanceToCamera(idx0, idx1) {
+        var x0 = rayOrigin[idx0];
+        var y0 = rayOrigin[idx0 + 1];
+        var z0 = rayOrigin[idx0 + 2];
+        var dist0 = (x0 - rayOrigin.x) * (x0 - rayOrigin.x) +
+                    (y0 - rayOrigin.y) * (y0 - rayOrigin.y) +
+                    (z0 - rayOrigin.z) * (z0 - rayOrigin.z);
+
+        var x1 = rayOrigin[idx1];
+        var y1 = rayOrigin[idx1 + 1];
+        var z1 = rayOrigin[idx1 + 2];
+
+        var dist1 = (x1 - rayOrigin.x) * (x1 - rayOrigin.x) +
+                    (y1 - rayOrigin.y) * (y1 - rayOrigin.y) +
+                    (z1 - rayOrigin.z) * (z1 - rayOrigin.z);
+        return dist0 - dist1;
+      }
+    }
+
+    function init(points) {
+      verifyPointsInvariant(points);
+      originalArray = points;
+      root = createRootNode(points);
+      for (var i = 0; i < points.length; i += 3) {
+        root.insert(i, originalArray, 0);
+      }
+    }
+
+    function initAsync(points, doneCallback) {
+      verifyPointsInvariant(points);
+
+      var tempRoot = createRootNode(points);
+      rafor(points, insertToRoot, doneInternal, { step: 3 });
+
+      function insertToRoot(element, i) {
+        tempRoot.insert(i, points, 0);
+      }
+
+      function doneInternal() {
+        originalArray = points;
+        root = tempRoot;
+        if (typeof doneCallback === 'function') {
+          doneCallback(api);
+        }
+      }
+    }
+
+    function verifyPointsInvariant(points) {
+      if (!points) throw new Error('Points array is required for quadtree to work');
+      if (typeof points.length !== 'number') throw new Error('Points should be array-like object');
+      if (points.length % 3 !== 0) throw new Error('Points array should consist of series of x,y,z coordinates and be multiple of 3');
+    }
+
+    function getBounds() {
+      if (!root) return EmptyRegion;
+      return root.bounds;
+    }
+
+    function createRootNode(points) {
+      // Edge case deserves empty region:
+      if (points.length === 0) {
+        var empty = new bounds3();
+        return new treeNode(empty);
+      }
+
+      // Otherwise let's figure out how big should be the root region
+      var minX = Number.POSITIVE_INFINITY;
+      var minY = Number.POSITIVE_INFINITY;
+      var minZ = Number.POSITIVE_INFINITY;
+      var maxX = Number.NEGATIVE_INFINITY;
+      var maxY = Number.NEGATIVE_INFINITY;
+      var maxZ = Number.NEGATIVE_INFINITY;
+      for (var i = 0; i < points.length; i += 3) {
+        var x = points[i],
+          y = points[i + 1],
+          z = points[i + 2];
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+        if (z < minZ) minZ = z;
+        if (z > maxZ) maxZ = z;
+      }
+
+      // Make bounds square:
+      var side = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);
+      // since we need to have both sides inside the area, let's artificially
+      // grow the root region:
+      side += 2;
+      minX -= 1;
+      minY -= 1;
+      minZ -= 1;
+      var half = side / 2;
+
+      var bounds = new bounds3(minX + half, minY + half, minZ + half, half);
+      return new treeNode(bounds);
+    }
+  }
+
   const copy$2 = ({ solid }) => ({ solid: solid.map(surface => surface.map(path => path.map(point => [...point]))) });
 
   // FIX: This is neither efficient nor principled.
   // We include this fix for now to better understand the cases where it fails.
 
-  // FIX: This introduces degenerate polygons.
-
   const fixTJunctions$1 = (solids) => {
-    const points = new Map();
-
+    const tree = yaot();
+    const points = [];
     for (const { solid } of solids) {
-      for (const surface of solid) {
-        for (const path of surface) {
-          for (const point of path) {
-            points.set(JSON.stringify(point), point);
-          }
-        }
-      }
+      eachPoint$5({}, point => points.push(...point), solid);
     }
+    tree.init(points);
 
     const fixed = [];
-
     for (const geometry of solids) {
       const { solid } = copy$2(geometry);
       for (const surface of solid) {
@@ -38268,13 +38863,17 @@ return d[d.length-1];};return ", funcName].join("");
           for (let current = 0; current < path.length; last = current++) {
             const start = path[last];
             const end = path[current];
-            const span = distance(start, end);
+            const midpoint = scale(0.5, add(start, end));
+            const direction = subtract(end, start);
+            const span = length(direction);
+            const matches = tree.intersectSphere(...midpoint, span / 2 + 1);
             const colinear = [];
-            for (const [, point] of points) {
+            for (const match of matches) {
+              const point = points.slice(match, match + 3);
               if (equals$1(point, start)) continue;
               if (equals$1(point, end)) continue;
               if (distance(start, point) + distance(point, end) === span) {
-                // The point is approximately colinear.
+                // The point is approximately colinear and upon the segment.
                 colinear.push(point);
               }
             }
@@ -38412,17 +39011,17 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const X$4 = 0;
+  const X$5 = 0;
 
   const fromOrigin$5 = (shape) => {
     const [minPoint] = measureBoundingBox$4(shape);
-    return translate$3([-minPoint[X$4], 0, 0], shape);
+    return translate$3([-minPoint[X$5], 0, 0], shape);
   };
 
   const fromReference$5 = (shape, reference) => {
     const [minPoint] = measureBoundingBox$4(shape);
     const [, maxRefPoint] = measureBoundingBox$4(reference);
-    return assemble$1(reference, translate$3([maxRefPoint[X$4] - minPoint[X$4], 0, 0], shape));
+    return assemble$1(reference, translate$3([maxRefPoint[X$5] - minPoint[X$5], 0, 0], shape));
   };
 
   const right = dispatch(
@@ -38440,9 +39039,9 @@ return d[d.length-1];};return ", funcName].join("");
       return () => fromReference$5(shape, reference);
     });
 
-  const method$o = function (...params) { return right(this, ...params); };
+  const method$p = function (...params) { return right(this, ...params); };
 
-  Shape.prototype.right = method$o;
+  Shape.prototype.right = method$p;
 
   /**
    *
@@ -38464,9 +39063,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateX$1 = (angle, shape) => shape.transform(fromXRotation(angle * 0.017453292519943295));
 
-  const method$p = function (angle) { return rotateX$1(angle, this); };
+  const method$q = function (angle) { return rotateX$1(angle, this); };
 
-  Shape.prototype.rotateX = method$p;
+  Shape.prototype.rotateX = method$q;
 
   /**
    *
@@ -38488,9 +39087,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateY = (angle, shape) => shape.transform(fromYRotation(angle * 0.017453292519943295));
 
-  const method$q = function (angle) { return rotateY(angle, this); };
+  const method$r = function (angle) { return rotateY(angle, this); };
 
-  Shape.prototype.rotateY = method$q;
+  Shape.prototype.rotateY = method$r;
 
   /**
    *
@@ -38512,9 +39111,9 @@ return d[d.length-1];};return ", funcName].join("");
 
   const rotateZ = (angle, shape) => shape.transform(fromZRotation(angle * 0.017453292519943295));
 
-  const method$r = function (angle) { return rotateZ(angle, this); };
+  const method$s = function (angle) { return rotateZ(angle, this); };
 
-  Shape.prototype.rotateZ = method$r;
+  Shape.prototype.rotateZ = method$s;
 
   /**
    *
@@ -38549,9 +39148,9 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$s = function (factor) { return scale$6(factor, this); };
+  const method$t = function (factor) { return scale$6(factor, this); };
 
-  Shape.prototype.scale = method$s;
+  Shape.prototype.scale = method$t;
 
   /**
    *
@@ -38595,9 +39194,9 @@ return d[d.length-1];};return ", funcName].join("");
     return assemble$1(...shapes);
   };
 
-  const method$t = function (options) { return section(options, this); };
+  const method$u = function (options) { return section(options, this); };
 
-  Shape.prototype.section = method$t;
+  Shape.prototype.section = method$u;
 
   /**
    *
@@ -39024,9 +39623,10 @@ return d[d.length-1];};return ", funcName].join("");
     return assemble$1(...pieces);
   };
 
-  const method$u = function (options) { return wireframe(options, this); };
+  const method$v = function (options) { return wireframe(options, this); };
 
-  Shape.prototype.wireframe = method$u;
+  Shape.prototype.wireframe = method$v;
+  Shape.prototype.withWireframe = function (options) { return assemble$1(this, wireframe(options, this)); };
 
   const colorToRgbMapping = {
     'aliceblue': [240, 248, 255],
@@ -39195,8 +39795,8 @@ return d[d.length-1];};return ", funcName].join("");
   const toFillColor = (rgb) => `${(rgb[0] / 255).toFixed(9)} ${(rgb[1] / 255).toFixed(9)} ${(rgb[2] / 255).toFixed(9)} rg`;
   const toStrokeColor = (rgb) => `${(rgb[0] / 255).toFixed(9)} ${(rgb[1] / 255).toFixed(9)} ${(rgb[2] / 255).toFixed(9)} RG`;
 
-  const X$5 = 0;
-  const Y$5 = 1;
+  const X$6 = 0;
+  const Y$6 = 1;
 
   // Not entirely sure how conformant this is, but it seems to work for simple
   // cases.
@@ -39236,7 +39836,7 @@ return d[d.length-1];};return ", funcName].join("");
     // Subtract the x min, and the y max, then add the page height to bring
     // it up to the top left. This positions the origin nicely for laser
     // cutting and printing.
-    const offset = [-min[X$5] * scale, (height - max[Y$5]) * scale, 0];
+    const offset = [-min[X$6] * scale, (height - max[Y$6]) * scale, 0];
     const matrix = multiply$1(fromTranslation(offset),
                             fromScaling([scale, scale, scale]));
     const keptGeometry = toKeptGeometry(transform$7(matrix, geometry));
@@ -39302,9 +39902,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ geometry, preview: true }, path, pdf);
   };
 
-  const method$v = function (options = {}) { return writePdf(options, this); };
+  const method$w = function (options = {}) { return writePdf(options, this); };
 
-  Shape.prototype.writePdf = method$v;
+  Shape.prototype.writePdf = method$w;
 
   /**
    *
@@ -39334,9 +39934,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ preview: true, geometry }, path, toStl(options, geometry));
   };
 
-  const method$w = function (options = {}) { return writeStl(options, this); };
+  const method$x = function (options = {}) { return writeStl(options, this); };
 
-  Shape.prototype.writeStl = method$w;
+  Shape.prototype.writeStl = method$x;
 
   /**
    *
@@ -39366,9 +39966,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ geometry, preview: true }, path, toSvg(options, geometry));
   };
 
-  const method$x = function (options = {}) { return writeSvg(options, this); };
+  const method$y = function (options = {}) { return writeSvg(options, this); };
 
-  Shape.prototype.writeSvg = method$x;
+  Shape.prototype.writeSvg = method$y;
 
   // Polyfills
 
@@ -89729,16 +90329,16 @@ return d[d.length-1];};return ", funcName].join("");
   const z0SurfaceToThreejsSurface = (surface) => {
     const normals = [];
     const positions = [];
-    const outputTriangle = (triangle) => {
+    for (const triangle of toTriangles({}, makeConvex$1({}, surface))) {
       for (const point of triangle) {
-        const [x, y, z] = toPlane(triangle);
+        const [x, y, z, w] = toPlane(triangle);
         normals.push(x, y, z);
+        if (isNaN(x)) {
+          console.log(`QQ/triangle: ${triangle}`);
+          console.log(`QQ/normal: ${x} ${y} ${z} ${w}`);
+        }
         positions.push(...point);
       }
-    };
-    for (const triangle of toTriangles({}, makeConvex$1({}, surface))) {
-      outputTriangle(triangle);
-      outputTriangle(flip$4(triangle));
     }
     return { normals, positions };
   };
@@ -89927,9 +90527,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ geometry, preview: true }, path, toSvg$1(options, geometry));
   };
 
-  const method$y = function (options = {}) { return writeSvgPhoto(options, this); };
+  const method$z = function (options = {}) { return writeSvgPhoto(options, this); };
 
-  Shape.prototype.writeSvgPhoto = method$y;
+  Shape.prototype.writeSvgPhoto = method$z;
 
   const writeThreejsPage = async (options, shape) => {
     if (typeof options === 'string') {
@@ -89940,9 +90540,9 @@ return d[d.length-1];};return ", funcName].join("");
     await writeFile({ geometry, view, preview: true }, path, toThreejsPage(options, shape.toDisjointGeometry()));
   };
 
-  const method$z = function (options = {}) { return writeThreejsPage(options, this); };
+  const method$A = function (options = {}) { return writeThreejsPage(options, this); };
 
-  Shape.prototype.writeThreejsPage = method$z;
+  Shape.prototype.writeThreejsPage = method$A;
 
   /**
    *
@@ -89985,6 +90585,7 @@ return d[d.length-1];};return ", funcName].join("");
     material: material,
     max: max$1,
     measureBoundingBox: measureBoundingBox$4,
+    measureCenter: measureCenter,
     microGearMotor: microGearMotor,
     minkowski: minkowski,
     numbers: numbers,

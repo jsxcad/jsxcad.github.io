@@ -56037,6 +56037,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} vector the vector to scale
    * @returns {vec3} out
    */
+  const scale = (amount, [x, y, z]) => [(x * amount), (y * amount), (z * amount)];
 
   // radians = degrees * PI / 180
 
@@ -56070,6 +56071,8 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
+
+  const equals$1 = ([ax, ay, az], [bx, by, bz]) => (ax === bx) && (ay === by) && (az === bz);
 
   /**
    * Creates a new vec3 from the point given.
@@ -56168,7 +56171,6 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
-  const subtract = ([ax, ay, az], [bx, by, bz]) => [(ax - bx), (ay - by), (az - bz)];
 
   /**
    * Calculates the squared euclidian distance between two vec3's
@@ -56441,8 +56443,6 @@ define("./master.js",[],function () { 'use strict';
    * @returns {mat4} out
    */
 
-  const isClosed = (path) => (path.length === 0) || (path[0] !== null);
-
   const toSegments = (options = {}, path) => {
     const segments = [];
     if (path[0] !== null) {
@@ -56465,7 +56465,7 @@ define("./master.js",[],function () { 'use strict';
 
   // FIX: Deduplication.
 
-  var subtract_1 = subtract$1;
+  var subtract_1 = subtract;
 
   /**
    * Subtracts vector b from vector a
@@ -56475,7 +56475,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
-  function subtract$1(out, a, b) {
+  function subtract(out, a, b) {
       out[0] = a[0] - b[0];
       out[1] = a[1] - b[1];
       out[2] = a[2] - b[2];
@@ -56867,7 +56867,7 @@ define("./master.js",[],function () { 'use strict';
       return Math.sqrt(x*x + y*y + z*z)
   }
 
-  var scale_1 = scale;
+  var scale_1 = scale$1;
 
   /**
    * Scales a vec3 by a scalar number
@@ -56877,7 +56877,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {Number} b amount to scale the vector by
    * @returns {vec3} out
    */
-  function scale(out, a, b) {
+  function scale$1(out, a, b) {
       out[0] = a[0] * b;
       out[1] = a[1] * b;
       out[2] = a[2] * b;
@@ -62587,7 +62587,6 @@ return d[d.length-1];};return ", funcName].join("");
    * @param {poly3} polygon - the polygon to flip
    * @returns {poly3} a new poly3
    */
-  const flip = (polygon) => [...polygon].reverse();
 
   /**
    * Create a poly3 from the given points.
@@ -62616,67 +62615,67 @@ return d[d.length-1];};return ", funcName].join("");
    * @return {vec4} flipped plane
    */
 
-  /**
-   * Create a new plane from the given points
-   *
-   * @param {Vec3} a - 3D point
-   * @param {Vec3} b - 3D point
-   * @param {Vec3} c - 3D point
-   * @returns {Vec4} a new plane with properly typed values
-   */
-  const fromPoints = (a, b, c) => {
-    // let n = b.minus(a).cross(c.minus(a)).unit()
-    // FIXME optimize later
-    const ba = subtract(b, a);
-    const ca = subtract(c, a);
-    const cr = cross(ba, ca);
-    const normal = unit(cr); // normal part
-    //
-    const w = dot(normal, a);
-    return [normal[0], normal[1], normal[2], w];
-  };
-
   const X = 0;
   const Y = 1;
   const Z = 2;
   const W = 3;
 
+  // Newell's method for computing the plane of a polygon.
+  const fromPolygon = (polygon) => {
+    const normal = [0, 0, 0];
+    const reference = [0, 0, 0];
+    let lastPoint = polygon[polygon.length - 1];
+    for (const thisPoint of polygon) {
+      normal[X] += (lastPoint[Y] - thisPoint[Y]) * (lastPoint[Z] + thisPoint[Z]);
+      normal[Y] += (lastPoint[Z] - thisPoint[Z]) * (lastPoint[X] + thisPoint[X]);
+      normal[Z] += (lastPoint[X] - thisPoint[X]) * (lastPoint[Y] + thisPoint[Y]);
+      reference[X] += lastPoint[X];
+      reference[Y] += lastPoint[Y];
+      reference[Z] += lastPoint[Z];
+      lastPoint = thisPoint;
+    }
+    const factor = 1 / length(normal);
+    const plane = scale(factor, normal);
+    plane[W] = dot(reference, normal) * factor / polygon.length;
+    return plane;
+  };
+
+  const X$1 = 0;
+  const Y$1 = 1;
+  const Z$1 = 2;
+  const W$1 = 3;
+
   const toXYPlaneTransforms = (plane, rightVector) => {
+    if (isNaN(plane[X$1])) {
+      throw Error('die');
+    }
     if (rightVector === undefined) {
       rightVector = random(plane);
     }
 
     const v = unit(cross(plane, rightVector));
     const u = cross(v, plane);
-    const p = multiply(plane, fromScalar(plane[W]));
+    const p = multiply(plane, fromScalar(plane[W$1]));
 
     return [
       // to
       fromValues(
-        u[X], v[X], plane[X], 0,
-        u[Y], v[Y], plane[Y], 0,
-        u[Z], v[Z], plane[Z], 0,
-        0, 0, -plane[W], 1),
+        u[X$1], v[X$1], plane[X$1], 0,
+        u[Y$1], v[Y$1], plane[Y$1], 0,
+        u[Z$1], v[Z$1], plane[Z$1], 0,
+        0, 0, -plane[W$1], 1),
       // from
       fromValues(
-        u[X], u[Y], u[Z], 0,
-        v[X], v[Y], v[Z], 0,
-        plane[X], plane[Y], plane[Z], 0,
-        p[X], p[Y], p[Z], 1)
+        u[X$1], u[Y$1], u[Z$1], 0,
+        v[X$1], v[Y$1], v[Z$1], 0,
+        plane[X$1], plane[Y$1], plane[Z$1], 0,
+        p[X$1], p[Y$1], p[Z$1], 1)
     ];
   };
 
   const toPlane = (polygon) => {
     if (polygon.plane === undefined) {
-      if (polygon.length >= 3) {
-        // FIX: Find a better way to handle polygons with colinear points.
-        for (let nth = 0; nth < polygon.length - 2; nth++) {
-          polygon.plane = fromPoints(polygon[nth], polygon[nth + 1], polygon[nth + 2]);
-          if (!isNaN(polygon.plane[0])) break;
-        }
-      } else {
-        throw Error('die');
-      }
+      polygon.plane = fromPolygon(polygon);
     }
     return polygon.plane;
   };
@@ -67969,8 +67968,6 @@ return d[d.length-1];};return ", funcName].join("");
    * @returns {Polygons} a copy with transformed polygons.
    */
 
-  const isTriangle = (path) => isClosed(path) && path.length === 3;
-
   /*
   ** SGI FREE SOFTWARE LICENSE B (Version 2.0, Sept. 18, 2008) 
   ** Copyright (C) [dates of first publication] Silicon Graphics, Inc.
@@ -68005,13 +68002,23 @@ return d[d.length-1];};return ", funcName].join("");
     if (paths.isTriangles) {
       return paths;
     }
-    if (paths.every(isTriangle)) {
-      return blessAsTriangles(paths);
-    }
     const triangles = [];
     for (const path of paths) {
+      const a = path[0];
       for (let nth = 2; nth < path.length; nth++) {
-        triangles.push([path[0], path[nth - 1], path[nth]]);
+        const b = path[nth - 1];
+        const c = path[nth];
+        if (equals$1(a, b) || equals$1(a, c) || equals$1(b, c)) {
+          // Skip degenerate triangles introduced by colinear points.
+          continue;
+        }
+        const triangle = [a, b, c];
+        if (isNaN(toPlane(triangle)[0])) {
+          // FIX: Why isn't this degeneracy detected above?
+          // Skip degenerate triangles introduced by colinear points.
+          continue;
+        }
+        triangles.push([a, b, c]);
       }
     }
     return blessAsTriangles(triangles);
@@ -68051,16 +68058,16 @@ return d[d.length-1];};return ", funcName].join("");
   const z0SurfaceToThreejsSurface = (surface) => {
     const normals = [];
     const positions = [];
-    const outputTriangle = (triangle) => {
+    for (const triangle of toTriangles({}, makeConvex$1({}, surface))) {
       for (const point of triangle) {
-        const [x, y, z] = toPlane(triangle);
+        const [x, y, z, w] = toPlane(triangle);
         normals.push(x, y, z);
+        if (isNaN(x)) {
+          console.log(`QQ/triangle: ${triangle}`);
+          console.log(`QQ/normal: ${x} ${y} ${z} ${w}`);
+        }
         positions.push(...point);
       }
-    };
-    for (const triangle of toTriangles({}, makeConvex$1({}, surface))) {
-      outputTriangle(triangle);
-      outputTriangle(flip(triangle));
     }
     return { normals, positions };
   };
@@ -81201,9 +81208,10 @@ return d[d.length-1];};return ", funcName].join("");
     data = await data;
 
     const { as = 'utf8', ephemeral } = options;
-    if (as === 'bytes') ; else {
+    if (typeof data === 'string') {
       data = new TextEncoder(as).encode(data);
     }
+
     if (isWebWorker) {
       return self.ask({ writeFile: { options: { ...options, as: 'bytes' }, path, data: await data } });
     }
@@ -81325,7 +81333,10 @@ return d[d.length-1];};return ", funcName].join("");
         }
       } else if (source.file !== undefined) {
         try {
-          return await fetchFile(source.file);
+          const data = await fetchFile(source.file);
+          if (data !== undefined) {
+            return data;
+          }
         } catch (e) {}
       } else {
         throw Error('die');
