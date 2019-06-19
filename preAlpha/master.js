@@ -68026,6 +68026,8 @@ return d[d.length-1];};return ", funcName].join("");
 
   // Relax the coplanar arrangement into polygon soup.
 
+  // Produce a standard geometry representation without caches, etc.
+
   const pointsToThreejsPoints = (geometry) => {
     return geometry.points;
   };

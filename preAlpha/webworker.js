@@ -14662,6 +14662,26 @@ return d[d.length-1];};return ", funcName].join("");
     return { points };
   };
 
+  // Produce a standard geometry representation without caches, etc.
+
+  const toStandardGeometry = (geometry) => {
+    const walk = (item) => {
+      if (item.assembly) {
+        return { assembly: item.assembly.map(walk), tags: item.tags };
+      } else if (item.paths) {
+        return { paths: item.paths, tags: item.tags };
+      } else if (item.solid) {
+        return { solid: item.solid, tags: item.tags };
+      } else if (item.z0Surface) {
+        return { z0Surface: item.z0Surface, tags: item.tags };
+      } else {
+        throw Error('die');
+      }
+    };
+
+    return walk(geometry);
+  };
+
   // FIX: Due to disjointedness, it should be correct to only extend the most recently added items in an assembly.
   const union$4 = (geometry, ...geometries) => {
     if (geometries.length === 0) {
@@ -14902,6 +14922,7 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const assemble$1 = (...shapes) => {
+    shapes = shapes.filter(shape => shape !== undefined);
     switch (shapes.length) {
       case 0: {
         return Shape.fromGeometry({ assembly: [] });
@@ -37819,7 +37840,7 @@ return d[d.length-1];};return ", funcName].join("");
       options = { path: options };
     }
     const { path, preview = true } = options;
-    const geometry = toGeometry$1(options, shape);
+    const geometry = toStandardGeometry(toGeometry$1(options, shape));
     await writeFile({ preview, geometry }, path, JSON.stringify(geometry));
   };
 
