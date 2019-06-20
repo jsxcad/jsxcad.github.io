@@ -13394,6 +13394,32 @@ return d[d.length-1];};return ", funcName].join("");
     return total;
   };
 
+  // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
+  const measureBoundingBox$1 = (surface) => {
+    if (surface.measureBoundingBox === undefined) {
+      let max$1 = surface[0][0];
+      let min$1 = surface[0][0];
+      eachPoint$2({},
+                point => {
+                  max$1 = max(max$1, point);
+                  min$1 = min(min$1, point);
+                },
+                surface);
+      surface.measureBoundingBox = [min$1, max$1];
+    }
+    return surface.measureBoundingBox;
+  };
+
+  const measureBoundingSphere = (surface) => {
+    if (surface.measureBoundingSphere === undefined) {
+      const box = measureBoundingBox$1(surface);
+      const center = scale(0.5, add(box[0], box[1]));
+      const radius = distance(center, box[1]);
+      surface.measureBoundingSphere = [center, radius];
+    }
+    return surface.measureBoundingSphere;
+  };
+
   const multiply$2 = (matrix, solid) => solid.map(surface => transform$5(matrix, surface));
 
   const rotateX = (radians, solid) => multiply$2(fromXRotation(radians), solid);
@@ -13717,7 +13743,7 @@ return d[d.length-1];};return ", funcName].join("");
   */
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
-  const measureBoundingBox$1 = (polygons) => {
+  const measureBoundingBox$2 = (polygons) => {
     let max$1 = polygons[0][0];
     let min$1 = polygons[0][0];
     eachPoint$4({},
@@ -13793,7 +13819,7 @@ return d[d.length-1];};return ", funcName].join("");
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
-  const measureBoundingBox$2 = (solid) => {
+  const measureBoundingBox$3 = (solid) => {
     if (solid.measureBoundingBox === undefined) {
       let max$1 = solid[0][0][0];
       let min$1 = solid[0][0][0];
@@ -13818,8 +13844,8 @@ return d[d.length-1];};return ", funcName].join("");
     if (a.length === 0 || b.length === 0) {
       return true;
     }
-    const [minA, maxA] = measureBoundingBox$2(a);
-    const [minB, maxB] = measureBoundingBox$2(b);
+    const [minA, maxA] = measureBoundingBox$3(a);
+    const [minB, maxB] = measureBoundingBox$3(b);
     if (maxA[X$3] <= minB[X$3] + iota$1) { return true; }
     if (maxA[Y$3] <= minB[Y$3] + iota$1) { return true; }
     if (maxA[Z$2] <= minB[Z$2] + iota$1) { return true; }
@@ -13856,6 +13882,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   const create = () => ({ surfaces: [] });
 
+  const CONSERVATIVE_EPSILON = 1e-4;
   const EPSILON$2 = 1e-5;
   const THRESHOLD2 = 1e-10;
 
@@ -13878,6 +13905,21 @@ return d[d.length-1];};return ", funcName].join("");
   const pointType$1 = [];
 
   const splitSurface = (plane, coplanarFrontSurfaces, coplanarBackSurfaces, frontSurfaces, backSurfaces, surface) => {
+    // Try to classify the whole surface first.
+    const [sphereCenter, sphereRadius] = measureBoundingSphere(surface);
+    const sphereDistance = signedDistanceToPoint(plane, sphereCenter);
+
+    if (sphereDistance - sphereRadius > CONSERVATIVE_EPSILON) {
+      frontSurfaces.push(surface);
+      return;
+    }
+
+    if (sphereDistance + sphereRadius < -CONSERVATIVE_EPSILON) {
+      backSurfaces.push(surface);
+      return;
+    }
+    
+    // Consider the polygons within the surface.
     let coplanarFrontPolygons;
     let coplanarBackPolygons;
     let frontPolygons;
@@ -13985,10 +14027,19 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
+  let watermark = 0;
+
   // Build a BSP tree out of surfaces. When called on an existing tree, the
   // new surfaces are filtered down to the bottom of the tree and become new
   // nodes there. Each set of surfaces is partitioned using the surface with the largest area.
-  const build = (bsp, surfaces) => {
+  const build = (bsp, surfaces, depth = 0) => {
+    if (depth > watermark) {
+      watermark = depth;
+      console.log(`Watermark: ${watermark}`);
+    }
+    if (depth > 100) {
+      console.log('deep');
+    }
     if (surfaces.length === 0) {
       return;
     }
@@ -14011,13 +14062,13 @@ return d[d.length-1];};return ", funcName].join("");
       if (bsp.front === undefined) {
         bsp.front = create();
       }
-      build(bsp.front, front);
+      build(bsp.front, front, depth + 1);
     }
     if (back.length > 0) {
       if (bsp.back === undefined) {
         bsp.back = create();
       }
-      build(bsp.back, back);
+      build(bsp.back, back, depth + 1);
     }
   };
 
@@ -14295,6 +14346,16 @@ return d[d.length-1];};return ", funcName].join("");
     return differenced;
   };
 
+  const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
+    if (set === undefined) {
+      return whenSetUndefined;
+    } else if (tags !== undefined && tags.some(tag => set.includes(tag))) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const transformItem = (matrix, item) => {
     const transformed = {};
     if (item.assembly) {
@@ -14362,9 +14423,16 @@ return d[d.length-1];};return ", funcName].join("");
             if (item.assembly !== undefined) {
               disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
             } else {
-              const differenced = differenceItems(item, ...subtractions);
-              disjointed.assembly.push(differenced);
-              subtractions.push(differenced);
+              if (item.tags === undefined || !item.tags.includes('@drop')) {
+                // Undropped items need to be trimmed.
+                const differenced = differenceItems(item, ...subtractions);
+                disjointed.assembly.push(differenced);
+                subtractions.push(differenced);
+              } else {
+                // Dropped items do not need to be trimmed.
+                disjointed.assembly.push(item);
+                subtractions.push(item);
+              }
             }
           }
           return disjointed;
@@ -14440,16 +14508,6 @@ return d[d.length-1];};return ", funcName].join("");
                    }
                    return item;
                  });
-    }
-  };
-
-  const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
-    if (set === undefined) {
-      return whenSetUndefined;
-    } else if (tags !== undefined && tags.some(tag => set.includes(tag))) {
-      return true;
-    } else {
-      return false;
     }
   };
 
@@ -14625,7 +14683,7 @@ return d[d.length-1];};return ", funcName].join("");
     return walk(geometry);
   };
 
-  const measureBoundingBox$3 = (geometry) => {
+  const measureBoundingBox$4 = (geometry) => {
     let minPoint = [Infinity, Infinity, Infinity];
     let maxPoint = [-Infinity, -Infinity, -Infinity];
     let empty = true;
@@ -14976,7 +15034,7 @@ return d[d.length-1];};return ", funcName].join("");
    * :::
    **/
 
-  const measureBoundingBox$4 = (shape) => {
+  const measureBoundingBox$5 = (shape) => {
     let minPoint = [Infinity, Infinity, Infinity];
     let maxPoint = [-Infinity, -Infinity, -Infinity];
     let empty = true;
@@ -14993,7 +15051,7 @@ return d[d.length-1];};return ", funcName].join("");
     }
   };
 
-  const method$1 = function () { return measureBoundingBox$4(this); };
+  const method$1 = function () { return measureBoundingBox$5(this); };
 
   Shape.prototype.measureBoundingBox = method$1;
 
@@ -15096,13 +15154,13 @@ return d[d.length-1];};return ", funcName].join("");
   const Z$3 = 2;
 
   const fromOrigin = (shape) => {
-    const [minPoint] = measureBoundingBox$4(shape);
+    const [minPoint] = measureBoundingBox$5(shape);
     return translate$3([0, 0, -minPoint[Z$3]], shape);
   };
 
   const fromReference = (shape, reference) => {
-    const [minPoint] = measureBoundingBox$4(shape);
-    const [, maxRefPoint] = measureBoundingBox$4(reference);
+    const [minPoint] = measureBoundingBox$5(shape);
+    const [, maxRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([0, 0, maxRefPoint[Z$3] - minPoint[Z$3]], shape));
   };
 
@@ -15388,13 +15446,13 @@ return d[d.length-1];};return ", funcName].join("");
   const Y$4 = 1;
 
   const fromOrigin$1 = (shape) => {
-    const [minPoint] = measureBoundingBox$4(shape);
+    const [minPoint] = measureBoundingBox$5(shape);
     return translate$3([0, -minPoint[Y$4], 0], shape);
   };
 
   const fromReference$1 = (shape, reference) => {
-    const [minPoint] = measureBoundingBox$4(shape);
-    const [, maxRefPoint] = measureBoundingBox$4(reference);
+    const [minPoint] = measureBoundingBox$5(shape);
+    const [, maxRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([0, maxRefPoint[Y$4] - minPoint[Y$4], 0], shape));
   };
 
@@ -15439,13 +15497,13 @@ return d[d.length-1];};return ", funcName].join("");
   const Z$4 = 2;
 
   const fromOrigin$2 = (shape) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
+    const [, maxPoint] = measureBoundingBox$5(shape);
     return translate$3([0, 0, -maxPoint[Z$4]], shape);
   };
 
   const fromReference$2 = (shape, reference) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
-    const [minRefPoint] = measureBoundingBox$4(reference);
+    const [, maxPoint] = measureBoundingBox$5(shape);
+    const [minRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([0, 0, minRefPoint[Z$4] - maxPoint[Z$4]], shape));
   };
 
@@ -15490,7 +15548,7 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const center = (shape) => {
-    const [minPoint, maxPoint] = measureBoundingBox$4(shape);
+    const [minPoint, maxPoint] = measureBoundingBox$5(shape);
     let center = scale(0.5, add(minPoint, maxPoint));
     return translate$3(negate(center), shape);
   };
@@ -16232,12 +16290,6 @@ return d[d.length-1];};return ", funcName].join("");
       assertEmpty(tags);
       assertShape(shape);
       return () => fromGeometry(addTags(['@drop'], toGeometry(shape)));
-    },
-    (tags, shape) => {
-      // assemble(circle(), circle().as('a')).drop('a')
-      assertStrings(tags);
-      assertShape(shape);
-      return () => fromValue$5(tags.map(tag => `user/${tag}`), shape);
     }
   );
 
@@ -16372,13 +16424,13 @@ return d[d.length-1];};return ", funcName].join("");
   const Y$5 = 1;
 
   const fromOrigin$3 = (shape) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
+    const [, maxPoint] = measureBoundingBox$5(shape);
     return translate$3([0, -maxPoint[Y$5], 0], shape);
   };
 
   const fromReference$3 = (shape, reference) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
-    const [minRefPoint] = measureBoundingBox$4(reference);
+    const [, maxPoint] = measureBoundingBox$5(shape);
+    const [minRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([0, minRefPoint[Y$5] - maxPoint[Y$5], 0], shape));
   };
 
@@ -16667,13 +16719,13 @@ return d[d.length-1];};return ", funcName].join("");
   const X$4 = 0;
 
   const fromOrigin$4 = (shape) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
+    const [, maxPoint] = measureBoundingBox$5(shape);
     return translate$3([-maxPoint[X$4], 0, 0], shape);
   };
 
   const fromReference$4 = (shape, reference) => {
-    const [, maxPoint] = measureBoundingBox$4(shape);
-    const [minRefPoint] = measureBoundingBox$4(reference);
+    const [, maxPoint] = measureBoundingBox$5(shape);
+    const [minRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([minRefPoint[X$4] - maxPoint[X$4], 0, 0], shape));
   };
 
@@ -20077,7 +20129,7 @@ return d[d.length-1];};return ", funcName].join("");
    **/
 
   const measureCenter = (shape) => {
-    const [high, low] = measureBoundingBox$4(shape);
+    const [high, low] = measureBoundingBox$5(shape);
     return scale(0.5, add(high, low));
   };
 
@@ -23952,10 +24004,10 @@ return d[d.length-1];};return ", funcName].join("");
   const toSvg = async ({ padding = 0 }, geometry) => {
     // FIX: SVG should handle both surfaces and paths.
     const polygons = canonicalize$6(toPolygons$1(geometry));
-    const min = measureBoundingBox$1(polygons)[0];
+    const min = measureBoundingBox$2(polygons)[0];
     // TODO: Add transform and translate support to polygons.
     const shiftedPolygons = canonicalize$6(translate$2(negate(min), polygons));
-    const [width, height] = measureBoundingBox$1(shiftedPolygons)[1];
+    const [width, height] = measureBoundingBox$2(shiftedPolygons)[1];
 
     return [
       `<?xml version="1.0" encoding="UTF-8"?>`,
@@ -39093,13 +39145,13 @@ return d[d.length-1];};return ", funcName].join("");
   const X$5 = 0;
 
   const fromOrigin$5 = (shape) => {
-    const [minPoint] = measureBoundingBox$4(shape);
+    const [minPoint] = measureBoundingBox$5(shape);
     return translate$3([-minPoint[X$5], 0, 0], shape);
   };
 
   const fromReference$5 = (shape, reference) => {
-    const [minPoint] = measureBoundingBox$4(shape);
-    const [, maxRefPoint] = measureBoundingBox$4(reference);
+    const [minPoint] = measureBoundingBox$5(shape);
+    const [, maxRefPoint] = measureBoundingBox$5(reference);
     return assemble$1(reference, translate$3([maxRefPoint[X$5] - minPoint[X$5], 0, 0], shape));
   };
 
@@ -39910,7 +39962,7 @@ return d[d.length-1];};return ", funcName].join("");
     const scale = 1 / pointSize;
     const [width, height] = size;
     const lines = [];
-    const [min, max] = measureBoundingBox$3(geometry);
+    const [min, max] = measureBoundingBox$4(geometry);
     // Currently the origin is at the bottom left.
     // Subtract the x min, and the y max, then add the page height to bring
     // it up to the top left. This positions the origin nicely for laser
@@ -90665,7 +90717,7 @@ return d[d.length-1];};return ", funcName].join("");
     log: log$2,
     material: material,
     max: max$1,
-    measureBoundingBox: measureBoundingBox$4,
+    measureBoundingBox: measureBoundingBox$5,
     measureCenter: measureCenter,
     microGearMotor: microGearMotor,
     minkowski: minkowski,
