@@ -16325,18 +16325,26 @@ return d[d.length-1];};return ", funcName].join("");
 
   const fillet = (shape, tool) => {
     // FIX: Identify surface to fillet properly.
-    const [x, y, z] = shape.measureBoundingBox()[1];
+    const [, , z] = shape.measureBoundingBox()[1];
     const cuts = [];
     // Fix Remove the 0.1 z offsets.
     for (const pathset of shape.section({ z: z - 0.1 }).outline().getPathsets()) {
       for (const path of pathset) {
-        cuts.push(chainHull(...path.map(([x, y, z]) =>
-                                        tool.translate(x, y, z + 0.1))));
+        const cut = [];
+        for (const position of path) {
+          if (position !== null) {
+            cut.push(tool.translate(position));
+          }
+        }
+        if (path[0] !== null) {
+         // Handle closed paths.
+         cut.push(tool.translate(path[0]));
+        }
+        cuts.push(chainHull(...cut));
       }
     }
     return assemble$1(shape, assemble$1(...cuts).drop());
   };
-
 
   const method$d = function (tool) { return fillet(this, tool); };
 
