@@ -13918,7 +13918,7 @@ return d[d.length-1];};return ", funcName].join("");
       backSurfaces.push(surface);
       return;
     }
-    
+
     // Consider the polygons within the surface.
     let coplanarFrontPolygons;
     let coplanarBackPolygons;
@@ -14034,11 +14034,8 @@ return d[d.length-1];};return ", funcName].join("");
   // nodes there. Each set of surfaces is partitioned using the surface with the largest area.
   const build = (bsp, surfaces, depth = 0) => {
     if (depth > watermark) {
-      watermark = depth;
+      watermark = watermark * 2 + 10;
       console.log(`Watermark: ${watermark}`);
-    }
-    if (depth > 100) {
-      console.log('deep');
     }
     if (surfaces.length === 0) {
       return;
@@ -14346,16 +14343,6 @@ return d[d.length-1];};return ", funcName].join("");
     return differenced;
   };
 
-  const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
-    if (set === undefined) {
-      return whenSetUndefined;
-    } else if (tags !== undefined && tags.some(tag => set.includes(tag))) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const transformItem = (matrix, item) => {
     const transformed = {};
     if (item.assembly) {
@@ -14508,6 +14495,16 @@ return d[d.length-1];};return ", funcName].join("");
                    }
                    return item;
                  });
+    }
+  };
+
+  const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
+    if (set === undefined) {
+      return whenSetUndefined;
+    } else if (tags !== undefined && tags.some(tag => set.includes(tag))) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -16290,6 +16287,12 @@ return d[d.length-1];};return ", funcName].join("");
       assertEmpty(tags);
       assertShape(shape);
       return () => fromGeometry(addTags(['@drop'], toGeometry(shape)));
+    },
+    (tags, shape) => {
+      // assemble(circle(), circle().as('a')).drop('a')
+      assertStrings(tags);
+      assertShape(shape);
+      return () => fromValue$5(tags.map(tag => `user/${tag}`), shape);
     }
   );
 
@@ -16389,8 +16392,8 @@ return d[d.length-1];};return ", funcName].join("");
           }
         }
         if (path[0] !== null) {
-         // Handle closed paths.
-         cut.push(tool.translate(path[0]));
+          // Handle closed paths.
+          cut.push(tool.translate(path[0]));
         }
         cuts.push(chainHull(...cut));
       }
