@@ -56455,6 +56455,8 @@ define("./master.js",[],function () { 'use strict';
     return segments;
   };
 
+  // FIX: Determine the correct behaviour here.
+
   /**
    * Transforms each path of Paths.
    *
@@ -68026,6 +68028,47 @@ return d[d.length-1];};return ", funcName].join("");
 
   // Relax the coplanar arrangement into polygon soup.
 
+  // Rewrite this to handle disjointAssembly items.
+
+  /*
+  // Traverse the assembly tree and disjoint it backward.
+  export const toDisjointGeometry = (untransformedGeometry) => {
+    const geometry = toTransformedGeometry(untransformedGeometry);
+
+    if (geometry.disjointGeometry === undefined) {
+      if (geometry.assembly === undefined) {
+        // A singleton is disjoint.
+        geometry.disjointGeometry = geometry;
+      } else {
+        const subtractions = [];
+        const walk = (geometry, disjointed) => {
+          for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
+            const item = geometry.assembly[nth];
+            if (item.assembly !== undefined) {
+              disjointed.assembly.push(walk(item, { assembly: [], tags: item.tags }));
+            } else {
+              if (item.tags === undefined || !item.tags.includes('@drop')) {
+                // Undropped items need to be trimmed.
+                const differenced = differenceItems(item, ...subtractions);
+                disjointed.assembly.push(differenced);
+                subtractions.push(differenced);
+              } else {
+                // Dropped items do not need to be trimmed.
+                disjointed.assembly.push(item);
+                subtractions.push(item);
+              }
+            }
+          }
+          return disjointed;
+        };
+        const result = walk(geometry, { assembly: [], tags: geometry.tags });
+        geometry.disjointGeometry = result;
+      }
+    }
+    return geometry.disjointGeometry;
+  };
+  */
+
   // Produce a standard geometry representation without caches, etc.
 
   const pointsToThreejsPoints = (geometry) => {
@@ -68081,6 +68124,12 @@ return d[d.length-1];};return ", funcName].join("");
     } else if (geometry.assembly) {
       return {
         assembly: geometry.assembly.map(item => toThreejsGeometry(item, tags)),
+        tags: tags,
+        isThreejsGeometry: true
+      };
+    } else if (geometry.disjointAssembly) {
+      return {
+        assembly: geometry.disjointAssembly.map(item => toThreejsGeometry(item, tags)),
         tags: tags,
         isThreejsGeometry: true
       };
@@ -81001,19 +81050,6 @@ return d[d.length-1];};return ", funcName].join("");
     'default': empty
   });
 
-  let base = '';
-
-  const setupFilesystem = ({ fileBase }) => {
-    // A prefix used to partition the filesystem for multiple projects.
-    if (fileBase !== undefined) {
-      if (base.endsWith('/')) {
-        base = fileBase;
-      } else {
-        base = `${fileBase}/`;
-      }
-    }
-  };
-
   // Copyright Joyent, Inc. and other Node contributors.
 
   // Split a filename into [root, dir, basename, ext], unix version
@@ -81183,6 +81219,22 @@ return d[d.length-1];};return ", funcName].join("");
     return parts.join('')
   }
 
+  // When base is undefined the persistent filesystem is disabled.
+  let base;
+
+  const setupFilesystem = ({ fileBase }) => {
+    // A prefix used to partition the persistent filesystem for multiple projects.
+    if (fileBase !== undefined) {
+      if (fileBase.endsWith('/')) {
+        base = fileBase;
+      } else {
+        base = `${fileBase}/`;
+      }
+    }
+  };
+
+  const getBase = () => base;
+
   const files = {};
   const fileCreationWatchers = [];
 
@@ -81226,7 +81278,8 @@ return d[d.length-1];};return ", funcName].join("");
       watcher(options, file);
     }
 
-    if (!ephemeral) {
+    const base = getBase();
+    if (!ephemeral && base !== undefined) {
       const persistentPath = `${base}${path}`;
       if (isNode) {
         try {
@@ -81317,8 +81370,11 @@ return d[d.length-1];};return ", funcName].join("");
   // Fetch from internal store.
   const fetchPersistent = async ({ as }, path) => {
     try {
-      const fetchFile = await getFileFetcher();
-      return await fetchFile(`${base}${path}`);
+      const base = getBase();
+      if (base !== undefined) {
+        const fetchFile = await getFileFetcher();
+        return await fetchFile(`${base}${path}`);
+      }
     } catch (e) {
     }
   };
@@ -81329,7 +81385,16 @@ return d[d.length-1];};return ", funcName].join("");
     const fetchFile = await getFileFetcher();
     // Try to load the data from a source.
     for (const source of sources) {
-      if (source.url !== undefined) {
+      if (typeof source === 'string') {
+        // FIX: Detect urls.
+        try {
+          const data = await fetchFile(source);
+          if (data !== undefined) {
+            return data;
+          }
+        } catch (e) {
+        }
+      } else if (source.url !== undefined) {
         log$1(`# Fetching ${source.url}`);
         const response = await fetchUrl(source.url);
         if (response.ok) {
