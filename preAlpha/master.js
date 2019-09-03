@@ -14,6 +14,9 @@
 // If the loader is already loaded, just stop.
 if (!self.define) {
   const singleRequire = async name => {
+    if (name !== 'require') {
+      name = name + '.js';
+    }
     if (!registry[name]) {
       
         await new Promise(async resolve => {
@@ -52516,11 +52519,12 @@ define("./master.js",[],function () { 'use strict';
 
   const loader = new TextureLoader();
 
+  // FIX: Make this lazy.
   const loadTexture = (url) => {
     const texture = loader.load(url);
     texture.wrapS = texture.wrapT = RepeatWrapping;
-    texture.offset.set( 0, 0 );
-    texture.repeat.set( 1, 1 );
+    texture.offset.set(0, 0);
+    texture.repeat.set(1, 1);
     return texture;
   };
 
@@ -52529,40 +52533,64 @@ define("./master.js",[],function () { 'use strict';
       roughness: 0.5,
       metalness: 0.0,
       reflectivity: 0.5,
-      map: loadTexture("https://jsxcad.js.org/texture/paper.png"),
+      map: 'https://jsxcad.js.org/texture/paper.png'
     },
     wood: {
       roughness: 0.5,
       metalness: 0.0,
       reflectivity: 0.5,
-      map: loadTexture("https://jsxcad.js.org/texture/wood.png"),
+      map: 'https://jsxcad.js.org/texture/wood.png'
+    },
+    plastic: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5
+    },
+    leaves: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5,
+      map: 'https://jsxcad.js.org/texture/leaves.png'
+    },
+    water: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5,
+      map: 'https://jsxcad.js.org/texture/water.png'
+    },
+    grass: {
+      roughness: 0.5,
+      metalness: 0.0,
+      reflectivity: 0.5,
+      map: 'https://jsxcad.js.org/texture/grass.png'
     },
     brick: {
       roughness: 0.5,
       metalness: 0.0,
       reflectivity: 0.5,
-      map: loadTexture("https://jsxcad.js.org/texture/brick.png"),
+      map: 'https://jsxcad.js.org/texture/brick.png'
     },
     rock: {
       roughness: 0.5,
       metalness: 0.0,
       reflectivity: 0.5,
-      map: loadTexture("https://jsxcad.js.org/texture/rock.png"),
+      map: 'https://jsxcad.js.org/texture/rock.png'
     },
-    'sheet-metal': {
+    'steel': {
       roughness: 0.5,
       metalness: 0.5,
       reflectivity: 0.9,
       clearCoat: 1,
       clearCoatRoughness: 0,
-      map: loadTexture("https://jsxcad.js.org/texture/sheet-metal.png"),
+      map: 'https://jsxcad.js.org/texture/sheet-metal.png'
     },
-    metal: {
+    copper: {
       roughness: 0.5,
       metalness: 0.5,
       reflectivity: 0.9,
       clearCoat: 1,
       clearCoatRoughness: 0,
+      map: 'https://jsxcad.js.org/texture/copper.png'
     },
     glass: {
       roughness: 0.5,
@@ -52572,12 +52600,26 @@ define("./master.js",[],function () { 'use strict';
       clearCoatRoughness: 0,
       opacity: 0.5,
       transparent: true
+    },
+    'wet-glass': {
+      roughness: 0.5,
+      metalness: 0.5,
+      reflectivity: 0.9,
+      clearCoat: 1,
+      clearCoatRoughness: 0,
+      opacity: 0.5,
+      transparent: true,
+      map: 'https://jsxcad.js.org/texture/wet-glass.png'
     }
   };
 
   const merge = (properties, parameters) => {
     for (const key of Object.keys(properties)) {
-      parameters[key] = properties[key];
+      if (key === 'map') {
+        parameters[key] = loadTexture(properties[key]);
+      } else {
+        parameters[key] = properties[key];
+      }
     }
   };
 
@@ -52617,169 +52659,163 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  function _applyBoxUV(geom, transformMatrix, bbox, bbox_max_size) {
+  // FIX: Found it somewhere -- attribute.
+  const applyBoxUVImpl = (geom, transformMatrix, bbox, bboxMaxSize) => {
+    const coords = [];
+    coords.length = 2 * geom.attributes.position.array.length / 3;
 
-      let coords = [];
-      coords.length = 2 * geom.attributes.position.array.length / 3;
+    // geom.removeAttribute('uv');
+    if (geom.attributes.uv === undefined) {
+      geom.addAttribute('uv', new Float32BufferAttribute(coords, 2));
+    }
 
-      // geom.removeAttribute('uv');
-      if (geom.attributes.uv === undefined) {
-          geom.addAttribute('uv', new Float32BufferAttribute(coords, 2));
+    // maps 3 verts of 1 face on the better side of the cube
+    // side of the cube can be XY, XZ or YZ
+    const makeUVs = (v0, v1, v2) => {
+      // pre-rotate the model so that cube sides match world axis
+      v0.applyMatrix4(transformMatrix);
+      v1.applyMatrix4(transformMatrix);
+      v2.applyMatrix4(transformMatrix);
+
+      // get normal of the face, to know into which cube side it maps better
+      let n = new Vector3();
+      n.crossVectors(v1.clone().sub(v0), v1.clone().sub(v2)).normalize();
+
+      n.x = Math.abs(n.x);
+      n.y = Math.abs(n.y);
+      n.z = Math.abs(n.z);
+
+      let uv0 = new Vector2();
+      let uv1 = new Vector2();
+      let uv2 = new Vector2();
+      // xz mapping
+      if (n.y > n.x && n.y > n.z) {
+        uv0.x = (v0.x - bbox.min.x) / bboxMaxSize;
+        uv0.y = (bbox.max.z - v0.z) / bboxMaxSize;
+
+        uv1.x = (v1.x - bbox.min.x) / bboxMaxSize;
+        uv1.y = (bbox.max.z - v1.z) / bboxMaxSize;
+
+        uv2.x = (v2.x - bbox.min.x) / bboxMaxSize;
+        uv2.y = (bbox.max.z - v2.z) / bboxMaxSize;
+      } else
+      if (n.x > n.y && n.x > n.z) {
+        uv0.x = (v0.z - bbox.min.z) / bboxMaxSize;
+        uv0.y = (v0.y - bbox.min.y) / bboxMaxSize;
+
+        uv1.x = (v1.z - bbox.min.z) / bboxMaxSize;
+        uv1.y = (v1.y - bbox.min.y) / bboxMaxSize;
+
+        uv2.x = (v2.z - bbox.min.z) / bboxMaxSize;
+        uv2.y = (v2.y - bbox.min.y) / bboxMaxSize;
+      } else
+      if (n.z > n.y && n.z > n.x) {
+        uv0.x = (v0.x - bbox.min.x) / bboxMaxSize;
+        uv0.y = (v0.y - bbox.min.y) / bboxMaxSize;
+
+        uv1.x = (v1.x - bbox.min.x) / bboxMaxSize;
+        uv1.y = (v1.y - bbox.min.y) / bboxMaxSize;
+
+        uv2.x = (v2.x - bbox.min.x) / bboxMaxSize;
+        uv2.y = (v2.y - bbox.min.y) / bboxMaxSize;
       }
 
-      //maps 3 verts of 1 face on the better side of the cube
-      //side of the cube can be XY, XZ or YZ
-      let makeUVs = function(v0, v1, v2) {
+      return { uv0, uv1, uv2 };
+    };
 
-          //pre-rotate the model so that cube sides match world axis
-          v0.applyMatrix4(transformMatrix);
-          v1.applyMatrix4(transformMatrix);
-          v2.applyMatrix4(transformMatrix);
+    if (geom.index) { // is it indexed buffer geometry?
+      for (let vi = 0; vi < geom.index.array.length; vi += 3) {
+        const idx0 = geom.index.array[vi];
+        const idx1 = geom.index.array[vi + 1];
+        const idx2 = geom.index.array[vi + 2];
 
-          //get normal of the face, to know into which cube side it maps better
-          let n = new Vector3();
-          n.crossVectors(v1.clone().sub(v0), v1.clone().sub(v2)).normalize();
+        const vx0 = geom.attributes.position.array[3 * idx0];
+        const vy0 = geom.attributes.position.array[3 * idx0 + 1];
+        const vz0 = geom.attributes.position.array[3 * idx0 + 2];
 
-          n.x = Math.abs(n.x);
-          n.y = Math.abs(n.y);
-          n.z = Math.abs(n.z);
+        const vx1 = geom.attributes.position.array[3 * idx1];
+        const vy1 = geom.attributes.position.array[3 * idx1 + 1];
+        const vz1 = geom.attributes.position.array[3 * idx1 + 2];
 
-          let uv0 = new Vector2();
-          let uv1 = new Vector2();
-          let uv2 = new Vector2();
-          // xz mapping
-          if (n.y > n.x && n.y > n.z) {
-              uv0.x = (v0.x - bbox.min.x) / bbox_max_size;
-              uv0.y = (bbox.max.z - v0.z) / bbox_max_size;
+        const vx2 = geom.attributes.position.array[3 * idx2];
+        const vy2 = geom.attributes.position.array[3 * idx2 + 1];
+        const vz2 = geom.attributes.position.array[3 * idx2 + 2];
 
-              uv1.x = (v1.x - bbox.min.x) / bbox_max_size;
-              uv1.y = (bbox.max.z - v1.z) / bbox_max_size;
+        const v0 = new Vector3(vx0, vy0, vz0);
+        const v1 = new Vector3(vx1, vy1, vz1);
+        const v2 = new Vector3(vx2, vy2, vz2);
 
-              uv2.x = (v2.x - bbox.min.x) / bbox_max_size;
-              uv2.y = (bbox.max.z - v2.z) / bbox_max_size;
-          } else
-          if (n.x > n.y && n.x > n.z) {
-              uv0.x = (v0.z - bbox.min.z) / bbox_max_size;
-              uv0.y = (v0.y - bbox.min.y) / bbox_max_size;
+        const uvs = makeUVs(v0, v1, v2);
 
-              uv1.x = (v1.z - bbox.min.z) / bbox_max_size;
-              uv1.y = (v1.y - bbox.min.y) / bbox_max_size;
+        coords[2 * idx0] = uvs.uv0.x;
+        coords[2 * idx0 + 1] = uvs.uv0.y;
 
-              uv2.x = (v2.z - bbox.min.z) / bbox_max_size;
-              uv2.y = (v2.y - bbox.min.y) / bbox_max_size;
-          } else
-          if (n.z > n.y && n.z > n.x) {
-              uv0.x = (v0.x - bbox.min.x) / bbox_max_size;
-              uv0.y = (v0.y - bbox.min.y) / bbox_max_size;
+        coords[2 * idx1] = uvs.uv1.x;
+        coords[2 * idx1 + 1] = uvs.uv1.y;
 
-              uv1.x = (v1.x - bbox.min.x) / bbox_max_size;
-              uv1.y = (v1.y - bbox.min.y) / bbox_max_size;
-
-              uv2.x = (v2.x - bbox.min.x) / bbox_max_size;
-              uv2.y = (v2.y - bbox.min.y) / bbox_max_size;
-          }
-
-          return {
-              uv0: uv0,
-              uv1: uv1,
-              uv2: uv2
-          };
-      };
-
-      if (geom.index) { // is it indexed buffer geometry?
-          for (let vi = 0; vi < geom.index.array.length; vi += 3) {
-              let idx0 = geom.index.array[vi];
-              let idx1 = geom.index.array[vi + 1];
-              let idx2 = geom.index.array[vi + 2];
-
-              let vx0 = geom.attributes.position.array[3 * idx0];
-              let vy0 = geom.attributes.position.array[3 * idx0 + 1];
-              let vz0 = geom.attributes.position.array[3 * idx0 + 2];
-
-              let vx1 = geom.attributes.position.array[3 * idx1];
-              let vy1 = geom.attributes.position.array[3 * idx1 + 1];
-              let vz1 = geom.attributes.position.array[3 * idx1 + 2];
-
-              let vx2 = geom.attributes.position.array[3 * idx2];
-              let vy2 = geom.attributes.position.array[3 * idx2 + 1];
-              let vz2 = geom.attributes.position.array[3 * idx2 + 2];
-
-              let v0 = new Vector3(vx0, vy0, vz0);
-              let v1 = new Vector3(vx1, vy1, vz1);
-              let v2 = new Vector3(vx2, vy2, vz2);
-
-              let uvs = makeUVs(v0, v1, v2);
-
-              coords[2 * idx0] = uvs.uv0.x;
-              coords[2 * idx0 + 1] = uvs.uv0.y;
-
-              coords[2 * idx1] = uvs.uv1.x;
-              coords[2 * idx1 + 1] = uvs.uv1.y;
-
-              coords[2 * idx2] = uvs.uv2.x;
-              coords[2 * idx2 + 1] = uvs.uv2.y;
-          }
-      } else {
-          for (let vi = 0; vi < geom.attributes.position.array.length; vi += 9) {
-              let vx0 = geom.attributes.position.array[vi];
-              let vy0 = geom.attributes.position.array[vi + 1];
-              let vz0 = geom.attributes.position.array[vi + 2];
-
-              let vx1 = geom.attributes.position.array[vi + 3];
-              let vy1 = geom.attributes.position.array[vi + 4];
-              let vz1 = geom.attributes.position.array[vi + 5];
-
-              let vx2 = geom.attributes.position.array[vi + 6];
-              let vy2 = geom.attributes.position.array[vi + 7];
-              let vz2 = geom.attributes.position.array[vi + 8];
-
-              let v0 = new Vector3(vx0, vy0, vz0);
-              let v1 = new Vector3(vx1, vy1, vz1);
-              let v2 = new Vector3(vx2, vy2, vz2);
-
-              let uvs = makeUVs(v0, v1, v2);
-
-              let idx0 = vi / 3;
-              let idx1 = idx0 + 1;
-              let idx2 = idx0 + 2;
-
-              coords[2 * idx0] = uvs.uv0.x;
-              coords[2 * idx0 + 1] = uvs.uv0.y;
-
-              coords[2 * idx1] = uvs.uv1.x;
-              coords[2 * idx1 + 1] = uvs.uv1.y;
-
-              coords[2 * idx2] = uvs.uv2.x;
-              coords[2 * idx2 + 1] = uvs.uv2.y;
-          }
+        coords[2 * idx2] = uvs.uv2.x;
+        coords[2 * idx2 + 1] = uvs.uv2.y;
       }
+    } else {
+      for (let vi = 0; vi < geom.attributes.position.array.length; vi += 9) {
+        const vx0 = geom.attributes.position.array[vi];
+        const vy0 = geom.attributes.position.array[vi + 1];
+        const vz0 = geom.attributes.position.array[vi + 2];
 
-      geom.attributes.uv.array = new Float32Array(coords);
-  }
+        const vx1 = geom.attributes.position.array[vi + 3];
+        const vy1 = geom.attributes.position.array[vi + 4];
+        const vz1 = geom.attributes.position.array[vi + 5];
 
-  function applyBoxUV(bufferGeometry, transformMatrix, boxSize) {
+        const vx2 = geom.attributes.position.array[vi + 6];
+        const vy2 = geom.attributes.position.array[vi + 7];
+        const vz2 = geom.attributes.position.array[vi + 8];
 
-      if (transformMatrix === undefined) {
-          transformMatrix = new Matrix4();
+        const v0 = new Vector3(vx0, vy0, vz0);
+        const v1 = new Vector3(vx1, vy1, vz1);
+        const v2 = new Vector3(vx2, vy2, vz2);
+
+        const uvs = makeUVs(v0, v1, v2);
+
+        const idx0 = vi / 3;
+        const idx1 = idx0 + 1;
+        const idx2 = idx0 + 2;
+
+        coords[2 * idx0] = uvs.uv0.x;
+        coords[2 * idx0 + 1] = uvs.uv0.y;
+
+        coords[2 * idx1] = uvs.uv1.x;
+        coords[2 * idx1 + 1] = uvs.uv1.y;
+
+        coords[2 * idx2] = uvs.uv2.x;
+        coords[2 * idx2 + 1] = uvs.uv2.y;
       }
+    }
 
-      if (boxSize === undefined) {
-          let geom = bufferGeometry;
-          geom.computeBoundingBox();
-          let bbox = geom.boundingBox;
+    geom.attributes.uv.array = new Float32Array(coords);
+  };
 
-          let bbox_size_x = bbox.max.x - bbox.min.x;
-          let bbox_size_z = bbox.max.z - bbox.min.z;
-          let bbox_size_y = bbox.max.y - bbox.min.y;
+  const applyBoxUV = (bufferGeometry, transformMatrix, boxSize) => {
+    if (transformMatrix === undefined) {
+      transformMatrix = new Matrix4();
+    }
 
-          boxSize = Math.max(bbox_size_x, bbox_size_y, bbox_size_z);
-      }
+    if (boxSize === undefined) {
+      const geom = bufferGeometry;
+      geom.computeBoundingBox();
+      const bbox = geom.boundingBox;
 
-      let uvBbox = new Box3(new Vector3(-boxSize / 2, -boxSize / 2, -boxSize / 2), new Vector3(boxSize / 2, boxSize / 2, boxSize / 2));
+      const bboxSizeX = bbox.max.x - bbox.min.x;
+      const bboxSizeY = bbox.max.y - bbox.min.y;
+      const bboxSizeZ = bbox.max.z - bbox.min.z;
 
-      _applyBoxUV(bufferGeometry, transformMatrix, uvBbox, boxSize);
+      boxSize = Math.max(bboxSizeX, bboxSizeY, bboxSizeZ);
+    }
 
-  }
+    const uvBbox = new Box3(new Vector3(-boxSize / 2, -boxSize / 2, -boxSize / 2),
+                                  new Vector3(boxSize / 2, boxSize / 2, boxSize / 2));
+
+    applyBoxUVImpl(bufferGeometry, transformMatrix, uvBbox, boxSize);
+  };
 
   const buildMeshes = ({ datasets, threejsGeometry, scene }) => {
     const { tags } = threejsGeometry;
@@ -52907,35 +52943,20 @@ define("./master.js",[],function () { 'use strict';
     renderer.outputGamma = true;
     renderer.autoClear = false;
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.domElement.style = 'padding-left: 5px; padding-right: 5px; padding-bottom: 5px';
+    renderer.domElement.style = 'padding-left: 5px; padding-right: 5px; padding-bottom: 5px; position: absolute; z-index: 1';
     const viewerElement = document.createElement('div');
     viewerElement.id = 'viewer';
     viewerElement.style.height = '100%';
     viewerElement.appendChild(renderer.domElement);
 
     const hudCanvas = document.createElement('canvas');
-    hudCanvas.style = 'padding-left: 5px; padding-right: 5px; padding-bottom: 5px; display: none;';
+    hudCanvas.style = 'padding-left: 5px; padding-right: 5px; padding-bottom: 5px; position: absolute; z-index: 2';
     hudCanvas.id = 'hudCanvas';
     hudCanvas.width = width;
     hudCanvas.height = height;
     viewerElement.appendChild(hudCanvas);
 
-    const hudCamera = new OrthographicCamera(-width/2, width/2, height/2, -height/2, 0, 30 );
-    const hudScene = new Scene();
-
-    const hudTexture = new Texture(hudCanvas); 
-    hudTexture.needsUpdate = true;
-
-    {
-      const hudMaterial = new MeshBasicMaterial({ map: hudTexture });
-      // const hudMaterial = new THREE.MeshBasicMaterial({});
-      hudMaterial.transparent = true;
-      const hudPlaneGeometry = new PlaneGeometry(width, height);
-      const hudPlane = new Mesh(hudPlaneGeometry, hudMaterial);
-      hudScene.add(hudPlane);
-    }
-
-    return { camera, hudCamera, hudCanvas, hudScene, hudTexture, renderer, scene, viewerElement };
+    return { camera, hudCanvas, renderer, scene, viewerElement };
   };
 
   const installCSS = (document, text) => {
@@ -52955,7 +52976,7 @@ define("./master.js",[],function () { 'use strict';
       document.head.appendChild(link);
     });
 
-  const jsPanel={version:"4.6.0",date:"2019-03-27 10:00",ajaxAlwaysCallbacks:[],autopositionSpacing:4,closeOnEscape:void document.addEventListener("keydown",e=>{"Escape"!==e.key&&"Escape"!==e.code&&"Esc"!==e.key||jsPanel.getPanels(function(){return this.classList.contains("jsPanel")}).some(e=>!!e.options.closeOnEscape&&(jsPanel.close(e),!0));},!1),defaults:{boxShadow:3,container:"window",contentSize:{width:"400px",height:"200px"},dragit:{cursor:"move",handles:".jsPanel-headerlogo, .jsPanel-titlebar, .jsPanel-ftr",opacity:.8,disableOnMaximized:!0},header:!0,headerTitle:"jsPanel",headerControls:{size:"md"},iconfont:!1,maximizedMargin:0,minimizeTo:"default",onparentresize:!1,paneltype:"standard",position:{my:"center",at:"center",of:"window",offsetX:"0px",offsetY:"0px"},resizeit:{handles:"n, e, s, w, ne, se, sw, nw",minWidth:128,minHeight:128},theme:"default"},defaultSnapConfig:{sensitivity:70,trigger:"panel"},extensions:{},globalCallbacks:!1,icons:{close:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path fill="currentColor" d="M15.8,14l9.9-9.9c0.5-0.5,0.5-1.3,0-1.8c-0.5-0.5-1.3-0.5-1.8,0L14,12.3L4.1,2.4c-0.5-0.5-1.3-0.5-1.8,0c-0.5,0.5-0.5,1.3,0,1.8l9.9,9.9l-9.9,9.9c-0.5,0.5-0.5,1.3,0,1.8C2.6,25.9,2.9,26,3.3,26s0.7-0.1,0.9-0.3l9.8-9.9l9.9,9.9c0.3,0.3,0.5,0.3,0.9,0.3s0.6-0.1,0.9-0.3c0.5-0.5,0.5-1.3,0-1.8L15.8,14z"/></svg>',maximize:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path fill="currentColor" d="M25.3,1.9H2.7c-0.6,0-1,0.4-1,1v22.3c0,0.5,0.4,1,1,1h22.5c0.5,0,1-0.5,1-1V2.9C26.3,2.3,25.9,1.9,25.3,1.9z M3.7,24.1v-18h20.5v18C24.3,24.1,3.7,24.1,3.7,24.1z"/></svg>',normalize:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M18.5,1.2H5.1c-0.3,0-0.5,0.3-0.5,0.5v3.1c0,0.1,0,0.1,0,0.2h-3C1.2,5,0.9,5.3,0.9,5.7v12.4c0,0.4,0.3,0.7,0.7,0.7h12.6c0.4,0,0.7-0.3,0.7-0.7v-2.6c0,0,0.1,0,0.1,0h3.5c0.3,0,0.5-0.3,0.5-0.5V1.7C19.1,1.4,18.8,1.2,18.5,1.2z M2.3,17.4V8.2c0,0,0.1,0,0.1,0h11c0,0,0.1,0,0.1,0v9.3H2.3z M18,14.4h-3c0,0-0.1,0-0.1,0V5.7c0-0.4-0.3-0.7-0.7-0.7H5.6c0-0.1,0-0.1,0-0.2V2.2H18C18,2.2,18,14.4,18,14.4z"/></svg>',minimize:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 20"><path fill="currentColor" d="M20.4,18.6H1.8c-0.7,0-1.3-0.5-1.3-1.1s0.6-1.1,1.3-1.1h18.5c0.7,0,1.3,0.5,1.3,1.1S21,18.6,20.4,18.6z"/></svg>',smallifyrev:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 18"><path fill="currentColor" d="M10,15.1L10,15.1c-0.3,0-0.5-0.1-0.6-0.3L1,6.4C0.6,6,0.6,5.5,1,5.1c0.4-0.4,0.9-0.4,1.3,0L10,13l7.8-7.7c0.4-0.4,0.9-0.4,1.3,0c0.3,0.4,0.4,0.9,0,1.3l-8.4,8.4C10.5,15,10.2,15.1,10,15.1z"/></svg>',smallify:'<svg class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 18"><path fill="currentColor" d="M19,13.5l-8.4-8.3c-0.4-0.4-0.9-0.4-1.3,0L1,13.6c-0.4,0.4-0.4,0.9,0,1.3c0.2,0.2,0.4,0.3,0.6,0.3c0.2,0,0.5-0.1,0.6-0.3L10,7l7.8,7.7c0.4,0.4,0.9,0.4,1.3,0C19.4,14.4,19.4,13.8,19,13.5z"/></svg>'},idCounter:0,isIE:(()=>navigator.appVersion.match(/Trident/))(),pointerdown:"onpointerdown"in window?["pointerdown"]:"ontouchend"in window?["touchstart","mousedown"]:["mousedown"],pointermove:"onpointermove"in window?["pointermove"]:"ontouchend"in window?["touchmove","mousemove"]:["mousemove"],pointerup:"onpointerup"in window?["pointerup"]:"ontouchend"in window?["touchend","mouseup"]:["mouseup"],polyfills:(void[Element.prototype,Document.prototype,DocumentFragment.prototype].forEach(function(e){e.append=e.append||function(){let e=Array.prototype.slice.call(arguments),t=document.createDocumentFragment();e.forEach(function(e){let n=e instanceof Node;t.appendChild(n?e:document.createTextNode(String(e)));}),this.appendChild(t);};}),window.Element&&!Element.prototype.closest&&(Element.prototype.closest=function(e){let t,n=(this.document||this.ownerDocument).querySelectorAll(e),o=this;do{for(t=n.length;--t>=0&&n.item(t)!==o;);}while(t<0&&(o=o.parentElement));return o}),window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,t){t=t||window;for(let n=0;n<this.length;n++)e.call(t,this[n],n,this);}),Object.assign||Object.defineProperty(Object,"assign",{enumerable:!1,configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Cannot convert first argument to object");let t=Object(e);for(let e=1;e<arguments.length;e++){let n=arguments[e];if(null==n)continue;n=Object(n);let o=Object.keys(Object(n));for(let e=0,a=o.length;e<a;e++){let a=o[e],i=Object.getOwnPropertyDescriptor(n,a);void 0!==i&&i.enumerable&&(t[a]=n[a]);}}return t}}),function(){if("function"==typeof window.CustomEvent)return !1;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};let n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}e.prototype=window.Event.prototype,window.CustomEvent=e;}(),String.prototype.endsWith||(String.prototype.endsWith=function(e,t){return t<this.length?t|=0:t=this.length,this.substr(t-e.length,e.length)===e}),String.prototype.startsWith||(String.prototype.startsWith=function(e,t){return this.substr(t||0,e.length)===e}),void(String.prototype.includes||(String.prototype.includes=function(e,t){return "number"!=typeof t&&(t=0),!(t+e.length>this.length)&&-1!==this.indexOf(e,t)}))),themes:["default","primary","secondary","info","success","warning","danger","light","dark"],ziBase:100,colorFilledLight:.81,colorFilledDark:.08,colorFilled:0,colorBrightnessThreshold:.55,colorNames:{aliceblue:"f0f8ff",antiquewhite:"faebd7",aqua:"0ff",aquamarine:"7fffd4",azure:"f0ffff",beige:"f5f5dc",bisque:"ffe4c4",black:"000",blanchedalmond:"ffebcd",blue:"00f",blueviolet:"8a2be2",brown:"a52a2a",burlywood:"deb887",cadetblue:"5f9ea0",chartreuse:"7fff00",chocolate:"d2691e",coral:"ff7f50",cornflowerblue:"6495ed",cornsilk:"fff8dc",crimson:"dc143c",cyan:"0ff",darkblue:"00008b",darkcyan:"008b8b",darkgoldenrod:"b8860b",darkgray:"a9a9a9",darkgrey:"a9a9a9",darkgreen:"006400",darkkhaki:"bdb76b",darkmagenta:"8b008b",darkolivegreen:"556b2f",darkorange:"ff8c00",darkorchid:"9932cc",darkred:"8b0000",darksalmon:"e9967a",darkseagreen:"8fbc8f",darkslateblue:"483d8b",darkslategray:"2f4f4f",darkslategrey:"2f4f4f",darkturquoise:"00ced1",darkviolet:"9400d3",deeppink:"ff1493",deepskyblue:"00bfff",dimgray:"696969",dimgrey:"696969",dodgerblue:"1e90ff",firebrick:"b22222",floralwhite:"fffaf0",forestgreen:"228b22",fuchsia:"f0f",gainsboro:"dcdcdc",ghostwhite:"f8f8ff",gold:"ffd700",goldenrod:"daa520",gray:"808080",grey:"808080",green:"008000",greenyellow:"adff2f",honeydew:"f0fff0",hotpink:"ff69b4",indianred:"cd5c5c",indigo:"4b0082",ivory:"fffff0",khaki:"f0e68c",lavender:"e6e6fa",lavenderblush:"fff0f5",lawngreen:"7cfc00",lemonchiffon:"fffacd",lightblue:"add8e6",lightcoral:"f08080",lightcyan:"e0ffff",lightgoldenrodyellow:"fafad2",lightgray:"d3d3d3",lightgrey:"d3d3d3",lightgreen:"90ee90",lightpink:"ffb6c1",lightsalmon:"ffa07a",lightseagreen:"20b2aa",lightskyblue:"87cefa",lightslategray:"789",lightslategrey:"789",lightsteelblue:"b0c4de",lightyellow:"ffffe0",lime:"0f0",limegreen:"32cd32",linen:"faf0e6",magenta:"f0f",maroon:"800000",mediumaquamarine:"66cdaa",mediumblue:"0000cd",mediumorchid:"ba55d3",mediumpurple:"9370d8",mediumseagreen:"3cb371",mediumslateblue:"7b68ee",mediumspringgreen:"00fa9a",mediumturquoise:"48d1cc",mediumvioletred:"c71585",midnightblue:"191970",mintcream:"f5fffa",mistyrose:"ffe4e1",moccasin:"ffe4b5",navajowhite:"ffdead",navy:"000080",oldlace:"fdf5e6",olive:"808000",olivedrab:"6b8e23",orange:"ffa500",orangered:"ff4500",orchid:"da70d6",palegoldenrod:"eee8aa",palegreen:"98fb98",paleturquoise:"afeeee",palevioletred:"d87093",papayawhip:"ffefd5",peachpuff:"ffdab9",peru:"cd853f",pink:"ffc0cb",plum:"dda0dd",powderblue:"b0e0e6",purple:"800080",rebeccapurple:"639",red:"f00",rosybrown:"bc8f8f",royalblue:"4169e1",saddlebrown:"8b4513",salmon:"fa8072",sandybrown:"f4a460",seagreen:"2e8b57",seashell:"fff5ee",sienna:"a0522d",silver:"c0c0c0",skyblue:"87ceeb",slateblue:"6a5acd",slategray:"708090",slategrey:"708090",snow:"fffafa",springgreen:"00ff7f",steelblue:"4682b4",tan:"d2b48c",teal:"008080",thistle:"d8bfd8",tomato:"ff6347",turquoise:"40e0d0",violet:"ee82ee",wheat:"f5deb3",white:"fff",whitesmoke:"f5f5f5",yellow:"ff0",yellowgreen:"9acd32",grey50:"fafafa",grey100:"f5f5f5",grey200:"eee",grey300:"e0e0e0",grey400:"bdbdbd",grey500:"9e9e9e",grey600:"757575",grey700:"616161",grey800:"424242",grey900:"212121",gray50:"fafafa",gray100:"f5f5f5",gray200:"eee",gray300:"e0e0e0",gray400:"bdbdbd",gray500:"9e9e9e",gray600:"757575",gray700:"616161",gray800:"424242",gray900:"212121",bluegrey50:"eceff1",bluegrey100:"CFD8DC",bluegrey200:"B0BEC5",bluegrey300:"90A4AE",bluegrey400:"78909C",bluegrey500:"607D8B",bluegrey600:"546E7A",bluegrey700:"455A64",bluegrey800:"37474F",bluegrey900:"263238",bluegray50:"eceff1",bluegray100:"CFD8DC",bluegray200:"B0BEC5",bluegray300:"90A4AE",bluegray400:"78909C",bluegray500:"607D8B",bluegray600:"546E7A",bluegray700:"455A64",bluegray800:"37474F",bluegray900:"263238",red50:"FFEBEE",red100:"FFCDD2",red200:"EF9A9A",red300:"E57373",red400:"EF5350",red500:"F44336",red600:"E53935",red700:"D32F2F",red800:"C62828",red900:"B71C1C",reda100:"FF8A80",reda200:"FF5252",reda400:"FF1744",reda700:"D50000",pink50:"FCE4EC",pink100:"F8BBD0",pink200:"F48FB1",pink300:"F06292",pink400:"EC407A",pink500:"E91E63",pink600:"D81B60",pink700:"C2185B",pink800:"AD1457",pink900:"880E4F",pinka100:"FF80AB",pinka200:"FF4081",pinka400:"F50057",pinka700:"C51162",purple50:"F3E5F5",purple100:"E1BEE7",purple200:"CE93D8",purple300:"BA68C8",purple400:"AB47BC",purple500:"9C27B0",purple600:"8E24AA",purple700:"7B1FA2",purple800:"6A1B9A",purple900:"4A148C",purplea100:"EA80FC",purplea200:"E040FB",purplea400:"D500F9",purplea700:"AA00FF",deeppurple50:"EDE7F6",deeppurple100:"D1C4E9",deeppurple200:"B39DDB",deeppurple300:"9575CD",deeppurple400:"7E57C2",deeppurple500:"673AB7",deeppurple600:"5E35B1",deeppurple700:"512DA8",deeppurple800:"4527A0",deeppurple900:"311B92",deeppurplea100:"B388FF",deeppurplea200:"7C4DFF",deeppurplea400:"651FFF",deeppurplea700:"6200EA",indigo50:"E8EAF6",indigo100:"C5CAE9",indigo200:"9FA8DA",indigo300:"7986CB",indigo400:"5C6BC0",indigo500:"3F51B5",indigo600:"3949AB",indigo700:"303F9F",indigo800:"283593",indigo900:"1A237E",indigoa100:"8C9EFF",indigoa200:"536DFE",indigoa400:"3D5AFE",indigoa700:"304FFE",blue50:"E3F2FD",blue100:"BBDEFB",blue200:"90CAF9",blue300:"64B5F6",blue400:"42A5F5",blue500:"2196F3",blue600:"1E88E5",blue700:"1976D2",blue800:"1565C0",blue900:"0D47A1",bluea100:"82B1FF",bluea200:"448AFF",bluea400:"2979FF",bluea700:"2962FF",lightblue50:"E1F5FE",lightblue100:"B3E5FC",lightblue200:"81D4FA",lightblue300:"4FC3F7",lightblue400:"29B6F6",lightblue500:"03A9F4",lightblue600:"039BE5",lightblue700:"0288D1",lightblue800:"0277BD",lightblue900:"01579B",lightbluea100:"80D8FF",lightbluea200:"40C4FF",lightbluea400:"00B0FF",lightbluea700:"0091EA",cyan50:"E0F7FA",cyan100:"B2EBF2",cyan200:"80DEEA",cyan300:"4DD0E1",cyan400:"26C6DA",cyan500:"00BCD4",cyan600:"00ACC1",cyan700:"0097A7",cyan800:"00838F",cyan900:"006064",cyana100:"84FFFF",cyana200:"18FFFF",cyana400:"00E5FF",cyana700:"00B8D4",teal50:"E0F2F1",teal100:"B2DFDB",teal200:"80CBC4",teal300:"4DB6AC",teal400:"26A69A",teal500:"009688",teal600:"00897B",teal700:"00796B",teal800:"00695C",teal900:"004D40",teala100:"A7FFEB",teala200:"64FFDA",teala400:"1DE9B6",teala700:"00BFA5",green50:"E8F5E9",green100:"C8E6C9",green200:"A5D6A7",green300:"81C784",green400:"66BB6A",green500:"4CAF50",green600:"43A047",green700:"388E3C",green800:"2E7D32",green900:"1B5E20",greena100:"B9F6CA",greena200:"69F0AE",greena400:"00E676",greena700:"00C853",lightgreen50:"F1F8E9",lightgreen100:"DCEDC8",lightgreen200:"C5E1A5",lightgreen300:"AED581",lightgreen400:"9CCC65",lightgreen500:"8BC34A",lightgreen600:"7CB342",lightgreen700:"689F38",lightgreen800:"558B2F",lightgreen900:"33691E",lightgreena100:"CCFF90",lightgreena200:"B2FF59",lightgreena400:"76FF03",lightgreena700:"64DD17",lime50:"F9FBE7",lime100:"F0F4C3",lime200:"E6EE9C",lime300:"DCE775",lime400:"D4E157",lime500:"CDDC39",lime600:"C0CA33",lime700:"AFB42B",lime800:"9E9D24",lime900:"827717",limea100:"F4FF81",limea200:"EEFF41",limea400:"C6FF00",limea700:"AEEA00",yellow50:"FFFDE7",yellow100:"FFF9C4",yellow200:"FFF59D",yellow300:"FFF176",yellow400:"FFEE58",yellow500:"FFEB3B",yellow600:"FDD835",yellow700:"FBC02D",yellow800:"F9A825",yellow900:"F57F17",yellowa100:"FFFF8D",yellowa200:"FFFF00",yellowa400:"FFEA00",yellowa700:"FFD600",amber50:"FFF8E1",amber100:"FFECB3",amber200:"FFE082",amber300:"FFD54F",amber400:"FFCA28",amber500:"FFC107",amber600:"FFB300",amber700:"FFA000",amber800:"FF8F00",amber900:"FF6F00",ambera100:"FFE57F",ambera200:"FFD740",ambera400:"FFC400",ambera700:"FFAB00",orange50:"FFF3E0",orange100:"FFE0B2",orange200:"FFCC80",orange300:"FFB74D",orange400:"FFA726",orange500:"FF9800",orange600:"FB8C00",orange700:"F57C00",orange800:"EF6C00",orange900:"E65100",orangea100:"FFD180",orangea200:"FFAB40",orangea400:"FF9100",orangea700:"FF6D00",deeporange50:"FBE9E7",deeporange100:"FFCCBC",deeporange200:"FFAB91",deeporange300:"FF8A65",deeporange400:"FF7043",deeporange500:"FF5722",deeporange600:"F4511E",deeporange700:"E64A19",deeporange800:"D84315",deeporange900:"BF360C",deeporangea100:"FF9E80",deeporangea200:"FF6E40",deeporangea400:"FF3D00",deeporangea700:"DD2C00",brown50:"EFEBE9",brown100:"D7CCC8",brown200:"BCAAA4",brown300:"A1887F",brown400:"8D6E63",brown500:"795548",brown600:"6D4C41",brown700:"5D4037",brown800:"4E342E",brown900:"3E2723"},errorReporting:"on",color(e){let t,n,o,a,i,s,l,r,c,d=e.toLowerCase(),p={};const h=/^rgba?\(([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3}),?(0|1|0\.[0-9]{1,2}|\.[0-9]{1,2})?\)$/gi,f=/^hsla?\(([0-9]{1,3}),([0-9]{1,3}%),([0-9]{1,3}%),?(0|1|0\.[0-9]{1,2}|\.[0-9]{1,2})?\)$/gi,m=this.colorNames;return m[d]&&(d=m[d]),null!==d.match(/^#?([0-9a-f]{3}|[0-9a-f]{6})$/gi)?((d=d.replace("#","")).length%2==1?(t=String(d.substr(0,1))+d.substr(0,1),n=String(d.substr(1,1))+d.substr(1,1),o=String(d.substr(2,1))+d.substr(2,1),p.rgb={r:parseInt(t,16),g:parseInt(n,16),b:parseInt(o,16)},p.hex=`#${t}${n}${o}`):(p.rgb={r:parseInt(d.substr(0,2),16),g:parseInt(d.substr(2,2),16),b:parseInt(d.substr(4,2),16)},p.hex=`#${d}`),c=this.rgbToHsl(p.rgb.r,p.rgb.g,p.rgb.b),p.hsl=c,p.rgb.css=`rgb(${p.rgb.r},${p.rgb.g},${p.rgb.b})`):d.match(h)?(l=h.exec(d),p.rgb={css:d,r:l[1],g:l[2],b:l[3]},p.hex=this.rgbToHex(l[1],l[2],l[3]),c=this.rgbToHsl(l[1],l[2],l[3]),p.hsl=c):d.match(f)?(a=(l=f.exec(d))[1]/360,i=l[2].substr(0,l[2].length-1)/100,s=l[3].substr(0,l[3].length-1)/100,r=this.hslToRgb(a,i,s),p.rgb={css:`rgb(${r[0]},${r[1]},${r[2]})`,r:r[0],g:r[1],b:r[2]},p.hex=this.rgbToHex(p.rgb.r,p.rgb.g,p.rgb.b),p.hsl={css:`hsl(${l[1]},${l[2]},${l[3]})`,h:l[1],s:l[2],l:l[3]}):(p.hex="#f5f5f5",p.rgb={css:"rgb(245,245,245)",r:245,g:245,b:245},p.hsl={css:"hsl(0,0%,96%)",h:0,s:"0%",l:"96%"}),p},calcColors(e){const t=this.colorBrightnessThreshold,n=this.color(e),o=this.lighten(e,this.colorFilledLight),a=this.darken(e,this.colorFilled),i=this.perceivedBrightness(e)<=t?"#ffffff":"#000000",s=this.perceivedBrightness(o)<=t?"#ffffff":"#000000",l=this.perceivedBrightness(a)<=t?"#ffffff":"#000000",r=this.lighten(e,this.colorFilledDark),c=this.perceivedBrightness(r)<=t?"#ffffff":"#000000";return [n.hsl.css,o,a,i,s,l,r,c]},darken(e,t){const n=this.color(e).hsl,o=parseFloat(n.l),a=Math.round(o-o*t)+"%";return `hsl(${n.h},${n.s},${a})`},lighten(e,t){const n=this.color(e).hsl,o=parseFloat(n.l),a=Math.round(o+(100-o)*t)+"%";return `hsl(${n.h},${n.s},${a})`},hslToRgb(e,t,n){let o,a,i;if(0===t)o=a=i=n;else{let s=(e,t,n)=>(n<0&&(n+=1),n>1&&(n-=1),n<1/6?e+6*(t-e)*n:n<.5?t:n<2/3?e+(t-e)*(2/3-n)*6:e),l=n<.5?n*(1+t):n+t-n*t,r=2*n-l;o=s(r,l,e+1/3),a=s(r,l,e),i=s(r,l,e-1/3);}return [Math.round(255*o),Math.round(255*a),Math.round(255*i)]},rgbToHsl(e,t,n){e/=255,t/=255,n/=255;let o,a,i=Math.max(e,t,n),s=Math.min(e,t,n),l=(i+s)/2;if(i===s)o=a=0;else{let r=i-s;switch(a=l>.5?r/(2-i-s):r/(i+s),i){case e:o=(t-n)/r+(t<n?6:0);break;case t:o=(n-e)/r+2;break;case n:o=(e-t)/r+4;}o/=6;}return {css:"hsl("+(o=Math.round(360*o))+","+(a=Math.round(100*a)+"%")+","+(l=Math.round(100*l)+"%")+")",h:o,s:a,l:l}},rgbToHex(e,t,n){let o=Number(e).toString(16),a=Number(t).toString(16),i=Number(n).toString(16);return 1===o.length&&(o=`0${o}`),1===a.length&&(a=`0${a}`),1===i.length&&(i=`0${i}`),`#${o}${a}${i}`},perceivedBrightness(e){const t=this.color(e).rgb;return t.r/255*.2126+t.g/255*.7152+t.b/255*.0722},addScript(e,t="text/javascript",n){if(!document.querySelector(`script[src="${e}"]`)){const o=document.createElement("script");o.onload=n,o.src=e,o.type=t,document.head.appendChild(o);}},autopositionRemaining(e){let t;if(["left-top-down","left-top-right","center-top-down","right-top-down","right-top-left","left-bottom-up","left-bottom-right","center-bottom-up","right-bottom-up","right-bottom-left"].forEach(n=>{e.classList.contains(n)&&(t=n);}),t){("window"===e.options.container?document.body:e.options.container).querySelectorAll(`.${t}`).forEach(e=>{e.reposition();});}},ajax(obj,ajaxConfig){let objIsPanel;"object"==typeof obj&&obj.classList.contains("jsPanel")?objIsPanel=!0:(objIsPanel=!1,"string"==typeof obj&&(obj=document.querySelector(obj)));const configDefaults={method:"GET",async:!0,user:"",pwd:"",done:function(){objIsPanel?obj.content.innerHTML=this.responseText:obj.innerHTML=this.responseText;},autoresize:!0,autoreposition:!0};let config;if("string"==typeof ajaxConfig)config=Object.assign({},configDefaults,{url:encodeURI(ajaxConfig),evalscripttags:!0});else{if("object"!=typeof ajaxConfig||!ajaxConfig.url){if(this.errorReporting)try{throw new jsPanel.jsPanelError("XMLHttpRequest seems to miss the <code>url</code> parameter!")}catch(e){jsPanel.error(e);}return obj}config=Object.assign({},configDefaults,ajaxConfig),config.url=encodeURI(ajaxConfig.url),!1===config.async&&(config.timeout=0,config.withCredentials&&(config.withCredentials=void 0),config.responseType&&(config.responseType=void 0));}const xhr=new XMLHttpRequest;return xhr.onreadystatechange=(()=>{if(4===xhr.readyState){if(200===xhr.status){if(config.done.call(xhr,obj),config.evalscripttags){const scripttags=xhr.responseText.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi);scripttags&&scripttags.forEach(tag=>{const js=tag.replace(/<script\b[^>]*>/i,"").replace(/<\/script>/i,"").trim();eval(js);});}}else config.fail&&config.fail.call(xhr,obj);if(config.always&&config.always.call(xhr,obj),objIsPanel){const e=obj.options.contentSize;if("string"==typeof e&&e.match(/auto/i)){const t=e.split(" "),n=Object.assign({},{width:t[0],height:t[1]});config.autoresize&&obj.resize(n),obj.classList.contains("jsPanel-contextmenu")||config.autoreposition&&obj.reposition();}else if("object"==typeof e&&("auto"===e.width||"auto"===e.height)){const t=Object.assign({},e);config.autoresize&&obj.resize(t),obj.classList.contains("jsPanel-contextmenu")||config.autoreposition&&obj.reposition();}}jsPanel.ajaxAlwaysCallbacks.length&&jsPanel.ajaxAlwaysCallbacks.forEach(e=>{e.call(obj,obj);});}}),xhr.open(config.method,config.url,config.async,config.user,config.pwd),xhr.timeout=config.timeout||0,config.withCredentials&&(xhr.withCredentials=config.withCredentials),config.responseType&&(xhr.responseType=config.responseType),config.beforeSend&&config.beforeSend.call(xhr),config.data?xhr.send(config.data):xhr.send(null),obj},close(e,t){e.closetimer&&window.clearTimeout(e.closetimer);const n=e.id,o=e.parentElement,a=new CustomEvent("jspanelbeforeclose",{detail:n}),i=new CustomEvent("jspanelclosed",{detail:n});if(document.dispatchEvent(a),e.options.onbeforeclose&&e.options.onbeforeclose.length>0&&!jsPanel.processCallbacks(e,e.options.onbeforeclose,"some",e.status))return e;e.options.animateOut?(e.options.animateIn&&jsPanel.remClass(e,e.options.animateIn),jsPanel.setClass(e,e.options.animateOut),e.addEventListener("animationend",()=>{o.removeChild(e),document.getElementById(n)?t&&t.call(e,n,e):(jsPanel.removeMinimizedReplacement(e),document.dispatchEvent(i),e.options.onclosed&&jsPanel.processCallbacks(e,e.options.onclosed,"every"),jsPanel.autopositionRemaining(e),t&&t.call(n,n));})):(o.removeChild(e),document.getElementById(n)?t&&t.call(e,n,e):(jsPanel.removeMinimizedReplacement(e),document.dispatchEvent(i),e.options.onclosed&&jsPanel.processCallbacks(e,e.options.onclosed,"every"),jsPanel.autopositionRemaining(e),t&&t.call(n,n)));},createPanelTemplate(e=!0){const t=document.createElement("div");return t.className="jsPanel",e&&["close","maximize","normalize","minimize","smallify","smallifyrev"].forEach(e=>{t.setAttribute(`data-btn${e}`,"enabled");}),t.innerHTML=`<div class="jsPanel-hdr">\n                                <div class="jsPanel-headerbar">\n                                    <div class="jsPanel-headerlogo"></div>\n                                    <div class="jsPanel-titlebar">\n                                        <span class="jsPanel-title"></span>\n                                    </div>\n                                    <div class="jsPanel-controlbar">\n                                        <div class="jsPanel-btn jsPanel-btn-smallify">${this.icons.smallify}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-smallifyrev">${this.icons.smallifyrev}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-minimize">${this.icons.minimize}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-normalize">${this.icons.normalize}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-maximize">${this.icons.maximize}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-close">${this.icons.close}</div>\n                                    </div>\n                                </div>\n                                <div class="jsPanel-hdr-toolbar"></div>\n                            </div>\n                            <div class="jsPanel-content"></div>\n                            <div class="jsPanel-minimized-box"></div>\n                            <div class="jsPanel-ftr"></div>`,t},createMinimizedTemplate(){const e=document.createElement("div");return e.className="jsPanel-replacement",e.innerHTML=`<div class="jsPanel-hdr">\n                                <div class="jsPanel-headerbar">\n                                    <div class="jsPanel-headerlogo"></div>\n                                    <div class="jsPanel-titlebar">\n                                        <span class="jsPanel-title"></span>\n                                    </div>\n                                    <div class="jsPanel-controlbar">\n                                        <div class="jsPanel-btn jsPanel-btn-md jsPanel-btn-normalize">${this.icons.normalize}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-md jsPanel-btn-maximize">${this.icons.maximize}</div>\n                                        <div class="jsPanel-btn jsPanel-btn-md jsPanel-btn-close">${this.icons.close}</div>\n                                    </div>\n                                </div>\n                            </div>`,e},createSnapArea(e,t,n){const o=document.createElement("div"),a=e.parentElement;o.className=`jsPanel-snap-area jsPanel-snap-area-${t}`,"lt"===t||"rt"===t||"rb"===t||"lb"===t?(o.style.width=n+"px",o.style.height=n+"px"):"ct"===t||"cb"===t?o.style.height=n+"px":"lc"!==t&&"rc"!==t||(o.style.width=n+"px"),a!==document.body&&(o.style.position="absolute"),document.querySelector(`.jsPanel-snap-area.jsPanel-snap-area-${t}`)||e.parentElement.appendChild(o);},dragit(e,t={}){let n,o;const a=new CustomEvent("jspaneldragstart",{detail:e.id}),i=new CustomEvent("jspaneldrag",{detail:e.id}),s=new CustomEvent("jspaneldragstop",{detail:e.id}),l=Object.assign({},this.defaults.dragit,t),r=this.pOcontainment(l.containment);return l.grid&&Array.isArray(l.grid)&&1===l.grid.length&&(l.grid[1]=l.grid[0]),e.querySelectorAll(l.handles).forEach(t=>{t.style.touchAction="none",t.style.cursor=l.cursor,jsPanel.pointerdown.forEach(s=>{t.addEventListener(s,t=>{if(t.preventDefault(),t.button&&t.button>0)return !1;if(t.target.closest(".jsPanel-ftr-btn"))return;e.controlbar.style.pointerEvents="none",e.content.style.pointerEvents="none";let s=window.getComputedStyle(e),c=parseFloat(s.left),d=parseFloat(s.top),p=t.touches?t.touches[0].clientX:t.clientX,h=t.touches?t.touches[0].clientY:t.clientY,f=e.parentElement,m=f.getBoundingClientRect(),g=window.getComputedStyle(f),u=e.getScaleFactor(),b=0;o=(t=>{if(t.preventDefault(),!n){if(document.dispatchEvent(a),e.style.opacity=l.opacity,e.snapped&&l.snap.resizeToPreSnap&&e.currentData.beforeSnap){e.resize(e.currentData.beforeSnap.width+" "+e.currentData.beforeSnap.height);let t=e.getBoundingClientRect(),n=p-(t.left+t.width),o=t.width/2;n>-o&&(b=n+o);}l.start.length&&jsPanel.processCallbacks(e,l.start,!1,{left:c,top:d},t),jsPanel.front(e),e.snapped=!1;}if(n=1,l.disableOnMaximized&&"maximized"===e.status)return !1;let o,s,y,w,j,P,v,C,E,F,x=t.touches?t.touches[0].clientX:t.clientX,z=t.touches?t.touches[0].clientY:t.clientY,S=window.getComputedStyle(e);if(f===document.body){let t=e.getBoundingClientRect();E=window.innerWidth-parseInt(g.borderLeftWidth,10)-parseInt(g.borderRightWidth,10)-(t.left+t.width),F=window.innerHeight-parseInt(g.borderTopWidth,10)-parseInt(g.borderBottomWidth,10)-(t.top+t.height);}else E=parseInt(g.width,10)-parseInt(g.borderLeftWidth,10)-parseInt(g.borderRightWidth,10)-(parseInt(S.left,10)+parseInt(S.width,10)),F=parseInt(g.height,10)-parseInt(g.borderTopWidth,10)-parseInt(g.borderBottomWidth,10)-(parseInt(S.top,10)+parseInt(S.height,10));if(o=parseFloat(S.left),y=parseFloat(S.top),j=E,v=F,l.snap)if("panel"===l.snap.trigger)s=o**2,w=y**2,P=j**2,C=v**2;else if("pointer"===l.snap.trigger)if("window"===e.options.container)o=x,s=x**2,w=(y=z)**2,P=(j=window.innerWidth-x)**2,C=(v=window.innerHeight-z)**2;else{let n=jsPanel.overlaps(e,f,"paddingbox",t);o=n.pointer.left,y=n.pointer.top,j=n.pointer.right,v=n.pointer.bottom,s=n.pointer.left**2,w=n.pointer.top**2,P=n.pointer.right**2,C=n.pointer.bottom**2;}let B=Math.sqrt(s+w),A=Math.sqrt(s+C),k=Math.sqrt(P+w),$=Math.sqrt(P+C),T=Math.abs(o-j)/2,L=Math.abs(y-v)/2,D=Math.sqrt(s+L**2),R=Math.sqrt(w+T**2),q=Math.sqrt(P+L**2),O=Math.sqrt(C+T**2);if(window.getSelection().removeAllRanges(),document.dispatchEvent(i),l.axis&&"x"!==l.axis||(e.style.left=c+(x-p)/u.x+b+"px"),l.axis&&"y"!==l.axis||(e.style.top=d+(z-h)/u.y+"px"),l.grid){let t=l.grid[0]*Math.round((c+(x-p))/l.grid[0]),n=l.grid[1]*Math.round((d+(z-h))/l.grid[1]);e.style.left=`${t}px`,e.style.top=`${n}px`;}if(l.containment||0===l.containment){let t,n;if(e.options.container===document.body)t=window.innerWidth-parseFloat(S.width)-r[1],n=window.innerHeight-parseFloat(S.height)-r[2];else{let e=parseFloat(g.borderLeftWidth)+parseFloat(g.borderRightWidth),o=parseFloat(g.borderTopWidth)+parseFloat(g.borderBottomWidth);t=m.width/u.x-parseFloat(S.width)-r[1]-e,n=m.height/u.y-parseFloat(S.height)-r[2]-o;}parseFloat(e.style.left)<=r[3]&&(e.style.left=r[3]+"px"),parseFloat(e.style.top)<=r[0]&&(e.style.top=r[0]+"px"),parseFloat(e.style.left)>=t&&(e.style.left=t+"px"),parseFloat(e.style.top)>=n&&(e.style.top=n+"px");}if(l.drag.length&&jsPanel.processCallbacks(e,l.drag,!1,{left:o,top:y,right:j,bottom:v},t),l.snap){let t=l.snap.sensitivity,n=f===document.body?window.innerWidth/8:m.width/8,a=f===document.body?window.innerHeight/8:m.height/8;e.snappableTo=!1,jsPanel.removeSnapAreas(),B<t?(e.snappableTo="left-top",!1!==l.snap.snapLeftTop&&jsPanel.createSnapArea(e,"lt",t)):A<t?(e.snappableTo="left-bottom",!1!==l.snap.snapLeftBottom&&jsPanel.createSnapArea(e,"lb",t)):k<t?(e.snappableTo="right-top",!1!==l.snap.snapRightTop&&jsPanel.createSnapArea(e,"rt",t)):$<t?(e.snappableTo="right-bottom",!1!==l.snap.snapRightBottom&&jsPanel.createSnapArea(e,"rb",t)):y<t&&R<n?(e.snappableTo="center-top",!1!==l.snap.snapCenterTop&&jsPanel.createSnapArea(e,"ct",t)):o<t&&D<a?(e.snappableTo="left-center",!1!==l.snap.snapLeftCenter&&jsPanel.createSnapArea(e,"lc",t)):j<t&&q<a?(e.snappableTo="right-center",!1!==l.snap.snapRightCenter&&jsPanel.createSnapArea(e,"rc",t)):v<t&&O<n&&(e.snappableTo="center-bottom",!1!==l.snap.snapCenterBottom&&jsPanel.createSnapArea(e,"cb",t));}}),jsPanel.pointermove.forEach(e=>{document.addEventListener(e,o);}),window.addEventListener("mouseout",t=>{null===t.relatedTarget&&jsPanel.pointermove.forEach(function(t){document.removeEventListener(t,o,!1),e.style.opacity=1;});},!1);});}),jsPanel.pointerup.forEach(t=>{document.addEventListener(t,t=>{jsPanel.pointermove.forEach(e=>{document.removeEventListener(e,o);}),document.body.style.overflow="inherit",jsPanel.removeSnapAreas(),n&&(e.style.opacity=1,n=void 0,e.saveCurrentPosition(),e.calcSizeFactors(),document.dispatchEvent(s),l.snap&&("left-top"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapLeftTop):"center-top"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapCenterTop):"right-top"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapRightTop):"right-center"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapRightCenter):"right-bottom"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapRightBottom):"center-bottom"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapCenterBottom):"left-bottom"===e.snappableTo?jsPanel.snapPanel(e,l.snap.snapLeftBottom):"left-center"===e.snappableTo&&jsPanel.snapPanel(e,l.snap.snapLeftCenter),l.snap.callback&&e.snappableTo&&"function"==typeof l.snap.callback&&l.snap.callback.call(e,e),e.snappableTo&&l.snap.repositionOnSnap&&e.repositionOnSnap(e.snappableTo)),l.stop.length&&jsPanel.processCallbacks(e,l.stop,!1,{left:parseFloat(e.style.left),top:parseFloat(e.style.top)},t)),e.controlbar.style.pointerEvents="inherit",e.content.style.pointerEvents="inherit";});}),l.disable&&(t.style.pointerEvents="none");}),e},emptyNode(e){for(;e.firstChild;)e.removeChild(e.firstChild);return e},extend(e){if("[object Object]"===Object.prototype.toString.call(e))for(let t in e)e.hasOwnProperty(t)&&(this.extensions[t]=e[t]);},fetch(obj){const confDefaults={bodyMethod:"text",evalscripttags:!0,autoresize:!0,autoreposition:!0,done:function(e,t){e.content.innerHTML=t;}},conf="string"==typeof obj.options.contentFetch?Object.assign({resource:obj.options.contentFetch},confDefaults):Object.assign(confDefaults,obj.options.contentFetch),fetchInit=conf.fetchInit||{};if(!conf.resource){if(this.errorReporting)try{throw new jsPanel.jsPanelError("The Fetch request seems to miss the <code>resource</code> parameter")}catch(e){jsPanel.error(e);}return obj}conf.beforeSend&&conf.beforeSend.call(obj,obj),fetch(conf.resource,fetchInit).then(function(e){if(e.ok)return e[conf.bodyMethod]()}).then(function(response){if(conf.done.call(obj,obj,response),conf.evalscripttags){const scripttags=response.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi);scripttags&&scripttags.forEach(tag=>{let js=tag.replace(/<script\b[^>]*>/i,"").replace(/<\/script>/i,"").trim();eval(js);});}const oContentSize=obj.options.contentSize;if(conf.autoresize||conf.autoreposition)if("string"==typeof oContentSize&&oContentSize.match(/auto/i)){const e=oContentSize.split(" "),t=Object.assign({},{width:e[0],height:e[1]});conf.autoresize&&obj.resize(t),obj.classList.contains("jsPanel-contextmenu")||conf.autoreposition&&obj.reposition();}else if("object"==typeof oContentSize&&("auto"===oContentSize.width||"auto"===oContentSize.height)){const e=Object.assign({},oContentSize);conf.autoresize&&obj.resize(e),obj.classList.contains("jsPanel-contextmenu")||conf.autoreposition&&obj.reposition();}});},front(e){if("minimized"===e.status)"maximized"===e.statusBefore?e.maximize():e.normalize();else{const t=Array.prototype.slice.call(document.querySelectorAll(".jsPanel-standard")).map(e=>e.style.zIndex);Math.max(...t)>e.style.zIndex&&(e.style.zIndex=jsPanel.zi.next()),this.resetZi();}this.getPanels().forEach(function(e,t){const n=e.content.querySelector(".jsPanel-iframe-overlay");if(t>0){if(e.content.querySelector("iframe")&&!n){let t=document.createElement("div");t.className="jsPanel-iframe-overlay",e.content.appendChild(t);}}else n&&e.content.removeChild(n);});},getPanels:(e=function(){return this.classList.contains("jsPanel-standard")})=>Array.prototype.slice.call(document.querySelectorAll(".jsPanel")).filter(t=>e.call(t,t)).sort((e,t)=>t.style.zIndex-e.style.zIndex),overlaps(e,t,n,o){const a="string"==typeof e?document.querySelector(e):e,i=a.getBoundingClientRect(),s=getComputedStyle(a.parentElement),l=a.getScaleFactor(),r={top:0,right:0,bottom:0,left:0};let c,d=0,p=0,h=0,f=0;"window"!==a.options.container&&"paddingbox"===n&&(r.top=parseInt(s.borderTopWidth,10)*l.y,r.right=parseInt(s.borderRightWidth,10)*l.x,r.bottom=parseInt(s.borderBottomWidth,10)*l.y,r.left=parseInt(s.borderLeftWidth,10)*l.x),c="string"==typeof t?"window"===t?{left:0,top:0,right:window.innerWidth,bottom:window.innerHeight}:"parent"===t?a.parentElement.getBoundingClientRect():document.querySelector(t).getBoundingClientRect():t.getBoundingClientRect(),o&&(d=o.touches?o.touches[0].clientX:o.clientX,p=o.touches?o.touches[0].clientY:o.clientY,h=d-c.left,f=p-c.top);let m=i.left<c.right&&i.right>c.left,g=i.top<c.bottom&&i.bottom>c.top;return {overlaps:m&&g,top:i.top-c.top-r.top,right:c.right-i.right-r.right,bottom:c.bottom-i.bottom-r.bottom,left:i.left-c.left-r.left,parentBorderWidth:r,panelRect:i,referenceRect:c,pointer:{clientX:d,clientY:p,left:h-r.left,top:f-r.top,right:c.width-h-r.right,bottom:c.height-f-r.bottom}}},pOcontainer(e){if(e){if("string"==typeof e)return "window"===e?document.body:document.querySelector(e);if(1===e.nodeType)return e;if(e.length)return e[0]}return !1},pOcontainment(e){let t=e;if("function"==typeof e&&(t=e()),"number"==typeof t)return [t,t,t,t];if(Array.isArray(t)){if(1===t.length)return [t[0],t[0],t[0],t[0]];if(2===t.length)return t.concat(t);3===t.length&&(t[3]=t[1]);}return t},pOsize(e,t){let n=t||this.defaults.contentSize;const o=e.parentElement;if("string"==typeof n){const e=n.trim().split(" ");(n={}).width=e[0],2===e.length?n.height=e[1]:n.height=e[0];}else n.width&&!n.height?n.height=n.width:n.height&&!n.width&&(n.width=n.height);if(String(n.width).match(/^[0-9.]+$/gi))n.width+="px";else if("string"==typeof n.width&&n.width.endsWith("%"))if(o===document.body)n.width=window.innerWidth*(parseFloat(n.width)/100)+"px";else{const e=window.getComputedStyle(o),t=parseFloat(e.borderLeftWidth)+parseFloat(e.borderRightWidth);n.width=(parseFloat(e.width)-t)*(parseFloat(n.width)/100)+"px";}else"function"==typeof n.width&&(n.width=n.width.call(e,e),"number"==typeof n.width?n.width+="px":"string"==typeof n.width&&n.width.match(/^[0-9.]+$/gi)&&(n.width+="px"));if(String(n.height).match(/^[0-9.]+$/gi))n.height+="px";else if("string"==typeof n.height&&n.height.endsWith("%"))if(o===document.body)n.height=window.innerHeight*(parseFloat(n.height)/100)+"px";else{const e=window.getComputedStyle(o),t=parseFloat(e.borderTopWidth)+parseFloat(e.borderBottomWidth);n.height=(parseFloat(e.height)-t)*(parseFloat(n.height)/100)+"px";}else"function"==typeof n.height&&(n.height=n.height.call(e,e),"number"==typeof n.height?n.height+="px":"string"==typeof n.height&&n.height.match(/^[0-9.]+$/gi)&&(n.height+="px"));return n},pOborder(e){e=e.trim();const t=new Array(3),n=e.match(/\s*(none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset)\s*/gi),o=e.match(/\s*(thin|medium|thick)|(\d*\.?\d+[a-zA-Z]{2,4})\s*/gi);return n?(t[1]=n[0].trim(),e=e.replace(t[1],"")):t[1]="solid",o?(t[0]=o[0].trim(),e=e.replace(t[0],"")):t[0]="medium",t[2]=e.trim(),t},pOposition(e){let t=e.trim().toLowerCase();const n={},o=/(^|\s)((left-|right-)(top|center|bottom){1})|((center-){1}(top|bottom){1})|(center)/gi,a=/(^|\s)(right|down|left|up)/gi,i=/(^|\s)-?(\d*\.?\d+)([a-zA-Z]{0,4})/gi,s=t.match(o);s&&(n.my=s[0].trim(),n.at=s[1]?s[1].trim():s[0].trim());const l=(t=t.replace(o," ").trim()).match(a);l&&(n.autoposition=l[0].trim());const r=(t=t.replace(a," ").trim()).match(i);return r&&(r.forEach((e,t)=>{(e=e.trim()).match(/(^|\s)(-?[0-9]*\.?[0-9]+)(\s|$)/)&&(r[t]=`${r[t]}px`.trim());}),n.offsetX=r[0].trim(),n.offsetY=r[1]?r[1].trim():r[0].trim()),(t=t.replace(i," ").trim()).length&&(n.of=t),n},pOheaderControls(e){if("string"==typeof e){let t={},n=e.toLowerCase(),o=n.match(/xl|lg|md|sm|xs/),a=n.match(/closeonly|none/);return o&&(t.size=o[0]),a&&(t=Object.assign({},t,{maximize:"remove",normalize:"remove",minimize:"remove",smallify:"remove",smallifyrev:"remove"}),"none"===a[0]&&(t.close="remove")),Object.assign({},this.defaults.headerControls,t)}return Object.assign({},this.defaults.headerControls,e)},position(e,t){let n,o,a,i=0,s=0,l=0,r=0;const c={left:0,top:0},d=this.defaults.position,p={width:document.documentElement.clientWidth,height:window.innerHeight};if(e.options.container===document.body&&(d.of=document.body),n="string"==typeof e?document.querySelector(e):e,!t)return n.style.opacity=1,n;const h=n.getBoundingClientRect();"string"==typeof t?o=Object.assign({},d,jsPanel.pOposition(t)):(o=Object.assign({},d,t),["my","at","of","offsetX","offsetY","minLeft","maxLeft","minTop","maxTop"].forEach(function(t){"function"==typeof o[t]&&(o[t]=o[t].call(e,e));}));const f=n.parentElement,m=window.getComputedStyle(f),g=f.getBoundingClientRect(),u=f.tagName.toLowerCase();if(o.of&&"window"!==o.of&&(a="string"==typeof o.of?document.querySelector(o.of):o.of),o.my.match(/^center-top$|^center$|^center-bottom$/i)?i=h.width/2:o.my.match(/right/i)&&(i=h.width),o.my.match(/^left-center$|^center$|^right-center$/i)?s=h.height/2:o.my.match(/bottom/i)&&(s=h.height),"window"===e.options.container&&"body"===u&&"window"===o.of)o.at.match(/^center-top$|^center$|^center-bottom$/i)?l=p.width/2:o.at.match(/right/i)&&(l=p.width),o.at.match(/^left-center$|^center$|^right-center$/i)?r=p.height/2:o.at.match(/bottom/i)&&(r=p.height),c.left=l-i-parseFloat(m.borderLeftWidth),c.top=r-s-parseFloat(m.borderTopWidth),n.style.position="fixed";else if("window"===e.options.container&&"body"===u&&o.of.classList&&o.of.classList.contains("jsPanel")){const e=a.getBoundingClientRect();l=o.at.match(/^center-top$|^center$|^center-bottom$/i)?e.width/2+e.left:o.at.match(/right/i)?e.width+e.left:e.left,r=o.at.match(/^left-center$|^center$|^right-center$/i)?e.height/2+e.top:o.at.match(/bottom/i)?e.height+e.top:e.top,c.left=l-i,c.top=r-s,n.style.position="fixed";}else if("body"===u&&"window"!==o.of){const e=a.getBoundingClientRect();l=o.at.match(/^center-top$|^center$|^center-bottom$/i)?e.width/2+e.left+pageXOffset:o.at.match(/right/i)?e.width+e.left+pageXOffset:e.left+pageXOffset,r=o.at.match(/^left-center$|^center$|^right-center$/i)?e.height/2+e.top+pageYOffset:o.at.match(/bottom/i)?e.height+e.top+pageYOffset:e.top+pageYOffset,c.left=l-i-parseFloat(m.borderLeftWidth),c.top=r-s-parseFloat(m.borderTopWidth);}else if("body"===u||"window"!==o.of&&o.of){if("body"!==u&&f.contains(a)){const e=a.getBoundingClientRect();l=o.at.match(/^center-top$|^center$|^center-bottom$/i)?e.left-g.left+e.width/2:o.at.match(/right/i)?e.left-g.left+e.width:e.left-g.left,r=o.at.match(/^left-center$|^center$|^right-center$/i)?e.top-g.top+e.height/2:o.at.match(/bottom/i)?e.top-g.top+e.height:e.top-g.top,c.left=l-i-parseFloat(m.borderLeftWidth),c.top=r-s-parseFloat(m.borderTopWidth);}}else{const e=parseFloat(m.borderLeftWidth)+parseFloat(m.borderRightWidth),t=parseFloat(m.borderTopWidth)+parseFloat(m.borderBottomWidth);o.at.match(/^center-top$|^center$|^center-bottom$/i)?l=g.width/2-e/2:o.at.match(/right/i)&&(l=g.width-e),o.at.match(/^left-center$|^center$|^right-center$/i)?r=g.height/2-t/2:o.at.match(/bottom/i)&&(r=g.height-t),c.left=l-i,c.top=r-s;}if(o.autoposition&&o.my===o.at&&["left-top","center-top","right-top","left-bottom","center-bottom","right-bottom"].indexOf(o.my)>=0){"function"==typeof o.autoposition&&(o.autoposition=o.autoposition());const e=`${o.my}-${o.autoposition.toLowerCase()}`;n.classList.add(e);const t=Array.prototype.slice.call(document.querySelectorAll(`.${e}`)),a=t.indexOf(n);t.length>1&&("down"===o.autoposition?t.forEach((e,n)=>{n>0&&n<=a&&(c.top+=t[--n].getBoundingClientRect().height+jsPanel.autopositionSpacing);}):"up"===o.autoposition?t.forEach((e,n)=>{n>0&&n<=a&&(c.top-=t[--n].getBoundingClientRect().height+jsPanel.autopositionSpacing);}):"right"===o.autoposition?t.forEach((e,n)=>{n>0&&n<=a&&(c.left+=t[--n].getBoundingClientRect().width+jsPanel.autopositionSpacing);}):"left"===o.autoposition&&t.forEach((e,n)=>{n>0&&n<=a&&(c.left-=t[--n].getBoundingClientRect().width+jsPanel.autopositionSpacing);}));}const b=n.getScaleFactor?n.getScaleFactor():{x:1,y:1};c.left/=b.x,c.top/=b.y;const y=parseFloat(m.borderLeftWidth)+parseFloat(m.borderRightWidth),w=parseFloat(m.borderTopWidth)+parseFloat(m.borderBottomWidth),j=y*(1-b.x)/b.x,P=w*(1-b.y)/b.y;if(o.at.match(/^right-top$|^right-center$|^right-bottom$/i)?c.left+=j:o.at.match(/^center-top$|^center$|^center-bottom$/i)&&(c.left+=j/2),o.at.match(/^left-bottom$|^center-bottom$|^right-bottom$/i)?c.top+=P:o.at.match(/^left-center$|^center$|^right-center$/i)&&(c.top+=P/2),c.left+="px",c.top+="px",n.style.left=c.left,n.style.top=c.top,o.offsetX&&("number"==typeof o.offsetX?n.style.left=`calc(${c.left} + ${o.offsetX}px)`:n.style.left=`calc(${c.left} + ${o.offsetX})`,c.left=window.getComputedStyle(n).left),o.offsetY&&("number"==typeof o.offsetY?n.style.top=`calc(${c.top} + ${o.offsetY}px)`:n.style.top=`calc(${c.top} + ${o.offsetY})`,c.top=window.getComputedStyle(n).top),o.minLeft){const e=parseFloat(c.left);"number"==typeof o.minLeft&&(o.minLeft+="px"),n.style.left=o.minLeft,e>parseFloat(window.getComputedStyle(n).left)&&(n.style.left=e+"px"),c.left=window.getComputedStyle(n).left;}if(o.maxLeft){const e=parseFloat(c.left);"number"==typeof o.maxLeft&&(o.maxLeft+="px"),n.style.left=o.maxLeft,e<parseFloat(window.getComputedStyle(n).left)&&(n.style.left=e+"px"),c.left=window.getComputedStyle(n).left;}if(o.maxTop){const e=parseFloat(c.top);"number"==typeof o.maxTop&&(o.maxTop+="px"),n.style.top=o.maxTop,e<parseFloat(window.getComputedStyle(n).top)&&(n.style.top=e+"px"),c.top=window.getComputedStyle(n).top;}if(o.minTop){const e=parseFloat(c.top);"number"==typeof o.minTop&&(o.minTop+="px"),n.style.top=o.minTop,e>parseFloat(window.getComputedStyle(n).top)&&(n.style.top=e+"px"),c.top=window.getComputedStyle(n).top;}if("function"==typeof o.modify){const e=o.modify.call(c,c);n.style.left=e.left,n.style.top=e.top;}return n.style.opacity=1,n.style.left=window.getComputedStyle(n).left,n.style.top=window.getComputedStyle(n).top,n},processCallbacks(e,t,n="some",o,a){if("function"==typeof t&&(t=[t]),n)return t[n](function(t){return t.call(e,e,o,a)});t.forEach(function(t){t.call(e,e,o,a);});},removeMinimizedReplacement(e){const t=document.getElementById(`${e.id}-min`);t&&t.parentElement.removeChild(t);},removeSnapAreas(){document.querySelectorAll(".jsPanel-snap-area").forEach(function(e){e.parentElement.removeChild(e);});},remClass:(e,t)=>(t.split(" ").forEach(t=>e.classList.remove(t)),e),resetZi(){this.zi=((e=jsPanel.ziBase)=>{let t=e;return {next:()=>t++}})(),Array.prototype.slice.call(document.querySelectorAll(".jsPanel-standard")).sort((e,t)=>e.style.zIndex-t.style.zIndex).forEach(e=>{e.style.zIndex=jsPanel.zi.next();});},resizeit(e,t={}){const n=Object.assign({},this.defaults.resizeit,t),o=e.parentElement,a=o.tagName.toLowerCase(),i=this.pOcontainment(n.containment),s=new CustomEvent("jspanelresizestart",{detail:e.id}),l=new CustomEvent("jspanelresize",{detail:e.id}),r=new CustomEvent("jspanelresizestop",{detail:e.id});let c,d,p,h,f="function"==typeof n.maxWidth?n.maxWidth():n.maxWidth||1e4,m="function"==typeof n.maxHeight?n.maxHeight():n.maxHeight||1e4,g="function"==typeof n.minWidth?n.minWidth():n.minWidth,u="function"==typeof n.minHeight?n.minHeight():n.minHeight;return n.handles.split(",").forEach(t=>{const n=document.createElement("DIV");n.className=`jsPanel-resizeit-handle jsPanel-resizeit-${t.trim()}`,n.style.zIndex=90,e.append(n);}),e.querySelectorAll(".jsPanel-resizeit-handle").forEach(t=>{jsPanel.pointerdown.forEach(function(r){t.addEventListener(r,t=>{if(t.preventDefault(),t.button&&t.button>0)return !1;e.content.style.pointerEvents="none";const r=e.getBoundingClientRect(),b=o.getBoundingClientRect(),y=window.getComputedStyle(o,null),w=parseInt(y.borderLeftWidth,10),j=parseInt(y.borderTopWidth,10),P=y.getPropertyValue("position"),v=t.clientX||t.touches[0].clientX,C=t.clientY||t.touches[0].clientY,E=v/C,F=r.width,x=r.height,z=t.target.classList,S=e.getScaleFactor(),B=r.width/r.height;let A=r.left,k=r.top,$=1e4,T=1e4,L=1e4,D=1e4;"body"!==a&&(A=r.left-b.left+o.scrollLeft,k=r.top-b.top+o.scrollTop),"body"===a&&i?($=document.documentElement.clientWidth-r.left,L=document.documentElement.clientHeight-r.top,T=r.width+r.left,D=r.height+r.top):i&&("static"===P?($=b.width-r.left+w,L=b.height+b.top-r.top+j,T=r.width+(r.left-b.left)-w,D=r.height+(r.top-b.top)-j):($=o.clientWidth-(r.left-b.left)/S.x+w,L=o.clientHeight-(r.top-b.top)/S.y+j,T=(r.width+r.left-b.left)/S.x-w,D=e.clientHeight+(r.top-b.top)/S.y-j)),i&&(T-=i[3],D-=i[0],$-=i[1],L-=i[2]);const R=window.getComputedStyle(e),q=parseFloat(R.width)-r.width,O=parseFloat(R.height)-r.height;let W=parseFloat(R.left)-r.left,I=parseFloat(R.top)-r.top;o!==document.body&&(W+=b.left,I+=b.top),c=(t=>{d||(document.dispatchEvent(s),n.start.length&&jsPanel.processCallbacks(e,n.start,!1,{width:F,height:x},t),jsPanel.front(e)),d=1,document.dispatchEvent(l);let a,r=t.touches?t.touches[0].clientX:t.clientX,c=t.touches?t.touches[0].clientY:t.clientY;z.contains("jsPanel-resizeit-e")?((p=F+(r-v)/S.x+q)>=$&&(p=$),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px",n.containment&&(a=e.overlaps(o)).bottom<=i[2]&&(e.style.height=L+"px",e.style.width=L*B+"px"))):z.contains("jsPanel-resizeit-s")?((h=x+(c-C)/S.y+O)>=L&&(h=L),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px",n.containment&&(a=e.overlaps(o)).right<=i[1]&&(e.style.width=$+"px",e.style.height=$/B+"px"))):z.contains("jsPanel-resizeit-w")?((p=F+(v-r)/S.x+q)<=f&&p>=g&&p<=T&&(e.style.left=A+(r-v)/S.x+W+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px",n.containment&&(a=e.overlaps(o)).bottom<=i[2]&&(e.style.height=L+"px",e.style.width=L*B+"px"))):z.contains("jsPanel-resizeit-n")?((h=x+(C-c)/S.y+O)<=m&&h>=u&&h<=D&&(e.style.top=k+(c-C)/S.y+I+"px"),h>=D&&(h=D),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px",n.containment&&(a=e.overlaps(o)).right<=i[1]&&(e.style.width=$+"px",e.style.height=$/B+"px"))):z.contains("jsPanel-resizeit-se")?((p=F+(r-v)/S.x+q)>=$&&(p=$),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px"),(h=x+(c-C)/S.y+O)>=L&&(h=L),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px",n.containment&&(a=e.overlaps(o)).right<=i[1]&&(e.style.width=$+"px",e.style.height=$/B+"px"))):z.contains("jsPanel-resizeit-sw")?((h=x+(c-C)/S.y+O)>=L&&(h=L),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px"),(p=F+(v-r)/S.x+q)<=f&&p>=g&&p<=T&&(e.style.left=A+(r-v)/S.x+W+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px",n.containment&&(a=e.overlaps(o)).bottom<=i[2]&&(e.style.height=L+"px",e.style.width=L*B+"px"))):z.contains("jsPanel-resizeit-ne")?((p=F+(r-v)/S.x+q)>=$&&(p=$),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px"),(h=x+(C-c)/S.y+O)<=m&&h>=u&&h<=D&&(e.style.top=k+(c-C)/S.y+I+"px"),h>=D&&(h=D),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px",n.containment&&(a=e.overlaps(o)).right<=i[1]&&(e.style.width=$+"px",e.style.height=$/B+"px"))):z.contains("jsPanel-resizeit-nw")&&(n.aspectRatio&&z.contains("jsPanel-resizeit-nw")&&(c=(r=c*E)/E),(p=F+(v-r)/S.x+q)<=f&&p>=g&&p<=T&&(e.style.left=A+(r-v)/S.x+W+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/B+"px"),(h=x+(C-c)/S.y+O)<=m&&h>=u&&h<=D&&(e.style.top=k+(c-C)/S.y+I+"px"),h>=D&&(h=D),h>=m?h=m:h<=u&&(h=u),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*B+"px")),window.getSelection().removeAllRanges();const b=window.getComputedStyle(e),y={left:parseFloat(b.left),top:parseFloat(b.top),right:parseFloat(b.right),bottom:parseFloat(b.bottom),width:parseFloat(b.width),height:parseFloat(b.height)};n.resize.length&&jsPanel.processCallbacks(e,n.resize,!1,y,t);}),jsPanel.pointermove.forEach(function(e){document.addEventListener(e,c,!1);}),window.addEventListener("mouseout",e=>{null===e.relatedTarget&&jsPanel.pointermove.forEach(function(e){document.removeEventListener(e,c,!1);});},!1);});});}),jsPanel.pointerup.forEach(function(t){document.addEventListener(t,t=>{if(jsPanel.pointermove.forEach(function(e){document.removeEventListener(e,c,!1);}),t.target.classList&&t.target.classList.contains("jsPanel-resizeit-handle")){let o,a,i=t.target.className;if(i.match(/jsPanel-resizeit-nw|jsPanel-resizeit-w|jsPanel-resizeit-sw/i)&&(o=!0),i.match(/jsPanel-resizeit-nw|jsPanel-resizeit-n|jsPanel-resizeit-ne/i)&&(a=!0),n.grid&&Array.isArray(n.grid)){1===n.grid.length&&(n.grid[1]=n.grid[0]);const t=parseFloat(e.style.width),i=parseFloat(e.style.height),s=t%n.grid[0],l=i%n.grid[1],r=parseFloat(e.style.left),c=parseFloat(e.style.top),d=r%n.grid[0],p=c%n.grid[1];s<n.grid[0]/2?e.style.width=t-s+"px":e.style.width=t+(n.grid[0]-s)+"px",l<n.grid[1]/2?e.style.height=i-l+"px":e.style.height=i+(n.grid[1]-l)+"px",o&&(d<n.grid[0]/2?e.style.left=r-d+"px":e.style.left=r+(n.grid[0]-d)+"px"),a&&(p<n.grid[1]/2?e.style.top=c-p+"px":e.style.top=c+(n.grid[1]-p)+"px");}}d&&(e.content.style.pointerEvents="inherit",d=void 0,e.saveCurrentDimensions(),e.saveCurrentPosition(),document.dispatchEvent(r),n.stop.length&&jsPanel.processCallbacks(e,n.stop,!1,{width:parseFloat(e.style.width),height:parseFloat(e.style.height)},t)),e.content.style.pointerEvents="inherit";},!1);}),n.disable&&e.querySelectorAll(".jsPanel-resizeit-handle").forEach(e=>{e.style.pointerEvents="none";}),e},setClass:(e,t)=>(t.split(" ").forEach(t=>e.classList.add(t)),e),setStyles(e,t){for(let n in t)if(t.hasOwnProperty(n)){const o=String(n).replace(/-\w/gi,e=>e.substr(-1).toUpperCase());e.style[o]=t[n];}return e},setStyle(e,t){return this.setStyles.call(e,e,t)},snapPanel(e,t,n=!1){if(n||(e.currentData.beforeSnap={width:e.currentData.width,height:e.currentData.height}),t&&"function"==typeof t&&!n)t.call(e,e,e.snappableTo);else if(!1!==t){const t=[0,0];if(e.options.dragit.snap.containment&&e.options.dragit.containment){const n=this.pOcontainment(e.options.dragit.containment),o=e.snappableTo;o.startsWith("left")?t[0]=n[3]:o.startsWith("right")&&(t[0]=-n[1]),o.endsWith("top")?t[1]=n[0]:o.endsWith("bottom")&&(t[1]=-n[2]);}e.reposition(`${e.snappableTo} ${t[0]} ${t[1]}`);}n||(e.snapped=e.snappableTo);},jsPanelError(e){this.prototype=new Error,this.message=e,this.name="jsPanel Error";},error(e){this.create({contentSize:{width:"calc(100% - 10px)",height:"auto"},position:"center-top 0 5 down",animateIn:"jsPanelFadeIn",theme:"danger filledlight",border:"1px",borderRadius:"4px",header:!1,content:`<div class="jsPanel-error-content"><div class="jsPanel-error-content-left"><div><i class="fa fa-exclamation-triangle fa-2x"></i></div></div><div class="jsPanel-error-content-right"><p>${e.message}</p></div></div><div class="jsPanel-error-close"><span class="jsPanel-ftr-btn">${jsPanel.icons.close}</span></div>`,callback:e=>{e.content.querySelector(".jsPanel-ftr-btn").addEventListener("click",()=>{e.close();});}});},create(e={},t){jsPanel.zi||(jsPanel.zi=((e=jsPanel.ziBase)=>{let t=e;return {next:()=>t++}})()),e.config?delete(e=Object.assign({},this.defaults,e.config,e)).config:e=Object.assign({},this.defaults,e),e.id?"function"==typeof e.id&&(e.id=e.id()):e.id=`jsPanel-${jsPanel.idCounter+=1}`;const n=document.getElementById(e.id);if(null!==n){if(n.classList.contains("jsPanel")&&n.front(),this.errorReporting)try{throw new jsPanel.jsPanelError("&#9664; COULD NOT CREATE NEW JSPANEL &#9658;<br>An element with the ID <code>"+e.id+"</code> already exists in the document.")}catch(e){jsPanel.error(e);}return !1}const o=this.pOcontainer(e.container);if(!o){if(this.errorReporting)try{throw new jsPanel.jsPanelError("&#9664; COULD NOT CREATE NEW JSPANEL &#9658;<br>The container to append the panel to does not exist")}catch(e){jsPanel.error(e);}return !1}e.maximizedMargin=this.pOcontainment(e.maximizedMargin),e.dragit&&(["start","drag","stop"].forEach(function(t){e.dragit[t]?"function"==typeof e.dragit[t]&&(e.dragit[t]=[e.dragit[t]]):e.dragit[t]=[];}),e.dragit.snap&&("object"==typeof e.dragit.snap?e.dragit.snap=Object.assign({},this.defaultSnapConfig,e.dragit.snap):e.dragit.snap=this.defaultSnapConfig)),e.resizeit&&["start","resize","stop"].forEach(function(t){e.resizeit[t]?"function"==typeof e.resizeit[t]&&(e.resizeit[t]=[e.resizeit[t]]):e.resizeit[t]=[];}),["onbeforeclose","onbeforemaximize","onbeforeminimize","onbeforenormalize","onbeforesmallify","onbeforeunsmallify","onclosed","onfronted","onmaximized","onminimized","onnormalized","onsmallified","onstatuschange","onunsmallified"].forEach(function(t){e[t]?"function"==typeof e[t]&&(e[t]=[e[t]]):e[t]=[];});const a=e.template?e.template:this.createPanelTemplate();a.options=e,a.closetimer=void 0,a.status="initialized",a.currentData={},a.header=a.querySelector(".jsPanel-hdr"),a.headerbar=a.header.querySelector(".jsPanel-headerbar"),a.titlebar=a.header.querySelector(".jsPanel-titlebar"),a.headerlogo=a.headerbar.querySelector(".jsPanel-headerlogo"),a.headertitle=a.headerbar.querySelector(".jsPanel-title"),a.controlbar=a.headerbar.querySelector(".jsPanel-controlbar"),a.headertoolbar=a.header.querySelector(".jsPanel-hdr-toolbar"),a.content=a.querySelector(".jsPanel-content"),a.footer=a.querySelector(".jsPanel-ftr"),a.snappableTo=!1,a.snapped=!1;const i=new CustomEvent("jspanelloaded",{detail:e.id}),s=new CustomEvent("jspanelcloseduser",{detail:e.id}),l=new CustomEvent("jspanelstatuschange",{detail:e.id}),r=new CustomEvent("jspanelbeforenormalize",{detail:e.id}),c=new CustomEvent("jspanelnormalized",{detail:e.id}),d=new CustomEvent("jspanelbeforemaximize",{detail:e.id}),p=new CustomEvent("jspanelmaximized",{detail:e.id}),h=new CustomEvent("jspanelbeforeminimize",{detail:e.id}),f=new CustomEvent("jspanelminimized",{detail:e.id}),m=new CustomEvent("jspanelbeforesmallify",{detail:e.id}),g=new CustomEvent("jspanelsmallified",{detail:e.id}),u=new CustomEvent("jspanelsmallifiedmax",{detail:e.id}),b=new CustomEvent("jspanelbeforeunsmallify",{detail:e.id}),y=new CustomEvent("jspanelfronted",{detail:e.id}),w=a.querySelector(".jsPanel-btn-close"),j=a.querySelector(".jsPanel-btn-maximize"),P=a.querySelector(".jsPanel-btn-normalize"),v=a.querySelector(".jsPanel-btn-smallify"),C=a.querySelector(".jsPanel-btn-smallifyrev"),E=a.querySelector(".jsPanel-btn-minimize");"onpointerdown"in window&&a.controlbar.querySelectorAll(".jsPanel-btn").forEach(function(e){e.addEventListener("pointerdown",e=>{e.preventDefault();},!0);}),w&&jsPanel.pointerup.forEach(e=>{w.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;jsPanel.close(a),document.dispatchEvent(s);});}),j&&jsPanel.pointerup.forEach(e=>{j.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.maximize();});}),P&&jsPanel.pointerup.forEach(e=>{P.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.normalize();});}),v&&jsPanel.pointerup.forEach(e=>{v.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.smallify();});}),C&&jsPanel.pointerup.forEach(e=>{C.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.unsmallify();});}),E&&jsPanel.pointerup.forEach(e=>{E.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.minimize();});});let F=jsPanel.extensions;for(let e in F)F.hasOwnProperty(e)&&(a[e]=F[e]);if(a.clearTheme=(e=>(jsPanel.themes.forEach(e=>{["panel",`jsPanel-theme-${e}`,`panel-${e}`,`${e}-color`].forEach(e=>{a.classList.remove(e);}),a.header.classList.remove(`jsPanel-theme-${e}`);},a),a.content.classList.remove("jsPanel-content-filled","jsPanel-content-filledlight"),a.footer.classList.remove("panel-footer"),a.header.classList.remove("jsPanel-hdr-light"),a.header.classList.remove("jsPanel-hdr-dark"),jsPanel.setStyle(a,{backgroundColor:"",borderWidth:"",borderStyle:"",borderColor:""}),jsPanel.setStyle(a.content,{background:"",border:""}),jsPanel.setStyle(a.headertoolbar,{boxShadow:"",width:"",marginLeft:""}),a.header.style.background="",Array.prototype.slice.call(a.controlbar.querySelectorAll(".jsPanel-icon")).concat([a.headerlogo,a.headertitle,a.headertoolbar,a.content]).forEach(e=>{e.style.color="";}),e&&e.call(a,a),a)),a.getThemeDetails=(e=>{const t=e.toLowerCase(),n={color:!1,colors:!1,filling:!1},o=t.split("fill");if(n.color=o[0].trim().replace(/\s*/g,""),2===o.length)if(o[1].startsWith("edlight"))n.filling="filledlight";else if(o[1].startsWith("eddark"))n.filling="filleddark";else if(o[1].startsWith("ed"))n.filling="filled";else if(o[1].startsWith("color")){let e=o[1].split("color"),t=e[e.length-1].trim().replace(/\s*/g,"");jsPanel.colorNames[t]&&(t=jsPanel.colorNames[t]),t.match(/^([0-9a-f]{3}|[0-9a-f]{6})$/gi)&&(t="#"+t),n.filling=t;}if(jsPanel.themes.some(function(e){return e===n.color.split(/\s/i)[0]})){let e=n.color.split(/\s/i)[0],t=document.createElement("button");t.className=e+"-bg",document.body.appendChild(t),n.color=getComputedStyle(t).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(t),t=void 0;}else if(n.color.startsWith("bootstrap-")){let e=n.color.indexOf("-"),t=document.createElement("button");t.className="btn btn"+n.color.slice(e),document.body.appendChild(t),n.color=getComputedStyle(t).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(t),t=void 0;}else if(n.color.startsWith("mdb-")){let e,t=n.color.indexOf("-")+1,o=document.createElement("span");e=n.color.endsWith("-dark")?(e=n.color.slice(t)).replace("-dark","-color-dark"):n.color.slice(t)+"-color",o.className=e,document.body.appendChild(o),n.color=getComputedStyle(o).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(o),o=void 0;}return n.colors=jsPanel.calcColors(n.color),n}),a.applyColorTheme=(e=>{a.style.backgroundColor=e.colors[0],a.header.style.backgroundColor=e.colors[0],[".jsPanel-headerlogo",".jsPanel-title",".jsPanel-hdr-toolbar"].forEach(t=>{a.querySelector(t).style.color=e.colors[3];},a),a.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(t=>{t.style.color=e.colors[3];});const t="#000000"===e.colors[3]?"1px solid rgba(0,0,0,0.2)":"1px solid rgba(255,255,255,0.2)";if(a.headertoolbar.style.borderTop=t,a.content.style.borderTop=t,"#000000"===e.colors[3]?a.header.classList.add("jsPanel-hdr-light"):a.header.classList.add("jsPanel-hdr-dark"),e.filling){const t=e.filling;if("filled"===t)jsPanel.setStyle(a.content,{backgroundColor:e.colors[2],color:e.colors[3]});else if("filledlight"===t)a.content.style.backgroundColor=e.colors[1];else if("filleddark"===t)jsPanel.setStyle(a.content,{backgroundColor:e.colors[6],color:e.colors[7]});else{const e=jsPanel.perceivedBrightness(t)<=jsPanel.colorBrightnessThreshold?"#fff":"#000";a.content.style.backgroundColor=t,a.content.style.color=e;}}return a}),a.applyCustomTheme=(e=>{let t,n={bgPanel:"#fff",bgContent:"#fff",colorHeader:"#000",colorContent:"#000"},o=(t="object"==typeof e?Object.assign(n,e):n).bgPanel,i=t.bgContent,s=t.colorHeader,l=t.colorContent;if(jsPanel.colorNames[o]?a.style.background="#"+jsPanel.colorNames[o]:a.style.background=o,jsPanel.colorNames[s]&&(s="#"+jsPanel.colorNames[s]),[".jsPanel-headerlogo",".jsPanel-title",".jsPanel-hdr-toolbar"].forEach(e=>{a.querySelector(e).style.color=s;},a),a.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(e=>{e.style.color=s;}),jsPanel.colorNames[i]?a.content.style.background="#"+jsPanel.colorNames[i]:a.content.style.background=i,jsPanel.colorNames[l]?a.content.style.color="#"+jsPanel.colorNames[l]:a.content.style.color=l,jsPanel.perceivedBrightness(s)>jsPanel.colorBrightnessThreshold?(a.headertoolbar.style.borderTop="1px solid rgba(255,255,255,0.2)",a.header.classList.add("jsPanel-hdr-dark")):(a.headertoolbar.style.borderTop="1px solid rgba(0,0,0,0.2)",a.header.classList.add("jsPanel-hdr-light")),jsPanel.perceivedBrightness(l)>jsPanel.colorBrightnessThreshold?a.content.style.borderTop="1px solid rgba(255,255,255,0.2)":a.content.style.borderTop="1px solid rgba(0,0,0,0.2)",t.border){let e=t.border,n=e.lastIndexOf(" "),o=e.slice(++n);jsPanel.colorNames[o]&&(e=e.replace(o,"#"+jsPanel.colorNames[o])),a.style.border=e;}return a}),a.applyThemeBorder=(()=>{let t=jsPanel.pOborder(e.border);t[2].length?jsPanel.colorNames[t[2]]&&(t[2]="#"+jsPanel.colorNames[t[2]]):t[2]=a.style.backgroundColor,t=t.join(" "),a.style.border=t,a.options.border=t;}),a.applyThemeBorderRadius=(e=>{let t="string"==typeof e?e.trim().match(/\d*\.?\d+[a-zA-Z]{2,4}/i):e+"px",n=a.content.style;return t?(t="string"==typeof t?t:t[0],a.style.borderRadius=t,a.querySelector(".jsPanel-hdr")?(a.header.style.borderTopLeftRadius=t,a.header.style.borderTopRightRadius=t):(n.borderTopLeftRadius=t,n.borderTopRightRadius=t),a.querySelector(".jsPanel-ftr.active")?(a.footer.style.borderBottomRightRadius=t,a.footer.style.borderBottomLeftRadius=t):(n.borderBottomRightRadius=t,n.borderBottomLeftRadius=t),a.options.borderRadius=t):a.options.borderRadius=void 0,a}),a.setTheme=((t=e.theme,n)=>{let o;if("minimized"===a.status&&(o=!0,a.normalize()),a.clearTheme(),"object"==typeof t)e.border=void 0,a.applyCustomTheme(t);else{if("none"===t)return a.style.backgroundColor="#fff",a.header.classList.add("jsPanel-hdr-light"),o&&a.minimize(),a;let n=a.getThemeDetails(t);a.applyColorTheme(n),e.border?a.applyThemeBorder():(a.style.borderWidth="",a.style.borderStyle="",a.style.borderColor="");}return o&&a.minimize(),n&&n.call(a,a),a}),a.close=(e=>{jsPanel.close(a,e);}),a.maximize=(t=>{if(a.statusBefore=a.status,e.onbeforemaximize&&e.onbeforemaximize.length>0&&!jsPanel.processCallbacks(a,e.onbeforemaximize,"some",a.statusBefore))return a;document.dispatchEvent(d);const n=a.parentElement,o=e.maximizedMargin;return n===document.body?(a.style.width=document.documentElement.clientWidth-o[1]-o[3]+"px",a.style.height=document.documentElement.clientHeight-o[0]-o[2]+"px",a.style.left=o[3]+"px",a.style.top=o[0]+"px",e.position.fixed||(a.style.left=window.pageXOffset+o[3]+"px",a.style.top=window.pageYOffset+o[0]+"px")):(a.style.width=n.clientWidth-o[1]-o[3]+"px",a.style.height=n.clientHeight-o[0]-o[2]+"px",a.style.left=o[3]+"px",a.style.top=o[0]+"px"),jsPanel.removeMinimizedReplacement(a),a.status="maximized",a.setControls([".jsPanel-btn-maximize",".jsPanel-btn-smallifyrev"]),jsPanel.front(a),document.dispatchEvent(p),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),t&&t.call(a,a,a.statusBefore),e.onmaximized&&jsPanel.processCallbacks(a,e.onmaximized,"every",a.statusBefore),a}),a.minimize=(t=>{if("minimized"===a.status)return a;if(a.statusBefore=a.status,e.onbeforeminimize&&e.onbeforeminimize.length>0&&!jsPanel.processCallbacks(a,e.onbeforeminimize,"some",a.statusBefore))return a;if(document.dispatchEvent(h),!document.getElementById("jsPanel-replacement-container")){const e=document.createElement("div");e.id="jsPanel-replacement-container",document.body.append(e);}if(a.style.left="-9999px",a.status="minimized",document.dispatchEvent(f),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),e.minimizeTo){let t,n,o=a.createMinimizedReplacement();if("default"===e.minimizeTo)document.getElementById("jsPanel-replacement-container").append(o);else if("parentpanel"===e.minimizeTo){const e=(n=a.closest(".jsPanel-content").parentElement).querySelectorAll(".jsPanel-minimized-box");(t=e[e.length-1]).append(o);}else"parent"===e.minimizeTo?((t=(n=a.parentElement).querySelector(".jsPanel-minimized-container"))||((t=document.createElement("div")).className="jsPanel-minimized-container",n.append(t)),t.append(o)):document.querySelector(e.minimizeTo).append(o);}return t&&t.call(a,a,a.statusBefore),e.onminimized&&jsPanel.processCallbacks(a,e.onminimized,"every",a.statusBefore),a}),a.normalize=(t=>"normalized"===a.status?a:(a.statusBefore=a.status,e.onbeforenormalize&&e.onbeforenormalize.length>0&&!jsPanel.processCallbacks(a,e.onbeforenormalize,"some",a.statusBefore)?a:(document.dispatchEvent(r),a.style.width=a.currentData.width,a.style.height=a.currentData.height,a.style.left=a.currentData.left,a.style.top=a.currentData.top,jsPanel.removeMinimizedReplacement(a),a.status="normalized",a.setControls([".jsPanel-btn-normalize",".jsPanel-btn-smallifyrev"]),jsPanel.front(a),document.dispatchEvent(c),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),t&&t.call(a,a,a.statusBefore),e.onnormalized&&jsPanel.processCallbacks(a,e.onnormalized,"every",a.statusBefore),a))),a.smallify=(t=>{if("smallified"===a.status||"smallifiedmax"===a.status)return a;if(a.statusBefore=a.status,e.onbeforesmallify&&e.onbeforesmallify.length>0&&!jsPanel.processCallbacks(a,e.onbeforesmallify,"some",a.statusBefore))return a;document.dispatchEvent(m),"normalized"===a.status&&a.saveCurrentDimensions(),a.style.overflow="hidden";const n=window.getComputedStyle(a),o=parseFloat(window.getComputedStyle(a.headerbar).height);a.style.height=parseFloat(n.borderTopWidth)+parseFloat(n.borderBottomWidth)+o+"px","normalized"===a.status?(a.setControls([".jsPanel-btn-normalize",".jsPanel-btn-smallify"]),a.status="smallified",document.dispatchEvent(g),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore)):"maximized"===a.status&&(a.setControls([".jsPanel-btn-maximize",".jsPanel-btn-smallify"]),a.status="smallifiedmax",document.dispatchEvent(u),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore));const i=a.querySelectorAll(".jsPanel-minimized-box");return i[i.length-1].style.display="none",t&&t.call(a,a,a.statusBefore),e.onsmallified&&jsPanel.processCallbacks(a,e.onsmallified,"every",a.statusBefore),a}),a.unsmallify=(t=>{if(a.statusBefore=a.status,"smallified"===a.status||"smallifiedmax"===a.status){if(e.onbeforeunsmallify&&e.onbeforeunsmallify.length>0&&!jsPanel.processCallbacks(a,e.onbeforeunsmallify,"some",a.statusBefore))return a;document.dispatchEvent(b),a.style.overflow="visible",jsPanel.front(a),"smallified"===a.status?(a.style.height=a.currentData.height,a.setControls([".jsPanel-btn-normalize",".jsPanel-btn-smallifyrev"]),a.status="normalized",document.dispatchEvent(c),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore)):"smallifiedmax"===a.status?a.maximize():"minimized"===a.status&&a.normalize();const n=a.querySelectorAll(".jsPanel-minimized-box");n[n.length-1].style.display="flex",t&&t.call(a,a,a.statusBefore),e.onunsmallified&&jsPanel.processCallbacks(a,e.onunsmallified,"every",a.statusBefore);}return a}),a.front=((t,n=!0)=>(jsPanel.front(a),document.dispatchEvent(y),t&&t.call(a,a),e.onfronted&&n&&jsPanel.processCallbacks(a,e.onfronted,"every",a.status),a)),a.closeChildpanels=(e=>(a.getChildpanels().forEach(e=>jsPanel.close(e)),e&&e.call(a,a),a)),a.getChildpanels=(e=>{const t=a.content.querySelectorAll(".jsPanel");return e&&t.forEach(function(t,n,o){e.call(t,t,n,o);}),t}),a.isChildpanel=(e=>{const t=a.closest(".jsPanel-content"),n=t?t.parentElement:null;return e&&e.call(a,a,n),!!t&&n}),a.contentRemove=(e=>(jsPanel.emptyNode(a.content),e&&e.call(a,a),a)),a.createMinimizedReplacement=(()=>{const t=jsPanel.createMinimizedTemplate(),n=window.getComputedStyle(a.headertitle).color,o=window.getComputedStyle(a),i=e.iconfont,s=t.querySelector(".jsPanel-controlbar");return "auto-show-hide"!==a.options.header?jsPanel.setStyle(t,{backgroundColor:o.backgroundColor,backgroundPositionX:o.backgroundPositionX,backgroundPositionY:o.backgroundPositionY,backgroundRepeat:o.backgroundRepeat,backgroundAttachment:o.backgroundAttachment,backgroundImage:o.backgroundImage,backgroundSize:o.backgroundSize,backgroundOrigin:o.backgroundOrigin,backgroundClip:o.backgroundClip}):t.style.backgroundColor=window.getComputedStyle(a.header).backgroundColor,t.id=a.id+"-min",t.querySelector(".jsPanel-headerbar").replaceChild(a.headerlogo.cloneNode(!0),t.querySelector(".jsPanel-headerlogo")),t.querySelector(".jsPanel-titlebar").replaceChild(a.headertitle.cloneNode(!0),t.querySelector(".jsPanel-title")),t.querySelector(".jsPanel-titlebar").setAttribute("title",a.headertitle.textContent),t.querySelector(".jsPanel-title").style.color=n,s.style.color=n,["jsPanel-hdr-dark","jsPanel-hdr-light"].forEach(function(e){a.header.classList.contains(e)&&t.querySelector(".jsPanel-hdr").classList.add(e);}),a.setIconfont(i,t),"onpointerdown"in window&&t.querySelectorAll(".jsPanel-btn").forEach(function(e){e.addEventListener("pointerdown",e=>{e.preventDefault();},!0);}),"enabled"===a.dataset.btnnormalize?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-normalize").addEventListener(e,()=>{a.normalize();});}):s.querySelector(".jsPanel-btn-normalize").style.display="none","enabled"===a.dataset.btnmaximize?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-maximize").addEventListener(e,()=>{a.maximize();});}):s.querySelector(".jsPanel-btn-maximize").style.display="none","enabled"===a.dataset.btnclose?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-close").addEventListener(e,()=>{jsPanel.close(a);});}):s.querySelector(".jsPanel-btn-close").style.display="none",t}),a.dragit=(t=>{const n=Object.assign({},jsPanel.defaults.dragit,e.dragit),o=a.querySelectorAll(n.handles);return "disable"===t?o.forEach(e=>{e.style.pointerEvents="none";}):o.forEach(e=>{e.style.pointerEvents="auto";}),a}),a.resizeit=(e=>{const t=a.querySelectorAll(".jsPanel-resizeit-handle");return "disable"===e?t.forEach(e=>{e.style.pointerEvents="none";}):t.forEach(e=>{e.style.pointerEvents="auto";}),a}),a.getScaleFactor=(()=>{const e=a.getBoundingClientRect();return {x:e.width/a.offsetWidth,y:e.height/a.offsetHeight}}),a.calcSizeFactors=(()=>{const t=window.getComputedStyle(a);if("window"===e.container)a.hf=parseFloat(a.style.left)/(window.innerWidth-parseFloat(a.style.width)),a.vf=parseFloat(a.style.top)/(window.innerHeight-parseFloat(t.height));else if(a.parentElement){let e=a.parentElement.getBoundingClientRect();a.hf=parseFloat(a.style.left)/(e.width-parseFloat(a.style.width)),a.vf=parseFloat(a.style.top)/(e.height-parseFloat(t.height));}}),a.saveCurrentDimensions=(()=>{const e=window.getComputedStyle(a);a.currentData.width=e.width,"normalized"===a.status&&(a.currentData.height=e.height);}),a.saveCurrentPosition=(()=>{const e=window.getComputedStyle(a);a.currentData.left=e.left,a.currentData.top=e.top;}),a.reposition=((...t)=>{let n,o=e.position,i=!0;return t.forEach(function(e){"string"==typeof e||"object"==typeof e?o=e:"boolean"==typeof e?i=e:"function"==typeof e&&(n=e);}),jsPanel.position(a,o),i&&a.saveCurrentPosition(),n&&n.call(a,a),a}),a.repositionOnSnap=(t=>{let n="0",o="0",i=jsPanel.pOcontainment(e.dragit.containment);e.dragit.snap.containment&&("left-top"===t?(n=i[3],o=i[0]):"right-top"===t?(n=-i[1],o=i[0]):"right-bottom"===t?(n=-i[1],o=-i[2]):"left-bottom"===t?(n=i[3],o=-i[2]):"center-top"===t?(n=i[3]/2-i[1]/2,o=i[0]):"center-bottom"===t?(n=i[3]/2-i[1]/2,o=-i[2]):"left-center"===t?(n=i[3],o=i[0]/2-i[2]/2):"right-center"===t&&(n=-i[1],o=i[0]/2-i[2]/2)),jsPanel.position(a,t),jsPanel.setStyle(a,{left:`calc(${a.style.left} + ${n}px)`,top:`calc(${a.style.top} + ${o}px)`});}),a.overlaps=((e,t,n)=>jsPanel.overlaps(a,e,t,n)),a.shiftWithinParent=(e=>{const t=e.getBoundingClientRect(),n=a.options.maximizedMargin;let o,i;a.style.left=(()=>(o=(t.width-parseFloat(a.style.width))*a.hf)<=n[3]?`${n[3]}px`:`${o}px`)(),a.style.top=(()=>(i=(t.height-parseFloat(a.currentData.height))*a.vf)<=n[0]?`${n[0]}px`:`${i}px`)();}),a.setSize=(()=>{if(e.panelSize){const t=jsPanel.pOsize(a,e.panelSize);a.style.width=t.width,a.style.height=t.height;}else if(e.contentSize){const t=jsPanel.pOsize(a,e.contentSize);a.content.style.width=t.width,a.content.style.height=t.height,a.style.width=t.width,a.content.style.width="100%";}return a}),a.resize=((...e)=>{let t,n=window.getComputedStyle(a),o={width:n.width,height:n.height},i=!0;e.forEach(function(e){"string"==typeof e?o=e:"object"==typeof e?o=Object.assign(o,e):"boolean"==typeof e?i=e:"function"==typeof e&&(t=e);});let s=jsPanel.pOsize(a,o);return a.style.width=s.width,a.style.height=s.height,i&&a.saveCurrentDimensions(),t&&t.call(a,a),a}),a.setControls=((e,t)=>(a.header.querySelectorAll(".jsPanel-btn").forEach(e=>{const t=e.className.split("-"),n=t[t.length-1];"hidden"!==a.getAttribute(`data-btn${n}`)&&(e.style.display="block");}),e.forEach(e=>{const t=a.controlbar.querySelector(e);t&&(t.style.display="none");}),t&&t.call(a,a),a)),a.setControlStatus=((e,t="enable",n)=>{const o=a.controlbar.querySelector(`.jsPanel-btn-${e}`);return "disable"===t?"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"disabled"),o.style.pointerEvents="none",o.style.opacity=.4,o.style.cursor="default"):"hide"===t?"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"hidden"),o.style.display="none"):"show"===t?"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"enabled"),o.style.display="block",o.style.pointerEvents="auto",o.style.opacity=1,o.style.cursor="pointer"):"enable"===t?"removed"!==a.getAttribute(`data-btn${e}`)&&("hidden"===a.getAttribute(`data-btn${e}`)&&(o.style.display="block"),a.setAttribute(`data-btn${e}`,"enabled"),o.style.pointerEvents="auto",o.style.opacity=1,o.style.cursor="pointer"):"remove"===t&&(a.controlbar.removeChild(o),a.setAttribute(`data-btn${e}`,"removed")),n&&n.call(a,a),a}),a.setControlSize=(e=>{const t=e.toLowerCase();a.controlbar.querySelectorAll(".jsPanel-btn").forEach(e=>{["jsPanel-btn-xl","jsPanel-btn-lg","jsPanel-btn-md","jsPanel-btn-sm","jsPanel-btn-xs"].forEach(t=>{e.classList.remove(t);}),e.classList.add(`jsPanel-btn-${t}`);}),"xl"===t?a.titlebar.style.fontSize="1.5rem":"lg"===t?a.titlebar.style.fontSize="1.25rem":"md"===t?a.titlebar.style.fontSize="1.05rem":"sm"===t?a.titlebar.style.fontSize=".9rem":"xs"===t&&(a.titlebar.style.fontSize=".8rem");}),a.setHeaderControls=(t=>{const n=jsPanel.pOheaderControls(e.headerControls);return ["close","maximize","normalize","minimize","smallify","smallifyrev"].forEach(e=>{n[e]&&a.setControlStatus(e,n[e]);}),a.setControlSize(n.size),t&&t.call(a,a),a}),a.setHeaderLogo=((e,t)=>{let n=[a.headerlogo],o=document.querySelector("#"+a.id+"-min");return o&&n.push(o.querySelector(".jsPanel-headerlogo")),"string"==typeof e?"<"!==e.substr(0,1)?n.forEach(function(t){jsPanel.emptyNode(t);let n=document.createElement("img");n.src=e,t.append(n);}):n.forEach(function(t){t.innerHTML=e;}):n.forEach(function(t){jsPanel.emptyNode(t),t.append(e);}),n.forEach(function(e){e.querySelectorAll("img").forEach(function(e){e.style.maxHeight=getComputedStyle(a.headerbar).height;});}),t&&t.call(a,a),a}),a.setHeaderRemove=(e=>(a.removeChild(a.header),a.content.classList.add("jsPanel-content-noheader"),["close","maximize","normalize","minimize","smallify","smallifyrev"].forEach(e=>{a.setAttribute(`data-btn${e}`,"removed");}),e&&e.call(a,a),a)),a.setHeaderTitle=((e,t)=>{let n=[a.headertitle],o=document.querySelector("#"+a.id+"-min");return o&&n.push(o.querySelector(".jsPanel-title")),"string"==typeof e?n.forEach(function(t){t.innerHTML=e;}):"function"==typeof e?n.forEach(function(t){jsPanel.emptyNode(t),t.innerHTML=e();}):n.forEach(function(t){jsPanel.emptyNode(t),t.append(e);}),t&&t.call(a,a),a}),a.setIconfont=((e=!1,t=a,n)=>{if(!1!==e){let n,o;if("bootstrap"===e||"glyphicon"===e)n=["glyphicon glyphicon-remove","glyphicon glyphicon-fullscreen","glyphicon glyphicon-resize-full","glyphicon glyphicon-minus","glyphicon glyphicon-chevron-down","glyphicon glyphicon-chevron-up"];else if("fa"===e||"far"===e||"fal"===e||"fas"===e)n=[`${e} fa-window-close`,`${e} fa-window-maximize`,`${e} fa-window-restore`,`${e} fa-window-minimize`,`${e} fa-chevron-down`,`${e} fa-chevron-up`];else if("material-icons"===e)n=[e,e,e,e,e,e],o=["close","fullscreen","fullscreen_exit","call_received","expand_more","expand_less"];else{if(!Array.isArray(e))return t;n=[`custom-control-icon ${e[5]}`,`custom-control-icon ${e[4]}`,`custom-control-icon ${e[3]}`,`custom-control-icon ${e[2]}`,`custom-control-icon ${e[1]}`,`custom-control-icon ${e[0]}`];}t.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(e=>{jsPanel.emptyNode(e).innerHTML="<span></span>";}),Array.prototype.slice.call(t.querySelectorAll(".jsPanel-controlbar .jsPanel-btn > span")).reverse().forEach((t,a)=>{t.className=n[a],"material-icons"===e&&(t.textContent=o[a]);});}return n&&n.call(t,t),t}),a.addToolbar=((e,t,n)=>{if("header"===e?e=a.headertoolbar:"footer"===e&&(e=a.footer),"string"==typeof t)e.innerHTML=t;else if(Array.isArray(t))t.forEach(t=>{"string"==typeof t?e.innerHTML+=t:e.append(t);});else if("function"==typeof t){let n=t.call(a,a);"string"==typeof n?e.innerHTML=n:e.append(n);}else e.append(t);return e.classList.add("active"),n&&n.call(a,a),a}),a.setRtl=(()=>{[a.header,a.headerlogo,a.titlebar,a.headertitle,a.controlbar,a.headertoolbar,a.content,a.footer].forEach(t=>{t.dir="rtl",e.rtl.lang&&(t.lang=e.rtl.lang);});}),a.id=e.id,a.classList.add("jsPanel-"+e.paneltype),"standard"===e.paneltype&&(a.style.zIndex=this.zi.next()),o.append(a),a.front(!1,!1),a.setTheme(e.theme),e.boxShadow&&a.classList.add(`jsPanel-depth-${e.boxShadow}`),e.header){if(e.headerLogo&&a.setHeaderLogo(e.headerLogo),a.setIconfont(e.iconfont),a.setHeaderTitle(e.headerTitle),a.setHeaderControls(),"auto-show-hide"===e.header){let t="jsPanel-depth-"+e.boxShadow;a.header.style.opacity=0,a.style.backgroundColor="transparent",this.remClass(a,t),this.setClass(a.content,t),a.header.addEventListener("mouseenter",function(){a.header.style.opacity=1,jsPanel.setClass(a,t),jsPanel.remClass(a.content,t);}),a.header.addEventListener("mouseleave",function(){a.header.style.opacity=0,jsPanel.remClass(a,t),jsPanel.setClass(a.content,t);});}}else a.setHeaderRemove();if(e.headerToolbar&&a.addToolbar(a.headertoolbar,e.headerToolbar),e.footerToolbar&&a.addToolbar(a.footer,e.footerToolbar),e.borderRadius&&a.applyThemeBorderRadius(e.borderRadius),e.content&&("function"==typeof e.content?e.content.call(a,a):"string"==typeof e.content?a.content.innerHTML=e.content:a.content.append(e.content)),e.contentAjax&&this.ajax(a,e.contentAjax),e.contentFetch&&this.fetch(a),e.contentOverflow){const t=e.contentOverflow.split(" ");1===t.length?a.content.style.overflow=t[0]:2===t.length&&(a.content.style.overflowX=t[0],a.content.style.overflowY=t[1]);}if(e.rtl&&a.setRtl(),a.setSize(),a.status="normalized",e.position?this.position(a,e.position):a.style.opacity=1,document.dispatchEvent(c),a.calcSizeFactors(),e.animateIn&&(a.addEventListener("animationend",()=>{this.remClass(a,e.animateIn);}),this.setClass(a,e.animateIn)),e.syncMargins){const t=this.pOcontainment(e.maximizedMargin);e.dragit&&(e.dragit.containment=t,e.dragit.snap&&(e.dragit.snap.containment=!0)),e.resizeit&&(e.resizeit.containment=t);}if(e.dragit?(this.dragit(a,e.dragit),a.addEventListener("jspaneldragstop",e=>{e.detail===a.id&&a.calcSizeFactors();},!1)):a.titlebar.style.cursor="default",e.resizeit){let t;this.resizeit(a,e.resizeit),a.addEventListener("jspanelresizestart",e=>{e.detail===a.id&&(t=a.status);},!1),a.addEventListener("jspanelresizestop",n=>{n.detail===a.id&&("smallified"===t||"smallifiedmax"===t||"maximized"===t)&&parseFloat(a.style.height)>parseFloat(window.getComputedStyle(a.header).height)&&(a.setControls([".jsPanel-btn-normalize",".jsPanel-btn-smallifyrev"]),a.status="normalized",document.dispatchEvent(c),document.dispatchEvent(l),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every"),a.calcSizeFactors());},!1);}if(a.saveCurrentDimensions(),a.saveCurrentPosition(),e.setStatus&&("smallifiedmax"===e.setStatus?a.maximize().smallify():"smallified"===e.setStatus?a.smallify():a[e.setStatus.substr(0,e.setStatus.length-1)]()),e.autoclose&&(a.closetimer=window.setTimeout(()=>{a&&jsPanel.close(a);},e.autoclose)),this.pointerdown.forEach(t=>{a.addEventListener(t,t=>{t.target.closest(".jsPanel-btn-close")||t.target.closest(".jsPanel-btn-minimize")||"standard"!==e.paneltype||a.front();},!1);}),e.onwindowresize&&window.addEventListener("resize",t=>{if(t.target===window){let n,o=e.onwindowresize,i=a.status;if(!a.parentElement)return !1;n=window.getComputedStyle(a.parentElement),"maximized"===i&&!0===o?a.maximize():a.snapped?jsPanel.snapPanel(a,a.snapped,!0):"normalized"!==i&&"smallified"!==i&&"maximized"!==i||("function"==typeof o?o.call(a,t,a):(a.style.left=(()=>{let t;return (t="window"===e.container?(window.innerWidth-parseFloat(a.style.width))*a.hf:(parseFloat(n.width)-parseFloat(a.style.width))*a.hf)<=0?0:t+"px"})(),a.style.top=(()=>{let t;return (t="window"===e.container?(window.innerHeight-parseFloat(a.currentData.height))*a.vf:(parseFloat(n.height)-parseFloat(a.currentData.height))*a.vf)<=0?0:t+"px"})()));}},!1),e.onparentresize){let t=a.isChildpanel(),n=t.options,o="function"==typeof e.onparentresize,i=()=>{"minimized"!==a.status&&("maximized"===a.status?a.maximize():"smallifiedmax"===a.status?a.maximize().smallify():a.snapped?jsPanel.snapPanel(a,a.snapped,!0):a.shiftWithinParent(t.content));};t&&(o?n.resizeit.resize.push(()=>{if("minimized"!==a.status){let n=t.content.getBoundingClientRect();e.onparentresize.call(a,a,{width:n.width,height:n.height});}}):(n.resizeit.resize.push(()=>{i();}),n.onmaximized.push(()=>{i();}),n.onnormalized.push(()=>{i();}),a.options.onnormalized.push(()=>{a.snapped?jsPanel.snapPanel(a,a.snapped,!0):a.shiftWithinParent(t.content);})));}return this.globalCallbacks&&(Array.isArray(this.globalCallbacks)?this.globalCallbacks.forEach(e=>{e.call(a,a);}):this.globalCallbacks.call(a,a)),e.callback&&(Array.isArray(e.callback)?e.callback.forEach(e=>{e.call(a,a);}):e.callback.call(a,a)),t&&t.call(a,a),document.dispatchEvent(i),a}};"undefined"!=typeof module&&(module.exports=jsPanel);
+  const jsPanel={version:"4.7.0",date:"2019-06-18 08:55",ajaxAlwaysCallbacks:[],autopositionSpacing:4,closeOnEscape:void document.addEventListener("keydown",e=>{"Escape"!==e.key&&"Escape"!==e.code&&"Esc"!==e.key||jsPanel.getPanels(function(){return this.classList.contains("jsPanel")}).some(e=>!!e.options.closeOnEscape&&(jsPanel.close(e),!0));},!1),defaults:{boxShadow:3,container:"window",contentSize:{width:"400px",height:"200px"},dragit:{cursor:"move",handles:".jsPanel-headerlogo, .jsPanel-titlebar, .jsPanel-ftr",opacity:.8,disableOnMaximized:!0},header:!0,headerTitle:"jsPanel",headerControls:{size:"md"},iconfont:void 0,maximizedMargin:0,minimizeTo:"default",paneltype:"standard",position:{my:"center",at:"center"},resizeit:{handles:"n, e, s, w, ne, se, sw, nw",minWidth:128,minHeight:38},theme:"default"},defaultAutocloseConfig:{time:"8s",progressbar:!0},defaultSnapConfig:{sensitivity:70,trigger:"panel"},extensions:{},globalCallbacks:!1,icons:{close:'<svg focusable="false" class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path fill="currentColor" d="M13.7,11l6.1-6.1c0.4-0.4,0.4-0.9,0-1.3l-1.4-1.4c-0.4-0.4-0.9-0.4-1.3,0L11,8.3L4.9,2.3C4.6,1.9,4,1.9,3.7,2.3L2.3,3.7 C1.9,4,1.9,4.6,2.3,4.9L8.3,11l-6.1,6.1c-0.4,0.4-0.4,0.9,0,1.3l1.4,1.4c0.4,0.4,0.9,0.4,1.3,0l6.1-6.1l6.1,6.1 c0.4,0.4,0.9,0.4,1.3,0l1.4-1.4c0.4-0.4,0.4-0.9,0-1.3L13.7,11z"/></svg>',maximize:'<svg focusable="false" class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path fill="currentColor" d="M18.3,2H3.7C2.8,2,2,2.9,2,3.9v14.1C2,19.1,2.8,20,3.7,20h14.6c0.9,0,1.7-0.9,1.7-1.9V3.9C20,2.9,19.2,2,18.3,2z M18.3,17.8 c0,0.1-0.1,0.2-0.2,0.2H3.9c-0.1,0-0.2-0.1-0.2-0.2V8.4h14.6V17.8z"/></svg>',normalize:'<svg focusable="false" class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path fill="currentColor" d="M18.3,2H7.1C6.1,2,5.4,2.8,5.4,3.7v1.7H3.7C2.8,5.4,2,6.1,2,7.1v11.3C2,19.2,2.8,20,3.7,20h11.3c0.9,0,1.7-0.8,1.7-1.7v-1.7 h1.7c0.9,0,1.7-0.8,1.7-1.7V3.7C20,2.8,19.2,2,18.3,2z M14.9,18.3H3.7V11h11.3V18.3z M18.3,14.9h-1.7V7.1c0-0.9-0.8-1.7-1.7-1.7H7.1 V3.7h11.3V14.9z"/></svg>',minimize:'<svg focusable="false" class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path fill="currentColor" d="M18.9,19.8H3.1c-0.6,0-1.1-0.5-1.1-1.1s0.5-1.1,1.1-1.1h15.8c0.6,0,1.1,0.5,1.1,1.1S19.5,19.8,18.9,19.8z"/></svg>',smallify:'<svg focusable="false" class="jsPanel-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path fill="currentColor" d="M2.1,15.2L2.9,16c0.2,0.2,0.5,0.2,0.7,0L11,8.7l7.4,7.3c0.2,0.2,0.5,0.2,0.7,0l0.8-0.8c0.2-0.2,0.2-0.5,0-0.7L11.3,6 c-0.2-0.2-0.5-0.2-0.7,0l-8.5,8.5C2,14.7,2,15,2.1,15.2z"/></svg>'},idCounter:0,isIE:(()=>navigator.appVersion.match(/Trident/))(),pointerdown:"onpointerdown"in window?["pointerdown"]:"ontouchend"in window?["touchstart","mousedown"]:["mousedown"],pointermove:"onpointermove"in window?["pointermove"]:"ontouchend"in window?["touchmove","mousemove"]:["mousemove"],pointerup:"onpointerup"in window?["pointerup"]:"ontouchend"in window?["touchend","mouseup"]:["mouseup"],polyfills:(void[Element.prototype,Document.prototype,DocumentFragment.prototype].forEach(function(e){e.append=e.append||function(){let e=Array.prototype.slice.call(arguments),t=document.createDocumentFragment();e.forEach(function(e){let n=e instanceof Node;t.appendChild(n?e:document.createTextNode(String(e)));}),this.appendChild(t);};}),window.Element&&!Element.prototype.closest&&(Element.prototype.closest=function(e){let t,n=(this.document||this.ownerDocument).querySelectorAll(e),o=this;do{for(t=n.length;--t>=0&&n.item(t)!==o;);}while(t<0&&(o=o.parentElement));return o}),window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,t){t=t||window;for(let n=0;n<this.length;n++)e.call(t,this[n],n,this);}),Object.assign||Object.defineProperty(Object,"assign",{enumerable:!1,configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Cannot convert first argument to object");let t=Object(e);for(let e=1;e<arguments.length;e++){let n=arguments[e];if(null==n)continue;n=Object(n);let o=Object.keys(Object(n));for(let e=0,a=o.length;e<a;e++){let a=o[e],s=Object.getOwnPropertyDescriptor(n,a);void 0!==s&&s.enumerable&&(t[a]=n[a]);}}return t}}),function(){if("function"==typeof window.CustomEvent)return !1;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};let n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}e.prototype=window.Event.prototype,window.CustomEvent=e;}(),String.prototype.endsWith||(String.prototype.endsWith=function(e,t){return t<this.length?t|=0:t=this.length,this.substr(t-e.length,e.length)===e}),String.prototype.startsWith||(String.prototype.startsWith=function(e,t){return this.substr(t||0,e.length)===e}),String.prototype.includes||(String.prototype.includes=function(e,t){return "number"!=typeof t&&(t=0),!(t+e.length>this.length)&&-1!==this.indexOf(e,t)}),void(Number.isInteger=Number.isInteger||function(e){return "number"==typeof e&&isFinite(e)&&Math.floor(e)===e})),themes:["default","primary","secondary","info","success","warning","danger","light","dark"],ziBase:100,colorFilledLight:.81,colorFilledDark:.08,colorFilled:0,colorBrightnessThreshold:.55,colorNames:{aliceblue:"f0f8ff",antiquewhite:"faebd7",aqua:"0ff",aquamarine:"7fffd4",azure:"f0ffff",beige:"f5f5dc",bisque:"ffe4c4",black:"000",blanchedalmond:"ffebcd",blue:"00f",blueviolet:"8a2be2",brown:"a52a2a",burlywood:"deb887",cadetblue:"5f9ea0",chartreuse:"7fff00",chocolate:"d2691e",coral:"ff7f50",cornflowerblue:"6495ed",cornsilk:"fff8dc",crimson:"dc143c",cyan:"0ff",darkblue:"00008b",darkcyan:"008b8b",darkgoldenrod:"b8860b",darkgray:"a9a9a9",darkgrey:"a9a9a9",darkgreen:"006400",darkkhaki:"bdb76b",darkmagenta:"8b008b",darkolivegreen:"556b2f",darkorange:"ff8c00",darkorchid:"9932cc",darkred:"8b0000",darksalmon:"e9967a",darkseagreen:"8fbc8f",darkslateblue:"483d8b",darkslategray:"2f4f4f",darkslategrey:"2f4f4f",darkturquoise:"00ced1",darkviolet:"9400d3",deeppink:"ff1493",deepskyblue:"00bfff",dimgray:"696969",dimgrey:"696969",dodgerblue:"1e90ff",firebrick:"b22222",floralwhite:"fffaf0",forestgreen:"228b22",fuchsia:"f0f",gainsboro:"dcdcdc",ghostwhite:"f8f8ff",gold:"ffd700",goldenrod:"daa520",gray:"808080",grey:"808080",green:"008000",greenyellow:"adff2f",honeydew:"f0fff0",hotpink:"ff69b4",indianred:"cd5c5c",indigo:"4b0082",ivory:"fffff0",khaki:"f0e68c",lavender:"e6e6fa",lavenderblush:"fff0f5",lawngreen:"7cfc00",lemonchiffon:"fffacd",lightblue:"add8e6",lightcoral:"f08080",lightcyan:"e0ffff",lightgoldenrodyellow:"fafad2",lightgray:"d3d3d3",lightgrey:"d3d3d3",lightgreen:"90ee90",lightpink:"ffb6c1",lightsalmon:"ffa07a",lightseagreen:"20b2aa",lightskyblue:"87cefa",lightslategray:"789",lightslategrey:"789",lightsteelblue:"b0c4de",lightyellow:"ffffe0",lime:"0f0",limegreen:"32cd32",linen:"faf0e6",magenta:"f0f",maroon:"800000",mediumaquamarine:"66cdaa",mediumblue:"0000cd",mediumorchid:"ba55d3",mediumpurple:"9370d8",mediumseagreen:"3cb371",mediumslateblue:"7b68ee",mediumspringgreen:"00fa9a",mediumturquoise:"48d1cc",mediumvioletred:"c71585",midnightblue:"191970",mintcream:"f5fffa",mistyrose:"ffe4e1",moccasin:"ffe4b5",navajowhite:"ffdead",navy:"000080",oldlace:"fdf5e6",olive:"808000",olivedrab:"6b8e23",orange:"ffa500",orangered:"ff4500",orchid:"da70d6",palegoldenrod:"eee8aa",palegreen:"98fb98",paleturquoise:"afeeee",palevioletred:"d87093",papayawhip:"ffefd5",peachpuff:"ffdab9",peru:"cd853f",pink:"ffc0cb",plum:"dda0dd",powderblue:"b0e0e6",purple:"800080",rebeccapurple:"639",red:"f00",rosybrown:"bc8f8f",royalblue:"4169e1",saddlebrown:"8b4513",salmon:"fa8072",sandybrown:"f4a460",seagreen:"2e8b57",seashell:"fff5ee",sienna:"a0522d",silver:"c0c0c0",skyblue:"87ceeb",slateblue:"6a5acd",slategray:"708090",slategrey:"708090",snow:"fffafa",springgreen:"00ff7f",steelblue:"4682b4",tan:"d2b48c",teal:"008080",thistle:"d8bfd8",tomato:"ff6347",turquoise:"40e0d0",violet:"ee82ee",wheat:"f5deb3",white:"fff",whitesmoke:"f5f5f5",yellow:"ff0",yellowgreen:"9acd32",grey50:"fafafa",grey100:"f5f5f5",grey200:"eee",grey300:"e0e0e0",grey400:"bdbdbd",grey500:"9e9e9e",grey600:"757575",grey700:"616161",grey800:"424242",grey900:"212121",gray50:"fafafa",gray100:"f5f5f5",gray200:"eee",gray300:"e0e0e0",gray400:"bdbdbd",gray500:"9e9e9e",gray600:"757575",gray700:"616161",gray800:"424242",gray900:"212121",bluegrey50:"eceff1",bluegrey100:"CFD8DC",bluegrey200:"B0BEC5",bluegrey300:"90A4AE",bluegrey400:"78909C",bluegrey500:"607D8B",bluegrey600:"546E7A",bluegrey700:"455A64",bluegrey800:"37474F",bluegrey900:"263238",bluegray50:"eceff1",bluegray100:"CFD8DC",bluegray200:"B0BEC5",bluegray300:"90A4AE",bluegray400:"78909C",bluegray500:"607D8B",bluegray600:"546E7A",bluegray700:"455A64",bluegray800:"37474F",bluegray900:"263238",red50:"FFEBEE",red100:"FFCDD2",red200:"EF9A9A",red300:"E57373",red400:"EF5350",red500:"F44336",red600:"E53935",red700:"D32F2F",red800:"C62828",red900:"B71C1C",reda100:"FF8A80",reda200:"FF5252",reda400:"FF1744",reda700:"D50000",pink50:"FCE4EC",pink100:"F8BBD0",pink200:"F48FB1",pink300:"F06292",pink400:"EC407A",pink500:"E91E63",pink600:"D81B60",pink700:"C2185B",pink800:"AD1457",pink900:"880E4F",pinka100:"FF80AB",pinka200:"FF4081",pinka400:"F50057",pinka700:"C51162",purple50:"F3E5F5",purple100:"E1BEE7",purple200:"CE93D8",purple300:"BA68C8",purple400:"AB47BC",purple500:"9C27B0",purple600:"8E24AA",purple700:"7B1FA2",purple800:"6A1B9A",purple900:"4A148C",purplea100:"EA80FC",purplea200:"E040FB",purplea400:"D500F9",purplea700:"AA00FF",deeppurple50:"EDE7F6",deeppurple100:"D1C4E9",deeppurple200:"B39DDB",deeppurple300:"9575CD",deeppurple400:"7E57C2",deeppurple500:"673AB7",deeppurple600:"5E35B1",deeppurple700:"512DA8",deeppurple800:"4527A0",deeppurple900:"311B92",deeppurplea100:"B388FF",deeppurplea200:"7C4DFF",deeppurplea400:"651FFF",deeppurplea700:"6200EA",indigo50:"E8EAF6",indigo100:"C5CAE9",indigo200:"9FA8DA",indigo300:"7986CB",indigo400:"5C6BC0",indigo500:"3F51B5",indigo600:"3949AB",indigo700:"303F9F",indigo800:"283593",indigo900:"1A237E",indigoa100:"8C9EFF",indigoa200:"536DFE",indigoa400:"3D5AFE",indigoa700:"304FFE",blue50:"E3F2FD",blue100:"BBDEFB",blue200:"90CAF9",blue300:"64B5F6",blue400:"42A5F5",blue500:"2196F3",blue600:"1E88E5",blue700:"1976D2",blue800:"1565C0",blue900:"0D47A1",bluea100:"82B1FF",bluea200:"448AFF",bluea400:"2979FF",bluea700:"2962FF",lightblue50:"E1F5FE",lightblue100:"B3E5FC",lightblue200:"81D4FA",lightblue300:"4FC3F7",lightblue400:"29B6F6",lightblue500:"03A9F4",lightblue600:"039BE5",lightblue700:"0288D1",lightblue800:"0277BD",lightblue900:"01579B",lightbluea100:"80D8FF",lightbluea200:"40C4FF",lightbluea400:"00B0FF",lightbluea700:"0091EA",cyan50:"E0F7FA",cyan100:"B2EBF2",cyan200:"80DEEA",cyan300:"4DD0E1",cyan400:"26C6DA",cyan500:"00BCD4",cyan600:"00ACC1",cyan700:"0097A7",cyan800:"00838F",cyan900:"006064",cyana100:"84FFFF",cyana200:"18FFFF",cyana400:"00E5FF",cyana700:"00B8D4",teal50:"E0F2F1",teal100:"B2DFDB",teal200:"80CBC4",teal300:"4DB6AC",teal400:"26A69A",teal500:"009688",teal600:"00897B",teal700:"00796B",teal800:"00695C",teal900:"004D40",teala100:"A7FFEB",teala200:"64FFDA",teala400:"1DE9B6",teala700:"00BFA5",green50:"E8F5E9",green100:"C8E6C9",green200:"A5D6A7",green300:"81C784",green400:"66BB6A",green500:"4CAF50",green600:"43A047",green700:"388E3C",green800:"2E7D32",green900:"1B5E20",greena100:"B9F6CA",greena200:"69F0AE",greena400:"00E676",greena700:"00C853",lightgreen50:"F1F8E9",lightgreen100:"DCEDC8",lightgreen200:"C5E1A5",lightgreen300:"AED581",lightgreen400:"9CCC65",lightgreen500:"8BC34A",lightgreen600:"7CB342",lightgreen700:"689F38",lightgreen800:"558B2F",lightgreen900:"33691E",lightgreena100:"CCFF90",lightgreena200:"B2FF59",lightgreena400:"76FF03",lightgreena700:"64DD17",lime50:"F9FBE7",lime100:"F0F4C3",lime200:"E6EE9C",lime300:"DCE775",lime400:"D4E157",lime500:"CDDC39",lime600:"C0CA33",lime700:"AFB42B",lime800:"9E9D24",lime900:"827717",limea100:"F4FF81",limea200:"EEFF41",limea400:"C6FF00",limea700:"AEEA00",yellow50:"FFFDE7",yellow100:"FFF9C4",yellow200:"FFF59D",yellow300:"FFF176",yellow400:"FFEE58",yellow500:"FFEB3B",yellow600:"FDD835",yellow700:"FBC02D",yellow800:"F9A825",yellow900:"F57F17",yellowa100:"FFFF8D",yellowa200:"FFFF00",yellowa400:"FFEA00",yellowa700:"FFD600",amber50:"FFF8E1",amber100:"FFECB3",amber200:"FFE082",amber300:"FFD54F",amber400:"FFCA28",amber500:"FFC107",amber600:"FFB300",amber700:"FFA000",amber800:"FF8F00",amber900:"FF6F00",ambera100:"FFE57F",ambera200:"FFD740",ambera400:"FFC400",ambera700:"FFAB00",orange50:"FFF3E0",orange100:"FFE0B2",orange200:"FFCC80",orange300:"FFB74D",orange400:"FFA726",orange500:"FF9800",orange600:"FB8C00",orange700:"F57C00",orange800:"EF6C00",orange900:"E65100",orangea100:"FFD180",orangea200:"FFAB40",orangea400:"FF9100",orangea700:"FF6D00",deeporange50:"FBE9E7",deeporange100:"FFCCBC",deeporange200:"FFAB91",deeporange300:"FF8A65",deeporange400:"FF7043",deeporange500:"FF5722",deeporange600:"F4511E",deeporange700:"E64A19",deeporange800:"D84315",deeporange900:"BF360C",deeporangea100:"FF9E80",deeporangea200:"FF6E40",deeporangea400:"FF3D00",deeporangea700:"DD2C00",brown50:"EFEBE9",brown100:"D7CCC8",brown200:"BCAAA4",brown300:"A1887F",brown400:"8D6E63",brown500:"795548",brown600:"6D4C41",brown700:"5D4037",brown800:"4E342E",brown900:"3E2723"},errorReporting:1,color(e){let t,n,o,a,s,r,i,l,c,d=e.toLowerCase(),p={};const h=/^rgba?\(([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3}),?(0|1|0\.[0-9]{1,2}|\.[0-9]{1,2})?\)$/gi,f=/^hsla?\(([0-9]{1,3}),([0-9]{1,3}%),([0-9]{1,3}%),?(0|1|0\.[0-9]{1,2}|\.[0-9]{1,2})?\)$/gi,u=this.colorNames;return u[d]&&(d=u[d]),null!==d.match(/^#?([0-9a-f]{3}|[0-9a-f]{6})$/gi)?((d=d.replace("#","")).length%2==1?(t=String(d.substr(0,1))+d.substr(0,1),n=String(d.substr(1,1))+d.substr(1,1),o=String(d.substr(2,1))+d.substr(2,1),p.rgb={r:parseInt(t,16),g:parseInt(n,16),b:parseInt(o,16)},p.hex=`#${t}${n}${o}`):(p.rgb={r:parseInt(d.substr(0,2),16),g:parseInt(d.substr(2,2),16),b:parseInt(d.substr(4,2),16)},p.hex=`#${d}`),c=this.rgbToHsl(p.rgb.r,p.rgb.g,p.rgb.b),p.hsl=c,p.rgb.css=`rgb(${p.rgb.r},${p.rgb.g},${p.rgb.b})`):d.match(h)?(i=h.exec(d),p.rgb={css:d,r:i[1],g:i[2],b:i[3]},p.hex=this.rgbToHex(i[1],i[2],i[3]),c=this.rgbToHsl(i[1],i[2],i[3]),p.hsl=c):d.match(f)?(a=(i=f.exec(d))[1]/360,s=i[2].substr(0,i[2].length-1)/100,r=i[3].substr(0,i[3].length-1)/100,l=this.hslToRgb(a,s,r),p.rgb={css:`rgb(${l[0]},${l[1]},${l[2]})`,r:l[0],g:l[1],b:l[2]},p.hex=this.rgbToHex(p.rgb.r,p.rgb.g,p.rgb.b),p.hsl={css:`hsl(${i[1]},${i[2]},${i[3]})`,h:i[1],s:i[2],l:i[3]}):(p.hex="#f5f5f5",p.rgb={css:"rgb(245,245,245)",r:245,g:245,b:245},p.hsl={css:"hsl(0,0%,96%)",h:0,s:"0%",l:"96%"}),p},calcColors(e){const t=this.colorBrightnessThreshold,n=this.color(e),o=this.lighten(e,this.colorFilledLight),a=this.darken(e,this.colorFilled),s=this.perceivedBrightness(e)<=t?"#ffffff":"#000000",r=this.perceivedBrightness(o)<=t?"#ffffff":"#000000",i=this.perceivedBrightness(a)<=t?"#ffffff":"#000000",l=this.lighten(e,this.colorFilledDark),c=this.perceivedBrightness(l)<=t?"#ffffff":"#000000";return [n.hsl.css,o,a,s,r,i,l,c]},darken(e,t){const n=this.color(e).hsl,o=parseFloat(n.l),a=Math.round(o-o*t)+"%";return `hsl(${n.h},${n.s},${a})`},lighten(e,t){const n=this.color(e).hsl,o=parseFloat(n.l),a=Math.round(o+(100-o)*t)+"%";return `hsl(${n.h},${n.s},${a})`},hslToRgb(e,t,n){let o,a,s;if(0===t)o=a=s=n;else{let r=(e,t,n)=>(n<0&&(n+=1),n>1&&(n-=1),n<1/6?e+6*(t-e)*n:n<.5?t:n<2/3?e+(t-e)*(2/3-n)*6:e),i=n<.5?n*(1+t):n+t-n*t,l=2*n-i;o=r(l,i,e+1/3),a=r(l,i,e),s=r(l,i,e-1/3);}return [Math.round(255*o),Math.round(255*a),Math.round(255*s)]},rgbToHsl(e,t,n){e/=255,t/=255,n/=255;let o,a,s=Math.max(e,t,n),r=Math.min(e,t,n),i=(s+r)/2;if(s===r)o=a=0;else{let l=s-r;switch(a=i>.5?l/(2-s-r):l/(s+r),s){case e:o=(t-n)/l+(t<n?6:0);break;case t:o=(n-e)/l+2;break;case n:o=(e-t)/l+4;}o/=6;}return {css:"hsl("+(o=Math.round(360*o))+","+(a=Math.round(100*a)+"%")+","+(i=Math.round(100*i)+"%")+")",h:o,s:a,l:i}},rgbToHex(e,t,n){let o=Number(e).toString(16),a=Number(t).toString(16),s=Number(n).toString(16);return 1===o.length&&(o=`0${o}`),1===a.length&&(a=`0${a}`),1===s.length&&(s=`0${s}`),`#${o}${a}${s}`},perceivedBrightness(e){const t=this.color(e).rgb;return t.r/255*.2126+t.g/255*.7152+t.b/255*.0722},pOposition(e){let t=e.trim();const n={},o=/(^|\s)((left-|right-)(top|center|bottom){1})|((center-){1}(top|bottom){1})|(center)/gi,a=/(^|\s)(right|down|left|up)/gi,s=/(^|\s)-?(\d*\.?\d+)([a-zA-Z%]{0,4})/gi,r=t.match(o);r&&(n.my=r[0].trim(),n.at=r[1]?r[1].trim():r[0].trim());const i=(t=t.replace(o," ").trim()).match(a);i&&(n.autoposition=i[0].trim());const l=(t=t.replace(a," ").trim()).match(s);return l&&(l.forEach((e,t)=>{(e=e.trim()).match(/(^|\s)(-?[0-9]*\.?[0-9]+)(\s|$)/)&&(l[t]=`${l[t]}px`.trim());}),n.offsetX=l[0].trim(),n.offsetY=l[1]?l[1].trim():l[0].trim()),(t=t.replace(s," ").trim()).length&&(n.of=t),n},position(e,t){if(!t)return e.style.opacity=1,e;t="string"==typeof t?Object.assign({},this.defaults.position,this.pOposition(t)):Object.assign({},this.defaults.position,t),["my","at","of"].forEach(function(n){"function"==typeof t[n]&&(t[n]=t[n].call(e,e));}),"window"===e.options.container&&(e.style.position="fixed"),"string"==typeof e?e=document.querySelector(e):Object.getPrototypeOf(e).jquery&&(e=e[0]);const n="window"===e.options.container?"window":e.parentElement,o=e.getBoundingClientRect(),a=e.parentElement.getBoundingClientRect(),s="window"===n?{left:0,top:0,width:document.documentElement.clientWidth,height:window.innerHeight}:{width:a.width,height:a.height,left:a.left,top:a.top},r="window"===n?{x:1,y:1}:{x:s.width/n.offsetWidth,y:s.height/n.offsetHeight},i="window"===n?{borderTopWidth:"0px",borderRightWidth:"0px",borderBottomWidth:"0px",borderLeftWidth:"0px"}:window.getComputedStyle(n);let l;s.width-=(parseFloat(i.borderLeftWidth)+parseFloat(i.borderRightWidth))*r.x,s.height-=(parseFloat(i.borderTopWidth)+parseFloat(i.borderBottomWidth))*r.y,l=t.of?"string"==typeof t.of?"window"===t.of?{borderTopWidth:"0px",borderRightWidth:"0px",borderBottomWidth:"0px",borderLeftWidth:"0px"}:document.querySelector(t.of).getBoundingClientRect():Object.getPrototypeOf(t.of).jquery?t.of[0].getBoundingClientRect():t.of.getBoundingClientRect():s;let c="0px";t.my.startsWith("left-")?t.at.startsWith("left-")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)+"px":"0px":t.at.startsWith("center")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)+l.width/2+"px":s.width/2+"px":t.at.startsWith("right-")&&(c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)+l.width+"px":s.width+"px"):t.my.startsWith("center")?t.at.startsWith("left-")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)-o.width/2+"px":-o.width/2+"px":t.at.startsWith("center")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)-(o.width-l.width)/2+"px":s.width/2-o.width/2+"px":t.at.startsWith("right-")&&(c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)+(l.width-o.width/2)+"px":s.width-o.width/2+"px"):t.my.startsWith("right-")&&(t.at.startsWith("left-")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)-o.width+"px":-o.width+"px":t.at.startsWith("center")?c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)-o.width+l.width/2+"px":s.width/2-o.width+"px":t.at.startsWith("right-")&&(c=t.of?l.left-s.left-parseFloat(i.borderLeftWidth)+l.width-o.width+"px":s.width-o.width+"px"));let d="0px";t.my.endsWith("-top")?t.at.endsWith("-top")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)+"px":"0px":t.at.endsWith("center")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)+l.height/2+"px":s.height/2+"px":t.at.endsWith("-bottom")&&(d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)+l.height+"px":s.height+"px"):t.my.endsWith("center")?t.at.endsWith("-top")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height/2+"px":-o.height/2+"px":t.at.endsWith("center")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height/2+l.height/2+"px":s.height/2-o.height/2+"px":t.at.endsWith("-bottom")&&(d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height/2+l.height+"px":s.height-o.height/2+"px"):t.my.endsWith("-bottom")&&(t.at.endsWith("-top")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height+"px":-o.height+"px":t.at.endsWith("center")?d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height+l.height/2+"px":s.height/2-o.height+"px":t.at.endsWith("-bottom")&&(d=t.of?l.top-s.top-parseFloat(i.borderTopWidth)-o.height+l.height+"px":s.height-o.height+"px")),e.style.left=1===r.x?c:parseFloat(c)/r.x+"px",e.style.top=1===r.y?d:parseFloat(d)/r.y+"px";let p=getComputedStyle(e),h={left:p.left,top:p.top};return t.autoposition&&t.my===t.at&&["left-top","center-top","right-top","left-bottom","center-bottom","right-bottom"].indexOf(t.my)>=0&&(h=this.applyPositionAutopos(e,h,t)),(t.offsetX||t.offsetY)&&(h=this.applyPositionOffset(e,h,t)),(t.minLeft||t.minTop||t.maxLeft||t.maxTop)&&(h=this.applyPositionMinMax(e,h,t)),t.modify&&(h=this.applyPositionModify(e,h,t)),e.style.opacity=1,e},applyPositionAutopos(e,t,n){const o=`${n.my}-${n.autoposition.toLowerCase()}`;e.classList.add(o);const a=Array.prototype.slice.call(document.querySelectorAll(`.${o}`)),s=a.indexOf(e);if(a.length>1){switch(n.autoposition){case"down":case"up":a.forEach((e,n)=>{n>0&&n<=s&&(t.top=parseFloat(t.top)+a[--n].getBoundingClientRect().height+jsPanel.autopositionSpacing+"px");});break;case"right":a.forEach((e,n)=>{n>0&&n<=s&&(t.left=parseFloat(t.left)+a[--n].getBoundingClientRect().width+jsPanel.autopositionSpacing+"px");});break;case"left":a.forEach((e,n)=>{n>0&&n<=s&&(t.left=parseFloat(t.left)-a[--n].getBoundingClientRect().width+jsPanel.autopositionSpacing+"px");});}e.style.left=t.left,e.style.top=t.top;}return {left:t.left,top:t.top}},applyPositionOffset(e,t,n){["offsetX","offsetY"].forEach(function(e){n[e]?("function"==typeof n[e]&&(n[e]=n[e].call(t,t,n)),(Number.isInteger(n[e])||n[e].match(/^\d+$/))&&(n[e]=`${n[e]}px`)):n[e]="0px";}),e.style.left=`calc(${e.style.left} + ${n.offsetX})`,e.style.top=`calc(${e.style.top} + ${n.offsetY})`;const o=getComputedStyle(e);return {left:o.left,top:o.top}},applyPositionMinMax(e,t,n){if(["minLeft","minTop","maxLeft","maxTop"].forEach(function(e){n[e]&&("function"==typeof n[e]&&(n[e]=n[e].call(t,t,n)),(Number.isInteger(n[e])||n[e].match(/^\d+$/))&&(n[e]=`${n[e]}px`));}),n.minLeft){e.style.left=n.minLeft;let o=getComputedStyle(e).left;parseFloat(o)<parseFloat(t.left)?e.style.left=t.left:t.left=o;}if(n.minTop){e.style.top=n.minTop;let o=getComputedStyle(e).top;parseFloat(o)<parseFloat(t.top)?e.style.top=t.top:t.top=o;}if(n.maxLeft){e.style.left=n.maxLeft;let o=getComputedStyle(e).left;parseFloat(o)>parseFloat(t.left)?e.style.left=t.left:t.left=o;}if(n.maxTop){e.style.top=n.maxTop;let o=getComputedStyle(e).top;parseFloat(o)>parseFloat(t.top)?e.style.top=t.top:t.top=o;}const o=getComputedStyle(e);return {left:o.left,top:o.top}},applyPositionModify(e,t,n){if(n.modify&&"function"==typeof n.modify){const o=n.modify.call(t,t,n);e.style.left=Number.isInteger(o.left)||o.left.match(/^\d+$/)?`${o.left}px`:o.left,e.style.top=Number.isInteger(o.top)||o.top.match(/^\d+$/)?`${o.top}px`:o.top;}const o=getComputedStyle(e);return {left:o.left,top:o.top}},autopositionRemaining(e){let t;if(["left-top-down","left-top-right","center-top-down","right-top-down","right-top-left","left-bottom-up","left-bottom-right","center-bottom-up","right-bottom-up","right-bottom-left"].forEach(n=>{e.classList.contains(n)&&(t=n);}),t){("window"===e.options.container?document.body:e.options.container).querySelectorAll(`.${t}`).forEach(e=>{e.reposition();});}},addScript(e,t="text/javascript",n){if(!document.querySelector(`script[src="${e}"]`)){const o=document.createElement("script");n&&(o.onload=n),o.src=e,o.type=t,document.head.appendChild(o);}},ajax(obj,ajaxConfig){let objIsPanel;"object"==typeof obj&&obj.classList.contains("jsPanel")?objIsPanel=!0:(objIsPanel=!1,"string"==typeof obj&&(obj=document.querySelector(obj)));const configDefaults={method:"GET",async:!0,user:"",pwd:"",done:function(){objIsPanel?obj.content.innerHTML=this.responseText:obj.innerHTML=this.responseText;},autoresize:!0,autoreposition:!0};let config;if("string"==typeof ajaxConfig)config=Object.assign({},configDefaults,{url:encodeURI(ajaxConfig),evalscripttags:!0});else{if("object"!=typeof ajaxConfig||!ajaxConfig.url){if(this.errorReporting)try{throw new jsPanel.jsPanelError("XMLHttpRequest seems to miss the <mark>url</mark> parameter!")}catch(e){jsPanel.error(e);}return obj}config=Object.assign({},configDefaults,ajaxConfig),config.url=encodeURI(ajaxConfig.url),!1===config.async&&(config.timeout=0,config.withCredentials&&(config.withCredentials=void 0),config.responseType&&(config.responseType=void 0));}const xhr=new XMLHttpRequest;return xhr.onreadystatechange=(()=>{if(4===xhr.readyState){if(200===xhr.status){if(config.done.call(xhr,obj),config.evalscripttags){const scripttags=xhr.responseText.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi);scripttags&&scripttags.forEach(tag=>{const js=tag.replace(/<script\b[^>]*>/i,"").replace(/<\/script>/i,"").trim();eval(js);});}}else config.fail&&config.fail.call(xhr,obj);if(config.always&&config.always.call(xhr,obj),objIsPanel){const e=obj.options.contentSize;if("string"==typeof e&&e.match(/auto/i)){const t=e.split(" "),n=Object.assign({},{width:t[0],height:t[1]});config.autoresize&&obj.resize(n),obj.classList.contains("jsPanel-contextmenu")||config.autoreposition&&obj.reposition();}else if("object"==typeof e&&("auto"===e.width||"auto"===e.height)){const t=Object.assign({},e);config.autoresize&&obj.resize(t),obj.classList.contains("jsPanel-contextmenu")||config.autoreposition&&obj.reposition();}}jsPanel.ajaxAlwaysCallbacks.length&&jsPanel.ajaxAlwaysCallbacks.forEach(e=>{e.call(obj,obj);});}}),xhr.open(config.method,config.url,config.async,config.user,config.pwd),xhr.timeout=config.timeout||0,config.withCredentials&&(xhr.withCredentials=config.withCredentials),config.responseType&&(xhr.responseType=config.responseType),config.beforeSend&&config.beforeSend.call(xhr),config.data?xhr.send(config.data):xhr.send(null),obj},close(e,t){e.closetimer&&window.clearInterval(e.closetimer);const n=e.id,o=e.parentElement,a=new CustomEvent("jspanelbeforeclose",{detail:n}),s=new CustomEvent("jspanelclosed",{detail:n});if(document.dispatchEvent(a),e.options.onbeforeclose&&e.options.onbeforeclose.length>0&&!jsPanel.processCallbacks(e,e.options.onbeforeclose,"some",e.status))return e;e.options.animateOut?(e.options.animateIn&&jsPanel.remClass(e,e.options.animateIn),jsPanel.setClass(e,e.options.animateOut),e.addEventListener("animationend",a=>{a.stopPropagation(),o.removeChild(e),document.getElementById(n)?t&&t.call(e,n,e):(jsPanel.removeMinimizedReplacement(e),document.dispatchEvent(s),e.options.onclosed&&jsPanel.processCallbacks(e,e.options.onclosed,"every"),jsPanel.autopositionRemaining(e),t&&t.call(n,n));})):(o.removeChild(e),document.getElementById(n)?t&&t.call(e,n,e):(jsPanel.removeMinimizedReplacement(e),document.dispatchEvent(s),e.options.onclosed&&jsPanel.processCallbacks(e,e.options.onclosed,"every"),jsPanel.autopositionRemaining(e),t&&t.call(n,n)));},createPanelTemplate(e=!0){const t=document.createElement("div");return t.className="jsPanel",e&&["close","maximize","normalize","minimize","smallify"].forEach(e=>{t.setAttribute(`data-btn${e}`,"enabled");}),t.innerHTML=`<div class="jsPanel-hdr">\n                                <div class="jsPanel-headerbar">\n                                    <div class="jsPanel-headerlogo"></div>\n                                    <div class="jsPanel-titlebar">\n                                        <span class="jsPanel-title"></span>\n                                    </div>\n                                    <div class="jsPanel-controlbar">\n                                        <button class="jsPanel-btn jsPanel-btn-smallify" aria-label="Smallify">${this.icons.smallify}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-minimize" aria-label="Minimize">${this.icons.minimize}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-normalize" aria-label="Normalize">${this.icons.normalize}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-maximize" aria-label="Maximize">${this.icons.maximize}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-close" aria-label="Close">${this.icons.close}</button>\n                                    </div>\n                                </div>\n                                <div class="jsPanel-hdr-toolbar"></div>\n                            </div>\n                            <div class="jsPanel-autoclose-progressbar">\n                                <div class="jsPanel-autoclose-progressbar-slider"></div>\n                            </div>\n                            <div class="jsPanel-content"></div>\n                            <div class="jsPanel-minimized-box"></div>\n                            <div class="jsPanel-ftr"></div>`,t},createMinimizedTemplate(){const e=document.createElement("div");return e.className="jsPanel-replacement",e.innerHTML=`<div class="jsPanel-hdr">\n                                <div class="jsPanel-headerbar">\n                                    <div class="jsPanel-headerlogo"></div>\n                                    <div class="jsPanel-titlebar">\n                                        <span class="jsPanel-title"></span>\n                                    </div>\n                                    <div class="jsPanel-controlbar">\n                                        <button class="jsPanel-btn jsPanel-btn-sm jsPanel-btn-normalize" aria-label="Normalize">${this.icons.normalize}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-sm jsPanel-btn-maximize" aria-label="Maximize">${this.icons.maximize}</button>\n                                        <button class="jsPanel-btn jsPanel-btn-sm jsPanel-btn-close" aria-label="Close">${this.icons.close}</button>\n                                    </div>\n                                </div>\n                            </div>`,e},createSnapArea(e,t,n){const o=document.createElement("div"),a=e.parentElement;o.className=`jsPanel-snap-area jsPanel-snap-area-${t}`,"lt"===t||"rt"===t||"rb"===t||"lb"===t?(o.style.width=n+"px",o.style.height=n+"px"):"ct"===t||"cb"===t?o.style.height=n+"px":"lc"!==t&&"rc"!==t||(o.style.width=n+"px"),a!==document.body&&(o.style.position="absolute"),document.querySelector(`.jsPanel-snap-area.jsPanel-snap-area-${t}`)||e.parentElement.appendChild(o);},dragit(e,t={}){let n,o;const a=new CustomEvent("jspaneldragstart",{detail:e.id}),s=new CustomEvent("jspaneldrag",{detail:e.id}),r=new CustomEvent("jspaneldragstop",{detail:e.id}),i=Object.assign({},this.defaults.dragit,t),l=this.pOcontainment(i.containment),c=e=>{let t=e.split("-");return t.forEach(function(e,n){t[n]=e.charAt(0).toUpperCase()+e.slice(1);}),"snap"+t.join("")};return i.grid&&Array.isArray(i.grid)&&1===i.grid.length&&(i.grid[1]=i.grid[0]),e.querySelectorAll(i.handles).forEach(t=>{t.style.touchAction="none",t.style.cursor=i.cursor,jsPanel.pointerdown.forEach(r=>{t.addEventListener(r,t=>{if(t.preventDefault(),t.button&&t.button>0)return !1;if(t.target.closest(".jsPanel-ftr-btn"))return;e.controlbar.style.pointerEvents="none",e.content.style.pointerEvents="none";let r=window.getComputedStyle(e),c=parseFloat(r.left),d=parseFloat(r.top),p=t.touches?t.touches[0].clientX:t.clientX,h=t.touches?t.touches[0].clientY:t.clientY,f=e.parentElement,u=f.getBoundingClientRect(),g=window.getComputedStyle(f),m=e.getScaleFactor(),b=0;o=(t=>{if(t.preventDefault(),!n){if(document.dispatchEvent(a),e.style.opacity=i.opacity,e.snapped&&i.snap.resizeToPreSnap&&e.currentData.beforeSnap){e.resize(e.currentData.beforeSnap.width+" "+e.currentData.beforeSnap.height);let t=e.getBoundingClientRect(),n=p-(t.left+t.width),o=t.width/2;n>-o&&(b=n+o);}i.start.length&&jsPanel.processCallbacks(e,i.start,!1,{left:c,top:d},t),jsPanel.front(e),e.snapped=!1;}if(n=1,i.disableOnMaximized&&"maximized"===e.status)return !1;let o,r,y,j,w,P,E,x,C,v,F=t.touches?t.touches[0].clientX:t.clientX,z=t.touches?t.touches[0].clientY:t.clientY,S=window.getComputedStyle(e);if(f===document.body){let t=e.getBoundingClientRect();C=window.innerWidth-parseInt(g.borderLeftWidth,10)-parseInt(g.borderRightWidth,10)-(t.left+t.width),v=window.innerHeight-parseInt(g.borderTopWidth,10)-parseInt(g.borderBottomWidth,10)-(t.top+t.height);}else C=parseInt(g.width,10)-parseInt(g.borderLeftWidth,10)-parseInt(g.borderRightWidth,10)-(parseInt(S.left,10)+parseInt(S.width,10)),v=parseInt(g.height,10)-parseInt(g.borderTopWidth,10)-parseInt(g.borderBottomWidth,10)-(parseInt(S.top,10)+parseInt(S.height,10));if(o=parseFloat(S.left),y=parseFloat(S.top),w=C,E=v,i.snap)if("panel"===i.snap.trigger)r=o**2,j=y**2,P=w**2,x=E**2;else if("pointer"===i.snap.trigger)if("window"===e.options.container)o=F,r=F**2,j=(y=z)**2,P=(w=window.innerWidth-F)**2,x=(E=window.innerHeight-z)**2;else{let n=jsPanel.overlaps(e,f,"paddingbox",t);o=n.pointer.left,y=n.pointer.top,w=n.pointer.right,E=n.pointer.bottom,r=n.pointer.left**2,j=n.pointer.top**2,P=n.pointer.right**2,x=n.pointer.bottom**2;}let k=Math.sqrt(r+j),B=Math.sqrt(r+x),A=Math.sqrt(P+j),L=Math.sqrt(P+x),T=Math.abs(o-w)/2,D=Math.abs(y-E)/2,W=Math.sqrt(r+D**2),R=Math.sqrt(j+T**2),$=Math.sqrt(P+D**2),q=Math.sqrt(x+T**2);if(window.getSelection().removeAllRanges(),document.dispatchEvent(s),i.axis&&"x"!==i.axis||(e.style.left=c+(F-p)/m.x+b+"px"),i.axis&&"y"!==i.axis||(e.style.top=d+(z-h)/m.y+"px"),i.grid){let t=i.grid[0]*Math.round((c+(F-p))/i.grid[0]),n=i.grid[1]*Math.round((d+(z-h))/i.grid[1]);i.axis&&"x"!==i.axis||(e.style.left=`${t}px`),i.axis&&"y"!==i.axis||(e.style.top=`${n}px`);}if(i.containment||0===i.containment){let t,n;if(e.options.container===document.body)t=window.innerWidth-parseFloat(S.width)-l[1],n=window.innerHeight-parseFloat(S.height)-l[2];else{let e=parseFloat(g.borderLeftWidth)+parseFloat(g.borderRightWidth),o=parseFloat(g.borderTopWidth)+parseFloat(g.borderBottomWidth);t=u.width/m.x-parseFloat(S.width)-l[1]-e,n=u.height/m.y-parseFloat(S.height)-l[2]-o;}parseFloat(e.style.left)<=l[3]&&(e.style.left=l[3]+"px"),parseFloat(e.style.top)<=l[0]&&(e.style.top=l[0]+"px"),parseFloat(e.style.left)>=t&&(e.style.left=t+"px"),parseFloat(e.style.top)>=n&&(e.style.top=n+"px");}if(i.drag.length&&jsPanel.processCallbacks(e,i.drag,!1,{left:o,top:y,right:w,bottom:E},t),i.snap){let t=i.snap.sensitivity,n=f===document.body?window.innerWidth/8:u.width/8,a=f===document.body?window.innerHeight/8:u.height/8;e.snappableTo=!1,jsPanel.removeSnapAreas(),k<t?!1!==i.snap.snapLeftTop&&(e.snappableTo="left-top",jsPanel.createSnapArea(e,"lt",t)):B<t?!1!==i.snap.snapLeftBottom&&(e.snappableTo="left-bottom",jsPanel.createSnapArea(e,"lb",t)):A<t?!1!==i.snap.snapRightTop&&(e.snappableTo="right-top",jsPanel.createSnapArea(e,"rt",t)):L<t?!1!==i.snap.snapRightBottom&&(e.snappableTo="right-bottom",jsPanel.createSnapArea(e,"rb",t)):y<t&&R<n?!1!==i.snap.snapCenterTop&&(e.snappableTo="center-top",jsPanel.createSnapArea(e,"ct",t)):o<t&&W<a?!1!==i.snap.snapLeftCenter&&(e.snappableTo="left-center",jsPanel.createSnapArea(e,"lc",t)):w<t&&$<a?!1!==i.snap.snapRightCenter&&(e.snappableTo="right-center",jsPanel.createSnapArea(e,"rc",t)):E<t&&q<n&&!1!==i.snap.snapCenterBottom&&(e.snappableTo="center-bottom",jsPanel.createSnapArea(e,"cb",t));}}),jsPanel.pointermove.forEach(e=>{document.addEventListener(e,o);}),window.addEventListener("mouseout",t=>{null===t.relatedTarget&&jsPanel.pointermove.forEach(function(t){document.removeEventListener(t,o,!1),e.style.opacity=1;});},!1);});}),jsPanel.pointerup.forEach(t=>{document.addEventListener(t,t=>{if(jsPanel.pointermove.forEach(e=>{document.removeEventListener(e,o);}),jsPanel.removeSnapAreas(),n){if(e.style.opacity=1,n=void 0,e.saveCurrentPosition(),e.calcSizeFactors(),document.dispatchEvent(r),i.snap){switch(e.snappableTo){case"left-top":jsPanel.snapPanel(e,i.snap.snapLeftTop);break;case"center-top":jsPanel.snapPanel(e,i.snap.snapCenterTop);break;case"right-top":jsPanel.snapPanel(e,i.snap.snapRightTop);break;case"right-center":jsPanel.snapPanel(e,i.snap.snapRightCenter);break;case"right-bottom":jsPanel.snapPanel(e,i.snap.snapRightBottom);break;case"center-bottom":jsPanel.snapPanel(e,i.snap.snapCenterBottom);break;case"left-bottom":jsPanel.snapPanel(e,i.snap.snapLeftBottom);break;case"left-center":jsPanel.snapPanel(e,i.snap.snapLeftCenter);}i.snap.callback&&e.snappableTo&&"function"==typeof i.snap.callback&&(i.snap.callback.call(e,e),i.snap.repositionOnSnap&&!1!==i.snap[c(e.snappableTo)]&&e.repositionOnSnap(e.snappableTo)),e.snappableTo&&i.snap.repositionOnSnap&&i.snap[c(e.snappableTo)]&&e.repositionOnSnap(e.snappableTo);}i.stop.length&&jsPanel.processCallbacks(e,i.stop,!1,{left:parseFloat(e.style.left),top:parseFloat(e.style.top)},t);}e.controlbar.style.pointerEvents="inherit",e.content.style.pointerEvents="inherit";});}),i.disable&&(t.style.pointerEvents="none");}),e},emptyNode(e){for(;e.firstChild;)e.removeChild(e.firstChild);return e},extend(e){if("[object Object]"===Object.prototype.toString.call(e))for(let t in e)e.hasOwnProperty(t)&&(this.extensions[t]=e[t]);},fetch(obj){const confDefaults={bodyMethod:"text",evalscripttags:!0,autoresize:!0,autoreposition:!0,done:function(e,t){e.content.innerHTML=t;}},conf="string"==typeof obj.options.contentFetch?Object.assign({resource:obj.options.contentFetch},confDefaults):Object.assign(confDefaults,obj.options.contentFetch),fetchInit=conf.fetchInit||{};if(!conf.resource){if(this.errorReporting)try{throw new jsPanel.jsPanelError("The Fetch request seems to miss the <mark>resource</mark> parameter")}catch(e){jsPanel.error(e);}return obj}conf.beforeSend&&conf.beforeSend.call(obj,obj),fetch(conf.resource,fetchInit).then(function(e){if(e.ok)return e[conf.bodyMethod]()}).then(function(response){if(conf.done.call(obj,obj,response),conf.evalscripttags){const scripttags=response.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi);scripttags&&scripttags.forEach(tag=>{let js=tag.replace(/<script\b[^>]*>/i,"").replace(/<\/script>/i,"").trim();eval(js);});}const oContentSize=obj.options.contentSize;if(conf.autoresize||conf.autoreposition)if("string"==typeof oContentSize&&oContentSize.match(/auto/i)){const e=oContentSize.split(" "),t=Object.assign({},{width:e[0],height:e[1]});conf.autoresize&&obj.resize(t),obj.classList.contains("jsPanel-contextmenu")||conf.autoreposition&&obj.reposition();}else if("object"==typeof oContentSize&&("auto"===oContentSize.width||"auto"===oContentSize.height)){const e=Object.assign({},oContentSize);conf.autoresize&&obj.resize(e),obj.classList.contains("jsPanel-contextmenu")||conf.autoreposition&&obj.reposition();}});},front(e){if("minimized"===e.status)"maximized"===e.statusBefore?e.maximize():e.normalize();else{const t=Array.prototype.slice.call(document.querySelectorAll(".jsPanel-standard")).map(e=>e.style.zIndex);Math.max(...t)>e.style.zIndex&&(e.style.zIndex=jsPanel.zi.next()),this.resetZi();}this.getPanels().forEach(function(e,t){const n=e.content.querySelector(".jsPanel-iframe-overlay");if(t>0){if(e.content.querySelector("iframe")&&!n){let t=document.createElement("div");t.className="jsPanel-iframe-overlay",e.content.appendChild(t);}}else n&&e.content.removeChild(n);});},getPanels:(e=function(){return this.classList.contains("jsPanel-standard")})=>Array.prototype.slice.call(document.querySelectorAll(".jsPanel")).filter(t=>e.call(t,t)).sort((e,t)=>t.style.zIndex-e.style.zIndex),overlaps(e,t,n,o){const a="string"==typeof e?document.querySelector(e):e,s=a.getBoundingClientRect(),r=getComputedStyle(a.parentElement),i=a.getScaleFactor(),l={top:0,right:0,bottom:0,left:0};let c,d=0,p=0,h=0,f=0;"window"!==a.options.container&&"paddingbox"===n&&(l.top=parseInt(r.borderTopWidth,10)*i.y,l.right=parseInt(r.borderRightWidth,10)*i.x,l.bottom=parseInt(r.borderBottomWidth,10)*i.y,l.left=parseInt(r.borderLeftWidth,10)*i.x),c="string"==typeof t?"window"===t?{left:0,top:0,right:window.innerWidth,bottom:window.innerHeight}:"parent"===t?a.parentElement.getBoundingClientRect():document.querySelector(t).getBoundingClientRect():t.getBoundingClientRect(),o&&(d=o.touches?o.touches[0].clientX:o.clientX,p=o.touches?o.touches[0].clientY:o.clientY,h=d-c.left,f=p-c.top);let u=s.left<c.right&&s.right>c.left,g=s.top<c.bottom&&s.bottom>c.top;return {overlaps:u&&g,top:s.top-c.top-l.top,right:c.right-s.right-l.right,bottom:c.bottom-s.bottom-l.bottom,left:s.left-c.left-l.left,parentBorderWidth:l,panelRect:s,referenceRect:c,pointer:{clientX:d,clientY:p,left:h-l.left,top:f-l.top,right:c.width-h-l.right,bottom:c.height-f-l.bottom}}},pOcontainer(e){if(e){if("string"==typeof e)return "window"===e?document.body:document.querySelector(e);if(1===e.nodeType)return e;if(e.length)return e[0]}return !1},pOcontainment(e){let t=e;if("function"==typeof e&&(t=e()),"number"==typeof t)return [t,t,t,t];if(Array.isArray(t)){if(1===t.length)return [t[0],t[0],t[0],t[0]];if(2===t.length)return t.concat(t);3===t.length&&(t[3]=t[1]);}return t},pOsize(e,t){let n=t||this.defaults.contentSize;const o=e.parentElement;if("string"==typeof n){const e=n.trim().split(" ");(n={}).width=e[0],2===e.length?n.height=e[1]:n.height=e[0];}else n.width&&!n.height?n.height=n.width:n.height&&!n.width&&(n.width=n.height);if(String(n.width).match(/^[0-9.]+$/gi))n.width+="px";else if("string"==typeof n.width&&n.width.endsWith("%"))if(o===document.body)n.width=window.innerWidth*(parseFloat(n.width)/100)+"px";else{const e=window.getComputedStyle(o),t=parseFloat(e.borderLeftWidth)+parseFloat(e.borderRightWidth);n.width=(parseFloat(e.width)-t)*(parseFloat(n.width)/100)+"px";}else"function"==typeof n.width&&(n.width=n.width.call(e,e),"number"==typeof n.width?n.width+="px":"string"==typeof n.width&&n.width.match(/^[0-9.]+$/gi)&&(n.width+="px"));if(String(n.height).match(/^[0-9.]+$/gi))n.height+="px";else if("string"==typeof n.height&&n.height.endsWith("%"))if(o===document.body)n.height=window.innerHeight*(parseFloat(n.height)/100)+"px";else{const e=window.getComputedStyle(o),t=parseFloat(e.borderTopWidth)+parseFloat(e.borderBottomWidth);n.height=(parseFloat(e.height)-t)*(parseFloat(n.height)/100)+"px";}else"function"==typeof n.height&&(n.height=n.height.call(e,e),"number"==typeof n.height?n.height+="px":"string"==typeof n.height&&n.height.match(/^[0-9.]+$/gi)&&(n.height+="px"));return n},pOborder(e){e=e.trim();const t=new Array(3),n=e.match(/\s*(none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset)\s*/gi),o=e.match(/\s*(thin|medium|thick)|(\d*\.?\d+[a-zA-Z]{2,4})\s*/gi);return n?(t[1]=n[0].trim(),e=e.replace(t[1],"")):t[1]="solid",o?(t[0]=o[0].trim(),e=e.replace(t[0],"")):t[0]="medium",t[2]=e.trim(),t},pOheaderControls(e){if("string"==typeof e){let t={},n=e.toLowerCase(),o=n.match(/xl|lg|md|sm|xs/),a=n.match(/closeonly|none/);return o&&(t.size=o[0]),a&&(t=Object.assign({},t,{maximize:"remove",normalize:"remove",minimize:"remove",smallify:"remove"}),"none"===a[0]&&(t.close="remove")),Object.assign({},this.defaults.headerControls,t)}return Object.assign({},this.defaults.headerControls,e)},processCallbacks(e,t,n="some",o,a){if("function"==typeof t&&(t=[t]),n)return t[n](function(t){return t.call(e,e,o,a)});t.forEach(function(t){t.call(e,e,o,a);});},removeMinimizedReplacement(e){const t=document.getElementById(`${e.id}-min`);t&&t.parentElement.removeChild(t);},removeSnapAreas(){document.querySelectorAll(".jsPanel-snap-area").forEach(function(e){e.parentElement.removeChild(e);});},remClass:(e,t)=>(t.split(" ").forEach(t=>e.classList.remove(t)),e),resetZi(){this.zi=((e=jsPanel.ziBase)=>{let t=e;return {next:()=>t++}})(),Array.prototype.slice.call(document.querySelectorAll(".jsPanel-standard")).sort((e,t)=>e.style.zIndex-t.style.zIndex).forEach(e=>{e.style.zIndex=jsPanel.zi.next();});},resizeit(e,t={}){const n=Object.assign({},this.defaults.resizeit,t),o=e.parentElement,a=o.tagName.toLowerCase(),s=this.pOcontainment(n.containment),r=new CustomEvent("jspanelresizestart",{detail:e.id}),i=new CustomEvent("jspanelresize",{detail:e.id}),l=new CustomEvent("jspanelresizestop",{detail:e.id});let c,d,p,h,f="function"==typeof n.maxWidth?n.maxWidth():n.maxWidth||1e4,u="function"==typeof n.maxHeight?n.maxHeight():n.maxHeight||1e4,g="function"==typeof n.minWidth?n.minWidth():n.minWidth,m="function"==typeof n.minHeight?n.minHeight():n.minHeight;return n.handles.split(",").forEach(t=>{const n=document.createElement("DIV");n.className=`jsPanel-resizeit-handle jsPanel-resizeit-${t.trim()}`,n.style.zIndex=90,e.append(n);}),e.querySelectorAll(".jsPanel-resizeit-handle").forEach(t=>{jsPanel.pointerdown.forEach(function(l){t.addEventListener(l,t=>{if(t.preventDefault(),t.button&&t.button>0)return !1;e.content.style.pointerEvents="none";const l=e.getBoundingClientRect(),b=o.getBoundingClientRect(),y=window.getComputedStyle(o,null),j=parseInt(y.borderLeftWidth,10),w=parseInt(y.borderTopWidth,10),P=y.getPropertyValue("position"),E=t.clientX||t.touches[0].clientX,x=t.clientY||t.touches[0].clientY,C=E/x,v=l.width,F=l.height,z=t.target.classList,S=e.getScaleFactor(),k=l.width/l.height;let B=l.left,A=l.top,L=1e4,T=1e4,D=1e4,W=1e4;"body"!==a&&(B=l.left-b.left+o.scrollLeft,A=l.top-b.top+o.scrollTop),"body"===a&&s?(L=document.documentElement.clientWidth-l.left,D=document.documentElement.clientHeight-l.top,T=l.width+l.left,W=l.height+l.top):s&&("static"===P?(L=b.width-l.left+j,D=b.height+b.top-l.top+w,T=l.width+(l.left-b.left)-j,W=l.height+(l.top-b.top)-w):(L=o.clientWidth-(l.left-b.left)/S.x+j,D=o.clientHeight-(l.top-b.top)/S.y+w,T=(l.width+l.left-b.left)/S.x-j,W=e.clientHeight+(l.top-b.top)/S.y-w)),s&&(T-=s[3],W-=s[0],L-=s[1],D-=s[2]);const R=window.getComputedStyle(e),$=parseFloat(R.width)-l.width,q=parseFloat(R.height)-l.height;let O=parseFloat(R.left)-l.left,I=parseFloat(R.top)-l.top;o!==document.body&&(O+=b.left,I+=b.top),c=(t=>{d||(document.dispatchEvent(r),n.start.length&&jsPanel.processCallbacks(e,n.start,!1,{width:v,height:F},t),jsPanel.front(e)),d=1,document.dispatchEvent(i);let a,l=t.touches?t.touches[0].clientX:t.clientX,c=t.touches?t.touches[0].clientY:t.clientY;z.contains("jsPanel-resizeit-e")?((p=v+(l-E)/S.x+$)>=L&&(p=L),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px",n.containment&&(a=e.overlaps(o)).bottom<=s[2]&&(e.style.height=D+"px",e.style.width=D*k+"px"))):z.contains("jsPanel-resizeit-s")?((h=F+(c-x)/S.y+q)>=D&&(h=D),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px",n.containment&&(a=e.overlaps(o)).right<=s[1]&&(e.style.width=L+"px",e.style.height=L/k+"px"))):z.contains("jsPanel-resizeit-w")?((p=v+(E-l)/S.x+$)<=f&&p>=g&&p<=T&&(e.style.left=B+(l-E)/S.x+O+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px",n.containment&&(a=e.overlaps(o)).bottom<=s[2]&&(e.style.height=D+"px",e.style.width=D*k+"px"))):z.contains("jsPanel-resizeit-n")?((h=F+(x-c)/S.y+q)<=u&&h>=m&&h<=W&&(e.style.top=A+(c-x)/S.y+I+"px"),h>=W&&(h=W),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px",n.containment&&(a=e.overlaps(o)).right<=s[1]&&(e.style.width=L+"px",e.style.height=L/k+"px"))):z.contains("jsPanel-resizeit-se")?((p=v+(l-E)/S.x+$)>=L&&(p=L),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px"),(h=F+(c-x)/S.y+q)>=D&&(h=D),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px",n.containment&&(a=e.overlaps(o)).right<=s[1]&&(e.style.width=L+"px",e.style.height=L/k+"px"))):z.contains("jsPanel-resizeit-sw")?((h=F+(c-x)/S.y+q)>=D&&(h=D),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px"),(p=v+(E-l)/S.x+$)<=f&&p>=g&&p<=T&&(e.style.left=B+(l-E)/S.x+O+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px",n.containment&&(a=e.overlaps(o)).bottom<=s[2]&&(e.style.height=D+"px",e.style.width=D*k+"px"))):z.contains("jsPanel-resizeit-ne")?((p=v+(l-E)/S.x+$)>=L&&(p=L),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px"),(h=F+(x-c)/S.y+q)<=u&&h>=m&&h<=W&&(e.style.top=A+(c-x)/S.y+I+"px"),h>=W&&(h=W),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px",n.containment&&(a=e.overlaps(o)).right<=s[1]&&(e.style.width=L+"px",e.style.height=L/k+"px"))):z.contains("jsPanel-resizeit-nw")&&(n.aspectRatio&&z.contains("jsPanel-resizeit-nw")&&(c=(l=c*C)/C),(p=v+(E-l)/S.x+$)<=f&&p>=g&&p<=T&&(e.style.left=B+(l-E)/S.x+O+"px"),p>=T&&(p=T),p>=f?p=f:p<=g&&(p=g),e.style.width=p+"px",n.aspectRatio&&(e.style.height=p/k+"px"),(h=F+(x-c)/S.y+q)<=u&&h>=m&&h<=W&&(e.style.top=A+(c-x)/S.y+I+"px"),h>=W&&(h=W),h>=u?h=u:h<=m&&(h=m),e.style.height=h+"px",n.aspectRatio&&(e.style.width=h*k+"px")),window.getSelection().removeAllRanges();const b=window.getComputedStyle(e),y={left:parseFloat(b.left),top:parseFloat(b.top),right:parseFloat(b.right),bottom:parseFloat(b.bottom),width:parseFloat(b.width),height:parseFloat(b.height)};n.resize.length&&jsPanel.processCallbacks(e,n.resize,!1,y,t);}),jsPanel.pointermove.forEach(function(e){document.addEventListener(e,c,!1);}),window.addEventListener("mouseout",e=>{null===e.relatedTarget&&jsPanel.pointermove.forEach(function(e){document.removeEventListener(e,c,!1);});},!1);});});}),jsPanel.pointerup.forEach(function(t){document.addEventListener(t,t=>{if(jsPanel.pointermove.forEach(function(e){document.removeEventListener(e,c,!1);}),t.target.classList&&t.target.classList.contains("jsPanel-resizeit-handle")){let o,a,s=t.target.className;if(s.match(/jsPanel-resizeit-nw|jsPanel-resizeit-w|jsPanel-resizeit-sw/i)&&(o=!0),s.match(/jsPanel-resizeit-nw|jsPanel-resizeit-n|jsPanel-resizeit-ne/i)&&(a=!0),n.grid&&Array.isArray(n.grid)){1===n.grid.length&&(n.grid[1]=n.grid[0]);const t=parseFloat(e.style.width),s=parseFloat(e.style.height),r=t%n.grid[0],i=s%n.grid[1],l=parseFloat(e.style.left),c=parseFloat(e.style.top),d=l%n.grid[0],p=c%n.grid[1];r<n.grid[0]/2?e.style.width=t-r+"px":e.style.width=t+(n.grid[0]-r)+"px",i<n.grid[1]/2?e.style.height=s-i+"px":e.style.height=s+(n.grid[1]-i)+"px",o&&(d<n.grid[0]/2?e.style.left=l-d+"px":e.style.left=l+(n.grid[0]-d)+"px"),a&&(p<n.grid[1]/2?e.style.top=c-p+"px":e.style.top=c+(n.grid[1]-p)+"px");}}if(d){e.content.style.pointerEvents="inherit",d=void 0,e.saveCurrentDimensions(),e.saveCurrentPosition(),e.status="normalized";let o=e.controlbar.querySelector(".jsPanel-btn-smallify");o&&(o.style.transform="rotate(0deg)"),document.dispatchEvent(l),n.stop.length&&jsPanel.processCallbacks(e,n.stop,!1,{width:parseFloat(e.style.width),height:parseFloat(e.style.height)},t);}e.content.style.pointerEvents="inherit";},!1);}),n.disable&&e.querySelectorAll(".jsPanel-resizeit-handle").forEach(e=>{e.style.pointerEvents="none";}),e},setClass:(e,t)=>(t.split(" ").forEach(t=>e.classList.add(t)),e),setStyles(e,t){for(let n in t)if(t.hasOwnProperty(n)){const o=String(n).replace(/-\w/gi,e=>e.substr(-1).toUpperCase());e.style[o]=t[n];}return e},setStyle(e,t){return this.setStyles.call(e,e,t)},snapPanel(e,t,n=!1){if(n||(e.currentData.beforeSnap={width:e.currentData.width,height:e.currentData.height}),t&&"function"==typeof t&&!n)t.call(e,e,e.snappableTo);else if(!1!==t){const t=[0,0];if(e.options.dragit.snap.containment&&e.options.dragit.containment){const n=this.pOcontainment(e.options.dragit.containment),o=e.snappableTo;o.startsWith("left")?t[0]=n[3]:o.startsWith("right")&&(t[0]=-n[1]),o.endsWith("top")?t[1]=n[0]:o.endsWith("bottom")&&(t[1]=-n[2]);}e.reposition(`${e.snappableTo} ${t[0]} ${t[1]}`);}n||(e.snapped=e.snappableTo);},jsPanelError(e){this.prototype=new Error,this.message=e,this.name="jsPanel Error";},error(e){this.create({paneltype:"error",dragit:!1,resizeit:!1,theme:{bgPanel:"white",bgContent:"white",colorHeader:"rebeccapurple",colorContent:"#333",border:"2px solid rebeccapurple"},borderRadius:".33rem",headerControls:"closeonly xs",headerTitle:"&#9888; jsPanel Error",contentSize:{width:"50%",height:"auto"},position:"center-top 0 5 down",animateIn:"jsPanelFadeIn",content:`<div class="jsPanel-error-content-separator"></div><p>${e.message}</p>`});},create(e={},t){jsPanel.zi||(jsPanel.zi=((e=jsPanel.ziBase)=>{let t=e;return {next:()=>t++}})()),e.config?delete(e=Object.assign({},this.defaults,e.config,e)).config:e=Object.assign({},this.defaults,e),e.id?"function"==typeof e.id&&(e.id=e.id()):e.id=`jsPanel-${jsPanel.idCounter+=1}`;const n=document.getElementById(e.id);if(null!==n){if(n.classList.contains("jsPanel")&&n.front(),this.errorReporting)try{throw new jsPanel.jsPanelError("&#9664; COULD NOT CREATE NEW JSPANEL &#9658;<br>An element with the ID <mark>"+e.id+"</mark> already exists in the document.")}catch(e){jsPanel.error(e);}return !1}const o=this.pOcontainer(e.container);if(!o){if(this.errorReporting)try{throw new jsPanel.jsPanelError("&#9664; COULD NOT CREATE NEW JSPANEL &#9658;<br>The container to append the panel to does not exist")}catch(e){jsPanel.error(e);}return !1}e.maximizedMargin=this.pOcontainment(e.maximizedMargin),e.dragit&&(["start","drag","stop"].forEach(function(t){e.dragit[t]?"function"==typeof e.dragit[t]&&(e.dragit[t]=[e.dragit[t]]):e.dragit[t]=[];}),e.dragit.snap&&("object"==typeof e.dragit.snap?e.dragit.snap=Object.assign({},this.defaultSnapConfig,e.dragit.snap):e.dragit.snap=this.defaultSnapConfig)),e.resizeit&&["start","resize","stop"].forEach(function(t){e.resizeit[t]?"function"==typeof e.resizeit[t]&&(e.resizeit[t]=[e.resizeit[t]]):e.resizeit[t]=[];}),["onbeforeclose","onbeforemaximize","onbeforeminimize","onbeforenormalize","onbeforesmallify","onbeforeunsmallify","onclosed","onfronted","onmaximized","onminimized","onnormalized","onsmallified","onstatuschange","onunsmallified"].forEach(function(t){e[t]?"function"==typeof e[t]&&(e[t]=[e[t]]):e[t]=[];});const a=e.template?e.template:this.createPanelTemplate();a.options=e,a.closetimer=void 0,a.status="initialized",a.currentData={},a.header=a.querySelector(".jsPanel-hdr"),a.headerbar=a.header.querySelector(".jsPanel-headerbar"),a.titlebar=a.header.querySelector(".jsPanel-titlebar"),a.headerlogo=a.headerbar.querySelector(".jsPanel-headerlogo"),a.headertitle=a.headerbar.querySelector(".jsPanel-title"),a.controlbar=a.headerbar.querySelector(".jsPanel-controlbar"),a.headertoolbar=a.header.querySelector(".jsPanel-hdr-toolbar"),a.content=a.querySelector(".jsPanel-content"),a.footer=a.querySelector(".jsPanel-ftr"),a.snappableTo=!1,a.snapped=!1,a.autocloseProgressbar=a.querySelector(".jsPanel-autoclose-progressbar");const s=new CustomEvent("jspanelloaded",{detail:e.id}),r=new CustomEvent("jspanelcloseduser",{detail:e.id}),i=new CustomEvent("jspanelstatuschange",{detail:e.id}),l=new CustomEvent("jspanelbeforenormalize",{detail:e.id}),c=new CustomEvent("jspanelnormalized",{detail:e.id}),d=new CustomEvent("jspanelbeforemaximize",{detail:e.id}),p=new CustomEvent("jspanelmaximized",{detail:e.id}),h=new CustomEvent("jspanelbeforeminimize",{detail:e.id}),f=new CustomEvent("jspanelminimized",{detail:e.id}),u=new CustomEvent("jspanelbeforesmallify",{detail:e.id}),g=new CustomEvent("jspanelsmallified",{detail:e.id}),m=new CustomEvent("jspanelsmallifiedmax",{detail:e.id}),b=new CustomEvent("jspanelbeforeunsmallify",{detail:e.id}),y=new CustomEvent("jspanelfronted",{detail:e.id}),j=a.querySelector(".jsPanel-btn-close"),w=a.querySelector(".jsPanel-btn-maximize"),P=a.querySelector(".jsPanel-btn-normalize"),E=a.querySelector(".jsPanel-btn-smallify"),x=a.querySelector(".jsPanel-btn-minimize");"onpointerdown"in window&&a.controlbar.querySelectorAll(".jsPanel-btn").forEach(function(e){e.addEventListener("pointerdown",e=>{e.preventDefault();},!0);}),j&&jsPanel.pointerup.forEach(e=>{j.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;jsPanel.close(a),document.dispatchEvent(r);});}),w&&jsPanel.pointerup.forEach(e=>{w.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.maximize();});}),P&&jsPanel.pointerup.forEach(e=>{P.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.normalize();});}),E&&jsPanel.pointerup.forEach(e=>{E.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;"normalized"===a.status||"maximized"===a.status?a.smallify():"smallified"!==a.status&&"smallifiedmax"!==a.status||a.unsmallify();});}),x&&jsPanel.pointerup.forEach(e=>{x.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;a.minimize();});});let C=jsPanel.extensions;for(let e in C)C.hasOwnProperty(e)&&(a[e]=C[e]);if(a.clearTheme=(e=>(jsPanel.themes.forEach(e=>{["panel",`jsPanel-theme-${e}`,`panel-${e}`,`${e}-color`].forEach(e=>{a.classList.remove(e);}),a.header.classList.remove(`jsPanel-theme-${e}`);},a),a.content.classList.remove("jsPanel-content-filled","jsPanel-content-filledlight"),a.header.classList.remove("jsPanel-hdr-light"),a.header.classList.remove("jsPanel-hdr-dark"),a.style.backgroundColor="",jsPanel.setStyle(a.headertoolbar,{boxShadow:"",width:"",marginLeft:"",borderTopColor:"transparent"}),jsPanel.setStyle(a.content,{background:"",borderTopColor:"transparent"}),a.header.style.background="",Array.prototype.slice.call(a.controlbar.querySelectorAll(".jsPanel-icon")).concat([a.headerlogo,a.headertitle,a.headertoolbar,a.content]).forEach(e=>{e.style.color="";}),e&&e.call(a,a),a)),a.getThemeDetails=(e=>{const t=e.toLowerCase(),n={color:!1,colors:!1,filling:!1},o=t.split("fill");if(n.color=o[0].trim().replace(/\s*/g,""),2===o.length)if(o[1].startsWith("edlight"))n.filling="filledlight";else if(o[1].startsWith("eddark"))n.filling="filleddark";else if(o[1].startsWith("ed"))n.filling="filled";else if(o[1].startsWith("color")){let e=o[1].split("color"),t=e[e.length-1].trim().replace(/\s*/g,"");jsPanel.colorNames[t]&&(t=jsPanel.colorNames[t]),t.match(/^([0-9a-f]{3}|[0-9a-f]{6})$/gi)&&(t="#"+t),n.filling=t;}if(jsPanel.themes.some(function(e){return e===n.color.split(/\s/i)[0]})){let e=n.color.split(/\s/i)[0],t=document.createElement("button");t.className=e+"-bg",document.body.appendChild(t),n.color=getComputedStyle(t).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(t),t=void 0;}else if(n.color.startsWith("bootstrap-")){let e=n.color.indexOf("-"),t=document.createElement("button");t.className="btn btn"+n.color.slice(e),document.body.appendChild(t),n.color=getComputedStyle(t).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(t),t=void 0;}else if(n.color.startsWith("mdb-")){let e,t=n.color.indexOf("-")+1,o=document.createElement("span");e=n.color.endsWith("-dark")?(e=n.color.slice(t)).replace("-dark","-color-dark"):n.color.slice(t)+"-color",o.className=e,document.body.appendChild(o),n.color=getComputedStyle(o).backgroundColor.replace(/\s+/gi,""),document.body.removeChild(o),o=void 0;}return n.colors=jsPanel.calcColors(n.color),n}),a.applyColorTheme=(e=>{if(a.style.backgroundColor=e.colors[0],a.header.style.backgroundColor=e.colors[0],a.header.style.color=e.colors[3],[".jsPanel-headerlogo",".jsPanel-title",".jsPanel-hdr-toolbar"].forEach(t=>{a.querySelector(t).style.color=e.colors[3];},a),a.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(t=>{t.style.color=e.colors[3];}),"string"==typeof a.options.theme&&"filled"===e.filling&&(a.content.style.borderTop="#000000"===e.colors[3]?"1px solid rgba(0,0,0,0.15)":"1px solid rgba(255,255,255,0.15)"),"#000000"===e.colors[3]?a.header.classList.add("jsPanel-hdr-light"):a.header.classList.add("jsPanel-hdr-dark"),e.filling)switch(e.filling){case"filled":jsPanel.setStyle(a.content,{backgroundColor:e.colors[2],color:e.colors[3]});break;case"filledlight":a.content.style.backgroundColor=e.colors[1];break;case"filleddark":jsPanel.setStyle(a.content,{backgroundColor:e.colors[6],color:e.colors[7]});break;default:a.content.style.backgroundColor=e.filling,a.content.style.color=jsPanel.perceivedBrightness(e.filling)<=jsPanel.colorBrightnessThreshold?"#fff":"#000";}return a}),a.applyCustomTheme=(e=>{let t,n={bgPanel:"#fff",bgContent:"#fff",colorHeader:"#000",colorContent:"#000"},o=(t="object"==typeof e?Object.assign(n,e):n).bgPanel,s=t.bgContent,r=t.colorHeader,i=t.colorContent;if(jsPanel.colorNames[o]?a.style.background="#"+jsPanel.colorNames[o]:a.style.background=o,jsPanel.colorNames[r]&&(r="#"+jsPanel.colorNames[r]),[".jsPanel-headerlogo",".jsPanel-title",".jsPanel-hdr-toolbar"].forEach(e=>{a.querySelector(e).style.color=r;},a),a.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(e=>{e.style.color=r;}),jsPanel.colorNames[s]?a.content.style.background="#"+jsPanel.colorNames[s]:a.content.style.background=s,jsPanel.colorNames[i]?a.content.style.color="#"+jsPanel.colorNames[i]:a.content.style.color=i,jsPanel.perceivedBrightness(r)>jsPanel.colorBrightnessThreshold?a.header.classList.add("jsPanel-hdr-dark"):a.header.classList.add("jsPanel-hdr-light"),jsPanel.perceivedBrightness(i)>jsPanel.colorBrightnessThreshold?a.content.style.borderTop="1px solid rgba(255,255,255,0.15)":a.content.style.borderTop="1px solid rgba(0,0,0,0.15)",t.border){let e=t.border,n=e.lastIndexOf(" "),o=e.slice(++n);jsPanel.colorNames[o]&&(e=e.replace(o,"#"+jsPanel.colorNames[o])),a.style.border=e;}return a}),a.setBorder=(e=>{let t=jsPanel.pOborder(e);return t[2].length?jsPanel.colorNames[t[2]]&&(t[2]="#"+jsPanel.colorNames[t[2]]):t[2]=a.style.backgroundColor,t=t.join(" "),a.style.border=t,a.options.border=t,a}),a.setBorderRadius=(e=>{"number"==typeof e&&(e+="px"),a.style.borderRadius=e;const t=getComputedStyle(a);return a.querySelector(".jsPanel-hdr")?(a.header.style.borderTopLeftRadius=t.borderTopLeftRadius,a.header.style.borderTopRightRadius=t.borderTopRightRadius):(a.content.style.borderTopLeftRadius=t.borderTopLeftRadius,a.content.style.borderTopRightRadius=t.borderTopRightRadius),a.querySelector(".jsPanel-ftr.active")?(a.footer.style.borderBottomRightRadius=t.borderBottomRightRadius,a.footer.style.borderBottomLeftRadius=t.borderBottomLeftRadius):(a.content.style.borderBottomRightRadius=t.borderBottomRightRadius,a.content.style.borderBottomLeftRadius=t.borderBottomLeftRadius),a}),a.setTheme=((t=e.theme,n)=>{let o;if("minimized"===a.status&&(o=!0,a.normalize()),a.clearTheme(),"object"==typeof t)e.border=void 0,a.applyCustomTheme(t);else{"none"===t&&(t="white");let e=a.getThemeDetails(t);a.applyColorTheme(e);}return o&&a.minimize(),n&&n.call(a,a),a}),a.close=(e=>{jsPanel.close(a,e);}),a.maximize=(t=>{if(a.statusBefore=a.status,e.onbeforemaximize&&e.onbeforemaximize.length>0&&!jsPanel.processCallbacks(a,e.onbeforemaximize,"some",a.statusBefore))return a;document.dispatchEvent(d);const n=a.parentElement,o=e.maximizedMargin;return n===document.body?(a.style.width=document.documentElement.clientWidth-o[1]-o[3]+"px",a.style.height=document.documentElement.clientHeight-o[0]-o[2]+"px",a.style.left=o[3]+"px",a.style.top=o[0]+"px",e.position.fixed||(a.style.left=window.pageXOffset+o[3]+"px",a.style.top=window.pageYOffset+o[0]+"px")):(a.style.width=n.clientWidth-o[1]-o[3]+"px",a.style.height=n.clientHeight-o[0]-o[2]+"px",a.style.left=o[3]+"px",a.style.top=o[0]+"px"),E.style.transform="unset",jsPanel.removeMinimizedReplacement(a),a.status="maximized",a.setControls([".jsPanel-btn-maximize"]),jsPanel.front(a),document.dispatchEvent(p),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),t&&t.call(a,a,a.statusBefore),e.onmaximized&&jsPanel.processCallbacks(a,e.onmaximized,"every",a.statusBefore),a}),a.minimize=(t=>{if("minimized"===a.status)return a;if(a.statusBefore=a.status,e.onbeforeminimize&&e.onbeforeminimize.length>0&&!jsPanel.processCallbacks(a,e.onbeforeminimize,"some",a.statusBefore))return a;if(document.dispatchEvent(h),!document.getElementById("jsPanel-replacement-container")){const e=document.createElement("div");e.id="jsPanel-replacement-container",document.body.append(e);}if(a.style.left="-9999px",a.status="minimized",document.dispatchEvent(f),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),e.minimizeTo){let t,n,o,s=a.createMinimizedReplacement();switch(e.minimizeTo){case"default":document.getElementById("jsPanel-replacement-container").append(s);break;case"parentpanel":(t=(o=(n=a.closest(".jsPanel-content").parentElement).querySelectorAll(".jsPanel-minimized-box"))[o.length-1]).append(s);break;case"parent":(t=(n=a.parentElement).querySelector(".jsPanel-minimized-container"))||((t=document.createElement("div")).className="jsPanel-minimized-container",n.append(t)),t.append(s);break;default:document.querySelector(e.minimizeTo).append(s);}}return t&&t.call(a,a,a.statusBefore),e.onminimized&&jsPanel.processCallbacks(a,e.onminimized,"every",a.statusBefore),a}),a.normalize=(t=>"normalized"===a.status?a:(a.statusBefore=a.status,e.onbeforenormalize&&e.onbeforenormalize.length>0&&!jsPanel.processCallbacks(a,e.onbeforenormalize,"some",a.statusBefore)?a:(document.dispatchEvent(l),a.style.width=a.currentData.width,a.style.height=a.currentData.height,a.snapped?jsPanel.snapPanel(a,a.snapped,!0):(a.style.left=a.currentData.left,a.style.top=a.currentData.top),E.style.transform="unset",jsPanel.removeMinimizedReplacement(a),a.status="normalized",a.setControls([".jsPanel-btn-normalize"]),jsPanel.front(a),document.dispatchEvent(c),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore),t&&t.call(a,a,a.statusBefore),e.onnormalized&&jsPanel.processCallbacks(a,e.onnormalized,"every",a.statusBefore),a))),a.smallify=(t=>{if("smallified"===a.status||"smallifiedmax"===a.status)return a;if(a.statusBefore=a.status,e.onbeforesmallify&&e.onbeforesmallify.length>0&&!jsPanel.processCallbacks(a,e.onbeforesmallify,"some",a.statusBefore))return a;document.dispatchEvent(u),"normalized"===a.status&&a.saveCurrentDimensions(),a.style.overflow="hidden";const n=window.getComputedStyle(a),o=parseFloat(window.getComputedStyle(a.headerbar).height);a.style.height=parseFloat(n.borderTopWidth)+parseFloat(n.borderBottomWidth)+o+"px",E.style.transform="rotate(180deg)","normalized"===a.status?(a.setControls([".jsPanel-btn-normalize"]),a.status="smallified",document.dispatchEvent(g),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore)):"maximized"===a.status&&(a.setControls([".jsPanel-btn-maximize"]),a.status="smallifiedmax",document.dispatchEvent(m),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore));const s=a.querySelectorAll(".jsPanel-minimized-box");return s[s.length-1].style.display="none",t&&t.call(a,a,a.statusBefore),e.onsmallified&&jsPanel.processCallbacks(a,e.onsmallified,"every",a.statusBefore),a}),a.unsmallify=(t=>{if(a.statusBefore=a.status,"smallified"===a.status||"smallifiedmax"===a.status){if(e.onbeforeunsmallify&&e.onbeforeunsmallify.length>0&&!jsPanel.processCallbacks(a,e.onbeforeunsmallify,"some",a.statusBefore))return a;document.dispatchEvent(b),a.style.overflow="visible",jsPanel.front(a),"smallified"===a.status?(a.style.height=a.currentData.height,a.setControls([".jsPanel-btn-normalize"]),a.status="normalized",document.dispatchEvent(c),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every",a.statusBefore)):"smallifiedmax"===a.status?a.maximize():"minimized"===a.status&&a.normalize(),E.style.transform="rotate(0deg)";const n=a.querySelectorAll(".jsPanel-minimized-box");n[n.length-1].style.display="flex",t&&t.call(a,a,a.statusBefore),e.onunsmallified&&jsPanel.processCallbacks(a,e.onunsmallified,"every",a.statusBefore);}return a}),a.front=((t,n=!0)=>(jsPanel.front(a),document.dispatchEvent(y),t&&t.call(a,a),e.onfronted&&n&&jsPanel.processCallbacks(a,e.onfronted,"every",a.status),a)),a.closeChildpanels=(e=>(a.getChildpanels().forEach(e=>jsPanel.close(e)),e&&e.call(a,a),a)),a.getChildpanels=(e=>{const t=a.content.querySelectorAll(".jsPanel");return e&&t.forEach(function(t,n,o){e.call(t,t,n,o);}),t}),a.isChildpanel=(e=>{const t=a.closest(".jsPanel-content"),n=t?t.parentElement:null;return e&&e.call(a,a,n),!!t&&n}),a.contentRemove=(e=>(jsPanel.emptyNode(a.content),e&&e.call(a,a),a)),a.createMinimizedReplacement=(()=>{const t=jsPanel.createMinimizedTemplate(),n=window.getComputedStyle(a.headertitle).color,o=window.getComputedStyle(a),s=e.iconfont,r=t.querySelector(".jsPanel-controlbar");return "auto-show-hide"!==a.options.header?jsPanel.setStyle(t,{backgroundColor:o.backgroundColor,backgroundPositionX:o.backgroundPositionX,backgroundPositionY:o.backgroundPositionY,backgroundRepeat:o.backgroundRepeat,backgroundAttachment:o.backgroundAttachment,backgroundImage:o.backgroundImage,backgroundSize:o.backgroundSize,backgroundOrigin:o.backgroundOrigin,backgroundClip:o.backgroundClip}):t.style.backgroundColor=window.getComputedStyle(a.header).backgroundColor,t.id=a.id+"-min",t.querySelector(".jsPanel-headerbar").replaceChild(a.headerlogo.cloneNode(!0),t.querySelector(".jsPanel-headerlogo")),t.querySelector(".jsPanel-titlebar").replaceChild(a.headertitle.cloneNode(!0),t.querySelector(".jsPanel-title")),t.querySelector(".jsPanel-titlebar").setAttribute("title",a.headertitle.textContent),t.querySelector(".jsPanel-title").style.color=n,r.style.color=n,r.querySelectorAll("button").forEach(function(e){e.style.color=n;}),["jsPanel-hdr-dark","jsPanel-hdr-light"].forEach(function(e){a.header.classList.contains(e)&&t.querySelector(".jsPanel-hdr").classList.add(e);}),a.setIconfont(s,t),"onpointerdown"in window&&t.querySelectorAll(".jsPanel-btn").forEach(function(e){e.addEventListener("pointerdown",e=>{e.preventDefault();},!0);}),"enabled"===a.dataset.btnnormalize?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-normalize").addEventListener(e,()=>{a.normalize();});}):r.querySelector(".jsPanel-btn-normalize").style.display="none","enabled"===a.dataset.btnmaximize?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-maximize").addEventListener(e,()=>{a.maximize();});}):r.querySelector(".jsPanel-btn-maximize").style.display="none","enabled"===a.dataset.btnclose?jsPanel.pointerup.forEach(function(e){t.querySelector(".jsPanel-btn-close").addEventListener(e,()=>{jsPanel.close(a);});}):r.querySelector(".jsPanel-btn-close").style.display="none",t}),a.dragit=(t=>{const n=Object.assign({},jsPanel.defaults.dragit,e.dragit),o=a.querySelectorAll(n.handles);return "disable"===t?o.forEach(e=>{e.style.pointerEvents="none";}):o.forEach(e=>{e.style.pointerEvents="auto";}),a}),a.resizeit=(e=>{const t=a.querySelectorAll(".jsPanel-resizeit-handle");return "disable"===e?t.forEach(e=>{e.style.pointerEvents="none";}):t.forEach(e=>{e.style.pointerEvents="auto";}),a}),a.getScaleFactor=(()=>{const e=a.getBoundingClientRect();return {x:e.width/a.offsetWidth,y:e.height/a.offsetHeight}}),a.calcSizeFactors=(()=>{const t=window.getComputedStyle(a);if("window"===e.container)a.hf=parseFloat(t.left)/(window.innerWidth-parseFloat(t.width)),a.vf=parseFloat(t.top)/(window.innerHeight-parseFloat(t.height));else if(a.parentElement){let e=a.parentElement.getBoundingClientRect();a.hf=parseFloat(t.left)/(e.width-parseFloat(t.width)),a.vf=parseFloat(t.top)/(e.height-parseFloat(t.height));}}),a.saveCurrentDimensions=((e=!1)=>{const t=window.getComputedStyle(a);a.currentData.width=t.width,"normalized"===a.status&&(a.currentData.height=t.height),e&&(a.style.height=t.height);}),a.saveCurrentPosition=(()=>{const e=window.getComputedStyle(a);a.currentData.left=e.left,a.currentData.top=e.top;}),a.reposition=((...t)=>{let n,o=e.position,s=!0;return t.forEach(function(e){"string"==typeof e||"object"==typeof e?o=e:"boolean"==typeof e?s=e:"function"==typeof e&&(n=e);}),jsPanel.position(a,o),s&&a.saveCurrentPosition(),n&&n.call(a,a),a}),a.repositionOnSnap=(t=>{let n="0",o="0",s=jsPanel.pOcontainment(e.dragit.containment);if(e.dragit.snap.containment)switch(t){case"left-top":n=s[3],o=s[0];break;case"right-top":n=-s[1],o=s[0];break;case"right-bottom":n=-s[1],o=-s[2];break;case"left-bottom":n=s[3],o=-s[2];break;case"center-top":n=s[3]/2-s[1]/2,o=s[0];break;case"center-bottom":n=s[3]/2-s[1]/2,o=-s[2];break;case"left-center":n=s[3],o=s[0]/2-s[2]/2;break;case"right-center":n=-s[1],o=s[0]/2-s[2]/2;}jsPanel.position(a,t),jsPanel.setStyle(a,{left:`calc(${a.style.left} + ${n}px)`,top:`calc(${a.style.top} + ${o}px)`});}),a.overlaps=((e,t,n)=>jsPanel.overlaps(a,e,t,n)),a.setSize=(()=>{if(e.panelSize){const t=jsPanel.pOsize(a,e.panelSize);a.style.width=t.width,a.style.height=t.height;}else if(e.contentSize){const t=jsPanel.pOsize(a,e.contentSize);a.content.style.width=t.width,a.content.style.height=t.height,a.style.width=t.width,a.content.style.width="100%";}return a}),a.resize=((...e)=>{let t,n=window.getComputedStyle(a),o={width:n.width,height:n.height},s=!0;e.forEach(function(e){"string"==typeof e?o=e:"object"==typeof e?o=Object.assign(o,e):"boolean"==typeof e?s=e:"function"==typeof e&&(t=e);});let r=jsPanel.pOsize(a,o);a.style.width=r.width,a.style.height=r.height,s&&a.saveCurrentDimensions(),a.status="normalized";let i=a.controlbar.querySelector(".jsPanel-btn-smallify");return i&&(i.style.transform="rotate(0deg)"),t&&t.call(a,a),a}),a.setControls=((e,t)=>(a.header.querySelectorAll(".jsPanel-btn").forEach(e=>{const t=e.className.split("-"),n=t[t.length-1];"hidden"!==a.getAttribute(`data-btn${n}`)&&(e.style.display="block");}),e.forEach(e=>{const t=a.controlbar.querySelector(e);t&&(t.style.display="none");}),t&&t.call(a,a),a)),a.setControlStatus=((e,t="enable",n)=>{const o=a.controlbar.querySelector(`.jsPanel-btn-${e}`);switch(t){case"disable":"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"disabled"),o.style.pointerEvents="none",o.style.opacity=.4,o.style.cursor="default");break;case"hide":"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"hidden"),o.style.display="none");break;case"show":"removed"!==a.getAttribute(`data-btn${e}`)&&(a.setAttribute(`data-btn${e}`,"enabled"),o.style.display="block",o.style.pointerEvents="auto",o.style.opacity=1,o.style.cursor="pointer");break;case"enable":"removed"!==a.getAttribute(`data-btn${e}`)&&("hidden"===a.getAttribute(`data-btn${e}`)&&(o.style.display="block"),a.setAttribute(`data-btn${e}`,"enabled"),o.style.pointerEvents="auto",o.style.opacity=1,o.style.cursor="pointer");break;case"remove":a.controlbar.removeChild(o),a.setAttribute(`data-btn${e}`,"removed");}return n&&n.call(a,a),a}),a.setControlSize=(e=>{const t=e.toLowerCase();a.controlbar.querySelectorAll(".jsPanel-btn").forEach(e=>{["jsPanel-btn-xl","jsPanel-btn-lg","jsPanel-btn-md","jsPanel-btn-sm","jsPanel-btn-xs"].forEach(t=>{e.classList.remove(t);}),e.classList.add(`jsPanel-btn-${t}`);}),"xl"===t?a.titlebar.style.fontSize="1.5rem":"lg"===t?a.titlebar.style.fontSize="1.25rem":"md"===t?a.titlebar.style.fontSize="1.05rem":"sm"===t?a.titlebar.style.fontSize=".9rem":"xs"===t&&(a.titlebar.style.fontSize=".8rem");}),a.setHeaderControls=(t=>{if(a.options.headerControls.add){let e=a.options.headerControls.add;Array.isArray(e)||(e=[e]),e.forEach(function(e){a.addControl(e);});}let n=[];a.controlbar.querySelectorAll(".jsPanel-btn").forEach(function(e){let t=e.className.match(/jsPanel-btn-[a-z0-9]{3,}/i)[0].substring(12);n.push(t);});const o=jsPanel.pOheaderControls(e.headerControls);return e.headerControls=o,n.forEach(e=>{o[e]&&a.setControlStatus(e,o[e]);}),a.setControlSize(o.size),t&&t.call(a,a),a}),a.setHeaderLogo=((e,t)=>{let n=[a.headerlogo],o=document.querySelector("#"+a.id+"-min");return o&&n.push(o.querySelector(".jsPanel-headerlogo")),"string"==typeof e?"<"!==e.substr(0,1)?n.forEach(function(t){jsPanel.emptyNode(t);let n=document.createElement("img");n.src=e,t.append(n);}):n.forEach(function(t){t.innerHTML=e;}):n.forEach(function(t){jsPanel.emptyNode(t),t.append(e);}),t&&t.call(a,a),a}),a.setHeaderRemove=(e=>(a.removeChild(a.header),a.content.classList.add("jsPanel-content-noheader"),["close","maximize","normalize","minimize","smallify"].forEach(e=>{a.setAttribute(`data-btn${e}`,"removed");}),e&&e.call(a,a),a)),a.setHeaderTitle=((e,t)=>{let n=[a.headertitle],o=document.querySelector("#"+a.id+"-min");return o&&n.push(o.querySelector(".jsPanel-title")),"string"==typeof e?n.forEach(function(t){t.innerHTML=e;}):"function"==typeof e?n.forEach(function(t){jsPanel.emptyNode(t),t.innerHTML=e();}):n.forEach(function(t){jsPanel.emptyNode(t),t.append(e);}),t&&t.call(a,a),a}),a.setIconfont=((e=!1,t=a,n)=>{if(!1!==e){let n,o;if("fa"===e||"far"===e||"fal"===e||"fas"===e)n=[`${e} fa-window-close`,`${e} fa-window-maximize`,`${e} fa-window-restore`,`${e} fa-window-minimize`,`${e} fa-chevron-up`];else if("material-icons"===e)n=[e,e,e,e,e,e],o=["close","fullscreen","fullscreen_exit","call_received","expand_less"];else if(Array.isArray(e))n=[`custom-control-icon ${e[4]}`,`custom-control-icon ${e[3]}`,`custom-control-icon ${e[2]}`,`custom-control-icon ${e[1]}`,`custom-control-icon ${e[0]}`];else{if("bootstrap"!==e&&"glyphicon"!==e)return t;n=["glyphicon glyphicon-remove","glyphicon glyphicon-fullscreen","glyphicon glyphicon-resize-full","glyphicon glyphicon-minus","glyphicon glyphicon-chevron-up"];}t.querySelectorAll(".jsPanel-controlbar .jsPanel-btn").forEach(e=>{jsPanel.emptyNode(e).innerHTML="<span></span>";}),Array.prototype.slice.call(t.querySelectorAll(".jsPanel-controlbar .jsPanel-btn > span")).reverse().forEach((t,a)=>{t.className=n[a],"material-icons"===e&&(t.textContent=o[a]);});}return n&&n.call(t,t),t}),a.addToolbar=((e,t,n)=>{if("header"===e?e=a.headertoolbar:"footer"===e&&(e=a.footer),"string"==typeof t)e.innerHTML=t;else if(Array.isArray(t))t.forEach(t=>{"string"==typeof t?e.innerHTML+=t:e.append(t);});else if("function"==typeof t){let n=t.call(a,a);"string"==typeof n?e.innerHTML=n:e.append(n);}else e.append(t);return e.classList.add("active"),n&&n.call(a,a),a}),a.addCloseControl=(()=>{let e=document.createElement("button"),t=a.content.style.color;return e.classList.add("jsPanel-addCloseCtrl"),e.innerHTML=jsPanel.icons.close,e.style.color=t,a.options.rtl&&e.classList.add("rtl"),a.appendChild(e),jsPanel.pointerup.forEach(t=>{e.addEventListener(t,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;jsPanel.close(a),document.dispatchEvent(r);});}),jsPanel.pointerdown.forEach(t=>{e.addEventListener(t,e=>{e.preventDefault();});}),a}),a.addControl=(t=>{if(!t.html)return a;t.position||(t.position=1);const n=a.controlbar.querySelectorAll(".jsPanel-btn").length;let o=document.createElement("button");o.innerHTML=t.html,o.className=`jsPanel-btn jsPanel-btn-${t.name} jsPanel-btn-${e.headerControls.size}`,o.style.color=a.header.style.color,t.position>n?a.controlbar.append(o):a.controlbar.insertBefore(o,a.querySelector(`.jsPanel-controlbar .jsPanel-btn:nth-child(${t.position})`));const s=t.ariaLabel||t.name;return s&&o.setAttribute("aria-label",s),jsPanel.pointerup.forEach(e=>{o.addEventListener(e,e=>{if(e.preventDefault(),e.button&&e.button>0)return !1;t.handler.call(a,a,o);});}),t.afterInsert&&t.afterInsert.call(o,o),a}),a.setRtl=(()=>{[a.header,a.content,a.footer].forEach(t=>{t.dir="rtl",e.rtl.lang&&(t.lang=e.rtl.lang);});}),a.id=e.id,a.classList.add("jsPanel-"+e.paneltype),"standard"===e.paneltype&&(a.style.zIndex=this.zi.next()),o.append(a),a.front(!1,!1),a.setTheme(e.theme),e.boxShadow&&a.classList.add(`jsPanel-depth-${e.boxShadow}`),e.header){if(e.headerLogo&&a.setHeaderLogo(e.headerLogo),a.setIconfont(e.iconfont),a.setHeaderTitle(e.headerTitle),a.setHeaderControls(),jsPanel.isIE){let e=[a.headerbar,a.controlbar];switch(a.options.headerControls.size){case"md":e.forEach(e=>{e.style.height="34px";});break;case"xs":e.forEach(e=>{e.style.height="26px";});break;case"sm":e.forEach(e=>{e.style.height="30px";});break;case"lg":e.forEach(e=>{e.style.height="38px";});break;case"xl":e.forEach(e=>{e.style.height="42px";});}}if("auto-show-hide"===e.header){let t="jsPanel-depth-"+e.boxShadow;a.header.style.opacity=0,a.style.backgroundColor="transparent",this.remClass(a,t),this.setClass(a.content,t),a.header.addEventListener("mouseenter",function(){a.header.style.opacity=1,jsPanel.setClass(a,t),jsPanel.remClass(a.content,t);}),a.header.addEventListener("mouseleave",function(){a.header.style.opacity=0,jsPanel.remClass(a,t),jsPanel.setClass(a.content,t);});}}else a.setHeaderRemove(),e.addCloseControl&&a.addCloseControl();if(e.headerToolbar&&a.addToolbar(a.headertoolbar,e.headerToolbar),e.footerToolbar&&a.addToolbar(a.footer,e.footerToolbar),e.border&&a.setBorder(e.border),e.borderRadius&&a.setBorderRadius(e.borderRadius),e.content&&("function"==typeof e.content?e.content.call(a,a):"string"==typeof e.content?a.content.innerHTML=e.content:a.content.append(e.content)),e.contentAjax&&this.ajax(a,e.contentAjax),e.contentFetch&&this.fetch(a),e.contentOverflow){const t=e.contentOverflow.split(" ");1===t.length?a.content.style.overflow=t[0]:2===t.length&&(a.content.style.overflowX=t[0],a.content.style.overflowY=t[1]);}if(e.rtl&&a.setRtl(),a.setSize(),a.status="normalized",e.position?this.position(a,e.position):a.style.opacity=1,document.dispatchEvent(c),a.calcSizeFactors(),e.animateIn&&(a.addEventListener("animationend",()=>{this.remClass(a,e.animateIn);}),this.setClass(a,e.animateIn)),e.syncMargins){const t=this.pOcontainment(e.maximizedMargin);e.dragit&&(e.dragit.containment=t,e.dragit.snap&&(e.dragit.snap.containment=!0)),e.resizeit&&(e.resizeit.containment=t);}if(e.dragit?(this.dragit(a,e.dragit),a.addEventListener("jspaneldragstop",function(e){e.detail===a.id&&a.calcSizeFactors();},!1)):a.titlebar.style.cursor="default",e.resizeit){this.resizeit(a,e.resizeit);var v=void 0;a.addEventListener("jspanelresizestart",function(e){e.detail===a.id&&(v=a.status);},!1),a.addEventListener("jspanelresizestop",function(t){t.detail===a.id&&("smallified"===v||"smallifiedmax"===v||"maximized"===v)&&parseFloat(a.style.height)>parseFloat(window.getComputedStyle(a.header).height)&&(a.setControls([".jsPanel-btn-normalize"]),a.status="normalized",document.dispatchEvent(c),document.dispatchEvent(i),e.onstatuschange&&jsPanel.processCallbacks(a,e.onstatuschange,"every"),a.calcSizeFactors());},!1);}if(a.saveCurrentDimensions(!0),a.saveCurrentPosition(),e.setStatus&&("smallifiedmax"===e.setStatus?a.maximize().smallify():"smallified"===e.setStatus?a.smallify():a[e.setStatus.substr(0,e.setStatus.length-1)]()),e.autoclose){"number"==typeof e.autoclose?e.autoclose={time:e.autoclose+"ms"}:"string"==typeof e.autoclose&&(e.autoclose={time:e.autoclose});let t=Object.assign({},jsPanel.defaultAutocloseConfig,e.autoclose);t.time&&"number"==typeof t.time&&(t.time+="ms");let n=a.autocloseProgressbar.querySelector("div");n.addEventListener("animationend",e=>{e.stopPropagation(),a.close();}),t.progressbar&&(a.autocloseProgressbar.style.height="3px",t.background?jsPanel.themes.indexOf(t.background)>-1?a.autocloseProgressbar.classList.add(t.background+"-bg"):jsPanel.colorNames[t.background]?a.autocloseProgressbar.style.background="#"+jsPanel.colorNames[t.background]:a.autocloseProgressbar.style.background=t.background:a.autocloseProgressbar.classList.add("success-bg")),n.style.animation=`${t.time} progressbar`;}if(this.pointerdown.forEach(t=>{a.addEventListener(t,t=>{t.target.closest(".jsPanel-btn-close")||t.target.closest(".jsPanel-btn-minimize")||"standard"!==e.paneltype||a.front();},!1);}),e.onwindowresize){let t=e.onwindowresize;"window"===a.options.container&&window.addEventListener("resize",e=>{if(e.target===window){let n,o,s=a.status;"maximized"===s&&t?a.maximize():a.snapped&&"minimized"!==s?jsPanel.snapPanel(a,a.snapped,!0):"normalized"===s||"smallified"===s||"maximized"===s?"function"==typeof t?t.call(a,e,a):(n=(window.innerWidth-a.offsetWidth)*a.hf,a.style.left=n<=0?0:n+"px",o=(window.innerHeight-a.offsetHeight)*a.vf,a.style.top=o<=0?0:o+"px"):"smallifiedmax"===s&&t&&a.maximize().smallify();}},!1);}if(e.onparentresize){let t=e.onparentresize,n=a.isChildpanel();if(n){const e=n.content;let o=[];document.addEventListener("jspanelresize",s=>{if(s.detail===n.id){o[0]=e.offsetWidth,o[1]=e.offsetHeight;let n,s,r=a.status;"maximized"===r&&t?a.maximize():a.snapped&&"minimized"!==r?jsPanel.snapPanel(a,a.snapped,!0):"normalized"===r||"smallified"===r||"maximized"===r?"function"==typeof t?t.call(a,a,{width:o[0],height:o[1]}):(n=(o[0]-a.offsetWidth)*a.hf,a.style.left=n<=0?0:n+"px",s=(o[1]-a.offsetHeight)*a.vf,a.style.top=s<=0?0:s+"px"):"smallifiedmax"===r&&t&&a.maximize().smallify();}},!1);}}return this.globalCallbacks&&(Array.isArray(this.globalCallbacks)?this.globalCallbacks.forEach(e=>{e.call(a,a);}):this.globalCallbacks.call(a,a)),e.callback&&(Array.isArray(e.callback)?e.callback.forEach(e=>{e.call(a,a);}):e.callback.call(a,a)),t&&t.call(a,a),document.dispatchEvent(s),a}};
 
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -52972,7 +52993,7 @@ define("./master.js",[],function () { 'use strict';
   }
 
   var FileSaver_min = createCommonjsModule(function (module, exports) {
-  (function(a,b){b();})(commonjsGlobal,function(){function b(a,b){return "undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d);},e.onerror=function(){console.error("could not download file");},e.send();}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send();}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"));}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b);}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof commonjsGlobal&&commonjsGlobal.global===commonjsGlobal?commonjsGlobal:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href);},4E4),setTimeout(function(){e(j);},0));}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i);});}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null;},j.readAsDataURL(a);}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l);},4E4);}});f.saveAs=a.saveAs=a,module.exports=a;});
+  (function(a,b){b();})(commonjsGlobal,function(){function b(a,b){return "undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d);},e.onerror=function(){console.error("could not download file");},e.send();}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send();}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"));}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b);}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof commonjsGlobal&&commonjsGlobal.global===commonjsGlobal?commonjsGlobal:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href);},4E4),setTimeout(function(){e(j);},0));}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i);});}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null;},j.readAsDataURL(a);}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l);},4E4);}});f.saveAs=a.saveAs=a,(module.exports=a);});
 
 
   });
@@ -56385,45 +56406,6 @@ define("./master.js",[],function () { 'use strict';
   };
 
   /**
-   * Adds two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
-   *
-   * @param {mat4} a The first matrix.
-   * @param {mat4} b The second matrix.
-   * @returns {Boolean} True if the matrices are equal, false otherwise.
-   */
-
-  /**
-   * Creates a matrix from a vector scaling
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.scale(dest, dest, vec);
-   *
-   * @param {vec3} v Scaling vector
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from a vector translation
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.translate(dest, dest, vec);
-   *
-   * @param {mat4} out mat4 receiving operation result
-   * @param {vec3} v Translation vector
-   * @returns {mat4} out
-   */
-
-  /**
    * Create a new mat4 with the given values
    *
    * @param {Number} m00 Component in column 0, row 0 position (index 0)
@@ -56448,45 +56430,6 @@ define("./master.js",[],function () { 'use strict';
     [m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33];
 
   /**
-   * Creates a matrix from the given angle around the X axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateX(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Y axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateY(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Creates a matrix from the given angle around the Z axis
-   * This is equivalent to (but much faster than):
-   *
-   *     mat4.identity(dest);
-   *     mat4.rotateZ(dest, dest, rad);
-   *
-   * @param {Number} rad the angle to rotate the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Set a mat4 to the identity matrix
-   *
-   * @returns {mat4} out
-   */
-
-  /**
    * Calculates the absolute value of the give vector
    *
    * @param {vec3} [out] - receiving vector
@@ -56502,6 +56445,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second vector to add
    * @returns {vec3} the added vectors
    */
+  const add = ([ax, ay, az], [bx, by, bz]) => [(ax + bx), (ay + by), (az + bz)];
 
   /**
    * Calculates the dot product of two vec3's
@@ -56521,11 +56465,12 @@ define("./master.js",[],function () { 'use strict';
    */
   const scale = (amount, [x, y, z]) => [(x * amount), (y * amount), (z * amount)];
 
-  // radians = degrees * PI / 180
+  const spatialResolution = 1e5;
 
-  // TODO: Clean this up.
+  // Quantize values for use in spatial coordinates, and so on, even if the usual quantizeForSpace is disabled.
+  const reallyQuantizeForSpace = (value) => (Math.round(value * spatialResolution) / spatialResolution);
 
-  // degrees = radians * 180 / PI
+  const canonicalize = ([x = 0, y = 0, z = 0]) => [reallyQuantizeForSpace(x), reallyQuantizeForSpace(y), reallyQuantizeForSpace(z)];
 
   /**
    * Computes the cross product of two vec3's
@@ -56545,26 +56490,14 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} distance between a and b
    */
-
-  /**
-   * Divides two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
+  const distance = ([ax, ay, az], [bx, by, bz]) => {
+    const x = bx - ax;
+    const y = by - ay;
+    const z = bz - az;
+    return Math.sqrt(x * x + y * y + z * z);
+  };
 
   const equals$1 = ([ax, ay, az], [bx, by, bz]) => (ax === bx) && (ay === by) && (az === bz);
-
-  /**
-   * Creates a new vec3 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
 
   /** create a vec3 from a single scalar value
    * all components of the resulting vec3 have the value of the
@@ -56575,48 +56508,12 @@ define("./master.js",[],function () { 'use strict';
   const fromScalar = (scalar) => [scalar, scalar, scalar];
 
   /**
-   * Creates a new vec3 initialized with the given values
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @param {Number} z Z component
-   * @returns {vec3} a new 3D vector
-   */
-
-  // extend to a 3D vector by adding a z coordinate:
-
-  /**
    * Calculates the length of a vec3
    *
    * @param {vec3} a vector to calculate length of
    * @returns {Number} length of a
    */
   const length = ([x = 0, y = 0, z = 0]) => Math.sqrt((x * x) + (y * y) + (z * z));
-
-  /**
-   * Performs a linear interpolation between two vec3's
-   *
-   * @param {Number} t interpolant (0.0 to 1.0) applied between the two inputs
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the maximum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
-
-  /**
-   * Returns the minimum of two vec3's
-   *
-   * @param {vec3} a the first operand
-   * @param {vec3} b the second operand
-   * @returns {vec3} out
-   */
 
   /**
    * Multiplies two vec3's
@@ -56626,13 +56523,6 @@ define("./master.js",[],function () { 'use strict';
    * @returns {vec3} out
    */
   const multiply = ([ax, ay, az], [bx, by, bz]) => [(ax * bx), (ay * by), (az * bz)];
-
-  /**
-   * Negates the components of a vec3
-   *
-   * @param {vec3} a vector to negate
-   * @returns {vec3} out
-   */
 
   // find a vector that is somewhat perpendicular to this one
   const random = (vec) => {
@@ -56653,6 +56543,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
+  const subtract = ([ax, ay, az], [bx, by, bz]) => [(ax - bx), (ay - by), (az - bz)];
 
   /**
    * Calculates the squared euclidian distance between two vec3's
@@ -56661,13 +56552,12 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} squared distance between a and b
    */
-
-  /**
-   * Calculates the squared length of a vec3
-   *
-   * @param {vec3} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
+  const squaredDistance = ([ax, ay, az], [bx, by, bz]) => {
+    const x = bx - ax;
+    const y = by - ay;
+    const z = bz - az;
+    return (x * x) + (y * y) + (z * z);
+  };
 
   /**
    * Transforms the vec3 with a mat4.
@@ -56718,69 +56608,17 @@ define("./master.js",[],function () { 'use strict';
   };
 
   /**
-   * m the mat4 by the dimensions in the given vec3
-   * create an affine matrix for mirroring into an arbitrary plane:
-   *
-   * @param {vec3} v the vec3 to mirror the matrix by
-   * @param {mat4} a the matrix to mirror
-   * @returns {mat4} out
-   */
-
-  /**
-   * Create an affine matrix for mirroring onto an arbitrary plane
-   *
-   * @param {vec4} plane to mirror the matrix by
-   * @returns {mat4} out
-   */
-
-  /**
-   * Multiplies two mat4's
-   *
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
-   */
-
-  /**
-   * Calculates the absolute value of the give vector
-   *
-   * @param {vec2} vec - given value
-   * @returns {vec2} absolute value of the vector
-   */
-
-  /**
-   * Adds two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  // y=sin, x=cos
-
-  /**
-   * Computes the cross product (3D) of two vectors
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec3} cross product
-   */
-
-  /**
    * Calculates the euclidian distance between two vec2's
    *
    * @param {vec2} a the first operand
    * @param {vec2} b the second operand
    * @returns {Number} distance between a and b
    */
-
-  /**
-   * Divides two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
+  const distance$1 = ([ax, ay], [bx, by]) => {
+    const x = bx - ax;
+    const y = by - ay;
+    return Math.sqrt(x * x + y * y);
+  };
 
   /**
    * Calculates the dot product of two vec2's
@@ -56789,69 +56627,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec2} b the second operand
    * @returns {Number} dot product of a and b
    */
-
-  /**
-   * Creates a new vec2 from the point given.
-   * Missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec2} a new 2D vector
-   */
-
-  /** Create a vec2 from a single scalar value
-   * @param  {Float} scalar
-   * @returns {Vec2} a new vec2
-   */
-
-  /**
-   * Creates a new vec3 initialized with the given values
-   * Any missing ranks are implicitly zero.
-   *
-   * @param {Number} x X component
-   * @param {Number} y Y component
-   * @returns {vec3} a new 2D vector
-   */
-
-  /**
-   * Calculates the length of a vec2
-   *
-   * @param {vec2} a vector to calculate length of
-   * @returns {Number} length of a
-   */
-
-  /**
-   * Performs a linear interpolation between two vec2's
-   *
-   * @param {Number} t interpolation amount between the two inputs
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the maximum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Returns the minimum of two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
-
-  /**
-   * Multiplies two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {vec2} out
-   */
+  const dot$1 = ([ax, ay], [bx, by]) => (ax * bx) + (ay * by);
 
   /**
    * Negates the components of a vec2
@@ -56859,6 +56635,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec2} a vector to negate
    * @returns {vec2} out
    */
+  const negate = ([x, y]) => [-x, -y];
 
   /**
    * Rotates a vec2 by an angle
@@ -56867,6 +56644,21 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec2} vector the vector to rotate
    * @returns {vec2} out
    */
+  const rotate = (angle, [x, y]) => {
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
+    return [x * c - y * s,
+            x * s + y * c];
+  };
+
+  /**
+   * Calculates the normal value of the give vector
+   * The normal value is the given vector rotated 90 degress.
+   *
+   * @param {vec2} vec - given value
+   * @returns {vec2} normal value of the vector
+   */
+  const normal = (vec) => rotate(Math.PI / 2, vec);
 
   /**
    * Normalize the given vector.
@@ -56874,29 +56666,15 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec2} a vector to normalize
    * @returns {vec2} normalized (unit) vector
    */
-
-  /**
-   * Scales a vec2 by a scalar number
-   *
-   * @param {Number} amount amount to scale the vector by
-   * @param {vec2} vector the vector to scale
-   * @returns {vec2} out
-   */
-
-  /**
-   * Calculates the squared euclidian distance between two vec2's
-   *
-   * @param {vec2} a the first operand
-   * @param {vec2} b the second operand
-   * @returns {Number} squared distance between a and b
-   */
-
-  /**
-   * Calculates the squared length of a vec2
-   *
-   * @param {vec2} a vector to calculate squared length of
-   * @returns {Number} squared length of a
-   */
+  const normalize = ([x, y]) => {
+    let len = x * x + y * y;
+    if (len > 0) {
+      len = 1 / Math.sqrt(len);
+      return [x * len, y * len];
+    } else {
+      return [x, y];
+    }
+  };
 
   /**
    * Subtracts vector b from vector a
@@ -56905,97 +56683,904 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec2} b the second operand
    * @returns {vec2} out
    */
+  const subtract$1 = ([ax, ay], [bx, by]) => [ax - bx, ay - by];
 
+  var HAS_WEAKSET_SUPPORT = typeof WeakSet === 'function';
+  var keys = Object.keys;
   /**
-   * Transforms the vec2 with a mat4
-   * 3rd vector component is implicitly '0'
-   * 4th vector component is implicitly '1'
+   * @function addToCache
    *
-   * @param {mat4} matrix matrix to transform with
-   * @param {vec2} vector the vector to transform
-   * @returns {vec2} out
-   */
-
-  /**
-   * Subtracts matrix b from matrix a
+   * add object to cache if an object
    *
-   * @param {mat4} out the receiving matrix
-   * @param {mat4} a the first operand
-   * @param {mat4} b the second operand
-   * @returns {mat4} out
+   * @param value the value to potentially add to cache
+   * @param cache the cache to add to
    */
-
-  // FIX: Refactor the geometry walkers.
-
+  function addToCache(value, cache) {
+      if (value && typeof value === 'object') {
+          cache.add(value);
+      }
+  }
   /**
-   * Compare the given planes for equality
-   * @return {boolean} true if planes are equal
-   */
-
-  /**
-   * Flip the given plane (vec4)
+   * @function hasPair
    *
-   * @param {vec4} vec - plane to flip
-   * @return {vec4} flipped plane
+   * @description
+   * does the `pairToMatch` exist in the list of `pairs` provided based on the
+   * `isEqual` check
+   *
+   * @param pairs the pairs to compare against
+   * @param pairToMatch the pair to match
+   * @param isEqual the equality comparator used
+   * @param meta the meta provided
+   * @returns does the pair exist in the pairs provided
    */
+  function hasPair(pairs, pairToMatch, isEqual, meta) {
+      var length = pairs.length;
+      var pair;
+      for (var index = 0; index < length; index++) {
+          pair = pairs[index];
+          if (isEqual(pair[0], pairToMatch[0], meta) &&
+              isEqual(pair[1], pairToMatch[1], meta)) {
+              return true;
+          }
+      }
+      return false;
+  }
+  /**
+   * @function hasValue
+   *
+   * @description
+   * does the `valueToMatch` exist in the list of `values` provided based on the
+   * `isEqual` check
+   *
+   * @param values the values to compare against
+   * @param valueToMatch the value to match
+   * @param isEqual the equality comparator used
+   * @param meta the meta provided
+   * @returns does the value exist in the values provided
+   */
+  function hasValue(values, valueToMatch, isEqual, meta) {
+      var length = values.length;
+      for (var index = 0; index < length; index++) {
+          if (isEqual(values[index], valueToMatch, meta)) {
+              return true;
+          }
+      }
+      return false;
+  }
+  /**
+   * @function sameValueZeroEqual
+   *
+   * @description
+   * are the values passed strictly equal or both NaN
+   *
+   * @param a the value to compare against
+   * @param b the value to test
+   * @returns are the values equal by the SameValueZero principle
+   */
+  function sameValueZeroEqual(a, b) {
+      return a === b || (a !== a && b !== b);
+  }
+  /**
+   * @function isPlainObject
+   *
+   * @description
+   * is the value a plain object
+   *
+   * @param value the value to test
+   * @returns is the value a plain object
+   */
+  function isPlainObject(value) {
+      return value.constructor === Object || value.constructor == null;
+  }
+  /**
+   * @function isPromiseLike
+   *
+   * @description
+   * is the value promise-like (meaning it is thenable)
+   *
+   * @param value the value to test
+   * @returns is the value promise-like
+   */
+  function isPromiseLike(value) {
+      return !!value && typeof value.then === 'function';
+  }
+  /**
+   * @function isReactElement
+   *
+   * @description
+   * is the value passed a react element
+   *
+   * @param value the value to test
+   * @returns is the value a react element
+   */
+  function isReactElement(value) {
+      return !!(value && value.$$typeof);
+  }
+  /**
+   * @function getNewCacheFallback
+   *
+   * @description
+   * in cases where WeakSet is not supported, creates a new custom
+   * object that mimics the necessary API aspects for cache purposes
+   *
+   * @returns the new cache object
+   */
+  function getNewCacheFallback() {
+      return Object.create({
+          _values: [],
+          add: function (value) {
+              this._values.push(value);
+          },
+          has: function (value) {
+              return this._values.indexOf(value) !== -1;
+          },
+      });
+  }
+  /**
+   * @function getNewCache
+   *
+   * @description
+   * get a new cache object to prevent circular references
+   *
+   * @returns the new cache object
+   */
+  var getNewCache = (function (canUseWeakMap) {
+      if (canUseWeakMap) {
+          return function _getNewCache() {
+              return new WeakSet();
+          };
+      }
+      return getNewCacheFallback;
+  })(HAS_WEAKSET_SUPPORT);
+  /**
+   * @function createCircularEqualCreator
+   *
+   * @description
+   * create a custom isEqual handler specific to circular objects
+   *
+   * @param [isEqual] the isEqual comparator to use instead of isDeepEqual
+   * @returns the method to create the `isEqual` function
+   */
+  function createCircularEqualCreator(isEqual) {
+      return function createCircularEqual(comparator) {
+          var _comparator = isEqual || comparator;
+          return function circularEqual(a, b, cache) {
+              if (cache === void 0) { cache = getNewCache(); }
+              var hasA = cache.has(a);
+              var hasB = cache.has(b);
+              if (hasA || hasB) {
+                  return hasA && hasB;
+              }
+              addToCache(a, cache);
+              addToCache(b, cache);
+              return _comparator(a, b, cache);
+          };
+      };
+  }
+  /**
+   * @function toPairs
+   *
+   * @description
+   * convert the map passed into pairs (meaning an array of [key, value] tuples)
+   *
+   * @param map the map to convert to [key, value] pairs (entries)
+   * @returns the [key, value] pairs
+   */
+  function toPairs(map) {
+      var pairs = new Array(map.size);
+      var index = 0;
+      map.forEach(function (value, key) {
+          pairs[index++] = [key, value];
+      });
+      return pairs;
+  }
+  /**
+   * @function toValues
+   *
+   * @description
+   * convert the set passed into values
+   *
+   * @param set the set to convert to values
+   * @returns the values
+   */
+  function toValues(set) {
+      var values = new Array(set.size);
+      var index = 0;
+      set.forEach(function (value) {
+          values[index++] = value;
+      });
+      return values;
+  }
+  /**
+   * @function areArraysEqual
+   *
+   * @description
+   * are the arrays equal in value
+   *
+   * @param a the array to test
+   * @param b the array to test against
+   * @param isEqual the comparator to determine equality
+   * @param meta the meta object to pass through
+   * @returns are the arrays equal
+   */
+  function areArraysEqual(a, b, isEqual, meta) {
+      var length = a.length;
+      if (b.length !== length) {
+          return false;
+      }
+      for (var index = 0; index < length; index++) {
+          if (!isEqual(a[index], b[index], meta)) {
+              return false;
+          }
+      }
+      return true;
+  }
+  /**
+   * @function areMapsEqual
+   *
+   * @description
+   * are the maps equal in value
+   *
+   * @param a the map to test
+   * @param b the map to test against
+   * @param isEqual the comparator to determine equality
+   * @param meta the meta map to pass through
+   * @returns are the maps equal
+   */
+  function areMapsEqual(a, b, isEqual, meta) {
+      if (a.size !== b.size) {
+          return false;
+      }
+      var pairsA = toPairs(a);
+      var pairsB = toPairs(b);
+      var length = pairsA.length;
+      for (var index = 0; index < length; index++) {
+          if (!hasPair(pairsB, pairsA[index], isEqual, meta) ||
+              !hasPair(pairsA, pairsB[index], isEqual, meta)) {
+              return false;
+          }
+      }
+      return true;
+  }
+  var OWNER = '_owner';
+  var hasOwnProperty = Function.prototype.bind.call(Function.prototype.call, Object.prototype.hasOwnProperty);
+  /**
+   * @function areObjectsEqual
+   *
+   * @description
+   * are the objects equal in value
+   *
+   * @param a the object to test
+   * @param b the object to test against
+   * @param isEqual the comparator to determine equality
+   * @param meta the meta object to pass through
+   * @returns are the objects equal
+   */
+  function areObjectsEqual(a, b, isEqual, meta) {
+      var keysA = keys(a);
+      var length = keysA.length;
+      if (keys(b).length !== length) {
+          return false;
+      }
+      var key;
+      for (var index = 0; index < length; index++) {
+          key = keysA[index];
+          if (!hasOwnProperty(b, key)) {
+              return false;
+          }
+          if (key === OWNER && isReactElement(a)) {
+              if (!isReactElement(b)) {
+                  return false;
+              }
+          }
+          else if (!isEqual(a[key], b[key], meta)) {
+              return false;
+          }
+      }
+      return true;
+  }
+  /**
+   * @function areRegExpsEqual
+   *
+   * @description
+   * are the regExps equal in value
+   *
+   * @param a the regExp to test
+   * @param b the regExp to test agains
+   * @returns are the regExps equal
+   */
+  function areRegExpsEqual(a, b) {
+      return (a.source === b.source &&
+          a.global === b.global &&
+          a.ignoreCase === b.ignoreCase &&
+          a.multiline === b.multiline &&
+          a.unicode === b.unicode &&
+          a.sticky === b.sticky &&
+          a.lastIndex === b.lastIndex);
+  }
+  /**
+   * @function areSetsEqual
+   *
+   * @description
+   * are the sets equal in value
+   *
+   * @param a the set to test
+   * @param b the set to test against
+   * @param isEqual the comparator to determine equality
+   * @param meta the meta set to pass through
+   * @returns are the sets equal
+   */
+  function areSetsEqual(a, b, isEqual, meta) {
+      if (a.size !== b.size) {
+          return false;
+      }
+      var valuesA = toValues(a);
+      var valuesB = toValues(b);
+      var length = valuesA.length;
+      for (var index = 0; index < length; index++) {
+          if (!hasValue(valuesB, valuesA[index], isEqual, meta) ||
+              !hasValue(valuesA, valuesB[index], isEqual, meta)) {
+              return false;
+          }
+      }
+      return true;
+  }
 
-  const X = 0;
-  const Y = 1;
-  const Z = 2;
-  const W = 3;
+  var isArray = Array.isArray;
+  var HAS_MAP_SUPPORT = typeof Map === 'function';
+  var HAS_SET_SUPPORT = typeof Set === 'function';
+  var OBJECT_TYPEOF = 'object';
+  function createComparator(createIsEqual) {
+      var isEqual = 
+      /* eslint-disable no-use-before-define */
+      typeof createIsEqual === 'function'
+          ? createIsEqual(comparator)
+          : comparator;
+      /* eslint-enable */
+      /**
+       * @function comparator
+       *
+       * @description
+       * compare the value of the two objects and return true if they are equivalent in values
+       *
+       * @param a the value to test against
+       * @param b the value to test
+       * @param [meta] an optional meta object that is passed through to all equality test calls
+       * @returns are a and b equivalent in value
+       */
+      function comparator(a, b, meta) {
+          if (sameValueZeroEqual(a, b)) {
+              return true;
+          }
+          if (a && b && typeof a === OBJECT_TYPEOF && typeof b === OBJECT_TYPEOF) {
+              if (isPlainObject(a) && isPlainObject(b)) {
+                  return areObjectsEqual(a, b, isEqual, meta);
+              }
+              var arrayA = isArray(a);
+              var arrayB = isArray(b);
+              if (arrayA || arrayB) {
+                  return arrayA === arrayB && areArraysEqual(a, b, isEqual, meta);
+              }
+              var aDate = a instanceof Date;
+              var bDate = b instanceof Date;
+              if (aDate || bDate) {
+                  return aDate === bDate && sameValueZeroEqual(a.getTime(), b.getTime());
+              }
+              var aRegExp = a instanceof RegExp;
+              var bRegExp = b instanceof RegExp;
+              if (aRegExp || bRegExp) {
+                  return aRegExp === bRegExp && areRegExpsEqual(a, b);
+              }
+              if (isPromiseLike(a) || isPromiseLike(b)) {
+                  return a === b;
+              }
+              if (HAS_MAP_SUPPORT) {
+                  var aMap = a instanceof Map;
+                  var bMap = b instanceof Map;
+                  if (aMap || bMap) {
+                      return aMap === bMap && areMapsEqual(a, b, isEqual, meta);
+                  }
+              }
+              if (HAS_SET_SUPPORT) {
+                  var aSet = a instanceof Set;
+                  var bSet = b instanceof Set;
+                  if (aSet || bSet) {
+                      return aSet === bSet && areSetsEqual(a, b, isEqual, meta);
+                  }
+              }
+              return areObjectsEqual(a, b, isEqual, meta);
+          }
+          return false;
+      }
+      return comparator;
+  }
 
-  // Newell's method for computing the plane of a polygon.
-  const fromPolygon = (polygon) => {
-    const normal = [0, 0, 0];
-    const reference = [0, 0, 0];
-    let lastPoint = polygon[polygon.length - 1];
-    for (const thisPoint of polygon) {
-      normal[X] += (lastPoint[Y] - thisPoint[Y]) * (lastPoint[Z] + thisPoint[Z]);
-      normal[Y] += (lastPoint[Z] - thisPoint[Z]) * (lastPoint[X] + thisPoint[X]);
-      normal[Z] += (lastPoint[X] - thisPoint[X]) * (lastPoint[Y] + thisPoint[Y]);
-      reference[X] += lastPoint[X];
-      reference[Y] += lastPoint[Y];
-      reference[Z] += lastPoint[Z];
-      lastPoint = thisPoint;
+  // comparator
+  var deepEqual = createComparator();
+  var shallowEqual = createComparator(function () { return sameValueZeroEqual; });
+  var circularDeepEqual = createComparator(createCircularEqualCreator());
+  var circularShallowEqual = createComparator(createCircularEqualCreator(sameValueZeroEqual));
+
+  /**
+   * @constant DEFAULT_OPTIONS_KEYS the default options keys
+   */
+  var DEFAULT_OPTIONS_KEYS = {
+      isEqual: true,
+      isMatchingKey: true,
+      isPromise: true,
+      maxSize: true,
+      onCacheAdd: true,
+      onCacheChange: true,
+      onCacheHit: true,
+      transformKey: true,
+  };
+  /**
+   * @function slice
+   *
+   * @description
+   * slice.call() pre-bound
+   */
+  var slice = Array.prototype.slice;
+  /**
+   * @function cloneArray
+   *
+   * @description
+   * clone the array-like object and return the new array
+   *
+   * @param arrayLike the array-like object to clone
+   * @returns the clone as an array
+   */
+  function cloneArray(arrayLike) {
+      var length = arrayLike.length;
+      if (!length) {
+          return [];
+      }
+      if (length === 1) {
+          return [arrayLike[0]];
+      }
+      if (length === 2) {
+          return [arrayLike[0], arrayLike[1]];
+      }
+      if (length === 3) {
+          return [arrayLike[0], arrayLike[1], arrayLike[2]];
+      }
+      return slice.call(arrayLike, 0);
+  }
+  /**
+   * @function getCustomOptions
+   *
+   * @description
+   * get the custom options on the object passed
+   *
+   * @param options the memoization options passed
+   * @returns the custom options passed
+   */
+  function getCustomOptions(options) {
+      var customOptions = {};
+      /* eslint-disable no-restricted-syntax */
+      for (var key in options) {
+          if (!DEFAULT_OPTIONS_KEYS[key]) {
+              customOptions[key] = options[key];
+          }
+      }
+      /* eslint-enable */
+      return customOptions;
+  }
+  /**
+   * @function isMemoized
+   *
+   * @description
+   * is the function passed already memoized
+   *
+   * @param fn the function to test
+   * @returns is the function already memoized
+   */
+  function isMemoized(fn) {
+      return (typeof fn === 'function' &&
+          fn.isMemoized);
+  }
+  /**
+   * @function isSameValueZero
+   *
+   * @description
+   * are the objects equal based on SameValueZero equality
+   *
+   * @param object1 the first object to compare
+   * @param object2 the second object to compare
+   * @returns are the two objects equal
+   */
+  function isSameValueZero(object1, object2) {
+      // eslint-disable-next-line no-self-compare
+      return object1 === object2 || (object1 !== object1 && object2 !== object2);
+  }
+  /**
+   * @function mergeOptions
+   *
+   * @description
+   * merge the options into the target
+   *
+   * @param existingOptions the options provided
+   * @param newOptions the options to include
+   * @returns the merged options
+   */
+  function mergeOptions(existingOptions, newOptions) {
+      // @ts-ignore
+      var target = {};
+      /* eslint-disable no-restricted-syntax */
+      for (var key in existingOptions) {
+          target[key] = existingOptions[key];
+      }
+      for (var key in newOptions) {
+          target[key] = newOptions[key];
+      }
+      /* eslint-enable */
+      return target;
+  }
+
+  // utils
+  var Cache$1 = /** @class */ (function () {
+      function Cache(options) {
+          this.keys = [];
+          this.values = [];
+          this.options = options;
+          var isMatchingKeyFunction = typeof options.isMatchingKey === 'function';
+          if (isMatchingKeyFunction) {
+              this.getKeyIndex = this._getKeyIndexFromMatchingKey;
+          }
+          else if (options.maxSize > 1) {
+              this.getKeyIndex = this._getKeyIndexForMany;
+          }
+          else {
+              this.getKeyIndex = this._getKeyIndexForSingle;
+          }
+          this.canTransformKey = typeof options.transformKey === 'function';
+          this.shouldCloneArguments = this.canTransformKey || isMatchingKeyFunction;
+          this.shouldUpdateOnAdd = typeof options.onCacheAdd === 'function';
+          this.shouldUpdateOnChange = typeof options.onCacheChange === 'function';
+          this.shouldUpdateOnHit = typeof options.onCacheHit === 'function';
+      }
+      Object.defineProperty(Cache.prototype, "size", {
+          get: function () {
+              return this.keys.length;
+          },
+          enumerable: true,
+          configurable: true
+      });
+      Object.defineProperty(Cache.prototype, "snapshot", {
+          get: function () {
+              return {
+                  keys: cloneArray(this.keys),
+                  size: this.size,
+                  values: cloneArray(this.values),
+              };
+          },
+          enumerable: true,
+          configurable: true
+      });
+      /**
+       * @function _getKeyIndexFromMatchingKey
+       *
+       * @description
+       * gets the matching key index when a custom key matcher is used
+       *
+       * @param keyToMatch the key to match
+       * @returns the index of the matching key, or -1
+       */
+      Cache.prototype._getKeyIndexFromMatchingKey = function (keyToMatch) {
+          var _a = this.options, isMatchingKey = _a.isMatchingKey, maxSize = _a.maxSize;
+          var keys = this.keys;
+          var keysLength = keys.length;
+          if (!keysLength) {
+              return -1;
+          }
+          if (isMatchingKey(keys[0], keyToMatch)) {
+              return 0;
+          }
+          if (maxSize > 1) {
+              for (var index = 1; index < keysLength; index++) {
+                  if (isMatchingKey(keys[index], keyToMatch)) {
+                      return index;
+                  }
+              }
+          }
+          return -1;
+      };
+      /**
+       * @function _getKeyIndexForMany
+       *
+       * @description
+       * gets the matching key index when multiple keys are used
+       *
+       * @param keyToMatch the key to match
+       * @returns the index of the matching key, or -1
+       */
+      Cache.prototype._getKeyIndexForMany = function (keyToMatch) {
+          var isEqual = this.options.isEqual;
+          var keys = this.keys;
+          var keysLength = keys.length;
+          if (!keysLength) {
+              return -1;
+          }
+          if (keysLength === 1) {
+              return this._getKeyIndexForSingle(keyToMatch);
+          }
+          var keyLength = keyToMatch.length;
+          var existingKey;
+          var argIndex;
+          if (keyLength > 1) {
+              for (var index = 0; index < keysLength; index++) {
+                  existingKey = keys[index];
+                  if (existingKey.length === keyLength) {
+                      argIndex = 0;
+                      for (; argIndex < keyLength; argIndex++) {
+                          if (!isEqual(existingKey[argIndex], keyToMatch[argIndex])) {
+                              break;
+                          }
+                      }
+                      if (argIndex === keyLength) {
+                          return index;
+                      }
+                  }
+              }
+          }
+          else {
+              for (var index = 0; index < keysLength; index++) {
+                  existingKey = keys[index];
+                  if (existingKey.length === keyLength &&
+                      isEqual(existingKey[0], keyToMatch[0])) {
+                      return index;
+                  }
+              }
+          }
+          return -1;
+      };
+      /**
+       * @function _getKeyIndexForSingle
+       *
+       * @description
+       * gets the matching key index when a single key is used
+       *
+       * @param keyToMatch the key to match
+       * @returns the index of the matching key, or -1
+       */
+      Cache.prototype._getKeyIndexForSingle = function (keyToMatch) {
+          var keys = this.keys;
+          if (!keys.length) {
+              return -1;
+          }
+          var existingKey = keys[0];
+          var length = existingKey.length;
+          if (keyToMatch.length !== length) {
+              return -1;
+          }
+          var isEqual = this.options.isEqual;
+          if (length > 1) {
+              for (var index = 0; index < length; index++) {
+                  if (!isEqual(existingKey[index], keyToMatch[index])) {
+                      return -1;
+                  }
+              }
+              return 0;
+          }
+          return isEqual(existingKey[0], keyToMatch[0]) ? 0 : -1;
+      };
+      /**
+       * @function orderByLru
+       *
+       * @description
+       * order the array based on a Least-Recently-Used basis
+       *
+       * @param key the new key to move to the front
+       * @param value the new value to move to the front
+       * @param startingIndex the index of the item to move to the front
+       */
+      Cache.prototype.orderByLru = function (key, value, startingIndex) {
+          var keys = this.keys;
+          var values = this.values;
+          var currentLength = keys.length;
+          var index = startingIndex;
+          while (index--) {
+              keys[index + 1] = keys[index];
+              values[index + 1] = values[index];
+          }
+          keys[0] = key;
+          values[0] = value;
+          var maxSize = this.options.maxSize;
+          if (currentLength === maxSize && startingIndex === currentLength) {
+              keys.pop();
+              values.pop();
+          }
+          else if (startingIndex >= maxSize) {
+              // eslint-disable-next-line no-multi-assign
+              keys.length = values.length = maxSize;
+          }
+      };
+      /**
+       * @function updateAsyncCache
+       *
+       * @description
+       * update the promise method to auto-remove from cache if rejected, and
+       * if resolved then fire cache hit / changed
+       *
+       * @param memoized the memoized function
+       */
+      Cache.prototype.updateAsyncCache = function (memoized) {
+          var _this = this;
+          var _a = this.options, onCacheChange = _a.onCacheChange, onCacheHit = _a.onCacheHit;
+          var firstKey = this.keys[0];
+          var firstValue = this.values[0];
+          this.values[0] = firstValue.then(function (value) {
+              if (_this.shouldUpdateOnHit) {
+                  onCacheHit(_this, _this.options, memoized);
+              }
+              if (_this.shouldUpdateOnChange) {
+                  onCacheChange(_this, _this.options, memoized);
+              }
+              return value;
+          }, function (error) {
+              var keyIndex = _this.getKeyIndex(firstKey);
+              if (keyIndex !== -1) {
+                  _this.keys.splice(keyIndex, 1);
+                  _this.values.splice(keyIndex, 1);
+              }
+              throw error;
+          });
+      };
+      return Cache;
+  }());
+
+  // cache
+  function createMemoizedFunction(fn, options) {
+      if (options === void 0) { options = {}; }
+      if (isMemoized(fn)) {
+          return createMemoizedFunction(fn.fn, mergeOptions(fn.options, options));
+      }
+      if (typeof fn !== 'function') {
+          throw new TypeError('You must pass a function to `memoize`.');
+      }
+      var _a = options.isEqual, isEqual = _a === void 0 ? isSameValueZero : _a, isMatchingKey = options.isMatchingKey, _b = options.isPromise, isPromise = _b === void 0 ? false : _b, _c = options.maxSize, maxSize = _c === void 0 ? 1 : _c, onCacheAdd = options.onCacheAdd, onCacheChange = options.onCacheChange, onCacheHit = options.onCacheHit, transformKey = options.transformKey;
+      var normalizedOptions = mergeOptions({
+          isEqual: isEqual,
+          isMatchingKey: isMatchingKey,
+          isPromise: isPromise,
+          maxSize: maxSize,
+          onCacheAdd: onCacheAdd,
+          onCacheChange: onCacheChange,
+          onCacheHit: onCacheHit,
+          transformKey: transformKey,
+      }, getCustomOptions(options));
+      var cache = new Cache$1(normalizedOptions);
+      var keys = cache.keys, values = cache.values, canTransformKey = cache.canTransformKey, shouldCloneArguments = cache.shouldCloneArguments, shouldUpdateOnAdd = cache.shouldUpdateOnAdd, shouldUpdateOnChange = cache.shouldUpdateOnChange, shouldUpdateOnHit = cache.shouldUpdateOnHit;
+      // @ts-ignore
+      var memoized = function memoized() {
+          // @ts-ignore
+          var key = shouldCloneArguments
+              ? cloneArray(arguments)
+              : arguments;
+          if (canTransformKey) {
+              key = transformKey(key);
+          }
+          var keyIndex = keys.length ? cache.getKeyIndex(key) : -1;
+          if (keyIndex !== -1) {
+              if (shouldUpdateOnHit) {
+                  onCacheHit(cache, normalizedOptions, memoized);
+              }
+              if (keyIndex) {
+                  cache.orderByLru(keys[keyIndex], values[keyIndex], keyIndex);
+                  if (shouldUpdateOnChange) {
+                      onCacheChange(cache, normalizedOptions, memoized);
+                  }
+              }
+          }
+          else {
+              var newValue = fn.apply(this, arguments);
+              var newKey = shouldCloneArguments
+                  ? key
+                  : cloneArray(arguments);
+              cache.orderByLru(newKey, newValue, keys.length);
+              if (isPromise) {
+                  cache.updateAsyncCache(memoized);
+              }
+              if (shouldUpdateOnAdd) {
+                  onCacheAdd(cache, normalizedOptions, memoized);
+              }
+              if (shouldUpdateOnChange) {
+                  onCacheChange(cache, normalizedOptions, memoized);
+              }
+          }
+          return values[0];
+      };
+      memoized.cache = cache;
+      memoized.fn = fn;
+      memoized.isMemoized = true;
+      memoized.options = normalizedOptions;
+      return memoized;
+  }
+
+  // This is a very thin abstraction layer to decouple from any particular cache implementation.
+
+  const maxSize = 50;
+
+  // Keyed by identity
+
+  const cache = (op) => createMemoizedFunction(op, { maxSize });
+
+  // Keyed by matrix structure and geometry identity.
+
+  const isMatchingTransformKey = ([aMatrix, aGeometry], [bMatrix, bGeometry]) =>
+    aGeometry === bGeometry && deepEqual(aMatrix, bMatrix);
+
+  const cacheTransform = (op) => createMemoizedFunction(op, { isMatchingKey: isMatchingTransformKey, maxSize });
+
+  // Keyed by tag-list and geometry identity.
+
+  const isMatchingAddTagsKey = ([aTags, aGeometry, aConditionTags, aConditionSpec],
+                                [bTags, bGeometry, bConditionTags, bConditionSpec]) =>
+    aGeometry === bGeometry && aConditionSpec === bConditionSpec && deepEqual(aConditionTags, bConditionTags) && deepEqual(aTags, bTags);
+
+  const cacheAddTags = (op) => createMemoizedFunction(op, { isMatchingKey: isMatchingAddTagsKey, maxSize });
+
+  // Keyed by plane structure and geometry identity.
+
+  const isMatchingCutKey = ([aPlane, aGeometry], [bPlane, bGeometry]) =>
+    aGeometry === bGeometry && deepEqual(aPlane, bPlane);
+
+  const cacheCut = (op) => createMemoizedFunction(op, { isMatchingKey: isMatchingCutKey, maxSize });
+
+  const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
+    if (set === undefined) {
+      return whenSetUndefined;
+    } else if (tags !== undefined && tags.some(tag => set.includes(tag))) {
+      return true;
+    } else {
+      return false;
     }
-    const factor = 1 / length(normal);
-    const plane = scale(factor, normal);
-    plane[W] = dot(reference, normal) * factor / polygon.length;
-    return plane;
   };
 
-  const X$1 = 0;
-  const Y$1 = 1;
-  const Z$1 = 2;
-  const W$1 = 3;
+  const buildCondition = (conditionTags, conditionSpec) => {
+    switch (conditionSpec) {
+      case 'has':
+        return (geometryTags) => hasMatchingTag(geometryTags, conditionTags);
+      case 'has not':
+        return (geometryTags) => !hasMatchingTag(geometryTags, conditionTags);
+      default:
+        return undefined;
+    }
+  };
 
-  const toXYPlaneTransforms = (plane, rightVector) => {
-    if (isNaN(plane[X$1])) {
+  const addTagsImpl = (tags, geometry, conditionTags, conditionSpec) => {
+    console.log(`QQ/addTags/Impl`);
+    const condition = buildCondition(conditionTags, conditionSpec);
+    const composeTags = (geometryTags) => {
+      if (condition === undefined || condition(geometryTags)) {
+        if (geometryTags === undefined) {
+          return tags;
+        } else {
+          return [...tags, ...geometryTags];
+        }
+      } else {
+        return geometryTags;
+      }
+    };
+
+    const walk = (geometry) => {
+      if (geometry.assembly) { return { assembly: geometry.assembly.map(walk) }; }
+      if (geometry.disjointAssembly) { return { disjointAssembly: geometry.disjointAssembly.map(walk) }; }
+      if (geometry.item) { return { item: geometry.item, tags: composeTags(geometry.tags) }; }
+      if (geometry.paths) { return { paths: geometry.paths, tags: composeTags(geometry.tags) }; }
+      if (geometry.plan) { return { plan: geometry.plan, marks: geometry.marks, tags: composeTags(geometry.tags) }; }
+      if (geometry.points) { return { points: geometry.points, tags: composeTags(geometry.tags) }; }
+      if (geometry.solid) { return { solid: geometry.solid, tags: composeTags(geometry.tags) }; }
+      if (geometry.surface) { return { surface: geometry.surface, tags: composeTags(geometry.tags) }; }
+      if (geometry.untransformed) { return { untransformed: walk(geometry.untransformed), matrix: geometry.matrix }; }
+      if (geometry.z0Surface) { return { z0Surface: geometry.z0Surface, tags: composeTags(geometry.tags) }; }
       throw Error('die');
-    }
-    if (rightVector === undefined) {
-      rightVector = random(plane);
-    }
+    };
 
-    const v = unit(cross(plane, rightVector));
-    const u = cross(v, plane);
-    const p = multiply(plane, fromScalar(plane[W$1]));
-
-    return [
-      // to
-      fromValues(
-        u[X$1], v[X$1], plane[X$1], 0,
-        u[Y$1], v[Y$1], plane[Y$1], 0,
-        u[Z$1], v[Z$1], plane[Z$1], 0,
-        0, 0, -plane[W$1], 1),
-      // from
-      fromValues(
-        u[X$1], u[Y$1], u[Z$1], 0,
-        v[X$1], v[Y$1], v[Z$1], 0,
-        plane[X$1], plane[Y$1], plane[Z$1], 0,
-        p[X$1], p[Y$1], p[Z$1], 1)
-    ];
+    return walk(geometry);
   };
+
+  const addTags = cacheAddTags(addTagsImpl);
 
   /**
    * Transforms the vertices of a polygon, producing a new poly3.
@@ -57023,12 +57608,7 @@ define("./master.js",[],function () { 'use strict';
     return original.map(vertex => transform(vertex));
   };
 
-  /**
-   * Emits the edges of a polygon in order.
-   *
-   * @param {function} the function to call with each edge in order.
-   * @param {Polygon} the polygon of which to emit the edges.
-   */
+  const canonicalize$1 = polygon => map$1(polygon, canonicalize);
 
   /**
    * Flip the give polygon to face the opposite direction.
@@ -57036,21 +57616,93 @@ define("./master.js",[],function () { 'use strict';
    * @param {poly3} polygon - the polygon to flip
    * @returns {poly3} a new poly3
    */
+  const flip = (polygon) => [...polygon].reverse();
 
   /**
-   * Create a poly3 from the given points.
-   *
-   * @param {Array[]} points - list of points
-   * @param {plane} [planeof] - plane of the polygon
-   *
-   * @example
-   * const points = [
-   *   [0,  0, 0],
-   *   [0, 10, 0],
-   *   [0, 10, 10]
-   * ]
-   * const polygon = createFromPoints(points)
+   * Compare the given planes for equality
+   * @return {boolean} true if planes are equal
    */
+  const equals$2 = (a, b) => (a[0] === b[0]) && (a[1] === b[1]) && (a[2] === b[2]) && (a[3] === b[3]);
+
+  const X = 0;
+  const Y = 1;
+  const Z = 2;
+  const W = 3;
+
+  // Newell's method for computing the plane of a polygon.
+  const fromPolygon = (polygon) => {
+    const normal = [0, 0, 0];
+    const reference = [0, 0, 0];
+    let lastPoint = polygon[polygon.length - 1];
+    for (const thisPoint of polygon) {
+      normal[X] += (lastPoint[Y] - thisPoint[Y]) * (lastPoint[Z] + thisPoint[Z]);
+      normal[Y] += (lastPoint[Z] - thisPoint[Z]) * (lastPoint[X] + thisPoint[X]);
+      normal[Z] += (lastPoint[X] - thisPoint[X]) * (lastPoint[Y] + thisPoint[Y]);
+      reference[X] += lastPoint[X];
+      reference[Y] += lastPoint[Y];
+      reference[Z] += lastPoint[Z];
+      lastPoint = thisPoint;
+    }
+    const factor = 1 / length(normal);
+    const plane = scale(factor, normal);
+    plane[W] = dot(reference, normal) * factor / polygon.length;
+    return plane;
+  };
+
+  const W$1 = 3;
+
+  /**
+   * Calculate the distance to the given point
+   * @return {Number} signed distance to point
+   */
+  const signedDistanceToPoint = (plane, point) => dot(plane, point) - plane[W$1];
+
+  /**
+   * Split the given line by the given plane.
+   * Robust splitting, even if the line is parallel to the plane
+   * @return {vec3} a new point
+   */
+  const splitLineSegmentByPlane = (plane, p1, p2) => {
+    const direction = subtract(p2, p1);
+    let lambda = (plane[3] - dot(plane, p1)) / dot(plane, direction);
+    if (Number.isNaN(lambda)) lambda = 0;
+    if (lambda > 1) lambda = 1;
+    if (lambda < 0) lambda = 0;
+    return add(p1, scale(lambda, direction));
+  };
+
+  const X$1 = 0;
+  const Y$1 = 1;
+  const Z$1 = 2;
+  const W$2 = 3;
+
+  const toXYPlaneTransforms = (plane, rightVector) => {
+    if (isNaN(plane[X$1])) {
+      throw Error('die');
+    }
+    if (rightVector === undefined) {
+      rightVector = random(plane);
+    }
+
+    const v = unit(cross(plane, rightVector));
+    const u = cross(v, plane);
+    const p = multiply(plane, fromScalar(plane[W$2]));
+
+    return [
+      // to
+      fromValues(
+        u[X$1], v[X$1], plane[X$1], 0,
+        u[Y$1], v[Y$1], plane[Y$1], 0,
+        u[Z$1], v[Z$1], plane[Z$1], 0,
+        0, 0, -plane[W$2], 1),
+      // from
+      fromValues(
+        u[X$1], u[Y$1], u[Z$1], 0,
+        v[X$1], v[Y$1], v[Z$1], 0,
+        plane[X$1], plane[Y$1], plane[Z$1], 0,
+        p[X$1], p[Y$1], p[Z$1], 1)
+    ];
+  };
 
   const toPlane = (polygon) => {
     if (polygon.plane === undefined) {
@@ -57058,12 +57710,6 @@ define("./master.js",[],function () { 'use strict';
     }
     return polygon.plane;
   };
-
-  /**
-   * Returns the polygon as an array of points.
-   * @param {Polygon}
-   * @returns {Points}
-   */
 
   // Affine transformation of polygon. Returns a new polygon.
   const transform$1 = (matrix, polygon) => {
@@ -57076,11 +57722,195 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const toPlane$1 = (surface) => toPlane(surface[0]);
+  const canonicalize$2 = (surface) => surface.map(canonicalize$1);
 
   // Transforms
   const transform$2 = (matrix, surface) => surface.map(polygon => transform$1(matrix, polygon));
 
-  // import { isCoplanar } from '@jsxcad/math-poly3';
+  const EPSILON = 1e-5;
+
+  const COPLANAR = 0; // Neither front nor back.
+  const FRONT = 1;
+  const BACK = 2;
+  const SPANNING = 3; // Both front and back.
+
+  const toType = (plane, point) => {
+    let t = signedDistanceToPoint(plane, point);
+    if (t < -EPSILON) {
+      return BACK;
+    } else if (t > EPSILON) {
+      return FRONT;
+    } else {
+      return COPLANAR;
+    }
+  };
+
+  const pointType = [];
+
+  const cutSurface = (plane, coplanarFrontSurfaces, coplanarBackSurfaces, frontSurfaces, backSurfaces, frontEdges, backEdges, surface) => {
+    let coplanarFrontPolygons;
+    let coplanarBackPolygons;
+    let frontPolygons;
+    let backPolygons;
+    for (let polygon of surface) {
+      pointType.length = 0;
+      let polygonType = COPLANAR;
+      if (!equals$2(toPlane(polygon), plane)) {
+        for (const point of polygon) {
+          const type = toType(plane, point);
+          polygonType |= type;
+          pointType.push(type);
+        }
+      }
+
+      // Put the polygon in the correct list, splitting it when necessary.
+      switch (polygonType) {
+        case COPLANAR: {
+          if (dot(plane, toPlane(polygon)) > 0) {
+            if (coplanarFrontPolygons === undefined) {
+              coplanarFrontPolygons = [];
+            }
+            coplanarFrontPolygons.push(polygon);
+          } else {
+            if (coplanarBackPolygons === undefined) {
+              coplanarBackPolygons = [];
+            }
+            coplanarBackPolygons.push(polygon);
+          }
+          break;
+        }
+        case FRONT: {
+          if (frontPolygons === undefined) {
+            frontPolygons = [];
+          }
+          frontPolygons.push(polygon);
+          let startPoint = polygon[polygon.length - 1];
+          let startType = pointType[polygon.length - 1];
+          for (let nth = 0; nth < polygon.length; nth++) {
+            const endPoint = polygon[nth];
+            const endType = pointType[nth];
+            if (startType === COPLANAR && endType === COPLANAR) {
+              frontEdges.push([startPoint, endPoint]);
+            }
+            startPoint = endPoint;
+            startType = endType;
+          }
+          break;
+        }
+        case BACK: {
+          if (backPolygons === undefined) {
+            backPolygons = [];
+          }
+          backPolygons.push(polygon);
+          let startPoint = polygon[polygon.length - 1];
+          let startType = pointType[polygon.length - 1];
+          for (let nth = 0; nth < polygon.length; nth++) {
+            const endPoint = polygon[nth];
+            const endType = pointType[nth];
+            if (startType === COPLANAR && endType === COPLANAR) {
+              backEdges.push([startPoint, endPoint]);
+            }
+            startPoint = endPoint;
+            startType = endType;
+          }
+          break;
+        }
+        case SPANNING: {
+          // Make a local copy so that mutation does not propagate.
+          polygon = polygon.slice();
+          let backPoints = [];
+          let frontPoints = [];
+          // Add the colinear spanning point to the polygon.
+          {
+            let last = polygon.length - 1;
+            for (let current = 0; current < polygon.length; last = current++) {
+              const lastType = pointType[last];
+              const lastPoint = polygon[last];
+              if ((lastType | pointType[current]) === SPANNING) {
+                // Break spanning segments at the point of intersection.
+                const rawSpanPoint = splitLineSegmentByPlane(plane, lastPoint, polygon[current]);
+                const spanPoint = subtract(rawSpanPoint, scale(signedDistanceToPoint(toPlane(polygon), rawSpanPoint), plane));
+                // Note: Destructive modification of polygon here.
+                polygon.splice(current, 0, spanPoint);
+                pointType.splice(current, 0, COPLANAR);
+              }
+            }
+          }
+          // Spanning points have been inserted.
+          {
+            let last = polygon.length - 1;
+            let lastCoplanar = polygon[pointType.lastIndexOf(COPLANAR)];
+            for (let current = 0; current < polygon.length; last = current++) {
+              const point = polygon[current];
+              const type = pointType[current];
+              const lastType = pointType[last];
+              const lastPoint = polygon[last];
+              if (type !== FRONT) {
+                backPoints.push(point);
+              }
+              if (type !== BACK) {
+                frontPoints.push(point);
+              }
+              if (type === COPLANAR) {
+                if (lastType === COPLANAR) {
+                  frontEdges.push([lastPoint, point]);
+                  backEdges.push([lastPoint, point]);
+                } else if (lastType === BACK) {
+                  frontEdges.push([lastCoplanar, point]);
+                } else if (lastType === FRONT) {
+                  backEdges.push([lastCoplanar, point]);
+                }
+                lastCoplanar = point;
+              }
+            }
+          }
+          if (frontPoints.length >= 3) {
+          // Add the polygon that sticks out the front of the plane.
+            if (frontPolygons === undefined) {
+              frontPolygons = [];
+            }
+            frontPolygons.push(frontPoints);
+          }
+          if (backPoints.length >= 3) {
+          // Add the polygon that sticks out the back of the plane.
+            if (backPolygons === undefined) {
+              backPolygons = [];
+            }
+            backPolygons.push(backPoints);
+          }
+          break;
+        }
+      }
+    }
+    if (coplanarFrontPolygons !== undefined) {
+      coplanarFrontSurfaces.push(coplanarFrontPolygons);
+    }
+    if (coplanarBackPolygons !== undefined) {
+      coplanarBackSurfaces.push(coplanarBackPolygons);
+    }
+    if (frontPolygons !== undefined) {
+      frontSurfaces.push(frontPolygons);
+    }
+    if (backPolygons !== undefined) {
+      backSurfaces.push(backPolygons);
+    }
+  };
+
+  const cutImpl = (plane, surface) => {
+    const front = [];
+    const back = [];
+    const frontEdges = [];
+    const backEdges = [];
+
+    cutSurface(plane, front, back, front, back, frontEdges, backEdges, surface);
+    if (frontEdges.some(edge => edge[1] === undefined)) {
+      throw Error(`die/end/missing: ${JSON.stringify(frontEdges)}`);
+    }
+
+    return [[].concat(...front), [].concat(...back)];
+  };
+
+  const cut = cacheCut(cutImpl);
 
   const assertUnique = (path) => {
     let last = null;
@@ -57090,6 +57920,29 @@ define("./master.js",[],function () { 'use strict';
       }
       last = point;
     }
+  };
+
+  const canonicalizePoint = (point, index) => {
+    if (point === null) {
+      if (index !== 0) throw Error('Path has null not at head');
+      return point;
+    } else {
+      return canonicalize(point);
+    }
+  };
+
+  const canonicalize$3 = (path) => path.map(canonicalizePoint);
+
+  const deduplicate = (path) => {
+    const unique = [];
+    let last = path[path.length - 1];
+    for (const point of path) {
+      if (last === null || point === null || !equals$1(point, last)) {
+        unique.push(point);
+      }
+      last = point;
+    }
+    return unique;
   };
 
   const toSegments = (options = {}, path) => {
@@ -57118,1614 +57971,30 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // used strictly for logging the processing of the algorithm... only useful if you intend on
-  // looking under the covers (for pretty UI's or debugging)
-  //
-
-  function BuildLog(){
-  	var my;
-  	var nextSegmentId = 0;
-  	var curVert = false;
-
-  	function push(type, data){
-  		my.list.push({
-  			type: type,
-  			data: data ? JSON.parse(JSON.stringify(data)) : void 0
-  		});
-  		return my;
-  	}
-
-  	my = {
-  		list: [],
-  		segmentId: function(){
-  			return nextSegmentId++;
-  		},
-  		checkIntersection: function(seg1, seg2){
-  			return push('check', { seg1: seg1, seg2: seg2 });
-  		},
-  		segmentChop: function(seg, end){
-  			push('div_seg', { seg: seg, pt: end });
-  			return push('chop', { seg: seg, pt: end });
-  		},
-  		statusRemove: function(seg){
-  			return push('pop_seg', { seg: seg });
-  		},
-  		segmentUpdate: function(seg){
-  			return push('seg_update', { seg: seg });
-  		},
-  		segmentNew: function(seg, primary){
-  			return push('new_seg', { seg: seg, primary: primary });
-  		},
-  		segmentRemove: function(seg){
-  			return push('rem_seg', { seg: seg });
-  		},
-  		tempStatus: function(seg, above, below){
-  			return push('temp_status', { seg: seg, above: above, below: below });
-  		},
-  		rewind: function(seg){
-  			return push('rewind', { seg: seg });
-  		},
-  		status: function(seg, above, below){
-  			return push('status', { seg: seg, above: above, below: below });
-  		},
-  		vert: function(x){
-  			if (x === curVert)
-  				return my;
-  			curVert = x;
-  			return push('vert', { x: x });
-  		},
-  		log: function(data){
-  			if (typeof data !== 'string')
-  				data = JSON.stringify(data, false, '  ');
-  			return push('log', { txt: data });
-  		},
-  		reset: function(){
-  			return push('reset');
-  		},
-  		selected: function(segs){
-  			return push('selected', { segs: segs });
-  		},
-  		chainStart: function(seg){
-  			return push('chain_start', { seg: seg });
-  		},
-  		chainRemoveHead: function(index, pt){
-  			return push('chain_rem_head', { index: index, pt: pt });
-  		},
-  		chainRemoveTail: function(index, pt){
-  			return push('chain_rem_tail', { index: index, pt: pt });
-  		},
-  		chainNew: function(pt1, pt2){
-  			return push('chain_new', { pt1: pt1, pt2: pt2 });
-  		},
-  		chainMatch: function(index){
-  			return push('chain_match', { index: index });
-  		},
-  		chainClose: function(index){
-  			return push('chain_close', { index: index });
-  		},
-  		chainAddHead: function(index, pt){
-  			return push('chain_add_head', { index: index, pt: pt });
-  		},
-  		chainAddTail: function(index, pt){
-  			return push('chain_add_tail', { index: index, pt: pt, });
-  		},
-  		chainConnect: function(index1, index2){
-  			return push('chain_con', { index1: index1, index2: index2 });
-  		},
-  		chainReverse: function(index){
-  			return push('chain_rev', { index: index });
-  		},
-  		chainJoin: function(index1, index2){
-  			return push('chain_join', { index1: index1, index2: index2 });
-  		},
-  		done: function(){
-  			return push('done');
-  		}
-  	};
-  	return my;
-  }
-
-  var buildLog = BuildLog;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // provides the raw computation functions that takes epsilon into account
-  //
-  // zero is defined to be between (-epsilon, epsilon) exclusive
-  //
-
-  function Epsilon(eps){
-  	if (typeof eps !== 'number')
-  		eps = 0.0000000001; // sane default? sure why not
-  	var my = {
-  		epsilon: function(v){
-  			if (typeof v === 'number')
-  				eps = v;
-  			return eps;
-  		},
-  		pointAboveOrOnLine: function(pt, left, right){
-  			var Ax = left[0];
-  			var Ay = left[1];
-  			var Bx = right[0];
-  			var By = right[1];
-  			var Cx = pt[0];
-  			var Cy = pt[1];
-  			return (Bx - Ax) * (Cy - Ay) - (By - Ay) * (Cx - Ax) >= -eps;
-  		},
-  		pointBetween: function(p, left, right){
-  			// p must be collinear with left->right
-  			// returns false if p == left, p == right, or left == right
-  			var d_py_ly = p[1] - left[1];
-  			var d_rx_lx = right[0] - left[0];
-  			var d_px_lx = p[0] - left[0];
-  			var d_ry_ly = right[1] - left[1];
-
-  			var dot = d_px_lx * d_rx_lx + d_py_ly * d_ry_ly;
-  			// if `dot` is 0, then `p` == `left` or `left` == `right` (reject)
-  			// if `dot` is less than 0, then `p` is to the left of `left` (reject)
-  			if (dot < eps)
-  				return false;
-
-  			var sqlen = d_rx_lx * d_rx_lx + d_ry_ly * d_ry_ly;
-  			// if `dot` > `sqlen`, then `p` is to the right of `right` (reject)
-  			// therefore, if `dot - sqlen` is greater than 0, then `p` is to the right of `right` (reject)
-  			if (dot - sqlen > -eps)
-  				return false;
-
-  			return true;
-  		},
-  		pointsSameX: function(p1, p2){
-  			return Math.abs(p1[0] - p2[0]) < eps;
-  		},
-  		pointsSameY: function(p1, p2){
-  			return Math.abs(p1[1] - p2[1]) < eps;
-  		},
-  		pointsSame: function(p1, p2){
-  			return my.pointsSameX(p1, p2) && my.pointsSameY(p1, p2);
-  		},
-  		pointsCompare: function(p1, p2){
-  			// returns -1 if p1 is smaller, 1 if p2 is smaller, 0 if equal
-  			if (my.pointsSameX(p1, p2))
-  				return my.pointsSameY(p1, p2) ? 0 : (p1[1] < p2[1] ? -1 : 1);
-  			return p1[0] < p2[0] ? -1 : 1;
-  		},
-  		pointsCollinear: function(pt1, pt2, pt3){
-  			// does pt1->pt2->pt3 make a straight line?
-  			// essentially this is just checking to see if the slope(pt1->pt2) === slope(pt2->pt3)
-  			// if slopes are equal, then they must be collinear, because they share pt2
-  			var dx1 = pt1[0] - pt2[0];
-  			var dy1 = pt1[1] - pt2[1];
-  			var dx2 = pt2[0] - pt3[0];
-  			var dy2 = pt2[1] - pt3[1];
-  			return Math.abs(dx1 * dy2 - dx2 * dy1) < eps;
-  		},
-  		linesIntersect: function(a0, a1, b0, b1){
-  			// returns false if the lines are coincident (e.g., parallel or on top of each other)
-  			//
-  			// returns an object if the lines intersect:
-  			//   {
-  			//     pt: [x, y],    where the intersection point is at
-  			//     alongA: where intersection point is along A,
-  			//     alongB: where intersection point is along B
-  			//   }
-  			//
-  			//  alongA and alongB will each be one of: -2, -1, 0, 1, 2
-  			//
-  			//  with the following meaning:
-  			//
-  			//    -2   intersection point is before segment's first point
-  			//    -1   intersection point is directly on segment's first point
-  			//     0   intersection point is between segment's first and second points (exclusive)
-  			//     1   intersection point is directly on segment's second point
-  			//     2   intersection point is after segment's second point
-  			var adx = a1[0] - a0[0];
-  			var ady = a1[1] - a0[1];
-  			var bdx = b1[0] - b0[0];
-  			var bdy = b1[1] - b0[1];
-
-  			var axb = adx * bdy - ady * bdx;
-  			if (Math.abs(axb) < eps)
-  				return false; // lines are coincident
-
-  			var dx = a0[0] - b0[0];
-  			var dy = a0[1] - b0[1];
-
-  			var A = (bdx * dy - bdy * dx) / axb;
-  			var B = (adx * dy - ady * dx) / axb;
-
-  			var ret = {
-  				alongA: 0,
-  				alongB: 0,
-  				pt: [
-  					a0[0] + A * adx,
-  					a0[1] + A * ady
-  				]
-  			};
-
-  			// categorize where intersection point is along A and B
-
-  			if (A <= -eps)
-  				ret.alongA = -2;
-  			else if (A < eps)
-  				ret.alongA = -1;
-  			else if (A - 1 <= -eps)
-  				ret.alongA = 0;
-  			else if (A - 1 < eps)
-  				ret.alongA = 1;
-  			else
-  				ret.alongA = 2;
-
-  			if (B <= -eps)
-  				ret.alongB = -2;
-  			else if (B < eps)
-  				ret.alongB = -1;
-  			else if (B - 1 <= -eps)
-  				ret.alongB = 0;
-  			else if (B - 1 < eps)
-  				ret.alongB = 1;
-  			else
-  				ret.alongB = 2;
-
-  			return ret;
-  		},
-  		pointInsideRegion: function(pt, region){
-  			var x = pt[0];
-  			var y = pt[1];
-  			var last_x = region[region.length - 1][0];
-  			var last_y = region[region.length - 1][1];
-  			var inside = false;
-  			for (var i = 0; i < region.length; i++){
-  				var curr_x = region[i][0];
-  				var curr_y = region[i][1];
-
-  				// if y is between curr_y and last_y, and
-  				// x is to the right of the boundary created by the line
-  				if ((curr_y - y > eps) != (last_y - y > eps) &&
-  					(last_x - curr_x) * (y - curr_y) / (last_y - curr_y) + curr_x - x > eps)
-  					inside = !inside;
-
-  				last_x = curr_x;
-  				last_y = curr_y;
-  			}
-  			return inside;
-  		}
-  	};
-  	return my;
-  }
-
-  var epsilon = Epsilon;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // simple linked list implementation that allows you to traverse down nodes and save positions
-  //
-
-  var LinkedList = {
-  	create: function(){
-  		var my = {
-  			root: { root: true, next: null },
-  			exists: function(node){
-  				if (node === null || node === my.root)
-  					return false;
-  				return true;
-  			},
-  			isEmpty: function(){
-  				return my.root.next === null;
-  			},
-  			getHead: function(){
-  				return my.root.next;
-  			},
-  			insertBefore: function(node, check){
-  				var last = my.root;
-  				var here = my.root.next;
-  				while (here !== null){
-  					if (check(here)){
-  						node.prev = here.prev;
-  						node.next = here;
-  						here.prev.next = node;
-  						here.prev = node;
-  						return;
-  					}
-  					last = here;
-  					here = here.next;
-  				}
-  				last.next = node;
-  				node.prev = last;
-  				node.next = null;
-  			},
-  			findTransition: function(check){
-  				var prev = my.root;
-  				var here = my.root.next;
-  				while (here !== null){
-  					if (check(here))
-  						break;
-  					prev = here;
-  					here = here.next;
-  				}
-  				return {
-  					before: prev === my.root ? null : prev,
-  					after: here,
-  					insert: function(node){
-  						node.prev = prev;
-  						node.next = here;
-  						prev.next = node;
-  						if (here !== null)
-  							here.prev = node;
-  						return node;
-  					}
-  				};
-  			}
-  		};
-  		return my;
-  	},
-  	node: function(data){
-  		data.prev = null;
-  		data.next = null;
-  		data.remove = function(){
-  			data.prev.next = data.next;
-  			if (data.next)
-  				data.next.prev = data.prev;
-  			data.prev = null;
-  			data.next = null;
-  		};
-  		return data;
-  	}
-  };
-
-  var linkedList$1 = LinkedList;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // this is the core work-horse
-  //
-
-
-
-  function Intersecter(selfIntersection, eps, buildLog){
-  	// selfIntersection is true/false depending on the phase of the overall algorithm
-
-  	//
-  	// segment creation
-  	//
-
-  	function segmentNew(start, end){
-  		return {
-  			id: buildLog ? buildLog.segmentId() : -1,
-  			start: start,
-  			end: end,
-  			myFill: {
-  				above: null, // is there fill above us?
-  				below: null  // is there fill below us?
-  			},
-  			otherFill: null
-  		};
-  	}
-
-  	function segmentCopy(start, end, seg){
-  		return {
-  			id: buildLog ? buildLog.segmentId() : -1,
-  			start: start,
-  			end: end,
-  			myFill: {
-  				above: seg.myFill.above,
-  				below: seg.myFill.below
-  			},
-  			otherFill: null
-  		};
-  	}
-
-  	//
-  	// event logic
-  	//
-
-  	var event_root = linkedList$1.create();
-
-  	function eventCompare(p1_isStart, p1_1, p1_2, p2_isStart, p2_1, p2_2){
-  		// compare the selected points first
-  		var comp = eps.pointsCompare(p1_1, p2_1);
-  		if (comp !== 0)
-  			return comp;
-  		// the selected points are the same
-
-  		if (eps.pointsSame(p1_2, p2_2)) // if the non-selected points are the same too...
-  			return 0; // then the segments are equal
-
-  		if (p1_isStart !== p2_isStart) // if one is a start and the other isn't...
-  			return p1_isStart ? 1 : -1; // favor the one that isn't the start
-
-  		// otherwise, we'll have to calculate which one is below the other manually
-  		return eps.pointAboveOrOnLine(p1_2,
-  			p2_isStart ? p2_1 : p2_2, // order matters
-  			p2_isStart ? p2_2 : p2_1
-  		) ? 1 : -1;
-  	}
-
-  	function eventAdd(ev, other_pt){
-  		event_root.insertBefore(ev, function(here){
-  			// should ev be inserted before here?
-  			var comp = eventCompare(
-  				ev  .isStart, ev  .pt,      other_pt,
-  				here.isStart, here.pt, here.other.pt
-  			);
-  			return comp < 0;
-  		});
-  	}
-
-  	function eventAddSegmentStart(seg, primary){
-  		var ev_start = linkedList$1.node({
-  			isStart: true,
-  			pt: seg.start,
-  			seg: seg,
-  			primary: primary,
-  			other: null,
-  			status: null
-  		});
-  		eventAdd(ev_start, seg.end);
-  		return ev_start;
-  	}
-
-  	function eventAddSegmentEnd(ev_start, seg, primary){
-  		var ev_end = linkedList$1.node({
-  			isStart: false,
-  			pt: seg.end,
-  			seg: seg,
-  			primary: primary,
-  			other: ev_start,
-  			status: null
-  		});
-  		ev_start.other = ev_end;
-  		eventAdd(ev_end, ev_start.pt);
-  	}
-
-  	function eventAddSegment(seg, primary){
-  		var ev_start = eventAddSegmentStart(seg, primary);
-  		eventAddSegmentEnd(ev_start, seg, primary);
-  		return ev_start;
-  	}
-
-  	function eventUpdateEnd(ev, end){
-  		// slides an end backwards
-  		//   (start)------------(end)    to:
-  		//   (start)---(end)
-
-  		if (buildLog)
-  			buildLog.segmentChop(ev.seg, end);
-
-  		ev.other.remove();
-  		ev.seg.end = end;
-  		ev.other.pt = end;
-  		eventAdd(ev.other, ev.pt);
-  	}
-
-  	function eventDivide(ev, pt){
-  		var ns = segmentCopy(pt, ev.seg.end, ev.seg);
-  		eventUpdateEnd(ev, pt);
-  		return eventAddSegment(ns, ev.primary);
-  	}
-
-  	function calculate(primaryPolyInverted, secondaryPolyInverted){
-  		// if selfIntersection is true then there is no secondary polygon, so that isn't used
-
-  		//
-  		// status logic
-  		//
-
-  		var status_root = linkedList$1.create();
-
-  		function statusCompare(ev1, ev2){
-  			var a1 = ev1.seg.start;
-  			var a2 = ev1.seg.end;
-  			var b1 = ev2.seg.start;
-  			var b2 = ev2.seg.end;
-
-  			if (eps.pointsCollinear(a1, b1, b2)){
-  				if (eps.pointsCollinear(a2, b1, b2))
-  					return 1;//eventCompare(true, a1, a2, true, b1, b2);
-  				return eps.pointAboveOrOnLine(a2, b1, b2) ? 1 : -1;
-  			}
-  			return eps.pointAboveOrOnLine(a1, b1, b2) ? 1 : -1;
-  		}
-
-  		function statusFindSurrounding(ev){
-  			return status_root.findTransition(function(here){
-  				var comp = statusCompare(ev, here.ev);
-  				return comp > 0;
-  			});
-  		}
-
-  		function checkIntersection(ev1, ev2){
-  			// returns the segment equal to ev1, or false if nothing equal
-
-  			var seg1 = ev1.seg;
-  			var seg2 = ev2.seg;
-  			var a1 = seg1.start;
-  			var a2 = seg1.end;
-  			var b1 = seg2.start;
-  			var b2 = seg2.end;
-
-  			if (buildLog)
-  				buildLog.checkIntersection(seg1, seg2);
-
-  			var i = eps.linesIntersect(a1, a2, b1, b2);
-
-  			if (i === false){
-  				// segments are parallel or coincident
-
-  				// if points aren't collinear, then the segments are parallel, so no intersections
-  				if (!eps.pointsCollinear(a1, a2, b1))
-  					return false;
-  				// otherwise, segments are on top of each other somehow (aka coincident)
-
-  				if (eps.pointsSame(a1, b2) || eps.pointsSame(a2, b1))
-  					return false; // segments touch at endpoints... no intersection
-
-  				var a1_equ_b1 = eps.pointsSame(a1, b1);
-  				var a2_equ_b2 = eps.pointsSame(a2, b2);
-
-  				if (a1_equ_b1 && a2_equ_b2)
-  					return ev2; // segments are exactly equal
-
-  				var a1_between = !a1_equ_b1 && eps.pointBetween(a1, b1, b2);
-  				var a2_between = !a2_equ_b2 && eps.pointBetween(a2, b1, b2);
-
-  				// handy for debugging:
-  				// buildLog.log({
-  				//	a1_equ_b1: a1_equ_b1,
-  				//	a2_equ_b2: a2_equ_b2,
-  				//	a1_between: a1_between,
-  				//	a2_between: a2_between
-  				// });
-
-  				if (a1_equ_b1){
-  					if (a2_between){
-  						//  (a1)---(a2)
-  						//  (b1)----------(b2)
-  						eventDivide(ev2, a2);
-  					}
-  					else{
-  						//  (a1)----------(a2)
-  						//  (b1)---(b2)
-  						eventDivide(ev1, b2);
-  					}
-  					return ev2;
-  				}
-  				else if (a1_between){
-  					if (!a2_equ_b2){
-  						// make a2 equal to b2
-  						if (a2_between){
-  							//         (a1)---(a2)
-  							//  (b1)-----------------(b2)
-  							eventDivide(ev2, a2);
-  						}
-  						else{
-  							//         (a1)----------(a2)
-  							//  (b1)----------(b2)
-  							eventDivide(ev1, b2);
-  						}
-  					}
-
-  					//         (a1)---(a2)
-  					//  (b1)----------(b2)
-  					eventDivide(ev2, a1);
-  				}
-  			}
-  			else{
-  				// otherwise, lines intersect at i.pt, which may or may not be between the endpoints
-
-  				// is A divided between its endpoints? (exclusive)
-  				if (i.alongA === 0){
-  					if (i.alongB === -1) // yes, at exactly b1
-  						eventDivide(ev1, b1);
-  					else if (i.alongB === 0) // yes, somewhere between B's endpoints
-  						eventDivide(ev1, i.pt);
-  					else if (i.alongB === 1) // yes, at exactly b2
-  						eventDivide(ev1, b2);
-  				}
-
-  				// is B divided between its endpoints? (exclusive)
-  				if (i.alongB === 0){
-  					if (i.alongA === -1) // yes, at exactly a1
-  						eventDivide(ev2, a1);
-  					else if (i.alongA === 0) // yes, somewhere between A's endpoints (exclusive)
-  						eventDivide(ev2, i.pt);
-  					else if (i.alongA === 1) // yes, at exactly a2
-  						eventDivide(ev2, a2);
-  				}
-  			}
-  			return false;
-  		}
-
-  		//
-  		// main event loop
-  		//
-  		var segments = [];
-  		while (!event_root.isEmpty()){
-  			var ev = event_root.getHead();
-
-  			if (buildLog)
-  				buildLog.vert(ev.pt[0]);
-
-  			if (ev.isStart){
-
-  				if (buildLog)
-  					buildLog.segmentNew(ev.seg, ev.primary);
-
-  				var surrounding = statusFindSurrounding(ev);
-  				var above = surrounding.before ? surrounding.before.ev : null;
-  				var below = surrounding.after ? surrounding.after.ev : null;
-
-  				if (buildLog){
-  					buildLog.tempStatus(
-  						ev.seg,
-  						above ? above.seg : false,
-  						below ? below.seg : false
-  					);
-  				}
-
-  				function checkBothIntersections(){
-  					if (above){
-  						var eve = checkIntersection(ev, above);
-  						if (eve)
-  							return eve;
-  					}
-  					if (below)
-  						return checkIntersection(ev, below);
-  					return false;
-  				}
-
-  				var eve = checkBothIntersections();
-  				if (eve){
-  					// ev and eve are equal
-  					// we'll keep eve and throw away ev
-
-  					// merge ev.seg's fill information into eve.seg
-
-  					if (selfIntersection){
-  						var toggle; // are we a toggling edge?
-  						if (ev.seg.myFill.below === null)
-  							toggle = true;
-  						else
-  							toggle = ev.seg.myFill.above !== ev.seg.myFill.below;
-
-  						// merge two segments that belong to the same polygon
-  						// think of this as sandwiching two segments together, where `eve.seg` is
-  						// the bottom -- this will cause the above fill flag to toggle
-  						if (toggle)
-  							eve.seg.myFill.above = !eve.seg.myFill.above;
-  					}
-  					else{
-  						// merge two segments that belong to different polygons
-  						// each segment has distinct knowledge, so no special logic is needed
-  						// note that this can only happen once per segment in this phase, because we
-  						// are guaranteed that all self-intersections are gone
-  						eve.seg.otherFill = ev.seg.myFill;
-  					}
-
-  					if (buildLog)
-  						buildLog.segmentUpdate(eve.seg);
-
-  					ev.other.remove();
-  					ev.remove();
-  				}
-
-  				if (event_root.getHead() !== ev){
-  					// something was inserted before us in the event queue, so loop back around and
-  					// process it before continuing
-  					if (buildLog)
-  						buildLog.rewind(ev.seg);
-  					continue;
-  				}
-
-  				//
-  				// calculate fill flags
-  				//
-  				if (selfIntersection){
-  					var toggle; // are we a toggling edge?
-  					if (ev.seg.myFill.below === null) // if we are a new segment...
-  						toggle = true; // then we toggle
-  					else // we are a segment that has previous knowledge from a division
-  						toggle = ev.seg.myFill.above !== ev.seg.myFill.below; // calculate toggle
-
-  					// next, calculate whether we are filled below us
-  					if (!below){ // if nothing is below us...
-  						// we are filled below us if the polygon is inverted
-  						ev.seg.myFill.below = primaryPolyInverted;
-  					}
-  					else{
-  						// otherwise, we know the answer -- it's the same if whatever is below
-  						// us is filled above it
-  						ev.seg.myFill.below = below.seg.myFill.above;
-  					}
-
-  					// since now we know if we're filled below us, we can calculate whether
-  					// we're filled above us by applying toggle to whatever is below us
-  					if (toggle)
-  						ev.seg.myFill.above = !ev.seg.myFill.below;
-  					else
-  						ev.seg.myFill.above = ev.seg.myFill.below;
-  				}
-  				else{
-  					// now we fill in any missing transition information, since we are all-knowing
-  					// at this point
-
-  					if (ev.seg.otherFill === null){
-  						// if we don't have other information, then we need to figure out if we're
-  						// inside the other polygon
-  						var inside;
-  						if (!below){
-  							// if nothing is below us, then we're inside if the other polygon is
-  							// inverted
-  							inside =
-  								ev.primary ? secondaryPolyInverted : primaryPolyInverted;
-  						}
-  						else{ // otherwise, something is below us
-  							// so copy the below segment's other polygon's above
-  							if (ev.primary === below.primary)
-  								inside = below.seg.otherFill.above;
-  							else
-  								inside = below.seg.myFill.above;
-  						}
-  						ev.seg.otherFill = {
-  							above: inside,
-  							below: inside
-  						};
-  					}
-  				}
-
-  				if (buildLog){
-  					buildLog.status(
-  						ev.seg,
-  						above ? above.seg : false,
-  						below ? below.seg : false
-  					);
-  				}
-
-  				// insert the status and remember it for later removal
-  				ev.other.status = surrounding.insert(linkedList$1.node({ ev: ev }));
-  			}
-  			else{
-  				var st = ev.status;
-
-  				if (st === null){
-  					throw new Error('PolyBool: Zero-length segment detected; your epsilon is ' +
-  						'probably too small or too large');
-  				}
-
-  				// removing the status will create two new adjacent edges, so we'll need to check
-  				// for those
-  				if (status_root.exists(st.prev) && status_root.exists(st.next))
-  					checkIntersection(st.prev.ev, st.next.ev);
-
-  				if (buildLog)
-  					buildLog.statusRemove(st.ev.seg);
-
-  				// remove the status
-  				st.remove();
-
-  				// if we've reached this point, we've calculated everything there is to know, so
-  				// save the segment for reporting
-  				if (!ev.primary){
-  					// make sure `seg.myFill` actually points to the primary polygon though
-  					var s = ev.seg.myFill;
-  					ev.seg.myFill = ev.seg.otherFill;
-  					ev.seg.otherFill = s;
-  				}
-  				segments.push(ev.seg);
-  			}
-
-  			// remove the event and continue
-  			event_root.getHead().remove();
-  		}
-
-  		if (buildLog)
-  			buildLog.done();
-
-  		return segments;
-  	}
-
-  	// return the appropriate API depending on what we're doing
-  	if (!selfIntersection){
-  		// performing combination of polygons, so only deal with already-processed segments
-  		return {
-  			calculate: function(segments1, inverted1, segments2, inverted2){
-  				// segmentsX come from the self-intersection API, or this API
-  				// invertedX is whether we treat that list of segments as an inverted polygon or not
-  				// returns segments that can be used for further operations
-  				segments1.forEach(function(seg){
-  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), true);
-  				});
-  				segments2.forEach(function(seg){
-  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), false);
-  				});
-  				return calculate(inverted1, inverted2);
-  			}
-  		};
-  	}
-
-  	// otherwise, performing self-intersection, so deal with regions
-  	return {
-  		addRegion: function(region){
-  			// regions are a list of points:
-  			//  [ [0, 0], [100, 0], [50, 100] ]
-  			// you can add multiple regions before running calculate
-  			var pt1;
-  			var pt2 = region[region.length - 1];
-  			for (var i = 0; i < region.length; i++){
-  				pt1 = pt2;
-  				pt2 = region[i];
-
-  				var forward = eps.pointsCompare(pt1, pt2);
-  				if (forward === 0) // points are equal, so we have a zero-length segment
-  					continue; // just skip it
-
-  				eventAddSegment(
-  					segmentNew(
-  						forward < 0 ? pt1 : pt2,
-  						forward < 0 ? pt2 : pt1
-  					),
-  					true
-  				);
-  			}
-  		},
-  		calculate: function(inverted){
-  			// is the polygon inverted?
-  			// returns segments
-  			return calculate(inverted, false);
-  		}
-  	};
-  }
-
-  var intersecter = Intersecter;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // converts a list of segments into a list of regions, while also removing unnecessary verticies
-  //
-
-  function SegmentChainer(segments, eps, buildLog){
-  	var chains = [];
-  	var regions = [];
-
-  	segments.forEach(function(seg){
-  		var pt1 = seg.start;
-  		var pt2 = seg.end;
-  		if (eps.pointsSame(pt1, pt2)){
-  			console.warn('PolyBool: Warning: Zero-length segment detected; your epsilon is ' +
-  				'probably too small or too large');
-  			return;
-  		}
-
-  		if (buildLog)
-  			buildLog.chainStart(seg);
-
-  		// search for two chains that this segment matches
-  		var first_match = {
-  			index: 0,
-  			matches_head: false,
-  			matches_pt1: false
-  		};
-  		var second_match = {
-  			index: 0,
-  			matches_head: false,
-  			matches_pt1: false
-  		};
-  		var next_match = first_match;
-  		function setMatch(index, matches_head, matches_pt1){
-  			// return true if we've matched twice
-  			next_match.index = index;
-  			next_match.matches_head = matches_head;
-  			next_match.matches_pt1 = matches_pt1;
-  			if (next_match === first_match){
-  				next_match = second_match;
-  				return false;
-  			}
-  			next_match = null;
-  			return true; // we've matched twice, we're done here
-  		}
-  		for (var i = 0; i < chains.length; i++){
-  			var chain = chains[i];
-  			var head  = chain[0];
-  			var head2 = chain[1];
-  			var tail  = chain[chain.length - 1];
-  			var tail2 = chain[chain.length - 2];
-  			if (eps.pointsSame(head, pt1)){
-  				if (setMatch(i, true, true))
-  					break;
-  			}
-  			else if (eps.pointsSame(head, pt2)){
-  				if (setMatch(i, true, false))
-  					break;
-  			}
-  			else if (eps.pointsSame(tail, pt1)){
-  				if (setMatch(i, false, true))
-  					break;
-  			}
-  			else if (eps.pointsSame(tail, pt2)){
-  				if (setMatch(i, false, false))
-  					break;
-  			}
-  		}
-
-  		if (next_match === first_match){
-  			// we didn't match anything, so create a new chain
-  			chains.push([ pt1, pt2 ]);
-  			if (buildLog)
-  				buildLog.chainNew(pt1, pt2);
-  			return;
-  		}
-
-  		if (next_match === second_match){
-  			// we matched a single chain
-
-  			if (buildLog)
-  				buildLog.chainMatch(first_match.index);
-
-  			// add the other point to the apporpriate end, and check to see if we've closed the
-  			// chain into a loop
-
-  			var index = first_match.index;
-  			var pt = first_match.matches_pt1 ? pt2 : pt1; // if we matched pt1, then we add pt2, etc
-  			var addToHead = first_match.matches_head; // if we matched at head, then add to the head
-
-  			var chain = chains[index];
-  			var grow  = addToHead ? chain[0] : chain[chain.length - 1];
-  			var grow2 = addToHead ? chain[1] : chain[chain.length - 2];
-  			var oppo  = addToHead ? chain[chain.length - 1] : chain[0];
-  			var oppo2 = addToHead ? chain[chain.length - 2] : chain[1];
-
-  			if (eps.pointsCollinear(grow2, grow, pt)){
-  				// grow isn't needed because it's directly between grow2 and pt:
-  				// grow2 ---grow---> pt
-  				if (addToHead){
-  					if (buildLog)
-  						buildLog.chainRemoveHead(first_match.index, pt);
-  					chain.shift();
-  				}
-  				else{
-  					if (buildLog)
-  						buildLog.chainRemoveTail(first_match.index, pt);
-  					chain.pop();
-  				}
-  				grow = grow2; // old grow is gone... new grow is what grow2 was
-  			}
-
-  			if (eps.pointsSame(oppo, pt)){
-  				// we're closing the loop, so remove chain from chains
-  				chains.splice(index, 1);
-
-  				if (eps.pointsCollinear(oppo2, oppo, grow)){
-  					// oppo isn't needed because it's directly between oppo2 and grow:
-  					// oppo2 ---oppo--->grow
-  					if (addToHead){
-  						if (buildLog)
-  							buildLog.chainRemoveTail(first_match.index, grow);
-  						chain.pop();
-  					}
-  					else{
-  						if (buildLog)
-  							buildLog.chainRemoveHead(first_match.index, grow);
-  						chain.shift();
-  					}
-  				}
-
-  				if (buildLog)
-  					buildLog.chainClose(first_match.index);
-
-  				// we have a closed chain!
-  				regions.push(chain);
-  				return;
-  			}
-
-  			// not closing a loop, so just add it to the apporpriate side
-  			if (addToHead){
-  				if (buildLog)
-  					buildLog.chainAddHead(first_match.index, pt);
-  				chain.unshift(pt);
-  			}
-  			else{
-  				if (buildLog)
-  					buildLog.chainAddTail(first_match.index, pt);
-  				chain.push(pt);
-  			}
-  			return;
-  		}
-
-  		// otherwise, we matched two chains, so we need to combine those chains together
-
-  		function reverseChain(index){
-  			if (buildLog)
-  				buildLog.chainReverse(index);
-  			chains[index].reverse(); // gee, that's easy
-  		}
-
-  		function appendChain(index1, index2){
-  			// index1 gets index2 appended to it, and index2 is removed
-  			var chain1 = chains[index1];
-  			var chain2 = chains[index2];
-  			var tail  = chain1[chain1.length - 1];
-  			var tail2 = chain1[chain1.length - 2];
-  			var head  = chain2[0];
-  			var head2 = chain2[1];
-
-  			if (eps.pointsCollinear(tail2, tail, head)){
-  				// tail isn't needed because it's directly between tail2 and head
-  				// tail2 ---tail---> head
-  				if (buildLog)
-  					buildLog.chainRemoveTail(index1, tail);
-  				chain1.pop();
-  				tail = tail2; // old tail is gone... new tail is what tail2 was
-  			}
-
-  			if (eps.pointsCollinear(tail, head, head2)){
-  				// head isn't needed because it's directly between tail and head2
-  				// tail ---head---> head2
-  				if (buildLog)
-  					buildLog.chainRemoveHead(index2, head);
-  				chain2.shift();
-  			}
-
-  			if (buildLog)
-  				buildLog.chainJoin(index1, index2);
-  			chains[index1] = chain1.concat(chain2);
-  			chains.splice(index2, 1);
-  		}
-
-  		var F = first_match.index;
-  		var S = second_match.index;
-
-  		if (buildLog)
-  			buildLog.chainConnect(F, S);
-
-  		var reverseF = chains[F].length < chains[S].length; // reverse the shorter chain, if needed
-  		if (first_match.matches_head){
-  			if (second_match.matches_head){
-  				if (reverseF){
-  					// <<<< F <<<< --- >>>> S >>>>
-  					reverseChain(F);
-  					// >>>> F >>>> --- >>>> S >>>>
-  					appendChain(F, S);
-  				}
-  				else{
-  					// <<<< F <<<< --- >>>> S >>>>
-  					reverseChain(S);
-  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  					// >>>> S >>>> --- >>>> F >>>>
-  					appendChain(S, F);
-  				}
-  			}
-  			else{
-  				// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  				// >>>> S >>>> --- >>>> F >>>>
-  				appendChain(S, F);
-  			}
-  		}
-  		else{
-  			if (second_match.matches_head){
-  				// >>>> F >>>> --- >>>> S >>>>
-  				appendChain(F, S);
-  			}
-  			else{
-  				if (reverseF){
-  					// >>>> F >>>> --- <<<< S <<<<
-  					reverseChain(F);
-  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  					// >>>> S >>>> --- >>>> F >>>>
-  					appendChain(S, F);
-  				}
-  				else{
-  					// >>>> F >>>> --- <<<< S <<<<
-  					reverseChain(S);
-  					// >>>> F >>>> --- >>>> S >>>>
-  					appendChain(F, S);
-  				}
-  			}
-  		}
-  	});
-
-  	return regions;
-  }
-
-  var segmentChainer = SegmentChainer;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // filter a list of segments based on boolean operations
-  //
-
-  function select(segments, selection, buildLog){
-  	var result = [];
-  	segments.forEach(function(seg){
-  		var index =
-  			(seg.myFill.above ? 8 : 0) +
-  			(seg.myFill.below ? 4 : 0) +
-  			((seg.otherFill && seg.otherFill.above) ? 2 : 0) +
-  			((seg.otherFill && seg.otherFill.below) ? 1 : 0);
-  		if (selection[index] !== 0){
-  			// copy the segment to the results, while also calculating the fill status
-  			result.push({
-  				id: buildLog ? buildLog.segmentId() : -1,
-  				start: seg.start,
-  				end: seg.end,
-  				myFill: {
-  					above: selection[index] === 1, // 1 if filled above
-  					below: selection[index] === 2  // 2 if filled below
-  				},
-  				otherFill: null
-  			});
-  		}
-  	});
-
-  	if (buildLog)
-  		buildLog.selected(result);
-
-  	return result;
-  }
-
-  var SegmentSelector = {
-  	union: function(segments, buildLog){ // primary | secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   yes filled below    2
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   no                  0
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   yes filled above    1
-  		//    1      0      1      1   =>   no                  0
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   no                  0
-  		//    1      1      1      0   =>   no                  0
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			2, 2, 0, 0,
-  			1, 0, 1, 0,
-  			0, 0, 0, 0
-  		], buildLog);
-  	},
-  	intersect: function(segments, buildLog){ // primary & secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   no                  0
-  		//    0      0      1      0   =>   no                  0
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   no                  0
-  		//    0      1      0      1   =>   yes filled below    2
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   yes filled below    2
-  		//    1      0      0      0   =>   no                  0
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   yes filled above    1
-  		//    1      0      1      1   =>   yes filled above    1
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled below    2
-  		//    1      1      1      0   =>   yes filled above    1
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 0, 0, 0,
-  			0, 2, 0, 2,
-  			0, 0, 1, 1,
-  			0, 2, 1, 0
-  		], buildLog);
-  	},
-  	difference: function(segments, buildLog){ // primary - secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   no                  0
-  		//    0      0      1      0   =>   no                  0
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   yes filled below    2
-  		//    0      1      1      1   =>   no                  0
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   yes filled above    1
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   no                  0
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled above    1
-  		//    1      1      1      0   =>   yes filled below    2
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 0, 0, 0,
-  			2, 0, 2, 0,
-  			1, 1, 0, 0,
-  			0, 1, 2, 0
-  		], buildLog);
-  	},
-  	differenceRev: function(segments, buildLog){ // secondary - primary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   no                  0
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   yes filled above    1
-  		//    0      1      1      1   =>   yes filled above    1
-  		//    1      0      0      0   =>   no                  0
-  		//    1      0      0      1   =>   yes filled below    2
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   yes filled below    2
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   no                  0
-  		//    1      1      1      0   =>   no                  0
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			0, 0, 1, 1,
-  			0, 2, 0, 2,
-  			0, 0, 0, 0
-  		], buildLog);
-  	},
-  	xor: function(segments, buildLog){ // primary ^ secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   yes filled above    1
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   yes filled below    2
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled above    1
-  		//    1      1      1      0   =>   yes filled below    2
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			2, 0, 0, 1,
-  			1, 0, 0, 2,
-  			0, 1, 2, 0
-  		], buildLog);
-  	}
-  };
-
-  var segmentSelector = SegmentSelector;
-
-  // (c) Copyright 2017, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // convert between PolyBool polygon format and GeoJSON formats (Polygon and MultiPolygon)
-  //
-
-  var GeoJSON = {
-  	// convert a GeoJSON object to a PolyBool polygon
-  	toPolygon: function(PolyBool, geojson){
-
-  		// converts list of LineString's to segments
-  		function GeoPoly(coords){
-  			// check for empty coords
-  			if (coords.length <= 0)
-  				return PolyBool.segments({ inverted: false, regions: [] });
-
-  			// convert LineString to segments
-  			function LineString(ls){
-  				// remove tail which should be the same as head
-  				var reg = ls.slice(0, ls.length - 1);
-  				return PolyBool.segments({ inverted: false, regions: [reg] });
-  			}
-
-  			// the first LineString is considered the outside
-  			var out = LineString(coords[0]);
-
-  			// the rest of the LineStrings are considered interior holes, so subtract them from the
-  			// current result
-  			for (var i = 1; i < coords.length; i++)
-  				out = PolyBool.selectDifference(PolyBool.combine(out, LineString(coords[i])));
-
-  			return out;
-  		}
-
-  		if (geojson.type === 'Polygon'){
-  			// single polygon, so just convert it and we're done
-  			return PolyBool.polygon(GeoPoly(geojson.coordinates));
-  		}
-  		else if (geojson.type === 'MultiPolygon'){
-  			// multiple polygons, so union all the polygons together
-  			var out = PolyBool.segments({ inverted: false, regions: [] });
-  			for (var i = 0; i < geojson.coordinates.length; i++)
-  				out = PolyBool.selectUnion(PolyBool.combine(out, GeoPoly(geojson.coordinates[i])));
-  			return PolyBool.polygon(out);
-  		}
-  		throw new Error('PolyBool: Cannot convert GeoJSON object to PolyBool polygon');
-  	},
-
-  	// convert a PolyBool polygon to a GeoJSON object
-  	fromPolygon: function(PolyBool, eps, poly){
-  		// make sure out polygon is clean
-  		poly = PolyBool.polygon(PolyBool.segments(poly));
-
-  		// test if r1 is inside r2
-  		function regionInsideRegion(r1, r2){
-  			// we're guaranteed no lines intersect (because the polygon is clean), but a vertex
-  			// could be on the edge -- so we just average pt[0] and pt[1] to produce a point on the
-  			// edge of the first line, which cannot be on an edge
-  			return eps.pointInsideRegion([
-  				(r1[0][0] + r1[1][0]) * 0.5,
-  				(r1[0][1] + r1[1][1]) * 0.5
-  			], r2);
-  		}
-
-  		// calculate inside heirarchy
-  		//
-  		//  _____________________   _______    roots -> A       -> F
-  		// |          A          | |   F   |            |          |
-  		// |  _______   _______  | |  ___  |            +-- B      +-- G
-  		// | |   B   | |   C   | | | |   | |            |   |
-  		// | |  ___  | |  ___  | | | |   | |            |   +-- D
-  		// | | | D | | | | E | | | | | G | |            |
-  		// | | |___| | | |___| | | | |   | |            +-- C
-  		// | |_______| |_______| | | |___| |                |
-  		// |_____________________| |_______|                +-- E
-
-  		function newNode(region){
-  			return {
-  				region: region,
-  				children: []
-  			};
-  		}
-
-  		var roots = newNode(null);
-
-  		function addChild(root, region){
-  			// first check if we're inside any children
-  			for (var i = 0; i < root.children.length; i++){
-  				var child = root.children[i];
-  				if (regionInsideRegion(region, child.region)){
-  					// we are, so insert inside them instead
-  					addChild(child, region);
-  					return;
-  				}
-  			}
-
-  			// not inside any children, so check to see if any children are inside us
-  			var node = newNode(region);
-  			for (var i = 0; i < root.children.length; i++){
-  				var child = root.children[i];
-  				if (regionInsideRegion(child.region, region)){
-  					// oops... move the child beneath us, and remove them from root
-  					node.children.push(child);
-  					root.children.splice(i, 1);
-  					i--;
-  				}
-  			}
-
-  			// now we can add ourselves
-  			root.children.push(node);
-  		}
-
-  		// add all regions to the root
-  		for (var i = 0; i < poly.regions.length; i++){
-  			var region = poly.regions[i];
-  			if (region.length < 3) // regions must have at least 3 points (sanity check)
-  				continue;
-  			addChild(roots, region);
-  		}
-
-  		// with our heirarchy, we can distinguish between exterior borders, and interior holes
-  		// the root nodes are exterior, children are interior, children's children are exterior,
-  		// children's children's children are interior, etc
-
-  		// while we're at it, exteriors are counter-clockwise, and interiors are clockwise
-
-  		function forceWinding(region, clockwise){
-  			// first, see if we're clockwise or counter-clockwise
-  			// https://en.wikipedia.org/wiki/Shoelace_formula
-  			var winding = 0;
-  			var last_x = region[region.length - 1][0];
-  			var last_y = region[region.length - 1][1];
-  			var copy = [];
-  			for (var i = 0; i < region.length; i++){
-  				var curr_x = region[i][0];
-  				var curr_y = region[i][1];
-  				copy.push([curr_x, curr_y]); // create a copy while we're at it
-  				winding += curr_y * last_x - curr_x * last_y;
-  				last_x = curr_x;
-  				last_y = curr_y;
-  			}
-  			// this assumes Cartesian coordinates (Y is positive going up)
-  			var isclockwise = winding < 0;
-  			if (isclockwise !== clockwise)
-  				copy.reverse();
-  			// while we're here, the last point must be the first point...
-  			copy.push([copy[0][0], copy[0][1]]);
-  			return copy;
-  		}
-
-  		var geopolys = [];
-
-  		function addExterior(node){
-  			var poly = [forceWinding(node.region, false)];
-  			geopolys.push(poly);
-  			// children of exteriors are interior
-  			for (var i = 0; i < node.children.length; i++)
-  				poly.push(getInterior(node.children[i]));
-  		}
-
-  		function getInterior(node){
-  			// children of interiors are exterior
-  			for (var i = 0; i < node.children.length; i++)
-  				addExterior(node.children[i]);
-  			// return the clockwise interior
-  			return forceWinding(node.region, true);
-  		}
-
-  		// root nodes are exterior
-  		for (var i = 0; i < roots.children.length; i++)
-  			addExterior(roots.children[i]);
-
-  		// lastly, construct the approrpriate GeoJSON object
-
-  		if (geopolys.length <= 0) // empty GeoJSON Polygon
-  			return { type: 'Polygon', coordinates: [] };
-  		if (geopolys.length == 1) // use a GeoJSON Polygon
-  			return { type: 'Polygon', coordinates: geopolys[0] };
-  		return { // otherwise, use a GeoJSON MultiPolygon
-  			type: 'MultiPolygon',
-  			coordinates: geopolys
-  		};
-  	}
-  };
-
-  var geojson = GeoJSON;
-
-  /*
-   * @copyright 2016 Sean Connelly (@voidqk), http://syntheti.cc
-   * @license MIT
-   * @preserve Project Home: https://github.com/voidqk/polybooljs
+  /**
+   * Transforms each polygon of the surface.
+   *
+   * @param {Polygons} original - the Polygons to transform.
+   * @param {Function} [transform=identity] - function used to transform the polygons.
+   * @returns {Polygons} a copy with transformed polygons.
    */
-
-
-
-
-
-
-
-
-  var buildLog$1 = false;
-  var epsilon$1 = epsilon();
-
-  var PolyBool;
-  PolyBool = {
-  	// getter/setter for buildLog
-  	buildLog: function(bl){
-  		if (bl === true)
-  			buildLog$1 = buildLog();
-  		else if (bl === false)
-  			buildLog$1 = false;
-  		return buildLog$1 === false ? false : buildLog$1.list;
-  	},
-  	// getter/setter for epsilon
-  	epsilon: function(v){
-  		return epsilon$1.epsilon(v);
-  	},
-
-  	// core API
-  	segments: function(poly){
-  		var i = intersecter(true, epsilon$1, buildLog$1);
-  		poly.regions.forEach(i.addRegion);
-  		return {
-  			segments: i.calculate(poly.inverted),
-  			inverted: poly.inverted
-  		};
-  	},
-  	combine: function(segments1, segments2){
-  		var i3 = intersecter(false, epsilon$1, buildLog$1);
-  		return {
-  			combined: i3.calculate(
-  				segments1.segments, segments1.inverted,
-  				segments2.segments, segments2.inverted
-  			),
-  			inverted1: segments1.inverted,
-  			inverted2: segments2.inverted
-  		};
-  	},
-  	selectUnion: function(combined){
-  		return {
-  			segments: segmentSelector.union(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 || combined.inverted2
-  		}
-  	},
-  	selectIntersect: function(combined){
-  		return {
-  			segments: segmentSelector.intersect(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 && combined.inverted2
-  		}
-  	},
-  	selectDifference: function(combined){
-  		return {
-  			segments: segmentSelector.difference(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 && !combined.inverted2
-  		}
-  	},
-  	selectDifferenceRev: function(combined){
-  		return {
-  			segments: segmentSelector.differenceRev(combined.combined, buildLog$1),
-  			inverted: !combined.inverted1 && combined.inverted2
-  		}
-  	},
-  	selectXor: function(combined){
-  		return {
-  			segments: segmentSelector.xor(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 !== combined.inverted2
-  		}
-  	},
-  	polygon: function(segments){
-  		return {
-  			regions: segmentChainer(segments.segments, epsilon$1, buildLog$1),
-  			inverted: segments.inverted
-  		};
-  	},
-
-  	// GeoJSON converters
-  	polygonFromGeoJSON: function(geojson$1){
-  		return geojson.toPolygon(PolyBool, geojson$1);
-  	},
-  	polygonToGeoJSON: function(poly){
-  		return geojson.fromPolygon(PolyBool, epsilon$1, poly);
-  	},
-
-  	// helper functions for common operations
-  	union: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectUnion);
-  	},
-  	intersect: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectIntersect);
-  	},
-  	difference: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectDifference);
-  	},
-  	differenceRev: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectDifferenceRev);
-  	},
-  	xor: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectXor);
-  	}
+  const map$2 = (original, transform) => {
+    if (original === undefined) {
+      original = [];
+    }
+    if (transform === undefined) {
+      transform = _ => _;
+    }
+    return original.map(polygon => transform(polygon));
   };
 
-  function operate(poly1, poly2, selector){
-  	var seg1 = PolyBool.segments(poly1);
-  	var seg2 = PolyBool.segments(poly2);
-  	var comb = PolyBool.combine(seg1, seg2);
-  	var seg3 = selector(comb);
-  	return PolyBool.polygon(seg3);
-  }
+  const flip$1 = (surface) => map$2(surface, flip);
 
-  if (typeof window === 'object')
-  	window.PolyBool = PolyBool;
+  // move to tagged
 
-  // Adapted from https://github.com/jsxcad/polybooljs/blob/master/lib/geojson.js
+  const fromPathImpl = (path) => [path];
+
+  const fromPath = cache(fromPathImpl);
 
   /*
   ** SGI FREE SOFTWARE LICENSE B (Version 2.0, Sept. 18, 2008)
@@ -62087,12 +61356,446 @@ define("./master.js",[],function () { 'use strict';
   };
 
   /**
-   * Transforms each polygon of the surface.
+   * Creates a new unbounded 2D line initialized with the given values.
    *
-   * @param {Polygons} original - the Polygons to transform.
-   * @param {Function} [transform=identity] - function used to transform the polygons.
-   * @returns {Polygons} a copy with transformed polygons.
+   * This is a 2d plane, similar to the [x, y, z, w] form of the 3d plane.
+   *
+   * @param {Number} x X coordinate of the unit normal
+   * @param {Number} y Y coordinate of the unit normal
+   * @param {Number} w length (positive) of the normal segment
+   * @returns {line2} a new unbounded 2D line
    */
+  const fromValues$1 = (x = 0, y = 1, w = 0) => [x, y, w];
+
+  /**
+   * Return the direction of the given line.
+   *
+   * @return {vec2} a new relative vector in the direction of the line
+   */
+  const direction = (line) => negate(normal(line));
+
+  /**
+   * Create a new 2D line that passes through the given points
+   *
+   * @param {vec2} p1 start point of the 2D line
+   * @param {vec2} p2 end point of the 2D line
+   * @returns {line2} a new unbounded 2D line
+   */
+  const fromPoints = (p1, p2) => {
+    const direction = subtract$1(p2, p1);
+    const normalizedNormal = normalize(normal(direction));
+    const distance = dot$1(p1, normalizedNormal);
+    return fromValues$1(normalizedNormal[0], normalizedNormal[1], distance);
+  };
+
+  const EPS = 1e-5;
+
+  const interpolateBetween2DPointsForY = (point1, point2, y) => {
+    let f1 = y - point1[1];
+    let f2 = point2[1] - point1[1];
+    if (f2 < 0) {
+      f1 = -f1;
+      f2 = -f2;
+    }
+    let t;
+    if (f1 <= 0) {
+      t = 0.0;
+    } else if (f1 >= f2) {
+      t = 1.0;
+    } else if (f2 < 1e-10) { // FIXME Should this be EPS?
+      t = 0.5;
+    } else {
+      t = f1 / f2;
+    }
+    let result = point1[0] + t * (point2[0] - point1[0]);
+    return result
+  };
+
+  const fnNumberSort = (a, b) => {
+    return a - b
+  };
+
+  const insertSorted = (array, element, comparefunc) => {
+    let leftbound = 0;
+    let rightbound = array.length;
+    while (rightbound > leftbound) {
+      let testindex = Math.floor((leftbound + rightbound) / 2);
+      let testelement = array[testindex];
+      let compareresult = comparefunc(element, testelement);
+      if (compareresult > 0) // element > testelement
+      {
+        leftbound = testindex + 1;
+      } else {
+        rightbound = testindex;
+      }
+    }
+    array.splice(leftbound, 0, element);
+  };
+
+  /**
+   * Retesselation for a set of COPLANAR polygons.
+   * @param {[poly3]} sourcepolygons - list of polygons
+   * @returns {[poly3]} new set of polygons
+   */
+  const retessellate = (sourcepolygons) => {
+    if (sourcepolygons.length < 2) return sourcepolygons
+
+    const destpolygons = [];
+    const numpolygons = sourcepolygons.length;
+    const plane = sourcepolygons[0].plane;
+    // const orthobasis = new OrthoNormalBasis(plane)
+    const polygonvertices2d = []; // array of array of Vector2D
+    const polygontopvertexindexes = []; // array of indexes of topmost vertex per polygon
+    const topy2polygonindexes = {};
+    const ycoordinatetopolygonindexes = {};
+
+    const ycoordinatebins = {};
+
+    // convert all polygon vertices to 2D
+    // Make a list of all encountered y coordinates
+    // And build a map of all polygons that have a vertex at a certain y coordinate:
+    const ycoordinateBinningFactor = 1.0 / EPS * 10;
+    for (let polygonindex = 0; polygonindex < numpolygons; polygonindex++) {
+      const poly3d = sourcepolygons[polygonindex];
+      let vertices2d = [];
+      let numvertices = poly3d.length;
+      let minindex = -1;
+      if (numvertices > 0) {
+        let miny;
+        let maxy;
+        for (let i = 0; i < numvertices; i++) {
+          let pos2d = poly3d[i];
+          // perform binning of y coordinates: If we have multiple vertices very
+          // close to each other, give them the same y coordinate:
+          const ycoordinatebin = Math.floor(pos2d[1] * ycoordinateBinningFactor);
+          let newy;
+          if (ycoordinatebin in ycoordinatebins) {
+            newy = ycoordinatebins[ycoordinatebin];
+          } else if (ycoordinatebin + 1 in ycoordinatebins) {
+            newy = ycoordinatebins[ycoordinatebin + 1];
+          } else if (ycoordinatebin - 1 in ycoordinatebins) {
+            newy = ycoordinatebins[ycoordinatebin - 1];
+          } else {
+            newy = pos2d[1];
+            ycoordinatebins[ycoordinatebin] = pos2d[1];
+          }
+          pos2d = [pos2d[0], newy];
+          vertices2d.push(pos2d);
+          const y = pos2d[1];
+          if ((i === 0) || (y < miny)) {
+            miny = y;
+            minindex = i;
+          }
+          if ((i === 0) || (y > maxy)) {
+            maxy = y;
+          }
+          if (!(y in ycoordinatetopolygonindexes)) {
+            ycoordinatetopolygonindexes[y] = {};
+          }
+          ycoordinatetopolygonindexes[y][polygonindex] = true;
+        }
+        if (miny >= maxy) {
+          // degenerate polygon, all vertices have same y coordinate. Just ignore it from now:
+          vertices2d = [];
+          numvertices = 0;
+          minindex = -1;
+        } else {
+          if (!(miny in topy2polygonindexes)) {
+            topy2polygonindexes[miny] = [];
+          }
+          topy2polygonindexes[miny].push(polygonindex);
+        }
+      } // if(numvertices > 0)
+      // reverse the vertex order:
+      vertices2d.reverse();
+      minindex = numvertices - minindex - 1;
+      polygonvertices2d.push(vertices2d);
+      polygontopvertexindexes.push(minindex);
+    }
+    const ycoordinates = [];
+    for (let ycoordinate in ycoordinatetopolygonindexes) ycoordinates.push(ycoordinate);
+    ycoordinates.sort(fnNumberSort);
+
+    // Now we will iterate over all y coordinates, from lowest to highest y coordinate
+    // activepolygons: source polygons that are 'active', i.e. intersect with our y coordinate
+    //   Is sorted so the polygons are in left to right order
+    // Each element in activepolygons has these properties:
+    //        polygonindex: the index of the source polygon (i.e. an index into the sourcepolygons
+    //                      and polygonvertices2d arrays)
+    //        leftvertexindex: the index of the vertex at the left side of the polygon (lowest x)
+    //                         that is at or just above the current y coordinate
+    //        rightvertexindex: dito at right hand side of polygon
+    //        topleft, bottomleft: coordinates of the left side of the polygon crossing the current y coordinate
+    //        topright, bottomright: coordinates of the right hand side of the polygon crossing the current y coordinate
+    let activepolygons = [];
+    let prevoutpolygonrow = [];
+    for (let yindex = 0; yindex < ycoordinates.length; yindex++) {
+      const newoutpolygonrow = [];
+      const ycoordinateasstring = ycoordinates[yindex];
+      const ycoordinate = Number(ycoordinateasstring);
+
+      // update activepolygons for this y coordinate:
+      // - Remove any polygons that end at this y coordinate
+      // - update leftvertexindex and rightvertexindex (which point to the current vertex index
+      //   at the the left and right side of the polygon
+      // Iterate over all polygons that have a corner at this y coordinate:
+      const polygonindexeswithcorner = ycoordinatetopolygonindexes[ycoordinateasstring];
+      for (let activepolygonindex = 0; activepolygonindex < activepolygons.length; ++activepolygonindex) {
+        const activepolygon = activepolygons[activepolygonindex];
+        const polygonindex = activepolygon.polygonindex;
+        if (polygonindexeswithcorner[polygonindex]) {
+          // this active polygon has a corner at this y coordinate:
+          const vertices2d = polygonvertices2d[polygonindex];
+          const numvertices = vertices2d.length;
+          let newleftvertexindex = activepolygon.leftvertexindex;
+          let newrightvertexindex = activepolygon.rightvertexindex;
+          // See if we need to increase leftvertexindex or decrease rightvertexindex:
+          while (true) {
+            let nextleftvertexindex = newleftvertexindex + 1;
+            if (nextleftvertexindex >= numvertices) nextleftvertexindex = 0;
+            if (vertices2d[nextleftvertexindex][1] !== ycoordinate) break
+            newleftvertexindex = nextleftvertexindex;
+          }
+          let nextrightvertexindex = newrightvertexindex - 1;
+          if (nextrightvertexindex < 0) nextrightvertexindex = numvertices - 1;
+          if (vertices2d[nextrightvertexindex][1] === ycoordinate) {
+            newrightvertexindex = nextrightvertexindex;
+          }
+          if ((newleftvertexindex !== activepolygon.leftvertexindex) && (newleftvertexindex === newrightvertexindex)) {
+            // We have increased leftvertexindex or decreased rightvertexindex, and now they point to the same vertex
+            // This means that this is the bottom point of the polygon. We'll remove it:
+            activepolygons.splice(activepolygonindex, 1);
+            --activepolygonindex;
+          } else {
+            activepolygon.leftvertexindex = newleftvertexindex;
+            activepolygon.rightvertexindex = newrightvertexindex;
+            activepolygon.topleft = vertices2d[newleftvertexindex];
+            activepolygon.topright = vertices2d[newrightvertexindex];
+            let nextleftvertexindex = newleftvertexindex + 1;
+            if (nextleftvertexindex >= numvertices) nextleftvertexindex = 0;
+            activepolygon.bottomleft = vertices2d[nextleftvertexindex];
+            let nextrightvertexindex = newrightvertexindex - 1;
+            if (nextrightvertexindex < 0) nextrightvertexindex = numvertices - 1;
+            activepolygon.bottomright = vertices2d[nextrightvertexindex];
+          }
+        } // if polygon has corner here
+      } // for activepolygonindex
+      let nextycoordinate;
+      if (yindex >= ycoordinates.length - 1) {
+        // last row, all polygons must be finished here:
+        activepolygons = [];
+        nextycoordinate = null;
+      } else { // yindex < ycoordinates.length-1
+        nextycoordinate = Number(ycoordinates[yindex + 1]);
+        const middleycoordinate = 0.5 * (ycoordinate + nextycoordinate);
+        // update activepolygons by adding any polygons that start here:
+        const startingpolygonindexes = topy2polygonindexes[ycoordinateasstring];
+        for (let polygonindexKey in startingpolygonindexes) {
+          const polygonindex = startingpolygonindexes[polygonindexKey];
+          const vertices2d = polygonvertices2d[polygonindex];
+          const numvertices = vertices2d.length;
+          const topvertexindex = polygontopvertexindexes[polygonindex];
+          // the top of the polygon may be a horizontal line. In that case topvertexindex can point to any point on this line.
+          // Find the left and right topmost vertices which have the current y coordinate:
+          let topleftvertexindex = topvertexindex;
+          while (true) {
+            let i = topleftvertexindex + 1;
+            if (i >= numvertices) i = 0;
+            if (vertices2d[i][1] !== ycoordinate) break
+            if (i === topvertexindex) break // should not happen, but just to prevent endless loops
+            topleftvertexindex = i;
+          }
+          let toprightvertexindex = topvertexindex;
+          while (true) {
+            let i = toprightvertexindex - 1;
+            if (i < 0) i = numvertices - 1;
+            if (vertices2d[i][1] !== ycoordinate) break
+            if (i === topleftvertexindex) break // should not happen, but just to prevent endless loops
+            toprightvertexindex = i;
+          }
+          let nextleftvertexindex = topleftvertexindex + 1;
+          if (nextleftvertexindex >= numvertices) nextleftvertexindex = 0;
+          let nextrightvertexindex = toprightvertexindex - 1;
+          if (nextrightvertexindex < 0) nextrightvertexindex = numvertices - 1;
+          const newactivepolygon = {
+            polygonindex: polygonindex,
+            leftvertexindex: topleftvertexindex,
+            rightvertexindex: toprightvertexindex,
+            topleft: vertices2d[topleftvertexindex],
+            topright: vertices2d[toprightvertexindex],
+            bottomleft: vertices2d[nextleftvertexindex],
+            bottomright: vertices2d[nextrightvertexindex]
+          };
+          insertSorted(activepolygons, newactivepolygon, (el1, el2) => {
+            const x1 = interpolateBetween2DPointsForY(el1.topleft, el1.bottomleft, middleycoordinate);
+            const x2 = interpolateBetween2DPointsForY(el2.topleft, el2.bottomleft, middleycoordinate);
+            if (x1 > x2) return 1
+            if (x1 < x2) return -1
+            return 0
+          });
+        } // for(let polygonindex in startingpolygonindexes)
+      } //  yindex < ycoordinates.length-1
+      // if( (yindex === ycoordinates.length-1) || (nextycoordinate - ycoordinate > EPS) )
+      // FIXME : what ???
+      {
+        // Now activepolygons is up to date
+        // Build the output polygons for the next row in newoutpolygonrow:
+        for (let activepolygonKey in activepolygons) {
+          const activepolygon = activepolygons[activepolygonKey];
+
+          let x = interpolateBetween2DPointsForY(activepolygon.topleft, activepolygon.bottomleft, ycoordinate);
+          const topleft = [x, ycoordinate];
+          x = interpolateBetween2DPointsForY(activepolygon.topright, activepolygon.bottomright, ycoordinate);
+          const topright = [x, ycoordinate];
+          x = interpolateBetween2DPointsForY(activepolygon.topleft, activepolygon.bottomleft, nextycoordinate);
+          const bottomleft = [x, nextycoordinate];
+          x = interpolateBetween2DPointsForY(activepolygon.topright, activepolygon.bottomright, nextycoordinate);
+          const bottomright = [x, nextycoordinate];
+          const outpolygon = {
+            topleft: topleft,
+            topright: topright,
+            bottomleft: bottomleft,
+            bottomright: bottomright,
+            leftline: fromPoints(topleft, bottomleft),
+            rightline: fromPoints(bottomright, topright)
+          };
+          if (newoutpolygonrow.length > 0) {
+            const prevoutpolygon = newoutpolygonrow[newoutpolygonrow.length - 1];
+            const d1 = distance$1(outpolygon.topleft, prevoutpolygon.topright);
+            const d2 = distance$1(outpolygon.bottomleft, prevoutpolygon.bottomright);
+            if ((d1 < EPS) && (d2 < EPS)) {
+              // we can join this polygon with the one to the left:
+              outpolygon.topleft = prevoutpolygon.topleft;
+              outpolygon.leftline = prevoutpolygon.leftline;
+              outpolygon.bottomleft = prevoutpolygon.bottomleft;
+              newoutpolygonrow.splice(newoutpolygonrow.length - 1, 1);
+            }
+          }
+          newoutpolygonrow.push(outpolygon);
+        } // for(activepolygon in activepolygons)
+        if (yindex > 0) {
+          // try to match the new polygons against the previous row:
+          const prevcontinuedindexes = {};
+          const matchedindexes = {};
+          for (let i = 0; i < newoutpolygonrow.length; i++) {
+            const thispolygon = newoutpolygonrow[i];
+            for (let ii = 0; ii < prevoutpolygonrow.length; ii++) {
+              if (!matchedindexes[ii]) { // not already processed?
+                // We have a match if the sidelines are equal or if the top coordinates
+                // are on the sidelines of the previous polygon
+                const prevpolygon = prevoutpolygonrow[ii];
+                if (distance$1(prevpolygon.bottomleft, thispolygon.topleft) < EPS) {
+                  if (distance$1(prevpolygon.bottomright, thispolygon.topright) < EPS) {
+                    // Yes, the top of this polygon matches the bottom of the previous:
+                    matchedindexes[ii] = true;
+                    // Now check if the joined polygon would remain convex:
+                    const v1 = direction(thispolygon.leftline);
+                    const v2 = direction(prevpolygon.leftline);
+                    const d1 = v1[0] - v2[0];
+
+                    const v3 = direction(thispolygon.rightline);
+                    const v4 = direction(prevpolygon.rightline);
+                    const d2 = v3[0] - v4[0];
+
+                    const leftlinecontinues = Math.abs(d1) < EPS;
+                    const rightlinecontinues = Math.abs(d2) < EPS;
+                    const leftlineisconvex = leftlinecontinues || (d1 >= 0);
+                    const rightlineisconvex = rightlinecontinues || (d2 >= 0);
+                    if (leftlineisconvex && rightlineisconvex) {
+                      // yes, both sides have convex corners:
+                      // This polygon will continue the previous polygon
+                      thispolygon.outpolygon = prevpolygon.outpolygon;
+                      thispolygon.leftlinecontinues = leftlinecontinues;
+                      thispolygon.rightlinecontinues = rightlinecontinues;
+                      prevcontinuedindexes[ii] = true;
+                    }
+                    break
+                  }
+                }
+              } // if(!prevcontinuedindexes[ii])
+            } // for ii
+          } // for i
+          for (let ii = 0; ii < prevoutpolygonrow.length; ii++) {
+            if (!prevcontinuedindexes[ii]) {
+              // polygon ends here
+              // Finish the polygon with the last point(s):
+              const prevpolygon = prevoutpolygonrow[ii];
+              prevpolygon.outpolygon.rightpoints.push(prevpolygon.bottomright);
+              if (distance$1(prevpolygon.bottomright, prevpolygon.bottomleft) > EPS) {
+                // polygon ends with a horizontal line:
+                prevpolygon.outpolygon.leftpoints.push(prevpolygon.bottomleft);
+              }
+              // reverse the left half so we get a counterclockwise circle:
+              prevpolygon.outpolygon.leftpoints.reverse();
+              const points2d = prevpolygon.outpolygon.rightpoints.concat(prevpolygon.outpolygon.leftpoints);
+              destpolygons.push(points2d);
+            }
+          }
+        } // if(yindex > 0)
+        for (let i = 0; i < newoutpolygonrow.length; i++) {
+          const thispolygon = newoutpolygonrow[i];
+          if (!thispolygon.outpolygon) {
+            // polygon starts here:
+            thispolygon.outpolygon = {
+              leftpoints: [],
+              rightpoints: []
+            };
+            thispolygon.outpolygon.leftpoints.push(thispolygon.topleft);
+            if (distance$1(thispolygon.topleft, thispolygon.topright) > EPS) {
+              // we have a horizontal line at the top:
+              thispolygon.outpolygon.rightpoints.push(thispolygon.topright);
+            }
+          } else {
+            // continuation of a previous row
+            if (!thispolygon.leftlinecontinues) {
+              thispolygon.outpolygon.leftpoints.push(thispolygon.topleft);
+            }
+            if (!thispolygon.rightlinecontinues) {
+              thispolygon.outpolygon.rightpoints.push(thispolygon.topright);
+            }
+          }
+        }
+        prevoutpolygonrow = newoutpolygonrow;
+      }
+    } // for yindex
+    return destpolygons
+  };
+
+  // FIX
+
+  const toPlane$2 = (surface) => {
+    if (surface.plane !== undefined) {
+      return surface.plane;
+    } else {
+      for (const polygon of surface) {
+        const plane = toPlane(polygon);
+        if (!isNaN(plane[0])) {
+          surface.plane = plane;
+          return surface.plane;
+        }
+      }
+      throw Error('die');
+    }
+  };
+
+  const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$1(matrix, polygon));
+
+  const transform$3 = cacheTransform(transformImpl);
+
+  const fromPolygons = ({ plane }, polygons) => {
+    if (polygons.length === 0) {
+      return [];
+    }
+    if (plane === undefined) {
+      plane = toPlane$2(polygons);
+    }
+    const [toZ0, fromZ0] = toXYPlaneTransforms(plane);
+    const z0Polygons = transform$3(toZ0, polygons);
+    const z0Surface = retessellate(z0Polygons);
+    const surface = transform$3(fromZ0, z0Surface);
+    surface.plane = plane;
+    return surface;
+  };
 
   const makeConvex$1 = (options = {}, surface) => {
     if (surface.length === 0) {
@@ -62100,62 +61803,2099 @@ define("./master.js",[],function () { 'use strict';
       return surface;
     }
     assertGood(surface);
-    const [to, from] = toXYPlaneTransforms(toPlane$1(surface));
-    let retessellatedSurface = makeConvex({}, transform$2(to, surface));
-    return transform$2(from, retessellatedSurface);
+    const plane = toPlane$1(surface);
+    const [to, from] = toXYPlaneTransforms(plane);
+    const retessellatedZ0Surface = makeConvex({}, transform$2(to, surface));
+    const retessellatedSurface = transform$2(from, retessellatedZ0Surface);
+    // FIX: Is this plane enforecement necessary.
+    for (const retessellatedPolygon of retessellatedSurface) {
+      retessellatedPolygon.plane = plane;
+    }
+    return retessellatedSurface;
+  };
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // used strictly for logging the processing of the algorithm... only useful if you intend on
+  // looking under the covers (for pretty UI's or debugging)
+  //
+
+  function BuildLog(){
+  	var my;
+  	var nextSegmentId = 0;
+  	var curVert = false;
+
+  	function push(type, data){
+  		my.list.push({
+  			type: type,
+  			data: data ? JSON.parse(JSON.stringify(data)) : void 0
+  		});
+  		return my;
+  	}
+
+  	my = {
+  		list: [],
+  		segmentId: function(){
+  			return nextSegmentId++;
+  		},
+  		checkIntersection: function(seg1, seg2){
+  			return push('check', { seg1: seg1, seg2: seg2 });
+  		},
+  		segmentChop: function(seg, end){
+  			push('div_seg', { seg: seg, pt: end });
+  			return push('chop', { seg: seg, pt: end });
+  		},
+  		statusRemove: function(seg){
+  			return push('pop_seg', { seg: seg });
+  		},
+  		segmentUpdate: function(seg){
+  			return push('seg_update', { seg: seg });
+  		},
+  		segmentNew: function(seg, primary){
+  			return push('new_seg', { seg: seg, primary: primary });
+  		},
+  		segmentRemove: function(seg){
+  			return push('rem_seg', { seg: seg });
+  		},
+  		tempStatus: function(seg, above, below){
+  			return push('temp_status', { seg: seg, above: above, below: below });
+  		},
+  		rewind: function(seg){
+  			return push('rewind', { seg: seg });
+  		},
+  		status: function(seg, above, below){
+  			return push('status', { seg: seg, above: above, below: below });
+  		},
+  		vert: function(x){
+  			if (x === curVert)
+  				return my;
+  			curVert = x;
+  			return push('vert', { x: x });
+  		},
+  		log: function(data){
+  			if (typeof data !== 'string')
+  				data = JSON.stringify(data, false, '  ');
+  			return push('log', { txt: data });
+  		},
+  		reset: function(){
+  			return push('reset');
+  		},
+  		selected: function(segs){
+  			return push('selected', { segs: segs });
+  		},
+  		chainStart: function(seg){
+  			return push('chain_start', { seg: seg });
+  		},
+  		chainRemoveHead: function(index, pt){
+  			return push('chain_rem_head', { index: index, pt: pt });
+  		},
+  		chainRemoveTail: function(index, pt){
+  			return push('chain_rem_tail', { index: index, pt: pt });
+  		},
+  		chainNew: function(pt1, pt2){
+  			return push('chain_new', { pt1: pt1, pt2: pt2 });
+  		},
+  		chainMatch: function(index){
+  			return push('chain_match', { index: index });
+  		},
+  		chainClose: function(index){
+  			return push('chain_close', { index: index });
+  		},
+  		chainAddHead: function(index, pt){
+  			return push('chain_add_head', { index: index, pt: pt });
+  		},
+  		chainAddTail: function(index, pt){
+  			return push('chain_add_tail', { index: index, pt: pt, });
+  		},
+  		chainConnect: function(index1, index2){
+  			return push('chain_con', { index1: index1, index2: index2 });
+  		},
+  		chainReverse: function(index){
+  			return push('chain_rev', { index: index });
+  		},
+  		chainJoin: function(index1, index2){
+  			return push('chain_join', { index1: index1, index2: index2 });
+  		},
+  		done: function(){
+  			return push('done');
+  		}
+  	};
+  	return my;
+  }
+
+  var buildLog = BuildLog;
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // provides the raw computation functions that takes epsilon into account
+  //
+  // zero is defined to be between (-epsilon, epsilon) exclusive
+  //
+
+  function Epsilon(eps){
+  	if (typeof eps !== 'number')
+  		eps = 0.0000000001; // sane default? sure why not
+  	var my = {
+  		epsilon: function(v){
+  			if (typeof v === 'number')
+  				eps = v;
+  			return eps;
+  		},
+  		pointAboveOrOnLine: function(pt, left, right){
+  			var Ax = left[0];
+  			var Ay = left[1];
+  			var Bx = right[0];
+  			var By = right[1];
+  			var Cx = pt[0];
+  			var Cy = pt[1];
+  			var ABx = Bx - Ax;
+  			var ABy = By - Ay;
+  			var AB = Math.sqrt(ABx * ABx + ABy * ABy);
+  			// algebraic distance of 'pt' to ('left', 'right') line is:
+  			// [ABx * (Cy - Ay) - ABy * (Cx - Ax)] / AB
+  			return ABx * (Cy - Ay) - ABy * (Cx - Ax) >= -eps * AB;
+  		},
+  		pointBetween: function(p, left, right){
+  			// p must be collinear with left->right
+  			// returns false if p == left, p == right, or left == right
+  			if (my.pointsSame(p, left) || my.pointsSame(p, right)) return false;
+  			var d_py_ly = p[1] - left[1];
+  			var d_rx_lx = right[0] - left[0];
+  			var d_px_lx = p[0] - left[0];
+  			var d_ry_ly = right[1] - left[1];
+
+  			var dot = d_px_lx * d_rx_lx + d_py_ly * d_ry_ly;
+  			// dot < 0 is p is to the left of 'left'
+  			if (dot < 0) return false;
+  			var sqlen = d_rx_lx * d_rx_lx + d_ry_ly * d_ry_ly;
+  			// dot <= sqlen is p is to the left of 'right'
+  			return dot <= sqlen;
+  		},
+  		pointsSameX: function(p1, p2){
+  			return Math.abs(p1[0] - p2[0]) < eps;
+  		},
+  		pointsSameY: function(p1, p2){
+  			return Math.abs(p1[1] - p2[1]) < eps;
+  		},
+  		pointsSame: function(p1, p2){
+  			return my.pointsSameX(p1, p2) && my.pointsSameY(p1, p2);
+  		},
+  		pointsCompare: function(p1, p2){
+  			// returns -1 if p1 is smaller, 1 if p2 is smaller, 0 if equal
+  			if (my.pointsSameX(p1, p2))
+  				return my.pointsSameY(p1, p2) ? 0 : (p1[1] < p2[1] ? -1 : 1);
+  			return p1[0] < p2[0] ? -1 : 1;
+  		},
+  		pointsCollinear: function(pt1, pt2, pt3){
+  			// does pt1->pt2->pt3 make a straight line?
+  			// essentially this is just checking to see if the slope(pt1->pt2) === slope(pt2->pt3)
+  			// if slopes are equal, then they must be collinear, because they share pt2
+  			var dx1 = pt1[0] - pt2[0];
+  			var dy1 = pt1[1] - pt2[1];
+  			var dx2 = pt2[0] - pt3[0];
+  			var dy2 = pt2[1] - pt3[1];
+  			var n1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
+  			var n2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+  			// Assuming det(u, v) = 0, we have:
+  			// |det(u + u_err, v + v_err)| = |det(u + u_err, v + v_err) - det(u,v)|
+  			// =|det(u, v_err) + det(u_err. v) + det(u_err, v_err)|
+  			// <= |det(u, v_err)| + |det(u_err, v)| + |det(u_err, v_err)|
+  			// <= N(u)N(v_err) + N(u_err)N(v) + N(u_err)N(v_err)
+  			// <= eps * (N(u) + N(v) + eps)
+  			// We have N(u) ~ N(u + u_err) and N(v) ~ N(v + v_err).
+  			// Assuming eps << N(u) and eps << N(v), we end with:
+  			// |det(u + u_err, v + v_err)| <= eps * (N(u + u_err) + N(v + v_err))
+  			return Math.abs(dx1 * dy2 - dx2 * dy1) <= eps * (n1 + n2);
+  		},
+  		linesIntersect: function(a0, a1, b0, b1){
+  			// returns false if the lines are coincident (e.g., parallel or on top of each other)
+  			//
+  			// returns an object if the lines intersect:
+  			//   {
+  			//     pt: [x, y],    where the intersection point is at
+  			//     alongA: where intersection point is along A,
+  			//     alongB: where intersection point is along B
+  			//   }
+  			//
+  			//  alongA and alongB will each be one of: -2, -1, 0, 1, 2
+  			//
+  			//  with the following meaning:
+  			//
+  			//    -2   intersection point is before segment's first point
+  			//    -1   intersection point is directly on segment's first point
+  			//     0   intersection point is between segment's first and second points (exclusive)
+  			//     1   intersection point is directly on segment's second point
+  			//     2   intersection point is after segment's second point
+  			var adx = a1[0] - a0[0];
+  			var ady = a1[1] - a0[1];
+  			var bdx = b1[0] - b0[0];
+  			var bdy = b1[1] - b0[1];
+
+  			var axb = adx * bdy - ady * bdx;
+  			var n1 = Math.sqrt(adx * adx + ady * ady);
+  			var n2 = Math.sqrt(bdx * bdx + bdy * bdy);
+  			if (Math.abs(axb) <= eps * (n1 + n2))
+  				return false; // lines are coincident
+
+  			var dx = a0[0] - b0[0];
+  			var dy = a0[1] - b0[1];
+
+  			var A = (bdx * dy - bdy * dx) / axb;
+  			var B = (adx * dy - ady * dx) / axb;
+  			var pt = [
+  				a0[0] + A * adx,
+  				a0[1] + A * ady
+  			];
+
+  			var ret = {
+  				alongA: 0,
+  				alongB: 0,
+  				pt: pt
+  			};
+
+  			// categorize where intersection point is along A and B
+  			if (my.pointsSame(pt, a0))
+  				ret.alongA = -1;
+  			else if (my.pointsSame(pt, a1))
+  				ret.alongA = 1;
+  			else if (A < 0)
+  				ret.alongA = -2;
+  			else if (A > 1)
+  				ret.alongA = 2;
+
+  			if (my.pointsSame(pt, b0))
+  				ret.alongB = -1;
+  			else if (my.pointsSame(pt, b1))
+  				ret.alongB = 1;
+  			else if (B < 0)
+  				ret.alongB = -2;
+  			else if (B > 1)
+  				ret.alongB = 2;
+
+  			return ret;
+  		},
+  		pointInsideRegion: function(pt, region){
+  			var x = pt[0];
+  			var y = pt[1];
+  			var last_x = region[region.length - 1][0];
+  			var last_y = region[region.length - 1][1];
+  			var inside = false;
+  			for (var i = 0; i < region.length; i++){
+  				var curr_x = region[i][0];
+  				var curr_y = region[i][1];
+
+  				// if y is between curr_y and last_y, and
+  				// x is to the right of the boundary created by the line
+  				if ((curr_y - y > eps) != (last_y - y > eps) &&
+  					(last_x - curr_x) * (y - curr_y) / (last_y - curr_y) + curr_x - x > eps)
+  					inside = !inside;
+
+  				last_x = curr_x;
+  				last_y = curr_y;
+  			}
+  			return inside;
+  		}
+  	};
+  	return my;
+  }
+
+  var epsilon = Epsilon;
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // simple linked list implementation that allows you to traverse down nodes and save positions
+  //
+
+  var LinkedList = {
+  	create: function(){
+  		var my = {
+  			root: { root: true, next: null },
+  			exists: function(node){
+  				if (node === null || node === my.root)
+  					return false;
+  				return true;
+  			},
+  			isEmpty: function(){
+  				return my.root.next === null;
+  			},
+  			getHead: function(){
+  				return my.root.next;
+  			},
+  			insertBefore: function(node, check){
+  				var last = my.root;
+  				var here = my.root.next;
+  				while (here !== null){
+  					if (check(here)){
+  						node.prev = here.prev;
+  						node.next = here;
+  						here.prev.next = node;
+  						here.prev = node;
+  						return;
+  					}
+  					last = here;
+  					here = here.next;
+  				}
+  				last.next = node;
+  				node.prev = last;
+  				node.next = null;
+  			},
+  			findTransition: function(check){
+  				var prev = my.root;
+  				var here = my.root.next;
+  				while (here !== null){
+  					if (check(here))
+  						break;
+  					prev = here;
+  					here = here.next;
+  				}
+  				return {
+  					before: prev === my.root ? null : prev,
+  					after: here,
+  					insert: function(node){
+  						node.prev = prev;
+  						node.next = here;
+  						prev.next = node;
+  						if (here !== null)
+  							here.prev = node;
+  						return node;
+  					}
+  				};
+  			}
+  		};
+  		return my;
+  	},
+  	node: function(data){
+  		data.prev = null;
+  		data.next = null;
+  		data.remove = function(){
+  			data.prev.next = data.next;
+  			if (data.next)
+  				data.next.prev = data.prev;
+  			data.prev = null;
+  			data.next = null;
+  		};
+  		return data;
+  	}
+  };
+
+  var linkedList$1 = LinkedList;
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // this is the core work-horse
+  //
+
+
+
+  function Intersecter(selfIntersection, eps, buildLog){
+  	// selfIntersection is true/false depending on the phase of the overall algorithm
+
+  	//
+  	// segment creation
+  	//
+
+  	function segmentNew(start, end){
+  		return {
+  			id: buildLog ? buildLog.segmentId() : -1,
+  			start: start,
+  			end: end,
+  			myFill: {
+  				above: null, // is there fill above us?
+  				below: null  // is there fill below us?
+  			},
+  			otherFill: null
+  		};
+  	}
+
+  	function segmentCopy(start, end, seg){
+  		return {
+  			id: buildLog ? buildLog.segmentId() : -1,
+  			start: start,
+  			end: end,
+  			myFill: {
+  				above: seg.myFill.above,
+  				below: seg.myFill.below
+  			},
+  			otherFill: null
+  		};
+  	}
+
+  	//
+  	// event logic
+  	//
+
+  	var event_root = linkedList$1.create();
+
+  	function eventCompare(p1_isStart, p1_1, p1_2, p2_isStart, p2_1, p2_2){
+  		// compare the selected points first
+  		var comp = eps.pointsCompare(p1_1, p2_1);
+  		if (comp !== 0)
+  			return comp;
+  		// the selected points are the same
+
+  		if (eps.pointsSame(p1_2, p2_2)) // if the non-selected points are the same too...
+  			return 0; // then the segments are equal
+
+  		if (p1_isStart !== p2_isStart) // if one is a start and the other isn't...
+  			return p1_isStart ? 1 : -1; // favor the one that isn't the start
+
+  		// otherwise, we'll have to calculate which one is below the other manually
+  		return eps.pointAboveOrOnLine(p1_2,
+  			p2_isStart ? p2_1 : p2_2, // order matters
+  			p2_isStart ? p2_2 : p2_1
+  		) ? 1 : -1;
+  	}
+
+  	function eventAdd(ev, other_pt){
+  		event_root.insertBefore(ev, function(here){
+  			// should ev be inserted before here?
+  			var comp = eventCompare(
+  				ev  .isStart, ev  .pt,      other_pt,
+  				here.isStart, here.pt, here.other.pt
+  			);
+  			return comp < 0;
+  		});
+  	}
+
+  	function eventAddSegmentStart(seg, primary){
+  		var ev_start = linkedList$1.node({
+  			isStart: true,
+  			pt: seg.start,
+  			seg: seg,
+  			primary: primary,
+  			other: null,
+  			status: null
+  		});
+  		eventAdd(ev_start, seg.end);
+  		return ev_start;
+  	}
+
+  	function eventAddSegmentEnd(ev_start, seg, primary){
+  		var ev_end = linkedList$1.node({
+  			isStart: false,
+  			pt: seg.end,
+  			seg: seg,
+  			primary: primary,
+  			other: ev_start,
+  			status: null
+  		});
+  		ev_start.other = ev_end;
+  		eventAdd(ev_end, ev_start.pt);
+  	}
+
+  	function eventAddSegment(seg, primary){
+  		var ev_start = eventAddSegmentStart(seg, primary);
+  		eventAddSegmentEnd(ev_start, seg, primary);
+  		return ev_start;
+  	}
+
+  	function eventUpdateEnd(ev, end){
+  		// slides an end backwards
+  		//   (start)------------(end)    to:
+  		//   (start)---(end)
+
+  		if (buildLog)
+  			buildLog.segmentChop(ev.seg, end);
+
+  		ev.other.remove();
+  		ev.seg.end = end;
+  		ev.other.pt = end;
+  		eventAdd(ev.other, ev.pt);
+  	}
+
+  	function eventDivide(ev, pt){
+  		var ns = segmentCopy(pt, ev.seg.end, ev.seg);
+  		eventUpdateEnd(ev, pt);
+  		return eventAddSegment(ns, ev.primary);
+  	}
+
+  	function calculate(primaryPolyInverted, secondaryPolyInverted){
+  		// if selfIntersection is true then there is no secondary polygon, so that isn't used
+
+  		//
+  		// status logic
+  		//
+
+  		var status_root = linkedList$1.create();
+
+  		function statusCompare(ev1, ev2){
+  			var a1 = ev1.seg.start;
+  			var a2 = ev1.seg.end;
+  			var b1 = ev2.seg.start;
+  			var b2 = ev2.seg.end;
+
+  			if (eps.pointsCollinear(a1, b1, b2)){
+  				if (eps.pointsCollinear(a2, b1, b2))
+  					return 1;//eventCompare(true, a1, a2, true, b1, b2);
+  				return eps.pointAboveOrOnLine(a2, b1, b2) ? 1 : -1;
+  			}
+  			return eps.pointAboveOrOnLine(a1, b1, b2) ? 1 : -1;
+  		}
+
+  		function statusFindSurrounding(ev){
+  			return status_root.findTransition(function(here){
+  				var comp = statusCompare(ev, here.ev);
+  				return comp > 0;
+  			});
+  		}
+
+  		function checkIntersection(ev1, ev2){
+  			// returns the segment equal to ev1, or false if nothing equal
+
+  			var seg1 = ev1.seg;
+  			var seg2 = ev2.seg;
+  			var a1 = seg1.start;
+  			var a2 = seg1.end;
+  			var b1 = seg2.start;
+  			var b2 = seg2.end;
+
+  			if (buildLog)
+  				buildLog.checkIntersection(seg1, seg2);
+
+  			var i = eps.linesIntersect(a1, a2, b1, b2);
+
+  			if (i === false){
+  				// segments are parallel or coincident
+
+  				// if points aren't collinear, then the segments are parallel, so no intersections
+  				if (!eps.pointsCollinear(a1, a2, b1))
+  					return false;
+  				// otherwise, segments are on top of each other somehow (aka coincident)
+
+  				if (eps.pointsSame(a1, b2) || eps.pointsSame(a2, b1))
+  					return false; // segments touch at endpoints... no intersection
+
+  				var a1_equ_b1 = eps.pointsSame(a1, b1);
+  				var a2_equ_b2 = eps.pointsSame(a2, b2);
+
+  				if (a1_equ_b1 && a2_equ_b2)
+  					return ev2; // segments are exactly equal
+
+  				var a1_between = !a1_equ_b1 && eps.pointBetween(a1, b1, b2);
+  				var a2_between = !a2_equ_b2 && eps.pointBetween(a2, b1, b2);
+
+  				// handy for debugging:
+  				// buildLog.log({
+  				//	a1_equ_b1: a1_equ_b1,
+  				//	a2_equ_b2: a2_equ_b2,
+  				//	a1_between: a1_between,
+  				//	a2_between: a2_between
+  				// });
+
+  				if (a1_equ_b1){
+  					if (a2_between){
+  						//  (a1)---(a2)
+  						//  (b1)----------(b2)
+  						eventDivide(ev2, a2);
+  					}
+  					else{
+  						//  (a1)----------(a2)
+  						//  (b1)---(b2)
+  						eventDivide(ev1, b2);
+  					}
+  					return ev2;
+  				}
+  				else if (a1_between){
+  					if (!a2_equ_b2){
+  						// make a2 equal to b2
+  						if (a2_between){
+  							//         (a1)---(a2)
+  							//  (b1)-----------------(b2)
+  							eventDivide(ev2, a2);
+  						}
+  						else{
+  							//         (a1)----------(a2)
+  							//  (b1)----------(b2)
+  							eventDivide(ev1, b2);
+  						}
+  					}
+
+  					//         (a1)---(a2)
+  					//  (b1)----------(b2)
+  					eventDivide(ev2, a1);
+  				}
+  			}
+  			else{
+  				// otherwise, lines intersect at i.pt, which may or may not be between the endpoints
+
+  				// is A divided between its endpoints? (exclusive)
+  				if (i.alongA === 0){
+  					if (i.alongB === -1) // yes, at exactly b1
+  						eventDivide(ev1, b1);
+  					else if (i.alongB === 0) // yes, somewhere between B's endpoints
+  						eventDivide(ev1, i.pt);
+  					else if (i.alongB === 1) // yes, at exactly b2
+  						eventDivide(ev1, b2);
+  				}
+
+  				// is B divided between its endpoints? (exclusive)
+  				if (i.alongB === 0){
+  					if (i.alongA === -1) // yes, at exactly a1
+  						eventDivide(ev2, a1);
+  					else if (i.alongA === 0) // yes, somewhere between A's endpoints (exclusive)
+  						eventDivide(ev2, i.pt);
+  					else if (i.alongA === 1) // yes, at exactly a2
+  						eventDivide(ev2, a2);
+  				}
+  			}
+  			return false;
+  		}
+
+  		//
+  		// main event loop
+  		//
+  		var segments = [];
+  		while (!event_root.isEmpty()){
+  			var ev = event_root.getHead();
+
+  			if (buildLog)
+  				buildLog.vert(ev.pt[0]);
+
+  			if (ev.isStart){
+
+  				if (buildLog)
+  					buildLog.segmentNew(ev.seg, ev.primary);
+
+  				var surrounding = statusFindSurrounding(ev);
+  				var above = surrounding.before ? surrounding.before.ev : null;
+  				var below = surrounding.after ? surrounding.after.ev : null;
+
+  				if (buildLog){
+  					buildLog.tempStatus(
+  						ev.seg,
+  						above ? above.seg : false,
+  						below ? below.seg : false
+  					);
+  				}
+
+  				function checkBothIntersections(){
+  					if (above){
+  						var eve = checkIntersection(ev, above);
+  						if (eve)
+  							return eve;
+  					}
+  					if (below)
+  						return checkIntersection(ev, below);
+  					return false;
+  				}
+
+  				var eve = checkBothIntersections();
+  				if (eve){
+  					// ev and eve are equal
+  					// we'll keep eve and throw away ev
+
+  					// merge ev.seg's fill information into eve.seg
+
+  					if (selfIntersection){
+  						var toggle; // are we a toggling edge?
+  						if (ev.seg.myFill.below === null)
+  							toggle = true;
+  						else
+  							toggle = ev.seg.myFill.above !== ev.seg.myFill.below;
+
+  						// merge two segments that belong to the same polygon
+  						// think of this as sandwiching two segments together, where `eve.seg` is
+  						// the bottom -- this will cause the above fill flag to toggle
+  						if (toggle)
+  							eve.seg.myFill.above = !eve.seg.myFill.above;
+  					}
+  					else{
+  						// merge two segments that belong to different polygons
+  						// each segment has distinct knowledge, so no special logic is needed
+  						// note that this can only happen once per segment in this phase, because we
+  						// are guaranteed that all self-intersections are gone
+  						eve.seg.otherFill = ev.seg.myFill;
+  					}
+
+  					if (buildLog)
+  						buildLog.segmentUpdate(eve.seg);
+
+  					ev.other.remove();
+  					ev.remove();
+  				}
+
+  				if (event_root.getHead() !== ev){
+  					// something was inserted before us in the event queue, so loop back around and
+  					// process it before continuing
+  					if (buildLog)
+  						buildLog.rewind(ev.seg);
+  					continue;
+  				}
+
+  				//
+  				// calculate fill flags
+  				//
+  				if (selfIntersection){
+  					var toggle; // are we a toggling edge?
+  					if (ev.seg.myFill.below === null) // if we are a new segment...
+  						toggle = true; // then we toggle
+  					else // we are a segment that has previous knowledge from a division
+  						toggle = ev.seg.myFill.above !== ev.seg.myFill.below; // calculate toggle
+
+  					// next, calculate whether we are filled below us
+  					if (!below){ // if nothing is below us...
+  						// we are filled below us if the polygon is inverted
+  						ev.seg.myFill.below = primaryPolyInverted;
+  					}
+  					else{
+  						// otherwise, we know the answer -- it's the same if whatever is below
+  						// us is filled above it
+  						ev.seg.myFill.below = below.seg.myFill.above;
+  					}
+
+  					// since now we know if we're filled below us, we can calculate whether
+  					// we're filled above us by applying toggle to whatever is below us
+  					if (toggle)
+  						ev.seg.myFill.above = !ev.seg.myFill.below;
+  					else
+  						ev.seg.myFill.above = ev.seg.myFill.below;
+  				}
+  				else{
+  					// now we fill in any missing transition information, since we are all-knowing
+  					// at this point
+
+  					if (ev.seg.otherFill === null){
+  						// if we don't have other information, then we need to figure out if we're
+  						// inside the other polygon
+  						var inside;
+  						if (!below){
+  							// if nothing is below us, then we're inside if the other polygon is
+  							// inverted
+  							inside =
+  								ev.primary ? secondaryPolyInverted : primaryPolyInverted;
+  						}
+  						else{ // otherwise, something is below us
+  							// so copy the below segment's other polygon's above
+  							if (ev.primary === below.primary)
+  								inside = below.seg.otherFill.above;
+  							else
+  								inside = below.seg.myFill.above;
+  						}
+  						ev.seg.otherFill = {
+  							above: inside,
+  							below: inside
+  						};
+  					}
+  				}
+
+  				if (buildLog){
+  					buildLog.status(
+  						ev.seg,
+  						above ? above.seg : false,
+  						below ? below.seg : false
+  					);
+  				}
+
+  				// insert the status and remember it for later removal
+  				ev.other.status = surrounding.insert(linkedList$1.node({ ev: ev }));
+  			}
+  			else{
+  				var st = ev.status;
+
+  				if (st === null){
+  					throw new Error('PolyBool: Zero-length segment detected; your epsilon is ' +
+  						'probably too small or too large');
+  				}
+
+  				// removing the status will create two new adjacent edges, so we'll need to check
+  				// for those
+  				if (status_root.exists(st.prev) && status_root.exists(st.next))
+  					checkIntersection(st.prev.ev, st.next.ev);
+
+  				if (buildLog)
+  					buildLog.statusRemove(st.ev.seg);
+
+  				// remove the status
+  				st.remove();
+
+  				// if we've reached this point, we've calculated everything there is to know, so
+  				// save the segment for reporting
+  				if (!ev.primary){
+  					// make sure `seg.myFill` actually points to the primary polygon though
+  					var s = ev.seg.myFill;
+  					ev.seg.myFill = ev.seg.otherFill;
+  					ev.seg.otherFill = s;
+  				}
+  				segments.push(ev.seg);
+  			}
+
+  			// remove the event and continue
+  			event_root.getHead().remove();
+  		}
+
+  		if (buildLog)
+  			buildLog.done();
+
+  		return segments;
+  	}
+
+  	// return the appropriate API depending on what we're doing
+  	if (!selfIntersection){
+  		// performing combination of polygons, so only deal with already-processed segments
+  		return {
+  			calculate: function(segments1, inverted1, segments2, inverted2){
+  				// segmentsX come from the self-intersection API, or this API
+  				// invertedX is whether we treat that list of segments as an inverted polygon or not
+  				// returns segments that can be used for further operations
+  				segments1.forEach(function(seg){
+  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), true);
+  				});
+  				segments2.forEach(function(seg){
+  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), false);
+  				});
+  				return calculate(inverted1, inverted2);
+  			}
+  		};
+  	}
+
+  	// otherwise, performing self-intersection, so deal with regions
+  	return {
+  		addRegion: function(region){
+  			// regions are a list of points:
+  			//  [ [0, 0], [100, 0], [50, 100] ]
+  			// you can add multiple regions before running calculate
+  			var pt1;
+  			var pt2 = region[region.length - 1];
+  			for (var i = 0; i < region.length; i++){
+  				pt1 = pt2;
+  				pt2 = region[i];
+
+  				var forward = eps.pointsCompare(pt1, pt2);
+  				if (forward === 0) // points are equal, so we have a zero-length segment
+  					continue; // just skip it
+
+  				eventAddSegment(
+  					segmentNew(
+  						forward < 0 ? pt1 : pt2,
+  						forward < 0 ? pt2 : pt1
+  					),
+  					true
+  				);
+  			}
+  		},
+  		calculate: function(inverted){
+  			// is the polygon inverted?
+  			// returns segments
+  			return calculate(inverted, false);
+  		}
+  	};
+  }
+
+  var intersecter = Intersecter;
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // converts a list of segments into a list of regions, while also removing unnecessary verticies
+  //
+
+  function SegmentChainer(segments, eps, buildLog){
+  	var chains = [];
+  	var regions = [];
+
+  	segments.forEach(function(seg){
+  		var pt1 = seg.start;
+  		var pt2 = seg.end;
+  		if (eps.pointsSame(pt1, pt2)){
+  			console.warn('PolyBool: Warning: Zero-length segment detected; your epsilon is ' +
+  				'probably too small or too large');
+  			return;
+  		}
+
+  		if (buildLog)
+  			buildLog.chainStart(seg);
+
+  		// search for two chains that this segment matches
+  		var first_match = {
+  			index: 0,
+  			matches_head: false,
+  			matches_pt1: false
+  		};
+  		var second_match = {
+  			index: 0,
+  			matches_head: false,
+  			matches_pt1: false
+  		};
+  		var next_match = first_match;
+  		function setMatch(index, matches_head, matches_pt1){
+  			// return true if we've matched twice
+  			next_match.index = index;
+  			next_match.matches_head = matches_head;
+  			next_match.matches_pt1 = matches_pt1;
+  			if (next_match === first_match){
+  				next_match = second_match;
+  				return false;
+  			}
+  			next_match = null;
+  			return true; // we've matched twice, we're done here
+  		}
+  		for (var i = 0; i < chains.length; i++){
+  			var chain = chains[i];
+  			var head  = chain[0];
+  			var head2 = chain[1];
+  			var tail  = chain[chain.length - 1];
+  			var tail2 = chain[chain.length - 2];
+  			if (eps.pointsSame(head, pt1)){
+  				if (setMatch(i, true, true))
+  					break;
+  			}
+  			else if (eps.pointsSame(head, pt2)){
+  				if (setMatch(i, true, false))
+  					break;
+  			}
+  			else if (eps.pointsSame(tail, pt1)){
+  				if (setMatch(i, false, true))
+  					break;
+  			}
+  			else if (eps.pointsSame(tail, pt2)){
+  				if (setMatch(i, false, false))
+  					break;
+  			}
+  		}
+
+  		if (next_match === first_match){
+  			// we didn't match anything, so create a new chain
+  			chains.push([ pt1, pt2 ]);
+  			if (buildLog)
+  				buildLog.chainNew(pt1, pt2);
+  			return;
+  		}
+
+  		if (next_match === second_match){
+  			// we matched a single chain
+
+  			if (buildLog)
+  				buildLog.chainMatch(first_match.index);
+
+  			// add the other point to the apporpriate end, and check to see if we've closed the
+  			// chain into a loop
+
+  			var index = first_match.index;
+  			var pt = first_match.matches_pt1 ? pt2 : pt1; // if we matched pt1, then we add pt2, etc
+  			var addToHead = first_match.matches_head; // if we matched at head, then add to the head
+
+  			var chain = chains[index];
+  			var grow  = addToHead ? chain[0] : chain[chain.length - 1];
+  			var grow2 = addToHead ? chain[1] : chain[chain.length - 2];
+  			var oppo  = addToHead ? chain[chain.length - 1] : chain[0];
+  			var oppo2 = addToHead ? chain[chain.length - 2] : chain[1];
+
+  			if (eps.pointsCollinear(grow2, grow, pt)){
+  				// grow isn't needed because it's directly between grow2 and pt:
+  				// grow2 ---grow---> pt
+  				if (addToHead){
+  					if (buildLog)
+  						buildLog.chainRemoveHead(first_match.index, pt);
+  					chain.shift();
+  				}
+  				else{
+  					if (buildLog)
+  						buildLog.chainRemoveTail(first_match.index, pt);
+  					chain.pop();
+  				}
+  				grow = grow2; // old grow is gone... new grow is what grow2 was
+  			}
+
+  			if (eps.pointsSame(oppo, pt)){
+  				// we're closing the loop, so remove chain from chains
+  				chains.splice(index, 1);
+
+  				if (eps.pointsCollinear(oppo2, oppo, grow)){
+  					// oppo isn't needed because it's directly between oppo2 and grow:
+  					// oppo2 ---oppo--->grow
+  					if (addToHead){
+  						if (buildLog)
+  							buildLog.chainRemoveTail(first_match.index, grow);
+  						chain.pop();
+  					}
+  					else{
+  						if (buildLog)
+  							buildLog.chainRemoveHead(first_match.index, grow);
+  						chain.shift();
+  					}
+  				}
+
+  				if (buildLog)
+  					buildLog.chainClose(first_match.index);
+
+  				// we have a closed chain!
+  				regions.push(chain);
+  				return;
+  			}
+
+  			// not closing a loop, so just add it to the apporpriate side
+  			if (addToHead){
+  				if (buildLog)
+  					buildLog.chainAddHead(first_match.index, pt);
+  				chain.unshift(pt);
+  			}
+  			else{
+  				if (buildLog)
+  					buildLog.chainAddTail(first_match.index, pt);
+  				chain.push(pt);
+  			}
+  			return;
+  		}
+
+  		// otherwise, we matched two chains, so we need to combine those chains together
+
+  		function reverseChain(index){
+  			if (buildLog)
+  				buildLog.chainReverse(index);
+  			chains[index].reverse(); // gee, that's easy
+  		}
+
+  		function appendChain(index1, index2){
+  			// index1 gets index2 appended to it, and index2 is removed
+  			var chain1 = chains[index1];
+  			var chain2 = chains[index2];
+  			var tail  = chain1[chain1.length - 1];
+  			var tail2 = chain1[chain1.length - 2];
+  			var head  = chain2[0];
+  			var head2 = chain2[1];
+
+  			if (eps.pointsCollinear(tail2, tail, head)){
+  				// tail isn't needed because it's directly between tail2 and head
+  				// tail2 ---tail---> head
+  				if (buildLog)
+  					buildLog.chainRemoveTail(index1, tail);
+  				chain1.pop();
+  				tail = tail2; // old tail is gone... new tail is what tail2 was
+  			}
+
+  			if (eps.pointsCollinear(tail, head, head2)){
+  				// head isn't needed because it's directly between tail and head2
+  				// tail ---head---> head2
+  				if (buildLog)
+  					buildLog.chainRemoveHead(index2, head);
+  				chain2.shift();
+  			}
+
+  			if (buildLog)
+  				buildLog.chainJoin(index1, index2);
+  			chains[index1] = chain1.concat(chain2);
+  			chains.splice(index2, 1);
+  		}
+
+  		var F = first_match.index;
+  		var S = second_match.index;
+
+  		if (buildLog)
+  			buildLog.chainConnect(F, S);
+
+  		var reverseF = chains[F].length < chains[S].length; // reverse the shorter chain, if needed
+  		if (first_match.matches_head){
+  			if (second_match.matches_head){
+  				if (reverseF){
+  					// <<<< F <<<< --- >>>> S >>>>
+  					reverseChain(F);
+  					// >>>> F >>>> --- >>>> S >>>>
+  					appendChain(F, S);
+  				}
+  				else{
+  					// <<<< F <<<< --- >>>> S >>>>
+  					reverseChain(S);
+  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
+  					// >>>> S >>>> --- >>>> F >>>>
+  					appendChain(S, F);
+  				}
+  			}
+  			else{
+  				// <<<< F <<<< --- <<<< S <<<<   logically same as:
+  				// >>>> S >>>> --- >>>> F >>>>
+  				appendChain(S, F);
+  			}
+  		}
+  		else{
+  			if (second_match.matches_head){
+  				// >>>> F >>>> --- >>>> S >>>>
+  				appendChain(F, S);
+  			}
+  			else{
+  				if (reverseF){
+  					// >>>> F >>>> --- <<<< S <<<<
+  					reverseChain(F);
+  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
+  					// >>>> S >>>> --- >>>> F >>>>
+  					appendChain(S, F);
+  				}
+  				else{
+  					// >>>> F >>>> --- <<<< S <<<<
+  					reverseChain(S);
+  					// >>>> F >>>> --- >>>> S >>>>
+  					appendChain(F, S);
+  				}
+  			}
+  		}
+  	});
+
+  	return regions;
+  }
+
+  var segmentChainer = SegmentChainer;
+
+  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // filter a list of segments based on boolean operations
+  //
+
+  function select(segments, selection, buildLog){
+  	var result = [];
+  	segments.forEach(function(seg){
+  		var index =
+  			(seg.myFill.above ? 8 : 0) +
+  			(seg.myFill.below ? 4 : 0) +
+  			((seg.otherFill && seg.otherFill.above) ? 2 : 0) +
+  			((seg.otherFill && seg.otherFill.below) ? 1 : 0);
+  		if (selection[index] !== 0){
+  			// copy the segment to the results, while also calculating the fill status
+  			result.push({
+  				id: buildLog ? buildLog.segmentId() : -1,
+  				start: seg.start,
+  				end: seg.end,
+  				myFill: {
+  					above: selection[index] === 1, // 1 if filled above
+  					below: selection[index] === 2  // 2 if filled below
+  				},
+  				otherFill: null
+  			});
+  		}
+  	});
+
+  	if (buildLog)
+  		buildLog.selected(result);
+
+  	return result;
+  }
+
+  var SegmentSelector = {
+  	union: function(segments, buildLog){ // primary | secondary
+  		// above1 below1 above2 below2    Keep?               Value
+  		//    0      0      0      0   =>   no                  0
+  		//    0      0      0      1   =>   yes filled below    2
+  		//    0      0      1      0   =>   yes filled above    1
+  		//    0      0      1      1   =>   no                  0
+  		//    0      1      0      0   =>   yes filled below    2
+  		//    0      1      0      1   =>   yes filled below    2
+  		//    0      1      1      0   =>   no                  0
+  		//    0      1      1      1   =>   no                  0
+  		//    1      0      0      0   =>   yes filled above    1
+  		//    1      0      0      1   =>   no                  0
+  		//    1      0      1      0   =>   yes filled above    1
+  		//    1      0      1      1   =>   no                  0
+  		//    1      1      0      0   =>   no                  0
+  		//    1      1      0      1   =>   no                  0
+  		//    1      1      1      0   =>   no                  0
+  		//    1      1      1      1   =>   no                  0
+  		return select(segments, [
+  			0, 2, 1, 0,
+  			2, 2, 0, 0,
+  			1, 0, 1, 0,
+  			0, 0, 0, 0
+  		], buildLog);
+  	},
+  	intersect: function(segments, buildLog){ // primary & secondary
+  		// above1 below1 above2 below2    Keep?               Value
+  		//    0      0      0      0   =>   no                  0
+  		//    0      0      0      1   =>   no                  0
+  		//    0      0      1      0   =>   no                  0
+  		//    0      0      1      1   =>   no                  0
+  		//    0      1      0      0   =>   no                  0
+  		//    0      1      0      1   =>   yes filled below    2
+  		//    0      1      1      0   =>   no                  0
+  		//    0      1      1      1   =>   yes filled below    2
+  		//    1      0      0      0   =>   no                  0
+  		//    1      0      0      1   =>   no                  0
+  		//    1      0      1      0   =>   yes filled above    1
+  		//    1      0      1      1   =>   yes filled above    1
+  		//    1      1      0      0   =>   no                  0
+  		//    1      1      0      1   =>   yes filled below    2
+  		//    1      1      1      0   =>   yes filled above    1
+  		//    1      1      1      1   =>   no                  0
+  		return select(segments, [
+  			0, 0, 0, 0,
+  			0, 2, 0, 2,
+  			0, 0, 1, 1,
+  			0, 2, 1, 0
+  		], buildLog);
+  	},
+  	difference: function(segments, buildLog){ // primary - secondary
+  		// above1 below1 above2 below2    Keep?               Value
+  		//    0      0      0      0   =>   no                  0
+  		//    0      0      0      1   =>   no                  0
+  		//    0      0      1      0   =>   no                  0
+  		//    0      0      1      1   =>   no                  0
+  		//    0      1      0      0   =>   yes filled below    2
+  		//    0      1      0      1   =>   no                  0
+  		//    0      1      1      0   =>   yes filled below    2
+  		//    0      1      1      1   =>   no                  0
+  		//    1      0      0      0   =>   yes filled above    1
+  		//    1      0      0      1   =>   yes filled above    1
+  		//    1      0      1      0   =>   no                  0
+  		//    1      0      1      1   =>   no                  0
+  		//    1      1      0      0   =>   no                  0
+  		//    1      1      0      1   =>   yes filled above    1
+  		//    1      1      1      0   =>   yes filled below    2
+  		//    1      1      1      1   =>   no                  0
+  		return select(segments, [
+  			0, 0, 0, 0,
+  			2, 0, 2, 0,
+  			1, 1, 0, 0,
+  			0, 1, 2, 0
+  		], buildLog);
+  	},
+  	differenceRev: function(segments, buildLog){ // secondary - primary
+  		// above1 below1 above2 below2    Keep?               Value
+  		//    0      0      0      0   =>   no                  0
+  		//    0      0      0      1   =>   yes filled below    2
+  		//    0      0      1      0   =>   yes filled above    1
+  		//    0      0      1      1   =>   no                  0
+  		//    0      1      0      0   =>   no                  0
+  		//    0      1      0      1   =>   no                  0
+  		//    0      1      1      0   =>   yes filled above    1
+  		//    0      1      1      1   =>   yes filled above    1
+  		//    1      0      0      0   =>   no                  0
+  		//    1      0      0      1   =>   yes filled below    2
+  		//    1      0      1      0   =>   no                  0
+  		//    1      0      1      1   =>   yes filled below    2
+  		//    1      1      0      0   =>   no                  0
+  		//    1      1      0      1   =>   no                  0
+  		//    1      1      1      0   =>   no                  0
+  		//    1      1      1      1   =>   no                  0
+  		return select(segments, [
+  			0, 2, 1, 0,
+  			0, 0, 1, 1,
+  			0, 2, 0, 2,
+  			0, 0, 0, 0
+  		], buildLog);
+  	},
+  	xor: function(segments, buildLog){ // primary ^ secondary
+  		// above1 below1 above2 below2    Keep?               Value
+  		//    0      0      0      0   =>   no                  0
+  		//    0      0      0      1   =>   yes filled below    2
+  		//    0      0      1      0   =>   yes filled above    1
+  		//    0      0      1      1   =>   no                  0
+  		//    0      1      0      0   =>   yes filled below    2
+  		//    0      1      0      1   =>   no                  0
+  		//    0      1      1      0   =>   no                  0
+  		//    0      1      1      1   =>   yes filled above    1
+  		//    1      0      0      0   =>   yes filled above    1
+  		//    1      0      0      1   =>   no                  0
+  		//    1      0      1      0   =>   no                  0
+  		//    1      0      1      1   =>   yes filled below    2
+  		//    1      1      0      0   =>   no                  0
+  		//    1      1      0      1   =>   yes filled above    1
+  		//    1      1      1      0   =>   yes filled below    2
+  		//    1      1      1      1   =>   no                  0
+  		return select(segments, [
+  			0, 2, 1, 0,
+  			2, 0, 0, 1,
+  			1, 0, 0, 2,
+  			0, 1, 2, 0
+  		], buildLog);
+  	}
+  };
+
+  var segmentSelector = SegmentSelector;
+
+  // (c) Copyright 2017, Sean Connelly (@voidqk), http://syntheti.cc
+  // MIT License
+  // Project Home: https://github.com/voidqk/polybooljs
+
+  //
+  // convert between PolyBool polygon format and GeoJSON formats (Polygon and MultiPolygon)
+  //
+
+  var GeoJSON = {
+  	// convert a GeoJSON object to a PolyBool polygon
+  	toPolygon: function(PolyBool, geojson){
+
+  		// converts list of LineString's to segments
+  		function GeoPoly(coords){
+  			// check for empty coords
+  			if (coords.length <= 0)
+  				return PolyBool.segments({ inverted: false, regions: [] });
+
+  			// convert LineString to segments
+  			function LineString(ls){
+  				// remove tail which should be the same as head
+  				var reg = ls.slice(0, ls.length - 1);
+  				return PolyBool.segments({ inverted: false, regions: [reg] });
+  			}
+
+  			// the first LineString is considered the outside
+  			var out = LineString(coords[0]);
+
+  			// the rest of the LineStrings are considered interior holes, so subtract them from the
+  			// current result
+  			for (var i = 1; i < coords.length; i++)
+  				out = PolyBool.selectDifference(PolyBool.combine(out, LineString(coords[i])));
+
+  			return out;
+  		}
+
+  		if (geojson.type === 'Polygon'){
+  			// single polygon, so just convert it and we're done
+  			return PolyBool.polygon(GeoPoly(geojson.coordinates));
+  		}
+  		else if (geojson.type === 'MultiPolygon'){
+  			// multiple polygons, so union all the polygons together
+  			var out = PolyBool.segments({ inverted: false, regions: [] });
+  			for (var i = 0; i < geojson.coordinates.length; i++)
+  				out = PolyBool.selectUnion(PolyBool.combine(out, GeoPoly(geojson.coordinates[i])));
+  			return PolyBool.polygon(out);
+  		}
+  		throw new Error('PolyBool: Cannot convert GeoJSON object to PolyBool polygon');
+  	},
+
+  	// convert a PolyBool polygon to a GeoJSON object
+  	fromPolygon: function(PolyBool, eps, poly){
+  		// make sure out polygon is clean
+  		poly = PolyBool.polygon(PolyBool.segments(poly));
+
+  		// test if r1 is inside r2
+  		function regionInsideRegion(r1, r2){
+  			// we're guaranteed no lines intersect (because the polygon is clean), but a vertex
+  			// could be on the edge -- so we just average pt[0] and pt[1] to produce a point on the
+  			// edge of the first line, which cannot be on an edge
+  			return eps.pointInsideRegion([
+  				(r1[0][0] + r1[1][0]) * 0.5,
+  				(r1[0][1] + r1[1][1]) * 0.5
+  			], r2);
+  		}
+
+  		// calculate inside heirarchy
+  		//
+  		//  _____________________   _______    roots -> A       -> F
+  		// |          A          | |   F   |            |          |
+  		// |  _______   _______  | |  ___  |            +-- B      +-- G
+  		// | |   B   | |   C   | | | |   | |            |   |
+  		// | |  ___  | |  ___  | | | |   | |            |   +-- D
+  		// | | | D | | | | E | | | | | G | |            |
+  		// | | |___| | | |___| | | | |   | |            +-- C
+  		// | |_______| |_______| | | |___| |                |
+  		// |_____________________| |_______|                +-- E
+
+  		function newNode(region){
+  			return {
+  				region: region,
+  				children: []
+  			};
+  		}
+
+  		var roots = newNode(null);
+
+  		function addChild(root, region){
+  			// first check if we're inside any children
+  			for (var i = 0; i < root.children.length; i++){
+  				var child = root.children[i];
+  				if (regionInsideRegion(region, child.region)){
+  					// we are, so insert inside them instead
+  					addChild(child, region);
+  					return;
+  				}
+  			}
+
+  			// not inside any children, so check to see if any children are inside us
+  			var node = newNode(region);
+  			for (var i = 0; i < root.children.length; i++){
+  				var child = root.children[i];
+  				if (regionInsideRegion(child.region, region)){
+  					// oops... move the child beneath us, and remove them from root
+  					node.children.push(child);
+  					root.children.splice(i, 1);
+  					i--;
+  				}
+  			}
+
+  			// now we can add ourselves
+  			root.children.push(node);
+  		}
+
+  		// add all regions to the root
+  		for (var i = 0; i < poly.regions.length; i++){
+  			var region = poly.regions[i];
+  			if (region.length < 3) // regions must have at least 3 points (sanity check)
+  				continue;
+  			addChild(roots, region);
+  		}
+
+  		// with our heirarchy, we can distinguish between exterior borders, and interior holes
+  		// the root nodes are exterior, children are interior, children's children are exterior,
+  		// children's children's children are interior, etc
+
+  		// while we're at it, exteriors are counter-clockwise, and interiors are clockwise
+
+  		function forceWinding(region, clockwise){
+  			// first, see if we're clockwise or counter-clockwise
+  			// https://en.wikipedia.org/wiki/Shoelace_formula
+  			var winding = 0;
+  			var last_x = region[region.length - 1][0];
+  			var last_y = region[region.length - 1][1];
+  			var copy = [];
+  			for (var i = 0; i < region.length; i++){
+  				var curr_x = region[i][0];
+  				var curr_y = region[i][1];
+  				copy.push([curr_x, curr_y]); // create a copy while we're at it
+  				winding += curr_y * last_x - curr_x * last_y;
+  				last_x = curr_x;
+  				last_y = curr_y;
+  			}
+  			// this assumes Cartesian coordinates (Y is positive going up)
+  			var isclockwise = winding < 0;
+  			if (isclockwise !== clockwise)
+  				copy.reverse();
+  			// while we're here, the last point must be the first point...
+  			copy.push([copy[0][0], copy[0][1]]);
+  			return copy;
+  		}
+
+  		var geopolys = [];
+
+  		function addExterior(node){
+  			var poly = [forceWinding(node.region, false)];
+  			geopolys.push(poly);
+  			// children of exteriors are interior
+  			for (var i = 0; i < node.children.length; i++)
+  				poly.push(getInterior(node.children[i]));
+  		}
+
+  		function getInterior(node){
+  			// children of interiors are exterior
+  			for (var i = 0; i < node.children.length; i++)
+  				addExterior(node.children[i]);
+  			// return the clockwise interior
+  			return forceWinding(node.region, true);
+  		}
+
+  		// root nodes are exterior
+  		for (var i = 0; i < roots.children.length; i++)
+  			addExterior(roots.children[i]);
+
+  		// lastly, construct the approrpriate GeoJSON object
+
+  		if (geopolys.length <= 0) // empty GeoJSON Polygon
+  			return { type: 'Polygon', coordinates: [] };
+  		if (geopolys.length == 1) // use a GeoJSON Polygon
+  			return { type: 'Polygon', coordinates: geopolys[0] };
+  		return { // otherwise, use a GeoJSON MultiPolygon
+  			type: 'MultiPolygon',
+  			coordinates: geopolys
+  		};
+  	}
+  };
+
+  var geojson = GeoJSON;
+
+  /*
+   * @copyright 2016 Sean Connelly (@voidqk), http://syntheti.cc
+   * @license MIT
+   * @preserve Project Home: https://github.com/voidqk/polybooljs
+   */
+
+
+
+
+
+
+
+
+  var buildLog$1 = false;
+  var epsilon$1 = epsilon();
+
+  var PolyBool;
+  PolyBool = {
+  	// getter/setter for buildLog
+  	buildLog: function(bl){
+  		if (bl === true)
+  			buildLog$1 = buildLog();
+  		else if (bl === false)
+  			buildLog$1 = false;
+  		return buildLog$1 === false ? false : buildLog$1.list;
+  	},
+  	// getter/setter for epsilon
+  	epsilon: function(v){
+  		return epsilon$1.epsilon(v);
+  	},
+
+  	// core API
+  	segments: function(poly){
+  		var i = intersecter(true, epsilon$1, buildLog$1);
+  		poly.regions.forEach(i.addRegion);
+  		return {
+  			segments: i.calculate(poly.inverted),
+  			inverted: poly.inverted
+  		};
+  	},
+  	combine: function(segments1, segments2){
+  		var i3 = intersecter(false, epsilon$1, buildLog$1);
+  		return {
+  			combined: i3.calculate(
+  				segments1.segments, segments1.inverted,
+  				segments2.segments, segments2.inverted
+  			),
+  			inverted1: segments1.inverted,
+  			inverted2: segments2.inverted
+  		};
+  	},
+  	selectUnion: function(combined){
+  		return {
+  			segments: segmentSelector.union(combined.combined, buildLog$1),
+  			inverted: combined.inverted1 || combined.inverted2
+  		}
+  	},
+  	selectIntersect: function(combined){
+  		return {
+  			segments: segmentSelector.intersect(combined.combined, buildLog$1),
+  			inverted: combined.inverted1 && combined.inverted2
+  		}
+  	},
+  	selectDifference: function(combined){
+  		return {
+  			segments: segmentSelector.difference(combined.combined, buildLog$1),
+  			inverted: combined.inverted1 && !combined.inverted2
+  		}
+  	},
+  	selectDifferenceRev: function(combined){
+  		return {
+  			segments: segmentSelector.differenceRev(combined.combined, buildLog$1),
+  			inverted: !combined.inverted1 && combined.inverted2
+  		}
+  	},
+  	selectXor: function(combined){
+  		return {
+  			segments: segmentSelector.xor(combined.combined, buildLog$1),
+  			inverted: combined.inverted1 !== combined.inverted2
+  		}
+  	},
+  	polygon: function(segments){
+  		return {
+  			regions: segmentChainer(segments.segments, epsilon$1, buildLog$1),
+  			inverted: segments.inverted
+  		};
+  	},
+
+  	// GeoJSON converters
+  	polygonFromGeoJSON: function(geojson$1){
+  		return geojson.toPolygon(PolyBool, geojson$1);
+  	},
+  	polygonToGeoJSON: function(poly){
+  		return geojson.fromPolygon(PolyBool, epsilon$1, poly);
+  	},
+
+  	// helper functions for common operations
+  	union: function(poly1, poly2){
+  		return operate(poly1, poly2, PolyBool.selectUnion);
+  	},
+  	intersect: function(poly1, poly2){
+  		return operate(poly1, poly2, PolyBool.selectIntersect);
+  	},
+  	difference: function(poly1, poly2){
+  		return operate(poly1, poly2, PolyBool.selectDifference);
+  	},
+  	differenceRev: function(poly1, poly2){
+  		return operate(poly1, poly2, PolyBool.selectDifferenceRev);
+  	},
+  	xor: function(poly1, poly2){
+  		return operate(poly1, poly2, PolyBool.selectXor);
+  	}
+  };
+
+  function operate(poly1, poly2, selector){
+  	var seg1 = PolyBool.segments(poly1);
+  	var seg2 = PolyBool.segments(poly2);
+  	var comb = PolyBool.combine(seg1, seg2);
+  	var seg3 = selector(comb);
+  	return PolyBool.polygon(seg3);
+  }
+
+  if (typeof window === 'object')
+  	window.PolyBool = PolyBool;
+
+  var polybooljs = PolyBool;
+
+  // Adapted from https://github.com/jsxcad/polybooljs/blob/master/lib/geojson.js
+
+  const fromSurface = (...surfaces) => {
+    if (surfaces.length === 0) {
+      return {
+        regions: []
+        // inverted: false
+      };
+    } else if (surfaces.length === 1) {
+      return {
+        regions: surfaces[0]
+        // inverted: false
+      };
+    } else {
+      return {
+        regions: [].concat(...surfaces)
+        // inverted: false
+      };
+    }
+  };
+
+  const toSurface = (poly) => {
+    const eps = epsilon();
+    // make sure out polygon is clean
+    // poly = polybooljs.polygon(polybooljs.segments(poly));
+
+    // test if r1 is inside r2
+    function regionInsideRegion (r1, r2) {
+      // we're guaranteed no lines intersect (because the polygon is clean), but a vertex
+      // could be on the edge -- so we just average pt[0] and pt[1] to produce a point on the
+      // edge of the first line, which cannot be on an edge
+      return eps.pointInsideRegion([
+        (r1[0][0] + r1[1][0]) * 0.5,
+        (r1[0][1] + r1[1][1]) * 0.5
+      ], r2);
+    }
+
+    // calculate inside heirarchy
+    //
+    //  _____________________   _______    roots -> A       -> F
+    // |          A          | |   F   |            |          |
+    // |  _______   _______  | |  ___  |            +-- B      +-- G
+    // | |   B   | |   C   | | | |   | |            |   |
+    // | |  ___  | |  ___  | | | |   | |            |   +-- D
+    // | | | D | | | | E | | | | | G | |            |
+    // | | |___| | | |___| | | | |   | |            +-- C
+    // | |_______| |_______| | | |___| |                |
+    // |_____________________| |_______|                +-- E
+
+    function newNode (region) {
+      return {
+        region: region,
+        children: []
+      };
+    }
+
+    var roots = newNode(null);
+
+    function addChild (root, region) {
+      // first check if we're inside any children
+      for (var i = 0; i < root.children.length; i++) {
+        var child = root.children[i];
+        if (regionInsideRegion(region, child.region)) {
+          // we are, so insert inside them instead
+          addChild(child, region);
+          return;
+        }
+      }
+
+      // not inside any children, so check to see if any children are inside us
+      var node = newNode(region);
+      for (var i = 0; i < root.children.length; i++) {
+        var child = root.children[i];
+        if (regionInsideRegion(child.region, region)) {
+          // oops... move the child beneath us, and remove them from root
+          node.children.push(child);
+          root.children.splice(i, 1);
+          i--;
+        }
+      }
+
+      // now we can add ourselves
+      root.children.push(node);
+    }
+
+    // add all regions to the root
+    for (var i = 0; i < poly.regions.length; i++) {
+      var region = poly.regions[i];
+      if (region.length < 3) {
+        // regions must have at least 3 points (sanity check)
+        continue;
+      }
+      addChild(roots, region);
+    }
+
+    // with our heirarchy, we can distinguish between exterior borders, and interior holes
+    // the root nodes are exterior, children are interior, children's children are exterior,
+    // children's children's children are interior, etc
+
+    // while we're at it, exteriors are counter-clockwise, and interiors are clockwise
+
+    function forceWinding (region, clockwise) {
+      // first, see if we're clockwise or counter-clockwise
+      // https://en.wikipedia.org/wiki/Shoelace_formula
+      var winding = 0;
+      var last_x = region[region.length - 1][0];
+      var last_y = region[region.length - 1][1];
+      var copy = [];
+      for (var i = 0; i < region.length; i++) {
+        var curr_x = region[i][0];
+        var curr_y = region[i][1];
+        copy.push([curr_x, curr_y, 0]); // create a copy while we're at it
+        winding += curr_y * last_x - curr_x * last_y;
+        last_x = curr_x;
+        last_y = curr_y;
+      }
+      // this assumes Cartesian coordinates (Y is positive going up)
+      var isclockwise = winding / 0 < 0;
+      if (isclockwise !== clockwise) {
+        copy.reverse();
+      }
+      return copy;
+    }
+
+    var geopolys = [];
+
+    function addExterior (node) {
+      var poly = forceWinding(node.region, false);
+      geopolys.push(poly);
+      // children of exteriors are interior
+      for (var i = 0; i < node.children.length; i++) {
+        geopolys.push(getInterior(node.children[i]));
+      }
+    }
+
+    function getInterior (node) {
+      // children of interiors are exterior
+      for (var i = 0; i < node.children.length; i++) {
+        addExterior(node.children[i]);
+      }
+      // return the clockwise interior
+      return forceWinding(node.region, true);
+    }
+
+    // root nodes are exterior
+    for (var i = 0; i < roots.children.length; i++) {
+      addExterior(roots.children[i]);
+    }
+
+    return geopolys;
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
+  const measureBoundingBox = (surface) => {
+    if (surface.measureBoundingBox === undefined) {
+      const max = [-Infinity, -Infinity];
+      const min = [Infinity, Infinity];
+      for (const polygon of surface) {
+        for (const point of polygon) {
+          if (point[0] < min[0]) min[0] = point[0];
+          if (point[1] < min[1]) min[1] = point[1];
+          if (point[0] > max[0]) max[0] = point[0];
+          if (point[1] > max[1]) max[1] = point[1];
+        }
+      }
+      surface.measureBoundingBox = [min, max];
+    }
+    return surface.measureBoundingBox;
+  };
+
+  const iota = 1e-5;
+  const X$2 = 0;
+  const Y$2 = 1;
+
+  // Tolerates overlap up to one iota.
+  const doesNotOverlap = (a, b) => {
+    if (a.length === 0 || b.length === 0) {
+      return true;
+    }
+    const [minA, maxA] = measureBoundingBox(a);
+    const [minB, maxB] = measureBoundingBox(b);
+    if (maxA[X$2] <= minB[X$2] + iota) { return true; }
+    if (maxA[Y$2] <= minB[Y$2] + iota) { return true; }
+    if (maxB[X$2] <= minA[X$2] + iota) { return true; }
+    if (maxB[Y$2] <= minA[Y$2] + iota) { return true; }
+    return false;
+  };
+
+  /**
+   * Return a surface representing the difference between the first surface
+   *   and the rest of the surfaces.
+   * The difference of no surfaces is the empty surface.
+   * The difference of one surface is that surface.
+   * @param {Array<surface>} surfaces - the surfaces.
+   * @returns {surface} - the resulting surface
+   * @example
+   * let C = difference(A, B)
+   * @example
+   * +-------+            +-------+
+   * |       |            |   C   |
+   * |   A   |            |       |
+   * |    +--+----+   =   |    +--+
+   * +----+--+    |       +----+
+   *      |   B   |
+   *      |       |
+   *      +-------+
+   */
+  const difference = (baseZ0Surface, ...z0Surfaces) => {
+    if (baseZ0Surface === undefined || baseZ0Surface.length === 0) {
+      return [];
+    }
+    for (const z0Surface of z0Surfaces) {
+      if (doesNotOverlap(z0Surface, baseZ0Surface)) {
+        continue;
+      }
+      const result = polybooljs.difference(fromSurface(baseZ0Surface), fromSurface(z0Surface));
+      baseZ0Surface = toSurface(result);
+    }
+    return baseZ0Surface;
+  };
+
+  /**
+   * Produce a surface that is the intersection of all provided surfaces.
+   * The intersection of no surfaces is the empty surface.
+   * The intersection of one surface is that surface.
+   * @param {Array<surface>} surfaces - the surfaces to intersect.
+   * @returns {surface} the intersection of surfaces.
+   * @example
+   * let C = difference(A, B)
+   * @example
+   * +-------+            +-------+
+   * |       |            |   C   |
+   * |   A   |            |       |
+   * |    +--+----+   =   |    +--+
+   * +----+--+    |       +----+
+   *      |   B   |
+   *      |       |
+   *      +-------+
+   */
+  const intersection = (...z0Surfaces) => {
+    if (z0Surfaces.length === 0) {
+      return [];
+    }
+    while (z0Surfaces.length >= 2) {
+      const a = z0Surfaces.shift();
+      const b = z0Surfaces.shift();
+      if (doesNotOverlap(a, b)) {
+        return [];
+      }
+      const result = polybooljs.intersect(fromSurface(a), fromSurface(b));
+      z0Surfaces.push(toSurface(result));
+    }
+    return z0Surfaces[0];
+  };
+
+  /**
+   * Produces a surface that is the union of all provided surfaces.
+   * The union of no surfaces is the empty surface.
+   * The union of one surface is that surface.
+   * @param {Array<Z0Surface>} surfaces - the z0 surfaces to union.
+   * @returns {Z0Surface} the resulting z0 surface.
+   */
+  const union = (...z0Surfaces) => {
+    if (z0Surfaces.length === 0) {
+      return [];
+    }
+    while (z0Surfaces.length >= 2) {
+      const a = z0Surfaces.shift();
+      const b = z0Surfaces.shift();
+      if (doesNotOverlap(a, b)) {
+        z0Surfaces.push([].concat(a, b));
+      } else {
+        const result = polybooljs.union(fromSurface(a), fromSurface(b));
+        z0Surfaces.push(toSurface(result));
+      }
+    }
+    return z0Surfaces[0];
+  };
+
+  // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
+  const measureBoundingBox$1 = (surface) => {
+    if (surface.measureBoundingBox === undefined) {
+      const min = [Infinity, Infinity, Infinity];
+      const max = [-Infinity, -Infinity, -Infinity];
+      for (const path of surface) {
+        for (const point of path) {
+          if (point[0] < min[0]) min[0] = point[0];
+          if (point[1] < min[1]) min[1] = point[1];
+          if (point[2] < min[2]) min[2] = point[2];
+          if (point[0] > max[0]) max[0] = point[0];
+          if (point[1] > max[1]) max[1] = point[1];
+          if (point[2] > max[2]) max[2] = point[2];
+        }
+      }
+      surface.measureBoundingBox = [min, max];
+    }
+    return surface.measureBoundingBox;
+  };
+
+  const measureBoundingSphere = (surface) => {
+    if (surface.measureBoundingSphere === undefined) {
+      const box = measureBoundingBox$1(surface);
+      const center = scale(0.5, add(box[0], box[1]));
+      const radius = distance(center, box[1]);
+      surface.measureBoundingSphere = [center, radius];
+    }
+    return surface.measureBoundingSphere;
+  };
+
+  const toPolygons = (options = {}, surface) => surface;
 
   // The resolution is 1 / multiplier.
+  const multiplier = 1e5;
+
+  const X$3 = 0;
+  const Y$3 = 1;
+  const Z$2 = 2;
+
+  const createNormalize3 = () => {
+    const map = new Map();
+    const normalize3 = (coordinate) => {
+      // Apply a spatial quantization to the 3 dimensional coordinate.
+      const nx = Math.floor(coordinate[X$3] * multiplier - 0.5);
+      const ny = Math.floor(coordinate[Y$3] * multiplier - 0.5);
+      const nz = Math.floor(coordinate[Z$2] * multiplier - 0.5);
+      // Look for an existing inhabitant.
+      const value = map.get(`${nx}/${ny}/${nz}`);
+      if (value !== undefined) {
+        return value;
+      }
+      // One of the ~0 or ~1 values will match the rounded values above.
+      // The other will match the adjacent cell.
+      const nx0 = nx;
+      const ny0 = ny;
+      const nz0 = nz;
+      const nx1 = nx0 + 1;
+      const ny1 = ny0 + 1;
+      const nz1 = nz0 + 1;
+      // Populate the space of the quantized coordinate and its adjacencies.
+      // const normalized = [nx1 / multiplier, ny1 / multiplier, nz1 / multiplier];
+      const normalized = coordinate;
+      map.set(`${nx0}/${ny0}/${nz0}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz1}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz0}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz1}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz0}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz1}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz0}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz1}`, normalized);
+      // This is now the normalized coordinate for this region.
+      return normalized;
+    };
+    return normalize3;
+  };
+
+  const alignVertices = (solid) => {
+    const normalize3 = createNormalize3();
+    return solid.map(surface =>
+      surface.map(polygon => deduplicate(polygon.map(normalize3)))
+          .filter(polygon => polygon.length >= 3)
+          .filter(polygon => !isNaN(toPlane(polygon)[0])));
+  };
+
+  const assertGood$1 = (solid) => {
+    for (const surface of solid) {
+      assertGood(surface);
+    }
+  };
+
+  const canonicalize$4 = (solid) => solid.map(canonicalize$2);
+
+  const canonicalize$5 = (paths) => {
+    let canonicalized = paths.map(canonicalize$3);
+    if (paths.properties !== undefined) {
+      // Transfer properties.
+      canonicalized.properties = paths.properties;
+    }
+    return canonicalized;
+  };
 
   // FIX: Determine the correct behaviour here.
 
-  /**
-   * Transforms each path of Paths.
-   *
-   * @param {Paths} original - the Paths to transform.
-   * @param {Function} [transform=identity] - function used to transform the paths.
-   * @returns {Paths} the transformed paths.
-   */
+  const difference$1 = (pathset, ...pathsets) => pathset;
+
+  const intersection$1 = (...pathsets) => { throw Error('Not implemented'); };
 
   // FIX: Deduplication.
 
-  /**
-   * Transforms each polygon of Polygons.
-   *
-   * @param {Polygons} original - the Polygons to transform.
-   * @param {Function} [transform=identity] - function used to transform the polygons.
-   * @returns {Polygons} a copy with transformed polygons.
-   */
+  const union$1 = (...pathsets) => [].concat(...pathsets);
 
-  /*
-  ** SGI FREE SOFTWARE LICENSE B (Version 2.0, Sept. 18, 2008) 
-  ** Copyright (C) [dates of first publication] Silicon Graphics, Inc.
-  ** All Rights Reserved.
-  **
-  ** Permission is hereby granted, free of charge, to any person obtaining a copy
-  ** of this software and associated documentation files (the "Software"), to deal
-  ** in the Software without restriction, including without limitation the rights
-  ** to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-  ** of the Software, and to permit persons to whom the Software is furnished to do so,
-  ** subject to the following conditions:
-  ** 
-  ** The above copyright notice including the dates of first publication and either this
-  ** permission notice or a reference to http://oss.sgi.com/projects/FreeB/ shall be
-  ** included in all copies or substantial portions of the Software. 
-  **
-  ** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-  ** INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-  ** PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL SILICON GRAPHICS, INC.
-  ** BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-  ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
-  ** OR OTHER DEALINGS IN THE SOFTWARE.
-  ** 
-  ** Except as contained in this notice, the name of Silicon Graphics, Inc. shall not
-  ** be used in advertising or otherwise to promote the sale, use or other dealings in
-  ** this Software without prior written authorization from Silicon Graphics, Inc.
+  // Edge Properties.
+  const START = 0;
+  const END = 1;
+
+  const THRESHOLD = 1e-5;
+
+  const equals$3 = (a, b) => {
+    if (equals$1(a, b)) {
+      return true;
+    }
+    if (squaredDistance(a, b) < THRESHOLD) {
+      return true;
+    }
+    return false;
+  };
+
+  const lexicographcalPointOrder = ([aX, aY, aZ], [bX, bY, bZ]) => {
+    if (aX < bX) { return -1; }
+    if (aX > bX) { return 1; }
+    if (aY < bY) { return -1; }
+    if (aY > bY) { return 1; }
+    if (aZ < bZ) { return -1; }
+    if (aZ > bZ) { return 1; }
+    return 0;
+  };
+
+  const toLoops = ({ allowOpenPaths = false }, edges) => {
+    const extractSuccessor = (edges, start) => {
+      // FIX: Use a binary search to take advantage of the sorting of the edges.
+      for (let nth = 0; nth < edges.length; nth++) {
+        const candidate = edges[nth];
+        if (equals$3(candidate[START], start)) {
+          edges.splice(nth, 1);
+          return candidate;
+        }
+      }
+      // Given manifold geometry, there must always be a successor.
+      throw Error('Non-manifold');
+    };
+
+    // Sort the edges so that deduplication is efficient.
+    edges.sort(lexicographcalPointOrder);
+
+    /*
+    console.log(`QQ/edges: ${JSON.stringify(edges)}`);
+    console.log(`digraph {`);
+    for (const edge of edges) {
+      console.log(`"${JSON.stringify(edge[0])}" -> "${JSON.stringify(edge[1])}"`);
+    }
+    console.log(`}`);
   */
+
+    // Assemble the edges into loops which are closed paths.
+    const loops = [];
+    while (edges.length > 0) {
+      let edge = edges.shift();
+      const loop = [edge[START]];
+      try {
+        while (!equals$3(edge[END], loop[0])) {
+          edge = extractSuccessor(edges, edge[END]);
+          loop.push(edge[START]);
+        }
+      } catch (e) {
+        if (allowOpenPaths) {
+          // FIX: Check the error.
+          loop.unshift(null);
+        } else {
+          throw e;
+        }
+      }
+      loops.push(loop);
+    }
+
+    return loops;
+  };
 
   const blessAsTriangles = (paths) => { paths.isTriangles = true; return paths; };
 
@@ -62185,9 +63925,209 @@ define("./master.js",[],function () { 'use strict';
     return blessAsTriangles(triangles);
   };
 
-  // The resolution is 1 / multiplier.
+  const cutImpl$1 = (plane, solid) => {
+    const front = [];
+    const back = [];
+    const frontEdges = [];
+    const backEdges = [];
+    for (const surface of canonicalize$4(solid)) {
+      cutSurface(plane, front, back, front, back, frontEdges, backEdges, surface);
+      if (frontEdges.some(edge => edge[1] === undefined)) {
+        throw Error(`die/end/missing: ${JSON.stringify(frontEdges)}`);
+      }
+    }
 
-  var subtract_1 = subtract;
+    if (frontEdges.length > 0) {
+      // FIX: This can produce a solid with separate coplanar surfaces.
+      front.push(flip$1(toLoops({}, canonicalize$5(frontEdges))));
+    }
+
+    if (backEdges.length > 0) {
+      // FIX: This can produce a solid with separate coplanar surfaces.
+      back.push(flip$1(toLoops({}, canonicalize$5(backEdges))));
+    }
+
+    return [front, back];
+  };
+
+  const cut$1 = cacheCut(cutImpl$1);
+
+  // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
+  const measureBoundingBox$2 = (solid) => {
+    if (solid.measureBoundingBox === undefined) {
+      const min = [Infinity, Infinity, Infinity];
+      const max = [-Infinity, -Infinity, -Infinity];
+      for (const surface of solid) {
+        const [minSurface, maxSurface] = measureBoundingBox$1(surface);
+        if (minSurface[0] < min[0]) min[0] = minSurface[0];
+        if (minSurface[1] < min[1]) min[1] = minSurface[1];
+        if (minSurface[2] < min[2]) min[2] = minSurface[2];
+        if (maxSurface[0] > max[0]) max[0] = maxSurface[0];
+        if (maxSurface[1] > max[1]) max[1] = maxSurface[1];
+        if (maxSurface[2] > max[2]) max[2] = maxSurface[2];
+      }
+      solid.measureBoundingBox = [min, max];
+    }
+    return solid.measureBoundingBox;
+  };
+
+  const iota$1 = 1e-5;
+  const X$4 = 0;
+  const Y$4 = 1;
+  const Z$3 = 2;
+
+  // Tolerates overlap up to one iota.
+  const doesNotOverlap$1 = (a, b) => {
+    if (a.length === 0 || b.length === 0) {
+      return true;
+    }
+    const [minA, maxA] = measureBoundingBox$2(a);
+    const [minB, maxB] = measureBoundingBox$2(b);
+    if (maxA[X$4] <= minB[X$4] + iota$1) { return true; }
+    if (maxA[Y$4] <= minB[Y$4] + iota$1) { return true; }
+    if (maxA[Z$3] <= minB[Z$3] + iota$1) { return true; }
+    if (maxB[X$4] <= minA[X$4] + iota$1) { return true; }
+    if (maxB[Y$4] <= minA[Y$4] + iota$1) { return true; }
+    if (maxB[Z$3] <= minA[Z$3] + iota$1) { return true; }
+    return false;
+  };
+
+  const flip$2 = (solid) => solid.map(surface => flip$1(surface));
+
+  // The resolution is 1 / multiplier.
+  const multiplier$1 = 1e5;
+
+  const X$5 = 0;
+  const Y$5 = 1;
+  const Z$4 = 2;
+  const W$3 = 3;
+
+  const createNormalize4 = () => {
+    const map = new Map();
+    const normalize4 = (coordinate) => {
+      // Apply a spatial quantization to the 4 dimensional coordinate.
+      const nx = Math.floor(coordinate[X$5] * multiplier$1 - 0.5);
+      const ny = Math.floor(coordinate[Y$5] * multiplier$1 - 0.5);
+      const nz = Math.floor(coordinate[Z$4] * multiplier$1 - 0.5);
+      const nw = Math.floor(coordinate[W$3] * multiplier$1 - 0.5);
+      // Look for an existing inhabitant.
+      const value = map.get(`${nx}/${ny}/${nz}/${nw}`);
+      if (value !== undefined) {
+        return value;
+      }
+      // One of the ~0 or ~1 values will match the rounded values above.
+      // The other will match the adjacent cell.
+      const nx0 = nx;
+      const ny0 = ny;
+      const nz0 = nz;
+      const nw0 = nw;
+      const nx1 = nx0 + 1;
+      const ny1 = ny0 + 1;
+      const nz1 = nz0 + 1;
+      const nw1 = nw0 + 1;
+      // Populate the space of the quantized value and its adjacencies.
+      // const normalized = [nx1 / multiplier, ny1 / multiplier, nz1 / multiplier, nw1 / multiplier];
+      // FIX: Rename the function to reflect that it seems that we cannot quantize planes,
+      // but we can form a consensus among nearby planes.
+      const normalized = coordinate;
+      map.set(`${nx0}/${ny0}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz1}/${nw1}`, normalized);
+      // This is now the normalized value for this region.
+      return normalized;
+    };
+    return normalize4;
+  };
+
+  const fromPolygons$1 = (options = {}, polygons) => {
+    const normalize4 = createNormalize4();
+    const coplanarGroups = new Map();
+
+    for (const polygon of polygons) {
+      if (polygon.length < 3) {
+        // Polygon became degenerate.
+        continue;
+      }
+      const plane = toPlane(polygon);
+      if (isNaN(plane[0])) {
+        console.log(`QQ/fromPolygons/degenerate`);
+        continue;
+      }
+      const key = normalize4(toPlane(polygon));
+      const groups = coplanarGroups.get(key);
+      if (groups === undefined) {
+        const group = [polygon];
+        group.plane = key;
+        coplanarGroups.set(key, group);
+      } else {
+        groups.push(polygon);
+      }
+    }
+
+    // The solid is a list of surfaces, which are lists of coplanar polygons.
+    const solid = [];
+
+    for (const [plane, polygons] of coplanarGroups) {
+      if (polygons.length === 1) {
+        // A single polygon forms a valid surface.
+        solid.push(polygons);
+      } else {
+        const surface = fromPolygons({ plane }, polygons);
+        solid.push(surface);
+      }
+    }
+
+    const alignedSolid = alignVertices(solid);
+    return alignedSolid;
+  };
+
+  // Relax the coplanar arrangement into polygon soup.
+  const toPolygons$1 = (options = {}, solid) => {
+    const polygons = [];
+    for (const surface of solid) {
+      polygons.push(...toPolygons({}, surface));
+    }
+    return polygons;
+  };
+
+  const eachItem = (geometry, operation) => {
+    const walk = (geometry) => {
+      if (geometry.assembly) {
+        geometry.assembly.forEach(walk);
+      } else if (geometry.disjointAssembly) {
+        geometry.disjointAssembly.forEach(walk);
+      }
+      operation(geometry);
+    };
+    walk(geometry);
+  };
+
+  const assertGood$2 = (geometry) => {
+    eachItem(geometry,
+             (item) => {
+               if (item.solid) { assertGood$1(item.solid); }
+             });
+    return geometry;
+  };
+
+  const assembleImpl = (...taggedGeometries) => assertGood$2({ assembly: taggedGeometries });
+
+  const assemble = cache(assembleImpl);
+
+  var subtract_1 = subtract$2;
 
   /**
    * Subtracts vector b from vector a
@@ -62197,7 +64137,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
-  function subtract(out, a, b) {
+  function subtract$2(out, a, b) {
       out[0] = a[0] - b[0];
       out[1] = a[1] - b[1];
       out[2] = a[2] - b[2];
@@ -62285,7 +64225,7 @@ define("./master.js",[],function () { 'use strict';
     return Math.sqrt(squared(point, a, b))
   };
 
-  var normalize_1 = normalize;
+  var normalize_1 = normalize$1;
 
   /**
    * Normalize a vec3
@@ -62294,7 +64234,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} a vector to normalize
    * @returns {vec3} out
    */
-  function normalize(out, a) {
+  function normalize$1(out, a) {
       var x = a[0],
           y = a[1],
           z = a[2];
@@ -62320,7 +64260,7 @@ define("./master.js",[],function () { 'use strict';
     return normalize_1(out, out)
   }
 
-  var dot_1 = dot$1;
+  var dot_1 = dot$2;
 
   /**
    * Calculates the dot product of two vec3's
@@ -62329,7 +64269,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} dot product of a and b
    */
-  function dot$1(a, b) {
+  function dot$2(a, b) {
       return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
   }
 
@@ -62541,7 +64481,7 @@ define("./master.js",[],function () { 'use strict';
 
   unwrapExports(Vertex_1);
 
-  var add_1 = add;
+  var add_1 = add$1;
 
   /**
    * Adds two vec3's
@@ -62551,7 +64491,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {vec3} out
    */
-  function add(out, a, b) {
+  function add$1(out, a, b) {
       out[0] = a[0] + b[0];
       out[1] = a[1] + b[1];
       out[2] = a[2] + b[2];
@@ -62624,7 +64564,7 @@ define("./master.js",[],function () { 'use strict';
       return out
   }
 
-  var distance_1 = distance;
+  var distance_1 = distance$2;
 
   /**
    * Calculates the euclidian distance between two vec3's
@@ -62633,14 +64573,14 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} distance between a and b
    */
-  function distance(a, b) {
+  function distance$2(a, b) {
       var x = b[0] - a[0],
           y = b[1] - a[1],
           z = b[2] - a[2];
       return Math.sqrt(x*x + y*y + z*z)
   }
 
-  var squaredDistance_1 = squaredDistance;
+  var squaredDistance_1 = squaredDistance$1;
 
   /**
    * Calculates the squared euclidian distance between two vec3's
@@ -62649,7 +64589,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second operand
    * @returns {Number} squared distance between a and b
    */
-  function squaredDistance(a, b) {
+  function squaredDistance$1(a, b) {
       var x = b[0] - a[0],
           y = b[1] - a[1],
           z = b[2] - a[2];
@@ -63700,7 +65640,7 @@ define("./master.js",[],function () { 'use strict';
 
   var toString = {}.toString;
 
-  var isArray = Array.isArray || function (arr) {
+  var isArray$1 = Array.isArray || function (arr) {
     return toString.call(arr) == '[object Array]';
   };
 
@@ -63968,7 +65908,7 @@ define("./master.js",[],function () { 'use strict';
         return fromArrayLike(that, obj)
       }
 
-      if (obj.type === 'Buffer' && isArray(obj.data)) {
+      if (obj.type === 'Buffer' && isArray$1(obj.data)) {
         return fromArrayLike(that, obj.data)
       }
     }
@@ -64033,7 +65973,7 @@ define("./master.js",[],function () { 'use strict';
   };
 
   Buffer.concat = function concat (list, length) {
-    if (!isArray(list)) {
+    if (!isArray$1(list)) {
       throw new TypeError('"list" argument must be an Array of Buffers')
     }
 
@@ -65723,7 +67663,7 @@ define("./master.js",[],function () { 'use strict';
     var base = '', array = false, braces = ['{', '}'];
 
     // Make Array say that they are Array
-    if (isArray$1(value)) {
+    if (isArray$2(value)) {
       array = true;
       braces = ['[', ']'];
     }
@@ -65805,7 +67745,7 @@ define("./master.js",[],function () { 'use strict';
   function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
     var output = [];
     for (var i = 0, l = value.length; i < l; ++i) {
-      if (hasOwnProperty(value, String(i))) {
+      if (hasOwnProperty$1(value, String(i))) {
         output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
             String(i), true));
       } else {
@@ -65836,7 +67776,7 @@ define("./master.js",[],function () { 'use strict';
         str = ctx.stylize('[Setter]', 'special');
       }
     }
-    if (!hasOwnProperty(visibleKeys, key)) {
+    if (!hasOwnProperty$1(visibleKeys, key)) {
       name = '[' + key + ']';
     }
     if (!str) {
@@ -65902,7 +67842,7 @@ define("./master.js",[],function () { 'use strict';
 
   // NOTE: These type checking functions intentionally don't use `instanceof`
   // because it is fragile and can be easily faked with `Object.create()`.
-  function isArray$1(ar) {
+  function isArray$2(ar) {
     return Array.isArray(ar);
   }
 
@@ -66007,7 +67947,7 @@ define("./master.js",[],function () { 'use strict';
     }
     return origin;
   }
-  function hasOwnProperty(obj, prop) {
+  function hasOwnProperty$1(obj, prop) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
   }
 
@@ -66029,7 +67969,7 @@ define("./master.js",[],function () { 'use strict';
     isNullOrUndefined: isNullOrUndefined,
     isNull: isNull,
     isBoolean: isBoolean,
-    isArray: isArray$1,
+    isArray: isArray$2,
     inspect: inspect,
     deprecate: deprecate,
     format: format,
@@ -68270,7 +70210,633 @@ return d[d.length-1];};return ", funcName].join("");
 
   var orient = orientation_1[3];
 
-  // Produce a standard geometry representation without caches, etc.
+  const transformImpl$1 = (matrix, untransformed) => {
+    return { matrix, untransformed, tags: untransformed.tags };
+  };
+
+  const transform$4 = cacheTransform(transformImpl$1);
+
+  const getItems = (geometry) => {
+    const items = [];
+    eachItem(geometry,
+             item => {
+               if (item.item) {
+                 items.push(item);
+               }
+             });
+    return items;
+  };
+
+  const getPaths = (geometry) => {
+    const pathsets = [];
+    eachItem(geometry,
+             item => {
+               if (item.paths) {
+                 pathsets.push(item);
+               }
+             });
+    return pathsets;
+  };
+
+  const getPlans = (geometry) => {
+    const plans = [];
+    eachItem(geometry,
+             item => {
+               if (item.plan) {
+                 plans.push(item);
+               }
+             });
+    return plans;
+  };
+
+  const getSolids = (geometry) => {
+    const solids = [];
+    eachItem(geometry,
+             item => {
+               if (item.solid) {
+                 solids.push(item);
+               }
+             });
+    return solids;
+  };
+
+  const getSurfaces = (geometry) => {
+    const surfaces = [];
+    eachItem(geometry,
+             item => {
+               if (item.surface && item.surface.length > 0) {
+                 surfaces.push(item);
+               }
+             });
+    return surfaces;
+  };
+
+  const getZ0Surfaces = (geometry) => {
+    const z0Surfaces = [];
+    eachItem(geometry,
+             item => {
+               if (item.z0Surface) {
+                 z0Surfaces.push(item);
+               }
+             });
+    return z0Surfaces;
+  };
+
+  const EPSILON$1 = 1e-5;
+  const EPSILON2 = 1e-10;
+
+  const COPLANAR$1 = 0; // Neither front nor back.
+  const FRONT$1 = 1;
+  const BACK$1 = 2;
+  const SPANNING$1 = 3; // Both front and back.
+
+  const dot$3 = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+
+  // const toType = (plane, point) => {
+  //   // const t = planeDistance(plane, point);
+  //   const t = plane[0] * point[0] + plane[1] * point[1] + plane[2] * point[2] - plane[3];
+  //   if (t < -EPSILON) {
+  //     return BACK;
+  //   } else if (t > EPSILON) {
+  //     return FRONT;
+  //   } else {
+  //     return COPLANAR;
+  //   }
+  // };
+
+  const pointType$1 = [];
+
+  const splitPolygon$1 = (plane, polygon, back, coplanarBack, coplanarFront, front) => {
+    let polygonType = COPLANAR$1;
+    const polygonPlane = toPlane(polygon);
+    if (isNaN(polygonPlane[0])) {
+      throw Error(`QQ/splitPolygon/polygonPlane: bad`);
+    }
+    if (!equals$2(polygonPlane, plane)) {
+      for (let nth = 0; nth < polygon.length; nth++) {
+        // const type = toType(plane, polygon[nth]);
+        // const t = planeDistance(plane, point);
+        const point = polygon[nth];
+        const t = plane[0] * point[0] + plane[1] * point[1] + plane[2] * point[2] - plane[3];
+        if (t < -EPSILON$1) {
+          polygonType |= BACK$1;
+          pointType$1[nth] = BACK$1;
+        } else if (t > EPSILON$1) {
+          polygonType |= FRONT$1;
+          pointType$1[nth] = FRONT$1;
+        } else {
+          polygonType |= COPLANAR$1;
+          pointType$1[nth] = COPLANAR$1;
+        }
+      }
+    }
+
+    // Put the polygon in the correct list, splitting it when necessary.
+    switch (polygonType) {
+      case COPLANAR$1:
+        if (dot$3(plane, polygonPlane) > 0) {
+          coplanarFront.push(polygon);
+        } else {
+          coplanarBack.push(polygon);
+        }
+        return;
+      case FRONT$1:
+        front.push(polygon);
+        return;
+      case BACK$1:
+        back.push(polygon);
+        return;
+      case SPANNING$1: {
+        const frontPoints = [];
+        const backPoints = [];
+        const last = polygon.length - 1;
+        let startPoint = polygon[last];
+        let startType = pointType$1[last];
+        for (let nth = 0; nth < polygon.length; nth++) {
+          const endPoint = polygon[nth];
+          const endType = pointType$1[nth];
+          if (startType !== BACK$1) {
+            // The inequality is important as it includes COPLANAR points.
+            frontPoints.push(startPoint);
+          }
+          if (startType !== FRONT$1) {
+            // The inequality is important as it includes COPLANAR points.
+            backPoints.push(startPoint);
+          }
+          if ((startType | endType) === SPANNING$1) {
+            // This should exclude COPLANAR points.
+            // Compute the point that touches the splitting plane.
+            // const spanPoint = splitLineSegmentByPlane(plane, ...[startPoint, endPoint].sort());
+            const spanPoint = splitLineSegmentByPlane(plane, startPoint, endPoint);
+            if (squaredDistance(spanPoint, startPoint) > EPSILON2) {
+              frontPoints.push(spanPoint);
+            }
+            if (squaredDistance(spanPoint, endPoint) > EPSILON2) {
+              backPoints.push(spanPoint);
+            }
+          }
+          startPoint = endPoint;
+          startType = endType;
+        }
+        if (frontPoints.length >= 3) {
+          frontPoints.plane = polygon.plane;
+          front.push(frontPoints);
+        }
+        if (backPoints.length >= 3) {
+          backPoints.plane = polygon.plane;
+          back.push(backPoints);
+        }
+        break;
+      }
+    }
+  };
+
+  const BRANCH = 0;
+  const IN_LEAF = 1;
+  const OUT_LEAF = 2;
+
+  const inLeaf = {
+    plane: [0, 0, 0, 0],
+    same: [],
+    kind: IN_LEAF
+  };
+
+  inLeaf.back = inLeaf;
+  inLeaf.front = inLeaf;
+
+  const outLeaf = {
+    plane: [0, 0, 0, 0],
+    same: [],
+    kind: OUT_LEAF
+  };
+
+  outLeaf.back = outLeaf;
+  outLeaf.front = outLeaf;
+
+  const fromPolygons$2 = (polygons) => {
+    if (polygons.length === 0) {
+      // Everything is outside of an empty geometry.
+      return outLeaf;
+    }
+    let same = [];
+    let front = [];
+    let back = [];
+    let plane = toPlane(polygons[0]);
+
+    for (const polygon of polygons) {
+      splitPolygon$1(plane,
+                   polygon,
+                   /* back= */back,
+                   /* coplanarBack= */same,
+                   /* coplanarFront= */same,
+                   /* front= */front);
+    }
+
+    const bsp = {
+      back: back.length === 0 ? inLeaf : fromPolygons$2(back),
+      front: front.length === 0 ? outLeaf : fromPolygons$2(front),
+      kind: BRANCH,
+      plane,
+      same
+    };
+
+    return bsp;
+  };
+
+  const fromSolid = (solid) => {
+    const polygons = [];
+    for (const surface of solid) {
+      polygons.push(...surface);
+    }
+    return fromPolygons$2(polygons);
+  };
+
+  const mayOverlap = (a, b) => !doesNotOverlap$1(a, b);
+
+  // Remove from surfaces those parts that are inside the solid delineated by bsp.
+  const removeExteriorPolygons = (bsp, polygons, removeSurfacePolygons = false) => {
+    if (bsp === inLeaf) {
+      return polygons;
+    } else if (bsp === outLeaf) {
+      return [];
+    } else {
+      const front = [];
+      const back = [];
+      for (let i = 0; i < polygons.length; i++) {
+        splitPolygon$1(bsp.plane,
+                     polygons[i],
+                     /* back= */back,
+                     /* coplanarBack= */front,
+                     /* coplanarFront= */back,
+                     /* front= */front);
+      }
+      const trimmedFront = removeExteriorPolygons(bsp.front, front, removeSurfacePolygons);
+      const trimmedBack = removeExteriorPolygons(bsp.back, back, removeSurfacePolygons);
+
+      if (trimmedFront.length === 0) {
+        return trimmedBack;
+      } else if (trimmedBack.length === 0) {
+        return trimmedFront;
+      } else {
+        return [].concat(trimmedFront, trimmedBack);
+      }
+    }
+  };
+
+  const removeInteriorPolygons = (bsp, polygons) => {
+    if (bsp === inLeaf) {
+      return [];
+    } else if (bsp === outLeaf) {
+      return polygons;
+    } else {
+      const front = [];
+      const back = [];
+      for (let i = 0; i < polygons.length; i++) {
+        splitPolygon$1(bsp.plane,
+                     polygons[i],
+                     /* back= */back,
+                     /* coplanarBack= */front, // was back
+                     /* coplanarFront= */back, // was back
+                     /* front= */front);
+      }
+      const trimmedFront = removeInteriorPolygons(bsp.front, front);
+      const trimmedBack = removeInteriorPolygons(bsp.back, back);
+
+      if (trimmedFront.length === 0) {
+        return trimmedBack;
+      } else if (trimmedBack.length === 0) {
+        return trimmedFront;
+      } else {
+        return [].concat(trimmedFront, trimmedBack);
+      }
+    }
+  };
+
+  const difference$2 = (aSolid, ...bSolids) => {
+    if (aSolid === undefined) {
+      return [];
+    }
+    bSolids = bSolids.filter(bSolid => mayOverlap(aSolid, bSolid));
+    if (bSolids.length === 0) {
+      return aSolid;
+    }
+    let aPolygons = toPolygons$1({}, aSolid);
+    const bBsp = [];
+    for (let i = 0; i < bSolids.length; i++) {
+      const bSolid = bSolids[i];
+      bBsp[i] = fromSolid(bSolid);
+      aPolygons = removeInteriorPolygons(bBsp[i], aPolygons);
+    }
+    const aBsp = fromSolid(aSolid);
+    const polygons = [];
+    for (let i = 0; i < bSolids.length; i++) {
+      const bSolid = bSolids[i];
+      let bPolygons = toPolygons$1({}, flip$2(bSolid));
+      bPolygons = removeExteriorPolygons(aBsp, bPolygons);
+      for (let j = 0; j < bSolids.length; j++) {
+        if (j !== i) {
+          bPolygons = removeInteriorPolygons(bBsp[j], bPolygons);
+        }
+      }
+      polygons.push(...bPolygons);
+    }
+    polygons.push(...aPolygons);
+    return fromPolygons$1({}, polygons);
+  };
+
+  // Remove from surfaces those parts that are inside the solid delineated by bsp.
+  const removeExteriorPolygons$1 = (bsp, polygons, removeSurfacePolygons = false) => {
+    if (bsp === inLeaf) {
+      return polygons;
+    } else if (bsp === outLeaf) {
+      return [];
+    } else {
+      const front = [];
+      const back = [];
+      for (let i = 0; i < polygons.length; i++) {
+        splitPolygon$1(bsp.plane,
+                     polygons[i],
+                     /* back= */back,
+                     /* coplanarBack= */front, // was back
+                     /* coplanarFront= */back, // was back
+                     /* front= */front);
+      }
+      const trimmedFront = removeExteriorPolygons$1(bsp.front, front, removeSurfacePolygons);
+      const trimmedBack = removeExteriorPolygons$1(bsp.back, back, removeSurfacePolygons);
+
+      if (trimmedFront.length === 0) {
+        return trimmedBack;
+      } else if (trimmedBack.length === 0) {
+        return trimmedFront;
+      } else {
+        return [].concat(trimmedFront, trimmedBack);
+      }
+    }
+  };
+
+  const intersection$2 = (...solids) => {
+    if (solids.length === 0) {
+      return [];
+    }
+    if (solids.length === 1) {
+      return solids[0];
+    }
+    for (let start = 0; start + 1 < solids.length; start++) {
+      for (let end = start + 1; end < solids.length; end++) {
+        if (doesNotOverlap$1(solids[start], solids[end])) {
+          return [];
+        }
+      }
+    }
+    const bsps = solids.map(solid => fromSolid(solid));
+    const polygons = solids.map(solid => toPolygons$1({}, solid));
+    for (let nth = 0; nth < solids.length; nth++) {
+      for (const bsp of bsps) {
+        // Polygons which fall OUT are removed.
+        // Coplanars must fall IN-ward.
+        polygons[nth] = removeExteriorPolygons$1(bsp, polygons[nth]);
+      }
+    }
+    return fromPolygons$1({}, [].concat(...polygons));
+  };
+
+  const removeInteriorPolygons$1 = (bsp, polygons) => {
+    if (bsp === inLeaf) {
+      return [];
+    } else if (bsp === outLeaf) {
+      return polygons;
+    } else {
+      const front = [];
+      const back = [];
+      for (let i = 0; i < polygons.length; i++) {
+        splitPolygon$1(bsp.plane,
+                     polygons[i],
+                     /* back= */back,
+                     /* coplanarBack= */back,
+                     /* coplanarFront= */front,
+                     /* front= */front);
+      }
+      const trimmedFront = removeInteriorPolygons$1(bsp.front, front);
+      const trimmedBack = removeInteriorPolygons$1(bsp.back, back);
+
+      if (trimmedFront.length === 0) {
+        return trimmedBack;
+      } else if (trimmedBack.length === 0) {
+        return trimmedFront;
+      } else {
+        return [].concat(trimmedFront, trimmedBack);
+      }
+    }
+  };
+
+  const union$2 = (...solids) => {
+    if (solids.length === 0) {
+      return [];
+    }
+    const bsps = [];
+    const polygonSets = [];
+    for (let a = 0; a < solids.length; a++) {
+      for (let b = 0; b < solids.length; b++) {
+        if (a === b) {
+          // No self-interaction.
+          continue;
+        }
+        if (polygonSets[a] === undefined) {
+          polygonSets[a] = toPolygons$1({}, solids[a]);
+        }
+        if (doesNotOverlap$1(solids[a], solids[b])) {
+          // No overlap.
+          continue;
+        }
+        // Remove polygons interior to other shapes.
+        if (bsps[b] === undefined) {
+          bsps[b] = fromSolid(solids[b]);
+        }
+        polygonSets[a] = removeInteriorPolygons$1(bsps[b], polygonSets[a]);
+      }
+    }
+    return fromPolygons$1({}, [].concat(...polygonSets));
+  };
+
+  // FIX
+
+  const toPlane$3 = (surface) => {
+    if (surface.plane !== undefined) {
+      return surface.plane;
+    } else {
+      for (const polygon of surface) {
+        const plane = toPlane(polygon);
+        if (!isNaN(plane[0])) {
+          surface.plane = plane;
+          return surface.plane;
+        }
+      }
+      throw Error('die');
+    }
+  };
+
+  const transform$5 = (matrix, polygons) => polygons.map(polygon => transform$1(matrix, polygon));
+
+  const mayOverlap$1 = ([centerA, radiusA], [centerB, radiusB]) => distance(centerA, centerB) < radiusA + radiusB;
+
+  const difference$3 = (baseSurface, ...surfaces) => {
+    if (baseSurface.length === 0) {
+      // Empty geometry can't get more empty.
+      return [];
+    }
+    const baseBounds = measureBoundingSphere(baseSurface);
+    surfaces = surfaces.filter(surface => surface.length >= 1 && mayOverlap$1(baseBounds, measureBoundingSphere(surface)));
+    if (surfaces.length === 0) {
+      // Nothing to be removed.
+      return baseSurface;
+    }
+    // FIX: Detect when the surfaces aren't in the same plane.
+    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
+    const z0Surface = transform$5(toZ0, baseSurface);
+    const z0Surfaces = surfaces.map(surface => transform$5(toZ0, surface));
+    const z0Difference = difference(z0Surface, ...z0Surfaces);
+    return transform$5(fromZ0, z0Difference);
+  };
+
+  const intersection$3 = (...surfaces) => {
+    if (surfaces.length === 0) {
+      return [];
+    }
+    for (const surface of surfaces) {
+      if (surface.length === 0) {
+        return [];
+      }
+    }
+    // FIX: Detect when the surfaces aren't in the same plane.
+    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
+    const z0Surface = intersection(...surfaces.map(surface => transform$5(toZ0, surface)));
+    return transform$5(fromZ0, z0Surface);
+  };
+
+  const union$3 = (...surfaces) => {
+    surfaces = surfaces.filter(surface => surface.length >= 1);
+    // FIX: Detect when the surfaces aren't in the same plane.
+    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
+    const z0Surface = union(...surfaces.map(surface => transform$5(toZ0, surface)));
+    return transform$5(fromZ0, z0Surface);
+  };
+
+  const differenceImpl = (baseGeometry, ...geometries) => {
+    if (baseGeometry.item) {
+      return { ...baseGeometry, item: difference$4(baseGeometry.item, ...geometries) };
+    }
+
+    const result = { disjointAssembly: [] };
+    // Solids.
+    const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
+    for (const { solid, tags } of getSolids(baseGeometry)) {
+      result.disjointAssembly.push({ solid: difference$2(solid, ...solids), tags });
+    }
+    // Surfaces.
+    // FIX: Needs co-planar grouping.
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    for (const { surface, tags } of getSurfaces(baseGeometry)) {
+      result.disjointAssembly.push({ surface: difference$3(surface, ...surfaces), tags });
+    }
+    // Z0Surfaces.
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
+    for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+      result.disjointAssembly.push({ z0Surface: difference(z0Surface, ...z0Surfaces), tags });
+    }
+    // Paths.
+    const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
+    for (const { paths, tags } of getPaths(baseGeometry)) {
+      result.disjointAssembly.push({ paths: difference$1(paths, ...pathsets), tags });
+    }
+    // Plans
+    for (const plan of getPlans(baseGeometry)) {
+      result.disjointAssembly.push(plan);
+    }
+    // Items
+    for (const item of getItems(baseGeometry)) {
+      result.disjointAssembly.push(item);
+    }
+    // FIX: Surfaces, Paths, etc.
+    return result;
+  };
+
+  const difference$4 = cache(differenceImpl);
+
+  const fromPathToZ0SurfaceImpl = (path) => {
+    return { z0Surface: [path] };
+  };
+
+  const fromPathToZ0Surface = cache(fromPathToZ0SurfaceImpl);
+
+  const fromSurfaceToPathsImpl = (surface) => {
+    return { paths: surface };
+  };
+
+  const fromSurfaceToPaths = cache(fromSurfaceToPathsImpl);
+
+  const intersectionImpl = (baseGeometry, ...geometries) => {
+    if (baseGeometry.item) {
+      return { ...baseGeometry, item: intersection$4(baseGeometry.item, ...geometries) };
+    }
+
+    const result = { assembly: [] };
+    // Solids.
+    const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
+    for (const { solid, tags } of getSolids(baseGeometry)) {
+      result.assembly.push({ solid: intersection$2(solid, ...solids), tags });
+    }
+    // Surfaces.
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    for (const { surface, tags } of getSurfaces(baseGeometry)) {
+      result.assembly.push({ surface: intersection$3(surface, ...surfaces), tags });
+    }
+    // Z0Surfaces.
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
+    for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+      result.assembly.push({ z0Surface: intersection(z0Surface, ...z0Surfaces), tags });
+    }
+    // Paths.
+    const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
+    for (const { paths, tags } of getPaths(baseGeometry)) {
+      result.assembly.push({ paths: intersection$1(paths, ...pathsets), tags });
+    }
+    // FIX: Surfaces, Paths, etc.
+    return result;
+  };
+
+  const intersection$4 = cache(intersectionImpl);
+
+  const unionImpl = (baseGeometry, ...geometries) => {
+    if (baseGeometry.item) {
+      return { ...baseGeometry, item: union$4(baseGeometry.item, ...geometries) };
+    }
+
+    const result = { assembly: [] };
+    // Solids.
+    const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
+    for (const { solid, tags } of getSolids(baseGeometry)) {
+      result.assembly.push({ solid: union$2(solid, ...solids), tags });
+    }
+    // Z0Surfaces.
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
+    for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+      result.assembly.push({ z0Surface: union(z0Surface, ...z0Surfaces), tags });
+    }
+    // Surfaces.
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    for (const { surface, tags } of getSurfaces(baseGeometry)) {
+      result.assembly.push({ surface: union$3(surface, ...surfaces), tags });
+    }
+    // Paths.
+    const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
+    for (const { paths, tags } of getPaths(baseGeometry)) {
+      result.assembly.push({ paths: union$1(paths, ...pathsets), tags });
+    }
+    // FIX: Surfaces, Paths, etc.
+    return result;
+  };
+
+  const union$4 = cache(unionImpl);
 
   const pointsToThreejsPoints = (geometry) => {
     return geometry.points;
@@ -68438,18 +71004,15 @@ return d[d.length-1];};return ", funcName].join("");
       let threejsGeometry;
       let width = page.offsetWidth;
       let height = page.offsetHeight;
-      const { camera, hudCamera, hudCanvas, hudScene, hudTexture, renderer, scene, viewerElement } = buildScene({ width, height, view });
+      const { camera, hudCanvas, renderer, scene, viewerElement } = buildScene({ width, height, view });
       const { gui } = buildGui({ viewerElement });
       const hudContext = hudCanvas.getContext('2d');
       const render = () => renderer.render(scene, camera);
-      const renderHud = () => renderer.render(hudScene, hudCamera);
       const updateHud = () => {
-                          hudTexture.needsUpdate = false;
-                          hudContext.clearRect(0, 0, width, height);
-                          drawHud({ camera, datasets, threejsGeometry, hudCanvas });
-                          hudContext.fillStyle = '#FF0000';
-                          hudTexture.needsUpdate = true;
-                        };
+        hudContext.clearRect(0, 0, width, height);
+        drawHud({ camera, datasets, threejsGeometry, hudCanvas });
+        hudContext.fillStyle = '#FF0000';
+      };
 
       const container = document.getElementById(path);
       container.appendChild(viewerElement);
@@ -68457,7 +71020,6 @@ return d[d.length-1];};return ", funcName].join("");
       const animate = () => {
         updateHud();
         render();
-        renderHud();
       };
 
       const { trackball } = buildTrackballControls({ camera, render: animate, view, viewerElement });
@@ -68466,11 +71028,11 @@ return d[d.length-1];};return ", funcName].join("");
 
       resize();
       new ResizeObserver(() => {
-                           ({ width, height } = resize());
-                           hudCanvas.width = width;
-                           hudCanvas.height = height;
-                         })
-        .observe(container);
+        ({ width, height } = resize());
+        hudCanvas.width = width;
+        hudCanvas.height = height;
+      })
+          .observe(container);
 
       const track = () => {
         animate();
@@ -68726,13 +71288,13 @@ return d[d.length-1];};return ", funcName].join("");
 
   function lst(arr) { return arr[arr.length-1] }
 
-  function map$2(array, f) {
+  function map$3(array, f) {
     let out = [];
     for (let i = 0; i < array.length; i++) out[i] = f(array[i], i);
     return out
   }
 
-  function insertSorted(array, value, score) {
+  function insertSorted$1(array, value, score) {
     let pos = 0, priority = score(value);
     while (pos < array.length && score(array[pos]) <= priority) pos++;
     array.splice(pos, 0, value);
@@ -70788,7 +73350,7 @@ return d[d.length-1];};return ", funcName].join("");
   function paddingVert(display) {return display.mover.offsetHeight - display.lineSpace.offsetHeight}
   function paddingH(display) {
     if (display.cachedPaddingH) return display.cachedPaddingH
-    let e = removeChildrenAndAdd(display.measure, elt("pre", "x"));
+    let e = removeChildrenAndAdd(display.measure, elt("pre", "x", "CodeMirror-line-like"));
     let style = window.getComputedStyle ? window.getComputedStyle(e) : e.currentStyle;
     let data = {left: parseInt(style.paddingLeft), right: parseInt(style.paddingRight)};
     if (!isNaN(data.left) && !isNaN(data.right)) display.cachedPaddingH = data;
@@ -71182,7 +73744,7 @@ return d[d.length-1];};return ", funcName].join("");
   function PosWithInfo(line, ch, sticky, outside, xRel) {
     let pos = Pos(line, ch, sticky);
     pos.xRel = xRel;
-    if (outside) pos.outside = true;
+    if (outside) pos.outside = outside;
     return pos
   }
 
@@ -71191,16 +73753,16 @@ return d[d.length-1];};return ", funcName].join("");
   function coordsChar(cm, x, y) {
     let doc = cm.doc;
     y += cm.display.viewOffset;
-    if (y < 0) return PosWithInfo(doc.first, 0, null, true, -1)
+    if (y < 0) return PosWithInfo(doc.first, 0, null, -1, -1)
     let lineN = lineAtHeight(doc, y), last = doc.first + doc.size - 1;
     if (lineN > last)
-      return PosWithInfo(doc.first + doc.size - 1, getLine(doc, last).text.length, null, true, 1)
+      return PosWithInfo(doc.first + doc.size - 1, getLine(doc, last).text.length, null, 1, 1)
     if (x < 0) x = 0;
 
     let lineObj = getLine(doc, lineN);
     for (;;) {
       let found = coordsCharInner(cm, lineObj, lineN, x, y);
-      let collapsed = collapsedSpanAround(lineObj, found.ch + (found.xRel > 0 ? 1 : 0));
+      let collapsed = collapsedSpanAround(lineObj, found.ch + (found.xRel > 0 || found.outside > 0 ? 1 : 0));
       if (!collapsed) return found
       let rangeEnd = collapsed.find(1);
       if (rangeEnd.line == lineN) return rangeEnd
@@ -71288,7 +73850,7 @@ return d[d.length-1];};return ", funcName].join("");
       // base X position
       let coords = cursorCoords(cm, Pos(lineNo, ch, sticky), "line", lineObj, preparedMeasure);
       baseX = coords.left;
-      outside = y < coords.top || y >= coords.bottom;
+      outside = y < coords.top ? -1 : y >= coords.bottom ? 1 : 0;
     }
 
     ch = skipExtendingChars(lineObj.text, ch, 1);
@@ -71355,7 +73917,7 @@ return d[d.length-1];};return ", funcName].join("");
   function textHeight(display) {
     if (display.cachedTextHeight != null) return display.cachedTextHeight
     if (measureText == null) {
-      measureText = elt("pre");
+      measureText = elt("pre", null, "CodeMirror-line-like");
       // Measure a bunch of lines, for browsers that compute
       // fractional heights.
       for (let i = 0; i < 49; ++i) {
@@ -71375,7 +73937,7 @@ return d[d.length-1];};return ", funcName].join("");
   function charWidth(display) {
     if (display.cachedCharWidth != null) return display.cachedCharWidth
     let anchor = elt("span", "xxxxxxxxxx");
-    let pre = elt("pre", [anchor]);
+    let pre = elt("pre", [anchor], "CodeMirror-line-like");
     removeChildrenAndAdd(display.measure, pre);
     let rect = anchor.getBoundingClientRect(), width = (rect.right - rect.left) / 10;
     if (width > 2) display.cachedCharWidth = width;
@@ -73646,8 +76208,15 @@ return d[d.length-1];};return ", funcName].join("");
     let line = getLine(doc, pos.line);
     if (line.markedSpans) for (let i = 0; i < line.markedSpans.length; ++i) {
       let sp = line.markedSpans[i], m = sp.marker;
-      if ((sp.from == null || (m.inclusiveLeft ? sp.from <= pos.ch : sp.from < pos.ch)) &&
-          (sp.to == null || (m.inclusiveRight ? sp.to >= pos.ch : sp.to > pos.ch))) {
+
+      // Determine if we should prevent the cursor being placed to the left/right of an atomic marker
+      // Historically this was determined using the inclusiveLeft/Right option, but the new way to control it
+      // is with selectLeft/Right
+      let preventCursorLeft = ("selectLeft" in m) ? !m.selectLeft : m.inclusiveLeft;
+      let preventCursorRight = ("selectRight" in m) ? !m.selectRight : m.inclusiveRight;
+
+      if ((sp.from == null || (preventCursorLeft ? sp.from <= pos.ch : sp.from < pos.ch)) &&
+          (sp.to == null || (preventCursorRight ? sp.to >= pos.ch : sp.to > pos.ch))) {
         if (mayClear) {
           signal(m, "beforeCursorEnter");
           if (m.explicitlyCleared) {
@@ -73659,14 +76228,14 @@ return d[d.length-1];};return ", funcName].join("");
 
         if (oldPos) {
           let near = m.find(dir < 0 ? 1 : -1), diff;
-          if (dir < 0 ? m.inclusiveRight : m.inclusiveLeft)
+          if (dir < 0 ? preventCursorRight : preventCursorLeft)
             near = movePos(doc, near, -dir, near && near.line == pos.line ? line : null);
           if (near && near.line == pos.line && (diff = cmp(near, oldPos)) && (dir < 0 ? diff < 0 : diff > 0))
             return skipAtomicInner(doc, near, pos, dir, mayClear)
         }
 
         let far = m.find(dir < 0 ? -1 : 1);
-        if (dir < 0 ? m.inclusiveLeft : m.inclusiveRight)
+        if (dir < 0 ? preventCursorLeft : preventCursorRight)
           far = movePos(doc, far, dir, far.line == pos.line ? line : null);
         return far ? skipAtomicInner(doc, far, pos, dir, mayClear) : null
       }
@@ -73847,7 +76416,7 @@ return d[d.length-1];};return ", funcName].join("");
   function shiftDoc(doc, distance) {
     if (distance == 0) return
     doc.first += distance;
-    doc.sel = new Selection(map$2(doc.sel.ranges, range => new Range(
+    doc.sel = new Selection(map$3(doc.sel.ranges, range => new Range(
       Pos(range.anchor.line + distance, range.anchor.ch),
       Pos(range.head.line + distance, range.head.ch)
     )), doc.sel.primIndex);
@@ -73889,6 +76458,9 @@ return d[d.length-1];};return ", funcName].join("");
     if (doc.cm) makeChangeSingleDocInEditor(doc.cm, change, spans);
     else updateDoc(doc, change, spans);
     setSelectionNoUndo(doc, selAfter, sel_dontScroll);
+
+    if (doc.cantEdit && skipAtomic(doc, Pos(doc.firstLine(), 0)))
+      doc.cantEdit = false;
   }
 
   // Handle the interaction of a change to a document with the editor
@@ -74642,7 +77214,7 @@ return d[d.length-1];};return ", funcName].join("");
       extendSelections(this, clipPosArray(this, heads), options);
     }),
     extendSelectionsBy: docMethodOp(function(f, options) {
-      let heads = map$2(this.sel.ranges, f);
+      let heads = map$3(this.sel.ranges, f);
       extendSelections(this, clipPosArray(this, heads), options);
     }),
     setSelections: docMethodOp(function(ranges, primary, options) {
@@ -75185,7 +77757,7 @@ return d[d.length-1];};return ", funcName].join("");
       if (/^(name|fallthrough|(de|at)tach)$/.test(keyname)) continue
       if (value == "...") { delete keymap[keyname]; continue }
 
-      let keys = map$2(keyname.split(" "), normalizeKeyName);
+      let keys = map$3(keyname.split(" "), normalizeKeyName);
       for (let i = 0; i < keys.length; i++) {
         let val, name;
         if (i == keys.length - 1) {
@@ -76149,7 +78721,7 @@ return d[d.length-1];};return ", funcName].join("");
       for (let i = newBreaks.length - 1; i >= 0; i--)
         replaceRange(cm.doc, val, newBreaks[i], Pos(newBreaks[i].line, newBreaks[i].ch + val.length));
     });
-    option("specialChars", /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b-\u200f\u2028\u2029\ufeff]/g, (cm, val, old) => {
+    option("specialChars", /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b-\u200f\u2028\u2029\ufeff\ufff9-\ufffc]/g, (cm, val, old) => {
       cm.state.specialChars = new RegExp(val.source + (val.test("\t") ? "" : "|\t"), "g");
       if (old != Init) cm.refresh();
     });
@@ -76544,7 +79116,7 @@ return d[d.length-1];};return ", funcName].join("");
             multiPaste.push(doc.splitLines(lastCopied.text[i]));
         }
       } else if (textLines.length == sel.ranges.length && cm.options.pasteLinesPerSelection) {
-        multiPaste = map$2(textLines, l => [l]);
+        multiPaste = map$3(textLines, l => [l]);
       }
     }
 
@@ -76685,7 +79257,7 @@ return d[d.length-1];};return ", funcName].join("");
       addOverlay: methodOp(function(spec, options) {
         let mode = spec.token ? spec : CodeMirror.getMode(this.options, spec);
         if (mode.startState) throw new Error("Overlays may not be stateful.")
-        insertSorted(this.state.overlays,
+        insertSorted$1(this.state.overlays,
                      {mode: mode, modeSpec: spec, opaque: options && options.opaque,
                       priority: (options && options.priority) || 0},
                      overlay => overlay.priority);
@@ -78172,7 +80744,7 @@ return d[d.length-1];};return ", funcName].join("");
 
   addLegacyProps(CodeMirror);
 
-  CodeMirror.version = "5.47.0";
+  CodeMirror.version = "5.48.4";
 
   const conversation = ({ agent, say }) => {
     let id = 0;
@@ -81336,7 +83908,7 @@ return d[d.length-1];};return ", funcName].join("");
     }
 
     {
-      if (module.exports) {
+      if ( module.exports) {
         exports = module.exports = isBase64;
       }
       exports.isBase64 = isBase64;
@@ -81395,7 +83967,7 @@ return d[d.length-1];};return ", funcName].join("");
    * item.
    * @returns {Array} A new array of values returned by the callback function.
    */
-  function map$3(array, fn) {
+  function map$4(array, fn) {
     var length = array.length;
     var result = [];
     while (length--) {
@@ -81426,7 +83998,7 @@ return d[d.length-1];};return ", funcName].join("");
     // Avoid `split(regex)` for IE8 compatibility. See #17.
     string = string.replace(regexSeparators, '\x2E');
     var labels = string.split('.');
-    var encoded = map$3(labels, fn).join('.');
+    var encoded = map$4(labels, fn).join('.');
     return result + encoded;
   }
 
@@ -81659,10 +84231,10 @@ return d[d.length-1];};return ", funcName].join("");
   // If obj.hasOwnProperty has been overridden, then calling
   // obj.hasOwnProperty(prop) will break.
   // See: https://github.com/joyent/node/issues/1707
-  function hasOwnProperty$1(obj, prop) {
+  function hasOwnProperty$2(obj, prop) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
   }
-  var isArray$2 = Array.isArray || function (xs) {
+  var isArray$3 = Array.isArray || function (xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
   };
   function stringifyPrimitive(v) {
@@ -81689,10 +84261,10 @@ return d[d.length-1];};return ", funcName].join("");
     }
 
     if (typeof obj === 'object') {
-      return map$4(objectKeys(obj), function(k) {
+      return map$5(objectKeys(obj), function(k) {
         var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-        if (isArray$2(obj[k])) {
-          return map$4(obj[k], function(v) {
+        if (isArray$3(obj[k])) {
+          return map$5(obj[k], function(v) {
             return ks + encodeURIComponent(stringifyPrimitive(v));
           }).join(sep);
         } else {
@@ -81706,7 +84278,7 @@ return d[d.length-1];};return ", funcName].join("");
     return encodeURIComponent(stringifyPrimitive(name)) + eq +
            encodeURIComponent(stringifyPrimitive(obj));
   }
-  function map$4 (xs, f) {
+  function map$5 (xs, f) {
     if (xs.map) return xs.map(f);
     var res = [];
     for (var i = 0; i < xs.length; i++) {
@@ -81762,9 +84334,9 @@ return d[d.length-1];};return ", funcName].join("");
       k = decodeURIComponent(kstr);
       v = decodeURIComponent(vstr);
 
-      if (!hasOwnProperty$1(obj, k)) {
+      if (!hasOwnProperty$2(obj, k)) {
         obj[k] = v;
-      } else if (isArray$2(obj[k])) {
+      } else if (isArray$3(obj[k])) {
         obj[k].push(v);
       } else {
         obj[k] = [obj[k], v];
