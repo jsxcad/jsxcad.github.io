@@ -57633,7 +57633,7 @@ define("./master.js",[],function () { 'use strict';
     const walk = (geometry) => {
       if (geometry.assembly) { return { assembly: geometry.assembly.map(walk) }; }
       if (geometry.disjointAssembly) { return { disjointAssembly: geometry.disjointAssembly.map(walk) }; }
-      if (geometry.item) { return { item: geometry.item, tags: composeTags(geometry.tags) }; }
+      if (geometry.item) { return { item: walk(geometry.item), tags: composeTags(geometry.tags) }; }
       if (geometry.paths) { return { paths: geometry.paths, tags: composeTags(geometry.tags) }; }
       if (geometry.plan) { return { plan: geometry.plan, marks: geometry.marks, tags: composeTags(geometry.tags) }; }
       if (geometry.points) { return { points: geometry.points, tags: composeTags(geometry.tags) }; }
@@ -57648,6 +57648,81 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const addTags = cacheAddTags(addTagsImpl);
+
+  const assembleImpl = (...taggedGeometries) => ({ assembly: taggedGeometries });
+
+  const assemble = cache(assembleImpl);
+
+  const assertUnique = (path) => {
+    let last = null;
+    for (const point of path) {
+      if (last !== null && equals$1(point, last)) {
+        throw Error(`die: ${JSON.stringify(path)}`);
+      }
+      last = point;
+    }
+  };
+
+  const canonicalizePoint = (point, index) => {
+    if (point === null) {
+      if (index !== 0) throw Error('Path has null not at head');
+      return point;
+    } else {
+      return canonicalize(point);
+    }
+  };
+
+  const canonicalize$1 = (path) => path.map(canonicalizePoint);
+
+  const deduplicate = (path) => {
+    const unique = [];
+    let last = path[path.length - 1];
+    for (const point of path) {
+      if (last === null || point === null || !equals$1(point, last)) {
+        unique.push(point);
+      }
+      last = point;
+    }
+    return unique;
+  };
+
+  const toSegments = (options = {}, path) => {
+    const segments = [];
+    if (path[0] !== null) {
+      segments.push([path[path.length - 1], path[0]]);
+      segments.push([path[0], path[1]]);
+    }
+    for (let nth = 2; nth < path.length; nth++) {
+      segments.push([path[nth - 1], path[nth]]);
+    }
+    return segments;
+  };
+
+  const transform$1 = (matrix, path) =>
+    path.map((point, index) => (point === null) ? null : transform(matrix, point));
+
+  const canonicalize$2 = (paths) => {
+    let canonicalized = paths.map(canonicalize$1);
+    if (paths.properties !== undefined) {
+      // Transfer properties.
+      canonicalized.properties = paths.properties;
+    }
+    return canonicalized;
+  };
+
+  // FIX: Determine the correct behaviour here.
+
+  const difference = (pathset, ...pathsets) => pathset;
+
+  const intersection = (...pathsets) => { throw Error('Not implemented'); };
+
+  const transform$2 = (matrix, paths) => paths.map(path => transform$1(matrix, path));
+
+  // FIX: Deduplication.
+
+  const union = (...pathsets) => [].concat(...pathsets);
+
+  const transform$3 = (matrix, points) => points.map(point => transform(matrix, point));
 
   /**
    * Transforms the vertices of a polygon, producing a new poly3.
@@ -57675,7 +57750,7 @@ define("./master.js",[],function () { 'use strict';
     return original.map(vertex => transform(vertex));
   };
 
-  const canonicalize$1 = polygon => map$1(polygon, canonicalize);
+  const canonicalize$3 = polygon => map$1(polygon, canonicalize);
 
   /**
    * Flip the give polygon to face the opposite direction.
@@ -57779,7 +57854,7 @@ define("./master.js",[],function () { 'use strict';
   };
 
   // Affine transformation of polygon. Returns a new polygon.
-  const transform$1 = (matrix, polygon) => {
+  const transform$4 = (matrix, polygon) => {
     const transformed = map$1(polygon, vertex => transform(matrix, vertex));
     if (isMirroring(matrix)) {
       // Reverse the order to preserve the orientation.
@@ -57789,10 +57864,10 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const toPlane$1 = (surface) => toPlane(surface[0]);
-  const canonicalize$2 = (surface) => surface.map(canonicalize$1);
+  const canonicalize$4 = (surface) => surface.map(canonicalize$3);
 
   // Transforms
-  const transform$2 = (matrix, surface) => surface.map(polygon => transform$1(matrix, polygon));
+  const transform$5 = (matrix, surface) => surface.map(polygon => transform$4(matrix, polygon));
 
   const EPSILON = 1e-5;
 
@@ -57978,54 +58053,6 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const cut = cacheCut(cutImpl);
-
-  const assertUnique = (path) => {
-    let last = null;
-    for (const point of path) {
-      if (last !== null && equals$1(point, last)) {
-        throw Error(`die: ${JSON.stringify(path)}`);
-      }
-      last = point;
-    }
-  };
-
-  const canonicalizePoint = (point, index) => {
-    if (point === null) {
-      if (index !== 0) throw Error('Path has null not at head');
-      return point;
-    } else {
-      return canonicalize(point);
-    }
-  };
-
-  const canonicalize$3 = (path) => path.map(canonicalizePoint);
-
-  const deduplicate = (path) => {
-    const unique = [];
-    let last = path[path.length - 1];
-    for (const point of path) {
-      if (last === null || point === null || !equals$1(point, last)) {
-        unique.push(point);
-      }
-      last = point;
-    }
-    return unique;
-  };
-
-  const toSegments = (options = {}, path) => {
-    const segments = [];
-    if (path[0] !== null) {
-      segments.push([path[path.length - 1], path[0]]);
-      segments.push([path[0], path[1]]);
-    }
-    for (let nth = 2; nth < path.length; nth++) {
-      segments.push([path[nth - 1], path[nth]]);
-    }
-    return segments;
-  };
-
-  const transform$3 = (matrix, path) =>
-    path.map((point, index) => (point === null) ? null : transform(matrix, point));
 
   const assertGood = (surface) => {
     for (const path of surface) {
@@ -61848,9 +61875,9 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$1(matrix, polygon));
+  const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
 
-  const transform$4 = cacheTransform(transformImpl);
+  const transform$6 = cacheTransform(transformImpl);
 
   const fromPolygons = ({ plane }, polygons) => {
     if (polygons.length === 0) {
@@ -61860,9 +61887,9 @@ define("./master.js",[],function () { 'use strict';
       plane = toPlane$2(polygons);
     }
     const [toZ0, fromZ0] = toXYPlaneTransforms(plane);
-    const z0Polygons = transform$4(toZ0, polygons);
+    const z0Polygons = transform$6(toZ0, polygons);
     const z0Surface = retessellate(z0Polygons);
-    const surface = transform$4(fromZ0, z0Surface);
+    const surface = transform$6(fromZ0, z0Surface);
     surface.plane = plane;
     return surface;
   };
@@ -61875,8 +61902,8 @@ define("./master.js",[],function () { 'use strict';
     assertGood(surface);
     const plane = toPlane$1(surface);
     const [to, from] = toXYPlaneTransforms(plane);
-    const retessellatedZ0Surface = makeConvex({}, transform$2(to, surface));
-    const retessellatedSurface = transform$2(from, retessellatedZ0Surface);
+    const retessellatedZ0Surface = makeConvex({}, transform$5(to, surface));
+    const retessellatedSurface = transform$5(from, retessellatedZ0Surface);
     // FIX: Is this plane enforecement necessary.
     for (const retessellatedPolygon of retessellatedSurface) {
       retessellatedPolygon.plane = plane;
@@ -63723,7 +63750,7 @@ define("./master.js",[],function () { 'use strict';
    *      |       |
    *      +-------+
    */
-  const difference = (baseZ0Surface, ...z0Surfaces) => {
+  const difference$1 = (baseZ0Surface, ...z0Surfaces) => {
     if (baseZ0Surface === undefined || baseZ0Surface.length === 0) {
       return [];
     }
@@ -63755,7 +63782,7 @@ define("./master.js",[],function () { 'use strict';
    *      |       |
    *      +-------+
    */
-  const intersection = (...z0Surfaces) => {
+  const intersection$1 = (...z0Surfaces) => {
     if (z0Surfaces.length === 0) {
       return [];
     }
@@ -63778,7 +63805,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {Array<Z0Surface>} surfaces - the z0 surfaces to union.
    * @returns {Z0Surface} the resulting z0 surface.
    */
-  const union = (...z0Surfaces) => {
+  const union$1 = (...z0Surfaces) => {
     if (z0Surfaces.length === 0) {
       return [];
     }
@@ -63827,7 +63854,7 @@ define("./master.js",[],function () { 'use strict';
 
   const toPolygons = (options = {}, surface) => surface;
 
-  const multiply$2 = (matrix, solid) => solid.map(surface => transform$2(matrix, surface));
+  const multiply$2 = (matrix, solid) => solid.map(surface => transform$5(matrix, surface));
 
   // The resolution is 1 / multiplier.
   const multiplier = 1e5;
@@ -63881,34 +63908,7 @@ define("./master.js",[],function () { 'use strict';
           .filter(polygon => !isNaN(toPlane(polygon)[0])));
   };
 
-  const assertGood$1 = (solid) => {
-    for (const surface of solid) {
-      assertGood(surface);
-    }
-  };
-
-  const canonicalize$4 = (solid) => solid.map(canonicalize$2);
-
-  const canonicalize$5 = (paths) => {
-    let canonicalized = paths.map(canonicalize$3);
-    if (paths.properties !== undefined) {
-      // Transfer properties.
-      canonicalized.properties = paths.properties;
-    }
-    return canonicalized;
-  };
-
-  // FIX: Determine the correct behaviour here.
-
-  const difference$1 = (pathset, ...pathsets) => pathset;
-
-  const intersection$1 = (...pathsets) => { throw Error('Not implemented'); };
-
-  const transform$5 = (matrix, paths) => paths.map(path => transform$3(matrix, path));
-
-  // FIX: Deduplication.
-
-  const union$1 = (...pathsets) => [].concat(...pathsets);
+  const canonicalize$5 = (solid) => solid.map(canonicalize$4);
 
   // Edge Properties.
   const START = 0;
@@ -64019,7 +64019,7 @@ define("./master.js",[],function () { 'use strict';
     const back = [];
     const frontEdges = [];
     const backEdges = [];
-    for (const surface of canonicalize$4(solid)) {
+    for (const surface of canonicalize$5(solid)) {
       cutSurface(plane, front, back, front, back, frontEdges, backEdges, surface);
       if (frontEdges.some(edge => edge[1] === undefined)) {
         throw Error(`die/end/missing: ${JSON.stringify(frontEdges)}`);
@@ -64028,12 +64028,12 @@ define("./master.js",[],function () { 'use strict';
 
     if (frontEdges.length > 0) {
       // FIX: This can produce a solid with separate coplanar surfaces.
-      front.push(flip$1(toLoops({}, canonicalize$5(frontEdges))));
+      front.push(flip$1(toLoops({}, canonicalize$2(frontEdges))));
     }
 
     if (backEdges.length > 0) {
       // FIX: This can produce a solid with separate coplanar surfaces.
-      back.push(flip$1(toLoops({}, canonicalize$5(backEdges))));
+      back.push(flip$1(toLoops({}, canonicalize$2(backEdges))));
     }
 
     return [front, back];
@@ -64192,57 +64192,30 @@ define("./master.js",[],function () { 'use strict';
     return polygons;
   };
 
-  const eachItem = (geometry, operation) => {
-    const walk = (geometry) => {
-      if (geometry.assembly) {
-        geometry.assembly.forEach(walk);
-      } else if (geometry.item) {
-        walk(geometry.item);
-      } else if (geometry.disjointAssembly) {
-        geometry.disjointAssembly.forEach(walk);
-      }
-      operation(geometry);
-    };
-    walk(geometry);
-  };
-
-  const assertGood$2 = (geometry) => {
-    eachItem(geometry,
-             (item) => {
-               if (item.solid) { assertGood$1(item.solid); }
-             });
-    return geometry;
-  };
-
-  const assembleImpl = (...taggedGeometries) => assertGood$2({ assembly: taggedGeometries });
-
-  const assemble = cache(assembleImpl);
-
-  const transform$6 = (matrix, points) => points.map(point => transform(matrix, point));
-
   const transformItem = (matrix, item) => {
     const transformed = {};
     if (item.assembly) {
       transformed.assembly = item.assembly;
     } else if (item.disjointAssembly) {
       transformed.disjointAssembly = item.disjointAssembly;
+      transformed.nonNegative = item.nonNegative;
     } else if (item.item) {
       transformed.item = item.item;
     } else if (item.paths) {
-      transformed.paths = transform$5(matrix, item.paths);
+      transformed.paths = transform$2(matrix, item.paths);
     } else if (item.plan) {
       transformed.plan = item.plan;
-      transformed.marks = transform$6(matrix, item.marks);
+      transformed.marks = transform$3(matrix, item.marks);
     } else if (item.points) {
-      transformed.points = transform$6(matrix, item.points);
+      transformed.points = transform$3(matrix, item.points);
     } else if (item.solid) {
       transformed.solid = multiply$2(matrix, item.solid);
       if (item.solid.isConvex !== undefined) transformed.solid.isConvex = item.solid.isConvex;
     } else if (item.surface) {
-      transformed.surface = transform$2(matrix, item.surface);
+      transformed.surface = transform$5(matrix, item.surface);
     } else if (item.z0Surface) {
       // FIX: Consider transforms that preserve z0.
-      transformed.surface = transform$2(matrix, item.z0Surface);
+      transformed.surface = transform$5(matrix, item.z0Surface);
     } else if (item.empty) {
       transformed.empty = true;
     } else {
@@ -64276,10 +64249,18 @@ define("./master.js",[],function () { 'use strict';
             assembly: geometry.assembly.map(geometry => walk(matrix, geometry))
           };
         } else if (geometry.disjointAssembly) {
-          return {
-            ...geometry,
-            disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry))
-          };
+          if (geometry.nonNegative) {
+            return {
+              ...geometry,
+              disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry)),
+              nonNegative: geometry.nonNegative.map(geometry => walk(matrix, geometry))
+            };
+          } else {
+            return {
+              ...geometry,
+              disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry))
+            };
+          }
         } else if (geometry.item) {
           return {
             ...geometry,
@@ -64293,6 +64274,23 @@ define("./master.js",[],function () { 'use strict';
       geometry.transformed = walk(identity(), geometry);
     }
     return geometry.transformed;
+  };
+
+  const eachItem = (geometry, operation) => {
+    const walk = (geometry) => {
+      if (geometry.assembly) {
+        geometry.assembly.forEach(walk);
+      } else if (geometry.item) {
+        walk(geometry.item);
+      } else if (geometry.disjointAssembly) {
+        geometry.disjointAssembly.forEach(walk);
+        if (geometry.nonNegative) {
+          geometry.nonNegative.forEach(walk);
+        }
+      }
+      operation(geometry);
+    };
+    walk(geometry);
   };
 
   const getItems = (geometry) => {
@@ -64361,6 +64359,10 @@ define("./master.js",[],function () { 'use strict';
     return z0Surfaces;
   };
 
+  // Dropped elements displace as usual, but are not included in positive output.
+
+  const isNonNegative = (geometry) => hasMatchingTag(geometry.tags, ['compose/non-negative']);
+
   const EPSILON$1 = 1e-5;
   const EPSILON2 = 1e-10;
 
@@ -64388,9 +64390,6 @@ define("./master.js",[],function () { 'use strict';
   const splitPolygon$1 = (plane, polygon, back, coplanarBack, coplanarFront, front) => {
     let polygonType = COPLANAR$1;
     const polygonPlane = toPlane(polygon);
-    if (isNaN(polygonPlane[0])) {
-      throw Error(`QQ/splitPolygon/polygonPlane: bad`);
-    }
     if (!equals$2(polygonPlane, plane)) {
       for (let nth = 0; nth < polygon.length; nth++) {
         // const type = toType(plane, polygon[nth]);
@@ -64754,7 +64753,7 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const transform$8 = (matrix, polygons) => polygons.map(polygon => transform$1(matrix, polygon));
+  const transform$8 = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
 
   const mayOverlap$1 = ([centerA, radiusA], [centerB, radiusB]) => distance(centerA, centerB) < radiusA + radiusB;
 
@@ -64773,7 +64772,7 @@ define("./master.js",[],function () { 'use strict';
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
     const z0Surface = transform$8(toZ0, baseSurface);
     const z0Surfaces = surfaces.map(surface => transform$8(toZ0, surface));
-    const z0Difference = difference(z0Surface, ...z0Surfaces);
+    const z0Difference = difference$1(z0Surface, ...z0Surfaces);
     return transform$8(fromZ0, z0Difference);
   };
 
@@ -64788,7 +64787,7 @@ define("./master.js",[],function () { 'use strict';
     }
     // FIX: Detect when the surfaces aren't in the same plane.
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
-    const z0Surface = intersection(...surfaces.map(surface => transform$8(toZ0, surface)));
+    const z0Surface = intersection$1(...surfaces.map(surface => transform$8(toZ0, surface)));
     return transform$8(fromZ0, z0Surface);
   };
 
@@ -64796,7 +64795,7 @@ define("./master.js",[],function () { 'use strict';
     surfaces = surfaces.filter(surface => surface.length >= 1);
     // FIX: Detect when the surfaces aren't in the same plane.
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
-    const z0Surface = union(...surfaces.map(surface => transform$8(toZ0, surface)));
+    const z0Surface = union$1(...surfaces.map(surface => transform$8(toZ0, surface)));
     return transform$8(fromZ0, z0Surface);
   };
 
@@ -64807,25 +64806,25 @@ define("./master.js",[],function () { 'use strict';
 
     const result = { disjointAssembly: [] };
     // Solids.
-    const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
+    const solids = geometries.flatMap(geometry => getSolids(geometry)).filter(item => !isNonNegative(item)).map(item => item.solid);
     for (const { solid, tags } of getSolids(baseGeometry)) {
       result.disjointAssembly.push({ solid: difference$2(solid, ...solids), tags });
     }
     // Surfaces.
     // FIX: Needs co-planar grouping.
-    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface)).filter(item => !isNonNegative(item));
     for (const { surface, tags } of getSurfaces(baseGeometry)) {
       result.disjointAssembly.push({ surface: difference$3(surface, ...surfaces), tags });
     }
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.disjointAssembly.push({ z0Surface: difference(z0Surface, ...z0Surfaces), tags });
+      result.disjointAssembly.push({ z0Surface: difference$1(z0Surface, ...z0Surfaces), tags });
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
     for (const { paths, tags } of getPaths(baseGeometry)) {
-      result.disjointAssembly.push({ paths: difference$1(paths, ...pathsets), tags });
+      result.disjointAssembly.push({ paths: difference(paths, ...pathsets), tags });
     }
     // Plans
     for (const plan of getPlans(baseGeometry)) {
@@ -64884,12 +64883,12 @@ define("./master.js",[],function () { 'use strict';
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: intersection(z0Surface, ...z0Surfaces), tags });
+      result.assembly.push({ z0Surface: intersection$1(z0Surface, ...z0Surfaces), tags });
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
     for (const { paths, tags } of getPaths(baseGeometry)) {
-      result.assembly.push({ paths: intersection$1(paths, ...pathsets), tags });
+      result.assembly.push({ paths: intersection(paths, ...pathsets), tags });
     }
     // FIX: Surfaces, Paths, etc.
     return result;
@@ -64898,7 +64897,6 @@ define("./master.js",[],function () { 'use strict';
   const intersection$4 = cache(intersectionImpl);
 
   const toDisjointAssembly = (geometry) => {
-    assertGood$2(geometry);
     if (geometry.matrix !== undefined) {
       // Transforming is identity-producing, so disjoint before transforming.
       return toTransformedGeometry({ ...geometry, untransformed: toDisjointGeometry(geometry.untransformed) });
@@ -64909,14 +64907,11 @@ define("./master.js",[],function () { 'use strict';
     } else if (geometry.assembly !== undefined) {
       const disjoint = [];
       for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
-        assertGood$2(geometry.assembly[nth]);
         const item = toDisjointAssembly(geometry.assembly[nth]);
-        assertGood$2(item);
         disjoint.unshift(difference$4(item, ...disjoint));
       }
       const disjointAssembly = { disjointAssembly: disjoint };
       geometry.disjoint = disjointAssembly;
-      assertGood$2(disjointAssembly);
       return disjointAssembly;
     } else {
       return geometry;
@@ -64928,16 +64923,17 @@ define("./master.js",[],function () { 'use strict';
   // Produce a disjoint geometry suitable for display.
 
   const toKeptGeometry = (geometry) => {
-    assertGood$2(geometry);
     if (geometry.keptGeometry === undefined) {
       const disjointGeometry = toDisjointGeometry(geometry);
       const walk = (geometry) => {
-        assertGood$2(geometry);
         if (geometry.keptGeometry !== undefined) {
           return geometry.keptGeometry;
-        } else if (geometry.tags === undefined || !geometry.tags.includes('@drop')) {
+        } else if (geometry.tags === undefined || !geometry.tags.includes('compose/non-positive')) {
           if (geometry.disjointAssembly) {
             const keptGeometry = { ...geometry, disjointAssembly: geometry.disjointAssembly.map(walk).filter(item => item !== undefined) };
+            if (geometry.nonNegative) {
+              keptGeometry.nonNegative.map(walk).filter(item => item !== undefined);
+            }
             geometry.keptGeometry = keptGeometry;
             return keptGeometry;
           } else {
@@ -64946,7 +64942,6 @@ define("./master.js",[],function () { 'use strict';
         }
       };
       const keptGeometry = walk(disjointGeometry);
-      assertGood$2(keptGeometry);
       geometry.keptGeometry = keptGeometry || {};
     }
     return geometry.keptGeometry;
@@ -64966,7 +64961,7 @@ define("./master.js",[],function () { 'use strict';
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: union(z0Surface, ...z0Surfaces), tags });
+      result.assembly.push({ z0Surface: union$1(z0Surface, ...z0Surfaces), tags });
     }
     // Surfaces.
     const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
@@ -64976,7 +64971,7 @@ define("./master.js",[],function () { 'use strict';
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
     for (const { paths, tags } of getPaths(baseGeometry)) {
-      result.assembly.push({ paths: union$1(paths, ...pathsets), tags });
+      result.assembly.push({ paths: union(paths, ...pathsets), tags });
     }
     // FIX: Surfaces, Paths, etc.
     return result;
@@ -65061,8 +65056,12 @@ define("./master.js",[],function () { 'use strict';
         isThreejsGeometry: true
       };
     } else if (geometry.disjointAssembly) {
+      const items = geometry.disjointAssembly;
+      if (geometry.nonNegative) {
+        items.push(...geometry.nonNegative);
+      }
       return {
-        assembly: geometry.disjointAssembly.map(item => toThreejsGeometry(item, tags)),
+        assembly: items.map(item => toThreejsGeometry(item, tags)),
         tags,
         isThreejsGeometry: true
       };
