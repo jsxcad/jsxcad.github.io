@@ -64363,6 +64363,8 @@ define("./master.js",[],function () { 'use strict';
 
   const isNonNegative = (geometry) => hasMatchingTag(geometry.tags, ['compose/non-negative']);
 
+  const isNegative = (geometry) => !isNonNegative(geometry);
+
   const EPSILON$1 = 1e-5;
   const EPSILON2 = 1e-10;
 
@@ -64388,6 +64390,19 @@ define("./master.js",[],function () { 'use strict';
   const pointType$1 = [];
 
   const splitPolygon$1 = (plane, polygon, back, coplanarBack, coplanarFront, front) => {
+    /*
+      // This slows things down on average, probably due to not having the bounding sphere computed.
+      // Check for non-intersection due to distance from the plane.
+      const [center, radius] = measureBoundingSphere(polygon);
+      let distance = planeDistance(plane, center) + EPSILON;
+      if (distance > radius) {
+        front.push(polygon);
+        return;
+      } else if (distance < -radius) {
+        back.push(polygon);
+        return;
+      }
+    */
     let polygonType = COPLANAR$1;
     const polygonPlane = toPlane(polygon);
     if (!equals$2(polygonPlane, plane)) {
@@ -64799,6 +64814,8 @@ define("./master.js",[],function () { 'use strict';
     return transform$8(fromZ0, z0Surface);
   };
 
+  // PROVE: Is the non-negative behavior here correct for difference in general, or only difference when makeing disjoint?
+
   const differenceImpl = (baseGeometry, ...geometries) => {
     if (baseGeometry.item) {
       return { ...baseGeometry, item: difference$4(baseGeometry.item, ...geometries) };
@@ -64806,23 +64823,23 @@ define("./master.js",[],function () { 'use strict';
 
     const result = { disjointAssembly: [] };
     // Solids.
-    const solids = geometries.flatMap(geometry => getSolids(geometry)).filter(item => !isNonNegative(item)).map(item => item.solid);
+    const solids = geometries.flatMap(geometry => getSolids(geometry)).filter(isNegative).map(item => item.solid);
     for (const { solid, tags } of getSolids(baseGeometry)) {
       result.disjointAssembly.push({ solid: difference$2(solid, ...solids), tags });
     }
     // Surfaces.
     // FIX: Needs co-planar grouping.
-    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface)).filter(item => !isNonNegative(item));
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry)).filter(isNegative).map(item => item.surface);
     for (const { surface, tags } of getSurfaces(baseGeometry)) {
       result.disjointAssembly.push({ surface: difference$3(surface, ...surfaces), tags });
     }
     // Z0Surfaces.
-    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry)).filter(isNegative).map(item => item.z0Surface);
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
       result.disjointAssembly.push({ z0Surface: difference$1(z0Surface, ...z0Surfaces), tags });
     }
     // Paths.
-    const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
+    const pathsets = geometries.flatMap(geometry => getPaths(geometry)).filter(isNegative).map(item => item.paths);
     for (const { paths, tags } of getPaths(baseGeometry)) {
       result.disjointAssembly.push({ paths: difference(paths, ...pathsets), tags });
     }
