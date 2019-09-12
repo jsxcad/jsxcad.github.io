@@ -56402,6 +56402,13 @@ define("./master.js",[],function () { 'use strict';
   };
 
   /**
+   * Set a mat4 to the identity matrix
+   *
+   * @returns {mat4} out
+   */
+  const identity = () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+
+  /**
    * Create a new mat4 with the given values
    *
    * @param {Number} m00 Component in column 0, row 0 position (index 0)
@@ -56426,13 +56433,6 @@ define("./master.js",[],function () { 'use strict';
     [m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33];
 
   /**
-   * Set a mat4 to the identity matrix
-   *
-   * @returns {mat4} out
-   */
-  const identity = () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-
-  /**
    * Calculates the absolute value of the give vector
    *
    * @param {vec3} [out] - receiving vector
@@ -56448,7 +56448,7 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} b the second vector to add
    * @returns {vec3} the added vectors
    */
-  const add = ([ax, ay, az], [bx, by, bz]) => [(ax + bx), (ay + by), (az + bz)];
+  const add = ([ax = 0, ay = 0, az = 0], [bx = 0, by = 0, bz = 0]) => [(ax + bx), (ay + by), (az + bz)];
 
   /**
    * Calculates the dot product of two vec3's
@@ -56466,14 +56466,17 @@ define("./master.js",[],function () { 'use strict';
    * @param {vec3} vector the vector to scale
    * @returns {vec3} out
    */
-  const scale = (amount, [x, y, z]) => [(x * amount), (y * amount), (z * amount)];
+  const scale = (amount, [x = 0, y = 0, z = 0]) => [(x * amount), (y * amount), (z * amount)];
 
   const spatialResolution = 1e5;
 
   // Quantize values for use in spatial coordinates, and so on, even if the usual quantizeForSpace is disabled.
   const reallyQuantizeForSpace = (value) => (Math.round(value * spatialResolution) / spatialResolution);
 
-  const canonicalize = ([x = 0, y = 0, z = 0]) => [reallyQuantizeForSpace(x), reallyQuantizeForSpace(y), reallyQuantizeForSpace(z)];
+  // Normalize negative zero to positive zero.
+  const f = (v) => v === 0 ? 0 : v;
+
+  const canonicalize = ([x = 0, y = 0, z = 0]) => [f(reallyQuantizeForSpace(x)), f(reallyQuantizeForSpace(y)), f(reallyQuantizeForSpace(z))];
 
   /**
    * Computes the cross product of two vec3's
@@ -57630,6 +57633,7 @@ define("./master.js",[],function () { 'use strict';
       }
     };
 
+    // FIX: Minimize identity churn.
     const walk = (geometry) => {
       if (geometry.assembly) { return { assembly: geometry.assembly.map(walk) }; }
       if (geometry.disjointAssembly) { return { disjointAssembly: geometry.disjointAssembly.map(walk) }; }
@@ -57694,6 +57698,9 @@ define("./master.js",[],function () { 'use strict';
     }
     for (let nth = 2; nth < path.length; nth++) {
       segments.push([path[nth - 1], path[nth]]);
+    }
+    if (segments.some(segment => segment[1] === undefined)) {
+      throw Error('die');
     }
     return segments;
   };
@@ -61911,1780 +61918,40 @@ define("./master.js",[],function () { 'use strict';
     return retessellatedSurface;
   };
 
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // used strictly for logging the processing of the algorithm... only useful if you intend on
-  // looking under the covers (for pretty UI's or debugging)
-  //
-
-  function BuildLog(){
-  	var my;
-  	var nextSegmentId = 0;
-  	var curVert = false;
-
-  	function push(type, data){
-  		my.list.push({
-  			type: type,
-  			data: data ? JSON.parse(JSON.stringify(data)) : void 0
-  		});
-  		return my;
-  	}
-
-  	my = {
-  		list: [],
-  		segmentId: function(){
-  			return nextSegmentId++;
-  		},
-  		checkIntersection: function(seg1, seg2){
-  			return push('check', { seg1: seg1, seg2: seg2 });
-  		},
-  		segmentChop: function(seg, end){
-  			push('div_seg', { seg: seg, pt: end });
-  			return push('chop', { seg: seg, pt: end });
-  		},
-  		statusRemove: function(seg){
-  			return push('pop_seg', { seg: seg });
-  		},
-  		segmentUpdate: function(seg){
-  			return push('seg_update', { seg: seg });
-  		},
-  		segmentNew: function(seg, primary){
-  			return push('new_seg', { seg: seg, primary: primary });
-  		},
-  		segmentRemove: function(seg){
-  			return push('rem_seg', { seg: seg });
-  		},
-  		tempStatus: function(seg, above, below){
-  			return push('temp_status', { seg: seg, above: above, below: below });
-  		},
-  		rewind: function(seg){
-  			return push('rewind', { seg: seg });
-  		},
-  		status: function(seg, above, below){
-  			return push('status', { seg: seg, above: above, below: below });
-  		},
-  		vert: function(x){
-  			if (x === curVert)
-  				return my;
-  			curVert = x;
-  			return push('vert', { x: x });
-  		},
-  		log: function(data){
-  			if (typeof data !== 'string')
-  				data = JSON.stringify(data, false, '  ');
-  			return push('log', { txt: data });
-  		},
-  		reset: function(){
-  			return push('reset');
-  		},
-  		selected: function(segs){
-  			return push('selected', { segs: segs });
-  		},
-  		chainStart: function(seg){
-  			return push('chain_start', { seg: seg });
-  		},
-  		chainRemoveHead: function(index, pt){
-  			return push('chain_rem_head', { index: index, pt: pt });
-  		},
-  		chainRemoveTail: function(index, pt){
-  			return push('chain_rem_tail', { index: index, pt: pt });
-  		},
-  		chainNew: function(pt1, pt2){
-  			return push('chain_new', { pt1: pt1, pt2: pt2 });
-  		},
-  		chainMatch: function(index){
-  			return push('chain_match', { index: index });
-  		},
-  		chainClose: function(index){
-  			return push('chain_close', { index: index });
-  		},
-  		chainAddHead: function(index, pt){
-  			return push('chain_add_head', { index: index, pt: pt });
-  		},
-  		chainAddTail: function(index, pt){
-  			return push('chain_add_tail', { index: index, pt: pt, });
-  		},
-  		chainConnect: function(index1, index2){
-  			return push('chain_con', { index1: index1, index2: index2 });
-  		},
-  		chainReverse: function(index){
-  			return push('chain_rev', { index: index });
-  		},
-  		chainJoin: function(index1, index2){
-  			return push('chain_join', { index1: index1, index2: index2 });
-  		},
-  		done: function(){
-  			return push('done');
-  		}
-  	};
-  	return my;
-  }
-
-  var buildLog = BuildLog;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // provides the raw computation functions that takes epsilon into account
-  //
-  // zero is defined to be between (-epsilon, epsilon) exclusive
-  //
-
-  function Epsilon(eps){
-  	if (typeof eps !== 'number')
-  		eps = 0.0000000001; // sane default? sure why not
-  	var my = {
-  		epsilon: function(v){
-  			if (typeof v === 'number')
-  				eps = v;
-  			return eps;
-  		},
-  		pointAboveOrOnLine: function(pt, left, right){
-  			var Ax = left[0];
-  			var Ay = left[1];
-  			var Bx = right[0];
-  			var By = right[1];
-  			var Cx = pt[0];
-  			var Cy = pt[1];
-  			var ABx = Bx - Ax;
-  			var ABy = By - Ay;
-  			var AB = Math.sqrt(ABx * ABx + ABy * ABy);
-  			// algebraic distance of 'pt' to ('left', 'right') line is:
-  			// [ABx * (Cy - Ay) - ABy * (Cx - Ax)] / AB
-  			return ABx * (Cy - Ay) - ABy * (Cx - Ax) >= -eps * AB;
-  		},
-  		pointBetween: function(p, left, right){
-  			// p must be collinear with left->right
-  			// returns false if p == left, p == right, or left == right
-  			if (my.pointsSame(p, left) || my.pointsSame(p, right)) return false;
-  			var d_py_ly = p[1] - left[1];
-  			var d_rx_lx = right[0] - left[0];
-  			var d_px_lx = p[0] - left[0];
-  			var d_ry_ly = right[1] - left[1];
-
-  			var dot = d_px_lx * d_rx_lx + d_py_ly * d_ry_ly;
-  			// dot < 0 is p is to the left of 'left'
-  			if (dot < 0) return false;
-  			var sqlen = d_rx_lx * d_rx_lx + d_ry_ly * d_ry_ly;
-  			// dot <= sqlen is p is to the left of 'right'
-  			return dot <= sqlen;
-  		},
-  		pointsSameX: function(p1, p2){
-  			return Math.abs(p1[0] - p2[0]) < eps;
-  		},
-  		pointsSameY: function(p1, p2){
-  			return Math.abs(p1[1] - p2[1]) < eps;
-  		},
-  		pointsSame: function(p1, p2){
-  			return my.pointsSameX(p1, p2) && my.pointsSameY(p1, p2);
-  		},
-  		pointsCompare: function(p1, p2){
-  			// returns -1 if p1 is smaller, 1 if p2 is smaller, 0 if equal
-  			if (my.pointsSameX(p1, p2))
-  				return my.pointsSameY(p1, p2) ? 0 : (p1[1] < p2[1] ? -1 : 1);
-  			return p1[0] < p2[0] ? -1 : 1;
-  		},
-  		pointsCollinear: function(pt1, pt2, pt3){
-  			// does pt1->pt2->pt3 make a straight line?
-  			// essentially this is just checking to see if the slope(pt1->pt2) === slope(pt2->pt3)
-  			// if slopes are equal, then they must be collinear, because they share pt2
-  			var dx1 = pt1[0] - pt2[0];
-  			var dy1 = pt1[1] - pt2[1];
-  			var dx2 = pt2[0] - pt3[0];
-  			var dy2 = pt2[1] - pt3[1];
-  			var n1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
-  			var n2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-  			// Assuming det(u, v) = 0, we have:
-  			// |det(u + u_err, v + v_err)| = |det(u + u_err, v + v_err) - det(u,v)|
-  			// =|det(u, v_err) + det(u_err. v) + det(u_err, v_err)|
-  			// <= |det(u, v_err)| + |det(u_err, v)| + |det(u_err, v_err)|
-  			// <= N(u)N(v_err) + N(u_err)N(v) + N(u_err)N(v_err)
-  			// <= eps * (N(u) + N(v) + eps)
-  			// We have N(u) ~ N(u + u_err) and N(v) ~ N(v + v_err).
-  			// Assuming eps << N(u) and eps << N(v), we end with:
-  			// |det(u + u_err, v + v_err)| <= eps * (N(u + u_err) + N(v + v_err))
-  			return Math.abs(dx1 * dy2 - dx2 * dy1) <= eps * (n1 + n2);
-  		},
-  		linesIntersect: function(a0, a1, b0, b1){
-  			// returns false if the lines are coincident (e.g., parallel or on top of each other)
-  			//
-  			// returns an object if the lines intersect:
-  			//   {
-  			//     pt: [x, y],    where the intersection point is at
-  			//     alongA: where intersection point is along A,
-  			//     alongB: where intersection point is along B
-  			//   }
-  			//
-  			//  alongA and alongB will each be one of: -2, -1, 0, 1, 2
-  			//
-  			//  with the following meaning:
-  			//
-  			//    -2   intersection point is before segment's first point
-  			//    -1   intersection point is directly on segment's first point
-  			//     0   intersection point is between segment's first and second points (exclusive)
-  			//     1   intersection point is directly on segment's second point
-  			//     2   intersection point is after segment's second point
-  			var adx = a1[0] - a0[0];
-  			var ady = a1[1] - a0[1];
-  			var bdx = b1[0] - b0[0];
-  			var bdy = b1[1] - b0[1];
-
-  			var axb = adx * bdy - ady * bdx;
-  			var n1 = Math.sqrt(adx * adx + ady * ady);
-  			var n2 = Math.sqrt(bdx * bdx + bdy * bdy);
-  			if (Math.abs(axb) <= eps * (n1 + n2))
-  				return false; // lines are coincident
-
-  			var dx = a0[0] - b0[0];
-  			var dy = a0[1] - b0[1];
-
-  			var A = (bdx * dy - bdy * dx) / axb;
-  			var B = (adx * dy - ady * dx) / axb;
-  			var pt = [
-  				a0[0] + A * adx,
-  				a0[1] + A * ady
-  			];
-
-  			var ret = {
-  				alongA: 0,
-  				alongB: 0,
-  				pt: pt
-  			};
-
-  			// categorize where intersection point is along A and B
-  			if (my.pointsSame(pt, a0))
-  				ret.alongA = -1;
-  			else if (my.pointsSame(pt, a1))
-  				ret.alongA = 1;
-  			else if (A < 0)
-  				ret.alongA = -2;
-  			else if (A > 1)
-  				ret.alongA = 2;
-
-  			if (my.pointsSame(pt, b0))
-  				ret.alongB = -1;
-  			else if (my.pointsSame(pt, b1))
-  				ret.alongB = 1;
-  			else if (B < 0)
-  				ret.alongB = -2;
-  			else if (B > 1)
-  				ret.alongB = 2;
-
-  			return ret;
-  		},
-  		pointInsideRegion: function(pt, region){
-  			var x = pt[0];
-  			var y = pt[1];
-  			var last_x = region[region.length - 1][0];
-  			var last_y = region[region.length - 1][1];
-  			var inside = false;
-  			for (var i = 0; i < region.length; i++){
-  				var curr_x = region[i][0];
-  				var curr_y = region[i][1];
-
-  				// if y is between curr_y and last_y, and
-  				// x is to the right of the boundary created by the line
-  				if ((curr_y - y > eps) != (last_y - y > eps) &&
-  					(last_x - curr_x) * (y - curr_y) / (last_y - curr_y) + curr_x - x > eps)
-  					inside = !inside;
-
-  				last_x = curr_x;
-  				last_y = curr_y;
-  			}
-  			return inside;
-  		}
-  	};
-  	return my;
-  }
-
-  var epsilon = Epsilon;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // simple linked list implementation that allows you to traverse down nodes and save positions
-  //
-
-  var LinkedList = {
-  	create: function(){
-  		var my = {
-  			root: { root: true, next: null },
-  			exists: function(node){
-  				if (node === null || node === my.root)
-  					return false;
-  				return true;
-  			},
-  			isEmpty: function(){
-  				return my.root.next === null;
-  			},
-  			getHead: function(){
-  				return my.root.next;
-  			},
-  			insertBefore: function(node, check){
-  				var last = my.root;
-  				var here = my.root.next;
-  				while (here !== null){
-  					if (check(here)){
-  						node.prev = here.prev;
-  						node.next = here;
-  						here.prev.next = node;
-  						here.prev = node;
-  						return;
-  					}
-  					last = here;
-  					here = here.next;
-  				}
-  				last.next = node;
-  				node.prev = last;
-  				node.next = null;
-  			},
-  			findTransition: function(check){
-  				var prev = my.root;
-  				var here = my.root.next;
-  				while (here !== null){
-  					if (check(here))
-  						break;
-  					prev = here;
-  					here = here.next;
-  				}
-  				return {
-  					before: prev === my.root ? null : prev,
-  					after: here,
-  					insert: function(node){
-  						node.prev = prev;
-  						node.next = here;
-  						prev.next = node;
-  						if (here !== null)
-  							here.prev = node;
-  						return node;
-  					}
-  				};
-  			}
-  		};
-  		return my;
-  	},
-  	node: function(data){
-  		data.prev = null;
-  		data.next = null;
-  		data.remove = function(){
-  			data.prev.next = data.next;
-  			if (data.next)
-  				data.next.prev = data.prev;
-  			data.prev = null;
-  			data.next = null;
-  		};
-  		return data;
-  	}
-  };
-
-  var linkedList$1 = LinkedList;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // this is the core work-horse
-  //
-
-
-
-  function Intersecter(selfIntersection, eps, buildLog){
-  	// selfIntersection is true/false depending on the phase of the overall algorithm
-
-  	//
-  	// segment creation
-  	//
-
-  	function segmentNew(start, end){
-  		return {
-  			id: buildLog ? buildLog.segmentId() : -1,
-  			start: start,
-  			end: end,
-  			myFill: {
-  				above: null, // is there fill above us?
-  				below: null  // is there fill below us?
-  			},
-  			otherFill: null
-  		};
-  	}
-
-  	function segmentCopy(start, end, seg){
-  		return {
-  			id: buildLog ? buildLog.segmentId() : -1,
-  			start: start,
-  			end: end,
-  			myFill: {
-  				above: seg.myFill.above,
-  				below: seg.myFill.below
-  			},
-  			otherFill: null
-  		};
-  	}
-
-  	//
-  	// event logic
-  	//
-
-  	var event_root = linkedList$1.create();
-
-  	function eventCompare(p1_isStart, p1_1, p1_2, p2_isStart, p2_1, p2_2){
-  		// compare the selected points first
-  		var comp = eps.pointsCompare(p1_1, p2_1);
-  		if (comp !== 0)
-  			return comp;
-  		// the selected points are the same
-
-  		if (eps.pointsSame(p1_2, p2_2)) // if the non-selected points are the same too...
-  			return 0; // then the segments are equal
-
-  		if (p1_isStart !== p2_isStart) // if one is a start and the other isn't...
-  			return p1_isStart ? 1 : -1; // favor the one that isn't the start
-
-  		// otherwise, we'll have to calculate which one is below the other manually
-  		return eps.pointAboveOrOnLine(p1_2,
-  			p2_isStart ? p2_1 : p2_2, // order matters
-  			p2_isStart ? p2_2 : p2_1
-  		) ? 1 : -1;
-  	}
-
-  	function eventAdd(ev, other_pt){
-  		event_root.insertBefore(ev, function(here){
-  			// should ev be inserted before here?
-  			var comp = eventCompare(
-  				ev  .isStart, ev  .pt,      other_pt,
-  				here.isStart, here.pt, here.other.pt
-  			);
-  			return comp < 0;
-  		});
-  	}
-
-  	function eventAddSegmentStart(seg, primary){
-  		var ev_start = linkedList$1.node({
-  			isStart: true,
-  			pt: seg.start,
-  			seg: seg,
-  			primary: primary,
-  			other: null,
-  			status: null
-  		});
-  		eventAdd(ev_start, seg.end);
-  		return ev_start;
-  	}
-
-  	function eventAddSegmentEnd(ev_start, seg, primary){
-  		var ev_end = linkedList$1.node({
-  			isStart: false,
-  			pt: seg.end,
-  			seg: seg,
-  			primary: primary,
-  			other: ev_start,
-  			status: null
-  		});
-  		ev_start.other = ev_end;
-  		eventAdd(ev_end, ev_start.pt);
-  	}
-
-  	function eventAddSegment(seg, primary){
-  		var ev_start = eventAddSegmentStart(seg, primary);
-  		eventAddSegmentEnd(ev_start, seg, primary);
-  		return ev_start;
-  	}
-
-  	function eventUpdateEnd(ev, end){
-  		// slides an end backwards
-  		//   (start)------------(end)    to:
-  		//   (start)---(end)
-
-  		if (buildLog)
-  			buildLog.segmentChop(ev.seg, end);
-
-  		ev.other.remove();
-  		ev.seg.end = end;
-  		ev.other.pt = end;
-  		eventAdd(ev.other, ev.pt);
-  	}
-
-  	function eventDivide(ev, pt){
-  		var ns = segmentCopy(pt, ev.seg.end, ev.seg);
-  		eventUpdateEnd(ev, pt);
-  		return eventAddSegment(ns, ev.primary);
-  	}
-
-  	function calculate(primaryPolyInverted, secondaryPolyInverted){
-  		// if selfIntersection is true then there is no secondary polygon, so that isn't used
-
-  		//
-  		// status logic
-  		//
-
-  		var status_root = linkedList$1.create();
-
-  		function statusCompare(ev1, ev2){
-  			var a1 = ev1.seg.start;
-  			var a2 = ev1.seg.end;
-  			var b1 = ev2.seg.start;
-  			var b2 = ev2.seg.end;
-
-  			if (eps.pointsCollinear(a1, b1, b2)){
-  				if (eps.pointsCollinear(a2, b1, b2))
-  					return 1;//eventCompare(true, a1, a2, true, b1, b2);
-  				return eps.pointAboveOrOnLine(a2, b1, b2) ? 1 : -1;
-  			}
-  			return eps.pointAboveOrOnLine(a1, b1, b2) ? 1 : -1;
-  		}
-
-  		function statusFindSurrounding(ev){
-  			return status_root.findTransition(function(here){
-  				var comp = statusCompare(ev, here.ev);
-  				return comp > 0;
-  			});
-  		}
-
-  		function checkIntersection(ev1, ev2){
-  			// returns the segment equal to ev1, or false if nothing equal
-
-  			var seg1 = ev1.seg;
-  			var seg2 = ev2.seg;
-  			var a1 = seg1.start;
-  			var a2 = seg1.end;
-  			var b1 = seg2.start;
-  			var b2 = seg2.end;
-
-  			if (buildLog)
-  				buildLog.checkIntersection(seg1, seg2);
-
-  			var i = eps.linesIntersect(a1, a2, b1, b2);
-
-  			if (i === false){
-  				// segments are parallel or coincident
-
-  				// if points aren't collinear, then the segments are parallel, so no intersections
-  				if (!eps.pointsCollinear(a1, a2, b1))
-  					return false;
-  				// otherwise, segments are on top of each other somehow (aka coincident)
-
-  				if (eps.pointsSame(a1, b2) || eps.pointsSame(a2, b1))
-  					return false; // segments touch at endpoints... no intersection
-
-  				var a1_equ_b1 = eps.pointsSame(a1, b1);
-  				var a2_equ_b2 = eps.pointsSame(a2, b2);
-
-  				if (a1_equ_b1 && a2_equ_b2)
-  					return ev2; // segments are exactly equal
-
-  				var a1_between = !a1_equ_b1 && eps.pointBetween(a1, b1, b2);
-  				var a2_between = !a2_equ_b2 && eps.pointBetween(a2, b1, b2);
-
-  				// handy for debugging:
-  				// buildLog.log({
-  				//	a1_equ_b1: a1_equ_b1,
-  				//	a2_equ_b2: a2_equ_b2,
-  				//	a1_between: a1_between,
-  				//	a2_between: a2_between
-  				// });
-
-  				if (a1_equ_b1){
-  					if (a2_between){
-  						//  (a1)---(a2)
-  						//  (b1)----------(b2)
-  						eventDivide(ev2, a2);
-  					}
-  					else{
-  						//  (a1)----------(a2)
-  						//  (b1)---(b2)
-  						eventDivide(ev1, b2);
-  					}
-  					return ev2;
-  				}
-  				else if (a1_between){
-  					if (!a2_equ_b2){
-  						// make a2 equal to b2
-  						if (a2_between){
-  							//         (a1)---(a2)
-  							//  (b1)-----------------(b2)
-  							eventDivide(ev2, a2);
-  						}
-  						else{
-  							//         (a1)----------(a2)
-  							//  (b1)----------(b2)
-  							eventDivide(ev1, b2);
-  						}
-  					}
-
-  					//         (a1)---(a2)
-  					//  (b1)----------(b2)
-  					eventDivide(ev2, a1);
-  				}
-  			}
-  			else{
-  				// otherwise, lines intersect at i.pt, which may or may not be between the endpoints
-
-  				// is A divided between its endpoints? (exclusive)
-  				if (i.alongA === 0){
-  					if (i.alongB === -1) // yes, at exactly b1
-  						eventDivide(ev1, b1);
-  					else if (i.alongB === 0) // yes, somewhere between B's endpoints
-  						eventDivide(ev1, i.pt);
-  					else if (i.alongB === 1) // yes, at exactly b2
-  						eventDivide(ev1, b2);
-  				}
-
-  				// is B divided between its endpoints? (exclusive)
-  				if (i.alongB === 0){
-  					if (i.alongA === -1) // yes, at exactly a1
-  						eventDivide(ev2, a1);
-  					else if (i.alongA === 0) // yes, somewhere between A's endpoints (exclusive)
-  						eventDivide(ev2, i.pt);
-  					else if (i.alongA === 1) // yes, at exactly a2
-  						eventDivide(ev2, a2);
-  				}
-  			}
-  			return false;
-  		}
-
-  		//
-  		// main event loop
-  		//
-  		var segments = [];
-  		while (!event_root.isEmpty()){
-  			var ev = event_root.getHead();
-
-  			if (buildLog)
-  				buildLog.vert(ev.pt[0]);
-
-  			if (ev.isStart){
-
-  				if (buildLog)
-  					buildLog.segmentNew(ev.seg, ev.primary);
-
-  				var surrounding = statusFindSurrounding(ev);
-  				var above = surrounding.before ? surrounding.before.ev : null;
-  				var below = surrounding.after ? surrounding.after.ev : null;
-
-  				if (buildLog){
-  					buildLog.tempStatus(
-  						ev.seg,
-  						above ? above.seg : false,
-  						below ? below.seg : false
-  					);
-  				}
-
-  				function checkBothIntersections(){
-  					if (above){
-  						var eve = checkIntersection(ev, above);
-  						if (eve)
-  							return eve;
-  					}
-  					if (below)
-  						return checkIntersection(ev, below);
-  					return false;
-  				}
-
-  				var eve = checkBothIntersections();
-  				if (eve){
-  					// ev and eve are equal
-  					// we'll keep eve and throw away ev
-
-  					// merge ev.seg's fill information into eve.seg
-
-  					if (selfIntersection){
-  						var toggle; // are we a toggling edge?
-  						if (ev.seg.myFill.below === null)
-  							toggle = true;
-  						else
-  							toggle = ev.seg.myFill.above !== ev.seg.myFill.below;
-
-  						// merge two segments that belong to the same polygon
-  						// think of this as sandwiching two segments together, where `eve.seg` is
-  						// the bottom -- this will cause the above fill flag to toggle
-  						if (toggle)
-  							eve.seg.myFill.above = !eve.seg.myFill.above;
-  					}
-  					else{
-  						// merge two segments that belong to different polygons
-  						// each segment has distinct knowledge, so no special logic is needed
-  						// note that this can only happen once per segment in this phase, because we
-  						// are guaranteed that all self-intersections are gone
-  						eve.seg.otherFill = ev.seg.myFill;
-  					}
-
-  					if (buildLog)
-  						buildLog.segmentUpdate(eve.seg);
-
-  					ev.other.remove();
-  					ev.remove();
-  				}
-
-  				if (event_root.getHead() !== ev){
-  					// something was inserted before us in the event queue, so loop back around and
-  					// process it before continuing
-  					if (buildLog)
-  						buildLog.rewind(ev.seg);
-  					continue;
-  				}
-
-  				//
-  				// calculate fill flags
-  				//
-  				if (selfIntersection){
-  					var toggle; // are we a toggling edge?
-  					if (ev.seg.myFill.below === null) // if we are a new segment...
-  						toggle = true; // then we toggle
-  					else // we are a segment that has previous knowledge from a division
-  						toggle = ev.seg.myFill.above !== ev.seg.myFill.below; // calculate toggle
-
-  					// next, calculate whether we are filled below us
-  					if (!below){ // if nothing is below us...
-  						// we are filled below us if the polygon is inverted
-  						ev.seg.myFill.below = primaryPolyInverted;
-  					}
-  					else{
-  						// otherwise, we know the answer -- it's the same if whatever is below
-  						// us is filled above it
-  						ev.seg.myFill.below = below.seg.myFill.above;
-  					}
-
-  					// since now we know if we're filled below us, we can calculate whether
-  					// we're filled above us by applying toggle to whatever is below us
-  					if (toggle)
-  						ev.seg.myFill.above = !ev.seg.myFill.below;
-  					else
-  						ev.seg.myFill.above = ev.seg.myFill.below;
-  				}
-  				else{
-  					// now we fill in any missing transition information, since we are all-knowing
-  					// at this point
-
-  					if (ev.seg.otherFill === null){
-  						// if we don't have other information, then we need to figure out if we're
-  						// inside the other polygon
-  						var inside;
-  						if (!below){
-  							// if nothing is below us, then we're inside if the other polygon is
-  							// inverted
-  							inside =
-  								ev.primary ? secondaryPolyInverted : primaryPolyInverted;
-  						}
-  						else{ // otherwise, something is below us
-  							// so copy the below segment's other polygon's above
-  							if (ev.primary === below.primary)
-  								inside = below.seg.otherFill.above;
-  							else
-  								inside = below.seg.myFill.above;
-  						}
-  						ev.seg.otherFill = {
-  							above: inside,
-  							below: inside
-  						};
-  					}
-  				}
-
-  				if (buildLog){
-  					buildLog.status(
-  						ev.seg,
-  						above ? above.seg : false,
-  						below ? below.seg : false
-  					);
-  				}
-
-  				// insert the status and remember it for later removal
-  				ev.other.status = surrounding.insert(linkedList$1.node({ ev: ev }));
-  			}
-  			else{
-  				var st = ev.status;
-
-  				if (st === null){
-  					throw new Error('PolyBool: Zero-length segment detected; your epsilon is ' +
-  						'probably too small or too large');
-  				}
-
-  				// removing the status will create two new adjacent edges, so we'll need to check
-  				// for those
-  				if (status_root.exists(st.prev) && status_root.exists(st.next))
-  					checkIntersection(st.prev.ev, st.next.ev);
-
-  				if (buildLog)
-  					buildLog.statusRemove(st.ev.seg);
-
-  				// remove the status
-  				st.remove();
-
-  				// if we've reached this point, we've calculated everything there is to know, so
-  				// save the segment for reporting
-  				if (!ev.primary){
-  					// make sure `seg.myFill` actually points to the primary polygon though
-  					var s = ev.seg.myFill;
-  					ev.seg.myFill = ev.seg.otherFill;
-  					ev.seg.otherFill = s;
-  				}
-  				segments.push(ev.seg);
-  			}
-
-  			// remove the event and continue
-  			event_root.getHead().remove();
-  		}
-
-  		if (buildLog)
-  			buildLog.done();
-
-  		return segments;
-  	}
-
-  	// return the appropriate API depending on what we're doing
-  	if (!selfIntersection){
-  		// performing combination of polygons, so only deal with already-processed segments
-  		return {
-  			calculate: function(segments1, inverted1, segments2, inverted2){
-  				// segmentsX come from the self-intersection API, or this API
-  				// invertedX is whether we treat that list of segments as an inverted polygon or not
-  				// returns segments that can be used for further operations
-  				segments1.forEach(function(seg){
-  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), true);
-  				});
-  				segments2.forEach(function(seg){
-  					eventAddSegment(segmentCopy(seg.start, seg.end, seg), false);
-  				});
-  				return calculate(inverted1, inverted2);
-  			}
-  		};
-  	}
-
-  	// otherwise, performing self-intersection, so deal with regions
-  	return {
-  		addRegion: function(region){
-  			// regions are a list of points:
-  			//  [ [0, 0], [100, 0], [50, 100] ]
-  			// you can add multiple regions before running calculate
-  			var pt1;
-  			var pt2 = region[region.length - 1];
-  			for (var i = 0; i < region.length; i++){
-  				pt1 = pt2;
-  				pt2 = region[i];
-
-  				var forward = eps.pointsCompare(pt1, pt2);
-  				if (forward === 0) // points are equal, so we have a zero-length segment
-  					continue; // just skip it
-
-  				eventAddSegment(
-  					segmentNew(
-  						forward < 0 ? pt1 : pt2,
-  						forward < 0 ? pt2 : pt1
-  					),
-  					true
-  				);
-  			}
-  		},
-  		calculate: function(inverted){
-  			// is the polygon inverted?
-  			// returns segments
-  			return calculate(inverted, false);
-  		}
-  	};
-  }
-
-  var intersecter = Intersecter;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // converts a list of segments into a list of regions, while also removing unnecessary verticies
-  //
-
-  function SegmentChainer(segments, eps, buildLog){
-  	var chains = [];
-  	var regions = [];
-
-  	segments.forEach(function(seg){
-  		var pt1 = seg.start;
-  		var pt2 = seg.end;
-  		if (eps.pointsSame(pt1, pt2)){
-  			console.warn('PolyBool: Warning: Zero-length segment detected; your epsilon is ' +
-  				'probably too small or too large');
-  			return;
-  		}
-
-  		if (buildLog)
-  			buildLog.chainStart(seg);
-
-  		// search for two chains that this segment matches
-  		var first_match = {
-  			index: 0,
-  			matches_head: false,
-  			matches_pt1: false
-  		};
-  		var second_match = {
-  			index: 0,
-  			matches_head: false,
-  			matches_pt1: false
-  		};
-  		var next_match = first_match;
-  		function setMatch(index, matches_head, matches_pt1){
-  			// return true if we've matched twice
-  			next_match.index = index;
-  			next_match.matches_head = matches_head;
-  			next_match.matches_pt1 = matches_pt1;
-  			if (next_match === first_match){
-  				next_match = second_match;
-  				return false;
-  			}
-  			next_match = null;
-  			return true; // we've matched twice, we're done here
-  		}
-  		for (var i = 0; i < chains.length; i++){
-  			var chain = chains[i];
-  			var head  = chain[0];
-  			var head2 = chain[1];
-  			var tail  = chain[chain.length - 1];
-  			var tail2 = chain[chain.length - 2];
-  			if (eps.pointsSame(head, pt1)){
-  				if (setMatch(i, true, true))
-  					break;
-  			}
-  			else if (eps.pointsSame(head, pt2)){
-  				if (setMatch(i, true, false))
-  					break;
-  			}
-  			else if (eps.pointsSame(tail, pt1)){
-  				if (setMatch(i, false, true))
-  					break;
-  			}
-  			else if (eps.pointsSame(tail, pt2)){
-  				if (setMatch(i, false, false))
-  					break;
-  			}
-  		}
-
-  		if (next_match === first_match){
-  			// we didn't match anything, so create a new chain
-  			chains.push([ pt1, pt2 ]);
-  			if (buildLog)
-  				buildLog.chainNew(pt1, pt2);
-  			return;
-  		}
-
-  		if (next_match === second_match){
-  			// we matched a single chain
-
-  			if (buildLog)
-  				buildLog.chainMatch(first_match.index);
-
-  			// add the other point to the apporpriate end, and check to see if we've closed the
-  			// chain into a loop
-
-  			var index = first_match.index;
-  			var pt = first_match.matches_pt1 ? pt2 : pt1; // if we matched pt1, then we add pt2, etc
-  			var addToHead = first_match.matches_head; // if we matched at head, then add to the head
-
-  			var chain = chains[index];
-  			var grow  = addToHead ? chain[0] : chain[chain.length - 1];
-  			var grow2 = addToHead ? chain[1] : chain[chain.length - 2];
-  			var oppo  = addToHead ? chain[chain.length - 1] : chain[0];
-  			var oppo2 = addToHead ? chain[chain.length - 2] : chain[1];
-
-  			if (eps.pointsCollinear(grow2, grow, pt)){
-  				// grow isn't needed because it's directly between grow2 and pt:
-  				// grow2 ---grow---> pt
-  				if (addToHead){
-  					if (buildLog)
-  						buildLog.chainRemoveHead(first_match.index, pt);
-  					chain.shift();
-  				}
-  				else{
-  					if (buildLog)
-  						buildLog.chainRemoveTail(first_match.index, pt);
-  					chain.pop();
-  				}
-  				grow = grow2; // old grow is gone... new grow is what grow2 was
-  			}
-
-  			if (eps.pointsSame(oppo, pt)){
-  				// we're closing the loop, so remove chain from chains
-  				chains.splice(index, 1);
-
-  				if (eps.pointsCollinear(oppo2, oppo, grow)){
-  					// oppo isn't needed because it's directly between oppo2 and grow:
-  					// oppo2 ---oppo--->grow
-  					if (addToHead){
-  						if (buildLog)
-  							buildLog.chainRemoveTail(first_match.index, grow);
-  						chain.pop();
-  					}
-  					else{
-  						if (buildLog)
-  							buildLog.chainRemoveHead(first_match.index, grow);
-  						chain.shift();
-  					}
-  				}
-
-  				if (buildLog)
-  					buildLog.chainClose(first_match.index);
-
-  				// we have a closed chain!
-  				regions.push(chain);
-  				return;
-  			}
-
-  			// not closing a loop, so just add it to the apporpriate side
-  			if (addToHead){
-  				if (buildLog)
-  					buildLog.chainAddHead(first_match.index, pt);
-  				chain.unshift(pt);
-  			}
-  			else{
-  				if (buildLog)
-  					buildLog.chainAddTail(first_match.index, pt);
-  				chain.push(pt);
-  			}
-  			return;
-  		}
-
-  		// otherwise, we matched two chains, so we need to combine those chains together
-
-  		function reverseChain(index){
-  			if (buildLog)
-  				buildLog.chainReverse(index);
-  			chains[index].reverse(); // gee, that's easy
-  		}
-
-  		function appendChain(index1, index2){
-  			// index1 gets index2 appended to it, and index2 is removed
-  			var chain1 = chains[index1];
-  			var chain2 = chains[index2];
-  			var tail  = chain1[chain1.length - 1];
-  			var tail2 = chain1[chain1.length - 2];
-  			var head  = chain2[0];
-  			var head2 = chain2[1];
-
-  			if (eps.pointsCollinear(tail2, tail, head)){
-  				// tail isn't needed because it's directly between tail2 and head
-  				// tail2 ---tail---> head
-  				if (buildLog)
-  					buildLog.chainRemoveTail(index1, tail);
-  				chain1.pop();
-  				tail = tail2; // old tail is gone... new tail is what tail2 was
-  			}
-
-  			if (eps.pointsCollinear(tail, head, head2)){
-  				// head isn't needed because it's directly between tail and head2
-  				// tail ---head---> head2
-  				if (buildLog)
-  					buildLog.chainRemoveHead(index2, head);
-  				chain2.shift();
-  			}
-
-  			if (buildLog)
-  				buildLog.chainJoin(index1, index2);
-  			chains[index1] = chain1.concat(chain2);
-  			chains.splice(index2, 1);
-  		}
-
-  		var F = first_match.index;
-  		var S = second_match.index;
-
-  		if (buildLog)
-  			buildLog.chainConnect(F, S);
-
-  		var reverseF = chains[F].length < chains[S].length; // reverse the shorter chain, if needed
-  		if (first_match.matches_head){
-  			if (second_match.matches_head){
-  				if (reverseF){
-  					// <<<< F <<<< --- >>>> S >>>>
-  					reverseChain(F);
-  					// >>>> F >>>> --- >>>> S >>>>
-  					appendChain(F, S);
-  				}
-  				else{
-  					// <<<< F <<<< --- >>>> S >>>>
-  					reverseChain(S);
-  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  					// >>>> S >>>> --- >>>> F >>>>
-  					appendChain(S, F);
-  				}
-  			}
-  			else{
-  				// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  				// >>>> S >>>> --- >>>> F >>>>
-  				appendChain(S, F);
-  			}
-  		}
-  		else{
-  			if (second_match.matches_head){
-  				// >>>> F >>>> --- >>>> S >>>>
-  				appendChain(F, S);
-  			}
-  			else{
-  				if (reverseF){
-  					// >>>> F >>>> --- <<<< S <<<<
-  					reverseChain(F);
-  					// <<<< F <<<< --- <<<< S <<<<   logically same as:
-  					// >>>> S >>>> --- >>>> F >>>>
-  					appendChain(S, F);
-  				}
-  				else{
-  					// >>>> F >>>> --- <<<< S <<<<
-  					reverseChain(S);
-  					// >>>> F >>>> --- >>>> S >>>>
-  					appendChain(F, S);
-  				}
-  			}
-  		}
-  	});
-
-  	return regions;
-  }
-
-  var segmentChainer = SegmentChainer;
-
-  // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // filter a list of segments based on boolean operations
-  //
-
-  function select(segments, selection, buildLog){
-  	var result = [];
-  	segments.forEach(function(seg){
-  		var index =
-  			(seg.myFill.above ? 8 : 0) +
-  			(seg.myFill.below ? 4 : 0) +
-  			((seg.otherFill && seg.otherFill.above) ? 2 : 0) +
-  			((seg.otherFill && seg.otherFill.below) ? 1 : 0);
-  		if (selection[index] !== 0){
-  			// copy the segment to the results, while also calculating the fill status
-  			result.push({
-  				id: buildLog ? buildLog.segmentId() : -1,
-  				start: seg.start,
-  				end: seg.end,
-  				myFill: {
-  					above: selection[index] === 1, // 1 if filled above
-  					below: selection[index] === 2  // 2 if filled below
-  				},
-  				otherFill: null
-  			});
-  		}
-  	});
-
-  	if (buildLog)
-  		buildLog.selected(result);
-
-  	return result;
-  }
-
-  var SegmentSelector = {
-  	union: function(segments, buildLog){ // primary | secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   yes filled below    2
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   no                  0
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   yes filled above    1
-  		//    1      0      1      1   =>   no                  0
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   no                  0
-  		//    1      1      1      0   =>   no                  0
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			2, 2, 0, 0,
-  			1, 0, 1, 0,
-  			0, 0, 0, 0
-  		], buildLog);
-  	},
-  	intersect: function(segments, buildLog){ // primary & secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   no                  0
-  		//    0      0      1      0   =>   no                  0
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   no                  0
-  		//    0      1      0      1   =>   yes filled below    2
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   yes filled below    2
-  		//    1      0      0      0   =>   no                  0
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   yes filled above    1
-  		//    1      0      1      1   =>   yes filled above    1
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled below    2
-  		//    1      1      1      0   =>   yes filled above    1
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 0, 0, 0,
-  			0, 2, 0, 2,
-  			0, 0, 1, 1,
-  			0, 2, 1, 0
-  		], buildLog);
-  	},
-  	difference: function(segments, buildLog){ // primary - secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   no                  0
-  		//    0      0      1      0   =>   no                  0
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   yes filled below    2
-  		//    0      1      1      1   =>   no                  0
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   yes filled above    1
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   no                  0
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled above    1
-  		//    1      1      1      0   =>   yes filled below    2
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 0, 0, 0,
-  			2, 0, 2, 0,
-  			1, 1, 0, 0,
-  			0, 1, 2, 0
-  		], buildLog);
-  	},
-  	differenceRev: function(segments, buildLog){ // secondary - primary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   no                  0
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   yes filled above    1
-  		//    0      1      1      1   =>   yes filled above    1
-  		//    1      0      0      0   =>   no                  0
-  		//    1      0      0      1   =>   yes filled below    2
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   yes filled below    2
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   no                  0
-  		//    1      1      1      0   =>   no                  0
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			0, 0, 1, 1,
-  			0, 2, 0, 2,
-  			0, 0, 0, 0
-  		], buildLog);
-  	},
-  	xor: function(segments, buildLog){ // primary ^ secondary
-  		// above1 below1 above2 below2    Keep?               Value
-  		//    0      0      0      0   =>   no                  0
-  		//    0      0      0      1   =>   yes filled below    2
-  		//    0      0      1      0   =>   yes filled above    1
-  		//    0      0      1      1   =>   no                  0
-  		//    0      1      0      0   =>   yes filled below    2
-  		//    0      1      0      1   =>   no                  0
-  		//    0      1      1      0   =>   no                  0
-  		//    0      1      1      1   =>   yes filled above    1
-  		//    1      0      0      0   =>   yes filled above    1
-  		//    1      0      0      1   =>   no                  0
-  		//    1      0      1      0   =>   no                  0
-  		//    1      0      1      1   =>   yes filled below    2
-  		//    1      1      0      0   =>   no                  0
-  		//    1      1      0      1   =>   yes filled above    1
-  		//    1      1      1      0   =>   yes filled below    2
-  		//    1      1      1      1   =>   no                  0
-  		return select(segments, [
-  			0, 2, 1, 0,
-  			2, 0, 0, 1,
-  			1, 0, 0, 2,
-  			0, 1, 2, 0
-  		], buildLog);
-  	}
-  };
-
-  var segmentSelector = SegmentSelector;
-
-  // (c) Copyright 2017, Sean Connelly (@voidqk), http://syntheti.cc
-  // MIT License
-  // Project Home: https://github.com/voidqk/polybooljs
-
-  //
-  // convert between PolyBool polygon format and GeoJSON formats (Polygon and MultiPolygon)
-  //
-
-  var GeoJSON = {
-  	// convert a GeoJSON object to a PolyBool polygon
-  	toPolygon: function(PolyBool, geojson){
-
-  		// converts list of LineString's to segments
-  		function GeoPoly(coords){
-  			// check for empty coords
-  			if (coords.length <= 0)
-  				return PolyBool.segments({ inverted: false, regions: [] });
-
-  			// convert LineString to segments
-  			function LineString(ls){
-  				// remove tail which should be the same as head
-  				var reg = ls.slice(0, ls.length - 1);
-  				return PolyBool.segments({ inverted: false, regions: [reg] });
-  			}
-
-  			// the first LineString is considered the outside
-  			var out = LineString(coords[0]);
-
-  			// the rest of the LineStrings are considered interior holes, so subtract them from the
-  			// current result
-  			for (var i = 1; i < coords.length; i++)
-  				out = PolyBool.selectDifference(PolyBool.combine(out, LineString(coords[i])));
-
-  			return out;
-  		}
-
-  		if (geojson.type === 'Polygon'){
-  			// single polygon, so just convert it and we're done
-  			return PolyBool.polygon(GeoPoly(geojson.coordinates));
-  		}
-  		else if (geojson.type === 'MultiPolygon'){
-  			// multiple polygons, so union all the polygons together
-  			var out = PolyBool.segments({ inverted: false, regions: [] });
-  			for (var i = 0; i < geojson.coordinates.length; i++)
-  				out = PolyBool.selectUnion(PolyBool.combine(out, GeoPoly(geojson.coordinates[i])));
-  			return PolyBool.polygon(out);
-  		}
-  		throw new Error('PolyBool: Cannot convert GeoJSON object to PolyBool polygon');
-  	},
-
-  	// convert a PolyBool polygon to a GeoJSON object
-  	fromPolygon: function(PolyBool, eps, poly){
-  		// make sure out polygon is clean
-  		poly = PolyBool.polygon(PolyBool.segments(poly));
-
-  		// test if r1 is inside r2
-  		function regionInsideRegion(r1, r2){
-  			// we're guaranteed no lines intersect (because the polygon is clean), but a vertex
-  			// could be on the edge -- so we just average pt[0] and pt[1] to produce a point on the
-  			// edge of the first line, which cannot be on an edge
-  			return eps.pointInsideRegion([
-  				(r1[0][0] + r1[1][0]) * 0.5,
-  				(r1[0][1] + r1[1][1]) * 0.5
-  			], r2);
-  		}
-
-  		// calculate inside heirarchy
-  		//
-  		//  _____________________   _______    roots -> A       -> F
-  		// |          A          | |   F   |            |          |
-  		// |  _______   _______  | |  ___  |            +-- B      +-- G
-  		// | |   B   | |   C   | | | |   | |            |   |
-  		// | |  ___  | |  ___  | | | |   | |            |   +-- D
-  		// | | | D | | | | E | | | | | G | |            |
-  		// | | |___| | | |___| | | | |   | |            +-- C
-  		// | |_______| |_______| | | |___| |                |
-  		// |_____________________| |_______|                +-- E
-
-  		function newNode(region){
-  			return {
-  				region: region,
-  				children: []
-  			};
-  		}
-
-  		var roots = newNode(null);
-
-  		function addChild(root, region){
-  			// first check if we're inside any children
-  			for (var i = 0; i < root.children.length; i++){
-  				var child = root.children[i];
-  				if (regionInsideRegion(region, child.region)){
-  					// we are, so insert inside them instead
-  					addChild(child, region);
-  					return;
-  				}
-  			}
-
-  			// not inside any children, so check to see if any children are inside us
-  			var node = newNode(region);
-  			for (var i = 0; i < root.children.length; i++){
-  				var child = root.children[i];
-  				if (regionInsideRegion(child.region, region)){
-  					// oops... move the child beneath us, and remove them from root
-  					node.children.push(child);
-  					root.children.splice(i, 1);
-  					i--;
-  				}
-  			}
-
-  			// now we can add ourselves
-  			root.children.push(node);
-  		}
-
-  		// add all regions to the root
-  		for (var i = 0; i < poly.regions.length; i++){
-  			var region = poly.regions[i];
-  			if (region.length < 3) // regions must have at least 3 points (sanity check)
-  				continue;
-  			addChild(roots, region);
-  		}
-
-  		// with our heirarchy, we can distinguish between exterior borders, and interior holes
-  		// the root nodes are exterior, children are interior, children's children are exterior,
-  		// children's children's children are interior, etc
-
-  		// while we're at it, exteriors are counter-clockwise, and interiors are clockwise
-
-  		function forceWinding(region, clockwise){
-  			// first, see if we're clockwise or counter-clockwise
-  			// https://en.wikipedia.org/wiki/Shoelace_formula
-  			var winding = 0;
-  			var last_x = region[region.length - 1][0];
-  			var last_y = region[region.length - 1][1];
-  			var copy = [];
-  			for (var i = 0; i < region.length; i++){
-  				var curr_x = region[i][0];
-  				var curr_y = region[i][1];
-  				copy.push([curr_x, curr_y]); // create a copy while we're at it
-  				winding += curr_y * last_x - curr_x * last_y;
-  				last_x = curr_x;
-  				last_y = curr_y;
-  			}
-  			// this assumes Cartesian coordinates (Y is positive going up)
-  			var isclockwise = winding < 0;
-  			if (isclockwise !== clockwise)
-  				copy.reverse();
-  			// while we're here, the last point must be the first point...
-  			copy.push([copy[0][0], copy[0][1]]);
-  			return copy;
-  		}
-
-  		var geopolys = [];
-
-  		function addExterior(node){
-  			var poly = [forceWinding(node.region, false)];
-  			geopolys.push(poly);
-  			// children of exteriors are interior
-  			for (var i = 0; i < node.children.length; i++)
-  				poly.push(getInterior(node.children[i]));
-  		}
-
-  		function getInterior(node){
-  			// children of interiors are exterior
-  			for (var i = 0; i < node.children.length; i++)
-  				addExterior(node.children[i]);
-  			// return the clockwise interior
-  			return forceWinding(node.region, true);
-  		}
-
-  		// root nodes are exterior
-  		for (var i = 0; i < roots.children.length; i++)
-  			addExterior(roots.children[i]);
-
-  		// lastly, construct the approrpriate GeoJSON object
-
-  		if (geopolys.length <= 0) // empty GeoJSON Polygon
-  			return { type: 'Polygon', coordinates: [] };
-  		if (geopolys.length == 1) // use a GeoJSON Polygon
-  			return { type: 'Polygon', coordinates: geopolys[0] };
-  		return { // otherwise, use a GeoJSON MultiPolygon
-  			type: 'MultiPolygon',
-  			coordinates: geopolys
-  		};
-  	}
-  };
-
-  var geojson = GeoJSON;
-
-  /*
-   * @copyright 2016 Sean Connelly (@voidqk), http://syntheti.cc
-   * @license MIT
-   * @preserve Project Home: https://github.com/voidqk/polybooljs
-   */
-
-
-
-
-
-
-
-
-  var buildLog$1 = false;
-  var epsilon$1 = epsilon();
-
-  var PolyBool;
-  PolyBool = {
-  	// getter/setter for buildLog
-  	buildLog: function(bl){
-  		if (bl === true)
-  			buildLog$1 = buildLog();
-  		else if (bl === false)
-  			buildLog$1 = false;
-  		return buildLog$1 === false ? false : buildLog$1.list;
-  	},
-  	// getter/setter for epsilon
-  	epsilon: function(v){
-  		return epsilon$1.epsilon(v);
-  	},
-
-  	// core API
-  	segments: function(poly){
-  		var i = intersecter(true, epsilon$1, buildLog$1);
-  		poly.regions.forEach(i.addRegion);
-  		return {
-  			segments: i.calculate(poly.inverted),
-  			inverted: poly.inverted
-  		};
-  	},
-  	combine: function(segments1, segments2){
-  		var i3 = intersecter(false, epsilon$1, buildLog$1);
-  		return {
-  			combined: i3.calculate(
-  				segments1.segments, segments1.inverted,
-  				segments2.segments, segments2.inverted
-  			),
-  			inverted1: segments1.inverted,
-  			inverted2: segments2.inverted
-  		};
-  	},
-  	selectUnion: function(combined){
-  		return {
-  			segments: segmentSelector.union(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 || combined.inverted2
-  		}
-  	},
-  	selectIntersect: function(combined){
-  		return {
-  			segments: segmentSelector.intersect(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 && combined.inverted2
-  		}
-  	},
-  	selectDifference: function(combined){
-  		return {
-  			segments: segmentSelector.difference(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 && !combined.inverted2
-  		}
-  	},
-  	selectDifferenceRev: function(combined){
-  		return {
-  			segments: segmentSelector.differenceRev(combined.combined, buildLog$1),
-  			inverted: !combined.inverted1 && combined.inverted2
-  		}
-  	},
-  	selectXor: function(combined){
-  		return {
-  			segments: segmentSelector.xor(combined.combined, buildLog$1),
-  			inverted: combined.inverted1 !== combined.inverted2
-  		}
-  	},
-  	polygon: function(segments){
-  		return {
-  			regions: segmentChainer(segments.segments, epsilon$1, buildLog$1),
-  			inverted: segments.inverted
-  		};
-  	},
-
-  	// GeoJSON converters
-  	polygonFromGeoJSON: function(geojson$1){
-  		return geojson.toPolygon(PolyBool, geojson$1);
-  	},
-  	polygonToGeoJSON: function(poly){
-  		return geojson.fromPolygon(PolyBool, epsilon$1, poly);
-  	},
-
-  	// helper functions for common operations
-  	union: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectUnion);
-  	},
-  	intersect: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectIntersect);
-  	},
-  	difference: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectDifference);
-  	},
-  	differenceRev: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectDifferenceRev);
-  	},
-  	xor: function(poly1, poly2){
-  		return operate(poly1, poly2, PolyBool.selectXor);
-  	}
-  };
-
-  function operate(poly1, poly2, selector){
-  	var seg1 = PolyBool.segments(poly1);
-  	var seg2 = PolyBool.segments(poly2);
-  	var comb = PolyBool.combine(seg1, seg2);
-  	var seg3 = selector(comb);
-  	return PolyBool.polygon(seg3);
-  }
-
-  if (typeof window === 'object')
-  	window.PolyBool = PolyBool;
-
-  var polybooljs = PolyBool;
-
-  // Adapted from https://github.com/jsxcad/polybooljs/blob/master/lib/geojson.js
-
-  const fromSurface = (...surfaces) => {
-    if (surfaces.length === 0) {
-      return {
-        regions: []
-        // inverted: false
-      };
-    } else if (surfaces.length === 1) {
-      return {
-        regions: surfaces[0]
-        // inverted: false
-      };
-    } else {
-      return {
-        regions: [].concat(...surfaces)
-        // inverted: false
-      };
+  const X$2 = 0;
+  const Y$2 = 1;
+
+  const fromSurface = (z0Surface) => {
+    const polygons = [];
+    for (const z0Polygon of z0Surface) {
+      const polygon = z0Polygon.map(([x, y]) => [x, y]);
+      // polygon-clipping requires repeating the first point to be closed.
+      polygon.push(polygon[0]);
+      polygons.push(polygon);
     }
+    return polygons;
   };
 
-  const toSurface = (poly) => {
-    const eps = epsilon();
-    // make sure out polygon is clean
-    // poly = polybooljs.polygon(polybooljs.segments(poly));
-
-    // test if r1 is inside r2
-    function regionInsideRegion (r1, r2) {
-      // we're guaranteed no lines intersect (because the polygon is clean), but a vertex
-      // could be on the edge -- so we just average pt[0] and pt[1] to produce a point on the
-      // edge of the first line, which cannot be on an edge
-      return eps.pointInsideRegion([
-        (r1[0][0] + r1[1][0]) * 0.5,
-        (r1[0][1] + r1[1][1]) * 0.5
-      ], r2);
-    }
-
-    // calculate inside heirarchy
-    //
-    //  _____________________   _______    roots -> A       -> F
-    // |          A          | |   F   |            |          |
-    // |  _______   _______  | |  ___  |            +-- B      +-- G
-    // | |   B   | |   C   | | | |   | |            |   |
-    // | |  ___  | |  ___  | | | |   | |            |   +-- D
-    // | | | D | | | | E | | | | | G | |            |
-    // | | |___| | | |___| | | | |   | |            +-- C
-    // | |_______| |_______| | | |___| |                |
-    // |_____________________| |_______|                +-- E
-
-    function newNode (region) {
-      return {
-        region: region,
-        children: []
-      };
-    }
-
-    var roots = newNode(null);
-
-    function addChild (root, region) {
-      // first check if we're inside any children
-      for (var i = 0; i < root.children.length; i++) {
-        var child = root.children[i];
-        if (regionInsideRegion(region, child.region)) {
-          // we are, so insert inside them instead
-          addChild(child, region);
-          return;
+  const toSurface = (multiPolygon) => {
+    const z0Surface = [];
+    for (const polygons of multiPolygon) {
+      for (const polygon of polygons) {
+        const z0Polygon = [];
+        for (const point of polygon) {
+          z0Polygon.push([point[X$2], point[Y$2], 0]);
         }
-      }
-
-      // not inside any children, so check to see if any children are inside us
-      var node = newNode(region);
-      for (var i = 0; i < root.children.length; i++) {
-        var child = root.children[i];
-        if (regionInsideRegion(child.region, region)) {
-          // oops... move the child beneath us, and remove them from root
-          node.children.push(child);
-          root.children.splice(i, 1);
-          i--;
-        }
-      }
-
-      // now we can add ourselves
-      root.children.push(node);
-    }
-
-    // add all regions to the root
-    for (var i = 0; i < poly.regions.length; i++) {
-      var region = poly.regions[i];
-      if (region.length < 3) {
-        // regions must have at least 3 points (sanity check)
-        continue;
-      }
-      addChild(roots, region);
-    }
-
-    // with our heirarchy, we can distinguish between exterior borders, and interior holes
-    // the root nodes are exterior, children are interior, children's children are exterior,
-    // children's children's children are interior, etc
-
-    // while we're at it, exteriors are counter-clockwise, and interiors are clockwise
-
-    function forceWinding (region, clockwise) {
-      // first, see if we're clockwise or counter-clockwise
-      // https://en.wikipedia.org/wiki/Shoelace_formula
-      var winding = 0;
-      var last_x = region[region.length - 1][0];
-      var last_y = region[region.length - 1][1];
-      var copy = [];
-      for (var i = 0; i < region.length; i++) {
-        var curr_x = region[i][0];
-        var curr_y = region[i][1];
-        copy.push([curr_x, curr_y, 0]); // create a copy while we're at it
-        winding += curr_y * last_x - curr_x * last_y;
-        last_x = curr_x;
-        last_y = curr_y;
-      }
-      // this assumes Cartesian coordinates (Y is positive going up)
-      var isclockwise = winding / 0 < 0;
-      if (isclockwise !== clockwise) {
-        copy.reverse();
-      }
-      return copy;
-    }
-
-    var geopolys = [];
-
-    function addExterior (node) {
-      var poly = forceWinding(node.region, false);
-      geopolys.push(poly);
-      // children of exteriors are interior
-      for (var i = 0; i < node.children.length; i++) {
-        geopolys.push(getInterior(node.children[i]));
+        z0Polygon.pop();
+        z0Surface.push(z0Polygon);
       }
     }
-
-    function getInterior (node) {
-      // children of interiors are exterior
-      for (var i = 0; i < node.children.length; i++) {
-        addExterior(node.children[i]);
-      }
-      // return the clockwise interior
-      return forceWinding(node.region, true);
-    }
-
-    // root nodes are exterior
-    for (var i = 0; i < roots.children.length; i++) {
-      addExterior(roots.children[i]);
-    }
-
-    return geopolys;
+    return z0Surface;
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
   const measureBoundingBox = (surface) => {
     if (surface.measureBoundingBox === undefined) {
-      const max = [-Infinity, -Infinity];
-      const min = [Infinity, Infinity];
+      const max = [-Infinity, -Infinity, 0];
+      const min = [Infinity, Infinity, 0];
       for (const polygon of surface) {
         for (const point of polygon) {
           if (point[0] < min[0]) min[0] = point[0];
@@ -63699,8 +61966,8 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const iota = 1e-5;
-  const X$2 = 0;
-  const Y$2 = 1;
+  const X$3 = 0;
+  const Y$3 = 1;
 
   // Tolerates overlap up to one iota.
   // Ths means that abutting surfaces may remain distinct.
@@ -63710,10 +61977,10 @@ define("./master.js",[],function () { 'use strict';
     }
     const [minA, maxA] = measureBoundingBox(a);
     const [minB, maxB] = measureBoundingBox(b);
-    if (maxA[X$2] <= minB[X$2] + iota) { return true; }
-    if (maxA[Y$2] <= minB[Y$2] + iota) { return true; }
-    if (maxB[X$2] <= minA[X$2] + iota) { return true; }
-    if (maxB[Y$2] <= minA[Y$2] + iota) { return true; }
+    if (maxA[X$3] <= minB[X$3] + iota) { return true; }
+    if (maxA[Y$3] <= minB[Y$3] + iota) { return true; }
+    if (maxB[X$3] <= minA[X$3] + iota) { return true; }
+    if (maxB[Y$3] <= minA[Y$3] + iota) { return true; }
     return false;
   };
 
@@ -63724,11 +61991,2623 @@ define("./master.js",[],function () { 'use strict';
     }
     const [minA, maxA] = measureBoundingBox(a);
     const [minB, maxB] = measureBoundingBox(b);
-    if (maxA[X$2] < minB[X$2]) { return true; }
-    if (maxA[Y$2] < minB[Y$2]) { return true; }
-    if (maxB[X$2] < minA[X$2]) { return true; }
-    if (maxB[Y$2] < minA[Y$2]) { return true; }
+    if (maxA[X$3] < minB[X$3]) { return true; }
+    if (maxA[Y$3] < minB[Y$3]) { return true; }
+    if (maxB[X$3] < minA[X$3]) { return true; }
+    if (maxB[Y$3] < minA[Y$3]) { return true; }
     return false;
+  };
+
+  /**
+   * splaytree v3.0.0
+   * Fast Splay tree for Node and browser
+   *
+   * @author Alexander Milevski <info@w8r.name>
+   * @license MIT
+   * @preserve
+   */
+
+  class Node$3 {
+      constructor(key, data) {
+          this.next = null;
+          this.key = key;
+          this.data = data;
+          this.left = null;
+          this.right = null;
+      }
+  }
+
+  /* follows "An implementation of top-down splaying"
+   * by D. Sleator <sleator@cs.cmu.edu> March 1992
+   */
+  function DEFAULT_COMPARE(a, b) {
+      return a > b ? 1 : a < b ? -1 : 0;
+  }
+  /**
+   * Simple top down splay, not requiring i to be in the tree t.
+   */
+  function splay(i, t, comparator) {
+      const N = new Node$3(null, null);
+      let l = N;
+      let r = N;
+      while (true) {
+          const cmp = comparator(i, t.key);
+          //if (i < t.key) {
+          if (cmp < 0) {
+              if (t.left === null)
+                  break;
+              //if (i < t.left.key) {
+              if (comparator(i, t.left.key) < 0) {
+                  const y = t.left; /* rotate right */
+                  t.left = y.right;
+                  y.right = t;
+                  t = y;
+                  if (t.left === null)
+                      break;
+              }
+              r.left = t; /* link right */
+              r = t;
+              t = t.left;
+              //} else if (i > t.key) {
+          }
+          else if (cmp > 0) {
+              if (t.right === null)
+                  break;
+              //if (i > t.right.key) {
+              if (comparator(i, t.right.key) > 0) {
+                  const y = t.right; /* rotate left */
+                  t.right = y.left;
+                  y.left = t;
+                  t = y;
+                  if (t.right === null)
+                      break;
+              }
+              l.right = t; /* link left */
+              l = t;
+              t = t.right;
+          }
+          else
+              break;
+      }
+      /* assemble */
+      l.right = t.left;
+      r.left = t.right;
+      t.left = N.right;
+      t.right = N.left;
+      return t;
+  }
+  function insert(i, data, t, comparator) {
+      const node = new Node$3(i, data);
+      if (t === null) {
+          node.left = node.right = null;
+          return node;
+      }
+      t = splay(i, t, comparator);
+      const cmp = comparator(i, t.key);
+      if (cmp < 0) {
+          node.left = t.left;
+          node.right = t;
+          t.left = null;
+      }
+      else if (cmp >= 0) {
+          node.right = t.right;
+          node.left = t;
+          t.right = null;
+      }
+      return node;
+  }
+  function split$1(key, v, comparator) {
+      let left = null;
+      let right = null;
+      if (v) {
+          v = splay(key, v, comparator);
+          const cmp = comparator(v.key, key);
+          if (cmp === 0) {
+              left = v.left;
+              right = v.right;
+          }
+          else if (cmp < 0) {
+              right = v.right;
+              v.right = null;
+              left = v;
+          }
+          else {
+              left = v.left;
+              v.left = null;
+              right = v;
+          }
+      }
+      return { left, right };
+  }
+  function merge$1(left, right, comparator) {
+      if (right === null)
+          return left;
+      if (left === null)
+          return right;
+      right = splay(left.key, right, comparator);
+      right.left = left;
+      return right;
+  }
+  /**
+   * Prints level of the tree
+   */
+  function printRow(root, prefix, isTail, out, printNode) {
+      if (root) {
+          out(`${prefix}${isTail ? '└── ' : '├── '}${printNode(root)}\n`);
+          const indent = prefix + (isTail ? '    ' : '│   ');
+          if (root.left)
+              printRow(root.left, indent, false, out, printNode);
+          if (root.right)
+              printRow(root.right, indent, true, out, printNode);
+      }
+  }
+  class Tree {
+      constructor(comparator = DEFAULT_COMPARE) {
+          this._root = null;
+          this._size = 0;
+          this._comparator = comparator;
+      }
+      /**
+       * Inserts a key, allows duplicates
+       */
+      insert(key, data) {
+          this._size++;
+          return this._root = insert(key, data, this._root, this._comparator);
+      }
+      /**
+       * Adds a key, if it is not present in the tree
+       */
+      add(key, data) {
+          const node = new Node$3(key, data);
+          if (this._root === null) {
+              node.left = node.right = null;
+              this._size++;
+              this._root = node;
+          }
+          const comparator = this._comparator;
+          const t = splay(key, this._root, comparator);
+          const cmp = comparator(key, t.key);
+          if (cmp === 0)
+              this._root = t;
+          else {
+              if (cmp < 0) {
+                  node.left = t.left;
+                  node.right = t;
+                  t.left = null;
+              }
+              else if (cmp > 0) {
+                  node.right = t.right;
+                  node.left = t;
+                  t.right = null;
+              }
+              this._size++;
+              this._root = node;
+          }
+          return this._root;
+      }
+      /**
+       * @param  {Key} key
+       * @return {Node|null}
+       */
+      remove(key) {
+          this._root = this._remove(key, this._root, this._comparator);
+      }
+      /**
+       * Deletes i from the tree if it's there
+       */
+      _remove(i, t, comparator) {
+          let x;
+          if (t === null)
+              return null;
+          t = splay(i, t, comparator);
+          const cmp = comparator(i, t.key);
+          if (cmp === 0) { /* found it */
+              if (t.left === null) {
+                  x = t.right;
+              }
+              else {
+                  x = splay(i, t.left, comparator);
+                  x.right = t.right;
+              }
+              this._size--;
+              return x;
+          }
+          return t; /* It wasn't there */
+      }
+      /**
+       * Removes and returns the node with smallest key
+       */
+      pop() {
+          let node = this._root;
+          if (node) {
+              while (node.left)
+                  node = node.left;
+              this._root = splay(node.key, this._root, this._comparator);
+              this._root = this._remove(node.key, this._root, this._comparator);
+              return { key: node.key, data: node.data };
+          }
+          return null;
+      }
+      /**
+       * Find without splaying
+       */
+      findStatic(key) {
+          let current = this._root;
+          const compare = this._comparator;
+          while (current) {
+              const cmp = compare(key, current.key);
+              if (cmp === 0)
+                  return current;
+              else if (cmp < 0)
+                  current = current.left;
+              else
+                  current = current.right;
+          }
+          return null;
+      }
+      find(key) {
+          if (this._root) {
+              this._root = splay(key, this._root, this._comparator);
+              if (this._comparator(key, this._root.key) !== 0)
+                  return null;
+          }
+          return this._root;
+      }
+      contains(key) {
+          let current = this._root;
+          const compare = this._comparator;
+          while (current) {
+              const cmp = compare(key, current.key);
+              if (cmp === 0)
+                  return true;
+              else if (cmp < 0)
+                  current = current.left;
+              else
+                  current = current.right;
+          }
+          return false;
+      }
+      forEach(visitor, ctx) {
+          let current = this._root;
+          const Q = []; /* Initialize stack s */
+          let done = false;
+          while (!done) {
+              if (current !== null) {
+                  Q.push(current);
+                  current = current.left;
+              }
+              else {
+                  if (Q.length !== 0) {
+                      current = Q.pop();
+                      visitor.call(ctx, current);
+                      current = current.right;
+                  }
+                  else
+                      done = true;
+              }
+          }
+          return this;
+      }
+      /**
+       * Walk key range from `low` to `high`. Stops if `fn` returns a value.
+       */
+      range(low, high, fn, ctx) {
+          const Q = [];
+          const compare = this._comparator;
+          let node = this._root;
+          let cmp;
+          while (Q.length !== 0 || node) {
+              if (node) {
+                  Q.push(node);
+                  node = node.left;
+              }
+              else {
+                  node = Q.pop();
+                  cmp = compare(node.key, high);
+                  if (cmp > 0) {
+                      break;
+                  }
+                  else if (compare(node.key, low) >= 0) {
+                      if (fn.call(ctx, node))
+                          return this; // stop if smth is returned
+                  }
+                  node = node.right;
+              }
+          }
+          return this;
+      }
+      /**
+       * Returns array of keys
+       */
+      keys() {
+          const keys = [];
+          this.forEach(({ key }) => keys.push(key));
+          return keys;
+      }
+      /**
+       * Returns array of all the data in the nodes
+       */
+      values() {
+          const values = [];
+          this.forEach(({ data }) => values.push(data));
+          return values;
+      }
+      min() {
+          if (this._root)
+              return this.minNode(this._root).key;
+          return null;
+      }
+      max() {
+          if (this._root)
+              return this.maxNode(this._root).key;
+          return null;
+      }
+      minNode(t = this._root) {
+          if (t)
+              while (t.left)
+                  t = t.left;
+          return t;
+      }
+      maxNode(t = this._root) {
+          if (t)
+              while (t.right)
+                  t = t.right;
+          return t;
+      }
+      /**
+       * Returns node at given index
+       */
+      at(index) {
+          let current = this._root;
+          let done = false;
+          let i = 0;
+          const Q = [];
+          while (!done) {
+              if (current) {
+                  Q.push(current);
+                  current = current.left;
+              }
+              else {
+                  if (Q.length > 0) {
+                      current = Q.pop();
+                      if (i === index)
+                          return current;
+                      i++;
+                      current = current.right;
+                  }
+                  else
+                      done = true;
+              }
+          }
+          return null;
+      }
+      next(d) {
+          let root = this._root;
+          let successor = null;
+          if (d.right) {
+              successor = d.right;
+              while (successor.left)
+                  successor = successor.left;
+              return successor;
+          }
+          const comparator = this._comparator;
+          while (root) {
+              const cmp = comparator(d.key, root.key);
+              if (cmp === 0)
+                  break;
+              else if (cmp < 0) {
+                  successor = root;
+                  root = root.left;
+              }
+              else
+                  root = root.right;
+          }
+          return successor;
+      }
+      prev(d) {
+          let root = this._root;
+          let predecessor = null;
+          if (d.left !== null) {
+              predecessor = d.left;
+              while (predecessor.right)
+                  predecessor = predecessor.right;
+              return predecessor;
+          }
+          const comparator = this._comparator;
+          while (root) {
+              const cmp = comparator(d.key, root.key);
+              if (cmp === 0)
+                  break;
+              else if (cmp < 0)
+                  root = root.left;
+              else {
+                  predecessor = root;
+                  root = root.right;
+              }
+          }
+          return predecessor;
+      }
+      clear() {
+          this._root = null;
+          this._size = 0;
+          return this;
+      }
+      toList() {
+          return toList(this._root);
+      }
+      /**
+       * Bulk-load items. Both array have to be same size
+       */
+      load(keys, values = [], presort = false) {
+          let size = keys.length;
+          const comparator = this._comparator;
+          // sort if needed
+          if (presort)
+              sort(keys, values, 0, size - 1, comparator);
+          if (this._root === null) { // empty tree
+              this._root = loadRecursive(keys, values, 0, size);
+              this._size = size;
+          }
+          else { // that re-builds the whole tree from two in-order traversals
+              const mergedList = mergeLists(this.toList(), createList(keys, values), comparator);
+              size = this._size + size;
+              this._root = sortedListToBST({ head: mergedList }, 0, size);
+          }
+          return this;
+      }
+      isEmpty() { return this._root === null; }
+      get size() { return this._size; }
+      get root() { return this._root; }
+      toString(printNode = (n) => String(n.key)) {
+          const out = [];
+          printRow(this._root, '', true, (v) => out.push(v), printNode);
+          return out.join('');
+      }
+      update(key, newKey, newData) {
+          const comparator = this._comparator;
+          let { left, right } = split$1(key, this._root, comparator);
+          if (comparator(key, newKey) < 0) {
+              right = insert(newKey, newData, right, comparator);
+          }
+          else {
+              left = insert(newKey, newData, left, comparator);
+          }
+          this._root = merge$1(left, right, comparator);
+      }
+      split(key) {
+          return split$1(key, this._root, this._comparator);
+      }
+  }
+  function loadRecursive(keys, values, start, end) {
+      const size = end - start;
+      if (size > 0) {
+          const middle = start + Math.floor(size / 2);
+          const key = keys[middle];
+          const data = values[middle];
+          const node = new Node$3(key, data);
+          node.left = loadRecursive(keys, values, start, middle);
+          node.right = loadRecursive(keys, values, middle + 1, end);
+          return node;
+      }
+      return null;
+  }
+  function createList(keys, values) {
+      const head = new Node$3(null, null);
+      let p = head;
+      for (let i = 0; i < keys.length; i++) {
+          p = p.next = new Node$3(keys[i], values[i]);
+      }
+      p.next = null;
+      return head.next;
+  }
+  function toList(root) {
+      let current = root;
+      const Q = [];
+      let done = false;
+      const head = new Node$3(null, null);
+      let p = head;
+      while (!done) {
+          if (current) {
+              Q.push(current);
+              current = current.left;
+          }
+          else {
+              if (Q.length > 0) {
+                  current = p = p.next = Q.pop();
+                  current = current.right;
+              }
+              else
+                  done = true;
+          }
+      }
+      p.next = null; // that'll work even if the tree was empty
+      return head.next;
+  }
+  function sortedListToBST(list, start, end) {
+      const size = end - start;
+      if (size > 0) {
+          const middle = start + Math.floor(size / 2);
+          const left = sortedListToBST(list, start, middle);
+          const root = list.head;
+          root.left = left;
+          list.head = list.head.next;
+          root.right = sortedListToBST(list, middle + 1, end);
+          return root;
+      }
+      return null;
+  }
+  function mergeLists(l1, l2, compare) {
+      const head = new Node$3(null, null); // dummy
+      let p = head;
+      let p1 = l1;
+      let p2 = l2;
+      while (p1 !== null && p2 !== null) {
+          if (compare(p1.key, p2.key) < 0) {
+              p.next = p1;
+              p1 = p1.next;
+          }
+          else {
+              p.next = p2;
+              p2 = p2.next;
+          }
+          p = p.next;
+      }
+      if (p1 !== null) {
+          p.next = p1;
+      }
+      else if (p2 !== null) {
+          p.next = p2;
+      }
+      return head.next;
+  }
+  function sort(keys, values, left, right, compare) {
+      if (left >= right)
+          return;
+      const pivot = keys[(left + right) >> 1];
+      let i = left - 1;
+      let j = right + 1;
+      while (true) {
+          do
+              i++;
+          while (compare(keys[i], pivot) < 0);
+          do
+              j--;
+          while (compare(keys[j], pivot) > 0);
+          if (i >= j)
+              break;
+          let tmp = keys[i];
+          keys[i] = keys[j];
+          keys[j] = tmp;
+          tmp = values[i];
+          values[i] = values[j];
+          values[j] = tmp;
+      }
+      sort(keys, values, left, j, compare);
+      sort(keys, values, j + 1, right, compare);
+  }
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  /**
+   * A bounding box has the format:
+   *
+   *  { ll: { x: xmin, y: ymin }, ur: { x: xmax, y: ymax } }
+   *
+   */
+  var isInBbox = function isInBbox(bbox, point) {
+    return bbox.ll.x <= point.x && point.x <= bbox.ur.x && bbox.ll.y <= point.y && point.y <= bbox.ur.y;
+  };
+  /* Returns either null, or a bbox (aka an ordered pair of points)
+   * If there is only one point of overlap, a bbox with identical points
+   * will be returned */
+
+  var getBboxOverlap = function getBboxOverlap(b1, b2) {
+    // check if the bboxes overlap at all
+    if (b2.ur.x < b1.ll.x || b1.ur.x < b2.ll.x || b2.ur.y < b1.ll.y || b1.ur.y < b2.ll.y) return null; // find the middle two X values
+
+    var lowerX = b1.ll.x < b2.ll.x ? b2.ll.x : b1.ll.x;
+    var upperX = b1.ur.x < b2.ur.x ? b1.ur.x : b2.ur.x; // find the middle two Y values
+
+    var lowerY = b1.ll.y < b2.ll.y ? b2.ll.y : b1.ll.y;
+    var upperY = b1.ur.y < b2.ur.y ? b1.ur.y : b2.ur.y; // put those middle values together to get the overlap
+
+    return {
+      ll: {
+        x: lowerX,
+        y: lowerY
+      },
+      ur: {
+        x: upperX,
+        y: upperY
+      }
+    };
+  };
+
+  /* Javascript doesn't do integer math. Everything is
+   * floating point with percision Number.EPSILON.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON
+   */
+  var epsilon = Number.EPSILON; // IE Polyfill
+
+  if (epsilon === undefined) epsilon = Math.pow(2, -52);
+  var EPSILON_SQ = epsilon * epsilon;
+  /* FLP comparator */
+
+  var cmp = function cmp(a, b) {
+    // check if they're both 0
+    if (-epsilon < a && a < epsilon) {
+      if (-epsilon < b && b < epsilon) {
+        return 0;
+      }
+    } // check if one is positive and the other negative
+
+
+    if (a < 0 && 0 < b) return -1;
+    if (b < 0 && 0 < a) return 1; // check if they're flp equal
+
+    var ab = a - b;
+
+    if (ab * ab < EPSILON_SQ * a * b) {
+      return 0;
+    } // normal comparison
+
+
+    return a < b ? -1 : 1;
+  };
+
+  /* Cross Product of two vectors with first point at origin */
+
+  var crossProduct = function crossProduct(a, b) {
+    return a.x * b.y - a.y * b.x;
+  };
+  /* Dot Product of two vectors with first point at origin */
+
+  var dotProduct = function dotProduct(a, b) {
+    return a.x * b.x + a.y * b.y;
+  };
+  /* Comparator for two vectors with same starting point */
+
+  var compareVectorAngles = function compareVectorAngles(basePt, endPt1, endPt2) {
+    var v1 = {
+      x: endPt1.x - basePt.x,
+      y: endPt1.y - basePt.y
+    };
+    var v2 = {
+      x: endPt2.x - basePt.x,
+      y: endPt2.y - basePt.y
+    };
+    var kross = crossProduct(v1, v2);
+    return cmp(kross, 0);
+  };
+  var length$1 = function length(v) {
+    return Math.sqrt(dotProduct(v, v));
+  };
+  /* Get the sine of the angle from pShared -> pAngle to pShaed -> pBase */
+
+  var sineOfAngle = function sineOfAngle(pShared, pBase, pAngle) {
+    var vBase = {
+      x: pBase.x - pShared.x,
+      y: pBase.y - pShared.y
+    };
+    var vAngle = {
+      x: pAngle.x - pShared.x,
+      y: pAngle.y - pShared.y
+    };
+    return crossProduct(vAngle, vBase) / length$1(vAngle) / length$1(vBase);
+  };
+  /* Get the cosine of the angle from pShared -> pAngle to pShaed -> pBase */
+
+  var cosineOfAngle = function cosineOfAngle(pShared, pBase, pAngle) {
+    var vBase = {
+      x: pBase.x - pShared.x,
+      y: pBase.y - pShared.y
+    };
+    var vAngle = {
+      x: pAngle.x - pShared.x,
+      y: pAngle.y - pShared.y
+    };
+    return dotProduct(vAngle, vBase) / length$1(vAngle) / length$1(vBase);
+  };
+  /* Get the closest point on an line (defined by two points)
+   * to another point. */
+
+  var closestPoint = function closestPoint(ptA1, ptA2, ptB) {
+    if (ptA1.x === ptA2.x) return {
+      x: ptA1.x,
+      y: ptB.y // vertical vector
+
+    };
+    if (ptA1.y === ptA2.y) return {
+      x: ptB.x,
+      y: ptA1.y // horizontal vector
+      // determinne which point is further away
+      // we use the further point as our base in the calculation, so that the
+      // vectors are more parallel, providing more accurate dot product
+
+    };
+    var v1 = {
+      x: ptB.x - ptA1.x,
+      y: ptB.y - ptA1.y
+    };
+    var v2 = {
+      x: ptB.x - ptA2.x,
+      y: ptB.y - ptA2.y
+    };
+    var vFar, vA, farPt;
+
+    if (dotProduct(v1, v1) > dotProduct(v2, v2)) {
+      vFar = v1;
+      vA = {
+        x: ptA2.x - ptA1.x,
+        y: ptA2.y - ptA1.y
+      };
+      farPt = ptA1;
+    } else {
+      vFar = v2;
+      vA = {
+        x: ptA1.x - ptA2.x,
+        y: ptA1.y - ptA2.y
+      };
+      farPt = ptA2;
+    }
+
+    var dist = dotProduct(vA, vFar) / dotProduct(vA, vA);
+    return {
+      x: farPt.x + dist * vA.x,
+      y: farPt.y + dist * vA.y
+    };
+  };
+  /* Get the x coordinate where the given line (defined by a point and vector)
+   * crosses the horizontal line with the given y coordiante.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var horizontalIntersection = function horizontalIntersection(pt, v, y) {
+    if (v.y === 0) return null;
+    return {
+      x: pt.x + v.x / v.y * (y - pt.y),
+      y: y
+    };
+  };
+  /* Get the y coordinate where the given line (defined by a point and vector)
+   * crosses the vertical line with the given x coordiante.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var verticalIntersection = function verticalIntersection(pt, v, x) {
+    if (v.x === 0) return null;
+    return {
+      x: x,
+      y: pt.y + v.y / v.x * (x - pt.x)
+    };
+  };
+  /* Get the intersection of two lines, each defined by a base point and a vector.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var intersection$1 = function intersection(pt1, v1, pt2, v2) {
+    // take some shortcuts for vertical and horizontal lines
+    // this also ensures we don't calculate an intersection and then discover
+    // it's actually outside the bounding box of the line
+    if (v1.x === 0) return verticalIntersection(pt2, v2, pt1.x);
+    if (v2.x === 0) return verticalIntersection(pt1, v1, pt2.x);
+    if (v1.y === 0) return horizontalIntersection(pt2, v2, pt1.y);
+    if (v2.y === 0) return horizontalIntersection(pt1, v1, pt2.y); // General case for non-overlapping segments.
+    // This algorithm is based on Schneider and Eberly.
+    // http://www.cimec.org.ar/~ncalvo/Schneider_Eberly.pdf - pg 244
+
+    var kross = crossProduct(v1, v2);
+    if (kross == 0) return null;
+    var ve = {
+      x: pt2.x - pt1.x,
+      y: pt2.y - pt1.y
+    };
+    var d1 = crossProduct(ve, v1) / kross;
+    var d2 = crossProduct(ve, v2) / kross; // take the average of the two calculations to minimize rounding error
+
+    var x1 = pt1.x + d2 * v1.x,
+        x2 = pt2.x + d1 * v2.x;
+    var y1 = pt1.y + d2 * v1.y,
+        y2 = pt2.y + d1 * v2.y;
+    var x = (x1 + x2) / 2;
+    var y = (y1 + y2) / 2;
+    return {
+      x: x,
+      y: y
+    };
+  };
+
+  /**
+   * This class rounds incoming values sufficiently so that
+   * floating points problems are, for the most part, avoided.
+   *
+   * Incoming points are have their x & y values tested against
+   * all previously seen x & y values. If either is 'too close'
+   * to a previously seen value, it's value is 'snapped' to the
+   * previously seen value.
+   *
+   * All points should be rounded by this class before being
+   * stored in any data structures in the rest of this algorithm.
+   */
+
+  var PtRounder =
+  /*#__PURE__*/
+  function () {
+    function PtRounder() {
+      _classCallCheck(this, PtRounder);
+
+      this.reset();
+    }
+
+    _createClass(PtRounder, [{
+      key: "reset",
+      value: function reset() {
+        this.xRounder = new CoordRounder();
+        this.yRounder = new CoordRounder();
+      }
+    }, {
+      key: "round",
+      value: function round(x, y) {
+        return {
+          x: this.xRounder.round(x),
+          y: this.yRounder.round(y)
+        };
+      }
+    }]);
+
+    return PtRounder;
+  }();
+
+  var CoordRounder =
+  /*#__PURE__*/
+  function () {
+    function CoordRounder() {
+      _classCallCheck(this, CoordRounder);
+
+      this.tree = new Tree(); // preseed with 0 so we don't end up with values < Number.EPSILON
+
+      this.round(0);
+    } // Note: this can rounds input values backwards or forwards.
+    //       You might ask, why not restrict this to just rounding
+    //       forwards? Wouldn't that allow left endpoints to always
+    //       remain left endpoints during splitting (never change to
+    //       right). No - it wouldn't, because we snap intersections
+    //       to endpoints (to establish independence from the segment
+    //       angle for t-intersections).
+
+
+    _createClass(CoordRounder, [{
+      key: "round",
+      value: function round(coord) {
+        var node = this.tree.add(coord);
+        var prevNode = this.tree.prev(node);
+
+        if (prevNode !== null && cmp(node.key, prevNode.key) === 0) {
+          this.tree.remove(coord);
+          return prevNode.key;
+        }
+
+        var nextNode = this.tree.next(node);
+
+        if (nextNode !== null && cmp(node.key, nextNode.key) === 0) {
+          this.tree.remove(coord);
+          return nextNode.key;
+        }
+
+        return coord;
+      }
+    }]);
+
+    return CoordRounder;
+  }(); // singleton available by import
+
+
+  var rounder = new PtRounder();
+
+  /* Given input geometry as a standard array-of-arrays geojson-style
+   * geometry, return one that uses objects as points, for better perf */
+
+  var pointsAsObjects = function pointsAsObjects(geom) {
+    // we can handle well-formed multipolys and polys
+    var output = [];
+
+    if (!Array.isArray(geom)) {
+      throw new Error('Input is not a Polygon or MultiPolygon');
+    }
+
+    for (var i = 0, iMax = geom.length; i < iMax; i++) {
+      if (!Array.isArray(geom[i]) || geom[i].length == 0) {
+        throw new Error('Input is not a Polygon or MultiPolygon');
+      }
+
+      output.push([]);
+
+      for (var j = 0, jMax = geom[i].length; j < jMax; j++) {
+        if (!Array.isArray(geom[i][j]) || geom[i][j].length == 0) {
+          throw new Error('Input is not a Polygon or MultiPolygon');
+        }
+
+        if (Array.isArray(geom[i][j][0])) {
+          // multipolygon
+          output[i].push([]);
+
+          for (var k = 0, kMax = geom[i][j].length; k < kMax; k++) {
+            if (!Array.isArray(geom[i][j][k]) || geom[i][j][k].length < 2) {
+              throw new Error('Input is not a Polygon or MultiPolygon');
+            }
+
+            if (geom[i][j][k].length > 2) {
+              throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
+            }
+
+            output[i][j].push(rounder.round(geom[i][j][k][0], geom[i][j][k][1]));
+          }
+        } else {
+          // polygon
+          if (geom[i][j].length < 2) {
+            throw new Error('Input is not a Polygon or MultiPolygon');
+          }
+
+          if (geom[i][j].length > 2) {
+            throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
+          }
+
+          output[i].push(rounder.round(geom[i][j][0], geom[i][j][1]));
+        }
+      }
+    }
+
+    return output;
+  };
+  /* WARN: input modified directly */
+
+  var forceMultiPoly = function forceMultiPoly(geom) {
+    if (Array.isArray(geom)) {
+      if (geom.length === 0) return; // allow empty multipolys
+
+      if (Array.isArray(geom[0])) {
+        if (Array.isArray(geom[0][0])) {
+          if (typeof geom[0][0][0].x === 'number' && typeof geom[0][0][0].y === 'number') {
+            // multipolygon
+            return;
+          }
+        }
+
+        if (typeof geom[0][0].x === 'number' && typeof geom[0][0].y === 'number') {
+          // polygon
+          geom.unshift(geom.splice(0));
+          return;
+        }
+      }
+    }
+
+    throw new Error('Unrecognized input - not a polygon nor multipolygon');
+  };
+  /* WARN: input modified directly */
+
+  var cleanMultiPoly = function cleanMultiPoly(multipoly) {
+    var i = 0;
+
+    while (i < multipoly.length) {
+      var poly = multipoly[i];
+
+      if (poly.length === 0) {
+        multipoly.splice(i, 1);
+        continue;
+      }
+
+      var exteriorRing = poly[0];
+      cleanRing(exteriorRing); // poly is dropped if exteriorRing is degenerate
+
+      if (exteriorRing.length === 0) {
+        multipoly.splice(i, 1);
+        continue;
+      }
+
+      var j = 1;
+
+      while (j < poly.length) {
+        var interiorRing = poly[j];
+        cleanRing(interiorRing);
+        if (interiorRing.length === 0) poly.splice(j, 1);else j++;
+      }
+
+      i++;
+    }
+  };
+  /* Clean ring:
+   *  - remove duplicate points
+   *  - remove colinear points
+   *  - remove rings with no area (less than 3 distinct points)
+   *  - un-close rings (last point should not repeat first)
+   *
+   * WARN: input modified directly */
+
+  var cleanRing = function cleanRing(ring) {
+    if (ring.length === 0) return;
+    var firstPt = ring[0];
+    var lastPt = ring[ring.length - 1];
+    if (firstPt.x === lastPt.x && firstPt.y === lastPt.y) ring.pop();
+
+    var isPointUncessary = function isPointUncessary(prevPt, pt, nextPt) {
+      return prevPt.x === pt.x && prevPt.y === pt.y || nextPt.x === pt.x && nextPt.y === pt.y || compareVectorAngles(pt, prevPt, nextPt) === 0;
+    };
+
+    var i = 0;
+    var prevPt, nextPt;
+
+    while (i < ring.length) {
+      prevPt = i === 0 ? ring[ring.length - 1] : ring[i - 1];
+      nextPt = i === ring.length - 1 ? ring[0] : ring[i + 1];
+      if (isPointUncessary(prevPt, ring[i], nextPt)) ring.splice(i, 1);else i++;
+    } // if our ring has less than 3 distinct points now (so is degenerate)
+    // shrink it down to the empty array to communicate to our caller to
+    // drop it
+
+
+    while (ring.length < 3 && ring.length > 0) {
+      ring.pop();
+    }
+  };
+
+  var SweepEvent =
+  /*#__PURE__*/
+  function () {
+    _createClass(SweepEvent, null, [{
+      key: "compare",
+      // for ordering sweep events in the sweep event queue
+      value: function compare(a, b) {
+        // favor event with a point that the sweep line hits first
+        var ptCmp = SweepEvent.comparePoints(a.point, b.point);
+        if (ptCmp !== 0) return ptCmp; // the points are the same, so link them if needed
+
+        if (a.point !== b.point) a.link(b); // favor right events over left
+
+        if (a.isLeft !== b.isLeft) return a.isLeft ? 1 : -1; // we have two matching left or right endpoints
+        // ordering of this case is the same as for their segments
+
+        return Segment.compare(a.segment, b.segment);
+      } // for ordering points in sweep line order
+
+    }, {
+      key: "comparePoints",
+      value: function comparePoints(aPt, bPt) {
+        if (aPt.x < bPt.x) return -1;
+        if (aPt.x > bPt.x) return 1;
+        if (aPt.y < bPt.y) return -1;
+        if (aPt.y > bPt.y) return 1;
+        return 0;
+      } // Warning: 'point' input will be modified and re-used (for performance)
+
+    }]);
+
+    function SweepEvent(point, isLeft) {
+      _classCallCheck(this, SweepEvent);
+
+      if (point.events === undefined) point.events = [this];else point.events.push(this);
+      this.point = point;
+      this.isLeft = isLeft; // this.segment, this.otherSE set by factory
+    }
+
+    _createClass(SweepEvent, [{
+      key: "link",
+      value: function link(other) {
+        if (other.point === this.point) {
+          throw new Error('Tried to link already linked events');
+        }
+
+        var otherEvents = other.point.events;
+
+        for (var i = 0, iMax = otherEvents.length; i < iMax; i++) {
+          var evt = otherEvents[i];
+          this.point.events.push(evt);
+          evt.point = this.point;
+        }
+
+        this.checkForConsuming();
+      }
+      /* Do a pass over our linked events and check to see if any pair
+       * of segments match, and should be consumed. */
+
+    }, {
+      key: "checkForConsuming",
+      value: function checkForConsuming() {
+        // FIXME: The loops in this method run O(n^2) => no good.
+        //        Maintain little ordered sweep event trees?
+        //        Can we maintaining an ordering that avoids the need
+        //        for the re-sorting with getLeftmostComparator in geom-out?
+        // Compare each pair of events to see if other events also match
+        var numEvents = this.point.events.length;
+
+        for (var i = 0; i < numEvents; i++) {
+          var evt1 = this.point.events[i];
+          if (evt1.segment.consumedBy !== undefined) continue;
+
+          for (var j = i + 1; j < numEvents; j++) {
+            var evt2 = this.point.events[j];
+            if (evt2.consumedBy !== undefined) continue;
+            if (evt1.otherSE.point.events !== evt2.otherSE.point.events) continue;
+            evt1.segment.consume(evt2.segment);
+          }
+        }
+      }
+    }, {
+      key: "getAvailableLinkedEvents",
+      value: function getAvailableLinkedEvents() {
+        // point.events is always of length 2 or greater
+        var events = [];
+
+        for (var i = 0, iMax = this.point.events.length; i < iMax; i++) {
+          var evt = this.point.events[i];
+
+          if (evt !== this && !evt.segment.ringOut && evt.segment.isInResult()) {
+            events.push(evt);
+          }
+        }
+
+        return events;
+      }
+      /**
+       * Returns a comparator function for sorting linked events that will
+       * favor the event that will give us the smallest left-side angle.
+       * All ring construction starts as low as possible heading to the right,
+       * so by always turning left as sharp as possible we'll get polygons
+       * without uncessary loops & holes.
+       *
+       * The comparator function has a compute cache such that it avoids
+       * re-computing already-computed values.
+       */
+
+    }, {
+      key: "getLeftmostComparator",
+      value: function getLeftmostComparator(baseEvent) {
+        var _this = this;
+
+        var cache = new Map();
+
+        var fillCache = function fillCache(linkedEvent) {
+          var nextEvent = linkedEvent.otherSE;
+          cache.set(linkedEvent, {
+            sine: sineOfAngle(_this.point, baseEvent.point, nextEvent.point),
+            cosine: cosineOfAngle(_this.point, baseEvent.point, nextEvent.point)
+          });
+        };
+
+        return function (a, b) {
+          if (!cache.has(a)) fillCache(a);
+          if (!cache.has(b)) fillCache(b);
+
+          var _cache$get = cache.get(a),
+              asine = _cache$get.sine,
+              acosine = _cache$get.cosine;
+
+          var _cache$get2 = cache.get(b),
+              bsine = _cache$get2.sine,
+              bcosine = _cache$get2.cosine; // both on or above x-axis
+
+
+          if (asine >= 0 && bsine >= 0) {
+            if (acosine < bcosine) return 1;
+            if (acosine > bcosine) return -1;
+            return 0;
+          } // both below x-axis
+
+
+          if (asine < 0 && bsine < 0) {
+            if (acosine < bcosine) return -1;
+            if (acosine > bcosine) return 1;
+            return 0;
+          } // one above x-axis, one below
+
+
+          if (bsine < asine) return -1;
+          if (bsine > asine) return 1;
+          return 0;
+        };
+      }
+    }]);
+
+    return SweepEvent;
+  }();
+
+  // segments and sweep events when all else is identical
+
+  var segmentId = 0;
+
+  var Segment =
+  /*#__PURE__*/
+  function () {
+    _createClass(Segment, null, [{
+      key: "compare",
+
+      /* This compare() function is for ordering segments in the sweep
+       * line tree, and does so according to the following criteria:
+       *
+       * Consider the vertical line that lies an infinestimal step to the
+       * right of the right-more of the two left endpoints of the input
+       * segments. Imagine slowly moving a point up from negative infinity
+       * in the increasing y direction. Which of the two segments will that
+       * point intersect first? That segment comes 'before' the other one.
+       *
+       * If neither segment would be intersected by such a line, (if one
+       * or more of the segments are vertical) then the line to be considered
+       * is directly on the right-more of the two left inputs.
+       */
+      value: function compare(a, b) {
+        var alx = a.leftSE.point.x;
+        var blx = b.leftSE.point.x;
+        var arx = a.rightSE.point.x;
+        var brx = b.rightSE.point.x; // check if they're even in the same vertical plane
+
+        if (brx < alx) return 1;
+        if (arx < blx) return -1;
+        var aly = a.leftSE.point.y;
+        var bly = b.leftSE.point.y;
+        var ary = a.rightSE.point.y;
+        var bry = b.rightSE.point.y; // is left endpoint of segment B the right-more?
+
+        if (alx < blx) {
+          // are the two segments in the same horizontal plane?
+          if (bly < aly && bly < ary) return 1;
+          if (bly > aly && bly > ary) return -1; // is the B left endpoint colinear to segment A?
+
+          var aCmpBLeft = a.comparePoint(b.leftSE.point);
+          if (aCmpBLeft < 0) return 1;
+          if (aCmpBLeft > 0) return -1; // is the A right endpoint colinear to segment B ?
+
+          var bCmpARight = b.comparePoint(a.rightSE.point);
+          if (bCmpARight !== 0) return bCmpARight; // colinear segments, consider the one with left-more
+          // left endpoint to be first (arbitrary?)
+
+          return -1;
+        } // is left endpoint of segment A the right-more?
+
+
+        if (alx > blx) {
+          if (aly < bly && aly < bry) return -1;
+          if (aly > bly && aly > bry) return 1; // is the A left endpoint colinear to segment B?
+
+          var bCmpALeft = b.comparePoint(a.leftSE.point);
+          if (bCmpALeft !== 0) return bCmpALeft; // is the B right endpoint colinear to segment A?
+
+          var aCmpBRight = a.comparePoint(b.rightSE.point);
+          if (aCmpBRight < 0) return 1;
+          if (aCmpBRight > 0) return -1; // colinear segments, consider the one with left-more
+          // left endpoint to be first (arbitrary?)
+
+          return 1;
+        } // if we get here, the two left endpoints are in the same
+        // vertical plane, ie alx === blx
+        // consider the lower left-endpoint to come first
+
+
+        if (aly < bly) return -1;
+        if (aly > bly) return 1; // left endpoints are identical
+        // check for colinearity by using the left-more right endpoint
+        // is the A right endpoint more left-more?
+
+        if (arx < brx) {
+          var _bCmpARight = b.comparePoint(a.rightSE.point);
+
+          if (_bCmpARight !== 0) return _bCmpARight;
+        } // is the B right endpoint more left-more?
+
+
+        if (arx > brx) {
+          var _aCmpBRight = a.comparePoint(b.rightSE.point);
+
+          if (_aCmpBRight < 0) return 1;
+          if (_aCmpBRight > 0) return -1;
+        }
+
+        if (arx !== brx) {
+          // are these two [almost] vertical segments with opposite orientation?
+          // if so, the one with the lower right endpoint comes first
+          var ay = ary - aly;
+          var ax = arx - alx;
+          var by = bry - bly;
+          var bx = brx - blx;
+          if (ay > ax && by < bx) return 1;
+          if (ay < ax && by > bx) return -1;
+        } // we have colinear segments with matching orientation
+        // consider the one with more left-more right endpoint to be first
+
+
+        if (arx > brx) return 1;
+        if (arx < brx) return -1; // if we get here, two two right endpoints are in the same
+        // vertical plane, ie arx === brx
+        // consider the lower right-endpoint to come first
+
+        if (ary < bry) return -1;
+        if (ary > bry) return 1; // right endpoints identical as well, so the segments are idential
+        // fall back on creation order as consistent tie-breaker
+
+        if (a.id < b.id) return -1;
+        if (a.id > b.id) return 1; // identical segment, ie a === b
+
+        return 0;
+      }
+      /* Warning: a reference to ringWindings input will be stored,
+       *  and possibly will be later modified */
+
+    }]);
+
+    function Segment(leftSE, rightSE, rings, windings) {
+      _classCallCheck(this, Segment);
+
+      this.id = ++segmentId;
+      this.leftSE = leftSE;
+      leftSE.segment = this;
+      leftSE.otherSE = rightSE;
+      this.rightSE = rightSE;
+      rightSE.segment = this;
+      rightSE.otherSE = leftSE;
+      this.rings = rings;
+      this.windings = windings; // left unset for performance, set later in algorithm
+      // this.ringOut, this.consumedBy, this.prev
+    }
+
+    _createClass(Segment, [{
+      key: "replaceRightSE",
+
+      /* When a segment is split, the rightSE is replaced with a new sweep event */
+      value: function replaceRightSE(newRightSE) {
+        this.rightSE = newRightSE;
+        this.rightSE.segment = this;
+        this.rightSE.otherSE = this.leftSE;
+        this.leftSE.otherSE = this.rightSE;
+      }
+    }, {
+      key: "bbox",
+      value: function bbox() {
+        var y1 = this.leftSE.point.y;
+        var y2 = this.rightSE.point.y;
+        return {
+          ll: {
+            x: this.leftSE.point.x,
+            y: y1 < y2 ? y1 : y2
+          },
+          ur: {
+            x: this.rightSE.point.x,
+            y: y1 > y2 ? y1 : y2
+          }
+        };
+      }
+      /* A vector from the left point to the right */
+
+    }, {
+      key: "vector",
+      value: function vector() {
+        return {
+          x: this.rightSE.point.x - this.leftSE.point.x,
+          y: this.rightSE.point.y - this.leftSE.point.y
+        };
+      }
+    }, {
+      key: "isAnEndpoint",
+      value: function isAnEndpoint(pt) {
+        return pt.x === this.leftSE.point.x && pt.y === this.leftSE.point.y || pt.x === this.rightSE.point.x && pt.y === this.rightSE.point.y;
+      }
+      /* Compare this segment with a point. Return value indicates:
+       *     1: point lies above or to the left of segment
+       *     0: point is colinear to segment
+       *    -1: point is below or to the right of segment */
+
+    }, {
+      key: "comparePoint",
+      value: function comparePoint(point) {
+        if (this.isAnEndpoint(point)) return 0;
+        var interPt = closestPoint(this.leftSE.point, this.rightSE.point, point); // use cmp() to do the same rounding as would apply in rounder.round
+        // but avoid using rounder.round for performance boost, and to avoid
+        // saving the result in the rounding trees
+        // also, there is a fair amount of rounding error introduced when computing
+        // the closestPoint to a nearly vertical or horizontal segment. Thus, we use
+        // the more accurate coordinate for comparison of the two points
+
+        var lx = this.leftSE.point.x;
+        var ly = this.leftSE.point.y;
+        var rx = this.rightSE.point.x;
+        var ry = this.rightSE.point.y; // is the segment upward sloping?
+
+        if (ry >= ly) {
+          // is the segment more vertical?
+          if (ry - ly > rx - lx) {
+            // use the X coordinate
+            var cmpX = cmp(interPt.x, point.x);
+            if (cmpX != 0) return cmpX;
+          } else {
+            // segment is more horizontal, so use Y coord
+            var cmpY = cmp(point.y, interPt.y);
+            if (cmpY != 0) return cmpY;
+          }
+        } else {
+          // segment is more downward sloping
+          // is the segment more vertical?
+          if (ly - ry > rx - lx) {
+            // use the X coordinate
+            var _cmpX = cmp(point.x, interPt.x);
+
+            if (_cmpX != 0) return _cmpX;
+          } else {
+            // segment is more horizontal, so use the Y coordinate
+            var _cmpY = cmp(point.y, interPt.y);
+
+            if (_cmpY != 0) return _cmpY;
+          }
+        } // on the line
+
+
+        return 0;
+      }
+      /**
+       * Given another segment, returns the first non-trivial intersection
+       * between the two segments (in terms of sweep line ordering), if it exists.
+       *
+       * A 'non-trivial' intersection is one that will cause one or both of the
+       * segments to be split(). As such, 'trivial' vs. 'non-trivial' intersection:
+       *
+       *   * endpoint of segA with endpoint of segB --> trivial
+       *   * endpoint of segA with point along segB --> non-trivial
+       *   * endpoint of segB with point along segA --> non-trivial
+       *   * point along segA with point along segB --> non-trivial
+       *
+       * If no non-trivial intersection exists, return null
+       * Else, return null.
+       */
+
+    }, {
+      key: "getIntersection",
+      value: function getIntersection(other) {
+        // If bboxes don't overlap, there can't be any intersections
+        var tBbox = this.bbox();
+        var oBbox = other.bbox();
+        var bboxOverlap = getBboxOverlap(tBbox, oBbox);
+        if (bboxOverlap === null) return null; // We first check to see if the endpoints can be considered intersections.
+        // This will 'snap' intersections to endpoints if possible, and will
+        // handle cases of colinearity.
+
+        var tlp = this.leftSE.point;
+        var trp = this.rightSE.point;
+        var olp = other.leftSE.point;
+        var orp = other.rightSE.point; // does each endpoint touch the other segment?
+        // note that we restrict the 'touching' definition to only allow segments
+        // to touch endpoints that lie forward from where we are in the sweep line pass
+
+        var touchesOtherLSE = isInBbox(tBbox, olp) && this.comparePoint(olp) === 0;
+        var touchesThisLSE = isInBbox(oBbox, tlp) && other.comparePoint(tlp) === 0;
+        var touchesOtherRSE = isInBbox(tBbox, orp) && this.comparePoint(orp) === 0;
+        var touchesThisRSE = isInBbox(oBbox, trp) && other.comparePoint(trp) === 0; // do left endpoints match?
+
+        if (touchesThisLSE && touchesOtherLSE) {
+          // these two cases are for colinear segments with matching left
+          // endpoints, and one segment being longer than the other
+          if (touchesThisRSE && !touchesOtherRSE) return trp;
+          if (!touchesThisRSE && touchesOtherRSE) return orp; // either the two segments match exactly (two trival intersections)
+          // or just on their left endpoint (one trivial intersection
+
+          return null;
+        } // does this left endpoint matches (other doesn't)
+
+
+        if (touchesThisLSE) {
+          // check for segments that just intersect on opposing endpoints
+          if (touchesOtherRSE) {
+            if (tlp.x === orp.x && tlp.y === orp.y) return null;
+          } // t-intersection on left endpoint
+
+
+          return tlp;
+        } // does other left endpoint matches (this doesn't)
+
+
+        if (touchesOtherLSE) {
+          // check for segments that just intersect on opposing endpoints
+          if (touchesThisRSE) {
+            if (trp.x === olp.x && trp.y === olp.y) return null;
+          } // t-intersection on left endpoint
+
+
+          return olp;
+        } // trivial intersection on right endpoints
+
+
+        if (touchesThisRSE && touchesOtherRSE) return null; // t-intersections on just one right endpoint
+
+        if (touchesThisRSE) return trp;
+        if (touchesOtherRSE) return orp; // None of our endpoints intersect. Look for a general intersection between
+        // infinite lines laid over the segments
+
+        var pt = intersection$1(tlp, this.vector(), olp, other.vector()); // are the segments parrallel? Note that if they were colinear with overlap,
+        // they would have an endpoint intersection and that case was already handled above
+
+        if (pt === null) return null; // is the intersection found between the lines not on the segments?
+
+        if (!isInBbox(bboxOverlap, pt)) return null; // round the the computed point if needed
+
+        return rounder.round(pt.x, pt.y);
+      }
+      /**
+       * Split the given segment into multiple segments on the given points.
+       *  * Each existing segment will retain its leftSE and a new rightSE will be
+       *    generated for it.
+       *  * A new segment will be generated which will adopt the original segment's
+       *    rightSE, and a new leftSE will be generated for it.
+       *  * If there are more than two points given to split on, new segments
+       *    in the middle will be generated with new leftSE and rightSE's.
+       *  * An array of the newly generated SweepEvents will be returned.
+       *
+       * Warning: input array of points is modified
+       */
+
+    }, {
+      key: "split",
+      value: function split(point) {
+        var newEvents = [];
+        var alreadyLinked = point.events !== undefined;
+        var newLeftSE = new SweepEvent(point, true);
+        var newRightSE = new SweepEvent(point, false);
+        var oldRightSE = this.rightSE;
+        this.replaceRightSE(newRightSE);
+        newEvents.push(newRightSE);
+        newEvents.push(newLeftSE);
+        var newSeg = new Segment(newLeftSE, oldRightSE, this.rings.slice(), this.windings.slice()); // when splitting a nearly vertical downward-facing segment,
+        // sometimes one of the resulting new segments is vertical, in which
+        // case its left and right events may need to be swapped
+
+        if (SweepEvent.comparePoints(newSeg.leftSE.point, newSeg.rightSE.point) > 0) {
+          newSeg.swapEvents();
+        }
+
+        if (SweepEvent.comparePoints(this.leftSE.point, this.rightSE.point) > 0) {
+          this.swapEvents();
+        } // in the point we just used to create new sweep events with was already
+        // linked to other events, we need to check if either of the affected
+        // segments should be consumed
+
+
+        if (alreadyLinked) {
+          newLeftSE.checkForConsuming();
+          newRightSE.checkForConsuming();
+        }
+
+        return newEvents;
+      }
+      /* Swap which event is left and right */
+
+    }, {
+      key: "swapEvents",
+      value: function swapEvents() {
+        var tmpEvt = this.rightSE;
+        this.rightSE = this.leftSE;
+        this.leftSE = tmpEvt;
+        this.leftSE.isLeft = true;
+        this.rightSE.isLeft = false;
+
+        for (var i = 0, iMax = this.windings.length; i < iMax; i++) {
+          this.windings[i] *= -1;
+        }
+      }
+      /* Consume another segment. We take their rings under our wing
+       * and mark them as consumed. Use for perfectly overlapping segments */
+
+    }, {
+      key: "consume",
+      value: function consume(other) {
+        var consumer = this;
+        var consumee = other;
+
+        while (consumer.consumedBy) {
+          consumer = consumer.consumedBy;
+        }
+
+        while (consumee.consumedBy) {
+          consumee = consumee.consumedBy;
+        }
+
+        var cmp = Segment.compare(consumer, consumee);
+        if (cmp === 0) return; // already consumed
+        // the winner of the consumption is the earlier segment
+        // according to sweep line ordering
+
+        if (cmp > 0) {
+          var tmp = consumer;
+          consumer = consumee;
+          consumee = tmp;
+        } // make sure a segment doesn't consume it's prev
+
+
+        if (consumer.prev === consumee) {
+          var _tmp = consumer;
+          consumer = consumee;
+          consumee = _tmp;
+        }
+
+        for (var i = 0, iMax = consumee.rings.length; i < iMax; i++) {
+          var ring = consumee.rings[i];
+          var winding = consumee.windings[i];
+          var index = consumer.rings.indexOf(ring);
+
+          if (index === -1) {
+            consumer.rings.push(ring);
+            consumer.windings.push(winding);
+          } else consumer.windings[index] += winding;
+        }
+
+        consumee.rings = null;
+        consumee.windings = null;
+        consumee.consumedBy = consumer; // mark sweep events consumed as to maintain ordering in sweep event queue
+
+        consumee.leftSE.consumedBy = consumer.leftSE;
+        consumee.rightSE.consumedBy = consumer.rightSE;
+      }
+      /* The first segment previous segment chain that is in the result */
+
+    }, {
+      key: "prevInResult",
+      value: function prevInResult() {
+        if (this._prevInResult !== undefined) return this._prevInResult;
+        if (!this.prev) this._prevInResult = null;else if (this.prev.isInResult()) this._prevInResult = this.prev;else this._prevInResult = this.prev.prevInResult();
+        return this._prevInResult;
+      }
+    }, {
+      key: "beforeState",
+      value: function beforeState() {
+        if (this._beforeState !== undefined) return this._beforeState;
+        if (!this.prev) this._beforeState = {
+          rings: [],
+          windings: [],
+          multiPolys: []
+        };else {
+          var seg = this.prev.consumedBy || this.prev;
+          this._beforeState = seg.afterState();
+        }
+        return this._beforeState;
+      }
+    }, {
+      key: "afterState",
+      value: function afterState() {
+        if (this._afterState !== undefined) return this._afterState;
+        var beforeState = this.beforeState();
+        this._afterState = {
+          rings: beforeState.rings.slice(0),
+          windings: beforeState.windings.slice(0),
+          multiPolys: []
+        };
+        var ringsAfter = this._afterState.rings;
+        var windingsAfter = this._afterState.windings;
+        var mpsAfter = this._afterState.multiPolys; // calculate ringsAfter, windingsAfter
+
+        for (var i = 0, iMax = this.rings.length; i < iMax; i++) {
+          var ring = this.rings[i];
+          var winding = this.windings[i];
+          var index = ringsAfter.indexOf(ring);
+
+          if (index === -1) {
+            ringsAfter.push(ring);
+            windingsAfter.push(winding);
+          } else windingsAfter[index] += winding;
+        } // calcualte polysAfter
+
+
+        var polysAfter = [];
+        var polysExclude = [];
+
+        for (var _i = 0, _iMax = ringsAfter.length; _i < _iMax; _i++) {
+          if (windingsAfter[_i] === 0) continue; // non-zero rule
+
+          var _ring = ringsAfter[_i];
+          var poly = _ring.poly;
+          if (polysExclude.indexOf(poly) !== -1) continue;
+          if (_ring.isExterior) polysAfter.push(poly);else {
+            if (polysExclude.indexOf(poly) === -1) polysExclude.push(poly);
+
+            var _index = polysAfter.indexOf(_ring.poly);
+
+            if (_index !== -1) polysAfter.splice(_index, 1);
+          }
+        } // calculate multiPolysAfter
+
+
+        for (var _i2 = 0, _iMax2 = polysAfter.length; _i2 < _iMax2; _i2++) {
+          var mp = polysAfter[_i2].multiPoly;
+          if (mpsAfter.indexOf(mp) === -1) mpsAfter.push(mp);
+        }
+
+        return this._afterState;
+      }
+      /* Is this segment part of the final result? */
+
+    }, {
+      key: "isInResult",
+      value: function isInResult() {
+        // if we've been consumed, we're not in the result
+        if (this.consumedBy) return false;
+        if (this._isInResult !== undefined) return this._isInResult;
+        var mpsBefore = this.beforeState().multiPolys;
+        var mpsAfter = this.afterState().multiPolys;
+
+        switch (operation.type) {
+          case 'union':
+            {
+              // UNION - included iff:
+              //  * On one side of us there is 0 poly interiors AND
+              //  * On the other side there is 1 or more.
+              var noBefores = mpsBefore.length === 0;
+              var noAfters = mpsAfter.length === 0;
+              this._isInResult = noBefores !== noAfters;
+              break;
+            }
+
+          case 'intersection':
+            {
+              // INTERSECTION - included iff:
+              //  * on one side of us all multipolys are rep. with poly interiors AND
+              //  * on the other side of us, not all multipolys are repsented
+              //    with poly interiors
+              var least;
+              var most;
+
+              if (mpsBefore.length < mpsAfter.length) {
+                least = mpsBefore.length;
+                most = mpsAfter.length;
+              } else {
+                least = mpsAfter.length;
+                most = mpsBefore.length;
+              }
+
+              this._isInResult = most === operation.numMultiPolys && least < most;
+              break;
+            }
+
+          case 'xor':
+            {
+              // XOR - included iff:
+              //  * the difference between the number of multipolys represented
+              //    with poly interiors on our two sides is an odd number
+              var diff = Math.abs(mpsBefore.length - mpsAfter.length);
+              this._isInResult = diff % 2 === 1;
+              break;
+            }
+
+          case 'difference':
+            {
+              // DIFFERENCE included iff:
+              //  * on exactly one side, we have just the subject
+              var isJustSubject = function isJustSubject(mps) {
+                return mps.length === 1 && mps[0].isSubject;
+              };
+
+              this._isInResult = isJustSubject(mpsBefore) !== isJustSubject(mpsAfter);
+              break;
+            }
+
+          default:
+            throw new Error("Unrecognized operation type found ".concat(operation.type));
+        }
+
+        return this._isInResult;
+      }
+    }], [{
+      key: "fromRing",
+      value: function fromRing(pt1, pt2, ring) {
+        var leftPt, rightPt, winding; // ordering the two points according to sweep line ordering
+
+        var cmpPts = SweepEvent.comparePoints(pt1, pt2);
+
+        if (cmpPts < 0) {
+          leftPt = pt1;
+          rightPt = pt2;
+          winding = 1;
+        } else if (cmpPts > 0) {
+          leftPt = pt2;
+          rightPt = pt1;
+          winding = -1;
+        } else throw new Error("Tried to create degenerate segment at [".concat(pt1.x, ", ").concat(pt1.y, "]"));
+
+        var leftSE = new SweepEvent(leftPt, true);
+        var rightSE = new SweepEvent(rightPt, false);
+        return new Segment(leftSE, rightSE, [ring], [winding]);
+      }
+    }]);
+
+    return Segment;
+  }();
+
+  var RingIn =
+  /*#__PURE__*/
+  function () {
+    function RingIn(geomRing, poly, isExterior) {
+      _classCallCheck(this, RingIn);
+
+      this.poly = poly;
+      this.isExterior = isExterior;
+      this.segments = [];
+      var prevPoint = geomRing[0];
+      this.bbox = {
+        ll: {
+          x: prevPoint.x,
+          y: prevPoint.y
+        },
+        ur: {
+          x: prevPoint.x,
+          y: prevPoint.y
+        }
+      };
+
+      for (var i = 1, iMax = geomRing.length; i < iMax; i++) {
+        var point = geomRing[i];
+        this.segments.push(Segment.fromRing(prevPoint, point, this));
+        if (point.x < this.bbox.ll.x) this.bbox.ll.x = point.x;
+        if (point.y < this.bbox.ll.y) this.bbox.ll.y = point.y;
+        if (point.x > this.bbox.ur.x) this.bbox.ur.x = point.x;
+        if (point.y > this.bbox.ur.y) this.bbox.ur.y = point.y;
+        prevPoint = point;
+      }
+
+      this.segments.push(Segment.fromRing(prevPoint, geomRing[0], this));
+    }
+
+    _createClass(RingIn, [{
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = [];
+
+        for (var i = 0, iMax = this.segments.length; i < iMax; i++) {
+          var segment = this.segments[i];
+          sweepEvents.push(segment.leftSE);
+          sweepEvents.push(segment.rightSE);
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return RingIn;
+  }();
+  var PolyIn =
+  /*#__PURE__*/
+  function () {
+    function PolyIn(geomPoly, multiPoly) {
+      _classCallCheck(this, PolyIn);
+
+      this.exteriorRing = new RingIn(geomPoly[0], this, true); // copy by value
+
+      this.bbox = {
+        ll: {
+          x: this.exteriorRing.bbox.ll.x,
+          y: this.exteriorRing.bbox.ll.y
+        },
+        ur: {
+          x: this.exteriorRing.bbox.ur.x,
+          y: this.exteriorRing.bbox.ur.y
+        }
+      };
+      this.interiorRings = [];
+
+      for (var i = 1, iMax = geomPoly.length; i < iMax; i++) {
+        var ring = new RingIn(geomPoly[i], this, false);
+        if (ring.bbox.ll.x < this.bbox.ll.x) this.bbox.ll.x = ring.bbox.ll.x;
+        if (ring.bbox.ll.y < this.bbox.ll.y) this.bbox.ll.y = ring.bbox.ll.y;
+        if (ring.bbox.ur.x > this.bbox.ur.x) this.bbox.ur.x = ring.bbox.ur.x;
+        if (ring.bbox.ur.y > this.bbox.ur.y) this.bbox.ur.y = ring.bbox.ur.y;
+        this.interiorRings.push(ring);
+      }
+
+      this.multiPoly = multiPoly;
+    }
+
+    _createClass(PolyIn, [{
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = this.exteriorRing.getSweepEvents();
+
+        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
+          var ringSweepEvents = this.interiorRings[i].getSweepEvents();
+
+          for (var j = 0, jMax = ringSweepEvents.length; j < jMax; j++) {
+            sweepEvents.push(ringSweepEvents[j]);
+          }
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return PolyIn;
+  }();
+  var MultiPolyIn =
+  /*#__PURE__*/
+  function () {
+    function MultiPolyIn(geomMultiPoly) {
+      _classCallCheck(this, MultiPolyIn);
+
+      this.polys = [];
+      this.bbox = {
+        ll: {
+          x: Number.POSITIVE_INFINITY,
+          y: Number.POSITIVE_INFINITY
+        },
+        ur: {
+          x: Number.NEGATIVE_INFINITY,
+          y: Number.NEGATIVE_INFINITY
+        }
+      };
+
+      for (var i = 0, iMax = geomMultiPoly.length; i < iMax; i++) {
+        var poly = new PolyIn(geomMultiPoly[i], this);
+        if (poly.bbox.ll.x < this.bbox.ll.x) this.bbox.ll.x = poly.bbox.ll.x;
+        if (poly.bbox.ll.y < this.bbox.ll.y) this.bbox.ll.y = poly.bbox.ll.y;
+        if (poly.bbox.ur.x > this.bbox.ur.x) this.bbox.ur.x = poly.bbox.ur.x;
+        if (poly.bbox.ur.y > this.bbox.ur.y) this.bbox.ur.y = poly.bbox.ur.y;
+        this.polys.push(poly);
+      }
+
+      this.isSubject = false;
+    }
+
+    _createClass(MultiPolyIn, [{
+      key: "markAsSubject",
+      value: function markAsSubject() {
+        this.isSubject = true;
+      }
+    }, {
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = [];
+
+        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
+          var polySweepEvents = this.polys[i].getSweepEvents();
+
+          for (var j = 0, jMax = polySweepEvents.length; j < jMax; j++) {
+            sweepEvents.push(polySweepEvents[j]);
+          }
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return MultiPolyIn;
+  }();
+
+  var RingOut =
+  /*#__PURE__*/
+  function () {
+    _createClass(RingOut, null, [{
+      key: "factory",
+
+      /* Given the segments from the sweep line pass, compute & return a series
+       * of closed rings from all the segments marked to be part of the result */
+      value: function factory(allSegments) {
+        var ringsOut = [];
+
+        for (var i = 0, iMax = allSegments.length; i < iMax; i++) {
+          var segment = allSegments[i];
+          if (!segment.isInResult() || segment.ringOut) continue;
+          var prevEvent = null;
+          var event = segment.leftSE;
+          var nextEvent = segment.rightSE;
+          var events = [event];
+          var startingPoint = event.point;
+          var intersectionLEs = [];
+          /* Walk the chain of linked events to form a closed ring */
+
+          while (true) {
+            prevEvent = event;
+            event = nextEvent;
+            events.push(event);
+            /* Is the ring complete? */
+
+            if (event.point === startingPoint) break;
+
+            while (true) {
+              var availableLEs = event.getAvailableLinkedEvents();
+              /* Did we hit a dead end? This shouldn't happen. Indicates some earlier
+               * part of the algorithm malfunctioned... please file a bug report. */
+
+              if (availableLEs.length === 0) {
+                var firstPt = events[0].point;
+                var lastPt = events[events.length - 1].point;
+                throw new Error("Unable to complete output ring starting at [".concat(firstPt.x, ",") + " ".concat(firstPt.y, "]. Last matching segment found ends at") + " [".concat(lastPt.x, ", ").concat(lastPt.y, "]."));
+              }
+              /* Only one way to go, so cotinue on the path */
+
+
+              if (availableLEs.length === 1) {
+                nextEvent = availableLEs[0].otherSE;
+                break;
+              }
+              /* We must have an intersection. Check for a completed loop */
+
+
+              var indexLE = null;
+
+              for (var j = 0, jMax = intersectionLEs.length; j < jMax; j++) {
+                if (intersectionLEs[j].point === event.point) {
+                  indexLE = j;
+                  break;
+                }
+              }
+              /* Found a completed loop. Cut that off and make a ring */
+
+
+              if (indexLE !== null) {
+                var intersectionLE = intersectionLEs.splice(indexLE)[0];
+                var ringEvents = events.splice(intersectionLE.index);
+                ringEvents.unshift(ringEvents[0].otherSE);
+                ringsOut.push(new RingOut(ringEvents.reverse()));
+                continue;
+              }
+              /* register the intersection */
+
+
+              intersectionLEs.push({
+                index: events.length,
+                point: event.point
+              });
+              /* Choose the left-most option to continue the walk */
+
+              var comparator = event.getLeftmostComparator(prevEvent);
+              nextEvent = availableLEs.sort(comparator)[0].otherSE;
+              break;
+            }
+          }
+
+          ringsOut.push(new RingOut(events));
+        }
+
+        return ringsOut;
+      }
+    }]);
+
+    function RingOut(events) {
+      _classCallCheck(this, RingOut);
+
+      this.events = events;
+
+      for (var i = 0, iMax = events.length; i < iMax; i++) {
+        events[i].segment.ringOut = this;
+      }
+
+      this.poly = null;
+    }
+
+    _createClass(RingOut, [{
+      key: "getGeom",
+      value: function getGeom() {
+        // Remove superfluous points (ie extra points along a straight line),
+        var prevPt = this.events[0].point;
+        var points = [prevPt];
+
+        for (var i = 1, iMax = this.events.length - 1; i < iMax; i++) {
+          var _pt = this.events[i].point;
+          var _nextPt = this.events[i + 1].point;
+          if (compareVectorAngles(_pt, prevPt, _nextPt) === 0) continue;
+          points.push(_pt);
+          prevPt = _pt;
+        } // ring was all (within rounding error of angle calc) colinear points
+
+
+        if (points.length === 1) return null; // check if the starting point is necessary
+
+        var pt = points[0];
+        var nextPt = points[1];
+        if (compareVectorAngles(pt, prevPt, nextPt) === 0) points.shift();
+        points.push(points[0]);
+        var step = this.isExteriorRing() ? 1 : -1;
+        var iStart = this.isExteriorRing() ? 0 : points.length - 1;
+        var iEnd = this.isExteriorRing() ? points.length : -1;
+        var orderedPoints = [];
+
+        for (var _i = iStart; _i != iEnd; _i += step) {
+          orderedPoints.push([points[_i].x, points[_i].y]);
+        }
+
+        return orderedPoints;
+      }
+    }, {
+      key: "isExteriorRing",
+      value: function isExteriorRing() {
+        if (this._isExteriorRing === undefined) {
+          var enclosing = this.enclosingRing();
+          this._isExteriorRing = enclosing ? !enclosing.isExteriorRing() : true;
+        }
+
+        return this._isExteriorRing;
+      }
+    }, {
+      key: "enclosingRing",
+      value: function enclosingRing() {
+        if (this._enclosingRing === undefined) {
+          this._enclosingRing = this._calcEnclosingRing();
+        }
+
+        return this._enclosingRing;
+      }
+      /* Returns the ring that encloses this one, if any */
+
+    }, {
+      key: "_calcEnclosingRing",
+      value: function _calcEnclosingRing() {
+        // start with the ealier sweep line event so that the prevSeg
+        // chain doesn't lead us inside of a loop of ours
+        var leftMostEvt = this.events[0];
+
+        for (var i = 1, iMax = this.events.length; i < iMax; i++) {
+          var evt = this.events[i];
+          if (SweepEvent.compare(leftMostEvt, evt) > 0) leftMostEvt = evt;
+        }
+
+        var prevSeg = leftMostEvt.segment.prevInResult();
+        var prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
+
+        while (true) {
+          // no segment found, thus no ring can enclose us
+          if (!prevSeg) return null; // no segments below prev segment found, thus the ring of the prev
+          // segment must loop back around and enclose us
+
+          if (!prevPrevSeg) return prevSeg.ringOut; // if the two segments are of different rings, the ring of the prev
+          // segment must either loop around us or the ring of the prev prev
+          // seg, which would make us and the ring of the prev peers
+
+          if (prevPrevSeg.ringOut !== prevSeg.ringOut) {
+            if (prevPrevSeg.ringOut.enclosingRing() !== prevSeg.ringOut) {
+              return prevSeg.ringOut;
+            } else return prevSeg.ringOut.enclosingRing();
+          } // two segments are from the same ring, so this was a penisula
+          // of that ring. iterate downward, keep searching
+
+
+          prevSeg = prevPrevSeg.prevInResult();
+          prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
+        }
+      }
+    }]);
+
+    return RingOut;
+  }();
+  var PolyOut =
+  /*#__PURE__*/
+  function () {
+    function PolyOut(exteriorRing) {
+      _classCallCheck(this, PolyOut);
+
+      this.exteriorRing = exteriorRing;
+      exteriorRing.poly = this;
+      this.interiorRings = [];
+    }
+
+    _createClass(PolyOut, [{
+      key: "addInterior",
+      value: function addInterior(ring) {
+        this.interiorRings.push(ring);
+        ring.poly = this;
+      }
+    }, {
+      key: "getGeom",
+      value: function getGeom() {
+        var geom = [this.exteriorRing.getGeom()]; // exterior ring was all (within rounding error of angle calc) colinear points
+
+        if (geom[0] === null) return null;
+
+        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
+          var ringGeom = this.interiorRings[i].getGeom(); // interior ring was all (within rounding error of angle calc) colinear points
+
+          if (ringGeom === null) continue;
+          geom.push(ringGeom);
+        }
+
+        return geom;
+      }
+    }]);
+
+    return PolyOut;
+  }();
+  var MultiPolyOut =
+  /*#__PURE__*/
+  function () {
+    function MultiPolyOut(rings) {
+      _classCallCheck(this, MultiPolyOut);
+
+      this.rings = rings;
+      this.polys = this._composePolys(rings);
+    }
+
+    _createClass(MultiPolyOut, [{
+      key: "getGeom",
+      value: function getGeom() {
+        var geom = [];
+
+        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
+          var polyGeom = this.polys[i].getGeom(); // exterior ring was all (within rounding error of angle calc) colinear points
+
+          if (polyGeom === null) continue;
+          geom.push(polyGeom);
+        }
+
+        return geom;
+      }
+    }, {
+      key: "_composePolys",
+      value: function _composePolys(rings) {
+        var polys = [];
+
+        for (var i = 0, iMax = rings.length; i < iMax; i++) {
+          var ring = rings[i];
+          if (ring.poly) continue;
+          if (ring.isExteriorRing()) polys.push(new PolyOut(ring));else {
+            var enclosingRing = ring.enclosingRing();
+            if (!enclosingRing.poly) polys.push(new PolyOut(enclosingRing));
+            enclosingRing.poly.addInterior(ring);
+          }
+        }
+
+        return polys;
+      }
+    }]);
+
+    return MultiPolyOut;
+  }();
+
+  /**
+   * NOTE:  We must be careful not to change any segments while
+   *        they are in the SplayTree. AFAIK, there's no way to tell
+   *        the tree to rebalance itself - thus before splitting
+   *        a segment that's in the tree, we remove it from the tree,
+   *        do the split, then re-insert it. (Even though splitting a
+   *        segment *shouldn't* change its correct position in the
+   *        sweep line tree, the reality is because of rounding errors,
+   *        it sometimes does.)
+   */
+
+  var SweepLine =
+  /*#__PURE__*/
+  function () {
+    function SweepLine(queue) {
+      var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Segment.compare;
+
+      _classCallCheck(this, SweepLine);
+
+      this.queue = queue;
+      this.tree = new Tree(comparator);
+      this.segments = [];
+    }
+
+    _createClass(SweepLine, [{
+      key: "process",
+      value: function process(event) {
+        var segment = event.segment;
+        var newEvents = []; // if we've already been consumed by another segment,
+        // clean up our body parts and get out
+
+        if (event.consumedBy) {
+          if (event.isLeft) this.queue.remove(event.otherSE);else this.tree.remove(segment);
+          return newEvents;
+        }
+
+        var node = event.isLeft ? this.tree.insert(segment) : this.tree.find(segment);
+        if (!node) throw new Error("Unable to find segment #".concat(segment.id, " ") + "[".concat(segment.leftSE.point.x, ", ").concat(segment.leftSE.point.y, "] -> ") + "[".concat(segment.rightSE.point.x, ", ").concat(segment.rightSE.point.y, "] ") + 'in SweepLine tree. Please submit a bug report.');
+        var prevNode = node;
+        var nextNode = node;
+        var prevSeg = undefined;
+        var nextSeg = undefined; // skip consumed segments still in tree
+
+        while (prevSeg === undefined) {
+          prevNode = this.tree.prev(prevNode);
+          if (prevNode === null) prevSeg = null;else if (prevNode.key.consumedBy === undefined) prevSeg = prevNode.key;
+        } // skip consumed segments still in tree
+
+
+        while (nextSeg === undefined) {
+          nextNode = this.tree.next(nextNode);
+          if (nextNode === null) nextSeg = null;else if (nextNode.key.consumedBy === undefined) nextSeg = nextNode.key;
+        }
+
+        if (event.isLeft) {
+          // Check for intersections against the previous segment in the sweep line
+          var prevMySplitter = null;
+
+          if (prevSeg) {
+            var prevInter = prevSeg.getIntersection(segment);
+
+            if (prevInter !== null) {
+              if (!segment.isAnEndpoint(prevInter)) prevMySplitter = prevInter;
+
+              if (!prevSeg.isAnEndpoint(prevInter)) {
+                var newEventsFromSplit = this._splitSafely(prevSeg, prevInter);
+
+                for (var i = 0, iMax = newEventsFromSplit.length; i < iMax; i++) {
+                  newEvents.push(newEventsFromSplit[i]);
+                }
+              }
+            }
+          } // Check for intersections against the next segment in the sweep line
+
+
+          var nextMySplitter = null;
+
+          if (nextSeg) {
+            var nextInter = nextSeg.getIntersection(segment);
+
+            if (nextInter !== null) {
+              if (!segment.isAnEndpoint(nextInter)) nextMySplitter = nextInter;
+
+              if (!nextSeg.isAnEndpoint(nextInter)) {
+                var _newEventsFromSplit = this._splitSafely(nextSeg, nextInter);
+
+                for (var _i = 0, _iMax = _newEventsFromSplit.length; _i < _iMax; _i++) {
+                  newEvents.push(_newEventsFromSplit[_i]);
+                }
+              }
+            }
+          } // For simplicity, even if we find more than one intersection we only
+          // spilt on the 'earliest' (sweep-line style) of the intersections.
+          // The other intersection will be handled in a future process().
+
+
+          if (prevMySplitter !== null || nextMySplitter !== null) {
+            var mySplitter = null;
+            if (prevMySplitter === null) mySplitter = nextMySplitter;else if (nextMySplitter === null) mySplitter = prevMySplitter;else {
+              var cmpSplitters = SweepEvent.comparePoints(prevMySplitter, nextMySplitter);
+              if (cmpSplitters < 0) mySplitter = prevMySplitter;
+              if (cmpSplitters > 0) mySplitter = nextMySplitter; // the two splitters are the exact same point
+
+              mySplitter = prevMySplitter;
+            } // Rounding errors can cause changes in ordering,
+            // so remove afected segments and right sweep events before splitting
+
+            this.queue.remove(segment.rightSE);
+            newEvents.push(segment.rightSE);
+
+            var _newEventsFromSplit2 = segment.split(mySplitter);
+
+            for (var _i2 = 0, _iMax2 = _newEventsFromSplit2.length; _i2 < _iMax2; _i2++) {
+              newEvents.push(_newEventsFromSplit2[_i2]);
+            }
+          }
+
+          if (newEvents.length > 0) {
+            // We found some intersections, so re-do the current event to
+            // make sure sweep line ordering is totally consistent for later
+            // use with the segment 'prev' pointers
+            this.tree.remove(segment);
+            newEvents.push(event);
+          } else {
+            // done with left event
+            this.segments.push(segment);
+            segment.prev = prevSeg;
+          }
+        } else {
+          // event.isRight
+          // since we're about to be removed from the sweep line, check for
+          // intersections between our previous and next segments
+          if (prevSeg && nextSeg) {
+            var inter = prevSeg.getIntersection(nextSeg);
+
+            if (inter !== null) {
+              if (!prevSeg.isAnEndpoint(inter)) {
+                var _newEventsFromSplit3 = this._splitSafely(prevSeg, inter);
+
+                for (var _i3 = 0, _iMax3 = _newEventsFromSplit3.length; _i3 < _iMax3; _i3++) {
+                  newEvents.push(_newEventsFromSplit3[_i3]);
+                }
+              }
+
+              if (!nextSeg.isAnEndpoint(inter)) {
+                var _newEventsFromSplit4 = this._splitSafely(nextSeg, inter);
+
+                for (var _i4 = 0, _iMax4 = _newEventsFromSplit4.length; _i4 < _iMax4; _i4++) {
+                  newEvents.push(_newEventsFromSplit4[_i4]);
+                }
+              }
+            }
+          }
+
+          this.tree.remove(segment);
+        }
+
+        return newEvents;
+      }
+      /* Safely split a segment that is currently in the datastructures
+       * IE - a segment other than the one that is currently being processed. */
+
+    }, {
+      key: "_splitSafely",
+      value: function _splitSafely(seg, pt) {
+        // Rounding errors can cause changes in ordering,
+        // so remove afected segments and right sweep events before splitting
+        // removeNode() doesn't work, so have re-find the seg
+        // https://github.com/w8r/splay-tree/pull/5
+        this.tree.remove(seg);
+        var rightSE = seg.rightSE;
+        this.queue.remove(rightSE);
+        var newEvents = seg.split(pt);
+        newEvents.push(rightSE); // splitting can trigger consumption
+
+        if (seg.consumedBy === undefined) this.tree.insert(seg);
+        return newEvents;
+      }
+    }]);
+
+    return SweepLine;
+  }();
+
+  var Operation =
+  /*#__PURE__*/
+  function () {
+    function Operation() {
+      _classCallCheck(this, Operation);
+    }
+
+    _createClass(Operation, [{
+      key: "run",
+      value: function run(type, geom, moreGeoms) {
+        operation.type = type;
+        rounder.reset();
+        /* Make a copy of the input geometry with rounded points as objects */
+
+        var geoms = [pointsAsObjects(geom)];
+
+        for (var i = 0, iMax = moreGeoms.length; i < iMax; i++) {
+          geoms.push(pointsAsObjects(moreGeoms[i]));
+        }
+        /* Clean inputs */
+
+
+        for (var _i = 0, _iMax = geoms.length; _i < _iMax; _i++) {
+          forceMultiPoly(geoms[_i]);
+          cleanMultiPoly(geoms[_i]);
+        }
+        /* Convert inputs to MultiPoly objects, mark subject */
+
+
+        var multipolys = [];
+
+        for (var _i2 = 0, _iMax2 = geoms.length; _i2 < _iMax2; _i2++) {
+          multipolys.push(new MultiPolyIn(geoms[_i2]));
+        }
+
+        multipolys[0].markAsSubject();
+        operation.numMultiPolys = multipolys.length;
+        /* BBox optimization for difference operation
+         * If the bbox of a multipolygon that's part of the clipping doesn't
+         * intersect the bbox of the subject at all, we can just drop that
+         * multiploygon. */
+
+        if (operation.type === 'difference') {
+          // in place removal
+          var subject = multipolys[0];
+          var _i3 = 1;
+
+          while (_i3 < multipolys.length) {
+            if (getBboxOverlap(multipolys[_i3].bbox, subject.bbox) !== null) _i3++;else multipolys.splice(_i3, 1);
+          }
+        }
+        /* BBox optimization for intersection operation
+         * If we can find any pair of multipolygons whose bbox does not overlap,
+         * then the result will be empty. */
+
+
+        if (operation.type === 'intersection') {
+          // TODO: this is O(n^2) in number of polygons. By sorting the bboxes,
+          //       it could be optimized to O(n * ln(n))
+          for (var _i4 = 0, _iMax3 = multipolys.length; _i4 < _iMax3; _i4++) {
+            var mpA = multipolys[_i4];
+
+            for (var j = _i4 + 1, jMax = multipolys.length; j < jMax; j++) {
+              if (getBboxOverlap(mpA.bbox, multipolys[j].bbox) === null) return [];
+            }
+          }
+        }
+        /* Put segment endpoints in a priority queue */
+
+
+        var queue = new Tree(SweepEvent.compare);
+
+        for (var _i5 = 0, _iMax4 = multipolys.length; _i5 < _iMax4; _i5++) {
+          var sweepEvents = multipolys[_i5].getSweepEvents();
+
+          for (var _j = 0, _jMax = sweepEvents.length; _j < _jMax; _j++) {
+            queue.insert(sweepEvents[_j]);
+          }
+        }
+        /* Pass the sweep line over those endpoints */
+
+
+        var sweepLine = new SweepLine(queue);
+        var prevQueueSize = queue.size;
+        var node = queue.pop();
+
+        while (node) {
+          var evt = node.key;
+
+          if (queue.size === prevQueueSize) {
+            // prevents an infinite loop, an otherwise common manifestation of bugs
+            var seg = evt.segment;
+            throw new Error("Unable to pop() ".concat(evt.isLeft ? 'left' : 'right', " SweepEvent ") + "[".concat(evt.point.x, ", ").concat(evt.point.y, "] from segment #").concat(seg.id, " ") + "[".concat(seg.leftSE.point.x, ", ").concat(seg.leftSE.point.y, "] -> ") + "[".concat(seg.rightSE.point.x, ", ").concat(seg.rightSE.point.y, "] from queue. ") + 'Please file a bug report.');
+          }
+
+          var newEvents = sweepLine.process(evt);
+
+          for (var _i6 = 0, _iMax5 = newEvents.length; _i6 < _iMax5; _i6++) {
+            var _evt = newEvents[_i6];
+            if (_evt.consumedBy === undefined) queue.insert(_evt);
+          }
+
+          prevQueueSize = queue.size;
+          node = queue.pop();
+        } // free some memory we don't need anymore
+
+
+        rounder.reset();
+        /* Collect and compile segments we're keeping into a multipolygon */
+
+        var ringsOut = RingOut.factory(sweepLine.segments);
+        var result = new MultiPolyOut(ringsOut);
+        return result.getGeom();
+      }
+    }]);
+
+    return Operation;
+  }(); // singleton available by import
+
+  var operation = new Operation();
+
+  var union$1 = function union(geom) {
+    for (var _len = arguments.length, moreGeoms = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      moreGeoms[_key - 1] = arguments[_key];
+    }
+
+    return operation.run('union', geom, moreGeoms);
+  };
+
+  var intersection$1$1 = function intersection(geom) {
+    for (var _len2 = arguments.length, moreGeoms = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      moreGeoms[_key2 - 1] = arguments[_key2];
+    }
+
+    return operation.run('intersection', geom, moreGeoms);
+  };
+
+  var xor = function xor(geom) {
+    for (var _len3 = arguments.length, moreGeoms = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+      moreGeoms[_key3 - 1] = arguments[_key3];
+    }
+
+    return operation.run('xor', geom, moreGeoms);
+  };
+
+  var difference$1 = function difference(subjectGeom) {
+    for (var _len4 = arguments.length, clippingGeoms = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+      clippingGeoms[_key4 - 1] = arguments[_key4];
+    }
+
+    return operation.run('difference', subjectGeom, clippingGeoms);
+  };
+
+  var index = {
+    union: union$1,
+    intersection: intersection$1$1,
+    xor: xor,
+    difference: difference$1
   };
 
   /**
@@ -63750,18 +64629,21 @@ define("./master.js",[],function () { 'use strict';
    *      |       |
    *      +-------+
    */
-  const difference$1 = (baseZ0Surface, ...z0Surfaces) => {
-    if (baseZ0Surface === undefined || baseZ0Surface.length === 0) {
+  const difference$2 = (minuend, ...subtrahends) => {
+    if (minuend.length === 0) {
       return [];
     }
-    for (const z0Surface of z0Surfaces) {
-      if (doesNotOverlap(z0Surface, baseZ0Surface)) {
+    if (subtrahends.length === 0) {
+      return minuend;
+    }
+    while (subtrahends.length > 0) {
+      const subtrahend = subtrahends.pop();
+      if (doesNotOverlap(minuend, subtrahend)) {
         continue;
       }
-      const result = polybooljs.difference(fromSurface(baseZ0Surface), fromSurface(z0Surface));
-      baseZ0Surface = toSurface(result);
+      minuend = toSurface(index.difference(fromSurface(minuend), fromSurface(subtrahend)));
     }
-    return baseZ0Surface;
+    return minuend;
   };
 
   /**
@@ -63782,20 +64664,1986 @@ define("./master.js",[],function () { 'use strict';
    *      |       |
    *      +-------+
    */
-  const intersection$1 = (...z0Surfaces) => {
+  const intersection$2 = (...z0Surfaces) => {
     if (z0Surfaces.length === 0) {
       return [];
+    }
+    if (z0Surfaces.length === 1) {
+      return z0Surfaces[0];
     }
     while (z0Surfaces.length >= 2) {
       const a = z0Surfaces.shift();
       const b = z0Surfaces.shift();
       if (doesNotOverlap(a, b)) {
         return [];
+      } else {
+        z0Surfaces.push(toSurface(index.intersection(fromSurface(a), fromSurface(b))));
       }
-      const result = polybooljs.intersect(fromSurface(a), fromSurface(b));
-      z0Surfaces.push(toSurface(result));
     }
     return z0Surfaces[0];
+  };
+
+  function _classCallCheck$1(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties$1(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
+    return Constructor;
+  }
+
+  /**
+   * A bounding box has the format:
+   *
+   *  { ll: { x: xmin, y: ymin }, ur: { x: xmax, y: ymax } }
+   *
+   */
+  var isInBbox$1 = function isInBbox(bbox, point) {
+    return bbox.ll.x <= point.x && point.x <= bbox.ur.x && bbox.ll.y <= point.y && point.y <= bbox.ur.y;
+  };
+  /* Returns either null, or a bbox (aka an ordered pair of points)
+   * If there is only one point of overlap, a bbox with identical points
+   * will be returned */
+
+  var getBboxOverlap$1 = function getBboxOverlap(b1, b2) {
+    // check if the bboxes overlap at all
+    if (b2.ur.x < b1.ll.x || b1.ur.x < b2.ll.x || b2.ur.y < b1.ll.y || b1.ur.y < b2.ll.y) return null; // find the middle two X values
+
+    var lowerX = b1.ll.x < b2.ll.x ? b2.ll.x : b1.ll.x;
+    var upperX = b1.ur.x < b2.ur.x ? b1.ur.x : b2.ur.x; // find the middle two Y values
+
+    var lowerY = b1.ll.y < b2.ll.y ? b2.ll.y : b1.ll.y;
+    var upperY = b1.ur.y < b2.ur.y ? b1.ur.y : b2.ur.y; // put those middle values together to get the overlap
+
+    return {
+      ll: {
+        x: lowerX,
+        y: lowerY
+      },
+      ur: {
+        x: upperX,
+        y: upperY
+      }
+    };
+  };
+
+  /* Javascript doesn't do integer math. Everything is
+   * floating point with percision Number.EPSILON.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON
+   */
+  var epsilon$1 = Number.EPSILON; // IE Polyfill
+
+  if (epsilon$1 === undefined) epsilon$1 = Math.pow(2, -52);
+  var EPSILON_SQ$1 = epsilon$1 * epsilon$1;
+  /* FLP comparator */
+
+  var cmp$1 = function cmp(a, b) {
+    // check if they're both 0
+    if (-epsilon$1 < a && a < epsilon$1) {
+      if (-epsilon$1 < b && b < epsilon$1) {
+        return 0;
+      }
+    } // check if they're flp equal
+
+
+    var ab = a - b;
+
+    if (ab * ab < EPSILON_SQ$1 * a * b) {
+      return 0;
+    } // normal comparison
+
+
+    return a < b ? -1 : 1;
+  };
+
+  /* Cross Product of two vectors with first point at origin */
+
+  var crossProduct$1 = function crossProduct(a, b) {
+    return a.x * b.y - a.y * b.x;
+  };
+  /* Dot Product of two vectors with first point at origin */
+
+  var dotProduct$1 = function dotProduct(a, b) {
+    return a.x * b.x + a.y * b.y;
+  };
+  /* Comparator for two vectors with same starting point */
+
+  var compareVectorAngles$1 = function compareVectorAngles(basePt, endPt1, endPt2) {
+    var v1 = {
+      x: endPt1.x - basePt.x,
+      y: endPt1.y - basePt.y
+    };
+    var v2 = {
+      x: endPt2.x - basePt.x,
+      y: endPt2.y - basePt.y
+    };
+    var kross = crossProduct$1(v1, v2);
+    return cmp$1(kross, 0);
+  };
+  var length$2 = function length(v) {
+    return Math.sqrt(dotProduct$1(v, v));
+  };
+  /* Get the sine of the angle from pShared -> pAngle to pShaed -> pBase */
+
+  var sineOfAngle$1 = function sineOfAngle(pShared, pBase, pAngle) {
+    var vBase = {
+      x: pBase.x - pShared.x,
+      y: pBase.y - pShared.y
+    };
+    var vAngle = {
+      x: pAngle.x - pShared.x,
+      y: pAngle.y - pShared.y
+    };
+    return crossProduct$1(vAngle, vBase) / length$2(vAngle) / length$2(vBase);
+  };
+  /* Get the cosine of the angle from pShared -> pAngle to pShaed -> pBase */
+
+  var cosineOfAngle$1 = function cosineOfAngle(pShared, pBase, pAngle) {
+    var vBase = {
+      x: pBase.x - pShared.x,
+      y: pBase.y - pShared.y
+    };
+    var vAngle = {
+      x: pAngle.x - pShared.x,
+      y: pAngle.y - pShared.y
+    };
+    return dotProduct$1(vAngle, vBase) / length$2(vAngle) / length$2(vBase);
+  };
+  /* Get the x coordinate where the given line (defined by a point and vector)
+   * crosses the horizontal line with the given y coordiante.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var horizontalIntersection$1 = function horizontalIntersection(pt, v, y) {
+    if (v.y === 0) return null;
+    return {
+      x: pt.x + v.x / v.y * (y - pt.y),
+      y: y
+    };
+  };
+  /* Get the y coordinate where the given line (defined by a point and vector)
+   * crosses the vertical line with the given x coordiante.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var verticalIntersection$1 = function verticalIntersection(pt, v, x) {
+    if (v.x === 0) return null;
+    return {
+      x: x,
+      y: pt.y + v.y / v.x * (x - pt.x)
+    };
+  };
+  /* Get the intersection of two lines, each defined by a base point and a vector.
+   * In the case of parrallel lines (including overlapping ones) returns null. */
+
+  var intersection$3 = function intersection(pt1, v1, pt2, v2) {
+    // take some shortcuts for vertical and horizontal lines
+    // this also ensures we don't calculate an intersection and then discover
+    // it's actually outside the bounding box of the line
+    if (v1.x === 0) return verticalIntersection$1(pt2, v2, pt1.x);
+    if (v2.x === 0) return verticalIntersection$1(pt1, v1, pt2.x);
+    if (v1.y === 0) return horizontalIntersection$1(pt2, v2, pt1.y);
+    if (v2.y === 0) return horizontalIntersection$1(pt1, v1, pt2.y); // General case for non-overlapping segments.
+    // This algorithm is based on Schneider and Eberly.
+    // http://www.cimec.org.ar/~ncalvo/Schneider_Eberly.pdf - pg 244
+
+    var kross = crossProduct$1(v1, v2);
+    if (kross == 0) return null;
+    var ve = {
+      x: pt2.x - pt1.x,
+      y: pt2.y - pt1.y
+    };
+    var d1 = crossProduct$1(ve, v1) / kross;
+    var d2 = crossProduct$1(ve, v2) / kross; // take the average of the two calculations to minimize rounding error
+
+    var x1 = pt1.x + d2 * v1.x,
+        x2 = pt2.x + d1 * v2.x;
+    var y1 = pt1.y + d2 * v1.y,
+        y2 = pt2.y + d1 * v2.y;
+    var x = (x1 + x2) / 2;
+    var y = (y1 + y2) / 2;
+    return {
+      x: x,
+      y: y
+    };
+  };
+
+  /**
+   * This class rounds incoming values sufficiently so that
+   * floating points problems are, for the most part, avoided.
+   *
+   * Incoming points are have their x & y values tested against
+   * all previously seen x & y values. If either is 'too close'
+   * to a previously seen value, it's value is 'snapped' to the
+   * previously seen value.
+   *
+   * All points should be rounded by this class before being
+   * stored in any data structures in the rest of this algorithm.
+   */
+
+  var PtRounder$1 =
+  /*#__PURE__*/
+  function () {
+    function PtRounder() {
+      _classCallCheck$1(this, PtRounder);
+
+      this.reset();
+    }
+
+    _createClass$1(PtRounder, [{
+      key: "reset",
+      value: function reset() {
+        this.xRounder = new CoordRounder$1();
+        this.yRounder = new CoordRounder$1();
+      }
+    }, {
+      key: "round",
+      value: function round(x, y) {
+        return {
+          x: this.xRounder.round(x),
+          y: this.yRounder.round(y)
+        };
+      }
+    }]);
+
+    return PtRounder;
+  }();
+
+  var CoordRounder$1 =
+  /*#__PURE__*/
+  function () {
+    function CoordRounder() {
+      _classCallCheck$1(this, CoordRounder);
+
+      this.tree = new Tree(); // preseed with 0 so we don't end up with values < Number.EPSILON
+
+      this.round(0);
+    } // Note: this can rounds input values backwards or forwards.
+    //       You might ask, why not restrict this to just rounding
+    //       forwards? Wouldn't that allow left endpoints to always
+    //       remain left endpoints during splitting (never change to
+    //       right). No - it wouldn't, because we snap intersections
+    //       to endpoints (to establish independence from the segment
+    //       angle for t-intersections).
+
+
+    _createClass$1(CoordRounder, [{
+      key: "round",
+      value: function round(coord) {
+        var node = this.tree.add(coord);
+        var prevNode = this.tree.prev(node);
+
+        if (prevNode !== null && cmp$1(node.key, prevNode.key) === 0) {
+          this.tree.remove(coord);
+          return prevNode.key;
+        }
+
+        var nextNode = this.tree.next(node);
+
+        if (nextNode !== null && cmp$1(node.key, nextNode.key) === 0) {
+          this.tree.remove(coord);
+          return nextNode.key;
+        }
+
+        return coord;
+      }
+    }]);
+
+    return CoordRounder;
+  }(); // singleton available by import
+
+
+  var rounder$1 = new PtRounder$1();
+
+  /* Given input geometry as a standard array-of-arrays geojson-style
+   * geometry, return one that uses objects as points, for better perf */
+
+  var pointsAsObjects$1 = function pointsAsObjects(geom) {
+    // we can handle well-formed multipolys and polys
+    var output = [];
+
+    if (!Array.isArray(geom)) {
+      throw new Error('Input is not a Polygon or MultiPolygon');
+    }
+
+    for (var i = 0, iMax = geom.length; i < iMax; i++) {
+      if (!Array.isArray(geom[i]) || geom[i].length == 0) {
+        throw new Error('Input is not a Polygon or MultiPolygon');
+      }
+
+      output.push([]);
+
+      for (var j = 0, jMax = geom[i].length; j < jMax; j++) {
+        if (!Array.isArray(geom[i][j]) || geom[i][j].length == 0) {
+          throw new Error('Input is not a Polygon or MultiPolygon');
+        }
+
+        if (Array.isArray(geom[i][j][0])) {
+          // multipolygon
+          output[i].push([]);
+
+          for (var k = 0, kMax = geom[i][j].length; k < kMax; k++) {
+            if (!Array.isArray(geom[i][j][k]) || geom[i][j][k].length < 2) {
+              throw new Error('Input is not a Polygon or MultiPolygon');
+            }
+
+            if (geom[i][j][k].length > 2) {
+              throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
+            }
+
+            output[i][j].push(rounder$1.round(geom[i][j][k][0], geom[i][j][k][1]));
+          }
+        } else {
+          // polygon
+          if (geom[i][j].length < 2) {
+            throw new Error('Input is not a Polygon or MultiPolygon');
+          }
+
+          if (geom[i][j].length > 2) {
+            throw new Error('Input has more than two coordinates. ' + 'Only 2-dimensional polygons supported.');
+          }
+
+          output[i].push(rounder$1.round(geom[i][j][0], geom[i][j][1]));
+        }
+      }
+    }
+
+    return output;
+  };
+  /* WARN: input modified directly */
+
+  var forceMultiPoly$1 = function forceMultiPoly(geom) {
+    if (Array.isArray(geom)) {
+      if (geom.length === 0) return; // allow empty multipolys
+
+      if (Array.isArray(geom[0])) {
+        if (Array.isArray(geom[0][0])) {
+          if (typeof geom[0][0][0].x === 'number' && typeof geom[0][0][0].y === 'number') {
+            // multipolygon
+            return;
+          }
+        }
+
+        if (typeof geom[0][0].x === 'number' && typeof geom[0][0].y === 'number') {
+          // polygon
+          geom.unshift(geom.splice(0));
+          return;
+        }
+      }
+    }
+
+    throw new Error('Unrecognized input - not a polygon nor multipolygon');
+  };
+  /* WARN: input modified directly */
+
+  var cleanMultiPoly$1 = function cleanMultiPoly(multipoly) {
+    var i = 0;
+
+    while (i < multipoly.length) {
+      var poly = multipoly[i];
+
+      if (poly.length === 0) {
+        multipoly.splice(i, 1);
+        continue;
+      }
+
+      var exteriorRing = poly[0];
+      cleanRing$1(exteriorRing); // poly is dropped if exteriorRing is degenerate
+
+      if (exteriorRing.length === 0) {
+        multipoly.splice(i, 1);
+        continue;
+      }
+
+      var j = 1;
+
+      while (j < poly.length) {
+        var interiorRing = poly[j];
+        cleanRing$1(interiorRing);
+        if (interiorRing.length === 0) poly.splice(j, 1);else j++;
+      }
+
+      i++;
+    }
+  };
+  /* Clean ring:
+   *  - remove duplicate points
+   *  - remove colinear points
+   *  - remove rings with no area (less than 3 distinct points)
+   *  - un-close rings (last point should not repeat first)
+   *
+   * WARN: input modified directly */
+
+  var cleanRing$1 = function cleanRing(ring) {
+    if (ring.length === 0) return;
+    var i = 0;
+    var pt, prevPt, nextPt;
+
+    while (i < ring.length) {
+      pt = ring[i];
+      prevPt = i === 0 ? ring[ring.length - 1] : ring[i - 1];
+
+      if (pt.x === prevPt.x && pt.y === prevPt.y) {
+        ring.splice(i - 1, 1);
+        continue;
+      }
+
+      nextPt = i === ring.length - 1 ? ring[0] : ring[i + 1];
+
+      if (compareVectorAngles$1(pt, prevPt, nextPt) === 0) {
+        ring.splice(i, 1);
+        if (i > 0) i--;
+        continue;
+      }
+
+      i++;
+    } // if our ring has less than 3 distinct points now (so is degenerate)
+    // shrink it down to the empty array to communicate to our caller to
+    // drop it
+
+
+    while (ring.length < 3 && ring.length > 0) {
+      ring.pop();
+    }
+  };
+
+  var SweepEvent$1 =
+  /*#__PURE__*/
+  function () {
+    _createClass$1(SweepEvent, null, [{
+      key: "compare",
+      // for ordering sweep events in the sweep event queue
+      value: function compare(a, b) {
+        // favor event with a point that the sweep line hits first
+        var ptCmp = SweepEvent.comparePoints(a.point, b.point);
+        if (ptCmp !== 0) return ptCmp; // the points are the same, so link them if needed
+
+        if (a.point !== b.point) a.link(b); // favor right events over left
+
+        if (a.isLeft !== b.isLeft) return a.isLeft ? 1 : -1; // we have two matching left or right endpoints
+        // ordering of this case is the same as for their segments
+
+        return Segment$1.compare(a.segment, b.segment);
+      } // for ordering points in sweep line order
+
+    }, {
+      key: "comparePoints",
+      value: function comparePoints(aPt, bPt) {
+        if (aPt.x < bPt.x) return -1;
+        if (aPt.x > bPt.x) return 1;
+        if (aPt.y < bPt.y) return -1;
+        if (aPt.y > bPt.y) return 1;
+        return 0;
+      } // Warning: 'point' input will be modified and re-used (for performance)
+
+    }]);
+
+    function SweepEvent(point, isLeft) {
+      _classCallCheck$1(this, SweepEvent);
+
+      if (point.events === undefined) point.events = [this];else point.events.push(this);
+      this.point = point;
+      this.isLeft = isLeft; // this.segment, this.otherSE set by factory
+    }
+
+    _createClass$1(SweepEvent, [{
+      key: "link",
+      value: function link(other) {
+        if (other.point === this.point) {
+          throw new Error('Tried to link already linked events');
+        }
+
+        var otherEvents = other.point.events;
+
+        for (var i = 0, iMax = otherEvents.length; i < iMax; i++) {
+          var evt = otherEvents[i];
+          this.point.events.push(evt);
+          evt.point = this.point;
+        }
+
+        this.checkForConsuming();
+      }
+      /* Do a pass over our linked events and check to see if any pair
+       * of segments match, and should be consumed. */
+
+    }, {
+      key: "checkForConsuming",
+      value: function checkForConsuming() {
+        // FIXME: The loops in this method run O(n^2) => no good.
+        //        Maintain little ordered sweep event trees?
+        //        Can we maintaining an ordering that avoids the need
+        //        for the re-sorting with getLeftmostComparator in geom-out?
+        // Compare each pair of events to see if other events also match
+        var numEvents = this.point.events.length;
+
+        for (var i = 0; i < numEvents; i++) {
+          var evt1 = this.point.events[i];
+          if (evt1.segment.consumedBy !== undefined) continue;
+
+          for (var j = i + 1; j < numEvents; j++) {
+            var evt2 = this.point.events[j];
+            if (evt2.consumedBy !== undefined) continue;
+            if (evt1.otherSE.point.events !== evt2.otherSE.point.events) continue;
+            evt1.segment.consume(evt2.segment);
+          }
+        }
+      }
+    }, {
+      key: "getAvailableLinkedEvents",
+      value: function getAvailableLinkedEvents() {
+        // point.events is always of length 2 or greater
+        var events = [];
+
+        for (var i = 0, iMax = this.point.events.length; i < iMax; i++) {
+          var evt = this.point.events[i];
+
+          if (evt !== this && !evt.segment.ringOut && evt.segment.isInResult()) {
+            events.push(evt);
+          }
+        }
+
+        return events;
+      }
+      /**
+       * Returns a comparator function for sorting linked events that will
+       * favor the event that will give us the smallest left-side angle.
+       * All ring construction starts as low as possible heading to the right,
+       * so by always turning left as sharp as possible we'll get polygons
+       * without uncessary loops & holes.
+       *
+       * The comparator function has a compute cache such that it avoids
+       * re-computing already-computed values.
+       */
+
+    }, {
+      key: "getLeftmostComparator",
+      value: function getLeftmostComparator(baseEvent) {
+        var _this = this;
+
+        var cache = new Map();
+
+        var fillCache = function fillCache(linkedEvent) {
+          var nextEvent = linkedEvent.otherSE;
+          cache.set(linkedEvent, {
+            sine: sineOfAngle$1(_this.point, baseEvent.point, nextEvent.point),
+            cosine: cosineOfAngle$1(_this.point, baseEvent.point, nextEvent.point)
+          });
+        };
+
+        return function (a, b) {
+          if (!cache.has(a)) fillCache(a);
+          if (!cache.has(b)) fillCache(b);
+
+          var _cache$get = cache.get(a),
+              asine = _cache$get.sine,
+              acosine = _cache$get.cosine;
+
+          var _cache$get2 = cache.get(b),
+              bsine = _cache$get2.sine,
+              bcosine = _cache$get2.cosine; // both on or above x-axis
+
+
+          if (asine >= 0 && bsine >= 0) {
+            if (acosine < bcosine) return 1;
+            if (acosine > bcosine) return -1;
+            return 0;
+          } // both below x-axis
+
+
+          if (asine < 0 && bsine < 0) {
+            if (acosine < bcosine) return -1;
+            if (acosine > bcosine) return 1;
+            return 0;
+          } // one above x-axis, one below
+
+
+          if (bsine < asine) return -1;
+          if (bsine > asine) return 1;
+          return 0;
+        };
+      }
+    }]);
+
+    return SweepEvent;
+  }();
+
+  // segments and sweep events when all else is identical
+
+  var segmentId$1 = 0;
+
+  var Segment$1 =
+  /*#__PURE__*/
+  function () {
+    _createClass$1(Segment, null, [{
+      key: "compare",
+
+      /* This compare() function is for ordering segments in the sweep
+       * line tree, and does so according to the following criteria:
+       *
+       * Consider the vertical line that lies an infinestimal step to the
+       * right of the right-more of the two left endpoints of the input
+       * segments. Imagine slowly moving a point up from negative infinity
+       * in the increasing y direction. Which of the two segments will that
+       * point intersect first? That segment comes 'before' the other one.
+       *
+       * If neither segment would be intersected by such a line, (if one
+       * or more of the segments are vertical) then the line to be considered
+       * is directly on the right-more of the two left inputs.
+       */
+      value: function compare(a, b) {
+        var alx = a.leftSE.point.x;
+        var blx = b.leftSE.point.x;
+        var arx = a.rightSE.point.x;
+        var brx = b.rightSE.point.x; // check if they're even in the same vertical plane
+
+        if (brx < alx) return 1;
+        if (arx < blx) return -1;
+        var aly = a.leftSE.point.y;
+        var bly = b.leftSE.point.y;
+        var ary = a.rightSE.point.y;
+        var bry = b.rightSE.point.y; // is left endpoint of segment B the right-more?
+
+        if (alx < blx) {
+          // are the two segments in the same horizontal plane?
+          if (bly < aly && bly < ary) return 1;
+          if (bly > aly && bly > ary) return -1; // is the B left endpoint colinear to segment A?
+
+          var aCmpBLeft = a.comparePoint(b.leftSE.point);
+          if (aCmpBLeft < 0) return 1;
+          if (aCmpBLeft > 0) return -1; // is the A right endpoint colinear to segment B ?
+
+          var bCmpARight = b.comparePoint(a.rightSE.point);
+          if (bCmpARight !== 0) return bCmpARight; // colinear segments, consider the one with left-more
+          // left endpoint to be first (arbitrary?)
+
+          return -1;
+        } // is left endpoint of segment A the right-more?
+
+
+        if (alx > blx) {
+          if (aly < bly && aly < bry) return -1;
+          if (aly > bly && aly > bry) return 1; // is the A left endpoint colinear to segment B?
+
+          var bCmpALeft = b.comparePoint(a.leftSE.point);
+          if (bCmpALeft !== 0) return bCmpALeft; // is the B right endpoint colinear to segment A?
+
+          var aCmpBRight = a.comparePoint(b.rightSE.point);
+          if (aCmpBRight < 0) return 1;
+          if (aCmpBRight > 0) return -1; // colinear segments, consider the one with left-more
+          // left endpoint to be first (arbitrary?)
+
+          return 1;
+        } // if we get here, the two left endpoints are in the same
+        // vertical plane, ie alx === blx
+        // consider the lower left-endpoint to come first
+
+
+        if (aly < bly) return -1;
+        if (aly > bly) return 1; // left endpoints are identical
+        // check for colinearity by using the left-more right endpoint
+        // is the A right endpoint more left-more?
+
+        if (arx < brx) {
+          var _bCmpARight = b.comparePoint(a.rightSE.point);
+
+          if (_bCmpARight !== 0) return _bCmpARight;
+        } // is the B right endpoint more left-more?
+
+
+        if (arx > brx) {
+          var _aCmpBRight = a.comparePoint(b.rightSE.point);
+
+          if (_aCmpBRight < 0) return 1;
+          if (_aCmpBRight > 0) return -1;
+        }
+
+        if (arx !== brx) {
+          // are these two [almost] vertical segments with opposite orientation?
+          // if so, the one with the lower right endpoint comes first
+          var ay = ary - aly;
+          var ax = arx - alx;
+          var by = bry - bly;
+          var bx = brx - blx;
+          if (ay > ax && by < bx) return 1;
+          if (ay < ax && by > bx) return -1;
+        } // we have colinear segments with matching orientation
+        // consider the one with more left-more right endpoint to be first
+
+
+        if (arx > brx) return 1;
+        if (arx < brx) return -1; // if we get here, two two right endpoints are in the same
+        // vertical plane, ie arx === brx
+        // consider the lower right-endpoint to come first
+
+        if (ary < bry) return -1;
+        if (ary > bry) return 1; // right endpoints identical as well, so the segments are idential
+        // fall back on creation order as consistent tie-breaker
+
+        if (a.id < b.id) return -1;
+        if (a.id > b.id) return 1; // identical segment, ie a === b
+
+        return 0;
+      }
+      /* Warning: a reference to ringWindings input will be stored,
+       *  and possibly will be later modified */
+
+    }]);
+
+    function Segment(leftSE, rightSE, rings, windings) {
+      _classCallCheck$1(this, Segment);
+
+      this.id = ++segmentId$1;
+      this.leftSE = leftSE;
+      leftSE.segment = this;
+      leftSE.otherSE = rightSE;
+      this.rightSE = rightSE;
+      rightSE.segment = this;
+      rightSE.otherSE = leftSE;
+      this.rings = rings;
+      this.windings = windings; // left unset for performance, set later in algorithm
+      // this.ringOut, this.consumedBy, this.prev
+    }
+
+    _createClass$1(Segment, [{
+      key: "replaceRightSE",
+
+      /* When a segment is split, the rightSE is replaced with a new sweep event */
+      value: function replaceRightSE(newRightSE) {
+        this.rightSE = newRightSE;
+        this.rightSE.segment = this;
+        this.rightSE.otherSE = this.leftSE;
+        this.leftSE.otherSE = this.rightSE;
+      }
+    }, {
+      key: "bbox",
+      value: function bbox() {
+        var y1 = this.leftSE.point.y;
+        var y2 = this.rightSE.point.y;
+        return {
+          ll: {
+            x: this.leftSE.point.x,
+            y: y1 < y2 ? y1 : y2
+          },
+          ur: {
+            x: this.rightSE.point.x,
+            y: y1 > y2 ? y1 : y2
+          }
+        };
+      }
+      /* A vector from the left point to the right */
+
+    }, {
+      key: "vector",
+      value: function vector() {
+        return {
+          x: this.rightSE.point.x - this.leftSE.point.x,
+          y: this.rightSE.point.y - this.leftSE.point.y
+        };
+      }
+    }, {
+      key: "isAnEndpoint",
+      value: function isAnEndpoint(pt) {
+        return pt.x === this.leftSE.point.x && pt.y === this.leftSE.point.y || pt.x === this.rightSE.point.x && pt.y === this.rightSE.point.y;
+      }
+      /* Compare this segment with a point.
+       *
+       * A point P is considered to be colinear to a segment if there
+       * exists a distance D such that if we travel along the segment
+       * from one * endpoint towards the other a distance D, we find
+       * ourselves at point P.
+       *
+       * Return value indicates:
+       *
+       *   1: point lies above the segment (to the left of vertical)
+       *   0: point is colinear to segment
+       *  -1: point lies below the segment (to the right of vertical)
+       */
+
+    }, {
+      key: "comparePoint",
+      value: function comparePoint(point) {
+        if (this.isAnEndpoint(point)) return 0;
+        var lPt = this.leftSE.point;
+        var rPt = this.rightSE.point;
+        var v = this.vector(); // Exactly vertical segments.
+
+        if (lPt.x === rPt.x) {
+          if (point.x === lPt.x) return 0;
+          return point.x < lPt.x ? 1 : -1;
+        } // Nearly vertical segments with an intersection.
+        // Check to see where a point on the line with matching Y coordinate is.
+
+
+        var yDist = (point.y - lPt.y) / v.y;
+        var xFromYDist = lPt.x + yDist * v.x;
+        if (point.x === xFromYDist) return 0; // General case.
+        // Check to see where a point on the line with matching X coordinate is.
+
+        var xDist = (point.x - lPt.x) / v.x;
+        var yFromXDist = lPt.y + xDist * v.y;
+        if (point.y === yFromXDist) return 0;
+        return point.y < yFromXDist ? -1 : 1;
+      }
+      /**
+       * Given another segment, returns the first non-trivial intersection
+       * between the two segments (in terms of sweep line ordering), if it exists.
+       *
+       * A 'non-trivial' intersection is one that will cause one or both of the
+       * segments to be split(). As such, 'trivial' vs. 'non-trivial' intersection:
+       *
+       *   * endpoint of segA with endpoint of segB --> trivial
+       *   * endpoint of segA with point along segB --> non-trivial
+       *   * endpoint of segB with point along segA --> non-trivial
+       *   * point along segA with point along segB --> non-trivial
+       *
+       * If no non-trivial intersection exists, return null
+       * Else, return null.
+       */
+
+    }, {
+      key: "getIntersection",
+      value: function getIntersection(other) {
+        // If bboxes don't overlap, there can't be any intersections
+        var tBbox = this.bbox();
+        var oBbox = other.bbox();
+        var bboxOverlap = getBboxOverlap$1(tBbox, oBbox);
+        if (bboxOverlap === null) return null; // We first check to see if the endpoints can be considered intersections.
+        // This will 'snap' intersections to endpoints if possible, and will
+        // handle cases of colinearity.
+
+        var tlp = this.leftSE.point;
+        var trp = this.rightSE.point;
+        var olp = other.leftSE.point;
+        var orp = other.rightSE.point; // does each endpoint touch the other segment?
+        // note that we restrict the 'touching' definition to only allow segments
+        // to touch endpoints that lie forward from where we are in the sweep line pass
+
+        var touchesOtherLSE = isInBbox$1(tBbox, olp) && this.comparePoint(olp) === 0;
+        var touchesThisLSE = isInBbox$1(oBbox, tlp) && other.comparePoint(tlp) === 0;
+        var touchesOtherRSE = isInBbox$1(tBbox, orp) && this.comparePoint(orp) === 0;
+        var touchesThisRSE = isInBbox$1(oBbox, trp) && other.comparePoint(trp) === 0; // do left endpoints match?
+
+        if (touchesThisLSE && touchesOtherLSE) {
+          // these two cases are for colinear segments with matching left
+          // endpoints, and one segment being longer than the other
+          if (touchesThisRSE && !touchesOtherRSE) return trp;
+          if (!touchesThisRSE && touchesOtherRSE) return orp; // either the two segments match exactly (two trival intersections)
+          // or just on their left endpoint (one trivial intersection
+
+          return null;
+        } // does this left endpoint matches (other doesn't)
+
+
+        if (touchesThisLSE) {
+          // check for segments that just intersect on opposing endpoints
+          if (touchesOtherRSE) {
+            if (tlp.x === orp.x && tlp.y === orp.y) return null;
+          } // t-intersection on left endpoint
+
+
+          return tlp;
+        } // does other left endpoint matches (this doesn't)
+
+
+        if (touchesOtherLSE) {
+          // check for segments that just intersect on opposing endpoints
+          if (touchesThisRSE) {
+            if (trp.x === olp.x && trp.y === olp.y) return null;
+          } // t-intersection on left endpoint
+
+
+          return olp;
+        } // trivial intersection on right endpoints
+
+
+        if (touchesThisRSE && touchesOtherRSE) return null; // t-intersections on just one right endpoint
+
+        if (touchesThisRSE) return trp;
+        if (touchesOtherRSE) return orp; // None of our endpoints intersect. Look for a general intersection between
+        // infinite lines laid over the segments
+
+        var pt = intersection$3(tlp, this.vector(), olp, other.vector()); // are the segments parrallel? Note that if they were colinear with overlap,
+        // they would have an endpoint intersection and that case was already handled above
+
+        if (pt === null) return null; // is the intersection found between the lines not on the segments?
+
+        if (!isInBbox$1(bboxOverlap, pt)) return null; // round the the computed point if needed
+
+        return rounder$1.round(pt.x, pt.y);
+      }
+      /**
+       * Split the given segment into multiple segments on the given points.
+       *  * Each existing segment will retain its leftSE and a new rightSE will be
+       *    generated for it.
+       *  * A new segment will be generated which will adopt the original segment's
+       *    rightSE, and a new leftSE will be generated for it.
+       *  * If there are more than two points given to split on, new segments
+       *    in the middle will be generated with new leftSE and rightSE's.
+       *  * An array of the newly generated SweepEvents will be returned.
+       *
+       * Warning: input array of points is modified
+       */
+
+    }, {
+      key: "split",
+      value: function split(point) {
+        var newEvents = [];
+        var alreadyLinked = point.events !== undefined;
+        var newLeftSE = new SweepEvent$1(point, true);
+        var newRightSE = new SweepEvent$1(point, false);
+        var oldRightSE = this.rightSE;
+        this.replaceRightSE(newRightSE);
+        newEvents.push(newRightSE);
+        newEvents.push(newLeftSE);
+        var newSeg = new Segment(newLeftSE, oldRightSE, this.rings.slice(), this.windings.slice()); // when splitting a nearly vertical downward-facing segment,
+        // sometimes one of the resulting new segments is vertical, in which
+        // case its left and right events may need to be swapped
+
+        if (SweepEvent$1.comparePoints(newSeg.leftSE.point, newSeg.rightSE.point) > 0) {
+          newSeg.swapEvents();
+        }
+
+        if (SweepEvent$1.comparePoints(this.leftSE.point, this.rightSE.point) > 0) {
+          this.swapEvents();
+        } // in the point we just used to create new sweep events with was already
+        // linked to other events, we need to check if either of the affected
+        // segments should be consumed
+
+
+        if (alreadyLinked) {
+          newLeftSE.checkForConsuming();
+          newRightSE.checkForConsuming();
+        }
+
+        return newEvents;
+      }
+      /* Swap which event is left and right */
+
+    }, {
+      key: "swapEvents",
+      value: function swapEvents() {
+        var tmpEvt = this.rightSE;
+        this.rightSE = this.leftSE;
+        this.leftSE = tmpEvt;
+        this.leftSE.isLeft = true;
+        this.rightSE.isLeft = false;
+
+        for (var i = 0, iMax = this.windings.length; i < iMax; i++) {
+          this.windings[i] *= -1;
+        }
+      }
+      /* Consume another segment. We take their rings under our wing
+       * and mark them as consumed. Use for perfectly overlapping segments */
+
+    }, {
+      key: "consume",
+      value: function consume(other) {
+        var consumer = this;
+        var consumee = other;
+
+        while (consumer.consumedBy) {
+          consumer = consumer.consumedBy;
+        }
+
+        while (consumee.consumedBy) {
+          consumee = consumee.consumedBy;
+        }
+
+        var cmp = Segment.compare(consumer, consumee);
+        if (cmp === 0) return; // already consumed
+        // the winner of the consumption is the earlier segment
+        // according to sweep line ordering
+
+        if (cmp > 0) {
+          var tmp = consumer;
+          consumer = consumee;
+          consumee = tmp;
+        } // make sure a segment doesn't consume it's prev
+
+
+        if (consumer.prev === consumee) {
+          var _tmp = consumer;
+          consumer = consumee;
+          consumee = _tmp;
+        }
+
+        for (var i = 0, iMax = consumee.rings.length; i < iMax; i++) {
+          var ring = consumee.rings[i];
+          var winding = consumee.windings[i];
+          var index = consumer.rings.indexOf(ring);
+
+          if (index === -1) {
+            consumer.rings.push(ring);
+            consumer.windings.push(winding);
+          } else consumer.windings[index] += winding;
+        }
+
+        consumee.rings = null;
+        consumee.windings = null;
+        consumee.consumedBy = consumer; // mark sweep events consumed as to maintain ordering in sweep event queue
+
+        consumee.leftSE.consumedBy = consumer.leftSE;
+        consumee.rightSE.consumedBy = consumer.rightSE;
+      }
+      /* The first segment previous segment chain that is in the result */
+
+    }, {
+      key: "prevInResult",
+      value: function prevInResult() {
+        if (this._prevInResult !== undefined) return this._prevInResult;
+        if (!this.prev) this._prevInResult = null;else if (this.prev.isInResult()) this._prevInResult = this.prev;else this._prevInResult = this.prev.prevInResult();
+        return this._prevInResult;
+      }
+    }, {
+      key: "beforeState",
+      value: function beforeState() {
+        if (this._beforeState !== undefined) return this._beforeState;
+        if (!this.prev) this._beforeState = {
+          rings: [],
+          windings: [],
+          multiPolys: []
+        };else {
+          var seg = this.prev.consumedBy || this.prev;
+          this._beforeState = seg.afterState();
+        }
+        return this._beforeState;
+      }
+    }, {
+      key: "afterState",
+      value: function afterState() {
+        if (this._afterState !== undefined) return this._afterState;
+        var beforeState = this.beforeState();
+        this._afterState = {
+          rings: beforeState.rings.slice(0),
+          windings: beforeState.windings.slice(0),
+          multiPolys: []
+        };
+        var ringsAfter = this._afterState.rings;
+        var windingsAfter = this._afterState.windings;
+        var mpsAfter = this._afterState.multiPolys; // calculate ringsAfter, windingsAfter
+
+        for (var i = 0, iMax = this.rings.length; i < iMax; i++) {
+          var ring = this.rings[i];
+          var winding = this.windings[i];
+          var index = ringsAfter.indexOf(ring);
+
+          if (index === -1) {
+            ringsAfter.push(ring);
+            windingsAfter.push(winding);
+          } else windingsAfter[index] += winding;
+        } // calcualte polysAfter
+
+
+        var polysAfter = [];
+        var polysExclude = [];
+
+        for (var _i = 0, _iMax = ringsAfter.length; _i < _iMax; _i++) {
+          if (windingsAfter[_i] === 0) continue; // non-zero rule
+
+          var _ring = ringsAfter[_i];
+          var poly = _ring.poly;
+          if (polysExclude.indexOf(poly) !== -1) continue;
+          if (_ring.isExterior) polysAfter.push(poly);else {
+            if (polysExclude.indexOf(poly) === -1) polysExclude.push(poly);
+
+            var _index = polysAfter.indexOf(_ring.poly);
+
+            if (_index !== -1) polysAfter.splice(_index, 1);
+          }
+        } // calculate multiPolysAfter
+
+
+        for (var _i2 = 0, _iMax2 = polysAfter.length; _i2 < _iMax2; _i2++) {
+          var mp = polysAfter[_i2].multiPoly;
+          if (mpsAfter.indexOf(mp) === -1) mpsAfter.push(mp);
+        }
+
+        return this._afterState;
+      }
+      /* Is this segment part of the final result? */
+
+    }, {
+      key: "isInResult",
+      value: function isInResult() {
+        // if we've been consumed, we're not in the result
+        if (this.consumedBy) return false;
+        if (this._isInResult !== undefined) return this._isInResult;
+        var mpsBefore = this.beforeState().multiPolys;
+        var mpsAfter = this.afterState().multiPolys;
+
+        switch (operation$1.type) {
+          case 'union':
+            {
+              // UNION - included iff:
+              //  * On one side of us there is 0 poly interiors AND
+              //  * On the other side there is 1 or more.
+              var noBefores = mpsBefore.length === 0;
+              var noAfters = mpsAfter.length === 0;
+              this._isInResult = noBefores !== noAfters;
+              break;
+            }
+
+          case 'intersection':
+            {
+              // INTERSECTION - included iff:
+              //  * on one side of us all multipolys are rep. with poly interiors AND
+              //  * on the other side of us, not all multipolys are repsented
+              //    with poly interiors
+              var least;
+              var most;
+
+              if (mpsBefore.length < mpsAfter.length) {
+                least = mpsBefore.length;
+                most = mpsAfter.length;
+              } else {
+                least = mpsAfter.length;
+                most = mpsBefore.length;
+              }
+
+              this._isInResult = most === operation$1.numMultiPolys && least < most;
+              break;
+            }
+
+          case 'xor':
+            {
+              // XOR - included iff:
+              //  * the difference between the number of multipolys represented
+              //    with poly interiors on our two sides is an odd number
+              var diff = Math.abs(mpsBefore.length - mpsAfter.length);
+              this._isInResult = diff % 2 === 1;
+              break;
+            }
+
+          case 'difference':
+            {
+              // DIFFERENCE included iff:
+              //  * on exactly one side, we have just the subject
+              var isJustSubject = function isJustSubject(mps) {
+                return mps.length === 1 && mps[0].isSubject;
+              };
+
+              this._isInResult = isJustSubject(mpsBefore) !== isJustSubject(mpsAfter);
+              break;
+            }
+
+          default:
+            throw new Error("Unrecognized operation type found ".concat(operation$1.type));
+        }
+
+        return this._isInResult;
+      }
+    }], [{
+      key: "fromRing",
+      value: function fromRing(pt1, pt2, ring) {
+        var leftPt, rightPt, winding; // ordering the two points according to sweep line ordering
+
+        var cmpPts = SweepEvent$1.comparePoints(pt1, pt2);
+
+        if (cmpPts < 0) {
+          leftPt = pt1;
+          rightPt = pt2;
+          winding = 1;
+        } else if (cmpPts > 0) {
+          leftPt = pt2;
+          rightPt = pt1;
+          winding = -1;
+        } else throw new Error("Tried to create degenerate segment at [".concat(pt1.x, ", ").concat(pt1.y, "]"));
+
+        var leftSE = new SweepEvent$1(leftPt, true);
+        var rightSE = new SweepEvent$1(rightPt, false);
+        return new Segment(leftSE, rightSE, [ring], [winding]);
+      }
+    }]);
+
+    return Segment;
+  }();
+
+  var RingIn$1 =
+  /*#__PURE__*/
+  function () {
+    function RingIn(geomRing, poly, isExterior) {
+      _classCallCheck$1(this, RingIn);
+
+      this.poly = poly;
+      this.isExterior = isExterior;
+      this.segments = [];
+      var prevPoint = geomRing[0];
+      this.bbox = {
+        ll: {
+          x: prevPoint.x,
+          y: prevPoint.y
+        },
+        ur: {
+          x: prevPoint.x,
+          y: prevPoint.y
+        }
+      };
+
+      for (var i = 1, iMax = geomRing.length; i < iMax; i++) {
+        var point = geomRing[i];
+        this.segments.push(Segment$1.fromRing(prevPoint, point, this));
+        if (point.x < this.bbox.ll.x) this.bbox.ll.x = point.x;
+        if (point.y < this.bbox.ll.y) this.bbox.ll.y = point.y;
+        if (point.x > this.bbox.ur.x) this.bbox.ur.x = point.x;
+        if (point.y > this.bbox.ur.y) this.bbox.ur.y = point.y;
+        prevPoint = point;
+      }
+
+      this.segments.push(Segment$1.fromRing(prevPoint, geomRing[0], this));
+    }
+
+    _createClass$1(RingIn, [{
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = [];
+
+        for (var i = 0, iMax = this.segments.length; i < iMax; i++) {
+          var segment = this.segments[i];
+          sweepEvents.push(segment.leftSE);
+          sweepEvents.push(segment.rightSE);
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return RingIn;
+  }();
+  var PolyIn$1 =
+  /*#__PURE__*/
+  function () {
+    function PolyIn(geomPoly, multiPoly) {
+      _classCallCheck$1(this, PolyIn);
+
+      this.exteriorRing = new RingIn$1(geomPoly[0], this, true); // copy by value
+
+      this.bbox = {
+        ll: {
+          x: this.exteriorRing.bbox.ll.x,
+          y: this.exteriorRing.bbox.ll.y
+        },
+        ur: {
+          x: this.exteriorRing.bbox.ur.x,
+          y: this.exteriorRing.bbox.ur.y
+        }
+      };
+      this.interiorRings = [];
+
+      for (var i = 1, iMax = geomPoly.length; i < iMax; i++) {
+        var ring = new RingIn$1(geomPoly[i], this, false);
+        if (ring.bbox.ll.x < this.bbox.ll.x) this.bbox.ll.x = ring.bbox.ll.x;
+        if (ring.bbox.ll.y < this.bbox.ll.y) this.bbox.ll.y = ring.bbox.ll.y;
+        if (ring.bbox.ur.x > this.bbox.ur.x) this.bbox.ur.x = ring.bbox.ur.x;
+        if (ring.bbox.ur.y > this.bbox.ur.y) this.bbox.ur.y = ring.bbox.ur.y;
+        this.interiorRings.push(ring);
+      }
+
+      this.multiPoly = multiPoly;
+    }
+
+    _createClass$1(PolyIn, [{
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = this.exteriorRing.getSweepEvents();
+
+        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
+          var ringSweepEvents = this.interiorRings[i].getSweepEvents();
+
+          for (var j = 0, jMax = ringSweepEvents.length; j < jMax; j++) {
+            sweepEvents.push(ringSweepEvents[j]);
+          }
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return PolyIn;
+  }();
+  var MultiPolyIn$1 =
+  /*#__PURE__*/
+  function () {
+    function MultiPolyIn(geomMultiPoly) {
+      _classCallCheck$1(this, MultiPolyIn);
+
+      this.polys = [];
+      this.bbox = {
+        ll: {
+          x: Number.POSITIVE_INFINITY,
+          y: Number.POSITIVE_INFINITY
+        },
+        ur: {
+          x: Number.NEGATIVE_INFINITY,
+          y: Number.NEGATIVE_INFINITY
+        }
+      };
+
+      for (var i = 0, iMax = geomMultiPoly.length; i < iMax; i++) {
+        var poly = new PolyIn$1(geomMultiPoly[i], this);
+        if (poly.bbox.ll.x < this.bbox.ll.x) this.bbox.ll.x = poly.bbox.ll.x;
+        if (poly.bbox.ll.y < this.bbox.ll.y) this.bbox.ll.y = poly.bbox.ll.y;
+        if (poly.bbox.ur.x > this.bbox.ur.x) this.bbox.ur.x = poly.bbox.ur.x;
+        if (poly.bbox.ur.y > this.bbox.ur.y) this.bbox.ur.y = poly.bbox.ur.y;
+        this.polys.push(poly);
+      }
+
+      this.isSubject = false;
+    }
+
+    _createClass$1(MultiPolyIn, [{
+      key: "markAsSubject",
+      value: function markAsSubject() {
+        this.isSubject = true;
+      }
+    }, {
+      key: "getSweepEvents",
+      value: function getSweepEvents() {
+        var sweepEvents = [];
+
+        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
+          var polySweepEvents = this.polys[i].getSweepEvents();
+
+          for (var j = 0, jMax = polySweepEvents.length; j < jMax; j++) {
+            sweepEvents.push(polySweepEvents[j]);
+          }
+        }
+
+        return sweepEvents;
+      }
+    }]);
+
+    return MultiPolyIn;
+  }();
+
+  var RingOut$1 =
+  /*#__PURE__*/
+  function () {
+    _createClass$1(RingOut, null, [{
+      key: "factory",
+
+      /* Given the segments from the sweep line pass, compute & return a series
+       * of closed rings from all the segments marked to be part of the result */
+      value: function factory(allSegments) {
+        var ringsOut = [];
+
+        for (var i = 0, iMax = allSegments.length; i < iMax; i++) {
+          var segment = allSegments[i];
+          if (!segment.isInResult() || segment.ringOut) continue;
+          var prevEvent = null;
+          var event = segment.leftSE;
+          var nextEvent = segment.rightSE;
+          var events = [event];
+          var startingPoint = event.point;
+          var intersectionLEs = [];
+          /* Walk the chain of linked events to form a closed ring */
+
+          while (true) {
+            prevEvent = event;
+            event = nextEvent;
+            events.push(event);
+            /* Is the ring complete? */
+
+            if (event.point === startingPoint) break;
+
+            while (true) {
+              var availableLEs = event.getAvailableLinkedEvents();
+              /* Did we hit a dead end? This shouldn't happen. Indicates some earlier
+               * part of the algorithm malfunctioned... please file a bug report. */
+
+              if (availableLEs.length === 0) {
+                var firstPt = events[0].point;
+                var lastPt = events[events.length - 1].point;
+                throw new Error("Unable to complete output ring starting at [".concat(firstPt.x, ",") + " ".concat(firstPt.y, "]. Last matching segment found ends at") + " [".concat(lastPt.x, ", ").concat(lastPt.y, "]."));
+              }
+              /* Only one way to go, so cotinue on the path */
+
+
+              if (availableLEs.length === 1) {
+                nextEvent = availableLEs[0].otherSE;
+                break;
+              }
+              /* We must have an intersection. Check for a completed loop */
+
+
+              var indexLE = null;
+
+              for (var j = 0, jMax = intersectionLEs.length; j < jMax; j++) {
+                if (intersectionLEs[j].point === event.point) {
+                  indexLE = j;
+                  break;
+                }
+              }
+              /* Found a completed loop. Cut that off and make a ring */
+
+
+              if (indexLE !== null) {
+                var intersectionLE = intersectionLEs.splice(indexLE)[0];
+                var ringEvents = events.splice(intersectionLE.index);
+                ringEvents.unshift(ringEvents[0].otherSE);
+                ringsOut.push(new RingOut(ringEvents.reverse()));
+                continue;
+              }
+              /* register the intersection */
+
+
+              intersectionLEs.push({
+                index: events.length,
+                point: event.point
+              });
+              /* Choose the left-most option to continue the walk */
+
+              var comparator = event.getLeftmostComparator(prevEvent);
+              nextEvent = availableLEs.sort(comparator)[0].otherSE;
+              break;
+            }
+          }
+
+          ringsOut.push(new RingOut(events));
+        }
+
+        return ringsOut;
+      }
+    }]);
+
+    function RingOut(events) {
+      _classCallCheck$1(this, RingOut);
+
+      this.events = events;
+
+      for (var i = 0, iMax = events.length; i < iMax; i++) {
+        events[i].segment.ringOut = this;
+      }
+
+      this.poly = null;
+    }
+
+    _createClass$1(RingOut, [{
+      key: "getGeom",
+      value: function getGeom() {
+        // Remove superfluous points (ie extra points along a straight line),
+        var prevPt = this.events[0].point;
+        var points = [prevPt];
+
+        for (var i = 1, iMax = this.events.length - 1; i < iMax; i++) {
+          var _pt = this.events[i].point;
+          var _nextPt = this.events[i + 1].point;
+          if (compareVectorAngles$1(_pt, prevPt, _nextPt) === 0) continue;
+          points.push(_pt);
+          prevPt = _pt;
+        } // ring was all (within rounding error of angle calc) colinear points
+
+
+        if (points.length === 1) return null; // check if the starting point is necessary
+
+        var pt = points[0];
+        var nextPt = points[1];
+        if (compareVectorAngles$1(pt, prevPt, nextPt) === 0) points.shift();
+        points.push(points[0]);
+        var step = this.isExteriorRing() ? 1 : -1;
+        var iStart = this.isExteriorRing() ? 0 : points.length - 1;
+        var iEnd = this.isExteriorRing() ? points.length : -1;
+        var orderedPoints = [];
+
+        for (var _i = iStart; _i != iEnd; _i += step) {
+          orderedPoints.push([points[_i].x, points[_i].y]);
+        }
+
+        return orderedPoints;
+      }
+    }, {
+      key: "isExteriorRing",
+      value: function isExteriorRing() {
+        if (this._isExteriorRing === undefined) {
+          var enclosing = this.enclosingRing();
+          this._isExteriorRing = enclosing ? !enclosing.isExteriorRing() : true;
+        }
+
+        return this._isExteriorRing;
+      }
+    }, {
+      key: "enclosingRing",
+      value: function enclosingRing() {
+        if (this._enclosingRing === undefined) {
+          this._enclosingRing = this._calcEnclosingRing();
+        }
+
+        return this._enclosingRing;
+      }
+      /* Returns the ring that encloses this one, if any */
+
+    }, {
+      key: "_calcEnclosingRing",
+      value: function _calcEnclosingRing() {
+        // start with the ealier sweep line event so that the prevSeg
+        // chain doesn't lead us inside of a loop of ours
+        var leftMostEvt = this.events[0];
+
+        for (var i = 1, iMax = this.events.length; i < iMax; i++) {
+          var evt = this.events[i];
+          if (SweepEvent$1.compare(leftMostEvt, evt) > 0) leftMostEvt = evt;
+        }
+
+        var prevSeg = leftMostEvt.segment.prevInResult();
+        var prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
+
+        while (true) {
+          // no segment found, thus no ring can enclose us
+          if (!prevSeg) return null; // no segments below prev segment found, thus the ring of the prev
+          // segment must loop back around and enclose us
+
+          if (!prevPrevSeg) return prevSeg.ringOut; // if the two segments are of different rings, the ring of the prev
+          // segment must either loop around us or the ring of the prev prev
+          // seg, which would make us and the ring of the prev peers
+
+          if (prevPrevSeg.ringOut !== prevSeg.ringOut) {
+            if (prevPrevSeg.ringOut.enclosingRing() !== prevSeg.ringOut) {
+              return prevSeg.ringOut;
+            } else return prevSeg.ringOut.enclosingRing();
+          } // two segments are from the same ring, so this was a penisula
+          // of that ring. iterate downward, keep searching
+
+
+          prevSeg = prevPrevSeg.prevInResult();
+          prevPrevSeg = prevSeg ? prevSeg.prevInResult() : null;
+        }
+      }
+    }]);
+
+    return RingOut;
+  }();
+  var PolyOut$1 =
+  /*#__PURE__*/
+  function () {
+    function PolyOut(exteriorRing) {
+      _classCallCheck$1(this, PolyOut);
+
+      this.exteriorRing = exteriorRing;
+      exteriorRing.poly = this;
+      this.interiorRings = [];
+    }
+
+    _createClass$1(PolyOut, [{
+      key: "addInterior",
+      value: function addInterior(ring) {
+        this.interiorRings.push(ring);
+        ring.poly = this;
+      }
+    }, {
+      key: "getGeom",
+      value: function getGeom() {
+        var geom = [this.exteriorRing.getGeom()]; // exterior ring was all (within rounding error of angle calc) colinear points
+
+        if (geom[0] === null) return null;
+
+        for (var i = 0, iMax = this.interiorRings.length; i < iMax; i++) {
+          var ringGeom = this.interiorRings[i].getGeom(); // interior ring was all (within rounding error of angle calc) colinear points
+
+          if (ringGeom === null) continue;
+          geom.push(ringGeom);
+        }
+
+        return geom;
+      }
+    }]);
+
+    return PolyOut;
+  }();
+  var MultiPolyOut$1 =
+  /*#__PURE__*/
+  function () {
+    function MultiPolyOut(rings) {
+      _classCallCheck$1(this, MultiPolyOut);
+
+      this.rings = rings;
+      this.polys = this._composePolys(rings);
+    }
+
+    _createClass$1(MultiPolyOut, [{
+      key: "getGeom",
+      value: function getGeom() {
+        var geom = [];
+
+        for (var i = 0, iMax = this.polys.length; i < iMax; i++) {
+          var polyGeom = this.polys[i].getGeom(); // exterior ring was all (within rounding error of angle calc) colinear points
+
+          if (polyGeom === null) continue;
+          geom.push(polyGeom);
+        }
+
+        return geom;
+      }
+    }, {
+      key: "_composePolys",
+      value: function _composePolys(rings) {
+        var polys = [];
+
+        for (var i = 0, iMax = rings.length; i < iMax; i++) {
+          var ring = rings[i];
+          if (ring.poly) continue;
+          if (ring.isExteriorRing()) polys.push(new PolyOut$1(ring));else {
+            var enclosingRing = ring.enclosingRing();
+            if (!enclosingRing.poly) polys.push(new PolyOut$1(enclosingRing));
+            enclosingRing.poly.addInterior(ring);
+          }
+        }
+
+        return polys;
+      }
+    }]);
+
+    return MultiPolyOut;
+  }();
+
+  /**
+   * NOTE:  We must be careful not to change any segments while
+   *        they are in the SplayTree. AFAIK, there's no way to tell
+   *        the tree to rebalance itself - thus before splitting
+   *        a segment that's in the tree, we remove it from the tree,
+   *        do the split, then re-insert it. (Even though splitting a
+   *        segment *shouldn't* change its correct position in the
+   *        sweep line tree, the reality is because of rounding errors,
+   *        it sometimes does.)
+   */
+
+  var SweepLine$1 =
+  /*#__PURE__*/
+  function () {
+    function SweepLine(queue) {
+      var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Segment$1.compare;
+
+      _classCallCheck$1(this, SweepLine);
+
+      this.queue = queue;
+      this.tree = new Tree(comparator);
+      this.segments = [];
+    }
+
+    _createClass$1(SweepLine, [{
+      key: "process",
+      value: function process(event) {
+        var segment = event.segment;
+        var newEvents = []; // if we've already been consumed by another segment,
+        // clean up our body parts and get out
+
+        if (event.consumedBy) {
+          if (event.isLeft) this.queue.remove(event.otherSE);else this.tree.remove(segment);
+          return newEvents;
+        }
+
+        var node = event.isLeft ? this.tree.insert(segment) : this.tree.find(segment);
+        if (!node) throw new Error("Unable to find segment #".concat(segment.id, " ") + "[".concat(segment.leftSE.point.x, ", ").concat(segment.leftSE.point.y, "] -> ") + "[".concat(segment.rightSE.point.x, ", ").concat(segment.rightSE.point.y, "] ") + 'in SweepLine tree. Please submit a bug report.');
+        var prevNode = node;
+        var nextNode = node;
+        var prevSeg = undefined;
+        var nextSeg = undefined; // skip consumed segments still in tree
+
+        while (prevSeg === undefined) {
+          prevNode = this.tree.prev(prevNode);
+          if (prevNode === null) prevSeg = null;else if (prevNode.key.consumedBy === undefined) prevSeg = prevNode.key;
+        } // skip consumed segments still in tree
+
+
+        while (nextSeg === undefined) {
+          nextNode = this.tree.next(nextNode);
+          if (nextNode === null) nextSeg = null;else if (nextNode.key.consumedBy === undefined) nextSeg = nextNode.key;
+        }
+
+        if (event.isLeft) {
+          // Check for intersections against the previous segment in the sweep line
+          var prevMySplitter = null;
+
+          if (prevSeg) {
+            var prevInter = prevSeg.getIntersection(segment);
+
+            if (prevInter !== null) {
+              if (!segment.isAnEndpoint(prevInter)) prevMySplitter = prevInter;
+
+              if (!prevSeg.isAnEndpoint(prevInter)) {
+                var newEventsFromSplit = this._splitSafely(prevSeg, prevInter);
+
+                for (var i = 0, iMax = newEventsFromSplit.length; i < iMax; i++) {
+                  newEvents.push(newEventsFromSplit[i]);
+                }
+              }
+            }
+          } // Check for intersections against the next segment in the sweep line
+
+
+          var nextMySplitter = null;
+
+          if (nextSeg) {
+            var nextInter = nextSeg.getIntersection(segment);
+
+            if (nextInter !== null) {
+              if (!segment.isAnEndpoint(nextInter)) nextMySplitter = nextInter;
+
+              if (!nextSeg.isAnEndpoint(nextInter)) {
+                var _newEventsFromSplit = this._splitSafely(nextSeg, nextInter);
+
+                for (var _i = 0, _iMax = _newEventsFromSplit.length; _i < _iMax; _i++) {
+                  newEvents.push(_newEventsFromSplit[_i]);
+                }
+              }
+            }
+          } // For simplicity, even if we find more than one intersection we only
+          // spilt on the 'earliest' (sweep-line style) of the intersections.
+          // The other intersection will be handled in a future process().
+
+
+          if (prevMySplitter !== null || nextMySplitter !== null) {
+            var mySplitter = null;
+            if (prevMySplitter === null) mySplitter = nextMySplitter;else if (nextMySplitter === null) mySplitter = prevMySplitter;else {
+              var cmpSplitters = SweepEvent$1.comparePoints(prevMySplitter, nextMySplitter);
+              mySplitter = cmpSplitters <= 0 ? prevMySplitter : nextMySplitter;
+            } // Rounding errors can cause changes in ordering,
+            // so remove afected segments and right sweep events before splitting
+
+            this.queue.remove(segment.rightSE);
+            newEvents.push(segment.rightSE);
+
+            var _newEventsFromSplit2 = segment.split(mySplitter);
+
+            for (var _i2 = 0, _iMax2 = _newEventsFromSplit2.length; _i2 < _iMax2; _i2++) {
+              newEvents.push(_newEventsFromSplit2[_i2]);
+            }
+          }
+
+          if (newEvents.length > 0) {
+            // We found some intersections, so re-do the current event to
+            // make sure sweep line ordering is totally consistent for later
+            // use with the segment 'prev' pointers
+            this.tree.remove(segment);
+            newEvents.push(event);
+          } else {
+            // done with left event
+            this.segments.push(segment);
+            segment.prev = prevSeg;
+          }
+        } else {
+          // event.isRight
+          // since we're about to be removed from the sweep line, check for
+          // intersections between our previous and next segments
+          if (prevSeg && nextSeg) {
+            var inter = prevSeg.getIntersection(nextSeg);
+
+            if (inter !== null) {
+              if (!prevSeg.isAnEndpoint(inter)) {
+                var _newEventsFromSplit3 = this._splitSafely(prevSeg, inter);
+
+                for (var _i3 = 0, _iMax3 = _newEventsFromSplit3.length; _i3 < _iMax3; _i3++) {
+                  newEvents.push(_newEventsFromSplit3[_i3]);
+                }
+              }
+
+              if (!nextSeg.isAnEndpoint(inter)) {
+                var _newEventsFromSplit4 = this._splitSafely(nextSeg, inter);
+
+                for (var _i4 = 0, _iMax4 = _newEventsFromSplit4.length; _i4 < _iMax4; _i4++) {
+                  newEvents.push(_newEventsFromSplit4[_i4]);
+                }
+              }
+            }
+          }
+
+          this.tree.remove(segment);
+        }
+
+        return newEvents;
+      }
+      /* Safely split a segment that is currently in the datastructures
+       * IE - a segment other than the one that is currently being processed. */
+
+    }, {
+      key: "_splitSafely",
+      value: function _splitSafely(seg, pt) {
+        // Rounding errors can cause changes in ordering,
+        // so remove afected segments and right sweep events before splitting
+        // removeNode() doesn't work, so have re-find the seg
+        // https://github.com/w8r/splay-tree/pull/5
+        this.tree.remove(seg);
+        var rightSE = seg.rightSE;
+        this.queue.remove(rightSE);
+        var newEvents = seg.split(pt);
+        newEvents.push(rightSE); // splitting can trigger consumption
+
+        if (seg.consumedBy === undefined) this.tree.insert(seg);
+        return newEvents;
+      }
+    }]);
+
+    return SweepLine;
+  }();
+
+  var Operation$1 =
+  /*#__PURE__*/
+  function () {
+    function Operation() {
+      _classCallCheck$1(this, Operation);
+    }
+
+    _createClass$1(Operation, [{
+      key: "run",
+      value: function run(type, geom, moreGeoms) {
+        operation$1.type = type;
+        rounder$1.reset();
+        /* Make a copy of the input geometry with rounded points as objects */
+
+        var geoms = [pointsAsObjects$1(geom)];
+
+        for (var i = 0, iMax = moreGeoms.length; i < iMax; i++) {
+          geoms.push(pointsAsObjects$1(moreGeoms[i]));
+        }
+        /* Clean inputs */
+
+
+        for (var _i = 0, _iMax = geoms.length; _i < _iMax; _i++) {
+          forceMultiPoly$1(geoms[_i]);
+          cleanMultiPoly$1(geoms[_i]);
+        }
+        /* Convert inputs to MultiPoly objects, mark subject */
+
+
+        var multipolys = [];
+
+        for (var _i2 = 0, _iMax2 = geoms.length; _i2 < _iMax2; _i2++) {
+          multipolys.push(new MultiPolyIn$1(geoms[_i2]));
+        }
+
+        multipolys[0].markAsSubject();
+        operation$1.numMultiPolys = multipolys.length;
+        /* BBox optimization for difference operation
+         * If the bbox of a multipolygon that's part of the clipping doesn't
+         * intersect the bbox of the subject at all, we can just drop that
+         * multiploygon. */
+
+        if (operation$1.type === 'difference') {
+          // in place removal
+          var subject = multipolys[0];
+          var _i3 = 1;
+
+          while (_i3 < multipolys.length) {
+            if (getBboxOverlap$1(multipolys[_i3].bbox, subject.bbox) !== null) _i3++;else multipolys.splice(_i3, 1);
+          }
+        }
+        /* BBox optimization for intersection operation
+         * If we can find any pair of multipolygons whose bbox does not overlap,
+         * then the result will be empty. */
+
+
+        if (operation$1.type === 'intersection') {
+          // TODO: this is O(n^2) in number of polygons. By sorting the bboxes,
+          //       it could be optimized to O(n * ln(n))
+          for (var _i4 = 0, _iMax3 = multipolys.length; _i4 < _iMax3; _i4++) {
+            var mpA = multipolys[_i4];
+
+            for (var j = _i4 + 1, jMax = multipolys.length; j < jMax; j++) {
+              if (getBboxOverlap$1(mpA.bbox, multipolys[j].bbox) === null) return [];
+            }
+          }
+        }
+        /* Put segment endpoints in a priority queue */
+
+
+        var queue = new Tree(SweepEvent$1.compare);
+
+        for (var _i5 = 0, _iMax4 = multipolys.length; _i5 < _iMax4; _i5++) {
+          var sweepEvents = multipolys[_i5].getSweepEvents();
+
+          for (var _j = 0, _jMax = sweepEvents.length; _j < _jMax; _j++) {
+            queue.insert(sweepEvents[_j]);
+          }
+        }
+        /* Pass the sweep line over those endpoints */
+
+
+        var sweepLine = new SweepLine$1(queue);
+        var prevQueueSize = queue.size;
+        var node = queue.pop();
+
+        while (node) {
+          var evt = node.key;
+
+          if (queue.size === prevQueueSize) {
+            // prevents an infinite loop, an otherwise common manifestation of bugs
+            var seg = evt.segment;
+            throw new Error("Unable to pop() ".concat(evt.isLeft ? 'left' : 'right', " SweepEvent ") + "[".concat(evt.point.x, ", ").concat(evt.point.y, "] from segment #").concat(seg.id, " ") + "[".concat(seg.leftSE.point.x, ", ").concat(seg.leftSE.point.y, "] -> ") + "[".concat(seg.rightSE.point.x, ", ").concat(seg.rightSE.point.y, "] from queue. ") + 'Please file a bug report.');
+          }
+
+          var newEvents = sweepLine.process(evt);
+
+          for (var _i6 = 0, _iMax5 = newEvents.length; _i6 < _iMax5; _i6++) {
+            var _evt = newEvents[_i6];
+            if (_evt.consumedBy === undefined) queue.insert(_evt);
+          }
+
+          prevQueueSize = queue.size;
+          node = queue.pop();
+        } // free some memory we don't need anymore
+
+
+        rounder$1.reset();
+        /* Collect and compile segments we're keeping into a multipolygon */
+
+        var ringsOut = RingOut$1.factory(sweepLine.segments);
+        var result = new MultiPolyOut$1(ringsOut);
+        return result.getGeom();
+      }
+    }]);
+
+    return Operation;
+  }(); // singleton available by import
+
+  var operation$1 = new Operation$1();
+
+  var union$2 = function union(geom) {
+    for (var _len = arguments.length, moreGeoms = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      moreGeoms[_key - 1] = arguments[_key];
+    }
+
+    return operation$1.run('union', geom, moreGeoms);
+  };
+
+  var intersection$1$2 = function intersection(geom) {
+    for (var _len2 = arguments.length, moreGeoms = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      moreGeoms[_key2 - 1] = arguments[_key2];
+    }
+
+    return operation$1.run('intersection', geom, moreGeoms);
+  };
+
+  var xor$1 = function xor(geom) {
+    for (var _len3 = arguments.length, moreGeoms = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+      moreGeoms[_key3 - 1] = arguments[_key3];
+    }
+
+    return operation$1.run('xor', geom, moreGeoms);
+  };
+
+  var difference$3 = function difference(subjectGeom) {
+    for (var _len4 = arguments.length, clippingGeoms = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+      clippingGeoms[_key4 - 1] = arguments[_key4];
+    }
+
+    return operation$1.run('difference', subjectGeom, clippingGeoms);
+  };
+
+  var index$1 = {
+    union: union$2,
+    intersection: intersection$1$2,
+    xor: xor$1,
+    difference: difference$3
   };
 
   /**
@@ -63805,9 +66653,12 @@ define("./master.js",[],function () { 'use strict';
    * @param {Array<Z0Surface>} surfaces - the z0 surfaces to union.
    * @returns {Z0Surface} the resulting z0 surface.
    */
-  const union$1 = (...z0Surfaces) => {
+  const union$3 = (...z0Surfaces) => {
     if (z0Surfaces.length === 0) {
       return [];
+    }
+    if (z0Surfaces.length === 1) {
+      return z0Surfaces[0];
     }
     while (z0Surfaces.length >= 2) {
       const a = z0Surfaces.shift();
@@ -63815,8 +66666,7 @@ define("./master.js",[],function () { 'use strict';
       if (doesNotOverlapOrAbut(a, b)) {
         z0Surfaces.push([].concat(a, b));
       } else {
-        const result = polybooljs.union(fromSurface(a), fromSurface(b));
-        z0Surfaces.push(toSurface(result));
+        z0Surfaces.push(toSurface(index$1.union(fromSurface(a), fromSurface(b))));
       }
     }
     return z0Surfaces[0];
@@ -63859,16 +66709,16 @@ define("./master.js",[],function () { 'use strict';
   // The resolution is 1 / multiplier.
   const multiplier = 1e5;
 
-  const X$3 = 0;
-  const Y$3 = 1;
+  const X$4 = 0;
+  const Y$4 = 1;
   const Z$2 = 2;
 
   const createNormalize3 = () => {
     const map = new Map();
     const normalize3 = (coordinate) => {
       // Apply a spatial quantization to the 3 dimensional coordinate.
-      const nx = Math.floor(coordinate[X$3] * multiplier - 0.5);
-      const ny = Math.floor(coordinate[Y$3] * multiplier - 0.5);
+      const nx = Math.floor(coordinate[X$4] * multiplier - 0.5);
+      const ny = Math.floor(coordinate[Y$4] * multiplier - 0.5);
       const nz = Math.floor(coordinate[Z$2] * multiplier - 0.5);
       // Look for an existing inhabitant.
       const value = map.get(`${nx}/${ny}/${nz}`);
@@ -64061,8 +66911,8 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const iota$1 = 1e-5;
-  const X$4 = 0;
-  const Y$4 = 1;
+  const X$5 = 0;
+  const Y$5 = 1;
   const Z$3 = 2;
 
   // Tolerates overlap up to one iota.
@@ -64072,11 +66922,11 @@ define("./master.js",[],function () { 'use strict';
     }
     const [minA, maxA] = measureBoundingBox$2(a);
     const [minB, maxB] = measureBoundingBox$2(b);
-    if (maxA[X$4] <= minB[X$4] + iota$1) { return true; }
-    if (maxA[Y$4] <= minB[Y$4] + iota$1) { return true; }
+    if (maxA[X$5] <= minB[X$5] + iota$1) { return true; }
+    if (maxA[Y$5] <= minB[Y$5] + iota$1) { return true; }
     if (maxA[Z$3] <= minB[Z$3] + iota$1) { return true; }
-    if (maxB[X$4] <= minA[X$4] + iota$1) { return true; }
-    if (maxB[Y$4] <= minA[Y$4] + iota$1) { return true; }
+    if (maxB[X$5] <= minA[X$5] + iota$1) { return true; }
+    if (maxB[Y$5] <= minA[Y$5] + iota$1) { return true; }
     if (maxB[Z$3] <= minA[Z$3] + iota$1) { return true; }
     return false;
   };
@@ -64086,8 +66936,8 @@ define("./master.js",[],function () { 'use strict';
   // The resolution is 1 / multiplier.
   const multiplier$1 = 1e5;
 
-  const X$5 = 0;
-  const Y$5 = 1;
+  const X$6 = 0;
+  const Y$6 = 1;
   const Z$4 = 2;
   const W$3 = 3;
 
@@ -64095,8 +66945,8 @@ define("./master.js",[],function () { 'use strict';
     const map = new Map();
     const normalize4 = (coordinate) => {
       // Apply a spatial quantization to the 4 dimensional coordinate.
-      const nx = Math.floor(coordinate[X$5] * multiplier$1 - 0.5);
-      const ny = Math.floor(coordinate[Y$5] * multiplier$1 - 0.5);
+      const nx = Math.floor(coordinate[X$6] * multiplier$1 - 0.5);
+      const ny = Math.floor(coordinate[Y$6] * multiplier$1 - 0.5);
       const nz = Math.floor(coordinate[Z$4] * multiplier$1 - 0.5);
       const nw = Math.floor(coordinate[W$3] * multiplier$1 - 0.5);
       // Look for an existing inhabitant.
@@ -64198,7 +67048,6 @@ define("./master.js",[],function () { 'use strict';
       transformed.assembly = item.assembly;
     } else if (item.disjointAssembly) {
       transformed.disjointAssembly = item.disjointAssembly;
-      transformed.nonNegative = item.nonNegative;
     } else if (item.item) {
       transformed.item = item.item;
     } else if (item.paths) {
@@ -64210,7 +67059,6 @@ define("./master.js",[],function () { 'use strict';
       transformed.points = transform$3(matrix, item.points);
     } else if (item.solid) {
       transformed.solid = multiply$2(matrix, item.solid);
-      if (item.solid.isConvex !== undefined) transformed.solid.isConvex = item.solid.isConvex;
     } else if (item.surface) {
       transformed.surface = transform$5(matrix, item.surface);
     } else if (item.z0Surface) {
@@ -64245,26 +67093,18 @@ define("./master.js",[],function () { 'use strict';
 
         if (geometry.assembly) {
           return {
-            ...geometry,
-            assembly: geometry.assembly.map(geometry => walk(matrix, geometry))
+            assembly: geometry.assembly.map(geometry => walk(matrix, geometry)),
+            tags: geometry.tags
           };
         } else if (geometry.disjointAssembly) {
-          if (geometry.nonNegative) {
-            return {
-              ...geometry,
-              disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry)),
-              nonNegative: geometry.nonNegative.map(geometry => walk(matrix, geometry))
-            };
-          } else {
-            return {
-              ...geometry,
-              disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry))
-            };
-          }
+          return {
+            disjointAssembly: geometry.disjointAssembly.map(geometry => walk(matrix, geometry)),
+            tags: geometry.tags
+          };
         } else if (geometry.item) {
           return {
-            ...geometry,
-            item: walk(matrix, geometry.item)
+            item: walk(matrix, geometry.item),
+            tags: geometry.tags
           };
         }
 
@@ -64284,9 +67124,6 @@ define("./master.js",[],function () { 'use strict';
         walk(geometry.item);
       } else if (geometry.disjointAssembly) {
         geometry.disjointAssembly.forEach(walk);
-        if (geometry.nonNegative) {
-          geometry.nonNegative.forEach(walk);
-        }
       }
       operation(geometry);
     };
@@ -64605,7 +67442,7 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const difference$2 = (aSolid, ...bSolids) => {
+  const difference$4 = (aSolid, ...bSolids) => {
     if (aSolid === undefined) {
       return [];
     }
@@ -64667,7 +67504,7 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const intersection$2 = (...solids) => {
+  const intersection$4 = (...solids) => {
     if (solids.length === 0) {
       return [];
     }
@@ -64722,7 +67559,7 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const union$2 = (...solids) => {
+  const union$4 = (...solids) => {
     if (solids.length === 0) {
       return [];
     }
@@ -64772,7 +67609,7 @@ define("./master.js",[],function () { 'use strict';
 
   const mayOverlap$1 = ([centerA, radiusA], [centerB, radiusB]) => distance(centerA, centerB) < radiusA + radiusB;
 
-  const difference$3 = (baseSurface, ...surfaces) => {
+  const difference$5 = (baseSurface, ...surfaces) => {
     if (baseSurface.length === 0) {
       // Empty geometry can't get more empty.
       return [];
@@ -64787,11 +67624,11 @@ define("./master.js",[],function () { 'use strict';
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
     const z0Surface = transform$8(toZ0, baseSurface);
     const z0Surfaces = surfaces.map(surface => transform$8(toZ0, surface));
-    const z0Difference = difference$1(z0Surface, ...z0Surfaces);
+    const z0Difference = difference$2(z0Surface, ...z0Surfaces);
     return transform$8(fromZ0, z0Difference);
   };
 
-  const intersection$3 = (...surfaces) => {
+  const intersection$5 = (...surfaces) => {
     if (surfaces.length === 0) {
       return [];
     }
@@ -64802,15 +67639,15 @@ define("./master.js",[],function () { 'use strict';
     }
     // FIX: Detect when the surfaces aren't in the same plane.
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
-    const z0Surface = intersection$1(...surfaces.map(surface => transform$8(toZ0, surface)));
+    const z0Surface = intersection$2(...surfaces.map(surface => transform$8(toZ0, surface)));
     return transform$8(fromZ0, z0Surface);
   };
 
-  const union$3 = (...surfaces) => {
+  const union$5 = (...surfaces) => {
     surfaces = surfaces.filter(surface => surface.length >= 1);
     // FIX: Detect when the surfaces aren't in the same plane.
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
-    const z0Surface = union$1(...surfaces.map(surface => transform$8(toZ0, surface)));
+    const z0Surface = union$3(...surfaces.map(surface => transform$8(toZ0, surface)));
     return transform$8(fromZ0, z0Surface);
   };
 
@@ -64818,25 +67655,25 @@ define("./master.js",[],function () { 'use strict';
 
   const differenceImpl = (baseGeometry, ...geometries) => {
     if (baseGeometry.item) {
-      return { ...baseGeometry, item: difference$4(baseGeometry.item, ...geometries) };
+      return { ...baseGeometry, item: difference$6(baseGeometry.item, ...geometries) };
     }
 
     const result = { disjointAssembly: [] };
     // Solids.
     const solids = geometries.flatMap(geometry => getSolids(geometry)).filter(isNegative).map(item => item.solid);
     for (const { solid, tags } of getSolids(baseGeometry)) {
-      result.disjointAssembly.push({ solid: difference$2(solid, ...solids), tags });
+      result.disjointAssembly.push({ solid: difference$4(solid, ...solids), tags });
     }
     // Surfaces.
     // FIX: Needs co-planar grouping.
     const surfaces = geometries.flatMap(geometry => getSurfaces(geometry)).filter(isNegative).map(item => item.surface);
     for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.disjointAssembly.push({ surface: difference$3(surface, ...surfaces), tags });
+      result.disjointAssembly.push({ surface: difference$5(surface, ...surfaces), tags });
     }
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry)).filter(isNegative).map(item => item.z0Surface);
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.disjointAssembly.push({ z0Surface: difference$1(z0Surface, ...z0Surfaces), tags });
+      result.disjointAssembly.push({ z0Surface: difference$2(z0Surface, ...z0Surfaces), tags });
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry)).filter(isNegative).map(item => item.paths);
@@ -64855,7 +67692,7 @@ define("./master.js",[],function () { 'use strict';
     return result;
   };
 
-  const difference$4 = cache(differenceImpl);
+  const difference$6 = cache(differenceImpl);
 
   const fromPathToZ0SurfaceImpl = (path) => {
     return { z0Surface: [path] };
@@ -64883,24 +67720,24 @@ define("./master.js",[],function () { 'use strict';
 
   const intersectionImpl = (baseGeometry, ...geometries) => {
     if (baseGeometry.item) {
-      return { ...baseGeometry, item: intersection$4(baseGeometry.item, ...geometries) };
+      return { ...baseGeometry, item: intersection$6(baseGeometry.item, ...geometries) };
     }
 
     const result = { assembly: [] };
     // Solids.
     const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
     for (const { solid, tags } of getSolids(baseGeometry)) {
-      result.assembly.push({ solid: intersection$2(solid, ...solids), tags });
+      result.assembly.push({ solid: intersection$4(solid, ...solids), tags });
     }
     // Surfaces.
     const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
     for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.assembly.push({ surface: intersection$3(surface, ...surfaces), tags });
+      result.assembly.push({ surface: intersection$5(surface, ...surfaces), tags });
     }
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: intersection$1(z0Surface, ...z0Surfaces), tags });
+      result.assembly.push({ z0Surface: intersection$2(z0Surface, ...z0Surfaces), tags });
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
@@ -64911,7 +67748,7 @@ define("./master.js",[],function () { 'use strict';
     return result;
   };
 
-  const intersection$4 = cache(intersectionImpl);
+  const intersection$6 = cache(intersectionImpl);
 
   const toDisjointAssembly = (geometry) => {
     if (geometry.matrix !== undefined) {
@@ -64925,7 +67762,12 @@ define("./master.js",[],function () { 'use strict';
       const disjoint = [];
       for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
         const item = toDisjointAssembly(geometry.assembly[nth]);
-        disjoint.unshift(difference$4(item, ...disjoint));
+        if (item !== undefined) {
+          disjoint.unshift(difference$6(item, ...disjoint));
+        }
+      }
+      if (disjoint.length === 0) {
+        return;
       }
       const disjointAssembly = { disjointAssembly: disjoint };
       geometry.disjoint = disjointAssembly;
@@ -64935,7 +67777,14 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const toDisjointGeometry = (inputGeometry) => toDisjointAssembly(inputGeometry);
+  const toDisjointGeometry = (inputGeometry) => {
+    const disjointAssembly = toDisjointAssembly(inputGeometry);
+    if (disjointAssembly === undefined) {
+      return { disjointAssembly };
+    } else {
+      return disjointAssembly;
+    }
+  };
 
   // Produce a disjoint geometry suitable for display.
 
@@ -64947,12 +67796,14 @@ define("./master.js",[],function () { 'use strict';
           return geometry.keptGeometry;
         } else if (geometry.tags === undefined || !geometry.tags.includes('compose/non-positive')) {
           if (geometry.disjointAssembly) {
-            const keptGeometry = { ...geometry, disjointAssembly: geometry.disjointAssembly.map(walk).filter(item => item !== undefined) };
-            if (geometry.nonNegative) {
-              keptGeometry.nonNegative.map(walk).filter(item => item !== undefined);
+            const kept = geometry.disjointAssembly.map(walk).filter(item => item !== undefined);
+            if (kept.length > 0) {
+              const keptGeometry = { ...geometry, disjointAssembly: geometry.disjointAssembly.map(walk).filter(item => item !== undefined) };
+              geometry.keptGeometry = keptGeometry;
+              return keptGeometry;
+            } else {
+              return undefined;
             }
-            geometry.keptGeometry = keptGeometry;
-            return keptGeometry;
           } else {
             return geometry;
           }
@@ -64964,26 +67815,43 @@ define("./master.js",[],function () { 'use strict';
     return geometry.keptGeometry;
   };
 
+  const outlineImpl = (geometry) => {
+    // FIX: This assumes general coplanarity.
+    const keptGeometry = toKeptGeometry(geometry);
+    const z0Surfaces = getZ0Surfaces(keptGeometry);
+    const surfaces = getSurfaces(keptGeometry);
+    const paths = [];
+    for (const geometry of z0Surfaces) {
+      paths.push(...geometry.z0Surface);
+    }
+    for (const geometry of surfaces) {
+      paths.push(...geometry.surface);
+    }
+    return { paths };
+  };
+
+  const outline = cache(outlineImpl);
+
   const unionImpl = (baseGeometry, ...geometries) => {
     if (baseGeometry.item) {
-      return { ...baseGeometry, item: union$4(baseGeometry.item, ...geometries) };
+      return { ...baseGeometry, item: union$6(baseGeometry.item, ...geometries) };
     }
 
     const result = { assembly: [] };
     // Solids.
     const solids = geometries.flatMap(geometry => getSolids(geometry).map(item => item.solid));
     for (const { solid, tags } of getSolids(baseGeometry)) {
-      result.assembly.push({ solid: union$2(solid, ...solids), tags });
+      result.assembly.push({ solid: union$4(solid, ...solids), tags });
     }
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: union$1(z0Surface, ...z0Surfaces), tags });
+      result.assembly.push({ z0Surface: union$3(z0Surface, ...z0Surfaces), tags });
     }
     // Surfaces.
     const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
     for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.assembly.push({ surface: union$3(surface, ...surfaces), tags });
+      result.assembly.push({ surface: union$5(surface, ...surfaces), tags });
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
@@ -64994,27 +67862,7 @@ define("./master.js",[],function () { 'use strict';
     return result;
   };
 
-  const union$4 = cache(unionImpl);
-
-  const outlineImpl = (geometry) => {
-    // FIX: This assumes general coplanarity.
-    const keptGeometry = toKeptGeometry(geometry);
-    const z0Surfaces = getZ0Surfaces(keptGeometry);
-    const surfaces = getSurfaces(keptGeometry);
-    const unifiedGeometry = union$4(...z0Surfaces, ...surfaces);
-    const unifiedZ0Surfaces = getZ0Surfaces(unifiedGeometry);
-    const unifiedSurfaces = getSurfaces(unifiedGeometry);
-    const paths = [];
-    for (const geometry of unifiedZ0Surfaces) {
-      paths.push(...geometry.z0Surface);
-    }
-    for (const geometry of unifiedSurfaces) {
-      paths.push(...geometry.surface);
-    }
-    return { paths };
-  };
-
-  const outline = cache(outlineImpl);
+  const union$6 = cache(unionImpl);
 
   const pointsToThreejsPoints = (geometry) => {
     return geometry.points;
@@ -66214,13 +69062,13 @@ define("./master.js",[],function () { 'use strict';
 
   // Compare two positions, return 0 if they are the same, a negative
   // number when a is less, and a positive number otherwise.
-  function cmp(a, b) { return a.line - b.line || a.ch - b.ch }
+  function cmp$2(a, b) { return a.line - b.line || a.ch - b.ch }
 
-  function equalCursorPos(a, b) { return a.sticky == b.sticky && cmp(a, b) == 0 }
+  function equalCursorPos(a, b) { return a.sticky == b.sticky && cmp$2(a, b) == 0 }
 
   function copyPos(x) {return Pos(x.line, x.ch)}
-  function maxPos(a, b) { return cmp(a, b) < 0 ? b : a }
-  function minPos(a, b) { return cmp(a, b) < 0 ? a : b }
+  function maxPos(a, b) { return cmp$2(a, b) < 0 ? b : a }
+  function minPos(a, b) { return cmp$2(a, b) < 0 ? a : b }
 
   // Most of the external API clips given positions to make sure they
   // actually exist within the document.
@@ -66602,7 +69450,7 @@ define("./master.js",[],function () { 'use strict';
     let oldLast = isLine(doc, change.to.line) && getLine(doc, change.to.line).markedSpans;
     if (!oldFirst && !oldLast) return null
 
-    let startCh = change.from.ch, endCh = change.to.ch, isInsert = cmp(change.from, change.to) == 0;
+    let startCh = change.from.ch, endCh = change.to.ch, isInsert = cmp$2(change.from, change.to) == 0;
     // Get the spans that 'stick out' on both sides
     let first = markedSpansBefore(oldFirst, startCh, isInsert);
     let last = markedSpansAfter(oldLast, endCh, isInsert);
@@ -66684,8 +69532,8 @@ define("./master.js",[],function () { 'use strict';
       let mk = markers[i], m = mk.find(0);
       for (let j = 0; j < parts.length; ++j) {
         let p = parts[j];
-        if (cmp(p.to, m.from) < 0 || cmp(p.from, m.to) > 0) continue
-        let newParts = [j, 1], dfrom = cmp(p.from, m.from), dto = cmp(p.to, m.to);
+        if (cmp$2(p.to, m.from) < 0 || cmp$2(p.from, m.to) > 0) continue
+        let newParts = [j, 1], dfrom = cmp$2(p.from, m.from), dto = cmp$2(p.to, m.to);
         if (dfrom < 0 || !mk.inclusiveLeft && !dfrom)
           newParts.push({from: p.from, to: m.from});
         if (dto > 0 || !mk.inclusiveRight && !dto)
@@ -66724,9 +69572,9 @@ define("./master.js",[],function () { 'use strict';
     let lenDiff = a.lines.length - b.lines.length;
     if (lenDiff != 0) return lenDiff
     let aPos = a.find(), bPos = b.find();
-    let fromCmp = cmp(aPos.from, bPos.from) || extraLeft(a) - extraLeft(b);
+    let fromCmp = cmp$2(aPos.from, bPos.from) || extraLeft(a) - extraLeft(b);
     if (fromCmp) return -fromCmp
-    let toCmp = cmp(aPos.to, bPos.to) || extraRight(a) - extraRight(b);
+    let toCmp = cmp$2(aPos.to, bPos.to) || extraRight(a) - extraRight(b);
     if (toCmp) return toCmp
     return b.id - a.id
   }
@@ -66766,11 +69614,11 @@ define("./master.js",[],function () { 'use strict';
       let sp = sps[i];
       if (!sp.marker.collapsed) continue
       let found = sp.marker.find(0);
-      let fromCmp = cmp(found.from, from) || extraLeft(sp.marker) - extraLeft(marker);
-      let toCmp = cmp(found.to, to) || extraRight(sp.marker) - extraRight(marker);
+      let fromCmp = cmp$2(found.from, from) || extraLeft(sp.marker) - extraLeft(marker);
+      let toCmp = cmp$2(found.to, to) || extraRight(sp.marker) - extraRight(marker);
       if (fromCmp >= 0 && toCmp <= 0 || fromCmp <= 0 && toCmp >= 0) continue
-      if (fromCmp <= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp(found.to, from) >= 0 : cmp(found.to, from) > 0) ||
-          fromCmp >= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp(found.from, to) <= 0 : cmp(found.from, to) < 0))
+      if (fromCmp <= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp$2(found.to, from) >= 0 : cmp$2(found.to, from) > 0) ||
+          fromCmp >= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp$2(found.from, to) <= 0 : cmp$2(found.from, to) < 0))
         return true
     }
   }
@@ -69152,7 +72000,7 @@ define("./master.js",[],function () { 'use strict';
     finally { endOperation(cm); }
   }
   // Wraps a function in an operation. Returns the wrapped function.
-  function operation(cm, f) {
+  function operation$2(cm, f) {
     return function() {
       if (cm.curOp) return f.apply(cm, arguments)
       startOperation(cm);
@@ -69811,7 +72659,7 @@ define("./master.js",[],function () { 'use strict';
       if (!end) end = pos;
       for (let i = 0; i < this.ranges.length; i++) {
         let range = this.ranges[i];
-        if (cmp(end, range.from()) >= 0 && cmp(pos, range.to()) <= 0)
+        if (cmp$2(end, range.from()) >= 0 && cmp$2(pos, range.to()) <= 0)
           return i
       }
       return -1
@@ -69834,11 +72682,11 @@ define("./master.js",[],function () { 'use strict';
   function normalizeSelection(cm, ranges, primIndex) {
     let mayTouch = cm && cm.options.selectionsMayTouch;
     let prim = ranges[primIndex];
-    ranges.sort((a, b) => cmp(a.from(), b.from()));
+    ranges.sort((a, b) => cmp$2(a.from(), b.from()));
     primIndex = indexOf(ranges, prim);
     for (let i = 1; i < ranges.length; i++) {
       let cur = ranges[i], prev = ranges[i - 1];
-      let diff = cmp(prev.to(), cur.from());
+      let diff = cmp$2(prev.to(), cur.from());
       if (mayTouch && !cur.empty() ? diff > 0 : diff >= 0) {
         let from = minPos(prev.from(), cur.from()), to = maxPos(prev.to(), cur.to());
         let inv = prev.empty() ? cur.from() == cur.head : prev.from() == prev.head;
@@ -69864,8 +72712,8 @@ define("./master.js",[],function () { 'use strict';
   // Adjust a position to refer to the post-change position of the
   // same text, or the end of the change if the change covers it.
   function adjustForChange(pos, change) {
-    if (cmp(pos, change.from) < 0) return pos
-    if (cmp(pos, change.to) <= 0) return changeEnd(change)
+    if (cmp$2(pos, change.from) < 0) return pos
+    if (cmp$2(pos, change.to) <= 0) return changeEnd(change)
 
     let line = pos.line + change.text.length - (change.to.line - change.from.line) - 1, ch = pos.ch;
     if (pos.line == change.to.line) ch += changeEnd(change).ch - change.to.ch;
@@ -69901,7 +72749,7 @@ define("./master.js",[],function () { 'use strict';
       oldPrev = change.to;
       newPrev = to;
       if (hint == "around") {
-        let range = doc.sel.ranges[i], inv = cmp(range.head, range.anchor) < 0;
+        let range = doc.sel.ranges[i], inv = cmp$2(range.head, range.anchor) < 0;
         out[i] = new Range(inv ? to : from, inv ? from : to);
       } else {
         out[i] = new Range(from, from);
@@ -70093,7 +72941,7 @@ define("./master.js",[],function () { 'use strict';
         (cur = lastChangeEvent(hist, hist.lastOp == opId))) {
       // Merge this change into the last event
       last = lst(cur.changes);
-      if (cmp(change.from, change.to) == 0 && cmp(change.from, last.to) == 0) {
+      if (cmp$2(change.from, change.to) == 0 && cmp$2(change.from, last.to) == 0) {
         // Optimized case for simple insertion -- don't want to add
         // new changesets for every character typed
         last.to = changeEnd(change);
@@ -70260,11 +73108,11 @@ define("./master.js",[],function () { 'use strict';
     if (extend) {
       let anchor = range.anchor;
       if (other) {
-        let posBefore = cmp(head, anchor) < 0;
-        if (posBefore != (cmp(other, anchor) < 0)) {
+        let posBefore = cmp$2(head, anchor) < 0;
+        if (posBefore != (cmp$2(other, anchor) < 0)) {
           anchor = head;
           head = other;
-        } else if (posBefore != (cmp(head, other) < 0)) {
+        } else if (posBefore != (cmp$2(head, other) < 0)) {
           head = other;
         }
       }
@@ -70343,7 +73191,7 @@ define("./master.js",[],function () { 'use strict';
       sel = filterSelectionChange(doc, sel, options);
 
     let bias = options && options.bias ||
-      (cmp(sel.primary().head, doc.sel.primary().head) < 0 ? -1 : 1);
+      (cmp$2(sel.primary().head, doc.sel.primary().head) < 0 ? -1 : 1);
     setSelectionInner(doc, skipAtomicInSelection(doc, sel, bias, true));
 
     if (!(options && options.scroll === false) && doc.cm)
@@ -70412,7 +73260,7 @@ define("./master.js",[],function () { 'use strict';
           let near = m.find(dir < 0 ? 1 : -1), diff;
           if (dir < 0 ? preventCursorRight : preventCursorLeft)
             near = movePos(doc, near, -dir, near && near.line == pos.line ? line : null);
-          if (near && near.line == pos.line && (diff = cmp(near, oldPos)) && (dir < 0 ? diff < 0 : diff > 0))
+          if (near && near.line == pos.line && (diff = cmp$2(near, oldPos)) && (dir < 0 ? diff < 0 : diff > 0))
             return skipAtomicInner(doc, near, pos, dir, mayClear)
         }
 
@@ -70487,7 +73335,7 @@ define("./master.js",[],function () { 'use strict';
   // history, and propagating it to all linked documents.
   function makeChange(doc, change, ignoreReadOnly) {
     if (doc.cm) {
-      if (!doc.cm.curOp) return operation(doc.cm, makeChange)(doc, change, ignoreReadOnly)
+      if (!doc.cm.curOp) return operation$2(doc.cm, makeChange)(doc, change, ignoreReadOnly)
       if (doc.cm.state.suppressEdits) return
     }
 
@@ -70508,7 +73356,7 @@ define("./master.js",[],function () { 'use strict';
   }
 
   function makeChangeInner(doc, change) {
-    if (change.text.length == 1 && change.text[0] == "" && cmp(change.from, change.to) == 0) return
+    if (change.text.length == 1 && change.text[0] == "" && cmp$2(change.from, change.to) == 0) return
     let selAfter = computeSelAfterChange(doc, change);
     addChangeToHistory(doc, change, selAfter, doc.cm ? doc.cm.curOp.id : NaN);
 
@@ -70613,7 +73461,7 @@ define("./master.js",[],function () { 'use strict';
   // (not linked ones).
   function makeChangeSingleDoc(doc, change, selAfter, spans) {
     if (doc.cm && !doc.cm.curOp)
-      return operation(doc.cm, makeChangeSingleDoc)(doc, change, selAfter, spans)
+      return operation$2(doc.cm, makeChangeSingleDoc)(doc, change, selAfter, spans)
 
     if (change.to.line < doc.first) {
       shiftDoc(doc, change.text.length - 1 - (change.to.line - change.from.line));
@@ -70707,7 +73555,7 @@ define("./master.js",[],function () { 'use strict';
 
   function replaceRange(doc, code, from, to, origin) {
     if (!to) to = from;
-    if (cmp(to, from) < 0) [from, to] = [to, from];
+    if (cmp$2(to, from) < 0) [from, to] = [to, from];
     if (typeof code == "string") code = doc.splitLines(code);
     makeChange(doc, {from, to, text: code, origin});
   }
@@ -71150,9 +73998,9 @@ define("./master.js",[],function () { 'use strict';
     // document).
     if (options && options.shared) return markTextShared(doc, from, to, options, type)
     // Ensure we are in an operation.
-    if (doc.cm && !doc.cm.curOp) return operation(doc.cm, markText)(doc, from, to, options, type)
+    if (doc.cm && !doc.cm.curOp) return operation$2(doc.cm, markText)(doc, from, to, options, type)
 
-    let marker = new TextMarker(doc, type), diff = cmp(from, to);
+    let marker = new TextMarker(doc, type), diff = cmp$2(from, to);
     if (options) copyObj(options, marker, false);
     // Don't connect empty markers unless clearWhenEmpty is false
     if (diff > 0 || diff == 0 && marker.clearWhenEmpty !== false)
@@ -71264,7 +74112,7 @@ define("./master.js",[],function () { 'use strict';
     for (let i = 0; i < markers.length; i++) {
       let marker = markers[i], pos = marker.find();
       let mFrom = doc.clipPos(pos.from), mTo = doc.clipPos(pos.to);
-      if (cmp(mFrom, mTo)) {
+      if (cmp$2(mFrom, mTo)) {
         let subMark = markText(doc, mFrom, mTo, marker.primary, marker.primary.type);
         marker.markers.push(subMark);
         subMark.parent = marker;
@@ -71719,7 +74567,7 @@ define("./master.js",[],function () { 'use strict';
           return
 
         let reader = new FileReader;
-        reader.onload = operation(cm, () => {
+        reader.onload = operation$2(cm, () => {
           let content = reader.result;
           if (/[\x00-\x08\x0e-\x1f]{2}/.test(content)) content = "";
           text[i] = content;
@@ -72015,9 +74863,9 @@ define("./master.js",[],function () { 'use strict';
     // ranges.
     for (let i = 0; i < ranges.length; i++) {
       let toKill = compute(ranges[i]);
-      while (kill.length && cmp(toKill.from, lst(kill).to) <= 0) {
+      while (kill.length && cmp$2(toKill.from, lst(kill).to) <= 0) {
         let replaced = kill.pop();
-        if (cmp(replaced.from, toKill.from) < 0) {
+        if (cmp$2(replaced.from, toKill.from) < 0) {
           toKill.from = replaced.from;
           break
         }
@@ -72464,7 +75312,7 @@ define("./master.js",[],function () { 'use strict';
 
     compare(time, pos, button) {
       return this.time + DOUBLECLICK_DELAY > time &&
-        cmp(pos, this.pos) == 0 && button == this.button
+        cmp$2(pos, this.pos) == 0 && button == this.button
     }
   }
 
@@ -72569,8 +75417,8 @@ define("./master.js",[],function () { 'use strict';
     let sel = cm.doc.sel, contained;
     if (cm.options.dragDrop && dragAndDrop && !cm.isReadOnly() &&
         repeat == "single" && (contained = sel.contains(pos)) > -1 &&
-        (cmp((contained = sel.ranges[contained]).from(), pos) < 0 || pos.xRel > 0) &&
-        (cmp(contained.to(), pos) > 0 || pos.xRel < 0))
+        (cmp$2((contained = sel.ranges[contained]).from(), pos) < 0 || pos.xRel > 0) &&
+        (cmp$2(contained.to(), pos) > 0 || pos.xRel < 0))
       leftButtonStartDrag(cm, event, pos, behavior);
     else
       leftButtonSelect(cm, event, pos, behavior);
@@ -72580,7 +75428,7 @@ define("./master.js",[],function () { 'use strict';
   // happen, and treat as a click if it didn't.
   function leftButtonStartDrag(cm, event, pos, behavior) {
     let display = cm.display, moved = false;
-    let dragEnd = operation(cm, e => {
+    let dragEnd = operation$2(cm, e => {
       if (webkit) display.scroller.draggable = false;
       cm.state.draggingText = false;
       off(display.wrapper.ownerDocument, "mouseup", dragEnd);
@@ -72672,7 +75520,7 @@ define("./master.js",[],function () { 'use strict';
 
     let lastPos = start;
     function extendTo(pos) {
-      if (cmp(lastPos, pos) == 0) return
+      if (cmp$2(lastPos, pos) == 0) return
       lastPos = pos;
 
       if (behavior.unit == "rectangle") {
@@ -72696,7 +75544,7 @@ define("./master.js",[],function () { 'use strict';
         let oldRange = ourRange;
         let range = rangeForUnit(cm, pos, behavior.unit);
         let anchor = oldRange.anchor, head;
-        if (cmp(range.anchor, anchor) > 0) {
+        if (cmp$2(range.anchor, anchor) > 0) {
           head = range.head;
           anchor = minPos(oldRange.from(), range.anchor);
         } else {
@@ -72720,15 +75568,15 @@ define("./master.js",[],function () { 'use strict';
       let curCount = ++counter;
       let cur = posFromMouse(cm, e, true, behavior.unit == "rectangle");
       if (!cur) return
-      if (cmp(cur, lastPos) != 0) {
+      if (cmp$2(cur, lastPos) != 0) {
         cm.curOp.focus = activeElt();
         extendTo(cur);
         let visible = visibleLines(display, doc);
         if (cur.line >= visible.to || cur.line < visible.from)
-          setTimeout(operation(cm, () => {if (counter == curCount) extend(e);}), 150);
+          setTimeout(operation$2(cm, () => {if (counter == curCount) extend(e);}), 150);
       } else {
         let outside = e.clientY < editorSize.top ? -20 : e.clientY > editorSize.bottom ? 20 : 0;
-        if (outside) setTimeout(operation(cm, () => {
+        if (outside) setTimeout(operation$2(cm, () => {
           if (counter != curCount) return
           display.scroller.scrollTop += outside;
           extend(e);
@@ -72751,11 +75599,11 @@ define("./master.js",[],function () { 'use strict';
       doc.history.lastSelOrigin = null;
     }
 
-    let move = operation(cm, e => {
+    let move = operation$2(cm, e => {
       if (e.buttons === 0 || !e_button(e)) done(e);
       else extend(e);
     });
-    let up = operation(cm, done);
+    let up = operation$2(cm, done);
     cm.state.selectingText = up;
     on(display.wrapper.ownerDocument, "mousemove", move);
     on(display.wrapper.ownerDocument, "mouseup", up);
@@ -72765,7 +75613,7 @@ define("./master.js",[],function () { 'use strict';
   // of a bidi jump depending on the visual position of the head.
   function bidiSimplify(cm, range) {
     let {anchor, head} = range, anchorLine = getLine(cm.doc, anchor.line);
-    if (cmp(anchor, head) == 0 && anchor.sticky == head.sticky) return range
+    if (cmp$2(anchor, head) == 0 && anchor.sticky == head.sticky) return range
     let order = getOrder(anchorLine);
     if (!order) return range
     let index = getBidiPartAt(order, anchor.ch, anchor.sticky), part = order[index];
@@ -73100,10 +75948,10 @@ define("./master.js",[],function () { 'use strict';
   // Attach the necessary event handlers when initializing the editor
   function registerEventHandlers(cm) {
     let d = cm.display;
-    on(d.scroller, "mousedown", operation(cm, onMouseDown));
+    on(d.scroller, "mousedown", operation$2(cm, onMouseDown));
     // Older IE's will not fire a second mousedown for a double click
     if (ie && ie_version < 11)
-      on(d.scroller, "dblclick", operation(cm, e => {
+      on(d.scroller, "dblclick", operation$2(cm, e => {
         if (signalDOMEvent(cm, e)) return
         let pos = posFromMouse(cm, e);
         if (!pos || clickInGutter(cm, e) || eventInWidget(cm.display, e)) return
@@ -73193,14 +76041,14 @@ define("./master.js",[],function () { 'use strict';
       enter: e => {if (!signalDOMEvent(cm, e)) e_stop(e);},
       over: e => {if (!signalDOMEvent(cm, e)) { onDragOver(cm, e); e_stop(e); }},
       start: e => onDragStart(cm, e),
-      drop: operation(cm, onDrop),
+      drop: operation$2(cm, onDrop),
       leave: e => {if (!signalDOMEvent(cm, e)) { clearDragCursor(cm); }}
     };
 
     let inp = d.input.getField();
     on(inp, "keyup", e => onKeyUp.call(cm, e));
-    on(inp, "keydown", operation(cm, onKeyDown));
-    on(inp, "keypress", operation(cm, onKeyPress));
+    on(inp, "keydown", operation$2(cm, onKeyDown));
+    on(inp, "keypress", operation$2(cm, onKeyPress));
     on(inp, "focus", e => onFocus(cm, e));
     on(inp, "blur", e => onBlur(cm, e));
   }
@@ -73417,7 +76265,7 @@ define("./master.js",[],function () { 'use strict';
         if (options[option] == value && option != "mode") return
         options[option] = value;
         if (optionHandlers.hasOwnProperty(option))
-          operation(this, optionHandlers[option])(this, value, old);
+          operation$2(this, optionHandlers[option])(this, value, old);
         signal(this, "optionChange", this, option);
       },
 
@@ -73937,7 +76785,7 @@ define("./master.js",[],function () { 'use strict';
       on(div, "paste", e => {
         if (signalDOMEvent(cm, e) || handlePaste(e, cm)) return
         // IE doesn't fire input events, so we schedule a read for the pasted content in this way
-        if (ie_version <= 11) setTimeout(operation(cm, () => this.updateFromDOM()), 20);
+        if (ie_version <= 11) setTimeout(operation$2(cm, () => this.updateFromDOM()), 20);
       });
 
       on(div, "compositionstart", e => {
@@ -74030,8 +76878,8 @@ define("./master.js",[],function () { 'use strict';
       let curAnchor = domToPos(cm, sel.anchorNode, sel.anchorOffset);
       let curFocus = domToPos(cm, sel.focusNode, sel.focusOffset);
       if (curAnchor && !curAnchor.bad && curFocus && !curFocus.bad &&
-          cmp(minPos(curAnchor, curFocus), from) == 0 &&
-          cmp(maxPos(curAnchor, curFocus), to) == 0)
+          cmp$2(minPos(curAnchor, curFocus), from) == 0 &&
+          cmp$2(maxPos(curAnchor, curFocus), to) == 0)
         return
 
       let view = cm.display.view;
@@ -74220,7 +77068,7 @@ define("./master.js",[],function () { 'use strict';
 
       let chFrom = Pos(fromLine, cutFront);
       let chTo = Pos(toLine, oldText.length ? lst(oldText).length - cutEnd : 0);
-      if (newText.length > 1 || newText[0] || cmp(chFrom, chTo)) {
+      if (newText.length > 1 || newText[0] || cmp$2(chFrom, chTo)) {
         replaceRange(cm.doc, newText, chFrom, chTo, "+input");
         return true
       }
@@ -74265,7 +77113,7 @@ define("./master.js",[],function () { 'use strict';
       if (e.charCode == 0 || this.composing) return
       e.preventDefault();
       if (!this.cm.isReadOnly())
-        operation(this.cm, applyTextInput)(this.cm, String.fromCharCode(e.charCode == null ? e.keyCode : e.charCode), 0);
+        operation$2(this.cm, applyTextInput)(this.cm, String.fromCharCode(e.charCode == null ? e.keyCode : e.charCode), 0);
     }
 
     readOnlyChanged(val) {
@@ -74698,7 +77546,7 @@ define("./master.js",[],function () { 'use strict';
       // and 'resetSelectionOnContextMenu' option is true.
       let reset = cm.options.resetSelectionOnContextMenu;
       if (reset && cm.doc.sel.contains(pos) == -1)
-        operation(cm, setSelection)(cm.doc, simpleSelection(pos), sel_dontScroll);
+        operation$2(cm, setSelection)(cm.doc, simpleSelection(pos), sel_dontScroll);
 
       let oldCSS = te.style.cssText, oldWrapperCSS = input.wrapper.style.cssText;
       let wrapperBox = input.wrapper.offsetParent.getBoundingClientRect();
@@ -74747,7 +77595,7 @@ define("./master.js",[],function () { 'use strict';
           let i = 0, poll = () => {
             if (display.selForContextMenu == cm.doc.sel && te.selectionStart == 0 &&
                 te.selectionEnd > 0 && input.prevInput == "\u200b") {
-              operation(cm, selectAll)(cm);
+              operation$2(cm, selectAll)(cm);
             } else if (i++ < 10) {
               display.detectingSelectAll = setTimeout(poll, 500);
             } else {
@@ -74854,7 +77702,7 @@ define("./master.js",[],function () { 'use strict';
     CodeMirror.changeEnd = changeEnd;
     CodeMirror.scrollbarModel = scrollbarModel;
     CodeMirror.Pos = Pos;
-    CodeMirror.cmpPos = cmp;
+    CodeMirror.cmpPos = cmp$2;
     CodeMirror.modes = modes;
     CodeMirror.mimeModes = mimeModes;
     CodeMirror.resolveMode = resolveMode;
