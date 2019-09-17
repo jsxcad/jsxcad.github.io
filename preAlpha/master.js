@@ -57795,7 +57795,11 @@ define("./master.js",[],function () { 'use strict';
     const factor = 1 / length(normal);
     const plane = scale(factor, normal);
     plane[W] = dot(reference, normal) * factor / polygon.length;
-    return plane;
+    if (isNaN(plane[0])) {
+      return undefined;
+    } else {
+      return plane;
+    }
   };
 
   const W$1 = 3;
@@ -57876,6 +57880,22 @@ define("./master.js",[],function () { 'use strict';
   // Transforms
   const transform$5 = (matrix, surface) => surface.map(polygon => transform$4(matrix, polygon));
 
+  // FIX
+
+  const toPlane$2 = (surface) => {
+    if (surface.plane !== undefined) {
+      return surface.plane;
+    } else {
+      for (const polygon of surface) {
+        const plane = toPlane(polygon);
+        if (plane !== undefined) {
+          surface.plane = plane;
+          return surface.plane;
+        }
+      }
+    }
+  };
+
   const EPSILON = 1e-5;
 
   const COPLANAR = 0; // Neither front nor back.
@@ -57897,6 +57917,11 @@ define("./master.js",[],function () { 'use strict';
   const pointType = [];
 
   const cutSurface = (plane, coplanarFrontSurfaces, coplanarBackSurfaces, frontSurfaces, backSurfaces, frontEdges, backEdges, surface) => {
+    const surfacePlane = toPlane$2(surface);
+    if (surfacePlane === undefined) {
+      // Degenerate.
+      return;
+    }
     let coplanarFrontPolygons;
     let coplanarBackPolygons;
     let frontPolygons;
@@ -57904,7 +57929,7 @@ define("./master.js",[],function () { 'use strict';
     for (let polygon of surface) {
       pointType.length = 0;
       let polygonType = COPLANAR;
-      if (!equals$2(toPlane(polygon), plane)) {
+      if (!equals$2(surfacePlane, plane)) {
         for (const point of polygon) {
           const type = toType(plane, point);
           polygonType |= type;
@@ -57915,7 +57940,7 @@ define("./master.js",[],function () { 'use strict';
       // Put the polygon in the correct list, splitting it when necessary.
       switch (polygonType) {
         case COPLANAR: {
-          if (dot(plane, toPlane(polygon)) > 0) {
+          if (dot(plane, surfacePlane) > 0) {
             if (coplanarFrontPolygons === undefined) {
               coplanarFrontPolygons = [];
             }
@@ -57978,7 +58003,7 @@ define("./master.js",[],function () { 'use strict';
               if ((lastType | pointType[current]) === SPANNING) {
                 // Break spanning segments at the point of intersection.
                 const rawSpanPoint = splitLineSegmentByPlane(plane, lastPoint, polygon[current]);
-                const spanPoint = subtract(rawSpanPoint, scale(signedDistanceToPoint(toPlane(polygon), rawSpanPoint), plane));
+                const spanPoint = subtract(rawSpanPoint, scale(signedDistanceToPoint(surfacePlane, rawSpanPoint), plane));
                 // Note: Destructive modification of polygon here.
                 polygon.splice(current, 0, spanPoint);
                 pointType.splice(current, 0, COPLANAR);
@@ -58064,12 +58089,7 @@ define("./master.js",[],function () { 'use strict';
   const assertGood = (surface) => {
     for (const path of surface) {
       assertUnique(path);
-      /*
-      if (false && path.plane === undefined) {
-        throw Error('die: no plane');
-      }
-  */
-      if (isNaN(toPlane(path)[0])) {
+      if (toPlane(path) === undefined) {
         throw Error('die');
       }
     }
@@ -61429,7 +61449,7 @@ define("./master.js",[],function () { 'use strict';
 
     for (let nth = 0; nth < tessPolygons.length; nth += 3) {
       const polygon = [toPoint(nth + 0), toPoint(nth + 1), toPoint(nth + 2)];
-      if (!isNaN(toPlane(polygon)[0])) {
+      if (toPlane(polygon)) {
         // FIX: Handle degeneracy better.
         polygons.push(polygon);
       }
@@ -61863,23 +61883,6 @@ define("./master.js",[],function () { 'use strict';
       }
     } // for yindex
     return destpolygons
-  };
-
-  // FIX
-
-  const toPlane$2 = (surface) => {
-    if (surface.plane !== undefined) {
-      return surface.plane;
-    } else {
-      for (const polygon of surface) {
-        const plane = toPlane(polygon);
-        if (!isNaN(plane[0])) {
-          surface.plane = plane;
-          return surface.plane;
-        }
-      }
-      throw Error('die');
-    }
   };
 
   const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
@@ -66755,7 +66758,7 @@ define("./master.js",[],function () { 'use strict';
     return solid.map(surface =>
       surface.map(polygon => deduplicate(polygon.map(normalize3)))
           .filter(polygon => polygon.length >= 3)
-          .filter(polygon => !isNaN(toPlane(polygon)[0])));
+          .filter(polygon => toPlane(polygon) !== undefined));
   };
 
   const canonicalize$5 = (solid) => solid.map(canonicalize$4);
@@ -66853,7 +66856,7 @@ define("./master.js",[],function () { 'use strict';
           continue;
         }
         const triangle = [a, b, c];
-        if (isNaN(toPlane(triangle)[0])) {
+        if (!toPlane(triangle)) {
           // FIX: Why isn't this degeneracy detected above?
           // Skip degenerate triangles introduced by colinear points.
           continue;
@@ -67001,7 +67004,7 @@ define("./master.js",[],function () { 'use strict';
         continue;
       }
       const plane = toPlane(polygon);
-      if (isNaN(plane[0])) {
+      if (plane === undefined) {
         console.log(`QQ/fromPolygons/degenerate`);
         continue;
       }
@@ -67607,6 +67610,67 @@ define("./master.js",[],function () { 'use strict';
 
   const transform$8 = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
 
+  // The resolution is 1 / multiplier.
+  const multiplier$2 = 1e5;
+
+  const X$7 = 0;
+  const Y$7 = 1;
+  const Z$5 = 2;
+  const W$4 = 3;
+
+  // FIX: Make this efficient.
+  // FIX: Move to math-plane.
+  const equals$4 = (a, b) => {
+    const map = new Map();
+    const normalize4 = (coordinate) => {
+      // Apply a spatial quantization to the 4 dimensional coordinate.
+      const nx = Math.floor(coordinate[X$7] * multiplier$2 - 0.5);
+      const ny = Math.floor(coordinate[Y$7] * multiplier$2 - 0.5);
+      const nz = Math.floor(coordinate[Z$5] * multiplier$2 - 0.5);
+      const nw = Math.floor(coordinate[W$4] * multiplier$2 - 0.5);
+      // Look for an existing inhabitant.
+      const value = map.get(`${nx}/${ny}/${nz}/${nw}`);
+      if (value !== undefined) {
+        return value;
+      }
+      // One of the ~0 or ~1 values will match the rounded values above.
+      // The other will match the adjacent cell.
+      const nx0 = nx;
+      const ny0 = ny;
+      const nz0 = nz;
+      const nw0 = nw;
+      const nx1 = nx0 + 1;
+      const ny1 = ny0 + 1;
+      const nz1 = nz0 + 1;
+      const nw1 = nw0 + 1;
+      // Populate the space of the quantized value and its adjacencies.
+      // const normalized = [nx1 / multiplier, ny1 / multiplier, nz1 / multiplier, nw1 / multiplier];
+      // FIX: Rename the function to reflect that it seems that we cannot quantize planes,
+      // but we can form a consensus among nearby planes.
+      const normalized = coordinate;
+      map.set(`${nx0}/${ny0}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny0}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx0}/${ny1}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny0}/${nz1}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz0}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz0}/${nw1}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz1}/${nw0}`, normalized);
+      map.set(`${nx1}/${ny1}/${nz1}/${nw1}`, normalized);
+      // This is now the normalized value for this region.
+      return normalized;
+    };
+
+    return normalize4(a) === normalize4(b);
+  };
+
   const mayOverlap$1 = ([centerA, radiusA], [centerB, radiusB]) => distance(centerA, centerB) < radiusA + radiusB;
 
   const difference$5 = (baseSurface, ...surfaces) => {
@@ -67615,13 +67679,15 @@ define("./master.js",[],function () { 'use strict';
       return [];
     }
     const baseBounds = measureBoundingSphere(baseSurface);
-    surfaces = surfaces.filter(surface => surface.length >= 1 && mayOverlap$1(baseBounds, measureBoundingSphere(surface)));
+    surfaces = surfaces.filter(surface => surface.length > 0 &&
+                                          equals$4(toPlane$3(baseSurface), toPlane$3(surface)) &&
+                                          mayOverlap$1(baseBounds, measureBoundingSphere(surface)));
     if (surfaces.length === 0) {
       // Nothing to be removed.
       return baseSurface;
     }
     // FIX: Detect when the surfaces aren't in the same plane.
-    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
+    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(baseSurface));
     const z0Surface = transform$8(toZ0, baseSurface);
     const z0Surfaces = surfaces.map(surface => transform$8(toZ0, surface));
     const z0Difference = difference$2(z0Surface, ...z0Surfaces);
@@ -67633,7 +67699,7 @@ define("./master.js",[],function () { 'use strict';
       return [];
     }
     for (const surface of surfaces) {
-      if (surface.length === 0) {
+      if (surface.length === 0 || !equals$4(toPlane$3(surfaces[0]), toPlane$3(surface))) {
         return [];
       }
     }
@@ -67644,7 +67710,12 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const union$5 = (...surfaces) => {
-    surfaces = surfaces.filter(surface => surface.length >= 1);
+    if (surfaces.length === 0) {
+      return [];
+    }
+    const baseSurface = surfaces[0];
+    surfaces = surfaces.filter(surface => surface.length >= 1 &&
+                               (equals$4(toPlane$3(baseSurface), toPlane$3(surface))));
     // FIX: Detect when the surfaces aren't in the same plane.
     const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
     const z0Surface = union$3(...surfaces.map(surface => transform$8(toZ0, surface)));
@@ -67664,16 +67735,32 @@ define("./master.js",[],function () { 'use strict';
     for (const { solid, tags } of getSolids(baseGeometry)) {
       result.disjointAssembly.push({ solid: difference$4(solid, ...solids), tags });
     }
-    // Surfaces.
-    // FIX: Needs co-planar grouping.
-    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry)).filter(isNegative).map(item => item.surface);
-    for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.disjointAssembly.push({ surface: difference$5(surface, ...surfaces), tags });
-    }
+  /*
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry)).filter(isNegative).map(item => item.z0Surface);
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.disjointAssembly.push({ z0Surface: difference$2(z0Surface, ...z0Surfaces), tags });
+      result.disjointAssembly.push({ z0Surface: z0SurfaceDifference(z0Surface, ...z0Surfaces), tags });
+    }
+    // Surfaces
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry)).filter(isNegative).map(item => item.surface);
+    for (const { surface, tags } of getSurfaces(baseGeometry)) {
+      result.disjointAssembly.push({ surface: surfaceDifference(surface, ...surfaces, ...z0Surfaces), tags });
+    }
+  */
+    // Surfaces -- generalize to surface unless specializable upon z0surface.
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).filter(isNegative).map(item => item.z0Surface));
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).filter(isNegative).map(item => item.surface));
+    if (z0Surfaces.length > 0 && surfaces.length === 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.disjointAssembly.push({ z0Surface: difference$2(z0Surface, ...z0Surfaces), tags });
+      }
+    } else if (surfaces.length > 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.disjointAssembly.push({ surface: difference$5(z0Surface, ...surfaces, ...z0Surfaces), tags });
+      }
+      for (const { surface, tags } of getSurfaces(baseGeometry)) {
+        result.disjointAssembly.push({ surface: difference$5(surface, ...surfaces, ...z0Surfaces), tags });
+      }
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry)).filter(isNegative).map(item => item.paths);
@@ -67693,6 +67780,12 @@ define("./master.js",[],function () { 'use strict';
   };
 
   const difference$6 = cache(differenceImpl);
+
+  const fromPathToSurfaceImpl = (path) => {
+    return { surface: [path] };
+  };
+
+  const fromPathToSurface = cache(fromPathToSurfaceImpl);
 
   const fromPathToZ0SurfaceImpl = (path) => {
     return { z0Surface: [path] };
@@ -67729,15 +67822,32 @@ define("./master.js",[],function () { 'use strict';
     for (const { solid, tags } of getSolids(baseGeometry)) {
       result.assembly.push({ solid: intersection$4(solid, ...solids), tags });
     }
-    // Surfaces.
-    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
-    for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.assembly.push({ surface: intersection$5(surface, ...surfaces), tags });
-    }
+  /*
     // Z0Surfaces.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
     for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: intersection$2(z0Surface, ...z0Surfaces), tags });
+      result.assembly.push({ z0Surface: z0SurfaceIntersection(z0Surface, ...z0Surfaces), tags });
+    }
+    // Surfaces.
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    for (const { surface, tags } of getSurfaces(baseGeometry)) {
+      result.assembly.push({ surface: surfaceIntersection(surface, ...surfaces, ...z0Surfaces), tags });
+    }
+  */
+    // Surfaces -- generalize to surface unless specializable upon z0surface.
+    const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
+    const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
+    if (z0Surfaces.length > 0 && surfaces.length === 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.assembly.push({ z0Surface: intersection$2(z0Surface, ...z0Surfaces), tags });
+      }
+    } else if (surfaces.length > 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.assembly.push({ surface: intersection$5(z0Surface, ...surfaces, ...z0Surfaces), tags });
+      }
+      for (const { surface, tags } of getSurfaces(baseGeometry)) {
+        result.assembly.push({ surface: intersection$5(surface, ...surfaces, ...z0Surfaces), tags });
+      }
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
@@ -67759,6 +67869,12 @@ define("./master.js",[],function () { 'use strict';
     } else if (geometry.item !== undefined) {
       return { ...geometry, item: toDisjointAssembly(geometry.item) };
     } else if (geometry.assembly !== undefined) {
+      if (geometry.assembly.length === 0) {
+        return { disjointAssembly: [] };
+      }
+      if (geometry.assembly.length === 1) {
+        return geometry.assembly[0];
+      }
       const disjoint = [];
       for (let nth = geometry.assembly.length - 1; nth >= 0; nth--) {
         const item = toDisjointAssembly(geometry.assembly[nth]);
@@ -67810,7 +67926,7 @@ define("./master.js",[],function () { 'use strict';
         }
       };
       const keptGeometry = walk(disjointGeometry);
-      geometry.keptGeometry = keptGeometry || {};
+      geometry.keptGeometry = keptGeometry || { disjointAssembly: [] };
     }
     return geometry.keptGeometry;
   };
@@ -67843,15 +67959,20 @@ define("./master.js",[],function () { 'use strict';
     for (const { solid, tags } of getSolids(baseGeometry)) {
       result.assembly.push({ solid: union$4(solid, ...solids), tags });
     }
-    // Z0Surfaces.
+    // Surfaces -- generalize to surface unless specializable upon z0surface.
     const z0Surfaces = geometries.flatMap(geometry => getZ0Surfaces(geometry).map(item => item.z0Surface));
-    for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
-      result.assembly.push({ z0Surface: union$3(z0Surface, ...z0Surfaces), tags });
-    }
-    // Surfaces.
     const surfaces = geometries.flatMap(geometry => getSurfaces(geometry).map(item => item.surface));
-    for (const { surface, tags } of getSurfaces(baseGeometry)) {
-      result.assembly.push({ surface: union$5(surface, ...surfaces), tags });
+    if (z0Surfaces.length > 0 && surfaces.length === 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.assembly.push({ z0Surface: union$3(z0Surface, ...z0Surfaces), tags });
+      }
+    } else if (surfaces.length > 0) {
+      for (const { z0Surface, tags } of getZ0Surfaces(baseGeometry)) {
+        result.assembly.push({ surface: union$5(z0Surface, ...surfaces, ...z0Surfaces), tags });
+      }
+      for (const { surface, tags } of getSurfaces(baseGeometry)) {
+        result.assembly.push({ surface: union$5(surface, ...surfaces, ...z0Surfaces), tags });
+      }
     }
     // Paths.
     const pathsets = geometries.flatMap(geometry => getPaths(geometry).map(item => item.paths));
