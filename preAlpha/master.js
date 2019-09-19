@@ -61885,25 +61885,6 @@ define("./master.js",[],function () { 'use strict';
     return destpolygons
   };
 
-  const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
-
-  const transform$6 = cacheTransform(transformImpl);
-
-  const fromPolygons = ({ plane }, polygons) => {
-    if (polygons.length === 0) {
-      return [];
-    }
-    if (plane === undefined) {
-      plane = toPlane$2(polygons);
-    }
-    const [toZ0, fromZ0] = toXYPlaneTransforms(plane);
-    const z0Polygons = transform$6(toZ0, polygons);
-    const z0Surface = retessellate(z0Polygons);
-    const surface = transform$6(fromZ0, z0Surface);
-    surface.plane = plane;
-    return surface;
-  };
-
   const makeConvex$1 = (options = {}, surface) => {
     if (surface.length === 0) {
       // An empty surface is not non-convex.
@@ -61920,6 +61901,10 @@ define("./master.js",[],function () { 'use strict';
     }
     return retessellatedSurface;
   };
+
+  const transformImpl = (matrix, polygons) => polygons.map(polygon => transform$4(matrix, polygon));
+
+  const transform$6 = cacheTransform(transformImpl);
 
   // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
   // MIT License
@@ -63764,9 +63749,7 @@ define("./master.js",[],function () { 'use strict';
     if (baseZ0Surface === undefined || baseZ0Surface.length === 0) {
       return [];
     }
-    let nth = 0;
     for (const z0Surface of z0Surfaces) {
-      console.log(`QQ/difference/z0Surfaces/length: ${z0Surfaces.length - nth++}`);
       if (doesNotOverlap(z0Surface, baseZ0Surface)) {
         continue;
       }
@@ -63822,7 +63805,6 @@ define("./master.js",[],function () { 'use strict';
       return [];
     }
     while (z0Surfaces.length >= 2) {
-      console.log(`QQ/union/z0Surfaces/length: ${z0Surfaces.length}`);
       const a = z0Surfaces.shift();
       const b = z0Surfaces.shift();
       if (doesNotOverlapOrAbut(a, b)) {
@@ -63833,6 +63815,36 @@ define("./master.js",[],function () { 'use strict';
       }
     }
     return z0Surfaces[0];
+  };
+
+  // retessellate can reduce overlapping polygons.
+  // Clean them up here.
+  const clean = (surface) => {
+    if (surface.length < 2) {
+      return surface;
+    }
+    return union$1(...surface.map(polygon => [polygon]));
+  };
+
+  const fromPolygons = ({ plane }, polygons) => {
+    if (polygons.length === 0) {
+      return [];
+    }
+    if (plane === undefined) {
+      plane = toPlane$2(polygons);
+    }
+    const [toZ0, fromZ0] = toXYPlaneTransforms(plane);
+    const z0Polygons = transform$6(toZ0, polygons);
+    let retessellation = retessellate(z0Polygons);
+    if (retessellation.length >= 2) {
+      // Sometimes overlapping into to retessellation results in overlapping output.
+      // Clean these up and retessellate again.
+      // FIX: Eliminate overlapping output in retessellate.
+      retessellation = retessellate(makeConvex$1({}, clean(retessellation)));
+    }
+    const surface = transform$6(fromZ0, retessellation);
+    surface.plane = plane;
+    return surface;
   };
 
   // returns an array of two Vector3Ds (minimum coordinates and maximum coordinates)
