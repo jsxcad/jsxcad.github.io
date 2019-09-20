@@ -58090,6 +58090,7 @@ define("./master.js",[],function () { 'use strict';
     for (const path of surface) {
       assertUnique(path);
       if (toPlane(path) === undefined) {
+        console.log(`QQ/path: ${JSON.stringify(path)}`);
         throw Error('die');
       }
     }
@@ -61882,7 +61883,7 @@ define("./master.js",[],function () { 'use strict';
         prevoutpolygonrow = newoutpolygonrow;
       }
     } // for yindex
-    return destpolygons
+    return destpolygons.map(polygon => polygon.map(([x, y]) => [x, y, 0]));
   };
 
   const makeConvex$1 = (options = {}, surface) => {
