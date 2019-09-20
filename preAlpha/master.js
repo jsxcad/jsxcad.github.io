@@ -52828,7 +52828,7 @@ define("./master.js",[],function () { 'use strict';
       const dataset = {};
       const geometry = new Geometry();
       const material = new LineBasicMaterial({ color: 0xffffff, vertexColors: VertexColors });
-      const color = setColor(tags, {}, [0, 0, 0]).color;
+      const color = new Color$1(setColor(tags, {}, [0, 0, 0]).color);
       for (const [[aX, aY, aZ], [bX, bY, bZ]] of segments) {
         geometry.colors.push(color, color);
         geometry.vertices.push(new Vector3(aX, aY, aZ), new Vector3(bX, bY, bZ));
