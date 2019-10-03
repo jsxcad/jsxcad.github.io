@@ -61428,8 +61428,6 @@ define("./master.js",[],function () { 'use strict';
     }
   };
 
-  const blessAsConvex = (paths) => { paths.isConvex = true; return paths; };
-
   const toContour = (polygon) => {
     const points = [];
     for (const [x = 0, y = 0] of polygon) {
@@ -61477,7 +61475,7 @@ define("./master.js",[],function () { 'use strict';
                         polySize: 3,
                         vertexSize: 3
       }));
-    return blessAsConvex(convex);
+    return convex; // retessellate(convex);
   };
 
   /**
@@ -64006,7 +64004,10 @@ define("./master.js",[],function () { 'use strict';
           throw e;
         }
       }
-      loops.push(loop);
+      const plane = fromPolygon(loop);
+      if (plane !== undefined) {
+        loops.push(loop);
+      }
     }
 
     return loops;
@@ -64772,7 +64773,7 @@ define("./master.js",[],function () { 'use strict';
     } else {
       for (const polygon of surface) {
         const plane = toPlane(polygon);
-        if (!isNaN(plane[0])) {
+        if (plane !== undefined) {
           surface.plane = plane;
           return surface.plane;
         }
@@ -64882,16 +64883,16 @@ define("./master.js",[],function () { 'use strict';
     return transform$8(fromZ0, z0Surface);
   };
 
-  const union$3 = (...surfaces) => {
-    if (surfaces.length === 0) {
-      return [];
-    }
-    const baseSurface = surfaces[0];
+  const union$3 = (baseSurface, ...surfaces) => {
+    const basePlane = toPlane$3(baseSurface);
     surfaces = surfaces.filter(surface => surface.length >= 1 &&
                                (equals$4(toPlane$3(baseSurface), toPlane$3(surface))));
-    // FIX: Detect when the surfaces aren't in the same plane.
-    const [toZ0, fromZ0] = toXYPlaneTransforms(toPlane$3(surfaces[0]));
-    const z0Surface = union$1(...surfaces.map(surface => transform$8(toZ0, surface)));
+    if (surfaces.length === 0) {
+      return baseSurface;
+    }
+    const [toZ0, fromZ0] = toXYPlaneTransforms(basePlane);
+    const z0Surface = union$1(transform$8(toZ0, baseSurface),
+                                      ...surfaces.map(surface => transform$8(toZ0, surface)));
     return transform$8(fromZ0, z0Surface);
   };
 
@@ -65076,19 +65077,31 @@ define("./master.js",[],function () { 'use strict';
     return geometry.keptGeometry;
   };
 
+  const toOutlineFromSurface = (surface) => {
+    const convexSurface = makeConvex$1({}, surface);
+    const pathSurfaces = [];
+    for (const path of convexSurface) {
+      const pathSurface = [path];
+      pathSurface.plane = toPlane$1(convexSurface);
+      pathSurfaces.push(pathSurface);
+    }
+    const simplified = union$3(...pathSurfaces);
+    return simplified;
+  };
+
   const outlineImpl = (geometry) => {
     // FIX: This assumes general coplanarity.
     const keptGeometry = toKeptGeometry(geometry);
     const z0Surfaces = getZ0Surfaces(keptGeometry);
     const surfaces = getSurfaces(keptGeometry);
-    const paths = [];
-    for (const geometry of z0Surfaces) {
-      paths.push(...geometry.z0Surface);
+    const outlines = [];
+    for (const { z0Surface } of z0Surfaces) {
+      outlines.push(...toOutlineFromSurface(z0Surface));
     }
-    for (const geometry of surfaces) {
-      paths.push(...geometry.surface);
+    for (const { surface } of surfaces) {
+      outlines.push(...toOutlineFromSurface(surface));
     }
-    return { paths };
+    return { paths: outlines };
   };
 
   const outline = cache(outlineImpl);
