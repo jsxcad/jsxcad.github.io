@@ -83442,6 +83442,13 @@ define("./master.js",[],function () { 'use strict';
       entries.push(`<br>`);
 
       const paths = new Set(await listFiles());
+
+      if (!paths.has('file/script.jsx') && paths.has('script')) {
+        // Copy scripts from preAlpha to preAlpha2.
+        // FIX: Remove this hack.
+        await writeFile({}, 'file/script.jsx', await readFile({}, 'script'));
+      }
+
       for (const path of paths) {
         if (!path.startsWith('file/')) {
           continue;
