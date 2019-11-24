@@ -4980,19 +4980,19 @@ define("./auth.js",[],function () { 'use strict';
     }
   };
 
-  /* global postMessage, onmessage:writable, self */
+  /* globals location */
   Error.stackTraceLimit = Infinity;
 
   window.bootstrap = async () => {
     const {
       search
-    } = location; // We expect something like: '?github=xxx'
+    } = location;
 
-    if (search.startsWith('?github=')) {
-      const accessToken = search.substring(8);
+    if (search.startsWith('?gist=')) {
+      const accessToken = search.substring(6);
       await writeFile({
         project: '.system'
-      }, 'auth/github/accessToken', accessToken);
+      }, 'auth/gist/accessToken', accessToken);
     }
 
     window.close();
