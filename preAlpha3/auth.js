@@ -4989,7 +4989,7 @@ define("./auth.js",[],function () { 'use strict';
     } = location; // We expect something like: '?github=xxx'
 
     if (search.startsWith('?github=')) {
-      accessToken = search.substring(8);
+      const accessToken = search.substring(8);
       await writeFile({
         project: '.system'
       }, 'auth/github/accessToken', accessToken);
