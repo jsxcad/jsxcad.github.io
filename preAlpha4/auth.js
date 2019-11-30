@@ -360,6 +360,10 @@ define("./auth.js",[],function () { 'use strict';
   const files = new Map();
   const fileCreationWatchers = new Set();
   const getFile = async (options, unqualifiedPath) => {
+    if (typeof unqualifiedPath !== 'string') {
+      throw Error(`die: ${JSON.stringify(unqualifiedPath)}`);
+    }
+
     const path = `${getBase()}${unqualifiedPath}`;
     let file = files.get(path);
 
@@ -4904,6 +4908,10 @@ define("./auth.js",[],function () { 'use strict';
 
   const writeFile = async (options, path, data) => {
     data = await data;
+
+    if (path.endsWith('[object Set]')) {
+      throw Error('die');
+    }
 
     if (isWebWorker) {
       return self.ask({
