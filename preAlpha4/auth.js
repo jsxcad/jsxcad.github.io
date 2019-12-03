@@ -5001,6 +5001,12 @@ define("./auth.js",[],function () { 'use strict';
       await writeFile({
         project: '.system'
       }, 'auth/gist/accessToken', accessToken);
+    } else if (search.startsWith('?githubRepository=')) {
+      const accessToken = search.substring(18);
+      console.log(`QQ/accessToken: ${accessToken}`);
+      await writeFile({
+        project: '.system'
+      }, 'auth/githubRepository/accessToken', accessToken);
     }
 
     window.close();
