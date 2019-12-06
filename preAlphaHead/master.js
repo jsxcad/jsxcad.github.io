@@ -82339,7 +82339,7 @@ class UI extends react.PureComponent {
       style: {
         flex: '0 0 auto'
       }
-    }, react.createElement(Navbar.Brand, null, "JSxCAD preAlpha3"), react.createElement(Navbar.Toggle, {
+    }, react.createElement(Navbar.Brand, null, "JSxCAD preAlphaHead"), react.createElement(Navbar.Toggle, {
       "aria-controls": "basic-navbar-nav"
     }), react.createElement(Navbar.Collapse, {
       id: "basic-navbar-nav"
