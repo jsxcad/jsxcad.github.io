@@ -9,6 +9,7 @@ document.onreadystatechange = () => {
       await module.installUi({
         document,
         project,
+        sha,
         source
       });
     };
