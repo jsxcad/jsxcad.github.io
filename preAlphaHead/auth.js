@@ -1,25 +1,19 @@
-import { writeFile } from 'https://gitcdn.link/cdn/jsxcad/JSxCAD/master/es6/jsxcad-sys.js';
-
 /* globals location */
 
-window.bootstrap = async () => {
-  const {
-    search
-  } = location;
+import { write } from 'https://gitcdn.link/cdn/jsxcad/JSxCAD/master/es6/jsxcad-sys.js';
 
+window.bootstrap = async () => {
+  const { search } = location;
   if (search.startsWith('?gist=')) {
     const accessToken = search.substring(6);
-    await writeFile({
-      project: '.system'
-    }, 'auth/gist/accessToken', accessToken);
+    await write('auth/gist/accessToken', accessToken, { workspace: '.system' });
   } else if (search.startsWith('?githubRepository=')) {
     const accessToken = search.substring(18);
     console.log(`QQ/accessToken: ${accessToken}`);
-    await writeFile({
-      project: '.system'
-    }, 'auth/githubRepository/accessToken', accessToken);
+    await write('auth/githubRepository/accessToken', accessToken, {
+      workspace: '.system',
+    });
   }
-
   window.close();
 };
 
