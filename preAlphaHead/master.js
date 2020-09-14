@@ -12,6 +12,7 @@ document.onreadystatechange = () => {
         sha,
         source
       });
+      document.body.removeChild(document.getElementById('loading'));
     };
 
     window.fetch('https://api.github.com/repos/jsxcad/JSxCAD/commits?per_page=1')
