@@ -5,4 +5,4 @@ const sha = self.location.hash.substring(1);
 self.messageBootQueue = [];
 onmessage = ({ data }) => self.messageBootQueue.push(data);
 
-import(`https://gitcdn.link/cdn/jsxcad/JSxCAD/${sha}/es6/jsxcad-ui-v1-webworker.js`);
+import(`https://gitcdn.xyz/cdn/jsxcad/JSxCAD/${sha}/es6/jsxcad-ui-v1-webworker.js`);
