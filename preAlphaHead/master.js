@@ -1,25 +1,18 @@
-/* global location, window */
+/* global location */
+
+import { installUi } from './jsxcad-ui-v1.js';
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
-    const bootstrap = async (sha) => {
+    const bootstrap = async () => {
       const booting = document.createElement('center');
-      booting.innerText = sha;
+      booting.innerText = `Booting sha`;
       document.getElementById('loading').appendChild(booting);
-      const module = await import(`https://gitcdn.link/cdn/jsxcad/JSxCAD/${sha}/es6/jsxcad-ui-v1.js`);
       const hash = location.hash.substring(1);
       const [project, source] = hash.split('@');
-      await module.installUi({
-        document,
-        project,
-        sha,
-        source
-      });
+      await installUi({ document, project, source, sha: 'master' });
       document.body.removeChild(document.getElementById('loading'));
     };
-
-    window.fetch('https://api.github.com/repos/jsxcad/JSxCAD/commits?per_page=1')
-          .then(response => response.json())
-          .then(json => bootstrap(json[0].sha));
+    bootstrap();
   }
 };
