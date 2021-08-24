@@ -12,8 +12,8 @@ document.onreadystatechange = () => {
       await module.installUi({
         document,
         project,
-        source
-        sha,
+        source,
+        sha
       });
       document.body.removeChild(document.getElementById('loading'));
     };
