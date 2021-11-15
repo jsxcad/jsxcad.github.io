@@ -1,21 +1,16 @@
 <html>
  <head>
-  <link rel="stylesheet" href="SvgPathEditor.css">
+  <link rel="stylesheet" href="style/light.css">
+  <link rel="stylesheet" href="spinner.css">
   <link
     rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="dg.css">
   <link rel="stylesheet" href="prism.css">
-  <link rel="stylesheet" href="react-mosaic-component.css">
-  <link rel="stylesheet" href="react-resizable.css">
   <style>
     div.notebook {
-      // border: 1px dashed dodgerblue;
-      // margin: 4px 4px;
-      // padding: 4px 4px;
     }
 
     .note.log {
@@ -29,13 +24,9 @@
     }
 
     .note.view {
-      // border: 1px dashed dodgerblue;
-      // margin: 4px 4px;
-      // padding: 4px 4px;
     }
 
     img.note.view {
-      // padding: 4px 4px;
       border: 1px dashed dodgerblue;
       margin: 4px 4px;
       padding: 4px 4px;
@@ -47,12 +38,10 @@
     }
 
     button.note.download {
-       border: 2px solid black;
-       border-radius: 5px;
-      // background-color: white;
-       margin: 4px 4px;
-       padding: 10px 24px;
-      // height: 21px;
+      border: 2px solid black;
+      border-radius: 5px;
+      margin: 4px 4px;
+      padding: 10px 24px;
       font-size: 16px;
       cursor: pointer;
       border-color: #2196F3;
@@ -65,12 +54,12 @@
     }
 
     button.note.print {
-       border: 2px solid black;
-       border-radius: 5px;
-      // background-color: white;
-       margin: 4px 4px;
-       padding: 10px 24px;
-      // height: 21px;
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      height: 21px;
       font-size: 16px;
       cursor: pointer;
       border-color: #2196F3;
@@ -85,58 +74,6 @@
     .note th,td {
       border: 1px solid dodgerblue;
       padding: 5px;
-    }
-
-    .Resizer {
-      background: #000;
-      opacity: 0.2;
-      z-index: 1;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      -moz-background-clip: padding;
-      -webkit-background-clip: padding;
-      background-clip: padding-box;
-    }
- 
-    .Resizer:hover {
-      -webkit-transition: all 2s ease;
-      transition: all 2s ease;
-    }
- 
-    .Resizer.horizontal {
-      height: 11px;
-      margin: -5px 0;
-      border-top: 5px solid rgba(255, 255, 255, 0);
-      border-bottom: 5px solid rgba(255, 255, 255, 0);
-      cursor: row-resize;
-      width: 100%;
-    }
- 
-    .Resizer.horizontal:hover {
-      border-top: 5px solid rgba(0, 0, 0, 0.5);
-      border-bottom: 5px solid rgba(0, 0, 0, 0.5);
-    }
- 
-    .Resizer.vertical {
-      width: 11px;
-      margin: 0 -5px;
-      border-left: 5px solid rgba(255, 255, 255, 0);
-      border-right: 5px solid rgba(255, 255, 255, 0);
-      cursor: col-resize;
-    }
- 
-    .Resizer.vertical:hover {
-      border-left: 5px solid rgba(0, 0, 0, 0.5);
-      border-right: 5px solid rgba(0, 0, 0, 0.5);
-    }
-
-    .Resizer.disabled {
-      cursor: not-allowed;
-    }
-
-    .Resizer.disabled:hover {
-      border-color: transparent;
     }
 
     .ace_string {
@@ -164,6 +101,6 @@
   <script type="module">
     import './master.js';
   </script>
-  <div id="top"></div>
+  <div id="container"></div>
  </body>
 </html>
