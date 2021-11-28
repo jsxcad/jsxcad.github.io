@@ -1280,7 +1280,7 @@ const fromSurfaceMeshToLazyGraph = (mesh) => {
 
 const fromSurfaceMeshToPolygons = (
   mesh,
-  transform,
+  transform = identityMatrix,
   triangulate = false
 ) => {
   const c = getCgal();

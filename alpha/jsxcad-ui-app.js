@@ -1,6 +1,7 @@
-import { readOrWatch, boot, log, deleteFile, ask, touch, askService, write, read, terminateActiveServices, clearEmitted, resolvePending, listFiles, watchFileCreation, watchFileDeletion } from './jsxcad-sys.js';
+import { orbitDisplay, raycast, dragAnchor, addVoxel, getWorldPosition, addAnchors } from './jsxcad-ui-threejs.js';
+import { readOrWatch, unwatchFile, read, watchFile, boot, log, deleteFile, ask, touch, askService, write, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchServices } from './jsxcad-sys.js';
 import { toDomElement, getNotebookControlData } from './jsxcad-ui-notebook.js';
-import { orbitDisplay } from './jsxcad-ui-threejs.js';
+import { rewriteVoxels, rewriteViewGroupOrient } from './jsxcad-compiler.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
 import PrettierParserBabel from 'https://unpkg.com/prettier@2.3.2/esm/parser-babel.mjs';
 import { execute } from './jsxcad-api.js';
@@ -5264,6 +5265,7 @@ var Model = /** @class */ (function () {
         attributeDefinitions.add("rootOrientationVertical", false).setType(Attribute_1.default.BOOLEAN);
         attributeDefinitions.add("marginInsets", { top: 0, right: 0, bottom: 0, left: 0 })
             .setType("IInsets");
+        attributeDefinitions.add("enableUseVisibility", false).setType(Attribute_1.default.BOOLEAN);
         // tab
         attributeDefinitions.add("tabEnableClose", true).setType(Attribute_1.default.BOOLEAN);
         attributeDefinitions.add("tabCloseType", 1).setType("ICloseType");
@@ -5353,6 +5355,9 @@ var Model = /** @class */ (function () {
     };
     Model.prototype.isRootOrientationVertical = function () {
         return this._attributes.rootOrientationVertical;
+    };
+    Model.prototype.isUseVisibility = function () {
+        return this._attributes.enableUseVisibility;
     };
     /**
      * Gets the
@@ -5766,7 +5771,7 @@ var Types_1$a = Types;
 var TabSet_1$3 = TabSet$1;
 /** @hidden @internal */
 var TabButton = function (props) {
-    var layout = props.layout, node = props.node, show = props.show, selected = props.selected, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
+    var layout = props.layout, node = props.node, selected = props.selected, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
     var selfRef = React$e.useRef(null);
     var contentRef = React$e.useRef(null);
     var contentWidth = React$e.useRef(0);
@@ -5914,9 +5919,7 @@ var TabButton = function (props) {
         var closeTitle = layout.i18nName(I18nLabel_1$5.I18nLabel.Close_Tab);
         buttons.push(React$e.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
     }
-    return (React$e.createElement("div", { ref: selfRef, "data-layout-path": path, style: {
-            visibility: show ? "visible" : "hidden",
-        }, className: classNames, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
+    return (React$e.createElement("div", { ref: selfRef, "data-layout-path": path, className: classNames, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
         leading,
         content,
         buttons));
@@ -6069,6 +6072,120 @@ var useTabOverflow = function (node, orientation, toolbarRef, stickyButtonsRef) 
 };
 TabOverflowHook.useTabOverflow = useTabOverflow;
 
+var Tab$1 = {};
+
+var ErrorBoundary$1 = {};
+
+var __extends$4 = (commonjsGlobal && commonjsGlobal.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(ErrorBoundary$1, "__esModule", { value: true });
+ErrorBoundary$1.ErrorBoundary = void 0;
+var React$c = require$$1;
+var Types_1$9 = Types;
+/** @hidden @internal */
+var ErrorBoundary = /** @class */ (function (_super) {
+    __extends$4(ErrorBoundary, _super);
+    function ErrorBoundary(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = { hasError: false };
+        return _this;
+    }
+    ErrorBoundary.getDerivedStateFromError = function (error) {
+        return { hasError: true };
+    };
+    ErrorBoundary.prototype.componentDidCatch = function (error, errorInfo) {
+        console.debug(error);
+        console.debug(errorInfo);
+    };
+    ErrorBoundary.prototype.render = function () {
+        if (this.state.hasError) {
+            return (React$c.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTAINER },
+                React$c.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTENT }, this.props.message)));
+        }
+        return this.props.children;
+    };
+    return ErrorBoundary;
+}(React$c.Component));
+ErrorBoundary$1.ErrorBoundary = ErrorBoundary;
+
+Object.defineProperty(Tab$1, "__esModule", { value: true });
+Tab$1.hideElement = Tab$1.Tab = void 0;
+var React$b = require$$1;
+var react_1$1 = require$$1;
+var Actions_1$6 = Actions$1;
+var TabSetNode_1$2 = TabSetNode$1;
+var Types_1$8 = Types;
+var ErrorBoundary_1$1 = ErrorBoundary$1;
+var I18nLabel_1$4 = I18nLabel;
+var __1$2 = lib$1;
+/** @hidden @internal */
+var Tab = function (props) {
+    var layout = props.layout, selected = props.selected, node = props.node, factory = props.factory, path = props.path;
+    var _a = React$b.useState(!props.node.isEnableRenderOnDemand() || props.selected), renderComponent = _a[0], setRenderComponent = _a[1];
+    React$b.useLayoutEffect(function () {
+        if (!renderComponent && selected) {
+            // load on demand
+            // console.log("load on demand: " + node.getName());
+            setRenderComponent(true);
+        }
+    });
+    var onMouseDown = function () {
+        var parent = node.getParent();
+        if (parent.getType() === TabSetNode_1$2.default.TYPE) {
+            if (!parent.isActive()) {
+                layout.doAction(Actions_1$6.default.setActiveTabset(parent.getId()));
+            }
+        }
+    };
+    var cm = layout.getClassName;
+    var useVisibility = node.getModel().isUseVisibility();
+    var parentNode = node.getParent();
+    var style = node._styleWithPosition();
+    if (!selected) {
+        hideElement(style, useVisibility);
+    }
+    if (parentNode instanceof TabSetNode_1$2.default) {
+        if (node.getModel().getMaximizedTabset() !== undefined && !parentNode.isMaximized()) {
+            hideElement(style, useVisibility);
+        }
+    }
+    var child;
+    if (renderComponent) {
+        child = factory(node);
+    }
+    var className = cm(Types_1$8.CLASSES.FLEXLAYOUT__TAB);
+    if (parentNode instanceof __1$2.BorderNode) {
+        className += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__TAB_BORDER);
+        className += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__TAB_BORDER_ + parentNode.getLocation().getName());
+    }
+    return (React$b.createElement("div", { className: className, "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
+        React$b.createElement(ErrorBoundary_1$1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$4.I18nLabel.Error_rendering_component) },
+            React$b.createElement(react_1$1.Fragment, null, child))));
+};
+Tab$1.Tab = Tab;
+function hideElement(style, useVisibility) {
+    if (useVisibility) {
+        style.visibility = "hidden";
+    }
+    else {
+        style.display = "none";
+    }
+}
+Tab$1.hideElement = hideElement;
+
 var __spreadArray$2 = (commonjsGlobal && commonjsGlobal.__spreadArray) || function (to, from) {
     for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
@@ -6076,21 +6193,22 @@ var __spreadArray$2 = (commonjsGlobal && commonjsGlobal.__spreadArray) || functi
 };
 Object.defineProperty(TabSet$1, "__esModule", { value: true });
 TabSet$1.isAuxMouseEvent = TabSet$1.TabSet = void 0;
-var React$c = require$$1;
-var I18nLabel_1$4 = I18nLabel;
-var Actions_1$6 = Actions$1;
+var React$a = require$$1;
+var I18nLabel_1$3 = I18nLabel;
+var Actions_1$5 = Actions$1;
 var PopupMenu_1$1 = PopupMenu$1;
 var TabButton_1 = TabButton$1;
 var TabOverflowHook_1$1 = TabOverflowHook;
 var Orientation_1$2 = Orientation$1;
-var Types_1$9 = Types;
+var Types_1$7 = Types;
+var Tab_1$2 = Tab$1;
 /** @hidden @internal */
 var TabSet = function (props) {
     var node = props.node, layout = props.layout, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var toolbarRef = React$c.useRef(null);
-    var overflowbuttonRef = React$c.useRef(null);
-    var tabbarInnerRef = React$c.useRef(null);
-    var stickyButtonsRef = React$c.useRef(null);
+    var toolbarRef = React$a.useRef(null);
+    var overflowbuttonRef = React$a.useRef(null);
+    var tabbarInnerRef = React$a.useRef(null);
+    var stickyButtonsRef = React$a.useRef(null);
     var _a = TabOverflowHook_1$1.useTabOverflow(node, Orientation_1$2.default.HORZ, toolbarRef, stickyButtonsRef), selfRef = _a.selfRef, position = _a.position, userControlledLeft = _a.userControlledLeft, hiddenTabs = _a.hiddenTabs, onMouseWheel = _a.onMouseWheel, tabsTruncated = _a.tabsTruncated;
     var onOverflowClick = function (event) {
         var element = overflowbuttonRef.current;
@@ -6098,7 +6216,7 @@ var TabSet = function (props) {
         event.stopPropagation();
     };
     var onOverflowItemSelect = function (item) {
-        layout.doAction(Actions_1$6.default.selectTab(item.node.getId()));
+        layout.doAction(Actions_1$5.default.selectTab(item.node.getId()));
         userControlledLeft.current = false;
     };
     var onMouseDown = function (event) {
@@ -6110,9 +6228,9 @@ var TabSet = function (props) {
             else {
                 name_1 = ": " + name_1;
             }
-            layout.doAction(Actions_1$6.default.setActiveTabset(node.getId()));
+            layout.doAction(Actions_1$5.default.setActiveTabset(node.getId()));
             if (!layout.getEditingTab()) {
-                var message = layout.i18nName(I18nLabel_1$4.I18nLabel.Move_Tabset, name_1);
+                var message = layout.i18nName(I18nLabel_1$3.I18nLabel.Move_Tabset, name_1);
                 layout.dragStart(event, message, node, node.isEnableDrag(), function (event2) { return undefined; }, onDoubleClick);
             }
         }
@@ -6135,12 +6253,12 @@ var TabSet = function (props) {
         event.stopPropagation();
     };
     var onClose = function (event) {
-        layout.doAction(Actions_1$6.default.deleteTabset(node.getId()));
+        layout.doAction(Actions_1$5.default.deleteTabset(node.getId()));
         event.stopPropagation();
     };
     var onFloatTab = function (event) {
         if (selectedTabNode !== undefined) {
-            layout.doAction(Actions_1$6.default.floatTab(selectedTabNode.getId()));
+            layout.doAction(Actions_1$5.default.floatTab(selectedTabNode.getId()));
         }
         event.stopPropagation();
     };
@@ -6158,14 +6276,14 @@ var TabSet = function (props) {
     var selectedTabNode = node.getSelectedNode();
     var style = node._styleWithPosition();
     if (node.getModel().getMaximizedTabset() !== undefined && !node.isMaximized()) {
-        style.display = "none";
+        Tab_1$2.hideElement(style, node.getModel().isUseVisibility());
     }
     var tabs = [];
     if (node.isEnableTabStrip()) {
         for (var i = 0; i < node.getChildren().length; i++) {
             var child = node.getChildren()[i];
             var isSelected = node.getSelected() === i;
-            tabs.push(React$c.createElement(TabButton_1.TabButton, { layout: layout, node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, show: true, height: node.getTabStripHeight(), iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
+            tabs.push(React$a.createElement(TabButton_1.TabButton, { layout: layout, node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, height: node.getTabStripHeight(), iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
         }
     }
     var showHeader = node.getName() !== undefined;
@@ -6184,59 +6302,59 @@ var TabSet = function (props) {
             buttons = __spreadArray$2(__spreadArray$2([], stickyButtons), buttons);
         }
         else {
-            tabs.push(React$c.createElement("div", { ref: stickyButtonsRef, key: "sticky_buttons_container", onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); }, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_STICKY_BUTTONS_CONTAINER) }, stickyButtons));
+            tabs.push(React$a.createElement("div", { ref: stickyButtonsRef, key: "sticky_buttons_container", onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_STICKY_BUTTONS_CONTAINER) }, stickyButtons));
         }
     }
     var toolbar;
     if (hiddenTabs.length > 0) {
-        var overflowTitle = layout.i18nName(I18nLabel_1$4.I18nLabel.Overflow_Menu_Tooltip);
-        buttons.push(React$c.createElement("button", { key: "overflowbutton", "data-layout-path": path + "/button/overflow", ref: overflowbuttonRef, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_BUTTON_OVERFLOW), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
+        var overflowTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Overflow_Menu_Tooltip);
+        buttons.push(React$a.createElement("button", { key: "overflowbutton", "data-layout-path": path + "/button/overflow", ref: overflowbuttonRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_BUTTON_OVERFLOW), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
             icons.more,
             hiddenTabs.length));
     }
     if (selectedTabNode !== undefined && layout.isSupportsPopout() && selectedTabNode.isEnableFloat() && !selectedTabNode.isFloating()) {
-        var floatTitle = layout.i18nName(I18nLabel_1$4.I18nLabel.Float_Tab);
-        buttons.push(React$c.createElement("button", { key: "float", "data-layout-path": path + "/button/float", title: floatTitle, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.popout));
+        var floatTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Float_Tab);
+        buttons.push(React$a.createElement("button", { key: "float", "data-layout-path": path + "/button/float", title: floatTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.popout));
     }
     if (node.canMaximize()) {
-        var minTitle = layout.i18nName(I18nLabel_1$4.I18nLabel.Restore);
-        var maxTitle = layout.i18nName(I18nLabel_1$4.I18nLabel.Maximize);
+        var minTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Restore);
+        var maxTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Maximize);
         var btns = showHeader ? headerButtons : buttons;
-        btns.push(React$c.createElement("button", { key: "max", "data-layout-path": path + "/button/max", title: node.isMaximized() ? minTitle : maxTitle, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_ + (node.isMaximized() ? "max" : "min")), onClick: onMaximizeToggle, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, node.isMaximized() ? icons === null || icons === void 0 ? void 0 : icons.restore : icons === null || icons === void 0 ? void 0 : icons.maximize));
+        btns.push(React$a.createElement("button", { key: "max", "data-layout-path": path + "/button/max", title: node.isMaximized() ? minTitle : maxTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_ + (node.isMaximized() ? "max" : "min")), onClick: onMaximizeToggle, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, node.isMaximized() ? icons === null || icons === void 0 ? void 0 : icons.restore : icons === null || icons === void 0 ? void 0 : icons.maximize));
     }
     if (!node.isMaximized() && node.isEnableClose()) {
-        var title = layout.i18nName(I18nLabel_1$4.I18nLabel.Close_Tabset);
+        var title = layout.i18nName(I18nLabel_1$3.I18nLabel.Close_Tabset);
         var btns = showHeader ? headerButtons : buttons;
-        btns.push(React$c.createElement("button", { key: "close", "data-layout-path": path + "/button/close", title: title, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_CLOSE), onClick: onClose, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.closeTabset));
+        btns.push(React$a.createElement("button", { key: "close", "data-layout-path": path + "/button/close", title: title, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_CLOSE), onClick: onClose, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.closeTabset));
     }
-    toolbar = (React$c.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, buttons));
+    toolbar = (React$a.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, buttons));
     var header;
     var tabStrip;
-    var tabStripClasses = cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_OUTER);
+    var tabStripClasses = cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_OUTER);
     if (node.getClassNameTabStrip() !== undefined) {
         tabStripClasses += " " + node.getClassNameTabStrip();
     }
-    tabStripClasses += " " + Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_OUTER_ + node.getTabLocation();
+    tabStripClasses += " " + Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_OUTER_ + node.getTabLocation();
     if (node.isActive() && !showHeader) {
-        tabStripClasses += " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_SELECTED);
+        tabStripClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_SELECTED);
     }
     if (node.isMaximized() && !showHeader) {
-        tabStripClasses += " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_MAXIMIZED);
+        tabStripClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_MAXIMIZED);
     }
     if (showHeader) {
-        var headerToolbar = (React$c.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, headerButtons));
-        var tabHeaderClasses = cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_HEADER);
+        var headerToolbar = (React$a.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, headerButtons));
+        var tabHeaderClasses = cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_HEADER);
         if (node.isActive()) {
-            tabHeaderClasses += " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_SELECTED);
+            tabHeaderClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_SELECTED);
         }
         if (node.isMaximized()) {
-            tabHeaderClasses += " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_MAXIMIZED);
+            tabHeaderClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_MAXIMIZED);
         }
         if (node.getClassNameHeader() !== undefined) {
             tabHeaderClasses += " " + node.getClassNameHeader();
         }
-        header = (React$c.createElement("div", { className: tabHeaderClasses, style: { height: node.getHeaderHeight() + "px" }, "data-layout-path": path + "/header", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
-            React$c.createElement("div", { className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_HEADER_CONTENT) }, headerContent),
+        header = (React$a.createElement("div", { className: tabHeaderClasses, style: { height: node.getHeaderHeight() + "px" }, "data-layout-path": path + "/header", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
+            React$a.createElement("div", { className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_HEADER_CONTENT) }, headerContent),
             headerToolbar));
     }
     var tabStripStyle = { height: node.getTabStripHeight() + "px" };
@@ -6247,12 +6365,12 @@ var TabSet = function (props) {
     else {
         tabStripStyle["bottom"] = "0px";
     }
-    tabStrip = (React$c.createElement("div", { className: tabStripClasses, style: tabStripStyle, "data-layout-path": path + "/tabstrip", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
-        React$c.createElement("div", { ref: tabbarInnerRef, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER) + " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_ + node.getTabLocation()) },
-            React$c.createElement("div", { style: { left: position }, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER) + " " + cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER_ + node.getTabLocation()) }, tabs)),
+    tabStrip = (React$a.createElement("div", { className: tabStripClasses, style: tabStripStyle, "data-layout-path": path + "/tabstrip", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
+        React$a.createElement("div", { ref: tabbarInnerRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_ + node.getTabLocation()) },
+            React$a.createElement("div", { style: { left: position }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER_ + node.getTabLocation()) }, tabs)),
         toolbar));
     style = layout.styleFont(style);
-    return (React$c.createElement("div", { ref: selfRef, dir: "ltr", "data-layout-path": path, style: style, className: cm(Types_1$9.CLASSES.FLEXLAYOUT__TABSET), onWheel: onMouseWheel },
+    return (React$a.createElement("div", { ref: selfRef, dir: "ltr", "data-layout-path": path, style: style, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET), onWheel: onMouseWheel },
         header,
         tabStrip));
 };
@@ -6271,20 +6389,20 @@ TabSet$1.isAuxMouseEvent = isAuxMouseEvent;
 
 Object.defineProperty(BorderButton$1, "__esModule", { value: true });
 BorderButton$1.BorderButton = void 0;
-var React$b = require$$1;
-var __1$2 = lib$1;
-var Actions_1$5 = Actions$1;
+var React$9 = require$$1;
+var __1$1 = lib$1;
+var Actions_1$4 = Actions$1;
 var Rect_1$1 = Rect$1;
 var ICloseType_1 = ICloseType;
-var Types_1$8 = Types;
+var Types_1$6 = Types;
 var TabSet_1$2 = TabSet$1;
 /** @hidden @internal */
 var BorderButton = function (props) {
     var layout = props.layout, node = props.node, selected = props.selected, border = props.border, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var selfRef = React$b.useRef(null);
+    var selfRef = React$9.useRef(null);
     var onMouseDown = function (event) {
         if (!TabSet_1$2.isAuxMouseEvent(event)) {
-            var message = layout.i18nName(__1$2.I18nLabel.Move_Tab, node.getName());
+            var message = layout.i18nName(__1$1.I18nLabel.Move_Tab, node.getName());
             props.layout.dragStart(event, message, node, node.isEnableDrag(), onClick, function (event2) { return undefined; });
         }
     };
@@ -6297,7 +6415,7 @@ var BorderButton = function (props) {
         layout.showContextMenu(node, event);
     };
     var onClick = function () {
-        layout.doAction(Actions_1$5.default.selectTab(node.getId()));
+        layout.doAction(Actions_1$4.default.selectTab(node.getId()));
     };
     var isClosable = function () {
         var closeType = node.getCloseType();
@@ -6314,7 +6432,7 @@ var BorderButton = function (props) {
     };
     var onClose = function (event) {
         if (isClosable()) {
-            layout.doAction(Actions_1$5.default.deleteTab(node.getId()));
+            layout.doAction(Actions_1$4.default.deleteTab(node.getId()));
         }
         else {
             onClick();
@@ -6323,7 +6441,7 @@ var BorderButton = function (props) {
     var onCloseMouseDown = function (event) {
         event.stopPropagation();
     };
-    React$b.useLayoutEffect(function () {
+    React$9.useLayoutEffect(function () {
         updateRect();
     });
     var updateRect = function () {
@@ -6333,12 +6451,12 @@ var BorderButton = function (props) {
         node._setTabRect(new Rect_1$1.default(r.left - clientRect.left, r.top - clientRect.top, r.width, r.height));
     };
     var cm = layout.getClassName;
-    var classNames = cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON) + " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON_ + border);
+    var classNames = cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON) + " " + cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_ + border);
     if (selected) {
-        classNames += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON__SELECTED);
+        classNames += " " + cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON__SELECTED);
     }
     else {
-        classNames += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON__UNSELECTED);
+        classNames += " " + cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON__UNSELECTED);
     }
     if (node.getClassName() !== undefined) {
         classNames += " " + node.getClassName();
@@ -6366,20 +6484,20 @@ var BorderButton = function (props) {
         }
     }
     if (leadingContent === undefined && node.getIcon() !== undefined) {
-        leadingContent = React$b.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
+        leadingContent = React$9.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
     }
     var buttons = [];
     // allow customization of leading contents (icon) and contents
     var renderState = { leading: leadingContent, content: titleContent, name: name, buttons: buttons };
     layout.customizeTab(node, renderState);
     node._setRenderedName(renderState.name);
-    var content = React$b.createElement("div", { className: cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON_CONTENT) }, renderState.content);
-    var leading = React$b.createElement("div", { className: cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON_LEADING) }, renderState.leading);
+    var content = React$9.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_CONTENT) }, renderState.content);
+    var leading = React$9.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_LEADING) }, renderState.leading);
     if (node.isEnableClose()) {
-        var closeTitle = layout.i18nName(__1$2.I18nLabel.Close_Tab);
-        buttons.push(React$b.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$8.CLASSES.FLEXLAYOUT__BORDER_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
+        var closeTitle = layout.i18nName(__1$1.I18nLabel.Close_Tab);
+        buttons.push(React$9.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
     }
-    return (React$b.createElement("div", { ref: selfRef, style: {}, className: classNames, "data-layout-path": path, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
+    return (React$9.createElement("div", { ref: selfRef, style: {}, className: classNames, "data-layout-path": path, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
         leading,
         content,
         buttons));
@@ -6388,22 +6506,22 @@ BorderButton$1.BorderButton = BorderButton;
 
 Object.defineProperty(BorderTabSet$1, "__esModule", { value: true });
 BorderTabSet$1.BorderTabSet = void 0;
-var React$a = require$$1;
+var React$8 = require$$1;
 var DockLocation_1$1 = DockLocation$1;
 var BorderButton_1 = BorderButton$1;
 var PopupMenu_1 = PopupMenu$1;
-var Actions_1$4 = Actions$1;
-var I18nLabel_1$3 = I18nLabel;
+var Actions_1$3 = Actions$1;
+var I18nLabel_1$2 = I18nLabel;
 var TabOverflowHook_1 = TabOverflowHook;
 var Orientation_1$1 = Orientation$1;
-var Types_1$7 = Types;
+var Types_1$5 = Types;
 var TabSet_1$1 = TabSet$1;
 /** @hidden @internal */
 var BorderTabSet = function (props) {
     var border = props.border, layout = props.layout, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var toolbarRef = React$a.useRef(null);
-    var overflowbuttonRef = React$a.useRef(null);
-    var stickyButtonsRef = React$a.useRef(null);
+    var toolbarRef = React$8.useRef(null);
+    var overflowbuttonRef = React$8.useRef(null);
+    var stickyButtonsRef = React$8.useRef(null);
     var _a = TabOverflowHook_1.useTabOverflow(border, Orientation_1$1.default.flip(border.getOrientation()), toolbarRef, stickyButtonsRef), selfRef = _a.selfRef, position = _a.position, userControlledLeft = _a.userControlledLeft, hiddenTabs = _a.hiddenTabs, onMouseWheel = _a.onMouseWheel;
     var onAuxMouseClick = function (event) {
         if (TabSet_1$1.isAuxMouseEvent(event)) {
@@ -6422,13 +6540,13 @@ var BorderTabSet = function (props) {
         event.stopPropagation();
     };
     var onOverflowItemSelect = function (item) {
-        layout.doAction(Actions_1$4.default.selectTab(item.node.getId()));
+        layout.doAction(Actions_1$3.default.selectTab(item.node.getId()));
         userControlledLeft.current = false;
     };
     var onFloatTab = function (event) {
         var selectedTabNode = border.getChildren()[border.getSelected()];
         if (selectedTabNode !== undefined) {
-            layout.doAction(Actions_1$4.default.floatTab(selectedTabNode.getId()));
+            layout.doAction(Actions_1$3.default.floatTab(selectedTabNode.getId()));
         }
         event.stopPropagation();
     };
@@ -6438,12 +6556,12 @@ var BorderTabSet = function (props) {
     var layoutTab = function (i) {
         var isSelected = border.getSelected() === i;
         var child = border.getChildren()[i];
-        tabs.push(React$a.createElement(BorderButton_1.BorderButton, { layout: layout, border: border.getLocation().getName(), node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
+        tabs.push(React$8.createElement(BorderButton_1.BorderButton, { layout: layout, border: border.getLocation().getName(), node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
     };
     for (var i = 0; i < border.getChildren().length; i++) {
         layoutTab(i);
     }
-    var borderClasses = cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_ + border.getLocation().getName());
+    var borderClasses = cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_ + border.getLocation().getName());
     if (border.getClassName() !== undefined) {
         borderClasses += " " + border.getClassName();
     }
@@ -6454,8 +6572,8 @@ var BorderTabSet = function (props) {
     buttons = renderState.buttons;
     var toolbar;
     if (hiddenTabs.length > 0) {
-        var overflowTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Overflow_Menu_Tooltip);
-        buttons.push(React$a.createElement("button", { key: "overflowbutton", ref: overflowbuttonRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW_ + border.getLocation().getName()), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
+        var overflowTitle = layout.i18nName(I18nLabel_1$2.I18nLabel.Overflow_Menu_Tooltip);
+        buttons.push(React$8.createElement("button", { key: "overflowbutton", ref: overflowbuttonRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW_ + border.getLocation().getName()), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
             icons.more,
             hiddenTabs.length));
     }
@@ -6463,11 +6581,11 @@ var BorderTabSet = function (props) {
     if (selectedIndex !== -1) {
         var selectedTabNode = border.getChildren()[selectedIndex];
         if (selectedTabNode !== undefined && layout.isSupportsPopout() && selectedTabNode.isEnableFloat() && !selectedTabNode.isFloating()) {
-            var floatTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Float_Tab);
-            buttons.push(React$a.createElement("button", { key: "float", title: floatTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }));
+            var floatTitle = layout.i18nName(I18nLabel_1$2.I18nLabel.Float_Tab);
+            buttons.push(React$8.createElement("button", { key: "float", title: floatTitle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }));
         }
     }
-    toolbar = (React$a.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_ + border.getLocation().getName()) }, buttons));
+    toolbar = (React$8.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_ + border.getLocation().getName()) }, buttons));
     style = layout.styleFont(style);
     var innerStyle = {};
     var borderHeight = border.getBorderBarSize() - 1;
@@ -6480,9 +6598,9 @@ var BorderTabSet = function (props) {
     else {
         innerStyle = { height: borderHeight, left: position };
     }
-    return (React$a.createElement("div", { ref: selfRef, dir: "ltr", style: style, className: borderClasses, "data-layout-path": path, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onWheel: onMouseWheel },
-        React$a.createElement("div", { style: { height: borderHeight }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_INNER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_INNER_ + border.getLocation().getName()) },
-            React$a.createElement("div", { style: innerStyle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER_ + border.getLocation().getName()) }, tabs)),
+    return (React$8.createElement("div", { ref: selfRef, dir: "ltr", style: style, className: borderClasses, "data-layout-path": path, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onWheel: onMouseWheel },
+        React$8.createElement("div", { style: { height: borderHeight }, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_ + border.getLocation().getName()) },
+            React$8.createElement("div", { style: innerStyle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER_ + border.getLocation().getName()) }, tabs)),
         toolbar));
 };
 BorderTabSet$1.BorderTabSet = BorderTabSet;
@@ -6491,17 +6609,17 @@ var Splitter$1 = {};
 
 Object.defineProperty(Splitter$1, "__esModule", { value: true });
 Splitter$1.Splitter = void 0;
-var React$9 = require$$1;
+var React$7 = require$$1;
 var DragDrop_1$1 = DragDrop$1;
-var Actions_1$3 = Actions$1;
+var Actions_1$2 = Actions$1;
 var BorderNode_1$1 = BorderNode$1;
 var Orientation_1 = Orientation$1;
-var Types_1$6 = Types;
+var Types_1$4 = Types;
 /** @hidden @internal */
 var Splitter = function (props) {
     var layout = props.layout, node = props.node, path = props.path;
-    var pBounds = React$9.useRef([]);
-    var outlineDiv = React$9.useRef(undefined);
+    var pBounds = React$7.useRef([]);
+    var outlineDiv = React$7.useRef(undefined);
     var parentNode = node.getParent();
     var onMouseDown = function (event) {
         DragDrop_1$1.default.instance.setGlassCursorOverride(node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize");
@@ -6510,7 +6628,7 @@ var Splitter = function (props) {
         var rootdiv = layout.getRootDiv();
         outlineDiv.current = layout.getCurrentDocument().createElement("div");
         outlineDiv.current.style.position = "absolute";
-        outlineDiv.current.className = layout.getClassName(Types_1$6.CLASSES.FLEXLAYOUT__SPLITTER_DRAG);
+        outlineDiv.current.className = layout.getClassName(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER_DRAG);
         outlineDiv.current.style.cursor = node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize";
         var r = node.getRect();
         if (node.getOrientation() === Orientation_1.default.VERT && r.width < 2) {
@@ -6559,12 +6677,12 @@ var Splitter = function (props) {
         }
         if (parentNode instanceof BorderNode_1$1.default) {
             var pos = parentNode._calculateSplit(node, value);
-            layout.doAction(Actions_1$3.default.adjustBorderSplit(node.getParent().getId(), pos));
+            layout.doAction(Actions_1$2.default.adjustBorderSplit(node.getParent().getId(), pos));
         }
         else {
             var splitSpec = parentNode._calculateSplit(node, value);
             if (splitSpec !== undefined) {
-                layout.doAction(Actions_1$3.default.adjustSplit(splitSpec));
+                layout.doAction(Actions_1$2.default.adjustSplit(splitSpec));
             }
         }
     };
@@ -6589,9 +6707,9 @@ var Splitter = function (props) {
     var style = r.styleWithPosition({
         cursor: node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize",
     });
-    var className = cm(Types_1$6.CLASSES.FLEXLAYOUT__SPLITTER) + " " + cm(Types_1$6.CLASSES.FLEXLAYOUT__SPLITTER_ + node.getOrientation().getName());
+    var className = cm(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER) + " " + cm(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER_ + node.getOrientation().getName());
     if (parentNode instanceof BorderNode_1$1.default) {
-        className += " " + cm(Types_1$6.CLASSES.FLEXLAYOUT__SPLITTER_BORDER);
+        className += " " + cm(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER_BORDER);
     }
     else {
         if (node.getModel().getMaximizedTabset() !== undefined) {
@@ -6600,7 +6718,7 @@ var Splitter = function (props) {
     }
     var extra = node.getModel().getSplitterExtra();
     if (extra === 0) {
-        return (React$9.createElement("div", { style: style, "data-layout-path": path, className: className, onTouchStart: onMouseDown, onMouseDown: onMouseDown }));
+        return (React$7.createElement("div", { style: style, "data-layout-path": path, className: className, onTouchStart: onMouseDown, onMouseDown: onMouseDown }));
     }
     else {
         // add extended transparent div for hit testing
@@ -6617,115 +6735,12 @@ var Splitter = function (props) {
         var style2 = r2.styleWithPosition({
             cursor: node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize"
         });
-        var className2 = cm(Types_1$6.CLASSES.FLEXLAYOUT__SPLITTER_EXTRA);
-        return (React$9.createElement("div", { style: style, "data-layout-path": path, className: className },
-            React$9.createElement("div", { style: style2, className: className2, onTouchStart: onMouseDown, onMouseDown: onMouseDown })));
+        var className2 = cm(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER_EXTRA);
+        return (React$7.createElement("div", { style: style, "data-layout-path": path, className: className },
+            React$7.createElement("div", { style: style2, className: className2, onTouchStart: onMouseDown, onMouseDown: onMouseDown })));
     }
 };
 Splitter$1.Splitter = Splitter;
-
-var Tab$1 = {};
-
-var ErrorBoundary$1 = {};
-
-var __extends$4 = (commonjsGlobal && commonjsGlobal.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(ErrorBoundary$1, "__esModule", { value: true });
-ErrorBoundary$1.ErrorBoundary = void 0;
-var React$8 = require$$1;
-var Types_1$5 = Types;
-/** @hidden @internal */
-var ErrorBoundary = /** @class */ (function (_super) {
-    __extends$4(ErrorBoundary, _super);
-    function ErrorBoundary(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = { hasError: false };
-        return _this;
-    }
-    ErrorBoundary.getDerivedStateFromError = function (error) {
-        return { hasError: true };
-    };
-    ErrorBoundary.prototype.componentDidCatch = function (error, errorInfo) {
-        console.debug(error);
-        console.debug(errorInfo);
-    };
-    ErrorBoundary.prototype.render = function () {
-        if (this.state.hasError) {
-            return (React$8.createElement("div", { className: Types_1$5.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTAINER },
-                React$8.createElement("div", { className: Types_1$5.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTENT }, this.props.message)));
-        }
-        return this.props.children;
-    };
-    return ErrorBoundary;
-}(React$8.Component));
-ErrorBoundary$1.ErrorBoundary = ErrorBoundary;
-
-Object.defineProperty(Tab$1, "__esModule", { value: true });
-Tab$1.Tab = void 0;
-var React$7 = require$$1;
-var react_1$1 = require$$1;
-var Actions_1$2 = Actions$1;
-var TabSetNode_1$2 = TabSetNode$1;
-var Types_1$4 = Types;
-var ErrorBoundary_1$1 = ErrorBoundary$1;
-var I18nLabel_1$2 = I18nLabel;
-var __1$1 = lib$1;
-/** @hidden @internal */
-var Tab = function (props) {
-    var layout = props.layout, selected = props.selected, node = props.node, factory = props.factory, path = props.path;
-    var _a = React$7.useState(!props.node.isEnableRenderOnDemand() || props.selected), renderComponent = _a[0], setRenderComponent = _a[1];
-    React$7.useLayoutEffect(function () {
-        if (!renderComponent && selected) {
-            // load on demand
-            // console.log("load on demand: " + node.getName());
-            setRenderComponent(true);
-        }
-    });
-    var onMouseDown = function () {
-        var parent = node.getParent();
-        if (parent.getType() === TabSetNode_1$2.default.TYPE) {
-            if (!parent.isActive()) {
-                layout.doAction(Actions_1$2.default.setActiveTabset(parent.getId()));
-            }
-        }
-    };
-    var cm = layout.getClassName;
-    var parentNode = node.getParent();
-    var style = node._styleWithPosition({
-        display: selected ? "block" : "none",
-    });
-    if (parentNode instanceof TabSetNode_1$2.default) {
-        if (node.getModel().getMaximizedTabset() !== undefined && !parentNode.isMaximized()) {
-            style.display = "none";
-        }
-    }
-    var child;
-    if (renderComponent) {
-        child = factory(node);
-    }
-    var className = cm(Types_1$4.CLASSES.FLEXLAYOUT__TAB);
-    if (parentNode instanceof __1$1.BorderNode) {
-        className += " " + cm(Types_1$4.CLASSES.FLEXLAYOUT__TAB_BORDER);
-        className += " " + cm(Types_1$4.CLASSES.FLEXLAYOUT__TAB_BORDER_ + parentNode.getLocation().getName());
-    }
-    return (React$7.createElement("div", { className: className, "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
-        React$7.createElement(ErrorBoundary_1$1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$2.I18nLabel.Error_rendering_component) },
-            React$7.createElement(react_1$1.Fragment, null, child))));
-};
-Tab$1.Tab = Tab;
 
 var FloatingWindow$1 = {};
 
@@ -6750,17 +6765,23 @@ var FloatingWindow = function (props) {
         // the floating window. window.document.styleSheets is mutable and we can't guarantee
         // the styles will exist when 'popoutWindow.load' is called below.
         var styles = Array.from(window.document.styleSheets).reduce(function (result, styleSheet) {
+            var rules = undefined;
+            try {
+                rules = styleSheet.cssRules;
+            }
+            catch (e) {
+                // styleSheet.cssRules can throw security exception
+            }
             try {
                 return __spreadArray$1(__spreadArray$1([], result), [
                     {
                         href: styleSheet.href,
                         type: styleSheet.type,
-                        rules: Array.from(styleSheet.cssRules).map(function (rule) { return rule.cssText; }),
+                        rules: rules ? Array.from(rules).map(function (rule) { return rule.cssText; }) : null,
                     }
                 ]);
             }
             catch (e) {
-                // styleSheet.cssRules can throw security exception
                 return result;
             }
         }, []);
@@ -6828,9 +6849,11 @@ function copyStyles(doc, styleSheets) {
             }));
         }
         else {
-            var style_1 = doc.createElement("style");
-            styleSheet.rules.forEach(function (rule) { return style_1.appendChild(doc.createTextNode(rule)); });
-            head.appendChild(style_1);
+            if (styleSheet.rules) {
+                var style_1 = doc.createElement("style");
+                styleSheet.rules.forEach(function (rule) { return style_1.appendChild(doc.createTextNode(rule)); });
+                head.appendChild(style_1);
+            }
         }
     });
     return Promise.all(promises);
@@ -6865,6 +6888,7 @@ var Actions_1$1 = Actions$1;
 var TabSetNode_1$1 = TabSetNode$1;
 var Types_1$1 = Types;
 var I18nLabel_1 = I18nLabel;
+var Tab_1$1 = Tab$1;
 /** @hidden @internal */
 var TabFloating = function (props) {
     var layout = props.layout, selected = props.selected, node = props.node, path = props.path;
@@ -6893,9 +6917,10 @@ var TabFloating = function (props) {
         dockPopout();
     };
     var cm = layout.getClassName;
-    var style = node._styleWithPosition({
-        display: selected ? "flex" : "none",
-    });
+    var style = node._styleWithPosition();
+    if (!selected) {
+        Tab_1$1.hideElement(style, node.getModel().isUseVisibility());
+    }
     var message = layout.i18nName(I18nLabel_1.I18nLabel.Floating_Window_Message);
     var showMessage = layout.i18nName(I18nLabel_1.I18nLabel.Floating_Window_Show_Window);
     var dockMessage = layout.i18nName(I18nLabel_1.I18nLabel.Floating_Window_Dock_Window);
@@ -41487,20 +41512,34 @@ class OrbitView extends ReactDOM$2.PureComponent {
     return {
       path: propTypes$1.exports.string,
       view: propTypes$1.exports.object,
-      workspace: propTypes$1.exports.string
+      sourceLocation: propTypes$1.exports.object,
+      workspace: propTypes$1.exports.string,
+      onMove: propTypes$1.exports["function"],
+      onClick: propTypes$1.exports["function"],
+      onDrag: propTypes$1.exports["function"],
+      onDragEnd: propTypes$1.exports["function"],
+      trackballState: propTypes$1.exports.object
     };
   }
 
   constructor(props) {
     super(props);
-    this.state = {};
+    const {
+      path,
+      view
+    } = props;
+    this.state = {
+      path,
+      view
+    };
   }
 
   async buildElement(container) {
     const {
       path,
       view,
-      workspace
+      workspace,
+      trackballState
     } = this.props;
 
     if (!path) {
@@ -41521,10 +41560,17 @@ class OrbitView extends ReactDOM$2.PureComponent {
       position,
       withAxes,
       withGrid
-    } = view; // const element = document.createElement('div');
-    // element.classList.add('note', 'orbitView');
-
-    await orbitDisplay({
+    } = view;
+    const {
+      camera,
+      canvas,
+      dragControls,
+      draggableObjects,
+      renderer,
+      scene,
+      trackballControls,
+      updateGeometry
+    } = await orbitDisplay({
       view: {
         target,
         up,
@@ -41540,12 +41586,178 @@ class OrbitView extends ReactDOM$2.PureComponent {
       container.removeChild(container.firstChild);
     }
 
+    const state = await trackballState;
+    this.trackballControls = trackballControls;
+
+    if (state.target) {
+      this.trackballControls.target0.copy(state.target);
+    }
+
+    if (state.position) {
+      this.trackballControls.position0.copy(state.position);
+    }
+
+    if (state.up) {
+      this.trackballControls.up0.copy(state.up);
+    }
+
+    if (state.zoom) {
+      this.trackballControls.zoom0 = state.zoom;
+    }
+
+    this.trackballControls.reset();
     this.builtPath = path;
     this.builtContainer = container;
+
+    if (this.watcher) {
+      unwatchFile(this.builtPath, this.watcher, {
+        workspace
+      });
+    }
+
+    this.watcher = async () => {
+      // FIX: Why isn't this done by updateGeometry?
+      // Backup the control state.
+      this.trackballControls.target0.copy(this.trackballControls.target);
+      this.trackballControls.position0.copy(this.trackballControls.object.position);
+      this.trackballControls.up0.copy(this.trackballControls.object.up);
+      this.trackballControls.zoom0 = this.trackballControls.object.zoom;
+      const geometry = await read(this.builtPath, {
+        workspace
+      });
+      await updateGeometry(geometry); // Restore the control state.
+
+      trackballControls.reset();
+    };
+
+    watchFile(path, this.watcher, {
+      workspace
+    });
+    trackballControls.addEventListener('change', () => {
+      const {
+        onMove
+      } = this.props;
+
+      if (onMove) {
+        const {
+          target
+        } = trackballControls;
+        const {
+          position,
+          up,
+          zoom
+        } = trackballControls.object;
+        onMove({
+          path,
+          position,
+          up,
+          target,
+          zoom
+        });
+      }
+    });
+
+    const handleDrag = ({
+      object
+    }) => {
+      const {
+        onDrag
+      } = this.props;
+
+      if (onDrag) {
+        onDrag({
+          object
+        });
+      }
+    };
+
+    const handleDragEnd = ({
+      object
+    }) => {
+      const {
+        onDragEnd
+      } = this.props;
+
+      if (onDragEnd) {
+        onDragEnd({
+          object
+        });
+      }
+    };
+
+    const handleClick = type => event => {
+      const {
+        onClick,
+        view,
+        sourceLocation
+      } = this.props;
+      const rect = event.target.getBoundingClientRect();
+      const x = (event.clientX - rect.x) / rect.width * 2 - 1;
+      const y = -((event.clientY - rect.y) / rect.height) * 2 + 1;
+      const {
+        ray,
+        object
+      } = raycast(x, y, camera, [scene]);
+
+      if (!object) {
+        return;
+      }
+
+      if (object.userData.onClick) {
+        return object.userData.onClick({
+          event
+        });
+      } else if (onClick) {
+        const {
+          editId,
+          editType,
+          viewId
+        } = object.userData;
+        return onClick({
+          camera,
+          draggableObjects,
+          event,
+          editId,
+          editType,
+          path,
+          position: camera.position,
+          object,
+          scene,
+          sourceLocation,
+          trackballControls,
+          ray,
+          renderer,
+          target: trackballControls.target,
+          threejsMesh: object,
+          type,
+          view,
+          viewId
+        });
+      }
+    };
+
+    canvas.addEventListener('contextmenu', event => {
+      event.preventDefault();
+      handleClick('right')(event);
+    });
+    canvas.addEventListener('click', handleClick('left'));
+    dragControls.addEventListener('drag', handleDrag);
+    dragControls.addEventListener('dragend', handleDragEnd);
+  }
+
+  componentWillUnmount() {
+    const {
+      workspace
+    } = this.props;
+
+    if (this.watcher) {
+      unwatchFile(this.path, this.watcher, {
+        workspace
+      });
+    }
   }
 
   render() {
-    // return <div classList="note orbitView" onClick={e => e.stopPropagation()} ref={async (container) => {
     return v$1("div", {
       classList: "note orbitView",
       ref: async container => {
@@ -41620,6 +41832,8 @@ const ensureFile = async (file, url, {
     });
   }
 };
+
+const isRegenerable = file => file.startsWith('data/') || file.startsWith('meta/') || file.startsWith('view/') || file.startsWith('download/');
 
 const defaultModelConfig = {
   global: {},
@@ -41905,57 +42119,23 @@ class App extends ReactDOM$2.Component {
 
     this.ask = async (question, context, transfer) => askService(this.serviceSpec, question, transfer, context);
 
-    this.save = async () => {
-      if (this.saving) {
-        return;
-      }
-
-      try {
-        const {
-          workspace
-        } = this.props;
-        const {
-          View,
-          WorkspaceOpenPaths,
-          model
-        } = this.state;
-        this.Model.saving = true;
-        const uiConfig = {
-          persistentModelConfig: model.toJson(),
-          View,
-          WorkspaceOpenPaths
-        };
-        await write('ui/config', uiConfig, {
-          workspace
-        });
-      } finally {
-        this.saving = false;
-      }
-    };
-
-    this.load = async () => {
-      const {
-        persistentModelConfig = defaultModelConfig,
-        View,
-        WorkspaceOpenPaths = []
-      } = (await read('ui/config', {
-        workspace
-      })) || {};
-      const model = FlexLayout.Model.fromJson(persistentModelConfig);
-
-      for (const path of WorkspaceOpenPaths) {
-        await this.Notebook.load(path);
-      }
-
-      await this.updateState({
-        View,
-        WorkspaceFiles,
-        WorkspaceOpenPaths,
-        model
-      });
-    };
-
     this.layoutRef = /*#__PURE__*/ReactDOM$2.createRef();
+    this.GC = {};
+
+    this.GC.delete = async () => {
+      const {
+        WorkspaceFiles
+      } = this.state;
+      const regenerableFiles = WorkspaceFiles.filter(file => isRegenerable(file));
+
+      for (const file of regenerableFiles) {
+        console.log(`QQ/Deleting: ${file}`);
+        await deleteFile({
+          workspace
+        }, file);
+      }
+    };
+
     this.Layout = {};
 
     this.Layout.action = action => {
@@ -41963,34 +42143,147 @@ class App extends ReactDOM$2.Component {
       return action;
     };
 
+    this.Layout.buildSpinners = path => {
+      const pieces = ['<span>&nbsp;&nbsp;</span>'];
+      const count = this.servicesActiveCounts[path];
+
+      for (let nth = 0; nth < count; nth++) {
+        pieces.push('<span id="spinner" style={{display: "inline-block", width: "10px"}}/>');
+      }
+
+      return pieces.join('');
+    };
+
+    this.Layout.updateSpinners = path => {
+      const spinners = document.getElementById(`Spinners/Notebook/${path}`);
+
+      if (spinners) {
+        spinners.innerHTML = this.Layout.buildSpinners(path);
+      }
+    };
+
+    this.Layout.renderTab = (tabNode, {
+      buttons
+    }) => {
+      const id = tabNode.getId();
+
+      if (id.startsWith('Notebook/')) {
+        const path = id.substring(9);
+        buttons.push(v$1("span", {
+          id: `Spinners/${id}`,
+          dangerouslySetInnerHTML: this.Layout.buildSpinners(path)
+        }));
+      }
+    };
+
     this.Model = {};
 
-    this.Model.change = async () => this.save();
+    this.Model.change = async () => {
+      if (this.Model.changing) {
+        return;
+      }
+
+      try {
+        this.Model.changing = true;
+        await this.Model.store();
+      } finally {
+        this.Model.changing = false;
+      }
+    };
+
+    this.Model.store = async () => {
+      if (this.Model.saving) {
+        return;
+      }
+
+      try {
+        this.Model.saving = true;
+        const {
+          workspace
+        } = this.props;
+        const {
+          model
+        } = this.state;
+        await write('config/Model', {
+          persistentModelConfig: model.toJson()
+        }, {
+          workspace
+        });
+      } finally {
+        this.Model.saving = false;
+      }
+    };
+
+    this.Model.restore = async () => {
+      const {
+        persistentModelConfig = defaultModelConfig
+      } = (await read('config/Model', {
+        workspace
+      })) || {}; // Reconstruct WorkspaceOpenPaths from the layout, so they stay in sync.
+
+      const WorkspaceOpenPaths = [];
+
+      for (const tabset of persistentModelConfig.layout.children) {
+        if (tabset.id !== 'Notebooks') {
+          continue;
+        }
+
+        for (const {
+          id
+        } of tabset.children) {
+          WorkspaceOpenPaths.push(id.substring(9));
+        }
+      }
+
+      for (const path of WorkspaceOpenPaths) {
+        await this.Notebook.load(path);
+      }
+
+      const model = FlexLayout.Model.fromJson(persistentModelConfig);
+      await this.updateState({
+        model,
+        WorkspaceOpenPaths
+      }); // Now that layout is in place, run the notebooks we just loaded.
+
+      for (const path of WorkspaceOpenPaths) {
+        await this.Notebook.run(path);
+      }
+    };
 
     this.Notebook = {};
 
-    this.Notebook.clickView = ({
+    this.Notebook.clickView = async ({
       path,
-      id,
-      view
+      view,
+      sourceLocation
     }) => {
-      this.setState({
+      const {
+        model
+      } = this.state;
+      await this.updateState({
         View: {
           path,
-          id,
-          view
+          view,
+          sourceLocation
         }
-      });
+      }); // This is a bit of a hack, since selectTab toggles.
+
+      model.getNodeById('View').getParent()._setSelected(-1);
+
+      model.doAction(FlexLayout.Actions.selectTab('View'));
+      this.View.store();
     };
 
-    this.Notebook.clickMake = ({
+    this.Notebook.clickMake = async ({
       path,
-      id
+      id,
+      sourceLocation
     }) => {
-      this.setState({
+      await this.updateState({
         Make: {
           path,
-          id
+          id,
+          sourceLocation
         }
       });
     };
@@ -42111,8 +42404,7 @@ class App extends ReactDOM$2.Component {
       }); // Let state propagate.
 
       await animationFrame(); // Automatically run the notebook on load. The user can hit Stop.
-
-      await this.Notebook.run(path);
+      // await this.Notebook.run(path);
     };
 
     this.Notebook.save = async path => {
@@ -42144,7 +42436,7 @@ class App extends ReactDOM$2.Component {
         workspace
       });
       await this.updateState({
-        NotebookText: cleanText
+        [`NotebookText/${path}`]: cleanText
       }); // Let state propagate.
 
       await animationFrame();
@@ -42159,15 +42451,16 @@ class App extends ReactDOM$2.Component {
 
     this.Notebook.clickLink = (path, link) => {};
 
-    this.Notebook.close = closedPath => {
+    this.Notebook.close = async closedPath => {
       const {
         WorkspaceOpenPaths = []
       } = this.state;
-      this.setState({
+      await this.updateState({
         [`NotebookText/${closedPath}`]: undefined,
         [`NotebookAdvice/${closedPath}`]: undefined,
         WorkspaceOpenPaths: WorkspaceOpenPaths.filter(path => path !== closedPath)
       });
+      this.Workspace.store();
     };
 
     this.Notebook.ensureAdvice = path => {
@@ -42189,6 +42482,260 @@ class App extends ReactDOM$2.Component {
       return createdAdvice;
     };
 
+    this.View = {};
+
+    this.View.dragEnd = async ({
+      object
+    }) => {
+      if (this.View.updating) {
+        return;
+      }
+
+      try {
+        this.View.updating = true;
+        dragAnchor({
+          object
+        });
+      } finally {
+        this.View.updating = false;
+      }
+    };
+
+    this.View.click = async ({
+      camera,
+      draggableObjects,
+      editId,
+      editType,
+      object,
+      trackballControls,
+      position,
+      ray,
+      renderer,
+      scene,
+      sourceLocation,
+      type,
+      target,
+      threejsMesh,
+      viewId
+    }) => {
+      if (this.View.updating) {
+        return;
+      }
+
+      try {
+        this.View.updating = true;
+
+        switch (editType) {
+          case 'Group':
+            {
+              let changeScheduled = false;
+              let at, to, up;
+
+              const change = async () => {
+                changeScheduled = false;
+                const request = {
+                  viewId,
+                  nth: object.userData.groupChildId,
+                  at: getWorldPosition(at, 0.01),
+                  to: getWorldPosition(to, 0.01),
+                  up: getWorldPosition(up, 0.01)
+                };
+
+                if (request.nth === undefined) {
+                  return;
+                }
+
+                console.log(JSON.stringify(request));
+                const {
+                  path
+                } = sourceLocation;
+                const {
+                  [`NotebookText/${path}`]: NotebookText
+                } = this.state;
+                const newNotebookText = rewriteViewGroupOrient(NotebookText, request);
+                await this.updateState({
+                  [`NotebookText/${path}`]: newNotebookText
+                });
+              };
+
+              ({
+                at,
+                to,
+                up
+              } = addAnchors({
+                camera,
+                draggableObjects,
+                editId,
+                editType,
+                object,
+                onObjectChange: () => {
+                  if (!changeScheduled) {
+                    changeScheduled = true;
+                    setTimeout(change, 500);
+                  }
+                },
+                position,
+                ray,
+                renderer,
+                scene,
+                sourceLocation,
+                type,
+                target,
+                threejsMesh,
+                trackballControls,
+                viewState: this.View.state
+              }));
+              return;
+            }
+
+          case 'Voxels':
+            {
+              const {
+                path
+              } = sourceLocation;
+              const {
+                [`NotebookText/${path}`]: NotebookText
+              } = this.state;
+              const request = {
+                editId
+              };
+              const [point, normal] = ray;
+
+              switch (type) {
+                case 'left':
+                  request.pointToAppend = [point[0] + normal[0] / 2, point[1] + normal[1] / 2, point[2] + normal[2] / 2].map(v => Math.round(v));
+                  break;
+
+                case 'right':
+                  request.pointToRemove = [point[0] - normal[0] / 2, point[1] - normal[1] / 2, point[2] - normal[2] / 2].map(v => Math.round(v));
+                  break;
+              }
+
+              const newNotebookText = rewriteVoxels(NotebookText, request);
+              await this.updateState({
+                [`NotebookText/${path}`]: newNotebookText
+              }); // Add an voxel to the display to temporarily reflect what we added to the source.
+
+              if (request.pointToAppend) {
+                addVoxel({
+                  editId,
+                  point: request.pointToAppend,
+                  scene,
+                  threejsMesh
+                });
+              }
+
+              await this.Notebook.run(path);
+            }
+        }
+      } finally {
+        this.View.updating = false;
+      }
+    };
+
+    this.View.move = async ({
+      path,
+      position,
+      up,
+      target,
+      zoom
+    }) => {
+      if (this.View.moving) {
+        return;
+      }
+
+      try {
+        this.View.moving = true;
+        await this.View.trackballState.store(path, {
+          position,
+          up,
+          target,
+          zoom
+        });
+      } finally {
+        this.View.moving = false;
+      }
+    };
+
+    this.View.state = {
+      anchorObject: null,
+      anchors: []
+    };
+
+    this.View.store = async () => {
+      const {
+        workspace
+      } = this.props;
+      const {
+        View
+      } = this.state;
+      await write('config/View', View, {
+        workspace
+      });
+    };
+
+    this.View.restore = async () => {
+      const {
+        workspace
+      } = this.props;
+      const View = await read('config/View', {
+        workspace
+      });
+      await this.updateState({
+        View
+      });
+    };
+
+    this.View.trackballState = {};
+
+    this.View.trackballState.store = async (path, {
+      position,
+      up,
+      target,
+      zoom
+    }) => {
+      if (this.View.saving) {
+        return;
+      }
+
+      try {
+        this.View.saving = true;
+        const {
+          workspace
+        } = this.props;
+        await write(`config/View/trackballState/${path}`, {
+          position,
+          up,
+          target,
+          zoom
+        }, {
+          workspace
+        });
+      } finally {
+        this.View.saving = false;
+      }
+    };
+
+    this.View.trackballState.load = async path => {
+      const {
+        workspace
+      } = this.props;
+      const {
+        position,
+        up,
+        target,
+        zoom
+      } = (await read(`config/View/trackballState/${path}`, {
+        workspace
+      })) || {};
+      return {
+        position,
+        up,
+        target,
+        zoom
+      };
+    };
+
     this.Workspace = {};
 
     this.Workspace.loadWorkingPath = async () => {
@@ -42206,13 +42753,15 @@ class App extends ReactDOM$2.Component {
       await this.updateState({
         WorkspaceOpenPaths: [...WorkspaceOpenPaths, path]
       });
-      this.Notebook.load(path);
+      await this.Notebook.load(path);
       this.layoutRef.current.addTabToTabSet('Notebooks', {
         id: `Notebook/${path}`,
         type: 'tab',
         name: path,
         component: 'Notebook'
       });
+      await this.Workspace.store();
+      await this.Notebook.run(path);
     };
 
     this.Workspace.openWorkingFile = async file => {
@@ -42229,13 +42778,50 @@ class App extends ReactDOM$2.Component {
       await this.updateState({
         WorkspaceOpenPaths: [...WorkspaceOpenPaths, path]
       });
-      this.Notebook.load(path);
+      await this.Notebook.load(path);
       this.layoutRef.current.addTabToTabSet('Notebooks', {
         id: `Notebook/${path}`,
         type: 'tab',
         name: path,
         component: 'Notebook'
       });
+      await this.Workspace.store();
+      await this.Notebook.run(path);
+    };
+
+    this.Workspace.store = async () => {
+      if (this.Workspace.saving) {
+        return;
+      }
+
+      try {
+        this.Model.saving = true;
+        const {
+          workspace
+        } = this.props;
+        const {
+          WorkspaceOpenPaths
+        } = this.state;
+        const config = {
+          WorkspaceOpenPaths
+        };
+        await write('config/Workspace', config, {
+          workspace
+        });
+      } finally {
+        this.Workspace.saving = false;
+      }
+    };
+
+    this.Workspace.restore = async () => {// We restore these via Model.restore.
+
+      /*
+      const { WorkspaceOpenPaths = [] } = (await read('config/Workspace', { workspace })) || {};
+      for (const path of WorkspaceOpenPaths) {
+        await this.Notebook.load(path);
+      }
+      await this.updateState({ WorkspaceOpenPaths });
+      */
     };
 
     this.factory = node => {
@@ -42299,10 +42885,16 @@ class App extends ReactDOM$2.Component {
             const {
               View = {}
             } = this.state;
+            const trackballState = this.View.trackballState.load(View.path);
             return v$1(OrbitView, {
               path: View.path,
               view: View.view,
-              workspace: workspace
+              sourceLocation: View.sourceLocation,
+              workspace: workspace,
+              onClick: this.View.click,
+              onDragEnd: this.View.dragEnd,
+              onMove: this.View.move,
+              trackballState: trackballState
             });
           }
 
@@ -42311,20 +42903,16 @@ class App extends ReactDOM$2.Component {
             const {
               WorkspaceFiles
             } = this.state;
-
-            const isRegenerable = file => file.startsWith('data/') || file.startsWith('meta/') || file.startsWith('view/') || file.startsWith('download/');
-
-            return v$1("div", null, v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Garbage Collection"), v$1(Card.Text, null, v$1(ListGroup, null, WorkspaceFiles.filter(file => isRegenerable(file)).map((file, index) => v$1(ListGroup.Item, {
+            return v$1("div", null, v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Garbage Collection"), v$1(Card.Text, null, v$1(Button, {
+              variant: "primary",
+              onClick: this.GC.delete
+            }, "Delete"), v$1(ListGroup, null, WorkspaceFiles.filter(file => isRegenerable(file)).map((file, index) => v$1(ListGroup.Item, {
               key: index,
               disabled: true
             }, file)))))));
           }
       }
     };
-
-    const WorkspaceFiles = await listFiles({
-      workspace
-    });
 
     this.fileUpdater = async () => {
       await this.updateState({
@@ -42334,9 +42922,37 @@ class App extends ReactDOM$2.Component {
       });
     };
 
+    this.servicesUpdater = () => {
+      const {
+        WorkspaceOpenPaths = []
+      } = this.state;
+      const servicesActiveCounts = {};
+
+      for (const path of WorkspaceOpenPaths) {
+        servicesActiveCounts[path] = 0;
+      }
+
+      for (const {
+        context
+      } of getActiveServices()) {
+        servicesActiveCounts[context.path] += 1;
+      }
+
+      this.servicesActiveCounts = servicesActiveCounts;
+      console.log(`QQ/SAC: ${JSON.stringify(this.servicesActiveCounts)}`);
+
+      for (const path of WorkspaceOpenPaths) {
+        this.Layout.updateSpinners(path);
+      }
+    };
+
     this.creationWatcher = await watchFileCreation(this.fileUpdater);
     this.deletionWatcher = await watchFileDeletion(this.fileUpdater);
-    await this.load();
+    this.servicesWatcher = watchServices(this.servicesUpdater);
+    this.servicesActiveCounts = {};
+    await this.Workspace.restore();
+    await this.View.restore();
+    await this.Model.restore();
   }
 
   async updateState(state) {
@@ -42359,6 +42975,7 @@ class App extends ReactDOM$2.Component {
       model: model,
       factory: this.factory,
       onAction: this.Layout.action,
+      onRenderTab: this.Layout.renderTab,
       onModelChange: this.Model.change
     });
   }
