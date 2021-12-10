@@ -28796,6 +28796,274 @@ class DepthTexture extends Texture {
 
 DepthTexture.prototype.isDepthTexture = true;
 
+class CylinderGeometry extends BufferGeometry {
+
+	constructor( radiusTop = 1, radiusBottom = 1, height = 1, radialSegments = 8, heightSegments = 1, openEnded = false, thetaStart = 0, thetaLength = Math.PI * 2 ) {
+
+		super();
+		this.type = 'CylinderGeometry';
+
+		this.parameters = {
+			radiusTop: radiusTop,
+			radiusBottom: radiusBottom,
+			height: height,
+			radialSegments: radialSegments,
+			heightSegments: heightSegments,
+			openEnded: openEnded,
+			thetaStart: thetaStart,
+			thetaLength: thetaLength
+		};
+
+		const scope = this;
+
+		radialSegments = Math.floor( radialSegments );
+		heightSegments = Math.floor( heightSegments );
+
+		// buffers
+
+		const indices = [];
+		const vertices = [];
+		const normals = [];
+		const uvs = [];
+
+		// helper variables
+
+		let index = 0;
+		const indexArray = [];
+		const halfHeight = height / 2;
+		let groupStart = 0;
+
+		// generate geometry
+
+		generateTorso();
+
+		if ( openEnded === false ) {
+
+			if ( radiusTop > 0 ) generateCap( true );
+			if ( radiusBottom > 0 ) generateCap( false );
+
+		}
+
+		// build geometry
+
+		this.setIndex( indices );
+		this.setAttribute( 'position', new Float32BufferAttribute( vertices, 3 ) );
+		this.setAttribute( 'normal', new Float32BufferAttribute( normals, 3 ) );
+		this.setAttribute( 'uv', new Float32BufferAttribute( uvs, 2 ) );
+
+		function generateTorso() {
+
+			const normal = new Vector3();
+			const vertex = new Vector3();
+
+			let groupCount = 0;
+
+			// this will be used to calculate the normal
+			const slope = ( radiusBottom - radiusTop ) / height;
+
+			// generate vertices, normals and uvs
+
+			for ( let y = 0; y <= heightSegments; y ++ ) {
+
+				const indexRow = [];
+
+				const v = y / heightSegments;
+
+				// calculate the radius of the current row
+
+				const radius = v * ( radiusBottom - radiusTop ) + radiusTop;
+
+				for ( let x = 0; x <= radialSegments; x ++ ) {
+
+					const u = x / radialSegments;
+
+					const theta = u * thetaLength + thetaStart;
+
+					const sinTheta = Math.sin( theta );
+					const cosTheta = Math.cos( theta );
+
+					// vertex
+
+					vertex.x = radius * sinTheta;
+					vertex.y = - v * height + halfHeight;
+					vertex.z = radius * cosTheta;
+					vertices.push( vertex.x, vertex.y, vertex.z );
+
+					// normal
+
+					normal.set( sinTheta, slope, cosTheta ).normalize();
+					normals.push( normal.x, normal.y, normal.z );
+
+					// uv
+
+					uvs.push( u, 1 - v );
+
+					// save index of vertex in respective row
+
+					indexRow.push( index ++ );
+
+				}
+
+				// now save vertices of the row in our index array
+
+				indexArray.push( indexRow );
+
+			}
+
+			// generate indices
+
+			for ( let x = 0; x < radialSegments; x ++ ) {
+
+				for ( let y = 0; y < heightSegments; y ++ ) {
+
+					// we use the index array to access the correct indices
+
+					const a = indexArray[ y ][ x ];
+					const b = indexArray[ y + 1 ][ x ];
+					const c = indexArray[ y + 1 ][ x + 1 ];
+					const d = indexArray[ y ][ x + 1 ];
+
+					// faces
+
+					indices.push( a, b, d );
+					indices.push( b, c, d );
+
+					// update group counter
+
+					groupCount += 6;
+
+				}
+
+			}
+
+			// add a group to the geometry. this will ensure multi material support
+
+			scope.addGroup( groupStart, groupCount, 0 );
+
+			// calculate new start value for groups
+
+			groupStart += groupCount;
+
+		}
+
+		function generateCap( top ) {
+
+			// save the index of the first center vertex
+			const centerIndexStart = index;
+
+			const uv = new Vector2();
+			const vertex = new Vector3();
+
+			let groupCount = 0;
+
+			const radius = ( top === true ) ? radiusTop : radiusBottom;
+			const sign = ( top === true ) ? 1 : - 1;
+
+			// first we generate the center vertex data of the cap.
+			// because the geometry needs one set of uvs per face,
+			// we must generate a center vertex per face/segment
+
+			for ( let x = 1; x <= radialSegments; x ++ ) {
+
+				// vertex
+
+				vertices.push( 0, halfHeight * sign, 0 );
+
+				// normal
+
+				normals.push( 0, sign, 0 );
+
+				// uv
+
+				uvs.push( 0.5, 0.5 );
+
+				// increase index
+
+				index ++;
+
+			}
+
+			// save the index of the last center vertex
+			const centerIndexEnd = index;
+
+			// now we generate the surrounding vertices, normals and uvs
+
+			for ( let x = 0; x <= radialSegments; x ++ ) {
+
+				const u = x / radialSegments;
+				const theta = u * thetaLength + thetaStart;
+
+				const cosTheta = Math.cos( theta );
+				const sinTheta = Math.sin( theta );
+
+				// vertex
+
+				vertex.x = radius * sinTheta;
+				vertex.y = halfHeight * sign;
+				vertex.z = radius * cosTheta;
+				vertices.push( vertex.x, vertex.y, vertex.z );
+
+				// normal
+
+				normals.push( 0, sign, 0 );
+
+				// uv
+
+				uv.x = ( cosTheta * 0.5 ) + 0.5;
+				uv.y = ( sinTheta * 0.5 * sign ) + 0.5;
+				uvs.push( uv.x, uv.y );
+
+				// increase index
+
+				index ++;
+
+			}
+
+			// generate indices
+
+			for ( let x = 0; x < radialSegments; x ++ ) {
+
+				const c = centerIndexStart + x;
+				const i = centerIndexEnd + x;
+
+				if ( top === true ) {
+
+					// face top
+
+					indices.push( i, i + 1, c );
+
+				} else {
+
+					// face bottom
+
+					indices.push( i + 1, i, c );
+
+				}
+
+				groupCount += 3;
+
+			}
+
+			// add a group to the geometry. this will ensure multi material support
+
+			scope.addGroup( groupStart, groupCount, top === true ? 1 : 2 );
+
+			// calculate new start value for groups
+
+			groupStart += groupCount;
+
+		}
+
+	}
+
+	static fromJSON( data ) {
+
+		return new CylinderGeometry( data.radiusTop, data.radiusBottom, data.height, data.radialSegments, data.heightSegments, data.openEnded, data.thetaStart, data.thetaLength );
+
+	}
+
+}
+
 const _v0 = new Vector3();
 const _v1$1 = new Vector3();
 const _normal = new Vector3();
@@ -40723,6 +40991,99 @@ class GridHelper extends LineSegments {
 
 }
 
+const _axis = /*@__PURE__*/ new Vector3();
+let _lineGeometry, _coneGeometry;
+
+class ArrowHelper extends Object3D {
+
+	// dir is assumed to be normalized
+
+	constructor( dir = new Vector3( 0, 0, 1 ), origin = new Vector3( 0, 0, 0 ), length = 1, color = 0xffff00, headLength = length * 0.2, headWidth = headLength * 0.2 ) {
+
+		super();
+
+		this.type = 'ArrowHelper';
+
+		if ( _lineGeometry === undefined ) {
+
+			_lineGeometry = new BufferGeometry();
+			_lineGeometry.setAttribute( 'position', new Float32BufferAttribute( [ 0, 0, 0, 0, 1, 0 ], 3 ) );
+
+			_coneGeometry = new CylinderGeometry( 0, 0.5, 1, 5, 1 );
+			_coneGeometry.translate( 0, - 0.5, 0 );
+
+		}
+
+		this.position.copy( origin );
+
+		this.line = new Line( _lineGeometry, new LineBasicMaterial( { color: color, toneMapped: false } ) );
+		this.line.matrixAutoUpdate = false;
+		this.add( this.line );
+
+		this.cone = new Mesh( _coneGeometry, new MeshBasicMaterial( { color: color, toneMapped: false } ) );
+		this.cone.matrixAutoUpdate = false;
+		this.add( this.cone );
+
+		this.setDirection( dir );
+		this.setLength( length, headLength, headWidth );
+
+	}
+
+	setDirection( dir ) {
+
+		// dir is assumed to be normalized
+
+		if ( dir.y > 0.99999 ) {
+
+			this.quaternion.set( 0, 0, 0, 1 );
+
+		} else if ( dir.y < - 0.99999 ) {
+
+			this.quaternion.set( 1, 0, 0, 0 );
+
+		} else {
+
+			_axis.set( dir.z, 0, - dir.x ).normalize();
+
+			const radians = Math.acos( dir.y );
+
+			this.quaternion.setFromAxisAngle( _axis, radians );
+
+		}
+
+	}
+
+	setLength( length, headLength = length * 0.2, headWidth = headLength * 0.2 ) {
+
+		this.line.scale.set( 1, Math.max( 0.0001, length - headLength ), 1 ); // see #17458
+		this.line.updateMatrix();
+
+		this.cone.scale.set( headWidth, headLength, headWidth );
+		this.cone.position.y = length;
+		this.cone.updateMatrix();
+
+	}
+
+	setColor( color ) {
+
+		this.line.material.color.set( color );
+		this.cone.material.color.set( color );
+
+	}
+
+	copy( source ) {
+
+		super.copy( source, false );
+
+		this.line.copy( source.line );
+		this.cone.copy( source.cone );
+
+		return this;
+
+	}
+
+}
+
 class AxesHelper extends LineSegments {
 
 	constructor( size = 1 ) {
@@ -42491,53 +42852,6 @@ const raycast = (x, y, camera, objects) => {
 
 // global document
 
-/*
-export const dragAnchor = ({ object }) => {
-  const { parent, userData } = object;
-  const { anchorType } = userData;
-  switch (anchorType) {
-    case 'at': {
-      // Get the anchor's position in the parent's frame of reference.
-      const anchor = new Vector3();
-      object.getWorldPosition(anchor);
-      parent.position.copy(anchor);
-      parent.userData.anchor.at = anchor;
-      object.position.set(0, 0, 0);
-      break;
-    }
-    case 'to': {
-      // Get the anchor's position in the parent's frame of reference.
-      const anchor = new Vector3();
-      anchor.copy(object.position);
-      object.localToWorld(anchor);
-      parent.lookAt(anchor);
-      // And reset the offset.
-      parent.userData.anchor.to = anchor;
-      object.position.set(0, 0, 1);
-      break;
-    }
-    // Orthogonal to the [at, to] edge.
-    case 'up': {
-      // Get the anchor's position in the parent's frame of reference.
-      const anchor = new Vector3();
-      anchor.copy(object.position);
-      object.localToWorld(anchor);
-      const position = new Vector3();
-      parent.getWorldPosition(position);
-      anchor.sub(position);
-      // parent.worldToLocal(anchor);
-      parent.up.copy(anchor);
-      console.log(JSON.stringify(anchor));
-      parent.userData.anchor.up = anchor;
-      parent.lookAt(parent.userData.anchor.to);
-      // And reset the offset.
-      object.position.set(0, 1, 0);
-      break;
-    }
-  }
-};
-*/
-
 class AnchorControls extends EventDispatcher {
   constructor(_camera, _domElement, _scene) {
     super();
@@ -42551,18 +42865,32 @@ class AnchorControls extends EventDispatcher {
       opacity: 0.5,
     });
 
-    const red = _material.clone(); red.color.setHex(0xff0000);
-    const green = _material.clone(); green.color.setHex(0x00ff00);
-    const blue = _material.clone(); blue.color.setHex(0x0000ff);
+    const yellow = _material.clone();
+    yellow.color.setHex(0xffff00);
+
+    const red = _material.clone();
+    red.color.setHex(0xff0000);
+
+    const green = _material.clone();
+    green.color.setHex(0x00ff00);
+
+    const blue = _material.clone();
+    blue.color.setHex(0x0000ff);
+
+    const _xAxis = new Vector3();
+    const _yAxis = new Vector3();
+    const _zAxis = new Vector3();
 
     let _step = 1;
     let _object = null;
 
-    let _at = new Mesh(new BoxGeometry(0.15, 0.15, 0.01), red);
+    let _at = new Mesh(new BoxGeometry(1, 1, 1), yellow);
 
-    let _to = new Mesh(new BoxGeometry(0.15, 0.15, 0.01), green);
+    let _to = new Mesh(new BoxGeometry(0.5, 0.5, 0.5), red);
+    let _toArrow = new ArrowHelper();
 
-    let _up = new Mesh(new BoxGeometry(0.15, 0.15, 0.01), blue);
+    let _up = new Mesh(new BoxGeometry(0.5, 0.5, 0.5), blue);
+    let _upArrow = new ArrowHelper();
 
     _at.visible = false;
     _at.layers.set(SKETCH_LAYER);
@@ -42574,10 +42902,41 @@ class AnchorControls extends EventDispatcher {
     _to.userData.dressing = true;
     _scene.add(_to);
 
+    _toArrow.layers.set(SKETCH_LAYER);
+    _toArrow.setColor(0xff0000);
+    _toArrow.userData.dressing = true;
+    _at.add(_toArrow);
+
     _up.visible = false;
     _up.layers.set(SKETCH_LAYER);
     _up.userData.dressing = true;
     _scene.add(_up);
+
+    _upArrow.layers.set(SKETCH_LAYER);
+    _upArrow.setColor(0x0000ff);
+    _upArrow.userData.dressing = true;
+    _at.add(_upArrow);
+
+    const deleteObject = () => {
+      if (!_object) {
+        return;
+      }
+      // We just hide the object, because we might be copying it later.
+      _object.visible = false;
+    };
+
+    const placeObject = (original, { at }) => {
+      const copy = original.clone();
+      // We change the material sometimes, so make a copy.
+      copy.material = copy.material.clone();
+      if (at) {
+        copy.position.copy(at.position);
+      }
+      // Record the time this was produced.
+      copy.userData.created = new Date();
+      // This is not quite right -- we might be pasting elsewhere.
+      original.parent.add(copy);
+    };
 
     const enable = () => {
       _domElement.addEventListener('pointerdown', onPointerDown);
@@ -42588,20 +42947,106 @@ class AnchorControls extends EventDispatcher {
       _domElement.removeEventListener('pointerdown', onPointerDown);
     };
 
+    // Something in the outside environment changed.
+    const change = () => {
+      // if (!_object) { return; }
+
+      // Find a best fit between camera and world axes.
+      const x = new Vector3();
+      x.set(1, 0, 0);
+      // The y axis is backward.
+      const y = new Vector3();
+      y.set(0, -1, 0);
+      const z = new Vector3();
+      z.set(0, 0, 1);
+
+      // Invalidate the axes so errors become obvious.
+      _xAxis.set(NaN, NaN, NaN);
+      _yAxis.set(NaN, NaN, NaN);
+      _zAxis.set(NaN, NaN, NaN);
+
+      // This could be more efficient, since we don't need to consider axes already asigned.
+      const fit = (v, cameraAxis) => {
+        const xDot = x.dot(v);
+        const xFit = Math.abs(xDot);
+
+        const yDot = y.dot(v);
+        const yFit = Math.abs(yDot);
+
+        const zDot = z.dot(v);
+        const zFit = Math.abs(zDot);
+
+        if (xFit >= yFit && xFit >= zFit) {
+          cameraAxis.copy(x);
+          if (xDot < 0) {
+            cameraAxis.negate();
+          }
+        } else if (yFit >= xFit && yFit >= zFit) {
+          cameraAxis.copy(y);
+          if (yDot < 0) {
+            cameraAxis.negate();
+          }
+        } else {
+          cameraAxis.copy(z);
+          if (zDot < 0) {
+            cameraAxis.negate();
+          }
+        }
+      };
+
+      const cx = new Vector3();
+      const cy = new Vector3();
+      const cz = new Vector3();
+      _camera.matrixWorld.extractBasis(cx, cy, cz);
+
+      fit(cx, _xAxis);
+      fit(cy, _yAxis);
+      fit(cz, _zAxis);
+    };
+
+    // We're changing our state.
     const update = () => {
-      _object.position.copy(_at.position);
+      if (_object) {
+        _object.position.copy(_at.position);
+      }
       const up = new Vector3();
       up.subVectors(_up.position, _at.position);
       up.normalize();
-      _object.up.copy(up);
-      _object.lookAt(_to.position);
-      console.log(_object.position);
-      this.dispatchEvent({ type: 'change', at: _at, to: _to, up: _up, object: _object });
+      if (_object) {
+        _object.up.copy(up);
+        _object.lookAt(_to.position);
+      }
+      _at.scale.set(_step, _step, _step);
+      _to.scale.set(_step / 2, _step / 2, _step / 2);
+      _up.scale.set(_step / 2, _step / 2, _step / 2);
+      const dir = new Vector3();
+      dir.subVectors(_to.position, _at.position).normalize();
+      _toArrow.setDirection(dir);
+      _toArrow.setLength(_step * 5);
+      dir.subVectors(_up.position, _at.position).normalize();
+      _upArrow.setDirection(dir);
+      _upArrow.setLength(_step * 2);
+      this.dispatchEvent({
+        type: 'change',
+        at: _at,
+        to: _to,
+        up: _up,
+        object: _object,
+      });
     };
 
     const attach = (object) => {
       detach();
       _object = object;
+      _object.material.transparent = true;
+      _object.material.opacity *= 0.5;
+      for (const child of _object.children) {
+        const { isOutline } = child.userData;
+        if (isOutline) {
+          child.visible = true;
+        }
+      }
+      _at.material.color.setHex(0xff4500); // orange red
       _at.visible = true;
       _to.visible = true;
       _up.visible = true;
@@ -42615,6 +43060,7 @@ class AnchorControls extends EventDispatcher {
       _up.position.set(0, 1, 0);
       _object.localToWorld(_up.position);
 
+      change();
       update();
 
       _domElement.addEventListener('keydown', onKeyDown);
@@ -42625,55 +43071,185 @@ class AnchorControls extends EventDispatcher {
       if (_object === null) {
         return;
       }
+      _object.material.opacity /= 0.5;
+      for (const child of _object.children) {
+        const { isOutline, hasShowOutline } = child.userData;
+        if (isOutline && !hasShowOutline) {
+          child.visible = false;
+        }
+      }
       _object = null;
-      _at.visible = false;
-      _to.visible = false;
-      _up.visible = false;
-      _domElement.removeEventListener('keydown', onKeyDown);
+      _at.material.color.setHex(0xffff00); // yellow
       this.dispatchEvent({ type: 'change', object: null });
     };
 
     const dispose = () => detach();
 
     const onKeyDown = (event) => {
-      if (!_object) return;
+      // if (!_object) return;
 
-      switch (event.key) {
-        // step
-        case '1': _step = 100.0; break;
-        case '2': _step = 50.0; break;
-        case '3': _step = 25.0; break;
-        case '4': _step = 10.0; break;
-        case '5': _step = 5.0; break;
-        case '6': _step = 2.5; break;
-        case '7': _step = 1.0; break;
-        case '8': _step = 0.5; break;
-        case '9': _step = 0.25; break;
-        case '0': _step = 0.1; break;
+      if (event.getModifierState('Control')) {
+        this.dispatchEvent({
+          at: _at,
+          deleteObject,
+          object: _object,
+          placeObject,
+          type: 'keydown',
+          event,
+          to: _to,
+          up: _up,
+        });
+      } else {
+        // These exclude control keys.
+        switch (event.key) {
+          // step
+          case '1':
+            _step = 100.0;
+            break;
+          case '2':
+            _step = 50.0;
+            break;
+          case '3':
+            _step = 25.0;
+            break;
+          case '4':
+            _step = 10.0;
+            break;
+          case '5':
+            _step = 5.0;
+            break;
+          case '6':
+            _step = 2.5;
+            break;
+          case '7':
+            _step = 1.0;
+            break;
+          case '8':
+            _step = 0.5;
+            break;
+          case '9':
+            _step = 0.25;
+            break;
+          case '0':
+            _step = 0.1;
+            break;
 
-        // at
-        case 'd': _at.position.x += _step; { _up.position.x += _step; } { _to.position.x += _step; } break;
-        case 'a': _at.position.x -= _step; { _up.position.x -= _step; } { _to.position.x -= _step; } break;
-        case 'w': _at.position.y += _step; { _up.position.y += _step; } { _to.position.y += _step; } break;
-        case 's': _at.position.y -= _step; { _up.position.y -= _step; } { _to.position.y -= _step; } break;
-        case 'e': _at.position.z += _step; { _up.position.z += _step; } { _to.position.z += _step; } break;
-        case 'q': _at.position.z -= _step; { _up.position.z -= _step; } { _to.position.z -= _step; } break;
+          // at
+          case 'ArrowRight':
+          case 'd':
+            _at.position.addScaledVector(_xAxis, _step);
+            {
+              _up.position.addScaledVector(_xAxis, _step);
+            }
+            {
+              _to.position.addScaledVector(_xAxis, _step);
+            }
+            break;
+          case 'ArrowLeft':
+          case 'a':
+            _at.position.addScaledVector(_xAxis, -_step);
+            {
+              _up.position.addScaledVector(_xAxis, -_step);
+            }
+            {
+              _to.position.addScaledVector(_xAxis, -_step);
+            }
+            break;
+          case 'ArrowUp':
+          case 'w':
+            _at.position.addScaledVector(_yAxis, _step);
+            {
+              _up.position.addScaledVector(_yAxis, _step);
+            }
+            {
+              _to.position.addScaledVector(_yAxis, _step);
+            }
+            break;
+          case 'ArrowDown':
+          case 's':
+            _at.position.addScaledVector(_yAxis, -_step);
+            {
+              _up.position.addScaledVector(_yAxis, -_step);
+            }
+            {
+              _to.position.addScaledVector(_yAxis, -_step);
+            }
+            break;
+          case 'PageDown':
+          case 'e':
+            _at.position.addScaledVector(_zAxis, _step);
+            {
+              _up.position.addScaledVector(_zAxis, _step);
+            }
+            {
+              _to.position.addScaledVector(_zAxis, _step);
+            }
+            break;
+          case 'PageUp':
+          case 'q':
+            _at.position.addScaledVector(_zAxis, -_step);
+            {
+              _up.position.addScaledVector(_zAxis, -_step);
+            }
+            {
+              _to.position.addScaledVector(_zAxis, -_step);
+            }
+            break;
 
-        // to
-        case 'h': _to.position.x += _step; break;
-        case 'f': _to.position.x -= _step; break;
-        case 't': _to.position.y += _step; break;
-        case 'g': _to.position.y -= _step; break;
-        case 'y': _to.position.z += _step; break;
-        case 'r': _to.position.z -= _step; break;
+          // to
+          case 'h':
+            _to.position.addScaledVector(_xAxis, _step);
+            break;
+          case 'f':
+            _to.position.addScaledVector(_xAxis, -_step);
+            break;
+          case 't':
+            _to.position.addScaledVector(_yAxis, _step);
+            break;
+          case 'g':
+            _to.position.addScaledVector(_yAxis, -_step);
+            break;
+          case 'y':
+            _to.position.addScaledVector(_zAxis, _step);
+            break;
+          case 'r':
+            _to.position.addScaledVector(_zAxis, -_step);
+            break;
 
-        // up
-        case 'l': _up.position.x += _step; break;
-        case 'j': _up.position.x -= _step; break;
-        case 'i': _up.position.y += _step; break;
-        case 'k': _up.position.y -= _step; break;
-        case 'o': _up.position.z += _step; break;
-        case 'u': _up.position.z -= _step; break;
+          // up
+          case 'l':
+            _to.position.addScaledVector(_xAxis, _step);
+            break;
+          case 'j':
+            _to.position.addScaledVector(_xAxis, -_step);
+            break;
+          case 'i':
+            _to.position.addScaledVector(_yAxis, _step);
+            break;
+          case 'k':
+            _to.position.addScaledVector(_yAxis, -_step);
+            break;
+          case 'o':
+            _to.position.addScaledVector(_zAxis, _step);
+            break;
+          case 'u':
+            _to.position.addScaledVector(_zAxis, -_step);
+            break;
+
+          // Pass on other keystrokes
+          default:
+            this.dispatchEvent({
+              at: _at,
+              deleteObject,
+              event,
+              object: _object,
+              placeObject,
+              to: _to,
+              type: 'keydown',
+              up: _up,
+            });
+            break;
+        }
       }
 
       update();
@@ -42685,18 +43261,20 @@ class AnchorControls extends EventDispatcher {
       const y = -((event.clientY - rect.y) / rect.height) * 2 + 1;
       const { object } = raycast(x, y, _camera, [_scene]);
       if (!object) {
-        return;
+        detach();
+      } else {
+        attach(object);
       }
-      attach(object);
     };
 
     // API
 
     this.attach = attach;
+    this.change = change;
     this.detach = detach;
+    this.dispose = dispose;
     this.disable = disable;
     this.enable = enable;
-    this.dispose = dispose;
   }
 }
 
@@ -43755,7 +44333,8 @@ const updateUserData = (geometry, scene, userData) => {
       } else if (tag.startsWith('viewType:')) {
         userData.viewType = tag.substring(9);
       } else if (tag.startsWith('groupChildId:')) {
-        userData.groupChildId = tag.substring(13);
+        // Deprecate these.
+        userData.groupChildId = parseInt(tag.substring(13));
       }
     }
   }
@@ -43928,27 +44507,32 @@ const buildMeshes = async ({
 
       if (tags.includes('show:skin')) {
         const material = await buildMeshMaterial(definitions, tags);
-        if (tags.includes('type:void')) {
-          material.transparent = true;
-          material.depthWrite = false;
-          material.opacity *= 0.5;
-        }
         mesh = new Mesh(bufferGeometry, material);
         mesh.castShadow = true;
         mesh.receiveShadow = true;
         mesh.layers.set(layer);
         updateUserData(geometry, scene, mesh.userData);
         mesh.userData.tangible = true;
+        if (tags.includes('type:void')) {
+          material.transparent = true;
+          material.depthWrite = false;
+          material.opacity *= 0.1;
+          mesh.castShadow = false;
+          mesh.receiveShadow = false;
+        }
       } else {
         mesh = new Group();
       }
 
-      if (tags.includes('show:outline')) {
+      {
         const edges = new EdgesGeometry(bufferGeometry);
         const outline = new LineSegments(
           edges,
           new LineBasicMaterial({ color: 0x000000 })
         );
+        outline.userData.isOutline = true;
+        outline.userData.hasShowOutline = tags.includes('show:outline');
+        outline.visible = outline.userData.hasShowOutline;
         mesh.add(outline);
       }
 
@@ -44041,7 +44625,7 @@ const moveToFit = ({
       grid.material.transparent = true;
       grid.material.opacity = 0.5;
       grid.rotation.x = -Math.PI / 2;
-      grid.position.set(0, 0, -0.002);
+      grid.position.set(0, 0, -0.05);
       grid.layers.set(gridLayer);
       grid.userData.tangible = false;
       grid.userData.dressing = true;
@@ -44052,7 +44636,7 @@ const moveToFit = ({
       grid.material.transparent = true;
       grid.material.opacity = 0.5;
       grid.rotation.x = -Math.PI / 2;
-      grid.position.set(0, 0, -0.001);
+      grid.position.set(0, 0, -0.04);
       grid.layers.set(gridLayer);
       grid.userData.tangible = false;
       grid.userData.dressing = true;
@@ -44150,11 +44734,7 @@ const buildAnchorControls = ({
   trackballControls,
   viewerElement,
 }) => {
-  const anchorControls = new AnchorControls(
-    camera,
-    viewerElement,
-    scene,
-  );
+  const anchorControls = new AnchorControls(camera, viewerElement, scene);
   anchorControls.enable();
   return { anchorControls };
 };
@@ -44202,6 +44782,7 @@ const orbitDisplay = async (
 
   const update = () => {
     trackballControls.update();
+    anchorControls.change();
     render();
     if (isUpdating) {
       requestAnimationFrame(update);
@@ -44280,9 +44861,15 @@ const orbitDisplay = async (
 
   let moveToFitDone = false;
 
-  const updateGeometry = async (geometry, { fit = true } = {}) => {
+  const updateGeometry = async (geometry, { fit = true, timestamp } = {}) => {
     for (const object of [...scene.children]) {
-      if (!object.userData.dressing) {
+      if (
+        !object.userData.dressing &&
+        (!timestamp ||
+          !object.userData.created ||
+          object.userData.created < timestamp)
+      ) {
+        // If the object isn't dressing and was created before the update time, then it should be obsolete.
         scene.remove(object);
       }
     }

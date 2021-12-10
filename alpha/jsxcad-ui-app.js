@@ -1,7 +1,7 @@
-import { orbitDisplay, raycast, addVoxel, getWorldPosition } from './jsxcad-ui-threejs.js';
-import { readOrWatch, unwatchFile, read, watchFile, boot, log, deleteFile, ask, touch, askService, write, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchServices } from './jsxcad-sys.js';
+import { rewriteViewGroupOrient, appendViewGroupCode, extractViewGroupCode, deleteViewGroupCode } from './jsxcad-compiler.js';
+import { readOrWatch, unwatchFile, watchFile, boot, log, deleteFile, ask, touch, askService, write, read, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
 import { toDomElement, getNotebookControlData } from './jsxcad-ui-notebook.js';
-import { rewriteVoxels, rewriteViewGroupOrient } from './jsxcad-compiler.js';
+import { orbitDisplay, raycast, getWorldPosition } from './jsxcad-ui-threejs.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
 import PrettierParserBabel from 'https://unpkg.com/prettier@2.3.2/esm/parser-babel.mjs';
 import { execute } from './jsxcad-api.js';
@@ -42035,7 +42035,9 @@ class OrbitView extends ReactDOM$2.PureComponent {
       onClick: propTypes$1.exports["function"],
       onDrag: propTypes$1.exports["function"],
       onDragEnd: propTypes$1.exports["function"],
+      onKeydown: propTypes$1.exports["function"],
       onJog: propTypes$1.exports["function"],
+      onUpdateGeometry: propTypes$1.exports["function"],
       trackballState: propTypes$1.exports.object
     };
   }
@@ -42133,16 +42135,25 @@ class OrbitView extends ReactDOM$2.PureComponent {
     }
 
     this.watcher = async () => {
-      // FIX: Why isn't this done by updateGeometry?
+      const {
+        onUpdateGeometry
+      } = this.props; // FIX: Why isn't this done by updateGeometry?
       // Backup the control state.
+
       this.trackballControls.target0.copy(this.trackballControls.target);
       this.trackballControls.position0.copy(this.trackballControls.object.position);
       this.trackballControls.up0.copy(this.trackballControls.object.up);
       this.trackballControls.zoom0 = this.trackballControls.object.zoom;
-      const geometry = await read(this.builtPath, {
-        workspace
-      });
-      await updateGeometry(geometry); // Restore the control state.
+
+      if (onUpdateGeometry) {
+        await onUpdateGeometry({
+          geometryPath: this.builtPath,
+          path,
+          updateGeometry,
+          workspace
+        });
+      } // Restore the control state.
+
 
       trackballControls.reset();
     };
@@ -42200,7 +42211,36 @@ class OrbitView extends ReactDOM$2.PureComponent {
       }
     };
 
+    const handleKeydown = ({
+      at,
+      deleteObject,
+      event,
+      object,
+      placeObject,
+      to,
+      up
+    }) => {
+      const {
+        onKeydown,
+        sourceLocation
+      } = this.props;
+
+      if (onKeydown) {
+        onKeydown({
+          at,
+          deleteObject,
+          event,
+          placeObject,
+          sourceLocation,
+          object,
+          to,
+          up
+        });
+      }
+    };
+
     anchorControls.addEventListener('change', handleJog);
+    anchorControls.addEventListener('keydown', handleKeydown);
 
     const handleClick = type => event => {
       const {
@@ -42350,7 +42390,9 @@ const ensureFile = async (file, url, {
 const isRegenerable = file => file.startsWith('data/') || file.startsWith('meta/') || file.startsWith('view/') || file.startsWith('download/');
 
 const defaultModelConfig = {
-  global: {},
+  global: {
+    rootOrientationVertical: true
+  },
   borders: [{
     type: 'border',
     location: 'left',
@@ -42393,6 +42435,13 @@ const defaultModelConfig = {
       component: 'GC',
       enableClose: false,
       borderWidth: 1024
+    }, {
+      id: 'Log',
+      type: 'tab',
+      name: 'Log',
+      component: 'Log',
+      enableClose: false,
+      borderWidth: 1024
     }]
   }],
   layout: {
@@ -42404,6 +42453,19 @@ const defaultModelConfig = {
       weight: 100,
       enableDeleteWhenEmpty: false,
       children: []
+    }, {
+      id: 'Clipboards',
+      type: 'tabset',
+      weight: 100,
+      enableDeleteWhenEmpty: false,
+      children: [{
+        id: 'Clipboard',
+        type: 'tab',
+        name: 'Clipboard',
+        component: 'Clipboard',
+        enableClose: false,
+        borderWidth: 1024
+      }]
     }]
   }
 };
@@ -42440,10 +42502,37 @@ class App extends ReactDOM$2.Component {
         notes,
         options,
         path,
+        paths,
         sourceLocation
       } = message;
 
       switch (op) {
+        case 'geometry/disjoint':
+          {
+            // Build up a set of parallel operations.
+            const ops = [];
+
+            if (paths.length < 2) {
+              return paths;
+            }
+
+            for (let nth = 0; nth < paths.length - 1; nth++) {
+              ops.push(this.ask({
+                op: 'geometry/difference',
+                paths: paths.slice(nth),
+                workspace
+              }));
+            }
+
+            const disjointPaths = [paths[paths.length - 1]];
+
+            for (const op of ops) {
+              disjointPaths.push(await op);
+            }
+
+            return disjointPaths;
+          }
+
         case 'sys/touch':
           await touch(path, {
             workspace,
@@ -42546,7 +42635,7 @@ class App extends ReactDOM$2.Component {
                     try {
                       console.log(`Ask render for ${path}/${id}`);
                       const url = await this.ask({
-                        op: 'staticView',
+                        op: 'app/staticView',
                         path,
                         workspace,
                         view,
@@ -42634,6 +42723,23 @@ class App extends ReactDOM$2.Component {
     this.ask = async (question, context, transfer) => askService(this.serviceSpec, question, transfer, context).answer;
 
     this.layoutRef = /*#__PURE__*/ReactDOM$2.createRef();
+    this.Clipboard = {};
+
+    this.Clipboard.change = data => {
+      const {
+        Clipboard
+      } = this.state;
+      this.setState({
+        Clipboard: { ...Clipboard,
+          code: data
+        }
+      });
+    };
+
+    this.Clipboard.run = () => {};
+
+    this.Clipboard.save = () => {};
+
     this.GC = {};
 
     this.GC.delete = async () => {
@@ -42690,6 +42796,16 @@ class App extends ReactDOM$2.Component {
       }
     };
 
+    this.Log = {};
+
+    this.Log.clear = async () => {
+      this.updateState({
+        LogMessages: []
+      });
+    };
+
+    this.Log.pendingMessages = [];
+    this.Log.updating = false;
     this.Model = {};
 
     this.Model.change = async () => {
@@ -42705,7 +42821,7 @@ class App extends ReactDOM$2.Component {
       }
     };
 
-    this.Model.store = async () => {
+    this.Model.store = async json => {
       if (this.Model.saving) {
         return;
       }
@@ -42719,13 +42835,18 @@ class App extends ReactDOM$2.Component {
           model
         } = this.state;
         await write('config/Model', {
-          persistentModelConfig: model.toJson()
+          persistentModelConfig: json || model.toJson()
         }, {
           workspace
         });
       } finally {
         this.Model.saving = false;
       }
+    };
+
+    this.Model.reset = async () => {
+      await this.Model.store(defaultModelConfig);
+      await this.Model.restore();
     };
 
     this.Model.restore = async () => {
@@ -42802,7 +42923,12 @@ class App extends ReactDOM$2.Component {
       });
     };
 
+    this.Notebook.runStart = {};
+
     this.Notebook.run = async (path, options) => {
+      // Note the time that this run started.
+      // This can be used to note which assets are obsoleted by the completion of the run.
+      this.Notebook.runStart[path] = new Date();
       const {
         sha,
         workspace
@@ -42838,7 +42964,7 @@ class App extends ReactDOM$2.Component {
         const evaluate = async script => {
           try {
             const result = await this.ask({
-              op: 'evaluate',
+              op: 'app/evaluate',
               script,
               workspace,
               path: NotebookPath,
@@ -42861,7 +42987,7 @@ class App extends ReactDOM$2.Component {
         const replay = async script => {
           try {
             const result = await this.ask({
-              op: 'evaluate',
+              op: 'app/evaluate',
               script,
               workspace,
               path: NotebookPath,
@@ -42913,6 +43039,7 @@ class App extends ReactDOM$2.Component {
       });
       const notebookText = typeof data === 'string' ? data : new TextDecoder('utf8').decode(data);
       this.Notebook.ensureAdvice(path);
+      console.log(`QQ/Notebook.load/path: ${path}`);
       await this.updateState({
         [`NotebookText/${path}`]: notebookText
       }); // Let state propagate.
@@ -42949,6 +43076,7 @@ class App extends ReactDOM$2.Component {
       await write(NotebookFile, new TextEncoder('utf8').encode(cleanText), {
         workspace
       });
+      console.log(`QQ/Notebook.save/path: ${path} ${cleanText}`);
       await this.updateState({
         [`NotebookText/${path}`]: cleanText
       }); // Let state propagate.
@@ -42958,6 +43086,7 @@ class App extends ReactDOM$2.Component {
     };
 
     this.Notebook.change = (path, data) => {
+      console.log(`QQ/Notebook.change/path: ${path} ${data}`);
       this.setState({
         [`NotebookText/${path}`]: data
       });
@@ -42981,6 +43110,7 @@ class App extends ReactDOM$2.Component {
       const {
         WorkspaceOpenPaths = []
       } = this.state;
+      console.log(`QQ/Notebook.close/path: ${closedPath}`);
       await this.updateState({
         [`NotebookText/${closedPath}`]: undefined,
         [`NotebookAdvice/${closedPath}`]: undefined,
@@ -43009,185 +43139,323 @@ class App extends ReactDOM$2.Component {
     };
 
     this.View = {};
+    this.View.pendingOperations = [];
+    this.View.operationsScheduled = false;
 
-    this.View.click = async ({
-      camera,
-      draggableObjects,
-      editId,
-      editType,
-      object,
-      trackballControls,
-      position,
-      ray,
-      renderer,
-      scene,
-      sourceLocation,
-      type,
-      target,
-      threejsMesh,
-      viewId
-    }) => {
-      if (this.View.updating) {
-        return;
-      }
-
+    this.View.executeOperations = async () => {
       try {
-        this.View.updating = true;
+        while (this.View.pendingOperations.length > 0) {
+          const paths = new Set(); // Run a complete update cycle.
 
-        switch (editType) {
-          case 'Group':
-            {
-              /*
-                          let changeScheduled = false;
-                          let at, to, up;
-                          const change = async () => {
-                            changeScheduled = false;
-                            const request = {
-                              viewId,
-                              nth: object.userData.groupChildId,
-                              at: getWorldPosition(at, 0.01),
-                              to: getWorldPosition(to, 0.01),
-                              up: getWorldPosition(up, 0.01),
-                            };
-                            if (request.nth === undefined) {
-                              return;
-                            }
-                            console.log(JSON.stringify(request));
-                            const { path } = sourceLocation;
-                            const { [`NotebookText/${path}`]: NotebookText } = this.state;
-                            const newNotebookText = rewriteViewGroupOrient(
-                              NotebookText,
-                              request
-                            );
-                            await this.updateState({
-                              [`NotebookText/${path}`]: newNotebookText,
-                            });
-                          };
-                          ({ at, to, up } = addAnchors({
-                            camera,
-                            draggableObjects,
-                            editId,
-                            editType,
-                            object,
-                            onObjectChange: () => {
-                              if (!changeScheduled) {
-                                changeScheduled = true;
-                                setTimeout(change, 500);
-                              }
-                            },
-                            position,
-                            ray,
-                            renderer,
-                            scene,
-                            sourceLocation,
-                            type,
-                            target,
-                            threejsMesh,
-                            trackballControls,
-                            viewState: this.View.state,
-                          }));
-              */
-              return;
-            }
+          while (this.View.pendingOperations.length > 0) {
+            const operations = this.View.pendingOperations;
+            this.View.pendingOperations = [];
 
-          case 'Voxels':
-            {
-              const {
-                path
-              } = sourceLocation;
-              const {
-                [`NotebookText/${path}`]: NotebookText
-              } = this.state;
-              const request = {
-                editId
-              };
-              const [point, normal] = ray;
+            for (const {
+              path,
+              operation
+            } of operations) {
+              await operation();
 
-              switch (type) {
-                case 'left':
-                  request.pointToAppend = [point[0] + normal[0] / 2, point[1] + normal[1] / 2, point[2] + normal[2] / 2].map(v => Math.round(v));
-                  break;
-
-                case 'right':
-                  request.pointToRemove = [point[0] - normal[0] / 2, point[1] - normal[1] / 2, point[2] - normal[2] / 2].map(v => Math.round(v));
-                  break;
+              if (path) {
+                paths.add(path);
               }
-
-              const newNotebookText = rewriteVoxels(NotebookText, request);
-              await this.updateState({
-                [`NotebookText/${path}`]: newNotebookText
-              }); // Add an voxel to the display to temporarily reflect what we added to the source.
-
-              if (request.pointToAppend) {
-                addVoxel({
-                  editId,
-                  point: request.pointToAppend,
-                  scene,
-                  threejsMesh
-                });
-              }
-
-              await this.Notebook.run(path);
             }
+          } // We defer the rerun of the notebook to the user, but we save at this point.
+
+
+          for (const path of paths) {
+            await this.Notebook.save(path);
+          } // See if we got more ops while while we were working.
+
         }
       } finally {
-        this.View.updating = false;
+        this.View.operationsScheduled = false;
       }
     };
 
-    this.View.jogPendingUpdate = null;
+    this.View.scheduleOperation = ({
+      path,
+      operation
+    }) => {
+      this.View.pendingOperations.push({
+        path,
+        operation
+      });
+
+      if (this.View.operationsScheduled) {
+        // We're already processing these.
+        return;
+      } // Start processing.
+
+
+      this.View.operationsScheduled = true;
+      this.View.executeOperations();
+    };
+
+    this.View.jogPendingUpdate = new Map();
 
     this.View.jog = async update => {
-      const execute = async () => {
+      const {
+        object,
+        path
+      } = update;
+
+      if (object) {
+        this.View.jogPendingUpdate.set(object, update);
+      }
+
+      const operation = async () => {
+        if (!this.View.jogPendingUpdate.has(object)) {
+          // We already handled this jog.
+          return;
+        }
+
         const {
           sourceLocation,
           at,
           to,
-          up,
-          object
-        } = this.View.jogPendingUpdate;
+          up
+        } = this.View.jogPendingUpdate.get(object);
         const {
-          viewId,
-          groupChildId
+          viewId
         } = object.userData;
+        this.View.jogPendingUpdate.delete(object);
+        const request = {
+          viewId,
+          nth: object.parent.children.findIndex(value => value === object),
+          at: getWorldPosition(at, 0.01),
+          to: getWorldPosition(to, 0.01),
+          up: getWorldPosition(up, 0.01)
+        };
 
-        try {
-          this.View.jogPendingUpdate = null;
-          const request = {
-            viewId,
-            nth: groupChildId,
-            at: getWorldPosition(at, 0.01),
-            to: getWorldPosition(to, 0.01),
-            up: getWorldPosition(up, 0.01)
-          };
-
-          if (request.nth === undefined) {
-            return;
-          }
-
-          console.log(JSON.stringify(request));
-          const {
-            path
-          } = sourceLocation;
-          const {
-            [`NotebookText/${path}`]: NotebookText
-          } = this.state;
-          const newNotebookText = rewriteViewGroupOrient(NotebookText, request);
-          await this.updateState({
-            [`NotebookText/${path}`]: newNotebookText
-          });
-        } finally {
-          if (this.View.jogPendingUpdate) {
-            setTimeout(execute, 500);
-          }
+        if (request.nth === undefined) {
+          return;
         }
+
+        console.log(JSON.stringify(request));
+        const {
+          path
+        } = sourceLocation;
+        const {
+          [`NotebookText/${path}`]: NotebookText
+        } = this.state;
+        const newNotebookText = rewriteViewGroupOrient(NotebookText, request);
+        console.log(`QQ/Notebook.jog/path: ${path} ${newNotebookText}`);
+        await this.updateState({
+          [`NotebookText/${path}`]: newNotebookText
+        });
       };
 
-      if (!this.View.jogPendingUpdate) {
-        setTimeout(execute, 500);
-      }
+      this.View.scheduleOperation({
+        path,
+        operation
+      });
+    };
 
-      this.View.jogPendingUpdate = update;
+    this.View.keydown = async ({
+      deleteObject,
+      event,
+      object,
+      sourceLocation,
+      at,
+      to,
+      up,
+      placeObject
+    }) => {
+      switch (event.key) {
+        case 'Backspace':
+        case 'Delete':
+          {
+            if (deleteObject && object) {
+              deleteObject(object);
+            }
+
+            const {
+              path
+            } = sourceLocation;
+            const {
+              viewId
+            } = object.userData;
+
+            const operation = async () => {
+              const {
+                [`NotebookText/${path}`]: NotebookText
+              } = this.state;
+              const newNotebookText = deleteViewGroupCode(NotebookText, {
+                viewId,
+                nth: object.parent.children.findIndex(value => value === object)
+              });
+              console.log(`QQ/postDelete: ${newNotebookText}`);
+              await this.updateState({
+                [`NotebookText/${path}`]: newNotebookText
+              });
+            };
+
+            this.View.scheduleOperation({
+              path,
+              operation
+            });
+            return false;
+          }
+
+        case 'c':
+          if (!event.getModifierState('Control')) {
+            break;
+          }
+
+        // fall through to Copy
+
+        case 'Copy':
+          {
+            const {
+              path
+            } = sourceLocation;
+
+            const operation = async () => {
+              // We should have already extracted the source into userData.
+              // Other operations may have made this introspection out of date.
+              const {
+                [`NotebookText/${path}`]: NotebookText
+              } = this.state;
+              const {
+                viewId
+              } = object.userData;
+              const nth = object.parent.children.findIndex(value => value === object);
+              const {
+                code
+              } = extractViewGroupCode(NotebookText, {
+                viewId,
+                nth
+              });
+              await this.updateState({
+                Clipboard: {
+                  path,
+                  code,
+                  viewId,
+                  nth,
+                  object
+                }
+              });
+            };
+
+            this.View.scheduleOperation({
+              path,
+              operation
+            });
+            return false;
+          }
+
+        case 'x':
+          if (!event.getModifierState('Control')) {
+            break;
+          }
+
+        // fall through to Cut
+
+        case 'Cut':
+          {
+            if (deleteObject && object) {
+              deleteObject(object);
+            }
+
+            const {
+              path
+            } = sourceLocation;
+            const {
+              viewId
+            } = object.userData;
+
+            const operation = async () => {
+              const {
+                [`NotebookText/${path}`]: NotebookText
+              } = this.state;
+              const nth = object.parent.children.findIndex(value => value === object);
+              const {
+                code
+              } = extractViewGroupCode(NotebookText, {
+                viewId,
+                nth
+              });
+              const newNotebookText = deleteViewGroupCode(NotebookText, {
+                viewId,
+                nth
+              });
+              console.log(`QQ/Notebook.cut/path: ${path} ${newNotebookText}`);
+              await this.updateState({
+                [`NotebookText/${path}`]: newNotebookText,
+                Clipboard: {
+                  code,
+                  viewId,
+                  object
+                }
+              });
+            };
+
+            this.View.scheduleOperation({
+              path,
+              operation
+            });
+            return false;
+          }
+
+        case 'v':
+          if (!event.getModifierState('Control')) {
+            break;
+          }
+
+        // fall through to Paste
+
+        case 'Insert':
+        case 'Paste':
+          {
+            const {
+              path
+            } = sourceLocation;
+            const {
+              Clipboard = {}
+            } = this.state;
+            const {
+              code,
+              viewId,
+              object
+            } = Clipboard;
+
+            if (!code) {
+              return;
+            }
+
+            if (placeObject && object) {
+              placeObject(object, {
+                at
+              });
+            }
+
+            const request = {
+              viewId,
+              code,
+              at: getWorldPosition(at, 0.01),
+              to: getWorldPosition(to, 0.01),
+              up: getWorldPosition(up, 0.01)
+            };
+
+            const operation = async () => {
+              const {
+                [`NotebookText/${path}`]: NotebookText
+              } = this.state;
+              const newNotebookText = appendViewGroupCode(NotebookText, request);
+              await this.updateState({
+                [`NotebookText/${path}`]: newNotebookText
+              });
+            };
+
+            this.View.scheduleOperation({
+              path,
+              operation
+            });
+            return false;
+          }
+      }
     };
 
     this.View.move = async ({
@@ -43240,6 +43508,21 @@ class App extends ReactDOM$2.Component {
       });
       await this.updateState({
         View
+      });
+    };
+
+    this.View.updateGeometry = async ({
+      geometryPath,
+      path,
+      updateGeometry,
+      workspace
+    }) => {
+      const geometry = await read(geometryPath, {
+        workspace
+      });
+      console.log(`QQ/update geometry`);
+      await updateGeometry(geometry, {
+        timestamp: this.Notebook.runStart[path]
       });
     };
 
@@ -43369,14 +43652,6 @@ class App extends ReactDOM$2.Component {
     };
 
     this.Workspace.restore = async () => {// We restore these via Model.restore.
-
-      /*
-      const { WorkspaceOpenPaths = [] } = (await read('config/Workspace', { workspace })) || {};
-      for (const path of WorkspaceOpenPaths) {
-        await this.Notebook.load(path);
-      }
-      await this.updateState({ WorkspaceOpenPaths });
-      */
     };
 
     this.factory = node => {
@@ -43436,6 +43711,22 @@ class App extends ReactDOM$2.Component {
             });
           }
 
+        case 'Clipboard':
+          {
+            const {
+              Clipboard = {}
+            } = this.state;
+            const {
+              code
+            } = Clipboard;
+            return v$1(JsEditorUi, {
+              onRun: () => this.Clipboard.run(),
+              onSave: () => this.Clipboard.save(),
+              onChange: data => this.Clipboard.change(data),
+              data: code
+            });
+          }
+
         case 'View':
           {
             const {
@@ -43450,9 +43741,10 @@ class App extends ReactDOM$2.Component {
               view: View.view,
               sourceLocation: View.sourceLocation,
               workspace: workspace,
-              onClick: this.View.click,
               onJog: this.View.jog,
+              onKeydown: this.View.keydown,
               onMove: this.View.move,
+              onUpdateGeometry: this.View.updateGeometry,
               trackballState: trackballState
             });
           }
@@ -43468,7 +43760,28 @@ class App extends ReactDOM$2.Component {
             }, "Delete"), v$1(ListGroup, null, WorkspaceFiles.filter(file => isRegenerable(file)).map((file, index) => v$1(ListGroup.Item, {
               key: index,
               disabled: true
-            }, file)))))));
+            }, file))))), v$1(Card.Body, null, v$1(Card.Title, null, "Reset Layout"), v$1(Card.Text, null, v$1(Button, {
+              variant: "primary",
+              onClick: this.Model.reset
+            }, "Reset")))));
+          }
+
+        case 'Log':
+          {
+            const {
+              LogMessages = []
+            } = this.state;
+            return v$1("div", null, v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Log Messages"), v$1(Card.Text, null, v$1(Button, {
+              variant: "primary",
+              onClick: this.Log.clear
+            }, "Clear"), v$1(ListGroup, null, LogMessages.map(({
+              type,
+              source,
+              text
+            }, index) => v$1(ListGroup.Item, {
+              key: index,
+              disabled: true
+            }, text)))))));
           }
       }
     };
@@ -43479,6 +43792,42 @@ class App extends ReactDOM$2.Component {
           workspace
         })
       });
+    };
+
+    this.logUpdater = ({
+      type,
+      source,
+      text
+    }) => {
+      this.Log.pendingMessages.unshift({
+        type,
+        source,
+        text
+      });
+
+      if (this.Log.updating) {
+        return;
+      }
+
+      const spool = async () => {
+        try {
+          while (this.Log.pendingMessages.length > 0) {
+            const commit = this.Log.pendingMessages;
+            this.Log.pendingMessages = [];
+            const {
+              LogMessages = []
+            } = this.state;
+            await this.updateState({
+              LogMessages: [...commit, ...LogMessages]
+            });
+          }
+        } finally {
+          this.Log.updating = false;
+        }
+      };
+
+      this.Log.updating = true;
+      spool();
     };
 
     this.servicesUpdater = () => {
@@ -43494,7 +43843,9 @@ class App extends ReactDOM$2.Component {
       for (const {
         context
       } of getActiveServices()) {
-        servicesActiveCounts[context.path] += 1;
+        if (context && context.path) {
+          servicesActiveCounts[context.path] += 1;
+        }
       }
 
       this.servicesActiveCounts = servicesActiveCounts;
@@ -43507,6 +43858,7 @@ class App extends ReactDOM$2.Component {
 
     this.creationWatcher = await watchFileCreation(this.fileUpdater);
     this.deletionWatcher = await watchFileDeletion(this.fileUpdater);
+    this.logWatcher = watchLog(this.logUpdater);
     this.servicesWatcher = watchServices(this.servicesUpdater);
 
     window.onhashchange = ({

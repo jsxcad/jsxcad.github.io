@@ -1,4 +1,4 @@
-import { read } from './jsxcad-sys.js';
+import { logInfo as logInfo$1, read } from './jsxcad-sys.js';
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -20972,7 +20972,62 @@ const {
   UnaryExpression,
 } = main_8;
 
-const extractViewMethodCall = (callExpression, calleeName, viewId) => {
+const editableCalls = ['Assembly', 'Group', 'Polygon'];
+
+const logInfo = (text) => logInfo$1('compiler/rewrite', text);
+
+const rewriteOrient = (lastCall, { at, to, up }) => {
+  // Ok, we should have extracted an x of Group(x).view(viewId).
+  // The expression is organized like (a.b()).call(), which means that we're already at the final call.
+  const lastCallee = lastCall.callee;
+  if (!lastCallee) {
+    return;
+  }
+  const { property } = lastCallee;
+  const orientation = [];
+  if (at) {
+    orientation.push(
+      objectProperty(
+        literal$1('at'),
+        arrayExpression([literal$1(at[0]), literal$1(at[1]), literal$1(at[2])])
+      )
+    );
+  }
+  if (to) {
+    orientation.push(
+      objectProperty(
+        literal$1('to'),
+        arrayExpression([literal$1(to[0]), literal$1(to[1]), literal$1(to[2])])
+      )
+    );
+  }
+  if (up) {
+    orientation.push(
+      objectProperty(
+        literal$1('up'),
+        arrayExpression([literal$1(up[0]), literal$1(up[1]), literal$1(up[2])])
+      )
+    );
+  }
+  if (Identifier.check(property) && property.name === 'orient') {
+    logInfo(`Rewriting orient`);
+    // We need to rewrite the arguments of the orient call.
+    // e.g. s.Box().orient(Old) -> s.Box().orient(New)
+    lastCall.arguments = [objectExpression(orientation)];
+    return lastCall;
+  } else {
+    logInfo(`Appending orient`);
+    // We need to rewrite lastCall to be a chained method call
+    // e.g. s.Box() -> s.Box().orient(New)
+    const chained = memberExpression(
+      lastCall,
+      callExpression(identifier('orient'), [objectExpression(orientation)])
+    );
+    return chained;
+  }
+};
+
+const extractViewMethodCall = (callExpression, allowedCalleeNames, viewId) => {
   const args = callExpression.get('arguments');
   const callee = callExpression.get('callee');
   const computed = callee.get('computed');
@@ -20990,6 +21045,7 @@ const extractViewMethodCall = (callExpression, calleeName, viewId) => {
   if (property.get('name').value !== 'view') {
     return {};
   }
+  logInfo('Found View call');
   // a.view()
   if (!CallExpression.check(object.value)) {
     return {};
@@ -21004,6 +21060,7 @@ const extractViewMethodCall = (callExpression, calleeName, viewId) => {
   if (!wasFound) {
     return {};
   }
+  logInfo('Found ViewId');
   // a().view('id')
   if (!MemberExpression.check(callee.value)) {
     return {};
@@ -21016,20 +21073,23 @@ const extractViewMethodCall = (callExpression, calleeName, viewId) => {
   if (!Identifier.check(calleeObjectCallee.value)) {
     return {};
   }
-  if (calleeObjectCallee.get('name').value !== calleeName) {
+  const calleeName = calleeObjectCallee.get('name').value;
+  if (!allowedCalleeNames.includes(calleeName)) {
     return {};
   }
+  logInfo(`Found ObjectCallee ${calleeName}`);
   return { calleeObject, calleeObjectCallee };
 };
 
-const rewriteViewGroupOrient = (script, { viewId, nth, at, to, up }) => {
+const extractViewGroupCode = (script, { viewId, nth }) => {
   const ast = main_5(script);
+  let code;
   main_1(ast, {
     visitCallExpression(expression) {
       try {
         const { calleeObject } = extractViewMethodCall(
           expression,
-          'Group',
+          editableCalls,
           viewId
         );
         if (!calleeObject) {
@@ -21040,50 +21100,100 @@ const rewriteViewGroupOrient = (script, { viewId, nth, at, to, up }) => {
         if (!nthArg) {
           return;
         }
+        ({ code } = main_3(nthArg));
+      } finally {
+        this.traverse(expression);
+      }
+    },
+  });
+  return { code };
+};
+
+const appendViewGroupCode = (
+  script,
+  { code, viewId, nth, at, to, up }
+) => {
+  const ast = main_5(script);
+  const astToAppend = rewriteOrient(main_5(code).program.body[0].expression, {
+    at,
+    to,
+    up,
+  });
+  if (!astToAppend) {
+    return;
+  }
+  console.log(
+    `QQ/appendViewGroupCode/rewriteOrient: ${main_3(astToAppend).code}`
+  );
+  main_1(ast, {
+    visitCallExpression(expression) {
+      try {
+        const { calleeObject } = extractViewMethodCall(
+          expression,
+          editableCalls,
+          viewId
+        );
+        if (!calleeObject) {
+          return;
+        }
+        const args = calleeObject.get('arguments');
+        args.value.push(astToAppend);
+      } finally {
+        this.traverse(expression);
+      }
+    },
+  });
+  return main_3(ast).code;
+};
+
+const deleteViewGroupCode = (script, { viewId, nth }) => {
+  const ast = main_5(script);
+  main_1(ast, {
+    visitCallExpression(expression) {
+      try {
+        const { calleeObject } = extractViewMethodCall(
+          expression,
+          editableCalls,
+          viewId
+        );
+        if (!calleeObject) {
+          return;
+        }
+        const args = calleeObject.get('arguments');
+        args.value.splice(nth, 1);
+      } finally {
+        this.traverse(expression);
+      }
+    },
+  });
+  console.log(main_3(ast).code);
+  return main_3(ast).code;
+};
+
+const rewriteViewGroupOrient = (script, { viewId, nth, at, to, up }) => {
+  const ast = main_5(script);
+  main_1(ast, {
+    visitCallExpression(expression) {
+      try {
+        const { calleeObject } = extractViewMethodCall(
+          expression,
+          editableCalls,
+          viewId
+        );
+        if (!calleeObject) {
+          return;
+        }
+        const args = calleeObject.get('arguments');
+        const nthArg = args.value[nth];
+        if (!nthArg) {
+          return;
+        }
+        logInfo(`Found nthArg ${nthArg}`);
         // Ok, we should have extracted an x of Group(x).view(viewId).
         // The expression is organized like (a.b()).call(), which means that we're already at the final call.
-        const lastCall = nthArg;
-        const lastCallee = lastCall.callee;
-        const { property } = lastCallee;
-        const orientation = [];
-        if (at) {
-          orientation.push(
-            objectProperty(
-              literal$1('at'),
-              arrayExpression([literal$1(at[0]), literal$1(at[1]), literal$1(at[2])])
-            )
-          );
-        }
-        if (to) {
-          orientation.push(
-            objectProperty(
-              literal$1('to'),
-              arrayExpression([literal$1(to[0]), literal$1(to[1]), literal$1(to[2])])
-            )
-          );
-        }
-        if (up) {
-          orientation.push(
-            objectProperty(
-              literal$1('up'),
-              arrayExpression([literal$1(up[0]), literal$1(up[1]), literal$1(up[2])])
-            )
-          );
-        }
-        if (Identifier.check(property) && property.name === 'orient') {
-          // We need to rewrite the arguments of the orient call.
-          // e.g. s.Box().orient(Old) -> s.Box().orient(New)
-          lastCall.arguments = [objectExpression(orientation)];
-        } else {
-          // We need to rewrite lastCall to be a chained method call
-          // e.g. s.Box() -> s.Box().orient(New)
-          const chained = memberExpression(
-            lastCall,
-            callExpression(identifier('orient'), [
-              objectExpression(orientation),
-            ])
-          );
-          args.value[nth] = chained;
+        const rewritten = rewriteOrient(nthArg, { at, to, up });
+        if (rewritten) {
+          args.value[nth] = rewritten;
         }
       } finally {
         this.traverse(expression);
@@ -28154,4 +28264,4 @@ const toEcmascript = async (
   }
 };
 
-export { rewriteViewGroupOrient, rewriteVoxels, toEcmascript };
+export { appendViewGroupCode, deleteViewGroupCode, extractViewGroupCode, rewriteViewGroupOrient, rewriteVoxels, toEcmascript };
