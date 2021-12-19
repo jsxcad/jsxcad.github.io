@@ -300,7 +300,13 @@ const clearCacheDb = async ({ workspace }) => {
   }
 };
 
-const config$1 = {};
+let config$1 = {};
+
+const getConfig = () => config$1;
+
+const setConfig = (value = {}) => {
+  config$1 = value;
+};
 
 var global$1 = (typeof global !== "undefined" ? global :
             typeof self !== "undefined" ? self :
@@ -748,7 +754,7 @@ const createService = (spec, worker) => {
       }
     };
     service.terminate = () => service.release(true);
-    service.tell({ op: 'sys/attach', id: service.id });
+    service.tell({ op: 'sys/attach', config: getConfig(), id: service.id });
     return service;
   } catch (e) {
     log({ op: 'text', text: '' + e, level: 'serious', duration: 6000000 });
@@ -823,9 +829,45 @@ const getFilesystem = () => {
 
 const getWorkspace = () => getFilesystem();
 
+const watchersByPath = new Map();
+
+const watchFile = async (path, thunk, options) => {
+  if (thunk) {
+    let watchers = watchersByPath.get(path);
+    if (watchers === undefined) {
+      watchers = new Set();
+      watchersByPath.set(path, watchers);
+    }
+    watchers.add(thunk);
+    return thunk;
+  }
+};
+
+const unwatchFile = async (path, thunk, options) => {
+  if (thunk) {
+    const watchers = watchersByPath.get(path);
+    if (watchers === undefined) {
+      return;
+    }
+    watchers.delete(thunk);
+  }
+};
+
 const files = new Map();
 const fileCreationWatchers = new Set();
 const fileDeletionWatchers = new Set();
+
+const runFileCreationWatchers = async (path, options) => {
+  for (const watcher of fileCreationWatchers) {
+    await watcher(path, options);
+  }
+};
+
+const runFileDeletionWatchers = async (path, options) => {
+  for (const watcher of fileDeletionWatchers) {
+    await watcher(path, options);
+  }
+};
 
 const getFile = async (options, unqualifiedPath) => {
   if (typeof unqualifiedPath !== 'string') {
@@ -836,9 +878,7 @@ const getFile = async (options, unqualifiedPath) => {
   if (file === undefined) {
     file = { path: unqualifiedPath, watchers: new Set(), storageKey: path };
     files.set(path, file);
-    for (const watcher of fileCreationWatchers) {
-      await watcher(options, file);
-    }
+    await runFileCreationWatchers(path, options);
   }
   return file;
 };
@@ -858,9 +898,7 @@ const deleteFile$1 = async (options, unqualifiedPath) => {
     // It might not have been in the cache, but we still need to inform watchers.
     file = { path: unqualifiedPath, storageKey: path };
   }
-  for (const watcher of fileDeletionWatchers) {
-    await watcher(options, file);
-  }
+  await runFileDeletionWatchers(path, options);
 };
 
 const unwatchFiles = async (thunk) => {
@@ -887,19 +925,6 @@ const watchFileDeletion = async (thunk) => {
 const unwatchFileDeletion = async (thunk) => {
   fileCreationWatchers.delete(thunk);
   return thunk;
-};
-
-const watchFile = async (path, thunk, options) => {
-  if (thunk) {
-    (await getFile(options, path)).watchers.add(thunk);
-    return thunk;
-  }
-};
-
-const unwatchFile = async (path, thunk, options) => {
-  if (thunk) {
-    return (await getFile(options, path)).watchers.delete(thunk);
-  }
 };
 
 const sourceLocations = [];
@@ -1449,9 +1474,9 @@ const readOrWatch = async (path, options = {}) => {
   const watch = new Promise((resolve) => {
     resolveWatch = resolve;
   });
-  const watcher = await watchFile(path, (file) => resolveWatch(path), options);
+  const watcher = await watchFile(path, (file) => resolveWatch(path));
   await watch;
-  await unwatchFile(path, watcher, options);
+  await unwatchFile(path, watcher);
   return read(path, options);
 };
 
@@ -1586,7 +1611,7 @@ const listFiles = async ({ workspace } = {}) => {
   const keys = await getKeys({ workspace });
   const files = [];
   for (const key of keys) {
-    if (key.startsWith(prefix)) {
+    if (key && key.startsWith(prefix)) {
       files.push(key.substring(prefix.length));
     }
   }
@@ -1640,4 +1665,4 @@ let nanoid = (size = 21) => {
 
 const generateUniqueId = () => nanoid();
 
-export { addOnEmitHandler, addPending, ask, askService, askServices, beginEmitGroup, boot, clearCacheDb, clearEmitted, config$1 as config, createConversation, createService, deleteFile, elapsed, emit, finishEmitGroup, flushEmitGroup, generateUniqueId, getActiveServices, getControlValue, getFilesystem, getPendingErrorHandler, getServicePoolInfo, getSourceLocation, getWorkspace, hash, info, isBrowser, isNode, isWebWorker, listFiles, log, logError, logInfo, onBoot, qualifyPath, read, readFile, readOrWatch, removeOnEmitHandler, resolvePending, restoreEmitGroup, saveEmitGroup, setControlValue, setHandleAskUser, setPendingErrorHandler, setupFilesystem, setupWorkspace, sleep, tellServices, terminateActiveServices, touch, unwatchFile, unwatchFileCreation, unwatchFileDeletion, unwatchFiles, unwatchLog, unwatchServices, waitServices, watchFile, watchFileCreation, watchFileDeletion, watchLog, watchServices, write, writeFile };
+export { addOnEmitHandler, addPending, ask, askService, askServices, beginEmitGroup, boot, clearCacheDb, clearEmitted, createConversation, createService, deleteFile, elapsed, emit, finishEmitGroup, flushEmitGroup, generateUniqueId, getActiveServices, getConfig, getControlValue, getFilesystem, getPendingErrorHandler, getServicePoolInfo, getSourceLocation, getWorkspace, hash, info, isBrowser, isNode, isWebWorker, listFiles, log, logError, logInfo, onBoot, qualifyPath, read, readFile, readOrWatch, removeOnEmitHandler, resolvePending, restoreEmitGroup, saveEmitGroup, setConfig, setControlValue, setHandleAskUser, setPendingErrorHandler, setupFilesystem, setupWorkspace, sleep, tellServices, terminateActiveServices, touch, unwatchFile, unwatchFileCreation, unwatchFileDeletion, unwatchFiles, unwatchLog, unwatchServices, waitServices, watchFile, watchFileCreation, watchFileDeletion, watchLog, watchServices, write, writeFile };
