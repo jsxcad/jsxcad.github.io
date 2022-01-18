@@ -1,4 +1,4 @@
-import { closePath, concatenatePath, assemble as assemble$1, flip, toConcreteGeometry, toDisplayGeometry, toTransformedGeometry, toPoints, transform, rewriteTags, taggedPaths, taggedGraph, openPath, taggedSegments, taggedPoints, fromPolygonsToGraph, registerReifier, taggedPlan, taggedGroup, union, taggedItem, getLeafs, getInverseMatrices, bend as bend$1, projectToPlane, computeCentroid, intersection, allTags, fromPointsToGraph, cut as cut$1, rewrite, visit, hasTypeVoid, hasTypeWire, translatePaths, taggedLayout, measureBoundingBox, getLayouts, isNotVoid, computeNormal, extrude, extrudeToPlane as extrudeToPlane$1, faces as faces$1, fill as fill$1, fuse as fuse$1, eachSegment, removeSelfIntersections as removeSelfIntersections$1, grow as grow$1, outline as outline$1, inset as inset$1, read, readNonblocking, loft as loft$1, realize, hasShowOverlay, hasTypeMasked, minkowskiDifference as minkowskiDifference$1, minkowskiShell as minkowskiShell$1, minkowskiSum as minkowskiSum$1, isVoid, offset as offset$1, eachPoint, push as push$1, remesh as remesh$1, write, writeNonblocking, simplify as simplify$1, section as section$1, separate as separate$1, serialize as serialize$1, smooth as smooth$1, taggedSketch, taper as taper$1, test as test$1, twist as twist$1, withQuery, toPolygonsWithHoles, arrangePolygonsWithHoles, fromPolygonsWithHolesToTriangles, fromTrianglesToGraph, alphaShape, rotateZPath, convexHullToGraph, fromFunctionToGraph, translatePath } from './jsxcad-geometry.js';
+import { closePath, concatenatePath, assemble as assemble$1, flip, toConcreteGeometry, toDisplayGeometry, toTransformedGeometry, toPoints, transform, rewriteTags, taggedPaths, taggedGraph, openPath, taggedSegments, taggedPoints, fromPolygonsToGraph, registerReifier, taggedPlan, taggedGroup, union, taggedItem, getLeafs, getInverseMatrices, bend as bend$1, projectToPlane, computeCentroid, intersection, allTags, fromPointsToGraph, cut as cut$1, demesh as demesh$1, rewrite, visit, hasTypeVoid, hasTypeWire, translatePaths, taggedLayout, measureBoundingBox, getLayouts, isNotVoid, computeNormal, extrude, extrudeToPlane as extrudeToPlane$1, faces as faces$1, fill as fill$1, fuse as fuse$1, eachSegment, removeSelfIntersections as removeSelfIntersections$1, grow as grow$1, outline as outline$1, inset as inset$1, read, readNonblocking, loft as loft$1, prepareForSerialization, hasShowOverlay, hasTypeMasked, minkowskiDifference as minkowskiDifference$1, minkowskiShell as minkowskiShell$1, minkowskiSum as minkowskiSum$1, isVoid, offset as offset$1, eachPoint, push as push$1, remesh as remesh$1, write, writeNonblocking, simplify as simplify$1, section as section$1, separate as separate$1, serialize as serialize$1, smooth as smooth$1, taggedSketch, taper as taper$1, test as test$1, twist as twist$1, withQuery, toPolygonsWithHoles, arrangePolygonsWithHoles, fromPolygonsWithHolesToTriangles, fromTrianglesToGraph, alphaShape, rotateZPath, convexHullToGraph, fromFunctionToGraph, translatePath } from './jsxcad-geometry.js';
 import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, log as log$1, generateUniqueId, addPending, write as write$1 } from './jsxcad-sys.js';
 export { elapsed, emit, read, write } from './jsxcad-sys.js';
 import { identityMatrix, fromTranslation, fromRotation, fromScaling } from './jsxcad-math-mat4.js';
@@ -920,6 +920,12 @@ const cutout =
   };
 Shape.registerMethod('cutout', cutout);
 
+// TODO: Rename clean at the lower levels.
+const demesh = (options) => (shape) =>
+  Shape.fromGeometry(demesh$1(shape.toGeometry(), options));
+
+Shape.registerMethod('demesh', demesh);
+
 const Group = (...shapes) =>
   Shape.fromGeometry(
     taggedGroup(
@@ -1086,6 +1092,49 @@ const X$5 = 0;
 const Y$5 = 1;
 const Z$5 = 2;
 
+let fundamentalShapes;
+
+const fs = () => {
+  if (fundamentalShapes === undefined) {
+    fundamentalShapes = {
+      tlfBox: Point(),
+      tlBox: Edge(Point(0, 1, 0), Point(0, 0, 0)),
+      tfBox: Edge(Point(0, 0, 0), Point(1, 0, 0)),
+      tBox: Face(
+        Point(1, 0, 0),
+        Point(1, 1, 0),
+        Point(0, 1, 0),
+        Point(0, 0, 0)
+      ),
+
+      lfBox: Edge(Point(0, 0, 0), Point(0, 0, 1)),
+      lBox: Face(
+        Point(0, 0, 0),
+        Point(0, 1, 0),
+        Point(0, 1, 1),
+        Point(0, 0, 1)
+      ),
+
+      fBox: Face(
+        Point(0, 0, 1),
+        Point(1, 0, 1),
+        Point(1, 0, 0),
+        Point(0, 0, 0)
+      ),
+
+      box: Polyhedron(
+        Face(Point(0, 0, 1), Point(0, 1, 1), Point(1, 1, 1), Point(1, 0, 1)),
+        Face(Point(0, 0, 0), Point(0, 1, 0), Point(1, 1, 0), Point(1, 0, 0)),
+        Face(Point(0, 0, 0), Point(0, 1, 0), Point(0, 1, 1), Point(0, 0, 1)),
+        Face(Point(1, 0, 0), Point(1, 1, 0), Point(1, 1, 1), Point(1, 0, 1)),
+        Face(Point(0, 0, 0), Point(1, 0, 0), Point(1, 0, 1), Point(0, 0, 1)),
+        Face(Point(0, 1, 0), Point(1, 1, 0), Point(1, 1, 1), Point(0, 1, 1))
+      ),
+    };
+  }
+  return fundamentalShapes;
+};
+
 const reifyBox = (geometry) => {
   const build = () => {
     const corner1 = getCorner1(geometry);
@@ -1103,85 +1152,68 @@ const reifyBox = (geometry) => {
     if (top === bottom) {
       if (left === right) {
         if (front === back) {
-          return Point(bottom, left, front);
+          // return Point(bottom, left, front)
+          return fs().tlfBox.move(left, back, bottom);
         } else {
-          return Edge(Point(left, front, bottom), Point(right, back, top));
+          // return Edge(Point(left, front, bottom), Point(right, back, top));
+          return fs()
+            .tlBox.sy(front - back)
+            .move(left, back, bottom);
         }
       } else {
         if (front === back) {
-          return Edge(Point(left, front, bottom), Point(right, back, top));
+          // return Edge(Point(left, front, bottom), Point(right, back, top));
+          return fs()
+            .tfBox.sx(right - left)
+            .move(left, back, bottom);
         } else {
           // left !== right && front !== back
-          return Face(
-            Point(left, back, bottom),
-            Point(left, front, bottom),
-            Point(right, front, top),
-            Point(right, back, top)
-          );
+          // return Face(Point(left, back, bottom), Point(left, front, bottom), Point(right, front, top), Point(right, back, top));
+          return fs()
+            .tBox.sx(right - left)
+            .sy(front - back)
+            .move(left, back, bottom);
         }
       }
     } else {
       if (left === right) {
         if (front === back) {
-          return Edge(Point(left, front, bottom), Point(right, back, top));
+          // return Edge(Point(left, front, bottom), Point(right, back, top));
+          return fs()
+            .lfBox.sz(top - bottom)
+            .move(left, back, bottom);
         } else {
           // top !== bottom && front !== back
-          return Face(
-            Point(right, back, top),
-            Point(right, front, top),
-            Point(right, front, bottom),
-            Point(left, back, bottom)
-          );
+          // return Face(Point(right, back, top), Point(right, front, top), Point(right, front, bottom), Point(left, back, bottom));
+          return fs()
+            .lBox.sz(top - bottom)
+            .sy(front - back)
+            .move(left, back, bottom);
         }
       } else {
         if (front === back) {
           // top !== bottom && left !== right
-          return Face(
-            Point(left, back, top),
-            Point(right, front, top),
-            Point(right, front, bottom),
-            Point(left, back, bottom)
-          );
+          // return Face(Point(left, back, top), Point(right, front, top), Point(right, front, bottom), Point(left, back, bottom));
+          return fs()
+            .fBox.sz(top - bottom)
+            .sx(right - left)
+            .move(left, back, bottom);
         } else {
           // top !== bottom && front !== back && left !== right
+          /*
           return Polyhedron(
-            Face(
-              Point(left, back, top),
-              Point(left, front, top),
-              Point(right, front, top),
-              Point(right, back, top)
-            ),
-            Face(
-              Point(left, back, bottom),
-              Point(left, front, bottom),
-              Point(right, front, bottom),
-              Point(right, back, bottom)
-            ),
-            Face(
-              Point(left, back, bottom),
-              Point(left, front, bottom),
-              Point(left, front, top),
-              Point(left, back, top)
-            ),
-            Face(
-              Point(right, back, bottom),
-              Point(right, front, bottom),
-              Point(right, front, top),
-              Point(right, back, top)
-            ),
-            Face(
-              Point(left, back, bottom),
-              Point(right, back, bottom),
-              Point(right, back, top),
-              Point(left, back, top)
-            ),
-            Face(
-              Point(left, front, bottom),
-              Point(right, front, bottom),
-              Point(right, front, top),
-              Point(left, front, top)
-            )
-          );
+            Face( Point(left, back, top), Point(left, front, top), Point(right, front, top), Point(right, back, top)),
+            Face( Point(left, back, bottom), Point(left, front, bottom), Point(right, front, bottom), Point(right, back, bottom)),
+            Face( Point(left, back, bottom), Point(left, front, bottom), Point(left, front, top), Point(left, back, top)),
+            Face( Point(right, back, bottom), Point(right, front, bottom), Point(right, front, top), Point(right, back, top)),
+            Face( Point(left, back, bottom), Point(right, back, bottom), Point(right, back, top), Point(left, back, top)),
+            Face( Point(left, front, bottom), Point(right, front, bottom), Point(right, front, top), Point(left, front, top)));
+          */
+          return fs()
+            .box.sz(top - bottom)
+            .sx(right - left)
+            .sy(front - back)
+            .move(left, back, bottom);
         }
       }
     }
@@ -3233,7 +3265,7 @@ const logOp = (shape, op) => {
 };
 
 const logMethod = function (op = (shape) => JSON.stringify(shape)) {
-  logOp(Shape.fromGeometry(realize(this.toGeometry())), op);
+  logOp(Shape.fromGeometry(prepareForSerialization(this.toGeometry())), op);
   return this;
 };
 Shape.prototype.log = logMethod;
@@ -3885,7 +3917,7 @@ const serialize =
 Shape.registerMethod('serialize', serialize);
 
 const smooth =
-  (options = { iterations: 1, method: 'subdivide' }, ...selections) =>
+  (options = {}, ...selections) =>
   (shape) =>
     Shape.fromGeometry(
       smooth$1(
@@ -5132,4 +5164,4 @@ const yz = Shape.fromGeometry({
   ],
 });
 
-export { Alpha, Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainedHull, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Octagon, Orb, Page, Path, Pentagon, Plan, Point, Points, Polygon, Polyhedron, Septagon, Shape, Spiral, SurfaceMesh, Tetragon, Triangle, Voxels, Wave, Weld, abstract, add, addTo, align, and, as, asPart, at, bend, billOfMaterials, cast, center, clip, clipFrom, cloudSolid, color, colors, cut, cutFrom, cutout, defRgbColor, defThreejsMaterial, defTool, define, drop, e, each, edit, ensurePages, ex, extrudeAlong, extrudeToPlane, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fuse, g, get, getEdge, getNot, gn, grow, inline, inset, keep, loadGeometry, loft, log, loop, mask, material, md, minkowskiDifference, minkowskiShell, minkowskiSum, move, moveAlong, moveTo, n, noVoid, noop, normal, notColor, nth, ofPlan, offset, on, op, orient, outline, overlay, pack, play, points$1 as points, push, remesh, removeSelfIntersections, rotate, rotateX, rotateY, rotateZ, rx, ry, rz, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, section, sectionProfile, separate, seq, serialize, simplify, size, sketch, smooth, sx, sy, sz, table, tag, tags, taper, test, tint, to, tool, top, twist, untag, view, voidFn, voidIn, voxels, weld, withFill, withFn, withInset, withOp, x, xy, xyz, xz, y, yz, z };
+export { Alpha, Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainedHull, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Octagon, Orb, Page, Path, Pentagon, Plan, Point, Points, Polygon, Polyhedron, Septagon, Shape, Spiral, SurfaceMesh, Tetragon, Triangle, Voxels, Wave, Weld, abstract, add, addTo, align, and, as, asPart, at, bend, billOfMaterials, cast, center, clip, clipFrom, cloudSolid, color, colors, cut, cutFrom, cutout, defRgbColor, defThreejsMaterial, defTool, define, demesh, drop, e, each, edit, ensurePages, ex, extrudeAlong, extrudeToPlane, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fuse, g, get, getEdge, getNot, gn, grow, inline, inset, keep, loadGeometry, loft, log, loop, mask, material, md, minkowskiDifference, minkowskiShell, minkowskiSum, move, moveAlong, moveTo, n, noVoid, noop, normal, notColor, nth, ofPlan, offset, on, op, orient, outline, overlay, pack, play, points$1 as points, push, remesh, removeSelfIntersections, rotate, rotateX, rotateY, rotateZ, rx, ry, rz, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, section, sectionProfile, separate, seq, serialize, simplify, size, sketch, smooth, sx, sy, sz, table, tag, tags, taper, test, tint, to, tool, top, twist, untag, view, voidFn, voidIn, voxels, weld, withFill, withFn, withInset, withOp, x, xy, xyz, xz, y, yz, z };
