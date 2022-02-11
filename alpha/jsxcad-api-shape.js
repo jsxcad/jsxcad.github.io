@@ -1,4 +1,4 @@
-import { closePath, concatenatePath, assemble as assemble$1, flip, toConcreteGeometry, toDisplayGeometry, toTransformedGeometry, toPoints, transform, rewriteTags, taggedPaths, taggedGraph, openPath, taggedSegments, taggedPoints, fromPolygonsToGraph, registerReifier, taggedPlan, taggedGroup, union, taggedItem, getLeafs, getInverseMatrices, bend as bend$1, projectToPlane, computeCentroid, intersection, allTags, fromPointsToGraph, cut as cut$1, demesh as demesh$1, rewrite, visit, hasTypeVoid, hasTypeWire, translatePaths, taggedLayout, measureBoundingBox, getLayouts, isNotVoid, computeNormal, extrude, extrudeToPlane as extrudeToPlane$1, faces as faces$1, fill as fill$1, fuse as fuse$1, eachSegment, removeSelfIntersections as removeSelfIntersections$1, grow as grow$1, outline as outline$1, inset as inset$1, read, readNonblocking, loft as loft$1, prepareForSerialization, hasShowOverlay, hasTypeMasked, minkowskiDifference as minkowskiDifference$1, minkowskiShell as minkowskiShell$1, minkowskiSum as minkowskiSum$1, isVoid, offset as offset$1, eachPoint, push as push$1, remesh as remesh$1, write, writeNonblocking, simplify as simplify$1, section as section$1, separate as separate$1, serialize as serialize$1, smooth as smooth$1, taggedSketch, taper as taper$1, test as test$1, computeToolpath, twist as twist$1, withQuery, toPolygonsWithHoles, arrangePolygonsWithHoles, fromPolygonsWithHolesToTriangles, fromTrianglesToGraph, alphaShape, rotateZPath, convexHullToGraph, fromFunctionToGraph, translatePath } from './jsxcad-geometry.js';
+import { closePath, concatenatePath, assemble as assemble$1, flip, toConcreteGeometry, toDisplayGeometry, toTransformedGeometry, toPoints, transform, rewriteTags, taggedPaths, taggedGraph, openPath, taggedSegments, taggedPoints, fromPolygonsToGraph, registerReifier, taggedPlan, taggedGroup, union, taggedItem, getLeafs, getInverseMatrices, bend as bend$1, projectToPlane, computeCentroid, intersection, allTags, fromPointsToGraph, cut as cut$1, demesh as demesh$1, rewrite, visit, hasTypeVoid, hasTypeWire, translatePaths, taggedLayout, measureBoundingBox, getLayouts, isNotVoid, generatePackingEnvelope, generateUpperEnvelope, computeNormal, extrude, extrudeToPlane as extrudeToPlane$1, faces as faces$1, fill as fill$1, fuse as fuse$1, eachSegment, removeSelfIntersections as removeSelfIntersections$1, grow as grow$1, outline as outline$1, inset as inset$1, read, readNonblocking, loft as loft$1, prepareForSerialization, hasShowOverlay, hasTypeMasked, minkowskiDifference as minkowskiDifference$1, minkowskiShell as minkowskiShell$1, minkowskiSum as minkowskiSum$1, isVoid, offset as offset$1, eachPoint, push as push$1, remesh as remesh$1, write, writeNonblocking, simplify as simplify$1, section as section$1, separate as separate$1, serialize as serialize$1, smooth as smooth$1, taggedSketch, taper as taper$1, test as test$1, computeToolpath, twist as twist$1, withQuery, toPolygonsWithHoles, arrangePolygonsWithHoles, fromPolygonsWithHolesToTriangles, fromTrianglesToGraph, alphaShape, rotateZPath, convexHullToGraph, fromFunctionToGraph, translatePath } from './jsxcad-geometry.js';
 import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, log as log$1, generateUniqueId, addPending, write as write$1 } from './jsxcad-sys.js';
 export { elapsed, emit, read, write } from './jsxcad-sys.js';
 import { identityMatrix, fromRotation } from './jsxcad-math-mat4.js';
@@ -2943,6 +2943,25 @@ const edit = (editId) => (shape) =>
 
 Shape.registerMethod('edit', edit);
 
+const packingEnvelope =
+  ({ segments = 8, offset = 0.1, threshold = 30.0 } = {}) =>
+  (shape) =>
+    Shape.fromGeometry(
+      generatePackingEnvelope(
+        shape.toGeometry(),
+        Shape.toValue(offset, shape),
+        Shape.toValue(segments, shape),
+        Shape.toValue(threshold, shape)
+      )
+    );
+
+Shape.registerMethod('packingEnvelope', packingEnvelope);
+
+const upperEnvelope = () => (shape) =>
+  Shape.fromGeometry(generateUpperEnvelope(shape.toGeometry()));
+
+Shape.registerMethod('upperEnvelope', upperEnvelope);
+
 const normal = () => (shape) =>
   Shape.fromGeometry(computeNormal(shape.toGeometry()));
 
@@ -2999,19 +3018,10 @@ Shape.registerMethod('ey', ey);
 Shape.registerMethod('ez', ez);
 
 const extrudeToPlane =
-  (
-    highPlane = [0, 0, 1, 1],
-    lowPlane = [0, 0, 1, -1],
-    direction = [0, 0, 1, 0]
-  ) =>
+  ({ high, low, direction = [0, 0, 1, 0] }) =>
   (shape) =>
     Shape.fromGeometry(
-      extrudeToPlane$1(
-        shape.toGeometry(),
-        highPlane,
-        lowPlane,
-        direction
-      )
+      extrudeToPlane$1(shape.toGeometry(), { high, low, direction })
     );
 
 Shape.registerMethod('extrudeToPlane', extrudeToPlane);
@@ -3158,11 +3168,7 @@ const grow =
 Shape.registerMethod('grow', grow);
 
 const outline = () => (shape) =>
-  Group(
-    ...outline$1(shape.toGeometry()).map((outline) =>
-      Shape.fromGeometry(outline)
-    )
-  );
+  Shape.fromGeometry(outline$1(shape.toGeometry()));
 
 Shape.registerMethod('outline', outline);
 
@@ -3182,9 +3188,11 @@ const withInline = () => (shape) => shape.with(inline());
 Shape.registerMethod('withInline', withInline);
 
 const inset =
-  (initial = 1, step, limit) =>
+  (initial = 1, { segments = 16, step, limit } = {}) =>
   (shape) =>
-    Shape.fromGeometry(inset$1(shape.toGeometry(), initial, step, limit));
+    Shape.fromGeometry(
+      inset$1(shape.toGeometry(), initial, { segments, step, limit })
+    );
 
 // CHECK: Using 'with' for may be confusing, but andInset looks odd.
 const withInset = (initial, step, limit) => (shape) =>
@@ -3433,10 +3441,10 @@ Shape.registerMethod('nth', nth);
 Shape.registerMethod('n', nth);
 
 const offset =
-  (initial = 1, step, limit) =>
+  (initial = 1, { segments = 16, step, limit } = {}) =>
   (shape) =>
     Shape.fromGeometry(
-      offset$1(shape.toGeometry(), initial, step, limit)
+      offset$1(shape.toGeometry(), initial, { segments, step, limit })
     );
 
 Shape.registerMethod('offset', offset);
@@ -4121,6 +4129,8 @@ const toolpath =
     const jumpEnds = [];
     const cutEnds = [];
     const jumps = [];
+    // console.log(JSON.stringify(shape));
+    // console.log(JSON.stringify(toolpath));
     for (const { op, from, to } of toolpath.toolpath) {
       switch (op) {
         case 'cut':
@@ -4746,7 +4756,7 @@ const Hull = (...shapes) => {
     if (!shape) {
       continue;
     }
-    eachPoint((point) => points.push(point), shape.toGeometry());
+    eachPoint(shape.toGeometry(), (point) => points.push(point));
   }
   return Shape.fromGeometry(convexHullToGraph({}, points));
 };
@@ -4932,7 +4942,7 @@ const fromVec3 = (...points) =>
 const fromPoints = (...shapes) => {
   const vec3List = [];
   for (const shape of shapes) {
-    eachPoint((vec3) => vec3List.push(vec3), shape.toGeometry());
+    eachPoint(shape.toGeometry(), (vec3) => vec3List.push(vec3));
   }
   return fromVec3(...vec3List);
 };
@@ -5235,4 +5245,4 @@ const yz = Shape.fromGeometry({
   ],
 });
 
-export { Alpha, Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainedHull, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Octagon, Orb, Page, Path, Pentagon, Plan, Point, Points, Polygon, Polyhedron, Segments, Septagon, Shape, Spiral, SurfaceMesh, Tetragon, Triangle, Voxels, Wave, Weld, abstract, add, addTo, align, and, as, asPart, at, bend, billOfMaterials, cast, center, clip, clipFrom, cloudSolid, color, colors, cut, cutFrom, cutout, defRgbColor, defThreejsMaterial, defTool, define, demesh, drop, e, each, edit, ensurePages, ex, extrudeAlong, extrudeToPlane, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fuse, g, get, getEdge, getNot, gn, grow, inline, inset, keep, loadGeometry, loft, log, loop, mask, material, md, minkowskiDifference, minkowskiShell, minkowskiSum, move, moveAlong, moveTo, n, noVoid, noop, normal, notColor, nth, ofPlan, offset, on, op, orient, outline, overlay, pack, play, points$1 as points, push, remesh, removeSelfIntersections, rotate, rotateX, rotateY, rotateZ, rx, ry, rz, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, section, sectionProfile, separate, seq, serialize, simplify, size, sketch, smooth, sx, sy, sz, table, tag, tags, taper, test, tint, to, tool, toolpath, top, twist, untag, view, voidFn, voidIn, voxels, weld, withFill, withFn, withInset, withOp, x, xy, xyz, xz, y, yz, z };
+export { Alpha, Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainedHull, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Octagon, Orb, Page, Path, Pentagon, Plan, Point, Points, Polygon, Polyhedron, Segments, Septagon, Shape, Spiral, SurfaceMesh, Tetragon, Triangle, Voxels, Wave, Weld, abstract, add, addTo, align, and, as, asPart, at, bend, billOfMaterials, cast, center, clip, clipFrom, cloudSolid, color, colors, cut, cutFrom, cutout, defRgbColor, defThreejsMaterial, defTool, define, demesh, drop, e, each, edit, ensurePages, ex, extrudeAlong, extrudeToPlane, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fuse, g, get, getEdge, getNot, gn, grow, inline, inset, keep, loadGeometry, loft, log, loop, mask, material, md, minkowskiDifference, minkowskiShell, minkowskiSum, move, moveAlong, moveTo, n, noVoid, noop, normal, notColor, nth, ofPlan, offset, on, op, orient, outline, overlay, pack, packingEnvelope, play, points$1 as points, push, remesh, removeSelfIntersections, rotate, rotateX, rotateY, rotateZ, rx, ry, rz, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, section, sectionProfile, separate, seq, serialize, simplify, size, sketch, smooth, sx, sy, sz, table, tag, tags, taper, test, tint, to, tool, toolpath, top, twist, untag, upperEnvelope, view, voidFn, voidIn, voxels, weld, withFill, withFn, withInset, withOp, x, xy, xyz, xz, y, yz, z };
