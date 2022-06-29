@@ -194,12 +194,6 @@ const hasNotTypeVoid = hasNotType(typeVoid);
 const hasTypeVoid = hasType(typeVoid);
 const isNotTypeVoid = isNotType(typeVoid);
 const isTypeVoid = isType(typeVoid);
-
-const typeWire = 'type:wire';
-const hasNotTypeWire = hasNotType(typeWire);
-const hasTypeWire = hasType(typeWire);
-const isNotTypeWire = isNotType(typeWire);
-const isTypeWire = isType(typeWire);
 const isSegments = ({ type }) => type === 'segments';
 
 const registry = new Map();
@@ -1468,8 +1462,9 @@ const convexHull = (geometries) => {
 };
 
 const filterTargets$1 = (geometry) =>
-  ['graph', 'polygonsWithHoles', 'segments'].includes(geometry.type) &&
-  isNotTypeGhost(geometry);
+  ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
+    geometry.type
+  ) && isNotTypeGhost(geometry);
 
 const filterRemoves = (geometry) =>
   filterTargets$1(geometry) &&
@@ -1640,10 +1635,13 @@ const fresh = (geometry) => {
   return fresh;
 };
 
-const fromPolygons = (options, polygons) => {
-  const outputs = fromPolygons$1(polygons);
+const fromPolygons = (
+  polygons,
+  { tags = [], close = false, tolerance = 0.001 } = {}
+) => {
+  const outputs = fromPolygons$1(polygons, close, tolerance);
   deletePendingSurfaceMeshes();
-  return taggedGroup({}, ...outputs);
+  return taggedGroup({}, ...outputs.map((output) => ({ ...output, tags })));
 };
 
 const filter$i = (geometry) =>
@@ -2373,10 +2371,6 @@ const toPoints = (geometry) => {
   return taggedPoints({}, points);
 };
 
-const isNotVoid = ({ tags }) => {
-  return tags === undefined || tags.includes('type:void') === false;
-};
-
 Error.stackTraceLimit = Infinity;
 
 const toTriangles = ({ tags }, geometry) => {
@@ -2394,6 +2388,9 @@ const toTriangles = ({ tags }, geometry) => {
 const toTriangleArray = (geometry) => {
   const triangles = [];
   const op = (geometry, descend) => {
+    if (isTypeGhost(geometry)) {
+      return;
+    }
     const { matrix = identity(), tags, type } = geometry;
     const transformTriangles = (triangles) =>
       triangles.map((triangle) =>
@@ -2401,19 +2398,15 @@ const toTriangleArray = (geometry) => {
       );
     switch (type) {
       case 'graph': {
-        if (isNotVoid(geometry)) {
-          triangles.push(
-            ...transformTriangles(
-              toTriangles({ tags }, geometry).triangles
-            )
-          );
-        }
+        triangles.push(
+          ...transformTriangles(
+            toTriangles({ tags }, geometry).triangles
+          )
+        );
         break;
       }
       case 'triangles': {
-        if (isNotVoid(geometry)) {
-          triangles.push(...transformTriangles(geometry.triangles));
-        }
+        triangles.push(...transformTriangles(geometry.triangles));
         break;
       }
       case 'polygonsWithHoles':
@@ -2474,4 +2467,4 @@ const translate = (vector, geometry) =>
 const scale = (vector, geometry) =>
   transform$1(fromScaleToTransform(...vector), geometry);
 
-export { allTags, assemble, bend, cached, cast, clip, computeCentroid, computeImplicitVolume, computeNormal, computeToolpath, convexHull, cut, deform, demesh, disjoint, drop, eachItem, eachPoint, eachSegment, eachTriangle, extrude, faces, fill, fix, fresh, fromPolygons, fuse, generateLowerEnvelope, generateUpperEnvelope, getAnySurfaces, getGraphs, getInverseMatrices, getItems, getLayouts, getLeafs, getLeafsIn, getPlans, getPoints, getTags, grow, hasMaterial, hasNotShow, hasNotShowOutline, hasNotShowOverlay, hasNotShowSkin, hasNotShowWireframe, hasNotType, hasNotTypeGhost, hasNotTypeMasked, hasNotTypeVoid, hasNotTypeWire, hasShow, hasShowOutline, hasShowOverlay, hasShowSkin, hasShowWireframe, hasType, hasTypeGhost, hasTypeMasked, hasTypeVoid, hasTypeWire, hash, inset, involute, isNotShow, isNotShowOutline, isNotShowOverlay, isNotShowSkin, isNotShowWireframe, isNotType, isNotTypeGhost, isNotTypeMasked, isNotTypeVoid, isNotTypeWire, isShow, isShowOutline, isShowOverlay, isShowSkin, isShowWireframe, isType, isTypeGhost, isTypeMasked, isTypeVoid, isTypeWire, join, keep, linearize, link, loft, makeAbsolute, measureArea, measureBoundingBox, measureVolume, noGhost, offset, op, outline, read, readNonblocking, registerReifier, reify, remesh, rewrite, rewriteTags, rotateX, rotateY, rotateZ, scale, seam, section, separate, serialize, showOutline, showOverlay, showSkin, showWireframe, simplify, smooth, soup, taggedDisplayGeometry, taggedGraph, taggedGroup, taggedItem, taggedLayout, taggedPlan, taggedPoints, taggedPolygons, taggedPolygonsWithHoles, taggedSegments, taggedSketch, taggedTriangles, toConcreteGeometry, toDisplayGeometry, toPoints, toTransformedGeometry, toTriangleArray, transform$1 as transform, transformCoordinate, transformingCoordinates, translate, twist, typeGhost, typeMasked, typeVoid, typeWire, update, visit, wrap, write, writeNonblocking };
+export { allTags, assemble, bend, cached, cast, clip, computeCentroid, computeImplicitVolume, computeNormal, computeToolpath, convexHull, cut, deform, demesh, disjoint, drop, eachItem, eachPoint, eachSegment, eachTriangle, extrude, faces, fill, fix, fresh, fromPolygons, fuse, generateLowerEnvelope, generateUpperEnvelope, getAnySurfaces, getGraphs, getInverseMatrices, getItems, getLayouts, getLeafs, getLeafsIn, getPlans, getPoints, getTags, grow, hasMaterial, hasNotShow, hasNotShowOutline, hasNotShowOverlay, hasNotShowSkin, hasNotShowWireframe, hasNotType, hasNotTypeGhost, hasNotTypeMasked, hasNotTypeVoid, hasShow, hasShowOutline, hasShowOverlay, hasShowSkin, hasShowWireframe, hasType, hasTypeGhost, hasTypeMasked, hasTypeVoid, hash, inset, involute, isNotShow, isNotShowOutline, isNotShowOverlay, isNotShowSkin, isNotShowWireframe, isNotType, isNotTypeGhost, isNotTypeMasked, isNotTypeVoid, isShow, isShowOutline, isShowOverlay, isShowSkin, isShowWireframe, isType, isTypeGhost, isTypeMasked, isTypeVoid, join, keep, linearize, link, loft, makeAbsolute, measureArea, measureBoundingBox, measureVolume, noGhost, offset, op, outline, read, readNonblocking, registerReifier, reify, remesh, rewrite, rewriteTags, rotateX, rotateY, rotateZ, scale, seam, section, separate, serialize, showOutline, showOverlay, showSkin, showWireframe, simplify, smooth, soup, taggedDisplayGeometry, taggedGraph, taggedGroup, taggedItem, taggedLayout, taggedPlan, taggedPoints, taggedPolygons, taggedPolygonsWithHoles, taggedSegments, taggedSketch, taggedTriangles, toConcreteGeometry, toDisplayGeometry, toPoints, toTransformedGeometry, toTriangleArray, transform$1 as transform, transformCoordinate, transformingCoordinates, translate, twist, typeGhost, typeMasked, typeVoid, update, visit, wrap, write, writeNonblocking };
