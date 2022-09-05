@@ -39706,7 +39706,8 @@ class App extends ReactDOM$2.Component {
   static get propTypes() {
     return {
       workspace: propTypes$1.exports.string,
-      sha: propTypes$1.exports.string
+      sha: propTypes$1.exports.string,
+      path: propTypes$1.exports.start
     };
   }
 
@@ -41344,6 +41345,7 @@ class App extends ReactDOM$2.Component {
     await this.Workspace.restore();
     await this.View.restore();
     await this.Model.restore();
+    this.Notebook.clickLink(undefined, this.props.path);
   }
 
   async updateState(state) {
@@ -41376,12 +41378,14 @@ class App extends ReactDOM$2.Component {
 const installUi = async ({
   document,
   workspace,
-  sha
+  sha,
+  path
 }) => {
   await boot();
   ReactDOM$2.render(v$1(App, {
     sha: 'master',
-    workspace: 'JSxCAD'
+    workspace: 'JSxCAD',
+    path: path
   }), document.getElementById('container'));
 };
 
