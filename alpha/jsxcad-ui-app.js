@@ -40976,7 +40976,8 @@ class App extends ReactDOM$2.Component {
         WorkspaceLoadPath,
         WorkspaceLoadPrefix
       } = await read('config/Workspace', {
-        workspace
+        workspace,
+        otherwise: {}
       });
       await this.updateState({
         WorkspaceLoadPath,
