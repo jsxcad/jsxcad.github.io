@@ -41026,8 +41026,8 @@ class App extends ReactDOM$2.Component {
             const {
               WorkspaceFiles = [],
               WorkspaceOpenPaths = [],
-              WorkspaceLoadPath,
-              WorkspaceLoadPrefix
+              WorkspaceLoadPath = '',
+              WorkspaceLoadPrefix = ''
             } = this.state;
 
             const isDisabled = file => WorkspaceOpenPaths.includes(file.substring(7));
