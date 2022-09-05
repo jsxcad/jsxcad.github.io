@@ -40179,12 +40179,6 @@ class App extends ReactDOM$2.Component {
         model,
         WorkspaceOpenPaths
       });
-      /*
-      // Now that layout is in place, run the notebooks we just loaded.
-      for (const path of WorkspaceOpenPaths) {
-        await this.Notebook.run(path);
-      }
-      */
     };
 
     this.Notebook = {};
