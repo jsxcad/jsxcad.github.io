@@ -1,4 +1,0 @@
-md`
-### Empty()
-Produces an empty geometry.
-`;
