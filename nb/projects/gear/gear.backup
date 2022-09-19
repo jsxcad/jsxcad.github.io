@@ -1,0 +1,177 @@
+import { Gear, RingGear } from './gear.js';
+
+const numberOfTeeth = control('number of teeth', 16, 'input');
+const mmPerTooth = control('mm per tooth', Math.PI, 'input');
+const teethToHide = control('teeth to hide', 0, 'input');
+const pressureAngle = control('pressure angle', 20, 'input');
+const clearance = control('clearance', 0, 'input');
+const backlash = control('backlash', 0, 'input');
+const thickness = control('thickness', 2, 'input');
+const toothResolution = control('toothResolution', 5, 'input');
+
+Gear()
+  .hasTeeth(numberOfTeeth)
+  .hasMmPerTooth(mmPerTooth)
+  .hasHiddenTeeth(teethToHide)
+  .hasPressureAngle(pressureAngle)
+  .hasClearance(clearance)
+  .hasBacklash(backlash)
+  .hasToothResolution(toothResolution)
+  .ex(thickness)
+  .material('wood')
+  .stl(`gear_${numberOfTeeth}`);
+
+Gear()
+  .hasTeeth(8)
+  .and((s) => s.hasClearance(0.5).color('red'))
+  .gridView()
+  .md(`Clearance adds play to the gear tips`);
+Gear()
+  .hasTeeth(8)
+  .and((s) => s.hasBacklash(1).color('red'))
+  .gridView()
+  .md(`Backlash adds play to the gear sides`);
+Gear()
+  .hasTeeth(8)
+  .and(
+    (s) => s.hasPressureAngle(30).color('red'),
+    (s) => s.hasPressureAngle(10).color('blue')
+  )
+  .material('glass')
+  .gridView()
+  .md(`Pressure Angle makes the tip sharper or blunter`);
+
+const planet = Gear().hasTeeth(8);
+const planetFootprint = planet.offset(0.2).view();
+
+const sun = Gear().hasTeeth(16).hasBacklash(0.2);
+
+const ring = Arc(50)
+  .hasAngle(-1 / 64, 1 / 64)
+  .hull(Point())
+  .cut(Arc(30))
+  .cut(
+    Group(
+      ...seq(
+        (a) =>
+          planetFootprint
+            .rz(a / -8)
+            .y(12)
+            .rz(a / 32)
+            .void(),
+        { from: -1, by: 1 / 16, to: 1 }
+      )
+    )
+  )
+  .rz(...seq((a) => a, { by: 1 / 32 }))
+  .view();
+
+const sunSpur = Arc(20)
+  .hasAngle(-1 / 32, 1 / 32)
+  .hull(Point())
+  .cut(
+    ...seq(
+      (a) =>
+        planetFootprint
+          .rz(a / 8)
+          .y(12)
+          .rz(a / 16),
+      { from: -1, by: 1 / 16, to: 1 }
+    )
+  )
+  .rz(...seq((a) => a, { by: 1 / 16 }))
+  .view();
+
+const rack = Box(10, Math.PI)
+  .align('x<')
+  .cut(
+    ...seq((a) => planetFootprint.rz(-a / 8).y(Math.PI * a), {
+      from: -1,
+      by: 1 / 8,
+      to: 1,
+    })
+  )
+  .y(...seq((a) => a * Math.PI, { to: 10 }))
+  .view();
+// const gear = Gear().hasClearance(0).hasBacklash(0.25).hasPressureAngle(20);
+
+const planetary = Arc(44)
+  .ex(-4)
+  .as('hoop')
+  .fitTo(Octagon(42).ex(-2, -4))
+  // .cut(gear.hasTeeth(32).hasBacklash(-0.25).hasClearance(-0).ex(-2))
+  .cut(Octagon(42).ex(-2))
+  .and(ring.clip(Octagon(42)).ex(-2))
+  .cut(Arc(24).ex(-2, -4))
+  .md(`Some care needs to be taken to invert play when cutting gears out.`)
+  .color('blue')
+  .as('ring')
+  .and(
+    /*gear
+      .hasTeeth(8)
+      .hasBacklash(0.5)*/
+    planet
+      .ex(-2)
+      .cut(Arc(2).ex(-2))
+      .color('red')
+      .as('planet')
+      .x(12)
+      .rz(1 / 4, 2 / 4, 3 / 4, 4 / 4)
+  )
+  .and(
+    /*
+    sun
+      .rz(1 / 32)*/
+    sunSpur
+      .ex(-2)
+      .and(Arc(23.5).ex(-2, -4))
+      .fitTo(Octagon(12).fitTo(Arc(8).void()).ex(-4).color('orange').as('axle'))
+      .color('green')
+      .as('sun')
+  )
+  .view()
+  .md(`Then extruded for printing.`)
+  .stl('hoop', (s) =>
+    s
+      .get('ring')
+      .get('hoop')
+      .rx(0 / 2, 1 / 2)
+  )
+  .stl('ring', (s) => s.get('ring').getNot('pins', 'hoop'))
+  .stl('planet', (s) =>
+    s
+      .get('planet')
+      .n(0)
+      .y(12)
+      .rx(0 / 2, 1 / 2)
+  )
+  .stl('sun', (s) => s.get('sun').getNot('pins', 'axle'))
+  .stl('axle', (s) =>
+    s
+      .get('sun')
+      .get('axle')
+      .rx(0 / 2, 1 / 2)
+  )
+  .stl('pin', (s) =>
+    s
+      .get('sun')
+      .get('pins')
+      .n(0)
+      .ry(1 / 4)
+  );
+
+Group(
+  ...seq(
+    (a) =>
+      planetary
+        .on(get('sun'), rz(a / -16))
+        .on(get('planet'), rz(a / 8))
+        .on(get('ring'), rz(a / 32))
+        .and(Hershey(`${a}`, 10).color('red').sketch())
+        .as('arrangement'),
+    { by: 1 / 12, upto: 4 / 12 }
+  )
+)
+  .pack()
+  .view();
+

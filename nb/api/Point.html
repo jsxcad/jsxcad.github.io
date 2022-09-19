@@ -1,0 +1,1540 @@
+
+<html>
+ <head>
+  <title>JSxCAD Viewer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
+    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
+    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
+
+    const notebook = [
+  {
+    "beginSourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$1"
+    },
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "BTybMESsgmeZiJ/rcAmqBdWKLOtf5NDdFh3d4tWDvn8=",
+    "sourceText": "md`\n### Point()\nParameter|Default|Type\n---|---|---\n...coordinate|[0, 0, 0]|Coordinate of the point.\n\nConstructs a point at the coordinate.\n`;",
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "md": "\n### Point()\nParameter|Default|Type\n---|---|---\n...coordinate|[0, 0, 0]|Coordinate of the point.\n\nConstructs a point at the coordinate.\n",
+    "hash": "LHp7pYjdepKDwR6Chd8ej3sLwm8bDqUcAv4GH61kFnc=",
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "/tMWQBKWxc/tOnL5/Snn5I2eqEvP9+jR0FBgbkFguqo=",
+    "sourceText": "Point(1, 2, 3)\n  .and((s) => Edge(Point(), s))\n  .view()\n  .note(\n    'Point(1, 2, 3).and((s) => Edge(Point(), s)) shows a point at [1, 2, 3].'\n  );",
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$2"
+    }
+  },
+  {
+    "hash": "jPq_-bFvvSc_kpgI7FSSb",
+    "path": "view/nb/api/Point.nb/$2/",
+    "view": {
+      "viewId": "",
+      "width": 512,
+      "height": 512,
+      "position": [
+        100,
+        -100,
+        100
+      ]
+    },
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$2"
+    },
+    "data": {
+      "type": "layout",
+      "layout": {
+        "size": [
+          12.000000000000002,
+          14.000000000000004
+        ],
+        "margin": 1,
+        "title": [
+          {
+            "geometry": {
+              "type": "group",
+              "tags": [],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "content": [
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": [
+                    [
+                      [
+                        6,
+                        17,
+                        0
+                      ],
+                      [
+                        8,
+                        18,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        8,
+                        18,
+                        0
+                      ],
+                      [
+                        11,
+                        21,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        11,
+                        21,
+                        0
+                      ],
+                      [
+                        11,
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    1.25,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "5/4",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": [
+                    [
+                      [
+                        4,
+                        16,
+                        0
+                      ],
+                      [
+                        4,
+                        17,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        4,
+                        17,
+                        0
+                      ],
+                      [
+                        5,
+                        19,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        5,
+                        19,
+                        0
+                      ],
+                      [
+                        6,
+                        20,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        6,
+                        20,
+                        0
+                      ],
+                      [
+                        8,
+                        21,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        8,
+                        21,
+                        0
+                      ],
+                      [
+                        12,
+                        21,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        12,
+                        21,
+                        0
+                      ],
+                      [
+                        14,
+                        20,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        14,
+                        20,
+                        0
+                      ],
+                      [
+                        15,
+                        19,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        15,
+                        19,
+                        0
+                      ],
+                      [
+                        16,
+                        17,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        16,
+                        17,
+                        0
+                      ],
+                      [
+                        16,
+                        15,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        16,
+                        15,
+                        0
+                      ],
+                      [
+                        15,
+                        13,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        15,
+                        13,
+                        0
+                      ],
+                      [
+                        13,
+                        10,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        13,
+                        10,
+                        0
+                      ],
+                      [
+                        3,
+                        0,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        3,
+                        0,
+                        0
+                      ],
+                      [
+                        17,
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    2.5,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "5/2",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": []
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    3.5,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "7/2",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": [
+                    [
+                      [
+                        3,
+                        14,
+                        0
+                      ],
+                      [
+                        14,
+                        0,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        14,
+                        14,
+                        0
+                      ],
+                      [
+                        3,
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    4.5625,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "73/16",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": []
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    5.5625,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "89/16",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": [
+                    [
+                      [
+                        6,
+                        17,
+                        0
+                      ],
+                      [
+                        8,
+                        18,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        8,
+                        18,
+                        0
+                      ],
+                      [
+                        11,
+                        21,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        11,
+                        21,
+                        0
+                      ],
+                      [
+                        11,
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "type": "segments",
+                  "tags": [],
+                  "matrix": [
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.0625,
+                    0,
+                    6.8125,
+                    0,
+                    0,
+                    1,
+                    "1/16",
+                    "0",
+                    "0",
+                    "109/16",
+                    "0",
+                    "1/16",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1/16",
+                    "0",
+                    "1"
+                  ],
+                  "segments": [
+                    [
+                      [
+                        13,
+                        21,
+                        0
+                      ],
+                      [
+                        3,
+                        7,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        3,
+                        7,
+                        0
+                      ],
+                      [
+                        18,
+                        7,
+                        0
+                      ]
+                    ],
+                    [
+                      [
+                        13,
+                        21,
+                        0
+                      ],
+                      [
+                        13,
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": [],
+      "content": [
+        {
+          "type": "group",
+          "tags": [],
+          "content": [
+            {
+              "type": "points",
+              "tags": [
+                "viewId:"
+              ],
+              "points": [
+                [
+                  1,
+                  2,
+                  3
+                ]
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "viewId:"
+              ],
+              "matrix": [
+                0.9634888438133874,
+                -0.14862405041480645,
+                -0.2227108876670357,
+                0,
+                0,
+                0.8317914213624894,
+                -0.5550883095037846,
+                0,
+                0.26774847870182555,
+                0.5348213935381292,
+                0.801421754862439,
+                0,
+                0,
+                0,
+                0,
+                1,
+                "475/493",
+                "0",
+                "132/493",
+                "0",
+                "-87120/586177",
+                "989/1189",
+                "313500/586177",
+                "0",
+                "-130548/586177",
+                "-660/1189",
+                "469775/586177",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    -0.0018919200173326267,
+                    -0.001682085786375076,
+                    3.7416565303654012
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "tags": [
+            "type:ghost"
+          ],
+          "content": [
+            {
+              "type": "plan",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "plan": {
+                "type": "Box",
+                "history": [
+                  {
+                    "corner1": [
+                      6.000000000000001,
+                      7.000000000000002,
+                      0
+                    ]
+                  },
+                  {
+                    "corner2": [
+                      -6.000000000000001,
+                      -7.000000000000002,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "content": [
+                {
+                  "type": "segments",
+                  "segments": [
+                    [
+                      [
+                        -6,
+                        -7.000000000000001,
+                        0
+                      ],
+                      [
+                        6,
+                        -7.000000000000001,
+                        0
+                      ],
+                      "-6 -7 0 6 -7 0"
+                    ],
+                    [
+                      [
+                        6,
+                        -7.000000000000001,
+                        0
+                      ],
+                      [
+                        6,
+                        7.000000000000001,
+                        0
+                      ],
+                      "6 -7 0 6 7 0"
+                    ],
+                    [
+                      [
+                        6,
+                        7.000000000000001,
+                        0
+                      ],
+                      [
+                        -6,
+                        7.000000000000001,
+                        0
+                      ],
+                      "6 7 0 -6 7 0"
+                    ],
+                    [
+                      [
+                        -6,
+                        7.000000000000001,
+                        0
+                      ],
+                      [
+                        -6,
+                        -7.000000000000001,
+                        0
+                      ],
+                      "-6 7 0 -6 -7 0"
+                    ]
+                  ],
+                  "matrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    "1",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "1",
+                    "0",
+                    "1"
+                  ],
+                  "tags": [
+                    "color:red",
+                    "type:ghost",
+                    "viewId:"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -6,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-6",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    6,
+                    17,
+                    0
+                  ],
+                  [
+                    8,
+                    18,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    18,
+                    0
+                  ],
+                  [
+                    11,
+                    21,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    21,
+                    0
+                  ],
+                  [
+                    11,
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -4.75,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-19/4",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    4,
+                    16,
+                    0
+                  ],
+                  [
+                    4,
+                    17,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    17,
+                    0
+                  ],
+                  [
+                    5,
+                    19,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    19,
+                    0
+                  ],
+                  [
+                    6,
+                    20,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    20,
+                    0
+                  ],
+                  [
+                    8,
+                    21,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    21,
+                    0
+                  ],
+                  [
+                    12,
+                    21,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    12,
+                    21,
+                    0
+                  ],
+                  [
+                    14,
+                    20,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    14,
+                    20,
+                    0
+                  ],
+                  [
+                    15,
+                    19,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    15,
+                    19,
+                    0
+                  ],
+                  [
+                    16,
+                    17,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    16,
+                    17,
+                    0
+                  ],
+                  [
+                    16,
+                    15,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    16,
+                    15,
+                    0
+                  ],
+                  [
+                    15,
+                    13,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    15,
+                    13,
+                    0
+                  ],
+                  [
+                    13,
+                    10,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    13,
+                    10,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    0,
+                    0
+                  ],
+                  [
+                    17,
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -3.5,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-7/2",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": []
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -2.5,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-5/2",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    3,
+                    14,
+                    0
+                  ],
+                  [
+                    14,
+                    0,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    14,
+                    14,
+                    0
+                  ],
+                  [
+                    3,
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -1.4375,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-23/16",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": []
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                -0.4375,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "-7/16",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    6,
+                    17,
+                    0
+                  ],
+                  [
+                    8,
+                    18,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    18,
+                    0
+                  ],
+                  [
+                    11,
+                    21,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    21,
+                    0
+                  ],
+                  [
+                    11,
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            },
+            {
+              "type": "segments",
+              "tags": [
+                "color:red",
+                "type:ghost",
+                "viewId:"
+              ],
+              "matrix": [
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0,
+                0,
+                0,
+                0.0625,
+                0,
+                0.8125,
+                7.875,
+                0,
+                1,
+                "1/16",
+                "0",
+                "0",
+                "13/16",
+                "0",
+                "1/16",
+                "0",
+                "63/8",
+                "0",
+                "0",
+                "1/16",
+                "0",
+                "1"
+              ],
+              "segments": [
+                [
+                  [
+                    13,
+                    21,
+                    0
+                  ],
+                  [
+                    3,
+                    7,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    7,
+                    0
+                  ],
+                  [
+                    18,
+                    7,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    13,
+                    21,
+                    0
+                  ],
+                  [
+                    13,
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "md": "Point(1, 2, 3).and((s) => Edge(Point(), s)) shows a point at [1, 2, 3].",
+    "hash": "CIDVKOv0wRwJLeLebS0OzdLjTt8WOCyTh94tdLetqLU=",
+    "sourceLocation": {
+      "path": "nb/api/Point.nb",
+      "id": "$2"
+    }
+  }
+];
+
+    const prepareViews = async (notebook) => {
+      // Prepare the view urls in the browser.
+      for (const note of notebook) {
+        if (note.view && !note.url) {
+          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
+        }
+      }
+      return notebook;
+    }
+
+    const run = async () => {
+      const body = document.getElementsByTagName('body')[0];
+      const bookElement = document.createElement('div');
+      const notebookElement = await toDomElement(await prepareViews(notebook));
+      bookElement.appendChild(notebookElement);
+      body.appendChild(bookElement);
+      bookElement.classList.add('book', 'notebook', 'loaded');
+    };
+
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          run();
+        }
+      };
+    }
+  </script>
+ </body>
+</html>

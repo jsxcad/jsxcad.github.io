@@ -1,0 +1,134 @@
+
+<html>
+ <head>
+  <title>JSxCAD Viewer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
+    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
+    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
+
+    const notebook = [
+  {
+    "beginSourceLocation": {
+      "path": "nb/projects/index.nb",
+      "id": "$1"
+    },
+    "sourceLocation": {
+      "path": "nb/projects/index.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "ujasU30hH7ytRwaxMX0cL5nBMnjKx9uuaM8isLe5nRI=",
+    "sourceText": "md`\n# Example Projects\n\nThese example projects may be useful to see what can be done and to get started on your own.\n\n* [28BYJ-48](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/28BYJ-48/28BYJ-48.nb)\n* [Bear](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/bear/bear.nb)\n* [Bearing](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/bearing/bearing.nb)\n* [Belt Sprockets](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/belt_sprockets/belt_sprockets.nb)\n* [Bolt](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/bolt/bolt.nb)\n* [Clock](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/clock/clock.nb)\n* [Engrave](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/engrave/engrave.nb)\n* [Gear](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/gear/gear.nb)\n* [Holder](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/holder/holder.nb)\n* [Lego](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/lego/lego.nb)\n* [Lego Sorter](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/lego_sorter/lego_sorter.nb)\n* [Micro Gear Motor](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/micro_gear_motor/micro_gear_motor.nb)\n* [Mold](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/mold/mold.nb)\n* [Plots](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/plots/plots.nb)\n* [Plotter](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/plotter/plotter.nb)\n* [Saucer](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/saucer/saucer.nb)\n`;",
+    "sourceLocation": {
+      "path": "nb/projects/index.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "md": "\n# Example Projects\n\nThese example projects may be useful to see what can be done and to get started on your own.\n\n* [28BYJ-48](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/28BYJ-48/28BYJ-48.nb)\n* [Bear](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/bear/bear.nb)\n* [Bearing](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/bearing/bearing.nb)\n* [Belt Sprockets](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/belt_sprockets/belt_sprockets.nb)\n* [Bolt](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/bolt/bolt.nb)\n* [Clock](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/clock/clock.nb)\n* [Engrave](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/engrave/engrave.nb)\n* [Gear](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/gear/gear.nb)\n* [Holder](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/holder/holder.nb)\n* [Lego](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/lego/lego.nb)\n* [Lego Sorter](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/lego_sorter/lego_sorter.nb)\n* [Micro Gear Motor](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/micro_gear_motor/micro_gear_motor.nb)\n* [Mold](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/mold/mold.nb)\n* [Plots](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/plots/plots.nb)\n* [Plotter](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/plotter/plotter.nb)\n* [Saucer](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/saucer/saucer.nb)\n",
+    "hash": "BfaSYAMKSv3kyVjEJNr0at55T46buZiFhDs44xNUbJY=",
+    "sourceLocation": {
+      "path": "nb/projects/index.nb",
+      "id": "$1"
+    }
+  }
+];
+
+    const prepareViews = async (notebook) => {
+      // Prepare the view urls in the browser.
+      for (const note of notebook) {
+        if (note.view && !note.url) {
+          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
+        }
+      }
+      return notebook;
+    }
+
+    const run = async () => {
+      const body = document.getElementsByTagName('body')[0];
+      const bookElement = document.createElement('div');
+      const notebookElement = await toDomElement(await prepareViews(notebook));
+      bookElement.appendChild(notebookElement);
+      body.appendChild(bookElement);
+      bookElement.classList.add('book', 'notebook', 'loaded');
+    };
+
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          run();
+        }
+      };
+    }
+  </script>
+ </body>
+</html>

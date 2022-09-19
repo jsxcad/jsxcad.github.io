@@ -1,0 +1,166 @@
+
+<html>
+ <head>
+  <title>JSxCAD Viewer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
+    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
+    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
+
+    const notebook = [
+  {
+    "beginSourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$1"
+    },
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "KPrIq2q+XyDNPkkLrn4P+bJsQ3bVybfjjSz+Yke07gI=",
+    "sourceText": "md`\n# Shape API\n`;",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "md": "\n# Shape API\n",
+    "hash": "jD0Q12SvX9BUwWLmCIjHXRk3816fs04ZgBv+HQId3CY=",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "pk4CKZDY16i7XYfKcB4jqwruLvS0bVw8Vl8xj0sXOXs=",
+    "sourceText": "md`\n## Constructors\n* [Arc](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Arc.nb)\n* [Assembly](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Assembly.nb)\n* [Cached](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Cached.nb)\n* [ChainHull](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ChainHull.nb)\n* [Curve](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Curve.nb)\n* [Edge](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Edge.nb)\n* [Edges](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Edges.nb)\n* [Empty](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Empty.nb)\n* [Face](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Face.nb)\n* [Group](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Group.nb)\n* [Hershey](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hershey.nb)\n* [Hexagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hexagon.nb)\n* [Hull](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hull.nb)\n* [Icosahedron](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Icosahedron.nb)\n* [Implicit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Implicit.nb)\n* [Join](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Join.nb)\n* [Line](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Line.nb)\n* [Link](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Link.nb)\n* [Loop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Loop.nb)\n* [Orb](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Orb.nb)\n* [Octagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Octagon.nb)\n* [Page](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Page.nb)\n* [Pentagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Pentagon.nb)\n* [Plan](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Plan.nb)\n* [Point](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Point.nb)\n* [Points](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Points.nb)\n* [Polygon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Polygon.nb)\n* [Polyhedron](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Polyhedron.nb)\n* [Ref](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Ref.nb)\n* [Segments](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Segments.nb)\n* [Spiral](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Spiral.nb)\n* [SurfaceMesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/SurfaceMesh.nb)\n* [Triangle](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Triangle.nb)\n* [Wave](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Wave.nb)\n`;",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$2"
+    }
+  },
+  {
+    "md": "\n## Constructors\n* [Arc](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Arc.nb)\n* [Assembly](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Assembly.nb)\n* [Cached](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Cached.nb)\n* [ChainHull](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ChainHull.nb)\n* [Curve](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Curve.nb)\n* [Edge](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Edge.nb)\n* [Edges](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Edges.nb)\n* [Empty](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Empty.nb)\n* [Face](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Face.nb)\n* [Group](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Group.nb)\n* [Hershey](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hershey.nb)\n* [Hexagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hexagon.nb)\n* [Hull](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Hull.nb)\n* [Icosahedron](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Icosahedron.nb)\n* [Implicit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Implicit.nb)\n* [Join](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Join.nb)\n* [Line](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Line.nb)\n* [Link](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Link.nb)\n* [Loop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Loop.nb)\n* [Orb](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Orb.nb)\n* [Octagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Octagon.nb)\n* [Page](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Page.nb)\n* [Pentagon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Pentagon.nb)\n* [Plan](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Plan.nb)\n* [Point](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Point.nb)\n* [Points](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Points.nb)\n* [Polygon](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Polygon.nb)\n* [Polyhedron](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Polyhedron.nb)\n* [Ref](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Ref.nb)\n* [Segments](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Segments.nb)\n* [Spiral](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Spiral.nb)\n* [SurfaceMesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/SurfaceMesh.nb)\n* [Triangle](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Triangle.nb)\n* [Wave](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/Wave.nb)\n",
+    "hash": "TSYHNEu6EKHopV05ZuuLr+9oH9FJx7cG9rGx0ZPVP1o=",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$2"
+    }
+  },
+  {
+    "hash": "MQnMfOjsW15br5CUpymxUmiwPs3lqzxAMuT8ogcFrBQ=",
+    "sourceText": "md`\n## Operators\n* [absolute](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/absolute.nb)\n* [abstract](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/abstract.nb)\n* [addTo](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/addTo.nb)\n* [align](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/align.nb)\n* [and](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/and.nb)\n* [area](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/area.nb)\n* [as](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/as.nb)\n* [asPart](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/asPart.nb)\n* [at](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/at.nb)\n* [bb](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bb.nb)\n* [bend](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bend.nb)\n* [bom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bom.nb)\n* [by](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/by.nb)\n* [center](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/center.nb)\n* [clean](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clean.nb)\n* [clip](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clip.nb)\n* [clipFrom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clipFrom.nb)\n* [color](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/color.nb)\n* [cut](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cut.nb)\n* [cutFrom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cutFrom.nb)\n* [cutOut](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cutOut.nb)\n* [deform](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/deform.nb)\n* [demesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/demesh.nb)\n* [disjoint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/disjoint.nb)\n* [drop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/drop.nb)\n* [each](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/each.nb)\n* [eachEdge](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/eachEdge.nb)\n* [eachPoint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/eachPoint.nb)\n* [edges](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/edges.nb)\n* [e](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/e.nb)\n* [ex](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ex.nb)\n* [ey](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ey.nb)\n* [ez](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ez.nb)\n* [extrudeAlong](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/extrudeAlong.nb)\n* [faces](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/faces.nb)\n* [f](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/f.nb)\n* [fill](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fill.nb)\n* [fit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fit.nb)\n* [fitTo](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fitTo.nb)\n* [flat](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/flat.nb)\n* [fuse](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fuse.nb)\n* [get](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/get.nb)\n* [getNot](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/getNot.nb)\n* [ghost](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ghost.nb)\n* [grow](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/grow.nb)\n* [image](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/image.nb)\n* [in](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/in.nb)\n* [inset](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/inset.nb)\n* [involute](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/involute.nb)\n* [join](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/join.nb)\n* [link](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/link.nb)\n* [loft](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/loft.nb)\n* [loop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/loop.nb)\n* [log](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/log.nb)\n* [lowerEnvelope](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/lowerEnvelope.nb)\n* [mask](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/mask.nb)\n* [masking](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/masking.nb)\n* [material](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/material.nb)\n* [md](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/md.nb)\n* [moveAlong](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/moveAlong.nb)\n* [noOp](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/noOp.nb)\n* [normal](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/normal.nb)\n* [note](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/note.nb)\n* [noVoid](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/noVoid.nb)\n* [n](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/n.nb)\n* [nth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/nth.nb)\n* [offset](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/offset.nb)\n* [on](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/on.nb)\n* [op](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/op.nb)\n* [origin](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/origin.nb)\n* [outline](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/outline.nb)\n* [overlay](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/overlay.nb)\n* [pack](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/pack.nb)\n* [page](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/page.nb)\n* [points](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/points.nb)\n* [remesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/remesh.nb)\n* [scale](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/scale.nb)\n* [scaleToFit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/scaleToFit.nb)\n* [seam](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/seam.nb)\n* [section](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/section.nb)\n* [separate](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/separate.nb)\n* [seq](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/seq.nb)\n* [shadow](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/shadow.nb)\n* [simplify](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/simplify.nb)\n* [size](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/size.nb)\n* [sketch](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sketch.nb)\n* [smooth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/smooth.nb)\n* [sort](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sort.nb)\n* [sx](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sx.nb)\n* [sy](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sy.nb)\n* [sz](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sz.nb)\n* [table](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/table.nb)\n* [tag](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tag.nb)\n* [tags](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tags.nb)\n* [tint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tint.nb)\n* [to](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/to.nb)\n* [toolpath](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/toolpath.nb)\n* [twist](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/twist.nb)\n* [untag](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/untag.nb)\n* [upperEnvelope](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/upperEnvelope.nb)\n* [view](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/view.nb)\n* [void](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/void.nb)\n* [volume](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/volume.nb)\n* [voxels](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/voxels.nb)\n* [wrap](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/wrap.nb)\n* [x](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/x.nb)\n* [y](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/y.nb)\n* [z](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/z.nb)\n`;",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$3"
+    }
+  },
+  {
+    "md": "\n## Operators\n* [absolute](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/absolute.nb)\n* [abstract](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/abstract.nb)\n* [addTo](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/addTo.nb)\n* [align](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/align.nb)\n* [and](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/and.nb)\n* [area](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/area.nb)\n* [as](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/as.nb)\n* [asPart](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/asPart.nb)\n* [at](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/at.nb)\n* [bb](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bb.nb)\n* [bend](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bend.nb)\n* [bom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/bom.nb)\n* [by](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/by.nb)\n* [center](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/center.nb)\n* [clean](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clean.nb)\n* [clip](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clip.nb)\n* [clipFrom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/clipFrom.nb)\n* [color](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/color.nb)\n* [cut](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cut.nb)\n* [cutFrom](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cutFrom.nb)\n* [cutOut](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/cutOut.nb)\n* [deform](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/deform.nb)\n* [demesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/demesh.nb)\n* [disjoint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/disjoint.nb)\n* [drop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/drop.nb)\n* [each](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/each.nb)\n* [eachEdge](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/eachEdge.nb)\n* [eachPoint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/eachPoint.nb)\n* [edges](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/edges.nb)\n* [e](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/e.nb)\n* [ex](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ex.nb)\n* [ey](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ey.nb)\n* [ez](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ez.nb)\n* [extrudeAlong](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/extrudeAlong.nb)\n* [faces](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/faces.nb)\n* [f](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/f.nb)\n* [fill](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fill.nb)\n* [fit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fit.nb)\n* [fitTo](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fitTo.nb)\n* [flat](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/flat.nb)\n* [fuse](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/fuse.nb)\n* [get](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/get.nb)\n* [getNot](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/getNot.nb)\n* [ghost](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/ghost.nb)\n* [grow](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/grow.nb)\n* [image](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/image.nb)\n* [in](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/in.nb)\n* [inset](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/inset.nb)\n* [involute](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/involute.nb)\n* [join](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/join.nb)\n* [link](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/link.nb)\n* [loft](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/loft.nb)\n* [loop](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/loop.nb)\n* [log](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/log.nb)\n* [lowerEnvelope](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/lowerEnvelope.nb)\n* [mask](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/mask.nb)\n* [masking](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/masking.nb)\n* [material](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/material.nb)\n* [md](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/md.nb)\n* [moveAlong](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/moveAlong.nb)\n* [noOp](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/noOp.nb)\n* [normal](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/normal.nb)\n* [note](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/note.nb)\n* [noVoid](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/noVoid.nb)\n* [n](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/n.nb)\n* [nth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/nth.nb)\n* [offset](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/offset.nb)\n* [on](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/on.nb)\n* [op](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/op.nb)\n* [origin](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/origin.nb)\n* [outline](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/outline.nb)\n* [overlay](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/overlay.nb)\n* [pack](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/pack.nb)\n* [page](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/page.nb)\n* [points](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/points.nb)\n* [remesh](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/remesh.nb)\n* [scale](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/scale.nb)\n* [scaleToFit](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/scaleToFit.nb)\n* [seam](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/seam.nb)\n* [section](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/section.nb)\n* [separate](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/separate.nb)\n* [seq](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/seq.nb)\n* [shadow](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/shadow.nb)\n* [simplify](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/simplify.nb)\n* [size](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/size.nb)\n* [sketch](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sketch.nb)\n* [smooth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/smooth.nb)\n* [sort](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sort.nb)\n* [sx](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sx.nb)\n* [sy](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sy.nb)\n* [sz](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/sz.nb)\n* [table](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/table.nb)\n* [tag](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tag.nb)\n* [tags](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tags.nb)\n* [tint](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/tint.nb)\n* [to](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/to.nb)\n* [toolpath](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/toolpath.nb)\n* [twist](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/twist.nb)\n* [untag](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/untag.nb)\n* [upperEnvelope](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/upperEnvelope.nb)\n* [view](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/view.nb)\n* [void](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/void.nb)\n* [volume](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/volume.nb)\n* [voxels](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/voxels.nb)\n* [wrap](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/wrap.nb)\n* [x](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/x.nb)\n* [y](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/y.nb)\n* [z](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/api/z.nb)\n",
+    "hash": "pFeySMDwCoN/dPJCBIMlXIYRUiOS5uxaj+mo7UdwNag=",
+    "sourceLocation": {
+      "path": "nb/api/index.nb",
+      "id": "$3"
+    }
+  }
+];
+
+    const prepareViews = async (notebook) => {
+      // Prepare the view urls in the browser.
+      for (const note of notebook) {
+        if (note.view && !note.url) {
+          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
+        }
+      }
+      return notebook;
+    }
+
+    const run = async () => {
+      const body = document.getElementsByTagName('body')[0];
+      const bookElement = document.createElement('div');
+      const notebookElement = await toDomElement(await prepareViews(notebook));
+      bookElement.appendChild(notebookElement);
+      body.appendChild(bookElement);
+      bookElement.classList.add('book', 'notebook', 'loaded');
+    };
+
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          run();
+        }
+      };
+    }
+  </script>
+ </body>
+</html>

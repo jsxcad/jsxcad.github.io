@@ -1,0 +1,13 @@
+import { Text, readFont } from '@jsxcad/api-v1-font';
+
+const unYetGul = await readFont('https://jsxcad.js.org/ttf/UnYetgul.ttf');
+
+const text = await control('Engraving', '輝');
+
+const model = Text(unYetGul, text, 25)
+  .by(align('xy'))
+  .cutFrom(Box(30, 26))
+  .view()
+  .md('Model');
+
+const inset = model.inset(0.5).gridView().md('Section Inset');
