@@ -503,7 +503,6 @@ const readNonblocking = (path, options) => {
 };
 
 const write = async (path, geometry, options) => {
-  console.log(`QQ/geometry/write`);
   // Ensure that the geometry carries a hash before saving.
   hash(geometry);
   const stored = await store(geometry);
@@ -513,7 +512,6 @@ const write = async (path, geometry, options) => {
 
 // Generally addPending(write(...)) seems a better option.
 const writeNonblocking = (path, geometry, options) => {
-  console.log(`QQ/geometry/writeNonblocking`);
   addPending(write(path, geometry, options));
   return geometry;
 };
@@ -2234,39 +2232,20 @@ const separate = (
   return taggedGroup({}, ...outputs);
 };
 
-const soup = (
-  geometry,
-  { doTriangles = true, doOutline = true, doWireframe = true } = {}
-) => {
-  geometry = serialize(convertPolygonsToMeshes(geometry));
-  const show = (geometry) => {
-    if (doTriangles) {
-      geometry = hasShowSkin(geometry);
-    }
-    if (doOutline /* && isNotTypeVoid(geometry) */) {
-      geometry = hasShowOutline(geometry);
-    }
-    if (doWireframe && isNotTypeVoid(geometry)) {
-      geometry = hasShowWireframe(geometry);
-    }
-    return geometry;
-  };
+const soup = (geometry) => {
   const op = (geometry, descend) => {
     switch (geometry.type) {
       case 'graph': {
         const { graph } = geometry;
-        if (!graph) {
-          console.log(JSON.stringify(geometry));
-        }
         if (graph.isEmpty) {
           return taggedGroup({});
         } else {
-          return show(geometry);
+          return geometry;
         }
       }
       // Unreachable.
       case 'polygonsWithHoles':
-        return show(geometry);
+        return geometry;
       case 'segments':
       case 'triangles':
       case 'points':
@@ -2291,7 +2270,10 @@ const soup = (
     }
   };
 
-  return rewrite(toConcreteGeometry(geometry), op);
+  return rewrite(
+    serialize(convertPolygonsToMeshes(toConcreteGeometry(geometry))),
+    op
+  );
 };
 
 const taggedItem = ({ tags = [], matrix, provenance }, ...content) => {
@@ -2431,11 +2413,7 @@ const toDisplayGeometry = (
   if (skin === undefined) {
     skin = true;
   }
-  return soup(toConcreteGeometry(geometry), {
-    doTriangles: skin,
-    doOutline: outline,
-    doWireframe: wireframe,
-  });
+  return soup(toConcreteGeometry(geometry));
 };
 
 const toPoints = (geometry) => {

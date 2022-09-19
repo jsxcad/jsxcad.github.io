@@ -54,11 +54,12 @@ const buildScene = ({
   }
 
   {
-    // const light = new DirectionalLight(0xffffff, 0.25);
     const light = new SpotLight(0xffffff, 0.7);
     light.target = camera;
     light.position.set(0.1, 0.1, 1);
     light.userData.dressing = true;
+    light.layers.enable(SKETCH_LAYER);
+    light.layers.enable(GEOMETRY_LAYER);
     camera.add(light);
   }
 
@@ -72,6 +73,8 @@ const buildScene = ({
     spotLight.shadow.mapSize.width = 1024 * 2;
     spotLight.shadow.mapSize.height = 1024 * 2;
     spotLight.userData.dressing = true;
+    spotLight.layers.enable(SKETCH_LAYER);
+    spotLight.layers.enable(GEOMETRY_LAYER);
     scene.add(spotLight);
   }
 
@@ -1068,7 +1071,7 @@ const buildMeshes = async ({
       );
       applyBoxUV(bufferGeometry);
 
-      if (tags.includes('show:skin')) {
+      if (!tags.includes('show:noSkin')) {
         const material = await buildMeshMaterial(definitions, tags);
         mesh = new Mesh(bufferGeometry, material);
         mesh.castShadow = true;
@@ -1093,7 +1096,7 @@ const buildMeshes = async ({
         const material = new LineBasicMaterial({ color: 0x000000 });
         const outline = new LineSegments(edges, material);
         outline.userData.isOutline = true;
-        outline.userData.hasShowOutline = tags.includes('show:outline');
+        outline.userData.hasShowOutline = !tags.includes('show:noOutline');
         outline.visible = outline.userData.hasShowOutline;
         if (tags.includes('type:ghost')) {
           mesh.userData.tangible = false;
@@ -1148,7 +1151,7 @@ const buildMeshes = async ({
           shape.holes.push(new Path(holePoints));
         }
         const shapeGeometry = new ShapeGeometry(shape);
-        if (tags.includes('show:skin')) {
+        if (!tags.includes('show:noSkin')) {
           const material = await buildMeshMaterial(definitions, tags);
           mesh = new Mesh(shapeGeometry, material);
           mesh.castShadow = true;
@@ -1176,7 +1179,7 @@ const buildMeshes = async ({
           });
           const outline = new LineSegments(edges, material);
           outline.userData.isOutline = true;
-          outline.userData.hasShowOutline = tags.includes('show:outline');
+          outline.userData.hasShowOutline = !tags.includes('show:noOutline');
           outline.visible = outline.userData.hasShowOutline;
           if (tags.includes('type:ghost')) {
             mesh.userData.tangible = false;
