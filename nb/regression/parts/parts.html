@@ -1,0 +1,182 @@
+
+<html>
+ <head>
+  <title>JSxCAD Viewer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
+    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
+    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
+
+    const notebook = [
+  {
+    "beginSourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$1"
+    },
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "PcHhi/5Xb7MHYMeAJIFrnOWO+XnhLiOFwDydwUGmMjk=",
+    "sourceText": "md`Parts regression tests.`;",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "md": "Parts regression tests.",
+    "hash": "LLFTHHn75swwhYYP4IEP9FMVvtubOyDwKpcSlJyY1fs=",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$1"
+    }
+  },
+  {
+    "hash": "57r68ExZ7aQV0tdD23PV8WFAD9S5xbdM8SxK9TdpqKw=",
+    "sourceText": "const disk = Arc(4).ez(1).asPart('disk');",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "disk"
+    }
+  },
+  {
+    "hash": "gXRM9xpjV1VQT0SON50zzCfpSort1cKVTZAQc7x4VoE=",
+    "sourceText": "const beam = Box(2, 2).ez(10).asPart('beam');",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "beam"
+    }
+  },
+  {
+    "hash": "gtwbilSN1AAjfJz+AJuXvVW3vKF0pxUh/gNtA8c0ALA=",
+    "sourceText": "const diskBeam = disk.and(beam).asPart('diskBeam');",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "diskBeam"
+    }
+  },
+  {
+    "hash": "yQnyaTZGDfi2z8ZlHKWdUpEWtA56HsspNqw55INA4Sw=",
+    "sourceText": "md`The bill of materials is ${disk.and(diskBeam).bom()}`;",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$2"
+    }
+  },
+  {
+    "md": "Materials: disk, diskBeam",
+    "hash": "tAt+Zm2+nfknEcC88lVXlOMXcUYM2trpsNKX/OmPRZs=",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$2"
+    }
+  },
+  {
+    "md": "The bill of materials is [object Object]",
+    "hash": "JfOlB4j3GldjlNw7nWTCrR13WFtM1djYOUqoVw4TwJw=",
+    "sourceLocation": {
+      "path": "nb/regression/parts/parts.nb",
+      "id": "$2"
+    }
+  }
+];
+
+    const prepareViews = async (notebook) => {
+      // Prepare the view urls in the browser.
+      for (const note of notebook) {
+        if (note.view && !note.url) {
+          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
+        }
+      }
+      return notebook;
+    }
+
+    const run = async () => {
+      const body = document.getElementsByTagName('body')[0];
+      const bookElement = document.createElement('div');
+      const notebookElement = await toDomElement(await prepareViews(notebook));
+      bookElement.appendChild(notebookElement);
+      body.appendChild(bookElement);
+      bookElement.classList.add('book', 'notebook', 'loaded');
+    };
+
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          run();
+        }
+      };
+    }
+  </script>
+ </body>
+</html>
