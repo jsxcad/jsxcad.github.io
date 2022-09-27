@@ -151,7 +151,11 @@ const toHtml = async (
       padding: 5px;
     }
   </style>
-  ${useMermaid ? '<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>' : ''}
+  ${
+    useMermaid
+      ? '<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>'
+      : ''
+  }
  </head>
  <body>
   <script type='module'>
@@ -174,7 +178,9 @@ const toHtml = async (
     const run = async () => {
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: ${useControls ? 'true' : 'false' } });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: ${
+        useControls ? 'true' : 'false'
+      } });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
