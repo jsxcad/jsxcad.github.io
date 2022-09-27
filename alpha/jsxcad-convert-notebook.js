@@ -72,7 +72,7 @@ const encodeNotebook = async (notebook, { workspace, module } = {}) => {
   return encoded;
 };
 
-const toHtml = async (
+const toHtmlFromNotebook = async (
   notebook,
   {
     view,
@@ -81,6 +81,7 @@ const toHtml = async (
     module,
     useControls = false,
     useMermaid = false,
+    useEvaluator = false,
   } = {}
 ) => {
   const encodedNotebook = await encodeNotebook(notebook, { module });
@@ -203,4 +204,152 @@ const toHtml = async (
   return { html: new TextEncoder('utf8').encode(html), encodedNotebook };
 };
 
-export { toHtml };
+const toHtmlFromScript = async (
+  script,
+  {
+    view,
+    title = 'JSxCAD Viewer',
+    modulePath = 'https://gitcdn.link/cdn/jsxcad/JSxCAD/master/es6',
+    module,
+    useControls = false,
+    useMermaid = false,
+    useEvaluator = false,
+  } = {}
+) => {
+  const html = `
+<html>
+ <head>
+  <title>${title}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+  ${
+    useMermaid
+      ? '<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>'
+      : ''
+  }
+ </head>
+ <body>
+  <script type='module'>
+    import api from '${modulePath}/jsxcad-api.js';
+    import { Shape } from '${modulePath}/jsxcad-api-shape.js';
+    import { dataUrl } from '${modulePath}/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, resolvePending } from '${modulePath}/jsxcad-sys.js';
+    import { toDomElement } from '${modulePath}/jsxcad-ui-notebook.js';
+
+    const topLevel = new Map();
+    const notebook = [];
+    const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+    const { module, script } = JSON.parse('${JSON.stringify({
+      module,
+      script,
+    })}');
+
+    await api.importScript(api, module, script, {
+      clearUpdateEmits: false,
+      topLevel,
+      readCache: false,
+    });
+
+    await resolvePending();
+
+    const prepareViews = async (notebook) => {
+      // Prepare the view urls in the browser.
+      for (const note of notebook) {
+        if (note.view && !note.url) {
+          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
+        }
+      }
+      return notebook;
+    }
+
+    const run = async () => {
+      const body = document.getElementsByTagName('body')[0];
+      const bookElement = document.createElement('div');
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: ${
+        useControls ? 'true' : 'false'
+      } });
+      bookElement.appendChild(notebookElement);
+      body.appendChild(bookElement);
+      bookElement.classList.add('book', 'notebook', 'loaded');
+    };
+
+    if (document.readyState === 'complete') {
+      run();
+      ${useMermaid ? 'mermaid.init();' : ''}
+    } else {
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          run();
+        }
+      };
+    }
+  </script>
+ </body>
+</html>
+`;
+  return { html: new TextEncoder('utf8').encode(html) };
+};
+
+export { toHtmlFromNotebook, toHtmlFromScript };

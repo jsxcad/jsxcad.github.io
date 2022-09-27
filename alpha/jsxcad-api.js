@@ -322,6 +322,44 @@ const setToSourceFromNameFunction = (op) => {
   toSourceFromName = op;
 };
 
+const importScript = async (
+  baseApi,
+  name,
+  scriptText,
+  {
+    clearUpdateEmits = false,
+    topLevel = new Map(),
+    evaluate: evaluate$1,
+    replay,
+    doRelease = true,
+    readCache = true,
+    workspace,
+  } = {}
+) => {
+  try {
+    const path = name;
+    const api = { ...baseApi, sha: 'master' };
+    if (!evaluate$1) {
+      evaluate$1 = (script) => evaluate(script, { api, path });
+    }
+    if (!replay) {
+      replay = (script) => evaluate(script, { api, path });
+    }
+    const builtModule = await execute(scriptText, {
+      evaluate: evaluate$1,
+      replay,
+      path,
+      topLevel,
+      parallelUpdateLimit: 1,
+      clearUpdateEmits,
+    });
+    CACHED_MODULES.set(name, builtModule);
+    return builtModule;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const buildImportModule =
   (baseApi) =>
   async (
@@ -329,7 +367,7 @@ const buildImportModule =
     {
       clearUpdateEmits = false,
       topLevel = new Map(),
-      evaluate: evaluate$1,
+      evaluate,
       replay,
       doRelease = true,
       readCache = true,
@@ -367,22 +405,14 @@ const buildImportModule =
           ? script
           : new TextDecoder('utf8').decode(script);
       const path = name;
-      const api = { ...baseApi, sha: 'master' };
-      if (!evaluate$1) {
-        evaluate$1 = (script) => evaluate(script, { api, path });
-      }
-      if (!replay) {
-        replay = (script) => evaluate(script, { api, path });
-      }
-      const builtModule = await execute(scriptText, {
-        evaluate: evaluate$1,
+      const builtModule = await importScript(baseApi, name, scriptText, {
+        evaluate,
         replay,
         path,
         topLevel,
         parallelUpdateLimit: 1,
         clearUpdateEmits,
       });
-      CACHED_MODULES.set(name, builtModule);
       return builtModule;
     } catch (error) {
       throw error;
@@ -507,4 +537,4 @@ registerDynamicModule(
 
 setApi(api);
 
-export { api as default, evaluate, execute };
+export { api as default, evaluate, execute, importScript };
