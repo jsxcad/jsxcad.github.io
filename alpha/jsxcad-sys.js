@@ -900,7 +900,11 @@ const createConversation = ({ agent, say }) => {
         });
         say({ id, answer });
       } catch (error) {
-        say({ id, answer: 'error', error });
+        say({
+          id,
+          answer: 'error',
+          error: error.stack ? error.stack : '' + error,
+        });
       }
     } else if (message.hasOwnProperty('statement')) {
       await agent({ ask, message: statement, type: 'statement', tell });
@@ -2564,7 +2568,7 @@ const fetchSources = async (sources, { workspace }) => {
           // Assume a file path.
           const data = await externalFileFetcher(source);
           if (data !== undefined) {
-            return data;
+            return new Uint8Array(data);
           }
         }
       } catch (e) {}

@@ -2896,6 +2896,7 @@ const toDomElement = (
     onClickMake = sendFile,
     onClickDownload = downloadFile,
     workspace,
+    useControls = true,
   } = {}
 ) => {
   const definitions = {};
@@ -3043,6 +3044,7 @@ const toDomElement = (
     if (note.control) {
       const div = document.createElement('div');
       const { type, label, value, options } = note.control;
+      if (useControls) {
       switch (type) {
         case 'input': {
           const input = document.createElement('input');
@@ -3100,6 +3102,11 @@ const toDomElement = (
           });
           break;
         }
+      }
+      } else {
+        const output = document.createElement('span');
+        output.innerText = value;
+        div.appendChild(output);
       }
       const labelNode = document.createElement('label');
       labelNode.htmlFor = label;
