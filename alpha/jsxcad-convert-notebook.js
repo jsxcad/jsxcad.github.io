@@ -28,7 +28,7 @@ var encode = function (arraybuffer) {
     return base64;
 };
 
-const encodeNotebook = async (notebook, { workspace, module } = {}) => {
+const encodeNotebook = async (notebook, { root, workspace, module } = {}) => {
   const encoded = [];
   const seen = new Set();
   for (const note of notebook) {
@@ -77,7 +77,7 @@ const toHtmlFromNotebook = async (
   {
     view,
     title = 'JSxCAD Viewer',
-    modulePath = 'https://gitcdn.link/cdn/jsxcad/JSxCAD/master/es6',
+    modulePath = 'https://jsxcad.js.org/alpha',
     module,
     useControls = false,
     useMermaid = false,
@@ -204,18 +204,18 @@ const toHtmlFromNotebook = async (
   return { html: new TextEncoder('utf8').encode(html), encodedNotebook };
 };
 
-const toHtmlFromScript = async (
-  script,
-  {
-    view,
-    title = 'JSxCAD Viewer',
-    modulePath = 'https://gitcdn.link/cdn/jsxcad/JSxCAD/master/es6',
-    module,
-    useControls = false,
-    useMermaid = false,
-    useEvaluator = false,
-  } = {}
-) => {
+const toHtmlFromScript = async ({
+  view,
+  title = 'JSxCAD Viewer',
+  modulePath = 'https://jsxcad.js.org/alpha',
+  baseUrl = 'https://jsxcad.js.org',
+  module,
+  files = {},
+  useControls = false,
+  useMermaid = false,
+  useEvaluator = false,
+} = {}) => {
+  const encodedFiles = encodeURIComponent(JSON.stringify(files));
   const html = `
 <html>
  <head>
@@ -294,25 +294,10 @@ const toHtmlFromScript = async (
     import api from '${modulePath}/jsxcad-api.js';
     import { Shape } from '${modulePath}/jsxcad-api-shape.js';
     import { dataUrl } from '${modulePath}/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, resolvePending } from '${modulePath}/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from '${modulePath}/jsxcad-sys.js';
     import { toDomElement } from '${modulePath}/jsxcad-ui-notebook.js';
 
-    const topLevel = new Map();
-    const notebook = [];
-    const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
-
-    const { module, script } = JSON.parse('${JSON.stringify({
-      module,
-      script,
-    })}');
-
-    await api.importScript(api, module, script, {
-      clearUpdateEmits: false,
-      topLevel,
-      readCache: false,
-    });
-
-    await resolvePending();
+    const baseUrl = "${baseUrl}";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -325,6 +310,31 @@ const toHtmlFromScript = async (
     }
 
     const run = async () => {
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      await api.importModule("${module}", {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: true,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\\/\\/raw.githubusercontent.com\\/jsxcad\\/JSxCAD\\/master\\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: ${
@@ -333,15 +343,60 @@ const toHtmlFromScript = async (
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.Notebook.run(this.Notebook.getSelectedPath());
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace('JSxCAD');
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("${encodedFiles}"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path]);
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       ${useMermaid ? 'mermaid.init();' : ''}
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

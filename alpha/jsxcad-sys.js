@@ -1063,7 +1063,7 @@ const setupFilesystem = ({ fileBase } = {}) => {
 };
 
 const setupWorkspace = (workspace) =>
-  setupFilesystem({ filebase: workspace });
+  setupFilesystem({ fileBase: workspace });
 
 const getFilesystem = () => {
   if (base !== undefined) {
@@ -1078,6 +1078,7 @@ const fileChangeWatchers = new Set();
 const fileChangeWatchersByPath = new Map();
 const fileCreationWatchers = new Set();
 const fileDeletionWatchers = new Set();
+const fileReadWatchers = new Set();
 
 const runFileCreationWatchers = async (path, workspace) => {
   for (const watcher of fileCreationWatchers) {
@@ -1087,6 +1088,12 @@ const runFileCreationWatchers = async (path, workspace) => {
 
 const runFileDeletionWatchers = async (path, workspace) => {
   for (const watcher of fileDeletionWatchers) {
+    await watcher(path, workspace);
+  }
+};
+
+const runFileReadWatchers = async (path, workspace) => {
+  for (const watcher of fileReadWatchers) {
     await watcher(path, workspace);
   }
 };
@@ -1145,6 +1152,11 @@ const unwatchFileDeletion = async (thunk) => {
   return thunk;
 };
 
+const unwatchFileRead = async (thunk) => {
+  fileReadWatchers.delete(thunk);
+  return thunk;
+};
+
 const watchFileCreation = async (thunk) => {
   fileCreationWatchers.add(thunk);
   return thunk;
@@ -1152,6 +1164,11 @@ const watchFileCreation = async (thunk) => {
 
 const watchFileDeletion = async (thunk) => {
   fileDeletionWatchers.add(thunk);
+  return thunk;
+};
+
+const watchFileRead = async (thunk) => {
+  fileReadWatchers.add(thunk);
   return thunk;
 };
 
@@ -2297,6 +2314,9 @@ const receiveNotification = async ({ id, op, path, workspace }) => {
     case 'deletePath':
       await runFileDeletionWatchers(path, workspace);
       break;
+    case 'readPath':
+      await runFileReadWatchers(path, workspace);
+      break;
     default:
       throw Error(
         `Unexpected broadcast ${JSON.stringify({ id, op, path, workspace })}`
@@ -2331,6 +2351,24 @@ const notifyFileCreation = async (path, workspace) =>
 
 const notifyFileDeletion = async (path, workspace) =>
   sendBroadcast({ id: self$1 && self$1.id, op: 'deletePath', path, workspace });
+
+let notifyFileReadEnabled = false;
+
+const setNotifyFileReadEnabled = (state) => {
+  notifyFileReadEnabled = state;
+};
+
+const notifyFileRead = async (path, workspace) => {
+  if (!notifyFileReadEnabled) {
+    return;
+  }
+  return sendBroadcast({
+    id: self$1 && self$1.id,
+    op: 'readPath',
+    path,
+    workspace,
+  });
+};
 
 initBroadcastChannel();
 
@@ -2600,6 +2638,7 @@ const read = async (path, options = {}) => {
     forceNoCache = false,
     decode,
     otherwise,
+    notifyFileReadEnabled = true,
   } = options;
   const qualifiedPath = qualifyPath(path, workspace);
   const file = ensureQualifiedFile(path, qualifiedPath);
@@ -2639,6 +2678,9 @@ const read = async (path, options = {}) => {
       // Resolve any outstanding promises.
       file.data = await file.data;
     }
+  }
+  if (notifyFileReadEnabled) {
+    await notifyFileRead(path, workspace);
   }
   return file.data || otherwise;
 };
@@ -3093,4 +3135,4 @@ let nanoid = (size = 21) => {
 
 const generateUniqueId = () => nanoid();
 
-export { ErrorWouldBlock, addOnEmitHandler, addPending, ask, askService, askServices, beginEmitGroup, boot, clearCacheDb, clearEmitted, clearTimes, computeHash, createConversation, createService, elapsed, emit, endTime, finishEmitGroup, flushEmitGroup, generateUniqueId, getActiveServices, getConfig, getControlValue, getFilesystem, getPendingErrorHandler, getServicePoolInfo, getSourceLocation, getTimes, getWorkspace, isBrowser, isNode, isWebWorker, listFiles, log, logError, logInfo, onBoot, qualifyPath, read, readNonblocking, readOrWatch, remove, removeOnEmitHandler, reportTimes, resolvePending, restoreEmitGroup, saveEmitGroup, setConfig, setControlValue, setHandleAskUser, setPendingErrorHandler, setupFilesystem, setupWorkspace, sleep, startTime$1 as startTime, tellServices, terminateActiveServices, unwatchFile, unwatchFileCreation, unwatchFileDeletion, unwatchLog, unwatchServices, waitServices, watchFile, watchFileCreation, watchFileDeletion, watchLog, watchServices, write, writeNonblocking };
+export { ErrorWouldBlock, addOnEmitHandler, addPending, ask, askService, askServices, beginEmitGroup, boot, clearCacheDb, clearEmitted, clearTimes, computeHash, createConversation, createService, elapsed, emit, endTime, finishEmitGroup, flushEmitGroup, generateUniqueId, getActiveServices, getConfig, getControlValue, getFilesystem, getPendingErrorHandler, getServicePoolInfo, getSourceLocation, getTimes, getWorkspace, isBrowser, isNode, isWebWorker, listFiles, log, logError, logInfo, onBoot, qualifyPath, read, readNonblocking, readOrWatch, remove, removeOnEmitHandler, reportTimes, resolvePending, restoreEmitGroup, saveEmitGroup, setConfig, setControlValue, setHandleAskUser, setNotifyFileReadEnabled, setPendingErrorHandler, setupFilesystem, setupWorkspace, sleep, startTime$1 as startTime, tellServices, terminateActiveServices, unwatchFile, unwatchFileCreation, unwatchFileDeletion, unwatchFileRead, unwatchLog, unwatchServices, waitServices, watchFile, watchFileCreation, watchFileDeletion, watchFileRead, watchLog, watchServices, write, writeNonblocking };
