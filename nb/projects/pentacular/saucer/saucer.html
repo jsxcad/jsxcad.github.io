@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22const%20profile%20%3D%20Arc(1)%5Cn%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20.x(10)%5Cn%20%20.and(Point(5%2C%20-2)%2C%20Point(0.001%2C%20-2)%2C%20Point(0.001%2C%20-1)%2C%20Point(5%2C%20-1))%5Cn%20%20.loop()%5Cn%20%20.fill()%5Cn%20%20.scale(6)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20saucer%20%3D%20profile%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.seq(%7B%20by%3A%201%20%2F%206%20%7D%2C%20rz%2C%20Loft)%5Cn%20%20.view(2)%3B%5Cn%5Cnconst%20knob%20%3D%20Loft(%5Cn%20%20Hexagon(60)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(-6.05)%2C%5Cn%20%20Hexagon(65)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(5)%2C%5Cn%20%20Hexagon(60)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(5)%2C%5Cn%20%20Hexagon(55)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(-4)%2C%5Cn%20%20Hexagon(10).z(-4)%2C%5Cn%20%20Hexagon(12).z(0)%2C%5Cn%20%20Hexagon(18).z(3%2C%207)%2C%5Cn%20%20Hexagon(4).z(9)%5Cn)%5Cn%20%20.mask(%5Cn%20%20%20%20Loft(%5Cn%20%20%20%20%20%20Hexagon(60)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20%20%20.z(-6.05)%2C%5Cn%20%20%20%20%20%20Hexagon(65)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20%20%20.z(5)%5Cn%20%20%20%20).grow(0.1%2C%20'xy')%5Cn%20%20)%5Cn%20%20.as('knob')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20top%20%3D%20saucer%5Cn%20%20.upperEnvelope()%5Cn%20%20.involute()%5Cn%20%20.loft(noOp()%2C%20Box(150).z(5))%5Cn%20%20.fitTo(knob)%5Cn%20%20.as('top')%5Cn%20%20.stl('knob'%2C%20get('knob').by(align('%3Ez')))%3B%5Cn%5Cnconst%20topWithPegHoles%20%3D%20top%5Cn%20%20.cut(Arc(8.2).ez(-12%2C%205).x(50%2C%20-50).y(35%2C%20-35))%5Cn%20%20.clip(%5Cn%20%20%20%20Hexagon(155)%5Cn%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20.ez(-12%2C%205)%5Cn%20%20)%5Cn%20%20.stl(%5Cn%20%20%20%20'top2'%2C%5Cn%20%20%20%20getNot('knob')%5Cn%20%20%20%20%20%20.rx(1%20%2F%202)%5Cn%20%20%20%20%20%20.by(align('%3Ez'))%5Cn%20%20)%3B%5Cn%5Cnconst%20base%20%3D%20saucer.lowerEnvelope().loft(noOp()%2C%20Box(150).z(-12.01)).as('base')%3B%5Cn%5Cnconst%20baseWithPegHoles%20%3D%20base%5Cn%20%20.cut(Arc(8.2).ez(-12%2C%205).x(50%2C%20-50).y(35%2C%20-35))%5Cn%20%20.clip(%5Cn%20%20%20%20Hexagon(155)%5Cn%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20.ez(-12)%5Cn%20%20)%5Cn%20%20.stl('base')%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fsaucer%2Fsaucer.nb%22%2C%22script%22%3A%22const%20profile%20%3D%20Arc(1)%5Cn%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20.x(10)%5Cn%20%20.and(Point(5%2C%20-2)%2C%20Point(0.001%2C%20-2)%2C%20Point(0.001%2C%20-1)%2C%20Point(5%2C%20-1))%5Cn%20%20.loop()%5Cn%20%20.fill()%5Cn%20%20.scale(6)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20saucer%20%3D%20profile%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.seq(%7B%20by%3A%201%20%2F%206%20%7D%2C%20rz%2C%20Loft)%5Cn%20%20.view(2)%3B%5Cn%5Cnconst%20knob%20%3D%20Loft(%5Cn%20%20Hexagon(60)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(-6.05)%2C%5Cn%20%20Hexagon(65)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(5)%2C%5Cn%20%20Hexagon(60)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(5)%2C%5Cn%20%20Hexagon(55)%5Cn%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20.z(-4)%2C%5Cn%20%20Hexagon(10).z(-4)%2C%5Cn%20%20Hexagon(12).z(0)%2C%5Cn%20%20Hexagon(18).z(3%2C%207)%2C%5Cn%20%20Hexagon(4).z(9)%5Cn)%5Cn%20%20.mask(%5Cn%20%20%20%20Loft(%5Cn%20%20%20%20%20%20Hexagon(60)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20%20%20.z(-6.05)%2C%5Cn%20%20%20%20%20%20Hexagon(65)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20%20%20.z(5)%5Cn%20%20%20%20).grow(0.1%2C%20'xy')%5Cn%20%20)%5Cn%20%20.as('knob')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20top%20%3D%20saucer%5Cn%20%20.upperEnvelope()%5Cn%20%20.involute()%5Cn%20%20.loft(noOp()%2C%20Box(150).z(5))%5Cn%20%20.fitTo(knob)%5Cn%20%20.as('top')%5Cn%20%20.stl('knob'%2C%20get('knob').by(align('%3Ez')))%3B%5Cn%5Cnconst%20topWithPegHoles%20%3D%20top%5Cn%20%20.cut(Arc(8.2).ez(-12%2C%205).x(50%2C%20-50).y(35%2C%20-35))%5Cn%20%20.clip(%5Cn%20%20%20%20Hexagon(155)%5Cn%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20.ez(-12%2C%205)%5Cn%20%20)%5Cn%20%20.stl(%5Cn%20%20%20%20'top2'%2C%5Cn%20%20%20%20getNot('knob')%5Cn%20%20%20%20%20%20.rx(1%20%2F%202)%5Cn%20%20%20%20%20%20.by(align('%3Ez'))%5Cn%20%20)%3B%5Cn%5Cnconst%20base%20%3D%20saucer.lowerEnvelope().loft(noOp()%2C%20Box(150).z(-12.01)).as('base')%3B%5Cn%5Cnconst%20baseWithPegHoles%20%3D%20base%5Cn%20%20.cut(Arc(8.2).ez(-12%2C%205).x(50%2C%20-50).y(35%2C%20-35))%5Cn%20%20.clip(%5Cn%20%20%20%20Hexagon(155)%5Cn%20%20%20%20%20%20.rz(1%20%2F%2012)%5Cn%20%20%20%20%20%20.ez(-12)%5Cn%20%20)%5Cn%20%20.stl('base')%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/projects/pentacular/saucer/saucer.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

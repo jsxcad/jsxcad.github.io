@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20File%20IO%5CnJSxCAD%20supports%20importing%20and%20exporting%20.svg%20and%20.stl%20file%20types%60%3B%5Cn%5Cnmd%60%5CnOne%20thing%20to%20note%20is%20that%20output%20may%20consist%20of%20multiple%20'pages'.%5Cn%5CnA%20filename%20like%20'teapot'%20will%20have%20the%20page%20number%20and%20filetype%20appended%2C%20so%20it%20may%20produce%20'teapot_0.stl'%2C%20'teapot_1.stl'%2C%20etc.%5Cn%60%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Exporting%20.stl%5CnCreates%20an%20option%20to%20download%20the%20shape%20as%20an%20stl%20file.%20A%20view%20is%20created%20to%20show%20what%20will%20be%20downloaded.%60%3B%5Cn%5CnArc(10%2C%2010%2C%2010).stl('fileName')%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Exporting%20.svg%5CnCreates%20an%20option%20to%20download%20the%20shape%20as%20a%20svg%20file.%20A%20view%20is%20created%20to%20show%20what%20will%20be%20downloaded.%60%3B%5Cn%5CnArc(10).svg('fileName')%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Importing%20.stl%5CnImports%20a%20.stl%20file%20which%20can%20then%20be%20used%20as%20geometry.%20A%20best%20effort%20is%20made%20to%20handle%20bad%20geometry%20in%20the%20.stl%20file.%60%3B%5Cn%5Cnconst%20importedStl%20%3D%20await%20readStl('https%3A%2F%2Fjsxcad.js.org%2Fstl%2Fteapot.stl')%3B%5CnimportedStl.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Importing%20.svg%5CnImports%20a%20.svg%20file%20which%20can%20then%20be%20used%20as%20geometry.%60%3B%5Cn%5Cnconst%20importedSvg%20%3D%20await%20readSvg('https%3A%2F%2Fjsxcad.js.org%2Fsvg%2Frocket.svg'%2C%20%7B%20fill%3A%20false%20%7D)%3B%5CnimportedSvg.by(align('xy')).view()%3B%5Cn%5CnimportedSvg.by(align('xy')).scaleToFit(10).fill().ez(2).untag('color%3A%23090000').view()%3B%5Cn%5Cnimport%20%7B%20readCollada%2C%20readSvg%20as%20readSvgWithThreejs%20%7D%20from%20'%40jsxcad%2Fapi-threejs'%3B%5Cn%5Cn(await%20readSvgWithThreejs('https%3A%2F%2Fjsxcad.js.org%2Fsvg%2Frocket.svg')).by(align('xy')).view()%3B%5Cn%5Cn(await%20readCollada('https%3A%2F%2Fjsxcad.js.org%2Fcollada%2Fduck_triangles.dae')).rx(1%2F4).view()%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Ffile_import_and_export%2Ffile_import_and_export.nb%22%2C%22script%22%3A%22md%60%5Cn%23%20File%20IO%5CnJSxCAD%20supports%20importing%20and%20exporting%20.svg%20and%20.stl%20file%20types%60%3B%5Cn%5Cnmd%60%5CnOne%20thing%20to%20note%20is%20that%20output%20may%20consist%20of%20multiple%20'pages'.%5Cn%5CnA%20filename%20like%20'teapot'%20will%20have%20the%20page%20number%20and%20filetype%20appended%2C%20so%20it%20may%20produce%20'teapot_0.stl'%2C%20'teapot_1.stl'%2C%20etc.%5Cn%60%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Exporting%20.stl%5CnCreates%20an%20option%20to%20download%20the%20shape%20as%20an%20stl%20file.%20A%20view%20is%20created%20to%20show%20what%20will%20be%20downloaded.%60%3B%5Cn%5CnArc(10%2C%2010%2C%2010).stl('fileName')%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Exporting%20.svg%5CnCreates%20an%20option%20to%20download%20the%20shape%20as%20a%20svg%20file.%20A%20view%20is%20created%20to%20show%20what%20will%20be%20downloaded.%60%3B%5Cn%5CnArc(10).svg('fileName')%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Importing%20.stl%5CnImports%20a%20.stl%20file%20which%20can%20then%20be%20used%20as%20geometry.%20A%20best%20effort%20is%20made%20to%20handle%20bad%20geometry%20in%20the%20.stl%20file.%60%3B%5Cn%5Cnconst%20importedStl%20%3D%20await%20readStl('https%3A%2F%2Fjsxcad.js.org%2Fstl%2Fteapot.stl')%3B%5CnimportedStl.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Importing%20.svg%5CnImports%20a%20.svg%20file%20which%20can%20then%20be%20used%20as%20geometry.%60%3B%5Cn%5Cnconst%20importedSvg%20%3D%20await%20readSvg('https%3A%2F%2Fjsxcad.js.org%2Fsvg%2Frocket.svg'%2C%20%7B%20fill%3A%20false%20%7D)%3B%5CnimportedSvg.by(align('xy')).view()%3B%5Cn%5CnimportedSvg.by(align('xy')).scaleToFit(10).fill().ez(2).untag('color%3A%23090000').view()%3B%5Cn%5Cnimport%20%7B%20readCollada%2C%20readSvg%20as%20readSvgWithThreejs%20%7D%20from%20'%40jsxcad%2Fapi-threejs'%3B%5Cn%5Cn(await%20readSvgWithThreejs('https%3A%2F%2Fjsxcad.js.org%2Fsvg%2Frocket.svg')).by(align('xy')).view()%3B%5Cn%5Cn(await%20readCollada('https%3A%2F%2Fjsxcad.js.org%2Fcollada%2Fduck_triangles.dae')).rx(1%2F4).view()%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/documentation/file_import_and_export/file_import_and_export.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

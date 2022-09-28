@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%23%23%23%20Bear%20model%20sliced%60%3B%5Cn%5Cnconst%20url%20%3D%20control('url'%2C%20'https%3A%2F%2Fjsxcad.js.org%2Fstl%2Fbear.stl'%2C%20'input')%3B%5Cnconst%20height%20%3D%20control('height'%2C%20200%2C%20'input')%3B%5Cnconst%20spacing%20%3D%20control('spacing'%2C%202%2C%20'input')%3B%5Cn%5Cnconst%20a%20%3D%20(await%20readStl(url)).by(align('z%3E'))%3B%5Cn%5Cna.stl('bear').note('This%20is%20a%20low-poly%20model%20of%20a%20bear.')%3B%5Cna.section(seq(%7B%20to%3A%20height%2C%20by%3A%20spacing%20%7D%2C%20XY%2C%20Group))%5Cn%20%20.note(%60Stl%20sliced%20each%20%24%7Bspacing%7Dmm%20up%20to%20%24%7Bheight%7Dmm.%60)%5Cn%20%20.view()%5Cn%20%20.note('Laid%20out%20on%20a%20single%20sheet%20for%20cutting.')%5Cn%20%20.pdf('slices'%2C%20each(flat()).page('pack'))%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fbear%2Fbear.nb%22%2C%22script%22%3A%22md%60%23%23%23%20Bear%20model%20sliced%60%3B%5Cn%5Cnconst%20url%20%3D%20control('url'%2C%20'https%3A%2F%2Fjsxcad.js.org%2Fstl%2Fbear.stl'%2C%20'input')%3B%5Cnconst%20height%20%3D%20control('height'%2C%20200%2C%20'input')%3B%5Cnconst%20spacing%20%3D%20control('spacing'%2C%202%2C%20'input')%3B%5Cn%5Cnconst%20a%20%3D%20(await%20readStl(url)).by(align('z%3E'))%3B%5Cn%5Cna.stl('bear').note('This%20is%20a%20low-poly%20model%20of%20a%20bear.')%3B%5Cna.section(seq(%7B%20to%3A%20height%2C%20by%3A%20spacing%20%7D%2C%20XY%2C%20Group))%5Cn%20%20.note(%60Stl%20sliced%20each%20%24%7Bspacing%7Dmm%20up%20to%20%24%7Bheight%7Dmm.%60)%5Cn%20%20.view()%5Cn%20%20.note('Laid%20out%20on%20a%20single%20sheet%20for%20cutting.')%5Cn%20%20.pdf('slices'%2C%20each(flat()).page('pack'))%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/projects/pentacular/bear/bear.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

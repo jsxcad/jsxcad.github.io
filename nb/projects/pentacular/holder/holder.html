@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22const%20penDiameter%20%3D%2010.5%3B%5Cnconst%20magnetDiameter%20%3D%205.0%3B%5Cnconst%20magnetHeight%20%3D%202.5%3B%5Cn%5Cnconst%20magneticPenHolder%20%3D%20Arc(magnetDiameter)%5Cn%20%20.material('steel')%5Cn%20%20.ez(magnetHeight)%5Cn%20%20.fit(%5Cn%20%20%20%20'exact'%2C%5Cn%20%20%20%20Arc(magnetDiameter%20%2B%202)%5Cn%20%20%20%20%20%20.material('plastic')%5Cn%20%20%20%20%20%20.ez(magnetHeight)%5Cn%20%20)%5Cn%20%20.to(YZ(0))%5Cn%20%20.by(align('z%3E'))%5Cn%20%20.fit(%5Cn%20%20%20%20'exact'%2C%5Cn%20%20%20%20Arc(penDiameter)%5Cn%20%20%20%20%20%20.material('plastic')%5Cn%20%20%20%20%20%20.op((s)%20%3D%3E%20s.offset(1).fitTo(s.void()))%5Cn%20%20%20%20%20%20.ez(magnetDiameter%20%2B%202%20%2B%200.1%2C%20-0.1)%5Cn%20%20%20%20%20%20.by(align('x%3C'))%5Cn%20%20%20%20%20%20.x(1.1)%5Cn%20%20)%5Cn%20%20.view()%5Cn%20%20.stl('holder'%2C%20drop(get('material%3Asteel')))%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fholder%2Fholder.nb%22%2C%22script%22%3A%22const%20penDiameter%20%3D%2010.5%3B%5Cnconst%20magnetDiameter%20%3D%205.0%3B%5Cnconst%20magnetHeight%20%3D%202.5%3B%5Cn%5Cnconst%20magneticPenHolder%20%3D%20Arc(magnetDiameter)%5Cn%20%20.material('steel')%5Cn%20%20.ez(magnetHeight)%5Cn%20%20.fit(%5Cn%20%20%20%20'exact'%2C%5Cn%20%20%20%20Arc(magnetDiameter%20%2B%202)%5Cn%20%20%20%20%20%20.material('plastic')%5Cn%20%20%20%20%20%20.ez(magnetHeight)%5Cn%20%20)%5Cn%20%20.to(YZ(0))%5Cn%20%20.by(align('z%3E'))%5Cn%20%20.fit(%5Cn%20%20%20%20'exact'%2C%5Cn%20%20%20%20Arc(penDiameter)%5Cn%20%20%20%20%20%20.material('plastic')%5Cn%20%20%20%20%20%20.op((s)%20%3D%3E%20s.offset(1).fitTo(s.void()))%5Cn%20%20%20%20%20%20.ez(magnetDiameter%20%2B%202%20%2B%200.1%2C%20-0.1)%5Cn%20%20%20%20%20%20.by(align('x%3C'))%5Cn%20%20%20%20%20%20.x(1.1)%5Cn%20%20)%5Cn%20%20.view()%5Cn%20%20.stl('holder'%2C%20drop(get('material%3Asteel')))%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/projects/pentacular/holder/holder.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

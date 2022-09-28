@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22const%20assembled%20%3D%20Hexagon(50%2C%2050%2C%2050)%5Cn%20%20.eachEdge(%5Cn%20%20%20%20(e%2C%20l)%20%3D%3E%5Cn%20%20%20%20%20%20Box(%5B0%2C%205%5D%2C%20%5B0%2C%20-1%5D%2C%20%5B0%2C%20l%5D)%5Cn%20%20%20%20%20%20%20%20.join(Arc(%5B4%2C%207.0%5D%2C%203%2C%20%5B0%2C%20l%5D).hasAngle(1%20%2F%204%2C%203%20%2F%204))%5Cn%20%20%20%20%20%20%20%20.to(e)%2C%5Cn%20%20%20%20(e%2C%20f)%20%3D%3E%20f.e(1).join(e)%5Cn%20%20)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20disassembled%20%3D%20assembled.each(to(XY())).pack().view()%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fmold%2Fhex.nb%22%2C%22script%22%3A%22const%20assembled%20%3D%20Hexagon(50%2C%2050%2C%2050)%5Cn%20%20.eachEdge(%5Cn%20%20%20%20(e%2C%20l)%20%3D%3E%5Cn%20%20%20%20%20%20Box(%5B0%2C%205%5D%2C%20%5B0%2C%20-1%5D%2C%20%5B0%2C%20l%5D)%5Cn%20%20%20%20%20%20%20%20.join(Arc(%5B4%2C%207.0%5D%2C%203%2C%20%5B0%2C%20l%5D).hasAngle(1%20%2F%204%2C%203%20%2F%204))%5Cn%20%20%20%20%20%20%20%20.to(e)%2C%5Cn%20%20%20%20(e%2C%20f)%20%3D%3E%20f.e(1).join(e)%5Cn%20%20)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20disassembled%20%3D%20assembled.each(to(XY())).pack().view()%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/projects/pentacular/mold/hex.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

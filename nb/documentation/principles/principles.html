@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Fprinciples%2Fprinciples.nb%22%2C%22script%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/documentation/principles/principles.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

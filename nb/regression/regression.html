@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20JSxCAD%5Cn%5CnThese%20notebooks%20are%20used%20for%20regression%20tests.%5Cn%5Cn%23%23%20Regession%20Notebooks%5Cn%5Cn1.%20%5BFont%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Ffont%2Ffont.nb)%5Cn1.%20%5BParts%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fparts%2Fparts.nb)%5Cn1.%20%5BShape%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshape%2Fshape.nb)%5Cn1.%20%5BShapes%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshapes%2Fshapes.nb)%5Cn1.%20%5BSmooth%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fsmooth%2Fsmooth.nb)%5Cn%60%3B%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fregression%2Fregression.nb%22%2C%22script%22%3A%22md%60%5Cn%23%20JSxCAD%5Cn%5CnThese%20notebooks%20are%20used%20for%20regression%20tests.%5Cn%5Cn%23%23%20Regession%20Notebooks%5Cn%5Cn1.%20%5BFont%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Ffont%2Ffont.nb)%5Cn1.%20%5BParts%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fparts%2Fparts.nb)%5Cn1.%20%5BShape%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshape%2Fshape.nb)%5Cn1.%20%5BShapes%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshapes%2Fshapes.nb)%5Cn1.%20%5BSmooth%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fsmooth%2Fsmooth.nb)%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/regression/regression.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

@@ -65,15 +65,17 @@
       padding: 5px;
     }
   </style>
-  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
     import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -94,14 +96,14 @@
 
       // Construct a local ephemeral filesystem.
       // TODO: Trace dependencies, such as imports.
-      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22import%20%7B%20NutThread%2C%20ScrewThread%20%7D%20from%20'..%2Fbolt%2Fbolt.nb'%3B%5Cn%5Cn%2F*%5Cnimport%20'..%2Fgear%2Fgear.js'%3B%5Cnimport%20%7B%20Gear%20%7D%20from%20'..%2Fgear%2Fgear.js'%3B%5Cnimport%20%7B%5Cn%20%20bodyDiameter%2C%5Cn%20%20reelDiameter%2C%5Cn%20%20reelThickness%2C%5Cn%20%20stepperMotor28byj48%2C%5Cn%7D%20from%20'..%2F28BYJ-48%2F28BYJ-48.nb'%3B%5Cn%5Cnconst%20boardThickness%20%3D%208.4%3B%5Cn%5Cnconst%20screw%20%3D%20ScrewThread(16%2C%205)%5Cn%20%20.cut(%5Cn%20%20%20%20Box(2%2C%206)%5Cn%20%20%20%20%20%20.ez(5)%5Cn%20%20%20%20%20%20.rz(0%2C%201%20%2F%204)%5Cn%20%20)%5Cn%20%20.stl('screw'%2C%20rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%5Cnconst%20nut%20%3D%20NutThread(16%2C%205)%3B%5Cn%5Cn%2F*%20--%20debug%5Cnconst%20upsideClip1%20%3D%20Box(30%20%2B%204)%5Cn%20%20.align('x%3Ey%3E')%5Cn%20%20.ez(boardThickness%20%2B%202%2C%20-5)%5Cn%20%20.cut(Box(30).align('x%3Ey%3E').ez(boardThickness))%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.x(2)%5Cn%20%20.cut(Box(22).ez(20%2C%20-5))%5Cn%20%20.cut(Arc(16).ez(-5).x(33))%5Cn%20%20.op((s)%20%3D%3E%5Cn%20%20%20%20Line(21%2C%20-21)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204)%5Cn%20%20%20%20%20%20.z(10.5%2C%200)%5Cn%20%20%20%20%20%20.x(23)%5Cn%20%20%20%20%20%20.hull()%5Cn%20%20%20%20%20%20.op((f)%20%3D%3E%20s.cut(f.extrudeAlong(normal()%2C%20-15)).and(f.extrudeAlong(normal()%2C%200.4)))%5Cn%20%20)%3B%5Cn%5Cnconst%20upsideClip%20%3D%20upsideClip1%5Cn%20%20.and(nut.z(-5).x(33))%5Cn%20%20.as('clip')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20upsideProfile%20%3D%20Box(30%2C%2027)%5Cn%20%20.clip(%5Cn%20%20%20%20Arc(bodyDiameter%20%2B%202).hull(%5Cn%20%20%20%20%20%20Line((bodyDiameter%20%2B%202)%20%2F%202%2C%20(bodyDiameter%20%2B%202)%20%2F%20-2)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%204)%5Cn%20%20%20%20%20%20%20%20.x(-15)%5Cn%20%20%20%20)%5Cn%20%20)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20upsideBox%20%3D%20upsideProfile%5Cn%20%20.ez(20%2C%209%20-%203%20%2B%204)%5Cn%20%20.as('box-top')%5Cn%20%20.material('glass')%5Cn%20%20.and(%5Cn%20%20%20%20upsideProfile%5Cn%20%20%20%20%20%20.ez(9%20-%203%20%2B%204%2C%202)%5Cn%20%20%20%20%20%20.mask(grow(0.1))%5Cn%20%20%20%20%20%20.as('box-base')%5Cn%20%20)%5Cn%20%20.fitTo(Box(5%2C%2010).x(-11.5).ez(-3%2C%2020).color('green').as('box-pin'))%5Cn%20%20.view()%3B%5Cn%5Cnconst%20toothedReel%20%3D%20Group(%5Cn%20%20Arc(reelDiameter%20%2B%208)%5Cn%20%20%20%20.ez(1)%5Cn%20%20%20%20.z(reelThickness%20%2F%20-2)%5Cn%20%20%20%20.as('rim')%5Cn%20%20%20%20.fitTo(Arc(reelDiameter%2C%20reelDiameter%2C%20reelThickness))%2C%5Cn%20%20Arc(reelDiameter%20%2B%204)%5Cn%20%20%20%20.ez(1)%5Cn%20%20%20%20.z(reelThickness%20%2F%202)%2C%5Cn%20%20Gear()%5Cn%20%20%20%20.hasMmPerTooth(5)%5Cn%20%20%20%20.hasTeeth(17)%5Cn%20%20%20%20.ez(2%2C%201)%5Cn%20%20%20%20.z(reelThickness%20%2F%202)%5Cn)%5Cn%20%20.as('toothedReel')%5Cn%20%20.view(rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%5Cn%2F*%5Cn%2F%2F%20FIX%3A%20These%20are%20too%20slow.%5Cnconst%20upsideDesign%20%3D%20stepperMotor28byj48%5Cn%20%20.rx(1%20%2F%202)%5Cn%20%20.align('z%3E')%5Cn%20%20.z(2)%5Cn%20%20.fit(upsideBox)%5Cn%20%20.cutout(at(get('shaft')%2C%20Arc(reelDiameter%20%2B%2012).ez(2%2C%2011)))%3B%5Cn%5Cnconst%20upsideDesign2%20%3D%20upsideDesign%5Cn%20%20.material('glass')%5Cn%20%20.and(%5Cn%20%20%20%20op((s)%20%3D%3E%5Cn%20%20%20%20%20%20upsideClip%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.rx(1%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.z(2%20-%205)%5Cn%20%20%20%20%20%20%20%20.x(5)%5Cn%20%20%20%20%20%20%20%20.fitTo(s.g('box-pin'))%5Cn%20%20%20%20)%5Cn%20%20)%5Cn%20%20.on(get('shaft')%2C%20fit(toothedReel.z(6)))%5Cn%20%20.view()%5Cn%20%20.stl('box-top'%2C%20get('box-top'))%5Cn%20%20.stl('box-pin'%2C%20get('box-pin').ry(1%20%2F%204))%5Cn%20%20.stl('box-base'%2C%20get('box-base').rx(1%20%2F%202))%5Cn%20%20.stl('reel'%2C%5Cn%20%20%20%20%20%20%20%20%20get('toothedReel')%5Cn%20%20%20%20%20%20%20%20.n(1)%20%2F%2F%20This%20is%20due%20to%20the%20cutout%20earlier%3F%5Cn%20%20%20%20%20%20%20%20.on(%5Cn%20%20%20%20%20%20%20%20%20%20get('rim')%2C%5Cn%20%20%20%20%20%20%20%20%20%20color('green').void()%5Cn%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20.material('glass')%2C%5Cn%20%20)%5Cn%20%20.stl('rim'%2C%20get('toothedReel').n(1).get('rim'))%5Cn%20%20.stl('clip'%2C%20get('clip').rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%22%7D%5D"))) {
-        await write(module, script);
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fplotter%2Fmount.nb%22%2C%22script%22%3A%22import%20%7B%20NutThread%2C%20ScrewThread%20%7D%20from%20'..%2Fbolt%2Fbolt.nb'%3B%5Cn%5Cn%2F*%5Cnimport%20'..%2Fgear%2Fgear.js'%3B%5Cnimport%20%7B%20Gear%20%7D%20from%20'..%2Fgear%2Fgear.js'%3B%5Cnimport%20%7B%5Cn%20%20bodyDiameter%2C%5Cn%20%20reelDiameter%2C%5Cn%20%20reelThickness%2C%5Cn%20%20stepperMotor28byj48%2C%5Cn%7D%20from%20'..%2F28BYJ-48%2F28BYJ-48.nb'%3B%5Cn%5Cnconst%20boardThickness%20%3D%208.4%3B%5Cn%5Cnconst%20screw%20%3D%20ScrewThread(16%2C%205)%5Cn%20%20.cut(%5Cn%20%20%20%20Box(2%2C%206)%5Cn%20%20%20%20%20%20.ez(5)%5Cn%20%20%20%20%20%20.rz(0%2C%201%20%2F%204)%5Cn%20%20)%5Cn%20%20.stl('screw'%2C%20rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%5Cnconst%20nut%20%3D%20NutThread(16%2C%205)%3B%5Cn%5Cn%2F*%20--%20debug%5Cnconst%20upsideClip1%20%3D%20Box(30%20%2B%204)%5Cn%20%20.align('x%3Ey%3E')%5Cn%20%20.ez(boardThickness%20%2B%202%2C%20-5)%5Cn%20%20.cut(Box(30).align('x%3Ey%3E').ez(boardThickness))%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.x(2)%5Cn%20%20.cut(Box(22).ez(20%2C%20-5))%5Cn%20%20.cut(Arc(16).ez(-5).x(33))%5Cn%20%20.op((s)%20%3D%3E%5Cn%20%20%20%20Line(21%2C%20-21)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204)%5Cn%20%20%20%20%20%20.z(10.5%2C%200)%5Cn%20%20%20%20%20%20.x(23)%5Cn%20%20%20%20%20%20.hull()%5Cn%20%20%20%20%20%20.op((f)%20%3D%3E%20s.cut(f.extrudeAlong(normal()%2C%20-15)).and(f.extrudeAlong(normal()%2C%200.4)))%5Cn%20%20)%3B%5Cn%5Cnconst%20upsideClip%20%3D%20upsideClip1%5Cn%20%20.and(nut.z(-5).x(33))%5Cn%20%20.as('clip')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20upsideProfile%20%3D%20Box(30%2C%2027)%5Cn%20%20.clip(%5Cn%20%20%20%20Arc(bodyDiameter%20%2B%202).hull(%5Cn%20%20%20%20%20%20Line((bodyDiameter%20%2B%202)%20%2F%202%2C%20(bodyDiameter%20%2B%202)%20%2F%20-2)%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%204)%5Cn%20%20%20%20%20%20%20%20.x(-15)%5Cn%20%20%20%20)%5Cn%20%20)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20upsideBox%20%3D%20upsideProfile%5Cn%20%20.ez(20%2C%209%20-%203%20%2B%204)%5Cn%20%20.as('box-top')%5Cn%20%20.material('glass')%5Cn%20%20.and(%5Cn%20%20%20%20upsideProfile%5Cn%20%20%20%20%20%20.ez(9%20-%203%20%2B%204%2C%202)%5Cn%20%20%20%20%20%20.mask(grow(0.1))%5Cn%20%20%20%20%20%20.as('box-base')%5Cn%20%20)%5Cn%20%20.fitTo(Box(5%2C%2010).x(-11.5).ez(-3%2C%2020).color('green').as('box-pin'))%5Cn%20%20.view()%3B%5Cn%5Cnconst%20toothedReel%20%3D%20Group(%5Cn%20%20Arc(reelDiameter%20%2B%208)%5Cn%20%20%20%20.ez(1)%5Cn%20%20%20%20.z(reelThickness%20%2F%20-2)%5Cn%20%20%20%20.as('rim')%5Cn%20%20%20%20.fitTo(Arc(reelDiameter%2C%20reelDiameter%2C%20reelThickness))%2C%5Cn%20%20Arc(reelDiameter%20%2B%204)%5Cn%20%20%20%20.ez(1)%5Cn%20%20%20%20.z(reelThickness%20%2F%202)%2C%5Cn%20%20Gear()%5Cn%20%20%20%20.hasMmPerTooth(5)%5Cn%20%20%20%20.hasTeeth(17)%5Cn%20%20%20%20.ez(2%2C%201)%5Cn%20%20%20%20.z(reelThickness%20%2F%202)%5Cn)%5Cn%20%20.as('toothedReel')%5Cn%20%20.view(rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%5Cn%2F*%5Cn%2F%2F%20FIX%3A%20These%20are%20too%20slow.%5Cnconst%20upsideDesign%20%3D%20stepperMotor28byj48%5Cn%20%20.rx(1%20%2F%202)%5Cn%20%20.align('z%3E')%5Cn%20%20.z(2)%5Cn%20%20.fit(upsideBox)%5Cn%20%20.cutout(at(get('shaft')%2C%20Arc(reelDiameter%20%2B%2012).ez(2%2C%2011)))%3B%5Cn%5Cnconst%20upsideDesign2%20%3D%20upsideDesign%5Cn%20%20.material('glass')%5Cn%20%20.and(%5Cn%20%20%20%20op((s)%20%3D%3E%5Cn%20%20%20%20%20%20upsideClip%5Cn%20%20%20%20%20%20%20%20.rz(1%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.rx(1%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.z(2%20-%205)%5Cn%20%20%20%20%20%20%20%20.x(5)%5Cn%20%20%20%20%20%20%20%20.fitTo(s.g('box-pin'))%5Cn%20%20%20%20)%5Cn%20%20)%5Cn%20%20.on(get('shaft')%2C%20fit(toothedReel.z(6)))%5Cn%20%20.view()%5Cn%20%20.stl('box-top'%2C%20get('box-top'))%5Cn%20%20.stl('box-pin'%2C%20get('box-pin').ry(1%20%2F%204))%5Cn%20%20.stl('box-base'%2C%20get('box-base').rx(1%20%2F%202))%5Cn%20%20.stl('reel'%2C%5Cn%20%20%20%20%20%20%20%20%20get('toothedReel')%5Cn%20%20%20%20%20%20%20%20.n(1)%20%2F%2F%20This%20is%20due%20to%20the%20cutout%20earlier%3F%5Cn%20%20%20%20%20%20%20%20.on(%5Cn%20%20%20%20%20%20%20%20%20%20get('rim')%2C%5Cn%20%20%20%20%20%20%20%20%20%20color('green').void()%5Cn%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20.material('glass')%2C%5Cn%20%20)%5Cn%20%20.stl('rim'%2C%20get('toothedReel').n(1).get('rim'))%5Cn%20%20.stl('clip'%2C%20get('clip').rx(1%20%2F%202))%3B%5Cn*%2F%5Cn%22%7D%5D"))) {
+        await write(path, script);
       }
 
-      await importModule(module, {
+      await api.importModule("nb/projects/pentacular/plotter/mount.nb", {
         clearUpdateEmits: false,
         topLevel,
-        readCache: false,
+        readCache: true,
       });
 
       await resolvePending();
@@ -112,11 +114,16 @@
           // We should configure this case to be already embedded.
            note.data = await read(path);
         }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
       }
 
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -124,7 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
-      
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
