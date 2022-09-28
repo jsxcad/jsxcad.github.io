@@ -65,13 +65,12 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
+    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
+    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
 
     const notebook = [
   {
@@ -617,7 +616,7 @@
     }
   },
   {
-    "hash": "FkV4B4wiBvLb8b7YvekKt",
+    "hash": "4uVf8QXVD1RFwYKTrynK4",
     "path": "view/nb/projects/pentacular/28BYJ-48/28BYJ-48.nb/$6/",
     "view": {
       "viewId": "",
@@ -8303,7 +8302,6 @@
 
     if (document.readyState === 'complete') {
       run();
-      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
