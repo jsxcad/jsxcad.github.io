@@ -65,89 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "PcHhi/5Xb7MHYMeAJIFrnOWO+XnhLiOFwDydwUGmMjk=",
-    "sourceText": "md`Parts regression tests.`;",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "Parts regression tests.",
-    "hash": "LLFTHHn75swwhYYP4IEP9FMVvtubOyDwKpcSlJyY1fs=",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "57r68ExZ7aQV0tdD23PV8WFAD9S5xbdM8SxK9TdpqKw=",
-    "sourceText": "const disk = Arc(4).ez(1).asPart('disk');",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "disk"
-    }
-  },
-  {
-    "hash": "gXRM9xpjV1VQT0SON50zzCfpSort1cKVTZAQc7x4VoE=",
-    "sourceText": "const beam = Box(2, 2).ez(10).asPart('beam');",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "beam"
-    }
-  },
-  {
-    "hash": "gtwbilSN1AAjfJz+AJuXvVW3vKF0pxUh/gNtA8c0ALA=",
-    "sourceText": "const diskBeam = disk.and(beam).asPart('diskBeam');",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "diskBeam"
-    }
-  },
-  {
-    "hash": "yQnyaTZGDfi2z8ZlHKWdUpEWtA56HsspNqw55INA4Sw=",
-    "sourceText": "md`The bill of materials is ${disk.and(diskBeam).bom()}`;",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$2"
-    }
-  },
-  {
-    "md": "Materials: disk, diskBeam",
-    "hash": "tAt+Zm2+nfknEcC88lVXlOMXcUYM2trpsNKX/OmPRZs=",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$2"
-    }
-  },
-  {
-    "md": "The bill of materials is [object Object]",
-    "hash": "JfOlB4j3GldjlNw7nWTCrR13WFtM1djYOUqoVw4TwJw=",
-    "sourceLocation": {
-      "path": "nb/regression/parts/parts.nb",
-      "id": "$2"
-    }
-  }
-];
+    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -160,9 +86,37 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60Parts%20regression%20tests.%60%3B%5Cn%5Cnconst%20disk%20%3D%20Arc(4).ez(1).asPart('disk')%3B%5Cn%5Cnconst%20beam%20%3D%20Box(2%2C%202).ez(10).asPart('beam')%3B%5Cn%5Cnconst%20diskBeam%20%3D%20disk.and(beam).asPart('diskBeam')%3B%5Cn%5Cnmd%60The%20bill%20of%20materials%20is%20%24%7Bdisk.and(diskBeam).bom()%7D%60%3B%5Cn%22%7D%5D"))) {
+        await write(module, script);
+      }
+
+      await importModule(module, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -170,6 +124,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

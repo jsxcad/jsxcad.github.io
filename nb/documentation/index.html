@@ -65,41 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/documentation/index.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/documentation/index.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "+S2LLgPk+UMjqHSZim4yWt3HLKVNA9/2eMfbkVQ/gl4=",
-    "sourceText": "md`\n# Documentation Index\n\nAn interactive overview of the basic features of JSxCAD.\n\n* [User Interface](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/user_interface/user_interface.nb)\n* [Creating Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/creating_geometry/creating_geometry.nb)\n* [Interactions With Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/interactions_with_geometry/interactions_with_geometry.nb)\n* [Interactions Between Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/interactions_between_geometry/interactions_between_geometry.nb)\n* [Reference Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/reference_geometry/reference_geometry.nb)\n* [File Import and Export](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/documentation/file_import_and_export/file_import_and_export.nb)\n`;",
-    "sourceLocation": {
-      "path": "nb/documentation/index.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "\n# Documentation Index\n\nAn interactive overview of the basic features of JSxCAD.\n\n* [User Interface](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/user_interface/user_interface.nb)\n* [Creating Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/creating_geometry/creating_geometry.nb)\n* [Interactions With Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/interactions_with_geometry/interactions_with_geometry.nb)\n* [Interactions Between Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/interactions_between_geometry/interactions_between_geometry.nb)\n* [Reference Geometry](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/reference_geometry/reference_geometry.nb)\n* [File Import and Export](#JSxCAD@https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/documentation/file_import_and_export/file_import_and_export.nb)\n",
-    "hash": "p9W9pz7Gjcl154428G5ppDXNHRY8AU1vaoSNI7n9Ysg=",
-    "sourceLocation": {
-      "path": "nb/documentation/index.nb",
-      "id": "$1"
-    }
-  }
-];
+    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -112,9 +86,37 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20Documentation%20Index%5Cn%5CnAn%20interactive%20overview%20of%20the%20basic%20features%20of%20JSxCAD.%5Cn%5Cn*%20%5BUser%20Interface%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Fuser_interface%2Fuser_interface.nb)%5Cn*%20%5BCreating%20Geometry%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Fcreating_geometry%2Fcreating_geometry.nb)%5Cn*%20%5BInteractions%20With%20Geometry%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Finteractions_with_geometry%2Finteractions_with_geometry.nb)%5Cn*%20%5BInteractions%20Between%20Geometry%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Finteractions_between_geometry%2Finteractions_between_geometry.nb)%5Cn*%20%5BReference%20Geometry%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Freference_geometry%2Freference_geometry.nb)%5Cn*%20%5BFile%20Import%20and%20Export%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Ffile_import_and_export%2Ffile_import_and_export.nb)%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(module, script);
+      }
+
+      await importModule(module, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -122,6 +124,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

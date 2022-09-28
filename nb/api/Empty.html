@@ -65,41 +65,17 @@
       padding: 5px;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
+    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/api/Empty.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/api/Empty.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "/JCARnvBVqycZbPZYl3efW9DQFCtSY6a18zkCHeAwtw=",
-    "sourceText": "md`\n### Empty()\nProduces an empty geometry.\n`;",
-    "sourceLocation": {
-      "path": "nb/api/Empty.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "\n### Empty()\nProduces an empty geometry.\n",
-    "hash": "Bo4nZ7JTPcAkGsk30EYE5CdH51A6bgzXmE0MsF+qLWg=",
-    "sourceLocation": {
-      "path": "nb/api/Empty.nb",
-      "id": "$1"
-    }
-  }
-];
+    const baseUrl = "https://jsxcad.js.org";
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -112,9 +88,42 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fapi%2FEmpty.nb%22%2C%22script%22%3A%22md%60%5Cn%23%23%23%20Empty()%5CnProduces%20an%20empty%20geometry.%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(path, script);
+      }
+
+      await api.importModule("nb/api/Empty.nb", {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: true,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+        if (note.md) {
+          note.md = note
+            .md
+            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -122,6 +131,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

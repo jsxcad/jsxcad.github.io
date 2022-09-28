@@ -65,41 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/regression/regression.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/regression/regression.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "l1QsH0xQCamUl6K0/SYaEmbe/V4NPTvascShgshTIoU=",
-    "sourceText": "md`\n# JSxCAD\n\nThese notebooks are used for regression tests.\n\n## Regession Notebooks\n\n1. [Font](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/regression/font/font.nb)\n1. [Parts](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/regression/parts/parts.nb)\n1. [Shape](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/regression/shape/shape.nb)\n1. [Shapes](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/regression/shapes/shapes.nb)\n1. [Smooth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/regression/smooth/smooth.nb)\n`;",
-    "sourceLocation": {
-      "path": "nb/regression/regression.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "\n# JSxCAD\n\nThese notebooks are used for regression tests.\n\n## Regession Notebooks\n\n1. [Font](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/regression/font/font.nb)\n1. [Parts](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/regression/parts/parts.nb)\n1. [Shape](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/regression/shape/shape.nb)\n1. [Shapes](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/regression/shapes/shapes.nb)\n1. [Smooth](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/regression/smooth/smooth.nb)\n",
-    "hash": "zKROz+mc2mZG9vEl3gHS4urfcqvRuNUxu91NOBJmGxc=",
-    "sourceLocation": {
-      "path": "nb/regression/regression.nb",
-      "id": "$1"
-    }
-  }
-];
+    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -112,9 +86,37 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20JSxCAD%5Cn%5CnThese%20notebooks%20are%20used%20for%20regression%20tests.%5Cn%5Cn%23%23%20Regession%20Notebooks%5Cn%5Cn1.%20%5BFont%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Ffont%2Ffont.nb)%5Cn1.%20%5BParts%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fparts%2Fparts.nb)%5Cn1.%20%5BShape%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshape%2Fshape.nb)%5Cn1.%20%5BShapes%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fshapes%2Fshapes.nb)%5Cn1.%20%5BSmooth%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fsmooth%2Fsmooth.nb)%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(module, script);
+      }
+
+      await importModule(module, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -122,6 +124,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

@@ -65,14 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [];
+    import api, { importScript } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -85,9 +86,33 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      const { module, script } = JSON.parse(decodeURIComponent("%7B%22script%22%3A%22%22%7D"));
+
+      await importScript(api, module, script, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -95,6 +120,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

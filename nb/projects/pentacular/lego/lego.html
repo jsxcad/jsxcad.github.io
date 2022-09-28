@@ -65,65 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "2cc5Q67vUb7gOohVMqbLT7oSSlWcmPHiYEECs7p3OVI=",
-    "sourceText": "md`\n# Lego compatible blocks\n\n[Examples](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/lego/examples.nb)\n`;",
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "\n# Lego compatible blocks\n\n[Examples](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/lego/examples.nb)\n",
-    "hash": "q1PPQp0t6PQuRIfSqX6QFbgXjAHcQSkKb5FxHTUxddA=",
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "oyX6Qoiv1gR7wQXn1FqmRVATxDaqHvP8QJAVjNHdTpI=",
-    "sourceText": "export const SocketBoard = (length, width, height, { sockets = [] } = {}) => {\n  const isFlat = (x, y) => {\n    if (sockets === undefined) return false;\n    if (sockets[y] === undefined) return false;\n    return sockets[y][x] === '_';\n  };\n  const pieces = [];\n  const socket = Arc(5).x(4).y(4);\n  for (let x = 0; x < length; x++) {\n    for (let y = 0; y < width; y++) {\n      if (!isFlat(x, y)) {\n        pieces.push(socket.x(x * 8).y(y * 8));\n      }\n    }\n  }\n  return Group(Box(length * 8, width * 8).by(align('x>y>')), ...pieces)\n    .fill()\n    .ez(height)\n    .by(align('xy'))\n    .as(`SocketBoard ${length} x ${width} x ${height}`);\n};",
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "SocketBoard"
-    }
-  },
-  {
-    "hash": "OZJgfCgJMXejdRe/62mTnfkWx0v9MDRXd6fNmgETT/Y=",
-    "sourceText": "export const StudBoard = (length, width, height, { studs = [] } = {}) => {\n  const isFlat = (x, y) => {\n    if (studs === undefined) return false;\n    if (studs[y] === undefined) return false;\n    return studs[y][x] === '_';\n  };\n  const board = [];\n  const flat = Box(8).ez(height);\n  const stud = Box(8)\n    .ez(height)\n    .add(Arc(5).ez(height, height + 1.6))\n    .add(Arc(4.8).ez(height + 1.6, height + 1.8));\n  for (let x = 0; x < length; x++) {\n    for (let y = 0; y < width; y++) {\n      const part = isFlat(x, y) ? flat : stud;\n      board.push(part.x(x * 8).y(y * 8));\n    }\n  }\n  return Group(...board)\n    .by(align('xy'))\n    .as(`StudBoard ${length} x ${width} x ${height}`);\n};",
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "StudBoard"
-    }
-  },
-  {
-    "hash": "cCu/FBAHUXmZbF1oo6QTCx96AWvkUF9KqWoqvUz7tE4=",
-    "sourceText": "export const Block = (\n  length,\n  width,\n  height,\n  { sockets = [], studs = [] } = {}\n) =>\n  Group(\n    SocketBoard(length, width, 2.1, { sockets }),\n    StudBoard(length, width, height - 2.1, { studs }).z(2.1)\n  );",
-    "sourceLocation": {
-      "path": "nb/projects/pentacular/lego/lego.nb",
-      "id": "Block"
-    }
-  }
-];
+    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -136,9 +86,37 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20Lego%20compatible%20blocks%5Cn%5Cn%5BExamples%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fprojects%2Flego%2Fexamples.nb)%5Cn%60%3B%5Cn%5Cnexport%20const%20SocketBoard%20%3D%20(length%2C%20width%2C%20height%2C%20%7B%20sockets%20%3D%20%5B%5D%20%7D%20%3D%20%7B%7D)%20%3D%3E%20%7B%5Cn%20%20const%20isFlat%20%3D%20(x%2C%20y)%20%3D%3E%20%7B%5Cn%20%20%20%20if%20(sockets%20%3D%3D%3D%20undefined)%20return%20false%3B%5Cn%20%20%20%20if%20(sockets%5By%5D%20%3D%3D%3D%20undefined)%20return%20false%3B%5Cn%20%20%20%20return%20sockets%5By%5D%5Bx%5D%20%3D%3D%3D%20'_'%3B%5Cn%20%20%7D%3B%5Cn%20%20const%20pieces%20%3D%20%5B%5D%3B%5Cn%20%20const%20socket%20%3D%20Arc(5).x(4).y(4)%3B%5Cn%20%20for%20(let%20x%20%3D%200%3B%20x%20%3C%20length%3B%20x%2B%2B)%20%7B%5Cn%20%20%20%20for%20(let%20y%20%3D%200%3B%20y%20%3C%20width%3B%20y%2B%2B)%20%7B%5Cn%20%20%20%20%20%20if%20(!isFlat(x%2C%20y))%20%7B%5Cn%20%20%20%20%20%20%20%20pieces.push(socket.x(x%20*%208).y(y%20*%208))%3B%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%20%20return%20Group(Box(length%20*%208%2C%20width%20*%208).by(align('x%3Ey%3E'))%2C%20...pieces)%5Cn%20%20%20%20.fill()%5Cn%20%20%20%20.ez(height)%5Cn%20%20%20%20.by(align('xy'))%5Cn%20%20%20%20.as(%60SocketBoard%20%24%7Blength%7D%20x%20%24%7Bwidth%7D%20x%20%24%7Bheight%7D%60)%3B%5Cn%7D%3B%5Cn%5Cnexport%20const%20StudBoard%20%3D%20(length%2C%20width%2C%20height%2C%20%7B%20studs%20%3D%20%5B%5D%20%7D%20%3D%20%7B%7D)%20%3D%3E%20%7B%5Cn%20%20const%20isFlat%20%3D%20(x%2C%20y)%20%3D%3E%20%7B%5Cn%20%20%20%20if%20(studs%20%3D%3D%3D%20undefined)%20return%20false%3B%5Cn%20%20%20%20if%20(studs%5By%5D%20%3D%3D%3D%20undefined)%20return%20false%3B%5Cn%20%20%20%20return%20studs%5By%5D%5Bx%5D%20%3D%3D%3D%20'_'%3B%5Cn%20%20%7D%3B%5Cn%20%20const%20board%20%3D%20%5B%5D%3B%5Cn%20%20const%20flat%20%3D%20Box(8).ez(height)%3B%5Cn%20%20const%20stud%20%3D%20Box(8)%5Cn%20%20%20%20.ez(height)%5Cn%20%20%20%20.add(Arc(5).ez(height%2C%20height%20%2B%201.6))%5Cn%20%20%20%20.add(Arc(4.8).ez(height%20%2B%201.6%2C%20height%20%2B%201.8))%3B%5Cn%20%20for%20(let%20x%20%3D%200%3B%20x%20%3C%20length%3B%20x%2B%2B)%20%7B%5Cn%20%20%20%20for%20(let%20y%20%3D%200%3B%20y%20%3C%20width%3B%20y%2B%2B)%20%7B%5Cn%20%20%20%20%20%20const%20part%20%3D%20isFlat(x%2C%20y)%20%3F%20flat%20%3A%20stud%3B%5Cn%20%20%20%20%20%20board.push(part.x(x%20*%208).y(y%20*%208))%3B%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%20%20return%20Group(...board)%5Cn%20%20%20%20.by(align('xy'))%5Cn%20%20%20%20.as(%60StudBoard%20%24%7Blength%7D%20x%20%24%7Bwidth%7D%20x%20%24%7Bheight%7D%60)%3B%5Cn%7D%3B%5Cn%5Cnexport%20const%20Block%20%3D%20(%5Cn%20%20length%2C%5Cn%20%20width%2C%5Cn%20%20height%2C%5Cn%20%20%7B%20sockets%20%3D%20%5B%5D%2C%20studs%20%3D%20%5B%5D%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%5Cn%20%20Group(%5Cn%20%20%20%20SocketBoard(length%2C%20width%2C%202.1%2C%20%7B%20sockets%20%7D)%2C%5Cn%20%20%20%20StudBoard(length%2C%20width%2C%20height%20-%202.1%2C%20%7B%20studs%20%7D).z(2.1)%5Cn%20%20)%3B%5Cn%22%7D%5D"))) {
+        await write(module, script);
+      }
+
+      await importModule(module, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -146,6 +124,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {

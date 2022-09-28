@@ -65,41 +65,15 @@
       padding: 5px;
     }
   </style>
+  
  </head>
  <body>
   <script type='module'>
-    import { Shape } from 'http://127.0.0.1:5001/jsxcad-api-shape.js';
-    import { dataUrl } from 'http://127.0.0.1:5001/jsxcad-ui-threejs.js';
-    import { toDomElement } from 'http://127.0.0.1:5001/jsxcad-ui-notebook.js';
-
-    const notebook = [
-  {
-    "beginSourceLocation": {
-      "path": "nb/projects/index.nb",
-      "id": "$1"
-    },
-    "sourceLocation": {
-      "path": "nb/projects/index.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "hash": "THQ48MJ2Oi8DQPQFGaaEy8Ikl3CrchuZXG81pEZJWcs=",
-    "sourceText": "md`\n# Example Projects\n\nThese example projects may be useful to see what can be done and to get started on your own.\n\n* [28BYJ-48](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/28BYJ-48/28BYJ-48.nb)\n* [Bear](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/bear/bear.nb)\n* [Bearing](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/bearing/bearing.nb)\n* [Belt Sprockets](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/BarbourSmith/belt_sprockets/belt_sprockets.nb)\n* [Bolt](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/bolt/bolt.nb)\n* [Clock](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/clock/clock.nb)\n* [Engrave](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/engrave/engrave.nb)\n* [Gear](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/gear/gear.nb)\n* [Holder](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/holder/holder.nb)\n* [Lego](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/lego/lego.nb)\n* [Lego Sorter](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/lego_sorter/lego_sorter.nb)\n* [Micro Gear Motor](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/micro_gear_motor/micro_gear_motor.nb)\n* [Mold](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/mold/mold.nb)\n* [Plots](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/plots/plots.nb)\n* [Plotter](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/plotter/plotter.nb)\n* [Saucer](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/saucer/saucer.nb)\n* [Terrarium](#https://raw.githubusercontent.com/jsxcad/JSxCAD/${sha}/nb/projects/pentacular/terrarium/terrarium.nb)\n`;",
-    "sourceLocation": {
-      "path": "nb/projects/index.nb",
-      "id": "$1"
-    }
-  },
-  {
-    "md": "\n# Example Projects\n\nThese example projects may be useful to see what can be done and to get started on your own.\n\n* [28BYJ-48](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/28BYJ-48/28BYJ-48.nb)\n* [Bear](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/bear/bear.nb)\n* [Bearing](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/bearing/bearing.nb)\n* [Belt Sprockets](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/BarbourSmith/belt_sprockets/belt_sprockets.nb)\n* [Bolt](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/bolt/bolt.nb)\n* [Clock](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/clock/clock.nb)\n* [Engrave](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/engrave/engrave.nb)\n* [Gear](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/gear/gear.nb)\n* [Holder](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/holder/holder.nb)\n* [Lego](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/lego/lego.nb)\n* [Lego Sorter](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/lego_sorter/lego_sorter.nb)\n* [Micro Gear Motor](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/micro_gear_motor/micro_gear_motor.nb)\n* [Mold](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/mold/mold.nb)\n* [Plots](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/plots/plots.nb)\n* [Plotter](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/plotter/plotter.nb)\n* [Saucer](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/saucer/saucer.nb)\n* [Terrarium](#https://raw.githubusercontent.com/jsxcad/JSxCAD/master/nb/projects/pentacular/terrarium/terrarium.nb)\n",
-    "hash": "zzVPqANt6Q7+i6AOZMXyPH67WgbBJzfhejVcNHHkLf0=",
-    "sourceLocation": {
-      "path": "nb/projects/index.nb",
-      "id": "$1"
-    }
-  }
-];
+    import api, { importModule } from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
+    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
+    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
+    import { addOnEmitHandler, boot, read, resolvePending } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -112,9 +86,37 @@
     }
 
     const run = async () => {
+      await boot();
+
+      const topLevel = new Map();
+      const notebook = [];
+      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+
+      // Construct a local ephemeral filesystem.
+      // TODO: Trace dependencies, such as imports.
+      for (const { module, script } of JSON.parse(decodeURIComponent("%5B%7B%22script%22%3A%22md%60%5Cn%23%20Example%20Projects%5Cn%5CnThese%20example%20projects%20may%20be%20useful%20to%20see%20what%20can%20be%20done%20and%20to%20get%20started%20on%20your%20own.%5Cn%5Cn*%20%5B28BYJ-48%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2F28BYJ-48%2F28BYJ-48.nb)%5Cn*%20%5BBear%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fbear%2Fbear.nb)%5Cn*%20%5BBearing%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fbearing%2Fbearing.nb)%5Cn*%20%5BBelt%20Sprockets%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2FBarbourSmith%2Fbelt_sprockets%2Fbelt_sprockets.nb)%5Cn*%20%5BBolt%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fbolt%2Fbolt.nb)%5Cn*%20%5BClock%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fclock%2Fclock.nb)%5Cn*%20%5BEngrave%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fengrave%2Fengrave.nb)%5Cn*%20%5BGear%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fgear%2Fgear.nb)%5Cn*%20%5BHolder%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fholder%2Fholder.nb)%5Cn*%20%5BLego%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Flego%2Flego.nb)%5Cn*%20%5BLego%20Sorter%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Flego_sorter%2Flego_sorter.nb)%5Cn*%20%5BMicro%20Gear%20Motor%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fmicro_gear_motor%2Fmicro_gear_motor.nb)%5Cn*%20%5BMold%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fmold%2Fmold.nb)%5Cn*%20%5BPlots%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fplots%2Fplots.nb)%5Cn*%20%5BPlotter%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fplotter%2Fplotter.nb)%5Cn*%20%5BSaucer%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fsaucer%2Fsaucer.nb)%5Cn*%20%5BTerrarium%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Fpentacular%2Fterrarium%2Fterrarium.nb)%5Cn%60%3B%5Cn%22%7D%5D"))) {
+        await write(module, script);
+      }
+
+      await importModule(module, {
+        clearUpdateEmits: false,
+        topLevel,
+        readCache: false,
+      });
+
+      await resolvePending();
+
+      for (const note of notebook) {
+        const { path, data } = note;
+        if (path && !data) {
+          // We should configure this case to be already embedded.
+           note.data = await read(path);
+        }
+      }
+
       const body = document.getElementsByTagName('body')[0];
       const bookElement = document.createElement('div');
-      const notebookElement = await toDomElement(await prepareViews(notebook));
+      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: false });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
@@ -122,6 +124,7 @@
 
     if (document.readyState === 'complete') {
       run();
+      
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
