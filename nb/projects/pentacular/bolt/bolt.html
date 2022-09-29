@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/projects/pentacular/bolt/bolt.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fbolt%2Fbolt.nb%22%2C%22script%22%3A%22md%60%5Cn%5Cn%23%20Bolts%5Cn%5CnThis%20project%20allows%20you%20to%20design%20bolts%20and%20nuts.%5Cn%5Cn%5BSee%20examples%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fprojects%2Fbolt%2Fexamples.nb)%5Cn%60%3B%5Cn%5Cnconst%20Profile%20%3D%20(pitch%20%3D%201%2C%20depth%20%3D%204%20%2F%203)%20%3D%3E%5Cn%20%20Polygon(%5Cn%20%20%20%20Point(0%2C%20depth%20%2F%20-2)%2C%5Cn%20%20%20%20Point(pitch%20%2F%20-2%2C%20depth%20%2F%202)%2C%5Cn%20%20%20%20Point(pitch%20%2F%20-2%2C%20depth)%2C%5Cn%20%20%20%20Point(pitch%20%2F%202%2C%20depth)%2C%5Cn%20%20%20%20Point(pitch%20%2F%202%2C%20depth%20%2F%202)%5Cn%20%20).inset(0.01)%3B%5Cn%5CnProfile().topView()%3B%5Cn%5Cnexport%20const%20ScrewThreadSegmentBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FScrewThreadSegmentBuilder'%2C%5Cn%20%20(diameter%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%20%7B%5Cn%20%20%20%20const%20depth%20%3D%20pitch%20%2F%202%20%2F%20Math.tan(angle%20*%20Math.PI)%3B%5Cn%20%20%20%20return%20Profile(pitch%2C%20(pitch%20*%200.5)%20%2F%20Math.tan(angle%20*%20Math.PI))%5Cn%20%20%20%20%20%20.y(diameter%20%2F%20-2%20%2B%20play)%5Cn%20%20%20%20%20%20.ry(1%20%2F%204)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%20-1%2C%20by%3A%201%20%2F%2032%2C%20to%3A%201%20%7D%2C%20(t)%20%3D%3E%20rz(t).z(pitch%20*%20t)%2C%20Loft)%5Cn%20%20%20%20%20%20.scale(1%2C%201%2C%20turn%20%3D%3D%3D%20'right'%20%3F%201%20%3A%20-1)%5Cn%20%20%20%20%20%20.simplify(0.01)%5Cn%20%20%20%20%20%20.add(Arc(diameter%20-%20depth).ez(pitch%2C%20-pitch))%5Cn%20%20%20%20%20%20.clip(Box(diameter%20*%202).ez(pitch%20%2F%202%2C%20pitch%20%2F%20-2))%5Cn%20%20%20%20%20%20.z(pitch%20%2F%202)%3B%5Cn%20%20%7D%5Cn)%3B%5Cn%5Cnexport%20const%20ScrewThreadSegment%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20ScrewThreadSegmentBuilder(diameter%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20ScrewThreadBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FScrewThread'%2C%5Cn%20%20(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%5Cn%20%20%20%20ScrewThreadSegment(diameter%2C%20%7B%20pitch%2C%20angle%2C%20play%2C%20turn%20%7D)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%200%2C%20to%3A%20height%2C%20by%3A%20pitch%20%7D%2C%20z)%5Cn%20%20%20%20%20%20.cut('fastx'%2C%20Box(diameter%20*%202).ez(height%2C%20height%20%2B%20pitch%20*%202))%5Cn%20%20%20%20%20%20.clean()%5Cn)%3B%5Cn%5Cnexport%20const%20ScrewThread%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20height%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20ScrewThreadBuilder(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20NutThreadSegmentBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FNutThreadSegment'%2C%5Cn%20%20(diameter%2C%20pitch%2C%20thickness%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%20%7B%5Cn%20%20%20%20const%20depth%20%3D%20pitch%20%2F%202%20%2F%20Math.tan(angle%20*%20Math.PI)%3B%5Cn%20%20%20%20return%20ScrewThreadSegment(diameter%2C%20%7B%5Cn%20%20%20%20%20%20pitch%2C%5Cn%20%20%20%20%20%20angle%2C%5Cn%20%20%20%20%20%20play%3A%20-play%2C%5Cn%20%20%20%20%20%20turn%2C%5Cn%20%20%20%20%7D).cutFrom(%5Cn%20%20%20%20%20%20'fastx'%2C%5Cn%20%20%20%20%20%20Arc(diameter%20%2B%20thickness)%5Cn%20%20%20%20%20%20%20%20.cut('fastx'%2C%20Arc(diameter%20-%20depth))%5Cn%20%20%20%20%20%20%20%20.ez(pitch)%5Cn%20%20%20%20)%3B%5Cn%20%20%7D%5Cn)%3B%5Cn%5Cnexport%20const%20NutThreadSegment%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20%7B%5Cn%20%20%20%20pitch%20%3D%201%2C%5Cn%20%20%20%20thickness%20%3D%20pitch%20*%202%2C%5Cn%20%20%20%20angle%20%3D%2060%20%2F%20360%2C%5Cn%20%20%20%20play%20%3D%200.1%2C%5Cn%20%20%20%20turn%20%3D%20'right'%2C%5Cn%20%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20NutThreadSegmentBuilder(diameter%2C%20pitch%2C%20thickness%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20NutThreadBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FNutThread'%2C%5Cn%20%20(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%5Cn%20%20%20%20NutThreadSegment(diameter%2C%20%7B%20pitch%2C%20angle%2C%20play%2C%20turn%20%7D)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%200%2C%20to%3A%20height%2C%20by%3A%20pitch%20%7D%2C%20z)%5Cn%20%20%20%20%20%20.cut('fastx'%2C%20Box(diameter%20*%202).ez(height%2C%20height%20%2B%20pitch%20*%202))%5Cn)%3B%5Cn%5Cnexport%20const%20NutThread%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20height%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20NutThreadBuilder(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/projects/pentacular/bolt/bolt.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fbolt%2Fbolt.nb%22%3A%22md%60%5Cn%5Cn%23%20Bolts%5Cn%5CnThis%20project%20allows%20you%20to%20design%20bolts%20and%20nuts.%5Cn%5Cn%5BSee%20examples%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fprojects%2Fbolt%2Fexamples.nb)%5Cn%60%3B%5Cn%5Cnconst%20Profile%20%3D%20(pitch%20%3D%201%2C%20depth%20%3D%204%20%2F%203)%20%3D%3E%5Cn%20%20Polygon(%5Cn%20%20%20%20Point(0%2C%20depth%20%2F%20-2)%2C%5Cn%20%20%20%20Point(pitch%20%2F%20-2%2C%20depth%20%2F%202)%2C%5Cn%20%20%20%20Point(pitch%20%2F%20-2%2C%20depth)%2C%5Cn%20%20%20%20Point(pitch%20%2F%202%2C%20depth)%2C%5Cn%20%20%20%20Point(pitch%20%2F%202%2C%20depth%20%2F%202)%5Cn%20%20).inset(0.01)%3B%5Cn%5CnProfile().topView()%3B%5Cn%5Cnexport%20const%20ScrewThreadSegmentBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FScrewThreadSegmentBuilder'%2C%5Cn%20%20(diameter%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%20%7B%5Cn%20%20%20%20const%20depth%20%3D%20pitch%20%2F%202%20%2F%20Math.tan(angle%20*%20Math.PI)%3B%5Cn%20%20%20%20return%20Profile(pitch%2C%20(pitch%20*%200.5)%20%2F%20Math.tan(angle%20*%20Math.PI))%5Cn%20%20%20%20%20%20.y(diameter%20%2F%20-2%20%2B%20play)%5Cn%20%20%20%20%20%20.ry(1%20%2F%204)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%20-1%2C%20by%3A%201%20%2F%2032%2C%20to%3A%201%20%7D%2C%20(t)%20%3D%3E%20rz(t).z(pitch%20*%20t)%2C%20Loft)%5Cn%20%20%20%20%20%20.scale(1%2C%201%2C%20turn%20%3D%3D%3D%20'right'%20%3F%201%20%3A%20-1)%5Cn%20%20%20%20%20%20.simplify(0.01)%5Cn%20%20%20%20%20%20.add(Arc(diameter%20-%20depth).ez(pitch%2C%20-pitch))%5Cn%20%20%20%20%20%20.clip(Box(diameter%20*%202).ez(pitch%20%2F%202%2C%20pitch%20%2F%20-2))%5Cn%20%20%20%20%20%20.z(pitch%20%2F%202)%3B%5Cn%20%20%7D%5Cn)%3B%5Cn%5Cnexport%20const%20ScrewThreadSegment%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20ScrewThreadSegmentBuilder(diameter%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20ScrewThreadBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FScrewThread'%2C%5Cn%20%20(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%5Cn%20%20%20%20ScrewThreadSegment(diameter%2C%20%7B%20pitch%2C%20angle%2C%20play%2C%20turn%20%7D)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%200%2C%20to%3A%20height%2C%20by%3A%20pitch%20%7D%2C%20z)%5Cn%20%20%20%20%20%20.cut('fastx'%2C%20Box(diameter%20*%202).ez(height%2C%20height%20%2B%20pitch%20*%202))%5Cn%20%20%20%20%20%20.clean()%5Cn)%3B%5Cn%5Cnexport%20const%20ScrewThread%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20height%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20ScrewThreadBuilder(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20NutThreadSegmentBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FNutThreadSegment'%2C%5Cn%20%20(diameter%2C%20pitch%2C%20thickness%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%20%7B%5Cn%20%20%20%20const%20depth%20%3D%20pitch%20%2F%202%20%2F%20Math.tan(angle%20*%20Math.PI)%3B%5Cn%20%20%20%20return%20ScrewThreadSegment(diameter%2C%20%7B%5Cn%20%20%20%20%20%20pitch%2C%5Cn%20%20%20%20%20%20angle%2C%5Cn%20%20%20%20%20%20play%3A%20-play%2C%5Cn%20%20%20%20%20%20turn%2C%5Cn%20%20%20%20%7D).cutFrom(%5Cn%20%20%20%20%20%20'fastx'%2C%5Cn%20%20%20%20%20%20Arc(diameter%20%2B%20thickness)%5Cn%20%20%20%20%20%20%20%20.cut('fastx'%2C%20Arc(diameter%20-%20depth))%5Cn%20%20%20%20%20%20%20%20.ez(pitch)%5Cn%20%20%20%20)%3B%5Cn%20%20%7D%5Cn)%3B%5Cn%5Cnexport%20const%20NutThreadSegment%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20%7B%5Cn%20%20%20%20pitch%20%3D%201%2C%5Cn%20%20%20%20thickness%20%3D%20pitch%20*%202%2C%5Cn%20%20%20%20angle%20%3D%2060%20%2F%20360%2C%5Cn%20%20%20%20play%20%3D%200.1%2C%5Cn%20%20%20%20turn%20%3D%20'right'%2C%5Cn%20%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20NutThreadSegmentBuilder(diameter%2C%20pitch%2C%20thickness%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%5Cnexport%20const%20NutThreadBuilder%20%3D%20Cached(%5Cn%20%20'nb%2Fprojects%2Fbolt%2Fbolt.nb%2FNutThread'%2C%5Cn%20%20(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%20%3D%3E%5Cn%20%20%20%20NutThreadSegment(diameter%2C%20%7B%20pitch%2C%20angle%2C%20play%2C%20turn%20%7D)%5Cn%20%20%20%20%20%20.seq(%7B%20from%3A%200%2C%20to%3A%20height%2C%20by%3A%20pitch%20%7D%2C%20z)%5Cn%20%20%20%20%20%20.cut('fastx'%2C%20Box(diameter%20*%202).ez(height%2C%20height%20%2B%20pitch%20*%202))%5Cn)%3B%5Cn%5Cnexport%20const%20NutThread%20%3D%20(%5Cn%20%20diameter%2C%5Cn%20%20height%2C%5Cn%20%20%7B%20pitch%20%3D%201%2C%20angle%20%3D%2060%20%2F%20360%2C%20play%20%3D%200.1%2C%20turn%20%3D%20'right'%20%7D%20%3D%20%7B%7D%5Cn)%20%3D%3E%20NutThreadBuilder(diameter%2C%20height%2C%20pitch%2C%20angle%2C%20play%2C%20turn)%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

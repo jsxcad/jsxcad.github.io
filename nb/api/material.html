@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/api/material.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fapi%2Fmaterial.nb%22%2C%22script%22%3A%22md%60%5Cn%23%23%23%20material()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnmateral%7C%7CName%20of%20the%20material%20to%20use.%5Cn%5CnSupported%20materials%3A%5Cn*%20aluminium%5Cn*%20brass%5Cn*%20brick%5Cn*%20cardboard%5Cn*%20circuit%5Cn*%20copper%5Cn*%20glass%5Cn*%20grass%5Cn*%20leaves%5Cn*%20metal%5Cn*%20paper%5Cn*%20plastic%5Cn*%20rock%5Cn*%20steel%5Cn*%20transparent%5Cn*%20water%5Cn*%20wood%5Cn*%20wet-glass%5Cn*%20zinc-steel%5Cn%5CnSee%3A%20%5Bimage%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fapi%2Fimage.nb)%5Cn%60%3B%5Cn%5CnBox(5%2C%205%2C%202).material('aluminium').view().note(%5C%22material('aluminium')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('brass').view().note(%5C%22material('brass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('brick').view().note(%5C%22material('brick')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('cardboard').view().note(%5C%22material('cardboard')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('circuit').view().note(%5C%22material('circuit')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('copper').view().note(%5C%22material('copper')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('glass').view().note(%5C%22material('glass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('grass').view().note(%5C%22material('grass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('leaves').view().note(%5C%22material('leaves')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('metal').view().note(%5C%22material('metal')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('paper').view().note(%5C%22material('paper')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('plastic').view().note(%5C%22material('plastic')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('rock').view().note(%5C%22material('rock')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('steel').view().note(%5C%22material('steel')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('transparent').view().note(%5C%22material('transparent')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('water').view().note(%5C%22material('water')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('wood').view().note(%5C%22material('wood')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('wet-glass').view().note(%5C%22material('wet-glass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('zinc-steel').view().note(%5C%22material('zinc-steel')%5C%22)%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/api/material.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2Fmaterial.nb%22%3A%22md%60%5Cn%23%23%23%20material()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnmateral%7C%7CName%20of%20the%20material%20to%20use.%5Cn%5CnSupported%20materials%3A%5Cn*%20aluminium%5Cn*%20brass%5Cn*%20brick%5Cn*%20cardboard%5Cn*%20circuit%5Cn*%20copper%5Cn*%20glass%5Cn*%20grass%5Cn*%20leaves%5Cn*%20metal%5Cn*%20paper%5Cn*%20plastic%5Cn*%20rock%5Cn*%20steel%5Cn*%20transparent%5Cn*%20water%5Cn*%20wood%5Cn*%20wet-glass%5Cn*%20zinc-steel%5Cn%5CnSee%3A%20%5Bimage%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fapi%2Fimage.nb)%5Cn%60%3B%5Cn%5CnBox(5%2C%205%2C%202).material('aluminium').view().note(%5C%22material('aluminium')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('brass').view().note(%5C%22material('brass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('brick').view().note(%5C%22material('brick')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('cardboard').view().note(%5C%22material('cardboard')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('circuit').view().note(%5C%22material('circuit')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('copper').view().note(%5C%22material('copper')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('glass').view().note(%5C%22material('glass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('grass').view().note(%5C%22material('grass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('leaves').view().note(%5C%22material('leaves')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('metal').view().note(%5C%22material('metal')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('paper').view().note(%5C%22material('paper')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('plastic').view().note(%5C%22material('plastic')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('rock').view().note(%5C%22material('rock')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('steel').view().note(%5C%22material('steel')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('transparent').view().note(%5C%22material('transparent')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('water').view().note(%5C%22material('water')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('wood').view().note(%5C%22material('wood')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('wet-glass').view().note(%5C%22material('wet-glass')%5C%22)%3B%5CnBox(5%2C%205%2C%202).material('zinc-steel').view().note(%5C%22material('zinc-steel')%5C%22)%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

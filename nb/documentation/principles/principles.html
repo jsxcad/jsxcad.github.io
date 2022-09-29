@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/documentation/principles/principles.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Fprinciples%2Fprinciples.nb%22%2C%22script%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/documentation/principles/principles.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Fprinciples%2Fprinciples.nb%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

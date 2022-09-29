@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/api/loft.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fapi%2Floft.nb%22%2C%22script%22%3A%22md%60%5Cn%23%23%23%20loft(...shapes)%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cn...shapes%7C%7CShapes%20to%20loft%20between.%5Cn'open'%7Cfalse%7CCap%20the%20ends%20of%20the%20loft.%5Cn%5CnLofts%20a%20surface%20between%20pairs%20of%20shapes%2C%20potentially%20forming%20a%20volume.%5Cn%5CnNote%20that%20the%20incoming%20shape%20provides%20context%20but%20is%20not%20automatically%20included%20in%20the%20loft.%5Cn%5Cn_Note%3A%20loft%20is%20a%20work%20in%20progress%20and%20has%20limited%20functionality._%5Cn%60%3B%5Cn%5CnBox(5)%5Cn%20%20.loft(z(0)%2C%20z(5).rz(1%20%2F%208))%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Box(5).loft(z(0)%2C%20z(5).rz(1%20%2F%208))%20lofts%20a%20Box%20by%205%20mm%20with%20a%201%2F8%20rotation.'%5Cn%20%20)%3B%5Cn%5CnBox(5)%5Cn%20%20.loft(z(0)%2C%20Arc(4).z(5))%5Cn%20%20.view()%5Cn%20%20.note('Box(5).loft(z(0)%2C%20Arc(4).z(5))%20lofts%20a%20box%20by%205%20mm%20to%20a%20circle.')%3B%5Cn%5CnBox(5)%5Cn%20%20.cut(inset(1))%5Cn%20%20.loft(z(0)%2C%20Arc(4).cut(inset(1)).z(5))%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Box(5).cut(inset(1)).loft(z(0)%2C%20Arc(4).cut(inset(1)).z(5))%20lofts%20a%20box%20with%20a%20hole%20to%20a%20circle%20with%20a%20hole'%5Cn%20%20)%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/api/loft.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2Floft.nb%22%3A%22md%60%5Cn%23%23%23%20loft(...shapes)%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cn...shapes%7C%7CShapes%20to%20loft%20between.%5Cn'open'%7Cfalse%7CCap%20the%20ends%20of%20the%20loft.%5Cn%5CnLofts%20a%20surface%20between%20pairs%20of%20shapes%2C%20potentially%20forming%20a%20volume.%5Cn%5CnNote%20that%20the%20incoming%20shape%20provides%20context%20but%20is%20not%20automatically%20included%20in%20the%20loft.%5Cn%5Cn_Note%3A%20loft%20is%20a%20work%20in%20progress%20and%20has%20limited%20functionality._%5Cn%60%3B%5Cn%5CnBox(5)%5Cn%20%20.loft(z(0)%2C%20z(5).rz(1%20%2F%208))%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Box(5).loft(z(0)%2C%20z(5).rz(1%20%2F%208))%20lofts%20a%20Box%20by%205%20mm%20with%20a%201%2F8%20rotation.'%5Cn%20%20)%3B%5Cn%5CnBox(5)%5Cn%20%20.loft(z(0)%2C%20Arc(4).z(5))%5Cn%20%20.view()%5Cn%20%20.note('Box(5).loft(z(0)%2C%20Arc(4).z(5))%20lofts%20a%20box%20by%205%20mm%20to%20a%20circle.')%3B%5Cn%5CnBox(5)%5Cn%20%20.cut(inset(1))%5Cn%20%20.loft(z(0)%2C%20Arc(4).cut(inset(1)).z(5))%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Box(5).cut(inset(1)).loft(z(0)%2C%20Arc(4).cut(inset(1)).z(5))%20lofts%20a%20box%20with%20a%20hole%20to%20a%20circle%20with%20a%20hole'%5Cn%20%20)%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

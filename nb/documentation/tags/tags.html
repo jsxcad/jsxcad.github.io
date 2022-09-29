@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/documentation/tags/tags.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Ftags%2Ftags.nb%22%2C%22script%22%3A%22md%60%5Cn---%5Cn%23%20Tags%5Cn%5CnGeometry%20carries%20qualified%20tags%20which%20can%20be%20used%20for%20selection%20and%20in%20display.%5Cn%60%3B%5Cn%5Cnmd%60%5CnThe%20fundamental%20operations%20are%20Shape.tag(...tags)%20and%20Shape.untag(...).%5Cn%5CnTags%20are%20qualified%20with%20namespaces%2C%20such%20as%20user%3A%2C%20color%3A%2C%20material%3A%2C%20part%3A%2C%20etc.%5Cn%5CnThe%20default%20namespace%20is%20'user'.%5Cn%5CnA%20wildcard%20tag%20is%20reserved%20and%20used%20to%20match%20any%20tag%20within%20a%20namespace.%5Cn%60%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue').view()%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue'%2C%20'material%3Acopper').untag('user%3A*'%2C%20'color%3Ablue').view()%3B%5Cn%5Cnmd%60%5CnShape.color()%20and%20shape.material()%20are%20provided%20as%20convenience%20operations.%5Cn%60%3B%5Cn%5Cnmd%60%5CnShape.drop()%20selects%20which%20sub-geometries%20to%20ghost%20(or%20otherwise%20transform).%5Cn%60%3B%5Cn%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(getNot('user%3Aa')).view()%3B%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(get('user%3Aa')).view()%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/documentation/tags/tags.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Ftags%2Ftags.nb%22%3A%22md%60%5Cn---%5Cn%23%20Tags%5Cn%5CnGeometry%20carries%20qualified%20tags%20which%20can%20be%20used%20for%20selection%20and%20in%20display.%5Cn%60%3B%5Cn%5Cnmd%60%5CnThe%20fundamental%20operations%20are%20Shape.tag(...tags)%20and%20Shape.untag(...).%5Cn%5CnTags%20are%20qualified%20with%20namespaces%2C%20such%20as%20user%3A%2C%20color%3A%2C%20material%3A%2C%20part%3A%2C%20etc.%5Cn%5CnThe%20default%20namespace%20is%20'user'.%5Cn%5CnA%20wildcard%20tag%20is%20reserved%20and%20used%20to%20match%20any%20tag%20within%20a%20namespace.%5Cn%60%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue').view()%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue'%2C%20'material%3Acopper').untag('user%3A*'%2C%20'color%3Ablue').view()%3B%5Cn%5Cnmd%60%5CnShape.color()%20and%20shape.material()%20are%20provided%20as%20convenience%20operations.%5Cn%60%3B%5Cn%5Cnmd%60%5CnShape.drop()%20selects%20which%20sub-geometries%20to%20ghost%20(or%20otherwise%20transform).%5Cn%60%3B%5Cn%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(getNot('user%3Aa')).view()%3B%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(get('user%3Aa')).view()%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/regression/shapes/shapes.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fregression%2Fshapes%2Fshapes.nb%22%2C%22script%22%3A%22Arc(5)%5Cn%20%20.hasAngle(45%20%2F%20360%2C%20270%20%2F%20360)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Arc(5).angle(45%2F360%2C%20270%2F360)%60)%3B%5Cn%5CnAssembly(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%5Cn%20%20.pack()%5Cn%20%20.gridView(undefined%2C%20%7B%20size%3A%20801%2C%20triangles%3A%20false%2C%20wireframe%3A%20false%20%7D)%5Cn%20%20.md(%60Assembly(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%60)%3B%5Cn%5CnBox(5%2C%207%2C%208).view().md(%60Box(5%2C%207%2C%208)%60)%3B%5Cn%5CnChainHull(Point()%2C%20Box(5).z(5)%2C%20Arc(3).z(8))%5Cn%20%20.view()%5Cn%20%20.md(%60ChainHull(Point()%2C%20Box(5).z(5)%2C%20Arc(3).z(8))%60)%3B%5Cn%5CnEmpty().view().md(%60Empty()%60)%3B%5Cn%5CnGroup(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%5Cn%20%20.pack()%5Cn%20%20.gridView()%5Cn%20%20.md(%60Group(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%60)%3B%5Cn%5CnHershey('Hershey'%2C%2010)%5Cn%20%20.by(align('xy'))%5Cn%20%20.gridView()%5Cn%20%20.md(%60Hershey(10)('Hershey').by(align('xy'))%60)%3B%5Cn%5CnHexagon(10).gridView().md(%60Hexagon(10)%60)%3B%5Cn%5CnHull(Arc(5)%2C%20Box(5).z(5)).view().md(%60Hull(Arc(5)%2C%20Box(5).z(5))%60)%3B%5Cn%5CnIcosahedron(5).view().md(%60Icosahedron(5)%60)%3B%5Cn%5Cnconst%20torusFn%20%3D%20(x%2C%20y%2C%20z)%20%3D%3E%20%7B%5Cn%20%20const%20x2%20%3D%20x%20*%20x%2C%5Cn%20%20%20%20y2%20%3D%20y%20*%20y%2C%5Cn%20%20%20%20z2%20%3D%20z%20*%20z%3B%5Cn%20%20const%20x4%20%3D%20x2%20*%20x2%2C%5Cn%20%20%20%20y4%20%3D%20y2%20*%20y2%2C%5Cn%20%20%20%20z4%20%3D%20z2%20*%20z2%3B%5Cn%20%20return%20(%5Cn%20%20%20%20x4%20%2B%5Cn%20%20%20%20y4%20%2B%5Cn%20%20%20%20z4%20%2B%5Cn%20%20%20%202%20*%20x2%20*%20y2%20%2B%5Cn%20%20%20%202%20*%20x2%20*%20z2%20%2B%5Cn%20%20%20%202%20*%20y2%20*%20z2%20-%5Cn%20%20%20%205%20*%20x2%20%2B%5Cn%20%20%20%204%20*%20y2%20-%5Cn%20%20%20%205%20*%20z2%20%2B%5Cn%20%20%20%204%5Cn%20%20)%3B%5Cn%7D%3B%5Cn%5Cn%2F%2F%20Determine%20why%20Implicit%20seems%20non-deterministic.%5CnImplicit(torusFn%2C%202).view(%7B%20withGrid%3A%20false%20%7D).md('Implicit(torusFn%2C%202')%3B%5Cn%5CnLine(5%2C%20-1).rz(45).gridView().md(%60Line(5%2C%20-1)%60)%3B%5Cn%5CnOctagon(5).gridView().md(%60Octagon(5)%60)%3B%5Cn%5CnOrb(1).view().md(%60Orb(1)%60)%3B%5Cn%5CnLink(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)%2C%20Point(0))%5Cn%20%20.rz(45%20%2F%202)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Link(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)%2C%20Point(0)).rz(45%20%2F%202)%60)%3B%5Cn%5CnPentagon(5).gridView().md(%60Pentagon(5)%60)%3B%5Cn%5CnPoint(0.5%2C%200.5).gridView().md(%60Point(0.5%2C%200.5)%60)%3B%5Cn%5CnPoints(%5B0.5%2C%200.5%5D%2C%20%5B-0.5%2C%20-0.5%5D)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Points(%5B0.5%2C%200.5%5D%2C%20%5B-0.5%2C%20-0.5%5D)%60)%3B%5Cn%5CnPolygon(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205))%5Cn%20%20.rz(1%20%2F%2016)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Polygon(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)).rz(1%20%2F%2016)%60)%3B%5Cn%5CnPolyhedron(%5Cn%20%20%5B%5Cn%20%20%20%20%5B10%2C%2010%2C%200%5D%2C%5Cn%20%20%20%20%5B10%2C%20-10%2C%200%5D%2C%5Cn%20%20%20%20%5B-10%2C%20-10%2C%200%5D%2C%5Cn%20%20%20%20%5B-10%2C%2010%2C%200%5D%2C%5Cn%20%20%20%20%5B0%2C%200%2C%2010%5D%2C%5Cn%20%20%5D%2C%5Cn%20%20%5B%5Cn%20%20%20%20%5B4%2C%201%2C%200%5D%2C%5Cn%20%20%20%20%5B4%2C%202%2C%201%5D%2C%5Cn%20%20%20%20%5B4%2C%203%2C%202%5D%2C%5Cn%20%20%20%20%5B4%2C%200%2C%203%5D%2C%5Cn%20%20%20%20%5B3%2C%200%2C%201%5D%2C%5Cn%20%20%20%20%5B3%2C%201%2C%202%5D%2C%5Cn%20%20%5D%5Cn)%5Cn%20%20.view()%5Cn%20%20.md(%5Cn%20%20%20%20%60Polyhedron(%20%20%5Cn%20%20%20%20%20%20%5B%5B10%2C%2010%2C%200%5D%2C%20%5B10%2C%20-10%2C%200%5D%2C%20%5B-10%2C%20-10%2C%200%5D%2C%20%5B-10%2C%2010%2C%200%5D%2C%20%5B0%2C%200%2C%2010%5D%5D%2C%20%20%5Cn%20%20%20%20%20%20%5B%5B4%2C%201%2C%200%5D%2C%20%5B4%2C%202%2C%201%5D%2C%20%5B4%2C%203%2C%202%5D%2C%20%5B4%2C%200%2C%203%5D%2C%20%5B3%2C%200%2C%201%5D%2C%20%5B3%2C%201%2C%202%5D%5D)%60%5Cn%20%20)%3B%5Cn%5CnArc(5).hasSides(7).gridView().md(%60Septagon(5)%60)%3B%5Cn%5CnSpiral().gridView().md(%60Spiral()%60)%3B%5Cn%5CnTriangle(5).gridView().md(%60Triangle(5)%60)%3B%5Cn%5CnWave((t)%20%3D%3E%20Point(0%2C%20sin(t%20*%203)%20*%20100)%2C%20%7B%20to%3A%20360%20%7D)%5Cn%20%20.by(align('xy'))%5Cn%20%20.gridView()%5Cn%20%20.md(%60Wave((t)%20%3D%3E%20Point(0%2C%20sin(t%20*%203)%20*%20100)%2C%20%7B%20to%3A%20360%20%7D)%60)%3B%5Cn%5CnGroup(Arc(4).x(-1)%2C%20Box(5).x(1))%5Cn%20%20.fill()%5Cn%20%20.gridView()%5Cn%20%20.md(%60Group(Arc(5).x(-1)%2C%20Box(5).x(1)).fill()%60)%3B%5Cn%5Cnconst%20extentsA%20%3D%20%5B%5Cn%20%20%5B2%2C%205%5D%2C%5Cn%20%20%5B2%2C%203%5D%2C%5Cn%20%20%5B2%2C%204%5D%2C%5Cn%5D%3B%5Cn%5Cnconst%20extentsB%20%3D%20%5B%5Cn%20%20%5B0%2C%201%5D%2C%5Cn%20%20%5B0%2C%205%5D%2C%5Cn%20%20%5B0%2C%205%5D%2C%5Cn%5D%3B%5Cn%5Cnconst%20extentsC%20%3D%20%5B%5Cn%20%20%5B-2%2C%202%5D%2C%5Cn%20%20%5B-2%2C%202%5D%2C%5Cn%20%20%5B-2%2C%20-1%5D%2C%5Cn%5D%3B%5Cnconst%20q%20%3D%20Group(%5Cn%20%20ArcY(...extentsA).and(Box(...extentsA).material('glass'))%2C%5Cn%20%20ArcX(...extentsB).and(Box(...extentsB).material('glass'))%2C%5Cn%20%20ArcZ(...extentsC).and(Box(...extentsC).material('glass'))%5Cn).view().md%60Boxes%20and%20Arcs%20from%20extents%60%3B%5Cn%5CnLine(15%2C%20-15)%5Cn%20%20.seq(%7B%20from%3A%20-10%2C%20to%3A%2011%20%7D%2C%20y%2C%20Group)%5Cn%20%20.clip(Arc(20).cut(Arc(10)))%5Cn%20%20.view()%3B%5Cn%5CnLine(15%2C%20-15)%5Cn%20%20.seq(%7B%20from%3A%20-10%2C%20to%3A%2011%20%7D%2C%20y%2C%20Group)%5Cn%20%20.clip(Arc(20).cut(Arc(10)).ez(1))%5Cn%20%20.view()%3B%5Cn%5CnLine(-15%2C%2015)%5Cn%20%20.seq(%7B%20from%3A%20-15%2C%20to%3A%2015%20%7D%2C%20y%2C%20Group)%5Cn%20%20.cut(Arc(20).cut(Arc(10)))%5Cn%20%20.view()%3B%5Cn%5CnLine(-15%2C%2015)%5Cn%20%20.seq(%7B%20from%3A%20-15%2C%20to%3A%2015%20%7D%2C%20y%2C%20Group)%5Cn%20%20.cut(Arc(20).cut(Arc(10)).ez(1))%5Cn%20%20.view()%3B%5Cn%5CnBox(12)%5Cn%20%20.cut(%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.y(3)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204%2C%203%20%2F%204)%5Cn%20%20)%5Cn%20%20.color('black')%5Cn%20%20.fit(separate(%7B%20keepHolesInShapes%3A%20true%20%7D).offset(1).fuse().color('yellow'))%5Cn%20%20.view()%3B%5Cn%5CnBox(12)%5Cn%20%20.cut(%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.y(3)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204%2C%203%20%2F%204)%5Cn%20%20)%5Cn%20%20.color('black')%5Cn%20%20.fit(separate(%7B%20keepHolesInShapes%3A%20false%20%7D).offset(1).fuse().color('yellow'))%5Cn%20%20.view()%3B%5Cn%5CnGroup(Box(1)%2C%20Box(1).rx(1%20%2F%204))%5Cn%20%20.each(e(2))%5Cn%20%20.view()%3B%5Cn%5CnOrb(10)%5Cn%20%20.op(lowerEnvelope().ez(-1).z(-5)%2C%20upperEnvelope().ez(1).z(5))%5Cn%20%20.by(align('z%3E'))%5Cn%20%20.view(1)%3B%5Cn%5Cn%2F%2F%20Show%20a%20section%20with%20a%20hole%20in%20it.%5CnBox(10).cut(Box(5)).ez(1%2C%20-1).section().view()%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.cutOut(Box(20%2C%2020%2C%20%5B8%2C%20100%5D)%2C%20noOp()%2C%20grow(2%2C%20'xy'))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.grow(2%2C%20Box(10%2C%2010%2C%20%5B7%2C%2010%5D))%5Cn%20%20.view(3)%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.seam(Box(10%2C%2010%2C%20%5B6%2C%2011%5D))%5Cn%20%20.grow(1%2C%20Box(10%2C%2010%2C%20%5B7%2C%2010%5D))%5Cn%20%20.view(3%2C%20rx(1%20%2F%202).by(align('z%3E')))%3B%5Cn%5Cnconst%20red%20%3D%20Arc(2).color('red')%3B%5Cnconst%20blue%20%3D%20Box(10).x(10).color('blue')%3B%5Cn%5Cnblue.fitTo(red.to(blue)).view()%3B%5Cnred.at(blue%2C%20cut(Box(%5B10%2C%2020%5D%2C%2020))).view()%3B%5Cnred.by(blue).view()%3B%5Cn%5CnBox(5)%5Cn%20%20.as('b')%5Cn%20%20.and(Triangle(5).as('t'))%5Cn%20%20.on(get('b')%2C%20rz(1%20%2F%208))%5Cn%20%20.view()%3B%5Cn%5CnBox(10).cut(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).clip(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).join(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).and(Box(5%2C%2050%2C%205)).disjoint().pack().view()%3B%5Cn%5CnBox(10)%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.cut(eachPoint(Arc(5)))%5Cn%20%20.view()%3B%5Cn%5CnTriangle(10)%5Cn%20%20.cut(inset(2))%5Cn%20%20.cut(eachPoint(Arc(1)))%5Cn%20%20.view()%3B%5Cn%5CnTriangle(10)%5Cn%20%20.cut(inset(4))%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.cut(eachPoint(Arc(5)))%5Cn%20%20.view()%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010))%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachEdge(ArcX(0%2C%2010).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010))%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachPoint(ArcX(0%2C%2010).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5CnOrb(6)%5Cn%20%20.hasZag(2)%5Cn%20%20.faces(cut(inset(0.2)))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%2010)%5Cn%20%20.cut(faces(Box(4%2C%204%2C%204)))%5Cn%20%20.faces(cut(inset(1)))%5Cn%20%20.view()%3B%5Cn%5CnBox(10).cut(Triangle(11)).view(1)%3B%5Cn%5CnBox(10).cut(Triangle(11)).clean().view(2)%3B%5Cn%5CnTriangle(11).eachPoint(Arc(5)%2C%20cut).view(5)%3B%5Cn%5CnBox(10)%5Cn%20%20.cut(Arc(5))%5Cn%20%20.ez(5)%5Cn%20%20.grow(1%2C%20'xy'%2C%20Box(8).ez(1%2C%204))%5Cn%20%20.grow(1.5%2C%20'xy'%2C%20Box(16).cut(Box(8)).ez(2%2C%203))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%20%5B0%2C%203%5D)%5Cn%20%20.smooth(1%2C%20Box(11).cut(Box(5)).ez(1.5%2C%203.1)%2C%20%7B%20iterations%3A%201%2C%20time%3A%201%20%7D)%5Cn%20%20.view()%3B%5Cn%5CnBox(5%2C%205%2C%2020)%5Cn%20%20.rx(0%20%2F%204%2C%201%20%2F%206)%5Cn%20%20.fuse()%5Cn%20%20.smooth(1%2C%20ArcX(5%2C%2016%2C%2016))%5Cn%20%20.view()%3B%5Cn%5CnBox(10)%5Cn%20%20.cut(Box(5).cut(Box(3).cut(Box(1))))%5Cn%20%20.ez(3)%5Cn%20%20.section()%5Cn%20%20.view()%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/regression/shapes/shapes.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fregression%2Fshapes%2Fshapes.nb%22%3A%22Arc(5)%5Cn%20%20.hasAngle(45%20%2F%20360%2C%20270%20%2F%20360)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Arc(5).angle(45%2F360%2C%20270%2F360)%60)%3B%5Cn%5CnAssembly(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%5Cn%20%20.pack()%5Cn%20%20.gridView(undefined%2C%20%7B%20size%3A%20801%2C%20triangles%3A%20false%2C%20wireframe%3A%20false%20%7D)%5Cn%20%20.md(%60Assembly(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%60)%3B%5Cn%5CnBox(5%2C%207%2C%208).view().md(%60Box(5%2C%207%2C%208)%60)%3B%5Cn%5CnChainHull(Point()%2C%20Box(5).z(5)%2C%20Arc(3).z(8))%5Cn%20%20.view()%5Cn%20%20.md(%60ChainHull(Point()%2C%20Box(5).z(5)%2C%20Arc(3).z(8))%60)%3B%5Cn%5CnEmpty().view().md(%60Empty()%60)%3B%5Cn%5CnGroup(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%5Cn%20%20.pack()%5Cn%20%20.gridView()%5Cn%20%20.md(%60Group(Box(10)%2C%20Arc(8)%2C%20Triangle(5))%60)%3B%5Cn%5CnHershey('Hershey'%2C%2010)%5Cn%20%20.by(align('xy'))%5Cn%20%20.gridView()%5Cn%20%20.md(%60Hershey(10)('Hershey').by(align('xy'))%60)%3B%5Cn%5CnHexagon(10).gridView().md(%60Hexagon(10)%60)%3B%5Cn%5CnHull(Arc(5)%2C%20Box(5).z(5)).view().md(%60Hull(Arc(5)%2C%20Box(5).z(5))%60)%3B%5Cn%5CnIcosahedron(5).view().md(%60Icosahedron(5)%60)%3B%5Cn%5Cnconst%20torusFn%20%3D%20(x%2C%20y%2C%20z)%20%3D%3E%20%7B%5Cn%20%20const%20x2%20%3D%20x%20*%20x%2C%5Cn%20%20%20%20y2%20%3D%20y%20*%20y%2C%5Cn%20%20%20%20z2%20%3D%20z%20*%20z%3B%5Cn%20%20const%20x4%20%3D%20x2%20*%20x2%2C%5Cn%20%20%20%20y4%20%3D%20y2%20*%20y2%2C%5Cn%20%20%20%20z4%20%3D%20z2%20*%20z2%3B%5Cn%20%20return%20(%5Cn%20%20%20%20x4%20%2B%5Cn%20%20%20%20y4%20%2B%5Cn%20%20%20%20z4%20%2B%5Cn%20%20%20%202%20*%20x2%20*%20y2%20%2B%5Cn%20%20%20%202%20*%20x2%20*%20z2%20%2B%5Cn%20%20%20%202%20*%20y2%20*%20z2%20-%5Cn%20%20%20%205%20*%20x2%20%2B%5Cn%20%20%20%204%20*%20y2%20-%5Cn%20%20%20%205%20*%20z2%20%2B%5Cn%20%20%20%204%5Cn%20%20)%3B%5Cn%7D%3B%5Cn%5Cn%2F%2F%20Determine%20why%20Implicit%20seems%20non-deterministic.%5CnImplicit(torusFn%2C%202).view(%7B%20withGrid%3A%20false%20%7D).md('Implicit(torusFn%2C%202')%3B%5Cn%5CnLine(5%2C%20-1).rz(45).gridView().md(%60Line(5%2C%20-1)%60)%3B%5Cn%5CnOctagon(5).gridView().md(%60Octagon(5)%60)%3B%5Cn%5CnOrb(1).view().md(%60Orb(1)%60)%3B%5Cn%5CnLink(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)%2C%20Point(0))%5Cn%20%20.rz(45%20%2F%202)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Link(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)%2C%20Point(0)).rz(45%20%2F%202)%60)%3B%5Cn%5CnPentagon(5).gridView().md(%60Pentagon(5)%60)%3B%5Cn%5CnPoint(0.5%2C%200.5).gridView().md(%60Point(0.5%2C%200.5)%60)%3B%5Cn%5CnPoints(%5B0.5%2C%200.5%5D%2C%20%5B-0.5%2C%20-0.5%5D)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Points(%5B0.5%2C%200.5%5D%2C%20%5B-0.5%2C%20-0.5%5D)%60)%3B%5Cn%5CnPolygon(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205))%5Cn%20%20.rz(1%20%2F%2016)%5Cn%20%20.gridView()%5Cn%20%20.md(%60Polygon(Point(0)%2C%20Point(5)%2C%20Point(5%2C%205)).rz(1%20%2F%2016)%60)%3B%5Cn%5CnPolyhedron(%5Cn%20%20%5B%5Cn%20%20%20%20%5B10%2C%2010%2C%200%5D%2C%5Cn%20%20%20%20%5B10%2C%20-10%2C%200%5D%2C%5Cn%20%20%20%20%5B-10%2C%20-10%2C%200%5D%2C%5Cn%20%20%20%20%5B-10%2C%2010%2C%200%5D%2C%5Cn%20%20%20%20%5B0%2C%200%2C%2010%5D%2C%5Cn%20%20%5D%2C%5Cn%20%20%5B%5Cn%20%20%20%20%5B4%2C%201%2C%200%5D%2C%5Cn%20%20%20%20%5B4%2C%202%2C%201%5D%2C%5Cn%20%20%20%20%5B4%2C%203%2C%202%5D%2C%5Cn%20%20%20%20%5B4%2C%200%2C%203%5D%2C%5Cn%20%20%20%20%5B3%2C%200%2C%201%5D%2C%5Cn%20%20%20%20%5B3%2C%201%2C%202%5D%2C%5Cn%20%20%5D%5Cn)%5Cn%20%20.view()%5Cn%20%20.md(%5Cn%20%20%20%20%60Polyhedron(%20%20%5Cn%20%20%20%20%20%20%5B%5B10%2C%2010%2C%200%5D%2C%20%5B10%2C%20-10%2C%200%5D%2C%20%5B-10%2C%20-10%2C%200%5D%2C%20%5B-10%2C%2010%2C%200%5D%2C%20%5B0%2C%200%2C%2010%5D%5D%2C%20%20%5Cn%20%20%20%20%20%20%5B%5B4%2C%201%2C%200%5D%2C%20%5B4%2C%202%2C%201%5D%2C%20%5B4%2C%203%2C%202%5D%2C%20%5B4%2C%200%2C%203%5D%2C%20%5B3%2C%200%2C%201%5D%2C%20%5B3%2C%201%2C%202%5D%5D)%60%5Cn%20%20)%3B%5Cn%5CnArc(5).hasSides(7).gridView().md(%60Septagon(5)%60)%3B%5Cn%5CnSpiral().gridView().md(%60Spiral()%60)%3B%5Cn%5CnTriangle(5).gridView().md(%60Triangle(5)%60)%3B%5Cn%5CnWave((t)%20%3D%3E%20Point(0%2C%20sin(t%20*%203)%20*%20100)%2C%20%7B%20to%3A%20360%20%7D)%5Cn%20%20.by(align('xy'))%5Cn%20%20.gridView()%5Cn%20%20.md(%60Wave((t)%20%3D%3E%20Point(0%2C%20sin(t%20*%203)%20*%20100)%2C%20%7B%20to%3A%20360%20%7D)%60)%3B%5Cn%5CnGroup(Arc(4).x(-1)%2C%20Box(5).x(1))%5Cn%20%20.fill()%5Cn%20%20.gridView()%5Cn%20%20.md(%60Group(Arc(5).x(-1)%2C%20Box(5).x(1)).fill()%60)%3B%5Cn%5Cnconst%20extentsA%20%3D%20%5B%5Cn%20%20%5B2%2C%205%5D%2C%5Cn%20%20%5B2%2C%203%5D%2C%5Cn%20%20%5B2%2C%204%5D%2C%5Cn%5D%3B%5Cn%5Cnconst%20extentsB%20%3D%20%5B%5Cn%20%20%5B0%2C%201%5D%2C%5Cn%20%20%5B0%2C%205%5D%2C%5Cn%20%20%5B0%2C%205%5D%2C%5Cn%5D%3B%5Cn%5Cnconst%20extentsC%20%3D%20%5B%5Cn%20%20%5B-2%2C%202%5D%2C%5Cn%20%20%5B-2%2C%202%5D%2C%5Cn%20%20%5B-2%2C%20-1%5D%2C%5Cn%5D%3B%5Cnconst%20q%20%3D%20Group(%5Cn%20%20ArcY(...extentsA).and(Box(...extentsA).material('glass'))%2C%5Cn%20%20ArcX(...extentsB).and(Box(...extentsB).material('glass'))%2C%5Cn%20%20ArcZ(...extentsC).and(Box(...extentsC).material('glass'))%5Cn).view().md%60Boxes%20and%20Arcs%20from%20extents%60%3B%5Cn%5CnLine(15%2C%20-15)%5Cn%20%20.seq(%7B%20from%3A%20-10%2C%20to%3A%2011%20%7D%2C%20y%2C%20Group)%5Cn%20%20.clip(Arc(20).cut(Arc(10)))%5Cn%20%20.view()%3B%5Cn%5CnLine(15%2C%20-15)%5Cn%20%20.seq(%7B%20from%3A%20-10%2C%20to%3A%2011%20%7D%2C%20y%2C%20Group)%5Cn%20%20.clip(Arc(20).cut(Arc(10)).ez(1))%5Cn%20%20.view()%3B%5Cn%5CnLine(-15%2C%2015)%5Cn%20%20.seq(%7B%20from%3A%20-15%2C%20to%3A%2015%20%7D%2C%20y%2C%20Group)%5Cn%20%20.cut(Arc(20).cut(Arc(10)))%5Cn%20%20.view()%3B%5Cn%5CnLine(-15%2C%2015)%5Cn%20%20.seq(%7B%20from%3A%20-15%2C%20to%3A%2015%20%7D%2C%20y%2C%20Group)%5Cn%20%20.cut(Arc(20).cut(Arc(10)).ez(1))%5Cn%20%20.view()%3B%5Cn%5CnBox(12)%5Cn%20%20.cut(%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.y(3)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204%2C%203%20%2F%204)%5Cn%20%20)%5Cn%20%20.color('black')%5Cn%20%20.fit(separate(%7B%20keepHolesInShapes%3A%20true%20%7D).offset(1).fuse().color('yellow'))%5Cn%20%20.view()%3B%5Cn%5CnBox(12)%5Cn%20%20.cut(%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.y(3)%5Cn%20%20%20%20%20%20.rz(1%20%2F%204%2C%203%20%2F%204)%5Cn%20%20)%5Cn%20%20.color('black')%5Cn%20%20.fit(separate(%7B%20keepHolesInShapes%3A%20false%20%7D).offset(1).fuse().color('yellow'))%5Cn%20%20.view()%3B%5Cn%5CnGroup(Box(1)%2C%20Box(1).rx(1%20%2F%204))%5Cn%20%20.each(e(2))%5Cn%20%20.view()%3B%5Cn%5CnOrb(10)%5Cn%20%20.op(lowerEnvelope().ez(-1).z(-5)%2C%20upperEnvelope().ez(1).z(5))%5Cn%20%20.by(align('z%3E'))%5Cn%20%20.view(1)%3B%5Cn%5Cn%2F%2F%20Show%20a%20section%20with%20a%20hole%20in%20it.%5CnBox(10).cut(Box(5)).ez(1%2C%20-1).section().view()%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.cutOut(Box(20%2C%2020%2C%20%5B8%2C%20100%5D)%2C%20noOp()%2C%20grow(2%2C%20'xy'))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.grow(2%2C%20Box(10%2C%2010%2C%20%5B7%2C%2010%5D))%5Cn%20%20.view(3)%3B%5Cn%5CnBox(10%2C%2010%2C%2020)%5Cn%20%20.seam(Box(10%2C%2010%2C%20%5B6%2C%2011%5D))%5Cn%20%20.grow(1%2C%20Box(10%2C%2010%2C%20%5B7%2C%2010%5D))%5Cn%20%20.view(3%2C%20rx(1%20%2F%202).by(align('z%3E')))%3B%5Cn%5Cnconst%20red%20%3D%20Arc(2).color('red')%3B%5Cnconst%20blue%20%3D%20Box(10).x(10).color('blue')%3B%5Cn%5Cnblue.fitTo(red.to(blue)).view()%3B%5Cnred.at(blue%2C%20cut(Box(%5B10%2C%2020%5D%2C%2020))).view()%3B%5Cnred.by(blue).view()%3B%5Cn%5CnBox(5)%5Cn%20%20.as('b')%5Cn%20%20.and(Triangle(5).as('t'))%5Cn%20%20.on(get('b')%2C%20rz(1%20%2F%208))%5Cn%20%20.view()%3B%5Cn%5CnBox(10).cut(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).clip(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).join(Box(5%2C%2050%2C%205)).view()%3B%5Cn%5CnBox(10).and(Box(5%2C%2050%2C%205)).disjoint().pack().view()%3B%5Cn%5CnBox(10)%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.cut(eachPoint(Arc(5)))%5Cn%20%20.view()%3B%5Cn%5CnTriangle(10)%5Cn%20%20.cut(inset(2))%5Cn%20%20.cut(eachPoint(Arc(1)))%5Cn%20%20.view()%3B%5Cn%5CnTriangle(10)%5Cn%20%20.cut(inset(4))%5Cn%20%20.rz(1%20%2F%208)%5Cn%20%20.cut(eachPoint(Arc(5)))%5Cn%20%20.view()%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010))%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachEdge(ArcX(0%2C%2010).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010))%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachPoint(ArcX(0%2C%2010).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5CnOrb(6)%5Cn%20%20.hasZag(2)%5Cn%20%20.faces(cut(inset(0.2)))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%2010)%5Cn%20%20.cut(faces(Box(4%2C%204%2C%204)))%5Cn%20%20.faces(cut(inset(1)))%5Cn%20%20.view()%3B%5Cn%5CnBox(10).cut(Triangle(11)).view(1)%3B%5Cn%5CnBox(10).cut(Triangle(11)).clean().view(2)%3B%5Cn%5CnTriangle(11).eachPoint(Arc(5)%2C%20cut).view(5)%3B%5Cn%5CnBox(10)%5Cn%20%20.cut(Arc(5))%5Cn%20%20.ez(5)%5Cn%20%20.grow(1%2C%20'xy'%2C%20Box(8).ez(1%2C%204))%5Cn%20%20.grow(1.5%2C%20'xy'%2C%20Box(16).cut(Box(8)).ez(2%2C%203))%5Cn%20%20.view()%3B%5Cn%5CnBox(10%2C%2010%2C%20%5B0%2C%203%5D)%5Cn%20%20.smooth(1%2C%20Box(11).cut(Box(5)).ez(1.5%2C%203.1)%2C%20%7B%20iterations%3A%201%2C%20time%3A%201%20%7D)%5Cn%20%20.view()%3B%5Cn%5CnBox(5%2C%205%2C%2020)%5Cn%20%20.rx(0%20%2F%204%2C%201%20%2F%206)%5Cn%20%20.fuse()%5Cn%20%20.smooth(1%2C%20ArcX(5%2C%2016%2C%2016))%5Cn%20%20.view()%3B%5Cn%5CnBox(10)%5Cn%20%20.cut(Box(5).cut(Box(3).cut(Box(1))))%5Cn%20%20.ez(3)%5Cn%20%20.section()%5Cn%20%20.view()%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

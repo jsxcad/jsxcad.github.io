@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/api/align.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fapi%2Falign.nb%22%2C%22script%22%3A%22md%60%5Cn%23%23%23%20align()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnaxes%7C'xyz'%7CThe%20axis%20spec.%5Cn%5CnThis%20produces%20a%20reference%20point%20such%20that%20shape.by(point)%20will%20move%20shape%20to%20that%20alignment%20position.%5Cn%5CnAxes%20can%20be%20specified%20as%20centered%20(xyz)%2C%20above%20(%3Ex%3Ey%3Ez)%2C%20or%20below%20(%3Cx%3Cy%3Cz)%2C%20in%20some%20combination.%5Cn%60%3B%5Cn%5Cnconst%20origin%20%3D%20Box(0.5%2C%200.5%2C%205)%5Cn%20%20.and(to(YZ())%2C%20to(XZ()))%5Cn%20%20.color('yellow')%5Cn%20%20.overlay()%3B%5Cn%5CnBox(10%2C%2010%2C%201).view().note('Box(10%2C%2010%2C%201)')%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align()).and(origin).view().md('by(align())')%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3E')).and(origin).view().md(%5C%22by(align('x%3E'))%5C%22)%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3C')).and(origin).view().md(%5C%22align('x%3C')%5C%22)%3B%5CnBox(10%2C%2010%2C%201).by(align('x')).and(origin).view().md(%5C%22align('x')%5C%22)%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3Ey%3Ez%3C')).and(origin).view().md(%5C%22align('x%3Ey%3Ez%3C')%5C%22)%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/api/align.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2Falign.nb%22%3A%22md%60%5Cn%23%23%23%20align()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnaxes%7C'xyz'%7CThe%20axis%20spec.%5Cn%5CnThis%20produces%20a%20reference%20point%20such%20that%20shape.by(point)%20will%20move%20shape%20to%20that%20alignment%20position.%5Cn%5CnAxes%20can%20be%20specified%20as%20centered%20(xyz)%2C%20above%20(%3Ex%3Ey%3Ez)%2C%20or%20below%20(%3Cx%3Cy%3Cz)%2C%20in%20some%20combination.%5Cn%60%3B%5Cn%5Cnconst%20origin%20%3D%20Box(0.5%2C%200.5%2C%205)%5Cn%20%20.and(to(YZ())%2C%20to(XZ()))%5Cn%20%20.color('yellow')%5Cn%20%20.overlay()%3B%5Cn%5CnBox(10%2C%2010%2C%201).view().note('Box(10%2C%2010%2C%201)')%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align()).and(origin).view().md('by(align())')%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3E')).and(origin).view().md(%5C%22by(align('x%3E'))%5C%22)%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3C')).and(origin).view().md(%5C%22align('x%3C')%5C%22)%3B%5CnBox(10%2C%2010%2C%201).by(align('x')).and(origin).view().md(%5C%22align('x')%5C%22)%3B%5Cn%5CnBox(10%2C%2010%2C%201).by(align('x%3Ey%3Ez%3C')).and(origin).view().md(%5C%22align('x%3Ey%3Ez%3C')%5C%22)%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

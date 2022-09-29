@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/documentation/creating_geometry/creating_geometry.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Fcreating_geometry%2Fcreating_geometry.nb%22%2C%22script%22%3A%22md%60%5Cn%23%20Creating%20Geometry%5CnOne%20of%20the%20core%20functions%20of%20JSxCAD%20is%20creating%20geometry%20and%20a%20number%20of%20primitives%20and%20helper%20functions%20are%20provided%20to%20make%20creating%20new%20geometry%20easier.%20Generally%20geometry%20primitives%20are%20provided%20in%20the%20form%20thing(x%20axis%20diameter%2C%20y%20axis%20diameter%2C%20z%20axis%20height)%20where%20the%20second%20two%20are%20optional.%5Cn%5Cn---%5Cn%23%23%23%20Arc%5CnCreate%20a%20circle%20or%20a%20section%20of%20a%20an%20arc.%20The%20number%20of%20sides%20can%20be%20computed%20automatically%20to%20limit%20maximum%20deviation%20from%20the%20ideal%20circle%20using%20.hasZag(deviation).%5Cn%60%3B%5Cn%5Cnconst%20aCircle%20%3D%20Arc(10).view()%3B%5Cn%5Cnconst%20anElipseExtruded%20%3D%20Arc(10%2C%205%2C%202).view()%3B%5Cn%5Cnconst%20aCircleWithSides%20%3D%20Arc(10).hasSides(8).view()%3B%5Cn%5Cnconst%20aCircleWithZag%20%3D%20Arc(20).hasZag(0.1).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Box%5CnCreates%20a%202D%20or%203D%20box%5Cn%60%3B%5Cn%5CnBox(10%2C%2010).view()%3B%5Cn%5CnBox(10%2C%2010%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Curve%5CnCreate%20a%20bezier%20curve.%20The%20number%20of%20segments%20is%20scaled%20automatically%20to%20match%20the%20curvature.%5Cn%60%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2030)%2C%20Point(40%2C%200)).view()%3B%5Cn%5CnCurve(%5B0%2C%200%5D%2C%20%5B10%2C%200%5D%2C%20%5B10%2C%2010%5D%2C%20%5B20%2C%2010%5D)%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachEdge(ArcX(0%2C%204%2C%204).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Empty%5CnCreates%20a%20new%20empty%20geometry%5Cn%60%3B%5Cn%5CnEmpty().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hexagon%5CnCreates%20a%20new%20hexagon%5Cn%60%3B%5Cn%5CnHexagon(4).view()%3B%5Cn%5CnHexagon(6%2C%203%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hershy%5CnA%20built%20in%20single%20line%20font%20useful%20for%20adding%20text%5Cn%60%3B%5Cn%5CnHershey('Some%20Example%20Text'%2C%2020).by(align('xy')).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Icosahedron%5CnCreates%20a%20new%20Icosahedron%5Cn%60%3B%5Cn%5CnIcosahedron(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Line%5CnCreates%20a%20new%20line%5Cn%60%3B%5Cn%5CnLine(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Link%5CnLinks%20a%20set%20of%20ordered%20points%20together%20into%20ordered%20segments.%5Cn%60%3B%5Cn%5CnGroup(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010)).link().view()%3B%5Cn%5CnArc(10)%5Cn%20%20.hasAngle(-1%20%2F%203%2C%201%20%2F%203)%5Cn%20%20.x(-3%2C%203)%5Cn%20%20.link()%5Cn%20%20.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Loop%5CnLoop%20is%20very%20similar%20to%20link%2C%20except%20that%20the%20last%20point%20is%20connected%20back%20to%20the%20first%20point.%5Cn%60%3B%5Cn%5CnGroup(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010)).loop().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Octagon%5CnCreates%20a%20new%20Octagon%5Cn%60%3B%5Cn%5CnOctagon(20).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Orb%5CnCreates%20a%20new%20spheroid%5Cn%60%3B%5Cn%5CnOrb(10).view()%3B%5CnOrb(10%2C%205%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Pentagon%5CnGenerates%20a%20pentagon%5Cn%60%3B%5Cn%5CnPentagon(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Point%5CnA%20point%20in%203D%20space%5Cn%60%3B%5Cn%5CnPoint(0%2C%200%2C%200).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Polygon%5CnCreates%20a%20new%20polygon%20from%20the%20input%20points%5Cn%60%3B%5Cn%5CnPolygon(Point(0%2C%200%2C%200)%2C%20Point(10%2C%200%2C%200)%2C%20Point(10%2C%2010%2C%200)).view()%3B%5Cn%5CnPolygon(%5B0%2C%200%2C%200%5D%2C%20%5B10%2C%200%2C%200%5D%2C%20%5B10%2C%2010%2C%200%5D).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Triangle%5CnTriangle%20creates%20a%20new%20triangle.%5Cn%60%3B%5Cn%5CnTriangle(4%2C%209).view()%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/documentation/creating_geometry/creating_geometry.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Fcreating_geometry%2Fcreating_geometry.nb%22%3A%22md%60%5Cn%23%20Creating%20Geometry%5CnOne%20of%20the%20core%20functions%20of%20JSxCAD%20is%20creating%20geometry%20and%20a%20number%20of%20primitives%20and%20helper%20functions%20are%20provided%20to%20make%20creating%20new%20geometry%20easier.%20Generally%20geometry%20primitives%20are%20provided%20in%20the%20form%20thing(x%20axis%20diameter%2C%20y%20axis%20diameter%2C%20z%20axis%20height)%20where%20the%20second%20two%20are%20optional.%5Cn%5Cn---%5Cn%23%23%23%20Arc%5CnCreate%20a%20circle%20or%20a%20section%20of%20a%20an%20arc.%20The%20number%20of%20sides%20can%20be%20computed%20automatically%20to%20limit%20maximum%20deviation%20from%20the%20ideal%20circle%20using%20.hasZag(deviation).%5Cn%60%3B%5Cn%5Cnconst%20aCircle%20%3D%20Arc(10).view()%3B%5Cn%5Cnconst%20anElipseExtruded%20%3D%20Arc(10%2C%205%2C%202).view()%3B%5Cn%5Cnconst%20aCircleWithSides%20%3D%20Arc(10).hasSides(8).view()%3B%5Cn%5Cnconst%20aCircleWithZag%20%3D%20Arc(20).hasZag(0.1).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Box%5CnCreates%20a%202D%20or%203D%20box%5Cn%60%3B%5Cn%5CnBox(10%2C%2010).view()%3B%5Cn%5CnBox(10%2C%2010%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Curve%5CnCreate%20a%20bezier%20curve.%20The%20number%20of%20segments%20is%20scaled%20automatically%20to%20match%20the%20curvature.%5Cn%60%3B%5Cn%5CnCurve(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2030)%2C%20Point(40%2C%200)).view()%3B%5Cn%5CnCurve(%5B0%2C%200%5D%2C%20%5B10%2C%200%5D%2C%20%5B10%2C%2010%5D%2C%20%5B20%2C%2010%5D)%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.eachEdge(ArcX(0%2C%204%2C%204).hasSides(6)%2C%20Loft)%5Cn%20%20.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Empty%5CnCreates%20a%20new%20empty%20geometry%5Cn%60%3B%5Cn%5CnEmpty().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hexagon%5CnCreates%20a%20new%20hexagon%5Cn%60%3B%5Cn%5CnHexagon(4).view()%3B%5Cn%5CnHexagon(6%2C%203%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hershy%5CnA%20built%20in%20single%20line%20font%20useful%20for%20adding%20text%5Cn%60%3B%5Cn%5CnHershey('Some%20Example%20Text'%2C%2020).by(align('xy')).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Icosahedron%5CnCreates%20a%20new%20Icosahedron%5Cn%60%3B%5Cn%5CnIcosahedron(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Line%5CnCreates%20a%20new%20line%5Cn%60%3B%5Cn%5CnLine(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Link%5CnLinks%20a%20set%20of%20ordered%20points%20together%20into%20ordered%20segments.%5Cn%60%3B%5Cn%5CnGroup(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010)).link().view()%3B%5Cn%5CnArc(10)%5Cn%20%20.hasAngle(-1%20%2F%203%2C%201%20%2F%203)%5Cn%20%20.x(-3%2C%203)%5Cn%20%20.link()%5Cn%20%20.view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Loop%5CnLoop%20is%20very%20similar%20to%20link%2C%20except%20that%20the%20last%20point%20is%20connected%20back%20to%20the%20first%20point.%5Cn%60%3B%5Cn%5CnGroup(Point(0%2C%200)%2C%20Point(10%2C%2010)%2C%20Point(20%2C%2010)).loop().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Octagon%5CnCreates%20a%20new%20Octagon%5Cn%60%3B%5Cn%5CnOctagon(20).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Orb%5CnCreates%20a%20new%20spheroid%5Cn%60%3B%5Cn%5CnOrb(10).view()%3B%5CnOrb(10%2C%205%2C%202).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Pentagon%5CnGenerates%20a%20pentagon%5Cn%60%3B%5Cn%5CnPentagon(10).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Point%5CnA%20point%20in%203D%20space%5Cn%60%3B%5Cn%5CnPoint(0%2C%200%2C%200).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Polygon%5CnCreates%20a%20new%20polygon%20from%20the%20input%20points%5Cn%60%3B%5Cn%5CnPolygon(Point(0%2C%200%2C%200)%2C%20Point(10%2C%200%2C%200)%2C%20Point(10%2C%2010%2C%200)).view()%3B%5Cn%5CnPolygon(%5B0%2C%200%2C%200%5D%2C%20%5B10%2C%200%2C%200%5D%2C%20%5B10%2C%2010%2C%200%5D).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Triangle%5CnTriangle%20creates%20a%20new%20triangle.%5Cn%60%3B%5Cn%5CnTriangle(4%2C%209).view()%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

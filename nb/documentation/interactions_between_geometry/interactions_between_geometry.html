@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/documentation/interactions_between_geometry/interactions_between_geometry.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fdocumentation%2Finteractions_between_geometry%2Finteractions_between_geometry.nb%22%2C%22script%22%3A%22md%60%5Cn---%5Cn%23%20Interactions%20between%20geometry%5CnJSxCAD%20offers%20a%20number%20of%20ways%20to%20interact%20two%20or%20more%20geometries%20to%20create%20new%20geometry.%20Most%20of%20these%20operations%20will%20work%20on%20both%202D%20and%203D%20geometry.%5Cn%60%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20ADD%5CnReturns%20the%20shape%20extended%20to%20include%20the%20space%20of%20the%20added%20shapes.%5Cn%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.add(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.note(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20added%20to%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Assembly%5CnAssembles%20together%20two%20or%20more%202D%20or%203D%20shapes%20to%20form%20a%20single%20one.%5Cn%5CnShapes%20interact%20subtractively%20with%20shapes%20later%20in%20the%20arguments%20list%20meaning%20that%20no%20overlap%20is%20allowed%20in%20the%20generated%20assembly.%5Cn%5CnThe%20assembled%20shapes%20can%20later%20be%20disassembled%20into%20their%20disjoint%20parts.%5Cn%5CnSee%20Group%20as%20an%20alternative.%5Cn%60%3B%5Cn%5Cnconst%20twoCylindersAssembled%20%3D%20Assembly(%5Cn%20%20Arc(10%2C%2010%2C%203).color('red')%2C%5Cn%20%20Arc(10%2C%2010%2C%203).color('blue').x(4)%5Cn).view()%3B%5Cn%5Cnmd%60This%20can%20also%20be%20achieved%20with%20a.fit(b)%20and%20a.fitTo(b).%60%3B%5Cn%5CnArc(10).fit(Box(5)).pack().view()%3B%5Cn%5CnArc(10).fitTo(Box(5)).pack().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20ChainHull%5CnPerforms%20the%20hull%20operation%20sequentially%20on%20the%20input%20shapes.%5Cn%60%3B%5Cn%5CnChainHull(Arc(10)%2C%20Box(5).move(12%2C%2012%2C%200)%2C%20Arc(20).x(40)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Clip%5CnReturns%20the%20shape%20limited%20to%20the%20space%20of%20the%20clipping%20shapes.%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.clip(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20clipped%60)%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.clipFrom(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20red%20since%20the%20red%20shape%20was%20clipped%20from.%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Cut%5CnReturns%20the%20shape%20with%20space%20of%20the%20cut%20shapes%20removed.%5Cn%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.cut(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20cut.%60)%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.cutFrom(Box(5%2C%205%2C%205).move(3%2C%200%2C%202))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20red%20since%20the%20red%20shape%20was%20cut%20from.%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Fit%5CnFits%20two%20shapes%20together%20such%20that%20one%20cuts%20into%20the%20other.%20The%20result%20is%20similar%20to%20assembly.%5Cn%60%3B%5Cn%5Cnconst%20axle%20%3D%20Arc(5%2C%205%2C%2010).color('brown')%3B%5Cnconst%20wheel%20%3D%20Arc(20%2C%2020%2C%202).color('grey')%3B%5Cn%5Cnwheel.fitTo(axle).view()%3B%5Cnaxle.fit(wheel).view()%3B%5Cn%5Cnwheel.fitTo(axle).pack().view()%3B%20%2F%2FIn%20both%20of%20these%20cases%20the%20axle%20cuts%20the%20wheel.%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Group%5CnSimilar%20to%20Assembly%2C%20group%20joins%20together%20a%20number%20of%20shapes%2C%20however%20unlike%20Assembly%2C%20Group%20does%20not%20subtract%20the%20shapes%20which%20means%20they%20are%20allowed%20to%20overlap%20which%20makes%20Group%20much%20faster%20to%20compute%20than%20Assembly.%5Cn%5CnGroup%20can%20also%20be%20done%20using%20the%20.and()%20operator.%5Cn%60%3B%5Cn%5CnGroup(Arc(10%2C%2010%2C%203)%2C%20Arc(10%2C%2010%2C%203).x(4)).view()%3B%5Cn%5CnArc(10%2C%2010%2C%203).and(Arc(10%2C%2010%2C%203).x(4)).view()%3B%20%2F%2FDoes%20a%20group%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hull%5CnPerforms%20the%20hull%20operation%20on%20the%20input%20shapes.%60%3B%5Cn%5CnHull(Arc(10)%2C%20Box(5).move(12%2C%2012%2C%200)%2C%20Arc(20).x(40)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Mask%5CnMask%20is%20used%20to%20create%20a%20mask%20around%20something.%20This%20allows%20the%20shape%20to%20cut%20a%20larger%20hole%20than%20it's%20actual%20size%20to%20add%20play%20or%20for%20example%20around%20the%20threads%20of%20a%20bolt.%5Cn%60%3B%5Cn%5Cnconst%20shaft%20%3D%20Arc(10%2C%2010%2C%2040).color('grey')%3B%5Cnshaft.mask(grow(1)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Pack%5CnPack%20takes%20input%20geometry%20and%20lays%20it%20out%20on%20a%20sheet.%20Groups%20and%20Assemblies%20are%20split%20apart%2C%20but%20items%20are%20preserved.%5Cn%60%3B%5Cn%5CnGroup(Arc(10)%2C%20Box(3)%2C%20Box(3.5)).pack().view()%3B%5Cn%5CnGroup(Arc(10)%2C%20Box(3)%2C%20Box(3.5)).as('anItem').pack().view()%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/documentation/interactions_between_geometry/interactions_between_geometry.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Finteractions_between_geometry%2Finteractions_between_geometry.nb%22%3A%22md%60%5Cn---%5Cn%23%20Interactions%20between%20geometry%5CnJSxCAD%20offers%20a%20number%20of%20ways%20to%20interact%20two%20or%20more%20geometries%20to%20create%20new%20geometry.%20Most%20of%20these%20operations%20will%20work%20on%20both%202D%20and%203D%20geometry.%5Cn%60%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20ADD%5CnReturns%20the%20shape%20extended%20to%20include%20the%20space%20of%20the%20added%20shapes.%5Cn%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.add(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.note(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20added%20to%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Assembly%5CnAssembles%20together%20two%20or%20more%202D%20or%203D%20shapes%20to%20form%20a%20single%20one.%5Cn%5CnShapes%20interact%20subtractively%20with%20shapes%20later%20in%20the%20arguments%20list%20meaning%20that%20no%20overlap%20is%20allowed%20in%20the%20generated%20assembly.%5Cn%5CnThe%20assembled%20shapes%20can%20later%20be%20disassembled%20into%20their%20disjoint%20parts.%5Cn%5CnSee%20Group%20as%20an%20alternative.%5Cn%60%3B%5Cn%5Cnconst%20twoCylindersAssembled%20%3D%20Assembly(%5Cn%20%20Arc(10%2C%2010%2C%203).color('red')%2C%5Cn%20%20Arc(10%2C%2010%2C%203).color('blue').x(4)%5Cn).view()%3B%5Cn%5Cnmd%60This%20can%20also%20be%20achieved%20with%20a.fit(b)%20and%20a.fitTo(b).%60%3B%5Cn%5CnArc(10).fit(Box(5)).pack().view()%3B%5Cn%5CnArc(10).fitTo(Box(5)).pack().view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20ChainHull%5CnPerforms%20the%20hull%20operation%20sequentially%20on%20the%20input%20shapes.%5Cn%60%3B%5Cn%5CnChainHull(Arc(10)%2C%20Box(5).move(12%2C%2012%2C%200)%2C%20Arc(20).x(40)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Clip%5CnReturns%20the%20shape%20limited%20to%20the%20space%20of%20the%20clipping%20shapes.%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.clip(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20clipped%60)%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.clipFrom(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20red%20since%20the%20red%20shape%20was%20clipped%20from.%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Cut%5CnReturns%20the%20shape%20with%20space%20of%20the%20cut%20shapes%20removed.%5Cn%60%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.color('blue')%5Cn%20%20.cut(Box(5%2C%205%2C%205).move(3%2C%200%2C%202).color('red'))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20blue%20since%20the%20blue%20shape%20was%20cut.%60)%3B%5Cn%5CnArc(10%2C%2010%2C%205)%5Cn%20%20.cutFrom(Box(5%2C%205%2C%205).move(3%2C%200%2C%202))%5Cn%20%20.view()%5Cn%20%20.md(%60The%20result%20is%20red%20since%20the%20red%20shape%20was%20cut%20from.%60)%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Fit%5CnFits%20two%20shapes%20together%20such%20that%20one%20cuts%20into%20the%20other.%20The%20result%20is%20similar%20to%20assembly.%5Cn%60%3B%5Cn%5Cnconst%20axle%20%3D%20Arc(5%2C%205%2C%2010).color('brown')%3B%5Cnconst%20wheel%20%3D%20Arc(20%2C%2020%2C%202).color('grey')%3B%5Cn%5Cnwheel.fitTo(axle).view()%3B%5Cnaxle.fit(wheel).view()%3B%5Cn%5Cnwheel.fitTo(axle).pack().view()%3B%20%2F%2FIn%20both%20of%20these%20cases%20the%20axle%20cuts%20the%20wheel.%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Group%5CnSimilar%20to%20Assembly%2C%20group%20joins%20together%20a%20number%20of%20shapes%2C%20however%20unlike%20Assembly%2C%20Group%20does%20not%20subtract%20the%20shapes%20which%20means%20they%20are%20allowed%20to%20overlap%20which%20makes%20Group%20much%20faster%20to%20compute%20than%20Assembly.%5Cn%5CnGroup%20can%20also%20be%20done%20using%20the%20.and()%20operator.%5Cn%60%3B%5Cn%5CnGroup(Arc(10%2C%2010%2C%203)%2C%20Arc(10%2C%2010%2C%203).x(4)).view()%3B%5Cn%5CnArc(10%2C%2010%2C%203).and(Arc(10%2C%2010%2C%203).x(4)).view()%3B%20%2F%2FDoes%20a%20group%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Hull%5CnPerforms%20the%20hull%20operation%20on%20the%20input%20shapes.%60%3B%5Cn%5CnHull(Arc(10)%2C%20Box(5).move(12%2C%2012%2C%200)%2C%20Arc(20).x(40)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Mask%5CnMask%20is%20used%20to%20create%20a%20mask%20around%20something.%20This%20allows%20the%20shape%20to%20cut%20a%20larger%20hole%20than%20it's%20actual%20size%20to%20add%20play%20or%20for%20example%20around%20the%20threads%20of%20a%20bolt.%5Cn%60%3B%5Cn%5Cnconst%20shaft%20%3D%20Arc(10%2C%2010%2C%2040).color('grey')%3B%5Cnshaft.mask(grow(1)).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Pack%5CnPack%20takes%20input%20geometry%20and%20lays%20it%20out%20on%20a%20sheet.%20Groups%20and%20Assemblies%20are%20split%20apart%2C%20but%20items%20are%20preserved.%5Cn%60%3B%5Cn%5CnGroup(Arc(10)%2C%20Box(3)%2C%20Box(3.5)).pack().view()%3B%5Cn%5CnGroup(Arc(10)%2C%20Box(3)%2C%20Box(3.5)).as('anItem').pack().view()%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

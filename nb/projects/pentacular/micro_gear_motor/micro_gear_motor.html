@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/projects/pentacular/micro_gear_motor/micro_gear_motor.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Fmicro_gear_motor%2Fmicro_gear_motor.nb%22%2C%22script%22%3A%22import%20%7B%20Gear%20%7D%20from%20'..%2Fgear%2Fgear.js'%3B%5Cn%5Cnimport%20%7B%20Block%2C%20SocketBoard%2C%20StudBoard%2C%20block16x8x9_6%20%7D%20from%20'..%2Flego%2Flego.nb'%3B%5Cn%5Cnmd%60%23%23%20Gear%20Motor%20and%20Sheath%60%3B%5Cn%5Cnconst%20motorProfile%20%3D%20Arc(12).clip(Box(9.8%2C%2012)).md('Motor%20Profile').gridView()%3B%5Cn%5Cnconst%20gearboxProfile%20%3D%20Box(9.8%2C%2011.8).md('Gearbox%20Profile').gridView()%3B%5Cn%5Cnconst%20axleProfile%20%3D%20Arc(3.2).md('Axle%20Profile').gridView()%3B%5Cn%5Cnconst%20axleFlatProfile%20%3D%20axleProfile%5Cn%20%20.clip(Box(3.2).x(0.5))%5Cn%20%20.md('Flat%20Axle%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20rearHubProfile%20%3D%20Arc(4.8).md('Rear%20Hub%20Profile').gridView()%3B%5Cn%5Cnconst%20motor%20%3D%20Group(%5Cn%20%20axleFlatProfile.ez(13.5%20%2B%209.1%2C%2013.5%20%2B%209.1%20%2B%2010.8)%2C%5Cn%20%20gearboxProfile.ez(13.5%2C%2013.5%20%2B%209.1)%2C%5Cn%20%20motorProfile.ez(13.5%2C%200)%5Cn)%5Cn%20%20.md('Motor')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20wireThickness%20%3D%200.8%3B%5Cn%5Cnconst%20wireChannelProfile%20%3D%20Box(wireThickness%2C%20wireThickness%20*%205)%5Cn%20%20.x(5.3)%5Cn%20%20.md('Wire%20Channel%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20capProfile%20%3D%20Box(9.8%20%2B%202%2C%2012%20%2B%202)%5Cn%20%20.add(Box(wireThickness%20*%202%2C%20wireThickness%20*%207).x(5.3%20%2B%200.4))%5Cn%20%20.md('Cap%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20sheath%20%3D%20capProfile%5Cn%20%20.cut(motorProfile%2C%20wireChannelProfile)%5Cn%20%20.ez(0%2C%205)%5Cn%20%20.md('Sheath')%5Cn%20%20.stl('sheath1')%3B%5Cn%5Cnconst%20cap%20%3D%20Group(capProfile.ez(-2%2C%20-0.0)%2C%20sheath).md('Cap').stl('cap')%3B%5Cn%5Cnconst%20gearProfile%20%3D%20Gear(20).md('Gear%20Profile').gridView()%3B%5Cn%5Cnconst%20gear%20%3D%20Gear(20)%5Cn%20%20.fill()%5Cn%20%20.cut(axleFlatProfile)%5Cn%20%20.ez(4)%5Cn%20%20.md('Gear')%5Cn%20%20.gridView()%5Cn%20%20.stl('gear2')%3B%5Cn%5Cnconst%20gearCutout%20%3D%20Gear(20).fill()%5Cn%20%20.and(cutFrom(Arc(24)).inset(0.5))%5Cn%20%20.as('gear%20cutout')%5Cn%20%20.md('Gear%20Cutout')%5Cn%20%20.gridView()%3B%5Cn%5Cnmd%60%23%23%20Motor%20Driver%20Bracket%60%3B%5Cn%5Cnconst%20motorDriverHolder%20%3D%20Block(4%2C%204%2C%203.2%20*%205)%5Cn%20%20.cut(Box(20.7%2C%2024.7).ez(2%2C%20100))%5Cn%20%20.as('motor%20driver%20holder')%5Cn%20%20.md('Motor%20Driver%20Holder')%5Cn%20%20.stl('motor_driver_holder_3')%3B%5Cn%5Cnmd%60%23%23%20Wemos%20Bracket%60%3B%5Cn%5Cnconst%20wemosDriverHolder%20%3D%20Block(4%2C%205%2C%203.2%20*%2011)%5Cn%20%20.cut(Box(25.7%20%2B%200.2%2C%2034.5%20%2B%200.2).ez(2%2C%20100))%5Cn%20%20.cut(XZ().Box(3%20*%208%2C%202.5%20*%208).extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100))%5Cn%20%20.cut(YZ().Box(3.2%20*%208%2C%204%20*%208).extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100))%5Cn%20%20.cut(%5Cn%20%20%20%20XZ()%5Cn%20%20%20%20%20%20.involute()%5Cn%20%20%20%20%20%20.Box(3%20*%208%2C%202.5%20*%208)%5Cn%20%20%20%20%20%20.extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100)%5Cn%20%20)%5Cn%20%20.cut(%5Cn%20%20%20%20YZ()%5Cn%20%20%20%20%20%20.involute()%5Cn%20%20%20%20%20%20.Box(3.2%20*%208%2C%204%20*%208)%5Cn%20%20%20%20%20%20.extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100)%5Cn%20%20)%5Cn%20%20.as('wemos%20holder')%5Cn%20%20.md('Wemos%20Driver%20Holder')%5Cn%20%20.rz(1%20%2F%202)%5Cn%20%20.stl('wemos_holder_2')%3B%5Cn%5Cnmd%60%23%23%20Gear%20Motor%20Bracket%60%3B%5Cn%5Cnconst%20motorHolderLegoBoard%20%3D%20Block(1%2C%204%2C%203.2).y(6)%3B%5Cnconst%20motorHolderMotor%20%3D%20Group(motor%2C%20sheath.z(9.1%20-%200.7)%2C%20cap)%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.ry(-1%20%2F%204)%5Cn%20%20.move(0%2C%2014%2C%205.6%20%2B%203.2%20-%200.7)%5Cn%20%20.as('motor')%5Cn%20%20.md('Motor%20holder%20moter')%5Cn%20%20.view()%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/projects/pentacular/micro_gear_motor/micro_gear_motor.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fmicro_gear_motor%2Fmicro_gear_motor.nb%22%3A%22import%20%7B%20Gear%20%7D%20from%20'..%2Fgear%2Fgear.js'%3B%5Cn%5Cnimport%20%7B%20Block%2C%20SocketBoard%2C%20StudBoard%2C%20block16x8x9_6%20%7D%20from%20'..%2Flego%2Flego.nb'%3B%5Cn%5Cnmd%60%23%23%20Gear%20Motor%20and%20Sheath%60%3B%5Cn%5Cnconst%20motorProfile%20%3D%20Arc(12).clip(Box(9.8%2C%2012)).md('Motor%20Profile').gridView()%3B%5Cn%5Cnconst%20gearboxProfile%20%3D%20Box(9.8%2C%2011.8).md('Gearbox%20Profile').gridView()%3B%5Cn%5Cnconst%20axleProfile%20%3D%20Arc(3.2).md('Axle%20Profile').gridView()%3B%5Cn%5Cnconst%20axleFlatProfile%20%3D%20axleProfile%5Cn%20%20.clip(Box(3.2).x(0.5))%5Cn%20%20.md('Flat%20Axle%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20rearHubProfile%20%3D%20Arc(4.8).md('Rear%20Hub%20Profile').gridView()%3B%5Cn%5Cnconst%20motor%20%3D%20Group(%5Cn%20%20axleFlatProfile.ez(13.5%20%2B%209.1%2C%2013.5%20%2B%209.1%20%2B%2010.8)%2C%5Cn%20%20gearboxProfile.ez(13.5%2C%2013.5%20%2B%209.1)%2C%5Cn%20%20motorProfile.ez(13.5%2C%200)%5Cn)%5Cn%20%20.md('Motor')%5Cn%20%20.view()%3B%5Cn%5Cnconst%20wireThickness%20%3D%200.8%3B%5Cn%5Cnconst%20wireChannelProfile%20%3D%20Box(wireThickness%2C%20wireThickness%20*%205)%5Cn%20%20.x(5.3)%5Cn%20%20.md('Wire%20Channel%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20capProfile%20%3D%20Box(9.8%20%2B%202%2C%2012%20%2B%202)%5Cn%20%20.add(Box(wireThickness%20*%202%2C%20wireThickness%20*%207).x(5.3%20%2B%200.4))%5Cn%20%20.md('Cap%20Profile')%5Cn%20%20.gridView()%3B%5Cn%5Cnconst%20sheath%20%3D%20capProfile%5Cn%20%20.cut(motorProfile%2C%20wireChannelProfile)%5Cn%20%20.ez(0%2C%205)%5Cn%20%20.md('Sheath')%5Cn%20%20.stl('sheath1')%3B%5Cn%5Cnconst%20cap%20%3D%20Group(capProfile.ez(-2%2C%20-0.0)%2C%20sheath).md('Cap').stl('cap')%3B%5Cn%5Cnconst%20gearProfile%20%3D%20Gear(20).md('Gear%20Profile').gridView()%3B%5Cn%5Cnconst%20gear%20%3D%20Gear(20)%5Cn%20%20.fill()%5Cn%20%20.cut(axleFlatProfile)%5Cn%20%20.ez(4)%5Cn%20%20.md('Gear')%5Cn%20%20.gridView()%5Cn%20%20.stl('gear2')%3B%5Cn%5Cnconst%20gearCutout%20%3D%20Gear(20).fill()%5Cn%20%20.and(cutFrom(Arc(24)).inset(0.5))%5Cn%20%20.as('gear%20cutout')%5Cn%20%20.md('Gear%20Cutout')%5Cn%20%20.gridView()%3B%5Cn%5Cnmd%60%23%23%20Motor%20Driver%20Bracket%60%3B%5Cn%5Cnconst%20motorDriverHolder%20%3D%20Block(4%2C%204%2C%203.2%20*%205)%5Cn%20%20.cut(Box(20.7%2C%2024.7).ez(2%2C%20100))%5Cn%20%20.as('motor%20driver%20holder')%5Cn%20%20.md('Motor%20Driver%20Holder')%5Cn%20%20.stl('motor_driver_holder_3')%3B%5Cn%5Cnmd%60%23%23%20Wemos%20Bracket%60%3B%5Cn%5Cnconst%20wemosDriverHolder%20%3D%20Block(4%2C%205%2C%203.2%20*%2011)%5Cn%20%20.cut(Box(25.7%20%2B%200.2%2C%2034.5%20%2B%200.2).ez(2%2C%20100))%5Cn%20%20.cut(XZ().Box(3%20*%208%2C%202.5%20*%208).extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100))%5Cn%20%20.cut(YZ().Box(3.2%20*%208%2C%204%20*%208).extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100))%5Cn%20%20.cut(%5Cn%20%20%20%20XZ()%5Cn%20%20%20%20%20%20.involute()%5Cn%20%20%20%20%20%20.Box(3%20*%208%2C%202.5%20*%208)%5Cn%20%20%20%20%20%20.extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100)%5Cn%20%20)%5Cn%20%20.cut(%5Cn%20%20%20%20YZ()%5Cn%20%20%20%20%20%20.involute()%5Cn%20%20%20%20%20%20.Box(3.2%20*%208%2C%204%20*%208)%5Cn%20%20%20%20%20%20.extrudeAlong(normal()%2C%203.2%20*%20(4%20%2B%201.5)%2C%20100)%5Cn%20%20)%5Cn%20%20.as('wemos%20holder')%5Cn%20%20.md('Wemos%20Driver%20Holder')%5Cn%20%20.rz(1%20%2F%202)%5Cn%20%20.stl('wemos_holder_2')%3B%5Cn%5Cnmd%60%23%23%20Gear%20Motor%20Bracket%60%3B%5Cn%5Cnconst%20motorHolderLegoBoard%20%3D%20Block(1%2C%204%2C%203.2).y(6)%3B%5Cnconst%20motorHolderMotor%20%3D%20Group(motor%2C%20sheath.z(9.1%20-%200.7)%2C%20cap)%5Cn%20%20.rx(1%20%2F%204)%5Cn%20%20.ry(-1%20%2F%204)%5Cn%20%20.move(0%2C%2014%2C%205.6%20%2B%203.2%20-%200.7)%5Cn%20%20.as('motor')%5Cn%20%20.md('Motor%20holder%20moter')%5Cn%20%20.view()%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

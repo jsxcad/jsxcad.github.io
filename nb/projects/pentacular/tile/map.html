@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/projects/pentacular/tile/map.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fprojects%2Fpentacular%2Ftile%2Fmap.nb%22%2C%22script%22%3A%22const%20Tile%20%3D%20(sides%2C%20offset%20%3D%200)%20%3D%3E%5Cn%20%20Arc(20)%5Cn%20%20%20%20.hasSides(sides)%5Cn%20%20%20%20.op(ez(3%2C%202)%2C%20cut(inset(1)).ez(2%2C%201)%2C%20cut(inset(2)).ez(1%2C%200))%5Cn%20%20%20%20.fuse()%5Cn%20%20%20%20.cut(%5Cn%20%20%20%20%20%20Box(10%2C%202%2C%20%5B0%2C%201%5D)%5Cn%20%20%20%20%20%20%20%20.x(8)%5Cn%20%20%20%20%20%20%20%20.seq(%7B%20by%3A%201%20%2F%20sides%2C%20upto%3A%201%20%7D%2C%20(t)%20%3D%3E%20rz(t%20%2B%20offset))%5Cn%20%20%20%20)%3B%5Cn%5Cnconst%20squareTile%20%3D%20Tile(4%2C%201%20%2F%208).view()%3B%5Cnconst%20fiveTile%20%3D%20Tile(5).view()%3B%5Cn%5Cnconst%20hexagonalTile%20%3D%20Tile(6).stl('hex')%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/projects/pentacular/tile/map.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Ftile%2Fmap.nb%22%3A%22const%20Tile%20%3D%20(sides%2C%20offset%20%3D%200)%20%3D%3E%5Cn%20%20Arc(20)%5Cn%20%20%20%20.hasSides(sides)%5Cn%20%20%20%20.op(ez(3%2C%202)%2C%20cut(inset(1)).ez(2%2C%201)%2C%20cut(inset(2)).ez(1%2C%200))%5Cn%20%20%20%20.fuse()%5Cn%20%20%20%20.cut(%5Cn%20%20%20%20%20%20Box(10%2C%202%2C%20%5B0%2C%201%5D)%5Cn%20%20%20%20%20%20%20%20.x(8)%5Cn%20%20%20%20%20%20%20%20.seq(%7B%20by%3A%201%20%2F%20sides%2C%20upto%3A%201%20%7D%2C%20(t)%20%3D%3E%20rz(t%20%2B%20offset))%5Cn%20%20%20%20)%3B%5Cn%5Cnconst%20squareTile%20%3D%20Tile(4%2C%201%20%2F%208).view()%3B%5Cnconst%20fiveTile%20%3D%20Tile(5).view()%3B%5Cn%5Cnconst%20hexagonalTile%20%3D%20Tile(6).stl('hex')%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }

@@ -72,10 +72,12 @@
     import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
     import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
     import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, resolvePending, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
+    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
+    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
 
     const baseUrl = "https://jsxcad.js.org";
+    const module = "nb/api/flat.nb";
+    const workspace = 'JSxCAD';
 
     const prepareViews = async (notebook) => {
       // Prepare the view urls in the browser.
@@ -87,29 +89,39 @@
       return notebook;
     }
 
-    const run = async () => {
-      await boot();
-
+    const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
+      const seenHashes = new Set();
       const notebook = [];
-      const onEmitHandler = addOnEmitHandler((notes) => notebook.push(...notes));
+      const addNotes = (notes) => {
+        for (const note of notes) {
+          if (seenHashes.has(note.hash)) {
+            continue;
+          }
+          seenHashes.add(note.hash);
+          notebook.push(note);
+        }
+      }
+      const onEmitHandler = addOnEmitHandler(addNotes);
 
-      // Construct a local ephemeral filesystem.
-      // TODO: Trace dependencies, such as imports.
-      for (const { path, script } of JSON.parse(decodeURIComponent("%5B%7B%22path%22%3A%22source%2Fnb%2Fapi%2Fflat.nb%22%2C%22script%22%3A%22md%60%5Cn%23%23%23%20flat()%5Cn%5CnPuts%20the%20shape%20into%20its%20preferred%20orientation%20(which%20is%20not%20necessarily%20flat).%5Cn%5CnThis%20is%20mostly%20used%20in%20preparation%20for%20packing%20for%20export.%5Cn%5CnThis%20is%20equivalent%20to%20shape.to(XY()).%5Cn%5CnSee%3A%20%5Bto%5D(https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fapi%2Fto.nb).%5Cn%60%3B%5CnBox(6%2C%204%2C%202)%5Cn%20%20.view(1)%5Cn%20%20.note('Box(6%2C%204%2C%202)%20is%20our%20starting%20shape%20in%20its%20preferred%20orientation')%5Cn%20%20.seq(%7B%20by%3A%201%20%2F%208%20%7D%2C%20ry)%5Cn%20%20.cut(Arc(1%2C%201%2C%208))%5Cn%20%20.view(2)%5Cn%20%20.note('We%20arrange%20the%20boxes%20and%20perform%20a%20cut')%5Cn%20%20.each(flat())%5Cn%20%20.pack()%5Cn%20%20.view(3)%5Cn%20%20.note(%5Cn%20%20%20%20'each(flat()).pack()%20arranges%20each%20box%20separately%20in%20its%20preferred%20orientation'%5Cn%20%20)%3B%5Cn%22%7D%5D"))) {
-        await write(path, script);
+      if (isRerun) {
+        const notebookControlData = await getNotebookControlData();
+        await write('control/' + module, notebookControlData, {
+          workspace,
+        });
       }
 
-      await api.importModule("nb/api/flat.nb", {
-        clearUpdateEmits: false,
+      await api.importModule(module, {
+        clearUpdateEmits: true,
         topLevel,
-        readCache: true,
+        readCache: false,
+        workspace,
       });
 
       await resolvePending();
 
       for (const note of notebook) {
-        const { path, data } = note;
+        const { path, data, hash } = note;
         if (path && !data) {
           // We should configure this case to be already embedded.
            note.data = await read(path);
@@ -122,20 +134,72 @@
       }
 
       const body = document.getElementsByTagName('body')[0];
+      {
+        const oldBookElement = document.getElementById('bookElement')
+        if (oldBookElement) {
+          oldBookElement.remove();
+        }
+      }
       const bookElement = document.createElement('div');
+      bookElement.id = 'bookElement';
       const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
       bookElement.appendChild(notebookElement);
       body.appendChild(bookElement);
       bookElement.classList.add('book', 'notebook', 'loaded');
+
+      removeOnEmitHandler(onEmitHandler);
     };
 
+    const onKeyDown = (e) => {
+      const CONTROL = 17;
+      const E = 69;
+      const ENTER = 13;
+      const S = 83;
+      const SHIFT = 16;
+
+      const key = e.which || e.keyCode || 0;
+
+      switch (key) {
+        case CONTROL:
+        case SHIFT:
+          return true;
+      }
+
+      const { ctrlKey, shiftKey } = e;
+      switch (key) {
+        case ENTER: {
+          if (shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            run({ isRerun: true });
+            return false;
+          }
+          break;
+        }
+      }
+    };
+
+    const start = async () => {
+      setupWorkspace(workspace);
+      await boot();
+
+      // Construct a local ephemeral filesystem.
+      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2Fflat.nb%22%3A%22md%60%5Cn%23%23%23%20flat()%5Cn%5CnPuts%20the%20shape%20into%20its%20preferred%20orientation%20(which%20is%20not%20necessarily%20flat).%5Cn%5CnThis%20is%20mostly%20used%20in%20preparation%20for%20packing%20for%20export.%5Cn%5CnThis%20is%20equivalent%20to%20shape.to(XY()).%5Cn%5CnSee%3A%20%5Bto%5D(https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fapi%2Fto.nb).%5Cn%60%3B%5CnBox(6%2C%204%2C%202)%5Cn%20%20.view(1)%5Cn%20%20.note('Box(6%2C%204%2C%202)%20is%20our%20starting%20shape%20in%20its%20preferred%20orientation')%5Cn%20%20.seq(%7B%20by%3A%201%20%2F%208%20%7D%2C%20ry)%5Cn%20%20.cut(Arc(1%2C%201%2C%208))%5Cn%20%20.view(2)%5Cn%20%20.note('We%20arrange%20the%20boxes%20and%20perform%20a%20cut')%5Cn%20%20.each(flat())%5Cn%20%20.pack()%5Cn%20%20.view(3)%5Cn%20%20.note(%5Cn%20%20%20%20'each(flat()).pack()%20arranges%20each%20box%20separately%20in%20its%20preferred%20orientation'%5Cn%20%20)%3B%5Cn%22%7D"));
+      for (const path of Object.keys(files)) {
+        await write(path, files[path], { ephemeral: true });
+      }
+
+      await run();
+      window.addEventListener('keydown', onKeyDown);
+    }
+
     if (document.readyState === 'complete') {
-      run();
+      start();
       mermaid.init();
     } else {
       document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-          run();
+          start();
         }
       };
     }
