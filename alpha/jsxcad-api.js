@@ -66,13 +66,13 @@ const emitSourceLocation = ({ path, id }) => {
 const emitSourceText = (sourceText) =>
   emit({ hash: computeHash(sourceText), sourceText });
 
-const $run = async (op, { path, id, text, sha }) => {
+const $run = async (op, { path, id, text, sha, line }) => {
   const meta = await read(`meta/def/${path}/${id}`);
   if (!meta || meta.sha !== sha) {
     logInfo('api/core/$run', text);
     const timer = startTime(`${path}/${id}`);
     beginRecordingNotes();
-    beginEmitGroup({ path, id });
+    beginEmitGroup({ path, id, line });
     emitSourceText(text);
     let result;
     try {
@@ -86,7 +86,7 @@ const $run = async (op, { path, id, text, sha }) => {
           .md('Debug Geometry: ')
           .view();
         await resolvePending();
-        finishEmitGroup({ path, id });
+        finishEmitGroup({ path, id, line });
       }
       throw error;
     }
@@ -412,6 +412,7 @@ const buildImportModule =
         topLevel,
         parallelUpdateLimit: 1,
         clearUpdateEmits,
+        workspace,
       });
       return builtModule;
     } catch (error) {
