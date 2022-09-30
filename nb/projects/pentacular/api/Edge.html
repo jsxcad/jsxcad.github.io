@@ -79,29 +79,45 @@
     const module = "nb/projects/pentacular/api/Edge.nb";
     const workspace = 'JSxCAD';
 
-    const prepareViews = async (notebook) => {
-      // Prepare the view urls in the browser.
-      for (const note of notebook) {
-        if (note.view && !note.url) {
-          note.url = await dataUrl(Shape.fromGeometry(note.data), note.view);
-        }
-      }
-      return notebook;
-    }
-
     const run = async ({ isRerun = false } = {}) => {
       const topLevel = new Map();
       const seenHashes = new Set();
-      const notebook = [];
-      const addNotes = (notes) => {
+      const notebooks = new Map();
+      const addNotes = async (notes) => {
         for (const note of notes) {
           if (seenHashes.has(note.hash)) {
             continue;
           }
           seenHashes.add(note.hash);
-          notebook.push(note);
+          const { path, data, hash, line } = note;
+          if (!notebooks.has(line)) {
+            notebooks.set(line, []);
+          }
+          notebooks.get(line).push(note);
+          if (note.md) {
+            note.md = note
+              .md
+              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
+          }
+          if (path && !data) {
+             note.data = read(path);
+          }
+          if (note.view && !note.url) {
+            const schedulePreviewGeneration = async () => {
+              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
+            }
+            schedulePreviewGeneration();
+          }
         }
       }
+
+      const readyNotebook = async (notebook) => {
+        for (const note of notebook) {
+          note.data = await note.data;
+          note.url = await note.url;
+        }
+      };
+
       const onEmitHandler = addOnEmitHandler(addNotes);
 
       if (isRerun) {
@@ -120,18 +136,7 @@
 
       await resolvePending();
 
-      for (const note of notebook) {
-        const { path, data, hash } = note;
-        if (path && !data) {
-          // We should configure this case to be already embedded.
-           note.data = await read(path);
-        }
-        if (note.md) {
-          note.md = note
-            .md
-            .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-        }
-      }
+      removeOnEmitHandler(onEmitHandler);
 
       const body = document.getElementsByTagName('body')[0];
       {
@@ -142,12 +147,14 @@
       }
       const bookElement = document.createElement('div');
       bookElement.id = 'bookElement';
-      const notebookElement = await toDomElement(await prepareViews(notebook), { useControls: true });
-      bookElement.appendChild(notebookElement);
-      body.appendChild(bookElement);
-      bookElement.classList.add('book', 'notebook', 'loaded');
-
-      removeOnEmitHandler(onEmitHandler);
+      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
+        const notebook = notebooks.get(line);
+        await readyNotebook(notebook);
+        const notebookElement = await toDomElement(notebook, { useControls: true });
+        bookElement.appendChild(notebookElement);
+        body.appendChild(bookElement);
+        bookElement.classList.add('book', 'notebook', 'loaded');
+      }
     };
 
     const onKeyDown = (e) => {
