@@ -3969,10 +3969,10 @@ class Standalone extends ReactDOM.Component {
 
         if (note.data) {
           note.data = await note.data;
-        }
 
-        if (!note.url) {
-          note.url = await dataUrl(api.Shape.fromGeometry(note.data), note.view);
+          if (!note.url) {
+            note.url = await dataUrl(api.Shape.fromGeometry(note.data), note.view);
+          }
         }
       }
     };
