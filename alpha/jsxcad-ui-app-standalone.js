@@ -3840,6 +3840,81 @@ marked.use({
 
   }
 });
+class MdNote extends ReactDOM.PureComponent {
+  static get propTypes() {
+    return {
+      note: propTypes.exports.array
+    };
+  }
+
+  render() {
+    const {
+      note
+    } = this.props;
+    const html = marked(note.md);
+    return v$1("div", {
+      dangerouslySetInnerHTML: {
+        __html: html
+      }
+    });
+  }
+
+}
+
+class ViewNote extends ReactDOM.PureComponent {
+  static get propTypes() {
+    return {
+      note: propTypes.exports.array,
+      onClickView: propTypes.exports.func,
+      workspace: propTypes.exports.string
+    };
+  }
+
+  showOrbitView() {}
+
+  render() {
+    const {
+      note,
+      onClickView,
+      workspace
+    } = this.props;
+    const {
+      view,
+      sourceLocation
+    } = note;
+    const {
+      height,
+      width
+    } = view;
+    const background = 'url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;';
+
+    const onClick = event => {
+      if (onClickView) {
+        onClickView({
+          event,
+          path: note.path,
+          view: note.view,
+          workspace,
+          sourceLocation
+        });
+      }
+    };
+
+    console.log(`QQ/ViewNote/hash: ${JSON.stringify(note)}`);
+    return v$1("img", {
+      class: "note view",
+      style: {
+        display: 'block',
+        height: `${height}px`,
+        width: `${width}px`,
+        background
+      },
+      src: note.url,
+      onClick: onClick
+    });
+  }
+
+}
 
 const updateNotebookState = async (application, {
   notes,
@@ -3951,6 +4026,87 @@ const updateNotebookState = async (application, {
     }
   }
 };
+class Notebook extends ReactDOM.PureComponent {
+  static get propTypes() {
+    return {
+      notes: propTypes.exports.array,
+      workspace: propTypes.exports.string
+    };
+  }
+
+  render() {
+    const {
+      notes,
+      workspace
+    } = this.props;
+    const children = [];
+    const ordered = Object.values(notes);
+
+    const getLine = note => {
+      if (note.sourceLocation) {
+        return note.sourceLocation.line;
+      } else {
+        return 0;
+      }
+    };
+
+    const getNth = note => {
+      if (note.sourceLocation) {
+        return note.sourceLocation.nth;
+      } else {
+        return 0;
+      }
+    };
+
+    const order = (a, b) => {
+      const lineA = getLine(a);
+      const lineB = getLine(b);
+
+      if (lineA !== lineB) {
+        return lineA - lineB;
+      }
+
+      const nthA = getNth(a);
+      const nthB = getNth(b);
+      return nthA - nthB;
+    };
+
+    ordered.sort(order);
+
+    for (const note of ordered) {
+      let child;
+
+      if (note.view) {
+        child = v$1(ViewNote, {
+          key: note.hash,
+          note: note
+        });
+      } else if (note.md) {
+        child = v$1(MdNote, {
+          key: note.hash,
+          note: note,
+          workspace: workspace
+        });
+      } else if (note.download) ; else if (note.control) ;
+
+      if (child) {
+        children.push(child);
+      }
+    }
+
+    console.log(`render Notebook`);
+
+    if (children.length === 0) {
+      return v$1("div", null, "Empty");
+    }
+
+    y(() => mermaid.init(undefined, '.mermaid'));
+    return v$1("div", {
+      classList: "notes"
+    }, children);
+  }
+
+}
 
 class Standalone extends ReactDOM.Component {
   static get propTypes() {
@@ -4074,6 +4230,20 @@ class Standalone extends ReactDOM.Component {
 
     await run();
     window.addEventListener('keydown', onKeyDown);
+  }
+
+  render() {
+    const {
+      module,
+      workspace
+    } = this.props;
+    const {
+      [`NotebookNotes/${module}`]: NotebookNotes = []
+    } = this.state;
+    return v$1(Notebook, {
+      notes: NotebookNotes,
+      workspace: workspace
+    });
   }
 
 }
