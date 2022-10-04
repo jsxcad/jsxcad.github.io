@@ -58,10 +58,12 @@ const replayRecordedNotes = async (path, id) => {
   flushEmitGroup();
 };
 
-const emitSourceLocation = ({ path, id }) => {
+/*
+export const emitSourceLocation = ({ path, id }) => {
   const setContext = { sourceLocation: { path, id } };
   emit({ hash: computeHash(setContext), setContext });
 };
+*/
 
 const emitSourceText = (sourceText) =>
   emit({ hash: computeHash(sourceText), sourceText });
@@ -119,7 +121,6 @@ var notesApi = /*#__PURE__*/Object.freeze({
   clearRecordedNotes: clearRecordedNotes,
   saveRecordedNotes: saveRecordedNotes,
   replayRecordedNotes: replayRecordedNotes,
-  emitSourceLocation: emitSourceLocation,
   emitSourceText: emitSourceText,
   $run: $run
 });

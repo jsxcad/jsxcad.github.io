@@ -297,48 +297,72 @@ const toHtmlFromScript = async ({
     import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from '${modulePath}/jsxcad-sys.js';
     import { getNotebookControlData, toDomElement } from '${modulePath}/jsxcad-ui-notebook.js';
 
+    const pendingData = Symbol('pendingData');
+    const pendingUrl = Symbol('pendingUrl');
+    const pendingRender = Symbol('pendingRender');
+
     const baseUrl = "${baseUrl}";
     const module = "${module}";
     const workspace = 'JSxCAD';
 
+    const body = document.getElementsByTagName('body')[0];
+    const bookElement = document.createElement('div');
+    body.appendChild(bookElement);
+
+    const seenHashes = new Set();
+    const notebooks = new Map();
+
+    // Isn't this problem handled by preact?
+
     const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
       const addNotes = async (notes) => {
         for (const note of notes) {
+          if (note.beginSourceLocation) {
+            if (notebooks.has(note.beginSourceLocation.line)) {
+              const { notes, domElement } = notebooks.get(line);
+
+            }
+          }
           if (seenHashes.has(note.hash)) {
             continue;
           }
           seenHashes.add(note.hash);
           const { path, data, hash, line } = note;
+          let domElement;
           if (!notebooks.has(line)) {
-            notebooks.set(line, []);
+            domElement = document.createElement('div');
+            bookElement.appendChild(domElement);
+            notebooks.set(line, { domElement, notes: [] });
+          } else {
+            domElement = notebooks.get(line).domElement;
           }
-          notebooks.get(line).push(note);
+          notebooks.get(line).notes.push(note);
           if (note.md) {
             note.md = note
               .md
               .replace(/#https:\\/\\/raw.githubusercontent.com\\/jsxcad\\/JSxCAD\\/master\\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
           }
           if (path && !data) {
-             note.data = read(path);
+             note[pendingData] = read(path);
           }
           if (note.view && !note.url) {
             const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
+              note.data = note.data || await note[pendingData];
+              return dataUrl(Shape.fromGeometry(note.data), note.view);
             }
-            schedulePreviewGeneration();
+            note[pendingUrl] = schedulePreviewGeneration();
           }
         }
+        const scheduleRender = async () => {
+          for (const note of notes) {
+            note.data = note.data || await note[pendingData];
+            note.url = note.url || await note[pendingUrl];
+          }
+          const notebookElement = await toDomElement(notes, { useControls: ${useControls} ? 'true' : 'false' });
+          bookElement.appendChild(notebookElement);
+        };
+        notes[pendingRender] = scheduleRender();
       }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
 
       const onEmitHandler = addOnEmitHandler(addNotes);
 
@@ -349,6 +373,7 @@ const toHtmlFromScript = async ({
         });
       }
 
+      const topLevel = new Map();
       await api.importModule(module, {
         clearUpdateEmits: true,
         topLevel,
@@ -359,26 +384,6 @@ const toHtmlFromScript = async ({
       await resolvePending();
 
       removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: ${
-          useControls ? 'true' : 'false'
-        } });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
     };
 
     const onKeyDown = (e) => {
