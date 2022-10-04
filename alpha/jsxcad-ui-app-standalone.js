@@ -3974,6 +3974,12 @@ class Standalone extends ReactDOM.Component {
           continue;
         }
 
+        if (note.path && !note.data) {
+          note.data = await read(note.path, {
+            workspace
+          });
+        }
+
         if (note.data) {
           note.data = await note.data;
 
