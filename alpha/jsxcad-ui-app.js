@@ -4031,56 +4031,63 @@ const updateNotebookState = async (application, {
             hash: note.hash,
             url: cachedUrl
           });
-        } else if (note.view && note.data && !note.url) {
-          const {
-            path,
-            view
-          } = note;
-          const {
-            width,
-            height
-          } = view;
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const offscreenCanvas = canvas.transferControlToOffscreen();
-
-          const render = async () => {
-            try {
-              logInfo('app/App', `Ask render for ${path}/${id}`);
-              const url = await application.ask({
-                op: 'app/staticView',
-                path,
-                workspace,
-                view,
-                offscreenCanvas
-              }, {
-                path
-              }, [offscreenCanvas]);
-              console.log(`Finished render for ${path}/${id}`); // Cache the thumbnail for next time.
-
-              await write(`thumbnail/${note.hash}`, url, {
-                workspace
-              });
-              console.log(`QQ/render: ${note.hash} ${url}`);
-              updateNote({
-                hash: note.hash,
-                url
-              });
-            } catch (error) {
-              if (error.message === 'Terminated') {
-                // Try again.
-                return render();
-              } else {
-                window.alert(error.stack);
-              }
-            }
-          }; // Render the image asynchronously -- it won't affect layout.
-
-
-          console.log(`Schedule render for ${path}/${id}`);
-          render();
+          continue;
         }
+
+        if (note.path && !note.data) {
+          note.data = await read(note.path, {
+            workspace
+          });
+        }
+
+        const {
+          path,
+          view
+        } = note;
+        const {
+          width,
+          height
+        } = view;
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const offscreenCanvas = canvas.transferControlToOffscreen();
+
+        const render = async () => {
+          try {
+            logInfo('app/App', `Ask render for ${path}/${id}`);
+            const url = await application.ask({
+              op: 'app/staticView',
+              path,
+              workspace,
+              view,
+              offscreenCanvas
+            }, {
+              path
+            }, [offscreenCanvas]);
+            console.log(`Finished render for ${path}/${id}`); // Cache the thumbnail for next time.
+
+            await write(`thumbnail/${note.hash}`, url, {
+              workspace
+            });
+            console.log(`QQ/render: ${note.hash} ${url}`);
+            updateNote({
+              hash: note.hash,
+              url
+            });
+          } catch (error) {
+            if (error.message === 'Terminated') {
+              // Try again.
+              return render();
+            } else {
+              window.alert(error.stack);
+            }
+          }
+        }; // Render the image asynchronously -- it won't affect layout.
+
+
+        console.log(`Schedule render for ${path}/${id}`);
+        render();
       }
     }
   }
