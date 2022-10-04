@@ -3890,7 +3890,7 @@ const updateNotebookState = async (application, {
             hash: note.hash,
             url: cachedUrl
           });
-        } else if (note.view && !note.url) {
+        } else if (note.view && note.data && !note.url) {
           const {
             path,
             view
