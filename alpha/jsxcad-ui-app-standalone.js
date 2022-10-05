@@ -5076,6 +5076,18 @@ class Standalone extends ReactDOM.Component {
       }
     };
 
+    const prepareDownloads = async notes => {
+      for (const note of notes) {
+        if (!note.download) {
+          continue;
+        }
+
+        for (const entry of note.download.entries) {
+          entry.data = await entry.data;
+        }
+      }
+    };
+
     const run = async ({
       isRerun = false
     } = {}) => {
@@ -5084,9 +5096,11 @@ class Standalone extends ReactDOM.Component {
           return;
         }
 
-        const sourceLocation = notes[0].sourceLocation;
+        const sourceLocation = notes[0].sourceLocation; // TODO: Parallelize these operations.
+
         await renderViews(notes);
         await fixLinks(notes);
+        await prepareDownloads(notes);
         updateNotebookState(this, {
           notes,
           sourceLocation,
