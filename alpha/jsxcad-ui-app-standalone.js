@@ -1930,10 +1930,8 @@ class ControlNote extends ReactDOM.PureComponent {
       value,
       options
     } = note.control;
-    return v$1(InputGroup, null, v$1(InputGroup.Text, {
-      id: "basic-addon1"
-    }, label), v$1(FormImpl.Control, {
-      class: "note control input",
+    return v$1(InputGroup, null, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
+      className: "note control input",
       value: value,
       name: label
     }));
