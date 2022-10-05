@@ -1990,8 +1990,7 @@ class ControlNote extends ReactDOM$2.PureComponent {
     } = this.props;
     const {
       label,
-      value,
-      options
+      value
     } = note.control;
     return v$1(InputGroup, null, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
       className: "note control input",
@@ -5182,6 +5181,35 @@ const updateNotebookState = async (application, {
   } = sourceLocation;
 
   const updateNote = note => {
+    if (note.beginSourceLocation) {
+      // Remove any existing notes for this line.
+      const {
+        line
+      } = note.beginSourceLocation;
+
+      const op = state => {
+        const {
+          [`NotebookNotes/${path}`]: oldNotebookNotes = {}
+        } = state;
+        const newNotebookNotes = { ...oldNotebookNotes
+        };
+
+        for (const key of Object.keys(newNotebookNotes)) {
+          const note = newNotebookNotes[key];
+
+          if (note.sourceLocation && note.sourceLocation.line === line) {
+            delete newNotebookNotes[key];
+          }
+        }
+
+        return {
+          [`NotebookNotes/${path}`]: newNotebookNotes
+        };
+      };
+
+      application.setState(op);
+    }
+
     if (!note.hash) {
       return;
     }
@@ -5190,7 +5218,6 @@ const updateNotebookState = async (application, {
       const {
         [`NotebookNotes/${path}`]: oldNotebookNotes = {}
       } = state;
-      console.log(`QQ/updateNote: ${JSON.stringify(note)}`);
       const oldNote = oldNotebookNotes[note.hash] || {};
       const newNotebookNotes = { ...oldNotebookNotes,
         [note.hash]: { ...oldNote,
