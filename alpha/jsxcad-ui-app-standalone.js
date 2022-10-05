@@ -5220,7 +5220,7 @@ class ViewNote extends ReactDOM.PureComponent {
     if (!note.url) {
       return v$1(MoonLoader, {
         color: "#36d7b7",
-        size: "75%"
+        size: Math.min(width, height) * 0.8
       });
     }
 
@@ -5462,7 +5462,7 @@ class Notebook extends ReactDOM.PureComponent {
     if (children.length === 0) {
       return v$1(MoonLoader, {
         color: "#36d7b7",
-        size: "75%"
+        size: "128"
       });
     }
 
