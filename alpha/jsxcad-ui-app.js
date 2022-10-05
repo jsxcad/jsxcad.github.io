@@ -1048,6 +1048,99 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
 var PropTypes$3 = propTypes$1.exports;
 
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+var classnames = {exports: {}};
+
+/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+
+(function (module) {
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+					classes.push(arg.toString());
+					continue;
+				}
+
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else {
+		window.classNames = classNames;
+	}
+}());
+}(classnames));
+
+var classNames = classnames.exports;
+
 var t,u,r,o=0,i$1=[],c=l$1.__b,f$1=l$1.__r,e=l$1.diffed,a=l$1.__c,v=l$1.unmount;function m(t,r){l$1.__h&&l$1.__h(u,t,o||r),o=0;var i=u.__H||(u.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l(n){return o=1,p(w$1,n)}function p(n,r,o){var i=m(t++,2);return i.t=n,i.__c||(i.__=[o?o(r):w$1(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u),i.__}function y(r,o){var i=m(t++,3);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__H.__h.push(i));}function h(r,o){var i=m(t++,4);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__h.push(i));}function s(n){return o=5,d(function(){return {current:n}},[])}function _(n,t,u){o=6,h(function(){"function"==typeof n?n(t()):n&&(n.current=t());},null==u?u:u.concat(n));}function d(n,u){var r=m(t++,7);return k$1(r.__H,u)&&(r.__=n(),r.__H=u,r.__h=n),r.__}function A$1(n,t){return o=8,d(function(){return n},t)}function F$1(n){var r=u.context[n.__c],o=m(t++,9);return o.c=n,r?(null==o.__&&(o.__=!0,r.sub(u)),r.props.value):n.__}function T$1(t,u){l$1.useDebugValue&&l$1.useDebugValue(u?u(t):t);}function q$1(n){var r=m(t++,10),o=l();return r.__=n,u.componentDidCatch||(u.componentDidCatch=function(n){r.__&&r.__(n),o[1](n);}),[o[0],function(){o[1](void 0);}]}function x$1(){i$1.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j$1),t.__H.__h=[];}catch(u){t.__H.__h=[],l$1.__e(u,t.__v);}}),i$1=[];}l$1.__b=function(n){u=null,c&&c(n);},l$1.__r=function(n){f$1&&f$1(n),t=0;var r=(u=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j$1),r.__h=[]);},l$1.diffed=function(t){e&&e(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$1.push(o)&&r===l$1.requestAnimationFrame||((r=l$1.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b&&(t=requestAnimationFrame(u));})(x$1)),u=void 0;},l$1.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j$1(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],l$1.__e(r,t.__v);}}),a&&a(t,u);},l$1.unmount=function(t){v&&v(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){l$1.__e(t,u.__v);}};var b="function"==typeof requestAnimationFrame;function g$1(n){var t=u;"function"==typeof n.__c&&n.__c(),u=t;}function j$1(n){var t=u;n.__c=n.__(),u=t;}function k$1(n,t){return !n||n.length!==t.length||t.some(function(t,u){return t!==n[u]})}function w$1(n,t){return "function"==typeof t?t(n):t}
 
 function S(n,t){for(var e in t)n[e]=t[e];return n}function C(n,t){for(var e in n)if("__source"!==e&&!(e in t))return !0;for(var r in t)if("__source"!==r&&n[r]!==t[r])return !0;return !1}function E(n){this.props=n;}function g(n,t){function e(n){var e=this.props.ref,r=e==n.ref;return !r&&e&&(e.call?e(null):e.current=null),t?!t(this.props,n)||!r:C(this.props,n)}function r(t){return this.shouldComponentUpdate=e,v$1(n,t)}return r.displayName="Memo("+(n.displayName||n.name)+")",r.prototype.isReactComponent=!0,r.__f=!0,r}(E.prototype=new _$1).isPureReactComponent=!0,E.prototype.shouldComponentUpdate=function(n,t){return C(this.props,n)||C(this.state,t)};var w=l$1.__b;l$1.__b=function(n){n.type&&n.type.__f&&n.ref&&(n.props.ref=n.ref,n.ref=null),w&&w(n);};var R="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.forward_ref")||3911;function x(n){function t(t,e){var r=S({},t);return delete r.ref,n(r,(e=t.ref||e)&&("object"!=typeof e||"current"in e)?e:null)}return t.$$typeof=R,t.render=t,t.prototype.isReactComponent=t.__f=!0,t.displayName="ForwardRef("+(n.displayName||n.name)+")",t}var N=function(n,t){return null==n?null:A$2(A$2(n).map(t))},k={map:N,forEach:N,count:function(n){return n?A$2(n).length:0},only:function(n){var t=A$2(n);if(1!==t.length)throw "Children.only";return t[0]},toArray:A$2},A=l$1.__e;l$1.__e=function(n,t,e){if(n.then)for(var r,u=t;u=u.__;)if((r=u.__c)&&r.__c)return null==t.__e&&(t.__e=e.__e,t.__k=e.__k),r.__c(n,t);A(n,t,e);};var O=l$1.unmount;function L(){this.__u=0,this.t=null,this.__b=null;}function U(n){var t=n.__.__c;return t&&t.__e&&t.__e(n)}function F(n){var t,e,r;function u(u){if(t||(t=n()).then(function(n){e=n.default||n;},function(n){r=n;}),r)throw r;if(!e)throw t;return v$1(e,u)}return u.displayName="Lazy",u.__f=!0,u}function M(){this.u=null,this.o=null;}l$1.unmount=function(n){var t=n.__c;t&&t.__R&&t.__R(),t&&!0===n.__h&&(n.type=null),O&&O(n);},(L.prototype=new _$1).__c=function(n,t){var e=t.__c,r=this;null==r.t&&(r.t=[]),r.t.push(e);var u=U(r.__v),o=!1,i=function(){o||(o=!0,e.__R=null,u?u(l):l());};e.__R=i;var l=function(){if(!--r.__u){if(r.state.__e){var n=r.state.__e;r.__v.__k[0]=function n(t,e,r){return t&&(t.__v=null,t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)}),t.__c&&t.__c.__P===e&&(t.__e&&r.insertBefore(t.__e,t.__d),t.__c.__e=!0,t.__c.__P=r)),t}(n,n.__c.__P,n.__c.__O);}var t;for(r.setState({__e:r.__b=null});t=r.t.pop();)t.forceUpdate();}},f=!0===t.__h;r.__u++||f||r.setState({__e:r.__b=r.__v.__k[0]}),n.then(i,i);},L.prototype.componentWillUnmount=function(){this.t=[];},L.prototype.render=function(n,t){if(this.__b){if(this.__v.__k){var e=document.createElement("div"),r=this.__v.__k[0].__c;this.__v.__k[0]=function n(t,e,r){return t&&(t.__c&&t.__c.__H&&(t.__c.__H.__.forEach(function(n){"function"==typeof n.__c&&n.__c();}),t.__c.__H=null),null!=(t=S({},t)).__c&&(t.__c.__P===r&&(t.__c.__P=e),t.__c=null),t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)})),t}(this.__b,e,r.__O=r.__P);}this.__b=null;}var u=t.__e&&v$1(d$1,null,n.fallback);return u&&(u.__h=null),[v$1(d$1,null,t.__e?null:n.children),u]};var T=function(n,t,e){if(++e[1]===e[0]&&n.o.delete(t),n.props.revealOrder&&("t"!==n.props.revealOrder[0]||!n.o.size))for(e=n.u;e;){for(;e.length>3;)e.pop()();if(e[1]<e[0])break;n.u=e=e[2];}};function D(n){return this.getChildContext=function(){return n.context},n.children}function I(n){var t=this,e=n.i;t.componentWillUnmount=function(){S$1(null,t.l),t.l=null,t.i=null;},t.i&&t.i!==e&&t.componentWillUnmount(),n.__v?(t.l||(t.i=e,t.l={nodeType:1,parentNode:e,childNodes:[],appendChild:function(n){this.childNodes.push(n),t.i.appendChild(n);},insertBefore:function(n,e){this.childNodes.push(n),t.i.appendChild(n);},removeChild:function(n){this.childNodes.splice(this.childNodes.indexOf(n)>>>1,1),t.i.removeChild(n);}}),S$1(v$1(D,{context:t.context},n.__v),t.l)):t.l&&t.componentWillUnmount();}function W(n,t){return v$1(I,{__v:n,i:t})}(M.prototype=new _$1).__e=function(n){var t=this,e=U(t.__v),r=t.o.get(n);return r[0]++,function(u){var o=function(){t.props.revealOrder?(r.push(u),T(t,n,r)):u();};e?e(o):o();}},M.prototype.render=function(n){this.u=null,this.o=new Map;var t=A$2(n.children);n.revealOrder&&"b"===n.revealOrder[0]&&t.reverse();for(var e=t.length;e--;)this.o.set(t[e],this.u=[1,0,this.u]);return n.children},M.prototype.componentDidUpdate=M.prototype.componentDidMount=function(){var n=this;this.o.forEach(function(t,e){T(n,e,t);});};var j="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,P=/^(?:accent|alignment|arabic|baseline|cap|clip(?!PathU)|color|fill|flood|font|glyph(?!R)|horiz|marker(?!H|W|U)|overline|paint|stop|strikethrough|stroke|text(?!L)|underline|unicode|units|v|vector|vert|word|writing|x(?!C))[A-Z]/,V=function(n){return ("undefined"!=typeof Symbol&&"symbol"==typeof Symbol()?/fil|che|rad/i:/fil|che|ra/i).test(n)};function z(n,t,e){return null==t.__k&&(t.textContent=""),S$1(n,t),"function"==typeof e&&e(),n?n.__c:null}function B(n,t,e){return q$2(n,t),"function"==typeof e&&e(),n?n.__c:null}_$1.prototype.isReactComponent={},["componentWillMount","componentWillReceiveProps","componentWillUpdate"].forEach(function(n){Object.defineProperty(_$1.prototype,n,{configurable:!0,get:function(){return this["UNSAFE_"+n]},set:function(t){Object.defineProperty(this,n,{configurable:!0,writable:!0,value:t});}});});var H=l$1.event;function Z(){}function Y(){return this.cancelBubble}function $(){return this.defaultPrevented}l$1.event=function(n){return H&&(n=H(n)),n.persist=Z,n.isPropagationStopped=Y,n.isDefaultPrevented=$,n.nativeEvent=n};var q,G={configurable:!0,get:function(){return this.class}},J=l$1.vnode;l$1.vnode=function(n){var t=n.type,e=n.props,r=e;if("string"==typeof t){for(var u in r={},e){var o=e[u];"value"===u&&"defaultValue"in e&&null==o||("defaultValue"===u&&"value"in e&&null==e.value?u="value":"download"===u&&!0===o?o="":/ondoubleclick/i.test(u)?u="ondblclick":/^onchange(textarea|input)/i.test(u+t)&&!V(e.type)?u="oninput":/^on(Ani|Tra|Tou|BeforeInp)/.test(u)?u=u.toLowerCase():P.test(u)?u=u.replace(/[A-Z0-9]/,"-$&").toLowerCase():null===o&&(o=void 0),r[u]=o);}"select"==t&&r.multiple&&Array.isArray(r.value)&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=-1!=r.value.indexOf(n.props.value);})),"select"==t&&null!=r.defaultValue&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=r.multiple?-1!=r.defaultValue.indexOf(n.props.value):r.defaultValue==n.props.value;})),n.props=r;}t&&e.class!=e.className&&(G.enumerable="className"in e,null!=e.className&&(r.class=e.className),Object.defineProperty(r,"className",G)),n.$$typeof=j,J&&J(n);};var K=l$1.__r;l$1.__r=function(n){K&&K(n),q=n.__c;};var Q={ReactCurrentDispatcher:{current:{readContext:function(n){return q.__n[n.__c].props.value}}}},X="17.0.2";function nn(n){return v$1.bind(null,n)}function tn(n){return !!n&&n.$$typeof===j}function en(n){return tn(n)?B$1.apply(null,arguments):n}function rn(n){return !!n.__k&&(S$1(null,n),!0)}function un(n){return n&&(n.base||1===n.nodeType&&n)||null}var on=function(n,t){return n(t)},ln=function(n,t){return n(t)},fn=d$1;var ReactDOM$2 = {useState:l,useReducer:p,useEffect:y,useLayoutEffect:h,useRef:s,useImperativeHandle:_,useMemo:d,useCallback:A$1,useContext:F$1,useDebugValue:T$1,version:"17.0.2",Children:k,render:z,hydrate:B,unmountComponentAtNode:rn,createPortal:W,createElement:v$1,createContext:D$1,createFactory:nn,cloneElement:en,createRef:p$1,Fragment:d$1,isValidElement:tn,findDOMNode:un,Component:_$1,PureComponent:E,memo:g,forwardRef:x,flushSync:ln,unstable_batchedUpdates:on,StrictMode:d$1,Suspense:L,SuspenseList:M,lazy:F,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:Q};
@@ -1092,6 +1185,824 @@ var compat_module = /*#__PURE__*/Object.freeze({
 	useDebugValue: T$1,
 	useErrorBoundary: q$1
 });
+
+var all = {exports: {}};
+
+var createChainableTypeChecker = {exports: {}};
+
+(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createChainableTypeChecker;
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+// Mostly taken from ReactPropTypes.
+
+function createChainableTypeChecker(validate) {
+  function checkType(isRequired, props, propName, componentName, location, propFullName) {
+    var componentNameSafe = componentName || '<<anonymous>>';
+    var propFullNameSafe = propFullName || propName;
+
+    if (props[propName] == null) {
+      if (isRequired) {
+        return new Error('Required ' + location + ' `' + propFullNameSafe + '` was not specified ' + ('in `' + componentNameSafe + '`.'));
+      }
+
+      return null;
+    }
+
+    for (var _len = arguments.length, args = Array(_len > 6 ? _len - 6 : 0), _key = 6; _key < _len; _key++) {
+      args[_key - 6] = arguments[_key];
+    }
+
+    return validate.apply(undefined, [props, propName, componentNameSafe, location, propFullNameSafe].concat(args));
+  }
+
+  var chainedCheckType = checkType.bind(null, false);
+  chainedCheckType.isRequired = checkType.bind(null, true);
+
+  return chainedCheckType;
+}
+module.exports = exports['default'];
+}(createChainableTypeChecker, createChainableTypeChecker.exports));
+
+(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = all;
+
+var _createChainableTypeChecker = createChainableTypeChecker.exports;
+
+var _createChainableTypeChecker2 = _interopRequireDefault(_createChainableTypeChecker);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function all() {
+  for (var _len = arguments.length, validators = Array(_len), _key = 0; _key < _len; _key++) {
+    validators[_key] = arguments[_key];
+  }
+
+  function allPropTypes() {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    var error = null;
+
+    validators.forEach(function (validator) {
+      if (error != null) {
+        return;
+      }
+
+      var result = validator.apply(undefined, args);
+      if (result != null) {
+        error = result;
+      }
+    });
+
+    return error;
+  }
+
+  return (0, _createChainableTypeChecker2.default)(allPropTypes);
+}
+module.exports = exports['default'];
+}(all, all.exports));
+
+var _excluded$p = ["as", "className", "type", "tooltip"];
+var propTypes = {
+  /**
+   * Specify whether the feedback is for valid or invalid fields
+   *
+   * @type {('valid'|'invalid')}
+   */
+  type: PropTypes$3.string,
+
+  /** Display feedback as a tooltip. */
+  tooltip: PropTypes$3.bool,
+  as: PropTypes$3.elementType
+};
+var Feedback = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+function (_ref, ref) {
+  var _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      className = _ref.className,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'valid' : _ref$type,
+      _ref$tooltip = _ref.tooltip,
+      tooltip = _ref$tooltip === void 0 ? false : _ref$tooltip,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
+
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    className: classNames(className, type + "-" + (tooltip ? 'tooltip' : 'feedback'))
+  }));
+});
+Feedback.displayName = 'Feedback';
+Feedback.propTypes = propTypes;
+var Feedback$1 = Feedback;
+
+var FormContext = /*#__PURE__*/ReactDOM$2.createContext({
+  controlId: undefined
+});
+var FormContext$1 = FormContext;
+
+var ThemeContext = /*#__PURE__*/ReactDOM$2.createContext({});
+ThemeContext.Consumer;
+    ThemeContext.Provider;
+
+function useBootstrapPrefix(prefix, defaultPrefix) {
+  var prefixes = F$1(ThemeContext);
+  return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+
+var _excluded$o = ["id", "bsPrefix", "bsCustomPrefix", "className", "type", "isValid", "isInvalid", "isStatic", "as"];
+var FormCheckInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+      bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      className = _ref.className,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'checkbox' : _ref$type,
+      _ref$isValid = _ref.isValid,
+      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
+      _ref$isInvalid = _ref.isInvalid,
+      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
+      isStatic = _ref.isStatic,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'input' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId,
+      custom = _useContext.custom;
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom-control-input'] : [bsPrefix, 'form-check-input'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    type: type,
+    id: id || controlId,
+    className: classNames(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid', isStatic && 'position-static')
+  }));
+});
+FormCheckInput.displayName = 'FormCheckInput';
+var FormCheckInput$1 = FormCheckInput;
+
+var _excluded$n = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
+var FormCheckLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      className = _ref.className,
+      htmlFor = _ref.htmlFor,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId,
+      custom = _useContext.custom;
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom-control-label'] : [bsPrefix, 'form-check-label'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
+    ref: ref,
+    htmlFor: htmlFor || controlId,
+    className: classNames(className, bsPrefix)
+  }));
+});
+FormCheckLabel.displayName = 'FormCheckLabel';
+var FormCheckLabel$1 = FormCheckLabel;
+
+var _excluded$m = ["id", "bsPrefix", "bsCustomPrefix", "inline", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "title", "type", "label", "children", "custom", "as"];
+var FormCheck = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+      bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      _ref$inline = _ref.inline,
+      inline = _ref$inline === void 0 ? false : _ref$inline,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+      _ref$isValid = _ref.isValid,
+      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
+      _ref$isInvalid = _ref.isInvalid,
+      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
+      _ref$feedbackTooltip = _ref.feedbackTooltip,
+      feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip,
+      feedback = _ref.feedback,
+      className = _ref.className,
+      style = _ref.style,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? '' : _ref$title,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'checkbox' : _ref$type,
+      label = _ref.label,
+      children = _ref.children,
+      propCustom = _ref.custom,
+      _ref$as = _ref.as,
+      as = _ref$as === void 0 ? 'input' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+
+  var custom = type === 'switch' ? true : propCustom;
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom-control'] : [bsPrefix, 'form-check'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId;
+
+  var innerFormContext = d(function () {
+    return {
+      controlId: id || controlId,
+      custom: custom
+    };
+  }, [controlId, custom, id]);
+  var hasLabel = custom || label != null && label !== false && !children;
+  var input = /*#__PURE__*/ReactDOM$2.createElement(FormCheckInput$1, _extends({}, props, {
+    type: type === 'switch' ? 'checkbox' : type,
+    ref: ref,
+    isValid: isValid,
+    isInvalid: isInvalid,
+    isStatic: !hasLabel,
+    disabled: disabled,
+    as: as
+  }));
+  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+    value: innerFormContext
+  }, /*#__PURE__*/ReactDOM$2.createElement("div", {
+    style: style,
+    className: classNames(className, bsPrefix, custom && "custom-" + type, inline && bsPrefix + "-inline")
+  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormCheckLabel$1, {
+    title: title
+  }, label), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
+    type: isValid ? 'valid' : 'invalid',
+    tooltip: feedbackTooltip
+  }, feedback))));
+});
+FormCheck.displayName = 'FormCheck';
+FormCheck.Input = FormCheckInput$1;
+FormCheck.Label = FormCheckLabel$1;
+var FormCheck$1 = FormCheck;
+
+var _excluded$l = ["id", "bsPrefix", "bsCustomPrefix", "className", "isValid", "isInvalid", "lang", "as"];
+var FormFileInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+      bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      className = _ref.className,
+      isValid = _ref.isValid,
+      isInvalid = _ref.isInvalid,
+      lang = _ref.lang,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'input' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId,
+      custom = _useContext.custom;
+
+  var type = 'file';
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom-file-input'] : [bsPrefix, 'form-control-file'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    id: id || controlId,
+    type: type,
+    lang: lang,
+    className: classNames(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid')
+  }));
+});
+FormFileInput.displayName = 'FormFileInput';
+var FormFileInput$1 = FormFileInput;
+
+var _excluded$k = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
+var FormFileLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      className = _ref.className,
+      htmlFor = _ref.htmlFor,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId,
+      custom = _useContext.custom;
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom-file-label'] : [bsPrefix, 'form-file-label'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
+    ref: ref,
+    htmlFor: htmlFor || controlId,
+    className: classNames(className, bsPrefix),
+    "data-browse": props['data-browse']
+  }));
+});
+FormFileLabel.displayName = 'FormFileLabel';
+var FormFileLabel$1 = FormFileLabel;
+
+var _excluded$j = ["id", "bsPrefix", "bsCustomPrefix", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "label", "children", "custom", "lang", "data-browse", "as", "inputAs"];
+var FormFile = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+      bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+      _ref$isValid = _ref.isValid,
+      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
+      _ref$isInvalid = _ref.isInvalid,
+      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
+      _ref$feedbackTooltip = _ref.feedbackTooltip,
+      feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip,
+      feedback = _ref.feedback,
+      className = _ref.className,
+      style = _ref.style,
+      label = _ref.label,
+      children = _ref.children,
+      custom = _ref.custom,
+      lang = _ref.lang,
+      dataBrowse = _ref['data-browse'],
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      _ref$inputAs = _ref.inputAs,
+      inputAs = _ref$inputAs === void 0 ? 'input' : _ref$inputAs,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom'] : [bsPrefix, 'form-file'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  var type = 'file';
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId;
+
+  var innerFormContext = d(function () {
+    return {
+      controlId: id || controlId,
+      custom: custom
+    };
+  }, [controlId, custom, id]);
+  var hasLabel = label != null && label !== false && !children;
+  var input = /*#__PURE__*/ReactDOM$2.createElement(FormFileInput$1, _extends({}, props, {
+    ref: ref,
+    isValid: isValid,
+    isInvalid: isInvalid,
+    disabled: disabled,
+    as: inputAs,
+    lang: lang
+  }));
+  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+    value: innerFormContext
+  }, /*#__PURE__*/ReactDOM$2.createElement(Component, {
+    style: style,
+    className: classNames(className, bsPrefix, custom && "custom-" + type)
+  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, custom ? /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, {
+    "data-browse": dataBrowse
+  }, label)) : /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, null, label), input), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
+    type: isValid ? 'valid' : 'invalid',
+    tooltip: feedbackTooltip
+  }, feedback))));
+});
+FormFile.displayName = 'FormFile';
+FormFile.Input = FormFileInput$1;
+FormFile.Label = FormFileLabel$1;
+var FormFile$1 = FormFile;
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var warning = function() {};
+
+{
+  var printWarning = function printWarning(format, args) {
+    var len = arguments.length;
+    args = new Array(len > 1 ? len - 1 : 0);
+    for (var key = 1; key < len; key++) {
+      args[key - 1] = arguments[key];
+    }
+    var argIndex = 0;
+    var message = 'Warning: ' +
+      format.replace(/%s/g, function() {
+        return args[argIndex++];
+      });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error(
+          '`warning(condition, format, ...args)` requires a warning ' +
+          'message argument'
+      );
+    }
+    if (!condition) {
+      printWarning.apply(null, [format].concat(args));
+    }
+  };
+}
+
+var warning_1 = warning;
+
+var _excluded$i = ["bsPrefix", "bsCustomPrefix", "type", "size", "htmlSize", "id", "className", "isValid", "isInvalid", "plaintext", "readOnly", "custom", "as"];
+var FormControl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      bsCustomPrefix = _ref.bsCustomPrefix,
+      type = _ref.type,
+      size = _ref.size,
+      htmlSize = _ref.htmlSize,
+      id = _ref.id,
+      className = _ref.className,
+      _ref$isValid = _ref.isValid,
+      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
+      _ref$isInvalid = _ref.isInvalid,
+      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
+      plaintext = _ref.plaintext,
+      readOnly = _ref.readOnly,
+      custom = _ref.custom,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'input' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId;
+
+  var _ref2 = custom ? [bsCustomPrefix, 'custom'] : [bsPrefix, 'form-control'],
+      prefix = _ref2[0],
+      defaultPrefix = _ref2[1];
+
+  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
+  var classes;
+
+  if (plaintext) {
+    var _classes;
+
+    classes = (_classes = {}, _classes[bsPrefix + "-plaintext"] = true, _classes);
+  } else if (type === 'file') {
+    var _classes2;
+
+    classes = (_classes2 = {}, _classes2[bsPrefix + "-file"] = true, _classes2);
+  } else if (type === 'range') {
+    var _classes3;
+
+    classes = (_classes3 = {}, _classes3[bsPrefix + "-range"] = true, _classes3);
+  } else if (Component === 'select' && custom) {
+    var _classes4;
+
+    classes = (_classes4 = {}, _classes4[bsPrefix + "-select"] = true, _classes4[bsPrefix + "-select-" + size] = size, _classes4);
+  } else {
+    var _classes5;
+
+    classes = (_classes5 = {}, _classes5[bsPrefix] = true, _classes5[bsPrefix + "-" + size] = size, _classes5);
+  }
+
+  warning_1(controlId == null || !id, '`controlId` is ignored on `<FormControl>` when `id` is specified.') ;
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    type: type,
+    size: htmlSize,
+    ref: ref,
+    readOnly: readOnly,
+    id: id || controlId,
+    className: classNames(className, classes, isValid && "is-valid", isInvalid && "is-invalid")
+  }));
+});
+FormControl.displayName = 'FormControl';
+var FormControl$1 = Object.assign(FormControl, {
+  Feedback: Feedback$1
+});
+
+var _excluded$h = ["bsPrefix", "className", "children", "controlId", "as"];
+var FormGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      children = _ref.children,
+      controlId = _ref.controlId,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-group');
+  var context = d(function () {
+    return {
+      controlId: controlId
+    };
+  }, [controlId]);
+  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+    value: context
+  }, /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    className: classNames(className, bsPrefix)
+  }), children));
+});
+FormGroup.displayName = 'FormGroup';
+var FormGroup$1 = FormGroup;
+
+var _excluded$g = ["bsPrefix", "className", "as"];
+var DEVICE_SIZES$1 = ['xl', 'lg', 'md', 'sm', 'xs'];
+var Col = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+
+  var prefix = useBootstrapPrefix(bsPrefix, 'col');
+  var spans = [];
+  var classes = [];
+  DEVICE_SIZES$1.forEach(function (brkPoint) {
+    var propValue = props[brkPoint];
+    delete props[brkPoint];
+    var span;
+    var offset;
+    var order;
+
+    if (typeof propValue === 'object' && propValue != null) {
+      var _propValue$span = propValue.span;
+      span = _propValue$span === void 0 ? true : _propValue$span;
+      offset = propValue.offset;
+      order = propValue.order;
+    } else {
+      span = propValue;
+    }
+
+    var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
+    if (span) spans.push(span === true ? "" + prefix + infix : "" + prefix + infix + "-" + span);
+    if (order != null) classes.push("order" + infix + "-" + order);
+    if (offset != null) classes.push("offset" + infix + "-" + offset);
+  });
+
+  if (!spans.length) {
+    spans.push(prefix); // plain 'col'
+  }
+
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    className: classNames.apply(void 0, [className].concat(spans, classes))
+  }));
+});
+Col.displayName = 'Col';
+
+var _excluded$f = ["as", "bsPrefix", "column", "srOnly", "className", "htmlFor"];
+var defaultProps$9 = {
+  column: false,
+  srOnly: false
+};
+var FormLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'label' : _ref$as,
+      bsPrefix = _ref.bsPrefix,
+      column = _ref.column,
+      srOnly = _ref.srOnly,
+      className = _ref.className,
+      htmlFor = _ref.htmlFor,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
+
+  var _useContext = F$1(FormContext$1),
+      controlId = _useContext.controlId;
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-label');
+  var columnClass = 'col-form-label';
+  if (typeof column === 'string') columnClass = columnClass + " " + columnClass + "-" + column;
+  var classes = classNames(className, bsPrefix, srOnly && 'sr-only', column && columnClass);
+  warning_1(controlId == null || !htmlFor, '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.') ;
+  htmlFor = htmlFor || controlId;
+  if (column) return /*#__PURE__*/ReactDOM$2.createElement(Col, _extends({
+    ref: ref,
+    as: "label",
+    className: classes,
+    htmlFor: htmlFor
+  }, props));
+  return (
+    /*#__PURE__*/
+    // eslint-disable-next-line jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control
+    ReactDOM$2.createElement(Component, _extends({
+      ref: ref,
+      className: classes,
+      htmlFor: htmlFor
+    }, props))
+  );
+});
+FormLabel.displayName = 'FormLabel';
+FormLabel.defaultProps = defaultProps$9;
+var FormLabel$1 = FormLabel;
+
+var _excluded$e = ["bsPrefix", "className", "as", "muted"];
+var FormText = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'small' : _ref$as,
+      muted = _ref.muted,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-text');
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    className: classNames(className, bsPrefix, muted && 'text-muted')
+  }));
+});
+FormText.displayName = 'FormText';
+var FormText$1 = FormText;
+
+var Switch = /*#__PURE__*/ReactDOM$2.forwardRef(function (props, ref) {
+  return /*#__PURE__*/ReactDOM$2.createElement(FormCheck$1, _extends({}, props, {
+    ref: ref,
+    type: "switch"
+  }));
+});
+Switch.displayName = 'Switch';
+Switch.Input = FormCheck$1.Input;
+Switch.Label = FormCheck$1.Label;
+var Switch$1 = Switch;
+
+var rHyphen = /-(.)/g;
+function camelize(string) {
+  return string.replace(rHyphen, function (_, chr) {
+    return chr.toUpperCase();
+  });
+}
+
+var _excluded$d = ["className", "bsPrefix", "as"];
+
+var pascalCase = function pascalCase(str) {
+  return str[0].toUpperCase() + camelize(str).slice(1);
+};
+
+// TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
+function createWithBsPrefix(prefix, _temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      _ref$displayName = _ref.displayName,
+      displayName = _ref$displayName === void 0 ? pascalCase(prefix) : _ref$displayName,
+      Component = _ref.Component,
+      defaultProps = _ref.defaultProps;
+
+  var BsComponent = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref2, ref) {
+    var className = _ref2.className,
+        bsPrefix = _ref2.bsPrefix,
+        _ref2$as = _ref2.as,
+        Tag = _ref2$as === void 0 ? Component || 'div' : _ref2$as,
+        props = _objectWithoutPropertiesLoose(_ref2, _excluded$d);
+
+    var resolvedPrefix = useBootstrapPrefix(bsPrefix, prefix);
+    return /*#__PURE__*/ReactDOM$2.createElement(Tag, _extends({
+      ref: ref,
+      className: classNames(className, resolvedPrefix)
+    }, props));
+  });
+  BsComponent.defaultProps = defaultProps;
+  BsComponent.displayName = displayName;
+  return BsComponent;
+}
+
+var _excluded$c = ["bsPrefix", "inline", "className", "validated", "as"];
+var FormRow = createWithBsPrefix('form-row');
+var defaultProps$8 = {
+  inline: false
+};
+var FormImpl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      inline = _ref.inline,
+      className = _ref.className,
+      validated = _ref.validated,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'form' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'form');
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+    ref: ref,
+    className: classNames(className, validated && 'was-validated', inline && bsPrefix + "-inline")
+  }));
+});
+FormImpl.displayName = 'Form';
+FormImpl.defaultProps = defaultProps$8;
+FormImpl.Row = FormRow;
+FormImpl.Group = FormGroup$1;
+FormImpl.Control = FormControl$1;
+FormImpl.Check = FormCheck$1;
+FormImpl.File = FormFile$1;
+FormImpl.Switch = Switch$1;
+FormImpl.Label = FormLabel$1;
+FormImpl.Text = FormText$1;
+
+var _excluded$b = ["bsPrefix", "size", "hasValidation", "className", "as"];
+var InputGroupAppend = createWithBsPrefix('input-group-append');
+var InputGroupPrepend = createWithBsPrefix('input-group-prepend');
+var InputGroupText = createWithBsPrefix('input-group-text', {
+  Component: 'span'
+});
+
+var InputGroupCheckbox = function InputGroupCheckbox(props) {
+  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
+    type: "checkbox"
+  }, props)));
+};
+
+var InputGroupRadio = function InputGroupRadio(props) {
+  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
+    type: "radio"
+  }, props)));
+};
+
+/**
+ *
+ * @property {InputGroupAppend} Append
+ * @property {InputGroupPrepend} Prepend
+ * @property {InputGroupText} Text
+ * @property {InputGroupRadio} Radio
+ * @property {InputGroupCheckbox} Checkbox
+ */
+var InputGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      size = _ref.size,
+      hasValidation = _ref.hasValidation,
+      className = _ref.className,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group');
+  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+    ref: ref
+  }, props, {
+    className: classNames(className, bsPrefix, size && bsPrefix + "-" + size, hasValidation && 'has-validation')
+  }));
+});
+InputGroup.displayName = 'InputGroup';
+InputGroup.Text = InputGroupText;
+InputGroup.Radio = InputGroupRadio;
+InputGroup.Checkbox = InputGroupCheckbox;
+InputGroup.Append = InputGroupAppend;
+InputGroup.Prepend = InputGroupPrepend;
+
+class ControlNote extends ReactDOM$2.PureComponent {
+  static get propTypes() {
+    return {
+      note: propTypes$1.exports.object
+    };
+  }
+
+  render() {
+    const {
+      note
+    } = this.props;
+    const {
+      label,
+      value,
+      options
+    } = note.control;
+    return v$1(InputGroup, null, v$1(InputGroup.Text, {
+      id: "basic-addon1"
+    }, label), v$1(FormImpl.Control, {
+      class: "note control input",
+      value: value,
+      name: label
+    }));
+  }
+
+}
 
 /**
  * marked - a markdown parser
@@ -3909,7 +4820,7 @@ marked.use({
 class MdNote extends ReactDOM$2.PureComponent {
   static get propTypes() {
     return {
-      note: propTypes$1.exports.array
+      note: propTypes$1.exports.object
     };
   }
 
@@ -3930,7 +4841,7 @@ class MdNote extends ReactDOM$2.PureComponent {
 class ViewNote extends ReactDOM$2.PureComponent {
   static get propTypes() {
     return {
-      note: propTypes$1.exports.array,
+      note: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
       workspace: propTypes$1.exports.string
     };
@@ -4153,7 +5064,13 @@ class Notebook extends ReactDOM$2.PureComponent {
           note: note,
           workspace: workspace
         });
-      } else if (note.download) ; else if (note.control) ;
+      } else if (note.download) ; else if (note.control) {
+        child = v$1(ControlNote, {
+          key: note.hash,
+          note: note,
+          workspace: workspace
+        });
+      }
 
       if (child) {
         children.push(child);
@@ -4172,108 +5089,6 @@ class Notebook extends ReactDOM$2.PureComponent {
     }, children);
   }
 
-}
-
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-var classnames = {exports: {}};
-
-/*!
-	Copyright (c) 2018 Jed Watson.
-	Licensed under the MIT License (MIT), see
-	http://jedwatson.github.io/classnames
-*/
-
-(function (module) {
-/* global define */
-
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames() {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				if (arg.length) {
-					var inner = classNames.apply(null, arg);
-					if (inner) {
-						classes.push(inner);
-					}
-				}
-			} else if (argType === 'object') {
-				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
-					classes.push(arg.toString());
-					continue;
-				}
-
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else {
-		window.classNames = classNames;
-	}
-}());
-}(classnames));
-
-var classNames = classnames.exports;
-
-var ThemeContext = /*#__PURE__*/ReactDOM$2.createContext({});
-ThemeContext.Consumer;
-    ThemeContext.Provider;
-
-function useBootstrapPrefix(prefix, defaultPrefix) {
-  var prefixes = F$1(ThemeContext);
-  return prefix || prefixes[defaultPrefix] || defaultPrefix;
 }
 
 /**
@@ -4311,7 +5126,7 @@ function createChainedFunction() {
   }, null);
 }
 
-var _excluded$p = ["as", "disabled", "onKeyDown"];
+var _excluded$a = ["as", "disabled", "onKeyDown"];
 
 function isTrivialHref(href) {
   return !href || href.trim() === '#';
@@ -4330,7 +5145,7 @@ var SafeAnchor = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       Component = _ref$as === void 0 ? 'a' : _ref$as,
       disabled = _ref.disabled,
       onKeyDown = _ref.onKeyDown,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
 
   var handleClick = function handleClick(event) {
     var href = props.href,
@@ -4379,8 +5194,8 @@ var SafeAnchor = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
 SafeAnchor.displayName = 'SafeAnchor';
 var SafeAnchor$1 = SafeAnchor;
 
-var _excluded$o = ["bsPrefix", "variant", "size", "active", "className", "block", "type", "as"];
-var defaultProps$9 = {
+var _excluded$9 = ["bsPrefix", "variant", "size", "active", "className", "block", "type", "as"];
+var defaultProps$7 = {
   variant: 'primary',
   active: false,
   disabled: false
@@ -4394,7 +5209,7 @@ var Button = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       block = _ref.block,
       type = _ref.type,
       as = _ref.as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   var prefix = useBootstrapPrefix(bsPrefix, 'btn');
   var classes = classNames(className, prefix, active && 'active', variant && prefix + "-" + variant, block && prefix + "-block", size && prefix + "-" + size);
@@ -4423,10 +5238,10 @@ var Button = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   }));
 });
 Button.displayName = 'Button';
-Button.defaultProps = defaultProps$9;
+Button.defaultProps = defaultProps$7;
 
-var _excluded$n = ["bsPrefix", "size", "toggle", "vertical", "className", "as"];
-var defaultProps$8 = {
+var _excluded$8 = ["bsPrefix", "size", "toggle", "vertical", "className", "as"];
+var defaultProps$6 = {
   vertical: false,
   toggle: false,
   role: 'group'
@@ -4439,7 +5254,7 @@ var ButtonGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       className = _ref.className,
       _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
-      rest = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+      rest = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
   var prefix = useBootstrapPrefix(bsPrefix, 'btn-group');
   var baseClass = prefix;
@@ -4450,46 +5265,7 @@ var ButtonGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   }));
 });
 ButtonGroup.displayName = 'ButtonGroup';
-ButtonGroup.defaultProps = defaultProps$8;
-
-var rHyphen = /-(.)/g;
-function camelize(string) {
-  return string.replace(rHyphen, function (_, chr) {
-    return chr.toUpperCase();
-  });
-}
-
-var _excluded$m = ["className", "bsPrefix", "as"];
-
-var pascalCase = function pascalCase(str) {
-  return str[0].toUpperCase() + camelize(str).slice(1);
-};
-
-// TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
-function createWithBsPrefix(prefix, _temp) {
-  var _ref = _temp === void 0 ? {} : _temp,
-      _ref$displayName = _ref.displayName,
-      displayName = _ref$displayName === void 0 ? pascalCase(prefix) : _ref$displayName,
-      Component = _ref.Component,
-      defaultProps = _ref.defaultProps;
-
-  var BsComponent = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref2, ref) {
-    var className = _ref2.className,
-        bsPrefix = _ref2.bsPrefix,
-        _ref2$as = _ref2.as,
-        Tag = _ref2$as === void 0 ? Component || 'div' : _ref2$as,
-        props = _objectWithoutPropertiesLoose(_ref2, _excluded$m);
-
-    var resolvedPrefix = useBootstrapPrefix(bsPrefix, prefix);
-    return /*#__PURE__*/ReactDOM$2.createElement(Tag, _extends({
-      ref: ref,
-      className: classNames(className, resolvedPrefix)
-    }, props));
-  });
-  BsComponent.defaultProps = defaultProps;
-  BsComponent.displayName = displayName;
-  return BsComponent;
-}
+ButtonGroup.defaultProps = defaultProps$6;
 
 var divWithClassName = (function (className) {
   return /*#__PURE__*/ReactDOM$2.forwardRef(function (p, ref) {
@@ -4504,8 +5280,8 @@ var context = /*#__PURE__*/ReactDOM$2.createContext(null);
 context.displayName = 'CardContext';
 var CardContext = context;
 
-var _excluded$l = ["bsPrefix", "className", "variant", "as"];
-var defaultProps$7 = {
+var _excluded$7 = ["bsPrefix", "className", "variant", "as"];
+var defaultProps$5 = {
   variant: null
 };
 var CardImg = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
@@ -4515,7 +5291,7 @@ function (_ref, ref) {
       variant = _ref.variant,
       _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'img' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
   var prefix = useBootstrapPrefix(bsPrefix, 'card-img');
   return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
@@ -4524,10 +5300,10 @@ function (_ref, ref) {
   }, props));
 });
 CardImg.displayName = 'CardImg';
-CardImg.defaultProps = defaultProps$7;
+CardImg.defaultProps = defaultProps$5;
 var CardImg$1 = CardImg;
 
-var _excluded$k = ["bsPrefix", "className", "bg", "text", "border", "body", "children", "as"];
+var _excluded$6 = ["bsPrefix", "className", "bg", "text", "border", "body", "children", "as"];
 var DivStyledAsH5 = divWithClassName('h5');
 var DivStyledAsH6 = divWithClassName('h6');
 var CardBody = createWithBsPrefix('card-body');
@@ -4546,7 +5322,7 @@ var CardText = createWithBsPrefix('card-text', {
 var CardHeader = createWithBsPrefix('card-header');
 var CardFooter = createWithBsPrefix('card-footer');
 var CardImgOverlay = createWithBsPrefix('card-img-overlay');
-var defaultProps$6 = {
+var defaultProps$4 = {
   body: false
 };
 var Card = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
@@ -4559,7 +5335,7 @@ var Card = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       children = _ref.children,
       _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
 
   var prefix = useBootstrapPrefix(bsPrefix, 'card');
   var cardContext = d(function () {
@@ -4579,7 +5355,7 @@ var Card = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   ReactDOM$2.createElement(CardBody, null, children) : children));
 });
 Card.displayName = 'Card';
-Card.defaultProps = defaultProps$6;
+Card.defaultProps = defaultProps$4;
 Card.Img = CardImg$1;
 Card.Title = CardTitle;
 Card.Subtitle = CardSubtitle;
@@ -4589,52 +5365,6 @@ Card.Text = CardText;
 Card.Header = CardHeader;
 Card.Footer = CardFooter;
 Card.ImgOverlay = CardImgOverlay;
-
-var _excluded$j = ["bsPrefix", "className", "as"];
-var DEVICE_SIZES$1 = ['xl', 'lg', 'md', 'sm', 'xs'];
-var Col = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      className = _ref.className,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'div' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
-
-  var prefix = useBootstrapPrefix(bsPrefix, 'col');
-  var spans = [];
-  var classes = [];
-  DEVICE_SIZES$1.forEach(function (brkPoint) {
-    var propValue = props[brkPoint];
-    delete props[brkPoint];
-    var span;
-    var offset;
-    var order;
-
-    if (typeof propValue === 'object' && propValue != null) {
-      var _propValue$span = propValue.span;
-      span = _propValue$span === void 0 ? true : _propValue$span;
-      offset = propValue.offset;
-      order = propValue.order;
-    } else {
-      span = propValue;
-    }
-
-    var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
-    if (span) spans.push(span === true ? "" + prefix + infix : "" + prefix + infix + "-" + span);
-    if (order != null) classes.push("order" + infix + "-" + order);
-    if (offset != null) classes.push("offset" + infix + "-" + offset);
-  });
-
-  if (!spans.length) {
-    spans.push(prefix); // plain 'col'
-  }
-
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    className: classNames.apply(void 0, [className].concat(spans, classes))
-  }));
-});
-Col.displayName = 'Col';
 
 var lib$1 = {};
 
@@ -11005,703 +11735,6 @@ exports.default = {
 }(lib$1));
 
 var FlexLayout = /*@__PURE__*/getDefaultExportFromCjs(lib$1);
-
-var all = {exports: {}};
-
-var createChainableTypeChecker = {exports: {}};
-
-(function (module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createChainableTypeChecker;
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-// Mostly taken from ReactPropTypes.
-
-function createChainableTypeChecker(validate) {
-  function checkType(isRequired, props, propName, componentName, location, propFullName) {
-    var componentNameSafe = componentName || '<<anonymous>>';
-    var propFullNameSafe = propFullName || propName;
-
-    if (props[propName] == null) {
-      if (isRequired) {
-        return new Error('Required ' + location + ' `' + propFullNameSafe + '` was not specified ' + ('in `' + componentNameSafe + '`.'));
-      }
-
-      return null;
-    }
-
-    for (var _len = arguments.length, args = Array(_len > 6 ? _len - 6 : 0), _key = 6; _key < _len; _key++) {
-      args[_key - 6] = arguments[_key];
-    }
-
-    return validate.apply(undefined, [props, propName, componentNameSafe, location, propFullNameSafe].concat(args));
-  }
-
-  var chainedCheckType = checkType.bind(null, false);
-  chainedCheckType.isRequired = checkType.bind(null, true);
-
-  return chainedCheckType;
-}
-module.exports = exports['default'];
-}(createChainableTypeChecker, createChainableTypeChecker.exports));
-
-(function (module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = all;
-
-var _createChainableTypeChecker = createChainableTypeChecker.exports;
-
-var _createChainableTypeChecker2 = _interopRequireDefault(_createChainableTypeChecker);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function all() {
-  for (var _len = arguments.length, validators = Array(_len), _key = 0; _key < _len; _key++) {
-    validators[_key] = arguments[_key];
-  }
-
-  function allPropTypes() {
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      args[_key2] = arguments[_key2];
-    }
-
-    var error = null;
-
-    validators.forEach(function (validator) {
-      if (error != null) {
-        return;
-      }
-
-      var result = validator.apply(undefined, args);
-      if (result != null) {
-        error = result;
-      }
-    });
-
-    return error;
-  }
-
-  return (0, _createChainableTypeChecker2.default)(allPropTypes);
-}
-module.exports = exports['default'];
-}(all, all.exports));
-
-var _excluded$i = ["as", "className", "type", "tooltip"];
-var propTypes = {
-  /**
-   * Specify whether the feedback is for valid or invalid fields
-   *
-   * @type {('valid'|'invalid')}
-   */
-  type: PropTypes$3.string,
-
-  /** Display feedback as a tooltip. */
-  tooltip: PropTypes$3.bool,
-  as: PropTypes$3.elementType
-};
-var Feedback = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-function (_ref, ref) {
-  var _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'div' : _ref$as,
-      className = _ref.className,
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? 'valid' : _ref$type,
-      _ref$tooltip = _ref.tooltip,
-      tooltip = _ref$tooltip === void 0 ? false : _ref$tooltip,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
-
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    className: classNames(className, type + "-" + (tooltip ? 'tooltip' : 'feedback'))
-  }));
-});
-Feedback.displayName = 'Feedback';
-Feedback.propTypes = propTypes;
-var Feedback$1 = Feedback;
-
-var FormContext = /*#__PURE__*/ReactDOM$2.createContext({
-  controlId: undefined
-});
-var FormContext$1 = FormContext;
-
-var _excluded$h = ["id", "bsPrefix", "bsCustomPrefix", "className", "type", "isValid", "isInvalid", "isStatic", "as"];
-var FormCheckInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var id = _ref.id,
-      bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      className = _ref.className,
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? 'checkbox' : _ref$type,
-      _ref$isValid = _ref.isValid,
-      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
-      _ref$isInvalid = _ref.isInvalid,
-      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
-      isStatic = _ref.isStatic,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'input' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId,
-      custom = _useContext.custom;
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom-control-input'] : [bsPrefix, 'form-check-input'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    type: type,
-    id: id || controlId,
-    className: classNames(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid', isStatic && 'position-static')
-  }));
-});
-FormCheckInput.displayName = 'FormCheckInput';
-var FormCheckInput$1 = FormCheckInput;
-
-var _excluded$g = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
-var FormCheckLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      className = _ref.className,
-      htmlFor = _ref.htmlFor,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId,
-      custom = _useContext.custom;
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom-control-label'] : [bsPrefix, 'form-check-label'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
-    ref: ref,
-    htmlFor: htmlFor || controlId,
-    className: classNames(className, bsPrefix)
-  }));
-});
-FormCheckLabel.displayName = 'FormCheckLabel';
-var FormCheckLabel$1 = FormCheckLabel;
-
-var _excluded$f = ["id", "bsPrefix", "bsCustomPrefix", "inline", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "title", "type", "label", "children", "custom", "as"];
-var FormCheck = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var id = _ref.id,
-      bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      _ref$inline = _ref.inline,
-      inline = _ref$inline === void 0 ? false : _ref$inline,
-      _ref$disabled = _ref.disabled,
-      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
-      _ref$isValid = _ref.isValid,
-      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
-      _ref$isInvalid = _ref.isInvalid,
-      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
-      _ref$feedbackTooltip = _ref.feedbackTooltip,
-      feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip,
-      feedback = _ref.feedback,
-      className = _ref.className,
-      style = _ref.style,
-      _ref$title = _ref.title,
-      title = _ref$title === void 0 ? '' : _ref$title,
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? 'checkbox' : _ref$type,
-      label = _ref.label,
-      children = _ref.children,
-      propCustom = _ref.custom,
-      _ref$as = _ref.as,
-      as = _ref$as === void 0 ? 'input' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
-
-  var custom = type === 'switch' ? true : propCustom;
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom-control'] : [bsPrefix, 'form-check'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId;
-
-  var innerFormContext = d(function () {
-    return {
-      controlId: id || controlId,
-      custom: custom
-    };
-  }, [controlId, custom, id]);
-  var hasLabel = custom || label != null && label !== false && !children;
-  var input = /*#__PURE__*/ReactDOM$2.createElement(FormCheckInput$1, _extends({}, props, {
-    type: type === 'switch' ? 'checkbox' : type,
-    ref: ref,
-    isValid: isValid,
-    isInvalid: isInvalid,
-    isStatic: !hasLabel,
-    disabled: disabled,
-    as: as
-  }));
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
-    value: innerFormContext
-  }, /*#__PURE__*/ReactDOM$2.createElement("div", {
-    style: style,
-    className: classNames(className, bsPrefix, custom && "custom-" + type, inline && bsPrefix + "-inline")
-  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormCheckLabel$1, {
-    title: title
-  }, label), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
-    type: isValid ? 'valid' : 'invalid',
-    tooltip: feedbackTooltip
-  }, feedback))));
-});
-FormCheck.displayName = 'FormCheck';
-FormCheck.Input = FormCheckInput$1;
-FormCheck.Label = FormCheckLabel$1;
-var FormCheck$1 = FormCheck;
-
-var _excluded$e = ["id", "bsPrefix", "bsCustomPrefix", "className", "isValid", "isInvalid", "lang", "as"];
-var FormFileInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var id = _ref.id,
-      bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      className = _ref.className,
-      isValid = _ref.isValid,
-      isInvalid = _ref.isInvalid,
-      lang = _ref.lang,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'input' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId,
-      custom = _useContext.custom;
-
-  var type = 'file';
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom-file-input'] : [bsPrefix, 'form-control-file'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    id: id || controlId,
-    type: type,
-    lang: lang,
-    className: classNames(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid')
-  }));
-});
-FormFileInput.displayName = 'FormFileInput';
-var FormFileInput$1 = FormFileInput;
-
-var _excluded$d = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
-var FormFileLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      className = _ref.className,
-      htmlFor = _ref.htmlFor,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId,
-      custom = _useContext.custom;
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom-file-label'] : [bsPrefix, 'form-file-label'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
-    ref: ref,
-    htmlFor: htmlFor || controlId,
-    className: classNames(className, bsPrefix),
-    "data-browse": props['data-browse']
-  }));
-});
-FormFileLabel.displayName = 'FormFileLabel';
-var FormFileLabel$1 = FormFileLabel;
-
-var _excluded$c = ["id", "bsPrefix", "bsCustomPrefix", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "label", "children", "custom", "lang", "data-browse", "as", "inputAs"];
-var FormFile = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var id = _ref.id,
-      bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      _ref$disabled = _ref.disabled,
-      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
-      _ref$isValid = _ref.isValid,
-      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
-      _ref$isInvalid = _ref.isInvalid,
-      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
-      _ref$feedbackTooltip = _ref.feedbackTooltip,
-      feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip,
-      feedback = _ref.feedback,
-      className = _ref.className,
-      style = _ref.style,
-      label = _ref.label,
-      children = _ref.children,
-      custom = _ref.custom,
-      lang = _ref.lang,
-      dataBrowse = _ref['data-browse'],
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'div' : _ref$as,
-      _ref$inputAs = _ref.inputAs,
-      inputAs = _ref$inputAs === void 0 ? 'input' : _ref$inputAs,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom'] : [bsPrefix, 'form-file'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  var type = 'file';
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId;
-
-  var innerFormContext = d(function () {
-    return {
-      controlId: id || controlId,
-      custom: custom
-    };
-  }, [controlId, custom, id]);
-  var hasLabel = label != null && label !== false && !children;
-  var input = /*#__PURE__*/ReactDOM$2.createElement(FormFileInput$1, _extends({}, props, {
-    ref: ref,
-    isValid: isValid,
-    isInvalid: isInvalid,
-    disabled: disabled,
-    as: inputAs,
-    lang: lang
-  }));
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
-    value: innerFormContext
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, {
-    style: style,
-    className: classNames(className, bsPrefix, custom && "custom-" + type)
-  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, custom ? /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, {
-    "data-browse": dataBrowse
-  }, label)) : /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, null, label), input), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
-    type: isValid ? 'valid' : 'invalid',
-    tooltip: feedbackTooltip
-  }, feedback))));
-});
-FormFile.displayName = 'FormFile';
-FormFile.Input = FormFileInput$1;
-FormFile.Label = FormFileLabel$1;
-var FormFile$1 = FormFile;
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var warning = function() {};
-
-{
-  var printWarning = function printWarning(format, args) {
-    var len = arguments.length;
-    args = new Array(len > 1 ? len - 1 : 0);
-    for (var key = 1; key < len; key++) {
-      args[key - 1] = arguments[key];
-    }
-    var argIndex = 0;
-    var message = 'Warning: ' +
-      format.replace(/%s/g, function() {
-        return args[argIndex++];
-      });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function(condition, format, args) {
-    var len = arguments.length;
-    args = new Array(len > 2 ? len - 2 : 0);
-    for (var key = 2; key < len; key++) {
-      args[key - 2] = arguments[key];
-    }
-    if (format === undefined) {
-      throw new Error(
-          '`warning(condition, format, ...args)` requires a warning ' +
-          'message argument'
-      );
-    }
-    if (!condition) {
-      printWarning.apply(null, [format].concat(args));
-    }
-  };
-}
-
-var warning_1 = warning;
-
-var _excluded$b = ["bsPrefix", "bsCustomPrefix", "type", "size", "htmlSize", "id", "className", "isValid", "isInvalid", "plaintext", "readOnly", "custom", "as"];
-var FormControl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      bsCustomPrefix = _ref.bsCustomPrefix,
-      type = _ref.type,
-      size = _ref.size,
-      htmlSize = _ref.htmlSize,
-      id = _ref.id,
-      className = _ref.className,
-      _ref$isValid = _ref.isValid,
-      isValid = _ref$isValid === void 0 ? false : _ref$isValid,
-      _ref$isInvalid = _ref.isInvalid,
-      isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid,
-      plaintext = _ref.plaintext,
-      readOnly = _ref.readOnly,
-      custom = _ref.custom,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'input' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId;
-
-  var _ref2 = custom ? [bsCustomPrefix, 'custom'] : [bsPrefix, 'form-control'],
-      prefix = _ref2[0],
-      defaultPrefix = _ref2[1];
-
-  bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  var classes;
-
-  if (plaintext) {
-    var _classes;
-
-    classes = (_classes = {}, _classes[bsPrefix + "-plaintext"] = true, _classes);
-  } else if (type === 'file') {
-    var _classes2;
-
-    classes = (_classes2 = {}, _classes2[bsPrefix + "-file"] = true, _classes2);
-  } else if (type === 'range') {
-    var _classes3;
-
-    classes = (_classes3 = {}, _classes3[bsPrefix + "-range"] = true, _classes3);
-  } else if (Component === 'select' && custom) {
-    var _classes4;
-
-    classes = (_classes4 = {}, _classes4[bsPrefix + "-select"] = true, _classes4[bsPrefix + "-select-" + size] = size, _classes4);
-  } else {
-    var _classes5;
-
-    classes = (_classes5 = {}, _classes5[bsPrefix] = true, _classes5[bsPrefix + "-" + size] = size, _classes5);
-  }
-
-  warning_1(controlId == null || !id, '`controlId` is ignored on `<FormControl>` when `id` is specified.') ;
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    type: type,
-    size: htmlSize,
-    ref: ref,
-    readOnly: readOnly,
-    id: id || controlId,
-    className: classNames(className, classes, isValid && "is-valid", isInvalid && "is-invalid")
-  }));
-});
-FormControl.displayName = 'FormControl';
-var FormControl$1 = Object.assign(FormControl, {
-  Feedback: Feedback$1
-});
-
-var _excluded$a = ["bsPrefix", "className", "children", "controlId", "as"];
-var FormGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      className = _ref.className,
-      children = _ref.children,
-      controlId = _ref.controlId,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'div' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
-
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-group');
-  var context = d(function () {
-    return {
-      controlId: controlId
-    };
-  }, [controlId]);
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
-    value: context
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    className: classNames(className, bsPrefix)
-  }), children));
-});
-FormGroup.displayName = 'FormGroup';
-var FormGroup$1 = FormGroup;
-
-var _excluded$9 = ["as", "bsPrefix", "column", "srOnly", "className", "htmlFor"];
-var defaultProps$5 = {
-  column: false,
-  srOnly: false
-};
-var FormLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'label' : _ref$as,
-      bsPrefix = _ref.bsPrefix,
-      column = _ref.column,
-      srOnly = _ref.srOnly,
-      className = _ref.className,
-      htmlFor = _ref.htmlFor,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
-
-  var _useContext = F$1(FormContext$1),
-      controlId = _useContext.controlId;
-
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-label');
-  var columnClass = 'col-form-label';
-  if (typeof column === 'string') columnClass = columnClass + " " + columnClass + "-" + column;
-  var classes = classNames(className, bsPrefix, srOnly && 'sr-only', column && columnClass);
-  warning_1(controlId == null || !htmlFor, '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.') ;
-  htmlFor = htmlFor || controlId;
-  if (column) return /*#__PURE__*/ReactDOM$2.createElement(Col, _extends({
-    ref: ref,
-    as: "label",
-    className: classes,
-    htmlFor: htmlFor
-  }, props));
-  return (
-    /*#__PURE__*/
-    // eslint-disable-next-line jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control
-    ReactDOM$2.createElement(Component, _extends({
-      ref: ref,
-      className: classes,
-      htmlFor: htmlFor
-    }, props))
-  );
-});
-FormLabel.displayName = 'FormLabel';
-FormLabel.defaultProps = defaultProps$5;
-var FormLabel$1 = FormLabel;
-
-var _excluded$8 = ["bsPrefix", "className", "as", "muted"];
-var FormText = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      className = _ref.className,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'small' : _ref$as,
-      muted = _ref.muted,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
-
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-text');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    className: classNames(className, bsPrefix, muted && 'text-muted')
-  }));
-});
-FormText.displayName = 'FormText';
-var FormText$1 = FormText;
-
-var Switch = /*#__PURE__*/ReactDOM$2.forwardRef(function (props, ref) {
-  return /*#__PURE__*/ReactDOM$2.createElement(FormCheck$1, _extends({}, props, {
-    ref: ref,
-    type: "switch"
-  }));
-});
-Switch.displayName = 'Switch';
-Switch.Input = FormCheck$1.Input;
-Switch.Label = FormCheck$1.Label;
-var Switch$1 = Switch;
-
-var _excluded$7 = ["bsPrefix", "inline", "className", "validated", "as"];
-var FormRow = createWithBsPrefix('form-row');
-var defaultProps$4 = {
-  inline: false
-};
-var FormImpl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      inline = _ref.inline,
-      className = _ref.className,
-      validated = _ref.validated,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'form' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
-
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'form');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
-    ref: ref,
-    className: classNames(className, validated && 'was-validated', inline && bsPrefix + "-inline")
-  }));
-});
-FormImpl.displayName = 'Form';
-FormImpl.defaultProps = defaultProps$4;
-FormImpl.Row = FormRow;
-FormImpl.Group = FormGroup$1;
-FormImpl.Control = FormControl$1;
-FormImpl.Check = FormCheck$1;
-FormImpl.File = FormFile$1;
-FormImpl.Switch = Switch$1;
-FormImpl.Label = FormLabel$1;
-FormImpl.Text = FormText$1;
-
-var _excluded$6 = ["bsPrefix", "size", "hasValidation", "className", "as"];
-var InputGroupAppend = createWithBsPrefix('input-group-append');
-var InputGroupPrepend = createWithBsPrefix('input-group-prepend');
-var InputGroupText = createWithBsPrefix('input-group-text', {
-  Component: 'span'
-});
-
-var InputGroupCheckbox = function InputGroupCheckbox(props) {
-  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
-    type: "checkbox"
-  }, props)));
-};
-
-var InputGroupRadio = function InputGroupRadio(props) {
-  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
-    type: "radio"
-  }, props)));
-};
-
-/**
- *
- * @property {InputGroupAppend} Append
- * @property {InputGroupPrepend} Prepend
- * @property {InputGroupText} Text
- * @property {InputGroupRadio} Radio
- * @property {InputGroupCheckbox} Checkbox
- */
-var InputGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      size = _ref.size,
-      hasValidation = _ref.hasValidation,
-      className = _ref.className,
-      _ref$as = _ref.as,
-      Component = _ref$as === void 0 ? 'div' : _ref$as,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
-
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
-    ref: ref
-  }, props, {
-    className: classNames(className, bsPrefix, size && bsPrefix + "-" + size, hasValidation && 'has-validation')
-  }));
-});
-InputGroup.displayName = 'InputGroup';
-InputGroup.Text = InputGroupText;
-InputGroup.Radio = InputGroupRadio;
-InputGroup.Checkbox = InputGroupCheckbox;
-InputGroup.Append = InputGroupAppend;
-InputGroup.Prepend = InputGroupPrepend;
 
 var lib = {};
 
