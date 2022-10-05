@@ -2199,7 +2199,7 @@ class DownloadNote extends ReactDOM.PureComponent {
       data,
       filename,
       type
-    } of note.download) {
+    } of note.download.entries) {
       if (base64Data) {
         data = decode(base64Data);
       }
