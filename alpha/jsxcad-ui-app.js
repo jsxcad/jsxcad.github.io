@@ -2309,7 +2309,6 @@ function getDefaults() {
     sanitize: false,
     sanitizer: null,
     silent: false,
-    smartLists: false,
     smartypants: false,
     tokenizer: null,
     walkTokens: null,
@@ -5115,6 +5114,131 @@ class MdNote extends ReactDOM$2.PureComponent {
 
 }
 
+var cssUnit = {
+    cm: true,
+    mm: true,
+    in: true,
+    px: true,
+    pt: true,
+    pc: true,
+    em: true,
+    ex: true,
+    ch: true,
+    rem: true,
+    vw: true,
+    vh: true,
+    vmin: true,
+    vmax: true,
+    "%": true,
+};
+/**
+ * If size is a number, append px to the value as default unit.
+ * If size is a string, validate against list of valid units.
+ * If unit is valid, return size as is.
+ * If unit is invalid, console warn issue, replace with px as the unit.
+ *
+ * @param {(number | string)} size
+ * @return {LengthObject} LengthObject
+ */
+function parseLengthAndUnit(size) {
+    if (typeof size === "number") {
+        return {
+            value: size,
+            unit: "px",
+        };
+    }
+    var value;
+    var valueString = (size.match(/^[0-9.]*/) || "").toString();
+    if (valueString.includes(".")) {
+        value = parseFloat(valueString);
+    }
+    else {
+        value = parseInt(valueString, 10);
+    }
+    var unit = (size.match(/[^0-9]*$/) || "").toString();
+    if (cssUnit[unit]) {
+        return {
+            value: value,
+            unit: unit,
+        };
+    }
+    console.warn("React Spinners: ".concat(size, " is not a valid css value. Defaulting to ").concat(value, "px."));
+    return {
+        value: value,
+        unit: "px",
+    };
+}
+/**
+ * Take value as an input and return valid css value
+ *
+ * @param {(number | string)} value
+ * @return {string} valid css value
+ */
+function cssValue(value) {
+    var lengthWithunit = parseLengthAndUnit(value);
+    return "".concat(lengthWithunit.value).concat(lengthWithunit.unit);
+}
+
+var createAnimation = function (loaderName, frames, suffix) {
+    var animationName = "react-spinners-".concat(loaderName, "-").concat(suffix);
+    if (typeof window == "undefined" || !window.document) {
+        return animationName;
+    }
+    var styleEl = document.createElement("style");
+    document.head.appendChild(styleEl);
+    var styleSheet = styleEl.sheet;
+    var keyFrames = "\n    @keyframes ".concat(animationName, " {\n      ").concat(frames, "\n    }\n  ");
+    if (styleSheet) {
+        styleSheet.insertRule(keyFrames, 0);
+    }
+    return animationName;
+};
+
+var __assign$3 = (undefined && undefined.__assign) || function () {
+    __assign$3 = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$3.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var moon = createAnimation("MoonLoader", "100% {transform: rotate(360deg)}", "moon");
+function MoonLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = parseLengthAndUnit(size), value = _g.value, unit = _g.unit;
+    var moonSize = value / 7;
+    var wrapper = __assign$3({ display: "inherit", position: "relative", width: "".concat("".concat(value + moonSize * 2).concat(unit)), height: "".concat("".concat(value + moonSize * 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" }, cssOverride);
+    var ballStyle = function (size) {
+        return {
+            width: cssValue(size),
+            height: cssValue(size),
+            borderRadius: "100%",
+        };
+    };
+    var ball = __assign$3(__assign$3({}, ballStyle(moonSize)), { backgroundColor: "".concat(color), opacity: "0.8", position: "absolute", top: "".concat("".concat(value / 2 - moonSize / 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" });
+    var circle = __assign$3(__assign$3({}, ballStyle(value)), { border: "".concat(moonSize, "px solid ").concat(color), opacity: "0.1", boxSizing: "content-box", position: "absolute" });
+    if (!loading) {
+        return null;
+    }
+    return (v$1("span", __assign$3({ style: wrapper }, additionalprops),
+        v$1("span", { style: ball }),
+        v$1("span", { style: circle })));
+}
+
 class ViewNote extends ReactDOM$2.PureComponent {
   static get propTypes() {
     return {
@@ -5154,7 +5278,13 @@ class ViewNote extends ReactDOM$2.PureComponent {
       }
     };
 
-    console.log(`QQ/ViewNote/hash: ${JSON.stringify(note)}`);
+    if (!note.url) {
+      return v$1(MoonLoader, {
+        color: "#36d7b7",
+        size: "75%"
+      });
+    }
+
     return v$1("img", {
       class: "note view",
       style: {
@@ -5391,7 +5521,10 @@ class Notebook extends ReactDOM$2.PureComponent {
     console.log(`render Notebook`);
 
     if (children.length === 0) {
-      return v$1("div", null, "Empty");
+      return v$1(MoonLoader, {
+        color: "#36d7b7",
+        size: "75%"
+      });
     }
 
     y(() => mermaid.init(undefined, '.mermaid'));
@@ -13046,7 +13179,7 @@ var reportErrorIfPathIsNotConfigured = function () {
         reportErrorIfPathIsNotConfigured = function () { };
     }
 };
-exports.version = "1.10.1";
+exports.version = "1.11.2";
 
 });
 
@@ -18435,7 +18568,7 @@ var Document = function (textOrLines) {
     this.setValue = function (text) {
         var len = this.getLength() - 1;
         this.remove(new Range(0, 0, len, this.getLine(len).length));
-        this.insert({ row: 0, column: 0 }, text);
+        this.insert({ row: 0, column: 0 }, text || "");
     };
     this.getValue = function () {
         return this.getAllLines().join(this.getNewLineCharacter());
@@ -25248,6 +25381,7 @@ config.defineOptions(Editor.prototype, "editor", {
             this.$updatePlaceholder();
         }
     },
+    customScrollbar: "renderer",
     hScrollBarAlwaysVisible: "renderer",
     vScrollBarAlwaysVisible: "renderer",
     highlightGutterLine: "renderer",
@@ -26740,6 +26874,8 @@ var Text = function (parentEl) {
             dir: undefined
         };
         var lines = this.session.doc.$lines;
+        if (!lines)
+            return;
         var cursor = this.session.selection.getCursor();
         var initialIndent = /^\s*/.exec(this.session.doc.getLine(cursor.row))[0].length;
         var elementIndentLevel = Math.floor(initialIndent / this.tabSize);
@@ -27317,6 +27453,235 @@ exports.HScrollBar = HScrollBar;
 
 });
 
+ace.define("ace/scrollbar_custom",["require","exports","module","ace/lib/oop","ace/lib/dom","ace/lib/event","ace/lib/event_emitter"], function(require, exports, module){var oop = require("./lib/oop");
+var dom = require("./lib/dom");
+var event = require("./lib/event");
+var EventEmitter = require("./lib/event_emitter").EventEmitter;
+dom.importCssString('.ace_editor>.ace_sb-v div, .ace_editor>.ace_sb-h div{\n' + '  position: absolute;\n'
+    + '  background: rgba(128, 128, 128, 0.6);\n' + '  -moz-box-sizing: border-box;\n' + '  box-sizing: border-box;\n'
+    + '  border: 1px solid #bbb;\n' + '  border-radius: 2px;\n' + '  z-index: 8;\n' + '}\n'
+    + '.ace_editor>.ace_sb-v, .ace_editor>.ace_sb-h {\n' + '  position: absolute;\n' + '  z-index: 6;\n'
+    + '  background: none;' + '  overflow: hidden!important;\n' + '}\n' + '.ace_editor>.ace_sb-v {\n'
+    + '  z-index: 6;\n' + '  right: 0;\n' + '  top: 0;\n' + '  width: 12px;\n' + '}' + '.ace_editor>.ace_sb-v div {\n'
+    + '  z-index: 8;\n' + '  right: 0;\n' + '  width: 100%;\n' + '}' + '.ace_editor>.ace_sb-h {\n' + '  bottom: 0;\n'
+    + '  left: 0;\n' + '  height: 12px;\n' + '}' + '.ace_editor>.ace_sb-h div {\n' + '  bottom: 0;\n'
+    + '  height: 100%;\n' + '}' + '.ace_editor>.ace_sb_grabbed {\n' + '  z-index: 8;\n' + '  background: #000;\n'
+    + '}');
+var ScrollBar = function (parent) {
+    this.element = dom.createElement("div");
+    this.element.className = "ace_sb" + this.classSuffix;
+    this.inner = dom.createElement("div");
+    this.inner.className = "";
+    this.element.appendChild(this.inner);
+    this.VScrollWidth = 12;
+    this.HScrollHeight = 12;
+    parent.appendChild(this.element);
+    this.setVisible(false);
+    this.skipEvent = false;
+    event.addMultiMouseDownListener(this.element, [500, 300, 300], this, "onMouseDown");
+};
+(function () {
+    oop.implement(this, EventEmitter);
+    this.setVisible = function (isVisible) {
+        this.element.style.display = isVisible ? "" : "none";
+        this.isVisible = isVisible;
+        this.coeff = 1;
+    };
+}).call(ScrollBar.prototype);
+var VScrollBar = function (parent, renderer) {
+    ScrollBar.call(this, parent);
+    this.scrollTop = 0;
+    this.scrollHeight = 0;
+    this.parent = parent;
+    this.width = this.VScrollWidth;
+    this.renderer = renderer;
+    this.inner.style.width = this.element.style.width = (this.width || 15) + "px";
+    this.$minWidth = 0;
+};
+oop.inherits(VScrollBar, ScrollBar);
+(function () {
+    this.classSuffix = '-v';
+    oop.implement(this, EventEmitter);
+    this.onMouseDown = function (eType, e) {
+        if (eType !== "mousedown")
+            return;
+        if (event.getButton(e) !== 0 || e.detail === 2) {
+            return;
+        }
+        if (e.target === this.inner) {
+            var self = this;
+            var mousePageY = e.clientY;
+            var onMouseMove = function (e) {
+                mousePageY = e.clientY;
+            };
+            var onMouseUp = function () {
+                clearInterval(timerId);
+            };
+            var startY = e.clientY;
+            var startTop = this.thumbTop;
+            var onScrollInterval = function () {
+                if (mousePageY === undefined)
+                    return;
+                var scrollTop = self.scrollTopFromThumbTop(startTop + mousePageY - startY);
+                if (scrollTop === self.scrollTop)
+                    return;
+                self._emit("scroll", { data: scrollTop });
+            };
+            event.capture(this.inner, onMouseMove, onMouseUp);
+            var timerId = setInterval(onScrollInterval, 20);
+            return event.preventDefault(e);
+        }
+        var top = e.clientY - this.element.getBoundingClientRect().top - this.thumbHeight / 2;
+        this._emit("scroll", { data: this.scrollTopFromThumbTop(top) });
+        return event.preventDefault(e);
+    };
+    this.getHeight = function () {
+        return this.height;
+    };
+    this.scrollTopFromThumbTop = function (thumbTop) {
+        var scrollTop = thumbTop * (this.pageHeight - this.viewHeight) / (this.slideHeight - this.thumbHeight);
+        scrollTop = scrollTop >> 0;
+        if (scrollTop < 0) {
+            scrollTop = 0;
+        }
+        else if (scrollTop > this.pageHeight - this.viewHeight) {
+            scrollTop = this.pageHeight - this.viewHeight;
+        }
+        return scrollTop;
+    };
+    this.getWidth = function () {
+        return Math.max(this.isVisible ? this.width : 0, this.$minWidth || 0);
+    };
+    this.setHeight = function (height) {
+        this.height = Math.max(0, height);
+        this.slideHeight = this.height;
+        this.viewHeight = this.height;
+        this.setScrollHeight(this.pageHeight, true);
+    };
+    this.setInnerHeight = this.setScrollHeight = function (height, force) {
+        if (this.pageHeight === height && !force)
+            return;
+        this.pageHeight = height;
+        this.thumbHeight = this.slideHeight * this.viewHeight / this.pageHeight;
+        if (this.thumbHeight > this.slideHeight)
+            this.thumbHeight = this.slideHeight;
+        if (this.thumbHeight < 15)
+            this.thumbHeight = 15;
+        this.inner.style.height = this.thumbHeight + "px";
+        if (this.scrollTop > (this.pageHeight - this.viewHeight)) {
+            this.scrollTop = (this.pageHeight - this.viewHeight);
+            if (this.scrollTop < 0)
+                this.scrollTop = 0;
+            this._emit("scroll", { data: this.scrollTop });
+        }
+    };
+    this.setScrollTop = function (scrollTop) {
+        this.scrollTop = scrollTop;
+        if (scrollTop < 0)
+            scrollTop = 0;
+        this.thumbTop = scrollTop * (this.slideHeight - this.thumbHeight) / (this.pageHeight - this.viewHeight);
+        this.inner.style.top = this.thumbTop + "px";
+    };
+}).call(VScrollBar.prototype);
+var HScrollBar = function (parent, renderer) {
+    ScrollBar.call(this, parent);
+    this.scrollLeft = 0;
+    this.scrollWidth = 0;
+    this.height = this.HScrollHeight;
+    this.inner.style.height = this.element.style.height = (this.height || 12) + "px";
+    this.renderer = renderer;
+};
+oop.inherits(HScrollBar, ScrollBar);
+(function () {
+    this.classSuffix = '-h';
+    oop.implement(this, EventEmitter);
+    this.onMouseDown = function (eType, e) {
+        if (eType !== "mousedown")
+            return;
+        if (event.getButton(e) !== 0 || e.detail === 2) {
+            return;
+        }
+        if (e.target === this.inner) {
+            var self = this;
+            var mousePageX = e.clientX;
+            var onMouseMove = function (e) {
+                mousePageX = e.clientX;
+            };
+            var onMouseUp = function () {
+                clearInterval(timerId);
+            };
+            var startX = e.clientX;
+            var startLeft = this.thumbLeft;
+            var onScrollInterval = function () {
+                if (mousePageX === undefined)
+                    return;
+                var scrollLeft = self.scrollLeftFromThumbLeft(startLeft + mousePageX - startX);
+                if (scrollLeft === self.scrollLeft)
+                    return;
+                self._emit("scroll", { data: scrollLeft });
+            };
+            event.capture(this.inner, onMouseMove, onMouseUp);
+            var timerId = setInterval(onScrollInterval, 20);
+            return event.preventDefault(e);
+        }
+        var left = e.clientX - this.element.getBoundingClientRect().left - this.thumbWidth / 2;
+        this._emit("scroll", { data: this.scrollLeftFromThumbLeft(left) });
+        return event.preventDefault(e);
+    };
+    this.getHeight = function () {
+        return this.isVisible ? this.height : 0;
+    };
+    this.scrollLeftFromThumbLeft = function (thumbLeft) {
+        var scrollLeft = thumbLeft * (this.pageWidth - this.viewWidth) / (this.slideWidth - this.thumbWidth);
+        scrollLeft = scrollLeft >> 0;
+        if (scrollLeft < 0) {
+            scrollLeft = 0;
+        }
+        else if (scrollLeft > this.pageWidth - this.viewWidth) {
+            scrollLeft = this.pageWidth - this.viewWidth;
+        }
+        return scrollLeft;
+    };
+    this.setWidth = function (width) {
+        this.width = Math.max(0, width);
+        this.element.style.width = this.width + "px";
+        this.slideWidth = this.width;
+        this.viewWidth = this.width;
+        this.setScrollWidth(this.pageWidth, true);
+    };
+    this.setInnerWidth = this.setScrollWidth = function (width, force) {
+        if (this.pageWidth === width && !force)
+            return;
+        this.pageWidth = width;
+        this.thumbWidth = this.slideWidth * this.viewWidth / this.pageWidth;
+        if (this.thumbWidth > this.slideWidth)
+            this.thumbWidth = this.slideWidth;
+        if (this.thumbWidth < 15)
+            this.thumbWidth = 15;
+        this.inner.style.width = this.thumbWidth + "px";
+        if (this.scrollLeft > (this.pageWidth - this.viewWidth)) {
+            this.scrollLeft = (this.pageWidth - this.viewWidth);
+            if (this.scrollLeft < 0)
+                this.scrollLeft = 0;
+            this._emit("scroll", { data: this.scrollLeft });
+        }
+    };
+    this.setScrollLeft = function (scrollLeft) {
+        this.scrollLeft = scrollLeft;
+        if (scrollLeft < 0)
+            scrollLeft = 0;
+        this.thumbLeft = scrollLeft * (this.slideWidth - this.thumbWidth) / (this.pageWidth - this.viewWidth);
+        this.inner.style.left = (this.thumbLeft) + "px";
+    };
+}).call(HScrollBar.prototype);
+exports.ScrollBar = VScrollBar; // backward compatibility
+exports.ScrollBarV = VScrollBar; // backward compatibility
+exports.ScrollBarH = HScrollBar; // backward compatibility
+exports.VScrollBar = VScrollBar;
+exports.HScrollBar = HScrollBar;
+
+});
+
 ace.define("ace/renderloop",["require","exports","module","ace/lib/event"], function(require, exports, module){var event = require("./lib/event");
 var RenderLoop = function (onRender, win) {
     this.onRender = onRender;
@@ -27529,7 +27894,126 @@ ace.define("ace/css/editor.css",["require","exports","module"], function(require
 
 });
 
-ace.define("ace/virtual_renderer",["require","exports","module","ace/lib/oop","ace/lib/dom","ace/config","ace/layer/gutter","ace/layer/marker","ace/layer/text","ace/layer/cursor","ace/scrollbar","ace/scrollbar","ace/renderloop","ace/layer/font_metrics","ace/lib/event_emitter","ace/css/editor.css","ace/lib/useragent"], function(require, exports, module){var oop = require("./lib/oop");
+ace.define("ace/layer/decorators",["require","exports","module","ace/lib/dom","ace/lib/oop","ace/lib/event_emitter"], function(require, exports, module){var dom = require("../lib/dom");
+var oop = require("../lib/oop");
+var EventEmitter = require("../lib/event_emitter").EventEmitter;
+var Decorator = function (parent, renderer) {
+    this.canvas = dom.createElement("canvas");
+    this.renderer = renderer;
+    this.pixelRatio = 1;
+    this.maxHeight = renderer.layerConfig.maxHeight;
+    this.lineHeight = renderer.layerConfig.lineHeight;
+    this.canvasHeight = parent.parent.scrollHeight;
+    this.heightRatio = this.canvasHeight / this.maxHeight;
+    this.canvasWidth = parent.width;
+    this.minDecorationHeight = (2 * this.pixelRatio) | 0;
+    this.halfMinDecorationHeight = (this.minDecorationHeight / 2) | 0;
+    this.canvas.width = this.canvasWidth;
+    this.canvas.height = this.canvasHeight;
+    this.canvas.style.top = 0 + "px";
+    this.canvas.style.right = 0 + "px";
+    this.canvas.style.zIndex = 7 + "px";
+    this.canvas.style.position = "absolute";
+    this.colors = {};
+    this.colors.dark = {
+        "error": "rgba(255, 18, 18, 1)",
+        "warning": "rgba(18, 136, 18, 1)",
+        "info": "rgba(18, 18, 136, 1)"
+    };
+    this.colors.light = {
+        "error": "rgb(255,51,51)",
+        "warning": "rgb(32,133,72)",
+        "info": "rgb(35,68,138)"
+    };
+    parent.element.appendChild(this.canvas);
+};
+(function () {
+    oop.implement(this, EventEmitter);
+    this.$updateDecorators = function (config) {
+        var colors = (this.renderer.theme.isDark === true) ? this.colors.dark : this.colors.light;
+        if (config) {
+            this.maxHeight = config.maxHeight;
+            this.lineHeight = config.lineHeight;
+            this.canvasHeight = config.height;
+            var allLineHeight = (config.lastRow + 1) * this.lineHeight;
+            if (allLineHeight < this.canvasHeight) {
+                this.heightRatio = 1;
+            }
+            else {
+                this.heightRatio = this.canvasHeight / this.maxHeight;
+            }
+        }
+        var ctx = this.canvas.getContext("2d");
+        function compare(a, b) {
+            if (a.priority < b.priority)
+                return -1;
+            if (a.priority > b.priority)
+                return 1;
+            return 0;
+        }
+        var annotations = this.renderer.session.$annotations;
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        if (annotations) {
+            var priorities = {
+                "info": 1,
+                "warning": 2,
+                "error": 3
+            };
+            annotations.forEach(function (item) {
+                item.priority = priorities[item.type] || null;
+            });
+            annotations = annotations.sort(compare);
+            var foldData = this.renderer.session.$foldData;
+            for (var i = 0; i < annotations.length; i++) {
+                var row = annotations[i].row;
+                var compensateFold = this.compensateFoldRows(row, foldData);
+                var currentY = Math.round((row - compensateFold) * this.lineHeight * this.heightRatio);
+                var y1 = Math.round(((row - compensateFold) * this.lineHeight * this.heightRatio));
+                var y2 = Math.round((((row - compensateFold) * this.lineHeight + this.lineHeight) * this.heightRatio));
+                var height = y2 - y1;
+                if (height < this.minDecorationHeight) {
+                    var yCenter = ((y1 + y2) / 2) | 0;
+                    if (yCenter < this.halfMinDecorationHeight) {
+                        yCenter = this.halfMinDecorationHeight;
+                    }
+                    else if (yCenter + this.halfMinDecorationHeight > this.canvasHeight) {
+                        yCenter = this.canvasHeight - this.halfMinDecorationHeight;
+                    }
+                    y1 = Math.round(yCenter - this.halfMinDecorationHeight);
+                    y2 = Math.round(yCenter + this.halfMinDecorationHeight);
+                }
+                ctx.fillStyle = colors[annotations[i].type] || null;
+                ctx.fillRect(0, currentY, this.canvasWidth, y2 - y1);
+            }
+        }
+        var cursor = this.renderer.session.selection.getCursor();
+        if (cursor) {
+            var compensateFold = this.compensateFoldRows(cursor.row, foldData);
+            var currentY = Math.round((cursor.row - compensateFold) * this.lineHeight * this.heightRatio);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+            ctx.fillRect(0, currentY, this.canvasWidth, 2);
+        }
+    };
+    this.compensateFoldRows = function (row, foldData) {
+        var compensateFold = 0;
+        if (foldData && foldData.length > 0) {
+            for (var j = 0; j < foldData.length; j++) {
+                if (row > foldData[j].start.row && row < foldData[j].end.row) {
+                    compensateFold += row - foldData[j].start.row;
+                }
+                else if (row >= foldData[j].end.row) {
+                    compensateFold += foldData[j].end.row - foldData[j].start.row;
+                }
+            }
+        }
+        return compensateFold;
+    };
+}.call(Decorator.prototype));
+exports.Decorator = Decorator;
+
+});
+
+ace.define("ace/virtual_renderer",["require","exports","module","ace/lib/oop","ace/lib/dom","ace/config","ace/layer/gutter","ace/layer/marker","ace/layer/text","ace/layer/cursor","ace/scrollbar","ace/scrollbar","ace/scrollbar_custom","ace/scrollbar_custom","ace/renderloop","ace/layer/font_metrics","ace/lib/event_emitter","ace/css/editor.css","ace/layer/decorators","ace/lib/useragent"], function(require, exports, module){var oop = require("./lib/oop");
 var dom = require("./lib/dom");
 var config = require("./config");
 var GutterLayer = require("./layer/gutter").Gutter;
@@ -27538,10 +28022,13 @@ var TextLayer = require("./layer/text").Text;
 var CursorLayer = require("./layer/cursor").Cursor;
 var HScrollBar = require("./scrollbar").HScrollBar;
 var VScrollBar = require("./scrollbar").VScrollBar;
+var HScrollBarCustom = require("./scrollbar_custom").HScrollBar;
+var VScrollBarCustom = require("./scrollbar_custom").VScrollBar;
 var RenderLoop = require("./renderloop").RenderLoop;
 var FontMetrics = require("./layer/font_metrics").FontMetrics;
 var EventEmitter = require("./lib/event_emitter").EventEmitter;
 var editorCss = require("./css/editor.css");
+var Decorator = require("./layer/decorators").Decorator;
 var useragent = require("./lib/useragent");
 var HIDE_TEXTAREA = useragent.isIE;
 dom.importCssString(editorCss, "ace_editor.css", false);
@@ -27764,6 +28251,9 @@ var VirtualRenderer = function (container, theme) {
         if (this.resizing)
             this.resizing = 0;
         this.scrollBarH.scrollLeft = this.scrollBarV.scrollTop = null;
+        if (this.$customScrollbar) {
+            this.$updateCustomScrollbar(true);
+        }
     };
     this.$updateCachedSize = function (force, gutterWidth, width, height) {
         height -= (this.$extraHeight || 0);
@@ -27781,6 +28271,7 @@ var VirtualRenderer = function (container, theme) {
             size.scrollerHeight = size.height;
             if (this.$horizScroll)
                 size.scrollerHeight -= this.scrollBarH.getHeight();
+            this.scrollBarV.setHeight(size.scrollerHeight);
             this.scrollBarV.element.style.bottom = this.scrollBarH.getHeight() + "px";
             changes = changes | this.CHANGE_SCROLL;
         }
@@ -27798,6 +28289,7 @@ var VirtualRenderer = function (container, theme) {
             dom.setStyle(this.scrollBarH.element.style, "right", right);
             dom.setStyle(this.scroller.style, "right", right);
             dom.setStyle(this.scroller.style, "bottom", this.scrollBarH.getHeight());
+            this.scrollBarH.setWidth(size.scrollerWidth);
             if (this.session && this.session.getUseWrapMode() && this.adjustWrapLimit() || force) {
                 changes |= this.CHANGE_FULL;
             }
@@ -28092,6 +28584,9 @@ var VirtualRenderer = function (container, theme) {
             this.$textLayer.update(config);
             if (this.$showGutter)
                 this.$gutterLayer.update(config);
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
             this.$markerBack.update(config);
             this.$markerFront.update(config);
             this.$cursorLayer.update(config);
@@ -28111,6 +28606,9 @@ var VirtualRenderer = function (container, theme) {
                 else
                     this.$gutterLayer.scrollLines(config);
             }
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
             this.$markerBack.update(config);
             this.$markerFront.update(config);
             this.$cursorLayer.update(config);
@@ -28123,18 +28621,30 @@ var VirtualRenderer = function (container, theme) {
             this.$textLayer.update(config);
             if (this.$showGutter)
                 this.$gutterLayer.update(config);
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
         }
         else if (changes & this.CHANGE_LINES) {
             if (this.$updateLines() || (changes & this.CHANGE_GUTTER) && this.$showGutter)
                 this.$gutterLayer.update(config);
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
         }
         else if (changes & this.CHANGE_TEXT || changes & this.CHANGE_GUTTER) {
             if (this.$showGutter)
                 this.$gutterLayer.update(config);
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
         }
         else if (changes & this.CHANGE_CURSOR) {
             if (this.$highlightGutterLine)
                 this.$gutterLayer.updateLineHighlight(config);
+            if (this.$customScrollbar) {
+                this.$scrollDecorator.$updateDecorators(config);
+            }
         }
         if (changes & this.CHANGE_CURSOR) {
             this.$cursorLayer.update(config);
@@ -28636,6 +29146,43 @@ var VirtualRenderer = function (container, theme) {
         this.removeAllListeners();
         this.container.textContent = "";
     };
+    this.$updateCustomScrollbar = function (val) {
+        var _self = this;
+        this.$horizScroll = this.$vScroll = null;
+        this.scrollBarV.element.remove();
+        this.scrollBarH.element.remove();
+        if (this.$scrollDecorator) {
+            delete this.$scrollDecorator;
+        }
+        if (val === true) {
+            this.scrollBarV = new VScrollBarCustom(this.container, this);
+            this.scrollBarH = new HScrollBarCustom(this.container, this);
+            this.scrollBarV.setHeight(this.$size.scrollerHeight);
+            this.scrollBarH.setWidth(this.$size.scrollerWidth);
+            this.scrollBarV.addEventListener("scroll", function (e) {
+                if (!_self.$scrollAnimation)
+                    _self.session.setScrollTop(e.data - _self.scrollMargin.top);
+            });
+            this.scrollBarH.addEventListener("scroll", function (e) {
+                if (!_self.$scrollAnimation)
+                    _self.session.setScrollLeft(e.data - _self.scrollMargin.left);
+            });
+            this.$scrollDecorator = new Decorator(this.scrollBarV, this);
+            this.$scrollDecorator.$updateDecorators();
+        }
+        else {
+            this.scrollBarV = new VScrollBar(this.container, this);
+            this.scrollBarH = new HScrollBar(this.container, this);
+            this.scrollBarV.addEventListener("scroll", function (e) {
+                if (!_self.$scrollAnimation)
+                    _self.session.setScrollTop(e.data - _self.scrollMargin.top);
+            });
+            this.scrollBarH.addEventListener("scroll", function (e) {
+                if (!_self.$scrollAnimation)
+                    _self.session.setScrollLeft(e.data - _self.scrollMargin.left);
+            });
+        }
+    };
 }).call(VirtualRenderer.prototype);
 config.defineOptions(VirtualRenderer.prototype, "renderer", {
     animatedScroll: { initialValue: false },
@@ -28774,6 +29321,12 @@ config.defineOptions(VirtualRenderer.prototype, "renderer", {
             this.$gutterLayer.$fixedWidth = !!val;
             this.$loop.schedule(this.CHANGE_GUTTER);
         }
+    },
+    customScrollbar: {
+        set: function (val) {
+            this.$updateCustomScrollbar(val);
+        },
+        initialValue: false
     },
     theme: {
         set: function (val) { this.setTheme(val); },
