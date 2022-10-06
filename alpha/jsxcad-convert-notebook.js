@@ -1,32 +1,4 @@
-import { read } from './jsxcad-sys.js';
-
-/*
- * base64-arraybuffer 1.0.2 <https://github.com/niklasvh/base64-arraybuffer>
- * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
- * Released under MIT License
- */
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-// Use a lookup table to find the index.
-var lookup = typeof Uint8Array === 'undefined' ? [] : new Uint8Array(256);
-for (var i = 0; i < chars.length; i++) {
-    lookup[chars.charCodeAt(i)] = i;
-}
-var encode = function (arraybuffer) {
-    var bytes = new Uint8Array(arraybuffer), i, len = bytes.length, base64 = '';
-    for (i = 0; i < len; i += 3) {
-        base64 += chars[bytes[i] >> 2];
-        base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
-        base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
-        base64 += chars[bytes[i + 2] & 63];
-    }
-    if (len % 3 === 2) {
-        base64 = base64.substring(0, base64.length - 1) + '=';
-    }
-    else if (len % 3 === 1) {
-        base64 = base64.substring(0, base64.length - 2) + '==';
-    }
-    return base64;
-};
+import { encodeFiles, read, encode } from './jsxcad-sys.js';
 
 const encodeNotebook = async (notebook, { root, workspace, module } = {}) => {
   const encoded = [];
@@ -294,7 +266,7 @@ const toHtmlFromScript = async ({
     import api from '${modulePath}/jsxcad-api.js';
     import { Shape } from '${modulePath}/jsxcad-api-shape.js';
     import { dataUrl } from '${modulePath}/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from '${modulePath}/jsxcad-sys.js';
+    import { addOnEmitHandler, boot, decodeFiles, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from '${modulePath}/jsxcad-sys.js';
     import { getNotebookControlData, toDomElement } from '${modulePath}/jsxcad-ui-notebook.js';
 
     const pendingData = Symbol('pendingData');
@@ -420,7 +392,7 @@ const toHtmlFromScript = async ({
       await boot();
 
       // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("${encodedFiles}"));
+      const files = decodeFiles("${encodedFiles}");
       for (const path of Object.keys(files)) {
         await write(path, files[path], { ephemeral: true });
       }
@@ -446,4 +418,95 @@ const toHtmlFromScript = async ({
   return { html: new TextEncoder('utf8').encode(html) };
 };
 
-export { toHtmlFromNotebook, toHtmlFromScript };
+const toStandaloneFromScript = async ({
+  view,
+  title = 'Jot',
+  modulePath = 'https://jsxcad.js.org/alpha',
+  baseUrl = 'https://jsxcad.js.org',
+  module,
+  files = {},
+} = {}) => {
+  const encodedFiles = encodeFiles(files);
+  const html = `
+<html>
+ <head>
+  <title>${title}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script type='module'>
+    import { run } from '${modulePath}/jsxcad-ui-app-standalone.js';
+    run({ encodedFiles: "${encodedFiles}", module: "${module}", workspace: 'JSxCAD', container: document.getElementById('notebook') });
+  </script>
+  <div id="notebook" class="notebook"></div>
+ </body>
+</html>
+`;
+  return { html: new TextEncoder('utf8').encode(html) };
+};
+
+export { toHtmlFromNotebook, toHtmlFromScript, toStandaloneFromScript };

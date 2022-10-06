@@ -1,4 +1,4 @@
-import { readOrWatch, read, logInfo, write, setupWorkspace, boot, addOnEmitHandler, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
+import { readOrWatch, read, logInfo, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
 import api from './jsxcad-api.js';
 import { dataUrl } from './jsxcad-ui-threejs.js';
 import { getNotebookControlData } from './jsxcad-ui-notebook.js';
@@ -5652,12 +5652,13 @@ class Standalone extends ReactDOM.Component {
 
 const run = async ({
   baseUrl = '',
-  files,
+  encodedFiles,
   module,
   workspace,
   container
 }) => {
   const start = () => {
+    const files = decodeFiles(encodedFiles);
     ReactDOM.render(v$1(Standalone, {
       baseUrl: baseUrl,
       workspace: workspace,
