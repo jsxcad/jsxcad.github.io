@@ -71,7 +71,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
     import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
-    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fmold%2Fhex.nb%22%3A%22const%20assembled%20%3D%20Hexagon(50%2C%2050%2C%2050)%5Cn%20%20.eachEdge(%5Cn%20%20%20%20(e%2C%20l)%20%3D%3E%5Cn%20%20%20%20%20%20Box(%5B0%2C%205%5D%2C%20%5B0%2C%20-1%5D%2C%20%5B0%2C%20l%5D)%5Cn%20%20%20%20%20%20%20%20.join(Arc(%5B4%2C%207.0%5D%2C%203%2C%20%5B0%2C%20l%5D).hasAngle(1%20%2F%204%2C%203%20%2F%204))%5Cn%20%20%20%20%20%20%20%20.to(e)%2C%5Cn%20%20%20%20(e%2C%20f)%20%3D%3E%20f.e(1).join(e)%5Cn%20%20)%5Cn%20%20.view()%3B%5Cn%5Cnconst%20disassembled%20%3D%20assembled.each(to(XY())).pack().view()%3B%5Cn%22%7D")), module: "nb/projects/pentacular/mold/hex.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
+    run({ encodedFiles: "%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fmold%2Fhex.nb%22%3A%22Y29uc3QgYXNzZW1ibGVkID0gSGV4YWdvbig1MCwgNTAsIDUwKQogIC5lYWNoRWRnZSgKICAgIChlLCBsKSA9PgogICAgICBCb3goWzAsIDVdLCBbMCwgLTFdLCBbMCwgbF0pCiAgICAgICAgLmpvaW4oQXJjKFs0LCA3LjBdLCAzLCBbMCwgbF0pLmhhc0FuZ2xlKDEgLyA0LCAzIC8gNCkpCiAgICAgICAgLnRvKGUpLAogICAgKGUsIGYpID0%2BIGYuZSgxKS5qb2luKGUpCiAgKQogIC52aWV3KCk7Cgpjb25zdCBkaXNhc3NlbWJsZWQgPSBhc3NlbWJsZWQuZWFjaCh0byhYWSgpKSkucGFjaygpLnZpZXcoKTsK%22%7D", module: "nb/projects/pentacular/mold/hex.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
   <div id="notebook" class="notebook"></div>
  </body>
