@@ -63,7 +63,7 @@ var lookup = typeof Uint8Array === 'undefined' ? [] : new Uint8Array(256);
 for (var i = 0; i < chars.length; i++) {
     lookup[chars.charCodeAt(i)] = i;
 }
-var encode = function (arraybuffer) {
+var encode$1 = function (arraybuffer) {
     var bytes = new Uint8Array(arraybuffer), i, len = bytes.length, base64 = '';
     for (i = 0; i < len; i += 3) {
         base64 += chars[bytes[i] >> 2];
@@ -152,7 +152,7 @@ const computeHash = (value) => {
   // const hash = createHash('sha256');
   const hash = new Digest.SHA256('sha256');
   hashValue(value, hash);
-  return encode(hash.finalize());
+  return encode$1(hash.finalize());
 };
 
 const fromStringToIntegerHash = (s) =>
@@ -2885,12 +2885,19 @@ const finishEmitGroup = (sourceLocation) => {
 
 const removeOnEmitHandler = (handler) => onEmitHandlers.delete(handler);
 
+const encode = (data) => {
+  if (typeof data === 'string') {
+    data = new TextEncoder('utf-8').encode(data);
+  }
+  return encode$1(data.buffer);
+};
+
 const decode = (string) => new Uint8Array(decode$1(string));
 
-const encodeFiles = (decoded) => {
+const encodeFiles = (unencoded) => {
   const encoded = {};
-  for (const key of Object.keys(decoded)) {
-    encoded[key] = encode(decoded[key]);
+  for (const key of Object.keys(unencoded)) {
+    encoded[key] = encode(unencoded[key]);
   }
   return encodeURIComponent(JSON.stringify(encoded));
 };
