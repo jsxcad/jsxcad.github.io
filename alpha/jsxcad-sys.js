@@ -79,7 +79,7 @@ var encode = function (arraybuffer) {
     }
     return base64;
 };
-var decode = function (base64) {
+var decode$1 = function (base64) {
     var bufferLength = base64.length * 0.75, len = base64.length, i, p = 0, encoded1, encoded2, encoded3, encoded4;
     if (base64[base64.length - 1] === '=') {
         bufferLength--;
@@ -2884,6 +2884,8 @@ const finishEmitGroup = (sourceLocation) => {
 };
 
 const removeOnEmitHandler = (handler) => onEmitHandlers.delete(handler);
+
+const decode = (string) => new Uint8Array(decode$1(string));
 
 const encodeFiles = (decoded) => {
   const encoded = {};
