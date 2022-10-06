@@ -5264,7 +5264,6 @@ class ViewNote extends ReactDOM$2.PureComponent {
       height,
       width
     } = view;
-    const background = 'url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;';
 
     const onClick = event => {
       if (onClickView) {
@@ -5292,8 +5291,7 @@ class ViewNote extends ReactDOM$2.PureComponent {
       style: {
         display: 'block',
         height: `${height}px`,
-        width: `${width}px`,
-        background
+        width: `${width}px`
       },
       src: note.url,
       onClick: onClick
@@ -5444,6 +5442,7 @@ class Notebook extends ReactDOM$2.PureComponent {
   static get propTypes() {
     return {
       notes: propTypes$1.exports.array,
+      onClickView: propTypes$1.exports.func,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5451,6 +5450,7 @@ class Notebook extends ReactDOM$2.PureComponent {
   render() {
     const {
       notes,
+      onClickView,
       workspace
     } = this.props;
     const children = [];
@@ -5493,7 +5493,8 @@ class Notebook extends ReactDOM$2.PureComponent {
       if (note.view) {
         child = v$1(ViewNote, {
           key: note.hash,
-          note: note
+          note: note,
+          onClickView: onClickView
         });
       } else if (note.md) {
         child = v$1(MdNote, {
@@ -5525,7 +5526,7 @@ class Notebook extends ReactDOM$2.PureComponent {
     if (children.length === 0) {
       return v$1(MoonLoader, {
         color: "#36d7b7",
-        size: "128"
+        size: "128px"
       });
     }
 
@@ -45176,6 +45177,7 @@ class App extends ReactDOM$2.Component {
                 {
                   return v$1(Notebook, {
                     notes: NotebookNotes,
+                    onClickView: this.Notebook.clickView,
                     workspace: workspace
                   });
                 }
