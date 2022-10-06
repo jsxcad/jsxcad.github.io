@@ -1,0 +1,78 @@
+
+<html>
+ <head>
+  <title>Jot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <style>
+    div.book {
+      height: 100%;
+      overflow: scroll;
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+
+    div.note.card {
+      border: 1px dashed crimson;
+      margin: 4px 4px;
+      padding: 4px 4px;
+      display: inline-block;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .note.log {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red
+    }
+
+    .note.view {
+      border: 1px dashed dodgerblue;
+      margin: 4px 4px;
+      padding: 4px 4px;
+    }
+
+    .note.orbitView {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+
+    button.note.download {
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      margin: 4px 4px;
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-color: #2196F3;
+      color: dodgerblue
+    }
+
+    button.note.download:hover {
+      background: #2196F3;
+      color: white;
+    }
+
+    .note th,td {
+      border: 1px solid dodgerblue;
+      padding: 5px;
+    }
+  </style>
+ </head>
+ <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script type='module'>
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Findex.nb%22%3A%22md%60%5Cn%23%20Jot%20(JSxCAD)%5Cn%5CnPress%20Shift-Enter%20to%20save%20and%20regenerate%20notebook.%5Cn%5CnPress%20Control-E%20to%20cycle%20between%20editing%20and%20viewing%20a%20notebook.%5Cn%5Cn%23%23%20Links%5Cn%5Cn1.%20%5BDocumentation%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fdocumentation%2Findex.nb)%5Cn1.%20%5BAPI%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fapi%2Findex.nb)%5Cn1.%20%5BRegression%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fregression%2Fregression.nb)%5Cn1.%20%5BProjects%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2F%24%7Bsha%7D%2Fnb%2Fprojects%2Findex.nb)%5Cn%5Cn%23%23%20Introduction%5Cn%5CnJot%20allows%20CAD%20design%20as%20notebooks.%60%3B%5Cn%5CnAssembly(%5Cn%20%20Box(15%2C%2010).offset(4).material('wood').ez(2).as('base')%2C%5Cn%20%20Box(15%2C%201).material('copper').ez(2.5).as('bar')%2C%5Cn%20%20Box(10%2C%2020)%5Cn%20%20%20%20.material('copper')%5Cn%20%20%20%20.cut(Arc(5).y(-3).hull(noOp()%2C%20Line(-2.5%2C%202.5).y(5)))%5Cn%20%20%20%20.clip(Arc(7).y(-4).hull(noOp()%2C%20Line(-3.5%2C%203.5).y(7)))%5Cn%20%20%20%20.clip(loop(Point(3.5%2C%207)%2C%20Point(3.5%2C%20-8)%2C%20Point(-3.5%2C%20-8)).fill())%5Cn%20%20%20%20.op(%5Cn%20%20%20%20%20%20x(-7).ez(3)%2C%5Cn%20%20%20%20%20%20ry(1%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.x(7)%5Cn%20%20%20%20%20%20%20%20.ez(3)%5Cn%20%20%20%20)%5Cn%20%20%20%20.as('j-and-t')%2C%5Cn%20%20Arc(6).material('copper').fitTo(inset(1).void()).ez(3).as('o')%5Cn)%5Cn%20%20.scale(3)%5Cn%20%20.ry(0%20%2F%2032)%5Cn%20%20.clean()%5Cn%20%20.view(1%2C%20'top')%5Cn%20%20.each(to(XY()))%5Cn%20%20.pack()%5Cn%20%20.y(-45)%5Cn%20%20.by(align('xy'))%5Cn%20%20.view(2%2C%20'top')%3B%5Cnmd%60%5CnClicking%20on%20a%20view%20maximizes%20and%20allows%20rotation%20and%20animation%3B%20use%20Escape%20to%20return.%5Cn%5Cn%23%23%20Navigation%5Cn%5CnYou%20can%20Control-Click%20on%20a%20link%20in%20the%20editor%20to%20visit%20a%20page.%5Cn%5Cn'''%5Cnimport%20'https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fexamples.nb'%3B%5Cn'''%5Cn%5CnYou%20can%20click%20on%20links%20in%20a%20notebook%2C%20like%20so%3A%20%5Bexamples.nb%5D(%23JSxCAD%40https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fexamples.nb)%5Cn%5CnThe%20back%20button%20should%20return%20as%20usual%2C%20and%20urls%20can%20be%20bookmarked%20normally.%5Cn%5Cn%23%23%20Stability%5Cn%5CnPlease%20understand%20that%20JSxCAD%20is%20undergoing%20rapid%20evolution%2C%20and%20the%20API%20is%20not%20stable.%5Cn%5CnYou%20will%20soon%20be%20able%20to%20select%20particular%20commits%20to%20work%20at%20to%20mitigate%20this%20somewhat.%5Cn%5Cn%23%23%20Supported%20Browsers%5Cn%5CnOnly%20the%20latest%20version%20of%20chromium%20is%20supported%20at%20this%20time.%5Cn%5CnOther%20browsers%20may%20or%20may%20not%20work%2C%20and%20fixes%20to%20support%20them%20are%20a%20low%20priority.%5Cn%5CnThis%20should%20change%20as%20JSxCAD%20becomes%20more%20mature.%5Cn%5Cn%23%23%20Data%20Storage%5Cn%5CnEdits%20are%20stored%20locally%20in%20the%20browser%20-%20they%20can%20be%20downloaded%20or%20published%20only%20explicitly.%5Cn%5Cn*%20Control-S%20will%20save%20local%20edits%20in%20the%20browser.%5Cn*%20Shift-Enter%20will%20save%2C%20then%20run%20the%20notebook%20being%20edited.%5Cn%60%3B%5Cn%22%7D")), module: "nb/index.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
+  </script>
+  <div id="notebook" class="notebook"></div>
+ </body>
+</html>

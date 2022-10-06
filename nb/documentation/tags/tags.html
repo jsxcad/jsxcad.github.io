@@ -1,9 +1,10 @@
 
 <html>
  <head>
-  <title>JSxCAD Viewer</title>
+  <title>Jot</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <style>
     div.book {
       height: 100%;
@@ -65,151 +66,13 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
-    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
-
-    const baseUrl = "https://jsxcad.js.org";
-    const module = "nb/documentation/tags/tags.nb";
-    const workspace = 'JSxCAD';
-
-    const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
-      const addNotes = async (notes) => {
-        for (const note of notes) {
-          if (seenHashes.has(note.hash)) {
-            continue;
-          }
-          seenHashes.add(note.hash);
-          const { path, data, hash, line } = note;
-          if (!notebooks.has(line)) {
-            notebooks.set(line, []);
-          }
-          notebooks.get(line).push(note);
-          if (note.md) {
-            note.md = note
-              .md
-              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-          }
-          if (path && !data) {
-             note.data = read(path);
-          }
-          if (note.view && !note.url) {
-            const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
-            }
-            schedulePreviewGeneration();
-          }
-        }
-      }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
-
-      const onEmitHandler = addOnEmitHandler(addNotes);
-
-      if (isRerun) {
-        const notebookControlData = await getNotebookControlData();
-        await write('control/' + module, notebookControlData, {
-          workspace,
-        });
-      }
-
-      await api.importModule(module, {
-        clearUpdateEmits: true,
-        topLevel,
-        readCache: false,
-        workspace,
-      });
-
-      await resolvePending();
-
-      removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: true });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
-    };
-
-    const onKeyDown = (e) => {
-      const CONTROL = 17;
-      const E = 69;
-      const ENTER = 13;
-      const S = 83;
-      const SHIFT = 16;
-
-      const key = e.which || e.keyCode || 0;
-
-      switch (key) {
-        case CONTROL:
-        case SHIFT:
-          return true;
-      }
-
-      const { ctrlKey, shiftKey } = e;
-      switch (key) {
-        case ENTER: {
-          if (shiftKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            run({ isRerun: true });
-            return false;
-          }
-          break;
-        }
-      }
-    };
-
-    const start = async () => {
-      setupWorkspace(workspace);
-      await boot();
-
-      // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Ftags%2Ftags.nb%22%3A%22md%60%5Cn---%5Cn%23%20Tags%5Cn%5CnGeometry%20carries%20qualified%20tags%20which%20can%20be%20used%20for%20selection%20and%20in%20display.%5Cn%60%3B%5Cn%5Cnmd%60%5CnThe%20fundamental%20operations%20are%20Shape.tag(...tags)%20and%20Shape.untag(...).%5Cn%5CnTags%20are%20qualified%20with%20namespaces%2C%20such%20as%20user%3A%2C%20color%3A%2C%20material%3A%2C%20part%3A%2C%20etc.%5Cn%5CnThe%20default%20namespace%20is%20'user'.%5Cn%5CnA%20wildcard%20tag%20is%20reserved%20and%20used%20to%20match%20any%20tag%20within%20a%20namespace.%5Cn%60%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue').view()%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue'%2C%20'material%3Acopper').untag('user%3A*'%2C%20'color%3Ablue').view()%3B%5Cn%5Cnmd%60%5CnShape.color()%20and%20shape.material()%20are%20provided%20as%20convenience%20operations.%5Cn%60%3B%5Cn%5Cnmd%60%5CnShape.drop()%20selects%20which%20sub-geometries%20to%20ghost%20(or%20otherwise%20transform).%5Cn%60%3B%5Cn%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(getNot('user%3Aa')).view()%3B%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(get('user%3Aa')).view()%3B%5Cn%22%7D"));
-      for (const path of Object.keys(files)) {
-        await write(path, files[path], { ephemeral: true });
-      }
-
-      await run();
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    if (document.readyState === 'complete') {
-      start();
-      mermaid.init();
-    } else {
-      document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-          start();
-        }
-      };
-    }
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Ftags%2Ftags.nb%22%3A%22md%60%5Cn---%5Cn%23%20Tags%5Cn%5CnGeometry%20carries%20qualified%20tags%20which%20can%20be%20used%20for%20selection%20and%20in%20display.%5Cn%60%3B%5Cn%5Cnmd%60%5CnThe%20fundamental%20operations%20are%20Shape.tag(...tags)%20and%20Shape.untag(...).%5Cn%5CnTags%20are%20qualified%20with%20namespaces%2C%20such%20as%20user%3A%2C%20color%3A%2C%20material%3A%2C%20part%3A%2C%20etc.%5Cn%5CnThe%20default%20namespace%20is%20'user'.%5Cn%5CnA%20wildcard%20tag%20is%20reserved%20and%20used%20to%20match%20any%20tag%20within%20a%20namespace.%5Cn%60%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue').view()%3B%5Cn%5CnArc(5).tag('ring'%2C%20'color%3Ablue'%2C%20'material%3Acopper').untag('user%3A*'%2C%20'color%3Ablue').view()%3B%5Cn%5Cnmd%60%5CnShape.color()%20and%20shape.material()%20are%20provided%20as%20convenience%20operations.%5Cn%60%3B%5Cn%5Cnmd%60%5CnShape.drop()%20selects%20which%20sub-geometries%20to%20ghost%20(or%20otherwise%20transform).%5Cn%60%3B%5Cn%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(getNot('user%3Aa')).view()%3B%5CnArc(5).tag('a').fit(Box(4).tag('b')).drop(get('user%3Aa')).view()%3B%5Cn%22%7D")), module: "nb/documentation/tags/tags.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
+  <div id="notebook" class="notebook"></div>
  </body>
 </html>

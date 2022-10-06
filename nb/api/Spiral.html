@@ -1,9 +1,10 @@
 
 <html>
  <head>
-  <title>JSxCAD Viewer</title>
+  <title>Jot</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <style>
     div.book {
       height: 100%;
@@ -65,151 +66,13 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
-    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
-
-    const baseUrl = "https://jsxcad.js.org";
-    const module = "nb/api/Spiral.nb";
-    const workspace = 'JSxCAD';
-
-    const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
-      const addNotes = async (notes) => {
-        for (const note of notes) {
-          if (seenHashes.has(note.hash)) {
-            continue;
-          }
-          seenHashes.add(note.hash);
-          const { path, data, hash, line } = note;
-          if (!notebooks.has(line)) {
-            notebooks.set(line, []);
-          }
-          notebooks.get(line).push(note);
-          if (note.md) {
-            note.md = note
-              .md
-              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-          }
-          if (path && !data) {
-             note.data = read(path);
-          }
-          if (note.view && !note.url) {
-            const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
-            }
-            schedulePreviewGeneration();
-          }
-        }
-      }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
-
-      const onEmitHandler = addOnEmitHandler(addNotes);
-
-      if (isRerun) {
-        const notebookControlData = await getNotebookControlData();
-        await write('control/' + module, notebookControlData, {
-          workspace,
-        });
-      }
-
-      await api.importModule(module, {
-        clearUpdateEmits: true,
-        topLevel,
-        readCache: false,
-        workspace,
-      });
-
-      await resolvePending();
-
-      removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: true });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
-    };
-
-    const onKeyDown = (e) => {
-      const CONTROL = 17;
-      const E = 69;
-      const ENTER = 13;
-      const S = 83;
-      const SHIFT = 16;
-
-      const key = e.which || e.keyCode || 0;
-
-      switch (key) {
-        case CONTROL:
-        case SHIFT:
-          return true;
-      }
-
-      const { ctrlKey, shiftKey } = e;
-      switch (key) {
-        case ENTER: {
-          if (shiftKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            run({ isRerun: true });
-            return false;
-          }
-          break;
-        }
-      }
-    };
-
-    const start = async () => {
-      setupWorkspace(workspace);
-      await boot();
-
-      // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2FSpiral.nb%22%3A%22md%60%5Cn%23%23%23%20Spiral()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnop%7CPoint%7CFunction%20or%20shape%20to%20build%20from.%5Cn%7Bfrom%7D%7C0%7CTurn%20to%20start%20with.%5Cn%7Bby%7D%7C1%7CTurn%20to%20increase%20by.%5Cn%7Bto%7D%7C1%7CTurn%20to%20stop%20at%2C%20inclusive.%5Cn%7Bupto%7D%7C%7CTurn%20to%20stop%20at%2C%20exclusive.%5Cn%5CnLinks%20the%20points%20produced%20by%20_op_%20to%20form%20a%20spiral.%5Cn%60%3B%5Cn%5CnSpiral(%7B%20by%3A%201%20%2F%2032%20%7D)%5Cn%20%20.view()%5Cn%20%20.note('Spiral(%7B%20by%3A%201%20%2F%2032%20%7D)')%3B%5Cn%5CnSpiral(%5Cn%20%20(t)%20%3D%3E%5Cn%20%20%20%20Arc(0.5)%5Cn%20%20%20%20%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20%20%20%20%20.x(t)%2C%5Cn%20%20%7B%20from%3A%201%20%2B%202%20%2F%2016%2C%20by%3A%201%20%2F%2016%2C%20to%3A%205%20%7D%5Cn)%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Spiral((t)%20%3D%3E%20Arc(0.5).hasAngle(0%20%2F%204%2C%202%20%2F%204).x(t)%2C%20%7B%20from%3A%201%20%2B%202%20%2F%2016%2C%20by%3A%201%20%2F%2016%2C%20to%3A%205%20%7D)'%5Cn%20%20)%3B%5Cn%5CnSpiral(%5Cn%20%20(t)%20%3D%3E%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20%20%20%20%20.x(5)%2C%5Cn%20%20%7B%20by%3A%201%20%2F%2016%20%7D%5Cn)%5Cn%20%20.view()%5Cn%20%20.note('Spiral((t)%20%3D%3E%20Arc(3).hasAngle(0%20%2F%204%2C%202%20%2F%204).x(5)%2C%20%7B%20by%3A%201%20%2F%2016%20%7D)')%3B%5Cn%22%7D"));
-      for (const path of Object.keys(files)) {
-        await write(path, files[path], { ephemeral: true });
-      }
-
-      await run();
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    if (document.readyState === 'complete') {
-      start();
-      mermaid.init();
-    } else {
-      document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-          start();
-        }
-      };
-    }
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fapi%2FSpiral.nb%22%3A%22md%60%5Cn%5Bindex%5D(%23https%3A%2F%2Fraw.githubusercontent.com%2Fjsxcad%2FJSxCAD%2Fmaster%2Fnb%2Fapi%2Findex.nb)%5Cn%23%23%23%20Spiral()%5CnParameter%7CDefault%7CType%5Cn---%7C---%7C---%5Cnop%7CPoint%7CFunction%20or%20shape%20to%20build%20from.%5Cn%7Bfrom%7D%7C0%7CTurn%20to%20start%20with.%5Cn%7Bby%7D%7C1%7CTurn%20to%20increase%20by.%5Cn%7Bto%7D%7C1%7CTurn%20to%20stop%20at%2C%20inclusive.%5Cn%7Bupto%7D%7C%7CTurn%20to%20stop%20at%2C%20exclusive.%5Cn%5CnLinks%20the%20points%20produced%20by%20_op_%20to%20form%20a%20spiral.%5Cn%60%3B%5Cn%5CnSpiral(%7B%20by%3A%201%20%2F%2032%20%7D)%5Cn%20%20.view()%5Cn%20%20.note('Spiral(%7B%20by%3A%201%20%2F%2032%20%7D)')%3B%5Cn%5CnSpiral(%5Cn%20%20(t)%20%3D%3E%5Cn%20%20%20%20Arc(0.5)%5Cn%20%20%20%20%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20%20%20%20%20.x(t)%2C%5Cn%20%20%7B%20from%3A%201%20%2B%202%20%2F%2016%2C%20by%3A%201%20%2F%2016%2C%20to%3A%205%20%7D%5Cn)%5Cn%20%20.view()%5Cn%20%20.note(%5Cn%20%20%20%20'Spiral((t)%20%3D%3E%20Arc(0.5).hasAngle(0%20%2F%204%2C%202%20%2F%204).x(t)%2C%20%7B%20from%3A%201%20%2B%202%20%2F%2016%2C%20by%3A%201%20%2F%2016%2C%20to%3A%205%20%7D)'%5Cn%20%20)%3B%5Cn%5CnSpiral(%5Cn%20%20(t)%20%3D%3E%5Cn%20%20%20%20Arc(3)%5Cn%20%20%20%20%20%20.hasAngle(0%20%2F%204%2C%202%20%2F%204)%5Cn%20%20%20%20%20%20.x(5)%2C%5Cn%20%20%7B%20by%3A%201%20%2F%2016%20%7D%5Cn)%5Cn%20%20.view()%5Cn%20%20.note('Spiral((t)%20%3D%3E%20Arc(3).hasAngle(0%20%2F%204%2C%202%20%2F%204).x(5)%2C%20%7B%20by%3A%201%20%2F%2016%20%7D)')%3B%5Cn%22%7D")), module: "nb/api/Spiral.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
+  <div id="notebook" class="notebook"></div>
  </body>
 </html>

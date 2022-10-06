@@ -1,9 +1,10 @@
 
 <html>
  <head>
-  <title>JSxCAD Viewer</title>
+  <title>Jot</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <style>
     div.book {
       height: 100%;
@@ -65,151 +66,13 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
-    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
-
-    const baseUrl = "https://jsxcad.js.org";
-    const module = "nb/documentation/principles/principles.nb";
-    const workspace = 'JSxCAD';
-
-    const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
-      const addNotes = async (notes) => {
-        for (const note of notes) {
-          if (seenHashes.has(note.hash)) {
-            continue;
-          }
-          seenHashes.add(note.hash);
-          const { path, data, hash, line } = note;
-          if (!notebooks.has(line)) {
-            notebooks.set(line, []);
-          }
-          notebooks.get(line).push(note);
-          if (note.md) {
-            note.md = note
-              .md
-              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-          }
-          if (path && !data) {
-             note.data = read(path);
-          }
-          if (note.view && !note.url) {
-            const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
-            }
-            schedulePreviewGeneration();
-          }
-        }
-      }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
-
-      const onEmitHandler = addOnEmitHandler(addNotes);
-
-      if (isRerun) {
-        const notebookControlData = await getNotebookControlData();
-        await write('control/' + module, notebookControlData, {
-          workspace,
-        });
-      }
-
-      await api.importModule(module, {
-        clearUpdateEmits: true,
-        topLevel,
-        readCache: false,
-        workspace,
-      });
-
-      await resolvePending();
-
-      removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: true });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
-    };
-
-    const onKeyDown = (e) => {
-      const CONTROL = 17;
-      const E = 69;
-      const ENTER = 13;
-      const S = 83;
-      const SHIFT = 16;
-
-      const key = e.which || e.keyCode || 0;
-
-      switch (key) {
-        case CONTROL:
-        case SHIFT:
-          return true;
-      }
-
-      const { ctrlKey, shiftKey } = e;
-      switch (key) {
-        case ENTER: {
-          if (shiftKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            run({ isRerun: true });
-            return false;
-          }
-          break;
-        }
-      }
-    };
-
-    const start = async () => {
-      setupWorkspace(workspace);
-      await boot();
-
-      // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Fprinciples%2Fprinciples.nb%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D"));
-      for (const path of Object.keys(files)) {
-        await write(path, files[path], { ephemeral: true });
-      }
-
-      await run();
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    if (document.readyState === 'complete') {
-      start();
-      mermaid.init();
-    } else {
-      document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-          start();
-        }
-      };
-    }
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Fprinciples%2Fprinciples.nb%22%3A%22md%60%5Cn---%5Cn%23%20Principles%5Cn%5CnThere%20are%20a%20number%20of%20principles%20informing%20design%20choices.%5Cn%5Cn1.%20Geometry%20Representation%20should%20be%20Context%20Free%20--%20taking%20subgeometry%20out%20of%20a%20container%20should%20not%20affect%20how%20it%20operates.%5Cn1.%20Short%20names%20are%20preferable%20--%20aim%20for%204%20letter%20operators.%5Cn1.%20Code%20can%20be%20executed%20out-of-order%20--%20dependencies%20are%20determined%20by%20variables.%5Cn1.%20Side-effects%20are%20special%20--%20side%20effects%20between%20statements%20need%20to%20be%20via%20%5C%22import%20'.%2Fmodule.js'%3B%5C%22%20without%20exports.%5Cn1.%20The%20interior%20of%20items%20is%20not%20implicitly%20accessed%20from%20the%20exterior%20--%20except%20where%20the%20effect%20is%20uniform.%5Cn1.%20Notebooks%20should%20be%20usable%20as%20normal%20ecmascript%20--%20but%20not%20all%20ecmascript%20will%20be%20usable%20as%20notebooks.%5Cn%60%3B%5Cn%22%7D")), module: "nb/documentation/principles/principles.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
+  <div id="notebook" class="notebook"></div>
  </body>
 </html>

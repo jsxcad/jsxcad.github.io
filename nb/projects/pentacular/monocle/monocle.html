@@ -1,9 +1,10 @@
 
 <html>
  <head>
-  <title>JSxCAD Viewer</title>
+  <title>Jot</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <style>
     div.book {
       height: 100%;
@@ -65,151 +66,13 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
-    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
-
-    const baseUrl = "https://jsxcad.js.org";
-    const module = "nb/projects/pentacular/monocle/monocle.nb";
-    const workspace = 'JSxCAD';
-
-    const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
-      const addNotes = async (notes) => {
-        for (const note of notes) {
-          if (seenHashes.has(note.hash)) {
-            continue;
-          }
-          seenHashes.add(note.hash);
-          const { path, data, hash, line } = note;
-          if (!notebooks.has(line)) {
-            notebooks.set(line, []);
-          }
-          notebooks.get(line).push(note);
-          if (note.md) {
-            note.md = note
-              .md
-              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-          }
-          if (path && !data) {
-             note.data = read(path);
-          }
-          if (note.view && !note.url) {
-            const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
-            }
-            schedulePreviewGeneration();
-          }
-        }
-      }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
-
-      const onEmitHandler = addOnEmitHandler(addNotes);
-
-      if (isRerun) {
-        const notebookControlData = await getNotebookControlData();
-        await write('control/' + module, notebookControlData, {
-          workspace,
-        });
-      }
-
-      await api.importModule(module, {
-        clearUpdateEmits: true,
-        topLevel,
-        readCache: false,
-        workspace,
-      });
-
-      await resolvePending();
-
-      removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: true });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
-    };
-
-    const onKeyDown = (e) => {
-      const CONTROL = 17;
-      const E = 69;
-      const ENTER = 13;
-      const S = 83;
-      const SHIFT = 16;
-
-      const key = e.which || e.keyCode || 0;
-
-      switch (key) {
-        case CONTROL:
-        case SHIFT:
-          return true;
-      }
-
-      const { ctrlKey, shiftKey } = e;
-      switch (key) {
-        case ENTER: {
-          if (shiftKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            run({ isRerun: true });
-            return false;
-          }
-          break;
-        }
-      }
-    };
-
-    const start = async () => {
-      setupWorkspace(workspace);
-      await boot();
-
-      // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fmonocle%2Fmonocle.nb%22%3A%22const%20Rim%20%3D%20(diameter%20%3D%2037%2C%20thickness%20%3D%202)%20%3D%3E%5Cn%20%20Arc(diameter)%5Cn%20%20%20%20.hasAngle(1%20%2F%204)%5Cn%20%20%20%20.eachPoint((p)%20%3D%3E%20p.Orb(thickness)%2C%20ChainHull)%3B%5Cn%5Cnconst%20Monocle%20%3D%20(%5Cn%20%20diameter%20%3D%2037%2C%5Cn%20%20height%20%3D%2011%2C%5Cn%20%20frameThickness%20%3D%202%2C%5Cn%20%20lensThickness%20%3D%202%5Cn)%20%3D%3E%5Cn%20%20Rim(diameter%2C%20frameThickness)%5Cn%20%20%20%20.z(0)%5Cn%20%20%20%20.join(%5Cn%20%20%20%20%20%20'exact'%2C%5Cn%20%20%20%20%20%20Hull(Arc(1.8%2C%203.6)%2C%20Arc(3.6).z(height))%5Cn%20%20%20%20%20%20%20%20.join('exact'%2C%20Orb(3.6%2C%203.6%2C%202).hasZag(0.5).z(height))%5Cn%20%20%20%20%20%20%20%20.x(37%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.rz(3%20%2F%20360%2C%203%20%2F%208%2C%20267%20%2F%20360)%5Cn%20%20%20%20)%5Cn%20%20%20%20.fitTo(%5Cn%20%20%20%20%20%20Arc(diameter)%5Cn%20%20%20%20%20%20%20%20.ez(height%20-%20lensThickness%2C%20height)%5Cn%20%20%20%20%20%20%20%20.mask(grow('z'%2C%200.1))%5Cn%20%20%20%20%20%20%20%20.material('glass')%5Cn%20%20%20%20%20%20%20%20.as('lens')%5Cn%20%20%20%20)%5Cn%20%20%20%20.view()%5Cn%20%20%20%20.stl(%5Cn%20%20%20%20%20%20getNot('lens')%2C%5Cn%20%20%20%20%20%20%60frame-%24%7Bdiameter%7Dx%24%7Bheight%7Dx%24%7BframeThickness%7Dx%24%7BlensThickness%7D%60%5Cn%20%20%20%20)%5Cn%20%20%20%20.stl(%5Cn%20%20%20%20%20%20get('lens')%2C%5Cn%20%20%20%20%20%20%60lens-%24%7Bdiameter%7Dx%24%7Bheight%7Dx%24%7BframeThickness%7Dx%24%7BlensThickness%7D%60%5Cn%20%20%20%20)%3B%5Cn%5Cnconst%20monocle_37x12x2x2%20%3D%20Monocle(37%2C%2012%2C%202%2C%202)%3B%5Cn%22%7D"));
-      for (const path of Object.keys(files)) {
-        await write(path, files[path], { ephemeral: true });
-      }
-
-      await run();
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    if (document.readyState === 'complete') {
-      start();
-      mermaid.init();
-    } else {
-      document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-          start();
-        }
-      };
-    }
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fprojects%2Fpentacular%2Fmonocle%2Fmonocle.nb%22%3A%22const%20Rim%20%3D%20(diameter%20%3D%2037%2C%20thickness%20%3D%202)%20%3D%3E%5Cn%20%20Arc(diameter)%5Cn%20%20%20%20.hasAngle(1%20%2F%204)%5Cn%20%20%20%20.eachPoint((p)%20%3D%3E%20p.Orb(thickness)%2C%20ChainHull)%3B%5Cn%5Cnconst%20Monocle%20%3D%20(%5Cn%20%20diameter%20%3D%2037%2C%5Cn%20%20height%20%3D%2011%2C%5Cn%20%20frameThickness%20%3D%202%2C%5Cn%20%20lensThickness%20%3D%202%5Cn)%20%3D%3E%5Cn%20%20Rim(diameter%2C%20frameThickness)%5Cn%20%20%20%20.z(0)%5Cn%20%20%20%20.join(%5Cn%20%20%20%20%20%20'exact'%2C%5Cn%20%20%20%20%20%20Hull(Arc(1.8%2C%203.6)%2C%20Arc(3.6).z(height))%5Cn%20%20%20%20%20%20%20%20.join('exact'%2C%20Orb(3.6%2C%203.6%2C%202).hasZag(0.5).z(height))%5Cn%20%20%20%20%20%20%20%20.x(37%20%2F%202)%5Cn%20%20%20%20%20%20%20%20.rz(3%20%2F%20360%2C%203%20%2F%208%2C%20267%20%2F%20360)%5Cn%20%20%20%20)%5Cn%20%20%20%20.fitTo(%5Cn%20%20%20%20%20%20Arc(diameter)%5Cn%20%20%20%20%20%20%20%20.ez(height%20-%20lensThickness%2C%20height)%5Cn%20%20%20%20%20%20%20%20.mask(grow('z'%2C%200.1))%5Cn%20%20%20%20%20%20%20%20.material('glass')%5Cn%20%20%20%20%20%20%20%20.as('lens')%5Cn%20%20%20%20)%5Cn%20%20%20%20.view()%5Cn%20%20%20%20.stl(%5Cn%20%20%20%20%20%20getNot('lens')%2C%5Cn%20%20%20%20%20%20%60frame-%24%7Bdiameter%7Dx%24%7Bheight%7Dx%24%7BframeThickness%7Dx%24%7BlensThickness%7D%60%5Cn%20%20%20%20)%5Cn%20%20%20%20.stl(%5Cn%20%20%20%20%20%20get('lens')%2C%5Cn%20%20%20%20%20%20%60lens-%24%7Bdiameter%7Dx%24%7Bheight%7Dx%24%7BframeThickness%7Dx%24%7BlensThickness%7D%60%5Cn%20%20%20%20)%3B%5Cn%5Cnconst%20monocle_37x12x2x2%20%3D%20Monocle(37%2C%2012%2C%202%2C%202)%3B%5Cn%22%7D")), module: "nb/projects/pentacular/monocle/monocle.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
+  <div id="notebook" class="notebook"></div>
  </body>
 </html>

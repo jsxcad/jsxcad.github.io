@@ -1,9 +1,10 @@
 
 <html>
  <head>
-  <title>JSxCAD Viewer</title>
+  <title>Jot</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
   <style>
     div.book {
       height: 100%;
@@ -65,151 +66,13 @@
       padding: 5px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
  </head>
  <body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
-    import api from 'https://jsxcad.js.org/alpha/jsxcad-api.js';
-    import { Shape } from 'https://jsxcad.js.org/alpha/jsxcad-api-shape.js';
-    import { dataUrl } from 'https://jsxcad.js.org/alpha/jsxcad-ui-threejs.js';
-    import { addOnEmitHandler, boot, read, removeOnEmitHandler, resolvePending, setupWorkspace, write } from 'https://jsxcad.js.org/alpha/jsxcad-sys.js';
-    import { getNotebookControlData, toDomElement } from 'https://jsxcad.js.org/alpha/jsxcad-ui-notebook.js';
-
-    const baseUrl = "https://jsxcad.js.org";
-    const module = "nb/documentation/reference_geometry/reference_geometry.nb";
-    const workspace = 'JSxCAD';
-
-    const run = async ({ isRerun = false } = {}) => {
-      const topLevel = new Map();
-      const seenHashes = new Set();
-      const notebooks = new Map();
-      const addNotes = async (notes) => {
-        for (const note of notes) {
-          if (seenHashes.has(note.hash)) {
-            continue;
-          }
-          seenHashes.add(note.hash);
-          const { path, data, hash, line } = note;
-          if (!notebooks.has(line)) {
-            notebooks.set(line, []);
-          }
-          notebooks.get(line).push(note);
-          if (note.md) {
-            note.md = note
-              .md
-              .replace(/#https:\/\/raw.githubusercontent.com\/jsxcad\/JSxCAD\/master\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
-          }
-          if (path && !data) {
-             note.data = read(path);
-          }
-          if (note.view && !note.url) {
-            const schedulePreviewGeneration = async () => {
-              note.url = await dataUrl(Shape.fromGeometry(await note.data), note.view);
-            }
-            schedulePreviewGeneration();
-          }
-        }
-      }
-
-      const readyNotebook = async (notebook) => {
-        for (const note of notebook) {
-          note.data = await note.data;
-          note.url = await note.url;
-        }
-      };
-
-      const onEmitHandler = addOnEmitHandler(addNotes);
-
-      if (isRerun) {
-        const notebookControlData = await getNotebookControlData();
-        await write('control/' + module, notebookControlData, {
-          workspace,
-        });
-      }
-
-      await api.importModule(module, {
-        clearUpdateEmits: true,
-        topLevel,
-        readCache: false,
-        workspace,
-      });
-
-      await resolvePending();
-
-      removeOnEmitHandler(onEmitHandler);
-
-      const body = document.getElementsByTagName('body')[0];
-      {
-        const oldBookElement = document.getElementById('bookElement')
-        if (oldBookElement) {
-          oldBookElement.remove();
-        }
-      }
-      const bookElement = document.createElement('div');
-      bookElement.id = 'bookElement';
-      for (const line of [...notebooks.keys()].sort((a, b) => a - b)) {
-        const notebook = notebooks.get(line);
-        await readyNotebook(notebook);
-        const notebookElement = await toDomElement(notebook, { useControls: true });
-        bookElement.appendChild(notebookElement);
-        body.appendChild(bookElement);
-        bookElement.classList.add('book', 'notebook', 'loaded');
-      }
-    };
-
-    const onKeyDown = (e) => {
-      const CONTROL = 17;
-      const E = 69;
-      const ENTER = 13;
-      const S = 83;
-      const SHIFT = 16;
-
-      const key = e.which || e.keyCode || 0;
-
-      switch (key) {
-        case CONTROL:
-        case SHIFT:
-          return true;
-      }
-
-      const { ctrlKey, shiftKey } = e;
-      switch (key) {
-        case ENTER: {
-          if (shiftKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            run({ isRerun: true });
-            return false;
-          }
-          break;
-        }
-      }
-    };
-
-    const start = async () => {
-      setupWorkspace(workspace);
-      await boot();
-
-      // Construct a local ephemeral filesystem.
-      const files = JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Freference_geometry%2Freference_geometry.nb%22%3A%22md%60%23%20Reference%20Geometry%60%3B%5Cnmd%60Each%20shape%20in%20jot%20has%20it's%20own%20frame%20of%20reference%20which%20can%20be%20accessed.%20A%20shapes%20internal%20frame%20of%20reference%20can%20be%20used%20to%20position%20a%20new%20shape%20relative%20to%20an%20existing%20shape.%20A%20shapes%20frame%20of%20reference%20can%20be%20redefined%20by%20defining%20it%20as%20an%20item%60%3B%5Cn%5Cnconst%20a%20%3D%20Box(10%2C%2010%2C%201).color('red').x(10)%3B%5Cn%5Cnconst%20b%20%3D%20Box(5%2C%205%2C%202).color('blue').y(10)%3B%5Cn%5CnGroup(a%2C%20b).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Align%5CnReturns%20a%20point%20relative%20to%20a%20shape%20which%20can%20be%20used%20for%20positioning%20other%20shapes.%20Behavior%20needs%20to%20be%20updated%20to%20function%20this%20way.%5Cn%60%3B%5Cn%5CnGroup(a%2C%20b%2C%20b.to(a.align('%3Cx'))).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20At%5CnPerforms%20an%20operation%20on%20a%20shape%20at%20a%20particular%20location.%5Cn%60%3B%5Cn%5Cnb.and(a.at(b%2C%20cut(b))).view()%3B%20%2F%2FMoves%20a%20to%20b%2C%20makes%20the%20cut%2C%20then%20moves%20a%20back%20to%20it's%20original%20location%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20By%5CnMoves%20a%20shape%20from%20it's%20current%20location%20by%20a%20reference%20amount.%5Cn%60%3B%5Cn%5Cna.and(b.by(a)).view()%3B%20%2F%2FMoves%20the%20blue%20square%20in%20the%20X%20direction%20the%20same%20amount%20that%20the%20red%20square%20had%20been%20moved%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20To%5CnMoves%20a%20shape%20to%20a%20reference%20position.%5Cn%60%3B%5Cn%5Cna.and(b.to(a)).view()%3B%20%2F%2FMoves%20the%20blue%20square%20to%20the%20red%20square%5Cn%22%7D"));
-      for (const path of Object.keys(files)) {
-        await write(path, files[path], { ephemeral: true });
-      }
-
-      await run();
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    if (document.readyState === 'complete') {
-      start();
-      mermaid.init();
-    } else {
-      document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-          start();
-        }
-      };
-    }
+    import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
+    run({ files: JSON.parse(decodeURIComponent("%7B%22source%2Fnb%2Fdocumentation%2Freference_geometry%2Freference_geometry.nb%22%3A%22md%60%23%20Reference%20Geometry%60%3B%5Cnmd%60Each%20shape%20in%20jot%20has%20it's%20own%20frame%20of%20reference%20which%20can%20be%20accessed.%20A%20shapes%20internal%20frame%20of%20reference%20can%20be%20used%20to%20position%20a%20new%20shape%20relative%20to%20an%20existing%20shape.%20A%20shapes%20frame%20of%20reference%20can%20be%20redefined%20by%20defining%20it%20as%20an%20item%60%3B%5Cn%5Cnconst%20a%20%3D%20Box(10%2C%2010%2C%201).color('red').x(10)%3B%5Cn%5Cnconst%20b%20%3D%20Box(5%2C%205%2C%202).color('blue').y(10)%3B%5Cn%5CnGroup(a%2C%20b).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20Align%5CnReturns%20a%20point%20relative%20to%20a%20shape%20which%20can%20be%20used%20for%20positioning%20other%20shapes.%20Behavior%20needs%20to%20be%20updated%20to%20function%20this%20way.%5Cn%60%3B%5Cn%5CnGroup(a%2C%20b%2C%20b.to(a.align('%3Cx'))).view()%3B%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20At%5CnPerforms%20an%20operation%20on%20a%20shape%20at%20a%20particular%20location.%5Cn%60%3B%5Cn%5Cnb.and(a.at(b%2C%20cut(b))).view()%3B%20%2F%2FMoves%20a%20to%20b%2C%20makes%20the%20cut%2C%20then%20moves%20a%20back%20to%20it's%20original%20location%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20By%5CnMoves%20a%20shape%20from%20it's%20current%20location%20by%20a%20reference%20amount.%5Cn%60%3B%5Cn%5Cna.and(b.by(a)).view()%3B%20%2F%2FMoves%20the%20blue%20square%20in%20the%20X%20direction%20the%20same%20amount%20that%20the%20red%20square%20had%20been%20moved%5Cn%5Cnmd%60%5Cn---%5Cn%23%23%23%20To%5CnMoves%20a%20shape%20to%20a%20reference%20position.%5Cn%60%3B%5Cn%5Cna.and(b.to(a)).view()%3B%20%2F%2FMoves%20the%20blue%20square%20to%20the%20red%20square%5Cn%22%7D")), module: "nb/documentation/reference_geometry/reference_geometry.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
+  <div id="notebook" class="notebook"></div>
  </body>
 </html>
