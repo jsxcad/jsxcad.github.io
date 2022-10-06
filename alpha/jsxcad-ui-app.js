@@ -5525,14 +5525,7 @@ class Notebook extends ReactDOM$2.PureComponent {
     if (children.length === 0) {
       return v$1(MoonLoader, {
         color: "#36d7b7",
-        size: "128",
-        style: {
-          margin: 0,
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)'
-        }
+        size: "128"
       });
     }
 

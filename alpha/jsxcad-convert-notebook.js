@@ -23,14 +23,14 @@ const encodeNotebook = async (notebook, { root, workspace, module } = {}) => {
     if (note.download) {
       const encodedEntries = [];
       for (const entry of note.download.entries) {
-        let data = await entry.data;
-        if (entry.path && !data) {
-          data = await read(entry.path, { workspace });
+        entry.data = await entry.data;
+        if (entry.path && !entry.data) {
+          entry.data = await read(entry.path, { workspace });
         }
-        if (data) {
+        if (entry.data) {
           const encodedEntry = {
             ...entry,
-            base64Data: encode(data.buffer),
+            base64Data: encode(entry.data),
           };
           delete encodedEntry.data;
           encodedEntries.push(encodedEntry);
