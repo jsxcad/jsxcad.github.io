@@ -1,4 +1,4 @@
-import { assemble as assemble$1, toDisplayGeometry, toConcreteGeometry, toTransformedGeometry, toPoints, transform, rewriteTags, taggedGraph, taggedSegments, taggedPoints, fromPolygons, registerReifier, taggedPlan, identity, hasTypeReference, taggedGroup, join as join$1, makeAbsolute, measureArea, taggedItem, getInverseMatrices, computeNormal, extrude, transformCoordinate, link as link$1, measureBoundingBox, bend as bend$1, getLeafs, computeCentroid, convexHull, fuse as fuse$1, noGhost, clip as clip$1, cut as cut$1, deform as deform$1, demesh as demesh$1, disjoint as disjoint$1, hasTypeGhost, getLayouts, taggedLayout, eachFaceEdges, eachPoint as eachPoint$1, fill as fill$1, fix as fix$1, rewrite, visit, grow as grow$1, inset as inset$1, involute as involute$1, read, readNonblocking, loft as loft$1, serialize as serialize$1, generateLowerEnvelope, hasShowOverlay, hasTypeMasked, hasMaterial, offset as offset$1, outline as outline$1, remesh as remesh$1, write, writeNonblocking, fromScaleToTransform, seam as seam$1, section as section$1, separate as separate$1, cast, simplify as simplify$1, taggedSketch, smooth as smooth$1, computeToolpath, twist as twist$1, generateUpperEnvelope, hasTypeVoid, measureVolume, withAabbTreeQuery, linearize, wrap as wrap$1, computeImplicitVolume, hash } from './jsxcad-geometry.js';
+import { assemble as assemble$1, toDisplayGeometry, toConcreteGeometry, toTransformedGeometry, toPoints, transform, eagerTransform, rewriteTags, taggedGraph, taggedSegments, taggedPoints, fromPolygons, registerReifier, taggedPlan, identity, hasTypeReference, taggedGroup, join as join$1, makeAbsolute, measureArea, taggedItem, getInverseMatrices, computeNormal, extrude, transformCoordinate, link as link$1, measureBoundingBox, bend as bend$1, getLeafs, computeCentroid, convexHull, fuse as fuse$1, noGhost, clip as clip$1, cut as cut$1, deform as deform$1, demesh as demesh$1, disjoint as disjoint$1, hasTypeGhost, getLayouts, taggedLayout, eachFaceEdges, eachPoint as eachPoint$1, fill as fill$1, fix as fix$1, rewrite, visit, grow as grow$1, inset as inset$1, involute as involute$1, read, readNonblocking, loft as loft$1, serialize as serialize$1, generateLowerEnvelope, hasShowOverlay, hasTypeMasked, hasMaterial, offset as offset$1, outline as outline$1, remesh as remesh$1, write, writeNonblocking, fromScaleToTransform, seam as seam$1, section as section$1, separate as separate$1, cast, simplify as simplify$1, taggedSketch, smooth as smooth$1, computeToolpath, twist as twist$1, generateUpperEnvelope, hasTypeVoid, measureVolume, withAabbTreeQuery, linearize, wrap as wrap$1, computeImplicitVolume, hash } from './jsxcad-geometry.js';
 import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, log as log$1, ErrorWouldBlock, generateUniqueId, addPending, write as write$1 } from './jsxcad-sys.js';
 export { elapsed, emit, read, write } from './jsxcad-sys.js';
 import { zag } from './jsxcad-api-v1-math.js';
@@ -50,6 +50,13 @@ class Shape {
 
   transform(matrix) {
     return fromGeometry(transform(matrix, this.toGeometry()), this.context);
+  }
+
+  eagerTransform(matrix) {
+    return fromGeometry(
+      eagerTransform(matrix, this.toGeometry()),
+      this.context
+    );
   }
 
   // Low level setter for reifiers.
@@ -1483,16 +1490,14 @@ const color = Shape.chainable(
 
 Shape.registerMethod('color', color);
 
-const copy = Shape.chainable(
-  (count) =>
-    (shape) => {
-      const copies = [];
-      const limit = shape.toValue(count);
-      for (let nth = 0; nth < limit; nth++) {
-        copies.push(shape);
-      }      return Group(...copies);
-    }
-);
+const copy = Shape.chainable((count) => (shape) => {
+  const copies = [];
+  const limit = shape.toValue(count);
+  for (let nth = 0; nth < limit; nth++) {
+    copies.push(shape);
+  }
+  return Group(...copies);
+});
 
 Shape.registerMethod('copy', copy);
 
@@ -3055,7 +3060,13 @@ const MAX = 1;
 const X$5 = 0;
 const Y$5 = 1;
 
-const buildLayoutGeometry = ({ layer, pageWidth, pageLength, margin }) => {
+const buildLayoutGeometry = ({
+  layer,
+  pageWidth,
+  pageLength,
+  margin,
+  center = false,
+}) => {
   const itemNames = layer
     .getNot('type:ghost')
     .tags('item', list)
@@ -3086,13 +3097,17 @@ const buildLayoutGeometry = ({ layer, pageWidth, pageLength, margin }) => {
     )
     .color('red')
     .ghost();
-  return Shape.fromGeometry(
+  let layout = Shape.fromGeometry(
     taggedLayout(
       { size, margin, title },
       layer.toGeometry(),
       visualization.toGeometry()
     )
   );
+  if (center) {
+    layout = layout.by(align());
+  }
+  return layout;
 };
 
 const Page = (...args) => {
@@ -3101,13 +3116,18 @@ const Page = (...args) => {
     strings: modes,
     shapesAndFunctions: shapes,
   } = destructure(args);
-  const {
+  let {
     size,
     pageMargin = 5,
     itemMargin = 1,
     itemsPerPage = Infinity,
   } = options;
   const pack = modes.includes('pack');
+  const center = modes.includes('center');
+
+  if (modes.includes('a4')) {
+    size = [210, 297];
+  }
 
   const margin = itemMargin;
   const layers = [];
@@ -3137,7 +3157,13 @@ const Page = (...args) => {
         Math.abs(packSize[MIN][Y$5] * 2)
       ) +
       pageMargin * 2;
-    return buildLayoutGeometry({ layer, pageWidth, pageLength, margin });
+    return buildLayoutGeometry({
+      layer,
+      pageWidth,
+      pageLength,
+      margin,
+      center,
+    });
   } else if (!pack && !size) {
     const layer = Shape.fromGeometry(taggedGroup({}, ...layers));
     const packSize = measureBoundingBox(layer.toGeometry());
@@ -3159,13 +3185,20 @@ const Page = (...args) => {
       ) +
       pageMargin * 2;
     if (isFinite(pageWidth) && isFinite(pageLength)) {
-      return buildLayoutGeometry({ layer, pageWidth, pageLength, margin });
+      return buildLayoutGeometry({
+        layer,
+        pageWidth,
+        pageLength,
+        margin,
+        center,
+      });
     } else {
       return buildLayoutGeometry({
         layer,
         pageWidth: 0,
         pageLength: 0,
         margin,
+        center,
       });
     }
   } else if (pack && size) {
@@ -3185,13 +3218,14 @@ const Page = (...args) => {
     const pageLength = Math.max(1, packSize[MAX][Y$5] - packSize[MIN][Y$5]);
     if (isFinite(pageWidth) && isFinite(pageLength)) {
       const plans = [];
-      for (const layer of content.get('pack:layer', List)) {
+      for (const layer of content.get('pack:layout', List)) {
         plans.push(
           buildLayoutGeometry({
             layer,
             pageWidth,
             pageLength,
             margin,
+            center,
           })
         );
       }
@@ -3203,6 +3237,7 @@ const Page = (...args) => {
         pageWidth: 0,
         pageLength: 0,
         margin,
+        center,
       });
     }
   } else if (pack && !size) {
@@ -3230,6 +3265,7 @@ const Page = (...args) => {
           pageWidth,
           pageLength,
           margin,
+          center,
         });
         plans.push(layout);
       }
@@ -3241,6 +3277,7 @@ const Page = (...args) => {
         pageWidth: 0,
         pageLength: 0,
         margin,
+        center,
       });
     }
   }
@@ -4215,9 +4252,9 @@ const scale$1 = Shape.chainable((x = 1, y = x, z = y) => (shape) => {
   const negatives = (x < 0) + (y < 0) + (z < 0);
   if (negatives % 2) {
     // Compensate for inversion.
-    return shape.transform(fromScaleToTransform(x, y, z)); // .involute();
+    return shape.eagerTransform(fromScaleToTransform(x, y, z)).involute();
   } else {
-    return shape.transform(fromScaleToTransform(x, y, z));
+    return shape.eagerTransform(fromScaleToTransform(x, y, z));
   }
 });
 

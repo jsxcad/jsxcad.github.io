@@ -1048,6 +1048,51 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
 var PropTypes$3 = propTypes$1.exports;
 
+var t,u,r,o=0,i$2=[],c=l$1.__b,f$1=l$1.__r,e=l$1.diffed,a=l$1.__c,v=l$1.unmount;function m(t,r){l$1.__h&&l$1.__h(u,t,o||r),o=0;var i=u.__H||(u.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l(n){return o=1,p(w$1,n)}function p(n,r,o){var i=m(t++,2);return i.t=n,i.__c||(i.__=[o?o(r):w$1(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u),i.__}function y(r,o){var i=m(t++,3);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__H.__h.push(i));}function h(r,o){var i=m(t++,4);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__h.push(i));}function s(n){return o=5,d(function(){return {current:n}},[])}function _(n,t,u){o=6,h(function(){"function"==typeof n?n(t()):n&&(n.current=t());},null==u?u:u.concat(n));}function d(n,u){var r=m(t++,7);return k$1(r.__H,u)&&(r.__=n(),r.__H=u,r.__h=n),r.__}function A$1(n,t){return o=8,d(function(){return n},t)}function F$1(n){var r=u.context[n.__c],o=m(t++,9);return o.c=n,r?(null==o.__&&(o.__=!0,r.sub(u)),r.props.value):n.__}function T$1(t,u){l$1.useDebugValue&&l$1.useDebugValue(u?u(t):t);}function q$1(n){var r=m(t++,10),o=l();return r.__=n,u.componentDidCatch||(u.componentDidCatch=function(n){r.__&&r.__(n),o[1](n);}),[o[0],function(){o[1](void 0);}]}function x$1(){i$2.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j$1),t.__H.__h=[];}catch(u){t.__H.__h=[],l$1.__e(u,t.__v);}}),i$2=[];}l$1.__b=function(n){u=null,c&&c(n);},l$1.__r=function(n){f$1&&f$1(n),t=0;var r=(u=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j$1),r.__h=[]);},l$1.diffed=function(t){e&&e(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$2.push(o)&&r===l$1.requestAnimationFrame||((r=l$1.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b&&(t=requestAnimationFrame(u));})(x$1)),u=void 0;},l$1.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j$1(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],l$1.__e(r,t.__v);}}),a&&a(t,u);},l$1.unmount=function(t){v&&v(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){l$1.__e(t,u.__v);}};var b="function"==typeof requestAnimationFrame;function g$1(n){var t=u;"function"==typeof n.__c&&n.__c(),u=t;}function j$1(n){var t=u;n.__c=n.__(),u=t;}function k$1(n,t){return !n||n.length!==t.length||t.some(function(t,u){return t!==n[u]})}function w$1(n,t){return "function"==typeof t?t(n):t}
+
+function S(n,t){for(var e in t)n[e]=t[e];return n}function C(n,t){for(var e in n)if("__source"!==e&&!(e in t))return !0;for(var r in t)if("__source"!==r&&n[r]!==t[r])return !0;return !1}function E(n){this.props=n;}function g(n,t){function e(n){var e=this.props.ref,r=e==n.ref;return !r&&e&&(e.call?e(null):e.current=null),t?!t(this.props,n)||!r:C(this.props,n)}function r(t){return this.shouldComponentUpdate=e,v$1(n,t)}return r.displayName="Memo("+(n.displayName||n.name)+")",r.prototype.isReactComponent=!0,r.__f=!0,r}(E.prototype=new _$1).isPureReactComponent=!0,E.prototype.shouldComponentUpdate=function(n,t){return C(this.props,n)||C(this.state,t)};var w=l$1.__b;l$1.__b=function(n){n.type&&n.type.__f&&n.ref&&(n.props.ref=n.ref,n.ref=null),w&&w(n);};var R="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.forward_ref")||3911;function x(n){function t(t,e){var r=S({},t);return delete r.ref,n(r,(e=t.ref||e)&&("object"!=typeof e||"current"in e)?e:null)}return t.$$typeof=R,t.render=t,t.prototype.isReactComponent=t.__f=!0,t.displayName="ForwardRef("+(n.displayName||n.name)+")",t}var N=function(n,t){return null==n?null:A$2(A$2(n).map(t))},k={map:N,forEach:N,count:function(n){return n?A$2(n).length:0},only:function(n){var t=A$2(n);if(1!==t.length)throw "Children.only";return t[0]},toArray:A$2},A=l$1.__e;l$1.__e=function(n,t,e){if(n.then)for(var r,u=t;u=u.__;)if((r=u.__c)&&r.__c)return null==t.__e&&(t.__e=e.__e,t.__k=e.__k),r.__c(n,t);A(n,t,e);};var O=l$1.unmount;function L(){this.__u=0,this.t=null,this.__b=null;}function U(n){var t=n.__.__c;return t&&t.__e&&t.__e(n)}function F(n){var t,e,r;function u(u){if(t||(t=n()).then(function(n){e=n.default||n;},function(n){r=n;}),r)throw r;if(!e)throw t;return v$1(e,u)}return u.displayName="Lazy",u.__f=!0,u}function M(){this.u=null,this.o=null;}l$1.unmount=function(n){var t=n.__c;t&&t.__R&&t.__R(),t&&!0===n.__h&&(n.type=null),O&&O(n);},(L.prototype=new _$1).__c=function(n,t){var e=t.__c,r=this;null==r.t&&(r.t=[]),r.t.push(e);var u=U(r.__v),o=!1,i=function(){o||(o=!0,e.__R=null,u?u(l):l());};e.__R=i;var l=function(){if(!--r.__u){if(r.state.__e){var n=r.state.__e;r.__v.__k[0]=function n(t,e,r){return t&&(t.__v=null,t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)}),t.__c&&t.__c.__P===e&&(t.__e&&r.insertBefore(t.__e,t.__d),t.__c.__e=!0,t.__c.__P=r)),t}(n,n.__c.__P,n.__c.__O);}var t;for(r.setState({__e:r.__b=null});t=r.t.pop();)t.forceUpdate();}},f=!0===t.__h;r.__u++||f||r.setState({__e:r.__b=r.__v.__k[0]}),n.then(i,i);},L.prototype.componentWillUnmount=function(){this.t=[];},L.prototype.render=function(n,t){if(this.__b){if(this.__v.__k){var e=document.createElement("div"),r=this.__v.__k[0].__c;this.__v.__k[0]=function n(t,e,r){return t&&(t.__c&&t.__c.__H&&(t.__c.__H.__.forEach(function(n){"function"==typeof n.__c&&n.__c();}),t.__c.__H=null),null!=(t=S({},t)).__c&&(t.__c.__P===r&&(t.__c.__P=e),t.__c=null),t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)})),t}(this.__b,e,r.__O=r.__P);}this.__b=null;}var u=t.__e&&v$1(d$1,null,n.fallback);return u&&(u.__h=null),[v$1(d$1,null,t.__e?null:n.children),u]};var T=function(n,t,e){if(++e[1]===e[0]&&n.o.delete(t),n.props.revealOrder&&("t"!==n.props.revealOrder[0]||!n.o.size))for(e=n.u;e;){for(;e.length>3;)e.pop()();if(e[1]<e[0])break;n.u=e=e[2];}};function D(n){return this.getChildContext=function(){return n.context},n.children}function I(n){var t=this,e=n.i;t.componentWillUnmount=function(){S$1(null,t.l),t.l=null,t.i=null;},t.i&&t.i!==e&&t.componentWillUnmount(),n.__v?(t.l||(t.i=e,t.l={nodeType:1,parentNode:e,childNodes:[],appendChild:function(n){this.childNodes.push(n),t.i.appendChild(n);},insertBefore:function(n,e){this.childNodes.push(n),t.i.appendChild(n);},removeChild:function(n){this.childNodes.splice(this.childNodes.indexOf(n)>>>1,1),t.i.removeChild(n);}}),S$1(v$1(D,{context:t.context},n.__v),t.l)):t.l&&t.componentWillUnmount();}function W(n,t){return v$1(I,{__v:n,i:t})}(M.prototype=new _$1).__e=function(n){var t=this,e=U(t.__v),r=t.o.get(n);return r[0]++,function(u){var o=function(){t.props.revealOrder?(r.push(u),T(t,n,r)):u();};e?e(o):o();}},M.prototype.render=function(n){this.u=null,this.o=new Map;var t=A$2(n.children);n.revealOrder&&"b"===n.revealOrder[0]&&t.reverse();for(var e=t.length;e--;)this.o.set(t[e],this.u=[1,0,this.u]);return n.children},M.prototype.componentDidUpdate=M.prototype.componentDidMount=function(){var n=this;this.o.forEach(function(t,e){T(n,e,t);});};var j="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,P=/^(?:accent|alignment|arabic|baseline|cap|clip(?!PathU)|color|fill|flood|font|glyph(?!R)|horiz|marker(?!H|W|U)|overline|paint|stop|strikethrough|stroke|text(?!L)|underline|unicode|units|v|vector|vert|word|writing|x(?!C))[A-Z]/,V=function(n){return ("undefined"!=typeof Symbol&&"symbol"==typeof Symbol()?/fil|che|rad/i:/fil|che|ra/i).test(n)};function z(n,t,e){return null==t.__k&&(t.textContent=""),S$1(n,t),"function"==typeof e&&e(),n?n.__c:null}function B(n,t,e){return q$2(n,t),"function"==typeof e&&e(),n?n.__c:null}_$1.prototype.isReactComponent={},["componentWillMount","componentWillReceiveProps","componentWillUpdate"].forEach(function(n){Object.defineProperty(_$1.prototype,n,{configurable:!0,get:function(){return this["UNSAFE_"+n]},set:function(t){Object.defineProperty(this,n,{configurable:!0,writable:!0,value:t});}});});var H=l$1.event;function Z(){}function Y(){return this.cancelBubble}function $(){return this.defaultPrevented}l$1.event=function(n){return H&&(n=H(n)),n.persist=Z,n.isPropagationStopped=Y,n.isDefaultPrevented=$,n.nativeEvent=n};var q,G={configurable:!0,get:function(){return this.class}},J=l$1.vnode;l$1.vnode=function(n){var t=n.type,e=n.props,r=e;if("string"==typeof t){for(var u in r={},e){var o=e[u];"value"===u&&"defaultValue"in e&&null==o||("defaultValue"===u&&"value"in e&&null==e.value?u="value":"download"===u&&!0===o?o="":/ondoubleclick/i.test(u)?u="ondblclick":/^onchange(textarea|input)/i.test(u+t)&&!V(e.type)?u="oninput":/^on(Ani|Tra|Tou|BeforeInp)/.test(u)?u=u.toLowerCase():P.test(u)?u=u.replace(/[A-Z0-9]/,"-$&").toLowerCase():null===o&&(o=void 0),r[u]=o);}"select"==t&&r.multiple&&Array.isArray(r.value)&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=-1!=r.value.indexOf(n.props.value);})),"select"==t&&null!=r.defaultValue&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=r.multiple?-1!=r.defaultValue.indexOf(n.props.value):r.defaultValue==n.props.value;})),n.props=r;}t&&e.class!=e.className&&(G.enumerable="className"in e,null!=e.className&&(r.class=e.className),Object.defineProperty(r,"className",G)),n.$$typeof=j,J&&J(n);};var K=l$1.__r;l$1.__r=function(n){K&&K(n),q=n.__c;};var Q={ReactCurrentDispatcher:{current:{readContext:function(n){return q.__n[n.__c].props.value}}}},X="17.0.2";function nn(n){return v$1.bind(null,n)}function tn(n){return !!n&&n.$$typeof===j}function en(n){return tn(n)?B$1.apply(null,arguments):n}function rn(n){return !!n.__k&&(S$1(null,n),!0)}function un(n){return n&&(n.base||1===n.nodeType&&n)||null}var on=function(n,t){return n(t)},ln=function(n,t){return n(t)},fn=d$1;var ReactDOM$3 = {useState:l,useReducer:p,useEffect:y,useLayoutEffect:h,useRef:s,useImperativeHandle:_,useMemo:d,useCallback:A$1,useContext:F$1,useDebugValue:T$1,version:"17.0.2",Children:k,render:z,hydrate:B,unmountComponentAtNode:rn,createPortal:W,createElement:v$1,createContext:D$1,createFactory:nn,cloneElement:en,createRef:p$1,Fragment:d$1,isValidElement:tn,findDOMNode:un,Component:_$1,PureComponent:E,memo:g,forwardRef:x,flushSync:ln,unstable_batchedUpdates:on,StrictMode:d$1,Suspense:L,SuspenseList:M,lazy:F,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:Q};
+
+var compat_module = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	'default': ReactDOM$3,
+	version: X,
+	Children: k,
+	render: z,
+	hydrate: B,
+	unmountComponentAtNode: rn,
+	createPortal: W,
+	createFactory: nn,
+	cloneElement: en,
+	isValidElement: tn,
+	findDOMNode: un,
+	PureComponent: E,
+	memo: g,
+	forwardRef: x,
+	flushSync: ln,
+	unstable_batchedUpdates: on,
+	StrictMode: fn,
+	Suspense: L,
+	SuspenseList: M,
+	lazy: F,
+	__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Q,
+	createElement: v$1,
+	createContext: D$1,
+	createRef: p$1,
+	Fragment: d$1,
+	Component: _$1,
+	useState: l,
+	useReducer: p,
+	useEffect: y,
+	useLayoutEffect: h,
+	useRef: s,
+	useImperativeHandle: _,
+	useMemo: d,
+	useCallback: A$1,
+	useContext: F$1,
+	useDebugValue: T$1,
+	useErrorBoundary: q$1
+});
+
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -1140,51 +1185,6 @@ var classnames = {exports: {}};
 }(classnames));
 
 var classNames = classnames.exports;
-
-var t,u,r,o=0,i$2=[],c=l$1.__b,f$1=l$1.__r,e=l$1.diffed,a=l$1.__c,v=l$1.unmount;function m(t,r){l$1.__h&&l$1.__h(u,t,o||r),o=0;var i=u.__H||(u.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l(n){return o=1,p(w$1,n)}function p(n,r,o){var i=m(t++,2);return i.t=n,i.__c||(i.__=[o?o(r):w$1(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u),i.__}function y(r,o){var i=m(t++,3);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__H.__h.push(i));}function h(r,o){var i=m(t++,4);!l$1.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u.__h.push(i));}function s(n){return o=5,d(function(){return {current:n}},[])}function _(n,t,u){o=6,h(function(){"function"==typeof n?n(t()):n&&(n.current=t());},null==u?u:u.concat(n));}function d(n,u){var r=m(t++,7);return k$1(r.__H,u)&&(r.__=n(),r.__H=u,r.__h=n),r.__}function A$1(n,t){return o=8,d(function(){return n},t)}function F$1(n){var r=u.context[n.__c],o=m(t++,9);return o.c=n,r?(null==o.__&&(o.__=!0,r.sub(u)),r.props.value):n.__}function T$1(t,u){l$1.useDebugValue&&l$1.useDebugValue(u?u(t):t);}function q$1(n){var r=m(t++,10),o=l();return r.__=n,u.componentDidCatch||(u.componentDidCatch=function(n){r.__&&r.__(n),o[1](n);}),[o[0],function(){o[1](void 0);}]}function x$1(){i$2.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j$1),t.__H.__h=[];}catch(u){t.__H.__h=[],l$1.__e(u,t.__v);}}),i$2=[];}l$1.__b=function(n){u=null,c&&c(n);},l$1.__r=function(n){f$1&&f$1(n),t=0;var r=(u=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j$1),r.__h=[]);},l$1.diffed=function(t){e&&e(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$2.push(o)&&r===l$1.requestAnimationFrame||((r=l$1.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b&&(t=requestAnimationFrame(u));})(x$1)),u=void 0;},l$1.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j$1(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],l$1.__e(r,t.__v);}}),a&&a(t,u);},l$1.unmount=function(t){v&&v(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){l$1.__e(t,u.__v);}};var b="function"==typeof requestAnimationFrame;function g$1(n){var t=u;"function"==typeof n.__c&&n.__c(),u=t;}function j$1(n){var t=u;n.__c=n.__(),u=t;}function k$1(n,t){return !n||n.length!==t.length||t.some(function(t,u){return t!==n[u]})}function w$1(n,t){return "function"==typeof t?t(n):t}
-
-function S(n,t){for(var e in t)n[e]=t[e];return n}function C(n,t){for(var e in n)if("__source"!==e&&!(e in t))return !0;for(var r in t)if("__source"!==r&&n[r]!==t[r])return !0;return !1}function E(n){this.props=n;}function g(n,t){function e(n){var e=this.props.ref,r=e==n.ref;return !r&&e&&(e.call?e(null):e.current=null),t?!t(this.props,n)||!r:C(this.props,n)}function r(t){return this.shouldComponentUpdate=e,v$1(n,t)}return r.displayName="Memo("+(n.displayName||n.name)+")",r.prototype.isReactComponent=!0,r.__f=!0,r}(E.prototype=new _$1).isPureReactComponent=!0,E.prototype.shouldComponentUpdate=function(n,t){return C(this.props,n)||C(this.state,t)};var w=l$1.__b;l$1.__b=function(n){n.type&&n.type.__f&&n.ref&&(n.props.ref=n.ref,n.ref=null),w&&w(n);};var R="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.forward_ref")||3911;function x(n){function t(t,e){var r=S({},t);return delete r.ref,n(r,(e=t.ref||e)&&("object"!=typeof e||"current"in e)?e:null)}return t.$$typeof=R,t.render=t,t.prototype.isReactComponent=t.__f=!0,t.displayName="ForwardRef("+(n.displayName||n.name)+")",t}var N=function(n,t){return null==n?null:A$2(A$2(n).map(t))},k={map:N,forEach:N,count:function(n){return n?A$2(n).length:0},only:function(n){var t=A$2(n);if(1!==t.length)throw "Children.only";return t[0]},toArray:A$2},A=l$1.__e;l$1.__e=function(n,t,e){if(n.then)for(var r,u=t;u=u.__;)if((r=u.__c)&&r.__c)return null==t.__e&&(t.__e=e.__e,t.__k=e.__k),r.__c(n,t);A(n,t,e);};var O=l$1.unmount;function L(){this.__u=0,this.t=null,this.__b=null;}function U(n){var t=n.__.__c;return t&&t.__e&&t.__e(n)}function F(n){var t,e,r;function u(u){if(t||(t=n()).then(function(n){e=n.default||n;},function(n){r=n;}),r)throw r;if(!e)throw t;return v$1(e,u)}return u.displayName="Lazy",u.__f=!0,u}function M(){this.u=null,this.o=null;}l$1.unmount=function(n){var t=n.__c;t&&t.__R&&t.__R(),t&&!0===n.__h&&(n.type=null),O&&O(n);},(L.prototype=new _$1).__c=function(n,t){var e=t.__c,r=this;null==r.t&&(r.t=[]),r.t.push(e);var u=U(r.__v),o=!1,i=function(){o||(o=!0,e.__R=null,u?u(l):l());};e.__R=i;var l=function(){if(!--r.__u){if(r.state.__e){var n=r.state.__e;r.__v.__k[0]=function n(t,e,r){return t&&(t.__v=null,t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)}),t.__c&&t.__c.__P===e&&(t.__e&&r.insertBefore(t.__e,t.__d),t.__c.__e=!0,t.__c.__P=r)),t}(n,n.__c.__P,n.__c.__O);}var t;for(r.setState({__e:r.__b=null});t=r.t.pop();)t.forceUpdate();}},f=!0===t.__h;r.__u++||f||r.setState({__e:r.__b=r.__v.__k[0]}),n.then(i,i);},L.prototype.componentWillUnmount=function(){this.t=[];},L.prototype.render=function(n,t){if(this.__b){if(this.__v.__k){var e=document.createElement("div"),r=this.__v.__k[0].__c;this.__v.__k[0]=function n(t,e,r){return t&&(t.__c&&t.__c.__H&&(t.__c.__H.__.forEach(function(n){"function"==typeof n.__c&&n.__c();}),t.__c.__H=null),null!=(t=S({},t)).__c&&(t.__c.__P===r&&(t.__c.__P=e),t.__c=null),t.__k=t.__k&&t.__k.map(function(t){return n(t,e,r)})),t}(this.__b,e,r.__O=r.__P);}this.__b=null;}var u=t.__e&&v$1(d$1,null,n.fallback);return u&&(u.__h=null),[v$1(d$1,null,t.__e?null:n.children),u]};var T=function(n,t,e){if(++e[1]===e[0]&&n.o.delete(t),n.props.revealOrder&&("t"!==n.props.revealOrder[0]||!n.o.size))for(e=n.u;e;){for(;e.length>3;)e.pop()();if(e[1]<e[0])break;n.u=e=e[2];}};function D(n){return this.getChildContext=function(){return n.context},n.children}function I(n){var t=this,e=n.i;t.componentWillUnmount=function(){S$1(null,t.l),t.l=null,t.i=null;},t.i&&t.i!==e&&t.componentWillUnmount(),n.__v?(t.l||(t.i=e,t.l={nodeType:1,parentNode:e,childNodes:[],appendChild:function(n){this.childNodes.push(n),t.i.appendChild(n);},insertBefore:function(n,e){this.childNodes.push(n),t.i.appendChild(n);},removeChild:function(n){this.childNodes.splice(this.childNodes.indexOf(n)>>>1,1),t.i.removeChild(n);}}),S$1(v$1(D,{context:t.context},n.__v),t.l)):t.l&&t.componentWillUnmount();}function W(n,t){return v$1(I,{__v:n,i:t})}(M.prototype=new _$1).__e=function(n){var t=this,e=U(t.__v),r=t.o.get(n);return r[0]++,function(u){var o=function(){t.props.revealOrder?(r.push(u),T(t,n,r)):u();};e?e(o):o();}},M.prototype.render=function(n){this.u=null,this.o=new Map;var t=A$2(n.children);n.revealOrder&&"b"===n.revealOrder[0]&&t.reverse();for(var e=t.length;e--;)this.o.set(t[e],this.u=[1,0,this.u]);return n.children},M.prototype.componentDidUpdate=M.prototype.componentDidMount=function(){var n=this;this.o.forEach(function(t,e){T(n,e,t);});};var j="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,P=/^(?:accent|alignment|arabic|baseline|cap|clip(?!PathU)|color|fill|flood|font|glyph(?!R)|horiz|marker(?!H|W|U)|overline|paint|stop|strikethrough|stroke|text(?!L)|underline|unicode|units|v|vector|vert|word|writing|x(?!C))[A-Z]/,V=function(n){return ("undefined"!=typeof Symbol&&"symbol"==typeof Symbol()?/fil|che|rad/i:/fil|che|ra/i).test(n)};function z(n,t,e){return null==t.__k&&(t.textContent=""),S$1(n,t),"function"==typeof e&&e(),n?n.__c:null}function B(n,t,e){return q$2(n,t),"function"==typeof e&&e(),n?n.__c:null}_$1.prototype.isReactComponent={},["componentWillMount","componentWillReceiveProps","componentWillUpdate"].forEach(function(n){Object.defineProperty(_$1.prototype,n,{configurable:!0,get:function(){return this["UNSAFE_"+n]},set:function(t){Object.defineProperty(this,n,{configurable:!0,writable:!0,value:t});}});});var H=l$1.event;function Z(){}function Y(){return this.cancelBubble}function $(){return this.defaultPrevented}l$1.event=function(n){return H&&(n=H(n)),n.persist=Z,n.isPropagationStopped=Y,n.isDefaultPrevented=$,n.nativeEvent=n};var q,G={configurable:!0,get:function(){return this.class}},J=l$1.vnode;l$1.vnode=function(n){var t=n.type,e=n.props,r=e;if("string"==typeof t){for(var u in r={},e){var o=e[u];"value"===u&&"defaultValue"in e&&null==o||("defaultValue"===u&&"value"in e&&null==e.value?u="value":"download"===u&&!0===o?o="":/ondoubleclick/i.test(u)?u="ondblclick":/^onchange(textarea|input)/i.test(u+t)&&!V(e.type)?u="oninput":/^on(Ani|Tra|Tou|BeforeInp)/.test(u)?u=u.toLowerCase():P.test(u)?u=u.replace(/[A-Z0-9]/,"-$&").toLowerCase():null===o&&(o=void 0),r[u]=o);}"select"==t&&r.multiple&&Array.isArray(r.value)&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=-1!=r.value.indexOf(n.props.value);})),"select"==t&&null!=r.defaultValue&&(r.value=A$2(e.children).forEach(function(n){n.props.selected=r.multiple?-1!=r.defaultValue.indexOf(n.props.value):r.defaultValue==n.props.value;})),n.props=r;}t&&e.class!=e.className&&(G.enumerable="className"in e,null!=e.className&&(r.class=e.className),Object.defineProperty(r,"className",G)),n.$$typeof=j,J&&J(n);};var K=l$1.__r;l$1.__r=function(n){K&&K(n),q=n.__c;};var Q={ReactCurrentDispatcher:{current:{readContext:function(n){return q.__n[n.__c].props.value}}}},X="17.0.2";function nn(n){return v$1.bind(null,n)}function tn(n){return !!n&&n.$$typeof===j}function en(n){return tn(n)?B$1.apply(null,arguments):n}function rn(n){return !!n.__k&&(S$1(null,n),!0)}function un(n){return n&&(n.base||1===n.nodeType&&n)||null}var on=function(n,t){return n(t)},ln=function(n,t){return n(t)},fn=d$1;var ReactDOM$2 = {useState:l,useReducer:p,useEffect:y,useLayoutEffect:h,useRef:s,useImperativeHandle:_,useMemo:d,useCallback:A$1,useContext:F$1,useDebugValue:T$1,version:"17.0.2",Children:k,render:z,hydrate:B,unmountComponentAtNode:rn,createPortal:W,createElement:v$1,createContext:D$1,createFactory:nn,cloneElement:en,createRef:p$1,Fragment:d$1,isValidElement:tn,findDOMNode:un,Component:_$1,PureComponent:E,memo:g,forwardRef:x,flushSync:ln,unstable_batchedUpdates:on,StrictMode:d$1,Suspense:L,SuspenseList:M,lazy:F,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:Q};
-
-var compat_module = /*#__PURE__*/Object.freeze({
-	__proto__: null,
-	'default': ReactDOM$2,
-	version: X,
-	Children: k,
-	render: z,
-	hydrate: B,
-	unmountComponentAtNode: rn,
-	createPortal: W,
-	createFactory: nn,
-	cloneElement: en,
-	isValidElement: tn,
-	findDOMNode: un,
-	PureComponent: E,
-	memo: g,
-	forwardRef: x,
-	flushSync: ln,
-	unstable_batchedUpdates: on,
-	StrictMode: fn,
-	Suspense: L,
-	SuspenseList: M,
-	lazy: F,
-	__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Q,
-	createElement: v$1,
-	createContext: D$1,
-	createRef: p$1,
-	Fragment: d$1,
-	Component: _$1,
-	useState: l,
-	useReducer: p,
-	useEffect: y,
-	useLayoutEffect: h,
-	useRef: s,
-	useImperativeHandle: _,
-	useMemo: d,
-	useCallback: A$1,
-	useContext: F$1,
-	useDebugValue: T$1,
-	useErrorBoundary: q$1
-});
 
 var all = {exports: {}};
 
@@ -1292,7 +1292,7 @@ var propTypes = {
   tooltip: PropTypes$3.bool,
   as: PropTypes$3.elementType
 };
-var Feedback = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var Feedback = /*#__PURE__*/ReactDOM$3.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'div' : _ref$as,
@@ -1303,7 +1303,7 @@ function (_ref, ref) {
       tooltip = _ref$tooltip === void 0 ? false : _ref$tooltip,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
 
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     className: classNames(className, type + "-" + (tooltip ? 'tooltip' : 'feedback'))
   }));
@@ -1312,12 +1312,12 @@ Feedback.displayName = 'Feedback';
 Feedback.propTypes = propTypes;
 var Feedback$1 = Feedback;
 
-var FormContext = /*#__PURE__*/ReactDOM$2.createContext({
+var FormContext = /*#__PURE__*/ReactDOM$3.createContext({
   controlId: undefined
 });
 var FormContext$1 = FormContext;
 
-var ThemeContext = /*#__PURE__*/ReactDOM$2.createContext({});
+var ThemeContext = /*#__PURE__*/ReactDOM$3.createContext({});
 ThemeContext.Consumer;
     ThemeContext.Provider;
 
@@ -1327,7 +1327,7 @@ function useBootstrapPrefix(prefix, defaultPrefix) {
 }
 
 var _excluded$o = ["id", "bsPrefix", "bsCustomPrefix", "className", "type", "isValid", "isInvalid", "isStatic", "as"];
-var FormCheckInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormCheckInput = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -1352,7 +1352,7 @@ var FormCheckInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       defaultPrefix = _ref2[1];
 
   bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     type: type,
     id: id || controlId,
@@ -1363,7 +1363,7 @@ FormCheckInput.displayName = 'FormCheckInput';
 var FormCheckInput$1 = FormCheckInput;
 
 var _excluded$n = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
-var FormCheckLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormCheckLabel = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       className = _ref.className,
@@ -1379,7 +1379,7 @@ var FormCheckLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       defaultPrefix = _ref2[1];
 
   bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement("label", _extends({}, props, {
     ref: ref,
     htmlFor: htmlFor || controlId,
     className: classNames(className, bsPrefix)
@@ -1389,7 +1389,7 @@ FormCheckLabel.displayName = 'FormCheckLabel';
 var FormCheckLabel$1 = FormCheckLabel;
 
 var _excluded$m = ["id", "bsPrefix", "bsCustomPrefix", "inline", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "title", "type", "label", "children", "custom", "as"];
-var FormCheck = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormCheck = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -1435,7 +1435,7 @@ var FormCheck = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     };
   }, [controlId, custom, id]);
   var hasLabel = custom || label != null && label !== false && !children;
-  var input = /*#__PURE__*/ReactDOM$2.createElement(FormCheckInput$1, _extends({}, props, {
+  var input = /*#__PURE__*/ReactDOM$3.createElement(FormCheckInput$1, _extends({}, props, {
     type: type === 'switch' ? 'checkbox' : type,
     ref: ref,
     isValid: isValid,
@@ -1444,14 +1444,14 @@ var FormCheck = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     disabled: disabled,
     as: as
   }));
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+  return /*#__PURE__*/ReactDOM$3.createElement(FormContext$1.Provider, {
     value: innerFormContext
-  }, /*#__PURE__*/ReactDOM$2.createElement("div", {
+  }, /*#__PURE__*/ReactDOM$3.createElement("div", {
     style: style,
     className: classNames(className, bsPrefix, custom && "custom-" + type, inline && bsPrefix + "-inline")
-  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormCheckLabel$1, {
+  }, children || /*#__PURE__*/ReactDOM$3.createElement(ReactDOM$3.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$3.createElement(FormCheckLabel$1, {
     title: title
-  }, label), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
+  }, label), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$3.createElement(Feedback$1, {
     type: isValid ? 'valid' : 'invalid',
     tooltip: feedbackTooltip
   }, feedback))));
@@ -1462,7 +1462,7 @@ FormCheck.Label = FormCheckLabel$1;
 var FormCheck$1 = FormCheck;
 
 var _excluded$l = ["id", "bsPrefix", "bsCustomPrefix", "className", "isValid", "isInvalid", "lang", "as"];
-var FormFileInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormFileInput = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -1485,7 +1485,7 @@ var FormFileInput = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       defaultPrefix = _ref2[1];
 
   bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     id: id || controlId,
     type: type,
@@ -1497,7 +1497,7 @@ FormFileInput.displayName = 'FormFileInput';
 var FormFileInput$1 = FormFileInput;
 
 var _excluded$k = ["bsPrefix", "bsCustomPrefix", "className", "htmlFor"];
-var FormFileLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormFileLabel = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       className = _ref.className,
@@ -1513,7 +1513,7 @@ var FormFileLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       defaultPrefix = _ref2[1];
 
   bsPrefix = useBootstrapPrefix(prefix, defaultPrefix);
-  return /*#__PURE__*/ReactDOM$2.createElement("label", _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement("label", _extends({}, props, {
     ref: ref,
     htmlFor: htmlFor || controlId,
     className: classNames(className, bsPrefix),
@@ -1524,7 +1524,7 @@ FormFileLabel.displayName = 'FormFileLabel';
 var FormFileLabel$1 = FormFileLabel;
 
 var _excluded$j = ["id", "bsPrefix", "bsCustomPrefix", "disabled", "isValid", "isInvalid", "feedbackTooltip", "feedback", "className", "style", "label", "children", "custom", "lang", "data-browse", "as", "inputAs"];
-var FormFile = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormFile = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var id = _ref.id,
       bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
@@ -1567,7 +1567,7 @@ var FormFile = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     };
   }, [controlId, custom, id]);
   var hasLabel = label != null && label !== false && !children;
-  var input = /*#__PURE__*/ReactDOM$2.createElement(FormFileInput$1, _extends({}, props, {
+  var input = /*#__PURE__*/ReactDOM$3.createElement(FormFileInput$1, _extends({}, props, {
     ref: ref,
     isValid: isValid,
     isInvalid: isInvalid,
@@ -1575,14 +1575,14 @@ var FormFile = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     as: inputAs,
     lang: lang
   }));
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+  return /*#__PURE__*/ReactDOM$3.createElement(FormContext$1.Provider, {
     value: innerFormContext
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, {
+  }, /*#__PURE__*/ReactDOM$3.createElement(Component, {
     style: style,
     className: classNames(className, bsPrefix, custom && "custom-" + type)
-  }, children || /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, custom ? /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, {
+  }, children || /*#__PURE__*/ReactDOM$3.createElement(ReactDOM$3.Fragment, null, custom ? /*#__PURE__*/ReactDOM$3.createElement(ReactDOM$3.Fragment, null, input, hasLabel && /*#__PURE__*/ReactDOM$3.createElement(FormFileLabel$1, {
     "data-browse": dataBrowse
-  }, label)) : /*#__PURE__*/ReactDOM$2.createElement(ReactDOM$2.Fragment, null, hasLabel && /*#__PURE__*/ReactDOM$2.createElement(FormFileLabel$1, null, label), input), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$2.createElement(Feedback$1, {
+  }, label)) : /*#__PURE__*/ReactDOM$3.createElement(ReactDOM$3.Fragment, null, hasLabel && /*#__PURE__*/ReactDOM$3.createElement(FormFileLabel$1, null, label), input), (isValid || isInvalid) && /*#__PURE__*/ReactDOM$3.createElement(Feedback$1, {
     type: isValid ? 'valid' : 'invalid',
     tooltip: feedbackTooltip
   }, feedback))));
@@ -1645,7 +1645,7 @@ var warning = function() {};
 var warning_1 = warning;
 
 var _excluded$i = ["bsPrefix", "bsCustomPrefix", "type", "size", "htmlSize", "id", "className", "isValid", "isInvalid", "plaintext", "readOnly", "custom", "as"];
-var FormControl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormControl = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       bsCustomPrefix = _ref.bsCustomPrefix,
       type = _ref.type,
@@ -1697,7 +1697,7 @@ var FormControl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   }
 
   warning_1(controlId == null || !id, '`controlId` is ignored on `<FormControl>` when `id` is specified.') ;
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     type: type,
     size: htmlSize,
     ref: ref,
@@ -1712,7 +1712,7 @@ var FormControl$1 = Object.assign(FormControl, {
 });
 
 var _excluded$h = ["bsPrefix", "className", "children", "controlId", "as"];
-var FormGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormGroup = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       children = _ref.children,
@@ -1727,9 +1727,9 @@ var FormGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       controlId: controlId
     };
   }, [controlId]);
-  return /*#__PURE__*/ReactDOM$2.createElement(FormContext$1.Provider, {
+  return /*#__PURE__*/ReactDOM$3.createElement(FormContext$1.Provider, {
     value: context
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  }, /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     className: classNames(className, bsPrefix)
   }), children));
@@ -1739,7 +1739,7 @@ var FormGroup$1 = FormGroup;
 
 var _excluded$g = ["bsPrefix", "className", "as"];
 var DEVICE_SIZES$1 = ['xl', 'lg', 'md', 'sm', 'xs'];
-var Col = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var Col = /*#__PURE__*/ReactDOM$3.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -1776,7 +1776,7 @@ function (_ref, ref) {
     spans.push(prefix); // plain 'col'
   }
 
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     className: classNames.apply(void 0, [className].concat(spans, classes))
   }));
@@ -1788,7 +1788,7 @@ var defaultProps$9 = {
   column: false,
   srOnly: false
 };
-var FormLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormLabel = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'label' : _ref$as,
       bsPrefix = _ref.bsPrefix,
@@ -1807,7 +1807,7 @@ var FormLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   var classes = classNames(className, bsPrefix, srOnly && 'sr-only', column && columnClass);
   warning_1(controlId == null || !htmlFor, '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.') ;
   htmlFor = htmlFor || controlId;
-  if (column) return /*#__PURE__*/ReactDOM$2.createElement(Col, _extends({
+  if (column) return /*#__PURE__*/ReactDOM$3.createElement(Col, _extends({
     ref: ref,
     as: "label",
     className: classes,
@@ -1816,7 +1816,7 @@ var FormLabel = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   return (
     /*#__PURE__*/
     // eslint-disable-next-line jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control
-    ReactDOM$2.createElement(Component, _extends({
+    ReactDOM$3.createElement(Component, _extends({
       ref: ref,
       className: classes,
       htmlFor: htmlFor
@@ -1828,7 +1828,7 @@ FormLabel.defaultProps = defaultProps$9;
 var FormLabel$1 = FormLabel;
 
 var _excluded$e = ["bsPrefix", "className", "as", "muted"];
-var FormText = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var FormText = /*#__PURE__*/ReactDOM$3.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -1838,7 +1838,7 @@ function (_ref, ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
 
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form-text');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     className: classNames(className, bsPrefix, muted && 'text-muted')
   }));
@@ -1846,8 +1846,8 @@ function (_ref, ref) {
 FormText.displayName = 'FormText';
 var FormText$1 = FormText;
 
-var Switch = /*#__PURE__*/ReactDOM$2.forwardRef(function (props, ref) {
-  return /*#__PURE__*/ReactDOM$2.createElement(FormCheck$1, _extends({}, props, {
+var Switch = /*#__PURE__*/ReactDOM$3.forwardRef(function (props, ref) {
+  return /*#__PURE__*/ReactDOM$3.createElement(FormCheck$1, _extends({}, props, {
     ref: ref,
     type: "switch"
   }));
@@ -1878,7 +1878,7 @@ function createWithBsPrefix(prefix, _temp) {
       Component = _ref.Component,
       defaultProps = _ref.defaultProps;
 
-  var BsComponent = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref2, ref) {
+  var BsComponent = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref2, ref) {
     var className = _ref2.className,
         bsPrefix = _ref2.bsPrefix,
         _ref2$as = _ref2.as,
@@ -1886,7 +1886,7 @@ function createWithBsPrefix(prefix, _temp) {
         props = _objectWithoutPropertiesLoose(_ref2, _excluded$d);
 
     var resolvedPrefix = useBootstrapPrefix(bsPrefix, prefix);
-    return /*#__PURE__*/ReactDOM$2.createElement(Tag, _extends({
+    return /*#__PURE__*/ReactDOM$3.createElement(Tag, _extends({
       ref: ref,
       className: classNames(className, resolvedPrefix)
     }, props));
@@ -1901,7 +1901,7 @@ var FormRow = createWithBsPrefix('form-row');
 var defaultProps$8 = {
   inline: false
 };
-var FormImpl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var FormImpl = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       inline = _ref.inline,
       className = _ref.className,
@@ -1911,7 +1911,7 @@ var FormImpl = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
 
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     className: classNames(className, validated && 'was-validated', inline && bsPrefix + "-inline")
   }));
@@ -1935,13 +1935,13 @@ var InputGroupText = createWithBsPrefix('input-group-text', {
 });
 
 var InputGroupCheckbox = function InputGroupCheckbox(props) {
-  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$3.createElement("input", _extends({
     type: "checkbox"
   }, props)));
 };
 
 var InputGroupRadio = function InputGroupRadio(props) {
-  return /*#__PURE__*/ReactDOM$2.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$2.createElement("input", _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(InputGroupText, null, /*#__PURE__*/ReactDOM$3.createElement("input", _extends({
     type: "radio"
   }, props)));
 };
@@ -1954,7 +1954,7 @@ var InputGroupRadio = function InputGroupRadio(props) {
  * @property {InputGroupRadio} Radio
  * @property {InputGroupCheckbox} Checkbox
  */
-var InputGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var InputGroup = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       size = _ref.size,
       hasValidation = _ref.hasValidation,
@@ -1964,7 +1964,7 @@ var InputGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
   bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({
     ref: ref
   }, props, {
     className: classNames(className, bsPrefix, size && bsPrefix + "-" + size, hasValidation && 'has-validation')
@@ -1977,22 +1977,36 @@ InputGroup.Checkbox = InputGroupCheckbox;
 InputGroup.Append = InputGroupAppend;
 InputGroup.Prepend = InputGroupPrepend;
 
-class ControlNote extends ReactDOM$2.PureComponent {
+class ControlNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
-      note: propTypes$1.exports.object
+      note: propTypes$1.exports.object,
+      selected: propTypes$1.exports.boolean
     };
   }
 
   render() {
     const {
-      note
+      note,
+      selected
     } = this.props;
     const {
       label,
       value
     } = note.control;
-    return v$1(InputGroup, null, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
+    const ref = selected && /*#__PURE__*/p$1();
+
+    if (selected) {
+      y(() => ref.current.scrollIntoView(true));
+    }
+
+    const border = selected ? '1px dashed dodgerblue' : '0px';
+    return v$1(InputGroup, {
+      ref: ref,
+      style: {
+        border
+      }
+    }, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
       className: "note control input",
       value: value,
       name: label
@@ -2050,7 +2064,7 @@ function isTrivialHref(href) {
  */
 
 
-var SafeAnchor = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var SafeAnchor = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'a' : _ref$as,
       disabled = _ref.disabled,
@@ -2094,7 +2108,7 @@ var SafeAnchor = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     props['aria-disabled'] = true;
   }
 
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({
     ref: ref
   }, props, {
     onClick: handleClick,
@@ -2110,7 +2124,7 @@ var defaultProps$7 = {
   active: false,
   disabled: false
 };
-var Button = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var Button = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       variant = _ref.variant,
       size = _ref.size,
@@ -2125,7 +2139,7 @@ var Button = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   var classes = classNames(className, prefix, active && 'active', variant && prefix + "-" + variant, block && prefix + "-block", size && prefix + "-" + size);
 
   if (props.href) {
-    return /*#__PURE__*/ReactDOM$2.createElement(SafeAnchor$1, _extends({}, props, {
+    return /*#__PURE__*/ReactDOM$3.createElement(SafeAnchor$1, _extends({}, props, {
       as: as,
       ref: ref,
       className: classNames(classes, props.disabled && 'disabled')
@@ -2143,7 +2157,7 @@ var Button = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   }
 
   var Component = as || 'button';
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     className: classes
   }));
 });
@@ -2156,7 +2170,7 @@ var defaultProps$6 = {
   toggle: false,
   role: 'group'
 };
-var ButtonGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var ButtonGroup = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       size = _ref.size,
       toggle = _ref.toggle,
@@ -2169,7 +2183,7 @@ var ButtonGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
   var prefix = useBootstrapPrefix(bsPrefix, 'btn-group');
   var baseClass = prefix;
   if (vertical) baseClass = prefix + "-vertical";
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, rest, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, rest, {
     ref: ref,
     className: classNames(className, baseClass, size && prefix + "-" + size, toggle && prefix + "-toggle")
   }));
@@ -2238,10 +2252,11 @@ const downloadFile = async ({
   saveAs(blob, filename);
 };
 
-class DownloadNote extends ReactDOM$2.PureComponent {
+class DownloadNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       note: propTypes$1.exports.object,
+      selected: propTypes$1.exports.boolean,
       workspace: propTypes$1.exports.string
     };
   }
@@ -2249,6 +2264,7 @@ class DownloadNote extends ReactDOM$2.PureComponent {
   render() {
     const {
       note,
+      selected,
       workspace
     } = this.props;
     const buttons = [];
@@ -2276,7 +2292,19 @@ class DownloadNote extends ReactDOM$2.PureComponent {
       }, "Download ", filename));
     }
 
-    return v$1(ButtonGroup, null, buttons);
+    const ref = selected && /*#__PURE__*/p$1();
+
+    if (selected) {
+      y(() => ref.current.scrollIntoView(true));
+    }
+
+    const border = selected ? '1px dashed dodgerblue' : '0px';
+    return v$1(ButtonGroup, {
+      ref: ref,
+      style: {
+        border
+      }
+    }, buttons);
   }
 
 }
@@ -5093,21 +5121,34 @@ marked.use({
 
   }
 });
-class MdNote extends ReactDOM$2.PureComponent {
+class MdNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
-      note: propTypes$1.exports.object
+      note: propTypes$1.exports.object,
+      selected: propTypes$1.exports.boolean
     };
   }
 
   render() {
     const {
-      note
+      note,
+      selected
     } = this.props;
     const html = marked(note.md);
+    const ref = selected && /*#__PURE__*/p$1();
+
+    if (selected) {
+      y(() => ref.current.scrollIntoView(true));
+    }
+
+    const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1("div", {
+      ref: ref,
       dangerouslySetInnerHTML: {
         __html: html
+      },
+      style: {
+        border
       }
     });
   }
@@ -5239,11 +5280,12 @@ function MoonLoader(_a) {
         v$1("span", { style: circle })));
 }
 
-class ViewNote extends ReactDOM$2.PureComponent {
+class ViewNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       note: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
+      selected: propTypes$1.exports.boolean,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5254,6 +5296,7 @@ class ViewNote extends ReactDOM$2.PureComponent {
     const {
       note,
       onClickView,
+      selected,
       workspace
     } = this.props;
     const {
@@ -5286,12 +5329,21 @@ class ViewNote extends ReactDOM$2.PureComponent {
       });
     }
 
+    const ref = selected && /*#__PURE__*/p$1();
+
+    if (selected) {
+      y(() => ref.current.scrollIntoView(true));
+    }
+
+    const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1("img", {
+      ref: ref,
       class: "note view",
       style: {
         display: 'block',
         height: `${height}px`,
-        width: `${width}px`
+        width: `${width}px`,
+        border
       },
       src: note.url,
       onClick: onClick
@@ -5372,7 +5424,6 @@ const updateNotebookState = async (application, {
         });
 
         if (cachedUrl) {
-          console.log(`QQ/cachedUrl: ${note.hash} ${cachedUrl}`);
           updateNote({
             hash: note.hash,
             url: cachedUrl
@@ -5416,7 +5467,6 @@ const updateNotebookState = async (application, {
             await write(`thumbnail/${note.hash}`, url, {
               workspace
             });
-            console.log(`QQ/render: ${note.hash} ${url}`);
             updateNote({
               hash: note.hash,
               url
@@ -5438,116 +5488,149 @@ const updateNotebookState = async (application, {
     }
   }
 };
-class Notebook extends ReactDOM$2.PureComponent {
+class Notebook extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       notes: propTypes$1.exports.array,
       onClickView: propTypes$1.exports.func,
+      selectedLine: propTypes$1.exports.number,
       workspace: propTypes$1.exports.string
     };
   }
 
   render() {
-    const {
-      notes,
-      onClickView,
-      workspace
-    } = this.props;
-    const children = [];
-    const ordered = Object.values(notes);
+    try {
+      const {
+        notes,
+        onClickView,
+        selectedLine,
+        workspace
+      } = this.props;
+      const children = [];
+      const ordered = Object.values(notes);
 
-    const getLine = note => {
-      if (note.sourceLocation) {
-        return note.sourceLocation.line;
-      } else {
-        return 0;
+      const getLine = note => {
+        if (note.sourceLocation) {
+          return note.sourceLocation.line;
+        } else {
+          return 0;
+        }
+      };
+
+      const getNth = note => {
+        if (note.sourceLocation) {
+          return note.sourceLocation.nth;
+        } else {
+          return 0;
+        }
+      };
+
+      const order = (a, b) => {
+        const lineA = getLine(a);
+        const lineB = getLine(b);
+
+        if (lineA !== lineB) {
+          return lineA - lineB;
+        }
+
+        const nthA = getNth(a);
+        const nthB = getNth(b);
+        return nthA - nthB;
+      };
+
+      ordered.sort(order);
+      let line;
+      let selectedNote;
+
+      for (const note of ordered) {
+        if (!note.view && !note.md && !note.download && !note.control) {
+          continue;
+        } // FIX: This seems wasteful.
+
+
+        if (note.sourceLocation && note.sourceLocation.line !== line) {
+          line = note.sourceLocation.line;
+
+          if (note.sourceLocation.line <= selectedLine) {
+            selectedNote = note;
+          }
+        }
       }
-    };
 
-    const getNth = note => {
-      if (note.sourceLocation) {
-        return note.sourceLocation.nth;
-      } else {
-        return 0;
+      for (const note of ordered) {
+        // FIX: This seems wasteful.
+        const selected = note === selectedNote;
+        let child;
+
+        if (note.view) {
+          child = v$1(ViewNote, {
+            key: note.hash,
+            note: note,
+            onClickView: onClickView,
+            selected: selected
+          });
+        } else if (note.md) {
+          child = v$1(MdNote, {
+            key: note.hash,
+            note: note,
+            selected: selected,
+            workspace: workspace
+          });
+        } else if (note.download) {
+          child = v$1(DownloadNote, {
+            key: note.hash,
+            note: note,
+            selected: selected,
+            workspace: workspace
+          });
+        } else if (note.control) {
+          child = v$1(ControlNote, {
+            key: note.hash,
+            note: note,
+            selected: selected,
+            workspace: workspace
+          });
+        }
+
+        if (child) {
+          children.push(child);
+        }
       }
-    };
 
-    const order = (a, b) => {
-      const lineA = getLine(a);
-      const lineB = getLine(b);
+      console.log(`render Notebook`);
 
-      if (lineA !== lineB) {
-        return lineA - lineB;
-      }
-
-      const nthA = getNth(a);
-      const nthB = getNth(b);
-      return nthA - nthB;
-    };
-
-    ordered.sort(order);
-
-    for (const note of ordered) {
-      let child;
-
-      if (note.view) {
-        child = v$1(ViewNote, {
-          key: note.hash,
-          note: note,
-          onClickView: onClickView
+      if (children.length === 0) {
+        return v$1(MoonLoader, {
+          color: "#36d7b7",
+          size: "128px"
         });
-      } else if (note.md) {
-        child = v$1(MdNote, {
-          key: note.hash,
-          note: note,
-          workspace: workspace
-        });
-      } else if (note.download) {
-        child = v$1(DownloadNote, {
-          key: note.hash,
-          note: note,
-          workspace: workspace
-        });
-      } else if (note.control) {
-        child = v$1(ControlNote, {
-          key: note.hash,
-          note: note,
-          workspace: workspace
-        });
       }
 
-      if (child) {
-        children.push(child);
-      }
+      y(() => mermaid.init(undefined, '.mermaid'));
+      return v$1("div", {
+        classList: "notes",
+        style: {
+          overflow: 'auto'
+        }
+      }, children);
+    } catch (e) {
+      console.log(e.stack);
+      throw e;
     }
-
-    console.log(`render Notebook`);
-
-    if (children.length === 0) {
-      return v$1(MoonLoader, {
-        color: "#36d7b7",
-        size: "128px"
-      });
-    }
-
-    y(() => mermaid.init(undefined, '.mermaid'));
-    return v$1("div", {
-      classList: "notes"
-    }, children);
   }
 
 }
 
 var divWithClassName = (function (className) {
-  return /*#__PURE__*/ReactDOM$2.forwardRef(function (p, ref) {
-    return /*#__PURE__*/ReactDOM$2.createElement("div", _extends({}, p, {
+  return /*#__PURE__*/ReactDOM$3.forwardRef(function (p, ref) {
+    return /*#__PURE__*/ReactDOM$3.createElement("div", _extends({}, p, {
       ref: ref,
       className: classNames(p.className, className)
     }));
   });
 });
 
-var context = /*#__PURE__*/ReactDOM$2.createContext(null);
+var context = /*#__PURE__*/ReactDOM$3.createContext(null);
 context.displayName = 'CardContext';
 var CardContext = context;
 
@@ -5555,7 +5638,7 @@ var _excluded$7 = ["bsPrefix", "className", "variant", "as"];
 var defaultProps$5 = {
   variant: null
 };
-var CardImg = /*#__PURE__*/ReactDOM$2.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+var CardImg = /*#__PURE__*/ReactDOM$3.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
@@ -5565,7 +5648,7 @@ function (_ref, ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
   var prefix = useBootstrapPrefix(bsPrefix, 'card-img');
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({
     ref: ref,
     className: classNames(variant ? prefix + "-" + variant : prefix, className)
   }, props));
@@ -5596,7 +5679,7 @@ var CardImgOverlay = createWithBsPrefix('card-img-overlay');
 var defaultProps$4 = {
   body: false
 };
-var Card = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var Card = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       bg = _ref.bg,
@@ -5614,16 +5697,16 @@ var Card = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       cardHeaderBsPrefix: prefix + "-header"
     };
   }, [prefix]);
-  return /*#__PURE__*/ReactDOM$2.createElement(CardContext.Provider, {
+  return /*#__PURE__*/ReactDOM$3.createElement(CardContext.Provider, {
     value: cardContext
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+  }, /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({
     ref: ref
   }, props, {
     className: classNames(className, prefix, bg && "bg-" + bg, text && "text-" + text, border && "border-" + border)
   }), body ?
   /*#__PURE__*/
   // @ts-ignore
-  ReactDOM$2.createElement(CardBody, null, children) : children));
+  ReactDOM$3.createElement(CardBody, null, children) : children));
 });
 Card.displayName = 'Card';
 Card.defaultProps = defaultProps$4;
@@ -9807,7 +9890,7 @@ Model$1.default = Model;
 
 var Layout$1 = {};
 
-var require$$1 = /*@__PURE__*/getAugmentedNamespace(compat_module);
+var require$$0 = /*@__PURE__*/getAugmentedNamespace(compat_module);
 
 var BorderTabSet$1 = {};
 
@@ -9832,8 +9915,8 @@ var PopupMenu$1 = {};
 
 Object.defineProperty(PopupMenu$1, "__esModule", { value: true });
 PopupMenu$1.showPopup = void 0;
-var React$f = require$$1;
-var ReactDOM$1 = require$$1;
+var React$g = require$$0;
+var ReactDOM$2 = require$$0;
 var _1 = lib$1;
 var Types_1$b = Types;
 /** @hidden @internal */
@@ -9861,7 +9944,7 @@ function showPopup(layoutDiv, triggerElement, items, onSelect, classNameMapper) 
     var onHide = function () {
         _1.DragDrop.instance.hideGlass();
         layoutDiv.removeChild(elm);
-        ReactDOM$1.unmountComponentAtNode(elm);
+        ReactDOM$2.unmountComponentAtNode(elm);
         elm.removeEventListener("mousedown", onElementMouseDown);
         currentDocument.removeEventListener("mousedown", onDocMouseDown);
     };
@@ -9873,7 +9956,7 @@ function showPopup(layoutDiv, triggerElement, items, onSelect, classNameMapper) 
     };
     elm.addEventListener("mousedown", onElementMouseDown);
     currentDocument.addEventListener("mousedown", onDocMouseDown);
-    ReactDOM$1.render(React$f.createElement(PopupMenu, { currentDocument: currentDocument, onSelect: onSelect, onHide: onHide, items: items, classNameMapper: classNameMapper }), elm);
+    ReactDOM$2.render(React$g.createElement(PopupMenu, { currentDocument: currentDocument, onSelect: onSelect, onHide: onHide, items: items, classNameMapper: classNameMapper }), elm);
 }
 PopupMenu$1.showPopup = showPopup;
 /** @hidden @internal */
@@ -9884,15 +9967,15 @@ var PopupMenu = function (props) {
         onHide();
         event.stopPropagation();
     };
-    var itemElements = items.map(function (item, i) { return (React$f.createElement("div", { key: item.index, className: classNameMapper(Types_1$b.CLASSES.FLEXLAYOUT__POPUP_MENU_ITEM), "data-layout-path": "/popup-menu/tb" + i, onClick: function (event) { return onItemClick(item, event); }, title: item.node.getHelpText() }, item.node._getRenderedName())); });
-    return (React$f.createElement("div", { className: classNameMapper(Types_1$b.CLASSES.FLEXLAYOUT__POPUP_MENU), "data-layout-path": "/popup-menu" }, itemElements));
+    var itemElements = items.map(function (item, i) { return (React$g.createElement("div", { key: item.index, className: classNameMapper(Types_1$b.CLASSES.FLEXLAYOUT__POPUP_MENU_ITEM), "data-layout-path": "/popup-menu/tb" + i, onClick: function (event) { return onItemClick(item, event); }, title: item.node.getHelpText() }, item.node._getRenderedName())); });
+    return (React$g.createElement("div", { className: classNameMapper(Types_1$b.CLASSES.FLEXLAYOUT__POPUP_MENU), "data-layout-path": "/popup-menu" }, itemElements));
 };
 
 var TabButton$1 = {};
 
 Object.defineProperty(TabButton$1, "__esModule", { value: true });
 TabButton$1.TabButton = void 0;
-var React$e = require$$1;
+var React$f = require$$0;
 var I18nLabel_1$5 = I18nLabel;
 var Actions_1$7 = Actions$1;
 var Rect_1$3 = Rect$1;
@@ -9902,9 +9985,9 @@ var TabSet_1$3 = TabSet$1;
 /** @hidden @internal */
 var TabButton = function (props) {
     var layout = props.layout, node = props.node, selected = props.selected, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var selfRef = React$e.useRef(null);
-    var contentRef = React$e.useRef(null);
-    var contentWidth = React$e.useRef(0);
+    var selfRef = React$f.useRef(null);
+    var contentRef = React$f.useRef(null);
+    var contentWidth = React$f.useRef(0);
     var onMouseDown = function (event) {
         if (!TabSet_1$3.isAuxMouseEvent(event) && !layout.getEditingTab()) {
             var message = layout.i18nName(I18nLabel_1$5.I18nLabel.Move_Tab, node.getName());
@@ -9966,7 +10049,7 @@ var TabButton = function (props) {
     var onCloseMouseDown = function (event) {
         event.stopPropagation();
     };
-    React$e.useLayoutEffect(function () {
+    React$f.useLayoutEffect(function () {
         updateRect();
         if (layout.getEditingTab() === node) {
             contentRef.current.select();
@@ -10032,24 +10115,24 @@ var TabButton = function (props) {
         }
     }
     if (leadingContent === undefined && node.getIcon() !== undefined) {
-        leadingContent = React$e.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
+        leadingContent = React$f.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
     }
     var buttons = [];
     // allow customization of leading contents (icon) and contents
     var renderState = { leading: leadingContent, content: titleContent, name: name, buttons: buttons };
     layout.customizeTab(node, renderState);
     node._setRenderedName(renderState.name);
-    var content = (React$e.createElement("div", { ref: contentRef, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_CONTENT) }, renderState.content));
-    var leading = React$e.createElement("div", { className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_LEADING) }, renderState.leading);
+    var content = (React$f.createElement("div", { ref: contentRef, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_CONTENT) }, renderState.content));
+    var leading = React$f.createElement("div", { className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_LEADING) }, renderState.leading);
     if (layout.getEditingTab() === node) {
         var contentStyle = { width: contentWidth + "px" };
-        content = (React$e.createElement("input", { style: contentStyle, ref: contentRef, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_TEXTBOX), "data-layout-path": path + "/textbox", type: "text", autoFocus: true, defaultValue: node.getName(), onKeyDown: onTextBoxKeyPress, onMouseDown: onTextBoxMouseDown, onTouchStart: onTextBoxMouseDown }));
+        content = (React$f.createElement("input", { style: contentStyle, ref: contentRef, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_TEXTBOX), "data-layout-path": path + "/textbox", type: "text", autoFocus: true, defaultValue: node.getName(), onKeyDown: onTextBoxKeyPress, onMouseDown: onTextBoxMouseDown, onTouchStart: onTextBoxMouseDown }));
     }
     if (node.isEnableClose()) {
         var closeTitle = layout.i18nName(I18nLabel_1$5.I18nLabel.Close_Tab);
-        buttons.push(React$e.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
+        buttons.push(React$f.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$a.CLASSES.FLEXLAYOUT__TAB_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
     }
-    return (React$e.createElement("div", { ref: selfRef, "data-layout-path": path, className: classNames, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
+    return (React$f.createElement("div", { ref: selfRef, "data-layout-path": path, className: classNames, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
         leading,
         content,
         buttons));
@@ -10060,27 +10143,27 @@ var TabOverflowHook = {};
 
 Object.defineProperty(TabOverflowHook, "__esModule", { value: true });
 TabOverflowHook.useTabOverflow = void 0;
-var React$d = require$$1;
+var React$e = require$$0;
 var Rect_1$2 = Rect$1;
 var TabSetNode_1$3 = TabSetNode$1;
 var Orientation_1$3 = Orientation$1;
 /** @hidden @internal */
 var useTabOverflow = function (node, orientation, toolbarRef, stickyButtonsRef) {
-    var firstRender = React$d.useRef(true);
-    var tabsTruncated = React$d.useRef(false);
-    var lastRect = React$d.useRef(new Rect_1$2.default(0, 0, 0, 0));
-    var selfRef = React$d.useRef(null);
-    var _a = React$d.useState(0), position = _a[0], setPosition = _a[1];
-    var userControlledLeft = React$d.useRef(false);
-    var _b = React$d.useState([]), hiddenTabs = _b[0], setHiddenTabs = _b[1];
+    var firstRender = React$e.useRef(true);
+    var tabsTruncated = React$e.useRef(false);
+    var lastRect = React$e.useRef(new Rect_1$2.default(0, 0, 0, 0));
+    var selfRef = React$e.useRef(null);
+    var _a = React$e.useState(0), position = _a[0], setPosition = _a[1];
+    var userControlledLeft = React$e.useRef(false);
+    var _b = React$e.useState([]), hiddenTabs = _b[0], setHiddenTabs = _b[1];
     // if selected node or tabset/border rectangle change then unset usercontrolled (so selected tab will be kept in view)
-    React$d.useLayoutEffect(function () {
+    React$e.useLayoutEffect(function () {
         userControlledLeft.current = false;
     }, [node.getSelectedNode(), node.getRect().width, node.getRect().height]);
-    React$d.useLayoutEffect(function () {
+    React$e.useLayoutEffect(function () {
         updateVisibleTabs();
     });
-    React$d.useEffect(function () {
+    React$e.useEffect(function () {
         var instance = selfRef.current;
         instance.addEventListener('wheel', onWheel);
         return function () {
@@ -10223,7 +10306,7 @@ var __extends$4 = (commonjsGlobal && commonjsGlobal.__extends) || (function () {
 })();
 Object.defineProperty(ErrorBoundary$1, "__esModule", { value: true });
 ErrorBoundary$1.ErrorBoundary = void 0;
-var React$c = require$$1;
+var React$d = require$$0;
 var Types_1$9 = Types;
 /** @hidden @internal */
 var ErrorBoundary = /** @class */ (function (_super) {
@@ -10242,19 +10325,19 @@ var ErrorBoundary = /** @class */ (function (_super) {
     };
     ErrorBoundary.prototype.render = function () {
         if (this.state.hasError) {
-            return (React$c.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTAINER },
-                React$c.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTENT }, this.props.message)));
+            return (React$d.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTAINER },
+                React$d.createElement("div", { className: Types_1$9.CLASSES.FLEXLAYOUT__ERROR_BOUNDARY_CONTENT }, this.props.message)));
         }
         return this.props.children;
     };
     return ErrorBoundary;
-}(React$c.Component));
+}(React$d.Component));
 ErrorBoundary$1.ErrorBoundary = ErrorBoundary;
 
 Object.defineProperty(Tab$1, "__esModule", { value: true });
 Tab$1.hideElement = Tab$1.Tab = void 0;
-var React$b = require$$1;
-var react_1$1 = require$$1;
+var React$c = require$$0;
+var react_1$1 = require$$0;
 var Actions_1$6 = Actions$1;
 var TabSetNode_1$2 = TabSetNode$1;
 var Types_1$8 = Types;
@@ -10264,8 +10347,8 @@ var __1$2 = lib$1;
 /** @hidden @internal */
 var Tab = function (props) {
     var layout = props.layout, selected = props.selected, node = props.node, factory = props.factory, path = props.path;
-    var _a = React$b.useState(!props.node.isEnableRenderOnDemand() || props.selected), renderComponent = _a[0], setRenderComponent = _a[1];
-    React$b.useLayoutEffect(function () {
+    var _a = React$c.useState(!props.node.isEnableRenderOnDemand() || props.selected), renderComponent = _a[0], setRenderComponent = _a[1];
+    React$c.useLayoutEffect(function () {
         if (!renderComponent && selected) {
             // load on demand
             // console.log("load on demand: " + node.getName());
@@ -10301,9 +10384,9 @@ var Tab = function (props) {
         className += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__TAB_BORDER);
         className += " " + cm(Types_1$8.CLASSES.FLEXLAYOUT__TAB_BORDER_ + parentNode.getLocation().getName());
     }
-    return (React$b.createElement("div", { className: className, "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
-        React$b.createElement(ErrorBoundary_1$1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$4.I18nLabel.Error_rendering_component) },
-            React$b.createElement(react_1$1.Fragment, null, child))));
+    return (React$c.createElement("div", { className: className, "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
+        React$c.createElement(ErrorBoundary_1$1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$4.I18nLabel.Error_rendering_component) },
+            React$c.createElement(react_1$1.Fragment, null, child))));
 };
 Tab$1.Tab = Tab;
 function hideElement(style, useVisibility) {
@@ -10323,7 +10406,7 @@ var __spreadArray$2 = (commonjsGlobal && commonjsGlobal.__spreadArray) || functi
 };
 Object.defineProperty(TabSet$1, "__esModule", { value: true });
 TabSet$1.isAuxMouseEvent = TabSet$1.TabSet = void 0;
-var React$a = require$$1;
+var React$b = require$$0;
 var I18nLabel_1$3 = I18nLabel;
 var Actions_1$5 = Actions$1;
 var PopupMenu_1$1 = PopupMenu$1;
@@ -10335,10 +10418,10 @@ var Tab_1$2 = Tab$1;
 /** @hidden @internal */
 var TabSet = function (props) {
     var node = props.node, layout = props.layout, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var toolbarRef = React$a.useRef(null);
-    var overflowbuttonRef = React$a.useRef(null);
-    var tabbarInnerRef = React$a.useRef(null);
-    var stickyButtonsRef = React$a.useRef(null);
+    var toolbarRef = React$b.useRef(null);
+    var overflowbuttonRef = React$b.useRef(null);
+    var tabbarInnerRef = React$b.useRef(null);
+    var stickyButtonsRef = React$b.useRef(null);
     var _a = TabOverflowHook_1$1.useTabOverflow(node, Orientation_1$2.default.HORZ, toolbarRef, stickyButtonsRef), selfRef = _a.selfRef, position = _a.position, userControlledLeft = _a.userControlledLeft, hiddenTabs = _a.hiddenTabs, onMouseWheel = _a.onMouseWheel, tabsTruncated = _a.tabsTruncated;
     var onOverflowClick = function (event) {
         var element = overflowbuttonRef.current;
@@ -10413,7 +10496,7 @@ var TabSet = function (props) {
         for (var i = 0; i < node.getChildren().length; i++) {
             var child = node.getChildren()[i];
             var isSelected = node.getSelected() === i;
-            tabs.push(React$a.createElement(TabButton_1.TabButton, { layout: layout, node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, height: node.getTabStripHeight(), iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
+            tabs.push(React$b.createElement(TabButton_1.TabButton, { layout: layout, node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, height: node.getTabStripHeight(), iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
         }
     }
     var showHeader = node.getName() !== undefined;
@@ -10432,32 +10515,32 @@ var TabSet = function (props) {
             buttons = __spreadArray$2(__spreadArray$2([], stickyButtons), buttons);
         }
         else {
-            tabs.push(React$a.createElement("div", { ref: stickyButtonsRef, key: "sticky_buttons_container", onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_STICKY_BUTTONS_CONTAINER) }, stickyButtons));
+            tabs.push(React$b.createElement("div", { ref: stickyButtonsRef, key: "sticky_buttons_container", onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_STICKY_BUTTONS_CONTAINER) }, stickyButtons));
         }
     }
     var toolbar;
     if (hiddenTabs.length > 0) {
         var overflowTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Overflow_Menu_Tooltip);
-        buttons.push(React$a.createElement("button", { key: "overflowbutton", "data-layout-path": path + "/button/overflow", ref: overflowbuttonRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_BUTTON_OVERFLOW), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
+        buttons.push(React$b.createElement("button", { key: "overflowbutton", "data-layout-path": path + "/button/overflow", ref: overflowbuttonRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_BUTTON_OVERFLOW), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
             icons.more,
             hiddenTabs.length));
     }
     if (selectedTabNode !== undefined && layout.isSupportsPopout() && selectedTabNode.isEnableFloat() && !selectedTabNode.isFloating()) {
         var floatTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Float_Tab);
-        buttons.push(React$a.createElement("button", { key: "float", "data-layout-path": path + "/button/float", title: floatTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.popout));
+        buttons.push(React$b.createElement("button", { key: "float", "data-layout-path": path + "/button/float", title: floatTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.popout));
     }
     if (node.canMaximize()) {
         var minTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Restore);
         var maxTitle = layout.i18nName(I18nLabel_1$3.I18nLabel.Maximize);
         var btns = showHeader ? headerButtons : buttons;
-        btns.push(React$a.createElement("button", { key: "max", "data-layout-path": path + "/button/max", title: node.isMaximized() ? minTitle : maxTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_ + (node.isMaximized() ? "max" : "min")), onClick: onMaximizeToggle, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, node.isMaximized() ? icons === null || icons === void 0 ? void 0 : icons.restore : icons === null || icons === void 0 ? void 0 : icons.maximize));
+        btns.push(React$b.createElement("button", { key: "max", "data-layout-path": path + "/button/max", title: node.isMaximized() ? minTitle : maxTitle, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_ + (node.isMaximized() ? "max" : "min")), onClick: onMaximizeToggle, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, node.isMaximized() ? icons === null || icons === void 0 ? void 0 : icons.restore : icons === null || icons === void 0 ? void 0 : icons.maximize));
     }
     if (!node.isMaximized() && node.isEnableClose()) {
         var title = layout.i18nName(I18nLabel_1$3.I18nLabel.Close_Tabset);
         var btns = showHeader ? headerButtons : buttons;
-        btns.push(React$a.createElement("button", { key: "close", "data-layout-path": path + "/button/close", title: title, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_CLOSE), onClick: onClose, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.closeTabset));
+        btns.push(React$b.createElement("button", { key: "close", "data-layout-path": path + "/button/close", title: title, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR_BUTTON_CLOSE), onClick: onClose, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 : icons.closeTabset));
     }
-    toolbar = (React$a.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, buttons));
+    toolbar = (React$b.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, buttons));
     var header;
     var tabStrip;
     var tabStripClasses = cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_OUTER);
@@ -10472,7 +10555,7 @@ var TabSet = function (props) {
         tabStripClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_MAXIMIZED);
     }
     if (showHeader) {
-        var headerToolbar = (React$a.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, headerButtons));
+        var headerToolbar = (React$b.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TAB_TOOLBAR), onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown, onDragStart: function (e) { e.preventDefault(); } }, headerButtons));
         var tabHeaderClasses = cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_HEADER);
         if (node.isActive()) {
             tabHeaderClasses += " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_SELECTED);
@@ -10483,8 +10566,8 @@ var TabSet = function (props) {
         if (node.getClassNameHeader() !== undefined) {
             tabHeaderClasses += " " + node.getClassNameHeader();
         }
-        header = (React$a.createElement("div", { className: tabHeaderClasses, style: { height: node.getHeaderHeight() + "px" }, "data-layout-path": path + "/header", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
-            React$a.createElement("div", { className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_HEADER_CONTENT) }, headerContent),
+        header = (React$b.createElement("div", { className: tabHeaderClasses, style: { height: node.getHeaderHeight() + "px" }, "data-layout-path": path + "/header", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
+            React$b.createElement("div", { className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_HEADER_CONTENT) }, headerContent),
             headerToolbar));
     }
     var tabStripStyle = { height: node.getTabStripHeight() + "px" };
@@ -10495,12 +10578,12 @@ var TabSet = function (props) {
     else {
         tabStripStyle["bottom"] = "0px";
     }
-    tabStrip = (React$a.createElement("div", { className: tabStripClasses, style: tabStripStyle, "data-layout-path": path + "/tabstrip", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
-        React$a.createElement("div", { ref: tabbarInnerRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_ + node.getTabLocation()) },
-            React$a.createElement("div", { style: { left: position }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER_ + node.getTabLocation()) }, tabs)),
+    tabStrip = (React$b.createElement("div", { className: tabStripClasses, style: tabStripStyle, "data-layout-path": path + "/tabstrip", onMouseDown: onMouseDown, onContextMenu: onContextMenu, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onTouchStart: onMouseDown },
+        React$b.createElement("div", { ref: tabbarInnerRef, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_ + node.getTabLocation()) },
+            React$b.createElement("div", { style: { left: position }, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER) + " " + cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET_TABBAR_INNER_TAB_CONTAINER_ + node.getTabLocation()) }, tabs)),
         toolbar));
     style = layout.styleFont(style);
-    return (React$a.createElement("div", { ref: selfRef, dir: "ltr", "data-layout-path": path, style: style, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET), onWheel: onMouseWheel },
+    return (React$b.createElement("div", { ref: selfRef, dir: "ltr", "data-layout-path": path, style: style, className: cm(Types_1$7.CLASSES.FLEXLAYOUT__TABSET), onWheel: onMouseWheel },
         header,
         tabStrip));
 };
@@ -10519,7 +10602,7 @@ TabSet$1.isAuxMouseEvent = isAuxMouseEvent;
 
 Object.defineProperty(BorderButton$1, "__esModule", { value: true });
 BorderButton$1.BorderButton = void 0;
-var React$9 = require$$1;
+var React$a = require$$0;
 var __1$1 = lib$1;
 var Actions_1$4 = Actions$1;
 var Rect_1$1 = Rect$1;
@@ -10529,7 +10612,7 @@ var TabSet_1$2 = TabSet$1;
 /** @hidden @internal */
 var BorderButton = function (props) {
     var layout = props.layout, node = props.node, selected = props.selected, border = props.border, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var selfRef = React$9.useRef(null);
+    var selfRef = React$a.useRef(null);
     var onMouseDown = function (event) {
         if (!TabSet_1$2.isAuxMouseEvent(event)) {
             var message = layout.i18nName(__1$1.I18nLabel.Move_Tab, node.getName());
@@ -10571,7 +10654,7 @@ var BorderButton = function (props) {
     var onCloseMouseDown = function (event) {
         event.stopPropagation();
     };
-    React$9.useLayoutEffect(function () {
+    React$a.useLayoutEffect(function () {
         updateRect();
     });
     var updateRect = function () {
@@ -10614,20 +10697,20 @@ var BorderButton = function (props) {
         }
     }
     if (leadingContent === undefined && node.getIcon() !== undefined) {
-        leadingContent = React$9.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
+        leadingContent = React$a.createElement("img", { src: node.getIcon(), alt: "leadingContent" });
     }
     var buttons = [];
     // allow customization of leading contents (icon) and contents
     var renderState = { leading: leadingContent, content: titleContent, name: name, buttons: buttons };
     layout.customizeTab(node, renderState);
     node._setRenderedName(renderState.name);
-    var content = React$9.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_CONTENT) }, renderState.content);
-    var leading = React$9.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_LEADING) }, renderState.leading);
+    var content = React$a.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_CONTENT) }, renderState.content);
+    var leading = React$a.createElement("div", { className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_LEADING) }, renderState.leading);
     if (node.isEnableClose()) {
         var closeTitle = layout.i18nName(__1$1.I18nLabel.Close_Tab);
-        buttons.push(React$9.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
+        buttons.push(React$a.createElement("div", { key: "close", "data-layout-path": path + "/button/close", title: closeTitle, className: cm(Types_1$6.CLASSES.FLEXLAYOUT__BORDER_BUTTON_TRAILING), onMouseDown: onCloseMouseDown, onClick: onClose, onTouchStart: onCloseMouseDown }, icons === null || icons === void 0 ? void 0 : icons.close));
     }
-    return (React$9.createElement("div", { ref: selfRef, style: {}, className: classNames, "data-layout-path": path, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
+    return (React$a.createElement("div", { ref: selfRef, style: {}, className: classNames, "data-layout-path": path, onMouseDown: onMouseDown, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onTouchStart: onMouseDown, title: node.getHelpText() },
         leading,
         content,
         buttons));
@@ -10636,7 +10719,7 @@ BorderButton$1.BorderButton = BorderButton;
 
 Object.defineProperty(BorderTabSet$1, "__esModule", { value: true });
 BorderTabSet$1.BorderTabSet = void 0;
-var React$8 = require$$1;
+var React$9 = require$$0;
 var DockLocation_1$1 = DockLocation$1;
 var BorderButton_1 = BorderButton$1;
 var PopupMenu_1 = PopupMenu$1;
@@ -10649,9 +10732,9 @@ var TabSet_1$1 = TabSet$1;
 /** @hidden @internal */
 var BorderTabSet = function (props) {
     var border = props.border, layout = props.layout, iconFactory = props.iconFactory, titleFactory = props.titleFactory, icons = props.icons, path = props.path;
-    var toolbarRef = React$8.useRef(null);
-    var overflowbuttonRef = React$8.useRef(null);
-    var stickyButtonsRef = React$8.useRef(null);
+    var toolbarRef = React$9.useRef(null);
+    var overflowbuttonRef = React$9.useRef(null);
+    var stickyButtonsRef = React$9.useRef(null);
     var _a = TabOverflowHook_1.useTabOverflow(border, Orientation_1$1.default.flip(border.getOrientation()), toolbarRef, stickyButtonsRef), selfRef = _a.selfRef, position = _a.position, userControlledLeft = _a.userControlledLeft, hiddenTabs = _a.hiddenTabs, onMouseWheel = _a.onMouseWheel;
     var onAuxMouseClick = function (event) {
         if (TabSet_1$1.isAuxMouseEvent(event)) {
@@ -10686,7 +10769,7 @@ var BorderTabSet = function (props) {
     var layoutTab = function (i) {
         var isSelected = border.getSelected() === i;
         var child = border.getChildren()[i];
-        tabs.push(React$8.createElement(BorderButton_1.BorderButton, { layout: layout, border: border.getLocation().getName(), node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
+        tabs.push(React$9.createElement(BorderButton_1.BorderButton, { layout: layout, border: border.getLocation().getName(), node: child, path: path + "/tb" + i, key: child.getId(), selected: isSelected, iconFactory: iconFactory, titleFactory: titleFactory, icons: icons }));
     };
     for (var i = 0; i < border.getChildren().length; i++) {
         layoutTab(i);
@@ -10703,7 +10786,7 @@ var BorderTabSet = function (props) {
     var toolbar;
     if (hiddenTabs.length > 0) {
         var overflowTitle = layout.i18nName(I18nLabel_1$2.I18nLabel.Overflow_Menu_Tooltip);
-        buttons.push(React$8.createElement("button", { key: "overflowbutton", ref: overflowbuttonRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW_ + border.getLocation().getName()), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
+        buttons.push(React$9.createElement("button", { key: "overflowbutton", ref: overflowbuttonRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_OVERFLOW_ + border.getLocation().getName()), title: overflowTitle, onClick: onOverflowClick, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }, icons === null || icons === void 0 ? void 0 :
             icons.more,
             hiddenTabs.length));
     }
@@ -10712,10 +10795,10 @@ var BorderTabSet = function (props) {
         var selectedTabNode = border.getChildren()[selectedIndex];
         if (selectedTabNode !== undefined && layout.isSupportsPopout() && selectedTabNode.isEnableFloat() && !selectedTabNode.isFloating()) {
             var floatTitle = layout.i18nName(I18nLabel_1$2.I18nLabel.Float_Tab);
-            buttons.push(React$8.createElement("button", { key: "float", title: floatTitle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }));
+            buttons.push(React$9.createElement("button", { key: "float", title: floatTitle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_BUTTON_FLOAT), onClick: onFloatTab, onMouseDown: onInterceptMouseDown, onTouchStart: onInterceptMouseDown }));
         }
     }
-    toolbar = (React$8.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_ + border.getLocation().getName()) }, buttons));
+    toolbar = (React$9.createElement("div", { key: "toolbar", ref: toolbarRef, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_TOOLBAR_ + border.getLocation().getName()) }, buttons));
     style = layout.styleFont(style);
     var innerStyle = {};
     var borderHeight = border.getBorderBarSize() - 1;
@@ -10728,9 +10811,9 @@ var BorderTabSet = function (props) {
     else {
         innerStyle = { height: borderHeight, left: position };
     }
-    return (React$8.createElement("div", { ref: selfRef, dir: "ltr", style: style, className: borderClasses, "data-layout-path": path, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onWheel: onMouseWheel },
-        React$8.createElement("div", { style: { height: borderHeight }, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_ + border.getLocation().getName()) },
-            React$8.createElement("div", { style: innerStyle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER_ + border.getLocation().getName()) }, tabs)),
+    return (React$9.createElement("div", { ref: selfRef, dir: "ltr", style: style, className: borderClasses, "data-layout-path": path, onClick: onAuxMouseClick, onAuxClick: onAuxMouseClick, onContextMenu: onContextMenu, onWheel: onMouseWheel },
+        React$9.createElement("div", { style: { height: borderHeight }, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_ + border.getLocation().getName()) },
+            React$9.createElement("div", { style: innerStyle, className: cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER) + " " + cm(Types_1$5.CLASSES.FLEXLAYOUT__BORDER_INNER_TAB_CONTAINER_ + border.getLocation().getName()) }, tabs)),
         toolbar));
 };
 BorderTabSet$1.BorderTabSet = BorderTabSet;
@@ -10739,7 +10822,7 @@ var Splitter$1 = {};
 
 Object.defineProperty(Splitter$1, "__esModule", { value: true });
 Splitter$1.Splitter = void 0;
-var React$7 = require$$1;
+var React$8 = require$$0;
 var DragDrop_1$1 = DragDrop$1;
 var Actions_1$2 = Actions$1;
 var BorderNode_1$1 = BorderNode$1;
@@ -10748,8 +10831,8 @@ var Types_1$4 = Types;
 /** @hidden @internal */
 var Splitter = function (props) {
     var layout = props.layout, node = props.node, path = props.path;
-    var pBounds = React$7.useRef([]);
-    var outlineDiv = React$7.useRef(undefined);
+    var pBounds = React$8.useRef([]);
+    var outlineDiv = React$8.useRef(undefined);
     var parentNode = node.getParent();
     var onMouseDown = function (event) {
         DragDrop_1$1.default.instance.setGlassCursorOverride(node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize");
@@ -10848,7 +10931,7 @@ var Splitter = function (props) {
     }
     var extra = node.getModel().getSplitterExtra();
     if (extra === 0) {
-        return (React$7.createElement("div", { style: style, "data-layout-path": path, className: className, onTouchStart: onMouseDown, onMouseDown: onMouseDown }));
+        return (React$8.createElement("div", { style: style, "data-layout-path": path, className: className, onTouchStart: onMouseDown, onMouseDown: onMouseDown }));
     }
     else {
         // add extended transparent div for hit testing
@@ -10866,8 +10949,8 @@ var Splitter = function (props) {
             cursor: node.getOrientation() === Orientation_1.default.HORZ ? "ns-resize" : "ew-resize"
         });
         var className2 = cm(Types_1$4.CLASSES.FLEXLAYOUT__SPLITTER_EXTRA);
-        return (React$7.createElement("div", { style: style, "data-layout-path": path, className: className },
-            React$7.createElement("div", { style: style2, className: className2, onTouchStart: onMouseDown, onMouseDown: onMouseDown })));
+        return (React$8.createElement("div", { style: style, "data-layout-path": path, className: className },
+            React$8.createElement("div", { style: style2, className: className2, onTouchStart: onMouseDown, onMouseDown: onMouseDown })));
     }
 };
 Splitter$1.Splitter = Splitter;
@@ -10881,15 +10964,15 @@ var __spreadArray$1 = (commonjsGlobal && commonjsGlobal.__spreadArray) || functi
 };
 Object.defineProperty(FloatingWindow$1, "__esModule", { value: true });
 FloatingWindow$1.FloatingWindow = void 0;
-var React$6 = require$$1;
-var react_dom_1 = require$$1;
+var React$7 = require$$0;
+var react_dom_1 = require$$0;
 var Types_1$3 = Types;
 /** @hidden @internal */
 var FloatingWindow = function (props) {
     var title = props.title, id = props.id, url = props.url, rect = props.rect, onCloseWindow = props.onCloseWindow, onSetWindow = props.onSetWindow, children = props.children;
-    var popoutWindow = React$6.useRef(null);
-    var _a = React$6.useState(undefined), content = _a[0], setContent = _a[1];
-    React$6.useLayoutEffect(function () {
+    var popoutWindow = React$7.useRef(null);
+    var _a = React$7.useState(undefined), content = _a[0], setContent = _a[1];
+    React$7.useLayoutEffect(function () {
         var r = rect;
         // Make a local copy of the styles from the current window which will be passed into
         // the floating window. window.document.styleSheets is mutable and we can't guarantee
@@ -10993,19 +11076,19 @@ var FloatingWindowTab$1 = {};
 
 Object.defineProperty(FloatingWindowTab$1, "__esModule", { value: true });
 FloatingWindowTab$1.FloatingWindowTab = void 0;
-var React$5 = require$$1;
+var React$6 = require$$0;
 var ErrorBoundary_1 = ErrorBoundary$1;
 var I18nLabel_1$1 = I18nLabel;
-var react_1 = require$$1;
+var react_1 = require$$0;
 var Types_1$2 = Types;
 /** @hidden @internal */
 var FloatingWindowTab = function (props) {
     var layout = props.layout, node = props.node, factory = props.factory;
     var cm = layout.getClassName;
     var child = factory(node);
-    return (React$5.createElement("div", { className: cm(Types_1$2.CLASSES.FLEXLAYOUT__FLOATING_WINDOW_TAB) },
-        React$5.createElement(ErrorBoundary_1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$1.I18nLabel.Error_rendering_component) },
-            React$5.createElement(react_1.Fragment, null, child))));
+    return (React$6.createElement("div", { className: cm(Types_1$2.CLASSES.FLEXLAYOUT__FLOATING_WINDOW_TAB) },
+        React$6.createElement(ErrorBoundary_1.ErrorBoundary, { message: props.layout.i18nName(I18nLabel_1$1.I18nLabel.Error_rendering_component) },
+            React$6.createElement(react_1.Fragment, null, child))));
 };
 FloatingWindowTab$1.FloatingWindowTab = FloatingWindowTab;
 
@@ -11013,7 +11096,7 @@ var TabFloating$1 = {};
 
 Object.defineProperty(TabFloating$1, "__esModule", { value: true });
 TabFloating$1.TabFloating = void 0;
-var React$4 = require$$1;
+var React$5 = require$$0;
 var Actions_1$1 = Actions$1;
 var TabSetNode_1$1 = TabSetNode$1;
 var Types_1$1 = Types;
@@ -11056,16 +11139,16 @@ var TabFloating = function (props) {
     var dockMessage = layout.i18nName(I18nLabel_1.I18nLabel.Floating_Window_Dock_Window);
     var customRenderCallback = layout.getOnRenderFloatingTabPlaceholder();
     if (customRenderCallback) {
-        return (React$4.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING), onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style }, customRenderCallback(dockPopout, showPopout)));
+        return (React$5.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING), onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style }, customRenderCallback(dockPopout, showPopout)));
     }
     else {
-        return (React$4.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING), "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
-            React$4.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING_INNER) },
-                React$4.createElement("div", null, message),
-                React$4.createElement("div", null,
-                    React$4.createElement("a", { href: "#", onClick: onClickFocus }, showMessage)),
-                React$4.createElement("div", null,
-                    React$4.createElement("a", { href: "#", onClick: onClickDock }, dockMessage)))));
+        return (React$5.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING), "data-layout-path": path, onMouseDown: onMouseDown, onTouchStart: onMouseDown, style: style },
+            React$5.createElement("div", { className: cm(Types_1$1.CLASSES.FLEXLAYOUT__TAB_FLOATING_INNER) },
+                React$5.createElement("div", null, message),
+                React$5.createElement("div", null,
+                    React$5.createElement("a", { href: "#", onClick: onClickFocus }, showMessage)),
+                React$5.createElement("div", null,
+                    React$5.createElement("a", { href: "#", onClick: onClickDock }, dockMessage)))));
     }
 };
 TabFloating$1.TabFloating = TabFloating;
@@ -11092,8 +11175,8 @@ var __spreadArray = (commonjsGlobal && commonjsGlobal.__spreadArray) || function
 };
 Object.defineProperty(Layout$1, "__esModule", { value: true });
 Layout$1.Layout = void 0;
-var React$3 = require$$1;
-var ReactDOM = require$$1;
+var React$4 = require$$0;
+var ReactDOM$1 = require$$0;
 var DockLocation_1 = DockLocation$1;
 var DragDrop_1 = DragDrop$1;
 var Actions_1 = Actions$1;
@@ -11268,7 +11351,7 @@ var Layout = /** @class */ (function (_super) {
         };
         /** @hidden @internal */
         _this.dragRectRender = function (text, node, json, onRendered) {
-            var content = React$3.createElement("div", { style: { whiteSpace: "pre" } }, text.replace("<br>", "\n"));
+            var content = React$4.createElement("div", { style: { whiteSpace: "pre" } }, text.replace("<br>", "\n"));
             if (_this.props.onRenderDragRect !== undefined) {
                 var customContent = _this.props.onRenderDragRect(text, node, json);
                 if (customContent !== undefined) {
@@ -11278,7 +11361,7 @@ var Layout = /** @class */ (function (_super) {
             // hide div until the render is complete
             _this.dragDiv.style.visibility = "hidden";
             _this.dragRectRendered = false;
-            ReactDOM.render(React$3.createElement(DragRectRenderWrapper
+            ReactDOM$1.render(React$4.createElement(DragRectRenderWrapper
             // wait for it to be rendered
             , { 
                 // wait for it to be rendered
@@ -11389,10 +11472,10 @@ var Layout = /** @class */ (function (_super) {
         };
         _this.props.model._setChangeListener(_this.onModelChange);
         _this.tabIds = [];
-        _this.selfRef = React$3.createRef();
-        _this.findHeaderBarSizeRef = React$3.createRef();
-        _this.findTabBarSizeRef = React$3.createRef();
-        _this.findBorderBarSizeRef = React$3.createRef();
+        _this.selfRef = React$4.createRef();
+        _this.findHeaderBarSizeRef = React$4.createRef();
+        _this.findTabBarSizeRef = React$4.createRef();
+        _this.findBorderBarSizeRef = React$4.createRef();
         _this.supportsPopout = props.supportsPopout !== undefined ? props.supportsPopout : defaultSupportsPopout;
         _this.popoutURL = props.popoutURL ? props.popoutURL : "popout.html";
         // For backwards compatibility, prop closeIcon sets prop icons.close:
@@ -11518,7 +11601,7 @@ var Layout = /** @class */ (function (_super) {
         // first render will be used to find the size (via selfRef)
         if (this.firstRender) {
             this.firstRender = false;
-            return (React$3.createElement("div", { ref: this.selfRef, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__LAYOUT) }, this.metricsElements()));
+            return (React$4.createElement("div", { ref: this.selfRef, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__LAYOUT) }, this.metricsElements()));
         }
         this.props.model._setPointerFine(window && window.matchMedia && window.matchMedia("(pointer: fine)").matches);
         // this.start = Date.now();
@@ -11556,7 +11639,7 @@ var Layout = /** @class */ (function (_super) {
             }
         });
         // this.layoutTime = (Date.now() - this.start);
-        return (React$3.createElement("div", { ref: this.selfRef, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__LAYOUT), onDragEnter: this.props.onExternalDrag ? this.onDragEnter : undefined },
+        return (React$4.createElement("div", { ref: this.selfRef, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__LAYOUT), onDragEnter: this.props.onExternalDrag ? this.onDragEnter : undefined },
             tabSetComponents,
             this.tabIds.map(function (t) {
                 return tabComponents[t];
@@ -11570,10 +11653,10 @@ var Layout = /** @class */ (function (_super) {
     Layout.prototype.metricsElements = function () {
         // used to measure the tab and border tab sizes
         var fontStyle = this.styleFont({ visibility: "hidden" });
-        return (React$3.createElement(React$3.Fragment, null,
-            React$3.createElement("div", { key: "findHeaderBarSize", ref: this.findHeaderBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__TABSET_HEADER_SIZER) }, "FindHeaderBarSize"),
-            React$3.createElement("div", { key: "findTabBarSize", ref: this.findTabBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__TABSET_SIZER) }, "FindTabBarSize"),
-            React$3.createElement("div", { key: "findBorderBarSize", ref: this.findBorderBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__BORDER_SIZER) }, "FindBorderBarSize")));
+        return (React$4.createElement(React$4.Fragment, null,
+            React$4.createElement("div", { key: "findHeaderBarSize", ref: this.findHeaderBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__TABSET_HEADER_SIZER) }, "FindHeaderBarSize"),
+            React$4.createElement("div", { key: "findTabBarSize", ref: this.findTabBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__TABSET_SIZER) }, "FindTabBarSize"),
+            React$4.createElement("div", { key: "findBorderBarSize", ref: this.findBorderBarSizeRef, style: fontStyle, className: this.getClassName(Types_1.CLASSES.FLEXLAYOUT__BORDER_SIZER) }, "FindBorderBarSize")));
     };
     /** @hidden @internal */
     Layout.prototype.renderBorder = function (borderSet, borderComponents, tabComponents, floatingWindows, splitterComponents) {
@@ -11581,7 +11664,7 @@ var Layout = /** @class */ (function (_super) {
             var border = _a[_i];
             var borderPath = "/border/" + border.getLocation().getName();
             if (border.isShowing()) {
-                borderComponents.push(React$3.createElement(BorderTabSet_1.BorderTabSet, { key: "border_" + border.getLocation().getName(), path: borderPath, border: border, layout: this, iconFactory: this.props.iconFactory, titleFactory: this.props.titleFactory, icons: this.icons }));
+                borderComponents.push(React$4.createElement(BorderTabSet_1.BorderTabSet, { key: "border_" + border.getLocation().getName(), path: borderPath, border: border, layout: this, iconFactory: this.props.iconFactory, titleFactory: this.props.titleFactory, icons: this.icons }));
                 var drawChildren = border._getDrawChildren();
                 var i = 0;
                 var tabCount = 0;
@@ -11589,18 +11672,18 @@ var Layout = /** @class */ (function (_super) {
                     var child = drawChildren_1[_b];
                     if (child instanceof SplitterNode_1.default) {
                         var path = borderPath + "/s";
-                        splitterComponents.push(React$3.createElement(Splitter_1.Splitter, { key: child.getId(), layout: this, node: child, path: path }));
+                        splitterComponents.push(React$4.createElement(Splitter_1.Splitter, { key: child.getId(), layout: this, node: child, path: path }));
                     }
                     else if (child instanceof TabNode_1.default) {
                         var path = borderPath + "/t" + tabCount++;
                         if (this.supportsPopout && child.isFloating()) {
                             var rect = this._getScreenRect(child);
-                            floatingWindows.push(React$3.createElement(FloatingWindow_1.FloatingWindow, { key: child.getId(), url: this.popoutURL, rect: rect, title: child.getName(), id: child.getId(), onSetWindow: this.onSetWindow, onCloseWindow: this.onCloseWindow },
-                                React$3.createElement(FloatingWindowTab_1.FloatingWindowTab, { layout: this, node: child, factory: this.props.factory })));
-                            tabComponents[child.getId()] = React$3.createElement(TabFloating_1.TabFloating, { key: child.getId(), layout: this, path: path, node: child, selected: i === border.getSelected() });
+                            floatingWindows.push(React$4.createElement(FloatingWindow_1.FloatingWindow, { key: child.getId(), url: this.popoutURL, rect: rect, title: child.getName(), id: child.getId(), onSetWindow: this.onSetWindow, onCloseWindow: this.onCloseWindow },
+                                React$4.createElement(FloatingWindowTab_1.FloatingWindowTab, { layout: this, node: child, factory: this.props.factory })));
+                            tabComponents[child.getId()] = React$4.createElement(TabFloating_1.TabFloating, { key: child.getId(), layout: this, path: path, node: child, selected: i === border.getSelected() });
                         }
                         else {
-                            tabComponents[child.getId()] = React$3.createElement(Tab_1.Tab, { key: child.getId(), layout: this, path: path, node: child, selected: i === border.getSelected(), factory: this.props.factory });
+                            tabComponents[child.getId()] = React$4.createElement(Tab_1.Tab, { key: child.getId(), layout: this, path: path, node: child, selected: i === border.getSelected(), factory: this.props.factory });
                         }
                     }
                     i++;
@@ -11618,11 +11701,11 @@ var Layout = /** @class */ (function (_super) {
             var child = _a[_i];
             if (child instanceof SplitterNode_1.default) {
                 var newPath = path + "/s" + (splitterCount++);
-                splitterComponents.push(React$3.createElement(Splitter_1.Splitter, { key: child.getId(), layout: this, path: newPath, node: child }));
+                splitterComponents.push(React$4.createElement(Splitter_1.Splitter, { key: child.getId(), layout: this, path: newPath, node: child }));
             }
             else if (child instanceof TabSetNode_1.default) {
                 var newPath = path + "/ts" + (rowCount++);
-                tabSetComponents.push(React$3.createElement(TabSet_1.TabSet, { key: child.getId(), layout: this, path: newPath, node: child, iconFactory: this.props.iconFactory, titleFactory: this.props.titleFactory, icons: this.icons }));
+                tabSetComponents.push(React$4.createElement(TabSet_1.TabSet, { key: child.getId(), layout: this, path: newPath, node: child, iconFactory: this.props.iconFactory, titleFactory: this.props.titleFactory, icons: this.icons }));
                 this.renderChildren(newPath, child, tabSetComponents, tabComponents, floatingWindows, splitterComponents);
             }
             else if (child instanceof TabNode_1.default) {
@@ -11634,12 +11717,12 @@ var Layout = /** @class */ (function (_super) {
                 }
                 if (this.supportsPopout && child.isFloating()) {
                     var rect = this._getScreenRect(child);
-                    floatingWindows.push(React$3.createElement(FloatingWindow_1.FloatingWindow, { key: child.getId(), url: this.popoutURL, rect: rect, title: child.getName(), id: child.getId(), onSetWindow: this.onSetWindow, onCloseWindow: this.onCloseWindow },
-                        React$3.createElement(FloatingWindowTab_1.FloatingWindowTab, { layout: this, node: child, factory: this.props.factory })));
-                    tabComponents[child.getId()] = React$3.createElement(TabFloating_1.TabFloating, { key: child.getId(), layout: this, path: newPath, node: child, selected: child === selectedTab });
+                    floatingWindows.push(React$4.createElement(FloatingWindow_1.FloatingWindow, { key: child.getId(), url: this.popoutURL, rect: rect, title: child.getName(), id: child.getId(), onSetWindow: this.onSetWindow, onCloseWindow: this.onCloseWindow },
+                        React$4.createElement(FloatingWindowTab_1.FloatingWindowTab, { layout: this, node: child, factory: this.props.factory })));
+                    tabComponents[child.getId()] = React$4.createElement(TabFloating_1.TabFloating, { key: child.getId(), layout: this, path: newPath, node: child, selected: child === selectedTab });
                 }
                 else {
-                    tabComponents[child.getId()] = React$3.createElement(Tab_1.Tab, { key: child.getId(), layout: this, path: newPath, node: child, selected: child === selectedTab, factory: this.props.factory });
+                    tabComponents[child.getId()] = React$4.createElement(Tab_1.Tab, { key: child.getId(), layout: this, path: newPath, node: child, selected: child === selectedTab, factory: this.props.factory });
                 }
             }
             else {
@@ -11934,15 +12017,15 @@ var Layout = /** @class */ (function (_super) {
         }
     };
     return Layout;
-}(React$3.Component));
+}(React$4.Component));
 Layout$1.Layout = Layout;
 /** @hidden @internal */
 var DragRectRenderWrapper = function (props) {
-    React$3.useEffect(function () {
+    React$4.useEffect(function () {
         var _a;
         (_a = props.onRendered) === null || _a === void 0 ? void 0 : _a.call(props);
     }, [props]);
-    return (React$3.createElement(React$3.Fragment, null, props.children));
+    return (React$4.createElement(React$4.Fragment, null, props.children));
 };
 Layout$1.default = Layout;
 
@@ -33268,7 +33351,7 @@ var __assign$1 = (commonjsGlobal && commonjsGlobal.__assign) || function () {
 Object.defineProperty(ace$5, "__esModule", { value: true });
 var ace_builds_1$1 = ace$4.exports;
 var PropTypes$2 = propTypes$1.exports;
-var React$2 = require$$1;
+var React$3 = require$$0;
 var isEqual$1 = lodash_isequal.exports;
 var editorOptions_1$1 = editorOptions$1;
 var ace$2 = (0, editorOptions_1$1.getAceInstance)();
@@ -33598,7 +33681,7 @@ var ReactAce = /** @class */ (function (_super) {
     ReactAce.prototype.render = function () {
         var _a = this.props, name = _a.name, width = _a.width, height = _a.height, style = _a.style;
         var divStyle = __assign$1({ width: width, height: height }, style);
-        return React$2.createElement("div", { ref: this.updateRef, id: name, style: divStyle });
+        return React$3.createElement("div", { ref: this.updateRef, id: name, style: divStyle });
     };
     ReactAce.propTypes = {
         mode: PropTypes$2.oneOfType([PropTypes$2.string, PropTypes$2.object]),
@@ -33685,7 +33768,7 @@ var ReactAce = /** @class */ (function (_super) {
         navigateToFileEnd: true
     };
     return ReactAce;
-}(React$2.Component));
+}(React$3.Component));
 ace$5.default = ReactAce;
 
 var diff = {};
@@ -34843,7 +34926,7 @@ var ace$1 = (0, editorOptions_1.getAceInstance)();
 var ace_builds_1 = ace$4.exports;
 var ext_split_1 = extSplit.exports;
 var PropTypes$1 = propTypes$1.exports;
-var React$1 = require$$1;
+var React$2 = require$$0;
 var isEqual = lodash_isequal.exports;
 var get = lodash_get;
 var SplitComponent = /** @class */ (function (_super) {
@@ -35144,7 +35227,7 @@ var SplitComponent = /** @class */ (function (_super) {
     SplitComponent.prototype.render = function () {
         var _a = this.props, name = _a.name, width = _a.width, height = _a.height, style = _a.style;
         var divStyle = __assign({ width: width, height: height }, style);
-        return React$1.createElement("div", { ref: this.updateRef, id: name, style: divStyle });
+        return React$2.createElement("div", { ref: this.updateRef, id: name, style: divStyle });
     };
     SplitComponent.propTypes = {
         className: PropTypes$1.string,
@@ -35229,7 +35312,7 @@ var SplitComponent = /** @class */ (function (_super) {
         enableLiveAutocompletion: false
     };
     return SplitComponent;
-}(React$1.Component));
+}(React$2.Component));
 split.default = SplitComponent;
 
 var diffMatchPatch = {exports: {}};
@@ -37470,7 +37553,7 @@ var __extends = (commonjsGlobal && commonjsGlobal.__extends) || (function () {
 })();
 Object.defineProperty(diff, "__esModule", { value: true });
 var PropTypes = propTypes$1.exports;
-var React = require$$1;
+var React$1 = require$$0;
 var split_1$1 = split;
 var DiffMatchPatch = diffMatchPatch.exports;
 var DiffComponent = /** @class */ (function (_super) {
@@ -37628,7 +37711,7 @@ var DiffComponent = /** @class */ (function (_super) {
     };
     DiffComponent.prototype.render = function () {
         var markers = this.diff();
-        return (React.createElement(split_1$1.default, { name: this.props.name, className: this.props.className, focus: this.props.focus, orientation: this.props.orientation, splits: this.props.splits, mode: this.props.mode, theme: this.props.theme, height: this.props.height, width: this.props.width, fontSize: this.props.fontSize, showGutter: this.props.showGutter, onChange: this.onChange, onPaste: this.props.onPaste, onLoad: this.props.onLoad, onScroll: this.props.onScroll, minLines: this.props.minLines, maxLines: this.props.maxLines, readOnly: this.props.readOnly, highlightActiveLine: this.props.highlightActiveLine, showPrintMargin: this.props.showPrintMargin, tabSize: this.props.tabSize, cursorStart: this.props.cursorStart, editorProps: this.props.editorProps, style: this.props.style, scrollMargin: this.props.scrollMargin, setOptions: this.props.setOptions, wrapEnabled: this.props.wrapEnabled, enableBasicAutocompletion: this.props.enableBasicAutocompletion, enableLiveAutocompletion: this.props.enableLiveAutocompletion, value: this.state.value, markers: markers }));
+        return (React$1.createElement(split_1$1.default, { name: this.props.name, className: this.props.className, focus: this.props.focus, orientation: this.props.orientation, splits: this.props.splits, mode: this.props.mode, theme: this.props.theme, height: this.props.height, width: this.props.width, fontSize: this.props.fontSize, showGutter: this.props.showGutter, onChange: this.onChange, onPaste: this.props.onPaste, onLoad: this.props.onLoad, onScroll: this.props.onScroll, minLines: this.props.minLines, maxLines: this.props.maxLines, readOnly: this.props.readOnly, highlightActiveLine: this.props.highlightActiveLine, showPrintMargin: this.props.showPrintMargin, tabSize: this.props.tabSize, cursorStart: this.props.cursorStart, editorProps: this.props.editorProps, style: this.props.style, scrollMargin: this.props.scrollMargin, setOptions: this.props.setOptions, wrapEnabled: this.props.wrapEnabled, enableBasicAutocompletion: this.props.enableBasicAutocompletion, enableLiveAutocompletion: this.props.enableLiveAutocompletion, value: this.state.value, markers: markers }));
     };
     DiffComponent.propTypes = {
         cursorStart: PropTypes.number,
@@ -37694,7 +37777,7 @@ var DiffComponent = /** @class */ (function (_super) {
         wrapEnabled: true
     };
     return DiffComponent;
-}(React.Component));
+}(React$1.Component));
 diff.default = DiffComponent;
 
 Object.defineProperty(lib, "__esModule", { value: true });
@@ -42380,7 +42463,7 @@ const snippetCompleter = {
   }
 };
 aceEditorCompleter.setCompleters([snippetCompleter]);
-class JsEditorUi extends ReactDOM$2.PureComponent {
+class JsEditorUi extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       path: propTypes$1.exports.string,
@@ -42391,7 +42474,8 @@ class JsEditorUi extends ReactDOM$2.PureComponent {
       onChange: propTypes$1.exports.func,
       onClickLink: propTypes$1.exports.func,
       onClose: propTypes$1.exports.func,
-      onSelectView: propTypes$1.exports.func
+      onSelectView: propTypes$1.exports.func,
+      onCursorChange: propTypes$1.exports.func
     };
   }
 
@@ -42417,7 +42501,8 @@ class JsEditorUi extends ReactDOM$2.PureComponent {
       session
     } = editor;
     const {
-      advice
+      advice,
+      onCursorChange
     } = this.props;
 
     if (!advice) {
@@ -42450,6 +42535,13 @@ class JsEditorUi extends ReactDOM$2.PureComponent {
       if (match) {
         const uri = new URL(match[1], this.props.path);
         return this.props.onClickLink(uri.toString());
+      }
+    });
+    let currentRow;
+    editor.on('changeSelection', () => {
+      if (onCursorChange && currentRow !== editor.selection.cursor.row) {
+        currentRow = editor.selection.cursor.row;
+        onCursorChange(currentRow + 1);
       }
     });
     editor.session.notebookElements = {};
@@ -42639,7 +42731,7 @@ class JsEditorUi extends ReactDOM$2.PureComponent {
 
 }
 
-class JsViewerUi extends ReactDOM$2.PureComponent {
+class JsViewerUi extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       path: propTypes$1.exports.string,
@@ -42901,11 +42993,11 @@ function useMergedRefs(refA, refB) {
   }, [refA, refB]);
 }
 
-var NavContext = /*#__PURE__*/ReactDOM$2.createContext(null);
+var NavContext = /*#__PURE__*/ReactDOM$3.createContext(null);
 NavContext.displayName = 'NavContext';
 var NavContext$1 = NavContext;
 
-var SelectableContext = /*#__PURE__*/ReactDOM$2.createContext(null);
+var SelectableContext = /*#__PURE__*/ReactDOM$3.createContext(null);
 var makeEventKey = function makeEventKey(eventKey, href) {
   if (href === void 0) {
     href = null;
@@ -42916,7 +43008,7 @@ var makeEventKey = function makeEventKey(eventKey, href) {
 };
 var SelectableContext$1 = SelectableContext;
 
-var TabContext = /*#__PURE__*/ReactDOM$2.createContext(null);
+var TabContext = /*#__PURE__*/ReactDOM$3.createContext(null);
 var TabContext$1 = TabContext;
 
 var _excluded$5 = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
@@ -42924,7 +43016,7 @@ var _excluded$5 = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 var noop = function noop() {};
 
-var AbstractNav = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var AbstractNav = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       Component = _ref$as === void 0 ? 'ul' : _ref$as,
       onSelect = _ref.onSelect,
@@ -43005,9 +43097,9 @@ var AbstractNav = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     needsRefocusRef.current = false;
   });
   var mergedRef = useMergedRefs(ref, listNode);
-  return /*#__PURE__*/ReactDOM$2.createElement(SelectableContext$1.Provider, {
+  return /*#__PURE__*/ReactDOM$3.createElement(SelectableContext$1.Provider, {
     value: handleSelect
-  }, /*#__PURE__*/ReactDOM$2.createElement(NavContext$1.Provider, {
+  }, /*#__PURE__*/ReactDOM$3.createElement(NavContext$1.Provider, {
     value: {
       role: role,
       // used by NavLink to determine it's role
@@ -43015,7 +43107,7 @@ var AbstractNav = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       getControlledId: getControlledId || noop,
       getControllerId: getControllerId || noop
     }
-  }, /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  }, /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     onKeyDown: handleKeyDown,
     ref: mergedRef,
     role: role
@@ -43052,7 +43144,7 @@ var _excluded$4 = ["active", "className", "eventKey", "onSelect", "onClick", "as
 var defaultProps$3 = {
   disabled: false
 };
-var AbstractNavItem = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var AbstractNavItem = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var active = _ref.active,
       className = _ref.className,
       eventKey = _ref.eventKey,
@@ -43093,7 +43185,7 @@ var AbstractNavItem = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     if (onSelect) onSelect(navKey, e);
     if (parentOnSelect) parentOnSelect(navKey, e);
   });
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({}, props, {
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({}, props, {
     ref: ref,
     onClick: handleOnclick,
     className: classNames(className, isActive && 'active')
@@ -43108,7 +43200,7 @@ var defaultProps$2 = {
   active: false,
   disabled: false
 };
-var ListGroupItem = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var ListGroupItem = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       active = _ref.active,
       disabled = _ref.disabled,
@@ -43135,7 +43227,7 @@ var ListGroupItem = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     props['aria-disabled'] = true;
   }
 
-  return /*#__PURE__*/ReactDOM$2.createElement(AbstractNavItem$1, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(AbstractNavItem$1, _extends({
     ref: ref
   }, props, {
     // eslint-disable-next-line no-nested-ternary
@@ -43153,7 +43245,7 @@ var defaultProps$1 = {
   variant: undefined,
   horizontal: undefined
 };
-var ListGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (props, ref) {
+var ListGroup = /*#__PURE__*/ReactDOM$3.forwardRef(function (props, ref) {
   var _useUncontrolled = useUncontrolled(props, {
     activeKey: 'onSelect'
   }),
@@ -43175,7 +43267,7 @@ var ListGroup = /*#__PURE__*/ReactDOM$2.forwardRef(function (props, ref) {
   }
 
   warning_1(!(horizontal && variant === 'flush'), '`variant="flush"` and `horizontal` should not be used together.') ;
-  return /*#__PURE__*/ReactDOM$2.createElement(AbstractNav$1, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(AbstractNav$1, _extends({
     ref: ref
   }, controlledProps, {
     as: as,
@@ -43186,7 +43278,7 @@ ListGroup.defaultProps = defaultProps$1;
 ListGroup.displayName = 'ListGroup';
 ListGroup.Item = ListGroupItem$1;
 
-class OrbitView extends ReactDOM$2.PureComponent {
+class OrbitView extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       path: propTypes$1.exports.string,
@@ -43504,7 +43596,7 @@ var DEVICE_SIZES = ['xl', 'lg', 'md', 'sm', 'xs'];
 var defaultProps = {
   noGutters: false
 };
-var Row = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var Row = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       noGutters = _ref.noGutters,
@@ -43529,7 +43621,7 @@ var Row = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
     var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
     if (cols != null) classes.push("" + sizePrefix + infix + "-" + cols);
   });
-  return /*#__PURE__*/ReactDOM$2.createElement(Component, _extends({
+  return /*#__PURE__*/ReactDOM$3.createElement(Component, _extends({
     ref: ref
   }, props, {
     className: classNames.apply(void 0, [className, decoratedBsPrefix, noGutters && 'no-gutters'].concat(classes))
@@ -43538,8 +43630,309 @@ var Row = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
 Row.displayName = 'Row';
 Row.defaultProps = defaultProps;
 
+var dist = {};
+
+var SplitPane$1 = {};
+
+var Pane = {};
+
+(function (exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Pane = void 0;
+const React = require$$0;
+const baseStyle = {
+    position: 'relative',
+    outline: 'none',
+    border: 0,
+    overflow: 'hidden',
+    display: 'flex',
+    flexBasis: 'auto',
+};
+exports.Pane = React.memo(({ size, minSize, split, className, forwardRef, children }) => {
+    const style = Object.assign(Object.assign({}, baseStyle), { flexGrow: size, flexShrink: size });
+    if (split === 'vertical') {
+        style.width = 0;
+        style.height = '100%';
+        style.minWidth = minSize;
+    }
+    else {
+        style.width = '100%';
+        style.height = 0;
+        style.minHeight = minSize;
+    }
+    const classes = ['Pane', split, className].join(' ');
+    return (React.createElement("div", { className: classes, style: style, ref: forwardRef }, children));
+});
+exports.Pane.displayName = 'Pane';
+
+}(Pane));
+
+var Resizer = {};
+
+(function (exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Resizer = void 0;
+const React = require$$0;
+const { useCallback } = React;
+exports.Resizer = React.memo(({ split, className, index, onDragStarted }) => {
+    const handleMouseDown = useCallback((event) => {
+        event.preventDefault();
+        onDragStarted(index, event);
+    }, [index, onDragStarted]);
+    const handleTouchStart = useCallback((event) => {
+        event.preventDefault();
+        onDragStarted(index, event.touches[0]);
+    }, [index, onDragStarted]);
+    const classes = ['Resizer', split, className].join(' ');
+    return (React.createElement("span", { role: 'presentation', className: classes, style: { flex: 'none' }, onMouseDown: handleMouseDown, onTouchStart: handleTouchStart }));
+});
+exports.Resizer.displayName = 'Resizer';
+
+}(Resizer));
+
+var util = {};
+
+Object.defineProperty(util, "__esModule", { value: true });
+util.useDragState = util.useEventListener = void 0;
+const React = require$$0;
+const ReactDOM = require$$0;
+const { useCallback, useMemo, useState, useEffect } = React;
+function useEventListener(type, listener) {
+    useEffect(() => {
+        if (!listener)
+            return;
+        document.addEventListener(type, listener);
+        return () => {
+            document.removeEventListener(type, listener);
+        };
+    }, [type, listener]);
+}
+util.useEventListener = useEventListener;
+function useDragStateHandlers(split, onDragFinished) {
+    const [dragging, setDragging] = useState(null);
+    const [current, setCurrent] = useState(0);
+    const beginDrag = useCallback((event, extraState) => {
+        const pos = split === 'vertical' ? event.clientX : event.clientY;
+        setDragging([extraState, pos]);
+        setCurrent(pos);
+    }, [split]);
+    const [dragState, onMouseUp] = useMemo(() => {
+        if (!dragging) {
+            return [null, undefined];
+        }
+        const [extraState, origin] = dragging;
+        const dragState = { offset: current - origin, extraState };
+        const onMouseUp = () => {
+            ReactDOM.unstable_batchedUpdates(() => {
+                setDragging(null);
+                onDragFinished(dragState);
+            });
+        };
+        return [dragState, onMouseUp];
+    }, [current, dragging, onDragFinished]);
+    const [onMouseMove, onTouchMove] = useMemo(() => {
+        if (!dragging) {
+            return [undefined, undefined];
+        }
+        const onMouseMove = (event) => {
+            const pos = split === 'vertical' ? event.clientX : event.clientY;
+            setCurrent(pos);
+        };
+        const onTouchMove = (event) => {
+            onMouseMove(event.touches[0]);
+        };
+        return [onMouseMove, onTouchMove];
+    }, [dragging, split]);
+    return { beginDrag, dragState, onMouseMove, onTouchMove, onMouseUp };
+}
+function useDragState(split, onDragFinished) {
+    const { beginDrag, dragState, onMouseMove, onTouchMove, onMouseUp } = useDragStateHandlers(split, onDragFinished);
+    useEventListener('mousemove', onMouseMove);
+    useEventListener('touchmove', onTouchMove);
+    useEventListener('mouseup', onMouseUp);
+    return [dragState, beginDrag];
+}
+util.useDragState = useDragState;
+
+(function (exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SplitPane = void 0;
+const React = require$$0;
+const { useCallback, useRef, useState, useMemo, useEffect } = React;
+const Pane_1 = Pane;
+const Resizer_1 = Resizer;
+const util_1 = util;
+const DEFAULT_MIN_SIZE = 50;
+function getNodeKey(node, index) {
+    if (typeof node === 'object' && node && node.key != null) {
+        return 'key.' + node.key;
+    }
+    return 'index.' + index;
+}
+function getMinSize(index, minSizes) {
+    if (typeof minSizes === 'number') {
+        if (minSizes > 0) {
+            return minSizes;
+        }
+    }
+    else if (minSizes instanceof Array) {
+        const value = minSizes[index];
+        if (value > 0) {
+            return value;
+        }
+    }
+    return DEFAULT_MIN_SIZE;
+}
+function getDefaultSize(index, defaultSizes) {
+    if (defaultSizes) {
+        const value = defaultSizes[index];
+        if (value >= 0) {
+            return value;
+        }
+    }
+    return 1;
+}
+function move(sizes, index, offset, minSizes) {
+    if (!offset || index < 0 || index + 1 >= sizes.length) {
+        return 0;
+    }
+    const firstMinSize = getMinSize(index, minSizes);
+    const secondMinSize = getMinSize(index + 1, minSizes);
+    const firstSize = sizes[index] + offset;
+    const secondSize = sizes[index + 1] - offset;
+    if (offset < 0 && firstSize < firstMinSize) {
+        // offset is negative, so missing and pushed are, too
+        const missing = firstSize - firstMinSize;
+        const pushed = move(sizes, index - 1, missing, minSizes);
+        offset -= missing - pushed;
+    }
+    else if (offset > 0 && secondSize < secondMinSize) {
+        const missing = secondMinSize - secondSize;
+        const pushed = move(sizes, index + 1, missing, minSizes);
+        offset -= missing - pushed;
+    }
+    sizes[index] += offset;
+    sizes[index + 1] -= offset;
+    return offset;
+}
+const defaultProps = {
+    split: 'vertical',
+    className: '',
+};
+function useSplitPaneResize(options) {
+    const { children, split, defaultSizes, minSize: minSizes, onDragStarted, onChange, onDragFinished } = options;
+    const [sizes, setSizes] = useState(new Map());
+    const paneRefs = useRef(new Map());
+    const getMovedSizes = useCallback((dragState) => {
+        const collectedSizes = children.map((node, index) => sizes.get(getNodeKey(node, index)) || getDefaultSize(index, defaultSizes));
+        if (dragState) {
+            const { offset, extraState: { index }, } = dragState;
+            move(collectedSizes, index, offset, minSizes);
+        }
+        return collectedSizes;
+    }, [children, defaultSizes, minSizes, sizes]);
+    const handleDragFinished = useCallback((dragState) => {
+        const movedSizes = getMovedSizes(dragState);
+        setSizes(new Map(children.map((node, index) => [
+            getNodeKey(node, index),
+            movedSizes[index],
+        ])));
+        if (onDragFinished) {
+            onDragFinished(movedSizes);
+        }
+    }, [children, getMovedSizes, onDragFinished]);
+    const [dragState, beginDrag] = (0, util_1.useDragState)(split, handleDragFinished);
+    const movedSizes = useMemo(() => getMovedSizes(dragState), [dragState, getMovedSizes]);
+    const resizeState = dragState ? dragState.extraState : null;
+    useEffect(() => {
+        if (onChange && dragState) {
+            onChange(movedSizes);
+        }
+    }, [dragState, movedSizes, onChange]);
+    const childPanes = useMemo(() => {
+        const prevPaneRefs = paneRefs.current;
+        paneRefs.current = new Map();
+        return children.map((node, index) => {
+            const key = getNodeKey(node, index);
+            const ref = prevPaneRefs.get(key) || React.createRef();
+            paneRefs.current.set(key, ref);
+            const minSize = getMinSize(index, minSizes);
+            return { key, node, ref, minSize };
+        });
+    }, [children, minSizes]);
+    const childPanesWithSizes = useMemo(() => childPanes.map((child, index) => {
+        const size = movedSizes[index];
+        return Object.assign(Object.assign({}, child), { size });
+    }), [childPanes, movedSizes]);
+    const handleDragStart = useCallback((index, pos) => {
+        const sizeAttr = split === 'vertical' ? 'width' : 'height';
+        const clientSizes = new Map(childPanes.map(({ key, ref }) => {
+            const size = ref.current ? ref.current.getBoundingClientRect()[sizeAttr] : 0;
+            return [key, size];
+        }));
+        if (onDragStarted) {
+            onDragStarted();
+        }
+        beginDrag(pos, { index });
+        setSizes(clientSizes);
+    }, [beginDrag, childPanes, onDragStarted, split]);
+    return { childPanes: childPanesWithSizes, resizeState, handleDragStart };
+}
+exports.SplitPane = React.memo((props) => {
+    const options = Object.assign(Object.assign({}, defaultProps), props);
+    const { split, className } = options;
+    const { childPanes, resizeState, handleDragStart } = useSplitPaneResize(options);
+    const splitStyleProps = split === 'vertical'
+        ? {
+            left: 0,
+            right: 0,
+            flexDirection: 'row',
+        }
+        : {
+            bottom: 0,
+            top: 0,
+            flexDirection: 'column',
+            minHeight: '100%',
+            width: '100%',
+        };
+    const style = Object.assign({ display: 'flex', flex: 1, height: '100%', position: 'absolute', outline: 'none', overflow: 'hidden' }, splitStyleProps);
+    const classes = ['SplitPane', split, className].join(' ');
+    const dragLayerStyle = {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+    };
+    const dragLayerClasses = ['DragLayer', split, resizeState ? 'resizing' : '', className].join(' ');
+    const entries = [];
+    childPanes.forEach(({ key, node, ref, size, minSize }, index) => {
+        if (index !== 0) {
+            const resizing = resizeState && resizeState.index === index - 1;
+            entries.push(React.createElement(Resizer_1.Resizer, { key: 'resizer.' + index, split: split, className: className + (resizing ? ' resizing' : ''), index: index - 1, onDragStarted: handleDragStart }));
+        }
+        entries.push(React.createElement(Pane_1.Pane, { key: 'pane.' + key, forwardRef: ref, size: size, minSize: minSize, split: split, className: className }, node));
+    });
+    return (React.createElement("div", { className: classes, style: style },
+        React.createElement("div", { className: dragLayerClasses, style: dragLayerStyle }),
+        entries));
+});
+exports.SplitPane.displayName = 'SplitPane';
+
+}(SplitPane$1));
+
+(function (exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SplitPane = void 0;
+var SplitPane_1 = SplitPane$1;
+Object.defineProperty(exports, "SplitPane", { enumerable: true, get: function () { return SplitPane_1.SplitPane; } });
+
+}(dist));
+
+var SplitPaneModule = /*@__PURE__*/getDefaultExportFromCjs(dist);
+
 var _excluded = ["bsPrefix", "className", "striped", "bordered", "borderless", "hover", "size", "variant", "responsive"];
-var Table = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
+var Table = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   var bsPrefix = _ref.bsPrefix,
       className = _ref.className,
       striped = _ref.striped,
@@ -43553,7 +43946,7 @@ var Table = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
 
   var decoratedBsPrefix = useBootstrapPrefix(bsPrefix, 'table');
   var classes = classNames(className, decoratedBsPrefix, variant && decoratedBsPrefix + "-" + variant, size && decoratedBsPrefix + "-" + size, striped && decoratedBsPrefix + "-striped", bordered && decoratedBsPrefix + "-bordered", borderless && decoratedBsPrefix + "-borderless", hover && decoratedBsPrefix + "-hover");
-  var table = /*#__PURE__*/ReactDOM$2.createElement("table", _extends({}, props, {
+  var table = /*#__PURE__*/ReactDOM$3.createElement("table", _extends({}, props, {
     className: classes,
     ref: ref
   }));
@@ -43565,13 +43958,17 @@ var Table = /*#__PURE__*/ReactDOM$2.forwardRef(function (_ref, ref) {
       responsiveClass = responsiveClass + "-" + responsive;
     }
 
-    return /*#__PURE__*/ReactDOM$2.createElement("div", {
+    return /*#__PURE__*/ReactDOM$3.createElement("div", {
       className: responsiveClass
     }, table);
   }
 
   return table;
 });
+
+const {
+  SplitPane
+} = SplitPaneModule;
 
 const ensureFile = async (file, url, {
   workspace
@@ -43692,7 +44089,7 @@ const defaultModelConfig = {
   }
 };
 
-class App extends ReactDOM$2.Component {
+class App extends ReactDOM$3.Component {
   static get propTypes() {
     return {
       workspace: propTypes$1.exports.string,
@@ -43826,7 +44223,7 @@ class App extends ReactDOM$2.Component {
 
     this.ask = async (question, context, transfer) => askService(this.serviceSpec, question, transfer, context).answer;
 
-    this.layoutRef = /*#__PURE__*/ReactDOM$2.createRef();
+    this.layoutRef = /*#__PURE__*/ReactDOM$3.createRef();
     this.Clipboard = {};
 
     this.Clipboard.change = data => {
@@ -44364,6 +44761,12 @@ class App extends ReactDOM$2.Component {
       console.log(`QQ/Notebook.change: ${path} ${data}`);
       this.setState({
         [`NotebookText/${path}`]: data
+      });
+    };
+
+    this.Notebook.selectLine = async (path, line) => {
+      await this.updateState({
+        [`NotebookLine/${path}`]: line
       });
     };
 
@@ -45143,22 +45546,29 @@ class App extends ReactDOM$2.Component {
             const {
               [`NotebookMode/${path}`]: NotebookMode = 'view',
               [`NotebookText/${path}`]: NotebookText,
-              [`NotebookNotes/${path}`]: NotebookNotes = []
+              [`NotebookNotes/${path}`]: NotebookNotes = [],
+              [`NotebookLine/${path}`]: NotebookLine
             } = this.state;
             const NotebookAdvice = this.Notebook.ensureAdvice(path);
 
             switch (NotebookMode) {
               case 'edit':
-                return v$1(JsEditorUi, {
+                return v$1(SplitPane, null, v$1(Notebook, {
+                  notes: NotebookNotes,
+                  onClickView: this.Notebook.clickView,
+                  selectedLine: NotebookLine,
+                  workspace: workspace
+                }), v$1(JsEditorUi, {
                   mode: NotebookMode,
                   onRun: () => this.Notebook.run(path),
                   onSave: () => this.Notebook.save(path),
                   onChange: data => this.Notebook.change(path, data),
                   onClickLink: path => this.Notebook.clickLink(path),
+                  onCursorChange: row => this.Notebook.selectLine(path, row),
                   path: path,
                   data: NotebookText,
                   advice: NotebookAdvice
-                });
+                }));
 
               case 'old-view':
                 return v$1(JsViewerUi, {
@@ -45178,6 +45588,7 @@ class App extends ReactDOM$2.Component {
                   return v$1(Notebook, {
                     notes: NotebookNotes,
                     onClickView: this.Notebook.clickView,
+                    selectedLine: NotebookLine,
                     workspace: workspace
                   });
                 }
@@ -45524,7 +45935,7 @@ const installUi = async ({
   path
 }) => {
   await boot();
-  ReactDOM$2.render(v$1(App, {
+  ReactDOM$3.render(v$1(App, {
     sha: 'master',
     workspace: 'JSxCAD',
     path: path
