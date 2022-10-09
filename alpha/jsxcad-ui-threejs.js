@@ -1958,8 +1958,6 @@ const staticDisplay = async (
   const width = page.offsetWidth;
   const height = page.offsetHeight;
 
-  console.log(`QQ/staticDisplay: ${canvas}`);
-
   if (!canvas) {
     canvas = new OffscreenCanvas(width, height);
   }
