@@ -1,4 +1,6 @@
 import { readOrWatch, read, write, unwatchFile, watchFile, boot, log, remove, ask, askService, setConfig, clearCacheDb, logInfo, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
+import { SpinnerRoundOutlined } from 'react-spinners-css';
+import { MoonLoader } from 'react-spinners';
 import { orbitDisplay, raycast } from './jsxcad-ui-threejs.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
 import PrettierParserBabel from 'https://unpkg.com/prettier@2.3.2/esm/parser-babel.mjs';
@@ -5155,131 +5157,6 @@ class MdNote extends ReactDOM$3.PureComponent {
 
 }
 
-var cssUnit = {
-    cm: true,
-    mm: true,
-    in: true,
-    px: true,
-    pt: true,
-    pc: true,
-    em: true,
-    ex: true,
-    ch: true,
-    rem: true,
-    vw: true,
-    vh: true,
-    vmin: true,
-    vmax: true,
-    "%": true,
-};
-/**
- * If size is a number, append px to the value as default unit.
- * If size is a string, validate against list of valid units.
- * If unit is valid, return size as is.
- * If unit is invalid, console warn issue, replace with px as the unit.
- *
- * @param {(number | string)} size
- * @return {LengthObject} LengthObject
- */
-function parseLengthAndUnit(size) {
-    if (typeof size === "number") {
-        return {
-            value: size,
-            unit: "px",
-        };
-    }
-    var value;
-    var valueString = (size.match(/^[0-9.]*/) || "").toString();
-    if (valueString.includes(".")) {
-        value = parseFloat(valueString);
-    }
-    else {
-        value = parseInt(valueString, 10);
-    }
-    var unit = (size.match(/[^0-9]*$/) || "").toString();
-    if (cssUnit[unit]) {
-        return {
-            value: value,
-            unit: unit,
-        };
-    }
-    console.warn("React Spinners: ".concat(size, " is not a valid css value. Defaulting to ").concat(value, "px."));
-    return {
-        value: value,
-        unit: "px",
-    };
-}
-/**
- * Take value as an input and return valid css value
- *
- * @param {(number | string)} value
- * @return {string} valid css value
- */
-function cssValue(value) {
-    var lengthWithunit = parseLengthAndUnit(value);
-    return "".concat(lengthWithunit.value).concat(lengthWithunit.unit);
-}
-
-var createAnimation = function (loaderName, frames, suffix) {
-    var animationName = "react-spinners-".concat(loaderName, "-").concat(suffix);
-    if (typeof window == "undefined" || !window.document) {
-        return animationName;
-    }
-    var styleEl = document.createElement("style");
-    document.head.appendChild(styleEl);
-    var styleSheet = styleEl.sheet;
-    var keyFrames = "\n    @keyframes ".concat(animationName, " {\n      ").concat(frames, "\n    }\n  ");
-    if (styleSheet) {
-        styleSheet.insertRule(keyFrames, 0);
-    }
-    return animationName;
-};
-
-var __assign$3 = (undefined && undefined.__assign) || function () {
-    __assign$3 = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign$3.apply(this, arguments);
-};
-var __rest = (undefined && undefined.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var moon = createAnimation("MoonLoader", "100% {transform: rotate(360deg)}", "moon");
-function MoonLoader(_a) {
-    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
-    var _g = parseLengthAndUnit(size), value = _g.value, unit = _g.unit;
-    var moonSize = value / 7;
-    var wrapper = __assign$3({ display: "inherit", position: "relative", width: "".concat("".concat(value + moonSize * 2).concat(unit)), height: "".concat("".concat(value + moonSize * 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" }, cssOverride);
-    var ballStyle = function (size) {
-        return {
-            width: cssValue(size),
-            height: cssValue(size),
-            borderRadius: "100%",
-        };
-    };
-    var ball = __assign$3(__assign$3({}, ballStyle(moonSize)), { backgroundColor: "".concat(color), opacity: "0.8", position: "absolute", top: "".concat("".concat(value / 2 - moonSize / 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" });
-    var circle = __assign$3(__assign$3({}, ballStyle(value)), { border: "".concat(moonSize, "px solid ").concat(color), opacity: "0.1", boxSizing: "content-box", position: "absolute" });
-    if (!loading) {
-        return null;
-    }
-    return (v$1("span", __assign$3({ style: wrapper }, additionalprops),
-        v$1("span", { style: ball }),
-        v$1("span", { style: circle })));
-}
-
 class ViewNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
@@ -5604,13 +5481,13 @@ class Notebook extends ReactDOM$3.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, children, !done && v$1(MoonLoader, {
+      }, children, !done && v$1(SpinnerRoundOutlined, {
         color: "#36d7b7",
-        size: "64px",
+        size: 64,
         style: {
           position: 'fixed',
           right: 128,
-          top: 64
+          top: 32
         }
       }), ";");
     } catch (e) {
