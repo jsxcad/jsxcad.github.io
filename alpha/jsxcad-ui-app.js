@@ -1,5 +1,4 @@
 import { readOrWatch, read, write, unwatchFile, watchFile, boot, log, remove, ask, askService, setConfig, clearCacheDb, logInfo, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
-import { SpinnerRoundOutlined } from 'react-spinners-css';
 import { MoonLoader } from 'react-spinners';
 import { orbitDisplay, raycast } from './jsxcad-ui-threejs.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
@@ -1786,7 +1785,7 @@ function (_ref, ref) {
 Col.displayName = 'Col';
 
 var _excluded$f = ["as", "bsPrefix", "column", "srOnly", "className", "htmlFor"];
-var defaultProps$9 = {
+var defaultProps$b = {
   column: false,
   srOnly: false
 };
@@ -1826,7 +1825,7 @@ var FormLabel = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   );
 });
 FormLabel.displayName = 'FormLabel';
-FormLabel.defaultProps = defaultProps$9;
+FormLabel.defaultProps = defaultProps$b;
 var FormLabel$1 = FormLabel;
 
 var _excluded$e = ["bsPrefix", "className", "as", "muted"];
@@ -1900,7 +1899,7 @@ function createWithBsPrefix(prefix, _temp) {
 
 var _excluded$c = ["bsPrefix", "inline", "className", "validated", "as"];
 var FormRow = createWithBsPrefix('form-row');
-var defaultProps$8 = {
+var defaultProps$a = {
   inline: false
 };
 var FormImpl = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
@@ -1919,7 +1918,7 @@ var FormImpl = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   }));
 });
 FormImpl.displayName = 'Form';
-FormImpl.defaultProps = defaultProps$8;
+FormImpl.defaultProps = defaultProps$a;
 FormImpl.Row = FormRow;
 FormImpl.Group = FormGroup$1;
 FormImpl.Control = FormControl$1;
@@ -2121,7 +2120,7 @@ SafeAnchor.displayName = 'SafeAnchor';
 var SafeAnchor$1 = SafeAnchor;
 
 var _excluded$9 = ["bsPrefix", "variant", "size", "active", "className", "block", "type", "as"];
-var defaultProps$7 = {
+var defaultProps$9 = {
   variant: 'primary',
   active: false,
   disabled: false
@@ -2164,10 +2163,10 @@ var Button = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   }));
 });
 Button.displayName = 'Button';
-Button.defaultProps = defaultProps$7;
+Button.defaultProps = defaultProps$9;
 
 var _excluded$8 = ["bsPrefix", "size", "toggle", "vertical", "className", "as"];
-var defaultProps$6 = {
+var defaultProps$8 = {
   vertical: false,
   toggle: false,
   role: 'group'
@@ -2191,7 +2190,7 @@ var ButtonGroup = /*#__PURE__*/ReactDOM$3.forwardRef(function (_ref, ref) {
   }));
 });
 ButtonGroup.displayName = 'ButtonGroup';
-ButtonGroup.defaultProps = defaultProps$6;
+ButtonGroup.defaultProps = defaultProps$8;
 
 /*
  * base64-arraybuffer 1.0.2 <https://github.com/niklasvh/base64-arraybuffer>
@@ -5156,6 +5155,125 @@ class MdNote extends ReactDOM$3.PureComponent {
   }
 
 }
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign$3 = function() {
+    __assign$3 = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$3.apply(this, arguments);
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+var defaultProps$7 = {
+    color: '#38ad48',
+    enabled: true,
+    size: 50,
+    style: {},
+};
+var normalizeSize = function (size) { return (parseFloat(size.toString()).toString() === size.toString()
+    ? size + "px"
+    : size.toString()); };
+var withSharedProps = function (Component) {
+    var Wrapper = function (props) {
+        var color = props.color, enabled = props.enabled, size = props.size, style = props.style, otherProps = __rest(props, ["color", "enabled", "size", "style"]);
+        var componentProps = __assign$3(__assign$3({}, otherProps), { style: __assign$3({ color: color, overflow: 'visible', width: normalizeSize(size) }, style) });
+        if (!enabled)
+            return null;
+        return ReactDOM$3.createElement(Component, __assign$3({}, componentProps));
+    };
+    Wrapper.defaultProps = defaultProps$7;
+    return Wrapper;
+};
+
+var defaultProps$6 = {
+    speed: 100,
+    still: false,
+    thickness: 100,
+};
+__assign$3(__assign$3({}, defaultProps$6), { secondaryColor: 'rgba(0,0,0,0.44)' });
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "@keyframes spinners-react-round-outlined{35%,65%{r:2px;stroke-width:4}}";
+styleInject(css_248z);
+
+var animations = [
+    {
+        r: 2,
+    },
+    {
+        name: 'spinners-react-round-outlined',
+        r: 14,
+    },
+    {
+        name: 'spinners-react-round-outlined',
+        r: 28,
+    },
+];
+var Component = function (_a) {
+    var speed = _a.speed, still = _a.still, thickness = _a.thickness, svgProps = __rest(_a, ["speed", "still", "thickness"]);
+    var strokeWidth = 3 * (thickness / 100);
+    return (ReactDOM$3.createElement("svg", __assign$3({ fill: "none" }, svgProps, { viewBox: "0 0 66 66" }), animations.map(function (animation, i) { return (ReactDOM$3.createElement("circle", { key: "spinner-round-outlined-r" + animation.r, cx: "33", cy: "33", fill: "none", r: animation.r, stroke: "currentColor", strokeWidth: i ? strokeWidth : 4, style: animation.name && !still
+            ? { animation: animation.name + " " + 140 / speed + "s ease-in-out infinite" }
+            : {} })); })));
+};
+Component.defaultProps = defaultProps$6;
+var SpinnerRoundOutlined = withSharedProps(Component);
 
 class ViewNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
@@ -44530,6 +44648,7 @@ class App extends ReactDOM$3.Component {
         };
 
         NotebookAdvice.definitions = topLevel;
+        const version = new Date().getTime();
         await execute(script, {
           evaluate,
           replay,
