@@ -5158,7 +5158,7 @@ var defaultProps = {
     still: false,
     thickness: 100,
 };
-__assign(__assign({}, defaultProps), { secondaryColor: 'rgba(0,0,0,0.44)' });
+var secondaryColorDefaultProps = __assign(__assign({}, defaultProps), { secondaryColor: 'rgba(0,0,0,0.44)' });
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -5187,31 +5187,21 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@keyframes spinners-react-round-outlined{35%,65%{r:2px;stroke-width:4}}";
+var css_248z = "@keyframes spinners-react-circular-split{0%{stroke-dashoffset:1;stroke-dasharray:5,170}10%{stroke-dashoffset:13;stroke-dasharray:30,145}13%{stroke-dashoffset:-11;stroke-dasharray:5,145}50%{stroke-dasharray:5,0,5,165;stroke-dashoffset:-82}51%{stroke-dasharray:2,0,2,139;stroke-dashoffset:-85}61%{stroke-dasharray:15,0,15,165;stroke-dashoffset:-72}64%{stroke-dasharray:5,20,5,145;stroke-dashoffset:-72}}";
 styleInject(css_248z);
 
-var animations = [
-    {
-        r: 2,
-    },
-    {
-        name: 'spinners-react-round-outlined',
-        r: 14,
-    },
-    {
-        name: 'spinners-react-round-outlined',
-        r: 28,
-    },
-];
 var Component = function (_a) {
-    var speed = _a.speed, still = _a.still, thickness = _a.thickness, svgProps = __rest(_a, ["speed", "still", "thickness"]);
-    var strokeWidth = 3 * (thickness / 100);
-    return (ReactDOM.createElement("svg", __assign({ fill: "none" }, svgProps, { viewBox: "0 0 66 66" }), animations.map(function (animation, i) { return (ReactDOM.createElement("circle", { key: "spinner-round-outlined-r" + animation.r, cx: "33", cy: "33", fill: "none", r: animation.r, stroke: "currentColor", strokeWidth: i ? strokeWidth : 4, style: animation.name && !still
-            ? { animation: animation.name + " " + 140 / speed + "s ease-in-out infinite" }
-            : {} })); })));
+    var secondaryColor = _a.secondaryColor, speed = _a.speed, still = _a.still, thickness = _a.thickness, svgProps = __rest(_a, ["secondaryColor", "speed", "still", "thickness"]);
+    var strokeWidth = 4 * (thickness / 100);
+    var circleStyle = !still
+        ? { animation: "spinners-react-circular-split " + 140 / speed + "s linear infinite" }
+        : {};
+    return (ReactDOM.createElement("svg", __assign({ fill: "none" }, svgProps, { viewBox: "0 0 66 66" }),
+        ReactDOM.createElement("circle", { cx: "33", cy: "33", fill: "none", r: "28", stroke: secondaryColor, strokeWidth: strokeWidth }),
+        ReactDOM.createElement("circle", { cx: "33", cy: "33", fill: "none", r: "28", stroke: "currentColor", strokeDasharray: "5, 170", strokeDashoffset: "1", strokeLinecap: "round", strokeWidth: strokeWidth, style: circleStyle, transform: "rotate(-90 33 33)" })));
 };
-Component.defaultProps = defaultProps;
-var SpinnerRoundOutlined = withSharedProps(Component);
+Component.defaultProps = secondaryColorDefaultProps;
+var SpinnerCircularSplit = withSharedProps(Component);
 
 class ViewNote extends ReactDOM.PureComponent {
   static get propTypes() {
@@ -5254,7 +5244,7 @@ class ViewNote extends ReactDOM.PureComponent {
     };
 
     if (!note.url) {
-      return v$1(SpinnerRoundOutlined, {
+      return v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: Math.min(width, height) * 0.8
       });
@@ -5535,12 +5525,12 @@ class Notebook extends ReactDOM.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, children, !done && v$1(SpinnerRoundOutlined, {
+      }, children, !done && v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: 64,
         style: {
           position: 'fixed',
-          right: 128,
+          right: 32,
           top: 32
         }
       }), ";");
