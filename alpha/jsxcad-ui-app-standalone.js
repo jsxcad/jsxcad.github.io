@@ -1,4 +1,4 @@
-import { readOrWatch, read, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, emit, flushEmitGroup, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
+import { readOrWatch, read, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, emit, computeHash, flushEmitGroup, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
 import api from './jsxcad-api.js';
 import { dataUrl } from './jsxcad-ui-threejs.js';
 import { getNotebookControlData } from './jsxcad-ui-notebook.js';
@@ -5543,7 +5543,7 @@ class Notebook extends ReactDOM.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, children, done && v$1(MoonLoader, {
+      }, children, !done && v$1(MoonLoader, {
         color: "#36d7b7",
         size: "64px",
         style: {
@@ -5653,13 +5653,15 @@ class Standalone extends ReactDOM.Component {
 
       const topLevel = new Map();
       const version = new Date().getTime();
+      const begin = {
+        version
+      };
       emit({
-        begin: {
-          version
-        },
+        begin,
         sourceLocation: {
           line: -1
-        }
+        },
+        hash: computeHash(begin)
       });
       await api.importModule(module, {
         clearUpdateEmits: true,
@@ -5668,13 +5670,15 @@ class Standalone extends ReactDOM.Component {
         workspace
       }); // We can't emit infinity, so let's use an exceedingly large number.
 
+      const end = {
+        version
+      };
       emit({
-        end: {
-          version
-        },
+        end,
         sourceLocation: {
           line: 100000000
-        }
+        },
+        hash: computeHash(end)
       });
       flushEmitGroup();
       await resolvePending();

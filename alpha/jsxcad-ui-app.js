@@ -5604,7 +5604,7 @@ class Notebook extends ReactDOM$3.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, children, done && v$1(MoonLoader, {
+      }, children, !done && v$1(MoonLoader, {
         color: "#36d7b7",
         size: "64px",
         style: {
