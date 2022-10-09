@@ -1053,6 +1053,13 @@ var fs = /*#__PURE__*/Object.freeze({
   'default': empty
 });
 
+var v8 = {};
+
+var v8$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': v8
+});
+
 // When base is undefined the persistent filesystem is disabled.
 let base;
 
@@ -2393,13 +2400,6 @@ const notifyFileRead = async (path, workspace) => {
 
 initBroadcastChannel();
 
-var v8 = {};
-
-var v8$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': v8
-});
-
 // Copyright Joyent, Inc. and other Node contributors.
 
 // Split a filename into [root, dir, basename, ext], unix version
@@ -2511,6 +2511,7 @@ const write = async (path, data, options = {}) => {
 /* global self */
 
 const { promises: promises$2 } = fs;
+const { deserialize } = v8$1;
 
 const getUrlFetcher = () => {
   if (isBrowser) {
@@ -2560,7 +2561,7 @@ const getInternalFileFetcher = () => {
       try {
         let data = await promises$2.readFile(qualifiedPath);
         // FIX: Use a proper version.
-        return { data, version: 0 };
+        return { data: deserialize(data), version: 0 };
       } catch (e) {
         if (e.code && e.code === 'ENOENT') {
           return {};
@@ -2849,7 +2850,6 @@ const emit = (value) => {
   if (value.sourceLocation === undefined) {
     value.sourceLocation = getSourceLocation();
   }
-  // console.log(JSON.stringify(value));
   emitGroup.push(value);
 };
 

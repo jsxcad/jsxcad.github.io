@@ -1,11 +1,12 @@
 import { assemble as assemble$1, toDisplayGeometry, toConcreteGeometry, toTransformedGeometry, toPoints, transform, eagerTransform, rewriteTags, taggedGraph, taggedSegments, taggedPoints, fromPolygons, registerReifier, taggedPlan, identity, hasTypeReference, taggedGroup, join as join$1, makeAbsolute, measureArea, taggedItem, getInverseMatrices, computeNormal, extrude, transformCoordinate, link as link$1, measureBoundingBox, bend as bend$1, getLeafs, computeCentroid, convexHull, fuse as fuse$1, noGhost, clip as clip$1, cut as cut$1, deform as deform$1, demesh as demesh$1, disjoint as disjoint$1, hasTypeGhost, getLayouts, taggedLayout, eachFaceEdges, eachPoint as eachPoint$1, fill as fill$1, fix as fix$1, rewrite, visit, grow as grow$1, inset as inset$1, involute as involute$1, read, readNonblocking, loft as loft$1, serialize as serialize$1, generateLowerEnvelope, hasShowOverlay, hasTypeMasked, hasMaterial, offset as offset$1, outline as outline$1, remesh as remesh$1, write, writeNonblocking, fromScaleToTransform, seam as seam$1, section as section$1, separate as separate$1, cast, simplify as simplify$1, taggedSketch, smooth as smooth$1, computeToolpath, twist as twist$1, generateUpperEnvelope, hasTypeVoid, measureVolume, withAabbTreeQuery, linearize, wrap as wrap$1, computeImplicitVolume, hash } from './jsxcad-geometry.js';
-import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, log as log$1, ErrorWouldBlock, generateUniqueId, addPending, write as write$1 } from './jsxcad-sys.js';
+import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, log as log$1, ErrorWouldBlock, generateUniqueId, addPending, write as write$1, isNode } from './jsxcad-sys.js';
 export { elapsed, emit, read, write } from './jsxcad-sys.js';
 import { zag } from './jsxcad-api-v1-math.js';
 import { fromRotateXToTransform, fromRotateYToTransform, fromSegmentToInverseTransform, invertTransform, fromTranslateToTransform, fromRotateZToTransform, makeUnitSphere as makeUnitSphere$1 } from './jsxcad-algorithm-cgal.js';
 import { toTagsFromName } from './jsxcad-algorithm-color.js';
 import { pack as pack$1 } from './jsxcad-algorithm-pack.js';
 import { toTagsFromName as toTagsFromName$1 } from './jsxcad-algorithm-tool.js';
+import { dataUrl } from './jsxcad-ui-threejs.js';
 
 class Shape {
   constructor(geometry = assemble$1(), context) {
@@ -4871,19 +4872,23 @@ const baseView =
     }
     const { id, path } = sourceLocation;
     for (const entry of ensurePages(viewShape.toDisplayGeometry())) {
-      const geometry = tagGeometry(untagGeometry(entry, ['viewId:*']), [
-        `viewId:${viewId}`,
-      ]);
+      const geometry = entry;
+      const hash = generateUniqueId();
       const viewPath = `view/${path}/${id}/${viewId}.view`;
-      addPending(write$1(viewPath, geometry));
+      const thumbnailPath = `thumbnail/${hash}`;
       const view = {
         viewId,
         width,
         height,
         position,
         inline,
+        needsThumbnail: isNode,
       };
-      emit({ hash: generateUniqueId(), path: viewPath, view });
+      emit({ hash, path: viewPath, view });
+      addPending(write$1(viewPath, geometry));
+      if (!isNode) {
+        addPending(write$1(thumbnailPath, dataUrl(viewShape, view)));
+      }
     }
     return shape;
   };

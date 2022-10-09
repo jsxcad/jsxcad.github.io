@@ -1,4 +1,4 @@
-import { readOrWatch, read, logInfo, write, unwatchFile, watchFile, boot, log, remove, ask, askService, setConfig, clearCacheDb, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
+import { readOrWatch, read, write, unwatchFile, watchFile, boot, log, remove, ask, askService, setConfig, clearCacheDb, logInfo, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
 import { orbitDisplay, raycast } from './jsxcad-ui-threejs.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
 import PrettierParserBabel from 'https://unpkg.com/prettier@2.3.2/esm/parser-babel.mjs';
@@ -5358,7 +5358,6 @@ const updateNotebookState = async (application, {
   workspace
 }) => {
   const {
-    id,
     path
   } = sourceLocation;
 
@@ -5419,71 +5418,62 @@ const updateNotebookState = async (application, {
 
     if (note.view) {
       if (!note.url) {
-        const cachedUrl = await read(`thumbnail/${note.hash}`, {
-          workspace
-        });
-
-        if (cachedUrl) {
-          updateNote({
-            hash: note.hash,
-            url: cachedUrl
-          });
-          continue;
-        }
-
-        if (note.path && !note.data) {
-          note.data = await read(note.path, {
+        const loadThumbnail = async () => {
+          let url = await (note.needsThumbnail ? read : readOrWatch)(`thumbnail/${note.hash}`, {
             workspace
           });
-        }
 
-        const {
-          path,
-          view
-        } = note;
-        const {
-          width,
-          height
-        } = view;
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const offscreenCanvas = canvas.transferControlToOffscreen();
-
-        const render = async () => {
-          try {
-            logInfo('app/App', `Ask render for ${path}/${id}`);
-            const url = await application.ask({
-              op: 'app/staticView',
+          if (!url) {
+            const {
               path,
-              workspace,
-              view,
-              offscreenCanvas
-            }, {
-              path
-            }, [offscreenCanvas]);
-            console.log(`Finished render for ${path}/${id}`); // Cache the thumbnail for next time.
+              view
+            } = note;
+            const {
+              width,
+              height
+            } = view;
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const offscreenCanvas = canvas.transferControlToOffscreen();
 
-            await write(`thumbnail/${note.hash}`, url, {
-              workspace
-            });
+            for (let nth = 0; nth < 3; nth++) {
+              try {
+                url = await application.ask({
+                  op: 'app/staticView',
+                  path,
+                  workspace,
+                  view,
+                  offscreenCanvas
+                }, {
+                  path
+                }, [offscreenCanvas]); // Cache the thumbnail for next time.
+
+                await write(`thumbnail/${note.hash}`, url, {
+                  workspace
+                });
+                updateNote({
+                  hash: note.hash,
+                  url
+                });
+              } catch (error) {
+                if (error.message === 'Terminated') {
+                  // Try again.
+                  continue;
+                }
+              }
+            }
+          }
+
+          if (url) {
             updateNote({
               hash: note.hash,
               url
             });
-          } catch (error) {
-            if (error.message === 'Terminated') {
-              // Try again.
-              return render();
-            } else {
-              window.alert(error.stack);
-            }
           }
-        }; // Render the image asynchronously -- it won't affect layout.
+        };
 
-
-        console.log(`Schedule render for ${path}/${id}`);
-        render();
+        loadThumbnail();
       }
     }
   }
@@ -44119,8 +44109,10 @@ class App extends ReactDOM$3.Component {
         op,
         entry,
         identifier,
+        notes,
         options,
-        path
+        path,
+        sourceLocation
       } = message;
 
       switch (op) {
@@ -44134,7 +44126,11 @@ class App extends ReactDOM$3.Component {
           return log(entry);
 
         case 'notes':
-          return updateNotebookState(this, message);
+          return updateNotebookState(this, {
+            notes,
+            sourceLocation,
+            workspace
+          });
 
         /*
           {
@@ -44156,13 +44152,14 @@ class App extends ReactDOM$3.Component {
               updateNote(note);
               if (note.view) {
                 if (!note.url) {
-                  const cachedUrl = await read(`thumbnail/${note.hash}`, {
+                  const cachedUrl = await (note.needsThumbnail ? read : readOrWatch)(`thumbnail/${note.hash}`, {
                     workspace,
                   });
                   if (cachedUrl) {
                     console.log(`QQ/cachedUrl: ${note.hash} ${cachedUrl}`);
                     updateNote({ hash: note.hash, url: cachedUrl });
                   } else if (note.view && !note.url) {
+                    console.log('QQ/renderingUrl -- SHOULD NOT HAPPEN -- !!!');
                     const { path, view } = note;
                     const { width, height } = view;
                     const canvas = document.createElement('canvas');
