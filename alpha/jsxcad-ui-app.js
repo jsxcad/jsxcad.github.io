@@ -5471,9 +5471,10 @@ const updateNotebookState = async (application, {
               url
             });
           }
-        };
+        }; // Introduce a delay before rendering thumbnails to allow execution to proceed in the unthreaded cases.
 
-        loadThumbnail();
+
+        setTimeout(loadThumbnail, 200);
       }
     }
   }
