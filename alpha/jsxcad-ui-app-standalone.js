@@ -5662,7 +5662,9 @@ class Standalone extends ReactDOM.Component {
           line: -1,
           path: module
         },
-        hash: computeHash(begin)
+        hash: computeHash({
+          begin
+        })
       });
       await api.importModule(module, {
         clearUpdateEmits: true,
@@ -5680,7 +5682,9 @@ class Standalone extends ReactDOM.Component {
           line: 100000000,
           path: module
         },
-        hash: computeHash(end)
+        hash: computeHash({
+          end
+        })
       });
       flushEmitGroup();
       await resolvePending();
