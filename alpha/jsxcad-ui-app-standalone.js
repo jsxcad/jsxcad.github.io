@@ -5666,6 +5666,7 @@ class Standalone extends ReactDOM.Component {
           begin
         })
       });
+      flushEmitGroup();
       await api.importModule(module, {
         clearUpdateEmits: true,
         topLevel,
