@@ -5548,6 +5548,9 @@ class Notebook extends ReactDOM$3.PureComponent {
         }
       }
 
+      let version;
+      let done = false;
+
       for (const note of ordered) {
         // FIX: This seems wasteful.
         const selected = note === selectedNote;
@@ -5581,6 +5584,12 @@ class Notebook extends ReactDOM$3.PureComponent {
             selected: selected,
             workspace: workspace
           });
+        } else if (note.begin) {
+          version = note.begin.version;
+        } else if (note.end) {
+          if (note.end.version === version) {
+            done = true;
+          }
         }
 
         if (child) {
@@ -5589,21 +5598,16 @@ class Notebook extends ReactDOM$3.PureComponent {
       }
 
       console.log(`render Notebook`);
-
-      if (children.length === 0) {
-        return v$1(MoonLoader, {
-          color: "#36d7b7",
-          size: "128px"
-        });
-      }
-
       y(() => mermaid.init(undefined, '.mermaid'));
       return v$1("div", {
         classList: "notes",
         style: {
           overflow: 'auto'
         }
-      }, children);
+      }, children, done && v$1(MoonLoader, {
+        color: "#36d7b7",
+        size: "128px"
+      }), ";");
     } catch (e) {
       console.log(e.stack);
       throw e;

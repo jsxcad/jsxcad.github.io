@@ -1,4 +1,4 @@
-import { readOrWatch, read, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
+import { readOrWatch, read, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, emit, flushEmitGroup, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
 import api from './jsxcad-api.js';
 import { dataUrl } from './jsxcad-ui-threejs.js';
 import { getNotebookControlData } from './jsxcad-ui-notebook.js';
@@ -5487,6 +5487,9 @@ class Notebook extends ReactDOM.PureComponent {
         }
       }
 
+      let version;
+      let done = false;
+
       for (const note of ordered) {
         // FIX: This seems wasteful.
         const selected = note === selectedNote;
@@ -5520,6 +5523,12 @@ class Notebook extends ReactDOM.PureComponent {
             selected: selected,
             workspace: workspace
           });
+        } else if (note.begin) {
+          version = note.begin.version;
+        } else if (note.end) {
+          if (note.end.version === version) {
+            done = true;
+          }
         }
 
         if (child) {
@@ -5528,21 +5537,16 @@ class Notebook extends ReactDOM.PureComponent {
       }
 
       console.log(`render Notebook`);
-
-      if (children.length === 0) {
-        return v$1(MoonLoader, {
-          color: "#36d7b7",
-          size: "128px"
-        });
-      }
-
       y(() => mermaid.init(undefined, '.mermaid'));
       return v$1("div", {
         classList: "notes",
         style: {
           overflow: 'auto'
         }
-      }, children);
+      }, children, done && v$1(MoonLoader, {
+        color: "#36d7b7",
+        size: "128px"
+      }), ";");
     } catch (e) {
       console.log(e.stack);
       throw e;
@@ -5643,12 +5647,31 @@ class Standalone extends ReactDOM.Component {
       }
 
       const topLevel = new Map();
+      const version = new Date().getTime();
+      emit({
+        begin: {
+          version
+        },
+        sourceLocation: {
+          line: -1
+        }
+      });
       await api.importModule(module, {
         clearUpdateEmits: true,
         topLevel,
         readCache: false,
         workspace
+      }); // We can't emit infinity, so let's use an exceedingly large number.
+
+      emit({
+        end: {
+          version
+        },
+        sourceLocation: {
+          line: 100000000
+        }
       });
+      flushEmitGroup();
       await resolvePending();
       removeOnEmitHandler(onEmitHandler);
     };
