@@ -5545,7 +5545,12 @@ class Notebook extends ReactDOM.PureComponent {
         }
       }, children, done && v$1(MoonLoader, {
         color: "#36d7b7",
-        size: "128px"
+        size: "64px",
+        style: {
+          position: 'fixed',
+          left: 0,
+          top: 0
+        }
       }), ";");
     } catch (e) {
       console.log(e.stack);
