@@ -1,5 +1,4 @@
 import { readOrWatch, read, write, decodeFiles, setupWorkspace, boot, addOnEmitHandler, emit, computeHash, flushEmitGroup, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
-import { MoonLoader } from 'react-spinners';
 import api from './jsxcad-api.js';
 import { dataUrl } from './jsxcad-ui-threejs.js';
 import { getNotebookControlData } from './jsxcad-ui-notebook.js';
@@ -5255,9 +5254,7 @@ class ViewNote extends ReactDOM.PureComponent {
     };
 
     if (!note.url) {
-      return v$1(MoonLoader, {
-        width: width,
-        height: height,
+      return v$1(SpinnerRoundOutlined, {
         color: "#36d7b7",
         size: Math.min(width, height) * 0.8
       });

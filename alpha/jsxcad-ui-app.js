@@ -1,5 +1,4 @@
 import { readOrWatch, read, write, unwatchFile, watchFile, boot, log, remove, ask, askService, setConfig, clearCacheDb, logInfo, terminateActiveServices, clearEmitted, resolvePending, listFiles, getActiveServices, watchFileCreation, watchFileDeletion, watchLog, watchServices } from './jsxcad-sys.js';
-import { MoonLoader } from 'react-spinners';
 import { orbitDisplay, raycast } from './jsxcad-ui-threejs.js';
 import Prettier from 'https://unpkg.com/prettier@2.3.2/esm/standalone.mjs';
 import PrettierParserBabel from 'https://unpkg.com/prettier@2.3.2/esm/parser-babel.mjs';
@@ -5316,9 +5315,7 @@ class ViewNote extends ReactDOM$3.PureComponent {
     };
 
     if (!note.url) {
-      return v$1(MoonLoader, {
-        width: width,
-        height: height,
+      return v$1(SpinnerRoundOutlined, {
         color: "#36d7b7",
         size: Math.min(width, height) * 0.8
       });
@@ -44648,7 +44645,6 @@ class App extends ReactDOM$3.Component {
         };
 
         NotebookAdvice.definitions = topLevel;
-        const version = new Date().getTime();
         await execute(script, {
           evaluate,
           replay,
