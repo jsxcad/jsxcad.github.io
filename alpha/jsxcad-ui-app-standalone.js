@@ -5548,8 +5548,8 @@ class Notebook extends ReactDOM.PureComponent {
         size: "64px",
         style: {
           position: 'fixed',
-          right: 0,
-          top: 0
+          right: 128,
+          top: 64
         }
       }), ";");
     } catch (e) {
