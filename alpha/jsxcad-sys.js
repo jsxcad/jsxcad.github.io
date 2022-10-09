@@ -1053,13 +1053,6 @@ var fs = /*#__PURE__*/Object.freeze({
   'default': empty
 });
 
-var v8 = {};
-
-var v8$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': v8
-});
-
 // When base is undefined the persistent filesystem is disabled.
 let base;
 
@@ -2400,6 +2393,13 @@ const notifyFileRead = async (path, workspace) => {
 
 initBroadcastChannel();
 
+var v8 = {};
+
+var v8$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': v8
+});
+
 // Copyright Joyent, Inc. and other Node contributors.
 
 // Split a filename into [root, dir, basename, ext], unix version
@@ -2445,6 +2445,7 @@ const getFileWriter = () => {
         const version = 0;
         return version;
       } catch (error) {
+        console.dir(data, { depth: null });
         throw error;
       }
     };
@@ -2473,7 +2474,9 @@ const writeNonblocking = (path, data, options = {}) => {
 };
 
 const write = async (path, data, options = {}) => {
-  data = await data;
+  while (data.then) {
+    data = await data;
+  }
 
   if (typeof data === 'function') {
     // Always fail to write functions.
@@ -2508,7 +2511,6 @@ const write = async (path, data, options = {}) => {
 /* global self */
 
 const { promises: promises$2 } = fs;
-const { deserialize } = v8$1;
 
 const getUrlFetcher = () => {
   if (isBrowser) {
@@ -2536,7 +2538,10 @@ const getExternalFileFetcher = () => {
         if (e.code && e.code === 'ENOENT') {
           return {};
         }
-        logInfo('sys/getExternalFile/error', e.toString());
+        logError(
+          'sys/getExternalFile/error',
+          `qualifiedPath=${qualifiedPath} error=${e.toString()}`
+        );
       }
     };
   } else if (isBrowser || isWebWorker) {
@@ -2551,19 +2556,19 @@ const externalFileFetcher = getExternalFileFetcher();
 const getInternalFileFetcher = () => {
   if (isNode) {
     // FIX: Put this through getFile, also.
-    return async (qualifiedPath, doSerialize = true) => {
+    return async (qualifiedPath) => {
       try {
         let data = await promises$2.readFile(qualifiedPath);
-        if (doSerialize) {
-          data = deserialize(data);
-        }
         // FIX: Use a proper version.
         return { data, version: 0 };
       } catch (e) {
         if (e.code && e.code === 'ENOENT') {
           return {};
         }
-        logInfo('sys/getExternalFile/error', e.toString());
+        logError(
+          'sys/getExternalFile/error',
+          `qualifiedPath=${qualifiedPath} error=${e.toString()}`
+        );
       }
     };
   } else if (isBrowser || isWebWorker) {
@@ -2593,10 +2598,10 @@ const getInternalFileVersionFetcher = (qualify = qualifyPath) => {
 const internalFileVersionFetcher = getInternalFileVersionFetcher();
 
 // Fetch from internal store.
-const fetchPersistent = (qualifiedPath, { workspace, doSerialize }) => {
+const fetchPersistent = (qualifiedPath, { workspace }) => {
   try {
     if (workspace) {
-      return internalFileFetcher(qualifiedPath, doSerialize);
+      return internalFileFetcher(qualifiedPath);
     } else {
       return {};
     }
@@ -2604,7 +2609,10 @@ const fetchPersistent = (qualifiedPath, { workspace, doSerialize }) => {
     if (e.code && e.code === 'ENOENT') {
       return {};
     }
-    logInfo('sys/fetchPersistent/error', e.toString());
+    logError(
+      'sys/fetchPersistent/error',
+      `qualifiedPath=${qualifiedPath} error=${e.toString()}`
+    );
   }
 };
 
@@ -2617,7 +2625,10 @@ const fetchPersistentVersion = (qualifiedPath, { workspace }) => {
     if (e.code && e.code === 'ENOENT') {
       return;
     }
-    logInfo('sys/fetchPersistentVersion/error', e.toString());
+    logError(
+      'sys/fetchPersistentVersion/error',
+      `qualifiedPath=${qualifiedPath} error=${e.toString()}`
+    );
   }
 };
 
@@ -2675,12 +2686,15 @@ const read = async (path, options = {}) => {
   const qualifiedPath = qualifyPath(path, workspace);
   const file = ensureQualifiedFile(path, qualifiedPath);
 
-  if (file.data && workspace) {
+  if (file.data && workspace && !ephemeral) {
     // Check that the version is still up to date.
-    if (
-      file.version !==
-      (await fetchPersistentVersion(qualifiedPath, { workspace }))
-    ) {
+    const persistentVersion = await fetchPersistentVersion(qualifiedPath, {
+      workspace,
+    });
+    if (file.version !== persistentVersion) {
+      console.log(
+        `QQ/read/invalidate: version ${file.version} vs ${persistentVersion}`
+      );
       file.data = undefined;
     }
   }
@@ -2688,7 +2702,6 @@ const read = async (path, options = {}) => {
   if (file.data === undefined || useCache === false || forceNoCache) {
     const { value, version } = await fetchPersistent(qualifiedPath, {
       workspace,
-      doSerialize: true,
     });
     file.data = value;
     file.version = version;
@@ -2701,12 +2714,12 @@ const read = async (path, options = {}) => {
     }
     if (!ephemeral && file.data !== undefined) {
       // Update persistent cache.
-      await write(path, data, { ...options, doSerialize: true });
+      await write(path, data, options);
     }
     file.data = data;
   }
   if (file.data !== undefined) {
-    if (file.data.then) {
+    while (file.data.then) {
       // Resolve any outstanding promises.
       file.data = await file.data;
     }
@@ -2903,14 +2916,13 @@ const encodeFiles = (unencoded) => {
   for (const key of Object.keys(unencoded)) {
     encoded[key] = encode(unencoded[key]);
   }
-  return encodeURIComponent(JSON.stringify(encoded));
+  return encoded;
 };
 
-const decodeFiles = (string) => {
-  const encoded = JSON.parse(decodeURIComponent(string));
+const decodeFiles = (encodedFiles) => {
   const decoded = {};
-  for (const key of Object.keys(encoded)) {
-    decoded[key] = decode(encoded[key]);
+  for (const key of Object.keys(encodedFiles)) {
+    decoded[key] = decode(encodedFiles[key]);
   }
   return decoded;
 };

@@ -288,6 +288,8 @@ const toHtmlFromScript = async ({
 
     const run = async ({ isRerun = false } = {}) => {
       const addNotes = async (notes) => {
+        const pendingData = {};
+        const pendingUrl = {};
         for (const note of notes) {
           if (note.beginSourceLocation) {
             if (notebooks.has(note.beginSourceLocation.line)) {
@@ -315,25 +317,25 @@ const toHtmlFromScript = async ({
               .replace(/#https:\\/\\/raw.githubusercontent.com\\/jsxcad\\/JSxCAD\\/master\\/(.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
           }
           if (path && !data) {
-             note[pendingData] = read(path);
+             pendingData[note.hash] = read(path);
           }
           if (note.view && !note.url) {
             const schedulePreviewGeneration = async () => {
-              note.data = note.data || await note[pendingData];
+              note.data = note.data || await pendingData[note.hash];
               return dataUrl(Shape.fromGeometry(note.data), note.view);
             }
-            note[pendingUrl] = schedulePreviewGeneration();
+            pendingUrl[note.hash] = schedulePreviewGeneration();
           }
         }
         const scheduleRender = async () => {
           for (const note of notes) {
-            note.data = note.data || await note[pendingData];
-            note.url = note.url || await note[pendingUrl];
+            note.data = note.data || await pendingData[note.hash];
+            note.url = note.url || await pendingUrl[note.hash];
           }
           const notebookElement = await toDomElement(notes, { useControls: ${useControls} ? 'true' : 'false' });
           bookElement.appendChild(notebookElement);
         };
-        notes[pendingRender] = scheduleRender();
+        addPending(scheduleRender());
       }
 
       const onEmitHandler = addOnEmitHandler(addNotes);
@@ -500,7 +502,9 @@ const toStandaloneFromScript = async ({
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script type='module'>
     import { run } from '${modulePath}/jsxcad-ui-app-standalone.js';
-    run({ encodedFiles: "${encodedFiles}", module: "${module}", workspace: 'JSxCAD', container: document.getElementById('notebook') });
+    run({ encodedFiles: ${JSON.stringify(
+      encodedFiles
+    )}, module: "${module}", workspace: 'JSxCAD', container: document.getElementById('notebook') });
   </script>
   <div id="notebook" class="notebook"></div>
  </body>
