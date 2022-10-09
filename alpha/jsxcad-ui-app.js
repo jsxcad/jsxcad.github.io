@@ -5482,7 +5482,7 @@ const updateNotebookState = async (application, {
 class Notebook extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
-      notes: propTypes$1.exports.array,
+      notes: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
       workspace: propTypes$1.exports.string
@@ -5609,7 +5609,7 @@ class Notebook extends ReactDOM$3.PureComponent {
         size: "64px",
         style: {
           position: 'fixed',
-          left: 0,
+          right: 0,
           top: 0
         }
       }), ";");

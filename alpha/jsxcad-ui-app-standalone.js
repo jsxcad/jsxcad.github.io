@@ -5421,7 +5421,7 @@ const updateNotebookState = async (application, {
 class Notebook extends ReactDOM.PureComponent {
   static get propTypes() {
     return {
-      notes: propTypes$1.exports.array,
+      notes: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
       workspace: propTypes$1.exports.string
@@ -5548,7 +5548,7 @@ class Notebook extends ReactDOM.PureComponent {
         size: "64px",
         style: {
           position: 'fixed',
-          left: 0,
+          right: 0,
           top: 0
         }
       }), ";");
@@ -5659,7 +5659,8 @@ class Standalone extends ReactDOM.Component {
       emit({
         begin,
         sourceLocation: {
-          line: -1
+          line: -1,
+          path: module
         },
         hash: computeHash(begin)
       });
@@ -5676,7 +5677,8 @@ class Standalone extends ReactDOM.Component {
       emit({
         end,
         sourceLocation: {
-          line: 100000000
+          line: 100000000,
+          path: module
         },
         hash: computeHash(end)
       });
@@ -5740,7 +5742,7 @@ class Standalone extends ReactDOM.Component {
       workspace
     } = this.props;
     const {
-      [`NotebookNotes/${module}`]: NotebookNotes = []
+      [`NotebookNotes/${module}`]: NotebookNotes = {}
     } = this.state;
     return v$1(Notebook, {
       notes: NotebookNotes,
