@@ -425,6 +425,7 @@ const toStandaloneFromScript = async ({
   title = 'Jot',
   modulePath = 'https://jsxcad.js.org/alpha',
   baseUrl = 'https://jsxcad.js.org',
+  cssUrl = 'https://jsxcad.js.org/css/standalone.css',
   module,
   files = {},
 } = {}) => {
@@ -436,67 +437,7 @@ const toStandaloneFromScript = async ({
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <style>
-    div.book {
-      height: 100%;
-      overflow: scroll;
-      margin-left: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
-
-    div.note.card {
-      border: 1px dashed crimson;
-      margin: 4px 4px;
-      padding: 4px 4px;
-      display: inline-block;
-      width: fit-content;
-      height: fit-content;
-    }
-
-    .note.log {
-      font-family: "Arial Black", Gadget, sans-serif;
-      color: red
-    }
-
-    .note.view {
-      border: 1px dashed dodgerblue;
-      margin: 4px 4px;
-      padding: 4px 4px;
-    }
-
-    .note.orbitView {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10000;
-    }
-
-    button.note.download {
-      border: 2px solid black;
-      border-radius: 5px;
-      background-color: white;
-      margin: 4px 4px;
-      padding: 10px 24px;
-      font-size: 16px;
-      cursor: pointer;
-      border-color: #2196F3;
-      color: dodgerblue
-    }
-
-    button.note.download:hover {
-      background: #2196F3;
-      color: white;
-    }
-
-    .note th,td {
-      border: 1px solid dodgerblue;
-      padding: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="${cssUrl}" />
  </head>
  <body>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>

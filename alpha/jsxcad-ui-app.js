@@ -5472,6 +5472,7 @@ class Notebook extends ReactDOM$3.PureComponent {
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
       notebookPath: propTypes$1.exports.string,
+      state: propTypes$1.exports.string,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5479,9 +5480,11 @@ class Notebook extends ReactDOM$3.PureComponent {
   render() {
     try {
       const {
+        notebookPath,
         notes,
         onClickView,
         selectedLine,
+        state = 'idle',
         workspace
       } = this.props;
       const children = [];
@@ -5535,9 +5538,6 @@ class Notebook extends ReactDOM$3.PureComponent {
         }
       }
 
-      let version;
-      let done = false;
-
       for (const note of ordered) {
         // FIX: This seems wasteful.
         const selected = note === selectedNote;
@@ -5571,12 +5571,6 @@ class Notebook extends ReactDOM$3.PureComponent {
             selected: selected,
             workspace: workspace
           });
-        } else if (note.begin) {
-          version = note.begin.version;
-        } else if (note.end) {
-          if (note.end.version === version) {
-            done = true;
-          }
         }
 
         if (child) {
@@ -5587,11 +5581,12 @@ class Notebook extends ReactDOM$3.PureComponent {
       console.log(`render Notebook`);
       y(() => mermaid.init(undefined, '.mermaid'));
       return v$1("div", {
-        classList: "notes",
+        id: notebookPath,
+        classList: "notebook notes",
         style: {
           overflow: 'auto'
         }
-      }, children, !done && v$1(SpinnerCircularSplit, {
+      }, children, state === 'running' && v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: 64,
         style: {
@@ -5599,7 +5594,7 @@ class Notebook extends ReactDOM$3.PureComponent {
           right: 32,
           top: 32
         }
-      }), ";");
+      }));
     } catch (e) {
       console.log(e.stack);
       throw e;
@@ -42718,136 +42713,6 @@ class JsEditorUi extends ReactDOM$3.PureComponent {
 
 }
 
-class JsViewerUi extends ReactDOM$3.PureComponent {
-  static get propTypes() {
-    return {
-      path: propTypes$1.exports.string,
-      data: propTypes$1.exports.string,
-      advice: propTypes$1.exports.object,
-      onChange: propTypes$1.exports.func,
-      onClose: propTypes$1.exports.func
-    };
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  async componentDidMount() {
-    const {
-      advice
-    } = this.props;
-
-    if (!advice) {
-      return;
-    }
-
-    const {
-      notebookDefinitions
-    } = advice;
-    let updating = false;
-
-    const update = async () => {
-      try {
-        if (updating) {
-          return;
-        }
-
-        const container = this.view;
-
-        if (!container) {
-          return;
-        }
-
-        updating = true;
-        await animationFrame();
-
-        if (advice && advice.definitions) {
-          const orderedNotes = [];
-
-          for (const definition of Object.keys(notebookDefinitions)) {
-            const {
-              domElements,
-              notes
-            } = notebookDefinitions[definition];
-            const {
-              initSourceLocation
-            } = advice.definitions.get(definition);
-            const line = initSourceLocation.start.line;
-            orderedNotes.push({
-              domElements,
-              notes,
-              line
-            });
-          }
-
-          orderedNotes.sort((a, b) => a.line - b.line);
-
-          while (container.firstChild) {
-            container.removeChild(container.firstChild);
-          }
-
-          for (const {
-            domElements
-          } of orderedNotes) {
-            for (const domElement of domElements) {
-              domElement.style.visibility = '';
-              domElement.style.position = '';
-              container.appendChild(domElement);
-            }
-          }
-
-          mermaid.init(undefined, '.mermaid');
-        }
-      } finally {
-        updating = false;
-      }
-    };
-
-    const finished = () => {};
-
-    advice.onUpdate = update;
-    advice.onFinished = finished;
-    update();
-  }
-
-  async update() {}
-
-  async componentWillUnmount() {
-    const {
-      onClose,
-      advice = {}
-    } = this.props;
-    const {
-      notebookNotes
-    } = advice;
-
-    if (notebookNotes) {
-      notebookNotes.onUpdate = undefined;
-      notebookNotes.onFinished = undefined;
-    }
-
-    if (onClose) {
-      await onClose();
-    }
-  }
-
-  render() {
-    return v$1(Col, {
-      style: {
-        height: '100%',
-        width: '100%'
-      },
-      onKeyDown: this.onKeyDown,
-      ref: ref => {
-        this.view = ref;
-      }
-    });
-  }
-
-}
-
 function defaultKey(key) {
   return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
 }
@@ -44569,7 +44434,7 @@ class App extends ReactDOM$3.Component {
 
       try {
         await this.updateState({
-          NotebookState: 'running'
+          [`NotebookState/${NotebookPath}`]: 'running'
         }); // Terminate any services running for this path, since we're going to restart evaluating it.
 
         await terminateActiveServices(context => context.path === path); // CHECK: Can we get rid of this?
@@ -44580,15 +44445,18 @@ class App extends ReactDOM$3.Component {
         if (!NotebookPath.endsWith('.js') && !NotebookPath.endsWith('.nb')) {
           // We don't know how to run anything else.
           return;
-        } // FIX: This is a bit awkward.
+        }
+        /*
+        // FIX: This is a bit awkward.
         // The responsibility for updating the control values ought to be with what
         // renders the notebook.
-
-
-        const notebookControlData = await getNotebookControlData();
+        const notebookControlData = await getNotebookControlData(NotebookPath);
         await write(`control/${NotebookPath}`, notebookControlData, {
-          workspace
+          workspace,
         });
+        */
+
+
         let script = this.Clipboard.getCode() + NotebookText;
 
         const evaluate = async script => {
@@ -44653,7 +44521,7 @@ class App extends ReactDOM$3.Component {
         window.alert(error.stack);
       } finally {
         await this.updateState({
-          NotebookState: 'idle'
+          [`NotebookState/${NotebookPath}`]: 'idle'
         });
         logInfo('app/App', `Completed notebook run ${path}`);
         logProfile();
@@ -45256,6 +45124,21 @@ class App extends ReactDOM$3.Component {
 
     this.Workspace = {};
 
+    this.Workspace.getSelectedPaths = path => {
+      const selectedPaths = [];
+
+      for (const input of document.querySelectorAll('input:checked')) {
+        if (!input.id.startsWith('WorkspaceSelect/')) {
+          continue;
+        }
+
+        const file = input.id.substring('WorkspaceSelect/'.length);
+        selectedPaths.push(file);
+      }
+
+      return selectedPaths;
+    };
+
     this.Workspace.loadWorkingPath = async path => {
       const {
         model,
@@ -45409,8 +45292,12 @@ class App extends ReactDOM$3.Component {
         }
       };
 
+      const selectedPaths = this.Workspace.getSelectedPaths();
+
+      const isSelectedPath = path => selectedPaths.length === 0 || selectedPaths.includes(path);
+
       for (const path of WorkspaceFiles) {
-        if (path.startsWith(sourcePrefix)) {
+        if (path.startsWith(sourcePrefix) && isSelectedPath(path)) {
           const file = await getFile(directory, path.substring(sourcePrefix.length).split('/'));
           const writable = await file.createWritable();
           const data = await read(path, {
@@ -45448,15 +45335,7 @@ class App extends ReactDOM$3.Component {
                 WorkspaceLoadPrefix: e.target.value
               }),
               value: WorkspaceLoadPrefix
-            })))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Export Paths to Folder"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(Button, {
-              onClick: () => {
-                const {
-                  WorkspaceLoadPrefix
-                } = this.state;
-                this.Workspace.export(WorkspaceLoadPrefix);
-              },
-              disabled: !WorkspaceLoadPrefix
-            }, "Export"))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Working Paths"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(ListGroup, null, WorkspaceFiles.filter(file => file.startsWith(prefix)).map((file, index) => v$1(ListGroup.Item, {
+            })))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Select Paths"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(ListGroup, null, WorkspaceFiles.filter(file => file.startsWith(prefix)).map((file, index) => v$1(ListGroup.Item, {
               key: index
             }, v$1(ButtonGroup, {
               variant: computeListItemVariant(file),
@@ -45464,7 +45343,7 @@ class App extends ReactDOM$3.Component {
             }, v$1(InputGroup.Checkbox, {
               key: index,
               type: "checkbox",
-              id: `WorkspaceRevert/${file}`
+              id: `WorkspaceSelect/${file}`
             }), v$1(Button, {
               variant: computeListItemVariant(file),
               key: index,
@@ -45479,18 +45358,21 @@ class App extends ReactDOM$3.Component {
                   this.Workspace.openWorkingFile(file);
                 }
               }
-            }, file.substring(prefix.length)))))))), v$1(Card.Text, null, v$1(FormImpl, null, v$1(Button, {
+            }, file.substring(prefix.length)))))))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Export Selected Paths to Folder"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(Button, {
+              onClick: () => {
+                const {
+                  WorkspaceLoadPrefix
+                } = this.state;
+                this.Workspace.export(WorkspaceLoadPrefix);
+              },
+              disabled: !WorkspaceLoadPrefix
+            }, "Export"))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Revert Selected Paths"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(Button, {
               onClick: async event => {
-                for (const input of document.querySelectorAll('input:checked')) {
-                  if (!input.id.startsWith('WorkspaceRevert/')) {
-                    continue;
-                  }
-
-                  const file = input.id.substring('WorkspaceRevert/'.length);
-                  this.Workspace.revertWorkingFile(file);
+                for (const path of this.Workspace.getSelectedPaths()) {
+                  this.Workspace.revertWorkingFile(path);
                 }
               }
-            }, "Revert Selected Paths"))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Import"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(FormImpl.Group, {
+            }, "Revert"))))), v$1(Card, null, v$1(Card.Body, null, v$1(Card.Title, null, "Import"), v$1(Card.Text, null, v$1(FormImpl, null, v$1(FormImpl.Group, {
               controlId: "WorkspaceLoadPathId"
             }, v$1(FormImpl.Control, {
               placeholder: "Path (extending Base Path)",
@@ -45539,6 +45421,7 @@ class App extends ReactDOM$3.Component {
             const path = node.getId().substring('Notebook/'.length);
             const {
               [`NotebookMode/${path}`]: NotebookMode = 'view',
+              [`NotebookState/${path}`]: NotebookState = 'idle',
               [`NotebookText/${path}`]: NotebookText,
               [`NotebookNotes/${path}`]: NotebookNotes = [],
               [`NotebookLine/${path}`]: NotebookLine
@@ -45548,10 +45431,12 @@ class App extends ReactDOM$3.Component {
             switch (NotebookMode) {
               case 'edit':
                 return v$1(SplitPane, null, v$1(Notebook, {
+                  notebookPath: path,
                   notes: NotebookNotes,
                   onClickView: this.Notebook.clickView,
                   selectedLine: NotebookLine,
-                  workspace: workspace
+                  workspace: workspace,
+                  state: NotebookState
                 }), v$1(JsEditorUi, {
                   mode: NotebookMode,
                   onRun: () => this.Notebook.run(path),
@@ -45564,26 +45449,16 @@ class App extends ReactDOM$3.Component {
                   advice: NotebookAdvice
                 }));
 
-              case 'old-view':
-                return v$1(JsViewerUi, {
-                  mode: NotebookMode,
-                  onRun: () => this.Notebook.run(path),
-                  onSave: () => this.Notebook.save(path),
-                  onChange: data => this.Notebook.change(path, data),
-                  onClickLink: path => this.Notebook.clickLink(path),
-                  path: path,
-                  data: NotebookText,
-                  advice: NotebookAdvice
-                });
-
               default:
               case 'view':
                 {
                   return v$1(Notebook, {
+                    notebookPath: path,
                     notes: NotebookNotes,
                     onClickView: this.Notebook.clickView,
                     selectedLine: NotebookLine,
-                    workspace: workspace
+                    workspace: workspace,
+                    state: NotebookState
                   });
                 }
             }
@@ -45851,6 +45726,17 @@ class App extends ReactDOM$3.Component {
         return true;
     }
 
+    const saveControlValues = async (path, then) => {
+      const {
+        workspace
+      } = this.props;
+      const notebookControlData = await getNotebookControlData(path);
+      await write(`control/${path}`, notebookControlData, {
+        workspace
+      });
+      then(path);
+    };
+
     const {
       ctrlKey,
       shiftKey
@@ -45862,7 +45748,8 @@ class App extends ReactDOM$3.Component {
           if (shiftKey) {
             e.preventDefault();
             e.stopPropagation();
-            this.Notebook.run(this.Notebook.getSelectedPath());
+            const path = this.Notebook.getSelectedPath();
+            saveControlValues(path, this.Notebook.run);
             return false;
           }
 
@@ -45874,7 +45761,8 @@ class App extends ReactDOM$3.Component {
           if (ctrlKey) {
             e.preventDefault();
             e.stopPropagation();
-            this.Notebook.save(this.Notebook.getSelectedPath());
+            const path = this.Notebook.getSelectedPath();
+            saveControlValues(path, this.Notebook.save);
             return false;
           }
 
@@ -45886,7 +45774,8 @@ class App extends ReactDOM$3.Component {
           if (ctrlKey) {
             e.preventDefault();
             e.stopPropagation();
-            this.Notebook.cycleMode(this.Notebook.getSelectedPath());
+            const path = this.Notebook.getSelectedPath();
+            saveControlValues(path, this.Notebook.cycleMode);
             return false;
           }
 

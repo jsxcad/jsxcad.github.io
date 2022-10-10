@@ -2693,9 +2693,6 @@ const read = async (path, options = {}) => {
       workspace,
     });
     if (file.version !== persistentVersion) {
-      console.log(
-        `QQ/read/invalidate: version ${file.version} vs ${persistentVersion}`
-      );
       file.data = undefined;
     }
   }

@@ -1,4 +1,4 @@
-import { readOrWatch, read, write, watchFile, unwatchFile, setupWorkspace, boot, decodeFiles, addOnEmitHandler, emit, computeHash, flushEmitGroup, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
+import { readOrWatch, read, write, watchFile, unwatchFile, setupWorkspace, boot, decodeFiles, addOnEmitHandler, resolvePending, removeOnEmitHandler } from './jsxcad-sys.js';
 import { orbitDisplay, dataUrl } from './jsxcad-ui-threejs.js';
 import api from './jsxcad-api.js';
 import { getNotebookControlData } from './jsxcad-ui-notebook.js';
@@ -5471,6 +5471,7 @@ class Notebook extends ReactDOM$1.PureComponent {
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
       notebookPath: propTypes$1.exports.string,
+      state: propTypes$1.exports.string,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5478,9 +5479,11 @@ class Notebook extends ReactDOM$1.PureComponent {
   render() {
     try {
       const {
+        notebookPath,
         notes,
         onClickView,
         selectedLine,
+        state = 'idle',
         workspace
       } = this.props;
       const children = [];
@@ -5534,9 +5537,6 @@ class Notebook extends ReactDOM$1.PureComponent {
         }
       }
 
-      let version;
-      let done = false;
-
       for (const note of ordered) {
         // FIX: This seems wasteful.
         const selected = note === selectedNote;
@@ -5570,12 +5570,6 @@ class Notebook extends ReactDOM$1.PureComponent {
             selected: selected,
             workspace: workspace
           });
-        } else if (note.begin) {
-          version = note.begin.version;
-        } else if (note.end) {
-          if (note.end.version === version) {
-            done = true;
-          }
         }
 
         if (child) {
@@ -5586,11 +5580,12 @@ class Notebook extends ReactDOM$1.PureComponent {
       console.log(`render Notebook`);
       y(() => mermaid.init(undefined, '.mermaid'));
       return v$1("div", {
-        classList: "notes",
+        id: notebookPath,
+        classList: "notebook notes",
         style: {
           overflow: 'auto'
         }
-      }, children, !done && v$1(SpinnerCircularSplit, {
+      }, children, state === 'running' && v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: 64,
         style: {
@@ -5598,7 +5593,7 @@ class Notebook extends ReactDOM$1.PureComponent {
           right: 32,
           top: 32
         }
-      }), ";");
+      }));
     } catch (e) {
       console.log(e.stack);
       throw e;
@@ -6073,21 +6068,9 @@ class Standalone extends ReactDOM$1.Component {
       }
 
       const topLevel = new Map();
-      const version = new Date().getTime();
-      const begin = {
-        version
-      };
-      emit({
-        begin,
-        sourceLocation: {
-          line: -1,
-          path: module
-        },
-        hash: computeHash({
-          begin
-        })
+      this.setState({
+        [`NotebookState/${module}`]: 'running'
       });
-      flushEmitGroup();
       await api.importModule(module, {
         clearUpdateEmits: true,
         topLevel,
@@ -6095,21 +6078,10 @@ class Standalone extends ReactDOM$1.Component {
         workspace
       }); // We can't emit infinity, so let's use an exceedingly large number.
 
-      const end = {
-        version
-      };
-      emit({
-        end,
-        sourceLocation: {
-          line: 100000000,
-          path: module
-        },
-        hash: computeHash({
-          end
-        })
-      });
-      flushEmitGroup();
       await resolvePending();
+      this.setState({
+        [`NotebookState/${module}`]: 'idle'
+      });
       removeOnEmitHandler(onEmitHandler);
     };
 
@@ -6169,6 +6141,7 @@ class Standalone extends ReactDOM$1.Component {
     } = this.props;
     const {
       [`NotebookNotes/${module}`]: NotebookNotes = {},
+      [`NotebookState/${module}`]: NotebookState = 'idle',
       [`NotebookDynamicViewPath/${module}`]: NotebookDynamicViewPath,
       [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView = {}
     } = this.state;
@@ -6190,13 +6163,16 @@ class Standalone extends ReactDOM$1.Component {
       view: NotebookDynamicViewView,
       workspace: workspace
     }), v$1(Notebook, {
+      notebookPath: module,
       notes: NotebookNotes,
       workspace: workspace,
-      onClickView: onClickView
+      onClickView: onClickView,
+      state: NotebookState
     }));
   }
 
 }
+
 const run = async ({
   baseUrl = '',
   encodedFiles,
