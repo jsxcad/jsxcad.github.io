@@ -5268,6 +5268,7 @@ class ViewNote extends ReactDOM$3.PureComponent {
   static get propTypes() {
     return {
       note: propTypes$1.exports.object,
+      notebookPath: propTypes$1.exports.string,
       onClickView: propTypes$1.exports.func,
       selected: propTypes$1.exports.boolean,
       workspace: propTypes$1.exports.string
@@ -5278,6 +5279,7 @@ class ViewNote extends ReactDOM$3.PureComponent {
 
   render() {
     const {
+      notebookPath,
       note,
       onClickView,
       selected,
@@ -5296,6 +5298,8 @@ class ViewNote extends ReactDOM$3.PureComponent {
       if (onClickView) {
         onClickView({
           event,
+          notebookPath,
+          note,
           path: note.path,
           view: note.view,
           workspace,
@@ -5467,6 +5471,7 @@ class Notebook extends ReactDOM$3.PureComponent {
       notes: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
+      notebookPath: propTypes$1.exports.string,
       workspace: propTypes$1.exports.string
     };
   }

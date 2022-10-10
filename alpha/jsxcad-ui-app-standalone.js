@@ -5267,6 +5267,7 @@ class ViewNote extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
       note: propTypes$1.exports.object,
+      notebookPath: propTypes$1.exports.string,
       onClickView: propTypes$1.exports.func,
       selected: propTypes$1.exports.boolean,
       workspace: propTypes$1.exports.string
@@ -5277,6 +5278,7 @@ class ViewNote extends ReactDOM$1.PureComponent {
 
   render() {
     const {
+      notebookPath,
       note,
       onClickView,
       selected,
@@ -5295,6 +5297,8 @@ class ViewNote extends ReactDOM$1.PureComponent {
       if (onClickView) {
         onClickView({
           event,
+          notebookPath,
+          note,
           path: note.path,
           view: note.view,
           workspace,
@@ -5466,6 +5470,7 @@ class Notebook extends ReactDOM$1.PureComponent {
       notes: propTypes$1.exports.object,
       onClickView: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
+      notebookPath: propTypes$1.exports.string,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5606,6 +5611,7 @@ class DynamicView extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
       path: propTypes$1.exports.string,
+      view: propTypes$1.exports.object,
       workspace: propTypes$1.exports.string
     };
   }
@@ -5613,6 +5619,7 @@ class DynamicView extends ReactDOM$1.PureComponent {
   async buildElement(container) {
     const {
       path,
+      view,
       workspace
     } = this.props;
 
@@ -5627,7 +5634,8 @@ class DynamicView extends ReactDOM$1.PureComponent {
       updateGeometry
     } = await orbitDisplay({
       path,
-      geometry
+      geometry,
+      view
     }, container);
 
     this.watcher = async () => {
@@ -6161,17 +6169,26 @@ class Standalone extends ReactDOM$1.Component {
     } = this.props;
     const {
       [`NotebookNotes/${module}`]: NotebookNotes = {},
-      [`NotebookViewPath/${module}`]: NotebookViewPath
+      [`NotebookDynamicViewPath/${module}`]: NotebookDynamicViewPath,
+      [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView = {}
     } = this.state;
 
     const onClickView = async ({
-      path
-    }) => this.setState({
-      [`NotebookViewPath/${module}`]: path
-    });
+      note
+    }) => {
+      const {
+        [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView
+      } = this.state;
+      this.setState({
+        [`NotebookDynamicViewPath/${module}`]: note.path,
+        [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView || note.view
+      });
+    };
 
-    return v$1(SplitPane, null, NotebookViewPath && v$1(DynamicView, {
-      path: NotebookViewPath
+    return v$1(SplitPane, null, NotebookDynamicViewPath && v$1(DynamicView, {
+      path: NotebookDynamicViewPath,
+      view: NotebookDynamicViewView,
+      workspace: workspace
     }), v$1(Notebook, {
       notes: NotebookNotes,
       workspace: workspace,
