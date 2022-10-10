@@ -5,71 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <style>
-    div.book {
-      height: 100%;
-      overflow: scroll;
-      margin-left: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
-
-    div.note.card {
-      border: 1px dashed crimson;
-      margin: 4px 4px;
-      padding: 4px 4px;
-      display: inline-block;
-      width: fit-content;
-      height: fit-content;
-    }
-
-    .note.log {
-      font-family: "Arial Black", Gadget, sans-serif;
-      color: red
-    }
-
-    .note.view {
-      border: 1px dashed dodgerblue;
-      margin: 4px 4px;
-      padding: 4px 4px;
-    }
-
-    .note.orbitView {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10000;
-    }
-
-    button.note.download {
-      border: 2px solid black;
-      border-radius: 5px;
-      background-color: white;
-      margin: 4px 4px;
-      padding: 10px 24px;
-      font-size: 16px;
-      cursor: pointer;
-      border-color: #2196F3;
-      color: dodgerblue
-    }
-
-    button.note.download:hover {
-      background: #2196F3;
-      color: white;
-    }
-
-    .note th,td {
-      border: 1px solid dodgerblue;
-      padding: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="https://jsxcad.js.org/css/standalone.css" />
  </head>
  <body>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script src="https://jsxcad.js.org/css/standalone.css"></script>
   <script type='module'>
     import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
     run({ encodedFiles: {"source/nb/projects/pentacular/bolt/examples.nb":"aW1wb3J0IHsKICBOdXRUaHJlYWQsCiAgTnV0VGhyZWFkU2VnbWVudCwKICBTY3Jld1RocmVhZCwKICBTY3Jld1RocmVhZFNlZ21lbnQsCn0gZnJvbSAnLi9ib2x0Lm5iJzsKClNjcmV3VGhyZWFkU2VnbWVudCgyMCkubWF0ZXJpYWwoJ3N0ZWVsJykudmlldygpLm1kKGBTY3Jld1RocmVhZFNlZ21lbnQoMjApYCk7CgpTY3Jld1RocmVhZCgyMCwgMTApLm1hdGVyaWFsKCdzdGVlbCcpLnZpZXcoKS5tZChgU2NyZXdUaHJlYWQoMjAsIDEwKWApOwoKTnV0VGhyZWFkU2VnbWVudCgyMCkubWF0ZXJpYWwoJ3N0ZWVsJykudmlldygpLm1kKGBOdXRUaHJlYWRTZWdtZW50KDIwKWApOwoKTnV0VGhyZWFkKDIwLCAxMCkubWF0ZXJpYWwoJ3N0ZWVsJykudmlldygpLm1kKGBOdXRUaHJlYWQoMjAsIDEwKWApOwoKTnV0VGhyZWFkU2VnbWVudCgyMCwgeyBwbGF5OiAwLjEgfSkKICAuY29sb3IoJ29yYW5nZScpCiAgLmFuZChTY3Jld1RocmVhZFNlZ21lbnQoMjAsIHsgcGxheTogMC4xIH0pLmNvbG9yKCdibHVlJykpCiAgLmNsaXAoQm94KFswLCAxMF0sIFswLCAxMF0sIFswLCAxMF0pKQogIC52aWV3KCkKICAubWQoYE51dFRocmVhZCgyMCwgMTApLmFuZChTY3Jld1RocmVhZCgyMCwgMTApKWApOwoKLyoKU2NyZXdUaHJlYWRTZWdtZW50KDIwLCB7IHR1cm46ICdyaWdodCcgfSkKICAuY29sb3IoJ3B1cnBsZScpCiAgLmFuZChTY3Jld1RocmVhZFNlZ21lbnQoMjAsIHsgdHVybjogJ2xlZnQnIH0pLmNvbG9yKCdncmVlbicpKQogIC52aWV3KCk7CiovCg==","source/nb/projects/pentacular/bolt/bolt.nb":"bWRgCgojIEJvbHRzCgpUaGlzIHByb2plY3QgYWxsb3dzIHlvdSB0byBkZXNpZ24gYm9sdHMgYW5kIG51dHMuCgpbU2VlIGV4YW1wbGVzXSgjaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2pzeGNhZC9KU3hDQUQvbWFzdGVyL25iL3Byb2plY3RzL3BlbnRhY3VsYXIvYm9sdC9leGFtcGxlcy5uYikKYDsKCmNvbnN0IFByb2ZpbGUgPSAocGl0Y2ggPSAxLCBkZXB0aCA9IDQgLyAzKSA9PgogIFBvbHlnb24oCiAgICBQb2ludCgwLCBkZXB0aCAvIC0yKSwKICAgIFBvaW50KHBpdGNoIC8gLTIsIGRlcHRoIC8gMiksCiAgICBQb2ludChwaXRjaCAvIC0yLCBkZXB0aCksCiAgICBQb2ludChwaXRjaCAvIDIsIGRlcHRoKSwKICAgIFBvaW50KHBpdGNoIC8gMiwgZGVwdGggLyAyKQogICkuaW5zZXQoMC4wMSk7CgpQcm9maWxlKCkudG9wVmlldygpOwoKZXhwb3J0IGNvbnN0IFNjcmV3VGhyZWFkU2VnbWVudEJ1aWxkZXIgPSBDYWNoZWQoCiAgJ25iL3Byb2plY3RzL2JvbHQvYm9sdC5uYi9TY3Jld1RocmVhZFNlZ21lbnRCdWlsZGVyJywKICAoZGlhbWV0ZXIsIHBpdGNoLCBhbmdsZSwgcGxheSwgdHVybikgPT4gewogICAgY29uc3QgZGVwdGggPSBwaXRjaCAvIDIgLyBNYXRoLnRhbihhbmdsZSAqIE1hdGguUEkpOwogICAgcmV0dXJuIFByb2ZpbGUocGl0Y2gsIChwaXRjaCAqIDAuNSkgLyBNYXRoLnRhbihhbmdsZSAqIE1hdGguUEkpKQogICAgICAueShkaWFtZXRlciAvIC0yICsgcGxheSkKICAgICAgLnJ5KDEgLyA0KQogICAgICAuc2VxKHsgZnJvbTogLTEsIGJ5OiAxIC8gMzIsIHRvOiAxIH0sICh0KSA9PiByeih0KS56KHBpdGNoICogdCksIExvZnQpCiAgICAgIC5zY2FsZSgxLCAxLCB0dXJuID09PSAncmlnaHQnID8gMSA6IC0xKQogICAgICAuc2ltcGxpZnkoMC4wMSkKICAgICAgLmFkZChBcmMoZGlhbWV0ZXIgLSBkZXB0aCkuZXoocGl0Y2gsIC1waXRjaCkpCiAgICAgIC5jbGlwKEJveChkaWFtZXRlciAqIDIpLmV6KHBpdGNoIC8gMiwgcGl0Y2ggLyAtMikpCiAgICAgIC56KHBpdGNoIC8gMik7CiAgfQopOwoKZXhwb3J0IGNvbnN0IFNjcmV3VGhyZWFkU2VnbWVudCA9ICgKICBkaWFtZXRlciwKICB7IHBpdGNoID0gMSwgYW5nbGUgPSA2MCAvIDM2MCwgcGxheSA9IDAuMSwgdHVybiA9ICdyaWdodCcgfSA9IHt9CikgPT4gU2NyZXdUaHJlYWRTZWdtZW50QnVpbGRlcihkaWFtZXRlciwgcGl0Y2gsIGFuZ2xlLCBwbGF5LCB0dXJuKTsKCmV4cG9ydCBjb25zdCBTY3Jld1RocmVhZEJ1aWxkZXIgPSBDYWNoZWQoCiAgJ25iL3Byb2plY3RzL2JvbHQvYm9sdC5uYi9TY3Jld1RocmVhZCcsCiAgKGRpYW1ldGVyLCBoZWlnaHQsIHBpdGNoLCBhbmdsZSwgcGxheSwgdHVybikgPT4KICAgIFNjcmV3VGhyZWFkU2VnbWVudChkaWFtZXRlciwgeyBwaXRjaCwgYW5nbGUsIHBsYXksIHR1cm4gfSkKICAgICAgLnNlcSh7IGZyb206IDAsIHRvOiBoZWlnaHQsIGJ5OiBwaXRjaCB9LCB6KQogICAgICAuY3V0KCdmYXN0eCcsIEJveChkaWFtZXRlciAqIDIpLmV6KGhlaWdodCwgaGVpZ2h0ICsgcGl0Y2ggKiAyKSkKICAgICAgLmNsZWFuKCkKKTsKCmV4cG9ydCBjb25zdCBTY3Jld1RocmVhZCA9ICgKICBkaWFtZXRlciwKICBoZWlnaHQsCiAgeyBwaXRjaCA9IDEsIGFuZ2xlID0gNjAgLyAzNjAsIHBsYXkgPSAwLjEsIHR1cm4gPSAncmlnaHQnIH0gPSB7fQopID0+IFNjcmV3VGhyZWFkQnVpbGRlcihkaWFtZXRlciwgaGVpZ2h0LCBwaXRjaCwgYW5nbGUsIHBsYXksIHR1cm4pOwoKZXhwb3J0IGNvbnN0IE51dFRocmVhZFNlZ21lbnRCdWlsZGVyID0gQ2FjaGVkKAogICduYi9wcm9qZWN0cy9ib2x0L2JvbHQubmIvTnV0VGhyZWFkU2VnbWVudCcsCiAgKGRpYW1ldGVyLCBwaXRjaCwgdGhpY2tuZXNzLCBhbmdsZSwgcGxheSwgdHVybikgPT4gewogICAgY29uc3QgZGVwdGggPSBwaXRjaCAvIDIgLyBNYXRoLnRhbihhbmdsZSAqIE1hdGguUEkpOwogICAgcmV0dXJuIFNjcmV3VGhyZWFkU2VnbWVudChkaWFtZXRlciwgewogICAgICBwaXRjaCwKICAgICAgYW5nbGUsCiAgICAgIHBsYXk6IC1wbGF5LAogICAgICB0dXJuLAogICAgfSkuY3V0RnJvbSgKICAgICAgJ2Zhc3R4JywKICAgICAgQXJjKGRpYW1ldGVyICsgdGhpY2tuZXNzKQogICAgICAgIC5jdXQoJ2Zhc3R4JywgQXJjKGRpYW1ldGVyIC0gZGVwdGgpKQogICAgICAgIC5leihwaXRjaCkKICAgICk7CiAgfQopOwoKZXhwb3J0IGNvbnN0IE51dFRocmVhZFNlZ21lbnQgPSAoCiAgZGlhbWV0ZXIsCiAgewogICAgcGl0Y2ggPSAxLAogICAgdGhpY2tuZXNzID0gcGl0Y2ggKiAyLAogICAgYW5nbGUgPSA2MCAvIDM2MCwKICAgIHBsYXkgPSAwLjEsCiAgICB0dXJuID0gJ3JpZ2h0JywKICB9ID0ge30KKSA9PiBOdXRUaHJlYWRTZWdtZW50QnVpbGRlcihkaWFtZXRlciwgcGl0Y2gsIHRoaWNrbmVzcywgYW5nbGUsIHBsYXksIHR1cm4pOwoKZXhwb3J0IGNvbnN0IE51dFRocmVhZEJ1aWxkZXIgPSBDYWNoZWQoCiAgJ25iL3Byb2plY3RzL2JvbHQvYm9sdC5uYi9OdXRUaHJlYWQnLAogIChkaWFtZXRlciwgaGVpZ2h0LCBwaXRjaCwgYW5nbGUsIHBsYXksIHR1cm4pID0+CiAgICBOdXRUaHJlYWRTZWdtZW50KGRpYW1ldGVyLCB7IHBpdGNoLCBhbmdsZSwgcGxheSwgdHVybiB9KQogICAgICAuc2VxKHsgZnJvbTogMCwgdG86IGhlaWdodCwgYnk6IHBpdGNoIH0sIHopCiAgICAgIC5jdXQoJ2Zhc3R4JywgQm94KGRpYW1ldGVyICogMikuZXooaGVpZ2h0LCBoZWlnaHQgKyBwaXRjaCAqIDIpKQopOwoKZXhwb3J0IGNvbnN0IE51dFRocmVhZCA9ICgKICBkaWFtZXRlciwKICBoZWlnaHQsCiAgeyBwaXRjaCA9IDEsIGFuZ2xlID0gNjAgLyAzNjAsIHBsYXkgPSAwLjEsIHR1cm4gPSAncmlnaHQnIH0gPSB7fQopID0+IE51dFRocmVhZEJ1aWxkZXIoZGlhbWV0ZXIsIGhlaWdodCwgcGl0Y2gsIGFuZ2xlLCBwbGF5LCB0dXJuKTsK"}, module: "nb/projects/pentacular/bolt/examples.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });

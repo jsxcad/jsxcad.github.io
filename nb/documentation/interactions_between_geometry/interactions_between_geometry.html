@@ -5,71 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <style>
-    div.book {
-      height: 100%;
-      overflow: scroll;
-      margin-left: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
-
-    div.note.card {
-      border: 1px dashed crimson;
-      margin: 4px 4px;
-      padding: 4px 4px;
-      display: inline-block;
-      width: fit-content;
-      height: fit-content;
-    }
-
-    .note.log {
-      font-family: "Arial Black", Gadget, sans-serif;
-      color: red
-    }
-
-    .note.view {
-      border: 1px dashed dodgerblue;
-      margin: 4px 4px;
-      padding: 4px 4px;
-    }
-
-    .note.orbitView {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10000;
-    }
-
-    button.note.download {
-      border: 2px solid black;
-      border-radius: 5px;
-      background-color: white;
-      margin: 4px 4px;
-      padding: 10px 24px;
-      font-size: 16px;
-      cursor: pointer;
-      border-color: #2196F3;
-      color: dodgerblue
-    }
-
-    button.note.download:hover {
-      background: #2196F3;
-      color: white;
-    }
-
-    .note th,td {
-      border: 1px solid dodgerblue;
-      padding: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="https://jsxcad.js.org/css/standalone.css" />
  </head>
  <body>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script src="https://jsxcad.js.org/css/standalone.css"></script>
   <script type='module'>
     import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
     run({ encodedFiles: {"source/nb/documentation/interactions_between_geometry/interactions_between_geometry.nb":"bWRgCi0tLQojIEludGVyYWN0aW9ucyBiZXR3ZWVuIGdlb21ldHJ5CkpTeENBRCBvZmZlcnMgYSBudW1iZXIgb2Ygd2F5cyB0byBpbnRlcmFjdCB0d28gb3IgbW9yZSBnZW9tZXRyaWVzIHRvIGNyZWF0ZSBuZXcgZ2VvbWV0cnkuIE1vc3Qgb2YgdGhlc2Ugb3BlcmF0aW9ucyB3aWxsIHdvcmsgb24gYm90aCAyRCBhbmQgM0QgZ2VvbWV0cnkuCmA7CgptZGAKLS0tCiMjIyBBREQKUmV0dXJucyB0aGUgc2hhcGUgZXh0ZW5kZWQgdG8gaW5jbHVkZSB0aGUgc3BhY2Ugb2YgdGhlIGFkZGVkIHNoYXBlcy4KYDsKCkFyYygxMCwgMTAsIDUpCiAgLmNvbG9yKCdibHVlJykKICAuYWRkKEJveCg1LCA1LCA1KS5tb3ZlKDMsIDAsIDIpLmNvbG9yKCdyZWQnKSkKICAudmlldygpCiAgLm5vdGUoYFRoZSByZXN1bHQgaXMgYmx1ZSBzaW5jZSB0aGUgYmx1ZSBzaGFwZSB3YXMgYWRkZWQgdG9gKTsKCm1kYAotLS0KIyMjIEFzc2VtYmx5CkFzc2VtYmxlcyB0b2dldGhlciB0d28gb3IgbW9yZSAyRCBvciAzRCBzaGFwZXMgdG8gZm9ybSBhIHNpbmdsZSBvbmUuCgpTaGFwZXMgaW50ZXJhY3Qgc3VidHJhY3RpdmVseSB3aXRoIHNoYXBlcyBsYXRlciBpbiB0aGUgYXJndW1lbnRzIGxpc3QgbWVhbmluZyB0aGF0IG5vIG92ZXJsYXAgaXMgYWxsb3dlZCBpbiB0aGUgZ2VuZXJhdGVkIGFzc2VtYmx5LgoKVGhlIGFzc2VtYmxlZCBzaGFwZXMgY2FuIGxhdGVyIGJlIGRpc2Fzc2VtYmxlZCBpbnRvIHRoZWlyIGRpc2pvaW50IHBhcnRzLgoKU2VlIEdyb3VwIGFzIGFuIGFsdGVybmF0aXZlLgpgOwoKY29uc3QgdHdvQ3lsaW5kZXJzQXNzZW1ibGVkID0gQXNzZW1ibHkoCiAgQXJjKDEwLCAxMCwgMykuY29sb3IoJ3JlZCcpLAogIEFyYygxMCwgMTAsIDMpLmNvbG9yKCdibHVlJykueCg0KQopLnZpZXcoKTsKCm1kYFRoaXMgY2FuIGFsc28gYmUgYWNoaWV2ZWQgd2l0aCBhLmZpdChiKSBhbmQgYS5maXRUbyhiKS5gOwoKQXJjKDEwKS5maXQoQm94KDUpKS5wYWNrKCkudmlldygpOwoKQXJjKDEwKS5maXRUbyhCb3goNSkpLnBhY2soKS52aWV3KCk7CgptZGAKLS0tCiMjIyBDaGFpbkh1bGwKUGVyZm9ybXMgdGhlIGh1bGwgb3BlcmF0aW9uIHNlcXVlbnRpYWxseSBvbiB0aGUgaW5wdXQgc2hhcGVzLgpgOwoKQ2hhaW5IdWxsKEFyYygxMCksIEJveCg1KS5tb3ZlKDEyLCAxMiwgMCksIEFyYygyMCkueCg0MCkpLnZpZXcoKTsKCm1kYAotLS0KIyMjIENsaXAKUmV0dXJucyB0aGUgc2hhcGUgbGltaXRlZCB0byB0aGUgc3BhY2Ugb2YgdGhlIGNsaXBwaW5nIHNoYXBlcy5gOwoKQXJjKDEwLCAxMCwgNSkKICAuY29sb3IoJ2JsdWUnKQogIC5jbGlwKEJveCg1LCA1LCA1KS5tb3ZlKDMsIDAsIDIpLmNvbG9yKCdyZWQnKSkKICAudmlldygpCiAgLm1kKGBUaGUgcmVzdWx0IGlzIGJsdWUgc2luY2UgdGhlIGJsdWUgc2hhcGUgd2FzIGNsaXBwZWRgKTsKCkFyYygxMCwgMTAsIDUpCiAgLmNvbG9yKCdibHVlJykKICAuY2xpcEZyb20oQm94KDUsIDUsIDUpLm1vdmUoMywgMCwgMikuY29sb3IoJ3JlZCcpKQogIC52aWV3KCkKICAubWQoYFRoZSByZXN1bHQgaXMgcmVkIHNpbmNlIHRoZSByZWQgc2hhcGUgd2FzIGNsaXBwZWQgZnJvbS5gKTsKCm1kYAotLS0KIyMjIEN1dApSZXR1cm5zIHRoZSBzaGFwZSB3aXRoIHNwYWNlIG9mIHRoZSBjdXQgc2hhcGVzIHJlbW92ZWQuCmA7CgpBcmMoMTAsIDEwLCA1KQogIC5jb2xvcignYmx1ZScpCiAgLmN1dChCb3goNSwgNSwgNSkubW92ZSgzLCAwLCAyKS5jb2xvcigncmVkJykpCiAgLnZpZXcoKQogIC5tZChgVGhlIHJlc3VsdCBpcyBibHVlIHNpbmNlIHRoZSBibHVlIHNoYXBlIHdhcyBjdXQuYCk7CgpBcmMoMTAsIDEwLCA1KQogIC5jdXRGcm9tKEJveCg1LCA1LCA1KS5tb3ZlKDMsIDAsIDIpKQogIC52aWV3KCkKICAubWQoYFRoZSByZXN1bHQgaXMgcmVkIHNpbmNlIHRoZSByZWQgc2hhcGUgd2FzIGN1dCBmcm9tLmApOwoKbWRgCi0tLQojIyMgRml0CkZpdHMgdHdvIHNoYXBlcyB0b2dldGhlciBzdWNoIHRoYXQgb25lIGN1dHMgaW50byB0aGUgb3RoZXIuIFRoZSByZXN1bHQgaXMgc2ltaWxhciB0byBhc3NlbWJseS4KYDsKCmNvbnN0IGF4bGUgPSBBcmMoNSwgNSwgMTApLmNvbG9yKCdicm93bicpOwpjb25zdCB3aGVlbCA9IEFyYygyMCwgMjAsIDIpLmNvbG9yKCdncmV5Jyk7Cgp3aGVlbC5maXRUbyhheGxlKS52aWV3KCk7CmF4bGUuZml0KHdoZWVsKS52aWV3KCk7Cgp3aGVlbC5maXRUbyhheGxlKS5wYWNrKCkudmlldygpOyAvL0luIGJvdGggb2YgdGhlc2UgY2FzZXMgdGhlIGF4bGUgY3V0cyB0aGUgd2hlZWwuCgptZGAKLS0tCiMjIyBHcm91cApTaW1pbGFyIHRvIEFzc2VtYmx5LCBncm91cCBqb2lucyB0b2dldGhlciBhIG51bWJlciBvZiBzaGFwZXMsIGhvd2V2ZXIgdW5saWtlIEFzc2VtYmx5LCBHcm91cCBkb2VzIG5vdCBzdWJ0cmFjdCB0aGUgc2hhcGVzIHdoaWNoIG1lYW5zIHRoZXkgYXJlIGFsbG93ZWQgdG8gb3ZlcmxhcCB3aGljaCBtYWtlcyBHcm91cCBtdWNoIGZhc3RlciB0byBjb21wdXRlIHRoYW4gQXNzZW1ibHkuCgpHcm91cCBjYW4gYWxzbyBiZSBkb25lIHVzaW5nIHRoZSAuYW5kKCkgb3BlcmF0b3IuCmA7CgpHcm91cChBcmMoMTAsIDEwLCAzKSwgQXJjKDEwLCAxMCwgMykueCg0KSkudmlldygpOwoKQXJjKDEwLCAxMCwgMykuYW5kKEFyYygxMCwgMTAsIDMpLngoNCkpLnZpZXcoKTsgLy9Eb2VzIGEgZ3JvdXAKCm1kYAotLS0KIyMjIEh1bGwKUGVyZm9ybXMgdGhlIGh1bGwgb3BlcmF0aW9uIG9uIHRoZSBpbnB1dCBzaGFwZXMuYDsKCkh1bGwoQXJjKDEwKSwgQm94KDUpLm1vdmUoMTIsIDEyLCAwKSwgQXJjKDIwKS54KDQwKSkudmlldygpOwoKbWRgCi0tLQojIyMgTWFzawpNYXNrIGlzIHVzZWQgdG8gY3JlYXRlIGEgbWFzayBhcm91bmQgc29tZXRoaW5nLiBUaGlzIGFsbG93cyB0aGUgc2hhcGUgdG8gY3V0IGEgbGFyZ2VyIGhvbGUgdGhhbiBpdCdzIGFjdHVhbCBzaXplIHRvIGFkZCBwbGF5IG9yIGZvciBleGFtcGxlIGFyb3VuZCB0aGUgdGhyZWFkcyBvZiBhIGJvbHQuCmA7Cgpjb25zdCBzaGFmdCA9IEFyYygxMCwgMTAsIDQwKS5jb2xvcignZ3JleScpOwpzaGFmdC5tYXNrKGdyb3coMSkpLnZpZXcoKTsKCm1kYAotLS0KIyMjIFBhY2sKUGFjayB0YWtlcyBpbnB1dCBnZW9tZXRyeSBhbmQgbGF5cyBpdCBvdXQgb24gYSBzaGVldC4gR3JvdXBzIGFuZCBBc3NlbWJsaWVzIGFyZSBzcGxpdCBhcGFydCwgYnV0IGl0ZW1zIGFyZSBwcmVzZXJ2ZWQuCmA7CgpHcm91cChBcmMoMTApLCBCb3goMyksIEJveCgzLjUpKS5wYWNrKCkudmlldygpOwoKR3JvdXAoQXJjKDEwKSwgQm94KDMpLCBCb3goMy41KSkuYXMoJ2FuSXRlbScpLnBhY2soKS52aWV3KCk7Cg=="}, module: "nb/documentation/interactions_between_geometry/interactions_between_geometry.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });

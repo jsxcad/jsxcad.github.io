@@ -5,71 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <style>
-    div.book {
-      height: 100%;
-      overflow: scroll;
-      margin-left: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
-
-    div.note.card {
-      border: 1px dashed crimson;
-      margin: 4px 4px;
-      padding: 4px 4px;
-      display: inline-block;
-      width: fit-content;
-      height: fit-content;
-    }
-
-    .note.log {
-      font-family: "Arial Black", Gadget, sans-serif;
-      color: red
-    }
-
-    .note.view {
-      border: 1px dashed dodgerblue;
-      margin: 4px 4px;
-      padding: 4px 4px;
-    }
-
-    .note.orbitView {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10000;
-    }
-
-    button.note.download {
-      border: 2px solid black;
-      border-radius: 5px;
-      background-color: white;
-      margin: 4px 4px;
-      padding: 10px 24px;
-      font-size: 16px;
-      cursor: pointer;
-      border-color: #2196F3;
-      color: dodgerblue
-    }
-
-    button.note.download:hover {
-      background: #2196F3;
-      color: white;
-    }
-
-    .note th,td {
-      border: 1px solid dodgerblue;
-      padding: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="https://jsxcad.js.org/css/standalone.css" />
  </head>
  <body>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script src="https://jsxcad.js.org/css/standalone.css"></script>
   <script type='module'>
     import { run } from 'https://jsxcad.js.org/alpha/jsxcad-ui-app-standalone.js';
     run({ encodedFiles: {"source/nb/api/eachPoint.nb":"bWRgCltpbmRleF0oI2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9qc3hjYWQvSlN4Q0FEL21hc3Rlci9uYi9hcGkvaW5kZXgubmIpCiMjIyBlYWNoUG9pbnQKUGFyYW1ldGVyfERlZmF1bHR8VHlwZQotLS18LS0tfC0tLQp8cG9pbnRPcHwocG9pbnQsIHNoYXBlKSA9PiBlZGdlfEZ1bmN0aW9uIHRvIHRyYW5zZm9ybSBwb2ludHMuCnxncm91cE9wfEdyb3VwfEZ1bmN0aW9uIHRvIGdyb3VwIHRyYW5zZm9ybWVkIHBvaW50cy4KCnBvaW50T3AgbWF5IGJlIGEgc2hhcGUsIGluIHdoaWNoIGNhc2UgaXQgaXMgZXF1aXZhbGVudCB0byBwb2ludCA9PiBwb2ludE9wLnRvKHBvaW50KQoKVGFrZXMgZWFjaCBwb2ludCBzaGFwZSBhcyBhbiBpbmRpdmlkdWFsIHJlZmVyZW5jZS4KYDsKCkJveCg1LCA1LCA1KQogIC5jdXRGcm9tKGVhY2hQb2ludCgocCkgPT4gT3JiKDMpLnRvKHApKSkKICAudmlldygpCiAgLm1kKCdCb3goNSwgNSwgNSkuY3V0RnJvbShlYWNoUG9pbnQoKHApID0+IE9yYigzKS50byhwKSkpJyk7CgpCb3goNSwgNSwgNSkKICAub3V0bGluZSgpCiAgLmFuZChlYWNoUG9pbnQoQXJjKDQpKSkKICAudmlldygpCiAgLm1kKCdCb3goNSwgNSwgNSkub3V0bGluZSgpLmFuZChlYWNoUG9pbnQoQXJjKDQpKSknKTsK"}, module: "nb/api/eachPoint.nb", workspace: 'JSxCAD', container: document.getElementById('notebook') });
