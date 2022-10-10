@@ -6176,7 +6176,7 @@ class Standalone extends ReactDOM$1.Component {
       notes: NotebookNotes,
       workspace: workspace,
       onClickView: onClickView
-    }), ";");
+    }));
   }
 
 }
