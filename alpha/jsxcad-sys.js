@@ -1034,13 +1034,14 @@ const createService = (spec, worker) => {
 
 const controlValue = new Map();
 
-const setControlValue = (module, label, value) =>
-  controlValue.set(`${module}/${label}`, value);
+const setControlValue = (module, label, value) => {
+  return controlValue.set(`${module}/${label}`, value);
+};
 
-const getControlValue = (module, label, value) => {
+const getControlValue = (module, label, defaultValue) => {
   const result = controlValue.get(`${module}/${label}`);
   if (result === undefined) {
-    return value;
+    return defaultValue;
   } else {
     return result;
   }
@@ -2488,7 +2489,7 @@ const write = async (path, data, options = {}) => {
   const qualifiedPath = qualifyPath(path, workspace);
   const file = ensureQualifiedFile(path, qualifiedPath);
 
-  if (!file.data) {
+  if (file.data === undefined) {
     await notifyFileCreation(path, workspace);
   }
 
@@ -2567,9 +2568,10 @@ const getInternalFileFetcher = () => {
           return {};
         }
         logError(
-          'sys/getExternalFile/error',
+          'sys/getInternalFile/error',
           `qualifiedPath=${qualifiedPath} error=${e.toString()}`
         );
+        return {};
       }
     };
   } else if (isBrowser || isWebWorker) {
@@ -2613,6 +2615,9 @@ const fetchPersistent = (qualifiedPath, { workspace }) => {
     logError(
       'sys/fetchPersistent/error',
       `qualifiedPath=${qualifiedPath} error=${e.toString()}`
+    );
+    console.log(
+      `sys/fetchPersistent/error: qualifiedPath=${qualifiedPath} error=${e.toString()}`
     );
   }
 };
@@ -2725,7 +2730,10 @@ const read = async (path, options = {}) => {
   if (notifyFileReadEnabled) {
     await notifyFileRead(path, workspace);
   }
-  return file.data || otherwise;
+  if (file.data === undefined) {
+    return otherwise;
+  }
+  return file.data;
 };
 
 const readOrWatch = async (path, options = {}) => {

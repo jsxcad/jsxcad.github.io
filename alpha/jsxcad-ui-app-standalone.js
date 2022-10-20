@@ -1095,14 +1095,12 @@ function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends.apply(this, arguments);
@@ -1113,13 +1111,11 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
 }
 
@@ -1983,35 +1979,80 @@ class ControlNote extends ReactDOM$1.PureComponent {
       selected: propTypes$1.exports.boolean
     };
   }
-
   render() {
     const {
       note,
       selected
     } = this.props;
     const {
+      blur,
+      control
+    } = note;
+    const {
       label,
+      options,
+      type,
       value
-    } = note.control;
+    } = control;
     const ref = selected && /*#__PURE__*/p$1();
-
     if (selected) {
       y(() => ref.current.scrollIntoView(true));
     }
-
     const border = selected ? '1px dashed dodgerblue' : '0px';
-    return v$1(InputGroup, {
-      ref: ref,
-      style: {
-        border
-      }
-    }, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
-      className: "note control input",
-      value: value,
-      name: label
-    }));
+    // TODO: Slider.
+    switch (type) {
+      case 'check':
+        return v$1(InputGroup, {
+          ref: ref,
+          style: {
+            border,
+            opacity: blur ? 0.5 : 1
+          }
+        }, v$1(FormImpl.Check, {
+          label: label,
+          type: "checkbox",
+          name: label,
+          checked: value,
+          className: "note control check"
+        }));
+      case 'input':
+        return v$1(InputGroup, {
+          ref: ref,
+          style: {
+            border,
+            opacity: blur ? 0.5 : 1
+          }
+        }, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
+          className: "note control input",
+          value: value,
+          name: label
+        }));
+      case 'select':
+        return v$1(InputGroup, {
+          ref: ref,
+          style: {
+            border,
+            opacity: blur ? 0.5 : 1
+          }
+        }, v$1(InputGroup.Text, null, label), v$1(FormImpl.Control, {
+          as: "select",
+          className: "note control select",
+          name: label
+        }, options.map((option, nth) => v$1("option", {
+          key: nth,
+          value: option,
+          selected: option === value
+        }, option))));
+      default:
+        return v$1("div", {
+          ref: ref,
+          style: {
+            border,
+            opacity: blur ? 0.5 : 1
+          }
+        }, "Unsupported control type");
+    }
   }
-
 }
 
 /**
@@ -2244,13 +2285,11 @@ const downloadFile = async ({
       workspace
     });
   }
-
   const blob = new Blob([data], {
     type
   });
   saveAs(blob, filename);
 };
-
 class DownloadNote extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
@@ -2259,26 +2298,27 @@ class DownloadNote extends ReactDOM$1.PureComponent {
       workspace: propTypes$1.exports.string
     };
   }
-
   render() {
     const {
       note,
       selected,
       workspace
     } = this.props;
+    const {
+      blur,
+      download
+    } = note;
     const buttons = [];
-
     for (let {
       path,
       base64Data,
       data,
       filename,
       type
-    } of note.download.entries) {
+    } of download.entries) {
       if (base64Data) {
         data = decode(base64Data);
       }
-
       buttons.push(v$1(Button, {
         onClick: event => downloadFile({
           event,
@@ -2290,22 +2330,19 @@ class DownloadNote extends ReactDOM$1.PureComponent {
         })
       }, "Download ", filename));
     }
-
     const ref = selected && /*#__PURE__*/p$1();
-
     if (selected) {
       y(() => ref.current.scrollIntoView(true));
     }
-
     const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1(ButtonGroup, {
       ref: ref,
       style: {
-        border
+        border,
+        opacity: blur ? 0.5 : 1
       }
     }, buttons);
   }
-
 }
 
 /**
@@ -5117,7 +5154,6 @@ marked.use({
         return '<pre><code>' + code + '</code></pre>';
       }
     }
-
   }
 });
 class MdNote extends ReactDOM$1.PureComponent {
@@ -5127,19 +5163,20 @@ class MdNote extends ReactDOM$1.PureComponent {
       selected: propTypes$1.exports.boolean
     };
   }
-
   render() {
     const {
       note,
       selected
     } = this.props;
-    const html = marked(note.md);
+    const {
+      blur = false,
+      md
+    } = note;
+    const html = marked(md);
     const ref = selected && /*#__PURE__*/p$1();
-
     if (selected) {
       y(() => ref.current.scrollIntoView(true));
     }
-
     const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1("div", {
       ref: ref,
@@ -5147,11 +5184,11 @@ class MdNote extends ReactDOM$1.PureComponent {
         __html: html
       },
       style: {
-        border
+        border,
+        opacity: blur ? 0.5 : 1
       }
     });
   }
-
 }
 
 /*! *****************************************************************************
@@ -5273,9 +5310,7 @@ class ViewNote extends ReactDOM$1.PureComponent {
       workspace: propTypes$1.exports.string
     };
   }
-
   showOrbitView() {}
-
   render() {
     const {
       notebookPath,
@@ -5285,6 +5320,7 @@ class ViewNote extends ReactDOM$1.PureComponent {
       workspace
     } = this.props;
     const {
+      blur = false,
       view,
       sourceLocation
     } = note;
@@ -5292,7 +5328,6 @@ class ViewNote extends ReactDOM$1.PureComponent {
       height,
       width
     } = view;
-
     const onClick = event => {
       if (onClickView) {
         onClickView({
@@ -5306,20 +5341,16 @@ class ViewNote extends ReactDOM$1.PureComponent {
         });
       }
     };
-
     if (!note.url) {
       return v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: Math.min(width, height) * 0.8
       });
     }
-
     const ref = selected && /*#__PURE__*/p$1();
-
     if (selected) {
       y(() => ref.current.scrollIntoView(true));
     }
-
     const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1("img", {
       ref: ref,
@@ -5328,65 +5359,84 @@ class ViewNote extends ReactDOM$1.PureComponent {
         display: 'block',
         height: `${height}px`,
         width: `${width}px`,
-        border
+        border,
+        opacity: blur ? 0.5 : 1
       },
       src: note.url,
       onClick: onClick
     });
   }
-
 }
 
+const clearNotebookState = async (application, {
+  path,
+  workspace,
+  isToBeKept
+}) => {
+  application.setState(state => {
+    const {
+      [`NotebookNotes/${path}`]: oldNotebookNotes = {}
+    } = state;
+    const newNotebookNotes = {};
+    for (const key of Object.keys(oldNotebookNotes)) {
+      const note = oldNotebookNotes[key];
+      if (isToBeKept(note)) {
+        newNotebookNotes[key] = note;
+      }
+    }
+    return {
+      [`NotebookNotes/${path}`]: newNotebookNotes
+    };
+  });
+};
 const updateNotebookState = async (application, {
   notes,
   sourceLocation,
   workspace
 }) => {
-  const {
-    path
-  } = sourceLocation;
-
   const updateNote = note => {
+    const {
+      sourceLocation
+    } = note;
+    if (!sourceLocation) {
+      return;
+    }
+    const {
+      path
+    } = sourceLocation;
+    /*
     if (note.beginSourceLocation) {
       // Remove any existing notes for this line.
-      const {
-        line
-      } = note.beginSourceLocation;
-
-      const op = state => {
-        const {
-          [`NotebookNotes/${path}`]: oldNotebookNotes = {}
-        } = state;
-        const newNotebookNotes = { ...oldNotebookNotes
+      const { line } = note.beginSourceLocation;
+      const op = (state) => {
+        const { [`NotebookNotes/${path}`]: oldNotebookNotes = {} } = state;
+        const newNotebookNotes = {
+          ...oldNotebookNotes,
         };
-
         for (const key of Object.keys(newNotebookNotes)) {
           const note = newNotebookNotes[key];
-
           if (note.sourceLocation && note.sourceLocation.line === line) {
             delete newNotebookNotes[key];
           }
         }
-
-        return {
-          [`NotebookNotes/${path}`]: newNotebookNotes
-        };
+        return { [`NotebookNotes/${path}`]: newNotebookNotes };
       };
-
       application.setState(op);
     }
-
+    */
     if (!note.hash) {
       return;
     }
-
     const op = state => {
       const {
         [`NotebookNotes/${path}`]: oldNotebookNotes = {}
       } = state;
       const oldNote = oldNotebookNotes[note.hash] || {};
-      const newNotebookNotes = { ...oldNotebookNotes,
-        [note.hash]: { ...oldNote,
+      const newNotebookNotes = {
+        ...oldNotebookNotes,
+        [note.hash]: {
+          ...oldNote,
+          blur: false,
           ...note
         }
       };
@@ -5394,24 +5444,21 @@ const updateNotebookState = async (application, {
         [`NotebookNotes/${path}`]: newNotebookNotes
       };
     };
-
     application.setState(op);
   };
-
   for (const note of notes) {
     updateNote(note);
-
     if (note.view) {
       if (!note.url) {
         const loadThumbnail = async () => {
           let url = await (note.needsThumbnail ? read : readOrWatch)(`thumbnail/${note.hash}`, {
             workspace
           });
-
           if (!url) {
             const {
               path,
-              view
+              view,
+              sourceLocation
             } = note;
             const {
               width,
@@ -5421,7 +5468,6 @@ const updateNotebookState = async (application, {
             canvas.width = width;
             canvas.height = height;
             const offscreenCanvas = canvas.transferControlToOffscreen();
-
             for (let nth = 0; nth < 3; nth++) {
               try {
                 url = await application.ask({
@@ -5432,14 +5478,15 @@ const updateNotebookState = async (application, {
                   offscreenCanvas
                 }, {
                   path
-                }, [offscreenCanvas]); // Cache the thumbnail for next time.
-
+                }, [offscreenCanvas]);
+                // Cache the thumbnail for next time.
                 await write(`thumbnail/${note.hash}`, url, {
                   workspace
                 });
                 updateNote({
                   hash: note.hash,
-                  url
+                  url,
+                  sourceLocation
                 });
               } catch (error) {
                 if (error.message === 'Terminated') {
@@ -5449,16 +5496,15 @@ const updateNotebookState = async (application, {
               }
             }
           }
-
           if (url) {
             updateNote({
               hash: note.hash,
-              url
+              url,
+              sourceLocation
             });
           }
-        }; // Introduce a delay before rendering thumbnails to allow execution to proceed in the unthreaded cases.
-
-
+        };
+        // Introduce a delay before rendering thumbnails to allow execution to proceed in the unthreaded cases.
         setTimeout(loadThumbnail, 200);
       }
     }
@@ -5475,7 +5521,6 @@ class Notebook extends ReactDOM$1.PureComponent {
       workspace: propTypes$1.exports.string
     };
   }
-
   render() {
     try {
       const {
@@ -5488,7 +5533,6 @@ class Notebook extends ReactDOM$1.PureComponent {
       } = this.props;
       const children = [];
       const ordered = Object.values(notes);
-
       const getLine = note => {
         if (note.sourceLocation) {
           return note.sourceLocation.line;
@@ -5496,7 +5540,6 @@ class Notebook extends ReactDOM$1.PureComponent {
           return 0;
         }
       };
-
       const getNth = note => {
         if (note.sourceLocation) {
           return note.sourceLocation.nth;
@@ -5504,44 +5547,35 @@ class Notebook extends ReactDOM$1.PureComponent {
           return 0;
         }
       };
-
       const order = (a, b) => {
         const lineA = getLine(a);
         const lineB = getLine(b);
-
         if (lineA !== lineB) {
           return lineA - lineB;
         }
-
         const nthA = getNth(a);
         const nthB = getNth(b);
         return nthA - nthB;
       };
-
       ordered.sort(order);
       let line;
       let selectedNote;
-
       for (const note of ordered) {
         if (!note.view && !note.md && !note.download && !note.control) {
           continue;
-        } // FIX: This seems wasteful.
-
-
+        }
+        // FIX: This seems wasteful.
         if (note.sourceLocation && note.sourceLocation.line !== line) {
           line = note.sourceLocation.line;
-
           if (note.sourceLocation.line <= selectedLine) {
             selectedNote = note;
           }
         }
       }
-
       for (const note of ordered) {
         // FIX: This seems wasteful.
         const selected = note === selectedNote;
         let child;
-
         if (note.view) {
           child = v$1(ViewNote, {
             key: note.hash,
@@ -5571,13 +5605,10 @@ class Notebook extends ReactDOM$1.PureComponent {
             workspace: workspace
           });
         }
-
         if (child) {
           children.push(child);
         }
       }
-
-      console.log(`render Notebook`);
       y(() => mermaid.init(undefined, '.mermaid'));
       return v$1("div", {
         id: notebookPath,
@@ -5585,21 +5616,21 @@ class Notebook extends ReactDOM$1.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, children, state === 'running' && v$1(SpinnerCircularSplit, {
+      }, state === 'running' && v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: 64,
         style: {
           position: 'fixed',
           right: 32,
-          top: 32
+          top: 64,
+          zIndex: 1000
         }
-      }));
+      }), children);
     } catch (e) {
       console.log(e.stack);
       throw e;
     }
   }
-
 }
 
 class DynamicView extends ReactDOM$1.PureComponent {
@@ -5610,18 +5641,15 @@ class DynamicView extends ReactDOM$1.PureComponent {
       workspace: propTypes$1.exports.string
     };
   }
-
   async buildElement(container) {
     const {
       path,
       view,
       workspace
     } = this.props;
-
     if (!path) {
       return;
     }
-
     const geometry = await readOrWatch(path, {
       workspace
     });
@@ -5632,30 +5660,24 @@ class DynamicView extends ReactDOM$1.PureComponent {
       geometry,
       view
     }, container);
-
     this.watcher = async () => {
       updateGeometry(await read(path, {
         workspace
       }));
     };
-
     watchFile(path, workspace, this.watcher);
   }
-
   componentWillUnmount() {
     const {
       workspace
     } = this.props;
-
     if (this.watcher) {
       unwatchFile(this.path, workspace, this.watcher);
     }
-
     while (this.container.firstChild !== this.container.lastChild) {
       this.container.removeChild(this.container.firstChild);
     }
   }
-
   render() {
     return v$1("div", {
       classList: "note orbitView",
@@ -5666,7 +5688,6 @@ class DynamicView extends ReactDOM$1.PureComponent {
       }
     });
   }
-
 }
 
 var dist = {};
@@ -5975,7 +5996,6 @@ var SplitPaneModule = /*@__PURE__*/getDefaultExportFromCjs(dist);
 const {
   SplitPane
 } = SplitPaneModule;
-
 class Standalone extends ReactDOM$1.Component {
   static get propTypes() {
     return {
@@ -5985,7 +6005,6 @@ class Standalone extends ReactDOM$1.Component {
       workspace: propTypes$1.exports.string
     };
   }
-
   async componentDidMount() {
     const {
       baseUrl,
@@ -5993,61 +6012,58 @@ class Standalone extends ReactDOM$1.Component {
       module,
       workspace
     } = this.props;
-
+    const setVersion = (notes, version) => {
+      for (const note of notes) {
+        note.version = version;
+      }
+    };
     const renderViews = async notes => {
       for (const note of notes) {
         if (!note.view) {
           continue;
         }
-
         if (note.path && !note.data) {
           note.data = await read(note.path, {
             workspace
           });
         }
-
         if (note.data) {
           note.data = await note.data;
-
           if (!note.url) {
             note.url = await dataUrl(api.Shape.fromGeometry(note.data), note.view);
           }
         }
       }
     };
-
     const fixLinks = async notes => {
       for (const note of notes) {
         if (!note.md) {
           continue;
         }
-
         note.md = note.md.replace(/#https:[/][/]raw.githubusercontent.com[/]jsxcad[/]JSxCAD[/]master[/](.*?).nb/g, (_, modulePath) => baseUrl + '/' + modulePath + '.html');
       }
     };
-
     const prepareDownloads = async notes => {
       for (const note of notes) {
         if (!note.download) {
           continue;
         }
-
         for (const entry of note.download.entries) {
           entry.data = await entry.data;
         }
       }
     };
-
     const run = async ({
       isRerun = false
     } = {}) => {
+      const version = new Date().getTime();
       const addNotes = async notes => {
         if (notes.length === 0) {
           return;
         }
-
-        const sourceLocation = notes[0].sourceLocation; // TODO: Parallelize these operations.
-
+        const sourceLocation = notes[0].sourceLocation;
+        // TODO: Parallelize these operations.
+        setVersion(notes, version);
         await renderViews(notes);
         await fixLinks(notes);
         await prepareDownloads(notes);
@@ -6057,16 +6073,13 @@ class Standalone extends ReactDOM$1.Component {
           workspace
         });
       };
-
       const onEmitHandler = addOnEmitHandler(addNotes);
-
       if (isRerun) {
         const notebookControlData = await getNotebookControlData();
         await write('control/' + module, notebookControlData, {
           workspace
         });
       }
-
       const topLevel = new Map();
       this.setState({
         [`NotebookState/${module}`]: 'running'
@@ -6076,34 +6089,36 @@ class Standalone extends ReactDOM$1.Component {
         topLevel,
         readCache: false,
         workspace
-      }); // We can't emit infinity, so let's use an exceedingly large number.
-
+      });
+      // We can't emit infinity, so let's use an exceedingly large number.
       await resolvePending();
       this.setState({
         [`NotebookState/${module}`]: 'idle'
       });
       removeOnEmitHandler(onEmitHandler);
+      clearNotebookState(this, {
+        path: module,
+        workspace,
+        isToBeKept: note => note.version === version
+      });
     };
-
     const onKeyDown = e => {
-      const CONTROL = 17; // const E = 69;
-
-      const ENTER = 13; // const S = 83;
-
+      const CONTROL = 17;
+      // const E = 69;
+      const ENTER = 13;
+      // const S = 83;
       const SHIFT = 16;
       const key = e.which || e.keyCode || 0;
-
       switch (key) {
         case CONTROL:
         case SHIFT:
           return true;
-      } // const { ctrlKey, shiftKey } = e;
+      }
 
-
+      // const { ctrlKey, shiftKey } = e;
       const {
         shiftKey
       } = e;
-
       switch (key) {
         case ENTER:
           {
@@ -6115,25 +6130,22 @@ class Standalone extends ReactDOM$1.Component {
               });
               return false;
             }
-
             break;
           }
       }
     };
-
     setupWorkspace(workspace);
-    await boot(); // Construct a local ephemeral filesystem.
+    await boot();
 
+    // Construct a local ephemeral filesystem.
     for (const path of Object.keys(files)) {
       await write(path, files[path], {
         ephemeral: true
       });
     }
-
     await run();
     window.addEventListener('keydown', onKeyDown);
   }
-
   render() {
     const {
       module,
@@ -6145,7 +6157,6 @@ class Standalone extends ReactDOM$1.Component {
       [`NotebookDynamicViewPath/${module}`]: NotebookDynamicViewPath,
       [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView = {}
     } = this.state;
-
     const onClickView = async ({
       note
     }) => {
@@ -6157,7 +6168,6 @@ class Standalone extends ReactDOM$1.Component {
         [`NotebookDynamicViewView/${module}`]: NotebookDynamicViewView || note.view
       });
     };
-
     return v$1(SplitPane, null, NotebookDynamicViewPath && v$1(DynamicView, {
       path: NotebookDynamicViewPath,
       view: NotebookDynamicViewView,
@@ -6170,9 +6180,7 @@ class Standalone extends ReactDOM$1.Component {
       state: NotebookState
     }));
   }
-
 }
-
 const run = async ({
   baseUrl = '',
   encodedFiles,
@@ -6189,7 +6197,6 @@ const run = async ({
       files: files
     }), container);
   };
-
   if (document.readyState === 'complete') {
     start();
   } else {
