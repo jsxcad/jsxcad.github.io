@@ -1,4 +1,4 @@
-import { Shape, destructure, ensurePages } from './jsxcad-api-shape.js';
+import { Shape, destructure, ensurePages, view } from './jsxcad-api-shape.js';
 import { fromStl, toStl } from './jsxcad-convert-stl.js';
 import { read, getSourceLocation, generateUniqueId, write, emit } from './jsxcad-sys.js';
 import { hash } from './jsxcad-geometry.js';
@@ -95,8 +95,8 @@ const prepareStl = async (shape, name, op = (s) => s, options = {}) => {
     records.push(record);
     // Produce a view of what will be downloaded.
     const hash$1 =
-      hashSum({ filename, options }) + hash(shape.toGeometry());
-    Shape.fromGeometry(entry).view(name, options.view);
+      hashSum({ filename, options }) + hash(entry);
+    await view(name, options.view)(Shape.fromGeometry(entry));
     emit({ download: { entries: [record] }, hash: hash$1 });
   }
   return records;

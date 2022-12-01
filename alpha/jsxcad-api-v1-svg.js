@@ -1,4 +1,4 @@
-import { Shape, ensurePages } from './jsxcad-api-shape.js';
+import { Shape, ensurePages, gridView } from './jsxcad-api-shape.js';
 import { fromSvg, fromSvgPath, toSvg } from './jsxcad-convert-svg.js';
 import { read, getSourceLocation, generateUniqueId, write, emit } from './jsxcad-sys.js';
 import { hash } from './jsxcad-geometry.js';
@@ -120,8 +120,8 @@ const prepareSvg = async (shape, name, op = (s) => s, options = {}) => {
     };
     records.push(record);
     const hash$1 =
-      hashSum({ filename, options }) + hash(await shape.toGeometry());
-    Shape.fromGeometry(entry).gridView(hash$1, options.view);
+      hashSum({ filename, options }) + hash(entry);
+    await gridView(hash$1, options.view)(Shape.fromGeometry(entry));
     emit({ download: { entries: [record] }, hash: hash$1 });
   }
   return records;
