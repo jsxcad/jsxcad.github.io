@@ -1,12 +1,12 @@
-import { getSourceLocation, startTime, endTime, emit, computeHash, logInfo, read, log as log$1, write, generateUniqueId, isNode } from './jsxcad-sys.js';
+import { getSourceLocation, startTime, endTime, emit, computeHash, generateUniqueId, write, isNode, logInfo, read, log as log$1 } from './jsxcad-sys.js';
 export { elapsed, emit, read, write } from './jsxcad-sys.js';
-import { taggedGraph, taggedSegments, taggedPoints, fromPolygons, taggedPlan, hasTypeReference, taggedGroup, join as join$1, makeAbsolute, measureBoundingBox, measureArea, taggedItem, transform as transform$1, getInverseMatrices, computeNormal, extrude, transformCoordinate, link as link$1, bend as bend$1, rewrite, visit, getLeafs, computeCentroid, convexHull, fuse as fuse$1, noGhost, clip as clip$1, cut as cut$1, deform as deform$1, demesh as demesh$1, disjoint as disjoint$1, hasTypeGhost, replacer, toDisplayGeometry as toDisplayGeometry$1, taggedLayout, getLayouts, eachFaceEdges, eachPoint as eachPoint$1, eagerTransform as eagerTransform$1, fill as fill$1, fix as fix$1, grow as grow$1, inset as inset$1, involute as involute$1, load as load$1, read as read$1, loft as loft$1, generateLowerEnvelope, hasShowOverlay, hasTypeMasked, hasMaterial, offset as offset$1, outline as outline$1, remesh as remesh$1, store, write as write$1, fromScaleToTransform, seam as seam$1, section as section$1, separate as separate$1, serialize as serialize$1, rewriteTags, cast, simplify as simplify$1, taggedSketch, smooth as smooth$1, hash, toPoints as toPoints$1, computeToolpath, twist as twist$1, generateUpperEnvelope, hasTypeVoid, measureVolume, withAabbTreeQuery, linearize, wrap as wrap$1, computeImplicitVolume } from './jsxcad-geometry.js';
+import { taggedGraph, taggedSegments, taggedPoints, fromPolygons, taggedPlan, hasTypeReference, taggedGroup, join as join$1, makeAbsolute, measureBoundingBox, measureArea, taggedItem, transform as transform$1, getInverseMatrices, computeNormal, extrude, transformCoordinate, link as link$1, bend as bend$1, rewrite, visit, getLeafs, computeCentroid, convexHull, fuse as fuse$1, noGhost, clip as clip$1, cut as cut$1, deform as deform$1, demesh as demesh$1, disjoint as disjoint$1, hasTypeGhost, replacer, toDisplayGeometry as toDisplayGeometry$1, taggedLayout, getLayouts, eachFaceEdges, eachPoint as eachPoint$1, eagerTransform as eagerTransform$1, fill as fill$1, fix as fix$1, grow as grow$1, inset as inset$1, involute as involute$1, load as load$1, read as read$1, loft as loft$1, generateLowerEnvelope, hasShowOverlay, hasTypeMasked, hasMaterial, offset as offset$1, outline as outline$1, remesh as remesh$1, store, write as write$1, fromScaleToTransform, seam as seam$1, section as section$1, separate as separate$1, serialize as serialize$1, rewriteTags, cast, simplify as simplify$1, taggedSketch, smooth as smooth$1, hash, toPoints as toPoints$1, computeToolpath, twist as twist$1, generateUpperEnvelope, unfold as unfold$1, hasTypeVoid, measureVolume, withAabbTreeQuery, linearize, wrap as wrap$1, computeImplicitVolume } from './jsxcad-geometry.js';
 import { zag } from './jsxcad-api-v1-math.js';
 import { fromRotateXToTransform, fromRotateYToTransform, fromSegmentToInverseTransform, invertTransform, fromTranslateToTransform, fromRotateZToTransform, setTestMode, makeUnitSphere as makeUnitSphere$1 } from './jsxcad-algorithm-cgal.js';
 import { toTagsFromName } from './jsxcad-algorithm-color.js';
+import { dataUrl } from './jsxcad-ui-threejs.js';
 import { pack as pack$1 } from './jsxcad-algorithm-pack.js';
 import { fromStl, toStl } from './jsxcad-convert-stl.js';
-import { dataUrl } from './jsxcad-ui-threejs.js';
 import { fromSvg, toSvg } from './jsxcad-convert-svg.js';
 import { toTagsFromName as toTagsFromName$1 } from './jsxcad-algorithm-tool.js';
 import { fromPng } from './jsxcad-convert-png.js';
@@ -4239,6 +4239,216 @@ const getTags = Shape.registerMethod(
     }
 );
 
+const applyModes = async (shape, options, modes) => {
+  if (modes.includes('wireframe')) {
+    shape = await shape.tag('show:wireframe');
+  }
+  if (modes.includes('noWireframe')) {
+    shape = await shape.tag('show:noWireframe');
+  }
+  if (modes.includes('skin')) {
+    shape = await shape.tag('show:skin');
+  }
+  if (modes.includes('noSkin')) {
+    shape = await shape.tag('show:noSkin');
+  }
+  if (modes.includes('Outline')) {
+    shape = await shape.tag('show:outline');
+  }
+  if (modes.includes('noOutline')) {
+    shape = await shape.tag('show:noOutline');
+  }
+  return shape;
+};
+
+// FIX: Avoid the extra read-write cycle.
+const baseView =
+  (viewId, op = (x) => x, options = {}) =>
+  async (shape) => {
+    let {
+      size,
+      inline,
+      width = 512,
+      height = 512,
+      position = [100, -100, 100],
+    } = options;
+
+    if (size !== undefined) {
+      width = size;
+      height = size / 2;
+    }
+    const viewShape = await op(shape);
+    const sourceLocation = getSourceLocation();
+    if (!sourceLocation) {
+      console.log('No sourceLocation');
+    }
+    const { id, path, nth } = sourceLocation;
+    if (viewId) {
+      // We can't put spaces into viewId since that would break dom classname requirements.
+      viewId = `${id}_${String(viewId).replace(/ /g, '_')}`;
+    } else if (nth) {
+      viewId = `${id}_${nth}`;
+    } else {
+      viewId = `${id}`;
+    }
+    const displayGeometry = await viewShape.toDisplayGeometry();
+    for (const pageGeometry of await ensurePages(
+      Shape.fromGeometry(displayGeometry),
+      0)) {
+      const viewPath = `view/${path}/${id}/${viewId}.view`;
+      const hash = generateUniqueId();
+      const thumbnailPath = `thumbnail/${hash}`;
+      const view = {
+        viewId,
+        width,
+        height,
+        position,
+        inline,
+        needsThumbnail: isNode,
+      };
+      emit({ hash, path: viewPath, view });
+      await write(viewPath, pageGeometry);
+      if (!isNode) {
+        await write(thumbnailPath, dataUrl(viewShape, view));
+      }
+    }
+    return shape;
+  };
+
+Shape.registerMethod(
+  'topView',
+  (...args) =>
+    async (shape) => {
+      const {
+        value: viewId,
+        func: op = (x) => x,
+        object: options,
+        strings: modes,
+      } = Shape.destructure(args, {
+        object: {
+          size: 512,
+          skin: true,
+          outline: true,
+          wireframe: false,
+          width: 512,
+          height: 512,
+          position: [0, 0, 100],
+        },
+      });
+      shape = await applyModes(shape, options, modes);
+      return baseView(viewId, op, options)(shape);
+    }
+);
+
+const gridView = Shape.registerMethod(
+  'gridView',
+  (...args) =>
+    async (shape) => {
+      const {
+        value: viewId,
+        func: op = (x) => x,
+        object: options,
+        strings: modes,
+      } = Shape.destructure(args, {
+        object: {
+          size: 512,
+          skin: true,
+          outline: true,
+          wireframe: false,
+          width: 512,
+          height: 512,
+          position: [0, 0, 100],
+        },
+      });
+      shape = await applyModes(shape, options, modes);
+      return baseView(viewId, op, options)(shape);
+    }
+);
+
+Shape.registerMethod(
+  'frontView',
+  (...args) =>
+    async (shape) => {
+      const {
+        value: viewId,
+        func: op = (x) => x,
+        object: options,
+        strings: modes,
+      } = Shape.destructure(args, {
+        object: {
+          size: 512,
+          skin: true,
+          outline: true,
+          wireframe: false,
+          width: 512,
+          height: 512,
+          position: [0, -100, 0],
+        },
+      });
+      shape = await applyModes(shape, options, modes);
+      return baseView(viewId, op, options)(shape);
+    }
+);
+
+Shape.registerMethod(
+  'sideView',
+  (...args) =>
+    async (shape) => {
+      const {
+        value: viewId,
+        func: op = (x) => x,
+        object: options,
+        strings: modes,
+      } = Shape.destructure(args, {
+        object: {
+          size: 512,
+          skin: true,
+          outline: true,
+          wireframe: false,
+          width: 512,
+          height: 512,
+          position: [100, 0, 0],
+        },
+      });
+      shape = await applyModes(shape, options, modes);
+      return baseView(viewId, op, options)(shape);
+    }
+);
+
+const view = Shape.registerMethod('view', (...args) => async (shape) => {
+  const {
+    value: viewId,
+    func: op = (x) => x,
+    object: options,
+    strings: modes,
+  } = Shape.destructure(args);
+  shape = await applyModes(shape, options, modes);
+  if (modes.includes('grid')) {
+    options.style = 'grid';
+  }
+  if (modes.includes('none')) {
+    options.style = 'none';
+  }
+  if (modes.includes('side')) {
+    options.style = 'side';
+  }
+  if (modes.includes('top')) {
+    options.style = 'top';
+  }
+  switch (options.style) {
+    case 'grid':
+      return shape.gridView(viewId, op, options, ...modes);
+    case 'none':
+      return shape;
+    case 'side':
+      return shape.sideView(viewId, op, options, ...modes);
+    case 'top':
+      return shape.topView(viewId, op, options, ...modes);
+    default:
+      return baseView(viewId, op, options)(shape);
+  }
+});
+
 const grow = Shape.registerMethod('grow', (...args) => async (shape) => {
   const {
     number: amount,
@@ -5221,216 +5431,6 @@ const sort = Shape.registerMethod(
     }
 );
 
-const applyModes = async (shape, options, modes) => {
-  if (modes.includes('wireframe')) {
-    shape = await shape.tag('show:wireframe');
-  }
-  if (modes.includes('noWireframe')) {
-    shape = await shape.tag('show:noWireframe');
-  }
-  if (modes.includes('skin')) {
-    shape = await shape.tag('show:skin');
-  }
-  if (modes.includes('noSkin')) {
-    shape = await shape.tag('show:noSkin');
-  }
-  if (modes.includes('Outline')) {
-    shape = await shape.tag('show:outline');
-  }
-  if (modes.includes('noOutline')) {
-    shape = await shape.tag('show:noOutline');
-  }
-  return shape;
-};
-
-// FIX: Avoid the extra read-write cycle.
-const baseView =
-  (viewId, op = (x) => x, options = {}) =>
-  async (shape) => {
-    let {
-      size,
-      inline,
-      width = 512,
-      height = 512,
-      position = [100, -100, 100],
-    } = options;
-
-    if (size !== undefined) {
-      width = size;
-      height = size / 2;
-    }
-    const viewShape = await op(shape);
-    const sourceLocation = getSourceLocation();
-    if (!sourceLocation) {
-      console.log('No sourceLocation');
-    }
-    const { id, path, nth } = sourceLocation;
-    if (viewId) {
-      // We can't put spaces into viewId since that would break dom classname requirements.
-      viewId = `${id}_${String(viewId).replace(/ /g, '_')}`;
-    } else if (nth) {
-      viewId = `${id}_${nth}`;
-    } else {
-      viewId = `${id}`;
-    }
-    const displayGeometry = await viewShape.toDisplayGeometry();
-    for (const pageGeometry of await ensurePages(
-      Shape.fromGeometry(displayGeometry),
-      0)) {
-      const viewPath = `view/${path}/${id}/${viewId}.view`;
-      const hash = generateUniqueId();
-      const thumbnailPath = `thumbnail/${hash}`;
-      const view = {
-        viewId,
-        width,
-        height,
-        position,
-        inline,
-        needsThumbnail: isNode,
-      };
-      emit({ hash, path: viewPath, view });
-      await write(viewPath, pageGeometry);
-      if (!isNode) {
-        await write(thumbnailPath, dataUrl(viewShape, view));
-      }
-    }
-    return shape;
-  };
-
-Shape.registerMethod(
-  'topView',
-  (...args) =>
-    async (shape) => {
-      const {
-        value: viewId,
-        func: op = (x) => x,
-        object: options,
-        strings: modes,
-      } = Shape.destructure(args, {
-        object: {
-          size: 512,
-          skin: true,
-          outline: true,
-          wireframe: false,
-          width: 512,
-          height: 512,
-          position: [0, 0, 100],
-        },
-      });
-      shape = await applyModes(shape, options, modes);
-      return baseView(viewId, op, options)(shape);
-    }
-);
-
-const gridView = Shape.registerMethod(
-  'gridView',
-  (...args) =>
-    async (shape) => {
-      const {
-        value: viewId,
-        func: op = (x) => x,
-        object: options,
-        strings: modes,
-      } = Shape.destructure(args, {
-        object: {
-          size: 512,
-          skin: true,
-          outline: true,
-          wireframe: false,
-          width: 512,
-          height: 512,
-          position: [0, 0, 100],
-        },
-      });
-      shape = await applyModes(shape, options, modes);
-      return baseView(viewId, op, options)(shape);
-    }
-);
-
-Shape.registerMethod(
-  'frontView',
-  (...args) =>
-    async (shape) => {
-      const {
-        value: viewId,
-        func: op = (x) => x,
-        object: options,
-        strings: modes,
-      } = Shape.destructure(args, {
-        object: {
-          size: 512,
-          skin: true,
-          outline: true,
-          wireframe: false,
-          width: 512,
-          height: 512,
-          position: [0, -100, 0],
-        },
-      });
-      shape = await applyModes(shape, options, modes);
-      return baseView(viewId, op, options)(shape);
-    }
-);
-
-Shape.registerMethod(
-  'sideView',
-  (...args) =>
-    async (shape) => {
-      const {
-        value: viewId,
-        func: op = (x) => x,
-        object: options,
-        strings: modes,
-      } = Shape.destructure(args, {
-        object: {
-          size: 512,
-          skin: true,
-          outline: true,
-          wireframe: false,
-          width: 512,
-          height: 512,
-          position: [100, 0, 0],
-        },
-      });
-      shape = await applyModes(shape, options, modes);
-      return baseView(viewId, op, options)(shape);
-    }
-);
-
-const view = Shape.registerMethod('view', (...args) => async (shape) => {
-  const {
-    value: viewId,
-    func: op = (x) => x,
-    object: options,
-    strings: modes,
-  } = Shape.destructure(args);
-  shape = await applyModes(shape, options, modes);
-  if (modes.includes('grid')) {
-    options.style = 'grid';
-  }
-  if (modes.includes('none')) {
-    options.style = 'none';
-  }
-  if (modes.includes('side')) {
-    options.style = 'side';
-  }
-  if (modes.includes('top')) {
-    options.style = 'top';
-  }
-  switch (options.style) {
-    case 'grid':
-      return shape.gridView(viewId, op, options, ...modes);
-    case 'none':
-      return shape;
-    case 'side':
-      return shape.sideView(viewId, op, options, ...modes);
-    case 'top':
-      return shape.topView(viewId, op, options, ...modes);
-    default:
-      return baseView(viewId, op, options)(shape);
-  }
-});
-
 const LoadStl = Shape.registerShapeMethod('LoadStl', async (...args) => {
   const { strings } = destructure(args);
   const [path, ...modes] = strings;
@@ -5710,6 +5710,13 @@ const upperEnvelope = Shape.registerMethod(
   'upperEnvelope',
   () => async (shape) =>
     Shape.fromGeometry(generateUpperEnvelope(await shape.toGeometry()))
+);
+
+const unfold = Shape.registerMethod(
+  'unfold',
+  () =>
+    async (shape) =>
+      unfold$1(await shape.toGeometry())
 );
 
 const voidFn = Shape.registerMethod(
@@ -6603,4 +6610,4 @@ const Wave = Shape.registerShapeMethod('Wave', async (...args) => {
   return Link(particles);
 });
 
-export { Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainHull, Clip, Curve, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Link, List, LoadPng, LoadStl, LoadSvg, Loft, Loop, Note, Octagon, Orb, Page, Pentagon, Plan, Point, Points, Polygon, Polyhedron, RX, RY, RZ, Ref, Segments, Seq, Shape, Spiral, SurfaceMesh, Svg, Triangle, Voxels, Wave, Wrap, X$8 as X, XY, XZ, Y$8 as Y, YZ, Z$7 as Z, absolute, abstract, addTo, align, and, area, as, asPart, at, bb, bend, billOfMaterials, by, center, chainHull, clean, clip, clipFrom, color, copy, cut, cutFrom, cutOut, defRgbColor, defThreejsMaterial, defTool, define, deform, demesh, destructure, disjoint, drop, e, each, eachEdge, eachPoint, eagerTransform, edges, edit, ensurePages, ex, extrudeAlong, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fix, flat, fuse, g, get, getAll, getNot, getTag, getTags, ghost, gn, gridView, grow, hull, image, inFn, inset, involute, join, link, list, load, loadGeometry, loft, log, loop, lowerEnvelope, m, masked, masking, material, md, move, moveAlong, n, noOp, noVoid, normal, note, nth, o, ofPlan, offset, on, op, orient, origin, outline, overlay, pack, page, points$1 as points, put, ref, remesh, rotateX, rotateY, rotateZ, rx, ry, rz, save, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, seam, section, sectionProfile, self, separate, seq, serialize, setTag, setTags, shadow, simplify, size, sketch, smooth, sort, stl, svg, sx, sy, sz, table, tag, tags, testMode, tint, to, toCoordinate, toCoordinates, toDisplayGeometry, toFlatValues, toGeometry, toNestedValues, toPoints, toShape, toShapeGeometry, toShapes, toShapesGeometries, toValue, tool, toolpath, transform, twist, untag, upperEnvelope, view, voidFn, volume, voxels, wrap, x, xyz, y, z };
+export { Arc, ArcX, ArcY, ArcZ, Assembly, Box, Cached, ChainHull, Clip, Curve, Edge, Edges, Empty, Face, GrblConstantLaser, GrblDynamicLaser, GrblPlotter, GrblSpindle, Group, Hershey, Hexagon, Hull, Icosahedron, Implicit, Join, Line, Link, List, LoadPng, LoadStl, LoadSvg, Loft, Loop, Note, Octagon, Orb, Page, Pentagon, Plan, Point, Points, Polygon, Polyhedron, RX, RY, RZ, Ref, Segments, Seq, Shape, Spiral, SurfaceMesh, Svg, Triangle, Voxels, Wave, Wrap, X$8 as X, XY, XZ, Y$8 as Y, YZ, Z$7 as Z, absolute, abstract, addTo, align, and, area, as, asPart, at, bb, bend, billOfMaterials, by, center, chainHull, clean, clip, clipFrom, color, copy, cut, cutFrom, cutOut, defRgbColor, defThreejsMaterial, defTool, define, deform, demesh, destructure, disjoint, drop, e, each, eachEdge, eachPoint, eagerTransform, edges, edit, ensurePages, ex, extrudeAlong, extrudeX, extrudeY, extrudeZ, ey, ez, faces, fill, fit, fitTo, fix, flat, fuse, g, get, getAll, getNot, getTag, getTags, ghost, gn, gridView, grow, hull, image, inFn, inset, involute, join, link, list, load, loadGeometry, loft, log, loop, lowerEnvelope, m, masked, masking, material, md, move, moveAlong, n, noOp, noVoid, normal, note, nth, o, ofPlan, offset, on, op, orient, origin, outline, overlay, pack, page, points$1 as points, put, ref, remesh, rotateX, rotateY, rotateZ, rx, ry, rz, save, saveGeometry, scale, scaleToFit, scaleX, scaleY, scaleZ, seam, section, sectionProfile, self, separate, seq, serialize, setTag, setTags, shadow, simplify, size, sketch, smooth, sort, stl, svg, sx, sy, sz, table, tag, tags, testMode, tint, to, toCoordinate, toCoordinates, toDisplayGeometry, toFlatValues, toGeometry, toNestedValues, toPoints, toShape, toShapeGeometry, toShapes, toShapesGeometries, toValue, tool, toolpath, transform, twist, unfold, untag, upperEnvelope, view, voidFn, volume, voxels, wrap, x, xyz, y, z };
