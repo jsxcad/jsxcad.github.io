@@ -2345,9 +2345,525 @@ class DownloadNote extends ReactDOM$1.PureComponent {
   }
 }
 
+const globalWindow = window;
+function CodeJar(editor, highlight, opt = {}) {
+    const options = Object.assign({ tab: '\t', indentOn: /[({\[]$/, moveToNewLine: /^[)}\]]/, spellcheck: false, catchTab: true, preserveIdent: true, addClosing: true, history: true, window: globalWindow }, opt);
+    const window = options.window;
+    const document = window.document;
+    let listeners = [];
+    let history = [];
+    let at = -1;
+    let focus = false;
+    let callback;
+    let prev; // code content prior keydown event
+    editor.setAttribute('contenteditable', 'plaintext-only');
+    editor.setAttribute('spellcheck', options.spellcheck ? 'true' : 'false');
+    editor.style.outline = 'none';
+    editor.style.overflowWrap = 'break-word';
+    editor.style.overflowY = 'auto';
+    editor.style.whiteSpace = 'pre-wrap';
+    let isLegacy = false; // true if plaintext-only is not supported
+    highlight(editor);
+    if (editor.contentEditable !== 'plaintext-only')
+        isLegacy = true;
+    if (isLegacy)
+        editor.setAttribute('contenteditable', 'true');
+    const debounceHighlight = debounce(() => {
+        const pos = save();
+        highlight(editor, pos);
+        restore(pos);
+    }, 30);
+    let recording = false;
+    const shouldRecord = (event) => {
+        return !isUndo(event) && !isRedo(event)
+            && event.key !== 'Meta'
+            && event.key !== 'Control'
+            && event.key !== 'Alt'
+            && !event.key.startsWith('Arrow');
+    };
+    const debounceRecordHistory = debounce((event) => {
+        if (shouldRecord(event)) {
+            recordHistory();
+            recording = false;
+        }
+    }, 300);
+    const on = (type, fn) => {
+        listeners.push([type, fn]);
+        editor.addEventListener(type, fn);
+    };
+    on('keydown', event => {
+        if (event.defaultPrevented)
+            return;
+        prev = toString();
+        if (options.preserveIdent)
+            handleNewLine(event);
+        else
+            legacyNewLineFix(event);
+        if (options.catchTab)
+            handleTabCharacters(event);
+        if (options.addClosing)
+            handleSelfClosingCharacters(event);
+        if (options.history) {
+            handleUndoRedo(event);
+            if (shouldRecord(event) && !recording) {
+                recordHistory();
+                recording = true;
+            }
+        }
+        if (isLegacy && !isCopy(event))
+            restore(save());
+    });
+    on('keyup', event => {
+        if (event.defaultPrevented)
+            return;
+        if (event.isComposing)
+            return;
+        if (prev !== toString())
+            debounceHighlight();
+        debounceRecordHistory(event);
+        if (callback)
+            callback(toString());
+    });
+    on('focus', _event => {
+        focus = true;
+    });
+    on('blur', _event => {
+        focus = false;
+    });
+    on('paste', event => {
+        recordHistory();
+        handlePaste(event);
+        recordHistory();
+        if (callback)
+            callback(toString());
+    });
+    function save() {
+        const s = getSelection();
+        const pos = { start: 0, end: 0, dir: undefined };
+        let { anchorNode, anchorOffset, focusNode, focusOffset } = s;
+        if (!anchorNode || !focusNode)
+            throw 'error1';
+        // If the anchor and focus are the editor element, return either a full
+        // highlight or a start/end cursor position depending on the selection
+        if (anchorNode === editor && focusNode === editor) {
+            pos.start = (anchorOffset > 0 && editor.textContent) ? editor.textContent.length : 0;
+            pos.end = (focusOffset > 0 && editor.textContent) ? editor.textContent.length : 0;
+            pos.dir = (focusOffset >= anchorOffset) ? '->' : '<-';
+            return pos;
+        }
+        // Selection anchor and focus are expected to be text nodes,
+        // so normalize them.
+        if (anchorNode.nodeType === Node.ELEMENT_NODE) {
+            const node = document.createTextNode('');
+            anchorNode.insertBefore(node, anchorNode.childNodes[anchorOffset]);
+            anchorNode = node;
+            anchorOffset = 0;
+        }
+        if (focusNode.nodeType === Node.ELEMENT_NODE) {
+            const node = document.createTextNode('');
+            focusNode.insertBefore(node, focusNode.childNodes[focusOffset]);
+            focusNode = node;
+            focusOffset = 0;
+        }
+        visit(editor, el => {
+            if (el === anchorNode && el === focusNode) {
+                pos.start += anchorOffset;
+                pos.end += focusOffset;
+                pos.dir = anchorOffset <= focusOffset ? '->' : '<-';
+                return 'stop';
+            }
+            if (el === anchorNode) {
+                pos.start += anchorOffset;
+                if (!pos.dir) {
+                    pos.dir = '->';
+                }
+                else {
+                    return 'stop';
+                }
+            }
+            else if (el === focusNode) {
+                pos.end += focusOffset;
+                if (!pos.dir) {
+                    pos.dir = '<-';
+                }
+                else {
+                    return 'stop';
+                }
+            }
+            if (el.nodeType === Node.TEXT_NODE) {
+                if (pos.dir != '->')
+                    pos.start += el.nodeValue.length;
+                if (pos.dir != '<-')
+                    pos.end += el.nodeValue.length;
+            }
+        });
+        // collapse empty text nodes
+        editor.normalize();
+        return pos;
+    }
+    function restore(pos) {
+        const s = getSelection();
+        let startNode, startOffset = 0;
+        let endNode, endOffset = 0;
+        if (!pos.dir)
+            pos.dir = '->';
+        if (pos.start < 0)
+            pos.start = 0;
+        if (pos.end < 0)
+            pos.end = 0;
+        // Flip start and end if the direction reversed
+        if (pos.dir == '<-') {
+            const { start, end } = pos;
+            pos.start = end;
+            pos.end = start;
+        }
+        let current = 0;
+        visit(editor, el => {
+            if (el.nodeType !== Node.TEXT_NODE)
+                return;
+            const len = (el.nodeValue || '').length;
+            if (current + len > pos.start) {
+                if (!startNode) {
+                    startNode = el;
+                    startOffset = pos.start - current;
+                }
+                if (current + len > pos.end) {
+                    endNode = el;
+                    endOffset = pos.end - current;
+                    return 'stop';
+                }
+            }
+            current += len;
+        });
+        if (!startNode)
+            startNode = editor, startOffset = editor.childNodes.length;
+        if (!endNode)
+            endNode = editor, endOffset = editor.childNodes.length;
+        // Flip back the selection
+        if (pos.dir == '<-') {
+            [startNode, startOffset, endNode, endOffset] = [endNode, endOffset, startNode, startOffset];
+        }
+        s.setBaseAndExtent(startNode, startOffset, endNode, endOffset);
+    }
+    function beforeCursor() {
+        const s = getSelection();
+        const r0 = s.getRangeAt(0);
+        const r = document.createRange();
+        r.selectNodeContents(editor);
+        r.setEnd(r0.startContainer, r0.startOffset);
+        return r.toString();
+    }
+    function afterCursor() {
+        const s = getSelection();
+        const r0 = s.getRangeAt(0);
+        const r = document.createRange();
+        r.selectNodeContents(editor);
+        r.setStart(r0.endContainer, r0.endOffset);
+        return r.toString();
+    }
+    function handleNewLine(event) {
+        if (event.key === 'Enter') {
+            const before = beforeCursor();
+            const after = afterCursor();
+            let [padding] = findPadding(before);
+            let newLinePadding = padding;
+            // If last symbol is "{" ident new line
+            if (options.indentOn.test(before)) {
+                newLinePadding += options.tab;
+            }
+            // Preserve padding
+            if (newLinePadding.length > 0) {
+                preventDefault(event);
+                event.stopPropagation();
+                insert('\n' + newLinePadding);
+            }
+            else {
+                legacyNewLineFix(event);
+            }
+            // Place adjacent "}" on next line
+            if (newLinePadding !== padding && options.moveToNewLine.test(after)) {
+                const pos = save();
+                insert('\n' + padding);
+                restore(pos);
+            }
+        }
+    }
+    function legacyNewLineFix(event) {
+        // Firefox does not support plaintext-only mode
+        // and puts <div><br></div> on Enter. Let's help.
+        if (isLegacy && event.key === 'Enter') {
+            preventDefault(event);
+            event.stopPropagation();
+            if (afterCursor() == '') {
+                insert('\n ');
+                const pos = save();
+                pos.start = --pos.end;
+                restore(pos);
+            }
+            else {
+                insert('\n');
+            }
+        }
+    }
+    function handleSelfClosingCharacters(event) {
+        const open = `([{'"`;
+        const close = `)]}'"`;
+        const codeAfter = afterCursor();
+        const codeBefore = beforeCursor();
+        const escapeCharacter = codeBefore.substr(codeBefore.length - 1) === '\\';
+        const charAfter = codeAfter.substr(0, 1);
+        if (close.includes(event.key) && !escapeCharacter && charAfter === event.key) {
+            // We already have closing char next to cursor.
+            // Move one char to right.
+            const pos = save();
+            preventDefault(event);
+            pos.start = ++pos.end;
+            restore(pos);
+        }
+        else if (open.includes(event.key)
+            && !escapeCharacter
+            && (`"'`.includes(event.key) || ['', ' ', '\n'].includes(charAfter))) {
+            preventDefault(event);
+            const pos = save();
+            const wrapText = pos.start == pos.end ? '' : getSelection().toString();
+            const text = event.key + wrapText + close[open.indexOf(event.key)];
+            insert(text);
+            pos.start++;
+            pos.end++;
+            restore(pos);
+        }
+    }
+    function handleTabCharacters(event) {
+        if (event.key === 'Tab') {
+            preventDefault(event);
+            if (event.shiftKey) {
+                const before = beforeCursor();
+                let [padding, start,] = findPadding(before);
+                if (padding.length > 0) {
+                    const pos = save();
+                    // Remove full length tab or just remaining padding
+                    const len = Math.min(options.tab.length, padding.length);
+                    restore({ start, end: start + len });
+                    document.execCommand('delete');
+                    pos.start -= len;
+                    pos.end -= len;
+                    restore(pos);
+                }
+            }
+            else {
+                insert(options.tab);
+            }
+        }
+    }
+    function handleUndoRedo(event) {
+        if (isUndo(event)) {
+            preventDefault(event);
+            at--;
+            const record = history[at];
+            if (record) {
+                editor.innerHTML = record.html;
+                restore(record.pos);
+            }
+            if (at < 0)
+                at = 0;
+        }
+        if (isRedo(event)) {
+            preventDefault(event);
+            at++;
+            const record = history[at];
+            if (record) {
+                editor.innerHTML = record.html;
+                restore(record.pos);
+            }
+            if (at >= history.length)
+                at--;
+        }
+    }
+    function recordHistory() {
+        if (!focus)
+            return;
+        const html = editor.innerHTML;
+        const pos = save();
+        const lastRecord = history[at];
+        if (lastRecord) {
+            if (lastRecord.html === html
+                && lastRecord.pos.start === pos.start
+                && lastRecord.pos.end === pos.end)
+                return;
+        }
+        at++;
+        history[at] = { html, pos };
+        history.splice(at + 1);
+        const maxHistory = 300;
+        if (at > maxHistory) {
+            at = maxHistory;
+            history.splice(0, 1);
+        }
+    }
+    function handlePaste(event) {
+        preventDefault(event);
+        const text = (event.originalEvent || event)
+            .clipboardData
+            .getData('text/plain')
+            .replace(/\r/g, '');
+        const pos = save();
+        insert(text);
+        highlight(editor);
+        restore({
+            start: Math.min(pos.start, pos.end) + text.length,
+            end: Math.min(pos.start, pos.end) + text.length,
+            dir: '<-',
+        });
+    }
+    function visit(editor, visitor) {
+        const queue = [];
+        if (editor.firstChild)
+            queue.push(editor.firstChild);
+        let el = queue.pop();
+        while (el) {
+            if (visitor(el) === 'stop')
+                break;
+            if (el.nextSibling)
+                queue.push(el.nextSibling);
+            if (el.firstChild)
+                queue.push(el.firstChild);
+            el = queue.pop();
+        }
+    }
+    function isCtrl(event) {
+        return event.metaKey || event.ctrlKey;
+    }
+    function isUndo(event) {
+        return isCtrl(event) && !event.shiftKey && getKeyCode(event) === 'Z';
+    }
+    function isRedo(event) {
+        return isCtrl(event) && event.shiftKey && getKeyCode(event) === 'Z';
+    }
+    function isCopy(event) {
+        return isCtrl(event) && getKeyCode(event) === 'C';
+    }
+    function getKeyCode(event) {
+        let key = event.key || event.keyCode || event.which;
+        if (!key)
+            return undefined;
+        return (typeof key === 'string' ? key : String.fromCharCode(key)).toUpperCase();
+    }
+    function insert(text) {
+        text = text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        document.execCommand('insertHTML', false, text);
+    }
+    function debounce(cb, wait) {
+        let timeout = 0;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = window.setTimeout(() => cb(...args), wait);
+        };
+    }
+    function findPadding(text) {
+        // Find beginning of previous line.
+        let i = text.length - 1;
+        while (i >= 0 && text[i] !== '\n')
+            i--;
+        i++;
+        // Find padding of the line.
+        let j = i;
+        while (j < text.length && /[ \t]/.test(text[j]))
+            j++;
+        return [text.substring(i, j) || '', i, j];
+    }
+    function toString() {
+        return editor.textContent || '';
+    }
+    function preventDefault(event) {
+        event.preventDefault();
+    }
+    function getSelection() {
+        var _a;
+        if (((_a = editor.parentNode) === null || _a === void 0 ? void 0 : _a.nodeType) == Node.DOCUMENT_FRAGMENT_NODE) {
+            return editor.parentNode.getSelection();
+        }
+        return window.getSelection();
+    }
+    return {
+        updateOptions(newOptions) {
+            Object.assign(options, newOptions);
+        },
+        updateCode(code) {
+            editor.textContent = code;
+            highlight(editor);
+        },
+        onUpdate(cb) {
+            callback = cb;
+        },
+        toString,
+        save,
+        restore,
+        recordHistory,
+        destroy() {
+            for (let [type, fn] of listeners) {
+                editor.removeEventListener(type, fn);
+            }
+        },
+    };
+}
+
+class EditNote extends ReactDOM$1.Component {
+  static get propTypes() {
+    return {
+      note: propTypes$1.exports.string,
+      notebookPath: propTypes$1.exports.string,
+      workspace: propTypes$1.exports.string,
+      onChange: propTypes$1.exports.func,
+      onKeyDown: propTypes$1.exports.func
+    };
+  }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  async componentDidMount() {
+    // this.codeJar = CodeJar(this.editor);
+  }
+  async componentWillUnmount() {}
+  onChange(id, text) {
+    const {
+      onChange
+    } = this.props;
+    if (onChange) {
+      onChange(text, id);
+    }
+  }
+  shouldComponentUpdate() {
+    return false;
+  }
+  render() {
+    const {
+      note,
+      onKeyDown
+    } = this.props;
+    const {
+      sourceText
+    } = note;
+    return v$1("div", {
+      class: "note edit",
+      onkeydown: onKeyDown,
+      ref: ref => {
+        if (ref) {
+          CodeJar(ref, () => {}).onUpdate(text => this.onChange(note, text));
+        }
+      }
+    }, sourceText);
+  }
+}
+
 /**
- * marked - a markdown parser
- * Copyright (c) 2011-2022, Christopher Jeffrey. (MIT Licensed)
+ * marked v4.3.0 - a markdown parser
+ * Copyright (c) 2011-2023, Christopher Jeffrey. (MIT Licensed)
  * https://github.com/markedjs/marked
  */
 
@@ -2366,6 +2882,7 @@ function getDefaults() {
     headerIds: true,
     headerPrefix: '',
     highlight: null,
+    hooks: null,
     langPrefix: 'language-',
     mangle: true,
     pedantic: false,
@@ -2529,23 +3046,6 @@ function resolveUrl(base, href) {
 }
 
 const noopTest = { exec: function noopTest() {} };
-
-function merge(obj) {
-  let i = 1,
-    target,
-    key;
-
-  for (; i < arguments.length; i++) {
-    target = arguments[i];
-    for (key in target) {
-      if (Object.prototype.hasOwnProperty.call(target, key)) {
-        obj[key] = target[key];
-      }
-    }
-  }
-
-  return obj;
-}
 
 function splitCells(tableRow, count) {
   // ensure that every cell-delimiting pipe has a space
@@ -3456,7 +3956,7 @@ class Tokenizer {
 const block = {
   newline: /^(?: *(?:\n|$))+/,
   code: /^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,
-  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
+  fences: /^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
   hr: /^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/,
   heading: /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,
   blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
@@ -3531,17 +4031,18 @@ block.blockquote = edit(block.blockquote)
  * Normal Block Grammar
  */
 
-block.normal = merge({}, block);
+block.normal = { ...block };
 
 /**
  * GFM Block Grammar
  */
 
-block.gfm = merge({}, block.normal, {
+block.gfm = {
+  ...block.normal,
   table: '^ *([^\\n ].*\\|.*)\\n' // Header
     + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?' // Align
     + '(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
-});
+};
 
 block.gfm.table = edit(block.gfm.table)
   .replace('hr', block.hr)
@@ -3569,7 +4070,8 @@ block.gfm.paragraph = edit(block._paragraph)
  * Pedantic grammar (original John Gruber's loose markdown specification)
  */
 
-block.pedantic = merge({}, block.normal, {
+block.pedantic = {
+  ...block.normal,
   html: edit(
     '^ *(?:comment *(?:\\n|\\s*$)'
     + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
@@ -3593,7 +4095,7 @@ block.pedantic = merge({}, block.normal, {
     .replace('|list', '')
     .replace('|html', '')
     .getRegex()
-});
+};
 
 /**
  * Inline-Level Grammar
@@ -3695,13 +4197,14 @@ inline.reflinkSearch = edit(inline.reflinkSearch, 'g')
  * Normal Inline Grammar
  */
 
-inline.normal = merge({}, inline);
+inline.normal = { ...inline };
 
 /**
  * Pedantic Inline Grammar
  */
 
-inline.pedantic = merge({}, inline.normal, {
+inline.pedantic = {
+  ...inline.normal,
   strong: {
     start: /^__|\*\*/,
     middle: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
@@ -3720,20 +4223,21 @@ inline.pedantic = merge({}, inline.normal, {
   reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/)
     .replace('label', inline._label)
     .getRegex()
-});
+};
 
 /**
  * GFM Inline Grammar
  */
 
-inline.gfm = merge({}, inline.normal, {
+inline.gfm = {
+  ...inline.normal,
   escape: edit(inline.escape).replace('])', '~|])').getRegex(),
   _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
   url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
   _backpedal: /(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/,
   del: /^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,
   text: /^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/
-});
+};
 
 inline.gfm.url = edit(inline.gfm.url, 'i')
   .replace('email', inline.gfm._extended_email)
@@ -3742,13 +4246,14 @@ inline.gfm.url = edit(inline.gfm.url, 'i')
  * GFM + Line Breaks Inline Grammar
  */
 
-inline.breaks = merge({}, inline.gfm, {
+inline.breaks = {
+  ...inline.gfm,
   br: edit(inline.br).replace('{2,}', '*').getRegex(),
   text: edit(inline.gfm.text)
     .replace('\\b_', '\\b_| {2,}\\n')
     .replace(/\{2,\}/g, '*')
     .getRegex()
-});
+};
 
 /**
  * smartypants text replacement
@@ -4825,122 +5330,194 @@ class Parser {
   }
 }
 
+class Hooks {
+  constructor(options) {
+    this.options = options || defaults;
+  }
+
+  static passThroughHooks = new Set([
+    'preprocess',
+    'postprocess'
+  ]);
+
+  /**
+   * Process markdown before marked
+   */
+  preprocess(markdown) {
+    return markdown;
+  }
+
+  /**
+   * Process HTML after marked is finished
+   */
+  postprocess(html) {
+    return html;
+  }
+}
+
+function onError(silent, async, callback) {
+  return (e) => {
+    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+
+    if (silent) {
+      const msg = '<p>An error occurred:</p><pre>'
+        + escape(e.message + '', true)
+        + '</pre>';
+      if (async) {
+        return Promise.resolve(msg);
+      }
+      if (callback) {
+        callback(null, msg);
+        return;
+      }
+      return msg;
+    }
+
+    if (async) {
+      return Promise.reject(e);
+    }
+    if (callback) {
+      callback(e);
+      return;
+    }
+    throw e;
+  };
+}
+
+function parseMarkdown(lexer, parser) {
+  return (src, opt, callback) => {
+    if (typeof opt === 'function') {
+      callback = opt;
+      opt = null;
+    }
+
+    const origOpt = { ...opt };
+    opt = { ...marked.defaults, ...origOpt };
+    const throwError = onError(opt.silent, opt.async, callback);
+
+    // throw error in case of non string input
+    if (typeof src === 'undefined' || src === null) {
+      return throwError(new Error('marked(): input parameter is undefined or null'));
+    }
+    if (typeof src !== 'string') {
+      return throwError(new Error('marked(): input parameter is of type '
+        + Object.prototype.toString.call(src) + ', string expected'));
+    }
+
+    checkSanitizeDeprecation(opt);
+
+    if (opt.hooks) {
+      opt.hooks.options = opt;
+    }
+
+    if (callback) {
+      const highlight = opt.highlight;
+      let tokens;
+
+      try {
+        if (opt.hooks) {
+          src = opt.hooks.preprocess(src);
+        }
+        tokens = lexer(src, opt);
+      } catch (e) {
+        return throwError(e);
+      }
+
+      const done = function(err) {
+        let out;
+
+        if (!err) {
+          try {
+            if (opt.walkTokens) {
+              marked.walkTokens(tokens, opt.walkTokens);
+            }
+            out = parser(tokens, opt);
+            if (opt.hooks) {
+              out = opt.hooks.postprocess(out);
+            }
+          } catch (e) {
+            err = e;
+          }
+        }
+
+        opt.highlight = highlight;
+
+        return err
+          ? throwError(err)
+          : callback(null, out);
+      };
+
+      if (!highlight || highlight.length < 3) {
+        return done();
+      }
+
+      delete opt.highlight;
+
+      if (!tokens.length) return done();
+
+      let pending = 0;
+      marked.walkTokens(tokens, function(token) {
+        if (token.type === 'code') {
+          pending++;
+          setTimeout(() => {
+            highlight(token.text, token.lang, function(err, code) {
+              if (err) {
+                return done(err);
+              }
+              if (code != null && code !== token.text) {
+                token.text = code;
+                token.escaped = true;
+              }
+
+              pending--;
+              if (pending === 0) {
+                done();
+              }
+            });
+          }, 0);
+        }
+      });
+
+      if (pending === 0) {
+        done();
+      }
+
+      return;
+    }
+
+    if (opt.async) {
+      return Promise.resolve(opt.hooks ? opt.hooks.preprocess(src) : src)
+        .then(src => lexer(src, opt))
+        .then(tokens => opt.walkTokens ? Promise.all(marked.walkTokens(tokens, opt.walkTokens)).then(() => tokens) : tokens)
+        .then(tokens => parser(tokens, opt))
+        .then(html => opt.hooks ? opt.hooks.postprocess(html) : html)
+        .catch(throwError);
+    }
+
+    try {
+      if (opt.hooks) {
+        src = opt.hooks.preprocess(src);
+      }
+      const tokens = lexer(src, opt);
+      if (opt.walkTokens) {
+        marked.walkTokens(tokens, opt.walkTokens);
+      }
+      let html = parser(tokens, opt);
+      if (opt.hooks) {
+        html = opt.hooks.postprocess(html);
+      }
+      return html;
+    } catch (e) {
+      return throwError(e);
+    }
+  };
+}
+
 /**
  * Marked
  */
 function marked(src, opt, callback) {
-  // throw error in case of non string input
-  if (typeof src === 'undefined' || src === null) {
-    throw new Error('marked(): input parameter is undefined or null');
-  }
-  if (typeof src !== 'string') {
-    throw new Error('marked(): input parameter is of type '
-      + Object.prototype.toString.call(src) + ', string expected');
-  }
-
-  if (typeof opt === 'function') {
-    callback = opt;
-    opt = null;
-  }
-
-  opt = merge({}, marked.defaults, opt || {});
-  checkSanitizeDeprecation(opt);
-
-  if (callback) {
-    const highlight = opt.highlight;
-    let tokens;
-
-    try {
-      tokens = Lexer.lex(src, opt);
-    } catch (e) {
-      return callback(e);
-    }
-
-    const done = function(err) {
-      let out;
-
-      if (!err) {
-        try {
-          if (opt.walkTokens) {
-            marked.walkTokens(tokens, opt.walkTokens);
-          }
-          out = Parser.parse(tokens, opt);
-        } catch (e) {
-          err = e;
-        }
-      }
-
-      opt.highlight = highlight;
-
-      return err
-        ? callback(err)
-        : callback(null, out);
-    };
-
-    if (!highlight || highlight.length < 3) {
-      return done();
-    }
-
-    delete opt.highlight;
-
-    if (!tokens.length) return done();
-
-    let pending = 0;
-    marked.walkTokens(tokens, function(token) {
-      if (token.type === 'code') {
-        pending++;
-        setTimeout(() => {
-          highlight(token.text, token.lang, function(err, code) {
-            if (err) {
-              return done(err);
-            }
-            if (code != null && code !== token.text) {
-              token.text = code;
-              token.escaped = true;
-            }
-
-            pending--;
-            if (pending === 0) {
-              done();
-            }
-          });
-        }, 0);
-      }
-    });
-
-    if (pending === 0) {
-      done();
-    }
-
-    return;
-  }
-
-  function onError(e) {
-    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-    if (opt.silent) {
-      return '<p>An error occurred:</p><pre>'
-        + escape(e.message + '', true)
-        + '</pre>';
-    }
-    throw e;
-  }
-
-  try {
-    const tokens = Lexer.lex(src, opt);
-    if (opt.walkTokens) {
-      if (opt.async) {
-        return Promise.all(marked.walkTokens(tokens, opt.walkTokens))
-          .then(() => {
-            return Parser.parse(tokens, opt);
-          })
-          .catch(onError);
-      }
-      marked.walkTokens(tokens, opt.walkTokens);
-    }
-    return Parser.parse(tokens, opt);
-  } catch (e) {
-    onError(e);
-  }
+  return parseMarkdown(Lexer.lex, Parser.parse)(src, opt, callback);
 }
 
 /**
@@ -4949,7 +5526,7 @@ function marked(src, opt, callback) {
 
 marked.options =
 marked.setOptions = function(opt) {
-  merge(marked.defaults, opt);
+  marked.defaults = { ...marked.defaults, ...opt };
   changeDefaults(marked.defaults);
   return marked;
 };
@@ -4967,10 +5544,10 @@ marked.use = function(...args) {
 
   args.forEach((pack) => {
     // copy options to new object
-    const opts = merge({}, pack);
+    const opts = { ...pack };
 
     // set async to true if it was set to true before
-    opts.async = marked.defaults.async || opts.async;
+    opts.async = marked.defaults.async || opts.async || false;
 
     // ==-- Parse "addon" extensions --== //
     if (pack.extensions) {
@@ -5057,6 +5634,35 @@ marked.use = function(...args) {
       opts.tokenizer = tokenizer;
     }
 
+    // ==-- Parse Hooks extensions --== //
+    if (pack.hooks) {
+      const hooks = marked.defaults.hooks || new Hooks();
+      for (const prop in pack.hooks) {
+        const prevHook = hooks[prop];
+        if (Hooks.passThroughHooks.has(prop)) {
+          hooks[prop] = (arg) => {
+            if (marked.defaults.async) {
+              return Promise.resolve(pack.hooks[prop].call(hooks, arg)).then(ret => {
+                return prevHook.call(hooks, ret);
+              });
+            }
+
+            const ret = pack.hooks[prop].call(hooks, arg);
+            return prevHook.call(hooks, ret);
+          };
+        } else {
+          hooks[prop] = (...args) => {
+            let ret = pack.hooks[prop].apply(hooks, args);
+            if (ret === false) {
+              ret = prevHook.apply(hooks, args);
+            }
+            return ret;
+          };
+        }
+      }
+      opts.hooks = hooks;
+    }
+
     // ==-- Parse WalkTokens extensions --== //
     if (pack.walkTokens) {
       const walkTokens = marked.defaults.walkTokens;
@@ -5116,35 +5722,7 @@ marked.walkTokens = function(tokens, callback) {
  * Parse Inline
  * @param {string} src
  */
-marked.parseInline = function(src, opt) {
-  // throw error in case of non string input
-  if (typeof src === 'undefined' || src === null) {
-    throw new Error('marked.parseInline(): input parameter is undefined or null');
-  }
-  if (typeof src !== 'string') {
-    throw new Error('marked.parseInline(): input parameter is of type '
-      + Object.prototype.toString.call(src) + ', string expected');
-  }
-
-  opt = merge({}, marked.defaults, opt || {});
-  checkSanitizeDeprecation(opt);
-
-  try {
-    const tokens = Lexer.lexInline(src, opt);
-    if (opt.walkTokens) {
-      marked.walkTokens(tokens, opt.walkTokens);
-    }
-    return Parser.parseInline(tokens, opt);
-  } catch (e) {
-    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-    if (opt.silent) {
-      return '<p>An error occurred:</p><pre>'
-        + escape(e.message + '', true)
-        + '</pre>';
-    }
-    throw e;
-  }
-};
+marked.parseInline = parseMarkdown(Lexer.lexInline, Parser.parseInline);
 
 /**
  * Expose
@@ -5157,6 +5735,7 @@ marked.Lexer = Lexer;
 marked.lexer = Lexer.lex;
 marked.Tokenizer = Tokenizer;
 marked.Slugger = Slugger;
+marked.Hooks = Hooks;
 marked.parse = marked;
 
 marked.options;
@@ -5428,26 +6007,6 @@ const updateNotebookState = async (application, {
     const {
       path
     } = sourceLocation;
-    /*
-    if (note.beginSourceLocation) {
-      // Remove any existing notes for this line.
-      const { line } = note.beginSourceLocation;
-      const op = (state) => {
-        const { [`NotebookNotes/${path}`]: oldNotebookNotes = {} } = state;
-        const newNotebookNotes = {
-          ...oldNotebookNotes,
-        };
-        for (const key of Object.keys(newNotebookNotes)) {
-          const note = newNotebookNotes[key];
-          if (note.sourceLocation && note.sourceLocation.line === line) {
-            delete newNotebookNotes[key];
-          }
-        }
-        return { [`NotebookNotes/${path}`]: newNotebookNotes };
-      };
-      application.setState(op);
-    }
-    */
     if (!note.hash) {
       return;
     }
@@ -5475,9 +6034,7 @@ const updateNotebookState = async (application, {
     if (note.view) {
       if (!note.url) {
         const loadThumbnail = async () => {
-          let url = await (note.needsThumbnail ? read : readOrWatch)(note.view.thumbnailPath,
-          // `thumbnail/${note.hash}`,
-          {
+          let url = await (note.needsThumbnail ? read : readOrWatch)(note.view.thumbnailPath, {
             workspace
           });
           if (!url) {
@@ -5540,7 +6097,9 @@ class Notebook extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
       notes: propTypes$1.exports.object,
+      onChange: propTypes$1.exports.func,
       onClickView: propTypes$1.exports.func,
+      onKeyDown: propTypes$1.exports.func,
       selectedLine: propTypes$1.exports.number,
       notebookPath: propTypes$1.exports.string,
       state: propTypes$1.exports.string,
@@ -5548,114 +6107,155 @@ class Notebook extends ReactDOM$1.PureComponent {
     };
   }
   render() {
-    try {
-      const {
-        notebookPath,
-        notes,
-        onClickView,
-        selectedLine,
-        state = 'idle',
-        workspace
-      } = this.props;
-      const children = [];
-      const ordered = Object.values(notes);
-      const getLine = note => {
-        if (note.sourceLocation) {
-          return note.sourceLocation.line;
-        } else {
-          return 0;
-        }
-      };
-      const getNth = note => {
-        if (note.sourceLocation) {
-          return note.sourceLocation.nth;
-        } else {
-          return 0;
-        }
-      };
-      const order = (a, b) => {
-        const lineA = getLine(a);
-        const lineB = getLine(b);
-        if (lineA !== lineB) {
-          return lineA - lineB;
-        }
-        const nthA = getNth(a);
-        const nthB = getNth(b);
-        return nthA - nthB;
-      };
-      ordered.sort(order);
-      let line;
-      let selectedNote;
-      for (const note of ordered) {
-        if (!note.view && !note.md && !note.download && !note.control) {
-          continue;
-        }
-        // FIX: This seems wasteful.
-        if (note.sourceLocation && note.sourceLocation.line !== line) {
-          line = note.sourceLocation.line;
-          if (note.sourceLocation.line <= selectedLine) {
-            selectedNote = note;
-          }
-        }
+    const {
+      notebookPath,
+      notes,
+      onChange,
+      onClickView,
+      onKeyDown,
+      // selectedLine,
+      state = 'idle',
+      workspace
+    } = this.props;
+    const ordered = Object.values(notes);
+    const getLine = note => {
+      if (note.sourceLocation) {
+        return note.sourceLocation.line;
+      } else {
+        return 0;
       }
-      for (const note of ordered) {
-        // FIX: This seems wasteful.
-        const selected = note === selectedNote;
-        let child;
-        if (note.view) {
-          child = v$1(ViewNote, {
-            key: note.hash,
-            note: note,
-            onClickView: onClickView,
-            selected: selected
-          });
-        } else if (note.md) {
-          child = v$1(MdNote, {
-            key: note.hash,
-            note: note,
-            selected: selected,
-            workspace: workspace
-          });
-        } else if (note.download) {
-          child = v$1(DownloadNote, {
-            key: note.hash,
-            note: note,
-            selected: selected,
-            workspace: workspace
-          });
-        } else if (note.control) {
-          child = v$1(ControlNote, {
-            key: note.hash,
-            note: note,
-            selected: selected,
-            workspace: workspace
-          });
-        }
-        if (child) {
-          children.push(child);
-        }
+    };
+    const getNth = note => {
+      if (note.sourceLocation) {
+        return note.sourceLocation.nth;
+      } else {
+        return 0;
       }
-      y(() => mermaid.init(undefined, '.mermaid'));
-      return v$1("div", {
-        id: notebookPath,
-        classList: "notebook notes",
-        style: {
-          overflow: 'auto'
-        }
-      }, state === 'running' && v$1(SpinnerCircularSplit, {
-        color: "#36d7b7",
-        size: 64,
-        style: {
-          position: 'fixed',
-          right: 32,
-          top: 64,
-          zIndex: 1000
-        }
-      }), children);
-    } catch (e) {
-      console.log(e.stack);
-      throw e;
+    };
+    const order = (a, b) => {
+      const lineA = getLine(a);
+      const lineB = getLine(b);
+      if (lineA !== lineB) {
+        return lineA - lineB;
+      }
+      const nthA = getNth(a);
+      const nthB = getNth(b);
+      return nthA - nthB;
+    };
+    ordered.sort(order);
+    let line = 0;
+    let id;
+    let hasStub = false;
+    const ids = [];
+    let children;
+    for (const note of ordered) {
+      if (note.sourceLocation.id !== id) {
+        id = note.sourceLocation.id;
+        children = [];
+        ids.push({
+          id,
+          children
+        });
+      }
+      if (note.hash === 'stub') {
+        hasStub = true;
+      }
+      // FIX: This seems wasteful.
+      const selected = false;
+      let child;
+      if (note.sourceLocation) {
+        line = note.sourceLocation.line;
+      }
+      if (note.view) {
+        child = v$1(ViewNote, {
+          key: note.hash,
+          note: note,
+          onClickView: onClickView,
+          selected: selected
+        });
+      } else if (note.md) {
+        child = v$1(MdNote, {
+          key: note.hash,
+          note: note,
+          selected: selected,
+          workspace: workspace
+        });
+      } else if (note.download) {
+        child = v$1(DownloadNote, {
+          key: note.hash,
+          note: note,
+          selected: selected,
+          workspace: workspace
+        });
+      } else if (note.control) {
+        child = v$1(ControlNote, {
+          key: note.hash,
+          note: note,
+          selected: selected,
+          workspace: workspace
+        });
+      } else if (note.sourceText !== undefined) {
+        child = v$1(EditNote, {
+          key: note.hash,
+          note: note,
+          onChange: sourceText => onChange(note, {
+            sourceText
+          }),
+          onKeyDown: onKeyDown,
+          selected: selected,
+          workspace: workspace
+        });
+      }
+      if (child) {
+        children.push(child);
+      }
     }
+    if (!hasStub) {
+      // Append an empty editor.
+      const stub = {
+        hash: 'stub',
+        sourceText: '',
+        sourceLocation: {
+          path: notebookPath,
+          line: line + 1
+        }
+      };
+      ids.push({
+        id: '+',
+        children: [v$1(EditNote, {
+          key: stub.hash,
+          note: stub,
+          onChange: sourceText => onChange(stub, {
+            sourceText
+          }),
+          workspace: workspace
+        })]
+      });
+    }
+    y(() => mermaid.init(undefined, '.mermaid'));
+    const sections = [];
+    for (const {
+      id,
+      children
+    } of ids) {
+      sections.push(v$1("div", null, v$1("h3", null, id), v$1("br", null), children, v$1("hr", null)));
+    }
+    return v$1("div", {
+      id: notebookPath,
+      classList: "notebook notes",
+      style: {
+        overflow: 'auto'
+      }
+    }, state === 'running' && v$1(SpinnerCircularSplit, {
+      color: "#36d7b7",
+      size: 64,
+      style: {
+        position: 'fixed',
+        right: 32,
+        top: 64,
+        zIndex: 1000
+      }
+    }), sections);
   }
 }
 

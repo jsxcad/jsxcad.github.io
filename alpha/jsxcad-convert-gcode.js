@@ -75,6 +75,8 @@ const toGcode = async (
     f = state.f,
     s = state.s,
   } = {}) => {
+    cF({ f });
+    cS({ s });
     const code = `G0${pX(x)}${pY(y)}${pZ(z)}`;
     if (code === 'G0') {
       return;
@@ -151,8 +153,9 @@ const toGcode = async (
     return parameters;
   };
 
-  for (const { matrix, segments, tags } of linearize(geometry, ({ tags }) =>
-    tags.includes('type:toolpath')
+  for (const { matrix, segments, tags } of linearize(
+    geometry,
+    ({ type, tags }) => type === 'segments' && tags.includes('type:toolpath')
   )) {
     const { f = feedrate, s = speed } = fromTagsToParameters(tags);
     for (const [source, target] of segments) {
@@ -161,8 +164,8 @@ const toGcode = async (
       const [x = state.x, y = state.y, z = state.z] = transform(target, matrix);
       if (sourceX !== state.x || sourceY !== state.y || sourceZ !== state.z) {
         // Jump
-        cG0({ z: jumpHeight });
-        cG0({ x, y });
+        cG0({ z: jumpHeight, f, s });
+        cG0({ x, y, f, s });
       }
       cG1({ x, y, z, f, s });
     }

@@ -763,25 +763,26 @@ const filter$x = (geometry) =>
 const computeToolpath = (
   geometry,
   material,
-  selection,
-  toolSpacing,
+  resolution,
   toolSize,
-  toolCutDepth
+  toolCutDepth,
+  annealingMax,
+  annealingMin,
+  annealingDecay
 ) => {
   const inputs = [];
   linearize(geometry, filter$x, inputs);
   const materialStart = inputs.length;
   linearize(material, filter$x, inputs);
-  const selectionStart = inputs.length;
-  linearize(selection, filter$x, inputs);
   const outputs = computeToolpath$1(
     inputs,
     materialStart,
-    selectionStart,
-    inputs.length,
-    toolSpacing,
+    resolution,
     toolSize,
-    toolCutDepth
+    toolCutDepth,
+    annealingMax,
+    annealingMin,
+    annealingDecay
   );
   deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
@@ -1691,7 +1692,11 @@ const shell = (
   geometry,
   innerOffset = 0,
   outerOffset = 0,
-  protect = false
+  protect = false,
+  angle = 30 / 360,
+  sizing = 1,
+  approx = 0.1,
+  edgeLength = 1
 ) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
@@ -1700,7 +1705,11 @@ const shell = (
     inputs,
     innerOffset,
     outerOffset,
-    (protect = false)
+    protect,
+    angle * 360,
+    sizing,
+    approx,
+    edgeLength
   );
   const ghosts = [];
   for (let nth = 0; nth < inputs.length; nth++) {
