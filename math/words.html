@@ -871,13 +871,14 @@
      }
    }
    const t = document.createElement('table');
+   t.style = 'width: 100%; border-spacing: 2em';
    for (let i = 0; i < 4; i++) {
      {
        const tr = document.createElement('tr');
-       tr.style = 'border-width: 1px; height: 32px; border-color: black';
-       for (let i = 0; i < 2; i++) {
+       tr.style = 'border-width: 1px; height: 32px; border-color: black; padding: 1em;';
+       for (let i = 0; i < 5; i++) {
          const td = document.createElement('td');
-         td.style = 'width: 250px; height: 32px; vertical-align: top; border: solid';
+         td.style = 'height: 6em; width: 30em; font-size: 2em; vertical-align: top; border: solid;';
          buildSet(td);
          tr.appendChild(td);
        }
