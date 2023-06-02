@@ -1,0 +1,49 @@
+
+<html>
+ <body>
+  <script>
+   const { body } = document;
+   const buildSubtraction = (container) => {
+       const x = Math.floor(Math.random() * 1000);
+       const y = Math.floor(Math.random() * 1000);
+       container.appendChild(document.createTextNode(`${x} - ${y} = _____`));
+   }
+   const buildAddition = (container) => {
+       const x = Math.floor(Math.random() * 1000);
+       const y = Math.floor(Math.random() * 1000);
+       container.appendChild(document.createTextNode(`${x} + ${y} = _____`));
+   }
+   const buildMultiplication = (container) => {
+       const x = Math.floor(Math.random() * 100);
+       const y = Math.floor(Math.random() * 10);
+       container.appendChild(document.createTextNode(`${x} x ${y} = _____`));
+   }
+   const buildDivision = (container) => {
+       const x = Math.floor(Math.random() * 100);
+       const y = Math.floor(Math.random() * 10);
+       container.appendChild(document.createTextNode(`${x} / ${y} = _____`));
+   }
+   const buildSet = (container) => {
+     for (let i = 0; i < 50; i++) {
+       buildMultiplication(container);
+       container.appendChild(document.createElement('br'));
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 5; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 250px; height: 32px; vertical-align: top;';
+         buildSet(td);
+         tr.appendChild(td);
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
