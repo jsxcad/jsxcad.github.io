@@ -1,33 +1,47 @@
 
 <html>
+ <header>
+  <style>
+    table td + td { border-left:1px dotted black; }
+  </style>
+ </header>
  <body>
   <script>
    const { body } = document;
-   const p1 = (x) => `${x}`;
-   const p2 = (x) => x < 10 ? ` ${x}` : `${x}`;
+   const pad = (n, v) => String(v).padStart(n, ' ');
+   const pick = (n) => Math.floor(Math.random() * n);
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
    const buildSubtraction = (container) => {
-       const x = Math.floor(Math.random() * 1000);
-       const y = Math.floor(Math.random() * 1000);
-       container.appendChild(document.createTextNode(`${x} - ${y} = _____`));
+       const x = pad(3, pick(1000));
+       const y = pad(3, pick(1000));
+       container.appendChild(document.createTextNode(` ${x} ${kMinus} ${y} = _____ `));
    }
    const buildAddition = (container) => {
-       const x = Math.floor(Math.random() * 1000);
-       const y = Math.floor(Math.random() * 1000);
-       container.appendChild(document.createTextNode(`${x} + ${y} = _____`));
+       const x = pad(3, pick(1000));
+       const y = pad(3, pick(1000));
+       container.appendChild(document.createTextNode(` ${x} ${kPlus} ${y} = _____ `));
    }
    const buildMultiplication = (container) => {
-       const x = Math.floor(Math.random() * 100);
-       const y = Math.floor(Math.random() * 10);
-       container.appendChild(document.createTextNode(`${p2(x)} x ${p1(y)} = _____`));
+       const x = pad(3, pick(100));
+       const y = pad(3, pick(10));
+       container.appendChild(document.createTextNode(` ${x} ${kTimes} ${y} = _____ `));
    }
    const buildDivision = (container) => {
-       const x = Math.floor(Math.random() * 100);
-       const y = Math.floor(Math.random() * 10);
-       container.appendChild(document.createTextNode(`${x} / ${y} = _____`));
+       const x = pad(3, pick(100));
+       const y = pad(3, pick(10));
+       container.appendChild(document.createTextNode(` ${x} ${kDivide} ${y} = _____ `));
    }
    const buildSet = (container) => {
-     for (let i = 0; i < 25; i++) {
-       buildMultiplication(container);
+     for (let i = 0; i < 33; i++) {
+       switch (pick(4)) {
+         case 0: buildSubtraction(container); break;
+         case 1: buildAddition(container); break;
+         case 2: buildMultiplication(container); break;
+         case 3: buildDivision(container); break;
+       }
        container.appendChild(document.createElement('br'));
      }
    }
