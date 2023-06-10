@@ -1,0 +1,49 @@
+
+<html>
+ <header>
+  <style>
+    table td + td { border-left:1px dotted black; }
+  </style>
+ </header>
+ <body>
+  <script>
+   const { body } = document;
+   const pad = (n, v) => String(v).padStart(n, ' ');
+   const pick = (n) => Math.floor(Math.random() * n);
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
+   const buildTimes = (container) => {
+       const x = pad(3, pick(101));
+       const y = pad(3, pick(11));
+       container.appendChild(document.createTextNode(` ${x} ${kDivide} ${y} = _____ `));
+   }
+   const buildSet = (container) => {
+     for (let i = 0; i < 36; i++) {
+       switch (pick(1)) {
+         case 0: buildTimes(container); break;
+       }
+       container.appendChild(document.createElement('br'));
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 3; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         const pre = document.createElement('pre');
+         buildSet(pre);
+         td.appendChild(pre);
+         tr.appendChild(td);
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
