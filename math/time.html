@@ -1,0 +1,62 @@
+
+<html>
+ <header>
+  <style>
+    table td + td { border-left:1px dotted black; }
+  </style>
+ </header>
+ <body>
+  <script>
+   const { body } = document;
+   const pad = (n, v, c = ' ') => String(v).padStart(n, c);
+   const pick = (n) => Math.floor(Math.random() * n);
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
+   const buildTimeSubtraction = (container) => {
+       const xH = pick(24);
+       const xM = pick(60);
+       const yH = pick(24);
+       const yM = pick(60);
+       container.appendChild(document.createTextNode(` ${pad(2, xH, '0')}:${pad(2, xM, '0')} ${kMinus} ${pad(2, yH, '0')}:${pad(2, yM, '0')} = _____ `));
+   }
+   const buildTimeAddition = (container) => {
+       const xH = pick(24);
+       const xM = pick(60);
+       const yH = pick(24);
+       const yM = pick(60);
+       container.appendChild(document.createTextNode(` ${pad(2, xH, '0')}:${pad(2, xM, '0')} ${kPlus} ${pad(2, yH, '0')}:${pad(2, yM, '0')} = _____ `));
+   }
+   const buildSet = (container) => {
+     for (let i = 0; i < 3; i++) {
+       for (let j = 0; j < 10; j++) {
+         switch (pick(2)) {
+           case 0: buildTimeAddition(container); break;
+           case 1: buildTimeSubtraction(container); break;
+         }
+         container.appendChild(document.createElement('br'));
+       }
+       container.appendChild(document.createElement('br'));
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 3; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         const pre = document.createElement('pre');
+         buildSet(pre);
+         td.appendChild(pre);
+         tr.appendChild(td);
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
