@@ -1,0 +1,77 @@
+
+<html>
+ <header>
+  <style>
+    table td + td { border-left:1px dotted black; }
+  </style>
+ </header>
+ <body>
+  <script>
+   const { body } = document;
+   const pad = (n, v, c = ' ') => String(v).padStart(n, c);
+   const pick = (n) => Math.floor(Math.random() * n);
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
+   const buildTimeOp = (operator) => (container) => {
+       for (;;) {
+         const xH = pick(24);
+         const xM = pick(60);
+         const xS = pick(60);
+         const yH = pick(24);
+         const yM = pick(60);
+         const yS = pick(60);
+         if (operator === kMinus) {
+           if (xH < yH) {
+             continue;
+           }
+           if (xH === yH && xM < yM) {
+             continue;
+           }
+           if (xH === yH && xM == yM && xS < yS) {
+             continue;
+           }
+         }
+         container.appendChild(document.createTextNode(`  ${operator} ${pad(2, xH, '0')}시 ${pad(2, xM, '0')}분 ${pad(2, xS, '0')}초 `));
+         container.appendChild(document.createElement('br'));
+         container.appendChild(document.createTextNode(`    ${pad(2, yH, '0')}시 ${pad(2, yM, '0')}분 ${pad(2, yS, '0')}초 `));
+         container.appendChild(document.createElement('br'));
+         container.appendChild(document.createElement('br'));
+         return;
+       }
+   }
+   const buildTimeSubtraction = buildTimeOp(kMinus);
+   const buildTimeAddition = buildTimeOp(kPlus);
+   const buildSet = (container, mode) => {
+     for (let i = 0; i < 1; i++) {
+       for (let j = 0; j < 8; j++) {
+         switch (mode % 2) {
+           case 0: buildTimeSubtraction(container); break;
+           case 1: buildTimeAddition(container); break;
+         }
+         container.appendChild(document.createElement('br'));
+       }
+       container.appendChild(document.createElement('br'));
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 3; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         const pre = document.createElement('pre');
+         buildSet(pre, i);
+         td.appendChild(pre);
+         tr.appendChild(td);
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
