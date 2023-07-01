@@ -1,0 +1,266 @@
+<html>
+ <header>
+  <style>
+    // table td + td { border-left:1px dotted black; }
+  </style>
+ </header>
+ <body>
+  <script>
+   const { body } = document;
+   const pad = (n, v, c = ' ') => String(v).padStart(n, c);
+   const pick = (n) => Math.floor(Math.random() * n);
+   const Text = (container, text) => {
+     const pre = document.createElement('pre');
+     pre.appendChild(document.createTextNode(text));
+     container.appendChild(pre);
+   }
+   const Time = (container, hours, minutes) => Text(container, `${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분`);
+   const Rational = (container, numerator, denominator) => {
+     const table = document.createElement('table');
+     const top = document.createElement('tr');
+     const topCell = document.createElement('td');
+     top.appendChild(topCell);
+     const bottom = document.createElement('tr');
+     const bottomCell = document.createElement('td');
+     bottom.appendChild(bottomCell);
+     table.appendChild(top);
+     table.appendChild(bottom);
+     Text(topCell, numerator);
+     Text(bottomCell, denominator);
+     bottomCell.style.textAlign = 'center';
+     topCell.style.textAlign = 'center';
+     topCell.style.borderBottom = '1px solid black';
+     table.style.display = 'inline';
+     container.appendChild(table);
+   }
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
+   const kEqual = '\u003D';
+
+   const buildSimpleDivision = (l, m, r) => {
+       for (let i = 0; i < Infinity; i++) {
+         const x = pick(900);
+         const y = pick(10);
+         if (y < 2) {
+           continue;
+         }
+         const product = x * y;
+         const t = `${product}`;
+         if (t.length !== 3) {
+           continue;
+         }
+         Text(l, x);
+         Text(m, kDivide);
+         Text(r, y);
+         return;
+      }
+   }
+   const buildSubtraction = (l, m, r) => {
+       const x = pick(1000);
+       const y = pick(1000);
+
+       Text(l, x);
+       Text(m, kMinus);
+       Text(r, y);
+   }
+   const buildTimeSubtraction = (l, m, r) => {
+       const xH = pick(24);
+       const xM = pick(60);
+       const yH = pick(24);
+       const yM = pick(60);
+
+       Time(l, xH, xM);
+       Text(m, kMinus);
+       Time(r, yH, yM);
+   }
+   const buildAddition = (l, m, r) => {
+       const x = pick(1000);
+       const y = pick(1000);
+
+       Text(l, x);
+       Text(m, kPlus);
+       Text(r, y);
+   }
+   const buildTimeAddition = (l, m, r) => {
+       const xH = pick(24);
+       const xM = pick(60);
+       const yH = pick(24);
+       const yM = pick(60);
+
+       Time(l, xH, xM);
+       Text(m, kPlus);
+       Time(r, yH, yM);
+   }
+   const buildMultiplication = (l, m, r) => {
+       const x = pick(100);
+       const y = pick(10);
+
+       Text(l, x);
+       Text(m, kTimes);
+       Text(r, y);
+   }
+   const buildRationalAddition = (l, m, r) => {
+       for (;;) {
+         const xD = pick(11);
+         const xN = pick(11);
+         const yD = pick(11);
+         const yN = pick(11);
+         if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
+           continue;
+         }
+         Rational(l, xD, xN);
+         Text(m, kPlus);
+         Rational(r, yD, yN);
+         return;
+       }
+   }
+   const buildRationalSubtraction = (l, m, r) => {
+       for (;;) {
+         const xD = pick(11);
+         const xN = pick(11);
+         const yD = pick(11);
+         const yN = pick(11);
+         if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
+           continue;
+         }
+         Rational(l, xD, xN);
+         Text(m, kMinus);
+         Rational(r, yD, yN);
+         return;
+       }
+   }
+   const buildRationalDivision = (l, m, r) => {
+       for (;;) {
+         const xD = pick(11);
+         const xN = pick(11);
+         const yD = pick(11);
+         const yN = pick(11);
+         if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
+           continue;
+         }
+         Rational(l, xD, xN);
+         Text(m, kDivide);
+         Rational(r, yD, yN);
+         return;
+       }
+   }
+   const buildRationalMultiplication = (l, m, r) => {
+       for (;;) {
+         const xD = pick(11);
+         const xN = pick(11);
+         const yD = pick(11);
+         const yN = pick(11);
+         if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
+           continue;
+         }
+         Rational(l, xD, xN);
+         Text(m, kTimes);
+         Rational(r, yD, yN);
+         return;
+       }
+   }
+   const choose = (choices) => {
+     let total = 0;
+     for (const key of Object.keys(choices)) {
+       const weight = choices[key];
+       total += weight;
+     }
+     let choice = pick(total);
+     for (const key of Object.keys(choices)) {
+       const weight = choices[key];
+       if (weight >= choice) {
+         return key;
+       }
+       choice -= weight;
+     }
+     throw Error('Choose failed to make a choice');
+   };
+
+   const buildSet = (container) => {
+     // Three Groups
+     for (let i = 0; i < 3; i++) {
+       // Five Items
+       const table = document.createElement('table');
+       for (let j = 0; j < 5; j++) {
+         const row = document.createElement('tr');
+         row.style.outline = 'thin dotted';
+         row.style.height = '64px';
+         const l = document.createElement('td');
+         l.style.textAlign = 'right';
+         // l.style.paddingBottom = '32px';
+         // l.style.paddingTop = '32px';
+         l.style.paddingLeft = '32px';
+         const m = document.createElement('td');
+         // m.style.paddingBottom = '32px';
+         // m.style.paddingTop = '32px';
+         const r = document.createElement('td');
+         r.style.textAlign = 'left';
+         // r.style.paddingBottom = '32px';
+         // r.style.paddingTop = '32px';
+         const e = document.createElement('td');
+         Text(e, `  ${kEqual}  `);
+         const a = document.createElement('td');
+         a.style.width = '64px';
+         // a.style.paddingBottom = '32px';
+         // a.style.paddingTop = '32px';
+         a.style.paddingRight = '32px';
+         Text(a, '         ');
+         const choice = choose({
+           addition: 5,
+           multiplication: 5,
+           rationalAddition: 5,
+           rationalSubtraction: 5,
+           rationalMultiplication: 5,
+           rationalDivision: 5,
+           simpleDivision: 5,
+           subtraction: 5,
+           timeAddition: 5,
+           timeSubtraction: 5
+         });
+         switch (choice) {
+           case 'addition': buildAddition(l, m, r); break;
+           case 'multiplication': buildMultiplication(l, m, r); break;
+           case 'rationalAddition': buildRationalAddition(l, m, r); break;
+           case 'rationalSubtraction': buildRationalSubtraction(l, m, r); break;
+           case 'rationalMultiplication': buildRationalMultiplication(l, m, r); break;
+           case 'rationalDivision': buildRationalDivision(l, m, r); break;
+           case 'simpleDivision': buildSimpleDivision(l, m, r); break;
+           case 'subtraction': buildSubtraction(l, m, r); break;
+           case 'timeAddition': buildTimeAddition(l, m, r); break;
+           case 'timeSubtraction': buildTimeSubtraction(l, m, r); break;
+           default: throw Error(`Unknown choice '${choice}'`);
+         }
+         row.appendChild(l);
+         row.appendChild(m);
+         row.appendChild(r);
+         row.appendChild(e);
+         row.appendChild(a);
+         table.appendChild(row);
+       }
+       container.appendChild(table);
+       table.style.width = '300px';
+       container.appendChild(document.createElement('br'));
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 3; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         const pre = document.createElement('pre');
+         buildSet(pre);
+         td.appendChild(pre);
+         tr.appendChild(td);
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
