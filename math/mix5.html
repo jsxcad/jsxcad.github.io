@@ -2,6 +2,7 @@
  <header>
   <style>
     // table td + td { border-left:1px dotted black; }
+    table { font-size: 1.2em; vertical-align: middle };
   </style>
  </header>
  <body>
@@ -9,12 +10,15 @@
    const { body } = document;
    const pad = (n, v, c = ' ') => String(v).padStart(n, c);
    const pick = (n) => Math.floor(Math.random() * n);
-   const Text = (container, text) => {
+   const Text = (container, text, size) => {
      const pre = document.createElement('pre');
      pre.appendChild(document.createTextNode(text));
+     if (size) {
+       pre.style.fontSize = size;
+     }
      container.appendChild(pre);
    }
-   const Time = (container, hours, minutes) => Text(container, `${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분`);
+   const Time = (container, hours, minutes, size) => Text(container, `${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분`, size);
    const Rational = (container, numerator, denominator) => {
      const table = document.createElement('table');
      const top = document.createElement('tr');
@@ -31,6 +35,7 @@
      topCell.style.textAlign = 'center';
      topCell.style.borderBottom = '1px solid black';
      table.style.display = 'inline';
+     table.style.fontSize = '0.75em';
      container.appendChild(table);
    }
    const kMinus = '\u002D';
@@ -71,9 +76,9 @@
        const yH = pick(24);
        const yM = pick(60);
 
-       Time(l, xH, xM);
+       Time(l, xH, xM, '0.55em');
        Text(m, kMinus);
-       Time(r, yH, yM);
+       Time(r, yH, yM, '0.55em');
    }
    const buildAddition = (l, m, r) => {
        const x = pick(1000);
@@ -89,9 +94,9 @@
        const yH = pick(24);
        const yM = pick(60);
 
-       Time(l, xH, xM);
+       Time(l, xH, xM, '0.55em');
        Text(m, kPlus);
-       Time(r, yH, yM);
+       Time(r, yH, yM, '0.55em');
    }
    const buildMultiplication = (l, m, r) => {
        const x = pick(100);
@@ -186,27 +191,29 @@
        for (let j = 0; j < 5; j++) {
          const row = document.createElement('tr');
          row.style.outline = 'thin dotted';
-         row.style.height = '64px';
+         row.style.height = '92px';
          const l = document.createElement('td');
          l.style.textAlign = 'right';
+         l.style.width = '84px';
          // l.style.paddingBottom = '32px';
          // l.style.paddingTop = '32px';
-         l.style.paddingLeft = '32px';
+         l.style.paddingLeft = '16px';
          const m = document.createElement('td');
+         m.style.width = '32px';
+         m.style.textAlign = 'center';
          // m.style.paddingBottom = '32px';
          // m.style.paddingTop = '32px';
          const r = document.createElement('td');
          r.style.textAlign = 'left';
+         r.style.width = '84px';
          // r.style.paddingBottom = '32px';
          // r.style.paddingTop = '32px';
          const e = document.createElement('td');
+         e.style.width = '32px';
          Text(e, `  ${kEqual}  `);
          const a = document.createElement('td');
-         a.style.width = '64px';
-         // a.style.paddingBottom = '32px';
-         // a.style.paddingTop = '32px';
-         a.style.paddingRight = '32px';
-         Text(a, '         ');
+         a.style.width = '256px';
+         // Text(a, '         ');
          const choice = choose({
            addition: 5,
            multiplication: 5,
@@ -241,15 +248,18 @@
        }
        container.appendChild(table);
        table.style.width = '300px';
+       table.style.tableLayout = 'fixed';
        container.appendChild(document.createElement('br'));
      }
    }
    const t = document.createElement('table');
+   // One page
    for (let i = 0; i < 1; i++) {
      {
        const tr = document.createElement('tr');
        tr.style = 'height: 32px';
-       for (let i = 0; i < 3; i++) {
+       // Two columns
+       for (let i = 0; i < 2; i++) {
          const td = document.createElement('td');
          td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
          const pre = document.createElement('pre');
