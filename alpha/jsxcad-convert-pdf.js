@@ -79,8 +79,8 @@ const toPdf = async (
   const section$1 = section(await geometry, [
     { type: 'points', tags: [] },
   ]);
-  const disjoint$1 = disjoint([section$1]);
-  const prepared = scale([scale$1, scale$1, scale$1], disjoint$1);
+  const disjoint$1 = disjoint(section$1, {});
+  const prepared = scale(disjoint$1, [scale$1, scale$1, scale$1]);
 
   for (const { matrix, tags, polygonsWithHoles } of linearize(
     prepared,
