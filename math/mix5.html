@@ -18,6 +18,20 @@
      }
      container.appendChild(pre);
    }
+   const Power = (container, text, power, size) => {
+     const pre = document.createElement('pre');
+     pre.appendChild(document.createTextNode(text));
+     if (size) {
+       pre.style.fontSize = size;
+     }
+     const sup = document.createElement('sup');
+     sup.appendChild(document.createTextNode(power));
+     if (size) {
+       sup.style.fontSize = size;
+     }
+     pre.appendChild(sup);
+     container.appendChild(pre);
+   }
    const Time = (container, hours, minutes, size) => Text(container, `${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분`, size);
    const Rational = (container, numerator, denominator) => {
      const table = document.createElement('table');
@@ -43,6 +57,7 @@
    const kTimes = '\u00D7';
    const kDivide = '\u00F7';
    const kEqual = '\u003D';
+   const kRoot = '\u221A';
 
    const buildSimpleDivision = (l, m, r) => {
        for (let i = 0; i < Infinity; i++) {
@@ -61,6 +76,14 @@
          Text(r, y);
          return;
       }
+   }
+   const buildSquare = (l, m, r) => {
+       const x = pick(10);
+       Power(l, x, 2);
+   }
+   const buildSquareRoot = (l, m, r) => {
+       const x = pick(10);
+       Text(l, `${kRoot}${x * x}`);
    }
    const buildSubtraction = (l, m, r) => {
        const x = pick(1000);
@@ -224,7 +247,9 @@
            simpleDivision: 5,
            subtraction: 5,
            timeAddition: 5,
-           timeSubtraction: 5
+           timeSubtraction: 5,
+           square: 5,
+           squareRoot: 5
          });
          switch (choice) {
            case 'addition': buildAddition(l, m, r); break;
@@ -237,6 +262,8 @@
            case 'subtraction': buildSubtraction(l, m, r); break;
            case 'timeAddition': buildTimeAddition(l, m, r); break;
            case 'timeSubtraction': buildTimeSubtraction(l, m, r); break;
+           case 'square': buildSquare(l, m, r); break;
+           case 'squareRoot': buildSquareRoot(l, m, r); break;
            default: throw Error(`Unknown choice '${choice}'`);
          }
          row.appendChild(l);
