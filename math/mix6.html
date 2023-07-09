@@ -1,7 +1,7 @@
 <html>
  <head>
   <style>
-    table { font-size: 1.2em; vertical-align: middle };
+    table { font-size: 0.75em; vertical-align: middle };
     @font-face {
       font-family: dancingScript;
       font-style: normal;
@@ -38,7 +38,7 @@
      pre.appendChild(sup);
      container.appendChild(pre);
    }
-   const Time = (hours, minutes, size) => `<span style="font-size: 0.55em">${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분</span>`;
+   const Time = (hours, minutes, size) => `<span style="font-size: 0.75em">${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분</span>`;
    const Rational = (numerator, denominator) =>
      `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
 
@@ -242,15 +242,16 @@
      for (let i = 0; i < 3; i++) {
        // Five Items
        const table = document.createElement('table');
-       for (let j = 0; j < 5; j++) {
+       for (let j = 0; j < 7; j++) {
          const row = document.createElement('tr');
          row.style.outline = 'thin dotted';
-         row.style.height = '92px';
+         row.style.height = '40px';
          const cell = document.createElement('td');
          cell.style.textAlign = 'right';
-         cell.style.width = '512px';
+         // cell.style.width = '512px';
          cell.style.fontFamily = 'dancingScript';
          cell.innerHTML = buildProblem();
+         cell.style.padding = '0px';
          row.appendChild(cell);
          table.appendChild(row);
        }
@@ -260,13 +261,11 @@
      }
    }
    const t = document.createElement('table');
-   // One page
-   for (let i = 0; i < 5; i++) {
+   for (let i = 0; i < 3; i++) {
      {
        const tr = document.createElement('tr');
        tr.style = 'height: 32px';
-       // Three columns
-       for (let i = 0; i < 3; i++) {
+       for (let i = 0; i < 2; i++) {
          const td = document.createElement('td');
          td.style = 'width: 30%; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
          td.appendChild(buildSet());
