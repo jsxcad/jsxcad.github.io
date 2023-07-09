@@ -42,7 +42,7 @@
    const Rational = (numerator, denominator) =>
      `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
 
-   const kAnswer = '__________';
+   const kAnswer = ' _______________';
    const kMinus = '\u002D';
    const kPlus = '\u002B';
    const kTimes = '\u00D7';
@@ -188,10 +188,10 @@
 
    const pickUnit = () => 
      choose([
-       { value: 'g', weight: 5 },
-       { value: 'm', weight: 5 },
-       { value: 'l', weight: 5 },
-       { value: 's', weight: 5 },
+       { value: 'kg', weight: 5 },
+       { value: 'cm', weight: 5 },
+       { value: 'ml', weight: 5 },
+       { value: 'h', weight: 5 },
      ]);
 
    const buildUnitAddition = () => Pre(`${pick(11)}${pickUnit()} ${kPlus} ${pick(11)}${pickUnit()} = ${kAnswer}`);
@@ -254,23 +254,24 @@
          row.appendChild(cell);
          table.appendChild(row);
        }
-       table.style.width = '300px';
+       table.style.width = '100%';
        table.style.tableLayout = 'fixed';
        return table;
      }
    }
    const t = document.createElement('table');
    // One page
-   for (let i = 0; i < 1; i++) {
+   for (let i = 0; i < 2; i++) {
      {
        const tr = document.createElement('tr');
        tr.style = 'height: 32px';
        // Two columns
        for (let i = 0; i < 2; i++) {
          const td = document.createElement('td');
-         td.style = 'width: 250px; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         td.style = 'width: 50%; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
          td.appendChild(buildSet());
          tr.appendChild(td);
+         td.style.padding = '1em';
        }
        t.appendChild(tr);
      }
