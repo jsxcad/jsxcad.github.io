@@ -42,7 +42,8 @@
    const Rational = (numerator, denominator) =>
      `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
 
-   const kAnswer = ' _______________';
+   // const kAnswer = ' _______________';
+   const kAnswer = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
    const kMinus = '\u002D';
    const kPlus = '\u002B';
    const kTimes = '\u00D7';
@@ -245,7 +246,7 @@
        for (let j = 0; j < 7; j++) {
          const row = document.createElement('tr');
          row.style.outline = 'thin dotted';
-         row.style.height = '40px';
+         row.style.height = '38px';
          const cell = document.createElement('td');
          cell.style.textAlign = 'right';
          // cell.style.width = '512px';
