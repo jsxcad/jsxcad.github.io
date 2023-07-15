@@ -1,0 +1,309 @@
+<html>
+ <head>
+  <style>
+    table { font-size: 0.75em; vertical-align: middle };
+    @font-face {
+      font-family: dancingScript;
+      font-style: normal;
+      font-weight: normal;
+      src: url("https://jsxcad.js.org/math/DancingScript-Regular.ttf");
+    }
+  </style>
+ </head>
+ <body>
+  <script>
+   const { body } = document;
+   const pad = (n, v, c = ' ') => String(v).padStart(n, c);
+   const pick = (n) => Math.floor(Math.random() * n);
+   const Pre = (html) => html;
+   const Text = (container, text, size) => {
+     const pre = document.createElement('pre');
+     pre.appendChild(document.createTextNode(text));
+     if (size) {
+       pre.style.fontSize = size;
+     }
+     container.appendChild(pre);
+   }
+   const Power = (container, text, power, size) => {
+     const pre = document.createElement('pre');
+     pre.appendChild(document.createTextNode(text));
+     if (size) {
+       pre.style.fontSize = size;
+     }
+     const sup = document.createElement('sup');
+     sup.appendChild(document.createTextNode(power));
+     if (size) {
+       sup.style.fontSize = size;
+     }
+     pre.appendChild(sup);
+     container.appendChild(pre);
+   }
+   const Time = (hours, minutes, size) => `<span style="font-size: 0.75em">${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분</span>`;
+   const Rational = (numerator, denominator) =>
+     `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
+
+   // const kAnswer = ' _______________';
+   const kAnswer = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+   const kMinus = '\u002D';
+   const kPlus = '\u002B';
+   const kTimes = '\u00D7';
+   const kDivide = '\u00F7';
+   const kEqual = '\u003D';
+   const kRoot = '\u221A';
+
+   const buildSimpleDivision = () => {
+     for (let i = 0; i < Infinity; i++) {
+       const x = pick(900);
+       const y = pick(10);
+       if (y < 2) {
+         continue;
+       }
+       const product = x * y;
+       const t = `${product}`;
+       if (t.length !== 3) {
+         continue;
+       }
+       return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
+     }
+   };
+   const buildSquare = () => 
+     Pre(`${pick(10)}<sup>2</sup> = ${kAnswer}`);
+
+   const buildSquareRoot = () => {
+     const x = pick(10);
+     return Pre(`${kRoot}${x * x} = ${kAnswer}`);
+   }
+
+   const buildSubtraction = () => Pre(`${pick(1000)} ${kMinus} ${pick(1000)} = ${kAnswer}`);
+
+   const buildTimeSubtraction = () => {
+     const xH = pick(24);
+     const xM = pick(60);
+     const yH = pick(24);
+     const yM = pick(60);
+
+     return Pre(`${Time(xH, xM)} ${kMinus} ${Time(yH, yM)} = ${kAnswer}`);
+   }
+
+   const buildAddition = () => Pre(`${pick(1000)} ${kPlus} ${pick(1000)} = ${kAnswer}`);
+
+   const buildTimeAddition = () => {
+     const xH = pick(24);
+     const xM = pick(60);
+     const yH = pick(24);
+     const yM = pick(60);
+
+     return Pre(`${Time(xH, xM)} ${kPlus} ${Time(yH, yM)} = ${kAnswer}`);
+   }
+
+   const buildMultiplication = () =>
+     Pre(`${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
+
+   const buildRationalAddition = () => {
+     for (;;) {
+       const xD = pick(11);
+       const xN = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
+         continue;
+       }
+       return Pre(`${Rational(xD, xN)} ${kPlus} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   };
+
+   const buildRationalSubtraction = () => {
+     for (;;) {
+       const xD = pick(11);
+       const xN = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
+         continue;
+       }
+       return Pre(`${Rational(xD, xN)} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerRationalSubtraction = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xD === 0 || yN === 0) {
+         continue;
+       }
+       return Pre(`${xD} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerDecimalSubtraction = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(11) / 10;
+       return Pre(`${xD} ${kMinus} ${yD} = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerDecimalMultiplication = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(11) / 10;
+       return Pre(`${xD} ${kTimes} ${yD} = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerRationalMultiplication = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xD === 0 || yN === 0) {
+         continue;
+       }
+       return Pre(`${xD} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerPercentageMultiplication = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(21) * 10;
+       return Pre(`${xD} ${kTimes} ${yD}% = ${kAnswer}`);
+     }
+   }
+
+   const buildIntegerRationalDivision = () => {
+     for (;;) {
+       const xD = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xD === 0 || yN === 0 || yD === 0) {
+         continue;
+       }
+       return Pre(`${xD} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const buildRationalDivision = () => {
+     for (;;) {
+       const xD = pick(11);
+       const xN = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
+         continue;
+       }
+       return Pre(`${Rational(xD, xN)} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const buildRationalMultiplication = () => {
+     for (;;) {
+       const xD = pick(11);
+       const xN = pick(11);
+       const yD = pick(11);
+       const yN = pick(11);
+       if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
+         continue;
+       }
+       return Pre(`${Rational(xD, xN)} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
+   const pickUnit = () => 
+     choose([
+       { value: 'kg', weight: 5 },
+       { value: 'cm', weight: 5 },
+       { value: 'ml', weight: 5 },
+       { value: 'h', weight: 5 },
+     ]);
+
+   const buildUnitAddition = () => Pre(`${pick(11)}${pickUnit()} ${kPlus} ${pick(11)}${pickUnit()} = ${kAnswer}`);
+   const buildUnitSubtraction = () => Pre(`${pick(11)}${pickUnit()} ${kMinus} ${pick(11)}${pickUnit()} = ${kAnswer}`);
+   const buildUnitMultiplication = () => Pre(`${pick(11)}${pickUnit()} ${kTimes} ${pick(11)}${pickUnit()} = ${kAnswer}`);
+   const buildUnitDivision = () => Pre(`${pick(11)}${pickUnit()} ${kDivide} ${pick(11)}${pickUnit()} = ${kAnswer}`);
+
+   const choose = (choices) => {
+     let total = 0;
+     for (const { weight } of choices) {
+       total += weight;
+     }
+     let choice = pick(total);
+     for (const { weight, value } of choices) {
+       if (weight >= choice) {
+         return value;
+       }
+       choice -= weight;
+     }
+     throw Error('Choose failed to make a choice');
+   };
+
+   const buildProblem = () =>
+     choose([
+       { value: buildSimpleDivision, weight: 5 },
+       { value: buildAddition, weight: 5 },
+       { value: buildMultiplication, weight: 5 },
+       { value: buildRationalAddition, weight: 5 },
+       { value: buildRationalSubtraction, weight: 5 },
+       { value: buildIntegerRationalSubtraction, weight: 5 },
+       { value: buildIntegerDecimalSubtraction, weight: 5 },
+       { value: buildIntegerDecimalMultiplication, weight: 5 },
+       { value: buildIntegerPercentageMultiplication, weight: 5 },
+       { value: buildIntegerRationalMultiplication, weight: 5 },
+       { value: buildIntegerRationalDivision, weight: 5 },
+       { value: buildRationalMultiplication, weight: 5 },
+       { value: buildRationalDivision, weight: 5 },
+       { value: buildSubtraction, weight: 5 },
+       { value: buildTimeAddition, weight: 5 },
+       { value: buildTimeSubtraction, weight: 5 },
+       { value: buildSquare, weight: 5 },
+       { value: buildSquareRoot, weight: 5 },
+       { value: buildUnitAddition, weight: 1 },
+       { value: buildUnitSubtraction, weight: 1 },
+       { value: buildUnitMultiplication, weight: 5 },
+       { value: buildUnitDivision, weight: 5 }
+     ])();
+
+   const buildSet = (container) => {
+     // Three Groups
+     for (let i = 0; i < 3; i++) {
+       // Five Items
+       const table = document.createElement('table');
+       for (let j = 0; j < 7; j++) {
+         const row = document.createElement('tr');
+         row.style.outline = 'thin dotted';
+         row.style.height = '38px';
+         const cell = document.createElement('td');
+         cell.style.textAlign = 'right';
+         // cell.style.width = '512px';
+         cell.style.fontFamily = 'dancingScript';
+         cell.innerHTML = buildProblem();
+         cell.style.padding = '0px';
+         row.appendChild(cell);
+         table.appendChild(row);
+       }
+       table.style.width = '100%';
+       table.style.tableLayout = 'fixed';
+       return table;
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 3; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 2; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 30%; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         td.appendChild(buildSet());
+         tr.appendChild(td);
+         td.style.padding = '1em';
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>
