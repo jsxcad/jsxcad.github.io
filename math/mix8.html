@@ -146,6 +146,14 @@
      }
    }
 
+   const buildDecimalDecimalSubtraction = () => {
+     for (;;) {
+       const xD = pick(110) / 10;
+       const yD = pick(11) / 10;
+       return Pre(`${xD} ${kMinus} ${yD} = ${kAnswer}`);
+     }
+   }
+
    const buildIntegerDecimalMultiplication = () => {
      for (;;) {
        const xD = pick(11);
@@ -261,6 +269,7 @@
        { value: buildMultiplication, weight: 5 },
        { value: buildRationalAddition, weight: 5 },
        { value: buildRationalSubtraction, weight: 5 },
+       { value: buildDecimalDecimalSubtraction, weight: 5 },
        { value: buildIntegerRationalSubtraction, weight: 5 },
        { value: buildIntegerDecimalSubtraction, weight: 5 },
        { value: buildIntegerDecimalMultiplication, weight: 5 },
@@ -274,8 +283,8 @@
        { value: buildTimeSubtraction, weight: 5 },
        { value: buildSquare, weight: 5 },
        { value: buildSquareRoot, weight: 5 },
-       { value: buildUnitAddition, weight: 5 },
-       { value: buildUnitSubtraction, weight: 5 },
+       { value: buildUnitAddition, weight: 1 },
+       { value: buildUnitSubtraction, weight: 1 },
        { value: buildUnitMultiplication, weight: 5 },
        { value: buildUnitDivision, weight: 5 },
        { value: buildSameUnitAddition, weight: 5 },
