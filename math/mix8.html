@@ -225,6 +225,11 @@
    const buildUnitMultiplication = () => Pre(`${pick(11)}${pickUnit()} ${kTimes} ${pick(11)}${pickUnit()} = ${kAnswer}`);
    const buildUnitDivision = () => Pre(`${pick(11)}${pickUnit()} ${kDivide} ${pick(11)}${pickUnit()} = ${kAnswer}`);
 
+   const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kPlus} ${pick(11)}${unit} = ${kAnswer}`); };
+   const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kMinus} ${pick(11)}${unit} = ${kAnswer}`); };
+   const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kTimes} ${pick(11)}${unit} = ${kAnswer}`); };
+   const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kDivide} ${pick(11)}${unit} = ${kAnswer}`); };
+
    // x + y = b; x - y = c;
    const buildSystemOfEquations = () => {
      for (;;) {
@@ -269,10 +274,14 @@
        { value: buildTimeSubtraction, weight: 5 },
        { value: buildSquare, weight: 5 },
        { value: buildSquareRoot, weight: 5 },
-       { value: buildUnitAddition, weight: 1 },
-       { value: buildUnitSubtraction, weight: 1 },
+       { value: buildUnitAddition, weight: 5 },
+       { value: buildUnitSubtraction, weight: 5 },
        { value: buildUnitMultiplication, weight: 5 },
        { value: buildUnitDivision, weight: 5 },
+       { value: buildSameUnitAddition, weight: 5 },
+       { value: buildSameUnitSubtraction, weight: 5 },
+       { value: buildSameUnitMultiplication, weight: 5 },
+       { value: buildSameUnitDivision, weight: 5 },
        { value: buildSystemOfEquations, weight: 10 }
      ])();
 
