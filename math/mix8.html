@@ -14,7 +14,13 @@
   <script>
    const { body } = document;
    const pad = (n, v, c = ' ') => String(v).padStart(n, c);
-   const pick = (n) => Math.floor(Math.random() * n);
+   const pick = (a, b) => {
+     if (b === undefined) {
+       b = a;
+       a = 0;
+     }
+     return Math.floor(Math.random() * (b - a)) + a;
+   }
    const Pre = (html) => html;
    const Text = (container, text, size) => {
      const pre = document.createElement('pre');
@@ -69,6 +75,9 @@
    };
    const buildSquare = () => 
      Pre(`${pick(10)}<sup>2</sup> = ${kAnswer}`);
+
+   const buildCube = () => 
+     Pre(`${pick(4)}<sup>3</sup> = ${kAnswer}`);
 
    const buildSquareRoot = () => {
      const x = pick(10);
@@ -222,21 +231,33 @@
 
    const pickUnit = () => 
      choose([
+       { value: 'g', weight: 5 },
        { value: 'kg', weight: 5 },
+       { value: 'm', weight: 5 },
        { value: 'cm', weight: 5 },
+       { value: 'l', weight: 5 },
        { value: 'ml', weight: 5 },
        { value: 'h', weight: 5 },
+       { value: 's', weight: 5 },
+       { value: 'apple', weight: 5 },
+       { value: 'orange', weight: 5 },
+       { value: 'fish', weight: 5 },
+       { value: 'q', weight: 5 },
+       { value: 'v', weight: 5 },
      ]);
 
-   const buildUnitAddition = () => Pre(`${pick(11)}${pickUnit()} ${kPlus} ${pick(11)}${pickUnit()} = ${kAnswer}`);
-   const buildUnitSubtraction = () => Pre(`${pick(11)}${pickUnit()} ${kMinus} ${pick(11)}${pickUnit()} = ${kAnswer}`);
-   const buildUnitMultiplication = () => Pre(`${pick(11)}${pickUnit()} ${kTimes} ${pick(11)}${pickUnit()} = ${kAnswer}`);
-   const buildUnitDivision = () => Pre(`${pick(11)}${pickUnit()} ${kDivide} ${pick(11)}${pickUnit()} = ${kAnswer}`);
+   const buildUnitAddition = () => Pre(`${pick(11)} ${pickUnit()} ${kPlus} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitSubtraction = () => Pre(`${pick(11)} ${pickUnit()} ${kMinus} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitMultiplication = () => Pre(`${pick(11)} ${pickUnit()} ${kTimes} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitDivision = () => Pre(`${pick(11)} ${pickUnit()} ${kDivide} ${pick(1, 11)} ${pickUnit()} = ${kAnswer}`);
 
-   const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kPlus} ${pick(11)}${unit} = ${kAnswer}`); };
-   const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kMinus} ${pick(11)}${unit} = ${kAnswer}`); };
-   const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kTimes} ${pick(11)}${unit} = ${kAnswer}`); };
-   const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(11)}${unit} ${kDivide} ${pick(11)}${unit} = ${kAnswer}`); };
+   const buildUnitDimensionlessDivision = () => Pre(`${pick(11)} ${pickUnit()} ${kDivide} ${pick(1, 11)} = ${kAnswer}`);
+   const buildUnitDimensionlessMultiplication = () => Pre(`${pick(11)} ${pickUnit()} ${kTimes} ${pick(11)} = ${kAnswer}`);
+
+   const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kPlus} ${pick(11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kMinus} ${pick(11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kTimes} ${pick(11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kDivide} ${pick(11)} ${unit} = ${kAnswer}`); };
 
    // x + y = b; x - y = c;
    const buildSystemOfEquations = () => {
@@ -247,14 +268,21 @@
      }
    }
 
-   const choose = (choices) => {
+   const choose = (choices, chosen = new Set()) => {
      let total = 0;
-     for (const { weight } of choices) {
+     for (const { value, weight } of choices) {
+       if (chosen.has(value)) {
+         continue;
+       }
        total += weight;
      }
      let choice = pick(total);
      for (const { weight, value } of choices) {
+       if (chosen.has(value)) {
+         continue;
+       }
        if (weight >= choice) {
+         chosen.add(value);
          return value;
        }
        choice -= weight;
@@ -262,7 +290,7 @@
      throw Error('Choose failed to make a choice');
    };
 
-   const buildProblem = () =>
+   const buildProblem = (chosen) =>
      choose([
        { value: buildSimpleDivision, weight: 5 },
        { value: buildAddition, weight: 5 },
@@ -282,23 +310,27 @@
        { value: buildTimeAddition, weight: 5 },
        { value: buildTimeSubtraction, weight: 5 },
        { value: buildSquare, weight: 5 },
+       { value: buildCube, weight: 5 },
        { value: buildSquareRoot, weight: 5 },
        { value: buildUnitAddition, weight: 1 },
        { value: buildUnitSubtraction, weight: 1 },
        { value: buildUnitMultiplication, weight: 5 },
        { value: buildUnitDivision, weight: 5 },
+       { value: buildUnitDimensionlessDivision, weight: 5 },
+       { value: buildUnitDimensionlessMultiplication, weight: 5 },
        { value: buildSameUnitAddition, weight: 5 },
        { value: buildSameUnitSubtraction, weight: 5 },
        { value: buildSameUnitMultiplication, weight: 5 },
        { value: buildSameUnitDivision, weight: 5 },
-       { value: buildSystemOfEquations, weight: 10 }
-     ])();
+       { value: buildSystemOfEquations, weight: 100 }
+     ], chosen)();
 
    const buildSet = (container) => {
      // Three Groups
      for (let i = 0; i < 3; i++) {
        // Five Items
        const table = document.createElement('table');
+       const chosen = new Set();
        for (let j = 0; j < 7; j++) {
          const row = document.createElement('tr');
          row.style.outline = 'thin dotted';
@@ -307,7 +339,7 @@
          cell.style.textAlign = 'right';
          // cell.style.width = '512px';
          cell.style.fontFamily = 'dancingScript';
-         cell.innerHTML = buildProblem();
+         cell.innerHTML = buildProblem(chosen);
          cell.style.padding = '0px';
          row.appendChild(cell);
          table.appendChild(row);
