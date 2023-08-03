@@ -21,6 +21,14 @@
      }
      return Math.floor(Math.random() * (b - a)) + a;
    }
+   const pickNonZero = (a, b) => {
+     for (;;) {
+       const value = pick(a, b);
+       if (value !== 0) {
+         return value;
+       }
+     }
+   };
    const Pre = (html) => html;
    const Text = (container, text, size) => {
      const pre = document.createElement('pre');
@@ -73,10 +81,10 @@
      }
    };
    const buildSquare = () => 
-     Pre(`${pick(10)}<sup>2</sup> = ${kAnswer}`);
+     Pre(`${pick(-10, 10)}<sup>2</sup> = ${kAnswer}`);
 
    const buildCube = () => 
-     Pre(`${pick(4)}<sup>3</sup> = ${kAnswer}`);
+     Pre(`${pick(-4, 4)}<sup>3</sup> = ${kAnswer}`);
 
    const buildSquareRoot = () => {
      const x = pick(10);
@@ -110,10 +118,10 @@
 
    const buildRationalAddition = () => {
      for (;;) {
-       const xD = pick(11);
-       const xN = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const xN = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
          continue;
        }
@@ -123,10 +131,10 @@
 
    const buildRationalSubtraction = () => {
      for (;;) {
-       const xD = pick(11);
-       const xN = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const xN = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
          continue;
        }
@@ -136,9 +144,9 @@
 
    const buildIntegerRationalSubtraction = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xD === 0 || yN === 0) {
          continue;
        }
@@ -148,33 +156,33 @@
 
    const buildIntegerDecimalSubtraction = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(11) / 10;
+       const xD = pick(-11, 11);
+       const yD = pick(-11, 11) / 10;
        return Pre(`${xD} ${kMinus} ${yD} = ${kAnswer}`);
      }
    }
 
    const buildDecimalDecimalSubtraction = () => {
      for (;;) {
-       const xD = pick(110) / 10;
-       const yD = pick(11) / 10;
+       const xD = pick(-110, 110) / 10;
+       const yD = pick(-11, 11) / 10;
        return Pre(`${xD} ${kMinus} ${yD} = ${kAnswer}`);
      }
    }
 
    const buildIntegerDecimalMultiplication = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(11) / 10;
+       const xD = pick(-11, 11);
+       const yD = pick(-11, 11) / 10;
        return Pre(`${xD} ${kTimes} ${yD} = ${kAnswer}`);
      }
    }
 
    const buildIntegerRationalMultiplication = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xD === 0 || yN === 0) {
          continue;
        }
@@ -184,17 +192,17 @@
 
    const buildIntegerPercentageMultiplication = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(21) * 10;
+       const xD = pick(-11, 11);
+       const yD = pick(-21, 21) * 10;
        return Pre(`${xD} ${kTimes} ${yD}% = ${kAnswer}`);
      }
    }
 
    const buildIntegerRationalDivision = () => {
      for (;;) {
-       const xD = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
@@ -204,10 +212,10 @@
 
    const buildRationalDivision = () => {
      for (;;) {
-       const xD = pick(11);
-       const xN = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const xN = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
@@ -217,10 +225,10 @@
 
    const buildRationalMultiplication = () => {
      for (;;) {
-       const xD = pick(11);
-       const xN = pick(11);
-       const yD = pick(11);
-       const yN = pick(11);
+       const xD = pick(-11, 11);
+       const xN = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
        if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
@@ -234,35 +242,34 @@
        { value: 'kg', weight: 5 },
        { value: 'm', weight: 5 },
        { value: 'cm', weight: 5 },
-       { value: 'l', weight: 5 },
        { value: 'ml', weight: 5 },
        { value: 'h', weight: 5 },
        { value: 's', weight: 5 },
        { value: 'apple', weight: 5 },
-       { value: 'orange', weight: 5 },
+       { value: 'pear', weight: 5 },
        { value: 'fish', weight: 5 },
        { value: 'q', weight: 5 },
        { value: 'v', weight: 5 },
      ]);
 
-   const buildUnitAddition = () => Pre(`${pick(11)} ${pickUnit()} ${kPlus} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
-   const buildUnitSubtraction = () => Pre(`${pick(11)} ${pickUnit()} ${kMinus} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
-   const buildUnitMultiplication = () => Pre(`${pick(11)} ${pickUnit()} ${kTimes} ${pick(11)} ${pickUnit()} = ${kAnswer}`);
-   const buildUnitDivision = () => Pre(`${pick(11)} ${pickUnit()} ${kDivide} ${pick(1, 11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitAddition = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kPlus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitSubtraction = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kMinus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitMultiplication = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   const buildUnitDivision = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} ${pickUnit()} = ${kAnswer}`);
 
-   const buildUnitDimensionlessDivision = () => Pre(`${pick(11)} ${pickUnit()} ${kDivide} ${pick(1, 11)} = ${kAnswer}`);
-   const buildUnitDimensionlessMultiplication = () => Pre(`${pick(11)} ${pickUnit()} ${kTimes} ${pick(11)} = ${kAnswer}`);
+   const buildUnitDimensionlessDivision = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} = ${kAnswer}`);
+   const buildUnitDimensionlessMultiplication = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} = ${kAnswer}`);
 
-   const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kPlus} ${pick(11)} ${unit} = ${kAnswer}`); };
-   const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kMinus} ${pick(11)} ${unit} = ${kAnswer}`); };
-   const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kTimes} ${pick(11)} ${unit} = ${kAnswer}`); };
-   const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(11)} ${unit} ${kDivide} ${pick(11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kMinus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kTimes} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kDivide} ${pickNonZero(-11, 11)} ${unit} = ${kAnswer}`); };
 
    // x + y = b; x - y = c;
    const buildSystemOfEquations = () => {
      for (;;) {
-       const x = pick(11);
-       const y = pick(11);
+       const x = pick(-11, 11);
+       const y = pick(-11, 11);
        return Pre(`x + y = ${x + y} ${kTherefore} x = ${kAnswer} <br>x - y = ${x - y} ${kTherefore} y = ${kAnswer}<br>`);
      }
    }
