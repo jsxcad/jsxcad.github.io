@@ -14,6 +14,250 @@
   <script>
    const { body } = document;
 
+   const chooseFromList = (list) =>
+     choose(list.map(value => ({ value, weight: 5 })));
+
+   const pickKoreanWord = () =>
+     chooseFromList(
+         ["많이", "이후", "다시",
+          "항상", "동물", "다른",
+          "묻다", "멀리", "뒤로",
+          "때문에", "전에", "전에",
+          "사이", "혼합", "보트",
+          "오빠", "사다", "전화",
+          "깨끗하다", "시계", "춥다",
+          "깊은", "사슴", "접시",
+          "드레스", "드립", "드라이브",
+          "각", "여덟", "일레븐",
+          "모든", "가족", "빠른",
+          "싸움", "먼저", "발견",
+          "주다", "염소", "간다",
+          "성장", "행복", "도움",
+          "그", "집", "집",
+          "그냥", "친절", "키스",
+          "선", "사자", "목록",
+          "길게", "봐", "크게",
+          "엉망", "아마도", "대부분",
+          "새로운", "밤", "나인",
+          "만", "또는", "우리의",
+          "장소", "플러스", "수영장",
+          "읽다", "쉬다", "오른쪽",
+          "말하다", "바다", "두 번째",
+          "일곱", "모양", "시력",
+          "자매", "미끄러지다", "미끄러지다",
+          "노래", "곧", "소리",
+          "여전히", "돌", "그런",
+          "말하다", "그들의", "그들",
+          "것", "생각", "톤",
+          "치료", "속임수", "조율",
+          "에", "우리", "사용",
+          "잘", "갔다", "어디로",
+          "왜", "겨울", "소원",
+          "쓰다", "마당", "연도",
+          "공기", "또한", "거기",
+          "아무거나", "주위", "너무",
+          "헛간", "목욕탕", "12",
+          "최고", "더 나은", "매우",
+          "둘 다", "밝다", "어떤",
+          "할 수 없다", "아이", "일하다",
+          "할 수 있다", "계산하다", "아직",
+          "한다", "하지 않는다", "이것",
+          "드롭", "드럼", "트레이",
+          "종료", "짝수", "아래",
+          "먹이", "먹이", "씻다",
+          "친구", "주었어요", "누가",
+          "좋다", "좋다", "~할 것이다",
+          "여기", "높은", "너의",
+          "그것", "점프", "보인다",
+          "큰", "가벼운", "어리석은",
+          "조금", "자물쇠", "간식",
+          "점심", "만든", "도장",
+          "많이", "반드시", "여름",
+          "지금", "끄기", "보내기",
+          "밖으로", "경로", "노래",
+          "넣다", "토끼", "속도",
+          "바위", "말했다", "상태",
+          "가져가다", "가져오다", "가져가다",
+          "갔다", "길", "여행",
+          "집", "작은", "지붕",
+          "빨대", "비", "시원하다",
+          "행성", "하늘", "밤",
+          "돈", "날개", "새",
+          "부리", "닫기", "휴식",
+          "저것", "접시", "코",
+          "포도", "상", "슬픈"],
+       ["lot", "after", "again",
+        "always", "animal", "another",
+        "ask", "away", "back",
+        "because", "been", "before",
+        "between", "blend", "boat",
+        "brother", "buy", "call",
+        "clean", "clock", "cold",
+        "deep", "deer", "dish",
+        "dress", "drip", "drive",
+        "each", "eight", "eleven",
+        "every", "family", "fast",
+        "fight", "first", "found",
+        "give", "goat", "goes",
+        "grow", "happy", "help",
+        "him", "home", "house",
+        "just", "kind", "kiss",
+        "line", "lion", "list",
+        "long", "look", "loud",
+        "mess", "might", "most",
+        "new", "night", "nine",
+        "only", "or", "our",
+        "place", "plus", "pool",
+        "read", "rest", "right",
+        "says", "sea", "second",
+        "seven", "shape", "sight",
+        "sister", "slide", "slip",
+        "song", "soon", "sound",
+        "still", "stone", "such",
+        "tell", "their", "them",
+        "thing", "think", "ton",
+        "treat", "trick", "tune",
+        "upon", "us", "use",
+        "well", "went", "where",
+        "why", "winter", "wish",
+        "write", "yard", "year",
+        "air", "also", "there",
+        "any", "around", "too",
+        "barn", "bath", "twelve",
+        "best", "better", "very",
+        "both", "bright", "which",
+        "cannot", "child", "work",
+        "could", "count", "yet",
+        "does", "don’t", "these",
+        "drop", "drum", "tray",
+        "end", "even", "under",
+        "fed", "feed", "wash",
+        "friend", "gave", "who",
+        "good", "great", "would",
+        "here", "high", "your",
+        "its", "jump", "seem",
+        "large", "light", "silly",
+        "little", "lock", "snack",
+        "lunch", "made", "stamp",
+        "much", "must", "summer",
+        "now", "off", "send",
+        "out", "path", "sing",
+        "put", "rabbit", "speed",
+        "rock", "said", "state",
+        "take", "bring", "away",
+        "went", "road", "trip",
+        "house", "little", "roof",
+        "straw", "rain", "cool",
+        "planet", "sky", "night",
+        "money", "wings", "birds",
+        "beak", "close", "rest",
+        "those", "plate", "nose",
+        "grapes", "prize", "sad"]);
+
+   const pickKoreanVerb = () =>
+     choose([
+       { value: '가다', english: 'To go', weight: 5 },
+       { value: '가르치다', english: 'To teach', weight: 5 },
+       { value: '가지다', english: 'To have', weight: 5 },
+       { value: '갖다', english: 'To have', weight: 5 },
+       { value: '거짓말하다', english: 'To lie', weight: 5 },
+       { value: '걱정하다', english: 'To worry', weight: 5 },
+       { value: '걷다', english: 'To walk', weight: 5 },
+       { value: '걸다', english: 'To call, dial', weight: 5 },
+       { value: '결혼하다', english: 'To marry', weight: 5 },
+       { value: '고백하다', english: 'To confess', weight: 5 },
+       { value: '공부하다', english: 'To study', weight: 5 },
+       { value: '굽다', english: 'To roast, grill, bake', weight: 5 },
+       { value: '기다리다', english: 'To wait', weight: 5 },
+       { value: '기억하다', english: 'To remember', weight: 5 },
+       { value: '꿈꾸다', english: 'To dream', weight: 5 },
+       { value: '끓이다', english: 'To boil', weight: 5 },
+       { value: '끝나다', english: 'To finish', weight: 5 },
+       { value: '나가다', english: 'To exit', weight: 5 },
+       { value: '내다', english: 'To pay', weight: 5 },
+       { value: '닫다', english: 'To close', weight: 5 },
+       { value: '대답하다', english: 'To answer', weight: 5 },
+       { value: '도와주다', english: 'To help', weight: 5 },
+       { value: '도착하다', english: 'To arrive', weight: 5 },
+       { value: '듣다', english: ' To hear', weight: 5 },
+       { value: '들어오다', english: 'To enter', weight: 5 },
+       { value: '마시다', english: 'To drink', weight: 5 },
+       { value: '만나다', english: 'To meet', weight: 5 },
+       { value: '만들다', english: 'To make', weight: 5 },
+       { value: '말하다', english: 'To talk, speak', weight: 5 },
+       { value: '먹다', english: 'To eat', weight: 5 },
+       { value: '모르다', english: 'To not know', weight: 5 },
+       { value: '묻다', english: 'To ask', weight: 5 },
+       { value: '물어보다', english: 'To ask', weight: 5 },
+       { value: '배우다', english: 'To learn', weight: 5 },
+       { value: '벗다', english: 'To undress, take off clothes', weight: 5 },
+       { value: '보내다', english: 'To send', weight: 5 },
+       { value: '보다', english: 'To see', weight: 5 },
+       { value: '볶다', english: 'To fry', weight: 5 },
+       { value: '빌리다', english: 'To borrow, lend', weight: 5 },
+       { value: '사다', english: 'To buy', weight: 5 },
+       { value: '사랑에 빠지다', english: 'To fall in love', weight: 5 },
+       { value: '사랑하다', english: 'To love', weight: 5 },
+       { value: '사용하다', english: 'To use', weight: 5 },
+       { value: '살다', english: 'To live', weight: 5 },
+       { value: '생각하다', english: 'To think', weight: 5 },
+       { value: '서두르다', english: 'To hurry, rush', weight: 5 },
+       { value: '섞다', english: 'To mix, blend', weight: 5 },
+       { value: '소개하다', english: 'To introduce', weight: 5 },
+       { value: '쉬다', english: 'To rest', weight: 5 },
+       { value: '시작하다', english: 'To start', weight: 5 },
+       { value: '신다', english: ' to wear (shoes, socks, footwear)', weight: 5 },
+       { value: '싫어하다', english: 'To hate, dislike', weight: 5 },
+       { value: '싸우다', english: 'To fight', weight: 5 },
+       { value: '썰다', english: ' To chop, slice', weight: 5 },
+       { value: '쓰다', english: 'To write', weight: 5 },
+       { value: '쓰다', english: 'To wear (hat, eyewear)', weight: 5 },
+       { value: '씻다', english: 'To wash', weight: 5 },
+       { value: '앉다', english: 'To sit', weight: 5 },
+       { value: '알다', english: 'To know', weight: 5 },
+       { value: '약속하다', english: 'To promise', weight: 5 },
+       { value: '없다', english: 'To not have', weight: 5 },
+       { value: '연습하다', english: 'To practice', weight: 5 },
+       { value: '열다', english: 'To open', weight: 5 },
+       { value: '오다', english: 'To come', weight: 5 },
+       { value: '요리하다', english: 'To cook', weight: 5 },
+       { value: '운동하다', english: 'To exercise', weight: 5 },
+       { value: '운전하다', english: 'To drive', weight: 5 },
+       { value: '울다', english: 'To cry', weight: 5 },
+       { value: '웃다', english: 'To laugh', weight: 5 },
+       { value: '이기다', english: 'To win, defeat', weight: 5 },
+       { value: '이야기하다', english: ' To talk, chat', weight: 5 },
+       { value: '일어나다', english: 'To get up', weight: 5 },
+       { value: '일하다', english: 'To work', weight: 5 },
+       { value: '읽다', english: 'To read', weight: 5 },
+       { value: '입다', english: 'To wear', weight: 5 },
+       { value: '있다', english: 'To have', weight: 5 },
+       { value: '자다', english: 'To sleep', weight: 5 },
+       { value: '재다', english: 'To measure, weigh', weight: 5 },
+       { value: '전화하다', english: 'To telephone', weight: 5 },
+       { value: '좋아하다', english: 'To like', weight: 5 },
+       { value: '죄송하다', english: 'To be sorry', weight: 5 },
+       { value: '주다', english: ' To give', weight: 5 },
+       { value: '주문하다', english: 'To order', weight: 5 },
+       { value: '죽다', english: 'To die', weight: 5 },
+       { value: '준비하다', english: 'To prepare', weight: 5 },
+       { value: '지다', english: 'To lose, be defeated', weight: 5 },
+       { value: '찌다', english: 'To steam', weight: 5 },
+       { value: '찍다', english: 'To take (picture)', weight: 5 },
+       { value: '찾다', english: 'To find,To look for', weight: 5 },
+       { value: '청소하다', english: 'To clean', weight: 5 },
+       { value: '축하하다', english: 'To congratulate', weight: 5 },
+       { value: '출발하다', english: 'To depart', weight: 5 },
+       { value: '춤추다', english: 'To dance', weight: 5 },
+       { value: '타다', english: 'To ride', weight: 5 },
+       { value: '태어나다', english: 'To be born', weight: 5 },
+       { value: '튀기다', english: 'To deep fry', weight: 5 },
+       { value: '팔다', english: 'To sell', weight: 5 },
+       { value: '필요하다', english: 'To need', weight: 5 },
+       { value: '하다', english: 'To do', weight: 5 },
+       { value: '휘젓다', english: 'To stir', weight: 5 },
+     ]);
+
    const pickSubject = () => 
      choose([
        { value: "I", weight: 5 },
@@ -228,6 +472,10 @@
        { value: "definitely", weight: 5 },
        { value: "definitely not", weight: 5 },
      ]);
+
+   const buildKoreanVerb = () => Pre(`${pickKoreanVerb()} = ${kAnswer}`);
+
+   const buildKoreanWord = () => Pre(`${pickKoreanWord()} = ${kAnswer}`);
 
    const pickVerb = () =>
      choose([
@@ -587,21 +835,22 @@
      }
    }
 
-   const choose = (choices, chosen = new Set()) => {
+   const choose = (choices, chosen = new Map()) => {
      let total = 0;
-     for (const { value, weight } of choices) {
-       if (chosen.has(value)) {
+     for (const { value, weight, limit = 1 } of choices) {
+       if (chosen.get(value) >= limit) {
          continue;
        }
        total += weight;
      }
      let choice = pick(total);
-     for (const { weight, value } of choices) {
-       if (chosen.has(value)) {
+     for (const { weight, value, limit = 1 } of choices) {
+       const count = chosen.get(value) || 0;
+       if (count >= limit) {
          continue;
        }
        if (weight >= choice) {
-         chosen.add(value);
+         chosen.set(value, count + 1);
          return value;
        }
        choice -= weight;
@@ -644,25 +893,26 @@
        { value: buildSameUnitMultiplication, weight: 5 },
        { value: buildSameUnitDivision, weight: 5 },
        { value: buildSystemOfEquations, weight: 100 },
-       { value: buildSVOSentence, weight: 100 }
+       { value: buildSVOSentence, weight: 100 },
+       { value: buildKoreanWord, weight: 200, limit: 6 }
      ], chosen)();
 
    const buildSet = (container) => {
      // Three Groups
-     for (let i = 0; i < 3; i++) {
+     for (let i = 0; i < 1; i++) {
        // Five Items
        const table = document.createElement('table');
-       const chosen = new Set();
-       for (let j = 0; j < 7; j++) {
+       const chosen = new Map();
+       for (let j = 0; j < 12; j++) {
          const row = document.createElement('tr');
          row.style.outline = 'thin dotted';
-         row.style.height = '38px';
+         row.style.height = '76px';
          const cell = document.createElement('td');
-         cell.style.textAlign = 'right';
+         cell.style.textAlign = 'left';
          // cell.style.width = '512px';
          cell.style.fontFamily = 'dancingScript';
          cell.innerHTML = buildProblem(chosen);
-         cell.style.padding = '0px';
+         cell.style.padding = '5px';
          row.appendChild(cell);
          table.appendChild(row);
        }
@@ -672,7 +922,7 @@
      }
    }
    const t = document.createElement('table');
-   for (let i = 0; i < 3; i++) {
+   for (let i = 0; i < 1; i++) {
      {
        const tr = document.createElement('tr');
        tr.style = 'height: 32px';
