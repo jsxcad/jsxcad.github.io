@@ -358,7 +358,7 @@
    const kRoot = '\u221A';
    const kTherefore = '\u2234';
 
-   const buildSimpleDivision = () => {
+   const buildSimpleDivision31 = () => {
      for (let i = 0; i < Infinity; i++) {
        const x = pick(900);
        const y = pick(10);
@@ -373,6 +373,23 @@
        return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
      }
    };
+
+   const buildSimpleDivision32 = () => {
+     for (let i = 0; i < Infinity; i++) {
+       const x = pick(1000);
+       const y = pick(100);
+       if (y < 2) {
+         continue;
+       }
+       const product = x * y;
+       const t = `${product}`;
+       if (t.length !== 3) {
+         continue;
+       }
+       return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
+     }
+   };
+
    const buildSquare = () => 
      Pre(`${pick(-10, 10)}<sup>2</sup> = ${kAnswer}`);
 
@@ -406,8 +423,11 @@
      return Pre(`${Time(xH, xM)} ${kPlus} ${Time(yH, yM)} = ${kAnswer}`);
    }
 
-   const buildMultiplication = () =>
+   const buildMultiplication21 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
+
+   const buildMultiplication22 = () =>
+     Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
    const buildRationalAddition = () => {
      for (;;) {
@@ -591,9 +611,11 @@
 
    const buildProblem = (chosen) =>
      choose([
-       { value: buildSimpleDivision, weight: 5 },
+       { value: buildSimpleDivision31, weight: 5 },
+       { value: buildSimpleDivision32, weight: 0 },
        { value: buildAddition, weight: 5 },
-       { value: buildMultiplication, weight: 5 },
+       { value: buildMultiplication21, weight: 5 },
+       { value: buildMultiplication22, weight: 100 },
        { value: buildRationalAddition, weight: 5 },
        { value: buildRationalSubtraction, weight: 5 },
        { value: buildDecimalDecimalSubtraction, weight: 5 },
