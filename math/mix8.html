@@ -15,7 +15,13 @@
    const { body } = document;
 
    const chooseFromList = (list) =>
-     choose(list.map(value => ({ value, weight: 5 })));
+     choose(list.map(value => {
+         if (value instanceof Object) {
+           return value;
+         } else {
+           return { value, weight: 5 };
+         }
+       }));
 
    const pickKoreanWord = () =>
      chooseFromList(
@@ -24,7 +30,8 @@
           "묻다", "멀리", "뒤로",
           "때문에", "전에", "전에",
           "사이", "혼합", "보트",
-          "오빠", "사다", "전화",
+          { value: "오빠", weight: 5 * 2 },
+          "사다", "전화",
           "깨끗하다", "시계", "춥다",
           "깊은", "사슴", "접시",
           "드레스", "드립", "드라이브",
@@ -32,8 +39,10 @@
           "모든", "가족", "빠른",
           "싸움", "먼저", "발견",
           "주다", "염소", "간다",
-          "성장", "행복", "도움",
-          "그", "집", "집",
+          "성장", "행복", 
+          { value: "도움", weight: 5 * 2 },
+          "그",
+          { value: "집", weight: 5 / 2 },
           "그냥", "친절", "키스",
           "선", "사자", "목록",
           "길게", "봐", "크게",
@@ -43,7 +52,8 @@
           "장소", "플러스", "수영장",
           "읽다", "쉬다", "오른쪽",
           "말하다", "바다", "두 번째",
-          "일곱", "모양", "시력",
+          { value: "일곱", weight: 5 * 2 },
+          "모양", "시력",
           "자매", "미끄러지다", "미끄러지다",
           "노래", "곧", "소리",
           "여전히", "돌", "그런",
@@ -77,7 +87,8 @@
           "밖으로", "경로", "노래",
           "넣다", "토끼", "속도",
           "바위", "말했다", "상태",
-          "가져가다", "가져오다", "가져가다",
+          { value: "가져가다", weight: 5 * 2 },
+          "가져오다", "가져가다",
           "갔다", "길", "여행",
           "집", "작은", "지붕",
           "빨대", "비", "시원하다",
@@ -822,6 +833,7 @@
    const buildUnitDimensionlessMultiplication = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} = ${kAnswer}`);
 
    const buildSameUnitAddition = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   const buildSameUnitNegativeAddition = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 0)} ${unit} = ${kAnswer}`); };
    const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kMinus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
    const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kTimes} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
    const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kDivide} ${pickNonZero(-11, 11)} ${unit} = ${kAnswer}`); };
@@ -860,7 +872,7 @@
 
    const buildProblem = (chosen) =>
      choose([
-       { value: buildSimpleDivision31, weight: 5 },
+       { value: buildSimpleDivision31, weight: 100 },
        { value: buildSimpleDivision32, weight: 0 },
        { value: buildAddition, weight: 5 },
        { value: buildMultiplication21, weight: 5 },
@@ -889,8 +901,9 @@
        { value: buildUnitDimensionlessDivision, weight: 5 },
        { value: buildUnitDimensionlessMultiplication, weight: 5 },
        { value: buildSameUnitAddition, weight: 5 },
+       { value: buildSameUnitNegativeAddition, weight: 5 },
        { value: buildSameUnitSubtraction, weight: 5 },
-       { value: buildSameUnitMultiplication, weight: 5 },
+       { value: buildSameUnitMultiplication, weight: 5 * 2 },
        { value: buildSameUnitDivision, weight: 5 },
        { value: buildSystemOfEquations, weight: 100 },
        { value: buildSVOSentence, weight: 100 },
