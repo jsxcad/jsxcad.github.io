@@ -824,6 +824,22 @@
        { value: 'v', weight: 5 },
      ]);
 
+   const pickConvertibleUnitPair = () => 
+     choose([
+       { value: ['g', 'kg'], weight: 5 },
+       { value: ['kg', 'g'], weight: 5 },
+       { value: ['m', 'cm'], weight: 5 },
+       { value: ['cm', 'm'], weight: 5 },
+       { value: ['m', 'km'], weight: 5 },
+       { value: ['km', 'm'], weight: 5 },
+       { value: ['ml', 'l'], weight: 5 },
+       { value: ['l', 'lm'], weight: 5 },
+       { value: ['hours', 'minutes'], weight: 5 },
+       { value: ['minutes', 'hours'], weight: 5 },
+       { value: ['minutes', 'second'], weight: 5 },
+       { value: ['seconds', 'minutes'], weight: 5 },
+     ]);
+
    const buildUnitAddition = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kPlus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
    const buildUnitSubtraction = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kMinus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
    const buildUnitMultiplication = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
@@ -838,14 +854,38 @@
    const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kTimes} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
    const buildSameUnitDivision = () => { const unit = pickUnit(); return Pre(`${pick(-11, 11)} ${unit} ${kDivide} ${pickNonZero(-11, 11)} ${unit} = ${kAnswer}`); };
 
-   // x + y = b; x - y = c;
+   const buildConvertibleUnitAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   const buildConvertibleUnitNegativeAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 0)} ${b} = ${kAnswer}`); };
+   const buildConvertibleUnitSubtraction = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kMinus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   const buildConvertibleUnitDivision = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`); };
+
    const buildSystemOfEquations = () => {
-     for (;;) {
-       const x = pick(-11, 11);
-       const y = pick(-11, 11);
-       return Pre(`x + y = ${x + y} ${kTherefore} x = ${kAnswer} <br>x - y = ${x - y} ${kTherefore} y = ${kAnswer}<br>`);
-     }
-   }
+     switch (pick(2)) {
+       case 0: // x + y = b; x - y = c;
+         for (;;) {
+           const x = pick(-11, 11);
+           const y = pick(-11, 11);
+           switch (pick(2)) {
+             case 0: return Pre(`x + y = ${x + y} ${kTherefore} x = ${kAnswer} <br>x - y = ${x - y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Pre(`x - y = ${x - y} ${kTherefore} x = ${kAnswer} <br>x + y = ${x + y} ${kTherefore} y = ${kAnswer}<br>`);
+           }
+         }
+       case 1: // x * y = b; x / y = c;
+         for (;;) {
+           const x = pick(-11, 11);
+           const y = pick(-11, 11);
+           const d = x / y;
+           if (d != Math.floor(d)) {
+             continue;
+           }
+           switch (pick(2)) {
+             case 0: return Pre(`x * y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x / y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Pre(`x / y = ${d} ${kTherefore} x = ${kAnswer} <br>x * y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
+           }
+         }
+       }
+     };
 
    const choose = (choices, chosen = new Map()) => {
      let total = 0;
@@ -905,6 +945,11 @@
        { value: buildSameUnitSubtraction, weight: 5 },
        { value: buildSameUnitMultiplication, weight: 5 * 2 },
        { value: buildSameUnitDivision, weight: 5 },
+       { value: buildConvertibleUnitAddition, weight: 5 },
+       { value: buildConvertibleUnitNegativeAddition, weight: 5 },
+       { value: buildConvertibleUnitSubtraction, weight: 5 },
+       { value: buildConvertibleUnitMultiplication, weight: 5 * 2 },
+       { value: buildConvertibleUnitDivision, weight: 5 },
        { value: buildSystemOfEquations, weight: 100 },
        { value: buildSVOSentence, weight: 100 },
        { value: buildKoreanWord, weight: 200, limit: 6 }
