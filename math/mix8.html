@@ -686,16 +686,16 @@
      Pre(`${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
 
    const buildMultiplicationTens = () =>
-     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10} = ${kAnswer}`);
+     Pre(`${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
 
    const buildMultiplicationThousands = () =>
-     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10} = ${kAnswer}`);
+     Pre(`${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
 
    const buildMultiplicationOneOffTens = () =>
-     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10 - 1} = ${kAnswer}`);
+     Pre(`${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10 + chooseFromList([-1, 1])} = ${kAnswer}`);
 
    const buildMultiplicationOneOffHundreds = () =>
-     Pre(`${pick(11) * 100} ${kTimes} ${pick(11) * 10 - 1} = ${kAnswer}`);
+     Pre(`${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 100 + chooseFromList([-1, 1])} = ${kAnswer}`);
 
    const buildMultiplication22 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
@@ -891,7 +891,7 @@
            const x = pick(-11, 11);
            const y = pick(-11, 11);
            const d = x / y;
-           if (d != Math.floor(d)) {
+           if (!isFinite(d) || d != Math.floor(d)) {
              continue;
            }
            switch (pick(2)) {
@@ -904,14 +904,14 @@
 
    const choose = (choices, chosen = new Map()) => {
      let total = 0;
-     for (const { value, weight, limit = 1 } of choices) {
+     for (const { value, weight = 1, limit = 1 } of choices) {
        if (chosen.get(value) >= limit) {
          continue;
        }
        total += weight;
      }
      let choice = pick(total);
-     for (const { weight, value, limit = 1 } of choices) {
+     for (const { weight = 1, value, limit = 1 } of choices) {
        const count = chosen.get(value) || 0;
        if (count >= limit) {
          continue;
