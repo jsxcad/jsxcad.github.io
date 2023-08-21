@@ -685,8 +685,23 @@
    const buildMultiplication21 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
 
+   const buildMultiplicationTens = () =>
+     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10} = ${kAnswer}`);
+
+   const buildMultiplicationThousands = () =>
+     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10} = ${kAnswer}`);
+
+   const buildMultiplicationOneOffTens = () =>
+     Pre(`${pick(11) * 10} ${kTimes} ${pick(11) * 10 - 1} = ${kAnswer}`);
+
+   const buildMultiplicationOneOffHundreds = () =>
+     Pre(`${pick(11) * 100} ${kTimes} ${pick(11) * 10 - 1} = ${kAnswer}`);
+
    const buildMultiplication22 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
+
+   const buildMultiplicationInequality = () =>
+     Pre(`${pick(100)} ${kTimes} ${pick(100)} <table style="display: inline"><tr><td>&lt;</td></tr><tr><td>=</td></tr><tr><td>&gt;</td></tr></table> ${pick(100)} ${kTimes} ${pick(100)}`);
 
    const buildRationalAddition = () => {
      for (;;) {
@@ -917,6 +932,11 @@
        { value: buildAddition, weight: 5 },
        { value: buildMultiplication21, weight: 5 },
        { value: buildMultiplication22, weight: 100 },
+       { value: buildMultiplicationTens, weight: 100 },
+       { value: buildMultiplicationThousands, weight: 100 },
+       { value: buildMultiplicationOneOffTens, weight: 100 },
+       { value: buildMultiplicationOneOffHundreds, weight: 100 },
+       { value: buildMultiplicationInequality, weight: 100 },
        { value: buildRationalAddition, weight: 5 },
        { value: buildRationalSubtraction, weight: 5 },
        { value: buildDecimalDecimalSubtraction, weight: 5 },
