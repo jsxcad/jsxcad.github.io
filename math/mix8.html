@@ -14,14 +14,14 @@
   <script>
    const { body } = document;
 
-   const chooseFromList = (list) =>
+   const chooseFromList = (list, chosen) =>
      choose(list.map(value => {
          if (value instanceof Object) {
            return value;
          } else {
            return { value, weight: 5 };
          }
-       }));
+       }), chosen);
 
    const buildVocabulary = (phrases, [korean, english]) => {
      const translation = new Map();
@@ -51,7 +51,7 @@
      }
      const questions = [];
      for (const word of vocabulary) {
-       questions.push(`${translation.get(word)} [${shuffle(word.split('')).join('')}]`);
+       questions.push({ value: `${translation.get(word)} [${shuffle(word.split('')).join('')}] = `, weight: word.length });
      }
      return questions;
    };
@@ -105,7 +105,7 @@
      "Monday Tuesday Wednesday Thursday Friday Saturday Sunday",
      "day play"], englishToKorean);
 
-   const buildSpellingQuestion = () => chooseFromList(englishVocabulary);
+   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
    const pickKoreanWord = () =>
      chooseFromList(
@@ -247,7 +247,7 @@
         "money", "wings", "birds",
         "beak", "close", "rest",
         "those", "plate", "nose",
-        "grapes", "prize", "sad"]);
+        "grapes", "prize", "sad"], chosen);
 
    const pickKoreanVerb = () =>
      choose([
@@ -979,8 +979,8 @@
              continue;
            }
            switch (pick(2)) {
-             case 0: return Pre(`x * y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x / y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
-             case 1: return Pre(`x / y = ${d} ${kTherefore} x = ${kAnswer} <br>x * y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 0: return Pre(`x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x / y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Pre(`x / y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
            }
          }
        }
@@ -1012,14 +1012,14 @@
    const buildProblem = (chosen) =>
      choose([
        { value: buildSimpleDivision31, weight: 100 },
-       { value: buildSimpleDivision32, weight: 0 },
+       { value: buildSimpleDivision32, weight: 10 },
        { value: buildAddition, weight: 5 },
        { value: buildMultiplication21, weight: 5 },
        { value: buildMultiplication22, weight: 100 },
-       { value: buildMultiplicationTens, weight: 100 },
-       { value: buildMultiplicationThousands, weight: 100 },
-       { value: buildMultiplicationOneOffTens, weight: 100 },
-       { value: buildMultiplicationOneOffHundreds, weight: 100 },
+       { value: buildMultiplicationTens, weight: 10 },
+       { value: buildMultiplicationThousands, weight: 10 },
+       { value: buildMultiplicationOneOffTens, weight: 10 },
+       { value: buildMultiplicationOneOffHundreds, weight: 10 },
        { value: buildMultiplicationInequality, weight: 100 },
        { value: buildRationalAddition, weight: 5 },
        { value: buildRationalSubtraction, weight: 5 },
@@ -1057,7 +1057,7 @@
        { value: buildSystemOfEquations, weight: 100 },
        { value: buildSVOSentence, weight: 100 },
        { value: buildSpellingQuestion, weight: 200, limit: 6 }
-     ], chosen)();
+     ], chosen)(chosen);
 
    const buildSet = (container) => {
      // Three Groups
