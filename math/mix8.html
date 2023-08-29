@@ -784,8 +784,30 @@
    const buildMultiplication22 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
+   const kInequalities = `<table style="display: inline"><tr><td>&lt;</td></tr><tr><td>=</td></tr><tr><td>&gt;</td></tr></table>`;
+
    const buildMultiplicationInequality = () =>
-     Pre(`${pick(100)} ${kTimes} ${pick(100)} <table style="display: inline"><tr><td>&lt;</td></tr><tr><td>=</td></tr><tr><td>&gt;</td></tr></table> ${pick(100)} ${kTimes} ${pick(100)}`);
+     Pre(`${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
+
+   const isInteger = (a) => Math.floor(a) === a;
+
+   const buildMultiplicationInequalitySimple = () => {
+     for (;;) {
+       const ab = pick(1, 101);
+       const af = pick(1, 11);
+       const a = ab * af;
+       const bb = pick(1, 101);
+       const bf = pick(1, 11);
+       const b = bb * bf;
+       if (Math.abs(a - b) > 20) {
+         continue;
+       }
+       if (!isInteger(af / bf) && !isInteger(bf / af)) {
+         continue;
+       }
+       return `${ab} ${kTimes} ${af} ${kInequalities} ${bb} ${kTimes} ${bf}`;
+     }
+   }
 
    const buildRationalAddition = () => {
      for (;;) {
@@ -980,7 +1002,7 @@
            }
            switch (pick(2)) {
              case 0: return Pre(`x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x / y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
-             case 1: return Pre(`x / y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Pre(`x ${kDivide} y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
            }
          }
        }
@@ -1020,7 +1042,8 @@
        { value: buildMultiplicationThousands, weight: 10 },
        { value: buildMultiplicationOneOffTens, weight: 10 },
        { value: buildMultiplicationOneOffHundreds, weight: 10 },
-       { value: buildMultiplicationInequality, weight: 100 },
+       { value: buildMultiplicationInequality, weight: 10 },
+       { value: buildMultiplicationInequalitySimple, weight: 90 },
        { value: buildRationalAddition, weight: 5 },
        { value: buildRationalSubtraction, weight: 5 },
        { value: buildDecimalDecimalSubtraction, weight: 5 },
