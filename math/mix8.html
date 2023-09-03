@@ -981,6 +981,25 @@
    const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
    const buildConvertibleUnitDivision = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`); };
 
+   const buildSameBasisAddition = () => { const basis = pick(1, 11); return Pre(`${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`); };
+
+   const buildCopyDigits = () => {
+     const a = String(pick(0, 10000)).padStart(4, '0');
+     const b = String(pick(0, 10000)).padStart(4, '0');
+     const c = String(pick(0, 10000)).padStart(4, '0');
+     const d = String(pick(0, 10000)).padStart(4, '0');
+     const e = String(pick(0, 10000)).padStart(4, '0');
+     const f = String(pick(0, 10000)).padStart(4, '0');
+     const g = String(pick(0, 10000)).padStart(4, '0');
+     const h = String(pick(0, 10000)).padStart(4, '0');
+     const i = String(pick(0, 10000)).padStart(4, '0');
+     return `<table>
+               <tr><td>${a}</td><td>${kAnswer}</td><td>${b}</td><td>${kAnswer}</td><td>${c}</td><td>${kAnswer}</td></tr>
+               <tr><td>${d}</td><td>${kAnswer}</td><td>${e}</td><td>${kAnswer}</td><td>${f}</td><td>${kAnswer}</td></tr>
+               <tr><td>${g}</td><td>${kAnswer}</td><td>${h}</td><td>${kAnswer}</td><td>${i}</td><td>${kAnswer}</td></tr>
+             </table>`;
+   };
+
    const buildSystemOfEquations = () => {
      switch (pick(2)) {
        case 0: // x + y = b; x - y = c;
@@ -1079,7 +1098,9 @@
        { value: buildConvertibleUnitDivision, weight: 5 },
        { value: buildSystemOfEquations, weight: 100 },
        { value: buildSVOSentence, weight: 100 },
-       { value: buildSpellingQuestion, weight: 200, limit: 6 }
+       { value: buildSpellingQuestion, weight: 200, limit: 6 },
+       { value: buildSameBasisAddition, weight: 200, limit: 1 },
+       { value: buildCopyDigits, weight: 200, limit: 1 }
      ], chosen)(chosen);
 
    const buildSet = (container) => {
