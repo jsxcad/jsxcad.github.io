@@ -193,6 +193,7 @@ const execute = async (
     let importsDone = false;
     const scheduled = new Set();
     const completed = new Set();
+    const failed = new Set();
     for (;;) {
       const updates = {};
       const replays = {};
@@ -250,6 +251,7 @@ const execute = async (
           const outstandingDependencies = entry.dependencies.filter(
             (dependency) =>
               !completed.has(dependency) &&
+              !failed.has(dependency) &&
               updates[dependency] &&
               dependency !== id
           );
@@ -260,10 +262,12 @@ const execute = async (
             // For now, only do one thing at a time, and block the remaining updates.
             const task = async () => {
               try {
+                console.log(`Evaluating ${id}`);
                 await evaluate(updates[id].program, { path });
                 completed.add(id);
                 console.log(`Completed ${id}`);
               } catch (error) {
+                failed.add(id);
                 // This should be reported via a note.
                 // throw error;
               }
@@ -470,11 +474,13 @@ registerDynamicModule(
   './jsxcad-api-v1-font.js',
   '../v1-font/main.js'
 );
+/*
 registerDynamicModule(
   '@' + 'jsxcad/api-v1-ldraw',
   './jsxcad-api-v1-ldraw.js',
   '../v1-ldraw/main.js'
 );
+*/
 registerDynamicModule(
   '@' + 'jsxcad/api-v1-math',
   './jsxcad-api-v1-math.js',

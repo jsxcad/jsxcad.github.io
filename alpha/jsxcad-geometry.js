@@ -1,7 +1,8 @@
-import { composeTransforms, fromRotateXToTransform, fromRotateYToTransform, fromRotateZToTransform, fromScaleToTransform, link as link$1, computeNormal as computeNormal$1, makeAbsolute as makeAbsolute$1, fromTranslateToTransform, extrude as extrude$1, fill as fill$2, deletePendingSurfaceMeshes, fromSegmentToInverseTransform, invertTransform, fuse as fuse$1, convexHull as convexHull$1, eachPoint, computeBoundingBox, approximate as approximate$1, disjoint as disjoint$1, bend as bend$1, serialize as serialize$1, cast as cast$1, clip as clip$1, computeCentroid as computeCentroid$1, computeImplicitVolume as computeImplicitVolume$1, computeOrientedBoundingBox as computeOrientedBoundingBox$1, computeToolpath as computeToolpath$1, convertPolygonsToMeshes as convertPolygonsToMeshes$1, cut as cut$1, deform as deform$1, demesh as demesh$1, dilateXY as dilateXY$1, faceEdges, outline as outline$1, eachTriangle as eachTriangle$1, eagerTransform as eagerTransform$1, fix as fix$1, fromPolygons as fromPolygons$1, fromPolygonSoup as fromPolygonSoup$1, generateEnvelope, grow as grow$1, involute as involute$1, inset as inset$1, join as join$1, loft as loft$1, computeArea, computeVolume, offset as offset$1, remesh as remesh$1, seam as seam$1, section as section$1, shell as shell$1, simplify as simplify$1, smooth as smooth$1, separate as separate$1, identity, twist as twist$1, unfold as unfold$1, wrap as wrap$1 } from './jsxcad-algorithm-cgal.js';
+import { composeTransforms, fromRotateXToTransform, fromRotateYToTransform, fromRotateZToTransform, eagerTransform as eagerTransform$1, involute as involute$1, computeBoundingBox, fromScaleToTransform, link as link$1, computeNormal as computeNormal$1, makeAbsolute as makeAbsolute$1, fromTranslateToTransform, extrude as extrude$1, fill as fill$2, fromSegmentToInverseTransform, invertTransform, fuse as fuse$1, convexHull as convexHull$1, eachPoint, makeUnitSphere, outline as outline$1, convertPolygonsToMeshes as convertPolygonsToMeshes$1, serialize as serialize$1, approximate as approximate$1, disjoint as disjoint$1, bend as bend$1, cast as cast$1, clip as clip$1, computeCentroid as computeCentroid$1, computeImplicitVolume as computeImplicitVolume$1, computeOrientedBoundingBox as computeOrientedBoundingBox$1, computeToolpath as computeToolpath$1, cut as cut$1, deform as deform$1, demesh as demesh$1, dilateXY as dilateXY$1, faceEdges, eachTriangle as eachTriangle$1, fix as fix$1, fromPolygons as fromPolygons$1, fromPolygonSoup as fromPolygonSoup$1, generateEnvelope, grow as grow$1, inset as inset$1, join as join$1, loft as loft$1, computeArea, computeVolume, offset as offset$1, reconstruct as reconstruct$1, remesh as remesh$1, seam as seam$1, section as section$1, shell as shell$1, simplify as simplify$1, smooth as smooth$1, separate as separate$1, identity, withAabbTreeQuery, twist as twist$1, unfold as unfold$1, wrap as wrap$1 } from './jsxcad-algorithm-cgal.js';
 export { fromRotateXToTransform, fromRotateYToTransform, fromRotateZToTransform, fromScaleToTransform, fromTranslateToTransform, identity, withAabbTreeQuery } from './jsxcad-algorithm-cgal.js';
-import { emit, computeHash, write as write$1, read as read$1, readNonblocking as readNonblocking$1, ErrorWouldBlock, addPending } from './jsxcad-sys.js';
-import { toTagsFromName } from './jsxcad-algorithm-material.js';
+import { toTagsFromName } from './jsxcad-algorithm-color.js';
+import { emit, computeHash, write as write$1, read as read$1, readNonblocking as readNonblocking$1, ErrorWouldBlock, addPending, log as log$1 } from './jsxcad-sys.js';
+import { toTagsFromName as toTagsFromName$1 } from './jsxcad-algorithm-material.js';
 
 const taggedGroup = ({ tags = [], matrix, provenance }, ...content) => {
   if (content.some((value) => !value)) {
@@ -192,14 +193,6 @@ const rotateZ = (geometry, turn) =>
 const rotateZs = (geometry, turns) =>
   Group(turns.map((turn) => transform(geometry, fromRotateZToTransform(turn))));
 
-const scale$1 = (geometry, vector) =>
-  transform(geometry, fromScaleToTransform(...vector));
-
-const And = (geometries) => taggedGroup({}, ...geometries);
-
-const and = (geometry, geometries) =>
-  taggedGroup({}, geometry, ...geometries);
-
 const rewriteType = (op) => (geometry) =>
   rewrite(geometry, (geometry, descend) => descend(op(geometry)));
 
@@ -272,13 +265,183 @@ const linearize = (
   return out;
 };
 
+const filterTargets$2 = (noVoid) => (geometry) =>
+  ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(geometry.type);
+
+// CHECK: We should pass in reference geometry rather than a matrix.
+const eagerTransform = (geometry, matrix, { noVoid } = {}) => {
+  const inputs = linearize(geometry, filterTargets$2());
+  const count = inputs.length;
+  inputs.push(hasTypeReference(taggedGroup({ matrix })));
+  const outputs = eagerTransform$1(inputs);
+  return replacer(inputs, outputs, count)(geometry);
+};
+
+// import { asyncRewrite } from './visit.js';
+
+// export const registry = new Map();
+
+const reify = (geometry) => {
+  // We'll return to an early reification model, avoiding re-entrance to the async user api.
+  return geometry;
+  /*
+  if (!geometry) {
+    console.log(`Reifying undefined geometry`);
+  }
+  if (geometry.type === 'plan' && geometry.content.length > 0) {
+    return geometry;
+  }
+  const op = async (geometry, descend) => {
+    switch (geometry.type) {
+      case 'graph':
+      case 'toolpath':
+      case 'triangles':
+      case 'points':
+      case 'segments':
+      case 'paths':
+      case 'polygonsWithHoles':
+        // No plan to realize.
+        return geometry;
+      case 'plan': {
+        if (geometry.content.length === 0) {
+          // This plan is not reified, generate content.
+          const reifier = registry.get(geometry.plan.type);
+          if (reifier === undefined) {
+            throw Error(
+              `Do not know how to reify plan: ${JSON.stringify(geometry.plan)}`
+            );
+          }
+          const reified = await reifier(geometry);
+          // We can't share the reification since things like tags applied to the plan need to propagate separately.
+          return descend({ content: [reified] });
+        }
+        return geometry;
+      }
+      case 'displayGeometry':
+        // CHECK: Should this taint the results if there is a plan?
+        return geometry;
+      case 'item':
+      case 'group':
+      case 'layout':
+      case 'sketch':
+      case 'transform':
+        return descend();
+      default:
+        throw Error(`Unexpected geometry: ${JSON.stringify(geometry)}`);
+    }
+  };
+
+  const result = await asyncRewrite(geometry, op);
+  return result;
+*/
+};
+
+const toConcreteGeometry = (geometry) => reify(geometry);
+
+const filter$H = (geometry) =>
+  ['graph', 'polygonsWithHoles'].includes(geometry.type);
+
+const involute = (geometry) => {
+  const concreteGeometry = toConcreteGeometry(geometry);
+  const inputs = [];
+  linearize(concreteGeometry, filter$H, inputs);
+  const outputs = involute$1(inputs);
+  return replacer(inputs, outputs)(concreteGeometry);
+};
+
 const filter$G = (geometry) =>
+  isNotTypeGhost(geometry) &&
+  ((geometry.type === 'graph' && !geometry.graph.isEmpty) ||
+    ['polygonsWithHoles', 'segments', 'points'].includes(geometry.type));
+
+const measureBoundingBox = (geometry) =>
+  computeBoundingBox(linearize(geometry, filter$G));
+
+const X$9 = 0;
+const Y$9 = 1;
+const Z$8 = 2;
+
+const scale$1 = (geometry, [x = 1, y = 1, z = 1]) => {
+  const negatives = (x < 0) + (y < 0) + (z < 0);
+  if (!isFinite(x)) {
+    throw Error(`scale received non-finite x: ${x}`);
+  }
+  if (!isFinite(y)) {
+    throw Error(`scale received non-finite y: ${y}`);
+  }
+  if (!isFinite(z)) {
+    throw Error(`scale received non-finite z: ${z}`);
+  }
+  let scaledGeometry = eagerTransform(geometry, fromScaleToTransform(x, y, z));
+  if (negatives % 2) {
+    // Compensate for inversion.
+    return involute(scaledGeometry);
+  } else {
+    return scaledGeometry;
+  }
+};
+
+const scaleLazy = (geometry, [x = 1, y = 1, z = 1]) => {
+  const negatives = (x < 0) + (y < 0) + (z < 0);
+  if (!isFinite(x)) {
+    throw Error(`scale received non-finite x: ${x}`);
+  }
+  if (!isFinite(y)) {
+    throw Error(`scale received non-finite y: ${y}`);
+  }
+  if (!isFinite(z)) {
+    throw Error(`scale received non-finite z: ${z}`);
+  }
+  let scaledGeometry = transform(geometry, fromScaleToTransform(x, y, z));
+  if (negatives % 2) {
+    // Compensate for inversion.
+    return involute(scaledGeometry);
+  } else {
+    return scaledGeometry;
+  }
+};
+
+const scaleUniformly = (geometry, amount) =>
+  scale$1(geometry, [amount, amount, amount]);
+
+const scaleToFit = (geometry, [x, y, z]) => {
+  const bounds = measureBoundingBox(geometry);
+  if (bounds === undefined) {
+    return geometry;
+  }
+  const [min, max] = bounds;
+  const length = max[X$9] - min[X$9];
+  const width = max[Y$9] - min[Y$9];
+  const height = max[Z$8] - min[Z$8];
+  if (x === undefined) {
+    x = length;
+  }
+  if (y === undefined) {
+    y = width;
+  }
+  if (z === undefined) {
+    z = height;
+  }
+  const xFactor = x / length;
+  const yFactor = y / width;
+  const zFactor = z / height;
+  // Surfaces may get non-finite factors -- use the unit instead.
+  const finite = (factor) => (isFinite(factor) ? factor : 1);
+  return scale$1(geometry, [finite(xFactor), finite(yFactor), finite(zFactor)]);
+};
+
+const And = (geometries) => taggedGroup({}, ...geometries);
+
+const and = (geometry, geometries) =>
+  taggedGroup({}, geometry, ...geometries);
+
+const filter$F = (geometry) =>
   ['points', 'segments'].includes(geometry.type) && isNotTypeGhost(geometry);
 
 const Link = (geometries, { close = false, reverse = false } = {}) => {
   const inputs = [];
   for (const geometry of geometries) {
-    linearize(geometry, filter$G, inputs);
+    linearize(geometry, filter$F, inputs);
   }
   const outputs = link$1(inputs, close, reverse);
   return taggedGroup({}, ...outputs);
@@ -293,9 +456,9 @@ const loop = (geometry, geometries, mode = {}) =>
 const Loop = (geometries, mode = {}) =>
   Link(geometries, { ...mode, close: true });
 
-const X$3 = 0;
-const Y$3 = 1;
-const Z$3 = 2;
+const X$8 = 0;
+const Y$8 = 1;
+const Z$7 = 2;
 
 const buildCorners = (x, y, z) => {
   const c1 = [0, 0, 0];
@@ -305,45 +468,45 @@ const buildCorners = (x, y, z) => {
       x.push(0);
     }
     if (x[0] < x[1]) {
-      c1[X$3] = x[1];
-      c2[X$3] = x[0];
+      c1[X$8] = x[1];
+      c2[X$8] = x[0];
     } else {
-      c1[X$3] = x[0];
-      c2[X$3] = x[1];
+      c1[X$8] = x[0];
+      c2[X$8] = x[1];
     }
   } else {
-    c1[X$3] = x / 2;
-    c2[X$3] = x / -2;
+    c1[X$8] = x / 2;
+    c2[X$8] = x / -2;
   }
   if (y instanceof Array) {
     while (y.length < 2) {
       y.push(0);
     }
     if (y[0] < y[1]) {
-      c1[Y$3] = y[1];
-      c2[Y$3] = y[0];
+      c1[Y$8] = y[1];
+      c2[Y$8] = y[0];
     } else {
-      c1[Y$3] = y[0];
-      c2[Y$3] = y[1];
+      c1[Y$8] = y[0];
+      c2[Y$8] = y[1];
     }
   } else {
-    c1[Y$3] = y / 2;
-    c2[Y$3] = y / -2;
+    c1[Y$8] = y / 2;
+    c2[Y$8] = y / -2;
   }
   if (z instanceof Array) {
     while (z.length < 2) {
       z.push(0);
     }
     if (z[0] < z[1]) {
-      c1[Z$3] = z[1];
-      c2[Z$3] = z[0];
+      c1[Z$7] = z[1];
+      c2[Z$7] = z[0];
     } else {
-      c1[Z$3] = z[0];
-      c2[Z$3] = z[1];
+      c1[Z$7] = z[0];
+      c2[Z$7] = z[1];
     }
   } else {
-    c1[Z$3] = z / 2;
-    c2[Z$3] = z / -2;
+    c1[Z$7] = z / 2;
+    c2[Z$7] = z / -2;
   }
   return [c1, c2];
 };
@@ -354,9 +517,9 @@ const computeScale = (
 ) => [ax - bx, ay - by, az - bz];
 
 const computeMiddle = (c1, c2) => [
-  (c1[X$3] + c2[X$3]) * 0.5,
-  (c1[Y$3] + c2[Y$3]) * 0.5,
-  (c1[Z$3] + c2[Z$3]) * 0.5,
+  (c1[X$8] + c2[X$8]) * 0.5,
+  (c1[Y$8] + c2[Y$8]) * 0.5,
+  (c1[Z$7] + c2[Z$7]) * 0.5,
 ];
 
 const taggedPoints = (
@@ -372,12 +535,12 @@ const Point = (x = 0, y = 0, z = 0, coordinate) =>
 
 const Points = (coordinates) => taggedPoints({}, coordinates);
 
-const filter$F = (geometry) =>
+const filter$E = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
 const computeNormal = (geometry) =>
-  Group(computeNormal$1(linearize(geometry, filter$F)));
+  Group(computeNormal$1(linearize(geometry, filter$E)));
 
 // TODO: Make this more robust.
 const computeNormalCoordinate = (geometry) =>
@@ -400,13 +563,13 @@ const getLeafs = (geometry) => {
   return leafs;
 };
 
-const filter$E = (geometry) =>
+const filter$D = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
     geometry.type
   ) && isNotTypeGhost(geometry);
 
 const makeAbsolute = (geometry, tags = []) => {
-  const inputs = linearize(geometry, filter$E);
+  const inputs = linearize(geometry, filter$D);
   const outputs = makeAbsolute$1(inputs);
   return replacer(inputs, outputs)(geometry);
 };
@@ -419,8 +582,22 @@ const add = ([ax = 0, ay = 0, az = 0], [bx = 0, by = 0, bz = 0]) => [
   az + bz,
 ];
 
+const squaredLength = ([x = 0, y = 0, z = 0]) => x * x + y * y + z * z;
+
 const length = ([x = 0, y = 0, z = 0]) =>
   Math.sqrt(x * x + y * y + z * z);
+
+const max = ([ax, ay, az], [bx, by, bz]) => [
+  Math.max(ax, bx),
+  Math.max(ay, by),
+  Math.max(az, bz),
+];
+
+const min = ([ax, ay, az], [bx, by, bz]) => [
+  Math.min(ax, bx),
+  Math.min(ay, by),
+  Math.min(az, bz),
+];
 
 const scale = (amount, [x = 0, y = 0, z = 0]) => [
   x * amount,
@@ -428,13 +605,29 @@ const scale = (amount, [x = 0, y = 0, z = 0]) => [
   z * amount,
 ];
 
-const subtract = ([ax, ay, az], [bx, by, bz]) => [
-  ax - bx,
-  ay - by,
-  az - bz,
-];
+const subtract = (
+  [ax = 0, ay = 0, az = 0],
+  [bx = 0, by = 0, bz = 0]
+) => [ax - bx, ay - by, az - bz];
 
 const distance$1 = (a, b) => length(subtract(a, b));
+
+const cross$1 = ([ax = 0, ay = 0, az = 0], [bx = 0, by = 0, bz = 0]) => [
+  ay * bz - az * by,
+  az * bx - ax * bz,
+  ax * by - ay * bx,
+];
+
+const normalize$1 = (a) => {
+  const [x, y, z] = a;
+  const len = x * x + y * y + z * z;
+  if (len > 0) {
+    // TODO: evaluate use of glm_invsqrt here?
+    return scale(1 / Math.sqrt(len), a);
+  } else {
+    return a;
+  }
+};
 
 const translate = (geometry, vector) =>
   transform(geometry, fromTranslateToTransform(...vector));
@@ -450,12 +643,12 @@ const moveAlong = (geometry, direction, deltas) => {
 const moveAlongNormal = (geometry, deltas) =>
   moveAlong(geometry, computeNormalCoordinate(geometry), deltas);
 
-const filter$D = (noVoid) => (geometry) =>
+const filter$C = (noVoid) => (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   (isNotTypeGhost(geometry) || (!noVoid && isTypeVoid));
 
 const extrude = (geometry, top, bottom, { noVoid } = {}) => {
-  const inputs = linearize(geometry, filter$D(noVoid));
+  const inputs = linearize(geometry, filter$C(noVoid));
   const count = inputs.length;
   inputs.push(top, bottom);
   const outputs = extrude$1(inputs, count, noVoid);
@@ -527,77 +720,15 @@ const computeSides = (c1, c2, sides, zag = 0.01) => {
   return 32;
 };
 
-// import { asyncRewrite } from './visit.js';
-
-// export const registry = new Map();
-
-const reify = (geometry) => {
-  // We'll return to an early reification model, avoiding re-entrance to the async user api.
-  return geometry;
-  /*
-  if (!geometry) {
-    console.log(`Reifying undefined geometry`);
-  }
-  if (geometry.type === 'plan' && geometry.content.length > 0) {
-    return geometry;
-  }
-  const op = async (geometry, descend) => {
-    switch (geometry.type) {
-      case 'graph':
-      case 'toolpath':
-      case 'triangles':
-      case 'points':
-      case 'segments':
-      case 'paths':
-      case 'polygonsWithHoles':
-        // No plan to realize.
-        return geometry;
-      case 'plan': {
-        if (geometry.content.length === 0) {
-          // This plan is not reified, generate content.
-          const reifier = registry.get(geometry.plan.type);
-          if (reifier === undefined) {
-            throw Error(
-              `Do not know how to reify plan: ${JSON.stringify(geometry.plan)}`
-            );
-          }
-          const reified = await reifier(geometry);
-          // We can't share the reification since things like tags applied to the plan need to propagate separately.
-          return descend({ content: [reified] });
-        }
-        return geometry;
-      }
-      case 'displayGeometry':
-        // CHECK: Should this taint the results if there is a plan?
-        return geometry;
-      case 'item':
-      case 'group':
-      case 'layout':
-      case 'sketch':
-      case 'transform':
-        return descend();
-      default:
-        throw Error(`Unexpected geometry: ${JSON.stringify(geometry)}`);
-    }
-  };
-
-  const result = await asyncRewrite(geometry, op);
-  return result;
-*/
-};
-
-const toConcreteGeometry = (geometry) => reify(geometry);
-
-const filter$C = (geometry) =>
+const filter$B = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
 const fill$1 = (geometry, tags = []) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$C, inputs);
+  linearize(concreteGeometry, filter$B, inputs);
   const outputs = fill$2(inputs);
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs.map((output) => ({ ...output, tags })));
 };
 
@@ -657,12 +788,12 @@ const seq = (...specs) => {
 const toDiameterFromApothem = (apothem, sides = 32) =>
   apothem / Math.cos(Math.PI / sides);
 
-const X$2 = 0;
-const Y$2 = 1;
-const Z$2 = 2;
+const X$7 = 0;
+const Y$7 = 1;
+const Z$6 = 2;
 
 const makeArc =
-  (axis = Z$2) =>
+  (axis = Z$6) =>
   ({ c1, c2, start = 0, end = 1, zag, sides }) => {
     while (start > end) {
       start -= 1;
@@ -671,14 +802,14 @@ const makeArc =
     const scale = computeScale(c1, c2);
     const middle = computeMiddle(c1, c2);
 
-    const left = c1[X$2];
-    const right = c2[X$2];
+    const left = c1[X$7];
+    const right = c2[X$7];
 
-    const front = c1[Y$2];
-    const back = c2[Y$2];
+    const front = c1[Y$7];
+    const back = c2[Y$7];
 
-    const bottom = c1[Z$2];
-    const top = c2[Z$2];
+    const bottom = c1[Z$6];
+    const top = c2[Z$6];
 
     const step = 1 / computeSides(c1, c2, sides, zag);
     const steps = Math.ceil((end - start) / step);
@@ -694,40 +825,40 @@ const makeArc =
 
     if (
       end - start === 1 ||
-      (axis === X$2 && left !== right) ||
-      (axis === Y$2 && front !== back) ||
-      (axis === Z$2 && top !== bottom)
+      (axis === X$7 && left !== right) ||
+      (axis === Y$7 && front !== back) ||
+      (axis === Z$6 && top !== bottom)
     ) {
       spiral = fill$1(Loop([spiral]));
     }
 
     switch (axis) {
-      case X$2: {
-        scale[X$2] = 1;
+      case X$7: {
+        scale[X$7] = 1;
         spiral = translate(scale$1(rotateY(spiral, -1 / 4), scale), middle);
         if (left !== right) {
           spiral = extrudeAlongX(spiral, [
-            [left - middle[X$2], right - middle[X$2]],
+            [left - middle[X$7], right - middle[X$7]],
           ]);
         }
         break;
       }
-      case Y$2: {
-        scale[Y$2] = 1;
+      case Y$7: {
+        scale[Y$7] = 1;
         spiral = translate(scale$1(rotateX(spiral, -1 / 4), scale), middle);
         if (front !== back) {
           spiral = extrudeAlongY(spiral, [
-            [front - middle[Y$2], back - middle[Y$2]],
+            [front - middle[Y$7], back - middle[Y$7]],
           ]);
         }
         break;
       }
-      case Z$2: {
-        scale[Z$2] = 1;
+      case Z$6: {
+        scale[Z$6] = 1;
         spiral = translate(scale$1(spiral, scale), middle);
         if (top !== bottom) {
           spiral = extrudeAlongZ(spiral, [
-            [top - middle[Z$2], bottom - middle[Z$2]],
+            [top - middle[Z$6], bottom - middle[Z$6]],
           ]);
         }
         break;
@@ -740,9 +871,9 @@ const makeArc =
     return makeAbsolute(spiral);
   };
 
-const makeArcX = makeArc(X$2);
-const makeArcY = makeArc(Y$2);
-const makeArcZ = makeArc(Z$2);
+const makeArcX = makeArc(X$7);
+const makeArcY = makeArc(Y$7);
+const makeArcZ = makeArc(Z$6);
 
 const ArcOp =
   (type) =>
@@ -806,6 +937,11 @@ const ArcX = ArcOp('ArcX');
 const ArcY = ArcOp('ArcY');
 const ArcZ = ArcOp('ArcZ');
 
+const Hexagon = ([x, y, z]) => Arc([x, y, z], { sides: 6 });
+const Octagon = ([x, y, z]) => Arc([x, y, z], { sides: 8 });
+const Pentagon = ([x, y, z]) => Arc([x, y, z], { sides: 5 });
+const Triangle = ([x, y, z]) => Arc([x, y, z], { sides: 3 });
+
 const taggedSegments = (
   { tags = [], matrix, provenance, orientation },
   segments
@@ -823,9 +959,9 @@ const Edge = (s = [0, 0, 0], t = [0, 0, 0], n = [1, 0, 0]) => {
   return taggedSegments({ matrix }, [baseSegment]);
 };
 
-const X$1 = 0;
-const Y$1 = 1;
-const Z$1 = 2;
+const X$6 = 0;
+const Y$6 = 1;
+const Z$5 = 2;
 
 let fundamentalShapes;
 
@@ -851,14 +987,14 @@ const buildFs = () => {
 const makeBox = (corner1, corner2) => {
   const build = () => {
     const fs = buildFs();
-    const left = corner2[X$1];
-    const right = corner1[X$1];
+    const left = corner2[X$6];
+    const right = corner1[X$6];
 
-    const front = corner2[Y$1];
-    const back = corner1[Y$1];
+    const front = corner2[Y$6];
+    const back = corner1[Y$6];
 
-    const bottom = corner2[Z$1];
-    const top = corner1[Z$1];
+    const bottom = corner2[Z$5];
+    const top = corner1[Z$5];
 
     if (top === bottom) {
       if (left === right) {
@@ -936,20 +1072,20 @@ const makeBox = (corner1, corner2) => {
   return makeAbsolute(build());
 };
 
-const Box = ([x = 1, y = x, z = 0], options) => {
+const Box = ([x = 1, y = x, z = 0], options = {}) => {
   const [computedC1, computedC2] = buildCorners(x, y, z);
   const { c1 = computedC1, c2 = computedC2 } = options;
   return makeBox(c1, c2);
 };
 
-const filter$B = (geometry) =>
+const filter$A = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
 const Fuse = (geometries, { exact } = {}) => {
   const inputs = [];
   for (const geometry of geometries) {
-    linearize(geometry, filter$B, inputs);
+    linearize(geometry, filter$A, inputs);
   }
   const outputs = fuse$1(inputs, exact);
   return Group(outputs);
@@ -958,13 +1094,13 @@ const Fuse = (geometries, { exact } = {}) => {
 const fuse = (geometry, geometries, { exact }) =>
   Fuse([geometry, ...geometries], { exact });
 
-const filter$A = (geometry) =>
+const filter$z = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(geometry.type);
 
 const ConvexHull = (geometries) => {
   const inputs = [];
   for (const geometry of geometries) {
-    linearize(geometry, filter$A, inputs);
+    linearize(geometry, filter$z, inputs);
   }
   const outputs = convexHull$1(inputs);
   return Group(outputs);
@@ -1000,13 +1136,13 @@ and limitations under the License.
 ***************************************************************************** */
 var extendStatics=function(d,b){return extendStatics=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(d,b){d.__proto__=b;}||function(d,b){for(var p in b)b.hasOwnProperty(p)&&(d[p]=b[p]);},extendStatics(d,b)};function __extends(d,b){function __(){this.constructor=d;}extendStatics(d,b),d.prototype=null===b?Object.create(b):(__.prototype=b.prototype,new __);}var __assign=function(){return __assign=Object.assign||function(t){for(var s,i=1,n=arguments.length;i<n;i++)for(var p in s=arguments[i])Object.prototype.hasOwnProperty.call(s,p)&&(t[p]=s[p]);return t},__assign.apply(this,arguments)};function extrapolateControlPoint(u,v){for(var e=new Array(u.length),i=0;i<u.length;i++)e[i]=2*u[i]-v[i];return e}function getControlPoints(idx,points,closed){var p0,p1,p2,p3,maxIndex=points.length-1;if(closed)p0=points[idx-1<0?maxIndex:idx-1],p1=points[idx%points.length],p2=points[(idx+1)%points.length],p3=points[(idx+2)%points.length];else {if(idx===maxIndex)throw Error("There is no spline segment at this index for a closed curve!");p1=points[idx],p2=points[idx+1],p0=idx>0?points[idx-1]:extrapolateControlPoint(p1,p2),p3=idx<maxIndex-1?points[idx+2]:extrapolateControlPoint(p2,p1);}return [p0,p1,p2,p3]}function getSegmentIndexAndT(ct,points,closed){void 0===closed&&(closed=!1);var nPoints=closed?points.length:points.length-1;if(1===ct)return {index:nPoints-1,weight:1};var p=nPoints*ct,index=Math.floor(p);return {index:index,weight:p-index}}function fill(v,val){for(var i=0;i<v.length;i++)v[i]=val;return v}function map(v,func){for(var i=0;i<v.length;i++)v[i]=func(v[i],i);return v}function reduce(v,func,r){void 0===r&&(r=0);for(var i=0;i<v.length;i++)r=func(r,v[i],i);return r}function copyValues(source,target){target=target||new Array(source.length);for(var i=0;i<source.length;i++)target[i]=source[i];return target}function clamp(value,min,max){return void 0===min&&(min=0),void 0===max&&(max=1),value<min?min:value>max?max:value}function binarySearch(targetValue,accumulatedValues){var min=accumulatedValues[0];if(targetValue>=accumulatedValues[accumulatedValues.length-1])return accumulatedValues.length-1;if(targetValue<=min)return 0;for(var left=0,right=accumulatedValues.length-1;left<=right;){var mid=Math.floor((left+right)/2),lMid=accumulatedValues[mid];if(lMid<targetValue)left=mid+1;else {if(!(lMid>targetValue))return mid;right=mid-1;}}return Math.max(0,right)}var EPS=Math.pow(2,-42);function cuberoot(x){var y=Math.pow(Math.abs(x),1/3);return x<0?-y:y}function getQuadRoots(a,b,c){if(Math.abs(a)<EPS)return Math.abs(b)<EPS?[]:[-c/b];var D=b*b-4*a*c;return Math.abs(D)<EPS?[-b/(2*a)]:D>0?[(-b+Math.sqrt(D))/(2*a),(-b-Math.sqrt(D))/(2*a)]:[]}function getCubicRoots(a,b,c,d){if(Math.abs(a)<EPS)return getQuadRoots(b,c,d);var roots,p=(3*a*c-b*b)/(3*a*a),q=(2*b*b*b-9*a*b*c+27*a*a*d)/(27*a*a*a);if(Math.abs(p)<EPS)roots=[cuberoot(-q)];else if(Math.abs(q)<EPS)roots=[0].concat(p<0?[Math.sqrt(-p),-Math.sqrt(-p)]:[]);else {var D=q*q/4+p*p*p/27;if(Math.abs(D)<EPS)roots=[-1.5*q/p,3*q/p];else if(D>0){roots=[(u=cuberoot(-q/2-Math.sqrt(D)))-p/(3*u)];}else {var u=2*Math.sqrt(-p/3),t=Math.acos(3*q/p/u)/3,k=2*Math.PI/3;roots=[u*Math.cos(t),u*Math.cos(t-k),u*Math.cos(t-2*k)];}}for(var i=0;i<roots.length;i++)roots[i]-=b/(3*a);return roots}function dot(v1,v2){if(v1.length!==v2.length)throw Error("Vectors must be of equal length!");for(var p=0,k=0;k<v1.length;k++)p+=v1[k]*v2[k];return p}function cross(v1,v2,target){if(!(v1.length>3)){target=target||new Array(3);var ax=v1[0],ay=v1[1],az=v1[2]||0,bx=v2[0],by=v2[1],bz=v2[2]||0;return target[0]=ay*bz-az*by,target[1]=az*bx-ax*bz,target[2]=ax*by-ay*bx,target}}function sumOfSquares(v1,v2){for(var sumOfSquares=0,i=0;i<v1.length;i++)sumOfSquares+=(v1[i]-v2[i])*(v1[i]-v2[i]);return sumOfSquares}function magnitude(v){for(var sumOfSquares=0,i=0;i<v.length;i++)sumOfSquares+=v[i]*v[i];return Math.sqrt(sumOfSquares)}function distance(p1,p2){var sqrs=sumOfSquares(p1,p2);return 0===sqrs?0:Math.sqrt(sqrs)}function normalize(v,target){var u=target?copyValues(v,target):v,squared=reduce(u,(function(s,c){return s+Math.pow(c,2)})),l=Math.sqrt(squared);return 0===l?fill(u,0):map(u,(function(c){return c/l}))}function orthogonal(v,target){if(v.length>2)throw Error("Only supported for 2d vectors");var u=target?copyValues(v,target):v,x=-u[1];return u[1]=u[0],u[0]=x,u}function calcKnotSequence(p0,p1,p2,p3,alpha){if(void 0===alpha&&(alpha=0),0===alpha)return [0,1,2,3];var deltaT=function(u,v){return Math.pow(sumOfSquares(u,v),.5*alpha)},t1=deltaT(p1,p0),t2=deltaT(p2,p1)+t1;return [0,t1,t2,deltaT(p3,p2)+t2]}function calculateCoefficients(p0,p1,p2,p3,options){for(var tension=Number.isFinite(options.tension)?options.tension:.5,alpha=Number.isFinite(options.alpha)?options.alpha:null,knotSequence=alpha>0?calcKnotSequence(p0,p1,p2,p3,alpha):null,coefficientsList=new Array(p0.length),k=0;k<p0.length;k++){var u=0,v=0,v0=p0[k],v1=p1[k],v2=p2[k],v3=p3[k];if(knotSequence){var t0=knotSequence[0],t1=knotSequence[1],t2=knotSequence[2],t3=knotSequence[3];t1-t2!=0&&(t0-t1!=0&&t0-t2!=0&&(u=(1-tension)*(t2-t1)*((v0-v1)/(t0-t1)-(v0-v2)/(t0-t2)+(v1-v2)/(t1-t2))),t1-t3!=0&&t2-t3!=0&&(v=(1-tension)*(t2-t1)*((v1-v2)/(t1-t2)-(v1-v3)/(t1-t3)+(v2-v3)/(t2-t3))));}else u=(1-tension)*(v2-v0)*.5,v=(1-tension)*(v3-v1)*.5;var a=2*v1-2*v2+u+v,b=-3*v1+3*v2-2*u-v,c=u,d=v1;coefficientsList[k]=[a,b,c,d];}return coefficientsList}function valueAtT(t,coefficients){var t2=t*t,t3=t*t2;return coefficients[0]*t3+coefficients[1]*t2+coefficients[2]*t+coefficients[3]}function derivativeAtT(t,coefficients){var t2=t*t;return 3*coefficients[0]*t2+2*coefficients[1]*t+coefficients[2]}function secondDerivativeAtT(t,coefficients){return 6*coefficients[0]*t+2*coefficients[1]}function findRootsOfT(lookup,coefficients){var a=coefficients[0],b=coefficients[1],c=coefficients[2],x=coefficients[3]-lookup;return 0===a&&0===b&&0===c&&0===x?[0]:getCubicRoots(a,b,c,x).filter((function(t){return t>-EPS&&t<=1+EPS})).map((function(t){return clamp(t,0,1)}))}function evaluateForT(func,t,coefficients,target){void 0===target&&(target=null),target=target||new Array(coefficients.length);for(var k=0;k<coefficients.length;k++)target[k]=func(t,coefficients[k]);return target}var AbstractCurveMapper=function(){function AbstractCurveMapper(onInvalidateCache){void 0===onInvalidateCache&&(onInvalidateCache=null),this._alpha=0,this._tension=.5,this._closed=!1,this._onInvalidateCache=null,this._onInvalidateCache=onInvalidateCache,this._cache={arcLengths:null,coefficients:null};}return AbstractCurveMapper.prototype._invalidateCache=function(){this.points&&(this._cache={arcLengths:null,coefficients:null},this._onInvalidateCache&&this._onInvalidateCache());},Object.defineProperty(AbstractCurveMapper.prototype,"alpha",{get:function(){return this._alpha},set:function(alpha){Number.isFinite(alpha)&&alpha!==this._alpha&&(this._invalidateCache(),this._alpha=alpha);},enumerable:!1,configurable:!0}),Object.defineProperty(AbstractCurveMapper.prototype,"tension",{get:function(){return this._tension},set:function(tension){Number.isFinite(tension)&&tension!==this._tension&&(this._invalidateCache(),this._tension=tension);},enumerable:!1,configurable:!0}),Object.defineProperty(AbstractCurveMapper.prototype,"points",{get:function(){return this._points},set:function(points){if(!points||points.length<2)throw Error("At least 2 control points are required!");this._points=points,this._invalidateCache();},enumerable:!1,configurable:!0}),Object.defineProperty(AbstractCurveMapper.prototype,"closed",{get:function(){return this._closed},set:function(closed){closed=!!closed,this._closed!==closed&&(this._invalidateCache(),this._closed=closed);},enumerable:!1,configurable:!0}),AbstractCurveMapper.prototype.reset=function(){this._invalidateCache();},AbstractCurveMapper.prototype.evaluateForT=function(func,t,target){var _a=getSegmentIndexAndT(t,this.points,this.closed),index=_a.index;return evaluateForT(func,_a.weight,this.getCoefficients(index),target)},AbstractCurveMapper.prototype.getCoefficients=function(idx){if(this.points){if(this._cache.coefficients||(this._cache.coefficients=new Map),!this._cache.coefficients.has(idx)){var _a=getControlPoints(idx,this.points,this.closed),coefficients=calculateCoefficients(_a[0],_a[1],_a[2],_a[3],{tension:this.tension,alpha:this.alpha});this._cache.coefficients.set(idx,coefficients);}return this._cache.coefficients.get(idx)}},AbstractCurveMapper}(),SegmentedCurveMapper=function(_super){function SegmentedCurveMapper(subDivisions,onInvalidateCache){void 0===subDivisions&&(subDivisions=300),void 0===onInvalidateCache&&(onInvalidateCache=null);var _this=_super.call(this,onInvalidateCache)||this;return _this._subDivisions=subDivisions,_this}return __extends(SegmentedCurveMapper,_super),Object.defineProperty(SegmentedCurveMapper.prototype,"arcLengths",{get:function(){return this._cache.arcLengths||(this._cache.arcLengths=this.computeArcLengths()),this._cache.arcLengths},enumerable:!1,configurable:!0}),SegmentedCurveMapper.prototype._invalidateCache=function(){_super.prototype._invalidateCache.call(this),this._cache.arcLengths=null;},SegmentedCurveMapper.prototype.computeArcLengths=function(){var current,lengths=[],last=this.evaluateForT(valueAtT,0),sum=0;lengths.push(0);for(var p=1;p<=this._subDivisions;p++)sum+=distance(current=this.evaluateForT(valueAtT,p/this._subDivisions),last),lengths.push(sum),last=current;return lengths},SegmentedCurveMapper.prototype.lengthAt=function(u){var arcLengths=this.arcLengths;return u*arcLengths[arcLengths.length-1]},SegmentedCurveMapper.prototype.getT=function(u){var arcLengths=this.arcLengths,il=arcLengths.length,targetArcLength=u*arcLengths[il-1],i=binarySearch(targetArcLength,arcLengths);if(arcLengths[i]===targetArcLength)return i/(il-1);var lengthBefore=arcLengths[i];return (i+(targetArcLength-lengthBefore)/(arcLengths[i+1]-lengthBefore))/(il-1)},SegmentedCurveMapper.prototype.getU=function(t){if(0===t)return 0;if(1===t)return 1;var arcLengths=this.arcLengths,al=arcLengths.length-1,totalLength=arcLengths[al],tIdx=t*al,subIdx=Math.floor(tIdx),l1=arcLengths[subIdx];if(tIdx===subIdx)return l1/totalLength;var t0=subIdx/al;return (l1+distance(this.evaluateForT(valueAtT,t0),this.evaluateForT(valueAtT,t)))/totalLength},SegmentedCurveMapper}(AbstractCurveMapper),lut=[[[-.906179845938664,.23692688505618908],[-.5384693101056831,.47862867049936647],[0,.5688888888888889],[.5384693101056831,.47862867049936647],[.906179845938664,.23692688505618908]],[[-.932469514203152,.17132449237917036],[-.6612093864662645,.3607615730481386],[-.2386191860831969,.46791393457269104],[.2386191860831969,.46791393457269104],[.6612093864662645,.3607615730481386],[.932469514203152,.17132449237917036]],[[-.9491079123427585,.1294849661688697],[-.7415311855993945,.27970539148927664],[-.4058451513773972,.3818300505051189],[0,.4179591836734694],[.4058451513773972,.3818300505051189],[.7415311855993945,.27970539148927664],[.9491079123427585,.1294849661688697]],[[-.9602898564975363,.10122853629037626],[-.7966664774136267,.22238103445337448],[-.525532409916329,.31370664587788727],[-.1834346424956498,.362683783378362],[.1834346424956498,.362683783378362],[.525532409916329,.31370664587788727],[.7966664774136267,.22238103445337448],[.9602898564975363,.10122853629037626]],[[-.9681602395076261,.08127438836157441],[-.8360311073266358,.1806481606948574],[-.6133714327005904,.26061069640293544],[-.3242534234038089,.31234707704000286],[0,.3302393550012598],[.3242534234038089,.31234707704000286],[.6133714327005904,.26061069640293544],[.8360311073266358,.1806481606948574],[.9681602395076261,.08127438836157441]],[[-.9739065285171717,.06667134430868814],[-.8650633666889845,.1494513491505806],[-.6794095682990244,.21908636251598204],[-.4333953941292472,.26926671930999635],[-.14887433898163122,.29552422471475287],[.14887433898163122,.29552422471475287],[.4333953941292472,.26926671930999635],[.6794095682990244,.21908636251598204],[.8650633666889845,.1494513491505806],[.9739065285171717,.06667134430868814]],[[-.978228658146056,.0556685671161736],[-.887062599768095,.125580369464904],[-.730152005574049,.186290210927734],[-.519096129206811,.23319376459199],[-.269543155952344,.262804544510246],[0,.2729250867779],[.269543155952344,.262804544510246],[.519096129206811,.23319376459199],[.730152005574049,.186290210927734],[.887062599768095,.125580369464904],[.978228658146056,.0556685671161736]],[[-.981560634246719,.0471753363865118],[-.904117256370474,.106939325995318],[-.769902674194304,.160078328543346],[-.587317954286617,.203167426723065],[-.36783149899818,.233492536538354],[-.125233408511468,.249147045813402],[.125233408511468,.249147045813402],[.36783149899818,.233492536538354],[.587317954286617,.203167426723065],[.769902674194304,.160078328543346],[.904117256370474,.106939325995318],[.981560634246719,.0471753363865118]],[[-.984183054718588,.0404840047653158],[-.917598399222977,.0921214998377284],[-.801578090733309,.138873510219787],[-.64234933944034,.178145980761945],[-.448492751036446,.207816047536888],[-.230458315955134,.226283180262897],[0,.232551553230873],[.230458315955134,.226283180262897],[.448492751036446,.207816047536888],[.64234933944034,.178145980761945],[.801578090733309,.138873510219787],[.917598399222977,.0921214998377284],[.984183054718588,.0404840047653158]],[[-.986283808696812,.0351194603317518],[-.928434883663573,.0801580871597602],[-.827201315069764,.121518570687903],[-.687292904811685,.157203167158193],[-.515248636358154,.185538397477937],[-.319112368927889,.205198463721295],[-.108054948707343,.215263853463157],[.108054948707343,.215263853463157],[.319112368927889,.205198463721295],[.515248636358154,.185538397477937],[.687292904811685,.157203167158193],[.827201315069764,.121518570687903],[.928434883663573,.0801580871597602],[.986283808696812,.0351194603317518]],[[-.987992518020485,.0307532419961172],[-.937273392400705,.0703660474881081],[-.848206583410427,.107159220467171],[-.72441773136017,.139570677926154],[-.570972172608538,.166269205816993],[-.394151347077563,.186161000015562],[-.201194093997434,.198431485327111],[0,.202578241925561],[.201194093997434,.198431485327111],[.394151347077563,.186161000015562],[.570972172608538,.166269205816993],[.72441773136017,.139570677926154],[.848206583410427,.107159220467171],[.937273392400705,.0703660474881081],[.987992518020485,.0307532419961172]],[[-.989400934991649,.027152459411754],[-.944575023073232,.0622535239386478],[-.865631202387831,.0951585116824927],[-.755404408355003,.124628971255533],[-.617876244402643,.149595988816576],[-.458016777657227,.169156519395002],[-.281603550779258,.182603415044923],[-.0950125098376374,.189450610455068],[.0950125098376374,.189450610455068],[.281603550779258,.182603415044923],[.458016777657227,.169156519395002],[.617876244402643,.149595988816576],[.755404408355003,.124628971255533],[.865631202387831,.0951585116824927],[.944575023073232,.0622535239386478],[.989400934991649,.027152459411754]],[[-.990575475314417,.0241483028685479],[-.950675521768767,.0554595293739872],[-.880239153726985,.0850361483171791],[-.781514003896801,.111883847193403],[-.65767115921669,.135136368468525],[-.512690537086476,.15404576107681],[-.351231763453876,.16800410215645],[-.178484181495847,.176562705366992],[0,.179446470356206],[.178484181495847,.176562705366992],[.351231763453876,.16800410215645],[.512690537086476,.15404576107681],[.65767115921669,.135136368468525],[.781514003896801,.111883847193403],[.880239153726985,.0850361483171791],[.950675521768767,.0554595293739872],[.990575475314417,.0241483028685479]],[[-.99156516842093,.0216160135264833],[-.955823949571397,.0497145488949698],[-.892602466497555,.076425730254889],[-.803704958972523,.100942044106287],[-.691687043060353,.122555206711478],[-.559770831073947,.14064291467065],[-.411751161462842,.154684675126265],[-.251886225691505,.164276483745832],[-.0847750130417353,.169142382963143],[.0847750130417353,.169142382963143],[.251886225691505,.164276483745832],[.411751161462842,.154684675126265],[.559770831073947,.14064291467065],[.691687043060353,.122555206711478],[.803704958972523,.100942044106287],[.892602466497555,.076425730254889],[.955823949571397,.0497145488949697],[.99156516842093,.0216160135264833]],[[-.992406843843584,.0194617882297264],[-.96020815213483,.0448142267656996],[-.903155903614817,.0690445427376412],[-.822714656537142,.0914900216224499],[-.720966177335229,.111566645547333],[-.600545304661681,.128753962539336],[-.46457074137596,.142606702173606],[-.316564099963629,.152766042065859],[-.160358645640225,.158968843393954],[0,.161054449848783],[.160358645640225,.158968843393954],[.316564099963629,.152766042065859],[.46457074137596,.142606702173606],[.600545304661681,.128753962539336],[.720966177335229,.111566645547333],[.822714656537142,.0914900216224499],[.903155903614817,.0690445427376412],[.96020815213483,.0448142267656996],[.992406843843584,.0194617882297264]],[[-.993128599185094,.0176140071391521],[-.963971927277913,.0406014298003869],[-.912234428251325,.062672048334109],[-.839116971822218,.0832767415767047],[-.74633190646015,.10193011981724],[-.636053680726515,.118194531961518],[-.510867001950827,.131688638449176],[-.373706088715419,.142096109318382],[-.227785851141645,.149172986472603],[-.0765265211334973,.152753387130725],[.0765265211334973,.152753387130725],[.227785851141645,.149172986472603],[.373706088715419,.142096109318382],[.510867001950827,.131688638449176],[.636053680726515,.118194531961518],[.74633190646015,.10193011981724],[.839116971822218,.0832767415767047],[.912234428251325,.062672048334109],[.963971927277913,.0406014298003869],[.993128599185094,.0176140071391521]],[[-.993752170620389,.0160172282577743],[-.967226838566306,.0369537897708524],[-.9200993341504,.0571344254268572],[-.853363364583317,.0761001136283793],[-.768439963475677,.0934444234560338],[-.667138804197412,.108797299167148],[-.551618835887219,.121831416053728],[-.424342120207438,.132268938633337],[-.288021316802401,.139887394791073],[-.145561854160895,.14452440398997],[0,.14608113364969],[.145561854160895,.14452440398997],[.288021316802401,.139887394791073],[.424342120207438,.132268938633337],[.551618835887219,.121831416053728],[.667138804197412,.108797299167148],[.768439963475677,.0934444234560338],[.853363364583317,.0761001136283793],[.9200993341504,.0571344254268572],[.967226838566306,.0369537897708524],[.993752170620389,.0160172282577743]],[[-.994294585482399,.0146279952982722],[-.970060497835428,.0337749015848141],[-.926956772187174,.0522933351526832],[-.8658125777203,.0697964684245204],[-.787816805979208,.0859416062170677],[-.694487263186682,.10041414444288],[-.587640403506911,.112932296080539],[-.469355837986757,.123252376810512],[-.341935820892084,.131173504787062],[-.207860426688221,.136541498346015],[-.0697392733197222,.139251872855631],[.0697392733197222,.139251872855631],[.207860426688221,.136541498346015],[.341935820892084,.131173504787062],[.469355837986757,.123252376810512],[.587640403506911,.112932296080539],[.694487263186682,.10041414444288],[.787816805979208,.0859416062170677],[.8658125777203,.0697964684245204],[.926956772187174,.0522933351526832],[.970060497835428,.0337749015848141],[.994294585482399,.0146279952982722]],[[-.994769334997552,.0134118594871417],[-.972542471218115,.0309880058569794],[-.932971086826016,.0480376717310846],[-.876752358270441,.0642324214085258],[-.804888401618839,.0792814117767189],[-.71866136313195,.0929157660600351],[-.619609875763646,.104892091464541],[-.509501477846007,.114996640222411],[-.39030103803029,.123049084306729],[-.264135680970344,.128905722188082],[-.133256824298466,.132462039404696],[0,.133654572186106],[.133256824298466,.132462039404696],[.264135680970344,.128905722188082],[.39030103803029,.123049084306729],[.509501477846007,.114996640222411],[.619609875763646,.104892091464541],[.71866136313195,.0929157660600351],[.804888401618839,.0792814117767189],[.876752358270441,.0642324214085258],[.932971086826016,.0480376717310846],[.972542471218115,.0309880058569794],[.994769334997552,.0134118594871417]],[[-.995187219997021,.0123412297999872],[-.974728555971309,.0285313886289336],[-.938274552002732,.0442774388174198],[-.886415527004401,.0592985849154367],[-.820001985973902,.0733464814110803],[-.740124191578554,.0861901615319532],[-.648093651936975,.0976186521041138],[-.545421471388839,.107444270115965],[-.433793507626045,.115505668053725],[-.315042679696163,.121670472927803],[-.191118867473616,.125837456346828],[-.0640568928626056,.127938195346752],[.0640568928626056,.127938195346752],[.191118867473616,.125837456346828],[.315042679696163,.121670472927803],[.433793507626045,.115505668053725],[.545421471388839,.107444270115965],[.648093651936975,.0976186521041138],[.740124191578554,.0861901615319532],[.820001985973902,.0733464814110803],[.886415527004401,.0592985849154367],[.938274552002732,.0442774388174198],[.974728555971309,.0285313886289336],[.995187219997021,.0123412297999872]],[[-.995556969790498,.0113937985010262],[-.976663921459517,.0263549866150321],[-.942974571228974,.0409391567013063],[-.894991997878275,.0549046959758351],[-.833442628760834,.0680383338123569],[-.759259263037357,.080140700335001],[-.673566368473468,.0910282619829636],[-.577662930241222,.10053594906705],[-.473002731445714,.108519624474263],[-.361172305809387,.114858259145711],[-.243866883720988,.119455763535784],[-.12286469261071,.12224244299031],[0,.123176053726715],[.12286469261071,.12224244299031],[.243866883720988,.119455763535784],[.361172305809387,.114858259145711],[.473002731445714,.108519624474263],[.577662930241222,.10053594906705],[.673566368473468,.0910282619829636],[.759259263037357,.080140700335001],[.833442628760834,.0680383338123569],[.894991997878275,.0549046959758351],[.942974571228974,.0409391567013063],[.976663921459517,.0263549866150321],[.995556969790498,.0113937985010262]],[[-.995885701145616,.010551372617343],[-.97838544595647,.0244178510926319],[-.947159066661714,.0379623832943627],[-.902637861984307,.0509758252971478],[-.845445942788498,.0632740463295748],[-.776385948820678,.0746841497656597],[-.696427260419957,.0850458943134852],[-.606692293017618,.0942138003559141],[-.508440714824505,.102059161094425],[-.403051755123486,.108471840528576],[-.292004839485956,.113361816546319],[-.17685882035689,.116660443485296],[-.0592300934293132,.118321415279262],[.0592300934293132,.118321415279262],[.17685882035689,.116660443485296],[.292004839485956,.113361816546319],[.403051755123486,.108471840528576],[.508440714824505,.102059161094425],[.606692293017618,.0942138003559141],[.696427260419957,.0850458943134852],[.776385948820678,.0746841497656597],[.845445942788498,.0632740463295748],[.902637861984307,.0509758252971478],[.947159066661714,.0379623832943627],[.97838544595647,.0244178510926319],[.995885701145616,.010551372617343]],[[-.996179262888988,.00979899605129436],[-.979923475961501,.0226862315961806],[-.950900557814705,.0352970537574197],[-.909482320677491,.047449412520615],[-.856207908018294,.0589835368598335],[-.791771639070508,.0697488237662455],[-.717013473739423,.0796048677730577],[-.632907971946495,.0884231585437569],[-.540551564579456,.0960887273700285],[-.441148251750026,.102501637817745],[-.335993903638508,.107578285788533],[-.226459365439536,.111252488356845],[-.113972585609529,.113476346108965],[0,.114220867378956],[.113972585609529,.113476346108965],[.226459365439536,.111252488356845],[.335993903638508,.107578285788533],[.441148251750026,.102501637817745],[.540551564579456,.0960887273700285],[.632907971946495,.0884231585437569],[.717013473739423,.0796048677730577],[.791771639070508,.0697488237662455],[.856207908018294,.0589835368598336],[.909482320677491,.047449412520615],[.950900557814705,.0352970537574197],[.979923475961501,.0226862315961806],[.996179262888988,.00979899605129436]],[[-.996442497573954,.00912428259309452],[-.981303165370872,.0211321125927712],[-.954259280628938,.0329014277823043],[-.915633026392132,.0442729347590042],[-.865892522574395,.0551073456757167],[-.805641370917179,.0652729239669995],[-.735610878013631,.0746462142345687],[-.656651094038864,.0831134172289012],[-.569720471811401,.0905717443930328],[-.475874224955118,.0969306579979299],[-.376251516089078,.10211296757806],[-.272061627635178,.106055765922846],[-.16456928213338,.108711192258294],[-.0550792898840342,.110047013016475],[.0550792898840342,.110047013016475],[.16456928213338,.108711192258294],[.272061627635178,.106055765922846],[.376251516089078,.10211296757806],[.475874224955118,.0969306579979299],[.569720471811401,.0905717443930328],[.656651094038864,.0831134172289012],[.735610878013631,.0746462142345687],[.805641370917179,.0652729239669995],[.865892522574395,.0551073456757167],[.915633026392132,.0442729347590042],[.954259280628938,.0329014277823043],[.981303165370872,.0211321125927712],[.996442497573954,.00912428259309452]],[[-.996679442260596,.00851690387874641],[-.982545505261413,.0197320850561227],[-.957285595778087,.0307404922020936],[-.921180232953058,.0414020625186828],[-.874637804920102,.0515948269024979],[-.818185487615252,.0612030906570791],[-.752462851734477,.0701179332550512],[-.678214537602686,.0782383271357637],[-.596281797138227,.0854722573661725],[-.507592955124227,.0917377571392587],[-.413152888174008,.0969638340944086],[-.314031637867639,.101091273759914],[-.211352286166001,.104073310077729],[-.106278230132679,.10587615509732],[0,.106479381718314],[.106278230132679,.10587615509732],[.211352286166001,.104073310077729],[.314031637867639,.101091273759914],[.413152888174008,.0969638340944086],[.507592955124227,.0917377571392587],[.596281797138227,.0854722573661725],[.678214537602686,.0782383271357637],[.752462851734477,.0701179332550512],[.818185487615252,.0612030906570791],[.874637804920102,.0515948269024979],[.921180232953058,.0414020625186828],[.957285595778087,.0307404922020936],[.982545505261413,.0197320850561227],[.996679442260596,.00851690387874641]],[[-.996893484074649,.0079681924961666],[-.983668123279747,.0184664683110909],[-.960021864968307,.0287847078833233],[-.926200047429274,.038799192569627],[-.882560535792052,.048402672830594],[-.829565762382768,.057493156217619],[-.767777432104826,.0659742298821805],[-.697850494793315,.0737559747377052],[-.620526182989242,.0807558952294202],[-.536624148142019,.0868997872010829],[-.447033769538089,.0921225222377861],[-.352704725530878,.0963687371746442],[-.254636926167889,.0995934205867952],[-.153869913608583,.101762389748405],[-.0514718425553176,.102852652893558],[.0514718425553176,.102852652893558],[.153869913608583,.101762389748405],[.254636926167889,.0995934205867952],[.352704725530878,.0963687371746442],[.447033769538089,.0921225222377861],[.536624148142019,.0868997872010829],[.620526182989242,.0807558952294202],[.697850494793315,.0737559747377052],[.767777432104826,.0659742298821805],[.829565762382768,.057493156217619],[.882560535792052,.048402672830594],[.926200047429274,.038799192569627],[.960021864968307,.0287847078833233],[.983668123279747,.0184664683110909],[.996893484074649,.0079681924961666]]],maxOrder=lut.length+5;var NumericalCurveMapper=function(_super){function NumericalCurveMapper(nQuadraturePoints,nInverseSamples,onInvalidateCache){void 0===nQuadraturePoints&&(nQuadraturePoints=24),void 0===nInverseSamples&&(nInverseSamples=21);var _this=_super.call(this,onInvalidateCache)||this;return _this._nSamples=21,_this._gauss=function(order){if(order<5||order>maxOrder)throw Error("Order for Gaussian Quadrature must be in the range of ".concat(5," and ").concat(maxOrder,"."));return lut[order-5]}(nQuadraturePoints),_this._nSamples=nInverseSamples,_this}return __extends(NumericalCurveMapper,_super),NumericalCurveMapper.prototype._invalidateCache=function(){_super.prototype._invalidateCache.call(this),this._cache.arcLengths=null,this._cache.samples=null;},Object.defineProperty(NumericalCurveMapper.prototype,"arcLengths",{get:function(){return this._cache.arcLengths||(this._cache.arcLengths=this.computeArcLengths()),this._cache.arcLengths},enumerable:!1,configurable:!0}),NumericalCurveMapper.prototype.getSamples=function(idx){if(this.points){if(this._cache.samples||(this._cache.samples=new Map),!this._cache.samples.has(idx)){for(var samples=this._nSamples,lengths=[],slopes=[],coefficients=this.getCoefficients(idx),i=0;i<samples;++i){var ti=i/(samples-1);lengths.push(this.computeArcLength(idx,0,ti));var dtln=magnitude(evaluateForT(derivativeAtT,ti,coefficients)),slope=0===dtln?0:1/dtln;this.tension>.95&&(slope=clamp(slope,-1,1)),slopes.push(slope);}var nCoeff=samples-1,dis=[],cis=[],li_prev=lengths[0],tdi_prev=slopes[0],step=1/nCoeff;for(i=0;i<nCoeff;++i){var li=li_prev,lDiff=(li_prev=lengths[i+1])-li,tdi=tdi_prev,tdi_next=slopes[i+1];tdi_prev=tdi_next;var si=step/lDiff,di=(tdi+tdi_next-2*si)/(lDiff*lDiff),ci=(3*si-2*tdi-tdi_next)/lDiff;dis.push(di),cis.push(ci);}this._cache.samples.set(idx,[lengths,slopes,cis,dis]);}return this._cache.samples.get(idx)}},NumericalCurveMapper.prototype.computeArcLength=function(index,t0,t1){if(void 0===t0&&(t0=0),void 0===t1&&(t1=1),t0===t1)return 0;for(var coefficients=this.getCoefficients(index),z=.5*(t1-t0),sum=0,i=0;i<this._gauss.length;i++){var _a=this._gauss[i],T=_a[0];sum+=_a[1]*magnitude(evaluateForT(derivativeAtT,z*T+z+t0,coefficients));}return z*sum},NumericalCurveMapper.prototype.computeArcLengths=function(){if(this.points){var lengths=[];lengths.push(0);for(var nPoints=this.closed?this.points.length:this.points.length-1,tl=0,i=0;i<nPoints;i++){tl+=this.computeArcLength(i),lengths.push(tl);}return lengths}},NumericalCurveMapper.prototype.inverse=function(idx,len){var step=1/(this._nSamples-1),_a=this.getSamples(idx),lengths=_a[0],slopes=_a[1],cis=_a[2],dis=_a[3];if(len>=lengths[lengths.length-1])return 1;if(len<=0)return 0;var i=Math.max(0,binarySearch(len,lengths)),ti=i*step;if(lengths[i]===len)return ti;var tdi=slopes[i],di=dis[i],ci=cis[i],ld=len-lengths[i];return ((di*ld+ci)*ld+tdi)*ld+ti},NumericalCurveMapper.prototype.lengthAt=function(u){return u*this.arcLengths[this.arcLengths.length-1]},NumericalCurveMapper.prototype.getT=function(u){var arcLengths=this.arcLengths,il=arcLengths.length,targetArcLength=u*arcLengths[il-1],i=binarySearch(targetArcLength,arcLengths),ti=i/(il-1);if(arcLengths[i]===targetArcLength)return ti;var len=targetArcLength-arcLengths[i];return (i+this.inverse(i,len))/(il-1)},NumericalCurveMapper.prototype.getU=function(t){if(0===t)return 0;if(1===t)return 1;var arcLengths=this.arcLengths,al=arcLengths.length-1,totalLength=arcLengths[al],tIdx=t*al,subIdx=Math.floor(tIdx),l1=arcLengths[subIdx];if(tIdx===subIdx)return l1/totalLength;var t0=tIdx-subIdx;return (l1+this.computeArcLength(subIdx,0,t0))/totalLength},NumericalCurveMapper}(AbstractCurveMapper),CurveInterpolator=function(){function CurveInterpolator(points,options){void 0===options&&(options={});var _this=this;this._cache=new Map;var curveMapper=(options=__assign({tension:.5,alpha:0,closed:!1},options)).arcDivisions?new SegmentedCurveMapper(options.arcDivisions,(function(){return _this._invalidateCache()})):new NumericalCurveMapper(options.numericalApproximationOrder,options.numericalInverseSamples,(function(){return _this._invalidateCache()}));curveMapper.alpha=options.alpha,curveMapper.tension=options.tension,curveMapper.closed=options.closed,curveMapper.points=points,this._lmargin=options.lmargin||1-curveMapper.tension,this._curveMapper=curveMapper;}return CurveInterpolator.prototype.getTimeFromPosition=function(position,clampInput){return void 0===clampInput&&(clampInput=!1),this._curveMapper.getT(clampInput?clamp(position,0,1):position)},CurveInterpolator.prototype.getPositionFromTime=function(t,clampInput){return void 0===clampInput&&(clampInput=!1),this._curveMapper.getU(clampInput?clamp(t,0,1):t)},CurveInterpolator.prototype.getPositionFromLength=function(length,clampInput){void 0===clampInput&&(clampInput=!1);var l=clampInput?clamp(length,0,this.length):length;return this._curveMapper.getU(l/this.length)},CurveInterpolator.prototype.getLengthAt=function(position,clampInput){return void 0===position&&(position=1),void 0===clampInput&&(clampInput=!1),this._curveMapper.lengthAt(clampInput?clamp(position,0,1):position)},CurveInterpolator.prototype.getTimeAtKnot=function(index){if(index<0||index>this.points.length-1)throw Error("Invalid index!");return 0===index?0:this.closed||index!==this.points.length-1?index/(this.closed?this.points.length:this.points.length-1):1},CurveInterpolator.prototype.getPositionAtKnot=function(index){return this.getPositionFromTime(this.getTimeAtKnot(index))},CurveInterpolator.prototype.getPointAtTime=function(t,target){return 0===(t=clamp(t,0,1))?copyValues(this.points[0],target):1===t?copyValues(this.closed?this.points[0]:this.points[this.points.length-1],target):this._curveMapper.evaluateForT(valueAtT,t,target)},CurveInterpolator.prototype.getPointAt=function(position,target){return this.getPointAtTime(this.getTimeFromPosition(position),target)},CurveInterpolator.prototype.getTangentAt=function(position,target){var t=clamp(this.getTimeFromPosition(position),0,1);return this.getTangentAtTime(t,target)},CurveInterpolator.prototype.getTangentAtTime=function(t,target){return normalize(this._curveMapper.evaluateForT(derivativeAtT,t,target))},CurveInterpolator.prototype.getNormalAt=function(position,target){var t=clamp(this.getTimeFromPosition(position),0,1);return this.getNormalAtTime(t,target)},CurveInterpolator.prototype.getNormalAtTime=function(t,target){var dt=normalize(this._curveMapper.evaluateForT(derivativeAtT,t));if(!(dt.length<2||dt.length>3)){var normal=target||new Array(dt.length);if(2===dt.length)return normal[0]=-dt[1],normal[1]=dt[0],normal;var ddt=normalize(this._curveMapper.evaluateForT(secondDerivativeAtT,t));return normalize(cross(cross(dt,ddt),dt),normal)}},CurveInterpolator.prototype.getCurvatureAt=function(position){var t=clamp(this.getTimeFromPosition(position),0,1);return this.getCurvatureAtTime(t)},CurveInterpolator.prototype.getCurvatureAtTime=function(t){var dt=this._curveMapper.evaluateForT(derivativeAtT,t),ddt=this._curveMapper.evaluateForT(secondDerivativeAtT,t),tangent=normalize(dt,[]),curvature=0,direction=void 0;if(2===dt.length){if(0!==(denominator=Math.pow(dt[0]*dt[0]+dt[1]*dt[1],1.5))){var signedCurvature=(dt[0]*ddt[1]-dt[1]*ddt[0])/denominator;direction=signedCurvature<0?[tangent[1],-tangent[0]]:[-tangent[1],tangent[0]],curvature=Math.abs(signedCurvature);}}else if(3===dt.length){var a=magnitude(dt),cp=cross(dt,ddt);direction=normalize(cross(cp,dt)),0!==a&&(curvature=magnitude(cp)/Math.pow(a,3));}else {a=magnitude(dt);var b=magnitude(ddt),denominator=Math.pow(a,3),dotProduct=dot(dt,ddt);0!==denominator&&(curvature=Math.sqrt(Math.pow(a,2)*Math.pow(b,2)-Math.pow(dotProduct,2))/denominator);}return {curvature:curvature,radius:0!==curvature?1/curvature:0,tangent:tangent,direction:direction}},CurveInterpolator.prototype.getDerivativeAt=function(position,target){var t=clamp(this.getTimeFromPosition(position),0,1);return this._curveMapper.evaluateForT(derivativeAtT,t,target)},CurveInterpolator.prototype.getSecondDerivativeAt=function(position,target){var t=clamp(this.getTimeFromPosition(position),0,1);return this._curveMapper.evaluateForT(secondDerivativeAtT,t,target)},CurveInterpolator.prototype.getBoundingBox=function(from,to){if(void 0===from&&(from=0),void 0===to&&(to=1),0===from&&1===to&&this._cache.has("bbox"))return this._cache.get("bbox");for(var min=[],max=[],t0=this.getTimeFromPosition(from),t1=this.getTimeFromPosition(to),start=this.getPointAtTime(t0),end=this.getPointAtTime(t1),nPoints=this.closed?this.points.length:this.points.length-1,i0=Math.floor(nPoints*t0),i1=Math.ceil(nPoints*t1),c=0;c<start.length;c++)min[c]=Math.min(start[c],end[c]),max[c]=Math.max(start[c],end[c]);for(var _loop_1=function(i){var p2=getControlPoints(i-1,this_1.points,this_1.closed)[2];if(i<i1)for(var c=0;c<p2.length;c++)p2[c]<min[c]&&(min[c]=p2[c]),p2[c]>max[c]&&(max[c]=p2[c]);if(this_1.tension<1){var w0_1=nPoints*t0-(i-1),w1_1=nPoints*t1-(i-1),valid=function(t){return t>-EPS&&t<=1+EPS&&(i-1!==i0||t>w0_1)&&(i!==i1||t<w1_1)},coefficients_1=this_1._curveMapper.getCoefficients(i-1),_loop_2=function(c){var _b=coefficients_1[c];getQuadRoots(3*_b[0],2*_b[1],_b[2]).filter(valid).forEach((function(t){var v=valueAtT(t,coefficients_1[c]);v<min[c]&&(min[c]=v),v>max[c]&&(max[c]=v);}));};for(c=0;c<coefficients_1.length;c++)_loop_2(c);}},this_1=this,i=i0+1;i<=i1;i++)_loop_1(i);var bbox={min:min,max:max};return 0===from&&1===to&&this._cache.set("bbox",bbox),bbox},CurveInterpolator.prototype.getPoints=function(segments,returnType,from,to){if(void 0===segments&&(segments=100),void 0===from&&(from=0),void 0===to&&(to=1),!segments||segments<=0)throw Error("Invalid arguments passed to getPoints(). You must specify at least 1 sample/segment.");if(!(from<0||to>1||to<from)){for(var pts=[],d=0;d<=segments;d++){var u=0===from&&1===to?d/segments:from+d/segments*(to-from);pts.push(this.getPointAt(u,returnType&&new returnType));}return pts}},CurveInterpolator.prototype.getNearestPosition=function(point,threshold){var _this=this;if(void 0===threshold&&(threshold=1e-5),threshold<=0||!Number.isFinite(threshold))throw Error("Invalid threshold. Must be a number greater than zero!");var samples=10*this.points.length-1,pu=new Array(point.length),minDist=1/0,minU=0,lut=this.createLookupTable(samples);Array.from(lut.keys()).forEach((function(key){var c=lut.get(key),dist=distance(point,c);if(dist<minDist)return minDist=dist,minU=key,!0}));for(var minT=this.getTimeFromPosition(minU),bisect=function(t){if(t>=0&&t<=1){_this.getPointAtTime(t,pu);var dist=distance(point,pu);if(dist<minDist)return minDist=dist,minT=t,!0}},step=.005;step>threshold;)bisect(minT-step)||bisect(minT+step)||(step/=2);return {u:minU=this._curveMapper.getU(minT),distance:minDist,point:pu}},CurveInterpolator.prototype.getIntersects=function(v,axis,max,margin){var _this=this;void 0===axis&&(axis=0),void 0===max&&(max=0),void 0===margin&&(margin=this._lmargin);var solutions=this.getIntersectsAsTime(v,axis,max,margin).map((function(t){return _this.getPointAtTime(t)}));return 1===Math.abs(max)?1===solutions.length?solutions[0]:null:solutions},CurveInterpolator.prototype.getIntersectsAsPositions=function(v,axis,max,margin){var _this=this;return void 0===axis&&(axis=0),void 0===max&&(max=0),void 0===margin&&(margin=this._lmargin),this.getIntersectsAsTime(v,axis,max,margin).map((function(t){return _this.getPositionFromTime(t)}))},CurveInterpolator.prototype.getIntersectsAsTime=function(v,axis,max,margin){void 0===axis&&(axis=0),void 0===max&&(max=0),void 0===margin&&(margin=this._lmargin);for(var k=axis,solutions=new Set,nPoints=this.closed?this.points.length:this.points.length-1,i=0;i<nPoints&&(0===max||solutions.size<Math.abs(max));i+=1){var idx=max<0?nPoints-(i+1):i,_a=getControlPoints(idx,this.points,this.closed),p1=_a[1],p2=_a[2],coefficients=this._curveMapper.getCoefficients(idx),vmin=void 0,vmax=void 0;if(p1[k]<p2[k]?(vmin=p1[k],vmax=p2[k]):(vmin=p2[k],vmax=p1[k]),v-margin<=vmax&&v+margin>=vmin){var ts=findRootsOfT(v,coefficients[k]);max<0?ts.sort((function(a,b){return b-a})):max>=0&&ts.sort((function(a,b){return a-b}));for(var j=0;j<ts.length;j++){var nt=(ts[j]+idx)/nPoints;if(solutions.add(nt),0!==max&&solutions.size===Math.abs(max))break}}}return Array.from(solutions)},CurveInterpolator.prototype.createLookupTable=function(samples,from,to){if(void 0===from&&(from=0),void 0===to&&(to=1),!samples||samples<=1)throw Error("Invalid arguments passed to createLookupTable(). You must specify at least 2 samples.");if(!(from<0||to>1||to<from)){var cacheKey="lut_".concat(samples,"_").concat(from,"_").concat(to);if(!this._cache.has(cacheKey)){for(var lut=new Map,d=0;d<samples;d++){var u=0===from&&1===to?d/(samples-1):from+d/(samples-1)*(to-from),point=this.getPointAt(u);lut.set(u,point);}this._cache.set(cacheKey,lut);}return this._cache.get(cacheKey)}},CurveInterpolator.prototype.forEach=function(func,samples,from,to){var _this=this;void 0===from&&(from=0),void 0===to&&(to=1);var positions=[];if(Number.isFinite(samples)){if(samples<=1)throw Error("Invalid arguments passed to forEach(). You must specify at least 2 samples.");for(var nSamples=samples,i=0;i<samples;i++){var u=0===from&&1===to?i/(nSamples-1):from+i/(nSamples-1)*(to-from);positions.push(u);}}else Array.isArray(samples)&&(positions=samples);var prev=null;positions.forEach((function(u,i){if(!Number.isFinite(u)||u<0||u>1)throw Error("Invalid position (u) for sample in forEach!");var t=_this.getTimeFromPosition(u),current=func({u:u,t:t,i:i,prev:prev});prev={u:u,t:t,i:i,value:current};}));},CurveInterpolator.prototype.map=function(func,samples,from,to){var _this=this;void 0===from&&(from=0),void 0===to&&(to=1);var positions=[];if(Number.isFinite(samples)){if(samples<=1)throw Error("Invalid arguments passed to map(). You must specify at least 2 samples.");for(var nSamples=samples,i=0;i<samples;i++){var u=0===from&&1===to?i/(nSamples-1):from+i/(nSamples-1)*(to-from);positions.push(u);}}else Array.isArray(samples)&&(positions=samples);var prev=null;return positions.map((function(u,i){if(!Number.isFinite(u)||u<0||u>1)throw Error("Invalid position (u) for sample in map()!");var t=_this.getTimeFromPosition(u),current=func({u:u,t:t,i:i,prev:prev});return prev={u:u,t:t,i:i,value:current},current}))},CurveInterpolator.prototype.reduce=function(func,initialValue,samples,from,to){var _this=this;void 0===from&&(from=0),void 0===to&&(to=1);var positions=[];if(Number.isFinite(samples)){if(samples<=1)throw Error("Invalid arguments passed to map(). You must specify at least 2 samples.");for(var nSamples=samples,i=0;i<samples;i++){var u=0===from&&1===to?i/(nSamples-1):from+i/(nSamples-1)*(to-from);positions.push(u);}}else Array.isArray(samples)&&(positions=samples);return positions.reduce((function(acc,u,i){if(!Number.isFinite(u)||u<0||u>1)throw Error("Invalid position (u) for sample in map()!");var t=_this.getTimeFromPosition(u);return func({acc:acc,u:u,t:t,i:i})}),initialValue)},CurveInterpolator.prototype._invalidateCache=function(){return this._cache=new Map,this},CurveInterpolator.prototype.reset=function(){this._curveMapper.reset();},Object.defineProperty(CurveInterpolator.prototype,"points",{get:function(){return this._curveMapper.points},set:function(pts){this._curveMapper.points=pts;},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"tension",{get:function(){return this._curveMapper.tension},set:function(t){this._curveMapper.tension=t;},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"alpha",{get:function(){return this._curveMapper.alpha},set:function(a){this._curveMapper.alpha=a;},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"closed",{get:function(){return this._curveMapper.closed},set:function(isClosed){this._curveMapper.closed=isClosed;},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"length",{get:function(){return this._curveMapper.lengthAt(1)},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"minX",{get:function(){return this.getBoundingBox().min[0]},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"maxX",{get:function(){return this.getBoundingBox().max[0]},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"minY",{get:function(){return this.getBoundingBox().min[1]},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"maxY",{get:function(){return this.getBoundingBox().max[1]},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"minZ",{get:function(){return this.getBoundingBox().min[2]},enumerable:!1,configurable:!0}),Object.defineProperty(CurveInterpolator.prototype,"maxZ",{get:function(){return this.getBoundingBox().max[2]},enumerable:!1,configurable:!0}),CurveInterpolator}();(function(_super){function CurveInterpolator2D(points,tension,arcDivisions,closed,alpha){return void 0===tension&&(tension=.5),void 0===arcDivisions&&(arcDivisions=300),void 0===closed&&(closed=!1),void 0===alpha&&(alpha=0),_super.call(this,points.map((function(p){return [p[0],p[1]]})),{tension:tension,alpha:alpha,arcDivisions:arcDivisions,closed:closed})||this}return __extends(CurveInterpolator2D,_super),CurveInterpolator2D.prototype.x=function(y,max,margin){void 0===max&&(max=0),void 0===margin&&(margin=this._lmargin);var res=this.getIntersects(y,1,max,margin);return 1===Math.abs(max)?res[0]:res.map((function(d){return d[0]}))},CurveInterpolator2D.prototype.y=function(x,max,margin){void 0===max&&(max=0),void 0===margin&&(margin=this._lmargin);var res=this.getIntersects(x,0,max,margin);return 1===Math.abs(max)?res[1]:res.map((function(d){return d[1]}))},CurveInterpolator2D.prototype.getNormalAt=function(position,target){return normalize(orthogonal(this.getTangentAt(position,target)))},CurveInterpolator2D.prototype.getAngleAt=function(position){var tan=this.getTangentAt(position);return Math.atan2(tan[1],tan[0])},CurveInterpolator2D.prototype.getBoundingBox=function(from,to){void 0===from&&(from=0),void 0===to&&(to=1);var bbox=_super.prototype.getBoundingBox.call(this,from,to);return {x1:bbox.min[0],x2:bbox.max[0],y1:bbox.min[1],y2:bbox.max[1],min:bbox.min,max:bbox.max}},CurveInterpolator2D})(CurveInterpolator);
 
-const filter$z = (geometry) =>
+const filter$y = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
     geometry.type
   ) && isNotTypeGhost(geometry);
 
 const emitEachCoordinate = (geometry, emit) => {
-  const inputs = linearize(geometry, filter$z);
+  const inputs = linearize(geometry, filter$y);
   eachPoint(inputs, emit);
 };
 
@@ -1064,7 +1200,2739 @@ const curve = (geometry, coordinates, implicitSteps, options, modes) =>
     modes
   );
 
+const Empty = () => Group([]);
+
 const Segments$1 = (segments) => taggedSegments({}, segments);
+
+// Hershey simplex one line font.
+// See: http://paulbourke.net/dataformats/hershey/
+
+const hersheyPaths = {
+  32: [[null]],
+  33: [
+    [null, [5, 21, 0], [5, 7, 0]],
+    [null, [5, 2, 0], [4, 1, 0], [5, 0, 0], [6, 1, 0], [5, 2, 0]],
+    [null],
+  ],
+  34: [
+    [null, [4, 21, 0], [4, 14, 0]],
+    [null, [12, 21, 0], [12, 14, 0]],
+    [null],
+  ],
+  35: [
+    [null, [11, 25, 0], [4, -7, 0]],
+    [null, [17, 25, 0], [10, -7, 0]],
+    [null, [4, 12, 0], [18, 12, 0]],
+    [null, [3, 6, 0], [17, 6, 0]],
+    [null],
+  ],
+  36: [
+    [null, [8, 25, 0], [8, -4, 0]],
+    [null, [12, 25, 0], [12, -4, 0]],
+    [
+      null,
+      [17, 18, 0],
+      [15, 20, 0],
+      [12, 21, 0],
+      [8, 21, 0],
+      [5, 20, 0],
+      [3, 18, 0],
+      [3, 16, 0],
+      [4, 14, 0],
+      [5, 13, 0],
+      [7, 12, 0],
+      [13, 10, 0],
+      [15, 9, 0],
+      [16, 8, 0],
+      [17, 6, 0],
+      [17, 3, 0],
+      [15, 1, 0],
+      [12, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [3, 3, 0],
+    ],
+    [null],
+  ],
+  37: [
+    [null, [21, 21, 0], [3, 0, 0]],
+    [
+      null,
+      [8, 21, 0],
+      [10, 19, 0],
+      [10, 17, 0],
+      [9, 15, 0],
+      [7, 14, 0],
+      [5, 14, 0],
+      [3, 16, 0],
+      [3, 18, 0],
+      [4, 20, 0],
+      [6, 21, 0],
+      [8, 21, 0],
+      [10, 20, 0],
+      [13, 19, 0],
+      [16, 19, 0],
+      [19, 20, 0],
+      [21, 21, 0],
+    ],
+    [
+      null,
+      [17, 7, 0],
+      [15, 6, 0],
+      [14, 4, 0],
+      [14, 2, 0],
+      [16, 0, 0],
+      [18, 0, 0],
+      [20, 1, 0],
+      [21, 3, 0],
+      [21, 5, 0],
+      [19, 7, 0],
+      [17, 7, 0],
+    ],
+    [null],
+  ],
+  38: [
+    [
+      null,
+      [23, 12, 0],
+      [23, 13, 0],
+      [22, 14, 0],
+      [21, 14, 0],
+      [20, 13, 0],
+      [19, 11, 0],
+      [17, 6, 0],
+      [15, 3, 0],
+      [13, 1, 0],
+      [11, 0, 0],
+      [7, 0, 0],
+      [5, 1, 0],
+      [4, 2, 0],
+      [3, 4, 0],
+      [3, 6, 0],
+      [4, 8, 0],
+      [5, 9, 0],
+      [12, 13, 0],
+      [13, 14, 0],
+      [14, 16, 0],
+      [14, 18, 0],
+      [13, 20, 0],
+      [11, 21, 0],
+      [9, 20, 0],
+      [8, 18, 0],
+      [8, 16, 0],
+      [9, 13, 0],
+      [11, 10, 0],
+      [16, 3, 0],
+      [18, 1, 0],
+      [20, 0, 0],
+      [22, 0, 0],
+      [23, 1, 0],
+      [23, 2, 0],
+    ],
+    [null],
+  ],
+  39: [
+    [
+      null,
+      [5, 19, 0],
+      [4, 20, 0],
+      [5, 21, 0],
+      [6, 20, 0],
+      [6, 18, 0],
+      [5, 16, 0],
+      [4, 15, 0],
+    ],
+    [null],
+  ],
+  40: [
+    [
+      null,
+      [11, 25, 0],
+      [9, 23, 0],
+      [7, 20, 0],
+      [5, 16, 0],
+      [4, 11, 0],
+      [4, 7, 0],
+      [5, 2, 0],
+      [7, -2, 0],
+      [9, -5, 0],
+      [11, -7, 0],
+    ],
+    [null],
+  ],
+  41: [
+    [
+      null,
+      [3, 25, 0],
+      [5, 23, 0],
+      [7, 20, 0],
+      [9, 16, 0],
+      [10, 11, 0],
+      [10, 7, 0],
+      [9, 2, 0],
+      [7, -2, 0],
+      [5, -5, 0],
+      [3, -7, 0],
+    ],
+    [null],
+  ],
+  42: [
+    [null, [8, 21, 0], [8, 9, 0]],
+    [null, [3, 18, 0], [13, 12, 0]],
+    [null, [13, 18, 0], [3, 12, 0]],
+    [null],
+  ],
+  43: [[null, [13, 18, 0], [13, 0, 0]], [null, [4, 9, 0], [22, 9, 0]], [null]],
+  44: [
+    [
+      null,
+      [6, 1, 0],
+      [5, 0, 0],
+      [4, 1, 0],
+      [5, 2, 0],
+      [6, 1, 0],
+      [6, -1, 0],
+      [5, -3, 0],
+      [4, -4, 0],
+    ],
+    [null],
+  ],
+  45: [[null, [4, 9, 0], [22, 9, 0]], [null]],
+  46: [[null, [5, 2, 0], [4, 1, 0], [5, 0, 0], [6, 1, 0], [5, 2, 0]], [null]],
+  47: [[null, [20, 25, 0], [2, -7, 0]], [null]],
+  48: [
+    [
+      null,
+      [9, 21, 0],
+      [6, 20, 0],
+      [4, 17, 0],
+      [3, 12, 0],
+      [3, 9, 0],
+      [4, 4, 0],
+      [6, 1, 0],
+      [9, 0, 0],
+      [11, 0, 0],
+      [14, 1, 0],
+      [16, 4, 0],
+      [17, 9, 0],
+      [17, 12, 0],
+      [16, 17, 0],
+      [14, 20, 0],
+      [11, 21, 0],
+      [9, 21, 0],
+    ],
+    [null],
+  ],
+  49: [[null, [6, 17, 0], [8, 18, 0], [11, 21, 0], [11, 0, 0]], [null]],
+  50: [
+    [
+      null,
+      [4, 16, 0],
+      [4, 17, 0],
+      [5, 19, 0],
+      [6, 20, 0],
+      [8, 21, 0],
+      [12, 21, 0],
+      [14, 20, 0],
+      [15, 19, 0],
+      [16, 17, 0],
+      [16, 15, 0],
+      [15, 13, 0],
+      [13, 10, 0],
+      [3, 0, 0],
+      [17, 0, 0],
+    ],
+    [null],
+  ],
+  51: [
+    [
+      null,
+      [5, 21, 0],
+      [16, 21, 0],
+      [10, 13, 0],
+      [13, 13, 0],
+      [15, 12, 0],
+      [16, 11, 0],
+      [17, 8, 0],
+      [17, 6, 0],
+      [16, 3, 0],
+      [14, 1, 0],
+      [11, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [4, 2, 0],
+      [3, 4, 0],
+    ],
+    [null],
+  ],
+  52: [
+    [null, [13, 21, 0], [3, 7, 0], [18, 7, 0]],
+    [null, [13, 21, 0], [13, 0, 0]],
+    [null],
+  ],
+  53: [
+    [
+      null,
+      [15, 21, 0],
+      [5, 21, 0],
+      [4, 12, 0],
+      [5, 13, 0],
+      [8, 14, 0],
+      [11, 14, 0],
+      [14, 13, 0],
+      [16, 11, 0],
+      [17, 8, 0],
+      [17, 6, 0],
+      [16, 3, 0],
+      [14, 1, 0],
+      [11, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [4, 2, 0],
+      [3, 4, 0],
+    ],
+    [null],
+  ],
+  54: [
+    [
+      null,
+      [16, 18, 0],
+      [15, 20, 0],
+      [12, 21, 0],
+      [10, 21, 0],
+      [7, 20, 0],
+      [5, 17, 0],
+      [4, 12, 0],
+      [4, 7, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [10, 0, 0],
+      [11, 0, 0],
+      [14, 1, 0],
+      [16, 3, 0],
+      [17, 6, 0],
+      [17, 7, 0],
+      [16, 10, 0],
+      [14, 12, 0],
+      [11, 13, 0],
+      [10, 13, 0],
+      [7, 12, 0],
+      [5, 10, 0],
+      [4, 7, 0],
+    ],
+    [null],
+  ],
+  55: [[null, [17, 21, 0], [7, 0, 0]], [null, [3, 21, 0], [17, 21, 0]], [null]],
+  56: [
+    [
+      null,
+      [8, 21, 0],
+      [5, 20, 0],
+      [4, 18, 0],
+      [4, 16, 0],
+      [5, 14, 0],
+      [7, 13, 0],
+      [11, 12, 0],
+      [14, 11, 0],
+      [16, 9, 0],
+      [17, 7, 0],
+      [17, 4, 0],
+      [16, 2, 0],
+      [15, 1, 0],
+      [12, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [4, 2, 0],
+      [3, 4, 0],
+      [3, 7, 0],
+      [4, 9, 0],
+      [6, 11, 0],
+      [9, 12, 0],
+      [13, 13, 0],
+      [15, 14, 0],
+      [16, 16, 0],
+      [16, 18, 0],
+      [15, 20, 0],
+      [12, 21, 0],
+      [8, 21, 0],
+    ],
+    [null],
+  ],
+  57: [
+    [
+      null,
+      [16, 14, 0],
+      [15, 11, 0],
+      [13, 9, 0],
+      [10, 8, 0],
+      [9, 8, 0],
+      [6, 9, 0],
+      [4, 11, 0],
+      [3, 14, 0],
+      [3, 15, 0],
+      [4, 18, 0],
+      [6, 20, 0],
+      [9, 21, 0],
+      [10, 21, 0],
+      [13, 20, 0],
+      [15, 18, 0],
+      [16, 14, 0],
+      [16, 9, 0],
+      [15, 4, 0],
+      [13, 1, 0],
+      [10, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [4, 3, 0],
+    ],
+    [null],
+  ],
+  58: [
+    [null, [5, 14, 0], [4, 13, 0], [5, 12, 0], [6, 13, 0], [5, 14, 0]],
+    [null, [5, 2, 0], [4, 1, 0], [5, 0, 0], [6, 1, 0], [5, 2, 0]],
+    [null],
+  ],
+  59: [
+    [null, [5, 14, 0], [4, 13, 0], [5, 12, 0], [6, 13, 0], [5, 14, 0]],
+    [
+      null,
+      [6, 1, 0],
+      [5, 0, 0],
+      [4, 1, 0],
+      [5, 2, 0],
+      [6, 1, 0],
+      [6, -1, 0],
+      [5, -3, 0],
+      [4, -4, 0],
+    ],
+    [null],
+  ],
+  60: [[null, [20, 18, 0], [4, 9, 0], [20, 0, 0]], [null]],
+  61: [[null, [4, 12, 0], [22, 12, 0]], [null, [4, 6, 0], [22, 6, 0]], [null]],
+  62: [[null, [4, 18, 0], [20, 9, 0], [4, 0, 0]], [null]],
+  63: [
+    [
+      null,
+      [3, 16, 0],
+      [3, 17, 0],
+      [4, 19, 0],
+      [5, 20, 0],
+      [7, 21, 0],
+      [11, 21, 0],
+      [13, 20, 0],
+      [14, 19, 0],
+      [15, 17, 0],
+      [15, 15, 0],
+      [14, 13, 0],
+      [13, 12, 0],
+      [9, 10, 0],
+      [9, 7, 0],
+    ],
+    [null, [9, 2, 0], [8, 1, 0], [9, 0, 0], [10, 1, 0], [9, 2, 0]],
+    [null],
+  ],
+  64: [
+    [
+      null,
+      [18, 13, 0],
+      [17, 15, 0],
+      [15, 16, 0],
+      [12, 16, 0],
+      [10, 15, 0],
+      [9, 14, 0],
+      [8, 11, 0],
+      [8, 8, 0],
+      [9, 6, 0],
+      [11, 5, 0],
+      [14, 5, 0],
+      [16, 6, 0],
+      [17, 8, 0],
+    ],
+    [
+      null,
+      [12, 16, 0],
+      [10, 14, 0],
+      [9, 11, 0],
+      [9, 8, 0],
+      [10, 6, 0],
+      [11, 5, 0],
+    ],
+    [
+      null,
+      [18, 16, 0],
+      [17, 8, 0],
+      [17, 6, 0],
+      [19, 5, 0],
+      [21, 5, 0],
+      [23, 7, 0],
+      [24, 10, 0],
+      [24, 12, 0],
+      [23, 15, 0],
+      [22, 17, 0],
+      [20, 19, 0],
+      [18, 20, 0],
+      [15, 21, 0],
+      [12, 21, 0],
+      [9, 20, 0],
+      [7, 19, 0],
+      [5, 17, 0],
+      [4, 15, 0],
+      [3, 12, 0],
+      [3, 9, 0],
+      [4, 6, 0],
+      [5, 4, 0],
+      [7, 2, 0],
+      [9, 1, 0],
+      [12, 0, 0],
+      [15, 0, 0],
+      [18, 1, 0],
+      [20, 2, 0],
+      [21, 3, 0],
+    ],
+    [null, [19, 16, 0], [18, 8, 0], [18, 6, 0], [19, 5, 0]],
+  ],
+  65: [
+    [null, [9, 21, 0], [1, 0, 0]],
+    [null, [9, 21, 0], [17, 0, 0]],
+    [null, [4, 7, 0], [14, 7, 0]],
+    [null],
+  ],
+  66: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 21, 0],
+      [13, 21, 0],
+      [16, 20, 0],
+      [17, 19, 0],
+      [18, 17, 0],
+      [18, 15, 0],
+      [17, 13, 0],
+      [16, 12, 0],
+      [13, 11, 0],
+    ],
+    [
+      null,
+      [4, 11, 0],
+      [13, 11, 0],
+      [16, 10, 0],
+      [17, 9, 0],
+      [18, 7, 0],
+      [18, 4, 0],
+      [17, 2, 0],
+      [16, 1, 0],
+      [13, 0, 0],
+      [4, 0, 0],
+    ],
+    [null],
+  ],
+  67: [
+    [
+      null,
+      [18, 16, 0],
+      [17, 18, 0],
+      [15, 20, 0],
+      [13, 21, 0],
+      [9, 21, 0],
+      [7, 20, 0],
+      [5, 18, 0],
+      [4, 16, 0],
+      [3, 13, 0],
+      [3, 8, 0],
+      [4, 5, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [9, 0, 0],
+      [13, 0, 0],
+      [15, 1, 0],
+      [17, 3, 0],
+      [18, 5, 0],
+    ],
+    [null],
+  ],
+  68: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 21, 0],
+      [11, 21, 0],
+      [14, 20, 0],
+      [16, 18, 0],
+      [17, 16, 0],
+      [18, 13, 0],
+      [18, 8, 0],
+      [17, 5, 0],
+      [16, 3, 0],
+      [14, 1, 0],
+      [11, 0, 0],
+      [4, 0, 0],
+    ],
+    [null],
+  ],
+  69: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [4, 21, 0], [17, 21, 0]],
+    [null, [4, 11, 0], [12, 11, 0]],
+    [null, [4, 0, 0], [17, 0, 0]],
+    [null],
+  ],
+  70: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [4, 21, 0], [17, 21, 0]],
+    [null, [4, 11, 0], [12, 11, 0]],
+    [null],
+  ],
+  71: [
+    [
+      null,
+      [18, 16, 0],
+      [17, 18, 0],
+      [15, 20, 0],
+      [13, 21, 0],
+      [9, 21, 0],
+      [7, 20, 0],
+      [5, 18, 0],
+      [4, 16, 0],
+      [3, 13, 0],
+      [3, 8, 0],
+      [4, 5, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [9, 0, 0],
+      [13, 0, 0],
+      [15, 1, 0],
+      [17, 3, 0],
+      [18, 5, 0],
+      [18, 8, 0],
+    ],
+    [null, [13, 8, 0], [18, 8, 0]],
+    [null],
+  ],
+  72: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [18, 21, 0], [18, 0, 0]],
+    [null, [4, 11, 0], [18, 11, 0]],
+    [null],
+  ],
+  73: [[null, [4, 21, 0], [4, 0, 0]], [null]],
+  74: [
+    [
+      null,
+      [12, 21, 0],
+      [12, 5, 0],
+      [11, 2, 0],
+      [10, 1, 0],
+      [8, 0, 0],
+      [6, 0, 0],
+      [4, 1, 0],
+      [3, 2, 0],
+      [2, 5, 0],
+      [2, 7, 0],
+    ],
+    [null],
+  ],
+  75: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [18, 21, 0], [4, 7, 0]],
+    [null, [9, 12, 0], [18, 0, 0]],
+    [null],
+  ],
+  76: [[null, [4, 21, 0], [4, 0, 0]], [null, [4, 0, 0], [16, 0, 0]], [null]],
+  77: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [4, 21, 0], [12, 0, 0]],
+    [null, [20, 21, 0], [12, 0, 0]],
+    [null, [20, 21, 0], [20, 0, 0]],
+    [null],
+  ],
+  78: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [4, 21, 0], [18, 0, 0]],
+    [null, [18, 21, 0], [18, 0, 0]],
+    [null],
+  ],
+  79: [
+    [
+      null,
+      [9, 21, 0],
+      [7, 20, 0],
+      [5, 18, 0],
+      [4, 16, 0],
+      [3, 13, 0],
+      [3, 8, 0],
+      [4, 5, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [9, 0, 0],
+      [13, 0, 0],
+      [15, 1, 0],
+      [17, 3, 0],
+      [18, 5, 0],
+      [19, 8, 0],
+      [19, 13, 0],
+      [18, 16, 0],
+      [17, 18, 0],
+      [15, 20, 0],
+      [13, 21, 0],
+      [9, 21, 0],
+    ],
+    [null],
+  ],
+  80: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 21, 0],
+      [13, 21, 0],
+      [16, 20, 0],
+      [17, 19, 0],
+      [18, 17, 0],
+      [18, 14, 0],
+      [17, 12, 0],
+      [16, 11, 0],
+      [13, 10, 0],
+      [4, 10, 0],
+    ],
+    [null],
+  ],
+  81: [
+    [
+      null,
+      [9, 21, 0],
+      [7, 20, 0],
+      [5, 18, 0],
+      [4, 16, 0],
+      [3, 13, 0],
+      [3, 8, 0],
+      [4, 5, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [9, 0, 0],
+      [13, 0, 0],
+      [15, 1, 0],
+      [17, 3, 0],
+      [18, 5, 0],
+      [19, 8, 0],
+      [19, 13, 0],
+      [18, 16, 0],
+      [17, 18, 0],
+      [15, 20, 0],
+      [13, 21, 0],
+      [9, 21, 0],
+    ],
+    [null, [12, 4, 0], [18, -2, 0]],
+    [null],
+  ],
+  82: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 21, 0],
+      [13, 21, 0],
+      [16, 20, 0],
+      [17, 19, 0],
+      [18, 17, 0],
+      [18, 15, 0],
+      [17, 13, 0],
+      [16, 12, 0],
+      [13, 11, 0],
+      [4, 11, 0],
+    ],
+    [null, [11, 11, 0], [18, 0, 0]],
+    [null],
+  ],
+  83: [
+    [
+      null,
+      [17, 18, 0],
+      [15, 20, 0],
+      [12, 21, 0],
+      [8, 21, 0],
+      [5, 20, 0],
+      [3, 18, 0],
+      [3, 16, 0],
+      [4, 14, 0],
+      [5, 13, 0],
+      [7, 12, 0],
+      [13, 10, 0],
+      [15, 9, 0],
+      [16, 8, 0],
+      [17, 6, 0],
+      [17, 3, 0],
+      [15, 1, 0],
+      [12, 0, 0],
+      [8, 0, 0],
+      [5, 1, 0],
+      [3, 3, 0],
+    ],
+    [null],
+  ],
+  84: [[null, [8, 21, 0], [8, 0, 0]], [null, [1, 21, 0], [15, 21, 0]], [null]],
+  85: [
+    [
+      null,
+      [4, 21, 0],
+      [4, 6, 0],
+      [5, 3, 0],
+      [7, 1, 0],
+      [10, 0, 0],
+      [12, 0, 0],
+      [15, 1, 0],
+      [17, 3, 0],
+      [18, 6, 0],
+      [18, 21, 0],
+    ],
+    [null],
+  ],
+  86: [[null, [1, 21, 0], [9, 0, 0]], [null, [17, 21, 0], [9, 0, 0]], [null]],
+  87: [
+    [null, [2, 21, 0], [7, 0, 0]],
+    [null, [12, 21, 0], [7, 0, 0]],
+    [null, [12, 21, 0], [17, 0, 0]],
+    [null, [22, 21, 0], [17, 0, 0]],
+    [null],
+  ],
+  88: [[null, [3, 21, 0], [17, 0, 0]], [null, [17, 21, 0], [3, 0, 0]], [null]],
+  89: [
+    [null, [1, 21, 0], [9, 11, 0], [9, 0, 0]],
+    [null, [17, 21, 0], [9, 11, 0]],
+    [null],
+  ],
+  90: [
+    [null, [17, 21, 0], [3, 0, 0]],
+    [null, [3, 21, 0], [17, 21, 0]],
+    [null, [3, 0, 0], [17, 0, 0]],
+    [null],
+  ],
+  91: [
+    [null, [4, 25, 0], [4, -7, 0]],
+    [null, [5, 25, 0], [5, -7, 0]],
+    [null, [4, 25, 0], [11, 25, 0]],
+    [null, [4, -7, 0], [11, -7, 0]],
+    [null],
+  ],
+  92: [[null, [0, 21, 0], [14, -3, 0]], [null]],
+  93: [
+    [null, [9, 25, 0], [9, -7, 0]],
+    [null, [10, 25, 0], [10, -7, 0]],
+    [null, [3, 25, 0], [10, 25, 0]],
+    [null, [3, -7, 0], [10, -7, 0]],
+    [null],
+  ],
+  94: [
+    [null, [6, 15, 0], [8, 18, 0], [10, 15, 0]],
+    [null, [3, 12, 0], [8, 17, 0], [13, 12, 0]],
+    [null, [8, 17, 0], [8, 0, 0]],
+    [null],
+  ],
+  95: [[null, [0, -2, 0], [16, -2, 0]], [null]],
+  96: [
+    [
+      null,
+      [6, 21, 0],
+      [5, 20, 0],
+      [4, 18, 0],
+      [4, 16, 0],
+      [5, 15, 0],
+      [6, 16, 0],
+      [5, 17, 0],
+    ],
+    [null],
+  ],
+  97: [
+    [null, [15, 14, 0], [15, 0, 0]],
+    [
+      null,
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  98: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 11, 0],
+      [6, 13, 0],
+      [8, 14, 0],
+      [11, 14, 0],
+      [13, 13, 0],
+      [15, 11, 0],
+      [16, 8, 0],
+      [16, 6, 0],
+      [15, 3, 0],
+      [13, 1, 0],
+      [11, 0, 0],
+      [8, 0, 0],
+      [6, 1, 0],
+      [4, 3, 0],
+    ],
+    [null],
+  ],
+  99: [
+    [
+      null,
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  100: [
+    [null, [15, 21, 0], [15, 0, 0]],
+    [
+      null,
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  101: [
+    [
+      null,
+      [3, 8, 0],
+      [15, 8, 0],
+      [15, 10, 0],
+      [14, 12, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  102: [
+    [null, [10, 21, 0], [8, 21, 0], [6, 20, 0], [5, 17, 0], [5, 0, 0]],
+    [null, [2, 14, 0], [9, 14, 0]],
+    [null],
+  ],
+  103: [
+    [
+      null,
+      [15, 14, 0],
+      [15, -2, 0],
+      [14, -5, 0],
+      [13, -6, 0],
+      [11, -7, 0],
+      [8, -7, 0],
+      [6, -6, 0],
+    ],
+    [
+      null,
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  104: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 10, 0],
+      [7, 13, 0],
+      [9, 14, 0],
+      [12, 14, 0],
+      [14, 13, 0],
+      [15, 10, 0],
+      [15, 0, 0],
+    ],
+    [null],
+  ],
+  105: [
+    [null, [3, 21, 0], [4, 20, 0], [5, 21, 0], [4, 22, 0], [3, 21, 0]],
+    [null, [4, 14, 0], [4, 0, 0]],
+    [null],
+  ],
+  106: [
+    [null, [5, 21, 0], [6, 20, 0], [7, 21, 0], [6, 22, 0], [5, 21, 0]],
+    [null, [6, 14, 0], [6, -3, 0], [5, -6, 0], [3, -7, 0], [1, -7, 0]],
+    [null],
+  ],
+  107: [
+    [null, [4, 21, 0], [4, 0, 0]],
+    [null, [14, 14, 0], [4, 4, 0]],
+    [null, [8, 8, 0], [15, 0, 0]],
+    [null],
+  ],
+  108: [[null, [4, 21, 0], [4, 0, 0]], [null]],
+  109: [
+    [null, [4, 14, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 10, 0],
+      [7, 13, 0],
+      [9, 14, 0],
+      [12, 14, 0],
+      [14, 13, 0],
+      [15, 10, 0],
+      [15, 0, 0],
+    ],
+    [
+      null,
+      [15, 10, 0],
+      [18, 13, 0],
+      [20, 14, 0],
+      [23, 14, 0],
+      [25, 13, 0],
+      [26, 10, 0],
+      [26, 0, 0],
+    ],
+    [null],
+  ],
+  110: [
+    [null, [4, 14, 0], [4, 0, 0]],
+    [
+      null,
+      [4, 10, 0],
+      [7, 13, 0],
+      [9, 14, 0],
+      [12, 14, 0],
+      [14, 13, 0],
+      [15, 10, 0],
+      [15, 0, 0],
+    ],
+    [null],
+  ],
+  111: [
+    [
+      null,
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+      [16, 6, 0],
+      [16, 8, 0],
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+    ],
+    [null],
+  ],
+  112: [
+    [null, [4, 14, 0], [4, -7, 0]],
+    [
+      null,
+      [4, 11, 0],
+      [6, 13, 0],
+      [8, 14, 0],
+      [11, 14, 0],
+      [13, 13, 0],
+      [15, 11, 0],
+      [16, 8, 0],
+      [16, 6, 0],
+      [15, 3, 0],
+      [13, 1, 0],
+      [11, 0, 0],
+      [8, 0, 0],
+      [6, 1, 0],
+      [4, 3, 0],
+    ],
+    [null],
+  ],
+  113: [
+    [null, [15, 14, 0], [15, -7, 0]],
+    [
+      null,
+      [15, 11, 0],
+      [13, 13, 0],
+      [11, 14, 0],
+      [8, 14, 0],
+      [6, 13, 0],
+      [4, 11, 0],
+      [3, 8, 0],
+      [3, 6, 0],
+      [4, 3, 0],
+      [6, 1, 0],
+      [8, 0, 0],
+      [11, 0, 0],
+      [13, 1, 0],
+      [15, 3, 0],
+    ],
+    [null],
+  ],
+  114: [
+    [null, [4, 14, 0], [4, 0, 0]],
+    [null, [4, 8, 0], [5, 11, 0], [7, 13, 0], [9, 14, 0], [12, 14, 0]],
+    [null],
+  ],
+  115: [
+    [
+      null,
+      [14, 11, 0],
+      [13, 13, 0],
+      [10, 14, 0],
+      [7, 14, 0],
+      [4, 13, 0],
+      [3, 11, 0],
+      [4, 9, 0],
+      [6, 8, 0],
+      [11, 7, 0],
+      [13, 6, 0],
+      [14, 4, 0],
+      [14, 3, 0],
+      [13, 1, 0],
+      [10, 0, 0],
+      [7, 0, 0],
+      [4, 1, 0],
+      [3, 3, 0],
+    ],
+    [null],
+  ],
+  116: [
+    [null, [5, 21, 0], [5, 4, 0], [6, 1, 0], [8, 0, 0], [10, 0, 0]],
+    [null, [2, 14, 0], [9, 14, 0]],
+    [null],
+  ],
+  117: [
+    [
+      null,
+      [4, 14, 0],
+      [4, 4, 0],
+      [5, 1, 0],
+      [7, 0, 0],
+      [10, 0, 0],
+      [12, 1, 0],
+      [15, 4, 0],
+    ],
+    [null, [15, 14, 0], [15, 0, 0]],
+    [null],
+  ],
+  118: [[null, [2, 14, 0], [8, 0, 0]], [null, [14, 14, 0], [8, 0, 0]], [null]],
+  119: [
+    [null, [3, 14, 0], [7, 0, 0]],
+    [null, [11, 14, 0], [7, 0, 0]],
+    [null, [11, 14, 0], [15, 0, 0]],
+    [null, [19, 14, 0], [15, 0, 0]],
+    [null],
+  ],
+  120: [[null, [3, 14, 0], [14, 0, 0]], [null, [14, 14, 0], [3, 0, 0]], [null]],
+  121: [
+    [null, [2, 14, 0], [8, 0, 0]],
+    [
+      null,
+      [14, 14, 0],
+      [8, 0, 0],
+      [6, -4, 0],
+      [4, -6, 0],
+      [2, -7, 0],
+      [1, -7, 0],
+    ],
+    [null],
+  ],
+  122: [
+    [null, [14, 14, 0], [3, 0, 0]],
+    [null, [3, 14, 0], [14, 14, 0]],
+    [null, [3, 0, 0], [14, 0, 0]],
+    [null],
+  ],
+  123: [
+    [
+      null,
+      [9, 25, 0],
+      [7, 24, 0],
+      [6, 23, 0],
+      [5, 21, 0],
+      [5, 19, 0],
+      [6, 17, 0],
+      [7, 16, 0],
+      [8, 14, 0],
+      [8, 12, 0],
+      [6, 10, 0],
+    ],
+    [
+      null,
+      [7, 24, 0],
+      [6, 22, 0],
+      [6, 20, 0],
+      [7, 18, 0],
+      [8, 17, 0],
+      [9, 15, 0],
+      [9, 13, 0],
+      [8, 11, 0],
+      [4, 9, 0],
+      [8, 7, 0],
+      [9, 5, 0],
+      [9, 3, 0],
+      [8, 1, 0],
+      [7, 0, 0],
+      [6, -2, 0],
+      [6, -4, 0],
+      [7, -6, 0],
+    ],
+    [
+      null,
+      [6, 8, 0],
+      [8, 6, 0],
+      [8, 4, 0],
+      [7, 2, 0],
+      [6, 1, 0],
+      [5, -1, 0],
+      [5, -3, 0],
+      [6, -5, 0],
+      [7, -6, 0],
+      [9, -7, 0],
+    ],
+    [null],
+  ],
+  124: [[null, [4, 25, 0], [4, -7, 0]], [null]],
+  125: [
+    [
+      null,
+      [5, 25, 0],
+      [7, 24, 0],
+      [8, 23, 0],
+      [9, 21, 0],
+      [9, 19, 0],
+      [8, 17, 0],
+      [7, 16, 0],
+      [6, 14, 0],
+      [6, 12, 0],
+      [8, 10, 0],
+    ],
+    [
+      null,
+      [7, 24, 0],
+      [8, 22, 0],
+      [8, 20, 0],
+      [7, 18, 0],
+      [6, 17, 0],
+      [5, 15, 0],
+      [5, 13, 0],
+      [6, 11, 0],
+      [10, 9, 0],
+      [6, 7, 0],
+      [5, 5, 0],
+      [5, 3, 0],
+      [6, 1, 0],
+      [7, 0, 0],
+      [8, -2, 0],
+      [8, -4, 0],
+      [7, -6, 0],
+    ],
+    [
+      null,
+      [8, 8, 0],
+      [6, 6, 0],
+      [6, 4, 0],
+      [7, 2, 0],
+      [8, 1, 0],
+      [9, -1, 0],
+      [9, -3, 0],
+      [8, -5, 0],
+      [7, -6, 0],
+      [5, -7, 0],
+    ],
+    [null],
+  ],
+  126: [
+    [
+      null,
+      [3, 6, 0],
+      [3, 8, 0],
+      [4, 11, 0],
+      [6, 12, 0],
+      [8, 12, 0],
+      [10, 11, 0],
+      [14, 8, 0],
+      [16, 7, 0],
+      [18, 7, 0],
+      [20, 8, 0],
+      [21, 10, 0],
+    ],
+    [
+      null,
+      [3, 8, 0],
+      [4, 10, 0],
+      [6, 11, 0],
+      [8, 11, 0],
+      [10, 10, 0],
+      [14, 7, 0],
+      [16, 6, 0],
+      [18, 6, 0],
+      [20, 7, 0],
+      [21, 10, 0],
+      [21, 12, 0],
+    ],
+    [null],
+  ],
+};
+
+const hersheyWidth = {
+  32: 16,
+  33: 10,
+  34: 16,
+  35: 21,
+  36: 20,
+  37: 24,
+  38: 26,
+  39: 10,
+  40: 14,
+  41: 14,
+  42: 16,
+  43: 26,
+  44: 10,
+  45: 26,
+  46: 10,
+  47: 22,
+  48: 20,
+  49: 20,
+  50: 20,
+  51: 20,
+  52: 20,
+  53: 20,
+  54: 20,
+  55: 20,
+  56: 20,
+  57: 20,
+  58: 10,
+  59: 10,
+  60: 24,
+  61: 26,
+  62: 24,
+  63: 18,
+  64: 27,
+  65: 18,
+  66: 21,
+  67: 21,
+  68: 21,
+  69: 19,
+  70: 18,
+  71: 21,
+  72: 22,
+  73: 8,
+  74: 16,
+  75: 21,
+  76: 17,
+  77: 24,
+  78: 22,
+  79: 22,
+  80: 21,
+  81: 22,
+  82: 21,
+  83: 20,
+  84: 16,
+  85: 22,
+  86: 18,
+  87: 24,
+  88: 20,
+  89: 18,
+  90: 20,
+  91: 14,
+  92: 14,
+  93: 14,
+  94: 16,
+  95: 16,
+  96: 10,
+  97: 19,
+  98: 19,
+  99: 18,
+  100: 19,
+  101: 18,
+  102: 12,
+  103: 19,
+  104: 19,
+  105: 8,
+  106: 10,
+  107: 17,
+  108: 8,
+  109: 30,
+  110: 19,
+  111: 19,
+  112: 19,
+  113: 19,
+  114: 13,
+  115: 17,
+  116: 12,
+  117: 19,
+  118: 16,
+  119: 22,
+  120: 17,
+  121: 16,
+  122: 17,
+  123: 14,
+  124: 8,
+  125: 14,
+  126: 24,
+};
+
+const hersheySegments = [];
+
+for (const key of Object.keys(hersheyPaths)) {
+  const segments = [];
+  hersheySegments[key] = segments;
+  for (const path of hersheyPaths[key]) {
+    let last;
+    for (const point of path) {
+      if (point === null) {
+        continue;
+      }
+      if (last) {
+        segments.push([last, point]);
+      }
+      last = point;
+    }
+  }
+}
+
+const toSegments$1 = (letters) => {
+  let xOffset = 0;
+  const rendered = [];
+  for (const letter of letters) {
+    const code = letter.charCodeAt(0);
+    const segments = hersheySegments[code];
+    if (segments) {
+      rendered.push(translate(Segments$1(segments), [xOffset, 0, 0]));
+    }
+    xOffset += hersheyWidth[code] || 0;
+  }
+  return scaleUniformly(Group(rendered), 1 / 28);
+};
+
+const Hershey = (text, size) => scaleUniformly(toSegments$1(text), size);
+
+// Unit icosahedron vertices.
+const points = Points([
+  [0.850651, 0.0, -0.525731],
+  [0.850651, -0.0, 0.525731],
+  [-0.850651, -0.0, 0.525731],
+  [-0.850651, 0.0, -0.525731],
+  [0.0, -0.525731, 0.850651],
+  [0.0, 0.525731, 0.850651],
+  [0.0, 0.525731, -0.850651],
+  [0.0, -0.525731, -0.850651],
+  [-0.525731, -0.850651, -0.0],
+  [0.525731, -0.850651, -0.0],
+  [0.525731, 0.850651, 0.0],
+  [-0.525731, 0.850651, 0.0],
+]);
+
+const Icosahedron = ([x = 1, y = x, z = x]) => {
+  const [c1, c2] = buildCorners(x, y, z);
+  const scale = computeScale(c1, c2);
+  const middle = computeMiddle(c1, c2);
+  return translate(scale$1(ConvexHull([points]), scale), middle);
+};
+
+// 1mm seems reasonable for spheres.
+const DEFAULT_ORB_ZAG = 1;
+
+const Orb = ([x = 1, y = x, z = x], { zag = DEFAULT_ORB_ZAG } = {}) => {
+  const [c1, c2] = buildCorners(x, y, z);
+  const scale$2 = scale(0.5, computeScale(c1, c2));
+  const middle = computeMiddle(c1, c2);
+  const radius = Math.max(...scale$2);
+  const tolerance = zag / radius;
+  const unitSphere = makeUnitSphere(
+    /* angularBound= */ 30,
+    tolerance,
+    tolerance
+  );
+  return makeAbsolute(translate(scale$1(unitSphere, scale$2), middle));
+};
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var parseNumber = createCommonjsModule(function (module) {
+/**
+ * More correct array check
+ */
+var parser = module.exports = function(str) {
+  if (Array.isArray(str)) return NaN;
+  return parser.str(str);
+};
+
+/**
+ * Simple check, assumes non-array inputs
+ */
+parser.str = function(str) {
+  if (str == null || str === "") return NaN;
+  return +str;
+};
+});
+
+const taggedItem = ({ tags = [], matrix, provenance }, ...content) => {
+  if (tags !== undefined && tags.length === undefined) {
+    throw Error(`Bad tags: ${tags}`);
+  }
+  if (content.some((value) => value === undefined)) {
+    throw Error(`Undefined Item content`);
+  }
+  if (content.length !== 1) {
+    throw Error(`Item expects a single content geometry`);
+  }
+  return { type: 'item', tags, matrix, provenance, content };
+};
+
+const qualifyTag = (tag, namespace = 'user') => {
+  if (tag.includes(':')) {
+    return tag;
+  }
+  return `${namespace}:${tag}`;
+};
+
+const tagMatcher = (tag, namespace = 'user') => {
+  let qualifiedTag = qualifyTag(tag, namespace);
+  if (qualifiedTag.endsWith('=*')) {
+    const [base] = qualifiedTag.split('=');
+    const prefix = `${base}=`;
+    return (tag) => tag.startsWith(prefix);
+  } else if (qualifiedTag.endsWith(':*')) {
+    const [namespace] = qualifiedTag.split(':');
+    const prefix = `${namespace}:`;
+    return (tag) => tag.startsWith(prefix);
+  } else {
+    return (tag) => tag === qualifiedTag;
+  }
+};
+
+const oneOfTagMatcher = (tags, namespace = 'user') => {
+  const matchers = tags.map((tag) => tagMatcher(tag, namespace));
+  const isMatch = (tag) => {
+    for (const matcher of matchers) {
+      if (matcher(tag)) {
+        return true;
+      }
+    }
+    return false;
+  };
+  return isMatch;
+};
+
+const retag = (geometry, oldTags, newTags) => {
+  oldTags = oldTags.map((tag) => qualifyTag(tag));
+  newTags = newTags.map((tag) => qualifyTag(tag));
+
+  const isOldTagMatch = oneOfTagMatcher(oldTags, 'user');
+  const op = (geometry, descend) => {
+    switch (geometry.type) {
+      case 'group':
+      case 'layout':
+        return descend();
+      default: {
+        const { tags = [] } = geometry;
+        const remaining = [];
+        for (const tag of tags) {
+          if (!isOldTagMatch(tag)) {
+            remaining.push(tag);
+          }
+        }
+        for (const newTag of newTags) {
+          if (!remaining.includes(newTag)) {
+            remaining.push(newTag);
+          }
+        }
+        return descend({ tags: remaining });
+      }
+    }
+  };
+  const result = rewrite(geometry, op);
+  return result;
+};
+
+const untag = (geometry, oldTags) => retag(geometry, oldTags, []);
+
+const tag = (geometry, newTags) => retag(geometry, [], newTags);
+
+const tags = (geometry, tag = '*') => {
+  const isMatchingTag = tagMatcher(tag, 'user');
+  const collected = [];
+  for (const { tags } of getLeafs(geometry)) {
+    for (const tag of tags) {
+      if (isMatchingTag(tag)) {
+        collected.push(tag);
+      }
+    }
+  }
+  return collected;
+};
+
+const as = (geometry, names) =>
+  taggedItem({ tags: names.map((name) => `item:${name}`) }, geometry);
+
+const asPart = (geometry, names) =>
+  taggedItem({ tags: names.map((name) => `part:${name}`) }, geometry);
+
+const getValue = (geometry, tags) => {
+  const values = [];
+  for (const tag of tags) {
+    const matches = tags(geometry, `${tag}=*`);
+    if (matches.length === 0) {
+      values.push(undefined);
+      continue;
+    }
+    const [, value] = matches[0].split('=');
+    const number = parseNumber(value);
+    if (isFinite(number)) {
+      values.push(value);
+      continue;
+    }
+    values.push(value);
+  }
+  return values;
+};
+
+const getList = (geometry, tags, { inItem, not } = {}) => {
+  const isMatch = oneOfTagMatcher(tags, 'item');
+  const picks = [];
+  const walk = (geometry, descend) => {
+    const { tags, type } = geometry;
+    if (type === 'group') {
+      return descend();
+    }
+    let matched = false;
+    if (isMatch(`type:${geometry.type}`)) {
+      matched = true;
+    } else {
+      for (const tag of tags) {
+        if (isMatch(tag)) {
+          matched = true;
+          break;
+        }
+      }
+    }
+    if (not) {
+      if (!matched) {
+        picks.push(geometry);
+      }
+    } else {
+      if (matched) {
+        picks.push(geometry);
+      }
+    }
+    if (inItem || type !== 'item') {
+      return descend();
+    }
+  };
+  visit(geometry, walk);
+  return picks;
+};
+
+const get = (geometry, tags, options) =>
+  Group(getList(geometry, tags, options));
+
+const getAll = (geometry, tags) => get(geometry, tags, { inItem: true });
+
+const getAllList = (geometry, tags) =>
+  getList(geometry, tags, { inItem: true });
+
+const getNot = (geometry, tags) => get(geometry, tags, { not: true });
+
+const getNotList = (geometry, tags) =>
+  getList(geometry, tags, { not: true });
+
+const X$5 = 0;
+const Y$5 = 1;
+const Z$4 = 2;
+
+const MIN$1 = 0;
+const MAX$1 = 1;
+
+// Round to the nearest 0.001 mm
+
+const round = (v) => Math.round(v * 1000) / 1000;
+
+const roundCoordinate = ([x, y, z]) => [round(x), round(y), round(z)];
+
+const computeOffset = (geometry, spec, origin) => {
+  const boundingBox = measureBoundingBox(geometry);
+  if (boundingBox === undefined) {
+    return [0, 0, 0];
+  }
+  const max = roundCoordinate(boundingBox[MAX$1]);
+  const min = roundCoordinate(boundingBox[MIN$1]);
+  const center = roundCoordinate(scale(0.5, add(min, max)));
+  const offset = [0, 0, 0];
+  let index = 0;
+  while (index < spec.length) {
+    switch (spec[index++]) {
+      case 'x': {
+        switch (spec[index]) {
+          case '>':
+            offset[X$5] = -min[X$5];
+            index += 1;
+            break;
+          case '<':
+            offset[X$5] = -max[X$5];
+            index += 1;
+            break;
+          default:
+            offset[X$5] = -center[X$5];
+        }
+        break;
+      }
+      case 'y': {
+        switch (spec[index]) {
+          case '>':
+            offset[Y$5] = -min[Y$5];
+            index += 1;
+            break;
+          case '<':
+            offset[Y$5] = -max[Y$5];
+            index += 1;
+            break;
+          default:
+            offset[Y$5] = -center[Y$5];
+        }
+        break;
+      }
+      case 'z': {
+        switch (spec[index]) {
+          case '>':
+            offset[Z$4] = -min[Z$4];
+            index += 1;
+            break;
+          case '<':
+            offset[Z$4] = -max[Z$4];
+            index += 1;
+            break;
+          default:
+            offset[Z$4] = -center[Z$4];
+        }
+        break;
+      }
+    }
+  }
+  if (!offset.every(isFinite)) {
+    throw Error(`Non-finite/offset: ${offset}`);
+  }
+  return offset;
+};
+
+const alignment = (geometry, spec = 'xyz', origin = [0, 0, 0]) => {
+  const offset = computeOffset(geometry, spec);
+  const reference = translate(
+    taggedPoints({}, [[0, 0, 0]]),
+    subtract(offset, origin)
+  );
+  return reference;
+};
+
+const getInverseMatrices = (geometry) => {
+  geometry = toConcreteGeometry(geometry);
+  switch (geometry.type) {
+    case 'plan': {
+      if (geometry.content.length === 1) {
+        return getInverseMatrices(geometry.content[0]);
+      }
+    }
+    // fallthrough
+    default: {
+      return {
+        global: geometry.matrix,
+        local: invertTransform(geometry.matrix),
+      };
+    }
+  }
+};
+
+const by = (geometry, selections) => {
+  const placed = [];
+  for (const selection of selections) {
+    for (const leaf of getLeafs(selection)) {
+      const { global } = getInverseMatrices(leaf);
+      // Perform the operation then place the
+      // result in the global frame of the reference.
+      placed.push(transform(geometry, global));
+    }
+  }
+  return Group(placed);
+};
+
+const eachItem = (geometry, op) => {
+  const walk = (geometry, descend) => {
+    switch (geometry.type) {
+      case 'sketch': {
+        // Sketches aren't real.
+        return;
+      }
+      default: {
+        op(geometry);
+        return descend();
+      }
+    }
+  };
+  visit(geometry, walk);
+};
+
+const getLayouts = (geometry) => {
+  const layouts = [];
+  eachItem(geometry, (item) => {
+    if (item.type === 'layout') {
+      layouts.push(item);
+    }
+  });
+  return layouts;
+};
+
+const ghost = (geometry) => hasTypeGhost(geometry);
+
+const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
+  if (set === undefined) {
+    return whenSetUndefined;
+  } else if (tags !== undefined && tags.some((tag) => set.includes(tag))) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const buildCondition = (conditionTags, conditionSpec) => {
+  switch (conditionSpec) {
+    case 'has':
+      return (geometryTags) => hasMatchingTag(geometryTags, conditionTags);
+    case 'has not':
+      return (geometryTags) => !hasMatchingTag(geometryTags, conditionTags);
+    default:
+      return undefined;
+  }
+};
+
+const rewriteTags = (
+  add,
+  remove,
+  geometry,
+  conditionTags,
+  conditionSpec
+) => {
+  const condition = buildCondition(conditionTags, conditionSpec);
+  const composeTags = (geometryTags) => {
+    if (condition === undefined || condition(geometryTags)) {
+      if (geometryTags === undefined) {
+        return add.filter((tag) => !remove.includes(tag));
+      } else {
+        return [...add, ...geometryTags].filter((tag) => !remove.includes(tag));
+      }
+    } else {
+      return geometryTags;
+    }
+  };
+  const op = (geometry, descend) => {
+    switch (geometry.type) {
+      case 'group':
+        return descend();
+      default:
+        const composedTags = composeTags(geometry.tags);
+        if (composedTags === undefined) {
+          const copy = { ...geometry };
+          delete copy.tags;
+          return copy;
+        }
+        if (composedTags === geometry.tags) {
+          return geometry;
+        } else {
+          return descend({ tags: composedTags });
+        }
+    }
+  };
+  return rewrite(geometry, op);
+};
+
+const hasColor = (geometry, name) =>
+  rewriteTags(toTagsFromName(name), [], geometry);
+
+const filter$x = (geometry) =>
+  ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
+  isNotTypeGhost(geometry);
+
+const outline = (geometry, selections = []) => {
+  const concreteGeometry = toConcreteGeometry(geometry);
+  const inputs = [];
+  linearize(concreteGeometry, filter$x, inputs);
+  const count = inputs.length;
+  for (const selection of selections) {
+    linearize(toConcreteGeometry(selection), filter$x, inputs);
+  }
+  const outputs = outline$1(inputs, count);
+  return replacer(inputs, outputs)(concreteGeometry);
+};
+
+var binPacking = createCommonjsModule(function (module, exports) {
+(function (global, factory) {
+  factory(exports) ;
+}(commonjsGlobal, (function (exports) {
+/******************************************************************************
+
+This is a binary tree based bin packing algorithm that is more complex than
+the simple Packer (packer.js). Instead of starting off with a fixed width and
+height, it starts with the width and height of the first block passed and then
+grows as necessary to accomodate each subsequent block. As it grows it attempts
+to maintain a roughly square ratio by making 'smart' choices about whether to
+grow right or down.
+
+When growing, the algorithm can only grow to the right OR down. Therefore, if
+the new block is BOTH wider and taller than the current target then it will be
+rejected. This makes it very important to initialize with a sensible starting
+width and height. If you are providing sorted input (largest first) then this
+will not be an issue.
+
+A potential way to solve this limitation would be to allow growth in BOTH
+directions at once, but this requires maintaining a more complex tree
+with 3 children (down, right and center) and that complexity can be avoided
+by simply chosing a sensible starting block.
+
+Best results occur when the input blocks are sorted by height, or even better
+when sorted by max(width,height).
+
+Inputs:
+------
+
+  blocks: array of any objects that have .w and .h attributes
+
+Outputs:
+-------
+
+  marks each block that fits with a .fit attribute pointing to a
+  node with .x and .y coordinates
+
+Example:
+-------
+
+  var blocks = [
+    { w: 100, h: 100 },
+    { w: 100, h: 100 },
+    { w:  80, h:  80 },
+    { w:  80, h:  80 },
+    etc
+    etc
+  ];
+
+  var packer = new GrowingPacker();
+  packer.fit(blocks);
+
+  for(var n = 0 ; n < blocks.length ; n++) {
+    var block = blocks[n];
+    if (block.fit) {
+      Draw(block.fit.x, block.fit.y, block.w, block.h);
+    }
+  }
+
+
+******************************************************************************/
+
+function GrowingPacker() {}
+
+GrowingPacker.prototype = {
+
+  fit: function fit(blocks) {
+    var n,
+        node,
+        block,
+        len = blocks.length;
+    var w = len > 0 ? blocks[0].w : 0;
+    var h = len > 0 ? blocks[0].h : 0;
+    this.root = { x: 0, y: 0, w: w, h: h };
+    for (n = 0; n < len; n++) {
+      block = blocks[n];
+      if (node = this.findNode(this.root, block.w, block.h)) block.fit = this.splitNode(node, block.w, block.h);else block.fit = this.growNode(block.w, block.h);
+    }
+  },
+
+  findNode: function findNode(root, w, h) {
+    if (root.used) return this.findNode(root.right, w, h) || this.findNode(root.down, w, h);else if (w <= root.w && h <= root.h) return root;else return null;
+  },
+
+  splitNode: function splitNode(node, w, h) {
+    node.used = true;
+    node.down = { x: node.x, y: node.y + h, w: node.w, h: node.h - h };
+    node.right = { x: node.x + w, y: node.y, w: node.w - w, h: h };
+    return node;
+  },
+
+  growNode: function growNode(w, h) {
+    var canGrowDown = w <= this.root.w;
+    var canGrowRight = h <= this.root.h;
+
+    var shouldGrowRight = canGrowRight && this.root.h >= this.root.w + w; // attempt to keep square-ish by growing right when height is much greater than width
+    var shouldGrowDown = canGrowDown && this.root.w >= this.root.h + h; // attempt to keep square-ish by growing down  when width  is much greater than height
+
+    if (shouldGrowRight) return this.growRight(w, h);else if (shouldGrowDown) return this.growDown(w, h);else if (canGrowRight) return this.growRight(w, h);else if (canGrowDown) return this.growDown(w, h);else return null; // need to ensure sensible root starting size to avoid this happening
+  },
+
+  growRight: function growRight(w, h) {
+    var node;
+    this.root = {
+      used: true,
+      x: 0,
+      y: 0,
+      w: this.root.w + w,
+      h: this.root.h,
+      down: this.root,
+      right: { x: this.root.w, y: 0, w: w, h: this.root.h }
+    };
+    if (node = this.findNode(this.root, w, h)) return this.splitNode(node, w, h);else return null;
+  },
+
+  growDown: function growDown(w, h) {
+    var node;
+    this.root = {
+      used: true,
+      x: 0,
+      y: 0,
+      w: this.root.w,
+      h: this.root.h + h,
+      down: { x: 0, y: this.root.h, w: this.root.w, h: h },
+      right: this.root
+    };
+    if (node = this.findNode(this.root, w, h)) return this.splitNode(node, w, h);else return null;
+  }
+
+};
+
+/******************************************************************************
+
+This is a very simple binary tree based bin packing algorithm that is initialized
+with a fixed width and height and will fit each block into the first node where
+it fits and then split that node into 2 parts (down and right) to track the
+remaining whitespace.
+
+Best results occur when the input blocks are sorted by height, or even better
+when sorted by max(width,height).
+
+Inputs:
+------
+
+  w:       width of target rectangle
+  h:      height of target rectangle
+  blocks: array of any objects that have .w and .h attributes
+
+Outputs:
+-------
+
+  marks each block that fits with a .fit attribute pointing to a
+  node with .x and .y coordinates
+
+Example:
+-------
+
+  var blocks = [
+    { w: 100, h: 100 },
+    { w: 100, h: 100 },
+    { w:  80, h:  80 },
+    { w:  80, h:  80 },
+    etc
+    etc
+  ];
+
+  var packer = new Packer(500, 500);
+  packer.fit(blocks);
+
+  for(var n = 0 ; n < blocks.length ; n++) {
+    var block = blocks[n];
+    if (block.fit) {
+      Draw(block.fit.x, block.fit.y, block.w, block.h);
+    }
+  }
+
+
+******************************************************************************/
+
+function Packer(w, h) {
+  this.init(w, h);
+}
+
+Packer.prototype = {
+
+  init: function init(w, h) {
+    this.root = { x: 0, y: 0, w: w, h: h };
+  },
+
+  fit: function fit(blocks) {
+    var n, node, block;
+    for (n = 0; n < blocks.length; n++) {
+      block = blocks[n];
+      if (node = this.findNode(this.root, block.w, block.h)) block.fit = this.splitNode(node, block.w, block.h);
+    }
+  },
+
+  findNode: function findNode(root, w, h) {
+    if (root.used) return this.findNode(root.right, w, h) || this.findNode(root.down, w, h);else if (w <= root.w && h <= root.h) return root;else return null;
+  },
+
+  splitNode: function splitNode(node, w, h) {
+    node.used = true;
+    node.down = { x: node.x, y: node.y + h, w: node.w, h: node.h - h };
+    node.right = { x: node.x + w, y: node.y, w: node.w - w, h: h };
+    return node;
+  }
+
+};
+
+exports.GrowingPacker = GrowingPacker;
+exports.Packer = Packer;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+});
+
+var BinPackingEs = unwrapExports(binPacking);
+
+const align = (geometry, spec, origin) =>
+  by(geometry, [alignment(geometry, spec, origin)]);
+
+const { GrowingPacker, Packer } = BinPackingEs;
+
+const X$4 = 0;
+const Y$4 = 1;
+const Z$3 = 2;
+
+const measureSize = (geometry) => {
+  const bounds = measureBoundingBox(geometry);
+  if (bounds === undefined) {
+    return;
+  }
+  const [min, max] = bounds;
+  const width = max[X$4] - min[X$4];
+  const height = max[Y$4] - min[Y$4];
+  return [width, height, min[Z$3]];
+};
+
+const measureOrigin = (geometry) => {
+  const [min] = measureBoundingBox(geometry);
+  const [x, y] = min;
+  return [x, y];
+};
+
+const measureOffsets = (size, pageMargin) => {
+  if (size) {
+    const [width, height] = size;
+
+    // Center the output to match pages.
+    const xOffset = width / -2;
+    const yOffset = height / -2;
+    const packer = new Packer(width - pageMargin * 2, height - pageMargin * 2);
+
+    return [xOffset, yOffset, packer];
+  } else {
+    const packer = new GrowingPacker();
+    return [0, 0, packer];
+  }
+};
+
+const packImpl = ({ size, itemMargin = 1, pageMargin = 5 }, ...geometries) => {
+  const [xOffset, yOffset, packer] = measureOffsets(size, pageMargin);
+
+  const packedGeometries = [];
+  const unpackedGeometries = [];
+
+  const blocks = [];
+
+  for (const geometry of geometries) {
+    const size = measureSize(geometry);
+    if (size === undefined) {
+      continue;
+    }
+    const [width, height, minZ] = size;
+    if (!isFinite(width) || !isFinite(height)) {
+      continue;
+    }
+    const [w, h] = [width + itemMargin * 2, height + itemMargin * 2];
+    blocks.push({ w, h, minZ, geometry });
+  }
+
+  // Place largest cells first
+  blocks.sort((a, b) => 0 - Math.max(a.w, a.h) + Math.max(b.w, b.h));
+
+  packer.fit(blocks);
+
+  let minPoint = [Infinity, Infinity, 0];
+  let maxPoint = [-Infinity, -Infinity, 0];
+
+  for (const { geometry, fit, minZ } of blocks) {
+    if (fit && fit.used) {
+      const [x, y] = measureOrigin(geometry);
+      const xo = 0 + xOffset + (fit.x - x + itemMargin + pageMargin);
+      const yo = 0 + yOffset + (fit.y - y + itemMargin + pageMargin);
+      minPoint = min([fit.x + xOffset, fit.y + yOffset, 0], minPoint);
+      maxPoint = max(
+        [fit.x + xOffset + fit.w, fit.y + yOffset + fit.h, 0],
+        maxPoint
+      );
+      packedGeometries.push(translate(geometry, [xo, yo, -minZ]));
+    } else {
+      unpackedGeometries.push(geometry);
+    }
+  }
+
+  return [packedGeometries, unpackedGeometries, minPoint, maxPoint];
+};
+
+const pack = (
+  geometry,
+  adviseSize = (_min, _max) => {},
+  { size, pageMargin = 5, itemMargin = 1, perLayout = Infinity } = {}
+) => {
+  if (perLayout === 0) {
+    // Packing was disabled -- do nothing.
+    return geometry;
+  }
+
+  let todo = [];
+  for (const leaf of getLeafs(geometry)) {
+    todo.push(leaf);
+  }
+  const packedLayers = [];
+  while (todo.length > 0) {
+    const input = [];
+    while (todo.length > 0 && input.length < perLayout) {
+      input.push(todo.shift());
+    }
+    const [packed, unpacked, minPoint, maxPoint] = packImpl(
+      { size, pageMargin, itemMargin },
+      ...input
+    );
+    if (minPoint.every(isFinite) && maxPoint.every(isFinite)) {
+      // CHECK: Why is this being overwritten by each pass?
+      adviseSize(minPoint, maxPoint);
+      if (packed.length === 0) {
+        break;
+      } else {
+        packedLayers.push(taggedItem({ tags: ['pack:layout'] }, Group(packed)));
+      }
+      todo.unshift(...unpacked);
+    }
+  }
+  // CHECK: Can this distinguish between a set of packed paged, and a single
+  // page that's packed?
+  let packedGeometry = Group(packedLayers);
+  if (size === undefined) {
+    packedGeometry = align(packedGeometry, 'xy');
+  }
+  return packedGeometry;
+};
+
+const taggedLayout = (
+  { tags = [], matrix, provenance, size, margin, title },
+  ...content
+) => {
+  if (content.some((value) => value === undefined)) {
+    throw Error(`Undefined Layout content`);
+  }
+  if (content.some((value) => value.length)) {
+    throw Error(`Layout content is an array`);
+  }
+  if (content.some((value) => value.then)) {
+    throw Error(`Layout content is a promise`);
+  }
+  if (content.some((value) => value.geometry)) {
+    throw Error(`Likely Shape in Layout`);
+  }
+  return {
+    type: 'layout',
+    layout: { size, margin, title },
+    tags,
+    matrix,
+    provenance,
+    content,
+  };
+};
+
+const filter$w = () => (geometry) =>
+  ['polygonsWithHoles'].includes(geometry.type);
+
+const convertPolygonsToMeshes = (geometry) => {
+  const concreteGeometry = toConcreteGeometry(geometry);
+  const inputs = [];
+  linearize(concreteGeometry, filter$w(), inputs);
+  if (inputs.length === 0) {
+    return geometry;
+  }
+  try {
+    const outputs = convertPolygonsToMeshes$1(inputs);
+    return replacer(inputs, outputs)(concreteGeometry);
+  } catch (e) {
+    console.log(e.stack);
+    throw e;
+  }
+};
+
+const filter$v = (geometry) =>
+  geometry.type === 'graph' && !geometry.graph.serializedSurfaceMesh;
+
+const serialize = (geometry) => {
+  const inputs = [];
+  linearize(geometry, filter$v, inputs, /* includeSketches= */ true);
+  if (inputs.length === 0) {
+    return geometry;
+  }
+  serialize$1(inputs);
+  return geometry;
+};
+
+const soup = (geometry) => {
+  const op = (geometry, descend) => {
+    switch (geometry.type) {
+      case 'graph': {
+        const { graph } = geometry;
+        if (graph.isEmpty) {
+          return taggedGroup({});
+        } else {
+          return geometry;
+        }
+      }
+      // Unreachable.
+      case 'polygonsWithHoles':
+        return geometry;
+      case 'segments':
+      case 'triangles':
+      case 'points':
+      case 'paths':
+        // Already soupy enough.
+        return geometry;
+      case 'toolpath':
+        // Drop toolpaths for now.
+        return taggedGroup({});
+      case 'displayGeometry':
+        // soup can handle displayGeometry.
+        return descend();
+      case 'layout':
+      case 'plan':
+      case 'item':
+      case 'sketch':
+      case 'group': {
+        return descend();
+      }
+      default:
+        throw Error(`Unexpected geometry: ${JSON.stringify(geometry)}`);
+    }
+  };
+
+  return rewrite(
+    serialize(convertPolygonsToMeshes(toConcreteGeometry(geometry))),
+    op
+  );
+};
+
+const toDisplayGeometry = (
+  geometry,
+  { triangles, outline = true, skin, wireframe = false } = {}
+) => {
+  if (!geometry) {
+    throw Error('die');
+  }
+  if (skin === undefined) {
+    skin = triangles;
+  }
+  if (skin === undefined) {
+    skin = true;
+  }
+  return soup(toConcreteGeometry(geometry));
+};
+
+const MIN = 0;
+const MAX = 1;
+const X$3 = 0;
+const Y$3 = 1;
+
+const buildLayout = ({
+  layer,
+  pageWidth,
+  pageLength,
+  margin,
+  center = false,
+}) => {
+  /*
+  const itemNames = (await getNot('type:ghost').tags('item', list)(layer))
+    .filter((name) => name !== '')
+    .flatMap((name) => name)
+    .sort();
+    */
+  const itemNames = tags(getNot(layer, ['type:ghost']), ['item'])
+    .filter((name) => name !== '')
+    .flatMap((name) => name)
+    .sort();
+  const labelScale = 0.0125 * 10;
+  const size = [pageWidth, pageLength];
+  const r = (v) => Math.floor(v * 100) / 100;
+  const fontHeight = Math.max(pageWidth, pageLength) * labelScale;
+  const title = [];
+  if (isFinite(pageWidth) && isFinite(pageLength)) {
+    // CHECK: Even when this is only called once we're getting a duplication of the
+    // 'x' at the start. If we replace it with 'abc', we get the 'b' at the start.
+    const text = `${r(pageWidth)} x ${r(pageLength)}`;
+    title.push(Hershey(text, fontHeight));
+  }
+  for (let nth = 0; nth < itemNames.length; nth++) {
+    title.push(
+      translate(Hershey(itemNames[nth], fontHeight), [
+        0,
+        (nth + 1) * fontHeight,
+        0,
+      ])
+    );
+  }
+  const visualization = ghost(
+    hasColor(
+      Group(
+        [
+          outline(
+            Box([Math.max(pageWidth, margin), Math.max(pageLength, margin)])
+          ),
+          translate(Group(title), [
+            pageWidth / -2,
+            (pageLength * (1 + labelScale)) / 2,
+          ]),
+        ])
+    )
+  );
+  /*
+  const visualization = Box(
+    Math.max(pageWidth, margin),
+    Math.max(pageLength, margin)
+  )
+    .outline()
+    .and(
+      Group(...title).move(pageWidth / -2, (pageLength * (1 + labelScale)) / 2)
+    )
+    .color('red')
+    .ghost();
+    */
+  let layout = taggedLayout(
+    { size, margin },
+    toDisplayGeometry(layer),
+    toDisplayGeometry(visualization)
+  );
+  if (center) {
+    layout = by(layout, alignment(layout));
+  }
+  return layout;
+};
+
+const Page = (
+  geometries,
+  { pack: pack$1, center, a4, individual },
+  { size, pageMargin = 5, itemMargin = 1, itemsPerPage = Infinity } = {}
+) => {
+  if (a4) {
+    size = [210, 297];
+  }
+
+  if (individual) {
+    pack$1 = true;
+    itemsPerPage = 1;
+  }
+
+  const margin = itemMargin;
+  const layers = [];
+  for (const geometry of geometries) {
+    for (const leaf of getLeafs(geometry)) {
+      layers.push(leaf);
+    }
+  }
+  if (!pack$1 && size) {
+    const layer = Group(layers);
+    const [width, height] = size;
+    const packSize = [
+      [-width / 2, -height / 2, 0],
+      [width / 2, height / 2, 0],
+    ];
+    const pageWidth =
+      Math.max(
+        1,
+        Math.abs(packSize[MAX][X$3] * 2),
+        Math.abs(packSize[MIN][X$3] * 2)
+      ) +
+      pageMargin * 2;
+    const pageLength =
+      Math.max(
+        1,
+        Math.abs(packSize[MAX][Y$3] * 2),
+        Math.abs(packSize[MIN][Y$3] * 2)
+      ) +
+      pageMargin * 2;
+    return buildLayout({
+      layer,
+      pageWidth,
+      pageLength,
+      margin,
+      center,
+    });
+  } else if (!pack$1 && !size) {
+    const layer = Group(layers);
+    const packSize = measureBoundingBox(layer);
+    if (packSize === undefined) {
+      return Empty();
+    }
+    const pageWidth =
+      Math.max(
+        1,
+        Math.abs(packSize[MAX][X$3] * 2),
+        Math.abs(packSize[MIN][X$3] * 2)
+      ) +
+      pageMargin * 2;
+    const pageLength =
+      Math.max(
+        1,
+        Math.abs(packSize[MAX][Y$3] * 2),
+        Math.abs(packSize[MIN][Y$3] * 2)
+      ) +
+      pageMargin * 2;
+    if (isFinite(pageWidth) && isFinite(pageLength)) {
+      return buildLayout({
+        layer,
+        pageWidth,
+        pageLength,
+        margin,
+        center,
+      });
+    } else {
+      return buildLayout({
+        layer,
+        pageWidth: 0,
+        pageLength: 0,
+        margin,
+        center,
+      });
+    }
+  } else if (pack$1 && size) {
+    // Content fits to page size.
+    const packSize = [];
+    const content = pack(
+      Group(layers),
+      (min, max) => {
+        packSize[MIN] = min;
+        packSize[MAX] = max;
+      },
+      {
+        size,
+        pageMargin,
+        itemMargin,
+        perLayout: itemsPerPage,
+      }
+    );
+    if (packSize.length === 0) {
+      throw Error('Packing failed');
+    }
+    const pageWidth = Math.max(1, packSize[MAX][X$3] - packSize[MIN][X$3]);
+    const pageLength = Math.max(1, packSize[MAX][Y$3] - packSize[MIN][Y$3]);
+    if (isFinite(pageWidth) && isFinite(pageLength)) {
+      const plans = [];
+      for (const layer of getList(content, ['pack:layout'])) {
+        plans.push(
+          buildLayout({
+            layer,
+            pageWidth,
+            pageLength,
+            margin,
+            center,
+          })
+        );
+      }
+      return Group(plans);
+    } else {
+      const layer = Group(layers);
+      return buildLayout({
+        layer,
+        pageWidth: 0,
+        pageLength: 0,
+        margin,
+        center,
+      });
+    }
+  } else if (pack$1 && !size) {
+    const packSize = [];
+    // Page fits to content size.
+    const contents = pack(
+      Group(layers),
+      (min, max) => {
+        packSize[MIN] = min;
+        packSize[MAX] = max;
+      },
+      {
+        pageMargin,
+        itemMargin,
+        perLayout: itemsPerPage,
+      }
+    );
+    if (packSize.length === 0) {
+      throw Error('Packing failed');
+    }
+    // FIX: Using content.size() loses the margin, which is a problem for repacking.
+    // Probably page plans should be generated by pack and count toward the size.
+    const pageWidth = packSize[MAX][X$3] - packSize[MIN][X$3];
+    const pageLength = packSize[MAX][Y$3] - packSize[MIN][Y$3];
+    if (isFinite(pageWidth) && isFinite(pageLength)) {
+      const plans = [];
+      for (const layer of getList(contents, ['pack:layout'])) {
+        const layout = buildLayout({
+          layer,
+          packSize,
+          pageWidth,
+          pageLength,
+          margin,
+          center,
+        });
+        plans.push(layout);
+      }
+      return Group(plans);
+    } else {
+      const layer = Group(layers);
+      return buildLayout({
+        layer,
+        pageWidth: 0,
+        pageLength: 0,
+        margin,
+        center,
+      });
+    }
+  }
+};
+
+const page = (
+  geometry,
+  { pack, center, a4, individual },
+  { size, pageMargin = 5, itemMargin = 1, itemsPerPage = Infinity } = {}
+) =>
+  Page(
+    [geometry],
+    { pack, center, a4, individual },
+    { size, pageMargin, itemMargin, itemsPerPage }
+  );
+
+const ensurePages = (geometry, depth = 0) => {
+  const pages = getLayouts(toDisplayGeometry(geometry));
+  if (pages.length === 0 && depth === 0) {
+    return ensurePages(Page([geometry], { pack: false }), depth + 1);
+  } else {
+    return pages;
+  }
+};
+
+const Segment = (segment) => taggedSegments({}, [segment]);
+
+const Segments = (segments) => taggedSegments({}, segments);
+
+const filter$u = ({ type }) => type === 'segments';
+
+const eachSegment = (geometry, emit, selections = []) => {
+  if (!(selections instanceof Array)) {
+    selections = [selections];
+  }
+  for (const { matrix, segments, normals, faces } of linearize(
+    outline(geometry, selections),
+    filter$u
+  )) {
+    for (let nth = 0; nth < segments.length; nth++) {
+      const [source, target] = segments[nth];
+      const normal = normals
+        ? transformCoordinate(normals[nth], matrix)
+        : undefined;
+      const face = faces ? faces[nth] : undefined;
+      emit(
+        [
+          transformCoordinate(source, matrix),
+          transformCoordinate(target, matrix),
+        ],
+        normal,
+        face
+      );
+    }
+  }
+};
+
+const toSegments = (geometry, selections = []) => {
+  const segments = [];
+  eachSegment(geometry, (segment) => segments.push(segment), selections);
+  return Segments(segments);
+};
+
+const toSegmentList = (geometry, selections = []) => {
+  const segments = [];
+  eachSegment(
+    geometry,
+    (segment) => segments.push(Segment(segment)),
+    selections
+  );
+  return segments;
+};
+
+const toCoordinatePairList = (geometry, selections = []) => {
+  const coordinatesList = [];
+  eachSegment(geometry, (segment) => coordinatesList.push(segment), selections);
+  return coordinatesList;
+};
+
+const Stroke = (geometries, width) => {
+  const arc = Arc([width, width, 0]);
+  const hulls = [];
+  for (const [source, target] of toCoordinatePairList(Group(geometries))) {
+    hulls.push(ConvexHull([translate(arc, source), translate(arc, target)]));
+  }
+  return Fuse(hulls);
+};
 
 const emitNote = (md) => emit({ md, hash: computeHash(md) });
 
@@ -1128,136 +3996,7 @@ const abstract = (geometry, types) => {
   return geometry;
 };
 
-const filter$y = (geometry) =>
-  isNotTypeGhost(geometry) &&
-  ((geometry.type === 'graph' && !geometry.graph.isEmpty) ||
-    ['polygonsWithHoles', 'segments', 'points'].includes(geometry.type));
-
-const measureBoundingBox = (geometry) =>
-  computeBoundingBox(linearize(geometry, filter$y));
-
-const X = 0;
-const Y = 1;
-const Z = 2;
-
-const MIN = 0;
-const MAX = 1;
-
-// Round to the nearest 0.001 mm
-
-const round = (v) => Math.round(v * 1000) / 1000;
-
-const roundCoordinate = ([x, y, z]) => [round(x), round(y), round(z)];
-
-const computeOffset = (geometry, spec, origin) => {
-  const boundingBox = measureBoundingBox(geometry);
-  if (boundingBox === undefined) {
-    return [0, 0, 0];
-  }
-  const max = roundCoordinate(boundingBox[MAX]);
-  const min = roundCoordinate(boundingBox[MIN]);
-  const center = roundCoordinate(scale(0.5, add(min, max)));
-  const offset = [0, 0, 0];
-  let index = 0;
-  while (index < spec.length) {
-    switch (spec[index++]) {
-      case 'x': {
-        switch (spec[index]) {
-          case '>':
-            offset[X] = -min[X];
-            index += 1;
-            break;
-          case '<':
-            offset[X] = -max[X];
-            index += 1;
-            break;
-          default:
-            offset[X] = -center[X];
-        }
-        break;
-      }
-      case 'y': {
-        switch (spec[index]) {
-          case '>':
-            offset[Y] = -min[Y];
-            index += 1;
-            break;
-          case '<':
-            offset[Y] = -max[Y];
-            index += 1;
-            break;
-          default:
-            offset[Y] = -center[Y];
-        }
-        break;
-      }
-      case 'z': {
-        switch (spec[index]) {
-          case '>':
-            offset[Z] = -min[Z];
-            index += 1;
-            break;
-          case '<':
-            offset[Z] = -max[Z];
-            index += 1;
-            break;
-          default:
-            offset[Z] = -center[Z];
-        }
-        break;
-      }
-    }
-  }
-  if (!offset.every(isFinite)) {
-    throw Error(`Non-finite/offset: ${offset}`);
-  }
-  return offset;
-};
-
-const alignment = (geometry, spec = 'xyz', origin = [0, 0, 0]) => {
-  const offset = computeOffset(geometry, spec);
-  const reference = translate(
-    taggedPoints({}, [[0, 0, 0]]),
-    subtract(offset, origin)
-  );
-  return reference;
-};
-
-const getInverseMatrices = (geometry) => {
-  geometry = toConcreteGeometry(geometry);
-  switch (geometry.type) {
-    case 'plan': {
-      if (geometry.content.length === 1) {
-        return getInverseMatrices(geometry.content[0]);
-      }
-    }
-    // fallthrough
-    default: {
-      return {
-        global: geometry.matrix,
-        local: invertTransform(geometry.matrix),
-      };
-    }
-  }
-};
-
-const by = (geometry, selections) => {
-  const placed = [];
-  for (const selection of selections) {
-    for (const leaf of getLeafs(selection)) {
-      const { global } = getInverseMatrices(leaf);
-      // Perform the operation then place the
-      // result in the global frame of the reference.
-      placed.push(transform(geometry, global));
-    }
-  }
-  return Group(placed);
-};
-
-const align = (geometry, spec, origin) =>
-  by(geometry, [alignment(geometry, spec, origin)]);
-
-const filter$x = (geometry) => ['graph'].includes(geometry.type);
+const filter$t = (geometry) => ['graph'].includes(geometry.type);
 
 const approximate = (
   geometry,
@@ -1273,7 +4012,7 @@ const approximate = (
     maxNumberOfProxies,
   }
 ) => {
-  const inputs = linearize(geometry, filter$x);
+  const inputs = linearize(geometry, filter$t);
   const outputs = approximate$1(
     inputs,
     iterations,
@@ -1303,7 +4042,7 @@ const allTags = (geometry) => {
   return collectedTags;
 };
 
-const filter$w = (geometry) =>
+const filter$s = (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
     geometry.type
   ) &&
@@ -1315,7 +4054,7 @@ const Disjoint = (geometries, { backward, exact }) => {
   );
   const inputs = [];
   for (const concreteGeometry of concreteGeometries) {
-    linearize(concreteGeometry, filter$w, inputs);
+    linearize(concreteGeometry, filter$s, inputs);
   }
   // console.log(`QQ/disjoint/inputs: ${JSON.stringify(inputs)}`);
   const outputs = disjoint$1(inputs, backward, exact);
@@ -1324,7 +4063,6 @@ const Disjoint = (geometries, { backward, exact }) => {
   for (const concreteGeometry of concreteGeometries) {
     disjointGeometries.push(update(concreteGeometry));
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...disjointGeometries);
 };
 
@@ -1359,8 +4097,6 @@ const at = (geometry, selection, op) => {
   ];
 };
 
-const Empty = () => Group([]);
-
 const bb = (
   geometry,
   xOffset = 1,
@@ -1379,27 +4115,12 @@ const bb = (
   }
 };
 
-const filter$v = (geometry) => ['graph'].includes(geometry.type);
+const filter$r = (geometry) => ['graph'].includes(geometry.type);
 
 const bend = (geometry, radius = 100) => {
-  const inputs = linearize(geometry, filter$v);
+  const inputs = linearize(geometry, filter$r);
   const outputs = bend$1(inputs, radius);
   return replacer(inputs, outputs)(geometry);
-};
-
-const filter$u = (geometry) =>
-  geometry.type === 'graph' && !geometry.graph.serializedSurfaceMesh;
-
-const serialize = (geometry) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filter$u, inputs, /* includeSketches= */ true);
-  if (inputs.length === 0) {
-    return geometry;
-  }
-  serialize$1(inputs);
-  deletePendingSurfaceMeshes();
-  return geometry;
 };
 
 const hash = (geometry) => {
@@ -1601,7 +4322,7 @@ const cached =
     return result;
   };
 
-const filter$t = (geometry) =>
+const filter$q = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
@@ -1617,77 +4338,15 @@ const cast = (planeReference, sourceReference, geometry) => {
   inputs.length = 1;
   linearize(toConcreteGeometry(sourceReference), filterReferences$1, inputs);
   inputs.length = 2;
-  linearize(concreteGeometry, filter$t, inputs);
+  linearize(concreteGeometry, filter$q, inputs);
   const outputs = cast$1(inputs);
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
 };
 
-const hasMatchingTag = (set, tags, whenSetUndefined = false) => {
-  if (set === undefined) {
-    return whenSetUndefined;
-  } else if (tags !== undefined && tags.some((tag) => set.includes(tag))) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const buildCondition = (conditionTags, conditionSpec) => {
-  switch (conditionSpec) {
-    case 'has':
-      return (geometryTags) => hasMatchingTag(geometryTags, conditionTags);
-    case 'has not':
-      return (geometryTags) => !hasMatchingTag(geometryTags, conditionTags);
-    default:
-      return undefined;
-  }
-};
-
-const rewriteTags = (
-  add,
-  remove,
-  geometry,
-  conditionTags,
-  conditionSpec
-) => {
-  const condition = buildCondition(conditionTags, conditionSpec);
-  const composeTags = (geometryTags) => {
-    if (condition === undefined || condition(geometryTags)) {
-      if (geometryTags === undefined) {
-        return add.filter((tag) => !remove.includes(tag));
-      } else {
-        return [...add, ...geometryTags].filter((tag) => !remove.includes(tag));
-      }
-    } else {
-      return geometryTags;
-    }
-  };
-  const op = (geometry, descend) => {
-    switch (geometry.type) {
-      case 'group':
-        return descend();
-      default:
-        const composedTags = composeTags(geometry.tags);
-        if (composedTags === undefined) {
-          const copy = { ...geometry };
-          delete copy.tags;
-          return copy;
-        }
-        if (composedTags === geometry.tags) {
-          return geometry;
-        } else {
-          return descend({ tags: composedTags });
-        }
-    }
-  };
-  return rewrite(geometry, op);
-};
-
 const hasMaterial = (geometry, name) =>
-  rewriteTags(toTagsFromName(name), [], geometry);
+  rewriteTags(toTagsFromName$1(name), [], geometry);
 
-const filter$s = (noVoid, onlyGraph) => (geometry) =>
+const filter$p = (noVoid, onlyGraph) => (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
     geometry.type
   ) &&
@@ -1701,10 +4360,10 @@ const clip = (
 ) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$s(noVoid, onlyGraph), inputs);
+  linearize(concreteGeometry, filter$p(noVoid, onlyGraph), inputs);
   const count = inputs.length;
   for (const geometry of geometries) {
-    linearize(geometry, filter$s(noVoid), inputs);
+    linearize(geometry, filter$p(noVoid), inputs);
   }
   const outputs = clip$1(inputs, count, open, exact);
   const ghosts = [];
@@ -1713,7 +4372,6 @@ const clip = (
       ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
     }
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup(
     {},
     replacer(inputs, outputs, count)(concreteGeometry),
@@ -1727,7 +4385,7 @@ const clipFrom = (clipBy, clipFrom, modes) =>
 const commonVolume = (geometry, modes) => {
   const inputs = linearize(
     geometry,
-    filter$s(modes.noVoid, { ...modes, onlyGraph: true })
+    filter$p(modes.noVoid, { ...modes, onlyGraph: true })
   );
   switch (inputs.length) {
     case 0: {
@@ -1743,12 +4401,12 @@ const commonVolume = (geometry, modes) => {
   }
 };
 
-const filter$r = (geometry) =>
+const filter$o = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
 const computeCentroid = (geometry, top, bottom) =>
-  Group(computeCentroid$1(linearize(geometry, filter$r)));
+  Group(computeCentroid$1(linearize(geometry, filter$o)));
 
 const computeGeneralizedDiameter = (geometry) => {
   const coordinates = toCoordinates(geometry);
@@ -1780,11 +4438,10 @@ const computeImplicitVolume = (
     distanceBound,
     errorBound
   );
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
 };
 
-const filter$q = (geometry) =>
+const filter$n = (geometry) =>
   isNotTypeGhost(geometry) &&
   ((geometry.type === 'graph' && !geometry.graph.isEmpty) ||
     ['polygonsWithHoles', 'segments', 'points'].includes(geometry.type));
@@ -1792,13 +4449,12 @@ const filter$q = (geometry) =>
 const computeOrientedBoundingBox = (geometry) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$q, inputs);
+  linearize(concreteGeometry, filter$n, inputs);
   const outputs = computeOrientedBoundingBox$1(inputs);
-  deletePendingSurfaceMeshes();
   return outputs[0];
 };
 
-const filter$p = (geometry) =>
+const filter$m = (geometry) =>
   ['graph'].includes(geometry.type) && isNotTypeGhost(geometry);
 
 const computeToolpath = (
@@ -1812,9 +4468,9 @@ const computeToolpath = (
   annealingDecay
 ) => {
   const inputs = [];
-  linearize(geometry, filter$p, inputs);
+  linearize(geometry, filter$m, inputs);
   const materialStart = inputs.length;
-  linearize(material, filter$p, inputs);
+  linearize(material, filter$m, inputs);
   const outputs = computeToolpath$1(
     inputs,
     materialStart,
@@ -1825,7 +4481,6 @@ const computeToolpath = (
     annealingMin,
     annealingDecay
   );
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
 };
 
@@ -1837,41 +4492,21 @@ const copy = (geometry, count) => {
   return Group(copies);
 };
 
-const filter$o = () => (geometry) =>
-  ['polygonsWithHoles'].includes(geometry.type);
-
-const convertPolygonsToMeshes = (geometry) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filter$o(), inputs);
-  if (inputs.length === 0) {
-    return geometry;
-  }
-  try {
-    const outputs = convertPolygonsToMeshes$1(inputs);
-    deletePendingSurfaceMeshes();
-    return replacer(inputs, outputs)(concreteGeometry);
-  } catch (e) {
-    console.log(e.stack);
-    throw e;
-  }
-};
-
-const filterTargets$2 = (noVoid) => (geometry) =>
+const filterTargets$1 = (noVoid) => (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(
     geometry.type
   ) &&
   (isNotTypeGhost(geometry) || (!noVoid && isTypeVoid(geometry)));
 
 const filterRemoves = (noVoid) => (geometry) =>
-  filterTargets$2(noVoid)(geometry) && isNotTypeMasked(geometry);
+  filterTargets$1(noVoid)(geometry) && isNotTypeMasked(geometry);
 
 const cut = (
   toCut,
   toClips,
   { open = false, exact, noVoid, noGhost }
 ) => {
-  const inputs = linearize(toCut, filterTargets$2(noVoid));
+  const inputs = linearize(toCut, filterTargets$1(noVoid));
   const count = inputs.length;
   for (const toClip of toClips) {
     linearize(toClip, filterRemoves(noVoid), inputs);
@@ -1916,34 +4551,31 @@ const deform = (
     linearize(toConcreteGeometry(selection), filterSelection, inputs);
   }
   const outputs = deform$1(inputs, length, iterations, tolerance, alpha);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs, length)(concreteGeometry);
 };
 
-const filter$n = (geometry) => ['graph'].includes(geometry.type);
+const filter$l = (geometry) => ['graph'].includes(geometry.type);
 
 const demesh = (geometry) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$n, inputs);
+  linearize(concreteGeometry, filter$l, inputs);
   const outputs = demesh$1(inputs);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
-const filter$m = (geometry, parent) =>
+const filter$k = (geometry, parent) =>
   ['graph'].includes(geometry.type) && isNotTypeGhost(geometry);
 
 const dilateXY = (geometry, amount) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$m, inputs);
+  linearize(concreteGeometry, filter$k, inputs);
   const outputs = dilateXY$1(inputs, amount);
   const ghosts = [];
   for (let nth = 0; nth < inputs.length; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup(
     {},
     replacer(inputs, outputs)(concreteGeometry),
@@ -1991,14 +4623,46 @@ const disorientSegment = (segment, matrix, normal) => {
   ];
 };
 
-// Dropped elements displace as usual, but are not included in positive output.
+// We split on into two phases to allow arbitrary operations to occur inbetween.
 
-const drop = (tags, geometry) =>
-  rewriteTags(['type:void'], [], geometry, tags, 'has');
+const onPre = (geometry, selection) => {
+  const results = [];
+  for (const inputLeaf of getLeafs(selection)) {
+    const global = inputLeaf.matrix;
+    const local = invertTransform(global);
+    // Switch to the local coordinate space, perform the operation, and come back to the global coordinate space.
+    const localInputLeaf = transform(inputLeaf, local);
+    results.push({ inputLeaf, localInputLeaf, global });
+  }
+  return results;
+};
+
+const onPost = (geometry, results) => {
+  const inputLeafs = [];
+  const outputLeafs = [];
+  for (const { inputLeaf, localOutputLeaf, global } of results) {
+    inputLeafs.push(inputLeaf);
+    outputLeafs.push(transform(localOutputLeaf, global));
+  }
+  return replacer(inputLeafs, outputLeafs)(geometry);
+};
+
+const on = (geometry, selection, op = (g) => g) => {
+  const results = [];
+  for (const { inputLeaf, localInputLeaf, global } of onPre(
+    geometry,
+    selection)) {
+    const localOutputLeaf = op(localInputLeaf);
+    results.push({ inputLeaf, localOutputLeaf, global });
+  }
+  return onPost(geometry, results);
+};
+
+const drop = (geometry, selector) => on(geometry, selector, ghost);
 
 const each = (geometry) => getLeafs(geometry);
 
-const filter$l = (geometry) =>
+const filter$j = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
@@ -2010,10 +4674,10 @@ const eachFaceEdges = (
   if (!(select instanceof Array)) {
     select = [select];
   }
-  const inputs = linearize(geometry, filter$l);
+  const inputs = linearize(geometry, filter$j);
   const count = inputs.length;
   for (const selection of select) {
-    linearize(selection, filter$l, inputs);
+    linearize(selection, filter$j, inputs);
   }
   const outputs = faceEdges(inputs, count).filter(({ type }) =>
     ['polygonsWithHoles', 'segments'].includes(type)
@@ -2072,111 +4736,14 @@ const toOrientedFaceEdgesList = (
   return faces;
 };
 
-const eachItem = (geometry, op) => {
-  const walk = (geometry, descend) => {
-    switch (geometry.type) {
-      case 'sketch': {
-        // Sketches aren't real.
-        return;
-      }
-      default: {
-        op(geometry);
-        return descend();
-      }
-    }
-  };
-  visit(geometry, walk);
-};
-
-const Segment = (segment) => taggedSegments({}, [segment]);
-
-const Segments = (segments) => taggedSegments({}, segments);
-
-const filter$k = (geometry) =>
-  ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
-  isNotTypeGhost(geometry);
-
-const outline = (geometry, selections) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filter$k, inputs);
-  const count = inputs.length;
-  for (const selection of selections) {
-    linearize(toConcreteGeometry(selection), filter$k, inputs);
-  }
-  const outputs = outline$1(inputs, count);
-  deletePendingSurfaceMeshes();
-  return replacer(inputs, outputs)(concreteGeometry);
-};
-
-const filter$j = ({ type }) => type === 'segments';
-
-const eachSegment = (geometry, emit, selections = []) => {
-  if (!(selections instanceof Array)) {
-    selections = [selections];
-  }
-  for (const { matrix, segments, normals, faces } of linearize(
-    outline(geometry, selections),
-    filter$j
-  )) {
-    for (let nth = 0; nth < segments.length; nth++) {
-      const [source, target] = segments[nth];
-      const normal = normals
-        ? transformCoordinate(normals[nth], matrix)
-        : undefined;
-      const face = faces ? faces[nth] : undefined;
-      emit(
-        [
-          transformCoordinate(source, matrix),
-          transformCoordinate(target, matrix),
-        ],
-        normal,
-        face
-      );
-    }
-  }
-};
-
-const toSegments = (geometry, selections) => {
-  const segments = [];
-  eachSegment(geometry, (segment) => segments.push(segment), selections);
-  return Segments(segments);
-};
-
-const toSegmentList = (geometry, selections) => {
-  const segments = [];
-  eachSegment(
-    geometry,
-    (segment) => segments.push(Segment(segment)),
-    selections
-  );
-  return segments;
-};
-
-const filterTargets$1 = (geometry) =>
+const filterTargets = (geometry) =>
   ['graph'].includes(geometry.type) && isNotTypeGhost(geometry);
 
 const eachTriangle = (geometry, emitTriangle) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filterTargets$1, inputs);
+  linearize(concreteGeometry, filterTargets, inputs);
   eachTriangle$1(inputs, emitTriangle);
-  deletePendingSurfaceMeshes();
-};
-
-const filterTargets = (noVoid) => (geometry) =>
-  ['graph', 'polygonsWithHoles', 'segments', 'points'].includes(geometry.type);
-
-// CHECK: We should pass in reference geometry rather than a matrix.
-const eagerTransform = (geometry, matrix, { noVoid } = {}) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filterTargets(), inputs);
-  const count = inputs.length;
-  inputs.push(hasTypeReference(taggedGroup({ matrix })));
-  const outputs = eagerTransform$1(inputs);
-  deletePendingSurfaceMeshes();
-  return replacer(inputs, outputs, count)(concreteGeometry);
 };
 
 const filter$i = (geometry) =>
@@ -2187,9 +4754,41 @@ const fix = (geometry, selfIntersection = true) => {
   const inputs = [];
   linearize(concreteGeometry, filter$i, inputs);
   const outputs = fix$1(inputs, selfIntersection);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
+
+const ref = (geometry) => hasTypeReference(geometry);
+
+const Ref = () => ref(Point([0, 0, 0]));
+
+const X$2 = (x = 0) => translate(Ref(), [x, 0, 0]);
+const Y$2 = (y = 0) => translate(Ref(), [0, y, 0]);
+const Z$2 = (z = 0) => translate(Ref(), [0, 0, z]);
+const XY = (z = 0) => translate(Ref(), [0, 0, z]);
+const YX = (z = 0) => rotateX(translate(Ref(), [0, 0, z]), 1 / 2);
+const XZ = (y = 0) => rotateX(translate(Ref(), [0, y, 0]), -1 / 4);
+const ZX = (y = 0) => rotateX(translate(Ref(), [0, y, 0]), 1 / 4);
+const YZ = (x = 0) => rotateY(translate(Ref(), [x, 0, 0]), -1 / 4);
+const ZY = (x = 0) => rotateY(translate(Ref(), [x, 0, 0]), 1 / 40);
+const RX = (t = 0) => rotateX(Ref(), t);
+const RY = (t = 0) => rotateY(Ref(), t);
+const RZ = (t = 0) => rotateZ(Ref(), t);
+
+const origin = (geometry) => {
+  const { local } = getInverseMatrices(geometry);
+  return transform(Point(), local);
+};
+
+const to = (geometry, references) => {
+  const atOrigin = by(geometry, [origin(geometry)]);
+  const collected = [];
+  for (const reference of references) {
+    collected.push(by(atOrigin, [reference]));
+  }
+  return Group(collected);
+};
+
+const flat = (geometry) => to(geometry, [XY()]);
 
 // Remove any symbols (which refer to cached values).
 const fresh = (geometry) => {
@@ -2207,8 +4806,7 @@ const fromPolygons = (
   { tags = [], close = false, tolerance = 0.001 } = {}
 ) => {
   const outputs = fromPolygons$1(polygons, close, tolerance);
-  deletePendingSurfaceMeshes();
-  return taggedGroup({}, ...outputs.map((output) => ({ ...output, tags })));
+  return Group(outputs.map((output) => ({ ...output, tags })));
 };
 
 const fromPolygonSoup = (
@@ -2235,9 +4833,10 @@ const fromPolygonSoup = (
     wrapAbsoluteOffset,
     cornerThreshold
   );
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs.map((output) => ({ ...output, tags })));
 };
+
+const gap = (geometry) => hasTypeGhost(hasTypeVoid(geometry));
 
 const filter$h = (geometry) =>
   ['graph'].includes(geometry.type) && isNotTypeGhost(geometry);
@@ -2247,7 +4846,6 @@ const generateLowerEnvelope = (geometry) => {
   const inputs = [];
   linearize(concreteGeometry, filter$h, inputs);
   const outputs = generateEnvelope(inputs, /* envelopeType= */ 1);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
@@ -2259,136 +4857,7 @@ const generateUpperEnvelope = (geometry) => {
   const inputs = [];
   linearize(concreteGeometry, filter$g, inputs);
   const outputs = generateEnvelope(inputs, /* envelopeType= */ 0);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
-};
-
-const taggedItem = ({ tags = [], matrix, provenance }, ...content) => {
-  if (tags !== undefined && tags.length === undefined) {
-    throw Error(`Bad tags: ${tags}`);
-  }
-  if (content.some((value) => value === undefined)) {
-    throw Error(`Undefined Item content`);
-  }
-  if (content.length !== 1) {
-    throw Error(`Item expects a single content geometry`);
-  }
-  return { type: 'item', tags, matrix, provenance, content };
-};
-
-const qualifyTag = (tag, namespace = 'user') => {
-  if (tag.includes(':')) {
-    return tag;
-  }
-  return `${namespace}:${tag}`;
-};
-
-const tagMatcher = (tag, namespace = 'user') => {
-  let qualifiedTag = qualifyTag(tag, namespace);
-  if (qualifiedTag.endsWith('=*')) {
-    const [base] = qualifiedTag.split('=');
-    const prefix = `${base}=`;
-    return (tag) => tag.startsWith(prefix);
-  } else if (qualifiedTag.endsWith(':*')) {
-    const [namespace] = qualifiedTag.split(':');
-    const prefix = `${namespace}:`;
-    return (tag) => tag.startsWith(prefix);
-  } else {
-    return (tag) => tag === qualifiedTag;
-  }
-};
-
-const oneOfTagMatcher = (tags, namespace = 'user') => {
-  const matchers = tags.map((tag) => tagMatcher(tag, namespace));
-  const isMatch = (tag) => {
-    for (const matcher of matchers) {
-      if (matcher(tag)) {
-        return true;
-      }
-    }
-    return false;
-  };
-  return isMatch;
-};
-
-const retag = (geometry, oldTags, newTags) => {
-  oldTags = oldTags.map((tag) => qualifyTag(tag));
-  newTags = newTags.map((tag) => qualifyTag(tag));
-
-  const isOldTagMatch = oneOfTagMatcher(oldTags, 'user');
-  const op = (geometry, descend) => {
-    switch (geometry.type) {
-      case 'group':
-      case 'layout':
-        return descend();
-      default: {
-        const { tags = [] } = geometry;
-        const remaining = [];
-        for (const tag of tags) {
-          if (!isOldTagMatch(tag)) {
-            remaining.push(tag);
-          }
-        }
-        for (const newTag of newTags) {
-          if (!remaining.includes(newTag)) {
-            remaining.push(newTag);
-          }
-        }
-        return descend({ tags: remaining });
-      }
-    }
-  };
-  const result = rewrite(geometry, op);
-  return result;
-};
-
-const untag = (geometry, oldTags) => retag(geometry, oldTags, []);
-
-const tag = (geometry, newTags) => retag(geometry, [], newTags);
-
-const tags = (geometry, tag) => {
-  const isMatchingTag = tagMatcher(tag, 'user');
-  const collected = [];
-  for (const { tags } of getLeafs(geometry)) {
-    for (const tag of tags) {
-      if (isMatchingTag(tag)) {
-        collected.push(tag);
-      }
-    }
-  }
-  return collected;
-};
-
-const as = (geometry, names) =>
-  taggedItem({ tags: names.map((name) => `item:${name}`) }, geometry);
-
-const asPart = (geometry, names) =>
-  taggedItem({ tags: names.map((name) => `part:${name}`) }, geometry);
-
-const get = (geometry, tags) => {
-  const isMatch = oneOfTagMatcher(tags, 'item');
-  const picks = [];
-  const walk = (geometry, descend) => {
-    const { tags, type } = geometry;
-    if (type === 'group') {
-      return descend();
-    }
-    if (isMatch(`type:${geometry.type}`)) {
-      picks.push(geometry);
-    } else {
-      for (const tag of tags) {
-        if (isMatch(tag)) {
-          picks.push(geometry);
-          break;
-        }
-      }
-    }
-    if (type !== 'item') {
-      return descend();
-    }
-  };
-  visit(geometry, walk);
-  return picks;
 };
 
 const getAnySurfaces = (geometry) => {
@@ -2418,16 +4887,6 @@ const getItems = (geometry) => {
   };
   visit(geometry, op);
   return items;
-};
-
-const getLayouts = (geometry) => {
-  const layouts = [];
-  eachItem(geometry, (item) => {
-    if (item.type === 'layout') {
-      layouts.push(item);
-    }
-  });
-  return layouts;
 };
 
 // Retrieve leaf geometry.
@@ -2489,41 +4948,37 @@ const getTags = (geometry) => {
 const filter$f = (geometry, parent) =>
   ['graph'].includes(geometry.type) && isNotTypeGhost(geometry);
 
-const grow = (geometry, offset, selections, options) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filter$f, inputs);
+const grow = (geometry, offset, axes = 'xyz', selections) => {
+  const inputs = linearize(geometry, filter$f);
   const count = inputs.length;
-  inputs.push(offset);
+  inputs.push(Z$2(offset));
   for (const selection of selections) {
-    linearize(toConcreteGeometry(selection), filter$f, inputs);
+    linearize(selection, filter$f, inputs);
   }
-  const outputs = grow$1(inputs, count, options);
+  const outputs = grow$1(inputs, count, {
+    x: axes.includes('x'),
+    y: axes.includes('y'),
+    z: axes.includes('z'),
+  });
   const ghosts = [];
   for (let nth = count; nth < inputs.length; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
-  return taggedGroup(
-    {},
-    replacer(inputs, outputs)(concreteGeometry),
-    ...ghosts
-  );
+  return Group([replacer(inputs, outputs)(geometry), ...ghosts]);
 };
+
+const inItem = (geometry) => {
+  if (geometry.type === 'item') {
+    return geometry.content[0];
+  } else {
+    return geometry;
+  }
+};
+
+const hold = (geometry, geometries) =>
+  on(geometry, inItem(geometry), (inside) => Group([inside, ...geometries]));
 
 const filter$e = (geometry) =>
-  ['graph', 'polygonsWithHoles'].includes(geometry.type);
-
-const involute = (geometry) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
-  const inputs = [];
-  linearize(concreteGeometry, filter$e, inputs);
-  const outputs = involute$1(inputs);
-  deletePendingSurfaceMeshes();
-  return replacer(inputs, outputs)(concreteGeometry);
-};
-
-const filter$d = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
@@ -2532,7 +4987,7 @@ const inset = (
   initial = 1,
   { segments = 16, step, limit } = {}
 ) => {
-  const inputs = linearize(geometry, filter$d);
+  const inputs = linearize(geometry, filter$e);
   const outputs = inset$1(inputs, initial, step, limit, segments);
   // Inner insets should come first.
   return Group(outputs);
@@ -2577,23 +5032,22 @@ const isNotShowWireframe = (geometry) =>
   isNotShow(geometry, showWireframe);
 const isShowWireframe = (geometry) => isShow(geometry, showWireframe);
 
-const filter$c = (noVoid) => (geometry) =>
+const filter$d = (noVoid) => (geometry) =>
   ['graph', 'polygonsWithHoles', 'segments'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
 const filterAdds = (noVoid) => (geometry) =>
-  filter$c() && isNotTypeGhost(geometry);
+  filter$d() && isNotTypeGhost(geometry);
 
 const join = (geometry, geometries, { exact, noVoid }) => {
   const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$c(), inputs);
+  linearize(concreteGeometry, filter$d(), inputs);
   const count = inputs.length;
   for (const geometry of geometries) {
     linearize(geometry, filterAdds(), inputs);
   }
   const outputs = join$1(inputs, count, exact);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs, count)(concreteGeometry);
 };
 
@@ -2603,7 +5057,7 @@ const joinTo = (geometry, other, modes) =>
 const keep = (tags, geometry) =>
   rewriteTags(['type:void'], [], geometry, tags, 'has not');
 
-const filter$b = (geometry) =>
+const filter$c = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
@@ -2612,32 +5066,53 @@ const Loft = (geometries, { open = false }) => {
   // This is wrong -- we produce a total linearization over geometries,
   // but really it should be partitioned.
   for (const geometry of geometries) {
-    linearize(toConcreteGeometry(geometry), filter$b, inputs);
+    linearize(toConcreteGeometry(geometry), filter$c, inputs);
   }
   const outputs = loft$1(inputs, !open);
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
 };
 
 const loft = (geometry, geometries, mode) =>
   Loft([geometry, ...geometries], mode);
 
-const filter$a = (geometry) =>
+const log = (geometry, prefix = '') => {
+  const text = prefix + JSON.stringify(geometry);
+  const level = 'serious';
+  const log = { text, level };
+  const hash = computeHash(log);
+  emit({ log, hash });
+  log$1({ op: 'text', text });
+  console.log(text);
+  return geometry;
+};
+
+const masked = (geometry, masks) => {
+  const gaps = [];
+  for (const mask of masks) {
+    gaps.push(gap(mask));
+  }
+  return Group([...gaps, hasTypeMasked(geometry)]);
+};
+
+const masking = (mask, masked) =>
+  Group([gap(mask), hasTypeMasked(masked)]);
+
+const filter$b = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   hasNotTypeVoid(geometry);
 
 const measureArea = (geometry) => {
   const linear = [];
-  linearize(geometry, filter$a, linear);
+  linearize(geometry, filter$b, linear);
   return computeArea(linear);
 };
 
-const filter$9 = (geometry) =>
+const filter$a = (geometry) =>
   geometry.type === 'graph' && hasNotTypeVoid(geometry);
 
 const measureVolume = (geometry) => {
   const linear = [];
-  linearize(geometry, filter$9, linear);
+  linearize(geometry, filter$a, linear);
   return computeVolume(linear);
 };
 
@@ -2651,7 +5126,23 @@ const noGhost = (geometry) => {
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
-const filter$8 = (geometry) =>
+const nth = (geometry, nths) => {
+  const candidates = each(geometry);
+  const group = [];
+  for (let nth of nths) {
+    if (nth < 0) {
+      nth = candidates.length + nth;
+    }
+    let candidate = candidates[nth];
+    if (candidate === undefined) {
+      candidate = Empty();
+    }
+    group.push(candidate);
+  }
+  return Group(group);
+};
+
+const filter$9 = (geometry) =>
   ['graph', 'polygonsWithHoles'].includes(geometry.type) &&
   isNotTypeGhost(geometry);
 
@@ -2660,7 +5151,7 @@ const offset = (
   initial = 1,
   { segments = 16, step, limit } = {}
 ) => {
-  const inputs = linearize(geometry, filter$8);
+  const inputs = linearize(geometry, filter$9);
   const outputs = offset$1(inputs, initial, step, limit, segments);
   return Group(outputs);
 };
@@ -2720,38 +5211,103 @@ const op =
     return method(toConcreteGeometry(geometry), walk);
   };
 
-const origin = (geometry) => {
+const X$1 = 0;
+const Y$1 = 1;
+const Z$1 = 2;
+
+// These are all absolute positions in the world.
+// at is where the object's origin should move to.
+// to is where the object's axis should point at.
+// up rotates around the axis to point a dorsal position toward.
+
+const orient = (
+  geometry,
+  [at = [0, 0, 0], to = [0, 0, 1], up = [1, 0, 0]]
+) => {
   const { local } = getInverseMatrices(geometry);
-  return transform(Point(), local);
+  // Algorithm from threejs Matrix4
+  let u = subtract(up, at);
+  if (squaredLength(u) === 0) {
+    u[Z$1] = 1;
+  }
+  u = normalize$1(u);
+  let z = subtract(to, at);
+  if (squaredLength(z) === 0) {
+    z[Z$1] = 1;
+  }
+  z = normalize$1(z);
+  let x = cross$1(u, z);
+  if (squaredLength(x) === 0) {
+    // u and z are parallel
+    if (Math.abs(u[Z$1]) === 1) {
+      z[X$1] += 0.0001;
+    } else {
+      z[Z$1] += 0.0001;
+    }
+    z = normalize$1(z);
+    x = cross$1(u, z);
+  }
+  x = normalize$1(x);
+  let y = cross$1(z, x);
+  const lookAt = [
+    x[X$1],
+    x[Y$1],
+    x[Z$1],
+    0,
+    y[X$1],
+    y[Y$1],
+    y[Z$1],
+    0,
+    z[X$1],
+    z[Y$1],
+    z[Z$1],
+    0,
+    0,
+    0,
+    0,
+    1,
+  ];
+  // FIX: Move this to CGAL.
+  lookAt.blessed = true;
+  const a = transform(geometry, local);
+  const b = transform(a, lookAt);
+  const c = translate(b, at);
+  return c;
+};
+
+const filter$8 = () => (geometry) =>
+  ['graph'].includes(geometry.type) &&
+  isNotTypeGhost(geometry) &&
+  isNotTypeVoid(geometry);
+
+const reconstruct = (geometry) => {
+  const inputs = linearize(geometry, filter$8());
+  const outputs = reconstruct$1(inputs);
+  return replacer(inputs, outputs)(geometry);
 };
 
 const filter$7 = (geometry) => ['graph'].includes(geometry.type);
 
 const remesh = (
   geometry,
+  resolution = 1,
   selections,
-  iterations,
-  relaxationSteps,
-  targetEdgeLength,
-  exact
+  { iterations = 1, relaxationSteps = 1, targetEdgeLength = resolution }
 ) => {
-  const concreteGeometry = toConcreteGeometry(geometry);
   const inputs = [];
-  linearize(concreteGeometry, filter$7, inputs);
+  linearize(geometry, filter$7, inputs);
   const count = inputs.length;
   for (const selection of selections) {
-    linearize(toConcreteGeometry(selection), filter$7, inputs);
+    linearize(selection, filter$7, inputs);
   }
   const outputs = remesh$1(
     inputs,
     count,
     iterations,
     relaxationSteps,
-    targetEdgeLength,
-    exact
+    targetEdgeLength
   );
-  deletePendingSurfaceMeshes();
-  return replacer(inputs, outputs)(concreteGeometry);
+  return replacer(inputs, outputs)(geometry);
 };
 
 const filter$6 = (geometry, parent) =>
@@ -2766,7 +5322,6 @@ const seam = (geometry, selections) => {
     linearize(toConcreteGeometry(selection), filter$6, inputs);
   }
   const outputs = seam$1(inputs, count);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
@@ -2780,21 +5335,23 @@ const filterReferences = (geometry) =>
     geometry.type
   );
 
-const section = (inputGeometry, referenceGeometries) => {
-  const concreteGeometry = toConcreteGeometry(inputGeometry);
-  const inputs = [];
-  linearize(concreteGeometry, filterInputs$1, inputs);
+const section = (inputGeometry, referenceGeometries = []) => {
+  const inputs = linearize(inputGeometry, filterInputs$1);
   const count = inputs.length;
-  for (const referenceGeometry of referenceGeometries) {
-    linearize(referenceGeometry, filterReferences, inputs);
+  if (referenceGeometries.length === 0) {
+    // Default to the Z(0) plane.
+    inputs.push(Ref());
+  } else {
+    for (const referenceGeometry of referenceGeometries) {
+      linearize(referenceGeometry, filterReferences, inputs);
+    }
   }
   const outputs = section$1(inputs, count);
   const ghosts = [];
   for (let nth = 0; nth < count; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
-  return taggedGroup({}, ...outputs, ...ghosts);
+  return Group([...outputs, ...ghosts]);
 };
 
 const filter$5 = (geometry, parent) =>
@@ -2831,7 +5388,6 @@ const shell = (
   for (let nth = 0; nth < inputs.length; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup(
     {},
     replacer(inputs, outputs)(concreteGeometry),
@@ -2846,7 +5402,6 @@ const simplify = (geometry, cornerThreshold, eps) => {
   const inputs = [];
   linearize(concreteGeometry, filter$4, inputs);
   const outputs = simplify$1(inputs, cornerThreshold, eps);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
@@ -2882,7 +5437,6 @@ const smooth = (
   for (let nth = count; nth < inputs.length; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup(
     {},
     replacer(inputs, outputs, count)(concreteGeometry),
@@ -2899,52 +5453,7 @@ const separate = (geometry, { noShapes, noHoles, holesAsShapes }) => {
   const inputs = [];
   linearize(concreteGeometry, filter$2, inputs);
   const outputs = separate$1(inputs, !noShapes, !noHoles, holesAsShapes);
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs);
-};
-
-const soup = (geometry) => {
-  const op = (geometry, descend) => {
-    switch (geometry.type) {
-      case 'graph': {
-        const { graph } = geometry;
-        if (graph.isEmpty) {
-          return taggedGroup({});
-        } else {
-          return geometry;
-        }
-      }
-      // Unreachable.
-      case 'polygonsWithHoles':
-        return geometry;
-      case 'segments':
-      case 'triangles':
-      case 'points':
-      case 'paths':
-        // Already soupy enough.
-        return geometry;
-      case 'toolpath':
-        // Drop toolpaths for now.
-        return taggedGroup({});
-      case 'displayGeometry':
-        // soup can handle displayGeometry.
-        return descend();
-      case 'layout':
-      case 'plan':
-      case 'item':
-      case 'sketch':
-      case 'group': {
-        return descend();
-      }
-      default:
-        throw Error(`Unexpected geometry: ${JSON.stringify(geometry)}`);
-    }
-  };
-
-  return rewrite(
-    serialize(convertPolygonsToMeshes(toConcreteGeometry(geometry))),
-    op
-  );
 };
 
 const taggedDisplayGeometry = (
@@ -2973,32 +5482,6 @@ const taggedGraph = ({ tags = [], matrix, provenance }, graph) => {
     graph,
     matrix,
     provenance,
-  };
-};
-
-const taggedLayout = (
-  { tags = [], matrix, provenance, size, margin, title },
-  ...content
-) => {
-  if (content.some((value) => value === undefined)) {
-    throw Error(`Undefined Layout content`);
-  }
-  if (content.some((value) => value.length)) {
-    throw Error(`Layout content is an array`);
-  }
-  if (content.some((value) => value.then)) {
-    throw Error(`Layout content is a promise`);
-  }
-  if (content.some((value) => value.geometry)) {
-    throw Error(`Likely Shape in Layout`);
-  }
-  return {
-    type: 'layout',
-    layout: { size, margin, title },
-    tags,
-    matrix,
-    provenance,
-    content,
   };
 };
 
@@ -3044,31 +5527,6 @@ const taggedTriangles = (
   triangles
 ) => {
   return { type: 'triangles', tags, matrix, provenance, triangles };
-};
-
-const to = (geometry, references) => {
-  const atOrigin = by(geometry, [origin(geometry)]);
-  const collected = [];
-  for (const reference of references) {
-    collected.push(by(atOrigin, [reference]));
-  }
-  return Group(collected);
-};
-
-const toDisplayGeometry = (
-  geometry,
-  { triangles, outline = true, skin, wireframe = false } = {}
-) => {
-  if (!geometry) {
-    throw Error('die');
-  }
-  if (skin === undefined) {
-    skin = triangles;
-  }
-  if (skin === undefined) {
-    skin = true;
-  }
-  return soup(toConcreteGeometry(geometry));
 };
 
 const toTransformedGeometry = (geometry) => geometry;
@@ -3133,6 +5591,131 @@ const toTriangleArray = (geometry) => {
   return triangles;
 };
 
+const X = 0;
+const Y = 1;
+const Z = 2;
+
+const floor = (value, resolution) =>
+  Math.floor(value / resolution) * resolution;
+const ceil = (value, resolution) => Math.ceil(value / resolution) * resolution;
+
+const floorPoint = ([x, y, z], resolution) => [
+  floor(x, resolution),
+  floor(y, resolution),
+  floor(z, resolution),
+];
+const ceilPoint = ([x, y, z], resolution) => [
+  ceil(x, resolution),
+  ceil(y, resolution),
+  ceil(z, resolution),
+];
+
+const toVoxelsFromGeometry = (geometry, resolution = 1) => {
+  const offset = resolution / 2;
+  const [boxMin, boxMax] = measureBoundingBox(geometry);
+  const min = floorPoint(boxMin, resolution);
+  const max = ceilPoint(boxMax, resolution);
+  const polygons = [];
+  withAabbTreeQuery(
+    linearize(geometry, ({ type }) =>
+      ['graph', 'polygonsWithHoles'].includes(type)
+    ),
+    (query) => {
+      const isInteriorPoint = (x, y, z) =>
+        query.isIntersectingPointApproximate(x, y, z);
+      for (let x = min[X] - offset; x <= max[X] + offset; x += resolution) {
+        for (let y = min[Y] - offset; y <= max[Y] + offset; y += resolution) {
+          for (let z = min[Z] - offset; z <= max[Z] + offset; z += resolution) {
+            const state = isInteriorPoint(x, y, z);
+            if (state !== isInteriorPoint(x + resolution, y, z)) {
+              const face = [
+                [x + offset, y - offset, z - offset],
+                [x + offset, y + offset, z - offset],
+                [x + offset, y + offset, z + offset],
+                [x + offset, y - offset, z + offset],
+              ];
+              polygons.push({ points: state ? face : face.reverse() });
+            }
+            if (state !== isInteriorPoint(x, y + resolution, z)) {
+              const face = [
+                [x - offset, y + offset, z - offset],
+                [x + offset, y + offset, z - offset],
+                [x + offset, y + offset, z + offset],
+                [x - offset, y + offset, z + offset],
+              ];
+              polygons.push({ points: state ? face.reverse() : face });
+            }
+            if (state !== isInteriorPoint(x, y, z + resolution)) {
+              const face = [
+                [x - offset, y - offset, z + offset],
+                [x + offset, y - offset, z + offset],
+                [x + offset, y + offset, z + offset],
+                [x - offset, y + offset, z + offset],
+              ];
+              polygons.push({ points: state ? face : face.reverse() });
+            }
+          }
+        }
+      }
+    }
+  );
+  return fromPolygons(polygons);
+};
+
+const toVoxelsFromCoordinates = (coordinates) => {
+  const offset = 0.5;
+  const index = new Set();
+  const key = (x, y, z) => `${x},${y},${z}`;
+  let max = [-Infinity, -Infinity, -Infinity];
+  let min = [Infinity, Infinity, Infinity];
+  for (const [x, y, z] of coordinates) {
+    index.add(key(x, y, z));
+    max[X] = Math.max(x + 1, max[X]);
+    max[Y] = Math.max(y + 1, max[Y]);
+    max[Z] = Math.max(z + 1, max[Z]);
+    min[X] = Math.min(x - 1, min[X]);
+    min[Y] = Math.min(y - 1, min[Y]);
+    min[Z] = Math.min(z - 1, min[Z]);
+  }
+  const isInteriorPoint = (x, y, z) => index.has(key(x, y, z));
+  const polygons = [];
+  for (let x = min[X]; x <= max[X]; x++) {
+    for (let y = min[Y]; y <= max[Y]; y++) {
+      for (let z = min[Z]; z <= max[Z]; z++) {
+        const state = isInteriorPoint(x, y, z);
+        if (state !== isInteriorPoint(x + 1, y, z)) {
+          const face = [
+            [x + offset, y - offset, z - offset],
+            [x + offset, y + offset, z - offset],
+            [x + offset, y + offset, z + offset],
+            [x + offset, y - offset, z + offset],
+          ];
+          polygons.push({ points: state ? face : face.reverse() });
+        }
+        if (state !== isInteriorPoint(x, y + 1, z)) {
+          const face = [
+            [x - offset, y + offset, z - offset],
+            [x + offset, y + offset, z - offset],
+            [x + offset, y + offset, z + offset],
+            [x - offset, y + offset, z + offset],
+          ];
+          polygons.push({ points: state ? face.reverse() : face });
+        }
+        if (state !== isInteriorPoint(x, y, z + 1)) {
+          const face = [
+            [x - offset, y - offset, z + offset],
+            [x + offset, y - offset, z + offset],
+            [x + offset, y + offset, z + offset],
+            [x - offset, y + offset, z + offset],
+          ];
+          polygons.push({ points: state ? face : face.reverse() });
+        }
+      }
+    }
+  }
+  return fromPolygons(polygons);
+};
+
 const filter$1 = (geometry) => ['graph'].includes(geometry.type);
 
 const twist = (geometry, radius) => {
@@ -3140,7 +5723,6 @@ const twist = (geometry, radius) => {
   const inputs = [];
   linearize(concreteGeometry, filter$1, inputs);
   const outputs = twist$1(inputs, radius);
-  deletePendingSurfaceMeshes();
   return replacer(inputs, outputs)(concreteGeometry);
 };
 
@@ -3157,7 +5739,6 @@ const unfold = (inputGeometry) => {
   for (let nth = 0; nth < count; nth++) {
     ghosts.push(hasMaterial(hasTypeGhost(inputs[nth]), 'ghost'));
   }
-  deletePendingSurfaceMeshes();
   return taggedGroup({}, ...outputs, ...ghosts);
 };
 
@@ -3166,15 +5747,17 @@ const filter = (geometry) =>
     geometry.type
   ) && isNotTypeGhost(geometry);
 
-const wrap = (geometries, offset, alpha) => {
+// These defaults need some rethinking.
+const Wrap = (geometries, offset = 1, alpha = 0.1) => {
   const inputs = [];
   for (const geometry of geometries) {
-    const concreteGeometry = toConcreteGeometry(geometry);
-    linearize(concreteGeometry, filter, inputs);
+    linearize(geometry, filter, inputs);
   }
   const outputs = wrap$1(inputs, offset, alpha);
-  deletePendingSurfaceMeshes();
-  return taggedGroup({}, ...outputs);
+  return Group(outputs);
 };
 
-export { And, Arc, ArcX, ArcY, ArcZ, Box, ChainConvexHull, ConvexHull, Curve, Disjoint, Edge, Fuse, Group, Point, Points, Segments$1 as Segments, abstract, align, alignment, allTags, and, approximate, as, asPart, assemble, at, bb, bend, by, cached, cast, chainConvexHull, clip, clipFrom, commonVolume, computeCentroid, computeGeneralizedDiameter, computeImplicitVolume, computeNormal, computeOrientedBoundingBox, computeToolpath, convertPolygonsToMeshes, convexHull, copy, curve, cut, cutFrom, cutOut, deform, demesh, dilateXY, disjoint, disorientSegment, drop, each, eachFaceEdges, eachItem, eachSegment, eachTriangle, eagerTransform, emitNote, extrude, extrudeAlong, extrudeAlongNormal, extrudeAlongX, extrudeAlongY, extrudeAlongZ, fill$1 as fill, fit, fitTo, fix, fresh, fromPolygonSoup, fromPolygons, fuse, generateLowerEnvelope, generateUpperEnvelope, get, getAnySurfaces, getGraphs, getInverseMatrices, getItems, getLayouts, getLeafs, getLeafsIn, getPlans, getPoints, getTags, grow, hasMaterial, hasNotShow, hasNotShowOutline, hasNotShowOverlay, hasNotShowSkin, hasNotShowWireframe, hasNotType, hasNotTypeGhost, hasNotTypeMasked, hasNotTypeReference, hasNotTypeVoid, hasShow, hasShowOutline, hasShowOverlay, hasShowSkin, hasShowWireframe, hasType, hasTypeGhost, hasTypeMasked, hasTypeReference, hasTypeVoid, hash, inset, involute, isNotShow, isNotShowOutline, isNotShowOverlay, isNotShowSkin, isNotShowWireframe, isNotType, isNotTypeGhost, isNotTypeMasked, isNotTypeReference, isNotTypeVoid, isShow, isShowOutline, isShowOverlay, isShowSkin, isShowWireframe, isType, isTypeGhost, isTypeMasked, isTypeReference, isTypeVoid, join, joinTo, keep, linearize, link, load, loadNonblocking, loft, loop, makeAbsolute, measureArea, measureBoundingBox, measureVolume, moveAlong, moveAlongNormal, noGhost, note, offset, oneOfTagMatcher, op, origin, outline, read, readNonblocking, reify, remesh, replacer, retag, rewrite, rewriteTags, rotateX, rotateXs, rotateY, rotateYs, rotateZ, rotateZs, scale$1 as scale, seam, section, separate, serialize, shell, showOutline, showOverlay, showSkin, showWireframe, simplify, smooth, soup, store, tag, tagMatcher, taggedDisplayGeometry, taggedGraph, taggedGroup, taggedItem, taggedLayout, taggedPlan, taggedPoints, taggedPolygons, taggedPolygonsWithHoles, taggedSegments, taggedSketch, taggedTriangles, tags, to, toConcreteGeometry, toCoordinates, toDisplayGeometry, toFaceEdgesList, toOrientedFaceEdgesList, toPointList, toPoints, toSegmentList, toSegments, toTransformedGeometry, toTriangleArray, transform, transformCoordinate, transformingCoordinates, translate, twist, typeGhost, typeMasked, typeReference, typeVoid, unfold, untag, update, visit, wrap, write, writeNonblocking };
+const wrap = (geometry, geometries, offset, alpha) =>
+  tag(Wrap([geometry, ...geometries], offset, alpha), tags(geometry));
+
+export { And, Arc, ArcX, ArcY, ArcZ, Box, ChainConvexHull, ConvexHull, Curve, Disjoint, Edge, Empty, Fuse, Group, Hershey, Hexagon, Icosahedron, Link, Loop, Octagon, Orb, Page, Pentagon, Point, Points, RX, RY, RZ, Ref, Segments$1 as Segments, Stroke, Triangle, Wrap, X$2 as X, XY, XZ, Y$2 as Y, YX, YZ, Z$2 as Z, ZX, ZY, abstract, align, alignment, allTags, and, approximate, as, asPart, assemble, at, bb, bend, by, cached, cast, chainConvexHull, clip, clipFrom, commonVolume, computeCentroid, computeGeneralizedDiameter, computeImplicitVolume, computeNormal, computeOrientedBoundingBox, computeToolpath, convertPolygonsToMeshes, convexHull, copy, curve, cut, cutFrom, cutOut, deform, demesh, dilateXY, disjoint, disorientSegment, distance$1 as distance, drop, each, eachFaceEdges, eachItem, eachSegment, eachTriangle, eagerTransform, emitNote, ensurePages, extrude, extrudeAlong, extrudeAlongNormal, extrudeAlongX, extrudeAlongY, extrudeAlongZ, fill$1 as fill, fit, fitTo, fix, flat, fresh, fromPolygonSoup, fromPolygons, fuse, gap, generateLowerEnvelope, generateUpperEnvelope, get, getAll, getAllList, getAnySurfaces, getGraphs, getInverseMatrices, getItems, getLayouts, getLeafs, getLeafsIn, getList, getNot, getNotList, getPlans, getPoints, getTags, getValue, ghost, grow, hasColor, hasMaterial, hasNotShow, hasNotShowOutline, hasNotShowOverlay, hasNotShowSkin, hasNotShowWireframe, hasNotType, hasNotTypeGhost, hasNotTypeMasked, hasNotTypeReference, hasNotTypeVoid, hasShow, hasShowOutline, hasShowOverlay, hasShowSkin, hasShowWireframe, hasType, hasTypeGhost, hasTypeMasked, hasTypeReference, hasTypeVoid, hash, hold, inItem, inset, involute, isNotShow, isNotShowOutline, isNotShowOverlay, isNotShowSkin, isNotShowWireframe, isNotType, isNotTypeGhost, isNotTypeMasked, isNotTypeReference, isNotTypeVoid, isShow, isShowOutline, isShowOverlay, isShowSkin, isShowWireframe, isType, isTypeGhost, isTypeMasked, isTypeReference, isTypeVoid, join, joinTo, keep, linearize, link, load, loadNonblocking, loft, log, loop, makeAbsolute, masked, masking, measureArea, measureBoundingBox, measureVolume, moveAlong, moveAlongNormal, noGhost, note, nth, offset, on, onPost, onPre, oneOfTagMatcher, op, orient, origin, outline, pack, page, read, readNonblocking, reconstruct, ref, reify, remesh, replacer, retag, rewrite, rewriteTags, rotateX, rotateXs, rotateY, rotateYs, rotateZ, rotateZs, scale$1 as scale, scaleLazy, scaleToFit, seam, section, separate, seq, serialize, shell, showOutline, showOverlay, showSkin, showWireframe, simplify, smooth, soup, store, tag, tagMatcher, taggedDisplayGeometry, taggedGraph, taggedGroup, taggedItem, taggedLayout, taggedPlan, taggedPoints, taggedPolygons, taggedPolygonsWithHoles, taggedSegments, taggedSketch, taggedTriangles, tags, to, toConcreteGeometry, toCoordinates, toDisplayGeometry, toFaceEdgesList, toOrientedFaceEdgesList, toPointList, toPoints, toSegmentList, toSegments, toTransformedGeometry, toTriangleArray, toVoxelsFromCoordinates, toVoxelsFromGeometry, transform, transformCoordinate, transformingCoordinates, translate, twist, typeGhost, typeMasked, typeReference, typeVoid, unfold, untag, update, visit, wrap, write, writeNonblocking };
