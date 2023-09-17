@@ -12,12 +12,14 @@ export const buildVocabulary = (phrases, [korean, english]) => {
      for (let i = 0; i < korean.length; i++) {
        translation.set(english[i], korean[i]);
      }
-     const vocabulary = new Set();
+     const vocabulary = new Set(english);
+     /*
      for (const phrase of phrases) {
        for (const word of phrase.split(' ')) {
          vocabulary.add(word);
        }
      }
+     */
      const shuffle = (array) => {
        for (let attempt = 0; attempt < 100; attempt++) {
          const original = array.join('');
