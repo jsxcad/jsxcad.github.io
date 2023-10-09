@@ -37,7 +37,7 @@ const buildScene = ({
   preserveDrawingBuffer = false,
 }) => {
   const { target = [0, 0, 0], position = [40, 40, 40], up = [0, 1, 1] } = view;
-  Object3D.DefaultUp.set(...up);
+  Object3D.DEFAULT_UP.set(...up);
 
   const camera = new PerspectiveCamera(27, width / height, 1, 1000000);
   camera.position.set(...position);
@@ -628,17 +628,9 @@ class AnchorControls extends EventDispatcher {
 
     const dispose = () => detach();
 
-    let _mouseX, _mouseY;
+    let _mouseX, _mouseY, _surfaceCursor;
 
     const adviseEdits = () => {
-      /*
-      const edits = [];
-      scene.traverse((object) => {
-        if (object.userData.edit) {
-          edits.push(object.userData.edit);
-        }
-      });
-      */
       this.dispatchEvent({
         edits: _edits,
         editId: editId,
@@ -646,11 +638,7 @@ class AnchorControls extends EventDispatcher {
       });
     };
 
-    const onMouseMove = (event) => {
-      const rect = event.target.getBoundingClientRect();
-      _mouseX = ((event.clientX - rect.x) / rect.width) * 2 - 1;
-      _mouseY = -((event.clientY - rect.y) / rect.height) * 2 + 1;
-
+    const getOrientedCursorPoint = () => {
       const { point, normal } = raycast(
         _mouseX,
         _mouseY,
@@ -660,14 +648,26 @@ class AnchorControls extends EventDispatcher {
       );
 
       if (point) {
+        return [point.x, point.y, point.z, normal.x, normal.y, normal.z];
+      }
+    };
+
+    const onMouseMove = (event) => {
+      const rect = event.target.getBoundingClientRect();
+      _mouseX = ((event.clientX - rect.x) / rect.width) * 2 - 1;
+      _mouseY = -((event.clientY - rect.y) / rect.height) * 2 + 1;
+
+      _surfaceCursor = getOrientedCursorPoint();
+      if (_surfaceCursor) {
+        const [x, y, z, nx, ny, nz] = _surfaceCursor;
         const position = _cursor.geometry.attributes.position;
-        position.array[0] = point.x;
-        position.array[1] = point.y;
-        position.array[2] = point.z;
+        position.array[0] = x;
+        position.array[1] = y;
+        position.array[2] = z;
         if (_cursor.userData.anchored !== true) {
-          position.array[3] = point.x + normal.x;
-          position.array[4] = point.y + normal.y;
-          position.array[5] = point.z + normal.z;
+          position.array[3] = x + nx;
+          position.array[4] = y + ny;
+          position.array[5] = z + nz;
         }
         position.needsUpdate = true;
         render();
@@ -756,6 +756,17 @@ class AnchorControls extends EventDispatcher {
           case 'q':
             _at.position.addScaledVector(_zAxis, -_step);
             break;
+
+          case 'p': {
+            if (_surfaceCursor) {
+              const [x, y, z, nx, ny, nz] = _surfaceCursor;
+              this.dispatchEvent({
+                type: 'indicatePoint',
+                point: [x, y, z, nx, ny, nz],
+              });
+            }
+            break;
+          }
 
           case 't': {
             const position = _cursor.geometry.attributes.position;
@@ -1095,79 +1106,6 @@ const updateUserData = (geometry, scene, userData) => {
   }
 };
 
-/*
-// https://gist.github.com/kevinmoran/b45980723e53edeb8a5a43c49f134724
-const orient = (mesh, source, target, offset) => {
-  const translation = new Matrix4();
-  translation.makeTranslation(0, 0, -offset);
-  mesh.applyMatrix4(translation);
-
-  const cosA = target.clone().dot(source);
-
-  if (cosA === 1) {
-    return;
-  }
-
-  if (cosA === -1) {
-    const w = 1;
-    const cosAlpha = -1;
-    const sinAlpha = 0;
-    const matrix4 = new Matrix4();
-
-    matrix4.set(
-      w,
-      0,
-      0,
-      0,
-      0,
-      cosAlpha,
-      -sinAlpha,
-      0,
-      0,
-      sinAlpha,
-      cosAlpha,
-      0,
-      0,
-      0,
-      0,
-      w
-    );
-    mesh.applyMatrix4(matrix4);
-    return;
-  }
-
-  // Otherwise we need to build a matrix.
-
-  const axis = new Vector3();
-  axis.crossVectors(target, source);
-  const k = 1 / (1 + cosA);
-
-  const matrix3 = new Matrix3();
-  matrix3.set(
-    axis.x * axis.x * k + cosA,
-    axis.y * axis.x * k - axis.z,
-    axis.z * axis.x * k + axis.y,
-    axis.x * axis.y * k + axis.z,
-    axis.y * axis.y * k + cosA,
-    axis.z * axis.y * k - axis.x,
-    axis.x * axis.z * k - axis.y,
-    axis.y * axis.z * k + axis.x,
-    axis.z * axis.z * k + cosA
-  );
-
-  const matrix4 = new Matrix4();
-  matrix4.setFromMatrix3(matrix3);
-
-  const position = new Vector3();
-  const quaternion = new Quaternion();
-  const scale = new Vector3();
-
-  matrix4.decompose(position, quaternion, scale);
-
-  mesh.applyMatrix4(matrix4);
-};
-*/
-
 const parseRational = (text) => {
   if (text === '') {
     return 0;
@@ -1348,7 +1286,10 @@ const buildMeshes = async ({
       }
 
       {
-        const edges = new EdgesGeometry(bufferGeometry);
+        const edges = new EdgesGeometry(
+          bufferGeometry,
+          /* thresholdAngle= */ 20
+        );
         const material = new LineBasicMaterial({ color: 0x000000 });
         const outline = new LineSegments(edges, material);
         outline.userData.isOutline = true;

@@ -1152,103 +1152,6 @@ var compat_module = /*#__PURE__*/Object.freeze({
 	useErrorBoundary: q$1
 });
 
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-
-function _objectWithoutPropertiesLoose$1(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-  return target;
-}
-
-function defaultKey(key) {
-  return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
-}
-
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-
-function useUncontrolledProp(propValue, defaultValue, handler) {
-  var wasPropRef = s(propValue !== undefined);
-
-  var _useState = l(defaultValue),
-      stateValue = _useState[0],
-      setState = _useState[1];
-
-  var isProp = propValue !== undefined;
-  var wasProp = wasPropRef.current;
-  wasPropRef.current = isProp;
-  /**
-   * If a prop switches from controlled to Uncontrolled
-   * reset its value to the defaultValue
-   */
-
-  if (!isProp && wasProp && stateValue !== defaultValue) {
-    setState(defaultValue);
-  }
-
-  return [isProp ? propValue : stateValue, A$1(function (value) {
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    if (handler) handler.apply(void 0, [value].concat(args));
-    setState(value);
-  }, [handler])];
-}
-function useUncontrolled(props, config) {
-  return Object.keys(config).reduce(function (result, fieldName) {
-    var _extends2;
-
-    var _ref = result,
-        defaultValue = _ref[defaultKey(fieldName)],
-        propsValue = _ref[fieldName],
-        rest = _objectWithoutPropertiesLoose$1(_ref, [defaultKey(fieldName), fieldName].map(_toPropertyKey));
-
-    var handlerName = config[fieldName];
-
-    var _useUncontrolledProp = useUncontrolledProp(propsValue, defaultValue, props[handlerName]),
-        value = _useUncontrolledProp[0],
-        handler = _useUncontrolledProp[1];
-
-    return _extends({}, rest, (_extends2 = {}, _extends2[fieldName] = value, _extends2[handlerName] = handler, _extends2));
-  }, props);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-  return _setPrototypeOf(o, p);
-}
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  _setPrototypeOf(subClass, superClass);
-}
-
 var o=0;function e(_,e,n,t,f){var l,s,u={};for(s in e)"ref"==s?l=e[s]:u[s]=e[s];var a={type:_,props:u,key:n,ref:l,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,__h:null,constructor:void 0,__v:--o,__source:t,__self:f};if("function"==typeof _&&(l=_.defaultProps))for(s in l)void 0===u[s]&&(u[s]=l[s]);return l$1.vnode&&l$1.vnode(a),a}
 
 const DEFAULT_BREAKPOINTS = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
@@ -1277,1316 +1180,283 @@ function useBootstrapMinBreakpoint() {
   return minBreakpoint;
 }
 
-/**
- * Returns the owner document of a given element.
- * 
- * @param node the element
- */
-function ownerDocument(node) {
-  return node && node.ownerDocument || document;
-}
-
-/**
- * Returns the owner window of a given element.
- * 
- * @param node the element
- */
-
-function ownerWindow(node) {
-  var doc = ownerDocument(node);
-  return doc && doc.defaultView || window;
-}
-
-/**
- * Returns one or all computed style properties of an element.
- * 
- * @param node the element
- * @param psuedoElement the style property
- */
-
-function getComputedStyle(node, psuedoElement) {
-  return ownerWindow(node).getComputedStyle(node, psuedoElement);
-}
-
-var rUpper = /([A-Z])/g;
-function hyphenate(string) {
-  return string.replace(rUpper, '-$1').toLowerCase();
-}
-
-/**
- * Copyright 2013-2014, Facebook, Inc.
- * All rights reserved.
- * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
- */
-var msPattern = /^ms-/;
-function hyphenateStyleName(string) {
-  return hyphenate(string).replace(msPattern, '-ms-');
-}
-
-var supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
-function isTransform(value) {
-  return !!(value && supportedTransforms.test(value));
-}
-
-function style(node, property) {
-  var css = '';
-  var transforms = '';
-
-  if (typeof property === 'string') {
-    return node.style.getPropertyValue(hyphenateStyleName(property)) || getComputedStyle(node).getPropertyValue(hyphenateStyleName(property));
-  }
-
-  Object.keys(property).forEach(function (key) {
-    var value = property[key];
-
-    if (!value && value !== 0) {
-      node.style.removeProperty(hyphenateStyleName(key));
-    } else if (isTransform(key)) {
-      transforms += key + "(" + value + ") ";
-    } else {
-      css += hyphenateStyleName(key) + ": " + value + ";";
-    }
-  });
-
-  if (transforms) {
-    css += "transform: " + transforms + ";";
-  }
-
-  node.style.cssText += ";" + css;
-}
-
-var config = {
-  disabled: false
-};
-
-var timeoutsShape = PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
-  enter: PropTypes.number,
-  exit: PropTypes.number,
-  appear: PropTypes.number
-}).isRequired]) ;
-PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
-  enter: PropTypes.string,
-  exit: PropTypes.string,
-  active: PropTypes.string
-}), PropTypes.shape({
-  enter: PropTypes.string,
-  enterDone: PropTypes.string,
-  enterActive: PropTypes.string,
-  exit: PropTypes.string,
-  exitDone: PropTypes.string,
-  exitActive: PropTypes.string
-})]) ;
-
-var TransitionGroupContext = ReactDOM$1.createContext(null);
-
-var forceReflow = function forceReflow(node) {
-  return node.scrollTop;
-};
-
-var UNMOUNTED = 'unmounted';
-var EXITED = 'exited';
-var ENTERING = 'entering';
-var ENTERED = 'entered';
-var EXITING = 'exiting';
-/**
- * The Transition component lets you describe a transition from one component
- * state to another _over time_ with a simple declarative API. Most commonly
- * it's used to animate the mounting and unmounting of a component, but can also
- * be used to describe in-place transition states as well.
- *
- * ---
- *
- * **Note**: `Transition` is a platform-agnostic base component. If you're using
- * transitions in CSS, you'll probably want to use
- * [`CSSTransition`](https://reactcommunity.org/react-transition-group/css-transition)
- * instead. It inherits all the features of `Transition`, but contains
- * additional features necessary to play nice with CSS transitions (hence the
- * name of the component).
- *
- * ---
- *
- * By default the `Transition` component does not alter the behavior of the
- * component it renders, it only tracks "enter" and "exit" states for the
- * components. It's up to you to give meaning and effect to those states. For
- * example we can add styles to a component when it enters or exits:
- *
- * ```jsx
- * import { Transition } from 'react-transition-group';
- *
- * const duration = 300;
- *
- * const defaultStyle = {
- *   transition: `opacity ${duration}ms ease-in-out`,
- *   opacity: 0,
- * }
- *
- * const transitionStyles = {
- *   entering: { opacity: 1 },
- *   entered:  { opacity: 1 },
- *   exiting:  { opacity: 0 },
- *   exited:  { opacity: 0 },
- * };
- *
- * const Fade = ({ in: inProp }) => (
- *   <Transition in={inProp} timeout={duration}>
- *     {state => (
- *       <div style={{
- *         ...defaultStyle,
- *         ...transitionStyles[state]
- *       }}>
- *         I'm a fade Transition!
- *       </div>
- *     )}
- *   </Transition>
- * );
- * ```
- *
- * There are 4 main states a Transition can be in:
- *  - `'entering'`
- *  - `'entered'`
- *  - `'exiting'`
- *  - `'exited'`
- *
- * Transition state is toggled via the `in` prop. When `true` the component
- * begins the "Enter" stage. During this stage, the component will shift from
- * its current transition state, to `'entering'` for the duration of the
- * transition and then to the `'entered'` stage once it's complete. Let's take
- * the following example (we'll use the
- * [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook):
- *
- * ```jsx
- * function App() {
- *   const [inProp, setInProp] = useState(false);
- *   return (
- *     <div>
- *       <Transition in={inProp} timeout={500}>
- *         {state => (
- *           // ...
- *         )}
- *       </Transition>
- *       <button onClick={() => setInProp(true)}>
- *         Click to Enter
- *       </button>
- *     </div>
- *   );
- * }
- * ```
- *
- * When the button is clicked the component will shift to the `'entering'` state
- * and stay there for 500ms (the value of `timeout`) before it finally switches
- * to `'entered'`.
- *
- * When `in` is `false` the same thing happens except the state moves from
- * `'exiting'` to `'exited'`.
- */
-
-var Transition = /*#__PURE__*/function (_React$Component) {
-  _inheritsLoose(Transition, _React$Component);
-
-  function Transition(props, context) {
-    var _this;
-
-    _this = _React$Component.call(this, props, context) || this;
-    var parentGroup = context; // In the context of a TransitionGroup all enters are really appears
-
-    var appear = parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
-    var initialStatus;
-    _this.appearStatus = null;
-
-    if (props.in) {
-      if (appear) {
-        initialStatus = EXITED;
-        _this.appearStatus = ENTERING;
-      } else {
-        initialStatus = ENTERED;
-      }
-    } else {
-      if (props.unmountOnExit || props.mountOnEnter) {
-        initialStatus = UNMOUNTED;
-      } else {
-        initialStatus = EXITED;
-      }
-    }
-
-    _this.state = {
-      status: initialStatus
-    };
-    _this.nextCallback = null;
-    return _this;
-  }
-
-  Transition.getDerivedStateFromProps = function getDerivedStateFromProps(_ref, prevState) {
-    var nextIn = _ref.in;
-
-    if (nextIn && prevState.status === UNMOUNTED) {
-      return {
-        status: EXITED
-      };
-    }
-
-    return null;
-  } // getSnapshotBeforeUpdate(prevProps) {
-  //   let nextStatus = null
-  //   if (prevProps !== this.props) {
-  //     const { status } = this.state
-  //     if (this.props.in) {
-  //       if (status !== ENTERING && status !== ENTERED) {
-  //         nextStatus = ENTERING
-  //       }
-  //     } else {
-  //       if (status === ENTERING || status === ENTERED) {
-  //         nextStatus = EXITING
-  //       }
-  //     }
-  //   }
-  //   return { nextStatus }
-  // }
-  ;
-
-  var _proto = Transition.prototype;
-
-  _proto.componentDidMount = function componentDidMount() {
-    this.updateStatus(true, this.appearStatus);
-  };
-
-  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-    var nextStatus = null;
-
-    if (prevProps !== this.props) {
-      var status = this.state.status;
-
-      if (this.props.in) {
-        if (status !== ENTERING && status !== ENTERED) {
-          nextStatus = ENTERING;
-        }
-      } else {
-        if (status === ENTERING || status === ENTERED) {
-          nextStatus = EXITING;
-        }
-      }
-    }
-
-    this.updateStatus(false, nextStatus);
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    this.cancelNextCallback();
-  };
-
-  _proto.getTimeouts = function getTimeouts() {
-    var timeout = this.props.timeout;
-    var exit, enter, appear;
-    exit = enter = appear = timeout;
-
-    if (timeout != null && typeof timeout !== 'number') {
-      exit = timeout.exit;
-      enter = timeout.enter; // TODO: remove fallback for next major
-
-      appear = timeout.appear !== undefined ? timeout.appear : enter;
-    }
-
-    return {
-      exit: exit,
-      enter: enter,
-      appear: appear
-    };
-  };
-
-  _proto.updateStatus = function updateStatus(mounting, nextStatus) {
-    if (mounting === void 0) {
-      mounting = false;
-    }
-
-    if (nextStatus !== null) {
-      // nextStatus will always be ENTERING or EXITING.
-      this.cancelNextCallback();
-
-      if (nextStatus === ENTERING) {
-        if (this.props.unmountOnExit || this.props.mountOnEnter) {
-          var node = this.props.nodeRef ? this.props.nodeRef.current : ReactDOM$1.findDOMNode(this); // https://github.com/reactjs/react-transition-group/pull/749
-          // With unmountOnExit or mountOnEnter, the enter animation should happen at the transition between `exited` and `entering`.
-          // To make the animation happen,  we have to separate each rendering and avoid being processed as batched.
-
-          if (node) forceReflow(node);
-        }
-
-        this.performEnter(mounting);
-      } else {
-        this.performExit();
-      }
-    } else if (this.props.unmountOnExit && this.state.status === EXITED) {
-      this.setState({
-        status: UNMOUNTED
-      });
-    }
-  };
-
-  _proto.performEnter = function performEnter(mounting) {
-    var _this2 = this;
-
-    var enter = this.props.enter;
-    var appearing = this.context ? this.context.isMounting : mounting;
-
-    var _ref2 = this.props.nodeRef ? [appearing] : [ReactDOM$1.findDOMNode(this), appearing],
-        maybeNode = _ref2[0],
-        maybeAppearing = _ref2[1];
-
-    var timeouts = this.getTimeouts();
-    var enterTimeout = appearing ? timeouts.appear : timeouts.enter; // no enter animation skip right to ENTERED
-    // if we are mounting and running this it means appear _must_ be set
-
-    if (!mounting && !enter || config.disabled) {
-      this.safeSetState({
-        status: ENTERED
-      }, function () {
-        _this2.props.onEntered(maybeNode);
-      });
-      return;
-    }
-
-    this.props.onEnter(maybeNode, maybeAppearing);
-    this.safeSetState({
-      status: ENTERING
-    }, function () {
-      _this2.props.onEntering(maybeNode, maybeAppearing);
-
-      _this2.onTransitionEnd(enterTimeout, function () {
-        _this2.safeSetState({
-          status: ENTERED
-        }, function () {
-          _this2.props.onEntered(maybeNode, maybeAppearing);
-        });
-      });
-    });
-  };
-
-  _proto.performExit = function performExit() {
-    var _this3 = this;
-
-    var exit = this.props.exit;
-    var timeouts = this.getTimeouts();
-    var maybeNode = this.props.nodeRef ? undefined : ReactDOM$1.findDOMNode(this); // no exit animation skip right to EXITED
-
-    if (!exit || config.disabled) {
-      this.safeSetState({
-        status: EXITED
-      }, function () {
-        _this3.props.onExited(maybeNode);
-      });
-      return;
-    }
-
-    this.props.onExit(maybeNode);
-    this.safeSetState({
-      status: EXITING
-    }, function () {
-      _this3.props.onExiting(maybeNode);
-
-      _this3.onTransitionEnd(timeouts.exit, function () {
-        _this3.safeSetState({
-          status: EXITED
-        }, function () {
-          _this3.props.onExited(maybeNode);
-        });
-      });
-    });
-  };
-
-  _proto.cancelNextCallback = function cancelNextCallback() {
-    if (this.nextCallback !== null) {
-      this.nextCallback.cancel();
-      this.nextCallback = null;
-    }
-  };
-
-  _proto.safeSetState = function safeSetState(nextState, callback) {
-    // This shouldn't be necessary, but there are weird race conditions with
-    // setState callbacks and unmounting in testing, so always make sure that
-    // we can cancel any pending setState callbacks after we unmount.
-    callback = this.setNextCallback(callback);
-    this.setState(nextState, callback);
-  };
-
-  _proto.setNextCallback = function setNextCallback(callback) {
-    var _this4 = this;
-
-    var active = true;
-
-    this.nextCallback = function (event) {
-      if (active) {
-        active = false;
-        _this4.nextCallback = null;
-        callback(event);
-      }
-    };
-
-    this.nextCallback.cancel = function () {
-      active = false;
-    };
-
-    return this.nextCallback;
-  };
-
-  _proto.onTransitionEnd = function onTransitionEnd(timeout, handler) {
-    this.setNextCallback(handler);
-    var node = this.props.nodeRef ? this.props.nodeRef.current : ReactDOM$1.findDOMNode(this);
-    var doesNotHaveTimeoutOrListener = timeout == null && !this.props.addEndListener;
-
-    if (!node || doesNotHaveTimeoutOrListener) {
-      setTimeout(this.nextCallback, 0);
-      return;
-    }
-
-    if (this.props.addEndListener) {
-      var _ref3 = this.props.nodeRef ? [this.nextCallback] : [node, this.nextCallback],
-          maybeNode = _ref3[0],
-          maybeNextCallback = _ref3[1];
-
-      this.props.addEndListener(maybeNode, maybeNextCallback);
-    }
-
-    if (timeout != null) {
-      setTimeout(this.nextCallback, timeout);
-    }
-  };
-
-  _proto.render = function render() {
-    var status = this.state.status;
-
-    if (status === UNMOUNTED) {
-      return null;
-    }
-
-    var _this$props = this.props,
-        children = _this$props.children;
-        _this$props.in;
-        _this$props.mountOnEnter;
-        _this$props.unmountOnExit;
-        _this$props.appear;
-        _this$props.enter;
-        _this$props.exit;
-        _this$props.timeout;
-        _this$props.addEndListener;
-        _this$props.onEnter;
-        _this$props.onEntering;
-        _this$props.onEntered;
-        _this$props.onExit;
-        _this$props.onExiting;
-        _this$props.onExited;
-        _this$props.nodeRef;
-        var childProps = _objectWithoutPropertiesLoose$1(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
-
-    return (
-      /*#__PURE__*/
-      // allows for nested Transitions
-      ReactDOM$1.createElement(TransitionGroupContext.Provider, {
-        value: null
-      }, typeof children === 'function' ? children(status, childProps) : ReactDOM$1.cloneElement(ReactDOM$1.Children.only(children), childProps))
-    );
-  };
-
-  return Transition;
-}(ReactDOM$1.Component);
-
-Transition.contextType = TransitionGroupContext;
-Transition.propTypes = {
-  /**
-   * A React reference to DOM element that need to transition:
-   * https://stackoverflow.com/a/51127130/4671932
-   *
-   *   - When `nodeRef` prop is used, `node` is not passed to callback functions
-   *      (e.g. `onEnter`) because user already has direct access to the node.
-   *   - When changing `key` prop of `Transition` in a `TransitionGroup` a new
-   *     `nodeRef` need to be provided to `Transition` with changed `key` prop
-   *     (see
-   *     [test/CSSTransition-test.js](https://github.com/reactjs/react-transition-group/blob/13435f897b3ab71f6e19d724f145596f5910581c/test/CSSTransition-test.js#L362-L437)).
-   */
-  nodeRef: PropTypes.shape({
-    current: typeof Element === 'undefined' ? PropTypes.any : function (propValue, key, componentName, location, propFullName, secret) {
-      var value = propValue[key];
-      return PropTypes.instanceOf(value && 'ownerDocument' in value ? value.ownerDocument.defaultView.Element : Element)(propValue, key, componentName, location, propFullName, secret);
-    }
-  }),
-
-  /**
-   * A `function` child can be used instead of a React element. This function is
-   * called with the current transition status (`'entering'`, `'entered'`,
-   * `'exiting'`, `'exited'`), which can be used to apply context
-   * specific props to a component.
-   *
-   * ```jsx
-   * <Transition in={this.state.in} timeout={150}>
-   *   {state => (
-   *     <MyComponent className={`fade fade-${state}`} />
-   *   )}
-   * </Transition>
-   * ```
-   */
-  children: PropTypes.oneOfType([PropTypes.func.isRequired, PropTypes.element.isRequired]).isRequired,
-
-  /**
-   * Show the component; triggers the enter or exit states
-   */
-  in: PropTypes.bool,
-
-  /**
-   * By default the child component is mounted immediately along with
-   * the parent `Transition` component. If you want to "lazy mount" the component on the
-   * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
-   * mounted, even on "exited", unless you also specify `unmountOnExit`.
-   */
-  mountOnEnter: PropTypes.bool,
-
-  /**
-   * By default the child component stays mounted after it reaches the `'exited'` state.
-   * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
-   */
-  unmountOnExit: PropTypes.bool,
-
-  /**
-   * By default the child component does not perform the enter transition when
-   * it first mounts, regardless of the value of `in`. If you want this
-   * behavior, set both `appear` and `in` to `true`.
-   *
-   * > **Note**: there are no special appear states like `appearing`/`appeared`, this prop
-   * > only adds an additional enter transition. However, in the
-   * > `<CSSTransition>` component that first enter transition does result in
-   * > additional `.appear-*` classes, that way you can choose to style it
-   * > differently.
-   */
-  appear: PropTypes.bool,
-
-  /**
-   * Enable or disable enter transitions.
-   */
-  enter: PropTypes.bool,
-
-  /**
-   * Enable or disable exit transitions.
-   */
-  exit: PropTypes.bool,
-
-  /**
-   * The duration of the transition, in milliseconds.
-   * Required unless `addEndListener` is provided.
-   *
-   * You may specify a single timeout for all transitions:
-   *
-   * ```jsx
-   * timeout={500}
-   * ```
-   *
-   * or individually:
-   *
-   * ```jsx
-   * timeout={{
-   *  appear: 500,
-   *  enter: 300,
-   *  exit: 500,
-   * }}
-   * ```
-   *
-   * - `appear` defaults to the value of `enter`
-   * - `enter` defaults to `0`
-   * - `exit` defaults to `0`
-   *
-   * @type {number | { enter?: number, exit?: number, appear?: number }}
-   */
-  timeout: function timeout(props) {
-    var pt = timeoutsShape;
-    if (!props.addEndListener) pt = pt.isRequired;
-
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    return pt.apply(void 0, [props].concat(args));
-  },
-
-  /**
-   * Add a custom transition end trigger. Called with the transitioning
-   * DOM node and a `done` callback. Allows for more fine grained transition end
-   * logic. Timeouts are still used as a fallback if provided.
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * ```jsx
-   * addEndListener={(node, done) => {
-   *   // use the css transitionend event to mark the finish of a transition
-   *   node.addEventListener('transitionend', done, false);
-   * }}
-   * ```
-   */
-  addEndListener: PropTypes.func,
-
-  /**
-   * Callback fired before the "entering" status is applied. An extra parameter
-   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * @type Function(node: HtmlElement, isAppearing: bool) -> void
-   */
-  onEnter: PropTypes.func,
-
-  /**
-   * Callback fired after the "entering" status is applied. An extra parameter
-   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * @type Function(node: HtmlElement, isAppearing: bool)
-   */
-  onEntering: PropTypes.func,
-
-  /**
-   * Callback fired after the "entered" status is applied. An extra parameter
-   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * @type Function(node: HtmlElement, isAppearing: bool) -> void
-   */
-  onEntered: PropTypes.func,
-
-  /**
-   * Callback fired before the "exiting" status is applied.
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * @type Function(node: HtmlElement) -> void
-   */
-  onExit: PropTypes.func,
-
-  /**
-   * Callback fired after the "exiting" status is applied.
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
-   *
-   * @type Function(node: HtmlElement) -> void
-   */
-  onExiting: PropTypes.func,
-
-  /**
-   * Callback fired after the "exited" status is applied.
-   *
-   * **Note**: when `nodeRef` prop is passed, `node` is not passed
-   *
-   * @type Function(node: HtmlElement) -> void
-   */
-  onExited: PropTypes.func
-} ; // Name the function so it is clearer in the documentation
-
-function noop() {}
-
-Transition.defaultProps = {
-  in: false,
-  mountOnEnter: false,
-  unmountOnExit: false,
-  appear: false,
-  enter: true,
-  exit: true,
-  onEnter: noop,
-  onEntering: noop,
-  onEntered: noop,
-  onExit: noop,
-  onExiting: noop,
-  onExited: noop
-};
-Transition.UNMOUNTED = UNMOUNTED;
-Transition.EXITED = EXITED;
-Transition.ENTERING = ENTERING;
-Transition.ENTERED = ENTERED;
-Transition.EXITING = EXITING;
-
-var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-/* eslint-disable no-return-assign */
-var optionsSupported = false;
-var onceSupported = false;
-
-try {
-  var options = {
-    get passive() {
-      return optionsSupported = true;
-    },
-
-    get once() {
-      // eslint-disable-next-line no-multi-assign
-      return onceSupported = optionsSupported = true;
-    }
-
-  };
-
-  if (canUseDOM) {
-    window.addEventListener('test', options, options);
-    window.removeEventListener('test', options, true);
-  }
-} catch (e) {
-  /* */
-}
-
-/**
- * An `addEventListener` ponyfill, supports the `once` option
- * 
- * @param node the element
- * @param eventName the event name
- * @param handle the handler
- * @param options event options
- */
-function addEventListener(node, eventName, handler, options) {
-  if (options && typeof options !== 'boolean' && !onceSupported) {
-    var once = options.once,
-        capture = options.capture;
-    var wrappedHandler = handler;
-
-    if (!onceSupported && once) {
-      wrappedHandler = handler.__once || function onceHandler(event) {
-        this.removeEventListener(eventName, onceHandler, capture);
-        handler.call(this, event);
-      };
-
-      handler.__once = wrappedHandler;
-    }
-
-    node.addEventListener(eventName, wrappedHandler, optionsSupported ? options : capture);
-  }
-
-  node.addEventListener(eventName, handler, options);
-}
-
-/**
- * A `removeEventListener` ponyfill
- * 
- * @param node the element
- * @param eventName the event name
- * @param handle the handler
- * @param options event options
- */
-function removeEventListener(node, eventName, handler, options) {
-  var capture = options && typeof options !== 'boolean' ? options.capture : options;
-  node.removeEventListener(eventName, handler, capture);
-
-  if (handler.__once) {
-    node.removeEventListener(eventName, handler.__once, capture);
-  }
-}
-
-function listen(node, eventName, handler, options) {
-  addEventListener(node, eventName, handler, options);
-  return function () {
-    removeEventListener(node, eventName, handler, options);
-  };
-}
-
-/**
- * Triggers an event on a given element.
- * 
- * @param node the element
- * @param eventName the event name to trigger
- * @param bubbles whether the event should bubble up
- * @param cancelable whether the event should be cancelable
- */
-function triggerEvent(node, eventName, bubbles, cancelable) {
-  if (bubbles === void 0) {
-    bubbles = false;
-  }
-
-  if (cancelable === void 0) {
-    cancelable = true;
-  }
-
-  if (node) {
-    var event = document.createEvent('HTMLEvents');
-    event.initEvent(eventName, bubbles, cancelable);
-    node.dispatchEvent(event);
-  }
-}
-
-function parseDuration$1(node) {
-  var str = style(node, 'transitionDuration') || '';
-  var mult = str.indexOf('ms') === -1 ? 1000 : 1;
-  return parseFloat(str) * mult;
-}
-
-function emulateTransitionEnd(element, duration, padding) {
-  if (padding === void 0) {
-    padding = 5;
-  }
-
-  var called = false;
-  var handle = setTimeout(function () {
-    if (!called) triggerEvent(element, 'transitionend', true);
-  }, duration + padding);
-  var remove = listen(element, 'transitionend', function () {
-    called = true;
-  }, {
-    once: true
-  });
-  return function () {
-    clearTimeout(handle);
-    remove();
-  };
-}
-
-function transitionEnd(element, handler, duration, padding) {
-  if (duration == null) duration = parseDuration$1(element) || 0;
-  var removeEmulate = emulateTransitionEnd(element, duration, padding);
-  var remove = listen(element, 'transitionend', handler);
-  return function () {
-    removeEmulate();
-    remove();
-  };
-}
-
-function parseDuration(node, property) {
-  const str = style(node, property) || '';
-  const mult = str.indexOf('ms') === -1 ? 1000 : 1;
-  return parseFloat(str) * mult;
-}
-function transitionEndListener(element, handler) {
-  const duration = parseDuration(element, 'transitionDuration');
-  const delay = parseDuration(element, 'transitionDelay');
-  const remove = transitionEnd(element, e => {
-    if (e.target === element) {
-      remove();
-      handler(e);
-    }
-  }, duration + delay);
-}
-
-/**
- * Safe chained function
- *
- * Will only create a new function if needed,
- * otherwise will pass back existing functions or null.
- *
- * @param {function} functions to chain
- * @returns {function|null}
- */
-function createChainedFunction(...funcs) {
-  return funcs.filter(f => f != null).reduce((acc, f) => {
-    if (typeof f !== 'function') {
-      throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
-    }
-    if (acc === null) return f;
-    return function chainedFunction(...args) {
-      // @ts-ignore
-      acc.apply(this, args);
-      // @ts-ignore
-      f.apply(this, args);
-    };
-  }, null);
-}
-
-// reading a dimension prop will cause the browser to recalculate,
-// which will let our animations work
-function triggerBrowserReflow(node) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  node.offsetHeight;
-}
-
-const toFnRef = ref => !ref || typeof ref === 'function' ? ref : value => {
-  ref.current = value;
-};
-function mergeRefs(refA, refB) {
-  const a = toFnRef(refA);
-  const b = toFnRef(refB);
-  return value => {
-    if (a) a(value);
-    if (b) b(value);
-  };
-}
-
-/**
- * Create and returns a single callback ref composed from two other Refs.
- *
- * ```tsx
- * const Button = React.forwardRef((props, ref) => {
- *   const [element, attachRef] = useCallbackRef<HTMLButtonElement>();
- *   const mergedRef = useMergedRefs(ref, attachRef);
- *
- *   return <button ref={mergedRef} {...props}/>
- * })
- * ```
- *
- * @param refA A Callback or mutable Ref
- * @param refB A Callback or mutable Ref
- * @category refs
- */
-function useMergedRefs(refA, refB) {
-  return d(() => mergeRefs(refA, refB), [refA, refB]);
-}
-
-function safeFindDOMNode(componentOrElement) {
-  if (componentOrElement && 'setState' in componentOrElement) {
-    return ReactDOM$1.findDOMNode(componentOrElement);
-  }
-  return componentOrElement != null ? componentOrElement : null;
-}
-
-// Normalizes Transition callbacks when nodeRef is used.
-const TransitionWrapper = /*#__PURE__*/ReactDOM$1.forwardRef(({
-  onEnter,
-  onEntering,
-  onEntered,
-  onExit,
-  onExiting,
-  onExited,
-  addEndListener,
-  children,
-  childRef,
-  ...props
-}, ref) => {
-  const nodeRef = s(null);
-  const mergedRef = useMergedRefs(nodeRef, childRef);
-  const attachRef = r => {
-    mergedRef(safeFindDOMNode(r));
-  };
-  const normalize = callback => param => {
-    if (callback && nodeRef.current) {
-      callback(nodeRef.current, param);
-    }
-  };
-
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const handleEnter = A$1(normalize(onEnter), [onEnter]);
-  const handleEntering = A$1(normalize(onEntering), [onEntering]);
-  const handleEntered = A$1(normalize(onEntered), [onEntered]);
-  const handleExit = A$1(normalize(onExit), [onExit]);
-  const handleExiting = A$1(normalize(onExiting), [onExiting]);
-  const handleExited = A$1(normalize(onExited), [onExited]);
-  const handleAddEndListener = A$1(normalize(addEndListener), [addEndListener]);
-  /* eslint-enable react-hooks/exhaustive-deps */
-
-  return /*#__PURE__*/e(Transition, {
-    ref: ref,
-    ...props,
-    onEnter: handleEnter,
-    onEntered: handleEntered,
-    onEntering: handleEntering,
-    onExit: handleExit,
-    onExited: handleExited,
-    onExiting: handleExiting,
-    addEndListener: handleAddEndListener,
-    nodeRef: nodeRef,
-    children: typeof children === 'function' ? (status, innerProps) =>
-    // TODO: Types for RTG missing innerProps, so need to cast.
-    children(status, {
-      ...innerProps,
-      ref: attachRef
-    }) : /*#__PURE__*/ReactDOM$1.cloneElement(children, {
-      ref: attachRef
-    })
-  });
-});
-var TransitionWrapper$1 = TransitionWrapper;
-
-const MARGINS = {
-  height: ['marginTop', 'marginBottom'],
-  width: ['marginLeft', 'marginRight']
-};
-function getDefaultDimensionValue(dimension, elem) {
-  const offset = `offset${dimension[0].toUpperCase()}${dimension.slice(1)}`;
-  const value = elem[offset];
-  const margins = MARGINS[dimension];
-  return value +
-  // @ts-ignore
-  parseInt(style(elem, margins[0]), 10) +
-  // @ts-ignore
-  parseInt(style(elem, margins[1]), 10);
-}
-const collapseStyles = {
-  [EXITED]: 'collapse',
-  [EXITING]: 'collapsing',
-  [ENTERING]: 'collapsing',
-  [ENTERED]: 'collapse show'
-};
-const Collapse = /*#__PURE__*/ReactDOM$1.forwardRef(({
-  onEnter,
-  onEntering,
-  onEntered,
-  onExit,
-  onExiting,
+const CardBody = /*#__PURE__*/x(({
   className,
-  children,
-  dimension = 'height',
-  in: inProp = false,
-  timeout = 300,
-  mountOnEnter = false,
-  unmountOnExit = false,
-  appear = false,
-  getDimensionValue = getDefaultDimensionValue,
+  bsPrefix,
+  as: Component = 'div',
   ...props
 }, ref) => {
-  /* Compute dimension */
-  const computedDimension = typeof dimension === 'function' ? dimension() : dimension;
-
-  /* -- Expanding -- */
-  const handleEnter = d(() => createChainedFunction(elem => {
-    elem.style[computedDimension] = '0';
-  }, onEnter), [computedDimension, onEnter]);
-  const handleEntering = d(() => createChainedFunction(elem => {
-    const scroll = `scroll${computedDimension[0].toUpperCase()}${computedDimension.slice(1)}`;
-    elem.style[computedDimension] = `${elem[scroll]}px`;
-  }, onEntering), [computedDimension, onEntering]);
-  const handleEntered = d(() => createChainedFunction(elem => {
-    elem.style[computedDimension] = null;
-  }, onEntered), [computedDimension, onEntered]);
-
-  /* -- Collapsing -- */
-  const handleExit = d(() => createChainedFunction(elem => {
-    elem.style[computedDimension] = `${getDimensionValue(computedDimension, elem)}px`;
-    triggerBrowserReflow(elem);
-  }, onExit), [onExit, getDimensionValue, computedDimension]);
-  const handleExiting = d(() => createChainedFunction(elem => {
-    elem.style[computedDimension] = null;
-  }, onExiting), [computedDimension, onExiting]);
-  return /*#__PURE__*/e(TransitionWrapper$1, {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-body');
+  return /*#__PURE__*/e(Component, {
     ref: ref,
-    addEndListener: transitionEndListener,
-    ...props,
-    "aria-expanded": props.role ? inProp : null,
-    onEnter: handleEnter,
-    onEntering: handleEntering,
-    onEntered: handleEntered,
-    onExit: handleExit,
-    onExiting: handleExiting,
-    childRef: children.ref,
-    in: inProp,
-    timeout: timeout,
-    mountOnEnter: mountOnEnter,
-    unmountOnExit: unmountOnExit,
-    appear: appear,
-    children: (state, innerProps) => /*#__PURE__*/ReactDOM$1.cloneElement(children, {
-      ...innerProps,
-      className: classNames(className, children.props.className, collapseStyles[state], computedDimension === 'width' && 'collapse-horizontal')
-    })
+    className: classNames(className, bsPrefix),
+    ...props
   });
 });
+CardBody.displayName = 'CardBody';
+var CardBody$1 = CardBody;
 
-// @ts-ignore
-
-var Collapse$1 = Collapse;
-
-function isAccordionItemSelected(activeEventKey, eventKey) {
-  return Array.isArray(activeEventKey) ? activeEventKey.includes(eventKey) : activeEventKey === eventKey;
-}
-const context$3 = /*#__PURE__*/D$1({});
-context$3.displayName = 'AccordionContext';
-var AccordionContext = context$3;
-
-/**
- * This component accepts all of [`Collapse`'s props](/docs/utilities/transitions#collapse-1).
- */
-const AccordionCollapse = /*#__PURE__*/x(({
+const CardFooter = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
   as: Component = 'div',
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-footer');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardFooter.displayName = 'CardFooter';
+var CardFooter$1 = CardFooter;
+
+const context$1 = /*#__PURE__*/D$1(null);
+context$1.displayName = 'CardHeaderContext';
+var CardHeaderContext = context$1;
+
+const CardHeader = /*#__PURE__*/x(({
   bsPrefix,
   className,
-  children,
-  eventKey,
-  ...props
-}, ref) => {
-  const {
-    activeEventKey
-  } = F$1(AccordionContext);
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'accordion-collapse');
-  return /*#__PURE__*/e(Collapse$1, {
-    ref: ref,
-    in: isAccordionItemSelected(activeEventKey, eventKey),
-    ...props,
-    className: classNames(className, bsPrefix),
-    children: /*#__PURE__*/e(Component, {
-      children: k.only(children)
-    })
-  });
-});
-AccordionCollapse.displayName = 'AccordionCollapse';
-var AccordionCollapse$1 = AccordionCollapse;
-
-const context$2 = /*#__PURE__*/D$1({
-  eventKey: ''
-});
-context$2.displayName = 'AccordionItemContext';
-var AccordionItemContext = context$2;
-
-const AccordionBody = /*#__PURE__*/x(({
   // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
   as: Component = 'div',
-  bsPrefix,
-  className,
-  onEnter,
-  onEntering,
-  onEntered,
-  onExit,
-  onExiting,
-  onExited,
   ...props
 }, ref) => {
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'accordion-body');
-  const {
-    eventKey
-  } = F$1(AccordionItemContext);
-  return /*#__PURE__*/e(AccordionCollapse$1, {
-    eventKey: eventKey,
-    onEnter: onEnter,
-    onEntering: onEntering,
-    onEntered: onEntered,
-    onExit: onExit,
-    onExiting: onExiting,
-    onExited: onExited,
+  const prefix = useBootstrapPrefix(bsPrefix, 'card-header');
+  const contextValue = d(() => ({
+    cardHeaderBsPrefix: prefix
+  }), [prefix]);
+  return /*#__PURE__*/e(CardHeaderContext.Provider, {
+    value: contextValue,
     children: /*#__PURE__*/e(Component, {
       ref: ref,
       ...props,
-      className: classNames(className, bsPrefix)
+      className: classNames(className, prefix)
     })
   });
 });
-AccordionBody.displayName = 'AccordionBody';
-var AccordionBody$1 = AccordionBody;
+CardHeader.displayName = 'CardHeader';
+var CardHeader$1 = CardHeader;
 
-function useAccordionButton(eventKey, onClick) {
-  const {
-    activeEventKey,
-    onSelect,
-    alwaysOpen
-  } = F$1(AccordionContext);
-  return e => {
-    /*
-      Compare the event key in context with the given event key.
-      If they are the same, then collapse the component.
-    */
-    let eventKeyPassed = eventKey === activeEventKey ? null : eventKey;
-    if (alwaysOpen) {
-      if (Array.isArray(activeEventKey)) {
-        if (activeEventKey.includes(eventKey)) {
-          eventKeyPassed = activeEventKey.filter(k => k !== eventKey);
-        } else {
-          eventKeyPassed = [...activeEventKey, eventKey];
-        }
-      } else {
-        // activeEventKey is undefined.
-        eventKeyPassed = [eventKey];
-      }
-    }
-    onSelect == null ? void 0 : onSelect(eventKeyPassed, e);
-    onClick == null ? void 0 : onClick(e);
-  };
-}
-const AccordionButton = /*#__PURE__*/x(({
-  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-  as: Component = 'button',
+const CardImg = /*#__PURE__*/x(
+// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({
   bsPrefix,
   className,
-  onClick,
+  variant,
+  as: Component = 'img',
   ...props
 }, ref) => {
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'accordion-button');
-  const {
-    eventKey
-  } = F$1(AccordionItemContext);
-  const accordionOnClick = useAccordionButton(eventKey, onClick);
-  const {
-    activeEventKey
-  } = F$1(AccordionContext);
-  if (Component === 'button') {
-    props.type = 'button';
-  }
+  const prefix = useBootstrapPrefix(bsPrefix, 'card-img');
   return /*#__PURE__*/e(Component, {
     ref: ref,
-    onClick: accordionOnClick,
-    ...props,
-    "aria-expanded": Array.isArray(activeEventKey) ? activeEventKey.includes(eventKey) : eventKey === activeEventKey,
-    className: classNames(className, bsPrefix, !isAccordionItemSelected(activeEventKey, eventKey) && 'collapsed')
+    className: classNames(variant ? `${prefix}-${variant}` : prefix, className),
+    ...props
   });
 });
-AccordionButton.displayName = 'AccordionButton';
-var AccordionButton$1 = AccordionButton;
+CardImg.displayName = 'CardImg';
+var CardImg$1 = CardImg;
 
-const AccordionHeader = /*#__PURE__*/x(({
-  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-  as: Component = 'h2',
-  bsPrefix,
+const CardImgOverlay = /*#__PURE__*/x(({
   className,
-  children,
-  onClick,
+  bsPrefix,
+  as: Component = 'div',
   ...props
 }, ref) => {
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'accordion-header');
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-img-overlay');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardImgOverlay.displayName = 'CardImgOverlay';
+var CardImgOverlay$1 = CardImgOverlay;
+
+const CardLink = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = 'a',
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-link');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardLink.displayName = 'CardLink';
+var CardLink$1 = CardLink;
+
+var divWithClassName = (className => /*#__PURE__*/x((p, ref) => /*#__PURE__*/e("div", {
+  ...p,
+  ref: ref,
+  className: classNames(p.className, className)
+})));
+
+const DivStyledAsH6 = divWithClassName('h6');
+const CardSubtitle = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = DivStyledAsH6,
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-subtitle');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardSubtitle.displayName = 'CardSubtitle';
+var CardSubtitle$1 = CardSubtitle;
+
+const CardText = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = 'p',
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-text');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardText.displayName = 'CardText';
+var CardText$1 = CardText;
+
+const DivStyledAsH5 = divWithClassName('h5');
+const CardTitle = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = DivStyledAsH5,
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'card-title');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
+});
+CardTitle.displayName = 'CardTitle';
+var CardTitle$1 = CardTitle;
+
+const Card = /*#__PURE__*/x(({
+  bsPrefix,
+  className,
+  bg,
+  text,
+  border,
+  body = false,
+  children,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = 'div',
+  ...props
+}, ref) => {
+  const prefix = useBootstrapPrefix(bsPrefix, 'card');
   return /*#__PURE__*/e(Component, {
     ref: ref,
     ...props,
-    className: classNames(className, bsPrefix),
-    children: /*#__PURE__*/e(AccordionButton$1, {
-      onClick: onClick,
+    className: classNames(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
+    children: body ? /*#__PURE__*/e(CardBody$1, {
       children: children
-    })
+    }) : children
   });
 });
-AccordionHeader.displayName = 'AccordionHeader';
-var AccordionHeader$1 = AccordionHeader;
+Card.displayName = 'Card';
+var Card$1 = Object.assign(Card, {
+  Img: CardImg$1,
+  Title: CardTitle$1,
+  Subtitle: CardSubtitle$1,
+  Body: CardBody$1,
+  Link: CardLink$1,
+  Text: CardText$1,
+  Header: CardHeader$1,
+  Footer: CardFooter$1,
+  ImgOverlay: CardImgOverlay$1
+});
 
-const AccordionItem = /*#__PURE__*/x(({
-  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-  as: Component = 'div',
+function useCol({
+  as,
   bsPrefix,
   className,
-  eventKey,
+  ...props
+}) {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'col');
+  const breakpoints = useBootstrapBreakpoints();
+  const minBreakpoint = useBootstrapMinBreakpoint();
+  const spans = [];
+  const classes = [];
+  breakpoints.forEach(brkPoint => {
+    const propValue = props[brkPoint];
+    delete props[brkPoint];
+    let span;
+    let offset;
+    let order;
+    if (typeof propValue === 'object' && propValue != null) {
+      ({
+        span,
+        offset,
+        order
+      } = propValue);
+    } else {
+      span = propValue;
+    }
+    const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
+    if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
+    if (order != null) classes.push(`order${infix}-${order}`);
+    if (offset != null) classes.push(`offset${infix}-${offset}`);
+  });
+  return [{
+    ...props,
+    className: classNames(className, ...spans, ...classes)
+  }, {
+    as,
+    bsPrefix,
+    spans
+  }];
+}
+const Col = /*#__PURE__*/x(
+// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+(props, ref) => {
+  const [{
+    className,
+    ...colProps
+  }, {
+    as: Component = 'div',
+    bsPrefix,
+    spans
+  }] = useCol(props);
+  return /*#__PURE__*/e(Component, {
+    ...colProps,
+    ref: ref,
+    className: classNames(className, !spans.length && bsPrefix)
+  });
+});
+Col.displayName = 'Col';
+
+const Container = /*#__PURE__*/x(({
+  bsPrefix,
+  fluid = false,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = 'div',
+  className,
   ...props
 }, ref) => {
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'accordion-item');
-  const contextValue = d(() => ({
-    eventKey
-  }), [eventKey]);
-  return /*#__PURE__*/e(AccordionItemContext.Provider, {
-    value: contextValue,
-    children: /*#__PURE__*/e(Component, {
-      ref: ref,
-      ...props,
-      className: classNames(className, bsPrefix)
-    })
+  const prefix = useBootstrapPrefix(bsPrefix, 'container');
+  const suffix = typeof fluid === 'string' ? `-${fluid}` : '-fluid';
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    ...props,
+    className: classNames(className, fluid ? `${prefix}${suffix}` : prefix)
   });
 });
-AccordionItem.displayName = 'AccordionItem';
-var AccordionItem$1 = AccordionItem;
-
-const Accordion = /*#__PURE__*/x((props, ref) => {
-  const {
-    // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = 'div',
-    activeKey,
-    bsPrefix,
-    className,
-    onSelect,
-    flush,
-    alwaysOpen,
-    ...controlledProps
-  } = useUncontrolled(props, {
-    activeKey: 'onSelect'
-  });
-  const prefix = useBootstrapPrefix(bsPrefix, 'accordion');
-  const contextValue = d(() => ({
-    activeEventKey: activeKey,
-    onSelect,
-    alwaysOpen
-  }), [activeKey, onSelect, alwaysOpen]);
-  return /*#__PURE__*/e(AccordionContext.Provider, {
-    value: contextValue,
-    children: /*#__PURE__*/e(Component, {
-      ref: ref,
-      ...controlledProps,
-      className: classNames(className, prefix, flush && `${prefix}-flush`)
-    })
-  });
-});
-Accordion.displayName = 'Accordion';
-var Accordion$1 = Object.assign(Accordion, {
-  Button: AccordionButton$1,
-  Collapse: AccordionCollapse$1,
-  Item: AccordionItem$1,
-  Header: AccordionHeader$1,
-  Body: AccordionBody$1
-});
+Container.displayName = 'Container';
 
 const propTypes$1 = {
   /**
@@ -2810,17 +1680,6 @@ const FormControl = /*#__PURE__*/x(({
     controlId
   } = F$1(FormContext$1);
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form-control');
-  let classes;
-  if (plaintext) {
-    classes = {
-      [`${bsPrefix}-plaintext`]: true
-    };
-  } else {
-    classes = {
-      [bsPrefix]: true,
-      [`${bsPrefix}-${size}`]: size
-    };
-  }
   warning_1(controlId == null || !id, '`controlId` is ignored on `<FormControl>` when `id` is specified.') ;
   return /*#__PURE__*/e(Component, {
     ...props,
@@ -2829,7 +1688,7 @@ const FormControl = /*#__PURE__*/x(({
     ref: ref,
     readOnly: readOnly,
     id: id || controlId,
-    className: classNames(className, classes, isValid && `is-valid`, isInvalid && `is-invalid`, type === 'color' && `${bsPrefix}-color`)
+    className: classNames(className, plaintext ? `${bsPrefix}-plaintext` : bsPrefix, size && `${bsPrefix}-${size}`, type === 'color' && `${bsPrefix}-color`, isValid && 'is-valid', isInvalid && 'is-invalid')
   });
 });
 FormControl.displayName = 'FormControl';
@@ -2837,42 +1696,21 @@ var FormControl$1 = Object.assign(FormControl, {
   Feedback: Feedback$1
 });
 
-var rHyphen = /-(.)/g;
-function camelize(string) {
-  return string.replace(rHyphen, function (_, chr) {
-    return chr.toUpperCase();
-  });
-}
-
-const pascalCase = str => str[0].toUpperCase() + camelize(str).slice(1);
-// TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
-function createWithBsPrefix(prefix, {
-  displayName = pascalCase(prefix),
-  Component,
-  defaultProps
-} = {}) {
-  const BsComponent = /*#__PURE__*/x(({
-    className,
-    bsPrefix,
-    as: Tag = Component || 'div',
+const FormFloating = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = 'div',
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'form-floating');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
     ...props
-  }, ref) => {
-    const componentProps = {
-      ...defaultProps,
-      ...props
-    };
-    const resolvedPrefix = useBootstrapPrefix(bsPrefix, prefix);
-    return /*#__PURE__*/e(Tag, {
-      ref: ref,
-      className: classNames(className, resolvedPrefix),
-      ...componentProps
-    });
   });
-  BsComponent.displayName = displayName;
-  return BsComponent;
-}
-
-var FormFloating = createWithBsPrefix('form-floating');
+});
+FormFloating.displayName = 'FormFloating';
+var FormFloating$1 = FormFloating;
 
 const FormGroup = /*#__PURE__*/x(({
   controlId,
@@ -2894,66 +1732,6 @@ const FormGroup = /*#__PURE__*/x(({
 FormGroup.displayName = 'FormGroup';
 var FormGroup$1 = FormGroup;
 
-function useCol({
-  as,
-  bsPrefix,
-  className,
-  ...props
-}) {
-  bsPrefix = useBootstrapPrefix(bsPrefix, 'col');
-  const breakpoints = useBootstrapBreakpoints();
-  const minBreakpoint = useBootstrapMinBreakpoint();
-  const spans = [];
-  const classes = [];
-  breakpoints.forEach(brkPoint => {
-    const propValue = props[brkPoint];
-    delete props[brkPoint];
-    let span;
-    let offset;
-    let order;
-    if (typeof propValue === 'object' && propValue != null) {
-      ({
-        span,
-        offset,
-        order
-      } = propValue);
-    } else {
-      span = propValue;
-    }
-    const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
-    if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
-    if (order != null) classes.push(`order${infix}-${order}`);
-    if (offset != null) classes.push(`offset${infix}-${offset}`);
-  });
-  return [{
-    ...props,
-    className: classNames(className, ...spans, ...classes)
-  }, {
-    as,
-    bsPrefix,
-    spans
-  }];
-}
-const Col = /*#__PURE__*/x(
-// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-(props, ref) => {
-  const [{
-    className,
-    ...colProps
-  }, {
-    as: Component = 'div',
-    bsPrefix,
-    spans
-  }] = useCol(props);
-  return /*#__PURE__*/e(Component, {
-    ...colProps,
-    ref: ref,
-    className: classNames(className, !spans.length && bsPrefix)
-  });
-});
-Col.displayName = 'Col';
-var Col$1 = Col;
-
 const FormLabel = /*#__PURE__*/x(({
   // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
   as: Component = 'label',
@@ -2973,7 +1751,7 @@ const FormLabel = /*#__PURE__*/x(({
   const classes = classNames(className, bsPrefix, visuallyHidden && 'visually-hidden', column && columnClass);
   warning_1(controlId == null || !htmlFor, '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.') ;
   htmlFor = htmlFor || controlId;
-  if (column) return /*#__PURE__*/e(Col$1, {
+  if (column) return /*#__PURE__*/e(Col, {
     ref: ref,
     as: "label",
     className: classes,
@@ -3126,7 +1904,7 @@ Form.propTypes = propTypes;
 var Form$1 = Object.assign(Form, {
   Group: FormGroup$1,
   Control: FormControl$1,
-  Floating: FormFloating,
+  Floating: FormFloating$1,
   Check: FormCheck$1,
   Switch: Switch$1,
   Label: FormLabel$1,
@@ -3136,20 +1914,33 @@ var Form$1 = Object.assign(Form, {
   FloatingLabel: FloatingLabel$1
 });
 
-const context$1 = /*#__PURE__*/D$1(null);
-context$1.displayName = 'InputGroupContext';
-var InputGroupContext = context$1;
+const context = /*#__PURE__*/D$1(null);
+context.displayName = 'InputGroupContext';
+var InputGroupContext = context;
 
-const InputGroupText = createWithBsPrefix('input-group-text', {
-  Component: 'span'
+const InputGroupText = /*#__PURE__*/x(({
+  className,
+  bsPrefix,
+  as: Component = 'span',
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group-text');
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    className: classNames(className, bsPrefix),
+    ...props
+  });
 });
-const InputGroupCheckbox = props => /*#__PURE__*/e(InputGroupText, {
+InputGroupText.displayName = 'InputGroupText';
+var InputGroupText$1 = InputGroupText;
+
+const InputGroupCheckbox = props => /*#__PURE__*/e(InputGroupText$1, {
   children: /*#__PURE__*/e(FormCheckInput$1, {
     type: "checkbox",
     ...props
   })
 });
-const InputGroupRadio = props => /*#__PURE__*/e(InputGroupText, {
+const InputGroupRadio = props => /*#__PURE__*/e(InputGroupText$1, {
   children: /*#__PURE__*/e(FormCheckInput$1, {
     type: "radio",
     ...props
@@ -3180,7 +1971,7 @@ const InputGroup = /*#__PURE__*/x(({
 });
 InputGroup.displayName = 'InputGroup';
 var InputGroup$1 = Object.assign(InputGroup, {
-  Text: InputGroupText,
+  Text: InputGroupText$1,
   Radio: InputGroupRadio,
   Checkbox: InputGroupCheckbox
 });
@@ -3531,110 +2322,6 @@ class DownloadNote extends ReactDOM$1.PureComponent {
   }
 }
 
-var divWithClassName = (className => /*#__PURE__*/x((p, ref) => /*#__PURE__*/e("div", {
-  ...p,
-  ref: ref,
-  className: classNames(p.className, className)
-})));
-
-const CardImg = /*#__PURE__*/x(
-// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({
-  bsPrefix,
-  className,
-  variant,
-  as: Component = 'img',
-  ...props
-}, ref) => {
-  const prefix = useBootstrapPrefix(bsPrefix, 'card-img');
-  return /*#__PURE__*/e(Component, {
-    ref: ref,
-    className: classNames(variant ? `${prefix}-${variant}` : prefix, className),
-    ...props
-  });
-});
-CardImg.displayName = 'CardImg';
-var CardImg$1 = CardImg;
-
-const context = /*#__PURE__*/D$1(null);
-context.displayName = 'CardHeaderContext';
-var CardHeaderContext = context;
-
-const CardHeader = /*#__PURE__*/x(({
-  bsPrefix,
-  className,
-  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-  as: Component = 'div',
-  ...props
-}, ref) => {
-  const prefix = useBootstrapPrefix(bsPrefix, 'card-header');
-  const contextValue = d(() => ({
-    cardHeaderBsPrefix: prefix
-  }), [prefix]);
-  return /*#__PURE__*/e(CardHeaderContext.Provider, {
-    value: contextValue,
-    children: /*#__PURE__*/e(Component, {
-      ref: ref,
-      ...props,
-      className: classNames(className, prefix)
-    })
-  });
-});
-CardHeader.displayName = 'CardHeader';
-var CardHeader$1 = CardHeader;
-
-const DivStyledAsH5 = divWithClassName('h5');
-const DivStyledAsH6 = divWithClassName('h6');
-const CardBody = createWithBsPrefix('card-body');
-const CardTitle = createWithBsPrefix('card-title', {
-  Component: DivStyledAsH5
-});
-const CardSubtitle = createWithBsPrefix('card-subtitle', {
-  Component: DivStyledAsH6
-});
-const CardLink = createWithBsPrefix('card-link', {
-  Component: 'a'
-});
-const CardText = createWithBsPrefix('card-text', {
-  Component: 'p'
-});
-const CardFooter = createWithBsPrefix('card-footer');
-const CardImgOverlay = createWithBsPrefix('card-img-overlay');
-const Card = /*#__PURE__*/x(({
-  bsPrefix,
-  className,
-  bg,
-  text,
-  border,
-  body = false,
-  children,
-  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-  as: Component = 'div',
-  ...props
-}, ref) => {
-  const prefix = useBootstrapPrefix(bsPrefix, 'card');
-  return /*#__PURE__*/e(Component, {
-    ref: ref,
-    ...props,
-    className: classNames(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
-    children: body ? /*#__PURE__*/e(CardBody, {
-      children: children
-    }) : children
-  });
-});
-Card.displayName = 'Card';
-var Card$1 = Object.assign(Card, {
-  Img: CardImg$1,
-  Title: CardTitle,
-  Subtitle: CardSubtitle,
-  Body: CardBody,
-  Link: CardLink,
-  Text: CardText,
-  Header: CardHeader$1,
-  Footer: CardFooter,
-  ImgOverlay: CardImgOverlay
-});
-
 class EditNote extends ReactDOM$1.Component {
   static get propTypes() {
     return {
@@ -3719,39 +2406,6 @@ class ErrorNote extends ReactDOM$1.Component {
     return v$1("div", {
       class: "note error"
     }, v$1("p", null, text));
-  }
-}
-
-class IconNote extends ReactDOM$1.PureComponent {
-  static get propTypes() {
-    return {
-      note: propTypes$2.exports.object
-    };
-  }
-  render() {
-    const {
-      note
-    } = this.props;
-    const {
-      blur = false,
-      view
-    } = note;
-    const {
-      viewId
-    } = view;
-    const iconIdClass = viewId ? `iconId_${viewId}` : '';
-    if (!note.url) {
-      return v$1("span", null);
-    }
-    return v$1("img", {
-      class: `note icon ${iconIdClass}`,
-      style: {
-        height: '32px',
-        width: '32px',
-        opacity: blur ? 0.5 : 1
-      },
-      src: note.url
-    });
   }
 }
 
@@ -6686,6 +5340,40 @@ class MdNote extends ReactDOM$1.PureComponent {
   }
 }
 
+const Row = /*#__PURE__*/x(({
+  bsPrefix,
+  className,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = 'div',
+  ...props
+}, ref) => {
+  const decoratedBsPrefix = useBootstrapPrefix(bsPrefix, 'row');
+  const breakpoints = useBootstrapBreakpoints();
+  const minBreakpoint = useBootstrapMinBreakpoint();
+  const sizePrefix = `${decoratedBsPrefix}-cols`;
+  const classes = [];
+  breakpoints.forEach(brkPoint => {
+    const propValue = props[brkPoint];
+    delete props[brkPoint];
+    let cols;
+    if (propValue != null && typeof propValue === 'object') {
+      ({
+        cols
+      } = propValue);
+    } else {
+      cols = propValue;
+    }
+    const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
+    if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
+  });
+  return /*#__PURE__*/e(Component, {
+    ref: ref,
+    ...props,
+    className: classNames(className, decoratedBsPrefix, ...classes)
+  });
+});
+Row.displayName = 'Row';
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -6795,6 +5483,8 @@ var Component = function (_a) {
 Component.defaultProps = secondaryColorDefaultProps;
 var SpinnerCircularSplit = withSharedProps(Component);
 
+// import { SpinnerCircularSplit } from 'spinners-react';
+
 class ViewNote extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
@@ -6805,17 +5495,14 @@ class ViewNote extends ReactDOM$1.PureComponent {
       workspace: propTypes$2.exports.string
     };
   }
-  showOrbitView() {}
   render() {
     const {
       notebookPath,
       note,
       onClickView,
-      selected,
       workspace
     } = this.props;
     const {
-      blur = false,
       view,
       sourceLocation
     } = note;
@@ -6839,26 +5526,15 @@ class ViewNote extends ReactDOM$1.PureComponent {
     };
     const viewIdClass = viewId ? `viewId_${viewId}` : '';
     if (!note.url) {
-      return v$1(SpinnerCircularSplit, {
-        color: "#36d7b7",
-        size: Math.min(width, height) * 0.8
-      });
+      return v$1("div", null);
     }
-    const ref = selected && /*#__PURE__*/p$1();
-    if (selected) {
-      y(() => ref.current.scrollIntoView(true));
-    }
-    const border = selected ? '1px dashed dodgerblue' : '0px';
     return v$1("img", {
-      ref: ref,
-      class: `note view ${viewIdClass}`,
+      class: viewIdClass,
       style: {
-        display: 'block',
-        height: `${height}px`,
-        width: `${width}px`,
-        border,
-        opacity: blur ? 0.5 : 1
+        width,
+        height
       },
+      variant: "top",
       src: note.url,
       onClick: onClick
     });
@@ -7038,82 +5714,62 @@ class Notebook extends ReactDOM$1.PureComponent {
         return nthA - nthB;
       };
       ordered.sort(order);
-      let id;
-      const ids = [];
-      let children;
-      let downloads;
-      let errors;
-      let icons;
-      let entry;
+      const entries = new Map();
       for (const note of ordered) {
-        if (note.sourceLocation.id !== id) {
-          id = note.sourceLocation.id;
-          children = [];
-          downloads = [];
-          errors = [];
-          icons = [];
-          entry = {
-            id,
-            blue: false,
-            children,
-            downloads,
-            errors,
-            icons
-          };
-          ids.push(entry);
+        const id = note.sourceLocation.id;
+        if (!entries.has(id)) {
+          entries.set(id, {
+            blur: false,
+            downloads: [],
+            errors: [],
+            views: [],
+            mds: [],
+            controls: [],
+            editors: []
+          });
         }
+        const entry = entries.get(id);
         // FIX: This seems wasteful.
         const selected = false;
-        let child;
-        let download;
-        let error;
-        let icon;
         if (note.view) {
-          child = v$1(ViewNote, {
+          entry.views.push(v$1(ViewNote, {
             key: note.hash,
             note: note,
             onClickView: onClickView,
             selected: selected
-          });
-          icon = v$1(IconNote, {
-            key: note.hash,
-            note: note
-          });
-          if (note.blur) {
-            entry.blur = true;
-          }
+          }));
         } else if (note.error) {
-          child = v$1(ErrorNote, {
+          entry.errors.push(v$1(Card$1.Body, {
+            variant: "danger"
+          }, v$1(Card$1.Text, null, v$1(ErrorNote, {
             key: note.hash,
             note: note,
             selected: selected,
             workspace: workspace
-          });
-          error = child;
+          }))));
         } else if (note.md) {
-          child = v$1(MdNote, {
+          entry.mds.push(v$1(MdNote, {
             key: note.hash,
             note: note,
             selected: selected,
             workspace: workspace
-          });
+          }));
         } else if (note.download) {
-          child = v$1(DownloadNote, {
+          entry.downloads.push(v$1(DownloadNote, {
             key: note.hash,
             note: note,
             selected: selected,
             workspace: workspace
-          });
-          download = child;
+          }));
         } else if (note.control) {
-          child = v$1(ControlNote, {
+          entry.controls.push(v$1(ControlNote, {
             key: note.hash,
             note: note,
             selected: selected,
             workspace: workspace
-          });
+          }));
         } else if (note.sourceText !== undefined) {
-          child = v$1(EditNote, {
+          entry.editors.push(v$1(EditNote, {
             key: note.hash,
             note: note,
             onChange: sourceText => onChange(note, {
@@ -7122,19 +5778,7 @@ class Notebook extends ReactDOM$1.PureComponent {
             onKeyDown: onKeyDown,
             selected: selected,
             workspace: workspace
-          });
-        }
-        if (children && child) {
-          children.push(child);
-        }
-        if (downloads && download) {
-          downloads.push(download);
-        }
-        if (icons && icon) {
-          icons.push(icon);
-        }
-        if (errors && error) {
-          errors.push(error);
+          }));
         }
       }
       y(() => mermaid.init(undefined, '.mermaid'));
@@ -7148,24 +5792,27 @@ class Notebook extends ReactDOM$1.PureComponent {
           return 0;
         }
       };
+      const ids = [...entries.keys()];
       ids.sort((a, b) => compare(a.id, b.id));
-      for (const {
-        id,
-        blur = false,
-        children = [],
-        downloads = [],
-        errors = [],
-        icons = []
-      } of ids) {
-        sections.push(v$1(Accordion$1, {
-          key: id,
-          defaultActiveKey: id
-        }, v$1(Accordion$1.Item, {
-          eventKey: id
-        }, v$1(Accordion$1.Header, null, id, " \xA0\xA0 ", errors.length > 0 ? errors[0] : '', " ", icons, ' ', "\xA0\xA0 ", downloads, ' ', blur ? v$1(SpinnerCircularSplit, {
+      for (const id of ids) {
+        const {
+          downloads = [],
+          errors = [],
+          views = [],
+          mds = [],
+          controls = [],
+          editors = []
+        } = entries.get(id);
+        sections.push(v$1(Card$1, {
+          key: id
+        }, v$1(Card$1.Header, {
+          id: `note-id-${id}`
+        }, id), errors, v$1(Container, null, v$1(Row, null, views.map((view, nth) => v$1(Col, {
+          key: nth
+        }, view)), controls.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, controls)) : [], downloads.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, downloads)) : [])), v$1(Card$1.Body, null, false ? v$1(SpinnerCircularSplit, {
           color: "#36d7b7",
           size: "32"
-        }) : ''), v$1(Accordion$1.Body, null, children))));
+        }) : '', mds, editors)));
       }
       return v$1("div", {
         id: notebookPath,
@@ -7173,7 +5820,7 @@ class Notebook extends ReactDOM$1.PureComponent {
         style: {
           overflow: 'auto'
         }
-      }, state === 'running' && v$1(SpinnerCircularSplit, {
+      }, false && state === 'running' && v$1(SpinnerCircularSplit, {
         color: "#36d7b7",
         size: 64,
         style: {
@@ -7193,6 +5840,7 @@ class Notebook extends ReactDOM$1.PureComponent {
 class DynamicView extends ReactDOM$1.PureComponent {
   static get propTypes() {
     return {
+      onIndicatePoint: propTypes$2.exports.func,
       path: propTypes$2.exports.string,
       view: propTypes$2.exports.object,
       workspace: propTypes$2.exports.string
@@ -7200,6 +5848,7 @@ class DynamicView extends ReactDOM$1.PureComponent {
   }
   async buildElement(container) {
     const {
+      onIndicatePoint,
       path,
       view,
       workspace
@@ -7211,12 +5860,18 @@ class DynamicView extends ReactDOM$1.PureComponent {
       workspace
     });
     const {
+      anchorControls,
       updateGeometry
     } = await orbitDisplay({
       path,
       geometry,
       view
     }, container);
+    anchorControls.addEventListener('indicatePoint', ({
+      point
+    }) => {
+      if (onIndicatePoint) onIndicatePoint(point);
+    });
     this.watcher = async () => {
       updateGeometry(await read(path, {
         workspace
