@@ -5646,6 +5646,7 @@ const updateNotebookState = async (application, {
             const offscreenCanvas = canvas.transferControlToOffscreen();
             for (let nth = 0; nth < 3; nth++) {
               try {
+                console.log(`QQ/ask staticView nth=${nth}`);
                 url = await application.ask({
                   op: 'app/staticView',
                   path,
@@ -5673,6 +5674,7 @@ const updateNotebookState = async (application, {
             }
           }
           if (url) {
+            note.url = url;
             updateNote({
               hash: note.hash,
               url,
@@ -5832,10 +5834,7 @@ class Notebook extends ReactDOM$3.PureComponent {
           id: `note-id-${id}`
         }, id), errors, v$1(Container, null, v$1(Row, null, views.map((view, nth) => v$1(Col, {
           key: nth
-        }, view)), controls.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, controls)) : [], downloads.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, downloads)) : [])), v$1(Card$1.Body, null, false ? v$1(SpinnerCircularSplit, {
-          color: "#36d7b7",
-          size: "32"
-        }) : '', mds, editors)));
+        }, view)), controls.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, controls)) : [], downloads.length > 0 ? v$1(Card$1, null, v$1(Card$1.Body, null, downloads)) : [])), v$1(Card$1.Body, null, mds, editors)));
       }
       return v$1("div", {
         id: notebookPath,
@@ -5912,6 +5911,12 @@ class DynamicView extends ReactDOM$3.PureComponent {
     while (this.container.firstChild !== this.container.lastChild) {
       this.container.removeChild(this.container.firstChild);
     }
+  }
+  shouldComponentUpdate(nextProps) {
+    if (this.props.path !== nextProps.path) {
+      return true;
+    }
+    return false;
   }
   render() {
     return v$1("div", {
