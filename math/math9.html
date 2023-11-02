@@ -22,14 +22,14 @@
        { value: m.buildAddition, weight: 5 },
        { value: m.buildMultiplication21, weight: 5 },
        { value: m.buildMultiplication22, weight: 5 },
-       { value: m.buildMultiplicationTens, weight: 5 },
-       { value: m.buildMultiplicationThousands, weight: 5 },
+       { value: m.buildMultiplicationTens, weight: 1 },
+       { value: m.buildMultiplicationThousands, weight: 1 },
        { value: m.buildMultiplicationOneOffTens, weight: 5 },
        { value: m.buildMultiplicationOneOffHundreds, weight: 5 },
-       { value: m.buildMultiplicationInequality, weight: 5 },
-       { value: m.buildMultiplicationInequalitySimple, weight: 5 },
-       { value: m.buildRationalAddition, weight: 5 },
-       { value: m.buildRationalSubtraction, weight: 5 },
+       // { value: m.buildMultiplicationInequality, weight: 50 },
+       { value: m.buildMultiplicationInequalitySimple, weight: 50 },
+       { value: m.buildRationalAddition, weight: 50 },
+       { value: m.buildRationalSubtraction, weight: 50 },
        { value: m.buildDecimalDecimalSubtraction, weight: 5 },
        { value: m.buildIntegerRationalSubtraction, weight: 5 },
        { value: m.buildIntegerDecimalSubtraction, weight: 5 },
@@ -62,9 +62,7 @@
        { value: m.buildConvertibleUnitMultiplication, weight: 5 },
        { value: m.buildConvertibleUnitDivision, weight: 50 },
        { value: m.buildSystemOfEquations, weight: 100 },
-       { value: m.buildSVOSentence, weight: 100 },
-       { value: m.buildSameBasisAddition, weight: 200, limit: 1 },
-       { value: m.buildCopyDigits, weight: 200, limit: 1 }
+       { value: m.buildSameBasisAddition, weight: 200, limit: 3 },
      ], chosen)(chosen);
 
    const buildSet = (container) => {

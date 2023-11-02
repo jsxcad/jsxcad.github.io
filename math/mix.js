@@ -7,19 +7,12 @@ export const chooseFromList = (list, chosen) =>
          }
        }), chosen);
 
-export const buildVocabulary = (phrases, [korean, english]) => {
+export const buildVocabulary = ([korean, english]) => {
      const translation = new Map();
      for (let i = 0; i < korean.length; i++) {
        translation.set(english[i], korean[i]);
      }
      const vocabulary = new Set(english);
-     /*
-     for (const phrase of phrases) {
-       for (const word of phrase.split(' ')) {
-         vocabulary.add(word);
-       }
-     }
-     */
      const shuffle = (array) => {
        for (let attempt = 0; attempt < 100; attempt++) {
          const original = array.join('');
@@ -38,6 +31,34 @@ export const buildVocabulary = (phrases, [korean, english]) => {
      const questions = [];
      for (const word of vocabulary) {
        questions.push({ value: `${translation.get(word)} [${shuffle(word.split('')).join('')}] = `, weight: word.length });
+     }
+     return questions;
+   };
+
+export const buildCopying = ([korean, english]) => {
+     const translation = new Map();
+     for (let i = 0; i < korean.length; i++) {
+       translation.set(english[i], korean[i]);
+     }
+     const vocabulary = new Set(english);
+     const shuffle = (array) => {
+       for (let attempt = 0; attempt < 100; attempt++) {
+         const original = array.join('');
+         let currentIndex = array.length;
+         while (currentIndex != 0) {
+           const randomIndex = Math.floor(Math.random() * currentIndex);
+           currentIndex--;
+           [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+         }
+         if (array.join('') != original) {
+           return array;
+         }
+       }
+       return array;
+     }
+     const questions = [];
+     for (const word of vocabulary) {
+       questions.push({ value: `${word} = `, weight: word.length });
      }
      return questions;
    };
@@ -104,52 +125,13 @@ export const buildVocabulary = (phrases, [korean, english]) => {
 "words", "work", "world", "would", "write", "year", "yes", "yet", "you", "young", "your ",
      ]];
 
-export  const englishVocabulary = buildVocabulary([
-     "who is he",
-     "let's play baseball",
-     "do you want some ice cream",
-     "what are you doing",
-     "what day is it",
-     "what's your name",
-     "listen and speak",
-     "play and have fun",
-     "let's sing this is",
-     "think and talk",
-     "class friend teacher name",
-     "read and write",
-     "culture project",
-     "story time",
-     "wrap up",
-     "look and listen",
-     "listen and do",
-     "angry", "happy", "hungry", "sad",
-     "who is he",
-     "she's tall",
-     "dad mom brother sister",
-     "play basketball badminton soccer baseball",
-     "is this your watch",
-     "your glue eraser shoe watch pencil",
-     "it's time for breakfast dinner lunch breakfast",
-     "it's under the table on the desk under the chair in the box",
-     "shoe glue in under dinner bed",
-     "do you want some rice cake",
-     "cat hat",
-     "do you want some ice cream rice cake apple pie",
-     "yes please",
-     "can I touch it come in sit here",
-     "sure",
-     "bed red",
-     "I'm drawing a picture reading a book making a robot",
-     "take off the scarf please",
-     "put on your jacket please skirt pants scarf",
-     "long song",
-     "can I help you",
-     "I like this doll fan bat how much is it hundred thousand one two three four five six seven eight nine ten",
-     "up cup",
-     "Monday Tuesday Wednesday Thursday Friday Saturday Sunday",
-     "day play"], englishToKorean);
+export  const englishVocabulary = buildVocabulary(englishToKorean);
+
+export  const englishCopying = buildCopying(englishToKorean);
 
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
+
+export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying, chosen);
 
 export   const pickKoreanWord = () =>
      chooseFromList(
@@ -754,7 +736,7 @@ export   const pickSubject = () =>
        }
        const product = x * y;
        const t = `${product}`;
-       if (t.length !== 3) {
+       if (t.length < 3) {
          continue;
        }
        return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
@@ -770,7 +752,7 @@ export   const pickSubject = () =>
        }
        const product = x * y;
        const t = `${product}`;
-       if (t.length !== 3) {
+       if (t.length < 3) {
          continue;
        }
        return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
@@ -1064,7 +1046,7 @@ export   const pickSubject = () =>
              continue;
            }
            switch (pick(2)) {
-             case 0: return Pre(`x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x / y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
+             case 0: return Pre(`x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x ${kDivide} y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
              case 1: return Pre(`x ${kDivide} y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
            }
          }
