@@ -36,29 +36,23 @@ export const buildVocabulary = ([korean, english]) => {
    };
 
 export const buildCopying = ([korean, english]) => {
-     const translation = new Map();
-     for (let i = 0; i < korean.length; i++) {
-       translation.set(english[i], korean[i]);
-     }
      const vocabulary = new Set(english);
-     const shuffle = (array) => {
-       for (let attempt = 0; attempt < 100; attempt++) {
-         const original = array.join('');
-         let currentIndex = array.length;
-         while (currentIndex != 0) {
-           const randomIndex = Math.floor(Math.random() * currentIndex);
-           currentIndex--;
-           [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-         }
-         if (array.join('') != original) {
-           return array;
-         }
-       }
-       return array;
-     }
      const questions = [];
      for (const word of vocabulary) {
        questions.push({ value: `${word} = `, weight: word.length });
+     }
+     return questions;
+   };
+
+export const buildPrompt = () => {
+     const vocabulary = new Set(
+       ["because", "then", "since", "until", "seemed", "looked", "felt",
+        "thought", "said", "afterward", "before", "so", "therefore", "thought",
+        "strangely", "mysteriously", "unusually", "often", "rarely",
+        "sometimes"]);
+     const questions = [];
+     for (const word of vocabulary) {
+       questions.push({ value: `${word}`, weight: word.length });
      }
      return questions;
    };
@@ -129,9 +123,13 @@ export  const englishVocabulary = buildVocabulary(englishToKorean);
 
 export  const englishCopying = buildCopying(englishToKorean);
 
+export  const englishPrompts = buildPrompt();
+
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
 export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying, chosen);
+
+export   const buildPromptWord = (chosen) => chooseFromList(englishPrompts, chosen);
 
 export   const pickKoreanWord = () =>
      chooseFromList(
