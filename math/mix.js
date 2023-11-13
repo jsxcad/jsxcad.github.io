@@ -49,7 +49,20 @@ export const buildPrompt = () => {
        ["because", "then", "since", "until", "seemed", "looked", "felt",
         "thought", "said", "afterward", "before", "so", "therefore", "thought",
         "strangely", "mysteriously", "unusually", "often", "rarely",
-        "sometimes"]);
+        "sometimes", "happy", "angry", "sad", "glad", "bad", "good", "interesting", "boring",
+        "jealous", "kind", "mean", "orange", "violet", "blue", "pink", "delicious", "horrible",
+        "ugly", "beautiful", "expensive", "cheap", "fast", "slow", "quick", "clumsy",
+        "careful", "dangerous", "safe", "sloppy", "stupid", "clever", "intelligent", "dumb",
+        "tiny", "huge", "small", "large", "ordinary", "extraordinary", "telescope", "planet",
+        "star", "rainbow", "cave", "waterfall", "computer", "paper", "train", "truck", "bicycle",
+        "shop", "thief", "doctor", "maniac", "person", "badly", "well", "ill", "healthy",
+        "turnip", "fish", "animal", "spider", "insect", "crab", "crocodile", "monkey",
+        "volcano", "mountain", "field", "swamp", "forest", "snow", "desert", "ice", "lava",
+        "cliff", "skyscraper", "hospital", "fire", "water", "earth", "air", "ambulance",
+        "fire station", "train station", "airport", "submarine", "spaceship", "alien",
+        "plant", "elephant", "dog", "cat", "mouse", "giant", "goblin", "elf", "nose", "ear",
+        "tongue", "finger", "hand", "leg", "foot", "knee", "elbow", "bellybutton", "shoulder",
+        "turtle", "shoe", "glove", "hat", "scarf", "zoom", "zip", "zap"]);
      const questions = [];
      for (const word of vocabulary) {
        questions.push({ value: `${word}`, weight: word.length });
