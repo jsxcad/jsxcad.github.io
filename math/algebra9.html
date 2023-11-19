@@ -1,0 +1,76 @@
+<html>
+ <head>
+  <style>
+    table { font-size: 0.75em; vertical-align: top };
+    @font-face {
+      font-family: dancingScript;
+      font-style: normal;
+      font-weight: normal;
+      src: url("https://jsxcad.js.org/math/DancingScript-Regular.ttf");
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+   import * as m from './mix.js';
+   const { body } = document;
+
+   const buildProblem = (chosen) =>
+     m.choose([
+       { value: m.buildDistanceTimeProblem, weight: 5 },
+       { value: m.buildTimeDistanceProblem, weight: 5 },
+       { value: m.buildTimeMeetProblem, weight: 5 },
+       { value: m.buildWorkTogetherTimeProblem, weight: 5 },
+       { value: m.buildWorkApartTimeProblem, weight: 5 },
+       { value: m.buildAttendanceCountProblem, weight: 5 },
+       { value: m.buildLeverWeightProblem, weight: 5 },
+       { value: m.buildLeverDistanceProblem, weight: 5 },
+       { value: m.buildAgeProblem, weight: 5 },
+       { value: m.buildProportionProblem, weight: 5 },
+       { value: m.buildPerimeterDimensionsProblem, weight: 5 },
+       { value: m.buildAngleProblem, weight: 5 },
+       { value: m.buildPerimeterSideProblem, weight: 5 },
+     ], chosen)(chosen);
+
+   const buildSet = (container) => {
+     // Three Groups
+     for (let i = 0; i < 1; i++) {
+       // Five Items
+       const table = document.createElement('table');
+       const chosen = new Map();
+       for (let j = 0; j < 2; j++) {
+         const row = document.createElement('tr');
+         row.style.outline = 'thin dotted';
+         row.style.height = '460px';
+         const cell = document.createElement('td');
+         cell.style.textAlign = 'left';
+         cell.style.verticalAlign = 'top';
+         cell.innerHTML = buildProblem(chosen);
+         cell.style.padding = '5px';
+         row.appendChild(cell);
+         table.appendChild(row);
+       }
+       table.style.width = '100%';
+       table.style.tableLayout = 'fixed';
+       return table;
+     }
+   }
+   const t = document.createElement('table');
+   for (let i = 0; i < 1; i++) {
+     {
+       const tr = document.createElement('tr');
+       tr.style = 'height: 32px';
+       for (let i = 0; i < 2; i++) {
+         const td = document.createElement('td');
+         td.style = 'width: 30%; height: 32px; vertical-align: top; font-size: 2em; font-family: monospace';
+         td.appendChild(buildSet());
+         tr.appendChild(td);
+         td.style.padding = '1em';
+       }
+       t.appendChild(tr);
+     }
+   }
+   body.appendChild(t);
+  </script>
+ </body>
+</html>

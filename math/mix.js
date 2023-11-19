@@ -729,6 +729,7 @@ export   const pickSubject = () =>
    export const Rational = (numerator, denominator) =>
      `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
 
+   export const kWorkedAnswer = '<br><br><br><br><br><br>';
    export const kAnswer = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
    export const kMinus = '\u002D';
    export const kPlus = '\u002B';
@@ -1020,23 +1021,6 @@ export   const pickSubject = () =>
 
    export const buildSameBasisAddition = () => { const basis = pick(1, 11); return Pre(`${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`); };
 
-   export const buildCopyDigits = () => {
-     const a = String(pick(0, 10000)).padStart(4, '0');
-     const b = String(pick(0, 10000)).padStart(4, '0');
-     const c = String(pick(0, 10000)).padStart(4, '0');
-     const d = String(pick(0, 10000)).padStart(4, '0');
-     const e = String(pick(0, 10000)).padStart(4, '0');
-     const f = String(pick(0, 10000)).padStart(4, '0');
-     const g = String(pick(0, 10000)).padStart(4, '0');
-     const h = String(pick(0, 10000)).padStart(4, '0');
-     const i = String(pick(0, 10000)).padStart(4, '0');
-     return `<table>
-               <tr><td>${a}</td><td>${kAnswer}</td><td>${b}</td><td>${kAnswer}</td><td>${c}</td><td>${kAnswer}</td></tr>
-               <tr><td>${d}</td><td>${kAnswer}</td><td>${e}</td><td>${kAnswer}</td><td>${f}</td><td>${kAnswer}</td></tr>
-               <tr><td>${g}</td><td>${kAnswer}</td><td>${h}</td><td>${kAnswer}</td><td>${i}</td><td>${kAnswer}</td></tr>
-             </table>`;
-   };
-
    export const buildSystemOfEquations = () => {
      switch (pick(2)) {
        case 0: // x + y = b; x - y = c;
@@ -1063,6 +1047,94 @@ export   const pickSubject = () =>
          }
        }
      };
+
+   export const buildDistanceTimeProblem = () => {
+     return `Two trains leave the same train station at the same time, but in opposite directions.<br>
+             The faster train travels at an average rate of 75 km/h and the slower train travels at an average rate of 68 km/h.<br>
+             <br>
+             In how many hours will they be 715 km apart?<br>`;
+   }
+
+   export const buildTimeDistanceProblem = () => {
+     return `Mr. Granger, a cyclist, rode from his home to his office at the average speed of 18 km per hour.<br>
+             On his return home from his office, using the same route, he averaged 12 km per hour.<br>
+             <br>
+             If the total round trip took 5 hours, what was the distance from his home to his office?<br>`;
+   }
+
+   export const buildTimeMeetProblem = () => {
+     return `Steve starts out on his moped at the rate of 40 km per hour.<br>
+             Two hours later, Bill drives his car along the same route at 55 km per hour.<br>
+             <br>
+             In how much time will Bill overtake Steve?<br>`;
+   }
+
+   export const buildWorkTogetherTimeProblem = () => {
+     return `It takes Mr. Rose 10 hours to complete a printing job.<br>
+             His helper John can complete the same job in 15 hours.<br>
+             <br>
+             If Mr. Rose and John work together, how long will it take them to complete the job?<br>`;
+   }
+
+   export const buildWorkApartTimeProblem = () => {
+     return `Nancy can do a typing job in 8 hours.<br>
+             When Carole helps her, they can do the job together in 5 hours.<br>
+             <br>
+             How long would it take Carole to do the job alone?`;
+   }
+
+   export const buildAttendanceCountProblem = () => {
+     return `A civic auditorium has 1,300 seats.<br>
+             At a holiday community function, all seats were sold.<br>
+             Adult tickets cost $3.50 each and children's tickets cost $2.00 each.<br>
+             <br>
+             If the total amount collected was $3,800.00, how many of each ticket were sold?`;
+   }
+
+   export const buildLeverWeightProblem = () => {
+     return `A 40 kg weight is placed 2 meters from the fulcrum of a lever.<br>
+             An unknown weight is placed 4 meters from the fulcrum.<br>
+             <br>
+             Find the unknown weight if the lever is balanced.`;
+   }
+
+   export const buildLeverDistanceProblem = () => {
+     return `A 100 kg weight is 3 meters nearer the fulcrum than a 70 kg weight.<br>
+             <br>
+             Find the distance from the fulcrum of each weight if the level is to balance.`;
+   }
+
+   export const buildAgeProblem = () => {
+     return `Juan is 5 years older than his brother Carlos.<br>
+             Five years ago, Juan was twice as old as Carlos.<br>
+             <br>
+             How old is each now?`;
+   }
+
+   export const buildProportionProblem = () => {
+     return `12 pencils cost 42 cents.<br>
+             <br>
+             How much would 100 pencils cost?`;
+   }
+
+   export const buildPerimeterDimensionsProblem = () => {
+     return `The length of a rectangle is 10 less than 3 times its width.<br>
+             <br>
+             If the perimeter is 140 cm, what are the dimensions of the rectangle?`;
+   }
+
+   export const buildAngleProblem = () => {
+     return `Angle A is 3 times angle B.<br>
+             Angle B is twice angle C.<br>
+             <br>
+             How many degrees are there in each angle of the triangle?`;
+   }
+
+   export const buildPerimeterSideProblem = () => {
+     return `The perimeter of an equilateral (all sides equal) triangle is 50 cm longer than the length of one side.<br>
+             <br>
+             Find the length of the side.`;
+   };
 
    export const choose = (choices, chosen = new Map()) => {
      let total = 0;
