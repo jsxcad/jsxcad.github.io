@@ -967,6 +967,21 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildRationalOrdering = () => {
+     for (;;) {
+       const xD = pick(-11, 11);
+       const xN = pick(-11, 11);
+       const yD = pick(-11, 11);
+       const yN = pick(-11, 11);
+       const zD = pick(-11, 11);
+       const zN = pick(-11, 11);
+       if (xN === 0 || yN === 0 || zN === 0) {
+         continue;
+       }
+       return `order ${chooseFromList(['<', '>'])}: ${Rational(xD, xN)}, ${Rational(yD, yN)}, ${Rational(zD, zN)}`;
+     }
+   };
+
    export const pickUnit = () => 
      choose([
        { value: 'g', weight: 5 },
