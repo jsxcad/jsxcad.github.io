@@ -1,0 +1,142 @@
+<html>
+ <head>
+  <style>
+    table { font-size: 0.75em; vertical-align: top };
+    @font-face {
+      font-family: dancingScript;
+      font-style: normal;
+      font-weight: normal;
+      src: url("https://jsxcad.js.org/math/DancingScript-Regular.ttf");
+    }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+   import * as m from './mix.js';
+   const { body } = document;
+
+   const buildAlgebraProblem = (chosen) => {
+     const problem = () => m.choose([
+       { value: m.buildDistanceTimeProblem, weight: 5 },
+       { value: m.buildTimeDistanceProblem, weight: 5 },
+       { value: m.buildTimeMeetProblem, weight: 5 },
+       { value: m.buildWorkTogetherTimeProblem, weight: 5 },
+       { value: m.buildWorkApartTimeProblem, weight: 5 },
+       { value: m.buildAttendanceCountProblem, weight: 5 },
+       { value: m.buildLeverWeightProblem, weight: 5 },
+       { value: m.buildLeverDistanceProblem, weight: 5 },
+       { value: m.buildAgeProblem, weight: 5 },
+       { value: m.buildProportionProblem, weight: 5 },
+       { value: m.buildPerimeterDimensionsProblem, weight: 5 },
+       { value: m.buildAngleProblem, weight: 5 },
+       { value: m.buildPerimeterSideProblem, weight: 5 },
+     ], chosen)(chosen);
+     return `<tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>
+             <tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>`;
+   }
+
+   const buildMathProblem = (chosen) => {
+     const problems = [];
+     for (let i = 0; i < 6; i++) {
+       problems.push(
+         m.choose([
+           { value: m.buildSimpleDivision31, weight: 100, limit: 3 },
+           { value: m.buildSimpleDivision32, weight: 5 },
+           { value: m.buildAddition, weight: 5 },
+           { value: m.buildMultiplication21, weight: 5 },
+           { value: m.buildMultiplication22, weight: 5 },
+           { value: m.buildMultiplicationTens, weight: 1 },
+           { value: m.buildMultiplicationThousands, weight: 1 },
+           { value: m.buildMultiplicationOneOffTens, weight: 5 },
+           { value: m.buildMultiplicationOneOffHundreds, weight: 5 },
+           // { value: m.buildMultiplicationInequality, weight: 50 },
+           { value: m.buildMultiplicationInequalitySimple, weight: 50 },
+           { value: m.buildRationalAddition, weight: 50 },
+           { value: m.buildRationalSubtraction, weight: 50 },
+           { value: m.buildDecimalDecimalSubtraction, weight: 5 },
+           { value: m.buildIntegerRationalSubtraction, weight: 5 },
+           { value: m.buildIntegerDecimalSubtraction, weight: 5 },
+           { value: m.buildIntegerDecimalMultiplication, weight: 5 },
+           { value: m.buildIntegerPercentageMultiplication, weight: 5 },
+           { value: m.buildIntegerRationalMultiplication, weight: 5 },
+           { value: m.buildIntegerRationalDivision, weight: 50 },
+           { value: m.buildRationalMultiplication, weight: 5 },
+           { value: m.buildRationalDivision, weight: 50 },
+           { value: m.buildSubtraction, weight: 5 },
+           { value: m.buildTimeAddition, weight: 5 },
+           { value: m.buildTimeSubtraction, weight: 5 },
+           { value: m.buildSquare, weight: 5 },
+           { value: m.buildCube, weight: 5 },
+           { value: m.buildSquareRoot, weight: 5 },
+           { value: m.buildUnitAddition, weight: 1 },
+           { value: m.buildUnitSubtraction, weight: 1 },
+           { value: m.buildUnitMultiplication, weight: 5 },
+           { value: m.buildUnitDivision, weight: 50 },
+           { value: m.buildUnitDimensionlessDivision, weight: 5 },
+           { value: m.buildUnitDimensionlessMultiplication, weight: 5 },
+           { value: m.buildSameUnitAddition, weight: 5 },
+           { value: m.buildSameUnitNegativeAddition, weight: 5 },
+           { value: m.buildSameUnitSubtraction, weight: 5 },
+           { value: m.buildSameUnitMultiplication, weight: 5 },
+           { value: m.buildSameUnitDivision, weight: 50 },
+           { value: m.buildConvertibleUnitAddition, weight: 5 },
+           { value: m.buildConvertibleUnitNegativeAddition, weight: 5 },
+           { value: m.buildConvertibleUnitSubtraction, weight: 5 },
+           { value: m.buildConvertibleUnitMultiplication, weight: 5 },
+           { value: m.buildConvertibleUnitDivision, weight: 50 },
+           { value: m.buildSystemOfEquations, weight: 100 },
+           { value: m.buildSameBasisAddition, weight: 200, limit: 3 },
+           { value: m.buildRationalOrdering, weight: 200, limit: 3 },
+         ], chosen)(chosen));
+      }
+      const rows = [];
+      for (const problem of problems) {
+        rows.push(`<tr style="outline: thin dotted; height: 76px"><td>${problem}</td></tr>`);
+      }
+      return rows.join('\n');
+   }
+
+   const buildStoryProblem = (chosen) => {
+     const build = (chosen) =>
+       m.choose([
+         { value: m.buildPromptWord, weight: 200, limit: Infinity },
+       ], chosen)(chosen);
+     const rows = [];
+     for (let j = 0; j < 3 * 5 - 1; j++) {
+       rows.push(`<tr style="height: 31px; outline: thin dotted; margin: 10px"><td>${j % 5 === 4 ? build(chosen) : ''}</td></tr>`);
+     }
+     return rows.join('\n');
+   }
+
+   const buildSpellingProblem = (chosen) => {
+     const problems = [];
+     for (let i = 0; i < 6; i++) {
+       problems.push(
+         m.choose([
+           { value: m.buildSpellingQuestion, weight: 200, limit: Infinity },
+         ], chosen)(chosen)
+       );
+     }
+     const rows = [];
+     for (const problem of problems) {
+       rows.push(`<tr style="outline: thin dotted; height: 76px"><td>${problem}</td></tr>`);
+     }
+     return rows.join('\n');
+   };
+
+   const buildProblem = (chosen) => {
+     const problem = m.chooseFromList([buildAlgebraProblem, buildMathProblem, buildStoryProblem, buildSpellingProblem], chosen, { limit: 1 });
+     return `<table style="border: solid; width: 100%">${problem(chosen)}</table>`;
+   }
+
+   const t = document.createElement('table');
+   const chosen = new Map();
+   body.innerHTML = `
+     <table style="width: 100%">
+       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildProblem(chosen)}</td></tr>
+       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildProblem(chosen)}</td></tr>
+     </table>
+   `;
+  </script>
+ </body>
+</html>

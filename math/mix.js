@@ -1,11 +1,15 @@
-export const chooseFromList = (list, chosen) =>
-     choose(list.map(value => {
-         if (value instanceof Object) {
-           return value;
-         } else {
-           return { value, weight: 5 };
-         }
-       }), chosen);
+export const chooseFromList = (list, chosen, { limit } = {}) => {
+  const choices = list.map(value => {
+    if (value instanceof Function) {
+      return { value, weight: 5, limit };
+    } else if (value instanceof Object) {
+      return value;
+    } else {
+      return { value, weight: 5, limit };
+    }
+  });
+  return choose(choices, chosen);
+};
 
 export const buildVocabulary = ([korean, english]) => {
      const translation = new Map();
@@ -1063,91 +1067,214 @@ export   const pickSubject = () =>
        }
      };
 
-   export const buildDistanceTimeProblem = () => {
-     return `Two trains leave the same train station at the same time, but in opposite directions.<br>
-             The faster train travels at an average rate of 75 km/h and the slower train travels at an average rate of 68 km/h.<br>
-             <br>
-             In how many hours will they be 715 km apart?<br>`;
+   const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
+   const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle']);
+   const pickThings = (chosen) => chooseFromList(['pencils', 'flowers', 'bullets', 'watermelons', 'mysterious cubes', 'dogs', 'noses']);
+   const pickJob = (chosen) => chooseFromList(['typing', 'painting', 'writing', 'mowing', 'building', 'demolition', 'transport', 'complex']);
+   const pickPlace = (chosen) => chooseFromList(['auditorium', 'theater', 'prison']);
+
+   export const buildDistanceTimeProblem = (chosen) => {
+     for (;;) {
+       const r1 = pick(1, 100);
+       const r2 = pick(1, 100);
+       if (r1 <= r2) {
+         continue;
+       }
+       const h = pick(1, 10);
+       const d = r1 * h + r2 * h;
+       const v1 = pickVehicle(chosen);
+       const v2 = pickVehicle(chosen);
+       return `A ${v1} and a ${v2} leave from the same place at the same time, but in opposite directions.<br><br>
+               The ${v1} travels at an average rate of ${r1} km/h and the ${v2} travels at an average rate of ${r2} km/h.<br><br>
+               In how many hours will they be ${d} km apart?`;
+     }
    }
 
-   export const buildTimeDistanceProblem = () => {
-     return `Mr. Granger, a cyclist, rode from his home to his office at the average speed of 18 km per hour.<br>
-             On his return home from his office, using the same route, he averaged 12 km per hour.<br>
-             <br>
-             If the total round trip took 5 hours, what was the distance from his home to his office?<br>`;
+   export const buildTimeDistanceProblem = (chosen) => {
+     for (;;) {
+       const r1 = pick(10, 20);
+       const r2 = pick(10, 20);
+       if (r1 === r2) {
+         continue;
+       }
+       const h = pick(1, 10);
+       const n1 = pickName(chosen);
+       const v1 = pickVehicle(chosen);
+       return `${n1} took their ${v1} from home to office at the average speed of ${r1} km/h.<br><br>
+               On return home from the office, using the same route, they averaged ${r2} km/h.<br><br>
+               If the total round trip took ${h} hours, what was the distance from home to office?<br>`;
+     }
    }
 
-   export const buildTimeMeetProblem = () => {
-     return `Steve starts out on his moped at the rate of 40 km per hour.<br>
-             Two hours later, Bill drives his car along the same route at 55 km per hour.<br>
-             <br>
-             In how much time will Bill overtake Steve?<br>`;
+   export const buildTimeMeetProblem = (chosen) => {
+     for (;;) {
+       const r1 = pick(10, 100);
+       const r2 = pick(10, 100);
+       if (r2 <= r1) {
+         continue;
+       }
+       const n1 = pickName(chosen);
+       const v1 = pickVehicle(chosen);
+       const n2 = pickName(chosen);
+       const v2 = pickVehicle(chosen);
+       const h1 = pick(1, 5);
+       return `${n1} starts out on a ${v1} at the rate of ${r1} km/h.<br><br>
+               ${h1} hours later, ${n2} drives a ${v2} along the same route at ${r2} km/h.<br><br>
+               In how much time will ${n2} overtake ${n1}?<br>`;
+     }
    }
 
-   export const buildWorkTogetherTimeProblem = () => {
-     return `It takes Mr. Rose 10 hours to complete a printing job.<br>
-             His helper John can complete the same job in 15 hours.<br>
-             <br>
-             If Mr. Rose and John work together, how long will it take them to complete the job?<br>`;
+   export const buildWorkTogetherTimeProblem = (chosen) => {
+     for (;;) {
+       const h1 = pick(1, 20);
+       const h2 = pick(1, 20);
+       if (h1 >= h2) {
+         continue;
+       }
+       const n1 = pickName(chosen);
+       const n2 = pickName(chosen);
+       const j = pickJob(chosen);
+       return `It takes ${n1} ${h1} hours to complete a ${j} job.<br><br>
+               His helper ${n2} can complete the same job in ${h2} hours.<br><br>
+               If ${n1} and ${n2} work together, how long will it take them to complete the job?`;
+     }
    }
 
-   export const buildWorkApartTimeProblem = () => {
-     return `Nancy can do a typing job in 8 hours.<br>
-             When Carole helps her, they can do the job together in 5 hours.<br>
-             <br>
-             How long would it take Carole to do the job alone?`;
+   export const buildWorkApartTimeProblem = (chosen) => {
+     for (;;) {
+       const h1 = pick(1, 10);
+       const h2 = pick(1, 10);
+       if (h2 >= h1) {
+         continue;
+       }
+       const n1 = pickName(chosen);
+       const n2 = pickName(chosen);
+       const j = pickJob(chosen);
+       return `${n1} can do a ${j} job in ${h1} hours.<br><br>
+               When ${n2} helps, they can do the job together in ${h2} hours.<br><br>
+               How long would it take ${n2} to do the job alone?`;
+     }
    }
 
-   export const buildAttendanceCountProblem = () => {
-     return `A civic auditorium has 1,300 seats.<br>
-             At a holiday community function, all seats were sold.<br>
-             Adult tickets cost $3.50 each and children's tickets cost $2.00 each.<br>
-             <br>
-             If the total amount collected was $3,800.00, how many of each ticket were sold?`;
+   export const buildAttendanceCountProblem = (chosen) => {
+     for (;;) {
+       const s = pick(20, 100);
+       const t1 = pick(1, 11);
+       const t2 = pick(1, 11);
+       if (t1 <= t2) {
+         continue;
+       }
+       const p = pickPlace(chosen);
+       const s1 = pick(0, s);
+       const s2 = s - s1;
+       const c = s1 * t1 + s2 * t2;
+       return `A ${p} has ${s} seats, which were all sold.<br><br>
+               Adult tickets cost $${t1} each and children's tickets cost $${t2} each.<br><br>
+               If the total amount collected was $${c}, how many of each ticket were sold?`;
+     }
    }
 
    export const buildLeverWeightProblem = () => {
-     return `A 40 kg weight is placed 2 meters from the fulcrum of a lever.<br>
-             An unknown weight is placed 4 meters from the fulcrum.<br>
-             <br>
-             Find the unknown weight if the lever is balanced.`;
+     for (;;) {
+       const d2 = pick(1, 11);
+       if (d2 < 2) {
+         continue;
+       }
+       const w1 = pick(1, 101);
+       const d1 = pick(1, 11);
+       const w2 = (w1 * d1) / d2;
+       if (!Number.isInteger(w2)) {
+         continue;
+       }
+       return `A ${w1} kg weight is placed ${d1} meters from the fulcrum of a lever.<br><br>
+               An unknown weight is placed ${d2} meters from the fulcrum.<br><br>
+               Find the unknown weight if the lever is balanced.`;
+     }
    }
 
    export const buildLeverDistanceProblem = () => {
-     return `A 100 kg weight is 3 meters nearer the fulcrum than a 70 kg weight.<br>
-             <br>
-             Find the distance from the fulcrum of each weight if the level is to balance.`;
+     for (;;) {
+       const w1 = pick(1, 101);
+       const d1 = pick(1, 11);
+       const d2 = pick(1, 11);
+       if (d1 >= d2) {
+         continue;
+       }
+       const dd = d2 - d1;
+       const w2 = (w1 * d1) / d2;
+       if (!Number.isInteger(w2)) {
+         continue;
+       }
+       return `A ${w1} kg weight is ${dd} meters nearer the fulcrum than a ${w2} kg weight.<br><br>
+               Find the distance from the fulcrum of each weight if the level is to balance.`;
+     }
    }
 
-   export const buildAgeProblem = () => {
-     return `Juan is 5 years older than his brother Carlos.<br>
-             Five years ago, Juan was twice as old as Carlos.<br>
-             <br>
-             How old is each now?`;
+   export const buildAgeProblem = (chosen) => {
+     for (;;) {
+       const a1 = pick(1, 20);
+       for (let a2 = 1; a2 < a1; a2++) {
+         const d1 = a1 - a2;
+         let d2;
+         for (let n = 1; n < a1; n++) {
+           if ((a1 - n) === (a2 - n) * 2) {
+             d2 = n;
+             break;
+           }
+         }
+         if (d2 === undefined) {
+           continue;
+         }
+         const n1 = pickName(chosen);
+         const n2 = pickName(chosen);
+         return `${n1} is ${d1} years older than ${n2}.<br><br>
+                 ${d2} years ago, ${n1} was twice as old as ${n2}.<br><br>
+                 How old is each now?`;
+       }
+     }
    }
 
-   export const buildProportionProblem = () => {
-     return `12 pencils cost 42 cents.<br>
-             <br>
-             How much would 100 pencils cost?`;
+   export const buildProportionProblem = (chosen) => {
+     for (;;) {
+       const n1 = pick(2, 101);
+       const n2 = pick(2, 101);
+       const c1 = pick(1, 101);
+       if (n1 === n2) {
+         continue;
+       }
+       const t1 = pickThings(chosen);
+       return `${n1} ${t1} cost ${c1} cents.<br><br>
+               How much would ${n2} ${t1} cost?`;
+     }
    }
 
    export const buildPerimeterDimensionsProblem = () => {
-     return `The length of a rectangle is 10 less than 3 times its width.<br>
-             <br>
-             If the perimeter is 140 cm, what are the dimensions of the rectangle?`;
+     for (;;) {
+       const l = pick(1, 101);
+       const d = pick(1, 11);
+       const m = pick(2, 6);
+       // l = w * m - d;
+       const w = (l + d) / m;
+       const p = l * 2 + w * 2;
+       if (!Number.isInteger(p)) {
+         continue;
+       }
+       return `The length of a rectangle is ${d} cm less than ${m} times its width.<br><br>
+               If the perimeter is ${p} cm, what are the dimensions of the rectangle?`;
+     }
    }
 
    export const buildAngleProblem = () => {
-     return `Angle A is 3 times angle B.<br>
-             Angle B is twice angle C.<br>
-             <br>
+     const a = pick(1, 5);
+     const b = pick(1, 5);
+     return `Angle A is ${a} times angle B.<br><br>
+             Angle B is ${b} times angle C.<br><br>
              How many degrees are there in each angle of the triangle?`;
    }
 
    export const buildPerimeterSideProblem = () => {
-     return `The perimeter of an equilateral (all sides equal) triangle is 50 cm longer than the length of one side.<br>
-             <br>
+     const n = pick(10, 101);
+     return `The perimeter of an equilateral (all sides equal) triangle is ${n} cm longer than the length of one side.<br><br>
              Find the length of the side.`;
    };
 
