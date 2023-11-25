@@ -1289,14 +1289,18 @@ export   const pickSubject = () =>
      let choice = pick(total);
      for (const { weight = 1, value, limit = 1 } of choices) {
        const count = chosen.get(value) || 0;
+       console.log(`choose: value=${value} count=${count} limit=${limit} weight=${weight}`);
        if (count >= limit) {
+         console.log(`choose: count=${count} exceeds limit=${limit}`);
          continue;
        }
        if (weight >= choice) {
+         console.log(`choose: select`);
          chosen.set(value, count + 1);
          return value;
        }
        choice -= weight;
+       console.log(`choose: next choice=${choice}`);
      }
      throw Error('Choose failed to make a choice');
    };
