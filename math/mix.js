@@ -762,13 +762,16 @@ export   const pickSubject = () =>
    export const buildSimpleDivision32 = () => {
      for (let i = 0; i < Infinity; i++) {
        const x = pick(1000);
+       if (x < 100) {
+         continue;
+       }
        const y = pick(100);
-       if (y < 2) {
+       if (y < 10) {
          continue;
        }
        const product = x * y;
        const t = `${product}`;
-       if (t.length < 3) {
+       if (t.length < 4) {
          continue;
        }
        return Pre(`${x} ${kDivide} ${y} = ${kAnswer}`);
@@ -1038,7 +1041,10 @@ export   const pickSubject = () =>
    export const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
    export const buildConvertibleUnitDivision = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`); };
 
-   export const buildSameBasisAddition = () => { const basis = pick(1, 11); return Pre(`${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`); };
+   export const buildSameBasisAddition = () => {
+     const basis = pick(1, 11);
+     return Pre(`${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`);
+   };
 
    export const buildSystemOfEquations = () => {
      switch (pick(2)) {
@@ -1100,7 +1106,7 @@ export   const pickSubject = () =>
        const h = pick(1, 10);
        const n1 = pickName(chosen);
        const v1 = pickVehicle(chosen);
-       return `${n1} took their ${v1} from home to office at the average speed of ${r1} km/h.<br><br>
+       return `${n1} took a ${v1} from home to office at the average speed of ${r1} km/h.<br><br>
                On return home from the office, using the same route, they averaged ${r2} km/h.<br><br>
                If the total round trip took ${h} hours, what was the distance from home to office?<br>`;
      }
@@ -1237,7 +1243,8 @@ export   const pickSubject = () =>
    export const buildProportionProblem = (chosen) => {
      for (;;) {
        const n1 = pick(2, 101);
-       const n2 = pick(2, 101);
+       // const n2 = pick(2, 101);
+       const n2 = n1 * pick(2, 10);
        const c1 = pick(1, 101);
        if (n1 === n2) {
          continue;

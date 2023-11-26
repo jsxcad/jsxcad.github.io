@@ -13,15 +13,15 @@
 
    const buildAlgebraProblem = (chosen) => {
      const problem = () => m.choose([
-       { value: m.buildDistanceTimeProblem, weight: 5 },
-       { value: m.buildTimeDistanceProblem, weight: 5 },
-       { value: m.buildTimeMeetProblem, weight: 5 },
+       // { value: m.buildDistanceTimeProblem, weight: 5 },
+       // { value: m.buildTimeDistanceProblem, weight: 5 },
+       // { value: m.buildTimeMeetProblem, weight: 5 },
        { value: m.buildWorkTogetherTimeProblem, weight: 5 },
        { value: m.buildWorkApartTimeProblem, weight: 5 },
-       { value: m.buildAttendanceCountProblem, weight: 5 },
+       // { value: m.buildAttendanceCountProblem, weight: 5 },
        { value: m.buildLeverWeightProblem, weight: 5 },
        { value: m.buildLeverDistanceProblem, weight: 5 },
-       { value: m.buildAgeProblem, weight: 5 },
+       // { value: m.buildAgeProblem, weight: 5 },
        { value: m.buildProportionProblem, weight: 5 },
        { value: m.buildPerimeterDimensionsProblem, weight: 5 },
        { value: m.buildAngleProblem, weight: 5 },
@@ -36,8 +36,8 @@
      for (let i = 0; i < 6; i++) {
        problems.push(
          m.choose([
-           { value: m.buildSimpleDivision31, weight: 100, limit: 3 },
-           { value: m.buildSimpleDivision32, weight: 5 },
+           { value: m.buildSimpleDivision31, weight: 100 },
+           { value: m.buildSimpleDivision32, weight: 100 },
            { value: m.buildAddition, weight: 5 },
            { value: m.buildMultiplication21, weight: 5 },
            { value: m.buildMultiplication22, weight: 5 },
@@ -66,40 +66,45 @@
            { value: m.buildSquareRoot, weight: 5 },
            { value: m.buildUnitAddition, weight: 1 },
            { value: m.buildUnitSubtraction, weight: 1 },
-           { value: m.buildUnitMultiplication, weight: 5 },
-           { value: m.buildUnitDivision, weight: 50 },
-           { value: m.buildUnitDimensionlessDivision, weight: 5 },
-           { value: m.buildUnitDimensionlessMultiplication, weight: 5 },
-           { value: m.buildSameUnitAddition, weight: 5 },
-           { value: m.buildSameUnitNegativeAddition, weight: 5 },
-           { value: m.buildSameUnitSubtraction, weight: 5 },
+           { value: m.buildUnitMultiplication, weight: 1 },
+           { value: m.buildUnitDivision, weight: 1 },
+           { value: m.buildUnitDimensionlessDivision, weight: 1 },
+           { value: m.buildUnitDimensionlessMultiplication, weight: 1 },
+           { value: m.buildSameUnitAddition, weight: 1 },
+           { value: m.buildSameUnitNegativeAddition, weight: 1 },
+           { value: m.buildSameUnitSubtraction, weight: 1 },
            { value: m.buildSameUnitMultiplication, weight: 5 },
-           { value: m.buildSameUnitDivision, weight: 50 },
+           { value: m.buildSameUnitDivision, weight: 5 },
            { value: m.buildConvertibleUnitAddition, weight: 5 },
            { value: m.buildConvertibleUnitNegativeAddition, weight: 5 },
            { value: m.buildConvertibleUnitSubtraction, weight: 5 },
            { value: m.buildConvertibleUnitMultiplication, weight: 5 },
            { value: m.buildConvertibleUnitDivision, weight: 50 },
            { value: m.buildSystemOfEquations, weight: 100 },
-           { value: m.buildSameBasisAddition, weight: 200, limit: 3 },
-           { value: m.buildRationalOrdering, weight: 200, limit: 3 },
+           { value: m.buildSameBasisAddition, weight: 1 },
+           { value: m.buildRationalOrdering, weight: 200 },
          ], chosen)(chosen));
       }
       const rows = [];
       for (const problem of problems) {
-        rows.push(`<tr style="outline: thin dotted; height: 76px"><td>${problem}</td></tr>`);
+        rows.push(`<tr style="outline: thin dotted; height: 76px"><td style="vertical-align: middle">${problem}</td></tr>`);
       }
       return rows.join('\n');
    }
 
    const buildStoryProblem = (chosen) => {
-     const build = (chosen) =>
+     const getVocab = (chosen) =>
        m.choose([
          { value: m.buildPromptWord, weight: 200, limit: Infinity },
        ], chosen)(chosen);
+     const vocab = [];
+     for (let i = 0; i < 5; i++) {
+       vocab.push(getVocab(chosen));
+     }
      const rows = [];
-     for (let j = 0; j < 3 * 5 - 1; j++) {
-       rows.push(`<tr style="height: 31px; outline: thin dotted; margin: 10px"><td>${j % 5 === 4 ? build(chosen) : ''}</td></tr>`);
+     rows.push(`<tr style="height: 31px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
+     for (let j = 1; j < 3 * 5 - 1; j++) {
+       rows.push(`<tr style="height: 31px; outline: thin dotted; margin: 10px"><td></td></tr>`);
      }
      return rows.join('\n');
    }

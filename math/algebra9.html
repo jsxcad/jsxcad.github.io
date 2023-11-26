@@ -13,19 +13,19 @@
 
    const buildAlgebraProblem = (chosen) => {
      const problem = () => m.choose([
-       // { value: m.buildDistanceTimeProblem, weight: 5 },
-       // { value: m.buildTimeDistanceProblem, weight: 5 },
-       // { value: m.buildTimeMeetProblem, weight: 5 },
-       // { value: m.buildWorkTogetherTimeProblem, weight: 5 },
-       // { value: m.buildWorkApartTimeProblem, weight: 5 },
-       // { value: m.buildAttendanceCountProblem, weight: 5 },
+       { value: m.buildDistanceTimeProblem, weight: 5 },
+       { value: m.buildTimeDistanceProblem, weight: 5 },
+       { value: m.buildTimeMeetProblem, weight: 5 },
+       { value: m.buildWorkTogetherTimeProblem, weight: 5 },
+       { value: m.buildWorkApartTimeProblem, weight: 5 },
+       { value: m.buildAttendanceCountProblem, weight: 5 },
        { value: m.buildLeverWeightProblem, weight: 5 },
-       // { value: m.buildLeverDistanceProblem, weight: 5 },
-       // { value: m.buildAgeProblem, weight: 5 },
+       { value: m.buildLeverDistanceProblem, weight: 5 },
+       { value: m.buildAgeProblem, weight: 5 },
        { value: m.buildProportionProblem, weight: 5, limit: 8 },
-       // { value: m.buildPerimeterDimensionsProblem, weight: 5 },
-       // { value: m.buildAngleProblem, weight: 5 },
-       // { value: m.buildPerimeterSideProblem, weight: 5 },
+       { value: m.buildPerimeterDimensionsProblem, weight: 5 },
+       { value: m.buildAngleProblem, weight: 5 },
+       { value: m.buildPerimeterSideProblem, weight: 5 },
      ], chosen)(chosen);
      return `<tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>
              <tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>`;
