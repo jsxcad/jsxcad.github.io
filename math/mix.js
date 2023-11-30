@@ -1276,7 +1276,7 @@ export   const pickSubject = () =>
      const b = pick(1, 5);
      return `Angle A is ${a} times angle B.<br><br>
              Angle B is ${b} times angle C.<br><br>
-             How many degrees are there in each angle of the triangle?`;
+             Given triangle ABC, what are A, B, and C?`;
    }
 
    export const buildPerimeterSideProblem = () => {

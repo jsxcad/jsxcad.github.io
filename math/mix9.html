@@ -26,6 +26,8 @@
        { value: m.buildPerimeterDimensionsProblem, weight: 5 },
        { value: m.buildAngleProblem, weight: 5 },
        { value: m.buildPerimeterSideProblem, weight: 5 },
+       // This isn't algebra, but it is similarly expensive.
+       { value: m.buildSimpleDivision32, weight: 5 },
      ], chosen)(chosen);
      return `<tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>
              <tr style="outline: thin dotted; height: 230px"><td style="vertical-align: top">${problem()}</td></tr>`;
@@ -37,7 +39,7 @@
        problems.push(
          m.choose([
            { value: m.buildSimpleDivision31, weight: 100 },
-           { value: m.buildSimpleDivision32, weight: 100 },
+           // { value: m.buildSimpleDivision32, weight: 100 },
            { value: m.buildAddition, weight: 5 },
            { value: m.buildMultiplication21, weight: 5 },
            { value: m.buildMultiplication22, weight: 5 },
