@@ -831,8 +831,8 @@ export   const pickSubject = () =>
 
    export const kInequalities = `<table style="display: inline"><tr><td>&lt;</td></tr><tr><td>=</td></tr><tr><td>&gt;</td></tr></table>`;
 
-   export const buildMultiplicationInequality = () =>
-     Pre(`${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
+   // export const buildMultiplicationInequality = () =>
+   //  Pre(`${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
 
    export const isInteger = (a) => Math.floor(a) === a;
 
@@ -844,7 +844,11 @@ export   const pickSubject = () =>
        const bb = pick(1, 101);
        const bf = pick(1, 11);
        const b = bb * bf;
-       if (Math.abs(a - b) > 20) {
+       if (af === bf) {
+         continue;
+       }
+       const r = a / b;
+       if (r < 0.95 || r > 1.05) {
          continue;
        }
        if (!isInteger(af / bf) && !isInteger(bf / af)) {
@@ -974,18 +978,16 @@ export   const pickSubject = () =>
      }
    }
 
-   export const buildRationalOrdering = () => {
+   export const buildRationalInequality = () => {
      for (;;) {
        const xD = pick(-11, 11);
        const xN = pick(-11, 11);
        const yD = pick(-11, 11);
        const yN = pick(-11, 11);
-       const zD = pick(-11, 11);
-       const zN = pick(-11, 11);
-       if (xN === 0 || yN === 0 || zN === 0) {
+       if (xN === 0 || yN === 0 || xN === yN) {
          continue;
        }
-       return `order ${chooseFromList(['<', '>'])}: ${Rational(xD, xN)}, ${Rational(yD, yN)}, ${Rational(zD, zN)}`;
+       return `${Rational(xD, xN)} ${kInequalities} ${Rational(yD, yN)}`;
      }
    };
 
@@ -1039,7 +1041,15 @@ export   const pickSubject = () =>
    export const buildConvertibleUnitNegativeAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 0)} ${b} = ${kAnswer}`); };
    export const buildConvertibleUnitSubtraction = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kMinus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
    export const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
-   export const buildConvertibleUnitDivision = () => { const [a, b] = pickConvertibleUnitPair(); return Pre(`${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`); };
+   export const buildConvertibleUnitDivision = () => {
+     for (;;) {
+       const [a, b] = pickConvertibleUnitPair();
+       if (a === 'g' && b === 'kg') {
+         continue;
+       }
+       return Pre(`${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`);
+     }
+   };
 
    export const buildSameBasisAddition = () => {
      const basis = pick(1, 11);
@@ -1076,7 +1086,7 @@ export   const pickSubject = () =>
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
    const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle']);
    const pickThings = (chosen) => chooseFromList(['pencils', 'flowers', 'bullets', 'watermelons', 'mysterious cubes', 'dogs', 'noses']);
-   const pickJob = (chosen) => chooseFromList(['typing', 'painting', 'writing', 'mowing', 'building', 'demolition', 'transport', 'complex']);
+   const pickJob = (chosen) => chooseFromList(['type', 'paint', 'write', 'mow', 'build', 'demolish', 'transport', 'read']);
    const pickPlace = (chosen) => chooseFromList(['auditorium', 'theater', 'prison']);
 
    export const buildDistanceTimeProblem = (chosen) => {
@@ -1140,9 +1150,9 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return `It takes ${n1} ${h1} hours to complete a ${j} job.<br><br>
-               His helper ${n2} can complete the same job in ${h2} hours.<br><br>
-               If ${n1} and ${n2} work together, how long will it take them to complete the job?`;
+       return `${n1} can ${j} in ${h1} hours.<br>
+               ${n2} can ${j} in ${h2} hours.<br>
+               How long does it take if they ${j} together?`;
      }
    }
 
@@ -1156,9 +1166,9 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return `${n1} can do a ${j} job in ${h1} hours.<br><br>
-               When ${n2} helps, they can do the job together in ${h2} hours.<br><br>
-               How long would it take ${n2} to do the job alone?`;
+       return `${n1} can ${j} in ${h1} hours alone.<br>
+               ${n1} and ${n2} can ${j} together in ${h2} hours.<br>
+               How long does it take if ${n2} works alone?`;
      }
    }
 
@@ -1192,8 +1202,8 @@ export   const pickSubject = () =>
        if (!Number.isInteger(w2)) {
          continue;
        }
-       return `A ${w1} kg weight is placed ${d1} meters from the fulcrum of a lever.<br><br>
-               An unknown weight is placed ${d2} meters from the fulcrum.<br><br>
+       return `${w1} kg is placed ${d1} meters from the center of a lever.<br>
+               An unknown weight is placed ${d2} meters from the center.<br>
                Find the unknown weight if the lever is balanced.`;
      }
    }
@@ -1211,8 +1221,8 @@ export   const pickSubject = () =>
        if (!Number.isInteger(w2)) {
          continue;
        }
-       return `A ${w1} kg weight is ${dd} meters nearer the fulcrum than a ${w2} kg weight.<br><br>
-               Find the distance from the fulcrum of each weight if the level is to balance.`;
+       return `${w1} kg is ${dd} meters nearer the center of a balanced level than ${w2} kg.<br>
+               Find the distance of the weights from the center.`;
      }
    }
 
@@ -1243,15 +1253,26 @@ export   const pickSubject = () =>
    export const buildProportionProblem = (chosen) => {
      for (;;) {
        const n1 = pick(2, 101);
-       // const n2 = pick(2, 101);
        const n2 = n1 * pick(2, 10);
        const c1 = pick(1, 101);
        if (n1 === n2) {
          continue;
        }
        const t1 = pickThings(chosen);
-       return `${n1} ${t1} cost ${c1} cents.<br><br>
-               How much would ${n2} ${t1} cost?`;
+       switch (pick(4)) {
+         case 0:
+           return `${n1} ${t1} cost ${c1} cents.<br>
+                   How much would ${n2} ${t1} cost?`;
+         case 1:
+           return `${n1} ${t1} weigh ${c1} kg.<br>
+                   How much would ${n2} ${t1} weigh?`;
+         case 2:
+           return `${n1} ${t1} stack ${c1} meters tall.<br>
+                   How tall would ${n2} ${t1} stack?`;
+         case 3:
+           return `${n1} ${t1} fill ${c1} boxes.<br>
+                   How many boxes would ${n2} ${t1} fill?`;
+       }
      }
    }
 
@@ -1266,22 +1287,22 @@ export   const pickSubject = () =>
        if (!Number.isInteger(p)) {
          continue;
        }
-       return `The length of a rectangle is ${d} cm less than ${m} times its width.<br><br>
+       return `The length of a rectangle is ${d} cm less than ${m} times its width.<br>
                If the perimeter is ${p} cm, what are the dimensions of the rectangle?`;
      }
    }
 
    export const buildAngleProblem = () => {
-     const a = pick(1, 5);
-     const b = pick(1, 5);
-     return `Angle A is ${a} times angle B.<br><br>
-             Angle B is ${b} times angle C.<br><br>
+     const a = pick(2, 5);
+     const b = pick(2, 5);
+     return `Angle A is ${a} times angle B.<br>
+             Angle B is ${b} times angle C.<br>
              Given triangle ABC, what are A, B, and C?`;
    }
 
    export const buildPerimeterSideProblem = () => {
      const n = pick(10, 101);
-     return `The perimeter of an equilateral (all sides equal) triangle is ${n} cm longer than the length of one side.<br><br>
+     return `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side.<br>
              Find the length of the side.`;
    };
 
