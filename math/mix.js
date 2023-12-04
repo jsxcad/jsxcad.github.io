@@ -74,6 +74,61 @@ export const buildPrompt = () => {
      return questions;
    };
 
+export const buildEmotivePrompt = () => {
+  const vocabulary = new Set(
+    ["underground", "forbidden", "banned", "secret", "concealed", "unbelievable", "covert",
+     "hidden", "magical", "instantly", "left", "magnificent", "miracle", "profitable",
+     "proven", "quick", "remarkable", "results", "revolutionary", "safe", "save", "sensational",
+     "should", "startling", "recommend", "suggest", "superb", "superior", "tremendous", "truly",
+     "trustworthy", "urge", "worthwhile", "limited", "seize", "bargain", "discount", "explode",
+     "extra", "fortune", "freebie", "jackpot", "reduced", "instant", "rocket", "doubtful", "uncertain",
+     "indecisive", "perplexed", "embarrassed", "hesitant", "disillusioned", "distrustful", "misgiving",
+     "unsure", "tense", "stressed", "uncomfortable", "dishonest", "disdainful", "manipulative", "judgmental",
+     "argumentative", "authoritative", "condescending", "distracted", "disoriented", "off-kilter", "frenzied",
+     "blushing", "awkward", "incapable", "paralyzed", "fatigued", "inferior", "vulnerable", "distressed",
+     "pathetic", "distraught", "doomed", "overwhelmed", "incompetent", "incapacitated", "trapped", "squirming",
+     "jittery", "woozy", "twitching", "compulsive", "uncaring", "uninterested", "unresponsive", "terrified",
+     "suspicious", "anxious", "alarmed", "panicked", "threatened", "cowardly", "insecure", "ordeal",
+     "outrageousness", "provoke", "repulsive", "scandal", "severe", "shameful", "shocking", "terrible",
+     "tragic", "unreliable", "unstable", "wicked", "aggravate", "agony", "appalled", "atrocious", "corrupting",
+     "damaging", "deplorable", "disadvantages", "disastrous", "disgusted", "dreadful", "eliminate", "harmful",
+     "harsh", "inconsiderate", "enraged", "offensive", "aggressive", "frustrated", "controlling",
+     "resentful", "malicious", "infuriated", "critical", "violent", "vindictive", "sadistic", "spiteful",
+     "furious", "agitated", "antagonistic", "repulsed", "quarrelsome", "venomous", "rebellious", "exasperated",
+     "impatient", "contrary", "condemning", "seething", "scornful", "sarcastic", "poisonous", "jealous",
+     "ticked off", "revengeful", "retaliating", "reprimanding", "powerless", "despicable", "self-hating",
+     "desperate", "alienated", "pessimistic", "dejected", "accurate", "instantly", "advantage", "always",
+     "bargain", "certain", "certainly", "confident", "convenient", "definitely", "delighted", "easy",
+     "ecstatic", "effective", "emphasize", "extremely", "freedom", "guaranteed", "introducing", "first ever",
+     "investment", "conscientious", "approving", "honored", "privileged", "adaptable", "relaxed", "astonishing",
+     "astounded", "assured", "fulfilled", "genuine", "authentic", "self-sufficient", "reliable",
+     "sure", "secure", "stable", "honest", "truthful", "supportive", "excellent", "responsible", "solid",
+     "trusting", "supported", "absolutely", "bargain", "blissful", "joyous", "delighted", "overjoyed", "gleeful",
+     "thankful", "festive", "ecstatic", "satisfied", "cheerful", "sunny", "elated", "jubilant", "jovial",
+     "fun-loving", "lighthearted", "glorious", "innocent", "child-like", "gratified", "euphoric", "world",
+     "playful", "courageous", "energetic", "liberated", "optimistic", "frisky", "animated", "spirited",
+     "thrilled", "wonderful", "funny", "intelligent", "exhilarated", "spunky", "youthful", "vigorous",
+     "tickled", "creative", "constructive", "helpful", "resourceful", "at ease", "comfortable", "pleased",
+     "encouraged", "surprised", "content", "serene", "bright", "blessed", "motivated", "eager", "keen",
+     "earnest", "inspired", "enthusiastic", "bold", "brave", "daring", "hopeful", "upbeat", "assured", "clear",
+     "balanced", "fine", "okay", "grateful", "carefree", "adequate", "fulfilled", "genuine", "authentic",
+     "forgiving", "sincere", "uplifted", "unburdened", "confident", "self-sufficient", "reliable", "sure",
+     "unique", "dynamic", "tenacious", "cooperative", "productive", "exuberant", "responsive", "conscientious",
+     "approving", "honored", "privileged", "adaptable", "calm", "at ease", "comfortable", "content", "quiet",
+     "certain", "relaxed", "serene", "bright", "blessed", "balanced", "grateful", "carefree", "fulfilled",
+     "genuine", "authentic", "forgiving", "sincere", "uplifted", "unburdened", "confident", "self-sufficient",
+     "glowing", "radiant", "beaming", "reflective", "smiling", "grounded", "unhurried", "open-minded",
+     "efficient", "non-controlling", "unassuming", "trusting", "supported", "fluid", "light", "spontaneous",
+     "aware", "healthy", "meditative", "still", "rested", "waiting", "laughing", "graceful", "natural", "steady",
+     "centered", "placid",
+        ]);
+     const questions = [];
+     for (const word of vocabulary) {
+       questions.push({ value: `${word}`, weight: word.length });
+     }
+     return questions;
+   };
+
    const englishToKorean = [
      ["누구", "이다", "그", "하자", "놀다", "야구", "하다", "너", "원하다", "일부", "얼음", "크림", "무엇", "이다", "행위", "낮", "그것", "뭐야", "당신의", "이름", "듣다", "그리고", "말하다", "가지다", "재미있는", "노래하다", "이것", "생각하다", "말하다", "수업", "친구", "선생님", "읽다", "쓰다", "문화", "프로젝트", "이야기", "시간", "포장하다", "위로", "바라보다", "화난", "행복하다", "배고픈", "슬퍼", "그녀", "키가 큰", "아빠", "엄마", "형제", "자매", "농구", "배드민턴", "축구", "보다", "접착제", "지우개", "구두", "연필", "그것은", "을 위한", "아침", "저녁", "점심", "아래에", "그만큼", "테이블", "에", "책상", "의자", "안에", "상자", "침대", "쌀", "케이크", "고양이", "모자", "사과", "파이", "예", "제발", "할 수 있다", "나", "만지다", "오다", "앉다", "여기", "확신하는", "빨간색", "나는", "그림", "ㅏ", "그림", "독서", "책", "만들기", "로봇", "가져가다", "끄다", "스카프", "놓다", "재킷", "치마", "바지", "긴", "노래", "돕다", "좋다", "인형", "팬", "박쥐", "어떻게", "많이", "백(百)", "천(千)", "하나", "둘", "삼", "네", "다섯", "육", "일곱", "여덟", "아홉", "십", "컵", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
 
@@ -141,12 +196,15 @@ export  const englishVocabulary = buildVocabulary(englishToKorean);
 export  const englishCopying = buildCopying(englishToKorean);
 
 export  const englishPrompts = buildPrompt();
+export  const emotivePrompts = buildEmotivePrompt();
 
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
 export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying, chosen);
 
 export   const buildPromptWord = (chosen) => chooseFromList(englishPrompts, chosen);
+
+export   const buildEmotivePromptWord = (chosen) => chooseFromList(emotivePrompts, chosen);
 
 export   const pickKoreanWord = () =>
      chooseFromList(

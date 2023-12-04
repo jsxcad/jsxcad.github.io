@@ -94,21 +94,21 @@
       return rows.join('\n');
    }
 
-   const buildStoryProblem = (chosen) => {
-     const getVocab = (chosen) =>
-       m.choose([
-         { value: m.buildPromptWord, weight: 200, limit: Infinity },
-       ], chosen)(chosen);
+   const buildStoryProblem = (count, chosen, promptWeight = 200, emotivePromptWeight = 10) => {
      const vocab = [];
-     for (let i = 0; i < 5; i++) {
-       vocab.push(getVocab(chosen));
+     for (let i = 0; i < count; i++) {
+       const choice = m.choose([
+         { value: m.buildPromptWord, weight: promptWeight, limit: Infinity },
+         { value: m.buildEmotivePromptWord, weight: emotivePromptWeight, limit: Infinity },
+       ], chosen);
+       vocab.push(choice(chosen));
      }
      const rows = [];
      rows.push(`<tr style="height: 31px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
      for (let j = 1; j < 3 * 5 - 1; j++) {
        rows.push(`<tr style="height: 31px; outline: thin dotted; margin: 10px"><td></td></tr>`);
      }
-     return rows.join('\n');
+     return `<table style="border: solid; width: 100%">${rows.join('\n')}</table>`;
    }
 
    const buildSpellingProblem = (chosen) => {
@@ -128,7 +128,12 @@
    };
 
    const buildProblem = (chosen) => {
-     const problem = m.chooseFromList([buildAlgebraProblem, buildMathProblem, buildStoryProblem, buildSpellingProblem], chosen, { limit: 1 });
+     const problem = m.choose([
+         { value: buildAlgebraProblem, limit: 1},
+         { value: buildMathProblem, limit: 1 },
+         // { value: buildStoryProblem, limit: 0 },
+         // { value: buildSpellingProblem, limit: 0 },
+       ], chosen);
      return `<table style="border: solid; width: 100%">${problem(chosen)}</table>`;
    }
 
@@ -136,8 +141,8 @@
    const chosen = new Map();
    body.innerHTML = `
      <table style="width: 100%">
-       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildProblem(chosen)}</td></tr>
-       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildProblem(chosen)}</td></tr>
+       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildStoryProblem(5, chosen, 200, 10)}</td></tr>
+       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildStoryProblem(2, chosen, 100, 50)}</td></tr>
      </table>
    `;
   </script>
