@@ -1067,17 +1067,12 @@ export   const pickSubject = () =>
 
    export const pickConvertibleUnitPair = () => 
      choose([
-       { value: ['g', 'kg'], weight: 5 },
        { value: ['kg', 'g'], weight: 5 },
        { value: ['m', 'cm'], weight: 5 },
        { value: ['cm', 'm'], weight: 5 },
-       { value: ['m', 'km'], weight: 5 },
        { value: ['km', 'm'], weight: 5 },
-       { value: ['ml', 'l'], weight: 5 },
        { value: ['l', 'ml'], weight: 5 },
        { value: ['hours', 'minutes'], weight: 5 },
-       { value: ['minutes', 'hours'], weight: 5 },
-       { value: ['minutes', 'second'], weight: 5 },
        { value: ['seconds', 'minutes'], weight: 5 },
      ]);
 

@@ -104,9 +104,9 @@
        vocab.push(choice(chosen));
      }
      const rows = [];
-     rows.push(`<tr style="height: 31px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
-     for (let j = 1; j < 3 * 5 - 1; j++) {
-       rows.push(`<tr style="height: 31px; outline: thin dotted; margin: 10px"><td></td></tr>`);
+     rows.push(`<tr style="height: 29.25px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
+     for (let j = 1; j < 10; j++) {
+       rows.push(`<tr style="height: 29.25px; outline: thin dotted; margin: 10px"><td></td></tr>`);
      }
      return `<table style="border: solid; width: 100%">${rows.join('\n')}</table>`;
    }
@@ -141,8 +141,20 @@
    const chosen = new Map();
    body.innerHTML = `
      <table style="width: 100%">
-       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildStoryProblem(5, chosen, 200, 10)}</td></tr>
-       <tr><td style="width: 50%">${buildProblem(chosen)}</td><td style="width: 50%">${buildStoryProblem(2, chosen, 100, 50)}</td></tr>
+       <tr>
+        <td style="width: 50%">
+         ${buildProblem(chosen)}
+        </td>
+        <td style="width: 50%" rowspan=2>
+         ${buildStoryProblem(5, chosen, 200, 10)}
+         ${buildStoryProblem(2, chosen, 100, 50)}
+         ${buildStoryProblem(2, chosen, 50, 100)}
+        </td></tr>
+       <tr>
+        <td style="width: 50%">
+         ${buildProblem(chosen)}
+        </td>
+       </tr>
      </table>
    `;
   </script>
