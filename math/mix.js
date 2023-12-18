@@ -1359,6 +1359,19 @@ export   const pickSubject = () =>
              Find the length of the side.`;
    };
 
+   export const buildCutProblem = (chosen) => {
+     const n = pickName(chosen);
+     for (;;) {
+       const m = pick(2, 10);
+       const p1 = pick(2, 5);
+       const p2 = pick(2, 5);
+       if (p1 === p2) {
+         continue;
+       }
+       return `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long does it take ${n} to cut a board into ${p2} pieces?`;
+     }
+   };
+
    export const choose = (choices, chosen = new Map()) => {
      let total = 0;
      for (const { value, weight = 1, limit = 1 } of choices) {
