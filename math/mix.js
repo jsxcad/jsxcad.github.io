@@ -789,7 +789,7 @@ export   const pickSubject = () =>
    }
    export const Time = (hours, minutes, size) => `<span style="font-size: 0.75em">${pad(2, pick(24), '0')}시${pad(2, pick(60), '0')}분</span>`;
    export const Rational = (numerator, denominator) =>
-     `<table style="display: inline; font-size: 0.75em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
+     `<table style="display: inline-block; transform: translateY(40%); font-size: 0.5em; text-align: center"><tr><td style="text-align: center; border-bottom: 1px solid black">${numerator}</td></tr><tr><td>${denominator}</td></tr></table>`;
 
    export const kWorkedAnswer = '<br><br><br><br><br><br>';
    export const kAnswer = ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -887,7 +887,8 @@ export   const pickSubject = () =>
    export const buildMultiplication22 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
-   export const kInequalities = `<table style="display: inline"><tr><td>&lt;</td></tr><tr><td>=</td></tr><tr><td>&gt;</td></tr></table>`;
+   // export const kInequalities = `<table style="display: inline-block"><tr><td>&lt;</td><td>=</td><td>&gt;</td></tr></table>`;
+   export const kInequalities = ` [&lt = &gt] `;
 
    // export const buildMultiplicationInequality = () =>
    //  Pre(`${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
@@ -1137,10 +1138,19 @@ export   const pickSubject = () =>
      };
 
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
-   const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle']);
+   const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle', 'train']);
    const pickThings = (chosen) => chooseFromList(['pencils', 'flowers', 'bullets', 'watermelons', 'mysterious cubes', 'dogs', 'noses']);
    const pickJob = (chosen) => chooseFromList(['type', 'paint', 'write', 'mow', 'build', 'demolish', 'transport', 'read']);
    const pickPlace = (chosen) => chooseFromList(['auditorium', 'theater', 'prison']);
+   const pickCity = (chosen) => chooseFromList(['Paris', 'Dubai', 'Madrid', 'Tokyo', 'Amsterdam', 'Berlin', 'Rome', 'New York City', 'Barcelona',
+     'London', 'Singapore', 'Munich', 'Milan', 'Seoul', 'Dublin', 'Osaka', 'Hong Kong', 'Vienna', 'Los Angeles', 'Lisbon', 'Prague',
+     'Sydney', 'Istanbul', 'Melbourne', 'Orlando', 'Frankfurt', 'Kyoto', 'Taipei', 'Florence', 'Toronto', 'Athens', 'Zurich', 'Bangkok',
+     'Las Vegas', 'Miami', 'Kuala Lumpur', 'Venice', 'Abu Dhabi', 'Stockholm', 'Brussels', 'Tel Aviv', 'San Francisco', 'Shanghai',
+     'Warsaw', 'Guangzhou', 'Copenhagen', 'Nice', 'Washington', 'Budapest', 'Shenzhen', 'Vancouver', 'Palma de Mallorca', 'Seville', 'São Paulo',
+     'Valencia', 'Mexico City', 'Antalya', 'Sapporo', 'Beijing', 'Busan', 'Fukuoka', 'Edinburgh', 'Porto', 'Jerusalem', 'Kraków', 'Rio de Janeiro',
+     'Honolulu', 'Montreal', 'Macau', 'Cancún', 'Marne-La-Vallée', 'Doha', 'Sharjah', 'Rhodes', 'Verona', 'Bologna', 'Thessaloniki', 'Buenos Aires',
+     'Lima', 'Phuket', 'Delhi', 'Heraklion', 'Tallinn', 'Pattaya-Chonburi', 'Ho Chi Minh City', 'Playa Del Carmen', 'Johor Bahru', 'Santiago',
+     'Tbilisi', 'Riyadh', 'Vilnius', 'Mugla', 'Zhuhai', 'Mecca', 'Punta Cana', 'Guilin', 'Hanoi', 'Cairo', 'Muscat']);
 
    export const buildDistanceTimeProblem = (chosen) => {
      for (;;) {
@@ -1255,9 +1265,7 @@ export   const pickSubject = () =>
        if (!Number.isInteger(w2)) {
          continue;
        }
-       return `${w1} kg is placed ${d1} meters from the center of a lever.<br>
-               An unknown weight is placed ${d2} meters from the center.<br>
-               Find the unknown weight if the lever is balanced.`;
+       return `${w1} kg balances ${d1} meters from the center of a lever against another weight ${d2} meters from the center. What is the other weight?`;
      }
    }
 
@@ -1274,8 +1282,8 @@ export   const pickSubject = () =>
        if (!Number.isInteger(w2)) {
          continue;
        }
-       return `${w1} kg is ${dd} meters nearer the center of a balanced level than ${w2} kg.<br>
-               Find the distance of the weights from the center.`;
+       const r = chooseFromList(['nearer to', 'further from']);
+       return `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`;
      }
    }
 
@@ -1329,6 +1337,11 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildPerimeterSideProblem = () => {
+     const n = pick(10, 101);
+     return `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side. Find the length of the side.`;
+   }
+
    export const buildPerimeterDimensionsProblem = () => {
      for (;;) {
        const l = pick(1, 101);
@@ -1340,8 +1353,7 @@ export   const pickSubject = () =>
        if (!Number.isInteger(p)) {
          continue;
        }
-       return `The length of a rectangle is ${d} cm less than ${m} times its width.<br>
-               If the perimeter is ${p} cm, what are the dimensions of the rectangle?`;
+       return `The length of a rectangle is ${d} cm less than ${m} times its width. If the perimeter is ${p} cm, what are the dimensions of the rectangle?`;
      }
    }
 
@@ -1353,10 +1365,23 @@ export   const pickSubject = () =>
              Given triangle ABC, what are A, B, and C?`;
    }
 
-   export const buildPerimeterSideProblem = () => {
-     const n = pick(10, 101);
-     return `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side.<br>
-             Find the length of the side.`;
+   export const buildSideAreaDimensionsProblem = () => {
+     const n = pick(2, 10);
+     const w = pick(1, 20);
+     const a = w * (w * n);
+     return `A rectangle is 4 times longer than its width. The area is ${a} cm<sup>2</sup>. Find the length and width.`;
+   };
+
+   export const buildTrainCarsRationalProblem = () => {
+     for (;;) {
+       const c = pick(2, 10);
+       const n = pick(1, 20);
+       const d = pick(1, 20);
+       if (n > d) {
+         continue;
+       }
+       return `${c} cars is ${Rational(n, d)} of a train. How many cars does the train have?`;
+     }
    };
 
    export const buildCutProblem = (chosen) => {
@@ -1371,6 +1396,30 @@ export   const pickSubject = () =>
        return `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long does it take ${n} to cut a board into ${p2} pieces?`;
      }
    };
+
+   export const buildTravelTimeBetweenCitiesProblem = (chosen) => {
+     const v = pickVehicle(chosen);
+     const n1 = pickCity(chosen);
+     const n2 = pickCity(chosen);
+     for (;;) {
+       const s = pick(1, 300);
+       const t = pick(2, 10);
+       const d = s * t;
+       return `My ${v} is traveling ${d} km from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`;
+     }
+   }
+
+   export const buildTravelDistanceBetweenCitiesProblem = (chosen) => {
+     const v = pickVehicle(chosen);
+     const n1 = pickCity(chosen);
+     const n2 = pickCity(chosen);
+     for (;;) {
+       const s = pick(1, 300);
+       const t = pick(2, 10);
+       const d = s * t;
+       return `My ${v} takes ${t} hours to travel from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`;
+     }
+   }
 
    export const buildCoinProblem = (chosen) => {
      const n = pickName(chosen);
