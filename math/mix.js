@@ -1372,6 +1372,22 @@ export   const pickSubject = () =>
      }
    };
 
+   export const buildCoinProblem = (chosen) => {
+     const n = pickName(chosen);
+     for (;;) {
+       const p1 = pick(2, 20);
+       const p2 = pick(2, 20);
+       if (p1 <= p2) {
+         continue;
+       }
+       const c = 100 / (p1 - p2);
+       if (!Number.isInteger(c)) {
+         continue;
+       }
+       return `${n} has ${p1} coins of the same kind. The coins have the same value as one dollar and ${p2} coins. What is the coin?`;
+     }
+   };
+
    export const choose = (choices, chosen = new Map()) => {
      let total = 0;
      for (const { value, weight = 1, limit = 1 } of choices) {
