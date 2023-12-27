@@ -1139,6 +1139,7 @@ export   const pickSubject = () =>
 
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
    const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle', 'train', 'aeroplane']);
+   const pickFuel = (chosen) => chooseFromList(['boxes', 'rods', 'crystals', 'bulbs', 'batteries', 'liters', 'pellets']);
    const pickThings = (chosen) => chooseFromList(['pencils', 'flowers', 'bullets', 'watermelons', 'mysterious cubes', 'dogs', 'noses']);
    const pickJob = (chosen) => chooseFromList(['type', 'paint', 'write', 'mow', 'build', 'demolish', 'transport', 'read']);
    const pickPlace = (chosen) => chooseFromList(['auditorium', 'theater', 'prison']);
@@ -1387,13 +1388,13 @@ export   const pickSubject = () =>
    export const buildCutProblem = (chosen) => {
      const n = pickName(chosen);
      for (;;) {
-       const m = pick(2, 10);
-       const p1 = pick(2, 5);
-       const p2 = pick(2, 5);
+       const m = pick(2, 20);
+       const p1 = pick(2, 20);
+       const p2 = pick(2, 20);
        if (p1 === p2) {
          continue;
        }
-       return `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long does it take ${n} to cut a board into ${p2} pieces?`;
+       return `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`;
      }
    };
 
@@ -1418,6 +1419,25 @@ export   const pickSubject = () =>
        const t = pick(2, 10);
        const d = s * t;
        return `My ${v} takes ${t} hours to travel from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`;
+     }
+   }
+
+   export const buildVehicleFuelDistanceProblem = (chosen) => {
+     const v = pickVehicle(chosen);
+     const f = pickFuel(chosen);
+     for (;;) {
+       const s = pick(1, 100);
+       const t = pick(2, 20);
+       const a1 = pick(2, 10);
+       const a2 = pick(2, 10);
+       if (t < a1 || t < a2) {
+         continue;
+       }
+       if (a1 == a2) {
+         continue;
+       }
+       const d = s * a1;
+       return `A ${v} has ${t} ${f} for fuel. It can travel ${d} km on ${a1} ${f}. How far can it go using ${a2} ${f}?`;
      }
    }
 

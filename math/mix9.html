@@ -30,7 +30,9 @@
        // This isn't algebra, but it is similarly expensive.
        // { value: m.buildSimpleDivision32, weight: 5 },
        { value: m.buildTravelTimeBetweenCitiesProblem, weight: 5 },
-       { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 }
+       { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 },
+       { value: m.buildVehicleFuelDistanceProblem, weight: 5 },
+       { value: m.buildCutProblem, weight: 5 }
      ], chosen)(chosen);
      return `<table style="border: solid; width: 100%; height: 315"><tr style="outline: thin dotted"><td style="vertical-align: top">${problem()}</td></tr></table>`;
    }
