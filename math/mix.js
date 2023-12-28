@@ -1140,6 +1140,7 @@ export   const pickSubject = () =>
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
    const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle', 'train', 'aeroplane']);
    const pickFuel = (chosen) => chooseFromList(['boxes', 'rods', 'crystals', 'bulbs', 'batteries', 'liters', 'pellets']);
+   const pickThing = (chosen) => chooseFromList(['pencil', 'flower', 'bullet', 'watermelon', 'mysterious cube', 'dog', 'nose']);
    const pickThings = (chosen) => chooseFromList(['pencils', 'flowers', 'bullets', 'watermelons', 'mysterious cubes', 'dogs', 'noses']);
    const pickJob = (chosen) => chooseFromList(['type', 'paint', 'write', 'mow', 'build', 'demolish', 'transport', 'read']);
    const pickPlace = (chosen) => chooseFromList(['auditorium', 'theater', 'prison']);
@@ -1454,6 +1455,18 @@ export   const pickSubject = () =>
          continue;
        }
        return `${n} has ${p1} coins of the same kind. The coins have the same value as one dollar and ${p2} coins. What is the coin?`;
+     }
+   };
+
+   export const buildCostPlusProblem = (chosen) => {
+     const n = pickThing(chosen);
+     for (;;) {
+       const n = pick(1, 5);
+       const d = pick(1, 5);
+       if (n >= d) {
+         continue;
+       }
+       return `A ${n} costs ${c} plus ${Rational(n, d)} its cost. What is the cost?`;
      }
    };
 
