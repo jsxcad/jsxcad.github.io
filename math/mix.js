@@ -1397,6 +1397,9 @@ export   const pickSubject = () =>
        if (p1 === p2) {
          continue;
        }
+       if (!Number.isInteger(m / (p1 - 1)) || m == (p1 - 1)) {
+         continue;
+       }
        return `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`;
      }
    };
