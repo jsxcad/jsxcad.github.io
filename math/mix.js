@@ -11,6 +11,11 @@ export const chooseFromList = (list, chosen, { limit } = {}) => {
   return choose(choices, chosen);
 };
 
+export const chooseFromUniformList = (list, chosen, { limit } = {}) => {
+  const choices = list.map(value => ({ value, weight: 5, limit }));
+  return choose(choices, chosen);
+};
+
 export const buildVocabulary = ([korean, english]) => {
      const translation = new Map();
      for (let i = 0; i < korean.length; i++) {
@@ -1074,7 +1079,7 @@ export   const pickSubject = () =>
        { value: ['km', 'm'], weight: 5 },
        { value: ['l', 'ml'], weight: 5 },
        { value: ['hours', 'minutes'], weight: 5 },
-       { value: ['seconds', 'minutes'], weight: 5 },
+       { value: ['minutes', 'seconds'], weight: 5 },
      ]);
 
    export const buildUnitAddition = () => Pre(`${pick(-11, 11)} ${pickUnit()} ${kPlus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
@@ -1155,6 +1160,138 @@ export   const pickSubject = () =>
      'Honolulu', 'Montreal', 'Macau', 'Cancún', 'Marne-La-Vallée', 'Doha', 'Sharjah', 'Rhodes', 'Verona', 'Bologna', 'Thessaloniki', 'Buenos Aires',
      'Lima', 'Phuket', 'Delhi', 'Heraklion', 'Tallinn', 'Pattaya-Chonburi', 'Ho Chi Minh City', 'Playa Del Carmen', 'Johor Bahru', 'Santiago',
      'Tbilisi', 'Riyadh', 'Vilnius', 'Mugla', 'Zhuhai', 'Mecca', 'Punta Cana', 'Guilin', 'Hanoi', 'Cairo', 'Muscat'], chosen);
+
+   const addReverseCityPairs = (pairs) => {
+     const reverses = [];
+     for (const { cities, distance_km } of pairs) {
+       reverses.push({ cities: [...cities].reverse(), distance_km });
+     }
+     return [...pairs, ...reverses];
+   }
+
+   const pickCityPair = (chosen) => chooseFromUniformList(addReverseCityPairs([
+     {"cities": ["New York City, USA", "Los Angeles, USA"], "distance_km": 3948},
+     {"cities": ["Tokyo, Japan", "Sydney, Australia"], "distance_km": 7772},
+     {"cities": ["London, UK", "Paris, France"], "distance_km": 344},
+     {"cities": ["Beijing, China", "Moscow, Russia"], "distance_km": 5807},
+     {"cities": ["Rio de Janeiro, Brazil", "Buenos Aires, Argentina"], "distance_km": 2000},
+     {"cities": ["Cairo, Egypt", "Cape Town, South Africa"], "distance_km": 7925},
+     {"cities": ["Delhi, India", "Dubai, UAE"], "distance_km": 2786},
+     {"cities": ["Toronto, Canada", "Mexico City, Mexico"], "distance_km": 3296},
+     {"cities": ["Berlin, Germany", "Rome, Italy"], "distance_km": 1151},
+     {"cities": ["Seoul, South Korea", "Hanoi, Vietnam"], "distance_km": 2839},
+     {"cities": ["Istanbul, Turkey", "Tehran, Iran"], "distance_km": 1770},
+     {"cities": ["Bangkok, Thailand", "Jakarta, Indonesia"], "distance_km": 1722},
+     {"cities": ["Moscow, Russia", "St. Petersburg, Russia"], "distance_km": 634},
+     {"cities": ["Sydney, Australia", "Auckland, New Zealand"], "distance_km": 2156},
+     {"cities": ["Cape Town, South Africa", "Nairobi, Kenya"], "distance_km": 2897},
+     {"cities": ["Chicago, USA", "Miami, USA"], "distance_km": 2014},
+     {"cities": ["Madrid, Spain", "Lisbon, Portugal"], "distance_km": 505},
+     {"cities": ["Montreal, Canada", "Vancouver, Canada"], "distance_km": 3664},
+     {"cities": ["Dubai, UAE", "Riyadh, Saudi Arabia"], "distance_km": 1190},
+     {"cities": ["Oslo, Norway", "Stockholm, Sweden"], "distance_km": 415},
+     {"cities": ["Mumbai, India", "Singapore", "Singapore"], "distance_km": 3963},
+     {"cities": ["Los Angeles, USA", "Toronto, Canada"], "distance_km": 3441},
+     {"cities": ["Paris, France", "Berlin, Germany"], "distance_km": 878},
+     {"cities": ["Istanbul, Turkey", "Cairo, Egypt"], "distance_km": 762},
+     {"cities": ["Bangkok, Thailand", "Mumbai, India"], "distance_km": 3260},
+     {"cities": ["Sydney, Australia", "Tokyo, Japan"], "distance_km": 7487},
+     {"cities": ["Shanghai, China", "Seoul, South Korea"], "distance_km": 864},
+     {"cities": ["New York City, USA", "London, UK"], "distance_km": 5561},
+     {"cities": ["Lima, Peru", "Santiago, Chile"], "distance_km": 3031},
+     {"cities": ["Johannesburg, South Africa", "Lagos, Nigeria"], "distance_km": 4283},
+     {"cities": ["San Francisco, USA", "Mexico City, Mexico"], "distance_km": 3517},
+     {"cities": ["Osaka, Japan", "Beijing, China"], "distance_km": 3072},
+     {"cities": ["Rome, Italy", "Athens, Greece"], "distance_km": 794},
+     {"cities": ["Stockholm, Sweden", "Helsinki, Finland"], "distance_km": 398},
+     {"cities": ["Jakarta, Indonesia", "Manila, Philippines"], "distance_km": 2792},
+     {"cities": ["Copenhagen, Denmark", "Amsterdam, Netherlands"], "distance_km": 692},
+     {"cities": ["Vienna, Austria", "Budapest, Hungary"], "distance_km": 214},
+     {"cities": ["Brisbane, Australia", "Wellington, New Zealand"], "distance_km": 2056},
+     {"cities": ["Hanoi, Vietnam", "Phnom Penh, Cambodia"], "distance_km": 553},
+     {"cities": ["Lisbon, Portugal", "Barcelona, Spain"], "distance_km": 622},
+     {"cities": ["Nairobi, Kenya", "Addis Ababa, Ethiopia"], "distance_km": 1061},
+     {"cities": ["Vancouver, Canada", "Calgary, Canada"], "distance_km": 676},
+     {"cities": ["Dublin, Ireland", "Edinburgh, UK"], "distance_km": 417},
+     {"cities": ["Munich, Germany", "Zurich, Switzerland"], "distance_km": 304},
+     {"cities": ["Perth, Australia", "Johannesburg, South Africa"], "distance_km": 8676},
+     {"cities": ["Buenos Aires, Argentina", "Sao Paulo, Brazil"], "distance_km": 1169},
+     {"cities": ["Minsk, Belarus", "Kiev, Ukraine"], "distance_km": 530},
+     {"cities": ["Bangalore, India", "Chennai, India"], "distance_km": 290},
+     {"cities": ["Edmonton, Canada", "Winnipeg, Canada"], "distance_km": 1318},
+     {"cities": ["Amman, Jordan", "Baghdad, Iraq"], "distance_km": 785},
+     {"cities": ["Lahore, Pakistan", "Karachi, Pakistan"], "distance_km": 1021},
+     {"cities": ["Dakar, Senegal", "Accra, Ghana"], "distance_km": 3114},
+     {"cities": ["Tbilisi, Georgia", "Yerevan, Armenia"], "distance_km": 175},
+     {"cities": ["Brussels, Belgium", "Luxembourg City, Luxembourg"], "distance_km": 161},
+     {"cities": ["San Juan, Puerto Rico", "Havana, Cuba"], "distance_km": 1462},
+     {"cities": ["Kuala Lumpur, Malaysia", "Manila, Philippines"], "distance_km": 2592},
+     {"cities": ["Bucharest, Romania", "Sofia, Bulgaria"], "distance_km": 307},
+     {"cities": ["Kigali, Rwanda", "Nairobi, Kenya"], "distance_km": 1499},
+     {"cities": ["Lima, Peru", "Quito, Ecuador"], "distance_km": 2232},
+     {"cities": ["Tehran, Iran", "Yerevan, Armenia"], "distance_km": 1064},
+     {"cities": ["Helsinki, Finland", "Saint Petersburg, Russia"], "distance_km": 300},
+     {"cities": ["San Francisco, USA", "Vancouver, Canada"], "distance_km": 1302},
+     {"cities": ["Caracas, Venezuela", "Bogotá, Colombia"], "distance_km": 2138},
+     {"cities": ["Auckland, New Zealand", "Wellington, New Zealand"], "distance_km": 492},
+     {"cities": ["Warsaw, Poland", "Prague, Czech Republic"], "distance_km": 517},
+     {"cities": ["Addis Ababa, Ethiopia", "Djibouti City, Djibouti"], "distance_km": 1003},
+     {"cities": ["Kiev, Ukraine", "Bucharest, Romania"], "distance_km": 934},
+     {"cities": ["Accra, Ghana", "Abuja, Nigeria"], "distance_km": 996},
+     {"cities": ["Kathmandu, Nepal", "Dhaka, Bangladesh"], "distance_km": 785},
+     {"cities": ["Monrovia, Liberia", "Freetown, Sierra Leone"], "distance_km": 629},
+     {"cities": ["Antananarivo, Madagascar", "Nairobi, Kenya"], "distance_km": 1474},
+     {"cities": ["Manila, Philippines", "Taipei, Taiwan"], "distance_km": 1108},
+     {"cities": ["Havana, Cuba", "Santo Domingo, Dominican Republic"], "distance_km": 1163},
+     {"cities": ["Tunis, Tunisia", "Algiers, Algeria"], "distance_km": 730},
+     {"cities": ["Brisbane, Australia", "Sydney, Australia"], "distance_km": 703},
+     {"cities": ["Riyadh, Saudi Arabia", "Doha, Qatar"], "distance_km": 516},
+     {"cities": ["Ouagadougou, Burkina Faso", "Niamey, Niger"], "distance_km": 984},
+     {"cities": ["Ashgabat, Turkmenistan", "Tashkent, Uzbekistan"], "distance_km": 575},
+     {"cities": ["Port-au-Prince, Haiti", "Santo Domingo, Dominican Republic"], "distance_km": 260},
+     {"cities": ["Islamabad, Pakistan", "Colombo, Sri Lanka"], "distance_km": 2839},
+     {"cities": ["Vientiane, Laos", "Phnom Penh, Cambodia"], "distance_km": 539},
+     {"cities": ["Accra, Ghana", "Lome, Togo"], "distance_km": 463},
+     {"cities": ["San Jose, Costa Rica", "Panama City, Panama"], "distance_km": 381},
+     {"cities": ["Tirana, Albania", "Podgorica, Montenegro"], "distance_km": 170},
+     {"cities": ["Helsinki, Finland", "Riga, Latvia"], "distance_km": 383},
+     {"cities": ["Bucharest, Romania", "Chisinau, Moldova"], "distance_km": 362},
+     {"cities": ["Amsterdam, Netherlands", "Geneva, Switzerland"], "distance_km": 629},
+     {"cities": ["Ulaanbaatar, Mongolia", "Astana, Kazakhstan"], "distance_km": 1634},
+     {"cities": ["Maputo, Mozambique", "Lusaka, Zambia"], "distance_km": 1230},
+     {"cities": ["Suva, Fiji", "Port Vila, Vanuatu"], "distance_km": 2076},
+     {"cities": ["Gaborone, Botswana", "Windhoek, Namibia"], "distance_km": 1551},
+     {"cities": ["Kuala Lumpur, Malaysia", "Bangkok, Thailand"], "distance_km": 1317},
+     {"cities": ["Manama, Bahrain", "Muscat, Oman"], "distance_km": 406},
+     {"cities": ["Bujumbura, Burundi", "Lusaka, Zambia"], "distance_km": 1634},
+     {"cities": ["Tehran, Iran", "Damascus, Syria"], "distance_km": 953},
+     {"cities": ["Sofia, Bulgaria", "Skopje, North Macedonia"], "distance_km": 176},
+     {"cities": ["Lisbon, Portugal", "Marrakech, Morocco"], "distance_km": 623},
+     {"cities": ["Rabat, Morocco", "Algiers, Algeria"], "distance_km": 590},
+     {"cities": ["Ankara, Turkey", "Baku, Azerbaijan"], "distance_km": 1238},
+     {"cities": ["Rome, Italy", "Zagreb, Croatia"], "distance_km": 494},
+     {"cities": ["Copenhagen, Denmark", "Hamburg, Germany"], "distance_km": 291},
+     {"cities": ["Yerevan, Armenia", "Tbilisi, Georgia"], "distance_km": 220},
+     {"cities": ["Khartoum, Sudan", "Nairobi, Kenya"], "distance_km": 1405},
+     {"cities": ["Dakar, Senegal", "Bamako, Mali"], "distance_km": 648},
+     {"cities": ["Kampala, Uganda", "Dar es Salaam, Tanzania"], "distance_km": 1793},
+     {"cities": ["Niamey, Niger", "Abuja, Nigeria"], "distance_km": 885},
+     {"cities": ["Bishkek, Kyrgyzstan", "Dushanbe, Tajikistan"], "distance_km": 520},
+     {"cities": ["Bangkok, Thailand", "Hanoi, Vietnam"], "distance_km": 805},
+     {"cities": ["Cairo, Egypt", "Amman, Jordan"], "distance_km": 602},
+     {"cities": ["Brasilia, Brazil", "Sao Paulo, Brazil"], "distance_km": 1012},
+     {"cities": ["Athens, Greece", "Sofia, Bulgaria"], "distance_km": 302},
+     {"cities": ["Bogota, Colombia", "Quito, Ecuador"], "distance_km": 1007},
+     {"cities": ["Bamako, Mali", "Conakry, Guinea"], "distance_km": 1205},
+     {"cities": ["Kabul, Afghanistan", "Islamabad, Pakistan"], "distance_km": 682},
+     {"cities": ["Kinshasa, Democratic Republic of the Congo", "Brazzaville, Republic of the Congo"], "distance_km": 1066},
+     {"cities": ["Bucharest, Romania", "Sarajevo, Bosnia and Herzegovina"], "distance_km": 541},
+     {"cities": ["Asuncion, Paraguay", "Montevideo, Uruguay"], "distance_km": 1089},
+     {"cities": ["Ljubljana, Slovenia", "Sarajevo, Bosnia and Herzegovina"], "distance_km": 384},
+     {"cities": ["Lome, Togo", "Abuja, Nigeria"], "distance_km": 487},
+     {"cities": ["N'Djamena, Chad", "Niamey, Niger"], "distance_km": 972},
+     {"cities": ["Panama City, Panama", "San Salvador, El Salvador"], "distance_km": 669},
+   ]), chosen);
 
    export const buildDistanceTimeProblem = (chosen) => {
      for (;;) {
@@ -1287,6 +1424,12 @@ export   const pickSubject = () =>
          continue;
        }
        const r = chooseFromList(['nearer to', 'further from']);
+       if (r === 'nearer to' && w1 < w2) {
+         continue;
+       }
+       if (r === 'further from' && w1 > w2) {
+         continue;
+       }
        return `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`;
      }
    }
@@ -1406,24 +1549,32 @@ export   const pickSubject = () =>
 
    export const buildTravelTimeBetweenCitiesProblem = (chosen) => {
      const v = pickVehicle(chosen);
-     const n1 = pickCity(chosen);
-     const n2 = pickCity(chosen);
      for (;;) {
        const s = pick(1, 300);
        const t = pick(2, 10);
        const d = s * t;
+       const c = pickCityPair(chosen);
+       if (c.distance_km < d * 0.9 || c.distance_km > d * 1.1) {
+         continue;
+       }
+       const n1 = c.cities[0];
+       const n2 = c.cities[1];
        return `My ${v} is traveling ${d} km from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`;
      }
    }
 
    export const buildTravelDistanceBetweenCitiesProblem = (chosen) => {
      const v = pickVehicle(chosen);
-     const n1 = pickCity(chosen);
-     const n2 = pickCity(chosen);
      for (;;) {
        const s = pick(1, 300);
        const t = pick(2, 10);
        const d = s * t;
+       const c = pickCityPair(chosen);
+       if (c.distance_km < d * 0.9 || c.distance_km > d * 1.1) {
+         continue;
+       }
+       const n1 = c.cities[0];
+       const n2 = c.cities[1];
        return `My ${v} takes ${t} hours to travel from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`;
      }
    }
