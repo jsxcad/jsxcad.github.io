@@ -1143,6 +1143,7 @@ export   const pickSubject = () =>
      };
 
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
+   const pickColor = (chosen) => chooseFromList(['red', 'blue', 'green', 'orange', 'purple', 'yellow', 'pink', 'black', 'silver', 'gold', 'bronze', 'copper', 'swirly']);
    const pickVehicle = (chosen) => chooseFromList(['moped', 'car', 'camel', 'horse', 'giant snail', 'helicopter', 'bicycle', 'train', 'aeroplane'], chosen);
    const pickFuel = (chosen) => chooseFromList(['boxes', 'rods', 'crystals', 'bulbs', 'batteries', 'liters', 'pellets'], chosen);
    const pickThing = (chosen) => chooseFromList(['pencil', 'flower', 'bullet', 'watermelon', 'mysterious cube', 'dog', 'nose'], chosen);
@@ -1160,6 +1161,26 @@ export   const pickSubject = () =>
      'Honolulu', 'Montreal', 'Macau', 'Cancún', 'Marne-La-Vallée', 'Doha', 'Sharjah', 'Rhodes', 'Verona', 'Bologna', 'Thessaloniki', 'Buenos Aires',
      'Lima', 'Phuket', 'Delhi', 'Heraklion', 'Tallinn', 'Pattaya-Chonburi', 'Ho Chi Minh City', 'Playa Del Carmen', 'Johor Bahru', 'Santiago',
      'Tbilisi', 'Riyadh', 'Vilnius', 'Mugla', 'Zhuhai', 'Mecca', 'Punta Cana', 'Guilin', 'Hanoi', 'Cairo', 'Muscat'], chosen);
+
+   const pickTransport = (chosen) => chooseFromUniformList([
+       {"mode": "walking", "speed_kph": 5},
+       {"mode": "bicycle", "speed_kph": 20},
+       {"mode": "electric scooter", "speed_kph": 25},
+       {"mode": "skateboard", "speed_kph": 15},
+       {"mode": "car", "speed_kph": 120},
+       {"mode": "motorcycle", "speed_kph": 80},
+       {"mode": "bus", "speed_kph": 50},
+       {"mode": "tram", "speed_kph": 70},
+       {"mode": "subway", "speed_kph": 40},
+       {"mode": "train", "speed_kph": 300},
+       {"mode": "airplane", "speed_kph": 1000},
+       {"mode": "helicopter", "speed_kph": 240},
+       {"mode": "ferry", "speed_kph": 30},
+       {"mode": "boat", "speed_kph": 50},
+       {"mode": "horse", "speed_kph": 15},
+       {"mode": "rollerblading", "speed_kph": 18},
+       {"mode": "canoe", "speed_kph": 8}
+     ], chosen);
 
    const addReverseCityPairs = (pairs) => {
      const reverses = [];
@@ -1302,8 +1323,13 @@ export   const pickSubject = () =>
        }
        const h = pick(1, 10);
        const d = r1 * h + r2 * h;
-       const v1 = pickVehicle(chosen);
-       const v2 = pickVehicle(chosen);
+       const t1 = pickTransport(chosen);
+       const t2 = pickTransport(chosen);
+       if (t1.speed_kph < r1 || t2.speed_kph < r2) {
+         continue;
+       }
+       const v1 = t1.mode;
+       const v2 = t2.mode;
        return `A ${v1} and a ${v2} leave from the same place at the same time, but in opposite directions.<br><br>
                The ${v1} travels at an average rate of ${r1} km/h and the ${v2} travels at an average rate of ${r2} km/h.<br><br>
                In how many hours will they be ${d} km apart?`;
@@ -1319,8 +1345,12 @@ export   const pickSubject = () =>
        }
        const h = pick(1, 10);
        const n1 = pickName(chosen);
-       const v1 = pickVehicle(chosen);
-       return `${n1} took a ${v1} from home to office at the average speed of ${r1} km/h.<br><br>
+       const t1 = pickTransport(chosen);
+       if (t1.speed_kph < r1) {
+         continue;
+       }
+       const v1 = t1.mode;
+       return `${n1} went from home to office by ${v1} at the average speed of ${r1} km/h.<br><br>
                On return home from the office, using the same route, they averaged ${r2} km/h.<br><br>
                If the total round trip took ${h} hours, what was the distance from home to office?<br>`;
      }
@@ -1334,10 +1364,16 @@ export   const pickSubject = () =>
          continue;
        }
        const n1 = pickName(chosen);
-       const v1 = pickVehicle(chosen);
        const n2 = pickName(chosen);
-       const v2 = pickVehicle(chosen);
        const h1 = pick(1, 5);
+
+       const t1 = pickTransport(chosen);
+       const t2 = pickTransport(chosen);
+       if (t1.speed_kph < r1 || t2.speed_kph < r2) {
+         continue;
+       }
+       const v1 = t1.mode;
+       const v2 = t2.mode;
        return `${n1} starts out on a ${v1} at the rate of ${r1} km/h.<br><br>
                ${h1} hours later, ${n2} drives a ${v2} along the same route at ${r2} km/h.<br><br>
                In how much time will ${n2} overtake ${n1}?<br>`;
@@ -1451,8 +1487,8 @@ export   const pickSubject = () =>
          }
          const n1 = pickName(chosen);
          const n2 = pickName(chosen);
-         return `${n1} is ${d1} years older than ${n2}.<br><br>
-                 ${d2} years ago, ${n1} was twice as old as ${n2}.<br><br>
+         return `${n1} is ${d1} years older than ${n2}.
+                 ${d2} years ago, ${n1} was twice as old as ${n2}.
                  How old is each now?`;
        }
      }
@@ -1469,16 +1505,16 @@ export   const pickSubject = () =>
        const t1 = pickThings(chosen);
        switch (pick(4)) {
          case 0:
-           return `${n1} ${t1} cost ${c1} cents.<br>
+           return `${n1} ${t1} cost ${c1} cents.
                    How much would ${n2} ${t1} cost?`;
          case 1:
-           return `${n1} ${t1} weigh ${c1} kg.<br>
+           return `${n1} ${t1} weigh ${c1} kg.
                    How much would ${n2} ${t1} weigh?`;
          case 2:
-           return `${n1} ${t1} stack ${c1} meters tall.<br>
+           return `${n1} ${t1} stack ${c1} meters tall.
                    How tall would ${n2} ${t1} stack?`;
          case 3:
-           return `${n1} ${t1} fill ${c1} boxes.<br>
+           return `${n1} ${t1} fill ${c1} boxes.
                    How many boxes would ${n2} ${t1} fill?`;
        }
      }
@@ -1548,9 +1584,13 @@ export   const pickSubject = () =>
    };
 
    export const buildTravelTimeBetweenCitiesProblem = (chosen) => {
-     const v = pickVehicle(chosen);
      for (;;) {
        const s = pick(1, 300);
+       const t1 = pickTransport(chosen);
+       if (t1.speed_kph < s) {
+         continue;
+       }
+       const v = t1.mode;
        const t = pick(2, 10);
        const d = s * t;
        const c = pickCityPair(chosen);
@@ -1559,14 +1599,18 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return `My ${v} is traveling ${d} km from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`;
+       return `I travel ${d} km from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`;
      }
    }
 
    export const buildTravelDistanceBetweenCitiesProblem = (chosen) => {
-     const v = pickVehicle(chosen);
      for (;;) {
        const s = pick(1, 300);
+       const t1 = pickTransport(chosen);
+       if (t1.speed_kph < s) {
+         continue;
+       }
+       const v = t1.mode;
        const t = pick(2, 10);
        const d = s * t;
        const c = pickCityPair(chosen);
@@ -1575,15 +1619,19 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return `My ${v} takes ${t} hours to travel from ${n1} to ${n2} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`;
+       return `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`;
      }
    }
 
    export const buildVehicleFuelDistanceProblem = (chosen) => {
-     const v = pickVehicle(chosen);
      const f = pickFuel(chosen);
      for (;;) {
        const s = pick(1, 100);
+       const t1 = pickTransport(chosen);
+       if (t1.speed_kph < s) {
+         continue;
+       }
+       const v = t1.mode;
        const t = pick(2, 20);
        const a1 = pick(2, 10);
        const a2 = pick(2, 10);
@@ -1594,7 +1642,7 @@ export   const pickSubject = () =>
          continue;
        }
        const d = s * a1;
-       return `A ${v} has ${t} ${f} for fuel. It can travel ${d} km on ${a1} ${f}. How far can it go using ${a2} ${f}?`;
+       return `I can travel ${d} km by ${v} by using ${a1} ${f}. How far can I go using ${a2} ${f}?`;
      }
    }
 
@@ -1639,6 +1687,19 @@ export   const pickSubject = () =>
        return `${Rational(n, d)} of the ${l} in ${c} is removed with each scoop. How much is left after ${s} scoops?`;
      }
    };
+
+   export const buildBallProblem = (chosen) => {
+     const color = pickColor(chosen);
+     for (;;) {
+       const n = pick(1, 10);
+       const b = pick(1, 10);
+       const c = pick(1, 10);
+       if (b >= n || c >= b) {
+         continue;
+       }
+       return `There is a bag with ${n} marbles in it. ${b} of the marbles are ${color}. What is the chance of picking ${c} ${color} marbles in a row?`;
+     }
+   }
 
    export const choose = (choices, chosen = new Map()) => {
      let total = 0;
