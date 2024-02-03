@@ -1330,9 +1330,31 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return `A ${v1} and a ${v2} leave from the same place at the same time, but in opposite directions.<br><br>
-               The ${v1} travels at an average rate of ${r1} km/h and the ${v2} travels at an average rate of ${r2} km/h.<br><br>
+       return `A ${v1} and a ${v2} leave from the same place at the same time, but in opposite directions.
+               The ${v1} travels at an average rate of ${r1} km/h and the ${v2} travels at an average rate of ${r2} km/h.
                In how many hours will they be ${d} km apart?`;
+     }
+   }
+
+   export const buildCrashTimeProblem = (chosen) => {
+     for (;;) {
+       const r1 = pick(1, 100);
+       const r2 = pick(1, 100);
+       if (r1 <= r2) {
+         continue;
+       }
+       const h = pick(1, 10);
+       const d = r1 * h + r2 * h;
+       const t1 = pickTransport(chosen);
+       const t2 = pickTransport(chosen);
+       if (t1.speed_kph < r1 || t2.speed_kph < r2) {
+         continue;
+       }
+       const v1 = t1.mode;
+       const v2 = t2.mode;
+       return `A ${v1} and a ${v2} move toward each other on a ${d} km track.
+               The ${v1} goes at ${r1} km/h and the ${v2} goes at ${r2} km/h.
+               How long until they crash?`;
      }
    }
 
@@ -1350,9 +1372,9 @@ export   const pickSubject = () =>
          continue;
        }
        const v1 = t1.mode;
-       return `${n1} went from home to office by ${v1} at the average speed of ${r1} km/h.<br><br>
-               On return home from the office, using the same route, they averaged ${r2} km/h.<br><br>
-               If the total round trip took ${h} hours, what was the distance from home to office?<br>`;
+       return `${n1} went from home to office by ${v1} at the average speed of ${r1} km/h.
+               On return home from the office, using the same route, they averaged ${r2} km/h.
+               If the total round trip took ${h} hours, what was the distance from home to office?`;
      }
    }
 
@@ -1374,9 +1396,9 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return `${n1} starts out on a ${v1} at the rate of ${r1} km/h.<br><br>
-               ${h1} hours later, ${n2} drives a ${v2} along the same route at ${r2} km/h.<br><br>
-               In how much time will ${n2} overtake ${n1}?<br>`;
+       return `${n1} starts out on a ${v1} at the rate of ${r1} km/h.
+               ${h1} hours later, ${n2} drives a ${v2} along the same route at ${r2} km/h.
+               In how much time will ${n2} overtake ${n1}?`;
      }
    }
 
