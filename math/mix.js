@@ -1486,7 +1486,7 @@ export   const pickSubject = () =>
        const w1 = pick(1, 101);
        const d1 = pick(1, 11);
        const w2 = (w1 * d1) / d2;
-       if (!Number.isInteger(w2)) {
+       if (d1 === d2 || !Number.isInteger(w2)) {
          continue;
        }
        return `${w1} kg balances ${d1} meters from the center of a lever against another weight ${d2} meters from the center. What is the other weight?`;
