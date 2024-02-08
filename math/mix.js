@@ -134,6 +134,28 @@ export const buildEmotivePrompt = () => {
      return questions;
    };
 
+export const buildThirdGradePrompt = () => {
+    const vocabulary = new Set([
+      "ability", "absorb", "accuse", "act", "active", "actual", "adopt", "advantage", "advice", "ambition", "ancient",
+      "approach", "arrange", "arctic", "attitude", "attract", "average", "avoid", "Bold", "border", "brief", "brilliant",
+      "cable", "capture", "certain", "chill", "clever", "climate", "cling", "coast", "confess", "consider", "contain",
+      "continent", "convince", "coward", "crew", "crumple", "custom", "decay", "deed", "defend", "delicate", "device",
+      "diagram", "digest", "disease", "distant", "doze", "drift", "elegant", "enable", "examine", "explore", "fan",
+      "fatal", "fierce", "flutter", "fortunate", "frail", "gasp", "glide", "globe", "grace", "gradual", "grasp", "habit",
+      "harsh", "imitate", "individual", "intelligent", "intend", "journey", "launch", "limit", "locate", "loyal",
+      "magnificent", "marsh", "method", "misery", "moisture", "mural", "mystify", "nation", "nectar", "nursery", "observe",
+      "opponent", "opposite", "ordeal", "origin", "outcome", "passage", "pastime", "pause", "perform", "plunge", "predator",
+      "predict", "prevent", "primary", "privilege", "process", "rare", "rate", "recall", "rely", "remark", "resident",
+      "respect", "responsible", "reverse", "revive", "risk", "scatter", "schedule", "sensitive", "signal", "solution", "spoil",
+      "starve", "steer", "struggled", "suitable", "survey", "swift", "symbol", "talent", "theory", "thrill", "treasure",
+      "triumph", "value", "vision", "volunteer", "wander", "wisdom", "wit", "woe"]);
+   const questions = [];
+   for (const word of vocabulary) {
+     questions.push({ value: `${word}`, weight: word.length });
+   }
+   return questions;
+  }
+
    const englishToKorean = [
      ["누구", "이다", "그", "하자", "놀다", "야구", "하다", "너", "원하다", "일부", "얼음", "크림", "무엇", "이다", "행위", "낮", "그것", "뭐야", "당신의", "이름", "듣다", "그리고", "말하다", "가지다", "재미있는", "노래하다", "이것", "생각하다", "말하다", "수업", "친구", "선생님", "읽다", "쓰다", "문화", "프로젝트", "이야기", "시간", "포장하다", "위로", "바라보다", "화난", "행복하다", "배고픈", "슬퍼", "그녀", "키가 큰", "아빠", "엄마", "형제", "자매", "농구", "배드민턴", "축구", "보다", "접착제", "지우개", "구두", "연필", "그것은", "을 위한", "아침", "저녁", "점심", "아래에", "그만큼", "테이블", "에", "책상", "의자", "안에", "상자", "침대", "쌀", "케이크", "고양이", "모자", "사과", "파이", "예", "제발", "할 수 있다", "나", "만지다", "오다", "앉다", "여기", "확신하는", "빨간색", "나는", "그림", "ㅏ", "그림", "독서", "책", "만들기", "로봇", "가져가다", "끄다", "스카프", "놓다", "재킷", "치마", "바지", "긴", "노래", "돕다", "좋다", "인형", "팬", "박쥐", "어떻게", "많이", "백(百)", "천(千)", "하나", "둘", "삼", "네", "다섯", "육", "일곱", "여덟", "아홉", "십", "컵", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
 
@@ -202,6 +224,7 @@ export  const englishCopying = buildCopying(englishToKorean);
 
 export  const englishPrompts = buildPrompt();
 export  const emotivePrompts = buildEmotivePrompt();
+export  const thirdGradePrompts = buildThirdGradePrompt();
 
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
@@ -210,6 +233,8 @@ export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying,
 export   const buildPromptWord = (chosen) => chooseFromList(englishPrompts, chosen);
 
 export   const buildEmotivePromptWord = (chosen) => chooseFromList(emotivePrompts, chosen);
+
+export   const buildThirdGradePromptWord = (chosen) => chooseFromList(thirdGradePrompts, chosen);
 
 export   const pickKoreanWord = () =>
      chooseFromList(
@@ -1379,14 +1404,14 @@ export   const pickSubject = () =>
    }
 
    export const buildTimeMeetProblem = (chosen) => {
+     const n1 = pickName(chosen);
+     const n2 = pickName(chosen);
      for (;;) {
        const r1 = pick(10, 100);
        const r2 = pick(10, 100);
        if (r2 <= r1) {
          continue;
        }
-       const n1 = pickName(chosen);
-       const n2 = pickName(chosen);
        const h1 = pick(1, 5);
 
        const t1 = pickTransport(chosen);
@@ -1696,17 +1721,21 @@ export   const pickSubject = () =>
      }
    };
 
-   export const buildFractionalRemovalProblem = (chosen) => {
+   export const buildCakeSliceProblem = (chosen) => {
      const l = pickMaterial(chosen);
      const c = pickContainer(chosen);
      for (;;) {
        const n = pick(1, 11);
        const d = pick(1, 11);
-       const s = pick(2, 4);
        if (n >= d) {
          continue;
        }
-       return `${Rational(n, d)} of the ${l} in ${c} is removed with each scoop. How much is left after ${s} scoops?`;
+       const n2 = pick(1, 11);
+       const d2 = pick(1, 11);
+       if (n2 >= d2) {
+         continue;
+       }
+       return `A ${Rational(n, d)} slice of a cake is cut out, then a ${Rational(n2, d2)} slice of that slice is cut out. How much of the cake is that slice?`;
      }
    };
 
@@ -1720,6 +1749,71 @@ export   const pickSubject = () =>
          continue;
        }
        return `There is a bag with ${n} marbles in it. ${b} of the marbles are ${color}. What is the chance of picking ${c} ${color} marbles in a row?`;
+     }
+   }
+
+   export const buildDiceProblem = (chosen) => {
+     const color = pickColor(chosen);
+     for (;;) {
+       const pickDicePositive = () => {
+         switch (pick(0, 4)) {
+           case 0: return 'rolling an odd number';
+           case 1: return 'rolling an even number';
+           case 2: return `rolling a ${pick(1, 7)}`;
+           case 3: {
+             for (;;) {
+               const a = pick(1, 7);
+               const b = pick(1, 7);
+               if (a === b) {
+                 continue;
+               }
+               return `rolling ${a} or ${b}`;
+             }
+           }
+         }
+       };
+       const pickDiceNegative = () => {
+         switch (pick(0, 4)) {
+           case 0: return 'not rolling an odd number';
+           case 1: return 'not rolling an even number';
+           case 2: return `not rolling a ${pick(1, 7)}`;
+           case 3: {
+             for (;;) {
+               const a = pick(1, 7);
+               const b = pick(1, 7);
+               if (a === b) {
+                 continue;
+               }
+               return `not rolling ${a} or ${b}`;
+             }
+           }
+         }
+       };
+       const pickDice = () => {
+         switch (pick(0, 2)) {
+           case 0: return pickDicePositive();
+           case 1: return pickDiceNegative();
+         }
+       };
+       const a = pickDice();
+       const b = pickDice();
+       return `What is the probability of ${a} then ${b} with six sided dice?`;
+     }
+   }
+
+   export const buildReorderingProblem = (chosen) => {
+     const color = pickColor(chosen);
+     for (;;) {
+       const a = pick(3, 20);
+       const b = pick(3, 20);
+       const c = pick(3, 20);
+       if (a === b || a === c || b === c) {
+         continue;
+       }
+       if (!isInteger(a / c)) {
+         continue;
+       }
+       return `${a} ${kTimes} ${b} ${kDivide} ${c}`;
      }
    }
 

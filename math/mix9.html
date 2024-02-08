@@ -23,7 +23,7 @@
        { value: m.buildLeverWeightProblem, weight: 5 },
        { value: m.buildLeverDistanceProblem, weight: 5 },
        { value: m.buildAgeProblem, weight: 5 },
-       { value: m.buildProportionProblem, weight: 5 },
+       { value: m.buildProportionProblem, weight: 2 },
        { value: m.buildPerimeterDimensionsProblem, weight: 5 },
        // { value: m.buildAngleProblem, weight: 5 },
        { value: m.buildPerimeterSideProblem, weight: 5 },
@@ -31,10 +31,10 @@
        // { value: m.buildSimpleDivision32, weight: 5 },
        { value: m.buildTravelTimeBetweenCitiesProblem, weight: 5 },
        { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 },
-       { value: m.buildVehicleFuelDistanceProblem, weight: 5 },
-       { value: m.buildCutProblem, weight: 5 },
-       { value: m.buildFractionalRemovalProblem, weight: 5 },
-       { value: m.buildBallProblem, weight: 5 }
+       { value: m.buildVehicleFuelDistanceProblem, weight: 1 },
+       { value: m.buildCutProblem, weight: 2 },
+       { value: m.buildCakeSliceProblem, weight: 25 },
+       { value: m.buildDiceProblem, weight: 25 }
      ], chosen)(chosen);
      return `<table style="border: solid; width: 100%; height: 315"><tr style="outline: thin dotted"><td style="vertical-align: top">${problem()}</td></tr></table>`;
    }
@@ -44,8 +44,8 @@
      for (let i = 0; i < 4; i++) {
        problems.push(
          m.choose([
-           { value: m.buildSimpleDivision31, weight: 100 },
-           // { value: m.buildSimpleDivision32, weight: 100 },
+           { value: m.buildSimpleDivision31, weight: 5 },
+           // { value: m.buildSimpleDivision32, weight: 5 },
            { value: m.buildAddition, weight: 5 },
            { value: m.buildMultiplication21, weight: 5 },
            { value: m.buildMultiplication22, weight: 5 },
@@ -54,7 +54,7 @@
            { value: m.buildMultiplicationOneOffTens, weight: 5 },
            { value: m.buildMultiplicationOneOffHundreds, weight: 5 },
            // { value: m.buildMultiplicationInequality, weight: 50 },
-           { value: m.buildMultiplicationInequalitySimple, weight: 50 },
+           { value: m.buildMultiplicationInequalitySimple, weight: 5 },
            { value: m.buildRationalAddition, weight: 50 },
            { value: m.buildRationalSubtraction, weight: 50 },
            { value: m.buildDecimalDecimalSubtraction, weight: 5 },
@@ -63,7 +63,7 @@
            { value: m.buildIntegerDecimalMultiplication, weight: 5 },
            { value: m.buildIntegerPercentageMultiplication, weight: 5 },
            { value: m.buildIntegerRationalMultiplication, weight: 5 },
-           { value: m.buildIntegerRationalDivision, weight: 50 },
+           { value: m.buildIntegerRationalDivision, weight: 5 },
            { value: m.buildRationalMultiplication, weight: 5 },
            { value: m.buildRationalDivision, weight: 50 },
            { value: m.buildSubtraction, weight: 5 },
@@ -88,9 +88,10 @@
            { value: m.buildConvertibleUnitSubtraction, weight: 5 },
            { value: m.buildConvertibleUnitMultiplication, weight: 5 },
            { value: m.buildConvertibleUnitDivision, weight: 50 },
-           { value: m.buildSystemOfEquations, weight: 100, limit: 5 },
-           { value: m.buildSameBasisAddition, weight: 1 },
-           { value: m.buildRationalInequality, weight: 100 },
+           { value: m.buildSystemOfEquations, weight: 20, limit: 5 },
+           { value: m.buildSameBasisAddition, weight: 5 },
+           { value: m.buildRationalInequality, weight: 5 },
+           { value: m.buildReorderingProblem, weight: 100, limit: 1 },
          ], chosen)(chosen));
       }
       const rows = [];
@@ -105,6 +106,7 @@
      for (let i = 0; i < count; i++) {
        const choice = m.choose([
          { value: m.buildPromptWord, weight: promptWeight, limit: Infinity },
+         { value: m.buildThirdGradePromptWord, weight: promptWeight, limit: Infinity },
          { value: m.buildEmotivePromptWord, weight: emotivePromptWeight, limit: Infinity },
        ], chosen);
        vocab.push(choice(chosen));
@@ -156,11 +158,11 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         ${drop(buildStoryProblem(5, chosen, 200, 10))}
-         ${drop(buildStoryProblem(2, chosen, 100, 50))}
-         ${buildMathProblem(chosen)}
-         ${buildMathProblem(chosen)}
-         ${buildMathProblem(chosen)}
+         ${buildStoryProblem(5, chosen, 200, 10)}
+         ${buildStoryProblem(2, chosen, 100, 50)}
+         ${drop(buildMathProblem(new Map()))}
+         ${drop(buildMathProblem(new Map()))}
+         ${buildMathProblem(new Map())}
         </td>
        </tr>
      </table>
