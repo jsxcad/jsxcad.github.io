@@ -143,6 +143,8 @@
      return `<table style="border: solid; width: 100%">${problem(chosen)}</table>`;
    }
 
+   const drop = (x) => '';
+
    const t = document.createElement('table');
    const chosen = new Map();
    body.innerHTML = `
@@ -154,8 +156,8 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         // ${buildStoryProblem(5, chosen, 200, 10)}
-         // ${buildStoryProblem(2, chosen, 100, 50)}
+         ${drop(buildStoryProblem(5, chosen, 200, 10))}
+         ${drop(buildStoryProblem(2, chosen, 100, 50))}
          ${buildMathProblem(chosen)}
          ${buildMathProblem(chosen)}
          ${buildMathProblem(chosen)}
