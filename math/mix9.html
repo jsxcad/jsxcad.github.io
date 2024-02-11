@@ -34,7 +34,8 @@
        { value: m.buildVehicleFuelDistanceProblem, weight: 1 },
        { value: m.buildCutProblem, weight: 2 },
        { value: m.buildCakeSliceProblem, weight: 25 },
-       { value: m.buildDiceProblem, weight: 25 }
+       { value: m.buildDiceProblem, weight: 25 },
+       { value: m.buildDiceProbabilityProblem, weight: 25 }
      ], chosen)(chosen);
      return `<table style="border: solid; width: 100%; height: 315"><tr style="outline: thin dotted"><td style="vertical-align: top">${problem()}</td></tr></table>`;
    }
@@ -158,8 +159,8 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         ${buildStoryProblem(5, chosen, 200, 10)}
-         ${buildStoryProblem(2, chosen, 100, 50)}
+         ${buildStoryProblem(4, chosen, 200, 10)}
+         ${buildStoryProblem(1, chosen, 100, 50)}
          ${drop(buildMathProblem(new Map()))}
          ${drop(buildMathProblem(new Map()))}
          ${buildMathProblem(new Map())}

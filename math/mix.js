@@ -1801,6 +1801,11 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildDiceProbabilityProblem = (chosen) => {
+     const n = pick(2, 13);
+     return `What is the probability of rolling a total of ${n} with two six sided dice?`;
+   };
+
    export const buildReorderingProblem = (chosen) => {
      const color = pickColor(chosen);
      for (;;) {
