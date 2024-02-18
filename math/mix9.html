@@ -46,10 +46,11 @@
        problems.push(
          m.choose([
            { value: m.buildSimpleDivision31, weight: 5 },
-           // { value: m.buildSimpleDivision32, weight: 5 },
+           { value: m.buildSimpleDivision32, weight: 50 },
            { value: m.buildAddition, weight: 5 },
            { value: m.buildMultiplication21, weight: 5 },
-           { value: m.buildMultiplication22, weight: 5 },
+           { value: m.buildMultiplication22, weight: 50 },
+           { value: m.buildMultiplication32, weight: 50 },
            { value: m.buildMultiplicationTens, weight: 1 },
            { value: m.buildMultiplicationThousands, weight: 1 },
            { value: m.buildMultiplicationOneOffTens, weight: 5 },
@@ -93,6 +94,10 @@
            { value: m.buildSameBasisAddition, weight: 5 },
            { value: m.buildRationalInequality, weight: 5 },
            { value: m.buildReorderingProblem, weight: 100, limit: 1 },
+           { value: m.buildExpansionProblem, weight: 100, limit: 1 },
+           { value: m.buildKoreanUnitManProblem, weight: 100, limit: 1 },
+           { value: m.buildKoreanUnitOkProblem, weight: 100, limit: 1 },
+           { value: m.buildKoreanUnitJoProblem, weight: 100, limit: 1 },
          ], chosen)(chosen));
       }
       const rows = [];
@@ -147,6 +152,7 @@
    }
 
    const drop = (x) => '';
+   const keep = (x) => x;
 
    const t = document.createElement('table');
    const chosen = new Map();
@@ -159,10 +165,10 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         ${buildStoryProblem(4, chosen, 200, 10)}
-         ${buildStoryProblem(1, chosen, 100, 50)}
-         ${drop(buildMathProblem(new Map()))}
-         ${drop(buildMathProblem(new Map()))}
+         ${drop(buildStoryProblem(4, chosen, 200, 10))}
+         ${drop(buildStoryProblem(1, chosen, 100, 50))}
+         ${keep(buildMathProblem(new Map()))}
+         ${keep(buildMathProblem(new Map()))}
          ${buildMathProblem(new Map())}
         </td>
        </tr>

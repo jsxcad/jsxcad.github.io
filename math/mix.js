@@ -1,4 +1,4 @@
-export const chooseFromList = (list, chosen, { limit } = {}) => {
+export const chooseFromList = (list, chosen = new Map(), { limit } = {}) => {
   const choices = list.map(value => {
     if (value instanceof Function) {
       return { value, weight: 5, limit };
@@ -917,6 +917,9 @@ export   const pickSubject = () =>
    export const buildMultiplication22 = () =>
      Pre(`${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
+   export const buildMultiplication32 = () =>
+     Pre(`${pick(1000)} ${kTimes} ${pick(100)} = ${kAnswer}`);
+
    // export const kInequalities = `<table style="display: inline-block"><tr><td>&lt;</td><td>=</td><td>&gt;</td></tr></table>`;
    export const kInequalities = ` [&lt = &gt] `;
 
@@ -1166,6 +1169,38 @@ export   const pickSubject = () =>
          }
        }
      };
+
+   const kMan = 10000;
+
+   export const buildKoreanUnitManProblem = () => {
+     for (;;) {
+       const v = Math.floor(Math.random() * kMan * kMan * kMan * 100);
+       if (v < kMan) {
+         continue;
+       }
+       return `How many 만 in ${v}?`;
+     }
+   }
+
+   export const buildKoreanUnitOkProblem = () => {
+     for (;;) {
+       const v = Math.floor(Math.random() * kMan * kMan * kMan * 100);
+       if (v < kMan * kMan) {
+         continue;
+       }
+       return `How many 억 in ${v}?`;
+     }
+   }
+
+   export const buildKoreanUnitJoProblem = () => {
+     for (;;) {
+       const v = Math.floor(Math.random() * kMan * kMan * kMan * 100);
+       if (v < kMan * kMan * kMan) {
+         continue;
+       }
+       return `How many 조 in ${v}?`;
+     }
+   }
 
    const pickName = (chosen) => chooseFromList(['Juan', 'Carlos', 'Carole', 'Nancy', 'Mr. Granger', 'Mr. Rose', 'John', 'Steve', 'Bill'], chosen);
    const pickColor = (chosen) => chooseFromList(['red', 'blue', 'green', 'orange', 'purple', 'yellow', 'pink', 'black', 'silver', 'gold', 'bronze', 'copper', 'swirly']);
@@ -1819,6 +1854,19 @@ export   const pickSubject = () =>
          continue;
        }
        return `${a} ${kTimes} ${b} ${kDivide} ${c}`;
+     }
+   }
+
+   export const buildExpansionProblem = (chosen) => {
+     const color = pickColor(chosen);
+     for (;;) {
+       const f = chooseFromList(['d', pick(3, 20)]);
+       const a = chooseFromList(['a', pick(3, 20)]);
+       const b = chooseFromList(['b', pick(3, 20)]);
+       const c = chooseFromList(['c', pick(3, 20)]);
+       const o = chooseFromList([kPlus, kMinus]);
+       const o2 = chooseFromList([kPlus, kMinus]);
+       return `${c} ${o2} ${f}(${a} ${o} ${b})`;
      }
    }
 
