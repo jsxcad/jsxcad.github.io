@@ -1472,8 +1472,8 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return `${n1} can ${j} in ${h1} hours.<br>
-               ${n2} can ${j} in ${h2} hours.<br>
+       return `${n1} can ${j} in ${h1} hours.
+               ${n2} can ${j} in ${h2} hours.
                How long does it take if they ${j} together?`;
      }
    }
@@ -1488,8 +1488,8 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return `${n1} can ${j} in ${h1} hours alone.<br>
-               ${n1} and ${n2} can ${j} together in ${h2} hours.<br>
+       return `${n1} can ${j} in ${h1} hours alone.
+               ${n1} and ${n2} can ${j} together in ${h2} hours.
                How long does it take if ${n2} works alone?`;
      }
    }
