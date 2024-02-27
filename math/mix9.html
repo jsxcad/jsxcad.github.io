@@ -38,9 +38,9 @@
      return `<table style="border: solid; width: 100%; height: 315"><tr style="outline: thin dotted"><td style="vertical-align: top">${problem()}</td></tr></table>`;
    }
 
-   const buildMathProblem = (chosen) => {
+   const buildMathProblem = (count = 4, chosen) => {
      const problems = [];
-     for (let i = 0; i < 4; i++) {
+     for (let i = 0; i < count; i++) {
        problems.push(
          m.choose([
            { value: m.buildSimpleDivision31, weight: 5 },
@@ -96,6 +96,7 @@
            { value: m.buildKoreanUnitManProblem, weight: 5, limit: 1 },
            { value: m.buildKoreanUnitOkProblem, weight: 5, limit: 1 },
            { value: m.buildKoreanUnitJoProblem, weight: 5, limit: 1 },
+           { value: m.buildDigitPlaceValueProblem, weight: 100, limit: 5 },
          ], chosen)(chosen));
       }
       const rows = [];
@@ -111,6 +112,7 @@
        const choice = m.choose([
          { value: m.buildPromptWord, weight: promptWeight, limit: Infinity },
          { value: m.buildThirdGradePromptWord, weight: promptWeight, limit: Infinity },
+         { value: m.buildFourthGradePromptWord, weight: promptWeight, limit: Infinity },
          { value: m.buildEmotivePromptWord, weight: emotivePromptWeight, limit: Infinity },
        ], chosen);
        vocab.push(choice(chosen));
@@ -118,6 +120,20 @@
      const rows = [];
      rows.push(`<tr style="height: 29.25px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
      for (let j = 1; j < 10; j++) {
+       rows.push(`<tr style="height: 29.25px; outline: thin dotted; margin: 10px"><td></td></tr>`);
+     }
+     return `<table style="border: solid; width: 100%">${rows.join('\n')}</table>`;
+   }
+
+   const buildSentenceProblem = (count, chosen, promptWeight = 200, emotivePromptWeight = 10) => {
+     const vocab = [];
+     const choice = m.choose([
+       { value: m.buildFourthGradePromptWord, weight: promptWeight, limit: Infinity },
+     ], chosen);
+     vocab.push(choice(chosen));
+     const rows = [];
+     rows.push(`<tr style="height: 29.25px; outline: thin solid; margin: 10px"><td style="text-align: right">${vocab.join(', ')}</td></tr>`);
+     for (let j = 1; j < 3; j++) {
        rows.push(`<tr style="height: 29.25px; outline: thin dotted; margin: 10px"><td></td></tr>`);
      }
      return `<table style="border: solid; width: 100%">${rows.join('\n')}</table>`;
@@ -153,11 +169,16 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         ${keep(buildStoryProblem(4, chosen, 200, 10))}
-         ${keep(buildStoryProblem(1, chosen, 100, 50))}
-         ${drop(buildMathProblem(new Map()))}
-         ${drop(buildMathProblem(new Map()))}
-         ${keep(buildMathProblem(new Map()))}
+         ${drop(buildStoryProblem(4, chosen, 200, 10))}
+         ${drop(buildStoryProblem(1, chosen, 100, 50))}
+         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildMathProblem(4, new Map()))}
+         ${drop(buildMathProblem(4, new Map()))}
+         ${keep(buildMathProblem(6, new Map()))}
         </td>
        </tr>
      </table>
