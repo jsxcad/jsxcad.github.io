@@ -1429,9 +1429,8 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return `A ${v1} and a ${v2} leave from the same place at the same time, but in opposite directions.
-               The ${v1} travels at an average rate of ${r1} km/h and the ${v2} travels at an average rate of ${r2} km/h.
-               In how many hours will they be ${d} km apart?`;
+       return `A ${v1} traveling at ${r1} km/h and a ${v2} at ${r2} km/h leave in opposite directions.
+               How long until they are ${d} km apart?`;
      }
    }
 
@@ -1597,20 +1596,26 @@ export   const pickSubject = () =>
        for (let a2 = 1; a2 < a1; a2++) {
          const d1 = a1 - a2;
          let d2;
-         for (let n = 1; n < a1; n++) {
+         for (let n = -a1; n < a1; n++) {
            if ((a1 - n) === (a2 - n) * 2) {
              d2 = n;
              break;
            }
          }
-         if (d2 === undefined) {
+         if (d2 === undefined || d2 === 0) {
            continue;
          }
          const n1 = pickName(chosen);
          const n2 = pickName(chosen);
-         return `${n1} is ${d1} years older than ${n2}.
-                 ${d2} years ago, ${n1} was twice as old as ${n2}.
-                 How old is each now?`;
+         if (d2 > 0) {
+           return `${n1} is ${d1} years older than ${n2}.
+                   ${d2} years ago, ${n1} was twice as old as ${n2}.
+                   How old is each now?`;
+         } else {
+           return `${n1} is ${d1} years older than ${n2}.
+                   In ${-d2} years, ${n1} will be twice as old as ${n2}.
+                   How old is each now?`;
+         }
        }
      }
    }
