@@ -2031,7 +2031,7 @@ export const buildTriangleProblem = () => {
     console.log(`QQ: ${computeLength(a, b)} ${computeLength(b, c)} ${computeLength(c, a)}`);
     let info = [];
     const addInfo = (text) => {
-      info.push(`<text x=300 y=${(info.length + 1) * 20}>${text}</text>`);
+      info.push(`<text x=200 y=${(info.length + 1) * 20}>${text}</text>`);
     }
     switch (pick(1)) {
       case 0:
@@ -2041,7 +2041,7 @@ export const buildTriangleProblem = () => {
         addInfo(`dac = ${computeAngle(d, a, c).toFixed(0)}`);
     }
     return `
-      <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+      <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
        ${createTriangle(a, b, c, 'abc')}
        ${createTriangle(a, b, d, 'abd')}
        ${createTriangle(a, c, d, 'acd')}
