@@ -1935,3 +1935,113 @@ export   const pickSubject = () =>
      }
      throw Error('Choose failed to make a choice');
    };
+
+const computeTriangleArea = ([x1, y1], [x2, y2], [x3, y3]) => {
+  return 0.5 * Math.abs(
+    x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)
+  );
+};
+
+const computeLength = ([x1, y1], [x2, y2]) => Math.sqrt(Math.pow(Math.abs(x1 - x2), 1) + Math.pow(Math.abs(y1 - y2), 2));
+
+const computeAngle = (p1, p2, p3) => {
+  // Calculate the vectors representing two sides of the triangle
+  const vectorAB = [p2[0] - p1[0], p2[1] - p1[1]];
+  const vectorBC = [p3[0] - p2[0], p3[1] - p2[1]];
+
+  // Calculate the dot product of the vectors
+  const dotProduct = vectorAB[0] * vectorBC[0] + vectorAB[1] * vectorBC[1];
+
+  // Calculate the magnitudes of the vectors
+  const magnitudeAB = Math.sqrt(vectorAB[0] * vectorAB[0] + vectorAB[1] * vectorAB[1]);
+  const magnitudeBC = Math.sqrt(vectorBC[0] * vectorBC[0] + vectorBC[1] * vectorBC[1]);
+
+  // Calculate the cosine of the angle
+  const cosAngle = dotProduct / (magnitudeAB * magnitudeBC);
+
+  // Calculate the angle (in radians)
+  let angle = Math.acos(cosAngle);
+
+  // Convert angle from radians to degrees if desired
+  angle = angle * 180 / Math.PI;
+
+  return 180 - angle;
+};
+
+const findCenter = ([p1x, p1y], [p2x, p2y], [p3x, p3y], a, b, c) => {
+  const perimeter = a + b + c;
+  const x = (a * p1x + b * p2x + c * p3x) / perimeter;
+  const y = (a * p1y + b * p2y + c * p3y) / perimeter;
+  return [x, y];
+};
+
+const lerp = (start, end, amount) => (1 - amount) * start + amount * end;
+
+const lerp2 = ([x1, y1], [x2, y2], amount) => [lerp(x1, x2, amount), lerp(y1, y2, amount)];
+
+const createCorner = (p1, p2, p3, id, clip) => {
+  const d = `<text x=${p2[0]} y=${p2[1]} dominant-baseline="middle" text-anchor="middle" style="stroke-width:2px;stroke:white;paint-order:stroke;fill:black">${id}</text>`;
+  return d;
+}
+
+const createTriangle = (a, b, c, id, getRadius) => {
+  return `
+    <path d="M ${a[0]} ${a[1]} L ${b[0]} ${b[1]} L ${c[0]} ${c[1]} Z" style="stroke:black;stroke-width:1;fill:none"/>
+    ${createCorner(a, b, c, id[1])}
+    ${createCorner(b, c, a, id[2])}
+    ${createCorner(c, a, b, id[0])}
+    `;
+}
+
+export const buildTriangleProblem = () => {
+  for (;;) {
+    const a = [pick(20, 180), pick(20, 180)];
+    const b = [pick(20, 180), pick(20, 180)];
+    const c = [pick(20, 180), pick(20, 180)];
+    const d = lerp2(b, c, Math.random());
+    if (d[0] < 20 || d[0] > 180 || d[1] < 20 || d[1] > 180) {
+      continue;
+    }
+    const area1 = computeTriangleArea(a, b, c);
+    const area2 = computeTriangleArea(a, b, d);
+    if (area1 < 5000 || area2 < 5000) {
+      continue;
+    }
+    let hasGoodSeparation = (() => {
+      for (const p1 of [a, b, c, d]) {
+        for (const p2 of [a, b, c, d]) {
+          if (p1 === p2) {
+            continue;
+          }
+          if (computeLength(p1, p2) < 40) {
+            return false;
+          }
+        }
+      }
+      return true;
+    })();
+    if (!hasGoodSeparation) {
+      continue;
+    }
+    console.log(`QQ: ${computeLength(a, b)} ${computeLength(b, c)} ${computeLength(c, a)}`);
+    let info = [];
+    const addInfo = (text) => {
+      info.push(`<text x=300 y=${(info.length + 1) * 20}>${text}</text>`);
+    }
+    switch (pick(1)) {
+      case 0:
+        addInfo(`acd = ${computeAngle(a, c, d).toFixed(0)}`);
+        addInfo(`abd = `);
+        addInfo(`dab = ${computeAngle(d, a, b).toFixed(0)}`);
+        addInfo(`dac = ${computeAngle(d, a, c).toFixed(0)}`);
+    }
+    return `
+      <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+       ${createTriangle(a, b, c, 'abc')}
+       ${createTriangle(a, b, d, 'abd')}
+       ${createTriangle(a, c, d, 'acd')}
+       ${info.join('\n')}
+      </svg>
+      `;
+  }
+}
