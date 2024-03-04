@@ -2124,7 +2124,7 @@ export const buildTriangleKiteProblem = () => {
         break;
     }
     return `
-      <svg width="350" height="180" xmlns="http://www.w3.org/2000/svg">
+      <svg width="350" height="190" xmlns="http://www.w3.org/2000/svg">
        ${createTriangle(a, b, e, 'ABE')}
        ${createTriangle(b, c, e, 'BCE')}
        ${createTriangle(c, d, e, 'CDE')}
