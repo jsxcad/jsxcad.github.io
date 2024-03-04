@@ -1984,6 +1984,28 @@ const lerp = (start, end, amount) => (1 - amount) * start + amount * end;
 
 const lerp2 = ([x1, y1], [x2, y2], amount) => [lerp(x1, x2, amount), lerp(y1, y2, amount)];
 
+const findLineIntersection = ([[x1, y1], [x2, y2]], [[x3, y3], [x4, y4]]) => {
+  // Calculate denominators and determinants
+  const denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+  const uaNumerator = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3));
+  const ubNumerator = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3));
+
+  // Check for special cases
+  if (denominator === 0) {
+    // Parallel lines:
+    return null;
+  }
+
+  const ua = uaNumerator / denominator;
+  const ub = ubNumerator / denominator;
+
+  // Calculate intersection coordinates
+  const x = x1 + ua * (x2 - x1);
+  const y = y1 + ua * (y2 - y1);
+
+  return [x, y];
+};
+
 const createCorner = (p1, p2, p3, id, clip) => {
   const d = `<text x=${p2[0]} y=${p2[1]} dominant-baseline="middle" text-anchor="middle" style="stroke-width:2px;stroke:white;paint-order:stroke;fill:black">${id}</text>`;
   return d;
@@ -1998,7 +2020,7 @@ const createTriangle = (a, b, c, id, getRadius) => {
     `;
 }
 
-export const buildTriangleProblem = () => {
+export const buildTriangleTwoProblem = () => {
   for (;;) {
     const a = [pick(20, 180), pick(20, 180)];
     const b = [pick(20, 180), pick(20, 180)];
@@ -2028,23 +2050,85 @@ export const buildTriangleProblem = () => {
     if (!hasGoodSeparation) {
       continue;
     }
-    console.log(`QQ: ${computeLength(a, b)} ${computeLength(b, c)} ${computeLength(c, a)}`);
+    let info = [];
+    const addInfo = (text) => {
+      info.push(`<text x=200 y=${(info.length + 1) * 20}>${text}</text>`);
+    }
+    switch (pick(2)) {
+      case 0:
+        addInfo(`ACD = ${computeAngle(a, c, d).toFixed(0)}`);
+        addInfo(`ABD = `);
+        addInfo(`DAB = ${computeAngle(d, a, b).toFixed(0)}`);
+        addInfo(`DAC = ${computeAngle(d, a, c).toFixed(0)}`);
+        break;
+      case 1:
+        addInfo(`ABD = ${computeAngle(a, b, d).toFixed(0)}`);
+        addInfo(`BDA = `);
+        addInfo(`CAD = ${computeAngle(c, a, d).toFixed(0)}`);
+        break;
+    }
+    return `
+      <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+       ${createTriangle(a, b, c, 'ABC')}
+       ${createTriangle(a, b, d, 'ABD')}
+       ${createTriangle(a, c, d, 'ACD')}
+       ${info.join('\n')}
+      </svg>
+      `;
+  }
+};
+
+export const buildTriangleKiteProblem = () => {
+  for (;;) {
+    const a = [pick(20, 80), pick(20, 80)];
+    const b = [pick(20, 80), pick(120, 180)];
+    const c = [pick(120, 180), pick(120, 180)];
+    const d = [pick(120, 180), pick(20, 80)];
+    const e = findLineIntersection([a, c], [b, d]);
+    if (e === null) {
+      continue;
+    }
+    if (computeTriangleArea(a, b, e) < 1000 ||
+        computeTriangleArea(b, c, e) < 1000 ||
+        computeTriangleArea(c, d, e) < 1000 ||
+        computeTriangleArea(d, a, e) < 1000) {
+      continue;
+    }
+    let hasGoodSeparation = (() => {
+      for (const p1 of [a, b, c, d]) {
+        for (const p2 of [a, b, c, d]) {
+          if (p1 === p2) {
+            continue;
+          }
+          if (computeLength(p1, p2) < 40) {
+            return false;
+          }
+        }
+      }
+      return true;
+    })();
+    if (!hasGoodSeparation) {
+      continue;
+    }
     let info = [];
     const addInfo = (text) => {
       info.push(`<text x=200 y=${(info.length + 1) * 20}>${text}</text>`);
     }
     switch (pick(1)) {
       case 0:
-        addInfo(`acd = ${computeAngle(a, c, d).toFixed(0)}`);
-        addInfo(`abd = `);
-        addInfo(`dab = ${computeAngle(d, a, b).toFixed(0)}`);
-        addInfo(`dac = ${computeAngle(d, a, c).toFixed(0)}`);
+        addInfo(`ACD = ${computeAngle(a, c, d).toFixed(0)}`);
+        addInfo(`ADE = ${computeAngle(a, d, e).toFixed(0)}`);
+        addInfo(`AEB = `);
+        addInfo(`CAD = ${computeAngle(c, a, d).toFixed(0)}`);
+        addInfo(`AC and BD cross at E`);
+        break;
     }
     return `
-      <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
-       ${createTriangle(a, b, c, 'abc')}
-       ${createTriangle(a, b, d, 'abd')}
-       ${createTriangle(a, c, d, 'acd')}
+      <svg width="350" height="180" xmlns="http://www.w3.org/2000/svg">
+       ${createTriangle(a, b, e, 'ABE')}
+       ${createTriangle(b, c, e, 'BCE')}
+       ${createTriangle(c, d, e, 'CDE')}
+       ${createTriangle(d, a, e, 'DAE')}
        ${info.join('\n')}
       </svg>
       `;

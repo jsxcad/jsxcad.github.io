@@ -157,7 +157,8 @@
 
    const buildGeometryProblem = (chosen) => {
      const problem = m.choose([
-           { value: m.buildTriangleProblem, weight: 200, limit: Infinity },
+           { value: m.buildTriangleTwoProblem, weight: 200, limit: Infinity },
+           { value: m.buildTriangleKiteProblem, weight: 200, limit: Infinity },
          ], chosen)(chosen);
      return `<table style="border: thin solid; width: 100%">
                <tr style="outline: thin dotted; height: 76px"><td>${problem}</td></tr>
