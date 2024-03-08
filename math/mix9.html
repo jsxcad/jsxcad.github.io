@@ -31,9 +31,9 @@
        { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 },
        { value: m.buildVehicleFuelDistanceProblem, weight: 1 },
        { value: m.buildCutProblem, weight: 2 },
-       { value: m.buildCakeSliceProblem, weight: 25 },
-       { value: m.buildDiceProblem, weight: 25 },
-       { value: m.buildDiceProbabilityProblem, weight: 25 }
+       { value: m.buildCakeSliceProblem, weight: 5 },
+       { value: m.buildDiceProblem, weight: 5 },
+       { value: m.buildDiceProbabilityProblem, weight: 5 }
      ], chosen)(chosen);
      return `<table style="border: thin solid; width: 100%; height: 315"><tr style="outline: thin dotted"><td style="vertical-align: top">${problem()}</td></tr></table>`;
    }
@@ -101,7 +101,7 @@
       }
       const rows = [];
       for (const problem of problems) {
-        rows.push(`<tr style="outline: thin dotted; height: 76px"><td style="vertical-align: middle">${problem}</td></tr>`);
+        rows.push(`<tr style="outline: thin dotted; height: 76px"><td style="vertical-align: center">${problem}</td></tr>`);
       }
       return `<table style="border: thin solid; width: 100%">${rows.join('\n')}</table>`;
    }
@@ -155,6 +155,25 @@
      return rows.join('\n');
    };
 
+   const buildVocabProblem = (count, chosen, promptWeight = 200, emotivePromptWeight = 10) => {
+     const vocab = [];
+     for (let nth = 0; nth < count; nth++) {
+       const choice = m.choose([
+         { value: m.buildFourthGradePromptWord, weight: promptWeight, limit: Infinity },
+       ], chosen);
+       vocab.push(choice(chosen));
+     }
+     const rows = [];
+     while (vocab.length > 0) {
+       rows.push(`<tr style="height: 90px; outline: thin solid; margin: 10px">`);
+       for (let nth = 0; nth < 5 && vocab.length > 0; nth++) {
+         rows.push(`<td style="text-align: center; vertical-align: top">${vocab.pop()}</td>`);
+       }
+       rows.push(`</tr>`);
+     }
+     return `<table style="border: thin solid; width: 100%">${rows.join('\n')}</table>`;
+   }
+
    const buildGeometryProblem = (chosen) => {
      const problem = m.choose([
            { value: m.buildTriangleTwoProblem, weight: 200, limit: Infinity },
@@ -179,13 +198,14 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
+         ${keep(buildVocabProblem(25, chosen, 100, 50))}
          ${drop(buildStoryProblem(4, chosen, 200, 10))}
          ${drop(buildStoryProblem(1, chosen, 100, 50))}
-         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
-         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
-         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
-         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
-         ${keep(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildSentenceProblem(1, chosen, 100, 50))}
+         ${drop(buildSentenceProblem(1, chosen, 100, 50))}
          ${keep(buildMathProblem(3, new Map()))}
          ${drop(buildMathProblem(4, new Map()))}
          ${drop(buildMathProblem(6, new Map()))}

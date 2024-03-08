@@ -2062,9 +2062,9 @@ export const buildTriangleTwoProblem = () => {
         addInfo(`DAC = ${computeAngle(d, a, c).toFixed(0)}`);
         break;
       case 1:
-        addInfo(`ABD = ${computeAngle(a, b, d).toFixed(0)}`);
-        addInfo(`BDA = `);
-        addInfo(`CAD = ${computeAngle(c, a, d).toFixed(0)}`);
+        addInfo(`ADB = ${computeAngle(a, d, b).toFixed(0)}`);
+        addInfo(`ADC = `);
+        addInfo(`CAB = ${computeAngle(c, a, b).toFixed(0)}`);
         break;
     }
     return `
