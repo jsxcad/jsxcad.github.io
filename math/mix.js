@@ -1123,7 +1123,6 @@ export   const pickSubject = () =>
      choose([
        { value: ['kg', 'g'], weight: 5 },
        { value: ['m', 'cm'], weight: 5 },
-       { value: ['cm', 'm'], weight: 5 },
        { value: ['km', 'm'], weight: 5 },
        { value: ['l', 'ml'], weight: 5 },
        { value: ['hours', 'minutes'], weight: 5 },
@@ -1532,7 +1531,7 @@ export   const pickSubject = () =>
      }
    }
 
-   export const buildAttendanceCountProblem = (chosen) => {
+   export const buildAttendanceTicketProblem = (chosen) => {
      for (;;) {
        const s = pick(20, 100);
        const t1 = pick(1, 11);
@@ -1547,6 +1546,18 @@ export   const pickSubject = () =>
        return `A ${p} has ${s} seats, which were all sold.<br><br>
                Adult tickets cost $${t1} each and children's tickets cost $${t2} each.<br><br>
                If the total amount collected was $${c}, how many of each ticket were sold?`;
+     }
+   }
+
+   export const buildAttendanceProblem = (chosen) => {
+     for (;;) {
+       const g = pick(1, 100);
+       const l = pick(1, 100);
+       const b = g * 2 - l;
+       if (b < 0) {
+         continue;
+       }
+       return `There are ${g + b} boys and girls. There are ${l} less than twice as many boys as girls. How many boys are there?`;
      }
    }
 
@@ -1834,11 +1845,12 @@ export   const pickSubject = () =>
    export const buildDiceProblem = (chosen) => {
      const color = pickColor(chosen);
      for (;;) {
+       const die = pick(1, 8);
        const pickDicePositive = () => {
          switch (pick(0, 4)) {
            case 0: return 'rolling an odd number';
            case 1: return 'rolling an even number';
-           case 2: return `rolling a ${pick(1, 7)}`;
+           case 2: return `rolling a ${pick(1, die + 1)}`;
            case 3: {
              for (;;) {
                const a = pick(1, 7);
@@ -1855,7 +1867,7 @@ export   const pickSubject = () =>
          switch (pick(0, 4)) {
            case 0: return 'not rolling an odd number';
            case 1: return 'not rolling an even number';
-           case 2: return `not rolling a ${pick(1, 7)}`;
+           case 2: return `not rolling a ${pick(1, die + 1)}`;
            case 3: {
              for (;;) {
                const a = pick(1, 7);
@@ -1876,7 +1888,7 @@ export   const pickSubject = () =>
        };
        const a = pickDice();
        const b = pickDice();
-       return `What is the probability of ${a} then ${b} with six sided dice?`;
+       return `What is the probability of ${a} then ${b} with ${die} sided dice?`;
      }
    }
 

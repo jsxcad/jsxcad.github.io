@@ -19,18 +19,20 @@
        { value: m.buildTimeMeetProblem, weight: 5 },
        { value: m.buildWorkTogetherTimeProblem, weight: 5 },
        { value: m.buildWorkApartTimeProblem, weight: 5 },
-       // { value: m.buildAttendanceCountProblem, weight: 5 },
+       // { value: m.buildAttendanceTicketProblem, weight: 5 },
+       { value: m.buildAttendanceProblem, weight: 50 },
        { value: m.buildLeverWeightProblem, weight: 5 },
        { value: m.buildLeverDistanceProblem, weight: 5 },
        { value: m.buildAgeProblem, weight: 5 },
-       { value: m.buildProportionProblem, weight: 2 },
+       { value: m.buildProportionProblem, weight: 5 },
        { value: m.buildPerimeterDimensionsProblem, weight: 5 },
        // { value: m.buildAngleProblem, weight: 5 },
        { value: m.buildPerimeterSideProblem, weight: 5 },
        { value: m.buildTravelTimeBetweenCitiesProblem, weight: 5 },
        { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 },
-       { value: m.buildVehicleFuelDistanceProblem, weight: 1 },
-       { value: m.buildCutProblem, weight: 2 },
+       { value: m.buildVehicleFuelDistanceProblem, weight: 5 },
+       { value: m.buildCutProblem, weight: 5 },
+       { value: m.buildBallProblem, weight: 5 },
        { value: m.buildCakeSliceProblem, weight: 5 },
        { value: m.buildDiceProblem, weight: 5 },
        { value: m.buildDiceProbabilityProblem, weight: 5 }
@@ -96,7 +98,7 @@
            { value: m.buildKoreanUnitManProblem, weight: 5, limit: 1 },
            { value: m.buildKoreanUnitOkProblem, weight: 5, limit: 1 },
            { value: m.buildKoreanUnitJoProblem, weight: 5, limit: 1 },
-           { value: m.buildDigitPlaceValueProblem, weight: 100, limit: 5 },
+           { value: m.buildDigitPlaceValueProblem, weight: 5, limit: 1 },
          ], chosen)(chosen));
       }
       const rows = [];
@@ -166,7 +168,7 @@
      const rows = [];
      while (vocab.length > 0) {
        rows.push(`<tr style="height: 90px; outline: thin solid; margin: 10px">`);
-       for (let nth = 0; nth < 5 && vocab.length > 0; nth++) {
+       for (let nth = 0; nth < 4 && vocab.length > 0; nth++) {
          rows.push(`<td style="text-align: center; vertical-align: top">${vocab.pop()}</td>`);
        }
        rows.push(`</tr>`);
@@ -198,7 +200,7 @@
          ${buildAlgebraProblem(chosen)}
         </td>
         <td style="width: 50%">
-         ${keep(buildVocabProblem(25, chosen, 100, 50))}
+         ${keep(buildVocabProblem(20, chosen, 100, 50))}
          ${drop(buildStoryProblem(4, chosen, 200, 10))}
          ${drop(buildStoryProblem(1, chosen, 100, 50))}
          ${drop(buildSentenceProblem(1, chosen, 100, 50))}
