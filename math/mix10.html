@@ -1,0 +1,147 @@
+<html>
+ <head>
+  <style>
+  {
+    font-size: 1em;
+  }
+  </style>
+ </head>
+ <body>
+  <script type='module'>
+   import * as m from './mix10.js';
+   const { body } = document;
+
+   const buildProblem = (chosen) => {
+     const problem = m.choose([
+       { value: m.buildDistanceTimeProblem, weight: 5 },
+       { value: m.buildCrashTimeProblem, weight: 5 },
+       // { value: m.buildTimeDistanceProblem, weight: 5 },
+       { value: m.buildTimeMeetProblem, weight: 5 },
+       { value: m.buildWorkTogetherTimeProblem, weight: 5 },
+       { value: m.buildWorkApartTimeProblem, weight: 5 },
+       // { value: m.buildAttendanceTicketProblem, weight: 5 },
+       { value: m.buildAttendanceProblem, weight: 50 },
+       { value: m.buildLeverWeightProblem, weight: 5 },
+       { value: m.buildLeverDistanceProblem, weight: 5 },
+       { value: m.buildAgeProblem, weight: 5 },
+       { value: m.buildProportionProblem, weight: 5 },
+       { value: m.buildPerimeterDimensionsProblem, weight: 5 },
+       // { value: m.buildAngleProblem, weight: 5 },
+       { value: m.buildPerimeterSideProblem, weight: 5 },
+       { value: m.buildTravelTimeBetweenCitiesProblem, weight: 5 },
+       { value: m.buildTravelDistanceBetweenCitiesProblem, weight: 5 },
+       { value: m.buildVehicleFuelDistanceProblem, weight: 5 },
+       { value: m.buildCutProblem, weight: 5 },
+       { value: m.buildBallProblem, weight: 5 },
+       { value: m.buildCakeSliceProblem, weight: 5 },
+       { value: m.buildDiceProblem, weight: 5 },
+       { value: m.buildDiceProbabilityProblem, weight: 5 },
+       { value: m.buildCoinProblem, weight: 5 },
+       { value: m.buildSimpleDivision31, weight: 5 },
+       { value: m.buildSimpleDivision32, weight: 50 },
+       { value: m.buildAddition, weight: 5 },
+       { value: m.buildMultiplication21, weight: 5 },
+       { value: m.buildMultiplication22, weight: 50 },
+       { value: m.buildMultiplication32, weight: 50 },
+       { value: m.buildMultiplicationTens, weight: 5 },
+       { value: m.buildMultiplicationThousands, weight: 5 },
+       { value: m.buildMultiplicationOneOffTens, weight: 5 },
+       { value: m.buildMultiplicationOneOffHundreds, weight: 5 },
+       // { value: m.buildMultiplicationInequality, weight: 50 },
+       { value: m.buildMultiplicationInequalitySimple, weight: 5 },
+       { value: m.buildRationalAddition, weight: 50 },
+       { value: m.buildRationalSubtraction, weight: 50 },
+       { value: m.buildDecimalDecimalSubtraction, weight: 5 },
+       { value: m.buildIntegerRationalSubtraction, weight: 5 },
+       { value: m.buildIntegerDecimalSubtraction, weight: 5 },
+       { value: m.buildIntegerDecimalMultiplication, weight: 5 },
+       { value: m.buildIntegerPercentageMultiplication, weight: 5 },
+       { value: m.buildIntegerRationalMultiplication, weight: 5 },
+       { value: m.buildIntegerRationalDivision, weight: 5 },
+       { value: m.buildRationalMultiplication, weight: 5 },
+       { value: m.buildRationalDivision, weight: 5 },
+       { value: m.buildSubtraction, weight: 5 },
+       { value: m.buildTimeAddition, weight: 5 },
+       { value: m.buildTimeSubtraction, weight: 5 },
+       { value: m.buildSquare, weight: 5 },
+       { value: m.buildCube, weight: 5 },
+       { value: m.buildSquareRoot, weight: 5 },
+       { value: m.buildUnitAddition, weight: 5 },
+       { value: m.buildUnitSubtraction, weight: 5 },
+       { value: m.buildUnitMultiplication, weight: 5 },
+       { value: m.buildUnitDivision, weight: 5 },
+       { value: m.buildUnitDimensionlessDivision, weight: 5 },
+       { value: m.buildUnitDimensionlessMultiplication, weight: 5 },
+       { value: m.buildSameUnitAddition, weight: 5 },
+       { value: m.buildSameUnitNegativeAddition, weight: 5 },
+       { value: m.buildSameUnitSubtraction, weight: 5 },
+       { value: m.buildSameUnitMultiplication, weight: 5 },
+       { value: m.buildSameUnitDivision, weight: 5 },
+       { value: m.buildConvertibleUnitAddition, weight: 5 },
+       { value: m.buildConvertibleUnitNegativeAddition, weight: 5 },
+       { value: m.buildConvertibleUnitSubtraction, weight: 5 },
+       { value: m.buildConvertibleUnitMultiplication, weight: 5 },
+       { value: m.buildConvertibleUnitDivision, weight: 50 },
+       { value: m.buildSystemOfEquations, weight: 20, limit: 5 },
+       { value: m.buildSameBasisAddition, weight: 5 },
+       { value: m.buildRationalInequality, weight: 5 },
+       { value: m.buildReorderingProblem, weight: 20 },
+       { value: m.buildExpansionProblem, weight: 20 },
+       { value: m.buildKoreanUnitManProblem, weight: 5 },
+       { value: m.buildKoreanUnitOkProblem, weight: 5 },
+       { value: m.buildKoreanUnitJoProblem, weight: 5 },
+       { value: m.buildDigitPlaceValueProblem, weight: 5 },
+       // { value: m.buildPromptWord, weight: 5, limit: Infinity },
+       // { value: m.buildThirdGradePromptWord, weight: 5, limit: Infinity },
+       // { value: m.buildFourthGradePromptWord, weight: 5, limit: Infinity },
+       // { value: m.buildEmotivePromptWord, weight: 5, limit: Infinity },
+       // { value: m.buildFourthGradePromptWord, weight: 5, limit: Infinity },
+       // { value: m.buildSpellingQuestion, weight: 5, limit: Infinity },
+       { value: m.buildVocabProblem, weight: 5000, limit: 5 },
+       { value: m.buildTriangleTwoProblem, weight: 5, limit: 1 },
+       { value: m.buildTriangleKiteProblem, weight: 5, limit: 1 },
+     ], chosen)
+     return problem();
+   };
+
+   const drop = (x) => '';
+   const keep = (x) => x;
+
+   const t = document.createElement('table');
+   const chosen = new Map();
+   const buildColumn = (limit, chosen) => {
+     const rows = [];
+     while (limit > 0) {
+       const problem = buildProblem(chosen);
+       if (problem === undefined) {
+         console.log(`QQ/buildColumn: bad=${buildProblem}`);
+         return;
+       }
+       const { size, html } = problem;
+       if (size === undefined || html === undefined) {
+         console.log(`QQ/buildColumn: bad=${buildProblem}`);
+         return;
+       }
+       if (size > limit) {
+         continue;
+       }
+       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80}px; border: thin solid;">${html}</div>`);
+       limit -= size;
+     }
+     return rows.join('\n');
+   }
+   body.innerHTML = `
+     <table style="width: 100%">
+       <tr>
+        <td style="width: 50%">
+         ${buildColumn(10, chosen)}
+        </td>
+        <td style="width: 50%">
+         ${buildColumn(10, chosen)}
+        </td>
+       </tr>
+     </table>
+   `;
+  </script>
+ </body>
+</html>
