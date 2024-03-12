@@ -101,8 +101,9 @@
        { value: m.buildTriangleTwoProblem, weight: 5, limit: 1 },
        { value: m.buildTriangleKiteProblem, weight: 5, limit: 1 },
        { value: m.buildSubtractionWithCarryCascade, weight: 500, limit: 1 },
+       { value: m.buildGapSentenceProblem, weight: 500, limit: 1 },
      ], chosen)
-     return problem();
+     return problem(chosen);
    };
 
    const drop = (x) => '';

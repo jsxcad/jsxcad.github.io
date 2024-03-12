@@ -244,6 +244,82 @@ const gradeWords = {
   grade12: fixGradeWords("anachronistic abbreviate abdicate abstinence adulation adversity aesthetic amicable anecdote anonymous antagonist arid assiduous asylum benevolent camaraderie censure circuitous clairvoyant collaborate compassion compromise condescending conditional conformist congregation convergence deleterious demagogue digression diligent discredit disdain divergent empathy emulate enervating enhance ephemeral evanescent exasperation exemplary extenuating florid fortuitous frugal hackneyed haughty hedonist hypothesis impetuous impute incompatible inconsequential inevitable integrity intrepid intuitive jubilation lobbyist longevity mundane nonchalant novice opulent orator ostentatious parched perfidious precocious pretentious procrastinate prosaic prosperity provocative prudent querulous rancorous reclusive reconciliation renovation resilient restrained reverence sagacity scrutinize spontaneity spurious submissive substantiate subtle superficial superfluous suppress surreptitious tactful tenacious transient venerable vindicate wary")
 };
 
+const gapSentences = [
+  { "word": "accomplish", "sentence": "With hard work and dedication, she was able to _________ a great deal this year." },
+  { "word": "adaptation", "sentence": "The lizard's _________ to its desert environment included developing water-conserving features." },
+  { "word": "approached", "sentence": "He cautiously _________ the stray dog, offering it a piece of food." },
+  { "word": "argued", "sentence": "The siblings _________ for hours about who would get to use the new game first." },
+  { "word": "automatically", sentence: "Sensor lights _________ turn on when it gets dark to save energy." },
+  { "word": "avoid", "sentence": "We need to _________ making the same mistakes in the future." },
+  { "word": "border", "sentence": "The country increased security patrols along its _________ to prevent illegal crossings." },
+  { "word": "calculate", "sentence": "The will engineer carefully _________ the amount of materials needed to build the bridge." },
+  { "word": "cause", "sentence": "The heavy rain was the _________ of the flooding in the streets." },
+  { "word": "circular", "sentence": "We ended up in a _________ argument, repeating the same points over and over again." },
+  { "word": "compare", "sentence": "The scientist decided to _________ the results of the two experiments to see if there were any similarities. "},
+  { "word": "concluding", "sentence": "The book's _________ chapter offered a satisfying resolution to the story." },
+  { "word": "confirm",  "sentence": "Could you please _________ whether you'll be attending the event?" },
+  { "word": "contrast", "sentence": "The _________ between the two cities, one modern and one ancient, was fascinating." },
+  { "word": "convince", "sentence": "The lawyer worked hard to _________ the jury of her client's innocence." },
+  { "word": "critical", "sentence": "Providing _________ feedback is essential for the team's growth." },
+  { "word": "decrease", "sentence": "There has been a significant _________ in crime rates in the city this year." },
+  { "word": "defend", "sentence": "The soldiers were prepared to _________ their territory from attack." },
+  { "word": "demonstrate", "sentence": "The instructor will _________ how to use the software during the training session." },
+  { "word": "describe", "sentence": "The witness was asked to _________ the attacker in as much detail as possible." },
+  { "word": "detail", "sentence": "The detective paid close attention to every _________ of the crime scene." },
+  { "word": "develop", "sentence": "The team worked together to _________ a new marketing strategy." },
+  { "word": "difference", "sentence": "The main _________ between the two products was their price." },
+  { "word": "disappointed", "sentence": "The fans were _________ when the concert was canceled." },
+  { "word": "distribute", "sentence": "The organization plans to _________ food and supplies to those affected by the disaster." },
+  { "word": "effective", "sentence": "The new medicine proved to be highly _________ in treating the disease." },
+  { "word": "eliminate", "sentence": "The goal of the project was to _________ unnecessary expenses from the budget." },
+  { "word": "entire", "sentence": "The _________ town gathered to celebrate the annual festival." },
+  { "word": "essential", "sentence": "It is _________ to get enough sleep for good health." },
+  { "word": "estimate", "sentence": "The contractor provided a rough _________ of the costs for the renovation project." },
+  { "word": "evidence", "sentence": "The police collected fingerprints as _________ at the crime scene." },
+  { "word": "example", "sentence": "The teacher used a real-world _________ to illustrate the concept." },
+  { "word": "except", "sentence": "Everyone was invited to the party _________ for my brother." },
+  { "word": "exclaimed", "sentence": "The child _________ with joy when she saw the puppy." },
+  { "word": "experiment", "sentence": "The scientist conducted a controlled _________ to test his hypothesis."},
+  { "word": "flexible", "sentence": "The gymnast's _________ body allowed her to perform complex routines." },
+  { "word": "fortunate", "sentence": "We were _________ to find a parking spot right in front of the restaurant." },
+  { "word": "frequent", "sentence": "Headaches had become a _________ occurrence for her." },
+  { "word": "furious", "sentence": "The customer was _________ when the product arrived broken." },
+  { "word": "increasing", "sentence": "The company is facing _________ pressure to reduce costs." },
+  { "word": "infer", "sentence": "From the footprints, we were able to _________  that the suspect was running." },
+  { "word": "inform", "sentence": "Please _________  me of any changes to the schedule." },
+  { "word": "insert", "sentence": "The editor asked the writer to _________ a few more examples into the article." },
+  { "word": "maximum", "sentence": "The _________ speed limit  on the highway was 100 kilometers per hour." },
+  { "word": "minimum", "sentence": "There is a _________ order quantity of 10 items for this discount." },
+  { "word": "observe", "sentence": "The astronomer used a telescope to _________ the stars." },
+  { "word": "organized", "sentence": "Her desk was always neatly _________ with everything in its place." },
+  { "word": "obvious", "sentence": "It was _________ from his reaction that he was surprised by the news." },
+  { "word": "passage", "sentence": "The author read a moving _________ from her new book." },
+  { "word": "persuade", "sentence": "The salesperson's excellent pitch managed to _________ the customer to buy the product." },
+  { "word": "predict", "sentence": "The weather forecast does _________ rain for tomorrow." },
+  { "word": "prefer", "sentence": "I _________ coffee over tea in the morning." },
+  { "word": "previous", "sentence": "This is a significant improvement over our _________ attempt." },
+  { "word": "purpose", "sentence": "The _________ of this meeting is to discuss the project timeline." },
+  { "word": "prediction", "sentence": "Her _________ of winning the competition turned out to be accurate." },
+  { "word": "rarely", "sentence": "We _________ see snow in this part of the country." },
+  { "word": "reason", "sentence": "What is the _________ for your decision to change careers?" }, 
+  { "word": "recognize", "sentence": "Do you _________ this person in the picture?" },
+  { "word": "recommend", "sentence": "The doctor will _________ a healthy diet and exercise for weight loss." },
+  { "word": "represent", "sentence": "The blue dot on the map will _________ our current location." },
+  { "word": "result", "sentence": "The experiment yielded an unexpected _________." },
+  { "word": "scarce", "sentence": "Due to the drought, clean water became a _________ resource." },
+  { "word": "select", "sentence": "Please _________ your preferred date for the appointment." },
+  { "word": "separate", "sentence": "The recycling plant has bins to _________  glass, plastic, and paper." },
+  { "word": "simplify", "sentence": "Can you _________ the instructions so they are easier to understand?" },
+  { "word": "summarize", "sentence": "The speaker asked the student to _________ the main points of the article." },
+  { "word": "surround", "sentence": "The garden did _________ the old house." },
+  { "word": "support", "sentence": "The group offered their _________ to the new project manager." },
+  { "word": "temporary", "sentence": "The road closure is only _________ while repairs are being made." },
+  { "word": "threatens", "sentence": "The invasive species _________ the balance of the local ecosystem." },
+  { "word": "tradition", "sentence": "Baking cookies for the holidays is a long-standing family _________." },
+  { "word": "typical", "sentence": "Getting stuck in traffic on the way to work is a _________ occurrence for many commuters." },
+  { "word": "usually", "sentence": "I _________ have cereal for breakfast, but sometimes I make eggs." }
+];
+
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
 export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying, chosen);
@@ -2155,5 +2231,18 @@ export const buildSubtractionWithCarryCascade = () => {
     }
 
     return Size(1, `${a[0]}${a[1]}${a[2]} ${kMinus} ${b[0]}${b[1]}${b[2]} = ${kAnswer}`);
+  }
+};
+
+const reverse = (s) => s.split('').reverse().join('');
+
+export const buildGapSentenceProblem = (chosen) => {
+  for (;;) {
+    const choice = chooseFromList(gradeWords.grade4, chosen);
+    for (const { word, sentence }  of gapSentences) {
+      if (choice === word) {
+        return Size(2, reverse(reverse(sentence.replace('_', word.substring(0, 2))).replace('_', reverse(word).substring(0, 2))));
+      }
+    }
   }
 };
