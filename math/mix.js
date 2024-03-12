@@ -899,6 +899,26 @@ export   const pickSubject = () =>
 
    export const buildSubtraction = () => Pre(`${pick(1000)} ${kMinus} ${pick(1000)} = ${kAnswer}`);
 
+   export const buildSubtractionWithCarryCascade = () => {
+     for (;;) {
+       const a = `${pick(1000)}`;
+       const as = `${a}`);
+       if (as.length != 3 || as[1] !== '0') {
+         continue;
+       }
+       const b = pick(1000);
+       if (b >= a) {
+         continue;
+       }
+       const bs = `${b}`;
+       if (length.bs != 3 || Number(bs[2]) < Number(as[2])) {
+          continue;
+       }
+
+       Pre(`${a} ${kMinus} ${b} = ${kAnswer}`);
+     }
+   }
+
    export const buildTimeSubtraction = () => {
      const xH = pick(24);
      const xM = pick(60);

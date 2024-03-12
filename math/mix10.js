@@ -2145,3 +2145,15 @@ export const buildVocabProblem = (chosen) => {
            </tr>
           </table>`);
 };
+
+export const buildSubtractionWithCarryCascade = () => {
+  for (;;) {
+    const a = [pick(10), 0, pick(10)];
+    const b = [pick(10), pick(10), pick(10)];
+    if (a[0] < b[0] || a[2] < b[2]) {
+      continue;
+    }
+
+    return Size(1, `${a[0]}${a[1]}${a[2]} ${kMinus} ${b[0]}${b[1]}${b[2]} = ${kAnswer}`);
+  }
+};
