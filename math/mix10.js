@@ -890,7 +890,7 @@ export   const pickSubject = () =>
        }
      }
    };
-   export const Size = (size, html) => ({ html, size });
+   export const Size = (name, size, html) => ({ name, html, size });
    export const Text = (container, text, size) => {
      const pre = document.createElement('pre');
      pre.appendChild(document.createTextNode(text));
@@ -939,7 +939,7 @@ export   const pickSubject = () =>
        if (t.length < 3) {
          continue;
        }
-       return Size(1, `${x} ${kDivide} ${y} = ${kAnswer}`);
+       return Size('SimpleDivision31', 1, `${x} ${kDivide} ${y} = ${kAnswer}`);
      }
    };
 
@@ -958,22 +958,22 @@ export   const pickSubject = () =>
        if (t.length < 4) {
          continue;
        }
-       return Size(1, `${x} ${kDivide} ${y} = ${kAnswer}`);
+       return Size('SimpleDivision32', 1, `${x} ${kDivide} ${y} = ${kAnswer}`);
      }
    };
 
    export const buildSquare = () => 
-     Size(1, `${pick(-10, 10)}<sup>2</sup> = ${kAnswer}`);
+     Size('Square', 1, `${pick(-10, 10)}<sup>2</sup> = ${kAnswer}`);
 
    export const buildCube = () => 
-     Size(1, `${pick(-4, 4)}<sup>3</sup> = ${kAnswer}`);
+     Size('Cube', 1, `${pick(-4, 4)}<sup>3</sup> = ${kAnswer}`);
 
    export const buildSquareRoot = () => {
      const x = pick(10);
-     return Size(1, `${kRoot}${x * x} = ${kAnswer}`);
+     return Size('SquareRoot', 1, `${kRoot}${x * x} = ${kAnswer}`);
    }
 
-   export const buildSubtraction = () => Size(1, `${pick(1000)} ${kMinus} ${pick(1000)} = ${kAnswer}`);
+   export const buildSubtraction = () => Size('Subtraction', 1, `${pick(1000)} ${kMinus} ${pick(1000)} = ${kAnswer}`);
 
    export const buildTimeSubtraction = () => {
      const xH = pick(24);
@@ -981,10 +981,10 @@ export   const pickSubject = () =>
      const yH = pick(24);
      const yM = pick(60);
 
-     return Size(1, `${Time(xH, xM)} ${kMinus} ${Time(yH, yM)} = ${kAnswer}`);
+     return Size('TimeSubtraction', 1, `${Time(xH, xM)} ${kMinus} ${Time(yH, yM)} = ${kAnswer}`);
    }
 
-   export const buildAddition = () => Size(1, `${pick(1000)} ${kPlus} ${pick(1000)} = ${kAnswer}`);
+   export const buildAddition = () => Size('Addition', 1, `${pick(1000)} ${kPlus} ${pick(1000)} = ${kAnswer}`);
 
    export const buildTimeAddition = () => {
      const xH = pick(24);
@@ -992,35 +992,35 @@ export   const pickSubject = () =>
      const yH = pick(24);
      const yM = pick(60);
 
-     return Size(1, `${Time(xH, xM)} ${kPlus} ${Time(yH, yM)} = ${kAnswer}`);
+     return Size('TimeAddition', 1, `${Time(xH, xM)} ${kPlus} ${Time(yH, yM)} = ${kAnswer}`);
    }
 
    export const buildMultiplication21 = () =>
-     Size(1, `${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
+     Size('Multiplication21', 1, `${pick(100)} ${kTimes} ${pick(10)} = ${kAnswer}`);
 
    export const buildMultiplicationTens = () =>
-     Size(1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
+     Size('MultiplicationTens', 1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
 
    export const buildMultiplicationThousands = () =>
-     Size(1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
+     Size('MultiplicationThousands', 1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10} = ${kAnswer}`);
 
    export const buildMultiplicationOneOffTens = () =>
-     Size(1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10 + chooseFromList([-1, 1])} = ${kAnswer}`);
+     Size('MultiplicationOneOffTens', 1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 10 + chooseFromList([-1, 1])} = ${kAnswer}`);
 
    export const buildMultiplicationOneOffHundreds = () =>
-     Size(1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 100 + chooseFromList([-1, 1])} = ${kAnswer}`);
+     Size('MultiplicationOneOffHundreds', 1, `${pick(1, 11) * 10} ${kTimes} ${pick(1, 11) * 100 + chooseFromList([-1, 1])} = ${kAnswer}`);
 
    export const buildMultiplication22 = () =>
-     Size(1, `${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
+     Size('Multiplication22', 1, `${pick(100)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
    export const buildMultiplication32 = () =>
-     Size(1, `${pick(1000)} ${kTimes} ${pick(100)} = ${kAnswer}`);
+     Size('Multiplication32', 1, `${pick(1000)} ${kTimes} ${pick(100)} = ${kAnswer}`);
 
    // export const kInequalities = `<table style="display: inline-block"><tr><td>&lt;</td><td>=</td><td>&gt;</td></tr></table>`;
    export const kInequalities = ` [&lt = &gt] `;
 
    // export const buildMultiplicationInequality = () =>
-   //  Size(1, `${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
+   //  Size('MultiplicationInequality', 1, `${pick(100)} ${kTimes} ${pick(100)} ${kInequalities} ${pick(100)} ${kTimes} ${pick(100)}`);
 
    export const isInteger = (a) => Math.floor(a) === a;
 
@@ -1042,7 +1042,7 @@ export   const pickSubject = () =>
        if (!isInteger(af / bf) && !isInteger(bf / af)) {
          continue;
        }
-       return Size(1, `${ab} ${kTimes} ${af} ${kInequalities} ${bb} ${kTimes} ${bf}`);
+       return Size('MultiplicationInequalitySimple', 1, `${ab} ${kTimes} ${af} ${kInequalities} ${bb} ${kTimes} ${bf}`);
      }
    }
 
@@ -1055,7 +1055,7 @@ export   const pickSubject = () =>
        if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
          continue;
        }
-       return Size(1, `${Rational(xD, xN)} ${kPlus} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('RationalAddition', 1, `${Rational(xD, xN)} ${kPlus} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    };
 
@@ -1068,7 +1068,7 @@ export   const pickSubject = () =>
        if (xN === 0 || yN === 0 || (!Number.isInteger(xN / yN) && !Number.isInteger(yN / xN))) {
          continue;
        }
-       return Size(1, `${Rational(xD, xN)} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('RationalSubtraction', 1, `${Rational(xD, xN)} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1080,7 +1080,7 @@ export   const pickSubject = () =>
        if (xD === 0 || yN === 0) {
          continue;
        }
-       return Size(1, `${xD} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('IntegerRationalSubtraction', 1, `${xD} ${kMinus} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1088,7 +1088,7 @@ export   const pickSubject = () =>
      for (;;) {
        const xD = pick(-11, 11);
        const yD = pick(-11, 11) / 10;
-       return Size(1, `${xD} ${kMinus} ${yD} = ${kAnswer}`);
+       return Size('IntegerDecimalSubtraction', 1, `${xD} ${kMinus} ${yD} = ${kAnswer}`);
      }
    }
 
@@ -1096,7 +1096,7 @@ export   const pickSubject = () =>
      for (;;) {
        const xD = pick(-110, 110) / 10;
        const yD = pick(-11, 11) / 10;
-       return Size(1, `${xD} ${kMinus} ${yD} = ${kAnswer}`);
+       return Size('DecimalDecimalSubtraction', 1, `${xD} ${kMinus} ${yD} = ${kAnswer}`);
      }
    }
 
@@ -1104,7 +1104,7 @@ export   const pickSubject = () =>
      for (;;) {
        const xD = pick(-11, 11);
        const yD = pick(-11, 11) / 10;
-       return Size(1, `${xD} ${kTimes} ${yD} = ${kAnswer}`);
+       return Size('IntegerDecimalMultiplication', 1, `${xD} ${kTimes} ${yD} = ${kAnswer}`);
      }
    }
 
@@ -1116,7 +1116,7 @@ export   const pickSubject = () =>
        if (xD === 0 || yN === 0) {
          continue;
        }
-       return Size(1, `${xD} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('IntegerRationalMultiplication', 1, `${xD} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1124,7 +1124,7 @@ export   const pickSubject = () =>
      for (;;) {
        const xD = pick(-11, 11);
        const yD = pick(-21, 21) * 10;
-       return Size(1, `${xD} ${kTimes} ${yD}% = ${kAnswer}`);
+       return Size('IntegerPercentageMultiplication', 1, `${xD} ${kTimes} ${yD}% = ${kAnswer}`);
      }
    }
 
@@ -1136,7 +1136,7 @@ export   const pickSubject = () =>
        if (xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
-       return Size(1, `${xD} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('IntegerRationalDivision', 1, `${xD} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1149,7 +1149,7 @@ export   const pickSubject = () =>
        if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
-       return Size(1, `${Rational(xD, xN)} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('RationalDivision', 1, `${Rational(xD, xN)} ${kDivide} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1162,7 +1162,7 @@ export   const pickSubject = () =>
        if (xN === 0 || xD === 0 || yN === 0 || yD === 0) {
          continue;
        }
-       return Size(1, `${Rational(xD, xN)} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
+       return Size('RationalMultiplication', 1, `${Rational(xD, xN)} ${kTimes} ${Rational(yD, yN)} = ${kAnswer}`);
      }
    }
 
@@ -1175,7 +1175,7 @@ export   const pickSubject = () =>
        if (xN === 0 || yN === 0 || xN === yN) {
          continue;
        }
-       return Size(1, `${Rational(xD, xN)} ${kInequalities} ${Rational(yD, yN)}`);
+       return Size('RationalInequality', 1, `${Rational(xD, xN)} ${kInequalities} ${Rational(yD, yN)}`);
      }
    };
 
@@ -1205,37 +1205,37 @@ export   const pickSubject = () =>
        { value: ['minutes', 'seconds'], weight: 5 },
      ]);
 
-   export const buildUnitAddition = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kPlus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
-   export const buildUnitSubtraction = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kMinus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
-   export const buildUnitMultiplication = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
-   export const buildUnitDivision = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   export const buildUnitAddition = () => Size('UnitAddition', 1, `${pick(-11, 11)} ${pickUnit()} ${kPlus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   export const buildUnitSubtraction = () => Size('UnitSubtraction', 1, `${pick(-11, 11)} ${pickUnit()} ${kMinus} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   export const buildUnitMultiplication = () => Size('UnitMultiplication', 1, `${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} ${pickUnit()} = ${kAnswer}`);
+   export const buildUnitDivision = () => Size('UnitDivision', 1, `${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} ${pickUnit()} = ${kAnswer}`);
 
-   export const buildUnitDimensionlessDivision = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} = ${kAnswer}`);
-   export const buildUnitDimensionlessMultiplication = () => Size(1, `${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} = ${kAnswer}`);
+   export const buildUnitDimensionlessDivision = () => Size('UnitDimensionlessDivision', 1, `${pick(-11, 11)} ${pickUnit()} ${kDivide} ${pickNonZero(-11, 11)} = ${kAnswer}`);
+   export const buildUnitDimensionlessMultiplication = () => Size('UnitDimensionlessMultiplication', 1, `${pick(-11, 11)} ${pickUnit()} ${kTimes} ${pick(-11, 11)} = ${kAnswer}`);
 
-   export const buildSameUnitAddition = () => { const unit = pickUnit(); return Size(1, `${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
-   export const buildSameUnitNegativeAddition = () => { const unit = pickUnit(); return Size(1, `${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 0)} ${unit} = ${kAnswer}`); };
-   export const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Size(1, `${pick(-11, 11)} ${unit} ${kMinus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
-   export const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Size(1, `${pick(-11, 11)} ${unit} ${kTimes} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
-   export const buildSameUnitDivision = () => { const unit = pickUnit(); return Size(1, `${pick(-11, 11)} ${unit} ${kDivide} ${pickNonZero(-11, 11)} ${unit} = ${kAnswer}`); };
+   export const buildSameUnitAddition = () => { const unit = pickUnit(); return Size('SameUnitAddition', 1, `${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   export const buildSameUnitNegativeAddition = () => { const unit = pickUnit(); return Size('SameUnitNegativeAddition', 1, `${pick(-11, 11)} ${unit} ${kPlus} ${pick(-11, 0)} ${unit} = ${kAnswer}`); };
+   export const buildSameUnitSubtraction = () => { const unit = pickUnit(); return Size('SameUnitSubtraction', 1, `${pick(-11, 11)} ${unit} ${kMinus} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   export const buildSameUnitMultiplication = () => { const unit = pickUnit(); return Size('SameUnitMultiplication', 1, `${pick(-11, 11)} ${unit} ${kTimes} ${pick(-11, 11)} ${unit} = ${kAnswer}`); };
+   export const buildSameUnitDivision = () => { const unit = pickUnit(); return Size('SameUnitDivision', 1, `${pick(-11, 11)} ${unit} ${kDivide} ${pickNonZero(-11, 11)} ${unit} = ${kAnswer}`); };
 
-   export const buildConvertibleUnitAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Size(1, `${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
-   export const buildConvertibleUnitNegativeAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Size(1, `${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 0)} ${b} = ${kAnswer}`); };
-   export const buildConvertibleUnitSubtraction = () => { const [a, b] = pickConvertibleUnitPair(); return Size(1, `${pick(-11, 11)} ${a} ${kMinus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
-   export const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Size(1, `${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   export const buildConvertibleUnitAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Size('ConvertibleUnitAddition', 1, `${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   export const buildConvertibleUnitNegativeAddition = () => { const [a, b] = pickConvertibleUnitPair(); return Size('ConvertibleUnitNegativeAddition', 1, `${pick(-11, 11)} ${a} ${kPlus} ${pick(-11, 0)} ${b} = ${kAnswer}`); };
+   export const buildConvertibleUnitSubtraction = () => { const [a, b] = pickConvertibleUnitPair(); return Size('ConvertibleUnitSubtraction', 1, `${pick(-11, 11)} ${a} ${kMinus} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
+   export const buildConvertibleUnitMultiplication = () => { const [a, b] = pickConvertibleUnitPair(); return Size('ConvertibleUnitMultiplication', 1, `${pick(-11, 11)} ${a} ${kTimes} ${pick(-11, 11)} ${b} = ${kAnswer}`); };
    export const buildConvertibleUnitDivision = () => {
      for (;;) {
        const [a, b] = pickConvertibleUnitPair();
        if (a === 'g' && b === 'kg') {
          continue;
        }
-       return Size(1, `${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`);
+       return Size('ConvertibleUnitDivision', 1, `${pick(-11, 11)} ${a} ${kDivide} ${pickNonZero(-11, 11)} ${b} = ${kAnswer}`);
      }
    };
 
    export const buildSameBasisAddition = () => {
      const basis = pick(1, 11);
-     return Size(1, `${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`);
+     return Size('SameBasisAddition', 1, `${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} ${kPlus} ${pick(-11, 11)} ${kTimes} ${basis} = ${kAnswer}`);
    };
 
    export const buildSystemOfEquations = () => {
@@ -1245,8 +1245,8 @@ export   const pickSubject = () =>
            const x = pick(-11, 11);
            const y = pick(-11, 11);
            switch (pick(2)) {
-             case 0: return Size(1, `x + y = ${x + y} ${kTherefore} x = ${kAnswer} <br>x - y = ${x - y} ${kTherefore} y = ${kAnswer}<br>`);
-             case 1: return Size(1, `x - y = ${x - y} ${kTherefore} x = ${kAnswer} <br>x + y = ${x + y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 0: return Size('SystemOfEquations', 1, `x + y = ${x + y} ${kTherefore} x = ${kAnswer} <br>x - y = ${x - y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Size('SystemOfEquations', 1, `x - y = ${x - y} ${kTherefore} x = ${kAnswer} <br>x + y = ${x + y} ${kTherefore} y = ${kAnswer}<br>`);
            }
          }
        case 1: // x * y = b; x / y = c;
@@ -1258,8 +1258,8 @@ export   const pickSubject = () =>
              continue;
            }
            switch (pick(2)) {
-             case 0: return Size(1, `x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x ${kDivide} y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
-             case 1: return Size(1, `x ${kDivide} y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
+             case 0: return Size('SystemOfEquations', 1, `x ${kTimes} y = ${x * y} ${kTherefore} x = ${kAnswer} <br>x ${kDivide} y = ${d} ${kTherefore} y = ${kAnswer}<br>`);
+             case 1: return Size('SystemOfEquations', 1, `x ${kDivide} y = ${d} ${kTherefore} x = ${kAnswer} <br>x ${kTimes} y = ${x * y} ${kTherefore} y = ${kAnswer}<br>`);
            }
          }
        }
@@ -1273,7 +1273,7 @@ export   const pickSubject = () =>
        if (v < kMan) {
          continue;
        }
-       return Size(1, `How many 만 in ${v}?`);
+       return Size('KoreanUnitMan', 1, `How many 만 in ${v}?`);
      }
    }
 
@@ -1283,7 +1283,7 @@ export   const pickSubject = () =>
        if (v < kMan * kMan) {
          continue;
        }
-       return Size(1, `How many 억 in ${v}?`);
+       return Size('KoreanUnitOk', 1, `How many 억 in ${v}?`);
      }
    }
 
@@ -1293,7 +1293,7 @@ export   const pickSubject = () =>
        if (v < kMan * kMan * kMan) {
          continue;
        }
-       return Size(1, `How many 조 in ${v}?`);
+       return Size('KoreanUnitJo', 1, `How many 조 in ${v}?`);
      }
    }
 
@@ -1312,7 +1312,7 @@ export   const pickSubject = () =>
        if (count !== 1) {
          continue;
        }
-       return Size(1, `What is the 값 of ${digit} in ${v}`);
+       return Size('DigitPlaceValue', 1, `What is the 값 of ${digit} in ${v}`);
      }
    }
 
@@ -1504,7 +1504,7 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return Size(3, `A ${v1} traveling at ${r1} km/h and a ${v2} at ${r2} km/h leave in opposite directions.
+       return Size('DistanceTime', 3, `A ${v1} traveling at ${r1} km/h and a ${v2} at ${r2} km/h leave in opposite directions.
                How long until they are ${d} km apart?`);
      }
    }
@@ -1525,7 +1525,7 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return Size(3, `A ${v1} and a ${v2} move toward each other on a ${d} km track.
+       return Size('CrashTime', 3, `A ${v1} and a ${v2} move toward each other on a ${d} km track.
                The ${v1} goes at ${r1} km/h and the ${v2} goes at ${r2} km/h.
                How long until they crash?`);
      }
@@ -1545,7 +1545,7 @@ export   const pickSubject = () =>
          continue;
        }
        const v1 = t1.mode;
-       return Size(3, `${n1} went from home to office by ${v1} at the average speed of ${r1} km/h.
+       return Size('TimeDistance', 3, `${n1} went from home to office by ${v1} at the average speed of ${r1} km/h.
                On return home from the office, using the same route, they averaged ${r2} km/h.
                If the total round trip took ${h} hours, what was the distance from home to office?`);
      }
@@ -1569,7 +1569,7 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return Size(3, `${n1} starts out on a ${v1} at the rate of ${r1} km/h.
+       return Size('TimeMeet', 3, `${n1} starts out on a ${v1} at the rate of ${r1} km/h.
                ${h1} hours later, ${n2} drives a ${v2} along the same route at ${r2} km/h.
                In how much time will ${n2} overtake ${n1}?`);
      }
@@ -1585,7 +1585,7 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return Size(3, `${n1} can ${j} in ${h1} hours.
+       return Size('WorkTogetherTime', 3, `${n1} can ${j} in ${h1} hours.
                ${n2} can ${j} in ${h2} hours.
                How long does it take if they ${j} together?`);
      }
@@ -1601,7 +1601,7 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return Size(3, `${n1} can ${j} in ${h1} hours alone.
+       return Size('WorkApartTime', 3, `${n1} can ${j} in ${h1} hours alone.
                ${n1} and ${n2} can ${j} together in ${h2} hours.
                How long does it take if ${n2} works alone?`);
      }
@@ -1619,7 +1619,7 @@ export   const pickSubject = () =>
        const s1 = pick(0, s);
        const s2 = s - s1;
        const c = s1 * t1 + s2 * t2;
-       return Size(3, `A ${p} has ${s} seats, which were all sold.<br><br>
+       return Size('AttendanceTicket', 3, `A ${p} has ${s} seats, which were all sold.<br><br>
                Adult tickets cost $${t1} each and children's tickets cost $${t2} each.<br><br>
                If the total amount collected was $${c}, how many of each ticket were sold?`);
      }
@@ -1633,7 +1633,7 @@ export   const pickSubject = () =>
        if (b < 0) {
          continue;
        }
-       return Size(3, `There are ${g + b} boys and girls. There are ${l} less than twice as many boys as girls. How many boys are there?`);
+       return Size('Attendance', 3, `There are ${g + b} boys and girls. There are ${l} less than twice as many boys as girls. How many boys are there?`);
      }
    }
 
@@ -1649,7 +1649,7 @@ export   const pickSubject = () =>
        if (d1 === d2 || !Number.isInteger(w2)) {
          continue;
        }
-       return Size(3, `${w1} kg balances ${d1} meters from the center of a lever against another weight ${d2} meters from the center. What is the other weight?`);
+       return Size('LeverWeight', 3, `${w1} kg balances ${d1} meters from the center of a lever against another weight ${d2} meters from the center. What is the other weight?`);
      }
    }
 
@@ -1673,7 +1673,7 @@ export   const pickSubject = () =>
        if (r === 'further from' && w1 > w2) {
          continue;
        }
-       return Size(3, `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`);
+       return Size('LeverDistance', 3, `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`);
      }
    }
 
@@ -1695,11 +1695,11 @@ export   const pickSubject = () =>
          const n1 = pickName(chosen);
          const n2 = pickName(chosen);
          if (d2 > 0) {
-           return Size(3, `${n1} is ${d1} years older than ${n2}.
+           return Size('Age', 3, `${n1} is ${d1} years older than ${n2}.
                    ${d2} years ago, ${n1} was twice as old as ${n2}.
                    How old is each now?`);
          } else {
-           return Size(3, `${n1} is ${d1} years older than ${n2}.
+           return Size('Age', 3, `${n1} is ${d1} years older than ${n2}.
                    In ${-d2} years, ${n1} will be twice as old as ${n2}.
                    How old is each now?`);
          }
@@ -1718,20 +1718,20 @@ export   const pickSubject = () =>
        const t1 = pickThings(chosen);
        switch (pick(4)) {
          case 0:
-           return Size(3, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
+           return Size('Proportion', 3, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
          case 1:
-           return Size(3, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
+           return Size('Proportion', 3, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
          case 2:
-           return Size(3, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
+           return Size('Proportion', 3, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
          case 3:
-           return Size(3, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
+           return Size('Proportion', 3, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
        }
      }
    }
 
    export const buildPerimeterSideProblem = () => {
      const n = pick(10, 101);
-     return Size(3, `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side. Find the length of the side.`);
+     return Size('PerimeterSide', 3, `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side. Find the length of the side.`);
    }
 
    export const buildPerimeterDimensionsProblem = () => {
@@ -1745,21 +1745,21 @@ export   const pickSubject = () =>
        if (!Number.isInteger(p)) {
          continue;
        }
-       return Size(3, `The length of a rectangle is ${d} cm less than ${m} times its width. If the perimeter is ${p} cm, what are the dimensions of the rectangle?`);
+       return Size('PerimeterDimensions', 3, `The length of a rectangle is ${d} cm less than ${m} times its width. If the perimeter is ${p} cm, what are the dimensions of the rectangle?`);
      }
    }
 
    export const buildAngleProblem = () => {
      const a = pick(2, 5);
      const b = pick(2, 5);
-     return Size(3, `Angle A is ${a} times angle B. Angle B is ${b} times angle C. Given triangle ABC, what are A, B, and C?`);
+     return Size('Angle', 3, `Angle A is ${a} times angle B. Angle B is ${b} times angle C. Given triangle ABC, what are A, B, and C?`);
    }
 
    export const buildSideAreaDimensionsProblem = () => {
      const n = pick(2, 10);
      const w = pick(1, 20);
      const a = w * (w * n);
-     return Size(3, `A rectangle is 4 times longer than its width. The area is ${a} cm<sup>2</sup>. Find the length and width.`);
+     return Size('SideAreaDimensions', 3, `A rectangle is 4 times longer than its width. The area is ${a} cm<sup>2</sup>. Find the length and width.`);
    };
 
    export const buildTrainCarsRationalProblem = () => {
@@ -1770,7 +1770,7 @@ export   const pickSubject = () =>
        if (n > d) {
          continue;
        }
-       return Size(3, `${c} cars is ${Rational(n, d)} of a train. How many cars does the train have?`);
+       return Size('TrainCarsRational', 3, `${c} cars is ${Rational(n, d)} of a train. How many cars does the train have?`);
      }
    };
 
@@ -1786,7 +1786,7 @@ export   const pickSubject = () =>
        if (!Number.isInteger(m / (p1 - 1)) || m == (p1 - 1)) {
          continue;
        }
-       return Size(3, `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`);
+       return Size('Cut', 3, `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`);
      }
    };
 
@@ -1806,7 +1806,7 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return Size(3, `I travel ${d} km from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`);
+       return Size('TravelTimeBetweenCities', 3, `I travel ${d} km from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`);
      }
    }
 
@@ -1826,7 +1826,7 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return Size(3, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
+       return Size('TravelDistanceBetweenCities', 3, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
      }
    }
 
@@ -1849,7 +1849,7 @@ export   const pickSubject = () =>
          continue;
        }
        const d = s * a1;
-       return Size(3, `I can travel ${d} km by ${v} by using ${a1} ${f}. How far can I go using ${a2} ${f}?`);
+       return Size('VehicleFuelDistance', 3, `I can travel ${d} km by ${v} by using ${a1} ${f}. How far can I go using ${a2} ${f}?`);
      }
    }
 
@@ -1865,7 +1865,7 @@ export   const pickSubject = () =>
        if (!Number.isInteger(c)) {
          continue;
        }
-       return Size(3, `${n} has ${p1} coins of the same kind. The coins have the same value as one dollar and ${p2} coins. What is the coin?`);
+       return Size('Coin', 3, `${n} has ${p1} coins of the same kind. The coins have the same value as one dollar and ${p2} coins. What is the coin?`);
      }
    };
 
@@ -1883,7 +1883,7 @@ export   const pickSubject = () =>
        if (n2 >= d2) {
          continue;
        }
-       return Size(3, `A ${Rational(n, d)} slice of a cake is cut out, then a ${Rational(n2, d2)} slice of that slice is cut out. How much of the cake is that slice?`);
+       return Size('CakeSlice', 3, `A ${Rational(n, d)} slice of a cake is cut out, then a ${Rational(n2, d2)} slice of that slice is cut out. How much of the cake is that slice?`);
      }
    };
 
@@ -1896,7 +1896,7 @@ export   const pickSubject = () =>
        if (b >= n || c >= b) {
          continue;
        }
-       return Size(3, `There is a bag with ${n} marbles in it. ${b} of the marbles are ${color}. What is the chance of picking ${c} ${color} marbles in a row?`);
+       return Size('Ball', 3, `There is a bag with ${n} marbles in it. ${b} of the marbles are ${color}. What is the chance of picking ${c} ${color} marbles in a row?`);
      }
    }
 
@@ -1946,13 +1946,13 @@ export   const pickSubject = () =>
        };
        const a = pickDice();
        const b = pickDice();
-       return Size(3, `What is the probability of ${a} then ${b} with ${die} sided dice?`);
+       return Size('Dice', 3, `What is the probability of ${a} then ${b} with ${die} sided dice?`);
      }
    }
 
    export const buildDiceProbabilityProblem = (chosen) => {
      const n = pick(2, 13);
-     return Size(3, `What is the probability of rolling a total of ${n} with two six sided dice?`);
+     return Size('DiceProbability', 3, `What is the probability of rolling a total of ${n} with two six sided dice?`);
    };
 
    export const buildReorderingProblem = (chosen) => {
@@ -1967,7 +1967,7 @@ export   const pickSubject = () =>
        if (!isInteger(a / c)) {
          continue;
        }
-       return Size(1, `${a} ${kTimes} ${b} ${kDivide} ${c}`);
+       return Size('Reordering', 1, `${a} ${kTimes} ${b} ${kDivide} ${c}`);
      }
    }
 
@@ -1980,7 +1980,7 @@ export   const pickSubject = () =>
        const c = chooseFromList(['c', pick(3, 20)]);
        const o = chooseFromList([kPlus, kMinus]);
        const o2 = chooseFromList([kPlus, kMinus]);
-       return Size(1, `${c} ${o2} ${f}(${a} ${o} ${b})`);
+       return Size('Expansion', 1, `${c} ${o2} ${f}(${a} ${o} ${b})`);
      }
    }
 
@@ -2138,7 +2138,7 @@ export const buildTriangleTwoProblem = () => {
         addInfo(`CAB = ${computeAngle(c, a, b).toFixed(0)}`);
         break;
     }
-    return Size(3, `
+    return Size('TriangleTwo', 3, `
       <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
        ${createTriangle(a, b, c, 'ABC')}
        ${createTriangle(a, b, d, 'ABD')}
@@ -2194,7 +2194,7 @@ export const buildTriangleKiteProblem = () => {
         addInfo(`AC and BD cross at E`);
         break;
     }
-    return Size(3, `
+    return Size('TriangleKite', 3, `
       <svg width="350" height="190" xmlns="http://www.w3.org/2000/svg">
        ${createTriangle(a, b, e, 'ABE')}
        ${createTriangle(b, c, e, 'BCE')}
@@ -2215,7 +2215,7 @@ export const buildVocabProblem = (chosen) => {
   for (const word of vocab) {
     cells.push(`<td style="text-align: center; vertical-align: top; width: 25%">${word}</td>`);
   }
-  return Size(1, `<table style="border: thin solid; width: 100%">
+  return Size('Vocab', 1, `<table style="border: thin solid; width: 100%">
            <tr style="height: 100%; outline: thin solid; margin: 10px">
             ${cells.join('\n')}
            </tr>
@@ -2230,7 +2230,7 @@ export const buildSubtractionWithCarryCascade = () => {
       continue;
     }
 
-    return Size(1, `${a[0]}${a[1]}${a[2]} ${kMinus} ${b[0]}${b[1]}${b[2]} = ${kAnswer}`);
+    return Size('SubtractionWithCarryCascade', 1, `${a[0]}${a[1]}${a[2]} ${kMinus} ${b[0]}${b[1]}${b[2]} = ${kAnswer}`);
   }
 };
 
@@ -2241,7 +2241,7 @@ export const buildGapSentenceProblem = (chosen) => {
     const choice = chooseFromList(gradeWords.grade4, chosen);
     for (const { word, sentence }  of gapSentences) {
       if (choice === word) {
-        return Size(2, reverse(reverse(sentence.replace('_', word.substring(0, 2))).replace('_', reverse(word).substring(0, 2))));
+        return Size('GapSentence', 2, reverse(reverse(sentence.replace('_', word.substring(0, 2))).replace('_', reverse(word).substring(0, 2))));
       }
     }
   }

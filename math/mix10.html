@@ -119,7 +119,7 @@
          console.log(`QQ/buildColumn: bad=${buildProblem}`);
          return;
        }
-       const { size, html } = problem;
+       const { name, size, html } = problem;
        if (size === undefined || html === undefined) {
          console.log(`QQ/buildColumn: bad=${buildProblem}`);
          return;
@@ -127,7 +127,8 @@
        if (size > limit) {
          continue;
        }
-       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80}px; border: thin solid;">${html}</div>`);
+       rows.push(`<div style="margin: 0; padding: 0; height: ${10}px; border: none; font-size: 8px">${name}</div>`);
+       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80 - 10}px; border: thin solid">${html}</div>`);
        limit -= size;
      }
      return rows.join('\n');
