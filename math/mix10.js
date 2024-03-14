@@ -1951,8 +1951,9 @@ export   const pickSubject = () =>
    }
 
    export const buildDiceProbabilityProblem = (chosen) => {
+     const d = pick(2, 10);
      const n = pick(2, 13);
-     return Size('DiceProbability', 3, `What is the probability of rolling a total of ${n} with two six sided dice?`);
+     return Size('DiceProbability', 3, `What is the probability of rolling a total of ${n} with two ${d} sided dice?`);
    };
 
    export const buildReorderingProblem = (chosen) => {
