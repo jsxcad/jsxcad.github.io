@@ -2209,8 +2209,9 @@ export const buildTriangleKiteProblem = () => {
 
 export const buildVocabProblem = (chosen) => {
   const vocab = [];
+  const words = [...gradeWords.grade4, ...gradeWords.grade5];
   for (let nth = 0; nth < 4; nth++) {
-    vocab.push(chooseFromList(gradeWords.grade4, chosen));
+    vocab.push(chooseFromList(words, chosen));
   }
   const cells = [];
   for (const word of vocab) {
