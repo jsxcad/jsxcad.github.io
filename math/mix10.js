@@ -1625,6 +1625,25 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildTicketCostProblem = (chosen) => {
+     for (;;) {
+       const adultTicketCost = pick(1, 10);
+       const studentTicketCost = pick(1, 10);
+       if (adultTicketCost <= studentTicketCost) {
+         continue;
+       }
+       const adultTicketCount = pick(1, 10);
+       const studentTicketCount = pick(1, 10);
+       const totalCost = adultTicketCost * adultTicketCount + studentTicketCost * studentTicketCount;
+       const target = chooseFromList(['student', 'adult']);
+       return Size('TicketCost', 3,
+                   `A concert received $${totalCost}.
+                    Twice as many student tickets were sold as adult tickets.
+                    Student tickets are $${studentTicketCost} and adult tickets are $${adultTicketCost}.
+                    How many ${target} tickets were sold?`);
+     }
+   }
+
    export const buildAttendanceProblem = (chosen) => {
      for (;;) {
        const g = pick(1, 100);
@@ -1953,7 +1972,8 @@ export   const pickSubject = () =>
    export const buildDiceProbabilityProblem = (chosen) => {
      const d = pick(2, 10);
      const n = pick(2, 13);
-     return Size('DiceProbability', 3, `What is the probability of rolling a total of ${n} with two ${d} sided dice?`);
+     const r = chooseFromList(['two', 'three']);
+     return Size('DiceProbability', 3, `What is the probability of rolling a total of ${n} with ${r} ${d} sided dice?`);
    };
 
    export const buildReorderingProblem = (chosen) => {
@@ -2228,7 +2248,7 @@ export const buildSubtractionWithCarryCascade = () => {
   for (;;) {
     const a = [pick(10), 0, pick(10)];
     const b = [pick(10), pick(10), pick(10)];
-    if (a[0] < b[0] || a[2] < b[2]) {
+    if (a[0] < b[0] || a[2] > b[2]) {
       continue;
     }
 

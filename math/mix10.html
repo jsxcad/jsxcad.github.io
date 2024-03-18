@@ -20,6 +20,7 @@
        { value: m.buildWorkTogetherTimeProblem, weight: 100 },
        { value: m.buildWorkApartTimeProblem, weight: 100 },
        // { value: m.buildAttendanceTicketProblem, weight: 100 },
+       { value: m.buildTicketCostProblem, weight: 1000 },
        { value: m.buildAttendanceProblem, weight: 100 },
        { value: m.buildLeverWeightProblem, weight: 100 },
        { value: m.buildLeverDistanceProblem, weight: 100 },
@@ -101,7 +102,7 @@
        { value: m.buildTriangleTwoProblem, weight: 100, limit: 1 },
        { value: m.buildTriangleKiteProblem, weight: 100, limit: 1 },
        { value: m.buildSubtractionWithCarryCascade, weight: 1000, limit: 1 },
-       { value: m.buildGapSentenceProblem, weight: 1000, limit: 5 },
+       { value: m.buildGapSentenceProblem, weight: 2000, limit: 5 },
      ], chosen)
      return problem(chosen);
    };
