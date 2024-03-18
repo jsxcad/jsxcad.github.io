@@ -1644,6 +1644,21 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildCostBillCoinProblem = (chosen) => {
+     const name = pickName(chosen);
+     for (;;) {
+       const billValue = chooseFromList([1000, 5000, 10000]);
+       const coinValue = chooseFromList([10, 50, 100, 500]);
+       const billCount = pick(1, 10);
+       const coinCount = pick(1, 10);
+       const cost = billCount * billValue + coinCount * coinValue;
+       const target = chooseFromList(['bill', 'coin']);
+       return Size('CostBillCoin', 3,
+                   `${name} paid ₩${cost}, using ${billCount} equal bills and ${coinCount} equal coins.
+                    What was the value of each ${target}?`);
+     }
+   }
+
    export const buildAttendanceProblem = (chosen) => {
      for (;;) {
        const g = pick(1, 100);
