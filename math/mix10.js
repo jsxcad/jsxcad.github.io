@@ -1609,19 +1609,30 @@ export   const pickSubject = () =>
 
    export const buildAttendanceTicketProblem = (chosen) => {
      for (;;) {
-       const s = pick(20, 100);
-       const t1 = pick(1, 11);
-       const t2 = pick(1, 11);
-       if (t1 <= t2) {
+       const cost1 = pick(1, 10);
+       const cost2 = pick(1, 10);
+       if (cost1 <= cost2) {
          continue;
        }
-       const p = pickPlace(chosen);
-       const s1 = pick(0, s);
-       const s2 = s - s1;
-       const c = s1 * t1 + s2 * t2;
-       return Size('AttendanceTicket', 3, `A ${p} has ${s} seats, which were all sold.<br><br>
-               Adult tickets cost $${t1} each and children's tickets cost $${t2} each.<br><br>
-               If the total amount collected was $${c}, how many of each ticket were sold?`);
+       const count1 = pick(1, 10);
+       const count2 = count1 * 2;
+       const totalCost = cost1 * count1 + cost2 * count2;
+       switch (pick(2)) {
+         case 0: {
+           const target = chooseFromList(['adult', 'child']);
+           return Size('TicketCost', 3,
+                       `A concert sold ${count1 + count2} seats.
+                        Adult tickets cost $${cost1} and child tickets cost $${cost2}.
+                        If the concert received $${totalCost}, how many ${target} tickets were sold?`);
+         }
+         case 1: {
+           const target = chooseFromList(['monkey', 'rabbit']);
+           return Size('TicketCost', 3,
+                       `A factory sold ${count1 + count2} toys.
+                        Monkey toys cost $${cost1} and rabbit toys cost $${cost2}.
+                        If the factory received $${totalCost}, how many ${target} toys were sold?`);
+         }
+       }
      }
    }
 
@@ -1633,7 +1644,7 @@ export   const pickSubject = () =>
          continue;
        }
        const adultTicketCount = pick(1, 10);
-       const studentTicketCount = pick(1, 10);
+       const studentTicketCount = adultTicketCount * 2;
        const totalCost = adultTicketCost * adultTicketCount + studentTicketCost * studentTicketCount;
        const target = chooseFromList(['student', 'adult']);
        return Size('TicketCost', 3,
