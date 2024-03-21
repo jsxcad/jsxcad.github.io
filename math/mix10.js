@@ -252,7 +252,7 @@ const gapSentences = [
   { "word": "automatically", sentence: "Sensor lights _________ turn on when it gets dark to save energy." },
   { "word": "avoid", "sentence": "We need to _________ making the same mistakes in the future." },
   { "word": "border", "sentence": "The country increased security patrols along its _________ to prevent illegal crossings." },
-  { "word": "calculate", "sentence": "The will engineer carefully _________ the amount of materials needed to build the bridge." },
+  { "word": "calculate", "sentence": "The engineer will carefully _________ the amount of materials needed to build the bridge." },
   { "word": "cause", "sentence": "The heavy rain was the _________ of the flooding in the streets." },
   { "word": "circular", "sentence": "We ended up in a _________ argument, repeating the same points over and over again." },
   { "word": "compare", "sentence": "The scientist decided to _________ the results of the two experiments to see if there were any similarities. "},

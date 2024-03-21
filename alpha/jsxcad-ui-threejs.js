@@ -1672,7 +1672,7 @@ const orbitDisplay = async (
     path,
     canvas,
     withAxes = false,
-    withGrid = true,
+    withGrid = false,
     gridLayer = GEOMETRY_LAYER,
     definitions,
   } = {},
@@ -1799,7 +1799,7 @@ const orbitDisplay = async (
       camera,
       controls: [trackballControls],
       scene,
-      withGrid: true,
+      withGrid,
       gridLayer,
       pageSize,
       gridState,
@@ -1910,7 +1910,6 @@ const staticDisplay = async (
   page
 ) => {
   if (locked === true) await acquire();
-  console.log('QQ/static display: begin');
   locked = true;
 
   const datasets = [];
@@ -1967,7 +1966,6 @@ const staticDisplay = async (
 
   render();
 
-  console.log('QQ/static display: end');
   await release();
 
   return { canvas: displayCanvas, renderer };
