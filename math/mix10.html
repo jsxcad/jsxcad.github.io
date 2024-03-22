@@ -11,6 +11,7 @@
    import * as m from './mix10.js';
    const { body } = document;
 
+   const kTooEasy = 1;
    const kEasy = 10;
    const kStandard = 100;
    const kHigh = 1000;
@@ -91,7 +92,7 @@
        { value: m.buildConvertibleUnitDivision, weight: kStandard },
        { value: m.buildSystemOfEquations, weight: kHigh, limit: 5 },
        { value: m.buildSameBasisAddition, weight: kStandard },
-       { value: m.buildRationalInequality, weight: kEasy },
+       { value: m.buildRationalInequality, weight: kTooEasy },
        { value: m.buildReorderingProblem, weight: kHigh },
        { value: m.buildExpansionProblem, weight: kHigh },
        { value: m.buildKoreanUnitManProblem, weight: kStandard },
@@ -105,6 +106,7 @@
        // { value: m.buildFourthGradePromptWord, weight: kStandard, limit: Infinity },
        // { value: m.buildSpellingQuestion, weight: kStandard, limit: Infinity },
        { value: m.buildVocabProblem, weight: kHigh, limit: 3 },
+       { value: m.buildHanjaProblem, weight: kHigh, limit: 1 },
        { value: m.buildTriangleTwoProblem, weight: kStandard, limit: 1 },
        { value: m.buildTriangleKiteProblem, weight: kStandard, limit: 1 },
        { value: m.buildSubtractionWithCarryCascade, weight: kHigh, limit: 1 },
