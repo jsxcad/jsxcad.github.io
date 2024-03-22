@@ -761,6 +761,42 @@ const hanja6 = [
   ['會','모일','회'],
 ];
 
+const hanja = [
+  { value: ['生', '날 생'] },
+  { value: ['命', '목숨 명'] },
+  { value: ['老', '늙을 로'] },
+  { value: ['病', '병 병'] },
+  { value: ['死', '죽을 사'] },
+  { value: ['姓', '성씨 성'] },
+  { value: ['名', '이름 명'] },
+  { value: ['身', '몸 신'] },
+  { value: ['體', '몸 체'] },
+  { value: ['頭', '미리 두'] },
+  { value: ['目', '눈 목'] },
+  { value: ['口', '입 구'] },
+  { value: ['面', '얼굴 면'] },
+  { value: ['手', '손 수'] },
+  { value: ['足', '발 족'] },
+  { value: ['飲', '마실 음'] },
+  { value: ['食', '먹을 식'] },
+  { value: ['便', '똥오줌 변'] },
+  { value: ['活', '살 활'] },
+  { value: ['事', '일 사'] },
+  { value: ['休', '쉴 휴'] },
+  { value: ['心', '마음 심'] },
+  { value: ['思', '생각 사'] },
+  { value: ['感', '느낄 감'] },
+  { value: ['性', '성품 성'] },
+  { value: ['情', '뜻 정'] },
+  { value: ['意', '뜻 의'] },
+  { value: ['力', '힘 력'] },
+  { value: ['便', '편할 편'] },
+  { value: ['主', '주인 주'] },
+  { value: ['社', '모일 사'] },
+  { value: ['會', '모일 회'] },
+  { value: ['家', '집 가'] },
+];
+
 export   const pickSubject = () => 
      choose([
        { value: "I", weight: 5 },
@@ -2454,18 +2490,35 @@ export const buildVocabProblem = (chosen) => {
 };
 
 export const buildHanjaProblem = (chosen) => {
-  const vocab = [];
-  const words = [...hanja8, ...hanja7].map(e => e[0]);
+  const entries = [];
   for (let nth = 0; nth < 4; nth++) {
-    vocab.push(chooseFromList(words, chosen));
+    const [character, note] = choose(hanja, chosen);
+    entries.push({ character, note });
   }
+  const keys = new Set();
+  for (const { note } of entries) {
+    for (const letter of note) {
+      keys.add(letter);
+    }
+  }
+  const indices = new Map();
+  let nth = 0;
+  const codes = [];
+  for (const letter of shuffle([...keys])) {
+    indices.set(letter, nth++);
+    codes.push(letter);
+  }
+  const obfuscate = (note) => note.split('').map(letter => indices.get(letter)).join(',');
   const cells = [];
-  for (const word of vocab) {
-    cells.push(`<td style="text-align: center; vertical-align: top; width: 25%">${word}</td>`);
+  for (const { character, note } of entries) {
+    cells.push(`<td style="text-align: center; vertical-align: top; width: 25%">${character} ${obfuscate(note)}</td>`);
   }
   return Size('Hanja', 1, `<table style="border: thin solid; width: 100%">
            <tr style="height: 100%; outline: thin solid; margin: 10px">
             ${cells.join('\n')}
+           </tr>
+           <tr style="height: 100%; outline: thin solid; margin: 10px">
+            <td colspan=4><center>${codes.join(',')}</center></td>
            </tr>
           </table>`);
 };
