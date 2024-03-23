@@ -23,7 +23,7 @@
        { value: m.buildCrashTimeProblem, weight: kStandard },
        // { value: m.buildTimeDistanceProblem, weight: kStandard },
        { value: m.buildTimeMeetProblem, weight: kStandard },
-       { value: m.buildWorkTogetherTimeProblem, weight: kStandard },
+       { value: m.buildWorkTogetherTimeProblem, weight: kHigh },
        { value: m.buildWorkApartTimeProblem, weight: kStandard },
        { value: m.buildAttendanceTicketProblem, weight: kPriority },
        { value: m.buildTicketCostProblem, weight: kHigh },
@@ -65,7 +65,7 @@
        { value: m.buildIntegerDecimalMultiplication, weight: kStandard },
        { value: m.buildIntegerPercentageMultiplication, weight: kStandard },
        { value: m.buildIntegerRationalMultiplication, weight: kStandard },
-       { value: m.buildIntegerRationalDivision, weight: kStandard },
+       { value: m.buildIntegerRationalDivision, weight: kPriority },
        { value: m.buildRationalMultiplication, weight: kStandard },
        { value: m.buildRationalDivision, weight: kStandard },
        { value: m.buildSubtraction, weight: kStandard },
@@ -109,7 +109,7 @@
        { value: m.buildHanjaProblem, weight: kHigh, limit: 1 },
        { value: m.buildTriangleTwoProblem, weight: kStandard, limit: 1 },
        { value: m.buildTriangleKiteProblem, weight: kStandard, limit: 1 },
-       { value: m.buildSubtractionWithCarryCascade, weight: kHigh, limit: 1 },
+       { value: m.buildSubtractionWithCarryCascade, weight: kPriority, limit: 3 },
        { value: m.buildGapSentenceProblem, weight: kPriority, limit: 5 },
      ], chosen)
      return problem(chosen);

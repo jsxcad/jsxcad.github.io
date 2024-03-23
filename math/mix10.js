@@ -2527,7 +2527,7 @@ export const buildSubtractionWithCarryCascade = () => {
   for (;;) {
     const a = [pick(10), 0, pick(10)];
     const b = [pick(10), pick(10), pick(10)];
-    if (a[0] < b[0] || a[2] > b[2]) {
+    if (a[0] < b[0] || a[2] >= b[2]) {
       continue;
     }
 
