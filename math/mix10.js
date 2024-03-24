@@ -2511,16 +2511,17 @@ export const buildHanjaProblem = (chosen) => {
   const obfuscate = (note) => note.split('').map(letter => indices.get(letter)).join(',');
   const cells = [];
   for (const { character, note } of entries) {
-    cells.push(`<td style="text-align: center; vertical-align: top; width: 25%">${character} ${obfuscate(note)}</td>`);
+    cells.push(`<td style="text-align: center; vertical-align: top; width: 25%">${character}<br>${obfuscate(note)}</td>`);
   }
-  return Size('Hanja', 1, `<table style="border: thin solid; width: 100%">
-           <tr style="height: 100%; outline: thin solid; margin: 10px">
-            ${cells.join('\n')}
-           </tr>
-           <tr style="height: 100%; outline: thin solid; margin: 10px">
-            <td colspan=4><center>${codes.join(',')}</center></td>
-           </tr>
-          </table>`);
+  return Size('Hanja', 1,
+              `<table style="width: 100%">
+                <tr>
+                 ${cells.join('\n')}
+                </tr>
+                <tr>
+                 <td colspan=4><center>${codes.join(',')}</center></td>
+                </tr>
+               </table>`);
 };
 
 export const buildSubtractionWithCarryCascade = () => {
@@ -2534,6 +2535,72 @@ export const buildSubtractionWithCarryCascade = () => {
     return Size('SubtractionWithCarryCascade', 1, `${a[0]}${a[1]}${a[2]} ${kMinus} ${b[0]}${b[1]}${b[2]} = ${kAnswer}`);
   }
 };
+
+export const buildSequenceProblem = () => {
+  switch (pick(3)) {
+    case 0: {
+      for (;;) {
+        const start = pick(0, 100);
+        const delta = pick(-21, 21);
+        if (delta === 0) {
+          continue;
+        }
+        const limit = pick(3, 10);
+        const samples = [];
+        for (let nth = 0; nth < limit; nth++) {
+          samples.push(start + delta * nth);
+        }
+        return Size('Sequence d', 1, `${samples.join(', ')}`);
+      }
+    }
+    case 1: {
+      for (;;) {
+        const start = pick(0, 100);
+        const acceleration = pick(-21, 21);
+        if (acceleration === 0) {
+          continue;
+        }
+        const limit = pick(3, 10);
+        const samples = [];
+        let delta = 0;
+        for (let nth = 0; nth < limit; nth++) {
+          delta += acceleration;
+          samples.push(start + delta);
+        }
+        return Size('Sequence a', 1, `${samples.join(', ')}`);
+      }
+    }
+    case 2: {
+      for (;;) {
+        const start = pick(0, 100);
+        const limit = pick(3, 10);
+        const samples = [];
+        for (let nth = 1; nth <= limit; nth++) {
+          const value = start / nth;
+          samples.push(start / nth);
+        }
+        if (!samples.every(v => v !== 0 && isInteger(v))) {
+          continue;
+        }
+        return Size('Sequence i', 1, `${samples.join(', ')}`);
+      }
+    }
+    case 3: {
+      for (;;) {
+        const start = pick(0, 100);
+        const limit = pick(3, 10);
+        const samples = [];
+        for (let nth = 1; nth <= limit; nth++) {
+          samples.push(start + nth * nth);
+        }
+        if (!samples.every(v => v < 100)) {
+          continue;
+        }
+        return Size('Sequence s', 1, `${samples.join(', ')}`);
+      }
+    }
+  }
+}
 
 const reverse = (s) => s.split('').reverse().join('');
 
