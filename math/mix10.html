@@ -27,7 +27,7 @@
        { value: m.buildWorkApartTimeProblem, weight: kStandard },
        { value: m.buildAttendanceTicketProblem, weight: kPriority },
        { value: m.buildTicketCostProblem, weight: kHigh },
-       { value: m.buildCostBillCoinProblem, weight: kHigh },
+       { value: m.buildCostBillCoinProblem, weight: kEasy },
        { value: m.buildAttendanceProblem, weight: kStandard },
        { value: m.buildLeverWeightProblem, weight: kStandard },
        { value: m.buildLeverDistanceProblem, weight: kStandard },
@@ -45,8 +45,9 @@
        { value: m.buildDiceProblem, weight: kStandard },
        { value: m.buildDiceProbabilityProblem, weight: kStandard },
        // { value: m.buildCoinProblem, weight: kStandard },
-       { value: m.buildSimpleDivision31, weight: kStandard },
-       { value: m.buildSimpleDivision32, weight: kEasy },
+       { value: m.buildSimpleDivision31, weight: kEasy },
+       { value: m.buildSimpleDivision32, weight: kPriority },
+       { value: m.buildSimpleDivision52, weight: kPriority },
        { value: m.buildAddition, weight: kStandard },
        { value: m.buildMultiplication21, weight: kEasy },
        { value: m.buildMultiplication22, weight: kStandard },
@@ -111,7 +112,8 @@
        { value: m.buildTriangleKiteProblem, weight: kStandard, limit: 1 },
        { value: m.buildSubtractionWithCarryCascade, weight: kPriority, limit: 3 },
        { value: m.buildGapSentenceProblem, weight: kPriority, limit: 5 },
-       { value: m.buildSequenceProblem, weight: kPriority, limit: 3 },
+       { value: m.buildSequenceProblem, weight: kPriority, limit: 1 },
+       { value: m.buildRectangleAreaProblem, weight: kPriority, limit: 1 },
      ], chosen)
      return problem(chosen);
    };

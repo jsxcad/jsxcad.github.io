@@ -1181,6 +1181,20 @@ export   const pickSubject = () =>
      }
    };
 
+   export const buildSimpleDivision52 = () => {
+     for (let i = 0; i < Infinity; i++) {
+       const x = pick(100000);
+       if (x < 10000) {
+         continue;
+       }
+       const y = pick(100);
+       if (y < 10) {
+         continue;
+       }
+       return Size('SimpleDivision52', 1, `${x} ${kDivide} ${y} = ${kAnswer}`);
+     }
+   };
+
    export const buildSquare = () => 
      Size('Square', 1, `${pick(-10, 10)}<sup>2</sup> = ${kAnswer}`);
 
@@ -2343,10 +2357,12 @@ const findLineIntersection = ([[x1, y1], [x2, y2]], [[x3, y3], [x4, y4]]) => {
   return [x, y];
 };
 
-const createCorner = (p1, p2, p3, id, clip) => {
-  const d = `<text x=${p2[0]} y=${p2[1]} dominant-baseline="middle" text-anchor="middle" style="stroke-width:2px;stroke:white;paint-order:stroke;fill:black">${id}</text>`;
+const createLabel = ([x, y], id) => {
+  const d = `<text x=${x} y=${y} dominant-baseline="middle" text-anchor="middle" style="stroke-width:2px;stroke:white;paint-order:stroke;fill:black">${id}</text>`;
   return d;
 }
+
+const createCorner = (p1, p2, p3, id) => createLabel(p2, id);
 
 const createTriangle = (a, b, c, id, getRadius) => {
   return `
@@ -2472,6 +2488,35 @@ export const buildTriangleKiteProblem = () => {
   }
 }
 
+export const buildRectangleAreaProblem = () => {
+  for (;;) {
+    const l1 = pick(60, 180);
+    const l2 = pick(20, l1 - 10);
+    const w1 = pick(60, 140);
+    const w2 = pick(20, w1 - 10);
+    if (l2 + 10 >= l1) continue;
+    if (w2 + 10 >= w1) continue;
+    return Size('RectangleArea', 3, `
+      <svg width="300" height="180" fill="yellow" stroke="black" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(10, 10)">
+          <path d="M 0 0
+                   L ${l1 - l2} 0
+                   L ${l1 - l2} ${w2}
+                   L ${l1} ${w2}
+                   L ${l1} ${w1}
+                   L 0 ${w1}
+                   Z"/>
+          ${createLabel([l1 / 2, w1], `${l1}`)}
+          ${createLabel([0, w1 / 2], `${w1}`)}
+          ${createLabel([l1 - l2 / 2, w2], `${l2}`)}
+          ${createLabel([l1 - l2, w2 / 2], `${w2}`)}
+          ${createLabel([l1 + 65, w2 / 2], 'What is the area?')}
+        </g>
+      </svg>
+      `);
+  }
+};
+
 export const buildVocabProblem = (chosen) => {
   const vocab = [];
   const words = [...gradeWords.grade4, ...gradeWords.grade5];
@@ -2550,7 +2595,7 @@ export const buildSequenceProblem = () => {
         for (let nth = 0; nth < limit; nth++) {
           samples.push(start + delta * nth);
         }
-        return Size('Sequence d', 1, `${samples.join(', ')}`);
+        return Size('Sequence', 1, `${samples.join(', ')}`);
       }
     }
     case 1: {
@@ -2567,7 +2612,7 @@ export const buildSequenceProblem = () => {
           delta += acceleration;
           samples.push(start + delta);
         }
-        return Size('Sequence a', 1, `${samples.join(', ')}`);
+        return Size('Sequence', 1, `${samples.join(', ')}`);
       }
     }
     case 2: {
@@ -2582,7 +2627,7 @@ export const buildSequenceProblem = () => {
         if (!samples.every(v => v !== 0 && isInteger(v))) {
           continue;
         }
-        return Size('Sequence i', 1, `${samples.join(', ')}`);
+        return Size('Sequence', 1, `${samples.join(', ')}`);
       }
     }
     case 3: {
@@ -2596,7 +2641,7 @@ export const buildSequenceProblem = () => {
         if (!samples.every(v => v < 100)) {
           continue;
         }
-        return Size('Sequence s', 1, `${samples.join(', ')}`);
+        return Size('Sequence', 1, `${samples.join(', ')}`);
       }
     }
   }
