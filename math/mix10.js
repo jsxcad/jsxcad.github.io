@@ -1317,6 +1317,30 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildFractionFractionSubtraction = () => {
+     for (;;) {
+       const x = pick(1, 11);
+       const xD = pick(1, 21);
+       const xN = pick(1, 21);
+       const y = pick(1, 11);
+       const yD = pick(1, 21);
+       const yN = pick(1, 21);
+       if (x === 0 || xD === 0 || xN === 0) {
+         continue;
+       }
+       if (y === 0 || yD === 0 || yN === 0) {
+         continue;
+       }
+       if (xD >= xN || yD >= yN) {
+         continue;
+       }
+       if (xN * yN > 50) {
+         continue;
+       }
+       return Size('FractionFractionSubtraction', 1, `${x}${Rational(xD, xN)} ${kMinus} ${y}${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
    export const buildIntegerDecimalSubtraction = () => {
      for (;;) {
        const xD = pick(-11, 11);

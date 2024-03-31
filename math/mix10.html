@@ -62,6 +62,7 @@
        { value: m.buildRationalSubtraction, weight: kHigh },
        { value: m.buildDecimalDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerRationalSubtraction, weight: kStandard },
+       { value: m.buildFractionFractionSubtraction, weight: kPriority * 3, limit: 10 },
        { value: m.buildIntegerDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerDecimalMultiplication, weight: kStandard },
        { value: m.buildIntegerPercentageMultiplication, weight: kStandard },
