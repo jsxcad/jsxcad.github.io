@@ -2128,7 +2128,7 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return Size('TravelDistanceBetweenCities', 3, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
+       return Size('TravelDistanceBetweenCities', 2, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
      }
    }
 
