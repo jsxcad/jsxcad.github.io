@@ -2766,5 +2766,5 @@ You can be a recycling hero! Find out what you can recycle in your town and star
     const [title, ...paragraphs] = story.split(/\n/g);
 
     return Size('StorySummary', 5,
-                `<b>${title}</b><br><br>${paragraphs.join('<br><br>')}`);
+                `<div style="font-size: 12px"><b>${title}</b><br><br>${paragraphs.join('<br><br>')}</div>`);
 }
