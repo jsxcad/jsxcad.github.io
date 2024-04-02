@@ -115,7 +115,7 @@
        { value: m.buildGapSentenceProblem, weight: kPriority, limit: 5 },
        { value: m.buildSequenceProblem, weight: kPriority, limit: 1 },
        { value: m.buildRectangleAreaProblem, weight: kPriority, limit: 1 },
-       { value: m.buildStorySummaryProblem, weight: kPriority, limit: 1 },
+       { value: m.buildStorySummaryProblem, weight: kPriority * 10, limit: 1 },
      ], chosen)
      return problem(chosen);
    };

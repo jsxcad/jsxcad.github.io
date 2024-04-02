@@ -2088,7 +2088,7 @@ export   const pickSubject = () =>
        if (!Number.isInteger(m / (p1 - 1)) || m == (p1 - 1)) {
          continue;
        }
-       return Size('Cut', 3, `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`);
+       return Size('Cut', 2, `It takes ${n} ${m} minutes to cut a board into ${p1} pieces. How long would they take to cut a board into ${p2} pieces?`);
      }
    };
 
