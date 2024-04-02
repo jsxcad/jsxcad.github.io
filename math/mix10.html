@@ -115,6 +115,7 @@
        { value: m.buildGapSentenceProblem, weight: kPriority, limit: 5 },
        { value: m.buildSequenceProblem, weight: kPriority, limit: 1 },
        { value: m.buildRectangleAreaProblem, weight: kPriority, limit: 1 },
+       { value: m.buildStorySummaryProblem, weight: kPriority, limit: 1 },
      ], chosen)
      return problem(chosen);
    };
@@ -140,8 +141,7 @@
        if (size > limit) {
          continue;
        }
-       rows.push(`<div style="margin: 0; padding: 0; height: ${10}px; border: none; font-size: 8px">${name}</div>`);
-       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80 - 10}px; border: thin solid">${html}</div>`);
+       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80 - 10}px; border: thin solid"><span style="font-size: 8px; display: block; margin-top: -6px; position: absolute">${name}</span>${html}</div>`);
        limit -= size;
      }
      return rows.join('\n');

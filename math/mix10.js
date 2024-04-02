@@ -1842,7 +1842,7 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return Size('WorkTogetherTime', 3, `${n1} can ${j} in ${h1} hours.
+       return Size('WorkTogetherTime', 2, `${n1} can ${j} in ${h1} hours.
                ${n2} can ${j} in ${h2} hours.
                How long does it take if they ${j} together?`);
      }
@@ -2678,8 +2678,93 @@ export const buildGapSentenceProblem = (chosen) => {
     const choice = chooseFromList(gradeWords.grade4, chosen);
     for (const { word, sentence }  of gapSentences) {
       if (choice === word) {
-        return Size('GapSentence', 2, reverse(reverse(sentence.replace('_', word.substring(0, 2))).replace('_', reverse(word).substring(0, 2))));
+        return Size('GapSentence', 1, reverse(reverse(sentence.replace('_', word.substring(0, 2))).replace('_', reverse(word).substring(0, 2))));
       }
     }
   }
 };
+
+export const buildStorySummaryProblem = (chosen) => {
+  const stories = [
+`The Missing Mittens
+Sarah loved playing in the snow, but she always seemed to lose things. This winter, it was her favorite blue mittens. She looked everywhere – her room, the coat closet, even under the couch. Her mom helped her search, but the mittens were nowhere to be found. Sarah was starting to get really worried. She needed those mittens for recess!
+The next day at school, Sarah went outside to play. It was so cold without her mittens! As she was building a snowman, she saw something blue sticking out of the snow. She rushed over and started digging. It was her mittens! Sarah was so happy, she almost forgot her hands were freezing.
+Sarah ran inside to warm up, proud that she found her missing mittens. She knew she needed to be more careful with her things. But for now, she was just excited to be warm and have her favorite blue mittens just in time for playtime outside.`,
+`The Best Bike Ride
+Ben was so excited for the weekend. His dad had promised to take him on a bike ride through the park. Ben loved riding his bike, but he didn't get to go on long rides very often. He woke up early on Saturday and rushed to get ready, almost forgetting his helmet!
+The park was even bigger than Ben remembered.  There were winding trails, a big pond with ducks, and even a playground. They rode for a long time, stopping for snacks and water breaks. Ben's legs were starting to get tired, but he didn't want to quit. He was having too much fun!
+Finally, as the sun started to set, they headed home. Ben was exhausted but happy. He couldn't believe how far he had ridden. As he fell asleep that night, he dreamed of his next bike adventure with his dad.`,
+`Lily's Lemonade Stand
+It was the hottest day of summer, and Lily was bored. She wanted to do something fun, but it was too hot to play outside. Then, she had an idea! She would set up a lemonade stand. Lily asked her mom for help, and they got out a pitcher, cups, and all the ingredients to make delicious lemonade.
+Lily set up her stand in the front yard with a big sign. At first, not many people came by. Then, her neighbor Mr. Johnson stopped for a glass. Then her friend Maya came over, and pretty soon more kids from the neighborhood showed up. Lily loved selling lemonade and chatting with everyone.
+By the end of the day, Lily had sold out of lemonade and even earned some money. She decided the very best part wasn't the money, but the fun she had and the new friends she made. Maybe she would open her lemonade stand again next weekend!`,
+`The Lost Puppy
+Emily was walking home from school when she heard a whimpering sound. It was coming from the bushes near the sidewalk.  She peeked inside and saw a small, brown puppy all alone. The puppy looked scared and hungry. Emily knew she couldn't leave it there.
+She gently picked up the puppy and carried it home. Her mom was surprised, but she helped Emily make a cozy spot for the puppy with blankets and some water. They even gave it some leftover chicken from dinner. Emily made posters with the puppy's picture and put them up around the neighborhood.
+A few days later, a woman came to Emily's door. She said her puppy, Max, had gotten lost! Emily was sad to see Max go, but she was so happy that he was back with his owner.  She learned it's important to be kind and helpful, even to lost little puppies.`,
+`The Treehouse Project
+Sam and his best friend, Ben, had a big dream: to build a treehouse in Sam's backyard. They spent hours drawing plans and gathering supplies. Sam's dad was really good at building things, and he promised to help them.
+One sunny Saturday, they started the project. First, they built a strong platform in the branches of the biggest tree. Then, they added walls and a roof. Sam painted the whole treehouse bright blue, his favorite color.
+The treehouse was even better than they imagined. Sam and Ben spent all summer playing in it. They pretended to be pirates, explorers, and even astronauts. It was their own secret hideaway, and they loved every minute in it.`,
+`The Talent Show Surprise
+Maya was nervous. She was in the school talent show, and it was her turn to perform. She loved to sing, but sometimes she got stage fright. As she walked onto the stage, her heart was pounding. She took a deep breath and started to sing her favorite song.
+At first, her voice was a little shaky. But as she kept singing, Maya started to relax. She remembered why she loved performing so much.  By the end of the song, Maya was belting out the notes with a big smile on her face.  The crowd cheered and clapped loudly.
+Stepping off the stage, Maya felt proud of herself. She had faced her fear and done something amazing. Even better, she discovered how much she truly enjoyed sharing her singing with others.`,
+`The Mystery of the Old Attic
+Alex had always been fascinated by the attic in her grandparents' house. It was a dusty, forgotten space filled with old trunks, antique furniture, and boxes of faded photographs. One rainy afternoon, Alex decided to explore. She climbed the creaky attic stairs, a flashlight in hand.
+In a corner, she discovered a wooden chest locked with an ornate padlock. Curiosity surged through her. Alex tried to pry it open but to no avail.  Back in her room, she searched online for clues about old padlocks.  She learned about skeleton keys and decided to give it a try.
+The next day, armed with a set of skeleton keys her grandmother had, Alex returned to the attic. After several attempts, one key clicked, and the lock sprang open! Inside the chest, Alex found a bundle of letters tied with a faded ribbon and a worn, leather-bound journal. The letters were written in a flowing script from over a hundred years ago!  This was more than a dusty attic; it was a treasure trove of history, waiting to be uncovered.`,
+`The Unexpected Friendship
+Charlie was the new kid in school, and he felt like an outsider. He was shy and didn't know anyone.  During recess, he usually sat alone, reading a book. One day, a girl named Maya bounced up to him with a soccer ball under her arm.  "Want to play?" she asked with a wide grin. Charlie hesitated, feeling a mix of nervousness and excitement.
+Charlie had never been very good at sports, but Maya was patient and encouraging.  She taught him some basic moves, and they even played a small game with a few other kids. Charlie discovered he had quite a knack for being a goalie.  By the end of recess, he was laughing and sweating, having the most fun he'd had in weeks.
+From that day on, Charlie and Maya became friends. He learned that it was okay to step outside of his comfort zone and that sometimes the most unexpected friendships could be the very best.`,
+`The Science Fair Challenge
+Olivia loved science, but the upcoming science fair made her nervous. She had to come up with a project, conduct an experiment, and present her findings – all in front of her class and a judge! Olivia wracked her brain for ideas but nothing felt interesting enough.
+While visiting her grandmother one afternoon, everything changed. Her grandmother was an avid gardener, and she complained about squirrels always eating her tomatoes. Olivia's eyes lit up. Could she design something to keep the squirrels away?
+Inspired, Olivia started researching squirrel behavior, testing out different materials, and building prototypes.  She discovered that squirrels don't like the smell of peppermint! With her data, she created a squirrel-proof fence with a peppermint scent.  On science fair day, she confidently explained her project and even won an award. Best of all, her grandmother's tomatoes were finally safe!`,
+`The Storyteller's Secret
+Every Saturday, Maya and her little sister Lily visited the town library. Their favorite part was story time with Mr. Bennet, the elderly librarian. With his twinkling eyes and gentle voice, he made every story come alive. Maya especially loved his tales of faraway lands and brave heroes.
+One day, Maya noticed Mr. Bennet looked sad. He told them that due to his poor eyesight, he might not be able to read stories anymore. Maya's heart sank. She couldn't imagine story time without Mr. Bennet. Then, an idea struck her. What if she and Lily memorized his stories and told them instead?
+The girls spent weeks practicing Mr. Bennet's stories, trying to capture his voice and expressions. The next Saturday, they nervously stood up in front of the other children.  At first, their words stumbled, but as they got into the rhythm of the story, the words flowed, and the children were captivated.  Mr. Bennet beamed with pride.  Maya learned that sometimes the best help comes in the most unexpected ways.`,
+`The Disappearing Cookies
+Every Wednesday, Grandma baked the most delicious chocolate chip cookies. Jake and his brother, Ryan, couldn't wait to get home from school and have a snack.  But lately, something strange was happening.  The cookies were disappearing from the cookie jar faster than they could eat them!
+At first, Jake and Ryan blamed each other. Then they suspected their dog, Buddy. Still, the cookies vanished. Determined to solve the mystery, the brothers set up a trap.  They left a note on the cookie jar asking the "cookie thief" to reveal themselves.
+The next day, Jake and Ryan found a reply on the note. In messy handwriting, it said, "Sorry, couldn't resist. Meet me on the porch."  Confused, the boys went outside. There, sitting on the porch swing, was their dad, a sheepish grin on his face and crumbs on his shirt. The mystery was solved! Dad had a secret sweet tooth, and the boys had a new partner in their cookie-eating adventures.`,
+`The Amazing Axolotl
+Axolotls are really strange-looking creatures. They look like giant tadpoles that never grow up! These underwater salamanders have feathery gills around their heads and wide, smiling mouths. Axolotls are found in only one place in the wild: Lake Xochimilco in Mexico. Sadly, their lake home is polluted, and there aren't many axolotls left.
+But what makes axolotls truly amazing is their power to heal. If an axolotl loses a leg, it can grow a brand new one! They can even regrow parts of their brains and hearts. Scientists are studying axolotls to learn more about their healing powers. Maybe one day, they'll help people who have been hurt.`,
+`The Secret Language of Trees
+Did you know that trees can talk to each other? It's not like how we talk, but they have their own way of communicating. Trees have a giant network of fungi living under the ground. This network connects the roots of different trees, kind of like an underground internet!
+Trees use this network to send messages. They can warn each other when insects are attacking, or even share nutrients with trees that are sick or don't have enough sunlight. These amazing forests are like giant communities where trees help and support each other.`,
+`The Story of Chocolate
+Chocolate is one of the most popular treats in the world, but where does it come from? It all starts with a tree called the cacao tree. Cacao trees grow in warm, rainy places and produce pods filled with seeds called cacao beans.
+Farmers harvest the pods and scoop out the beans. The beans are then fermented and dried in the sun.  Finally, they are roasted and ground up into a paste.  This paste is used to make all kinds of delicious chocolate treats! It takes a lot of work, but the journey from bean to chocolate bar is a sweet one.`,
+`The Disappearing Islands of the Pacific
+In the middle of the vast Pacific Ocean are groups of islands called atolls. These rings of coral islands are formed over thousands of years, but they sit very low in the water. Sadly, many Pacific atolls are in danger of disappearing.
+The problem is rising sea levels. As the planet warms, ice caps and glaciers are melting, causing more water to flow into the oceans. These rising sea levels threaten to cover low-lying islands. Many people who live on Pacific Islands are worried that they may lose their homes.
+Some scientists are trying to find solutions. They are studying ways to help the islands grow taller or to build walls to protect them from the rising water.  There's also a big effort to slow down climate change and protect Earth's ice, which will help keep sea levels from rising too quickly. The Pacific islanders and their beautiful homes need our help!`,
+`The Mystery of the Northern Lights
+Have you ever seen the Northern Lights? These beautiful dancing lights paint the night sky in amazing colors like green, purple, and red.  They can only be seen in the far north, in places like Alaska, Canada, and Norway.
+The Northern Lights, also called Aurora Borealis, are caused by something called the solar wind. The sun constantly sends out charged particles that travel through space. When these particles reach Earth, they are pulled towards the north and south poles by Earth's magnetic field.
+As the particles crash into the atmosphere, they excite the gases there, causing them to glow in those spectacular colors. The Northern Lights have inspired stories and legends for centuries, and they remain a breathtaking natural wonder.`,
+`The World's Deepest Dive
+The ocean is full of mysteries, especially in its deepest parts. The deepest spot in the whole ocean is called the Challenger Deep, located in the Mariana Trench in the Pacific Ocean. It's so deep that you could fit Mount Everest inside and still have over a mile of water above it!
+In 1960, two brave explorers, Jacques Piccard and Don Walsh, were the first people to travel to the Challenger Deep. They used a special submarine called a bathyscaphe. Their journey was dangerous and dark,  but they made it all the way to the bottom!
+In recent years, other explorers have traveled to the Challenger Deep and discovered amazing things. Strange, see-through creatures and glowing organisms live in this extreme environment.  Scientists continue to explore this mysterious place, hoping to uncover more of the ocean's secrets.`,
+`Wolves: Not the Big Bad Beasts
+For a long time, wolves were seen as scary and dangerous villains in fairy tales and stories.  But scientists who study wolves have discovered that they aren't so bad after all. Wolves are actually very important for a healthy environment.
+Wolves live in packs, like families, and they hunt together to find food. They usually go after deer, elk, or other large animals. By keeping the numbers of those animals in balance, wolves help keep forests and grasslands healthy.
+Sadly, humans have hunted wolves for many years, and many wolf populations have disappeared. Now, people are working to protect wolves and bring them back to places where they used to live.  We're learning that wolves are fascinating creatures  that deserve our respect and protection.`,
+`The Power of Recycling
+Every day we throw away lots of stuff – cans, bottles, plastic containers, old newspapers.  But what if we didn't have to throw it all away? That's where recycling comes in!
+Recycling means taking used materials and turning them into new things.  Instead of ending up in a landfill, those empty soda cans can become parts of a new bicycle. Old plastic bottles can be turned into cozy fleece jackets.
+Recycling is good for the Earth. It saves resources, because we don't have to cut down as many trees or mine for new metal. It also helps keep our air and water cleaner.
+You can be a recycling hero! Find out what you can recycle in your town and start sorting those bottles, cans, and newspapers.  Together we can make a difference!`];
+
+    const story = chooseFromList(stories, chosen);
+
+    const [title, ...paragraphs] = story.split(/\n/g);
+
+    return Size('StorySummary', 5,
+                `<b>${title}</b><br><br>${paragraphs.join('<br><br>')}`);
+}
