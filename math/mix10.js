@@ -1877,14 +1877,14 @@ export   const pickSubject = () =>
        switch (pick(2)) {
          case 0: {
            const target = chooseFromList(['adult', 'child']);
-           return Size('TicketCost', 3,
+           return Size('TicketCost', 4,
                        `A concert sold ${count1 + count2} seats.
                         Adult tickets cost $${cost1} and child tickets cost $${cost2}.
                         If the concert received $${totalCost}, how many ${target} tickets were sold?`);
          }
          case 1: {
            const target = chooseFromList(['monkey', 'rabbit']);
-           return Size('TicketCost', 3,
+           return Size('TicketCost', 4,
                        `A factory sold ${count1 + count2} toys.
                         Monkey toys cost $${cost1} and rabbit toys cost $${cost2}.
                         If the factory received $${totalCost}, how many ${target} toys were sold?`);
@@ -2765,6 +2765,20 @@ You can be a recycling hero! Find out what you can recycle in your town and star
 
     const [title, ...paragraphs] = story.split(/\n/g);
 
-    return Size('StorySummary', 5,
-                `<div style="font-size: 12px"><b>${title}</b><br><br>${paragraphs.join('<br><br>')}</div>`);
+    return Size('StorySummary', 6,
+      `<div style="font-size: 12px">
+        <b>${title}</b>
+        <br>
+        <br>
+        ${paragraphs.join('<br><br>')}
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        <hr style="height: 24px">
+        </div>`);
 }

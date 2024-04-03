@@ -62,7 +62,7 @@
        { value: m.buildRationalSubtraction, weight: kHigh },
        { value: m.buildDecimalDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerRationalSubtraction, weight: kStandard },
-       { value: m.buildFractionFractionSubtraction, weight: kPriority * 3, limit: 10 },
+       { value: m.buildFractionFractionSubtraction, weight: kPriority, limit: 2 },
        { value: m.buildIntegerDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerDecimalMultiplication, weight: kStandard },
        { value: m.buildIntegerPercentageMultiplication, weight: kStandard },
@@ -111,7 +111,7 @@
        { value: m.buildHanjaProblem, weight: kHigh, limit: 1 },
        { value: m.buildTriangleTwoProblem, weight: kStandard, limit: 1 },
        { value: m.buildTriangleKiteProblem, weight: kStandard, limit: 1 },
-       { value: m.buildSubtractionWithCarryCascade, weight: kPriority, limit: 3 },
+       { value: m.buildSubtractionWithCarryCascade, weight: kStandard, limit: 1 },
        { value: m.buildGapSentenceProblem, weight: kPriority, limit: 5 },
        { value: m.buildSequenceProblem, weight: kPriority, limit: 1 },
        { value: m.buildRectangleAreaProblem, weight: kPriority, limit: 1 },
@@ -141,7 +141,7 @@
        if (size > limit) {
          continue;
        }
-       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80 - 10}px; border: thin solid"><span style="font-size: 8px; display: block; margin-top: -6px; position: absolute">${name}</span>${html}</div>`);
+       rows.push(`<div style="margin: 0; padding: 5; height: ${size * 80 - 10}px; border: thin solid; overflow: hidden"><span style="font-size: 8px; display: block; margin-top: -6px; position: absolute">${name}</span>${html}</div>`);
        limit -= size;
      }
      return rows.join('\n');
