@@ -2020,7 +2020,7 @@ export   const pickSubject = () =>
        const t1 = pickThings(chosen);
        switch (pick(4)) {
          case 0:
-           return Size('Proportion', 3, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
+           return Size('Proportion', 2, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
          case 1:
            return Size('Proportion', 3, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
          case 2:
