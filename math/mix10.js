@@ -2541,6 +2541,33 @@ export const buildRectangleAreaProblem = () => {
   }
 };
 
+export const buildIntersectionOverlapProblem = () => {
+  for (;;) {
+    const a = pick(0, 200);
+    const b = pick(0, 200);
+    const c = pick(0, 200);
+    const d = pick(0, 200);
+    if (a + 20 > b || b + 20 > c || c + 20 > d) {
+      continue;
+    }
+    return Size('IntersectionOverlap', 2, `
+      <svg width="300" height="90" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(10, 10)">
+          <path stroke="black" d="M ${a} 0 L ${d} 0"/>
+          ${createLabel([a, 0], 'a')}
+          ${createLabel([b, 0], 'b')}
+          ${createLabel([c, 0], 'c')}
+          ${createLabel([d, 0], 'd')}
+          <text x=0 y=20>ac = ${c - a}</text>
+          <text x=100 y=20>bd = ${d - b}</text>
+          <text x=200 y=20>ad = ${d - a}</text>
+          <text x=0 y=40>bc =</text>
+        </g>
+      </svg>
+      `);
+  }
+}
+
 export const buildVocabProblem = (chosen) => {
   const vocab = [];
   const words = [...gradeWords.grade4, ...gradeWords.grade5];
