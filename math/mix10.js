@@ -1341,6 +1341,22 @@ export   const pickSubject = () =>
      }
    }
 
+   export const buildIntegerFractionSubtraction = () => {
+     for (;;) {
+       const x = pick(1, 11);
+       const y = pick(1, 11);
+       const yD = pick(1, 21);
+       const yN = pick(1, 21);
+       if (x <= y) {
+         continue;
+       }
+       if (y === 0 || yD === 0 || yN === 0) {
+         continue;
+       }
+       return Size('IntegerFractionSubtraction', 1, `${x} ${kMinus} ${y}${Rational(yD, yN)} = ${kAnswer}`);
+     }
+   }
+
    export const buildIntegerDecimalSubtraction = () => {
      for (;;) {
        const xD = pick(-11, 11);
@@ -1353,6 +1369,9 @@ export   const pickSubject = () =>
      for (;;) {
        const xD = pick(-110, 110) / 10;
        const yD = pick(-11, 11) / 10;
+       if (xD === 0 || yD === 0) {
+         continue;
+       }
        return Size('DecimalDecimalSubtraction', 1, `${xD} ${kMinus} ${yD} = ${kAnswer}`);
      }
    }
@@ -1975,7 +1994,7 @@ export   const pickSubject = () =>
        if (r === 'further from' && w1 > w2) {
          continue;
        }
-       return Size('LeverDistance', 3, `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`);
+       return Size('LeverDistance', 2, `${w1} kg balances ${dd} meters ${r} the center than a ${w2} kg. How far from the center is the ${w2} kg weight?`);
      }
    }
 
@@ -2151,7 +2170,7 @@ export   const pickSubject = () =>
          continue;
        }
        const d = s * a1;
-       return Size('VehicleFuelDistance', 3, `I can travel ${d} km by ${v} by using ${a1} ${f}. How far can I go using ${a2} ${f}?`);
+       return Size('VehicleFuelDistance', 2, `I can travel ${d} km by ${v} by using ${a1} ${f}. How far can I go using ${a2} ${f}?`);
      }
    }
 
@@ -2248,7 +2267,7 @@ export   const pickSubject = () =>
        };
        const a = pickDice();
        const b = pickDice();
-       return Size('Dice', 3, `What is the probability of ${a} then ${b} with ${die} sided dice?`);
+       return Size('Dice', 2, `What is the probability of ${a} then ${b} with ${die} sided dice?`);
      }
    }
 
@@ -2521,7 +2540,7 @@ export const buildRectangleAreaProblem = () => {
     if (l2 + 10 >= l1) continue;
     if (w2 + 10 >= w1) continue;
     return Size('RectangleArea', 3, `
-      <svg width="300" height="180" fill="yellow" stroke="black" xmlns="http://www.w3.org/2000/svg">
+      <svg width="400" height="180" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(10, 10)">
           <path d="M 0 0
                    L ${l1 - l2} 0
@@ -2530,11 +2549,48 @@ export const buildRectangleAreaProblem = () => {
                    L ${l1} ${w1}
                    L 0 ${w1}
                    Z"/>
-          ${createLabel([l1 / 2, w1], `${l1}`)}
-          ${createLabel([0, w1 / 2], `${w1}`)}
-          ${createLabel([l1 - l2 / 2, w2], `${l2}`)}
-          ${createLabel([l1 - l2, w2 / 2], `${w2}`)}
-          ${createLabel([l1 + 65, w2 / 2], 'What is the area?')}
+          ${createLabel([l1 - l2, 0], 'A')}
+          ${createLabel([l1 - l2, w2], 'B')}
+          ${createLabel([l1, w2], 'C')}
+          ${createLabel([l1, w1], 'D')}
+          ${createLabel([0, w1], 'E')}
+          ${createLabel([0, 0], 'F')}
+          ${createLabel([200, 20], `AB = ${w2}`)}; // yes
+          ${createLabel([200, 40], `AF = ${l1 - l2}`)}; // yes
+          ${createLabel([200, 60], `BC = ${l2}`)}; // yes
+          ${createLabel([200, 80], `CD = ${w1 - w2}`)}; // yes
+        </g>
+      </svg>
+      `);
+  }
+};
+
+export const buildRectangleAreaTriangleProblem = () => {
+  for (;;) {
+    const l1 = pick(60, 180);
+    const l2 = pick(20, l1 - 10);
+    const w1 = pick(60, 140);
+    const w2 = pick(20, w1 - 10);
+    if (l2 + 10 >= l1) continue;
+    if (w2 + 10 >= w1) continue;
+    return Size('RectangleAreaTriangle', 3, `
+      <svg width="400" height="180" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(10, 10)">
+          <path d="M 0 0
+                   L ${l1 - l2} 0
+                   L ${l1} ${w2}
+                   L ${l1} ${w1}
+                   L 0 ${w1}
+                   Z"/>
+          ${createLabel([l1 - l2, 0], 'A')}
+          ${createLabel([l1, w2], 'C')}
+          ${createLabel([l1, w1], 'D')}
+          ${createLabel([0, w1], 'E')}
+          ${createLabel([0, 0], 'F')}
+          ${createLabel([200, 20], `CD = ${w1 - w2}`)};
+          ${createLabel([200, 40], `ED = ${l1}`)};
+          ${createLabel([200, 60], `FA = ${l1 - l2}`)};
+          ${createLabel([200, 80], `FE = ${w1}`)};
         </g>
       </svg>
       `);
@@ -2824,7 +2880,7 @@ export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, e
     vocab.push(choice(chosen));
   }
 
-  return Size('StoryPrompt', 6,
+  return Size('StoryPrompt', 4,
     `<div>
        <span style="text-align: right">${vocab.join(', ')}</span>
        <br>
