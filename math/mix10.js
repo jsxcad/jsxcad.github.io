@@ -2022,11 +2022,11 @@ export   const pickSubject = () =>
          case 0:
            return Size('Proportion', 2, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
          case 1:
-           return Size('Proportion', 3, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
+           return Size('Proportion', 2, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
          case 2:
-           return Size('Proportion', 3, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
+           return Size('Proportion', 2, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
          case 3:
-           return Size('Proportion', 3, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
+           return Size('Proportion', 2, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
        }
      }
    }
@@ -2798,14 +2798,48 @@ You can be a recycling hero! Find out what you can recycle in your town and star
         <br>
         <br>
         ${paragraphs.join('<br><br>')}
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
-        <hr style="height: 24px">
+        <br>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
+        <hr><div style="height: 24px"></div>
         </div>`);
 }
+
+export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, emotivePromptWeight = 10) => {
+  const vocab = [];
+  for (let i = 0; i < count; i++) {
+    const choice = choose([
+      { value: buildPromptWord, weight: promptWeight, limit: Infinity },
+      { value: buildThirdGradePromptWord, weight: promptWeight, limit: Infinity },
+      { value: buildFourthGradePromptWord, weight: promptWeight, limit: Infinity },
+      { value: buildEmotivePromptWord, weight: emotivePromptWeight, limit: Infinity },
+    ], chosen);
+    vocab.push(choice(chosen));
+  }
+
+  return Size('StoryPrompt', 6,
+    `<div>
+       <span style="text-align: right">${vocab.join(', ')}</span>
+       <br>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+       <hr><div style="height: 24px"></div>
+     </div>`);
+};
