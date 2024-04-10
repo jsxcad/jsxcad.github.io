@@ -2869,7 +2869,7 @@ export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, e
     vocab.push(choice(chosen));
   }
 
-  return Size('StoryPrompt', 4,
+  return Size('StoryPrompt', 3,
     `<div>
        <span style="text-align: right">${vocab.join(', ')}</span>
      </div>`);
