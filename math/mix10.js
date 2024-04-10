@@ -1350,7 +1350,7 @@ export   const pickSubject = () =>
        if (x <= y) {
          continue;
        }
-       if (y === 0 || yD === 0 || yN === 0) {
+       if (y === 0 || yD === 0 || yN === 0 || yN <= yD) {
          continue;
        }
        return Size('IntegerFractionSubtraction', 1, `${x} ${kMinus} ${y}${Rational(yD, yN)} = ${kAnswer}`);
@@ -2574,7 +2574,7 @@ export const buildRectangleAreaTriangleProblem = () => {
     if (l2 + 10 >= l1) continue;
     if (w2 + 10 >= w1) continue;
     return Size('RectangleAreaTriangle', 3, `
-      <svg width="400" height="180" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
+      <svg width="250" height="180" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(10, 10)">
           <path d="M 0 0
                    L ${l1 - l2} 0
@@ -2854,17 +2854,6 @@ You can be a recycling hero! Find out what you can recycle in your town and star
         <br>
         <br>
         ${paragraphs.join('<br><br>')}
-        <br>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
-        <hr><div style="height: 24px"></div>
         </div>`);
 }
 
@@ -2883,19 +2872,5 @@ export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, e
   return Size('StoryPrompt', 4,
     `<div>
        <span style="text-align: right">${vocab.join(', ')}</span>
-       <br>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
-       <hr><div style="height: 24px"></div>
      </div>`);
 };
