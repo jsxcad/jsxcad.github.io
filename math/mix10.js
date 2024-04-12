@@ -2857,7 +2857,7 @@ You can be a recycling hero! Find out what you can recycle in your town and star
         </div>`);
 }
 
-export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, emotivePromptWeight = 10) => {
+export const buildSentencePromptProblem = (chosen, count = 3, promptWeight = 200, emotivePromptWeight = 10) => {
   const vocab = [];
   for (let i = 0; i < count; i++) {
     const choice = choose([
@@ -2869,7 +2869,7 @@ export const buildStoryPromptProblem = (chosen, count = 3, promptWeight = 200, e
     vocab.push(choice(chosen));
   }
 
-  return Size('StoryPrompt', 3,
+  return Size('SentencePrompt', 2,
     `<div>
        <span style="text-align: right">${vocab.join(', ')}</span>
      </div>`);
