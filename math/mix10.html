@@ -64,6 +64,7 @@
        { value: m.buildDecimalDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerRationalSubtraction, weight: kStandard },
        { value: m.buildFractionFractionSubtraction, weight: kPriority, limit: 1 },
+       { value: m.buildFractionFractionSubtractionCommonDenominator, weight: kPriority * 1000000, limit: 20 },
        { value: m.buildIntegerFractionSubtraction, weight: kPriority * 5, limit: 2 },
        { value: m.buildIntegerDecimalSubtraction, weight: kStandard },
        { value: m.buildIntegerDecimalMultiplication, weight: kStandard },
