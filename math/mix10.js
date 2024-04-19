@@ -2621,6 +2621,64 @@ export const buildRectangleAreaTriangleProblem = () => {
   }
 };
 
+export const buildLinePointsProblem = () => {
+  for (;;) {
+    const a = [pick(1, 8), pick(1, 8)];
+    const b = [pick(1, 8), pick(1, 8)];
+    if (a[0] === b[0] || a[1] === b[1]) {
+      continue;
+    }
+    const X = (x) => x * 20 + 20;
+    const Y = (y) => 180 - (y * 20 + 20);
+    const grid = [];
+    for (let x = 0; x < 8; x++) {
+      grid.push(`<path stroke="black" d="M ${X(x)} ${Y(0)} L ${X(x)} ${Y(7)}"/>`);
+    }
+    for (let y = 0; y < 8; y++) {
+      grid.push(`<path stroke="black" d="M ${X(0)} ${Y(y)} L ${X(7)} ${Y(y)}"/>`);
+    }
+    return Size('LinePointsProblem', 3, `
+      <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+       ${grid}
+       ${createLabel([X(a[0]), Y(a[1])], 'A')}
+       ${createLabel([X(b[0]), Y(b[1])], 'B')}
+       <text x=180 y=20>A = (${a[0]}, ${a[1]})</text>
+       <text x=180 y=40>B = (${b[0]}, ${b[1]})</text>
+       <text x=180 y=60>식=</text>
+      </svg>
+      `);
+  }
+};
+
+export const buildLineEquationProblem = () => {
+  for (;;) {
+    const a = [pick(1, 8), pick(1, 8)];
+    const b = [pick(1, 8), pick(1, 8)];
+    if (a[0] === b[0] || a[1] === b[1]) {
+      continue;
+    }
+    const X = (x) => x * 20 + 20;
+    const Y = (y) => 180 - (y * 20 + 20);
+    const grid = [];
+    for (let x = 0; x < 8; x++) {
+      grid.push(`<path stroke="black" d="M ${X(x)} ${Y(0)} L ${X(x)} ${Y(7)}"/>`);
+    }
+    for (let y = 0; y < 8; y++) {
+      grid.push(`<path stroke="black" d="M ${X(0)} ${Y(y)} L ${X(7)} ${Y(y)}"/>`);
+    }
+    const mN = b[1] - a[1];
+    const mD = b[0] - a[0];
+    const sign = (mN < 0 && mD < 0) || (mN >= 0 && mD >= 0) ? '' : '-';
+    const q = pick(-4, 5);
+    return Size('LineEquationProblem', 3, `
+      <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+       ${grid}
+       <text x=180 y=20>식: y=${sign}(${Math.abs(mN)}/${Math.abs(mD)})x+${q}</text>
+      </svg>
+      `);
+  }
+};
+
 export const buildIntersectionOverlapProblem = () => {
   for (;;) {
     const a = pick(0, 200);

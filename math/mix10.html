@@ -122,6 +122,8 @@
        { value: m.buildStorySummaryProblem, weight: kPriority * 10, limit: 1 },
        { value: m.buildIntersectionOverlapProblem, weight: kEasy, limit: 1 },
        { value: m.buildSentencePromptProblem, weight: kPriority * 10, limit: 1 },
+       { value: m.buildLinePointsProblem, weight: kPriority * 10, limit: 1 },
+       { value: m.buildLineEquationProblem, weight: kPriority * 10, limit: 1 },
      ], chosen)
      return problem(chosen);
    };
