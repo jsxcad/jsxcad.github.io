@@ -1804,7 +1804,7 @@ export   const pickSubject = () =>
        }
        const v1 = t1.mode;
        const v2 = t2.mode;
-       return Size('DistanceTime', 3, `A ${v1} traveling at ${r1} km/h and a ${v2} at ${r2} km/h leave in opposite directions.
+       return Size('DistanceTime', 2, `A ${v1} traveling at ${r1} km/h and a ${v2} at ${r2} km/h leave in opposite directions.
                How long until they are ${d} km apart?`);
      }
    }
@@ -2637,7 +2637,7 @@ export const buildLinePointsProblem = () => {
     for (let y = 0; y < 8; y++) {
       grid.push(`<path stroke="black" d="M ${X(0)} ${Y(y)} L ${X(7)} ${Y(y)}"/>`);
     }
-    return Size('LinePointsProblem', 3, `
+    return Size('LinePoints', 3, `
       <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
        ${grid}
        ${createLabel([X(a[0]), Y(a[1])], 'A')}
@@ -2670,7 +2670,7 @@ export const buildLineEquationProblem = () => {
     const mD = b[0] - a[0];
     const sign = (mN < 0 && mD < 0) || (mN >= 0 && mD >= 0) ? '' : '-';
     const q = pick(-4, 5);
-    return Size('LineEquationProblem', 3, `
+    return Size('LineEquation', 3, `
       <svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
        ${grid}
        <text x=180 y=20>식: y=${sign}(${Math.abs(mN)}/${Math.abs(mD)})x+${q}</text>
