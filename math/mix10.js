@@ -1901,7 +1901,7 @@ export   const pickSubject = () =>
        const n1 = pickName(chosen);
        const n2 = pickName(chosen);
        const j = pickJob(chosen);
-       return Size('WorkApartTime', 3, `${n1} can ${j} in ${h1} hours alone.
+       return Size('WorkApartTime', 2, `${n1} can ${j} in ${h1} hours alone.
                ${n1} and ${n2} can ${j} together in ${h2} hours.
                How long does it take if ${n2} works alone?`);
      }
@@ -2063,13 +2063,13 @@ export   const pickSubject = () =>
        const t1 = pickThings(chosen);
        switch (pick(4)) {
          case 0:
-           return Size('Proportion', 2, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
+           return Size('Proportion', 1, `${n1} ${t1} cost ${c1} cents. How much would ${n2} ${t1} cost?`);
          case 1:
-           return Size('Proportion', 2, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
+           return Size('Proportion', 1, `${n1} ${t1} weigh ${c1} kg. How much would ${n2} ${t1} weigh?`);
          case 2:
-           return Size('Proportion', 2, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
+           return Size('Proportion', 1, `${n1} ${t1} stack ${c1} meters tall. How tall would ${n2} ${t1} stack?`);
          case 3:
-           return Size('Proportion', 2, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
+           return Size('Proportion', 1, `${n1} ${t1} fill ${c1} boxes. How many boxes would ${n2} ${t1} fill?`);
        }
      }
    }
@@ -2151,7 +2151,7 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return Size('TravelTimeBetweenCities', 3, `I travel ${d} km from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`);
+       return Size('TravelTimeBetweenCities', 2, `I travel ${d} km from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How long will it take to arrive?`);
      }
    }
 
@@ -2228,7 +2228,7 @@ export   const pickSubject = () =>
        if (n2 >= d2) {
          continue;
        }
-       return Size('CakeSlice', 3, `A ${Rational(n, d)} slice of a cake is cut out, then a ${Rational(n2, d2)} slice of that slice is cut out. How much of the cake is that slice?`);
+       return Size('CakeSlice', 2, `A ${Rational(n, d)} slice of a cake is cut out, then a ${Rational(n2, d2)} slice of that slice is cut out. How much of the cake is that slice?`);
      }
    };
 
