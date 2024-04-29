@@ -2171,7 +2171,10 @@ export   const pickSubject = () =>
        }
        const n1 = c.cities[0];
        const n2 = c.cities[1];
-       return Size('TravelDistanceBetweenCities', 2, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
+       switch (pick(2)) {
+         case 0: return Size('TravelDistanceBetweenCities', 2, `I travel ${t} hours from ${n1} to ${n2} by ${v} at ${s} ${Rational('km', 'h')}. How far apart are the cities?`);
+         case 0: return Size('TravelDistanceBetweenCities', 2, `A cyclist is participating in a race from ${n1} to ${n2}. If she travels at an average speed of ${s} kilometers per hour and the race takes ${t} hours to complete, what is the total distance of the race?`);
+       }
      }
    }
 
@@ -2554,6 +2557,24 @@ export const buildTriangleKiteProblem = () => {
       `);
   }
 }
+
+export const buildTriangleHypotenuseProblem = (chosen) => {
+  for (;;) {
+    const a = pick(1, 10);
+    const b = pick(1, 10);
+    const c = Math.sqrt(a * a + b * b);
+    return Size('TriangleHypotenuse', 2, `
+      <svg width="350" height="80" xmlns="http://www.w3.org/2000/svg">
+       <g transform="translate(10, 10)">
+         ${createTriangle([0, 40 - (a * 5)], [0, 40], [b * 10, 40], 'ABC')}
+         ${createLabel([200, 10], `AB = ${a}`)}
+         ${createLabel([200, 30], `BC = ${b}`)}
+         ${createLabel([200, 50], `AC =  `)}
+       </g>
+      </svg>
+      `);
+  }
+};
 
 export const buildRectangleAreaProblem = () => {
   for (;;) {
