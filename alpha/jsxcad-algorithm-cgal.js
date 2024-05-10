@@ -812,6 +812,19 @@ const fromCgalGeometry = (geometry, inputs, length = inputs.length, start = 0, c
       }
     }
   }
+  // Coallesce
+  for (let nth = start; nth < length; nth++) {
+    const origin = geometry.getOrigin(nth);
+    if (origin === nth) {
+      continue;
+    }
+    if (results[origin] === undefined) {
+      results[origin] = { type: 'group', content: [], tags: [] };
+    } else if (results[origin].type !== 'group') {
+      results[origin] = { type: 'group', content: [results[origin]], tags: [] };
+    }
+    results[origin].content.push(results[nth]);
+  }
   let output;
   if (start === 0) {
     output = results;
@@ -843,6 +856,7 @@ class ErrorZeroThickness extends Error {}
 
 const approximate = (inputs, faceCount = 0, minErrorDrop = 0) =>
   withCgalGeometry('approximate', inputs, (cgalGeometry, g) => {
+    console.log(`QQ/approximate: ${typeof faceCount} ${typeof minErrorDrop}`);
     const status = g.Approximate(
       cgalGeometry,
       Number(faceCount),
@@ -854,20 +868,24 @@ const approximate = (inputs, faceCount = 0, minErrorDrop = 0) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in approximate`);
     }
   });
 
-const bend = (inputs, targetsLength) =>
+const bend = (inputs, targetsLength, edgeLength = 1) =>
   withCgalGeometry('bend', inputs, (cgalGeometry, g) => {
-    const status = g.Bend(cgalGeometry, Number(targetsLength));
+    const status = g.Bend(
+      cgalGeometry,
+      Number(targetsLength),
+      Number(edgeLength)
+    );
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by bend');
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in bend`);
     }
   });
 
@@ -888,7 +906,7 @@ const cast = (inputs) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in cast`);
     }
   });
 
@@ -906,7 +924,7 @@ const clip = (inputs, targetsLength, open = false, exact = false) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, targetsLength);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in clip`);
     }
   });
 
@@ -932,7 +950,7 @@ const computeBoundingBox = (inputs) => {
       case STATUS_EMPTY:
         return;
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeBoundingBox`);
     }
   });
 };
@@ -943,12 +961,12 @@ const computeCentroid = (inputs) =>
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness(
-          'Zero thickness produced by compute centroid'
+          'Zero thickness produced by computeCentroid'
         );
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeCentroid`);
     }
   });
 
@@ -978,7 +996,7 @@ const computeImplicitVolume = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, [], cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeImplicitVolume`);
     }
   });
 
@@ -988,16 +1006,16 @@ const computeNormal = (inputs) =>
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness(
-          'Zero thickness produced by compute normal'
+          'Zero thickness produced by computeNormal'
         );
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeNormal`);
     }
   });
 
-const computeOrientedBoundingBox = (inputs) => {
+const computeOrientedBoundingBox = (inputs, segments, mesh) => {
   if (inputs.length === 0) {
     return;
   }
@@ -1005,7 +1023,7 @@ const computeOrientedBoundingBox = (inputs) => {
     'computeOrientedBoundingBox',
     inputs,
     (cgalGeometry, g) => {
-      const status = g.ComputeOrientedBoundingBox(cgalGeometry);
+      const status = g.ComputeOrientedBoundingBox(cgalGeometry, segments, mesh);
       // This adds segments with twelve entries: length, depth, height, ...
       switch (status) {
         case STATUS_ZERO_THICKNESS:
@@ -1016,13 +1034,15 @@ const computeOrientedBoundingBox = (inputs) => {
           return fromCgalGeometry(
             cgalGeometry,
             inputs,
-            inputs.length + 1,
+            cgalGeometry.getSize(),
             inputs.length
           );
         case STATUS_EMPTY:
           return;
         default:
-          throw new Error(`Unexpected status ${status}`);
+          throw new Error(
+            `Unexpected status ${status} in computeOrientedBoundingBox`
+          );
       }
     }
   );
@@ -1064,7 +1084,9 @@ const computeReliefFromImage = (
         case STATUS_OK:
           return fromCgalGeometry(cgalGeometry, [], cgalGeometry.getSize());
         default:
-          throw new Error(`Unexpected status ${status}`);
+          throw new Error(
+            `Unexpected status ${status} in computeReliefFromImage`
+          );
       }
     } finally {
       g._free(cStorage);
@@ -1087,7 +1109,7 @@ const computeSkeleton = (inputs) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeSkeleton`);
     }
   });
 
@@ -1127,7 +1149,7 @@ const computeToolpath = (
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in computeToolpath`);
     }
   });
 
@@ -1147,7 +1169,9 @@ const convertPolygonsToMeshes = (inputs) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(
+          `Unexpected status ${status} in convertPolygonsToMeshes`
+        );
     }
   });
 
@@ -1165,7 +1189,7 @@ const convexHull = (inputs) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in convexHull`);
     }
   });
 
@@ -1183,7 +1207,7 @@ const cut = (inputs, targetsLength, open = false, exact = false) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, targetsLength);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in cut`);
     }
   });
 
@@ -1209,7 +1233,7 @@ const deform = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, 1);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in deform`);
     }
   });
 };
@@ -1223,7 +1247,7 @@ const demesh = (inputs) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in demesh`);
     }
   });
 
@@ -1236,18 +1260,18 @@ const dilateXY = (inputs, amount) => {
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in dilateXY`);
     }
   });
 };
 
-const disjoint = (inputs, mode, exact = false) =>
+const disjoint = (inputs, exact = false) =>
   withCgalGeometry('disjoint', inputs, (geometry, g) => {
     // These are custom inputs.
     const isMasked = inputs.map(
       ({ tags }) => tags && tags.includes('type:masked')
     );
-    const status = g.Disjoint(geometry, isMasked, mode ? 1 : 0, Boolean(exact));
+    const status = g.Disjoint(geometry, isMasked, Boolean(exact));
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by disjoint');
@@ -1256,7 +1280,7 @@ const disjoint = (inputs, mode, exact = false) =>
       case STATUS_UNCHANGED:
         return inputs;
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in disjoint`);
     }
   });
 
@@ -1269,7 +1293,7 @@ const eachPoint = (inputs, emit) =>
       case STATUS_OK:
         return;
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in eachPoint`);
     }
   });
 
@@ -1292,7 +1316,7 @@ const eachTriangle = (inputs, emitTriangle) => {
       case STATUS_OK:
         return;
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in eachTriangles`);
     }
   });
 };
@@ -1308,7 +1332,7 @@ const eagerTransform = (inputs) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, inputs.length - 1);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in eagerTransform`);
     }
   });
 
@@ -1319,9 +1343,9 @@ const extrude = (inputs, count) =>
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by extrude');
       case STATUS_OK:
-        return fromCgalGeometry(cgalGeometry, inputs, count);
+        return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in extrude`);
     }
   });
 
@@ -1339,7 +1363,7 @@ const faceEdges = (inputs, count) => {
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in faceEdges`);
     }
   });
 };
@@ -1367,13 +1391,13 @@ const fair = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, count);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in fair`);
     }
   });
 
-const fill = (inputs) =>
+const fill = (inputs, holes = false) =>
   withCgalGeometry('fill', inputs, (cgalGeometry, g) => {
-    const status = g.Fill(cgalGeometry);
+    const status = g.Fill(cgalGeometry, holes);
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by fill');
@@ -1385,7 +1409,7 @@ const fill = (inputs) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in fill`);
     }
   });
 
@@ -1431,36 +1455,9 @@ const fix = (inputs, selfIntersection = true) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in fix`);
     }
   });
-
-const fromPolygons = (jsPolygons, close = false, tolerance = 0.001) => {
-  return withCgalGeometry('fromPolygons', [], (cgalGeometry, g) => {
-    cgalGeometry.setSize(jsPolygons.length);
-    for (let nth = 0; nth < jsPolygons.length; nth++) {
-      const { points } = jsPolygons[nth];
-      cgalGeometry.setType(nth, GEOMETRY_POINTS);
-      for (const [x, y, z] of points) {
-        cgalGeometry.addInputPoint(nth, x, y, z);
-      }
-    }
-    const status = g.FromPolygons(cgalGeometry, Boolean(close));
-    switch (status) {
-      case STATUS_ZERO_THICKNESS:
-        throw new ErrorZeroThickness('Zero thickness produced by fromPolygons');
-      case STATUS_OK:
-        return fromCgalGeometry(
-          cgalGeometry,
-          [],
-          cgalGeometry.getSize(),
-          jsPolygons.length
-        );
-      default:
-        throw new Error(`Unexpected status ${status}`);
-    }
-  });
-};
 
 const generateRepairStrategyCodes = (strategies) => {
   const strategyCodes = [];
@@ -1487,21 +1484,19 @@ const generateRepairStrategyCodes = (strategies) => {
   return strategyCodes;
 };
 
-const provideRepairStrategies = (strategies) => {
-  const strategyCodes = generateRepairStrategyCodes(strategies);
-  return () => (strategyCodes.length >= 1 ? strategyCodes.shift() : -1);
-};
-
 const repair = (inputs, strategies = []) =>
   withCgalGeometry('repair', inputs, (cgalGeometry, g) => {
-    const status = g.Repair(cgalGeometry, provideRepairStrategies(strategies));
+    const status = g.Repair(
+      cgalGeometry,
+      generateRepairStrategyCodes(strategies)
+    );
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by repair');
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in repair`);
     }
   });
 
@@ -1527,9 +1522,12 @@ const fromPolygonSoup = (
       Number(minErrorDrop),
       generateRepairStrategyCodes(strategies)
     );
+    console.log(`QQ/fromPolygonSoup/1`);
     switch (status) {
       case STATUS_ZERO_THICKNESS:
-        throw new ErrorZeroThickness('Zero thickness produced by fromPolygons');
+        throw new ErrorZeroThickness(
+          'Zero thickness produced by fromPolygonSoup'
+        );
       case STATUS_OK:
         return fromCgalGeometry(
           cgalGeometry,
@@ -1538,7 +1536,7 @@ const fromPolygonSoup = (
           jsPolygons.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in fromPolygonSoup`);
     }
   });
 
@@ -1556,7 +1554,7 @@ const fuse = (inputs, exact = false) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in fuse`);
     }
   });
 
@@ -1586,26 +1584,20 @@ const generateEnvelope = (
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in generateEnvelope`);
     }
   });
 
-const grow = (inputs, count, { x = true, y = true, z = true } = {}) =>
+const grow = (inputs, count) =>
   withCgalGeometry('grow', inputs, (cgalGeometry, g) => {
-    const status = g.Grow(
-      cgalGeometry,
-      Number(count),
-      Boolean(x),
-      Boolean(y),
-      Boolean(z)
-    );
+    const status = g.Grow(cgalGeometry, Number(count));
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by grow');
       case STATUS_OK:
-        return fromCgalGeometry(cgalGeometry, inputs, count);
+        return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in grow`);
     }
   });
 
@@ -1635,7 +1627,7 @@ const inset = (
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in inset`);
     }
   });
 
@@ -1648,7 +1640,7 @@ const involute = (inputs) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in simplify`);
     }
   });
 
@@ -1661,7 +1653,7 @@ const iron = (inputs, turn = 1 / 360) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in iron`);
     }
   });
 
@@ -1674,7 +1666,7 @@ const join = (inputs, targetsLength, exact = false) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, targetsLength);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in join`);
     }
   });
 
@@ -1692,7 +1684,7 @@ const link = (inputs, close, reverse) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in link`);
     }
   });
 
@@ -1710,7 +1702,7 @@ const loft = (inputs, close = true) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in loft`);
     }
   });
 
@@ -1740,7 +1732,7 @@ const offset = (
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in offset`);
     }
   });
 
@@ -1753,7 +1745,7 @@ const outline = (inputs) => {
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in outline`);
     }
   });
 };
@@ -1767,7 +1759,7 @@ const makeAbsolute = (inputs) => {
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in outline`);
     }
   });
 };
@@ -1786,7 +1778,7 @@ const makeUnitSphere = (angularBound, radiusBound, distanceBound) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, [], cgalGeometry.getSize())[0];
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in makeOrb`);
     }
   });
 
@@ -1803,7 +1795,7 @@ const minimizeOverhang = (inputs, threshold, split = false) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in overhang`);
     }
   });
 
@@ -1838,7 +1830,7 @@ const reconstruct = (inputs, offset = 0) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in reconstruct`);
     }
   });
 
@@ -1851,7 +1843,7 @@ const refine = (inputs, count, density = 0) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, count);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in refine`);
     }
   });
 
@@ -1876,7 +1868,7 @@ const remesh = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, count);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in remesh`);
     }
   });
 
@@ -1894,7 +1886,7 @@ const route = (inputs, toolCount) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in route`);
     }
   });
 
@@ -1907,7 +1899,7 @@ const seam = (inputs, count) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, count);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in seam`);
     }
   });
 
@@ -1926,7 +1918,7 @@ const section = (inputs, count) =>
           /* regroup= */ true
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in section`);
     }
   });
 
@@ -1954,7 +1946,7 @@ const separate = (
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in separate`);
     }
   });
 
@@ -2003,7 +1995,7 @@ const shell = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in shell`);
     }
   });
 };
@@ -2023,7 +2015,7 @@ const simplify = (inputs, cornerThreshold, eps) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in simplify`);
     }
   });
 
@@ -2052,7 +2044,20 @@ const smooth = (
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, count);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in smooth`);
+    }
+  });
+
+const trim = (inputs, count) =>
+  withCgalGeometry('trim', inputs, (cgalGeometry, g) => {
+    const status = g.Trim(cgalGeometry, Number(count));
+    switch (status) {
+      case STATUS_ZERO_THICKNESS:
+        throw new ErrorZeroThickness('Zero thickness produced by trim');
+      case STATUS_OK:
+        return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
+      default:
+        throw new Error(`Unexpected status ${status} in trim`);
     }
   });
 
@@ -2065,7 +2070,7 @@ const twist = (inputs, targetsLength) =>
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs);
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in twist`);
     }
   });
 
@@ -2097,7 +2102,7 @@ const unfold = (inputs, enableTabs = false) =>
         }
         return output;
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in section`);
     }
   });
 
@@ -2134,14 +2139,12 @@ const validate = (inputs, strategies = []) => {
     strategyCodes.push(0, 1, 2, 3);
   }
   return withCgalGeometry('validate', inputs, (cgalGeometry, g) => {
-    const status = g.Validate(cgalGeometry, () =>
-      strategyCodes.length >= 1 ? strategyCodes.shift() : -1
-    );
+    const status = g.Validate(cgalGeometry, strategyCodes);
     switch (status) {
       case STATUS_OK:
         return fromCgalGeometry(cgalGeometry, inputs, cgalGeometry.getSize());
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in validate`);
     }
   });
 };
@@ -2156,13 +2159,28 @@ const withIsExteriorPoint = (inputs, op) =>
         return op(isExteriorPoint);
       }
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in withIsExteriorPoint`);
     }
   });
 
-const wrap = (inputs, alpha, offset) =>
+const wrap = (
+  inputs,
+  alpha,
+  offset,
+  faceCount = 0,
+  minErrorDrop = 0.0
+) =>
   withCgalGeometry('wrap', inputs, (cgalGeometry, g) => {
-    const status = g.Wrap(cgalGeometry, Number(alpha), Number(offset));
+    console.log(
+      `QQ/wrap: ${JSON.stringify({ alpha, offset, faceCount, minErrorDrop })}`
+    );
+    const status = g.Wrap(
+      cgalGeometry,
+      Number(alpha),
+      Number(offset),
+      Number(faceCount),
+      Number(minErrorDrop)
+    );
     switch (status) {
       case STATUS_ZERO_THICKNESS:
         throw new ErrorZeroThickness('Zero thickness produced by wrap');
@@ -2174,8 +2192,8 @@ const wrap = (inputs, alpha, offset) =>
           inputs.length
         );
       default:
-        throw new Error(`Unexpected status ${status}`);
+        throw new Error(`Unexpected status ${status} in wrap`);
     }
   });
 
-export { STATUS_EMPTY, STATUS_OK, STATUS_UNCHANGED, STATUS_ZERO_THICKNESS, approximate, bend, cast, clearMeshCache, clip, composeTransforms, computeArea, computeBoundingBox, computeCentroid, computeImplicitVolume, computeNormal, computeOrientedBoundingBox, computeReliefFromImage, computeSkeleton, computeToolpath, computeVolume, convertPolygonsToMeshes, convexHull, cut, deform, demesh, dilateXY, disjoint, eachPoint, eachTriangle, eagerTransform, extrude, faceEdges, fair, fill, fitPlaneToPoints, fix, fromPolygonSoup, fromPolygons, fromRotateXToTransform, fromRotateYToTransform, fromRotateZToTransform, fromScaleToTransform, fromSegmentToInverseTransform, fromTranslateToTransform, fuse, generateEnvelope, graphSymbol, grow, identity, initCgal, inset, invertTransform, involute, iron, join, link, loft, makeAbsolute, makeUnitSphere, matrix6, minimizeOverhang, offset, outline, pushSurfaceMesh, reconstruct, refine, remesh, repair, route, seam, section, separate, serialize, setTestMode, shell, simplify, smooth, surfaceMeshSymbol, twist, unfold, validate, withIsExteriorPoint, wrap };
+export { STATUS_EMPTY, STATUS_OK, STATUS_UNCHANGED, STATUS_ZERO_THICKNESS, approximate, bend, cast, clearMeshCache, clip, composeTransforms, computeArea, computeBoundingBox, computeCentroid, computeImplicitVolume, computeNormal, computeOrientedBoundingBox, computeReliefFromImage, computeSkeleton, computeToolpath, computeVolume, convertPolygonsToMeshes, convexHull, cut, deform, demesh, dilateXY, disjoint, eachPoint, eachTriangle, eagerTransform, extrude, faceEdges, fair, fill, fitPlaneToPoints, fix, fromPolygonSoup, fromRotateXToTransform, fromRotateYToTransform, fromRotateZToTransform, fromScaleToTransform, fromSegmentToInverseTransform, fromTranslateToTransform, fuse, generateEnvelope, graphSymbol, grow, identity, initCgal, inset, invertTransform, involute, iron, join, link, loft, makeAbsolute, makeUnitSphere, matrix6, minimizeOverhang, offset, outline, pushSurfaceMesh, reconstruct, refine, remesh, repair, route, seam, section, separate, serialize, setTestMode, shell, simplify, smooth, surfaceMeshSymbol, trim, twist, unfold, validate, withIsExteriorPoint, wrap };
