@@ -29,7 +29,7 @@
        { value: m.buildAttendanceTicketProblem, weight: kStandard },
        { value: m.buildTicketCostProblem, weight: kStandard },
        { value: m.buildCostBillCoinProblem, weight: kEasy },
-       { value: m.buildAttendanceProblem, weight: kStandard },
+       // { value: m.buildAttendanceProblem, weight: kStandard },
        { value: m.buildLeverWeightProblem, weight: kStandard },
        { value: m.buildLeverDistanceProblem, weight: kStandard },
        { value: m.buildAgeProblem, weight: kStandard },
@@ -119,12 +119,16 @@
        { value: m.buildSequenceProblem, weight: kStandard, limit: 1 },
        { value: m.buildRectangleAreaProblem, weight: kStandard, limit: 1 },
        { value: m.buildRectangleAreaTriangleProblem, weight: kStandard, limit: 1 },
-       { value: m.buildStorySummaryProblem, weight: kStandard, limit: 1 },
+       // { value: m.buildStorySummaryProblem, weight: kStandard, limit: 1 },
        { value: m.buildIntersectionOverlapProblem, weight: kEasy, limit: 1 },
        { value: m.buildSentencePromptProblem, weight: kPriority, limit: 1 },
        { value: m.buildLinePointsProblem, weight: kPriority, limit: 1 },
        { value: m.buildLineEquationProblem, weight: kPriority, limit: 1 },
        { value: m.buildTriangleHypotenuseProblem, weight: kPriority, limit: 1 },
+       { value: m.buildAlgebra2WordProblem, weight: kPriority, limit: 1 },
+       { value: m.buildProbabilityProblem, weight: kPriority, limit: 1 },
+       { value: m.buildGeometryProblem, weight: kPriority, limit: 1 },
+       { value: m.buildSummaryProblem, weight: kPriority, limit: 1 },
      ], chosen)
      return problem(chosen);
    };
