@@ -2983,7 +2983,7 @@ export   const pickSubject = () =>
        const coinCount = pick(1, 10);
        const cost = billCount * billValue + coinCount * coinValue;
        const target = chooseFromList(['bill', 'coin']);
-       return Size('CostBillCoin', 3,
+       return Size('CostBillCoin', 2,
                    `${name} paid ₩${cost}, using ${billCount} equal bills and ${coinCount} equal coins.
                     What was the value of each ${target}?`);
      }
@@ -3095,7 +3095,7 @@ export   const pickSubject = () =>
 
    export const buildPerimeterSideProblem = () => {
      const n = pick(10, 101);
-     return Size('PerimeterSide', 3, `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side. Find the length of the side.`);
+     return Size('PerimeterSide', 2, `The perimeter of an equilateral triangle is ${n} cm longer than the length of one side. Find the length of the side.`);
    }
 
    export const buildPerimeterDimensionsProblem = () => {
@@ -3880,19 +3880,20 @@ const reverse = (s) => s.split('').reverse().join('');
 
 export const buildGapSentenceProblem = (chosen) => {
   for (;;) {
-    const choice = chooseFromList(gradeWords.grade4, chosen);
-    for (const { word, sentence }  of gapSentences) {
-      if (choice === word) {
-        return Size('GapSentence', 1, sentence);
-      }
-    }
+    const { level, sentence } = chooseFromList(gapSentences, chosen);
+    return Size('GapSentence', 1, sentence);
   }
 };
 
 export const buildAlgebra2WordProblem = (chosen) => {
   for (;;) {
     const { problem } = chooseFromList(wordProblems, chosen);
-    return Size('Algebra2Word', 2, problem);
+    const length = problem.length;
+    if (length < 300) {
+      return Size(`Algebra2Word`, 2, `<p style="font-size: 1em">${problem}</p>`);
+    } else {
+      return Size(`Algebra2Word`, 2, `<p style="font-size: 0.5em">${problem}</p>`);
+    }
   }
 };
 
@@ -3913,7 +3914,17 @@ export const buildGeometryProblem = (chosen) => {
 export const buildSummaryProblem = (chosen) => {
   for (;;) {
     const { paragraphs } = chooseFromList(summaryProblems, chosen);
-    return Size('Summary', 3, paragraphs.map((p) => `<p style="font-size: 0.5em;">${p}$</p>`).join('\n'));
+    let length = 0;
+    for (const paragraph of paragraphs) {
+      length += paragraph.length;
+    }
+    if (length < 600) {
+      return Size(`Summary`, 3, paragraphs.map((p) => `<p style="font-size: 1em;">${p}</p>`).join('\n'));
+    } else if (length < 1400) {
+      return Size(`Summary`, 4, paragraphs.map((p) => `<p style="font-size: 0.6em;">${p}</p>`).join('\n'));
+    } else {
+      return Size(`Summary`, 4, paragraphs.map((p) => `<p style="font-size: 0.5em;">${p}</p>`).join('\n'));
+    }
   }
 };
 
