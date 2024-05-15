@@ -378,7 +378,8 @@ const gapSentences = [
   {"input":"bitter","word":"bitter","level":"3","sentence":"The old lady's bi__er complaint about the new neighborhood noise was met with silence by her neighbors."},
   {"input":"sailor","word":"sailor","level":"2","sentence":"As the sun set over the ocean, Jack felt proud to be a sa__or on his first voyage."},
   {"input":"feeling","word":"feeling","level":"1","sentence":"As she watched the sunset on the beach, Sarah felt a warm fe___ng of happiness and peace."},
-  {"input":"identify","word":"identify","level":"3","sentence":"To id____fy the different types of birds, Emma used a field guide and looked for distinctive markings on their feathers."},
+  {"input":"identify","word":"identify","level":"3","sentence":
+  "To id____fy the different types of birds, Emma used a field guide and looked for distinctive markings on their feathers."},
   {"input":"stiff","word":"stiff","level":"3","sentence":"After being stuck in the cold rain for hours, Sarah's hair had become st_ff and unmanageable."},
   {"input":"twelfth","word":"twelfth","level":"2","sentence":"The Johnson family was going to celebrate their daughter's birthday on the tw___th of December."},
   {"input":"issue","word":"issue","level":"3","sentence":"The teacher noticed an is_ue with the school's playground equipment and decided to report it to the maintenance team."},
@@ -4049,7 +4050,11 @@ const reverse = (s) => s.split('').reverse().join('');
 export const buildGapSentenceProblem = (chosen) => {
   for (;;) {
     const { level, sentence } = chooseFromList(gapSentences, chosen);
-    return Size('GapSentence', 1, sentence);
+    if (sentence.length < 120) {
+      return Size('GapSentence', 1, `<p style="font-size: 0.7em">${sentence}</p>`);
+    } else {
+      return Size('GapSentence', 2, `<p style="font-size: 0.7em">${sentence}</p>`);
+    }
   }
 };
 
@@ -4060,7 +4065,7 @@ export const buildAlgebra2WordProblem = (chosen) => {
     if (length < 300) {
       return Size(`Algebra2Word`, 2, `<p style="font-size: 1em">${problem}</p>`);
     } else {
-      return Size(`Algebra2Word`, 2, `<p style="font-size: 0.5em">${problem}</p>`);
+      return Size(`Algebra2Word`, 3, `<p style="font-size: 1em">${problem}</p>`);
     }
   }
 };
@@ -4088,10 +4093,10 @@ export const buildSummaryProblem = (chosen) => {
     }
     if (length < 600) {
       return Size(`Summary`, 3, paragraphs.map((p) => `<p style="font-size: 1em;">${p}</p>`).join('\n'));
-    } else if (length < 1400) {
+    } else if (length < 1200) {
       return Size(`Summary`, 4, paragraphs.map((p) => `<p style="font-size: 0.6em;">${p}</p>`).join('\n'));
     } else {
-      return Size(`Summary`, 4, paragraphs.map((p) => `<p style="font-size: 0.5em;">${p}</p>`).join('\n'));
+      return Size(`Summary`, 5, paragraphs.map((p) => `<p style="font-size: 0.6em;">${p}</p>`).join('\n'));
     }
   }
 };
