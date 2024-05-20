@@ -4190,11 +4190,11 @@ export const buildCopyProblem = (chosen) => {
     return Size('CopySentence', 1, `
 <span style="font-size: 1em">${sentence}</span>
 <br/>
-<svg width=350 height=30>
-  <path stroke="gray" stroke-dasharray="2,2" d="M 0 10 L 350 10"/>
-  <path stroke="gray" stroke-dasharray="2,2" d="M 0 15 L 350 15"/>
-  <path stroke="black" stroke-dasharray="2,2" d="M 0 25 L 350 25"/>
-  <path stroke="gray" stroke-dasharray="2,2" d="M 0 30 L 350 30"/>
+<svg width="100%" height=30 viewBox="0 0 4 30" preserveAspectRatio="none">
+  <path stroke="black" stroke-opacity="0.25" d="M 0 10 L 4 10"/>
+  <path stroke="black" stroke-opacity="0.25" d="M 0 15 L 4 15"/>
+  <path stroke="black" stroke-opacity="0.50" d="M 0 25 L 4 25"/>
+  <path stroke="black" stroke-opacity="0.25" d="M 0 30 L 4 30"/>
 </svg>
 `);
   }
