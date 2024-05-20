@@ -4187,10 +4187,13 @@ export const buildSentencePromptProblem = (chosen, count = 3, promptWeight = 200
 export const buildCopyProblem = (chosen) => {
   for (;;) {
     const { level, sentence } = chooseFromList(copySentences, chosen);
+    if (sentence.length > 45) {
+      continue;
+    }
     return Size('CopySentence', 1, `
 <span style="font-size: 1em">${sentence}</span>
 <br/>
-<svg width="100%" height=30 viewBox="0 0 4 30" preserveAspectRatio="none">
+<svg width="100%" height="30" viewBox="0 0 4 30" preserveAspectRatio="none">
   <path stroke="black" stroke-opacity="0.25" d="M 0 10 L 4 10"/>
   <path stroke="black" stroke-opacity="0.25" d="M 0 15 L 4 15"/>
   <path stroke="black" stroke-opacity="0.50" d="M 0 25 L 4 25"/>
