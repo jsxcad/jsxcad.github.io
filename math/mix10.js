@@ -1508,6 +1508,71 @@ const summaryProblems = [
   {"paragraphs":["A warm breeze rustles through the leaves of a towering oak, carrying with it the sweet scent of honeysuckle. The sun paints the sky in hues of orange and pink, casting a pleasant glow over the world. Birds chirp merrily, filling the air with a melody that brings a smile to my face. Such moments, where everything feels peaceful and enjoyable, are truly pleasurable.","Pleasure can be found in the simplest of things. A juicy slice of watermelon on a hot summer day, the refreshing spray of water on a tired face, or the comforting warmth of a blanket on a chilly evening. These small pleasures add up to create a sense of joy and contentment that makes life worth living.","Pleasure is not just about material things or exciting adventures. It can also be found in spending time with loved ones, sharing stories and laughter, or simply taking a moment to appreciate the beauty of the natural world. True pleasure lies in the genuine connection we make with ourselves, others, and our surroundings."],"summary":"Pleasure is found in both grand experiences and simple moments of joy and contentment.","prompt":"pleasurable"},
 ];
 
+const copySentences = [
+  {"sentence":"Writing clearly can be a very lucrative skill.","prompt":"lucrative"},
+  {"sentence":"Lines can guide our eyes across the page.","prompt":"line"},
+  {"sentence":"A careful forecast helps us plan for the future.","prompt":"forecast"},
+  {"sentence":"A headline can tell a story in just a few words.","prompt":"headline"},
+  {"sentence":"Captain pen guides my words with precision.","prompt":"captain"},
+  {"sentence":"Footage can be found on the ground after a game.","prompt":"footage"},
+  {"sentence":"A peaceful process of letting go of weapons.","prompt":"disarmament"},
+  {"sentence":"A thoughtful note can be truly flattering.","prompt":"flattering"},
+  {"sentence":"The giant hanger held the fluffy blankets.","prompt":"hangar"},
+  {"sentence":"The still water reflected the cloudy sky.","prompt":"static"},
+  {"sentence":"The doorbell whispers secrets to the house.","prompt":"doorbell"},
+  {"sentence":"An unkempt garden needs some love to flourish.","prompt":"unkempt"},
+  {"sentence":"Achieving neatness is a goal to strive for!","prompt":"achieve"},
+  {"sentence":"It is never okay to give up on yourself.","prompt":"suicide"},
+  {"sentence":"Semantic connections make writing meaningful.","prompt":"semantic"},
+  {"sentence":"The giant spider carefully girded its web.","prompt":"gird"},
+  {"sentence":"The laughter echoed raucously through the forest.","prompt":"raucous"},
+  {"sentence":"A slender cordon of ink traced the page.","prompt":"cordon"},
+  {"sentence":"The tall tent whispers stories in the wind.","prompt":"tent"},
+  {"sentence":"Tiny seeds sprouted, reaching for the sunlight.","prompt":"plant"},
+  {"sentence":"The winding duct led the water to the reservoir.","prompt":"duct"},
+  {"sentence":"Write your letter **especially** carefully today.","prompt":"especially"},
+  {"sentence":"Excess ink can make your handwriting look messy.","prompt":"excess"},
+  {"sentence":"The soft paint whispers like moving water.","prompt":"watercolor"},
+  {"sentence":"A perfect line shouldn't carry a stigma.","prompt":"stigma"},
+  {"sentence":"The wise magistrate wrote fair decisions.","prompt":"magistrate"},
+  {"sentence":"Pickles are crunchy and refreshing on a hot day.","prompt":"pickle"},
+  {"sentence":"A hairline crack runs through the ancient rock.","prompt":"fissure"},
+  {"sentence":"A nimble jumper bounds across the field.","prompt":"jumper"},
+  {"sentence":"A utopia where perfect penmanship exists.","prompt":"utopia"},
+  {"sentence":"Graceful curves whisper secrets without shouting.","prompt":"subtlety"},
+  {"sentence":"Careful planning can prevent messy mistakes.","prompt":"prevent"},
+  {"sentence":"The lines gracefully merge at the center.","prompt":"merge"},
+  {"sentence":"A stressful day can feel like a heavy cloud.","prompt":"stressful"},
+  {"sentence":"The tiny insect is inching inside the house.","prompt":"in"},
+  {"sentence":"The sudden roar startled the sleeping birds.","prompt":"startle"},
+  {"sentence":"The rainy weather affects the field's condition.","prompt":"condition"},
+  {"sentence":"Prioritizing pen pressure helps me write clearly.","prompt":"priority"},
+  {"sentence":"The assignment was duly completed on time.","prompt":"duly"},
+  {"sentence":"Round and smooth, a ball can bounce with a zoom!","prompt":"ball"},
+  {"sentence":"Writing efficiently can save time and resources.","prompt":"economically"},
+  {"sentence":"Challenging myself helps me grow stronger.","prompt":"challenged"},
+  {"sentence":"Even unloved words can be beautifully written.","prompt":"unloved"},
+  {"sentence":"The wheels of the bicycle spin around like magic.","prompt":"bicycle"},
+  {"sentence":"The clever classmates collaborated creatively.","prompt":"class"},
+  {"sentence":"The gentle raft carried us across the calm lake.","prompt":"raft"},
+  {"sentence":"An electorate chooses the leaders of our country.","prompt":"electorate"},
+  {"sentence":"Three short strokes make a perfect line.","prompt":"three"},
+  {"sentence":"Whet your pencil to write a sharp story.","prompt":"whet"},
+  {"sentence":"A receiver collects the ball and moves forward.","prompt":"receiver"},
+  {"sentence":"A single rule can't define perfect penmanship.","prompt":"dogma"},
+  {"sentence":"My clumsy fingers fumbled with the block.","prompt":"clumsy"},
+  {"sentence":"The colorful carousel spins around and around.","prompt":"carousel"},
+  {"sentence":"A spokesperson for the team shared the news.","prompt":"spokesperson"},
+  {"sentence":"Honoring your words makes your character shine.","prompt":"honor"},
+  {"sentence":"A tiny dose of practice makes a big difference.","prompt":"dose"},
+  {"sentence":"A misguided pencil can lead to messy lines.","prompt":"misguided"},
+  {"sentence":"My tummy feels happy when I eat yummy food.","prompt":"stomach"},
+  {"sentence":"The tiny flower bloomed well in the sunshine.","prompt":"well"},
+  {"sentence":"A shallow puddle reflects the clouds above.","prompt":"shallow"},
+  {"sentence":"The wind blew along the side of the tall tree.","prompt":"side"},
+];
+
+
 export   const buildSpellingQuestion = (chosen) => chooseFromList(englishVocabulary, chosen);
 
 export   const buildCopyingQuestion = (chosen) => chooseFromList(englishCopying, chosen);
@@ -4117,4 +4182,20 @@ export const buildSentencePromptProblem = (chosen, count = 3, promptWeight = 200
     `<div>
        <span style="text-align: right">${vocab.join(', ')}</span>
      </div>`);
+};
+
+export const buildCopyProblem = (chosen) => {
+  for (;;) {
+    const { level, sentence } = chooseFromList(copySentences, chosen);
+    return Size('CopySentence', 1, `
+<span style="font-size: 1em">${sentence}</span>
+<br/>
+<svg width=350 height=30>
+  <path stroke="gray" stroke-dasharray="2,2" d="M 0 10 L 350 10"/>
+  <path stroke="gray" stroke-dasharray="2,2" d="M 0 15 L 350 15"/>
+  <path stroke="black" stroke-dasharray="2,2" d="M 0 25 L 350 25"/>
+  <path stroke="gray" stroke-dasharray="2,2" d="M 0 30 L 350 30"/>
+</svg>
+`);
+  }
 };

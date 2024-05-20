@@ -129,6 +129,7 @@
        { value: m.buildProbabilityProblem, weight: kPriority, limit: 1 },
        { value: m.buildGeometryProblem, weight: kPriority, limit: 1 },
        { value: m.buildSummaryProblem, weight: kPriority, limit: 1 },
+       { value: m.buildCopyProblem, weight: kPriority * 1000, limit: 20 },
      ], chosen)
      return problem(chosen);
    };
