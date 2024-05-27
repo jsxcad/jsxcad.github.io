@@ -1,0 +1,183 @@
+<html>
+ <head>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [[',,', ',,']] // Enable inline math delimiters
+      }
+    };
+  </script>
+  <style>
+   .qrcode {
+     position: absolute;
+     top: 0;
+     right: 0;
+     z-index: -1;
+   }
+   .sheet {
+     position: absolute;
+     width: 210mm;
+     height: 278mm;
+     border: 1px black solid;
+     overflow: hidden;
+   }
+   .column {
+     height: 100%;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-auto-rows: min-content;
+     grid-gap: 1fr;
+   }
+   .left {
+     position: absolute;
+     left: 0;
+     right: 50%;
+     border: 1px black solid;
+     padding: 1em;
+     overflow: hidden;
+   }
+   .right {
+     position: absolute;
+     left: 50%;
+     right: 0;
+     border: 1px black solid;
+     padding: 1em;
+     overflow: hidden;
+   }
+   .problem {
+   }
+
+   .tooltip {
+   }
+
+   .tooltip .tooltiptext {
+     visibility: hidden;
+     width: 120px;
+     background-color: black;
+     color: #fff;
+     padding: 5px 0;
+     border-radius: 6px;
+
+     /* Positioning */
+     position: relative;
+     z-index: 1;
+     left: 0;
+     top: 0;
+
+     /* Optional: Fade-in transition */
+     opacity: 0;
+     transition: opacity 0.3s;
+   }
+
+   .tooltip:hover .tooltiptext {
+     visibility: visible;
+     opacity: 1;
+   }
+  </style>
+ </head>
+ <body>
+  <div class="sheet" id="sheet">
+    <div class="qrcode" id="qrcode">
+    </div>
+    <div class="left column" id="left">
+    </div>
+    <div class="right column" id="right">
+    </div>
+  </div>
+  <script type="module">
+    import { problems } from './problems.js';
+
+    const renderRuledLine = () => {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <svg width="100%" height="30" viewBox="0 0 4 30" preserveAspectRatio="none">
+          <path stroke="black" stroke-opacity="0.25" d="M 0 10 L 4 10"/>
+          <path stroke="black" stroke-opacity="0.25" d="M 0 15 L 4 15"/>
+          <path stroke="black" stroke-opacity="0.50" d="M 0 25 L 4 25"/>
+          <path stroke="black" stroke-opacity="0.25" d="M 0 30 L 4 30"/>
+        </svg>`;
+      return div;
+    }
+
+    const renderProblem = ({ id = -1, problem, lines = 3 }) => {
+      const div = document.createElement('div');
+      div.classList.add('problem', 'tooltip');
+      div.innerText = problem;
+      for (let line = 0; line < lines; line++) {
+        div.appendChild(renderRuledLine());
+      }
+      const note = document.createElement('span');
+      note.innerText = id;
+      note.classList.add('tooltiptext');
+      div.appendChild(note);
+      return div;
+    };
+
+    const chooseProblem = (chosen, problems) => {
+      let seen = 0;
+      let chosenProblem;
+      for (const problem of problems) {
+        if (chosen.has(problem)) {
+          continue;
+        }
+        seen += 1;
+        if (Math.random() * seen <= 1) {
+          chosenProblem = problem;
+        }
+      }
+      return chosenProblem;
+    }
+
+    const chosen = new Set();
+
+    let nth = 0;
+
+    const signature = [];
+
+    const renderColumn = (column) => {
+      let nth = 0;
+      for (;;) {
+        const remainingSpaceA = ((278 * 96) / 25.4) - column.scrollHeight;
+        const problem = chooseProblem(chosen, problems);
+        column.appendChild(renderProblem(chooseProblem(chosen, problems)));
+        const remainingSpace = ((278 * 96) / 25.4) - column.scrollHeight;
+        console.log(`QQ/remainingSpace: ${remainingSpaceA} ${remainingSpace}`);
+        if (remainingSpace < -50) {
+          column.removeChild(column.lastChild);
+          break;
+        }
+        signature.push(problem.id);
+        chosen.add(problem);
+      }
+    };
+
+    const left = document.getElementById('left');
+    const right = document.getElementById('right');
+    const qrcode = document.getElementById('qrcode');
+
+    renderColumn(left);
+    renderColumn(right);
+
+    new QRCode(qrcode, {
+	text: "http://q?s",
+	width: 30,
+	height: 30,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 10ms
+
+    while (!MathJax.startup) {
+      await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
+    }
+
+    await MathJax.startup.promise;
+    await MathJax.typesetPromise();
+
+  </script>
+ </body>
+</html>
