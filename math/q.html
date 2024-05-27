@@ -14,7 +14,9 @@
      position: absolute;
      top: 0;
      right: 0;
-     z-index: -1;
+     z-index: 1;
+     background-color: white;
+     border: 2px solid white;
    }
    .sheet {
      position: absolute;
@@ -161,9 +163,9 @@
     renderColumn(right);
 
     new QRCode(qrcode, {
-	text: "http://q?s",
-	width: 30,
-	height: 30,
+	text: `https://jsxcad.js.org/math/q.html?signature=${encodeURIComponent(JSON.stringify(signature))}`,
+	width: 32,
+	height: 32,
 	colorDark : "#000000",
 	colorLight : "#ffffff",
 	correctLevel : QRCode.CorrectLevel.H
