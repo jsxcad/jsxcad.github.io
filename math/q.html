@@ -1,6 +1,6 @@
 <html>
  <head>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
+  <script src="./qrcodegen-v1.8.0-es6.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     MathJax = {
@@ -10,11 +10,7 @@
     };
   </script>
   <style>
-   .qrcode {
-     position: absolute;
-     top: 0;
-     right: 0;
-     z-index: 1;
+   .stamp {
      background-color: white;
      border: 2px solid white;
    }
@@ -81,7 +77,6 @@
  </head>
  <body>
   <div class="sheet" id="sheet">
-    <div class="qrcode" id="qrcode">
     </div>
     <div class="left column" id="left">
     </div>
@@ -141,12 +136,13 @@
     const renderColumn = (column) => {
       let nth = 0;
       for (;;) {
-        const remainingSpaceA = ((278 * 96) / 25.4) - column.scrollHeight;
+        const margins = 50;
+        const remainingSpaceA = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
         const problem = chooseProblem(chosen, problems);
         column.appendChild(renderProblem(chooseProblem(chosen, problems)));
-        const remainingSpace = ((278 * 96) / 25.4) - column.scrollHeight;
+        const remainingSpace = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
         console.log(`QQ/remainingSpace: ${remainingSpaceA} ${remainingSpace}`);
-        if (remainingSpace < -50) {
+        if (remainingSpace < 10) {
           column.removeChild(column.lastChild);
           break;
         }
@@ -157,21 +153,40 @@
 
     const left = document.getElementById('left');
     const right = document.getElementById('right');
-    const qrcode = document.getElementById('qrcode');
 
     renderColumn(left);
     renderColumn(right);
 
-    new QRCode(qrcode, {
-	text: `https://jsxcad.js.org/math/q.html?signature=${encodeURIComponent(JSON.stringify(signature))}`,
-	width: 32,
-	height: 32,
-	colorDark : "#000000",
-	colorLight : "#ffffff",
-	correctLevel : QRCode.CorrectLevel.H
-    });
+    {
+      const payload = `https://jsxcad.js.org/math/q.html?signature=${signature.join(',')}`;
+      const qr = qrcodegen.QrCode.encodeText(payload, qrcodegen.QrCode.Ecc.MEDIUM);
+      // 37 modules.
+      const toSvgString = (qr, border, lightColor, darkColor) => {
+        if (border < 0)
+            throw new RangeError("Border must be non-negative");
+        let parts = [];
+        for (let y = 0; y < qr.size; y++) {
+            for (let x = 0; x < qr.size; x++) {
+                if (qr.getModule(x, y))
+                    parts.push(`M${x + border},${y + border}h1v1h-1z`);
+            }
+        }
+        return `
+          <svg width="64" height="64" viewBox="0 0 ${qr.size + border * 2} ${qr.size + border * 2}" stroke="none">
+	    <rect width="100%" height="100%" fill="${lightColor}"/>
+	    <path d="${parts.join(" ")}" fill="${darkColor}"/>
+          </svg>`;
+      };
+      const svgText = toSvgString(qr, 5, 'white', 'black');
+      const div = document.createElement('div');
+      div.innerHTML = svgText;
+      const svg = div.firstChild.nextSibling;
+      const firstPassage = right.firstChild.nextSibling;
+      firstPassage.insertBefore(svg, firstPassage.firstChild);
+      svg.style.float = 'right';
+    }
 
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 10ms
+    // await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 10ms
 
     while (!MathJax.startup) {
       await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms

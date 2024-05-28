@@ -13,7 +13,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the number of people who share and y be the number of people who keep things for themselves.\n$$2x+y=25\newline 3x-y=25$$ \nSolving this system of equations gives us x = 5 and y = 20.\nTherefore, 5 people like to share and 20 people prefer to keep things for themselves.",
-    "id": 1716740531310
+    "id": 0
   },
   {
     "generator": "time-distance-speed",
@@ -28,7 +28,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, convert kilometers to meters: 360 kilometers = 360,000 meters. Then, divide the distance traveled by the time taken to find the average speed: 360,000 meters / 4 hours = 90 meters per second.",
-    "id": 1716740591108
+    "id": 1
   },
   {
     "generator": "geometry",
@@ -43,7 +43,7 @@ export const problems = [
       null
     ],
     "solution": "First, we need to calculate the total length of baguette space available. 300 meters (bakery length) / 60 meters (villager spacing) = 5 villagers. Next, we need to ensure each villager gets at least 1 meter of baguette space. 1 meter / 60 meters = 1/6 of a baguette per villager. So, the bakery can share baguettes with 5 villagers while ensuring each gets at least 1/6 of a baguette.",
-    "id": 1716740677233
+    "id": 2
   },
   {
     "generator": "probability",
@@ -58,7 +58,7 @@ export const problems = [
       "Probability"
     ],
     "solution": "1 - (1/3)^5",
-    "id": 1716740733219
+    "id": 3
   },
   {
     "generator": "physics",
@@ -72,7 +72,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "This problem requires students to divide a length of rope among a group of friends, involving fractions and division. It is suitable for 5th graders who have learned about fractions and division.",
-    "id": 1716740790827
+    "id": 4
   },
   {
     "generator": "science",
@@ -88,7 +88,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires students to multiply the number of families by the average number of people per family to find the total population.",
-    "id": 1716740847083
+    "id": 5
   },
   {
     "generator": "sentence-prompt",
@@ -104,7 +104,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "In a socialist system, the government might own and operate certain industries to ensure that everyone has access to affordable healthcare.",
-    "id": 1716741029409
+    "id": 6
   },
   {
     "generator": "science-trivia",
@@ -120,7 +120,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": "11",
-    "id": 1716741187667
+    "id": 7
   },
   {
     "generator": "arithmetic",
@@ -135,7 +135,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{11}{60},,",
-    "id": 1716741291398
+    "id": 8
   },
   {
     "generator": "arithmetic-carry",
@@ -150,7 +150,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem assesses students' understanding of carries and borrows in multi-digit arithmetic. Specifically, it tests the ability to:  * Recognize when a carry is needed and correctly implement it.  * Understand the relationship between subtraction and borrowing.  * Maintain accuracy and precision with larger numbers.",
-    "id": 1716741374999
+    "id": 9
   },
   {
     "generator": "arithmetic-multiplication",
@@ -166,7 +166,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests several common errors in integer multiplication. Specifically, it checks for:\n- **Place value errors:** The problem involves multiplying large numbers, which can easily lead to mistakes in placing the digits in the correct order.\n- **Partial product errors:** Students may forget to multiply all of the digits in the multiplier correctly, leading to a partial product that is too small.\n- **Carry errors:** When multiplying numbers with many digits, it is easy to make a carry error, where a sum of two digits is greater than 10 and a carry needs to be distributed to the next digit.",
-    "id": 1716741476483
+    "id": 10
   },
   {
     "generator": "arithmetic-division",
@@ -182,7 +182,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests several common errors in integer division. The large dividend and divisor make it easy for students to make mistakes when aligning the numbers. Students may also forget to check the remainder or make mistakes when writing the quotient. This problem is appropriate for 5th grade students who have learned about integer division.",
-    "id": 1716741556903
+    "id": 11
   },
   {
     "generator": "handwriting-exercise",
@@ -196,7 +196,7 @@ export const problems = [
       "Handwriting Exercise"
     ],
     "solution": "This sentence uses complex vocabulary and sentence structure suitable for a 5th grade student. It includes uncommon words like 'serendipity' and 'cosmos' to challenge students while remaining grammatically correct.",
-    "id": 1716741629266
+    "id": 12
   },
   {
     "generator": "two-variable-algebra",
@@ -213,7 +213,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the number of minutes it takes for the reservoir to be completely full.\n3x - 2x = 120\nx = 60\nTherefore, it will take 60 minutes for the reservoir to be completely full.",
-    "id": 1716741722963
+    "id": 13
   },
   {
     "generator": "time-distance-speed",
@@ -229,7 +229,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "To find the distance covered, we need to integrate the speed over time. The integral of 2 meters per second with respect to time is 2t meters. Substituting 3.5 for t gives us 2 * 3.5 = 7 meters. Therefore, the object has covered 7 meters after 3.5 hours.",
-    "id": 1716741805879
+    "id": 14
   },
   {
     "generator": "geometry",
@@ -244,7 +244,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, let's represent the width of the garden as 'w' meters. Then, the length can be expressed as 'w + 5' meters. We know that the area of the garden is 100 square meters, so we can write an equation: w(w + 5) = 100. Solving this equation will give us the width of the garden, and then we can find the length using the expression 'w + 5'.",
-    "id": 1716741915975
+    "id": 15
   },
   {
     "generator": "probability",
@@ -258,7 +258,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{30C5 \\times 20C5}{50C10},,",
-    "id": 1716741988935
+    "id": 16
   },
   {
     "generator": "physics",
@@ -275,7 +275,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "This problem requires students to integrate the water flow rate over time to find the total amount of water that has flowed down the slide. This is a fundamental concept of calculus that involves understanding the area under a curve representing the water flow rate over time.",
-    "id": 1716742089403
+    "id": 17
   },
   {
     "generator": "science",
@@ -291,7 +291,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires the student to calculate the volume of a cylinder, which involves integration of a circular base area with the height of the cylinder.",
-    "id": 1716742161026
+    "id": 18
   },
   {
     "generator": "bad-grammar",
@@ -306,7 +306,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "This sentence correctly uses the word 'integration' in the context of education. However, it contains a grammatical error in the form of a run-on sentence.",
-    "id": 1716742217534
+    "id": 19
   },
   {
     "generator": "bad-spelling",
@@ -321,7 +321,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "Integration means combining different things to create something new and better. In this sentence, digital learning tools were combined with traditional teaching methods to enhance learning outcomes.",
-    "id": 1716742274607
+    "id": 20
   },
   {
     "generator": "sentence-prompt",
@@ -337,7 +337,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "Cultural integration fosters understanding and acceptance among different groups, leading to stronger social bonds and a sense of unity within society.",
-    "id": 1716742336178
+    "id": 21
   },
   {
     "generator": "airplane-trivia",
@@ -354,7 +354,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "55 meters",
-    "id": 1716742391542
+    "id": 22
   },
   {
     "generator": "science-trivia",
@@ -371,7 +371,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": ",,\\frac{\\text{π}\\times2^2\\times5}{3},,",
-    "id": 1716742449651
+    "id": 23
   },
   {
     "generator": "arithmetic",
@@ -385,7 +385,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "$x=\\frac{3}{4}$",
-    "id": 1716742493903
+    "id": 24
   },
   {
     "generator": "arithmetic-carry",
@@ -402,7 +402,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem requires students to perform multiple carries and borrows when multiplying a decimal by a large number. Common errors include incorrect placement of digits during carries and borrows, and failing to consider the decimal point when multiplying. This problem assesses students' understanding of place value and decimal operations.",
-    "id": 1716742581535
+    "id": 25
   },
   {
     "generator": "arithmetic-multiplication",
@@ -418,7 +418,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests common multiplication errors like: \n- **Partial Product Confusion:** Students sometimes mix up the order of the factors or multiply only parts of the numbers.\n- **Zero Errors:** Students sometimes forget or write down 0 as the answer.\n- **Place Value Mistakes:** Students sometimes make mistakes with the placement of digits in the answer.",
-    "id": 1716742654091
+    "id": 26
   },
   {
     "generator": "arithmetic-division",
@@ -432,7 +432,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests students' understanding of integer division with remainders. It specifically challenges them to divide a larger number by a smaller number, which can lead to a remainder. To solve this problem, students need to remember that the remainder is the amount left over after dividing the larger number by the smaller number.",
-    "id": 1716742728671
+    "id": 27
   },
   {
     "generator": "handwriting-exercise",
@@ -446,7 +446,7 @@ export const problems = [
       "Handwriting Exercise"
     ],
     "solution": "The sentence uses complex vocabulary and sentence structure appropriate for a 5th grade level. It includes examples of compound words, verb phrases, and figurative language.",
-    "id": 1716742789746
+    "id": 28
   },
   {
     "generator": "two-variable-algebra",
@@ -462,7 +462,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the number of cookies each friend gets. We know that 2x = 20. Solving for x, we get x = 10. Each friend gets 10 cookies.",
-    "id": 1716742903494
+    "id": 29
   },
   {
     "generator": "time-distance-speed",
@@ -476,7 +476,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to recall the formula: distance = speed × time. We know the speed is 15 km/h and the time is 2 hours. So, distance = 15 km/h × 2 h = 30 km. Therefore, the couple needs to travel 30 kilometers in total to reach their destination in 2 hours.",
-    "id": 1716742986690
+    "id": 30
   },
   {
     "generator": "geometry",
@@ -491,7 +491,7 @@ export const problems = [
       null
     ],
     "solution": "First, we need to calculate how far each hiker will travel in the time it takes for them to be 3.5 kilometers apart. Then, we can use the formula: distance = speed × time. We can solve for time to find the answer.",
-    "id": 1716769427707
+    "id": 31
   },
   {
     "generator": "probability",
@@ -505,7 +505,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{12\\times2}{2}=12\\text{ shoes},,",
-    "id": 1716769485447
+    "id": 32
   },
   {
     "generator": "physics",
@@ -519,7 +519,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "This problem requires students to understand the concept of 'couple' as a pair of two things that are equal in quantity or weight. It also requires students to be able to solve a simple subtraction problem. This is a suitable problem for a 5th grade student as it challenges their understanding of these concepts but does not require advanced mathematical knowledge.",
-    "id": 1716769580644
+    "id": 33
   },
   {
     "generator": "science",
@@ -534,7 +534,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires understanding of the relationship between couples and individuals. It involves basic multiplication of a whole number by a pair. This is suitable for a 5th grade student who has learned about multiplication.",
-    "id": 1716769644191
+    "id": 34
   },
   {
     "generator": "bad-grammar",
@@ -546,7 +546,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "The sentence is correct except for the use of 'couple' which should be 'a couple' in this context.",
-    "id": 1716769691895
+    "id": 35
   },
   {
     "generator": "bad-spelling",
@@ -560,7 +560,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "In this sentence, 'couple' means a small group of two people. It's similar to saying 'two friends'.",
-    "id": 1716769743051
+    "id": 36
   },
   {
     "generator": "sentence-prompt",
@@ -574,7 +574,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "The couple of friends giggled as they shared a juicy sandwich and a bag of grapes from their picnic lunch.",
-    "id": 1716769796495
+    "id": 37
   },
   {
     "generator": "airplane-trivia",
@@ -588,7 +588,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "12 kN",
-    "id": 1716769838091
+    "id": 38
   },
   {
     "generator": "arithmetic",
@@ -603,7 +603,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{7}{4},,",
-    "id": 1716769943120
+    "id": 39
   },
   {
     "generator": "arithmetic-carry",
@@ -618,7 +618,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem tests students' understanding of carries and borrows when dealing with larger numbers. Specifically, it assesses their ability to correctly handle multiple-digit addition involving non-zero digits in the ones and tens places.",
-    "id": 1716769999279
+    "id": 40
   },
   {
     "generator": "arithmetic-multiplication",
@@ -633,7 +633,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests common multiplication errors made by students at the 5th grade level. It involves multiplying large numbers, which can be prone to mistakes due to the increased risk of carrying and regrouping. Specifically, this problem challenges students with:\n- **Place value errors:** Multiplying numbers with many digits can easily lead to mistakes in aligning the digits correctly.\n- **Partial products:** Students may forget to multiply all digits correctly, leading to incomplete or inaccurate results.\n- **Carry operations:** Multiplying large numbers can require multiple carries, which can be easily miscounted.",
-    "id": 1716770071952
+    "id": 41
   },
   {
     "generator": "arithmetic-division",
@@ -647,7 +647,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests students' understanding of integer division with remainders. 987 is not a divisor of 2345, so there will be a remainder. Students need to remember to write the remainder and interpret the quotient and remainder in the context of the problem.",
-    "id": 1716770134732
+    "id": 42
   },
   {
     "generator": "handwriting-exercise",
@@ -660,7 +660,7 @@ export const problems = [
       "Handwriting Exercise"
     ],
     "solution": "The sentence uses the word 'couple' and includes simple vocabulary appropriate for 5th grade students. The sentence structure is also straightforward and uses basic sentence components.",
-    "id": 1716770178571
+    "id": 43
   },
   {
     "generator": "definition-question",
@@ -672,7 +672,7 @@ export const problems = [
       "Grammar",
       "Fifth Grade"
     ],
-    "id": 1716770218099
+    "id": 44
   },
   {
     "generator": "two-variable-algebra",
@@ -688,7 +688,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the number of people at the front of the line and y be the number of people at the back of the line. We know that x = 3y. We also know that x + y = 12. Substituting the first equation into the second equation, we get 3y + y = 12. Combining like terms, we get 4y = 12. Dividing both sides by 4, we get y = 3. Substituting this back into the first equation, we get x = 3(3) = 9. There are 9 people at the front of the line.",
-    "id": 1716770355388
+    "id": 45
   },
   {
     "generator": "time-distance-speed",
@@ -703,7 +703,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to find the time it takes for the train to travel 1 km. We can do this by dividing the speed by 1000: 80 km/h ÷ 1000 = 0.08 h/km. Then, we need to multiply the time per km by the distance to the station: 0.08 h/km × 300 km = 24 h. Therefore, it will take the train 24 hours to reach the front of the station.",
-    "id": 1716770444935
+    "id": 46
   },
   {
     "generator": "geometry",
@@ -717,7 +717,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, let's represent the width of the garden as 'w' meters. Then, the length of the front of the garden is 'w + 8' meters. The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 40 meters, so we can write an equation: 2(w + 8) + 2w = 40. Solving this equation will give us the values of both w and 'w + 8', which are the width and length of the garden.",
-    "id": 1716770528300
+    "id": 47
   },
   {
     "generator": "probability",
@@ -731,7 +731,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "Let the probability of landing on the same side be P. The front wheel can be on any point of the circle with a length of 10 meters. The front wheel needs to be within a distance of 0.25 meters from the center of the circle to be on the same side as the starting point. The area of this circular region is ,,frac{\theta}{2}r^2,,, where ,,\theta,, is the angle in radians. The probability P is the ratio of this area to the total area of the circle: $$P = \\frac{\\frac{\theta}{2}\\times10^2}{2\\times10^2} = \\frac{\theta}{4}$$ where \theta is the angle made by the front wheels in radians during one lap.",
-    "id": 1716770628192
+    "id": 48
   },
   {
     "generator": "physics",
@@ -746,7 +746,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "This problem involves calculating the distance the train needs to travel to pass the platform. It requires understanding of speed and distance concepts, which are appropriate for 5th graders.",
-    "id": 1716770690204
+    "id": 49
   },
   {
     "generator": "science",
@@ -762,7 +762,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires students to apply their knowledge of perimeter and area to solve a real-world problem. It is slightly challenging for a 5th grader, but still accessible to them.",
-    "id": 1716770748472
+    "id": 50
   },
   {
     "generator": "bad-grammar",
@@ -776,7 +776,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "The sentence has a minor grammatical error. 'Front of' should be 'front of the'.",
-    "id": 1716770793371
+    "id": 51
   },
   {
     "generator": "bad-spelling",
@@ -789,7 +789,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "The word 'front' means the most forward position in a line or group. In this sentence, the soldiers are standing at the front of the line, which means they are the first ones in line.",
-    "id": 1716770847784
+    "id": 52
   },
   {
     "generator": "sentence-prompt",
@@ -806,7 +806,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "The area of the rectangle is 12.5 square meters.",
-    "id": 1716770898887
+    "id": 53
   },
   {
     "generator": "airplane-trivia",
@@ -823,7 +823,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "4.5",
-    "id": 1716770943143
+    "id": 54
   },
   {
     "generator": "science-trivia",
@@ -837,7 +837,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": "1 cm",
-    "id": 1716770987899
+    "id": 55
   },
   {
     "generator": "arithmetic",
@@ -851,7 +851,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "x = 3",
-    "id": 1716771037607
+    "id": 56
   },
   {
     "generator": "two-variable-algebra",
@@ -865,7 +865,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the cost of the toy after the discount.\n x = €15 - (€15 * 0.2)\n x = €15 - €3\n x = €12",
-    "id": 1716771573839
+    "id": 57
   },
   {
     "generator": "time-distance-speed",
@@ -880,7 +880,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "Let x be the current speed of the train in km/h. Then 80% of x is x - 20%. The distance travelled in the past 10 hours is 360 / x km. The distance travelled 10 hours ago is 360 / (x - 0.2x) km. The difference between these two distances is 360 km. So we have the equation: 360 / x - 360 / (0.8x) = 360. Solving this equation gives us x = 45 km/h. Therefore, the train travelled 360 / 45 = 8 km in the past 10 hours.",
-    "id": 1716771671219
+    "id": 58
   },
   {
     "generator": "geometry",
@@ -894,7 +894,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, find the length of the semicircle's arc by finding half of the circumference of the circle. Then, use the formula for the area of a semicircle: area = (arc length)^2 / 2π",
-    "id": 1716771730984
+    "id": 59
   },
   {
     "generator": "probability",
@@ -908,7 +908,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{315}{64},,",
-    "id": 1716771790221
+    "id": 60
   },
   {
     "generator": "physics",
@@ -921,7 +921,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "Debasing means removing some of the valuable material from a coin. We can think of this as a subtraction problem. We need to subtract the amount of valuable material that was removed from the original mass of the coin.",
-    "id": 1716771847679
+    "id": 61
   },
   {
     "generator": "science",
@@ -935,7 +935,7 @@ export const problems = [
       "Science"
     ],
     "solution": "The word 'debase' means to reduce the quality or purity of something. In this problem, the gold coin has lost 5% of its weight due to the debasement. We need to calculate the weight of the debased gold coin.",
-    "id": 1716771912582
+    "id": 62
   },
   {
     "generator": "bad-grammar",
@@ -949,7 +949,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "The sentence uses the word 'debase' in the context of economics, explaining how a decrease in the value of a currency can negatively impact the cost of goods and services.",
-    "id": 1716771983535
+    "id": 63
   },
   {
     "generator": "bad-spelling",
@@ -962,7 +962,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "The sentence discusses the negative impact of currency devaluation on economic stability. It explains how the loss of value of the currency can reduce the purchasing power of money, leading to economic difficulties.",
-    "id": 1716772028155
+    "id": 64
   },
   {
     "generator": "sentence-prompt",
@@ -975,7 +975,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "The introduction of new, more valuable notes can debase the old notes, meaning that they can buy less.",
-    "id": 1716772145080
+    "id": 65
   },
   {
     "generator": "airplane-trivia",
@@ -990,7 +990,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "33 meters",
-    "id": 1716772221647
+    "id": 66
   },
   {
     "generator": "science-trivia",
@@ -1005,7 +1005,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": "+105e",
-    "id": 1716772287171
+    "id": 67
   },
   {
     "generator": "arithmetic",
@@ -1019,12 +1019,12 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "x - (x * 20%)",
-    "id": 1716772352552
+    "id": 68
   },
   {
     "generator": "arithmetic-carry",
     "input": "debase",
-    "problem": "Calculate: ,,348 + 923 - 187,,\".",
+    "problem": "Calculate: ,,348 + 923 - 187,,",
     "length": 30,
     "tags": [
       "Arithmetic",
@@ -1034,7 +1034,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem tests students' understanding of carrying and borrowing in arithmetic. When adding and subtracting large numbers, students often make errors with these operations. The problem requires students to correctly identify when a carry or borrow is needed and then apply the correct mathematical operations to get the answer.",
-    "id": 1716772423863
+    "id": 69
   },
   {
     "generator": "arithmetic-multiplication",
@@ -1050,7 +1050,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests common multiplication errors like: \n- **Partial Product Confusion:** Students may confuse the size of the partial products they write down during the multiplication process.\n- **Zero Errors:** Students may incorrectly write zero as the answer or as a partial product.\n- **Place Value Errors:** Students may make mistakes with the placement of digits in the answer.",
-    "id": 1716772495576
+    "id": 70
   },
   {
     "generator": "arithmetic-division",
@@ -1064,7 +1064,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests several common errors in integer division. It requires students to divide a large number by a smaller number, which can be difficult for younger students. Additionally, it involves remainders, which are often overlooked or misinterpreted. Finally, the use of metric units adds another layer of complexity that can be challenging for younger learners.",
-    "id": 1716772557156
+    "id": 71
   },
   {
     "generator": "two-variable-algebra",
@@ -1081,7 +1081,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x km/h be the usual speed of the train.\nTravel speed = x - 20 km/h\nTime taken at usual speed = 180 / x hours\nTime taken at travel speed = 180 / (x - 20) hours\nGiven: 180 / x - 180 / (x - 20) = 4 hours\nSolving this equation, we find that x = 60 km/h.",
-    "id": 1716773300620
+    "id": 72
   },
   {
     "generator": "time-distance-speed",
@@ -1096,7 +1096,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to find the total distance the train needs to travel to reach its destination. 360 km - 180 km = 180 km.   Next, we can use the formula: time = distance / speed.   Time = 180 km / 80 km/h = 2.25 hours.   Therefore, it will take the train 2.25 hours to arrive at its destination.",
-    "id": 1716773382751
+    "id": 73
   },
   {
     "generator": "geometry",
@@ -1108,7 +1108,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, find the length of the longest side by subtracting 5 cm from 30 cm. Then, find the length of the middle side by subtracting 4 cm from the longest side. Finally, find the length of the shortest side by subtracting the middle side length from the perimeter.",
-    "id": 1716773486324
+    "id": 74
   },
   {
     "generator": "probability",
@@ -1121,7 +1121,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "166.67g",
-    "id": 1716773532691
+    "id": 75
   },
   {
     "generator": "physics",
@@ -1135,7 +1135,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "First, we need to subtract the distance the robot dives deeper from the current depth. This gives us 3.5m - 2.7m = 0.8m. So, the robot will be 0.8 meters below the surface after it dives deeper.",
-    "id": 1716773598167
+    "id": 76
   },
   {
     "generator": "two-variable-algebra",
@@ -1151,7 +1151,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "The numbers are 5 and 5.",
-    "id": 1716774339040
+    "id": 77
   },
   {
     "generator": "time-distance-speed",
@@ -1166,7 +1166,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to calculate the distance the train traveled in the last hour. 80 km/h is the speed of the train, and 1 hour is the time it took. So, the distance traveled in the last hour is 80 km.  Next, we need to calculate the distance the train traveled in the first two hours. The train traveled 80 km in the last hour, and it traveled for 2 hours before that. So, the distance traveled in the first two hours is 80 * 2 = 160 km.  Finally, the distance the train traveled when it reached the point that is 2 hours ahead of where it was 1 hour ago is 160 km + 80 km = 240 km.",
-    "id": 1716774436620
+    "id": 78
   },
   {
     "generator": "geometry",
@@ -1180,7 +1180,7 @@ export const problems = [
       "Metric"
     ],
     "solution": "First, find the radius of the circle by dividing the circumference by 4. Then, use the formula for the circumference of a circle to find the answer.",
-    "id": 1716774514692
+    "id": 79
   },
   {
     "generator": "probability",
@@ -1194,7 +1194,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "15/15",
-    "id": 1716774567987
+    "id": 80
   },
   {
     "generator": "physics",
@@ -1209,7 +1209,7 @@ export const problems = [
       "Physics"
     ],
     "solution": "This problem involves division and sharing, which are key concepts in 5th grade math. Students need to understand how to divide a quantity among two or more people.",
-    "id": 1716774624943
+    "id": 81
   },
   {
     "generator": "science",
@@ -1223,7 +1223,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires students to add fractions to find the total amount of fruit. It is suitable for 5th graders who have learned about adding fractions.",
-    "id": 1716774681431
+    "id": 82
   },
   {
     "generator": "bad-grammar",
@@ -1235,7 +1235,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "The sentence has a grammatical error. 'Myself' is a reflexive pronoun and should be in the singular form. 'Has' is the third person singular form of the verb 'to have'. The correct sentence is 'I have finished all the homework before dinner'.",
-    "id": 1716774739304
+    "id": 83
   },
   {
     "generator": "bad-spelling",
@@ -1248,7 +1248,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "The sentence uses 'myself' as the direct object of the verb 'remember'. This means that the note was written to the speaker themself.",
-    "id": 1716774799095
+    "id": 84
   },
   {
     "generator": "sentence-prompt",
@@ -1261,7 +1261,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "Myself, I decided to be more responsible by completing my chores every day.",
-    "id": 1716774854683
+    "id": 85
   },
   {
     "generator": "airplane-trivia",
@@ -1275,7 +1275,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "64.8",
-    "id": 1716774893343
+    "id": 86
   },
   {
     "generator": "science-trivia",
@@ -1290,7 +1290,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": ",,\\text{1000 cm}^3,,",
-    "id": 1716774935724
+    "id": 87
   },
   {
     "generator": "arithmetic",
@@ -1304,12 +1304,12 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{1}{4},,",
-    "id": 1716774982735
+    "id": 88
   },
   {
     "generator": "arithmetic-carry",
     "input": "myself",
-    "problem": "Simplify: ,,348 + 923 - 175 \\times 2 \\times 5,,\nangle",
+    "problem": "Simplify: ,,348 + 923 - 175 \\\\times 2 \\\\times 5,,\nangle",
     "length": 47,
     "tags": [
       "Fifth Grade",
@@ -1321,7 +1321,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem requires students to accurately perform multiple steps involving carries and borrows. The carries and borrows involve understanding place value and how to handle them during arithmetic operations. The problem also requires proficiency in simplifying mathematical expressions involving multiplication and subtraction.",
-    "id": 1716775045700
+    "id": 89
   },
   {
     "generator": "arithmetic-multiplication",
@@ -1335,7 +1335,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests various multiplication errors common among students at the 5th grade level. It involves large numbers and requires careful attention to place value. Students need to accurately multiply each digit, accounting for the different positions of the numbers. Common errors tested include: \n- Misplacing digits \n- Failing to multiply all digits correctly \n- Incorrectly handling zeros",
-    "id": 1716775106796
+    "id": 90
   },
   {
     "generator": "arithmetic-division",
@@ -1348,7 +1348,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests several common errors in integer division. The large number of digits can easily lead to mistakes in aligning the numbers for division. Additionally, students may forget to check if the remainder is close to the divisor, which can lead to an incorrect answer. Finally, students may not be careful enough when dividing, and may make a simple arithmetic mistake.",
-    "id": 1716775167372
+    "id": 91
   },
   {
     "generator": "handwriting-exercise",
@@ -1363,7 +1363,7 @@ export const problems = [
       "Handwriting Exercise"
     ],
     "solution": "This sentence uses the word 'myself' as a subject, which is appropriate for a 5th grade level.",
-    "id": 1716775210879
+    "id": 92
   },
   {
     "generator": "definition-question",
@@ -1373,7 +1373,7 @@ export const problems = [
     "tags": [
       null
     ],
-    "id": 1716775257216
+    "id": 93
   },
   {
     "generator": "two-variable-algebra",
@@ -1389,7 +1389,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the number of juniors and y be the number of seniors.\n x + y = 30\n y - x = 7\n Solving the second equation for y: y = x + 7\n Substituting y in the first equation: x + (x + 7) = 30\n 2x + 7 = 30\n 2x = 23\n x = 11.5\n So there are 11.5 juniors and 11.5 + 7 = 18.5 seniors in the debate team.",
-    "id": 1716775891572
+    "id": 94
   },
   {
     "generator": "time-distance-speed",
@@ -1405,7 +1405,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to calculate the distance to school. Let's call it D meters. Then, we can use the formula: time = distance / speed.   Let's substitute the given speeds:  - Biking time = D / 10 m/s  - Running time = D / 8 m/s  The time saved by biking is the difference between the two running times:   Time saved = Running time - Biking time = D / 8 m/s - D / 10 m/s = D(1/8 - 1/10) m/s  Therefore, the time saved by biking instead of running is D/40 minutes.",
-    "id": 1716776011656
+    "id": 95
   },
   {
     "generator": "geometry",
@@ -1419,7 +1419,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, let's represent the width of the garden bed as a variable, such as 'w'. Since the garden bed is 30 cm longer than its width, the length can be expressed as 'w + 30'.   The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 100 cm, so we can write an equation: 2(w + w + 30) = 100. Solving this equation will give us the values for the width and length of the garden bed.",
-    "id": 1716776116496
+    "id": 96
   },
   {
     "generator": "probability",
@@ -1432,7 +1432,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "48 students believe lunches should be mandatory.",
-    "id": 1716776176351
+    "id": 97
   },
   {
     "generator": "physics",
@@ -1445,7 +1445,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "This problem requires students to apply their understanding of force, gravity, and mass to solve a real-world problem. It involves two steps: first calculating the gravitational force due to the planet and then using the formula F = Gm1m2/r^2 to find the mass of the planet.",
-    "id": 1716776258604
+    "id": 98
   },
   {
     "generator": "science",
@@ -1460,7 +1460,7 @@ export const problems = [
       "Science"
     ],
     "solution": "This problem requires students to divide a set amount of snacks among a group of people, which is a common real-world scenario. It involves simple division and is appropriate for 5th graders who have learned about fractions and division.",
-    "id": 1716776322784
+    "id": 99
   },
   {
     "generator": "bad-grammar",
@@ -1472,7 +1472,7 @@ export const problems = [
       "Bad Grammar"
     ],
     "solution": "The sentence uses the word 'debate' correctly, but there is a grammatical error in the second sentence. 'Sparked quite a lot of interest' should be 'generated quite a bit of interest'.",
-    "id": 1716776390595
+    "id": 100
   },
   {
     "generator": "bad-spelling",
@@ -1485,7 +1485,7 @@ export const problems = [
       "Bad Spelling"
     ],
     "solution": "The sentence uses the word 'debate' in the context of students presenting their opinions and evidence to support their positions on an environmental issue. It also demonstrates understanding of effective arguments and solutions.",
-    "id": 1716776444591
+    "id": 101
   },
   {
     "generator": "sentence-prompt",
@@ -1500,7 +1500,7 @@ export const problems = [
       "Sentence Prompt"
     ],
     "solution": "A longer debate allows for more time to present arguments, while a shorter debate requires speakers to be concise.",
-    "id": 1716776494035
+    "id": 102
   },
   {
     "generator": "airplane-trivia",
@@ -1514,7 +1514,7 @@ export const problems = [
       "Airplane Trivia"
     ],
     "solution": "350,000 kg",
-    "id": 1716776539339
+    "id": 103
   },
   {
     "generator": "science-trivia",
@@ -1527,7 +1527,7 @@ export const problems = [
       "Science Trivia"
     ],
     "solution": "2.5 × 10^25 moles",
-    "id": 1716776586711
+    "id": 104
   },
   {
     "generator": "arithmetic",
@@ -1541,7 +1541,7 @@ export const problems = [
       null
     ],
     "solution": ",,\\frac{13}{20},,",
-    "id": 1716776636319
+    "id": 105
   },
   {
     "generator": "arithmetic-carry",
@@ -1554,7 +1554,7 @@ export const problems = [
       "Arithmetic Carry"
     ],
     "solution": "This problem assesses students' understanding of carries and borrows in multi-digit arithmetic. Specifically, it tests the ability to: \n- Perform multiplication and division involving numbers with exponents.\n- Handle carries and borrows correctly when performing these operations.\n- Simplify expressions involving fractions and powers of 10.",
-    "id": 1716776724428
+    "id": 106
   },
   {
     "generator": "arithmetic-multiplication",
@@ -1569,7 +1569,7 @@ export const problems = [
       "Arithmetic Multiplication"
     ],
     "solution": "This problem tests several common multiplication errors, including: \n- **Place value errors:** Students may forget to align the digits correctly, leading to incorrect answers. \n- **Partial products:** Students may not multiply all the digits correctly, leading to incomplete answers. \n- **Arithmetic slips:** Students may make simple math mistakes during the multiplication process.",
-    "id": 1716776791359
+    "id": 107
   },
   {
     "generator": "arithmetic-division",
@@ -1583,7 +1583,7 @@ export const problems = [
       "Arithmetic Division"
     ],
     "solution": "This problem tests various errors in integer division. The large quotient (456) and divisor (98) can easily lead to mistakes. Students may forget to borrow correctly, or make mistakes in their partial products. Additionally, some students may divide the units place incorrectly, leading to an inaccurate answer.",
-    "id": 1716776865823
+    "id": 108
   },
   {
     "generator": "handwriting-exercise",
@@ -1597,7 +1597,7 @@ export const problems = [
       "Handwriting Exercise"
     ],
     "solution": "This sentence uses various parts of speech, including nouns, verbs, and adjectives.",
-    "id": 1716776913528
+    "id": 109
   },
   {
     "generator": "two-variable-algebra",
@@ -1612,7 +1612,7 @@ export const problems = [
       "Two-Variable Algebra"
     ],
     "solution": "Let x be the weight of the first rock and y be the weight of the second rock.\n x + y = 2000\nx - y = 1000\nSolving the system of equations, we find that x = 1500 and y = 500.\nTherefore, both rocks weigh 1500 + 500 = 2000 kilograms.",
-    "id": 1716776994772
+    "id": 110
   },
   {
     "generator": "time-distance-speed",
@@ -1628,7 +1628,7 @@ export const problems = [
       "Time-Distance-Speed"
     ],
     "solution": "First, we need to convert the speed of the asteroid to meters per second: 20 km/s = 20,000 m/s. Then, we can use the formula: distance = speed × time. Distance = 20,000 m/s × 3 h = 60,000 meters. Therefore, the asteroid must be 60,000 meters away from Earth when it is spotted.",
-    "id": 1716777090520
+    "id": 111
   },
   {
     "generator": "geometry",
@@ -1643,7 +1643,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": "First, multiply the length and width of the foundation to find the area. Then, write the area as a mathematical expression using the multiplication symbol (×).",
-    "id": 1716777153827
+    "id": 112
   },
   {
     "generator": "probability",
@@ -1658,7 +1658,7 @@ export const problems = [
       "Fifth Grade"
     ],
     "solution": ",,\\frac{80 \\text{ m}^3 \\times 100 \\text{ g}}{1 \\text{ m}^3} = 8000 \\text{ kg},,",
-    "id": 1716777239239
+    "id": 113
   },
   {
     "generator": "physics",
@@ -1673,6 +1673,6 @@ export const problems = [
       "Physics"
     ],
     "solution": "To find the mass of the asteroid, we can use the formula: mass = density * volume. We already know the diameter, so we can find the volume by assuming a sphere and using the formula for the volume of a sphere: volume = (4/3)πr³. Then, we can substitute the values into the mass formula and solve for mass.",
-    "id": 1716777314828
+    "id": 114
   }
 ];
