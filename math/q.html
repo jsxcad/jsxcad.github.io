@@ -44,15 +44,24 @@
      padding: 1em;
      overflow: hidden;
    }
+
+   .generator {
+     font-size: 0.5em;
+     position: relative;
+   }
+
    .problem {
+     padding: 0;
+     margin: 0;
    }
 
    .tooltip {
    }
 
    .tooltip .tooltiptext {
+     display: none;
      visibility: hidden;
-     width: 120px;
+     width: 100%;
      background-color: black;
      color: #fff;
      padding: 5px 0;
@@ -71,6 +80,7 @@
 
    .tooltip:hover .tooltiptext {
      visibility: visible;
+     display: block;
      opacity: 1;
    }
   </style>
@@ -98,15 +108,19 @@
       return div;
     }
 
-    const renderProblem = ({ id = -1, problem, lines = 3 }) => {
+    const renderProblem = ({ id = -1, generator, problem, solution, lines = 3 }) => {
       const div = document.createElement('div');
       div.classList.add('problem', 'tooltip');
       div.innerText = problem;
       for (let line = 0; line < lines; line++) {
         div.appendChild(renderRuledLine());
       }
-      const note = document.createElement('span');
-      note.innerText = id;
+      const span = document.createElement('div')
+      span.innerText = generator;
+      span.classList.add('generator');
+      div.insertBefore(span, div.firstChild);
+      const note = document.createElement('div');
+      note.innerHTML = `${id}<br>${solution}`;
       note.classList.add('tooltiptext');
       div.appendChild(note);
       return div;
@@ -133,13 +147,16 @@
 
     const signature = [];
 
+    const params = new URLSearchParams(document.location.search);
+    const s = params.get("s");
+
     const renderColumn = (column) => {
       let nth = 0;
       for (;;) {
         const margins = 50;
         const remainingSpaceA = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
         const problem = chooseProblem(chosen, problems);
-        column.appendChild(renderProblem(chooseProblem(chosen, problems)));
+        column.appendChild(renderProblem(problem));
         const remainingSpace = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
         console.log(`QQ/remainingSpace: ${remainingSpaceA} ${remainingSpace}`);
         if (remainingSpace < 10) {
@@ -148,6 +165,9 @@
         }
         signature.push(problem.id);
         chosen.add(problem);
+        if (nth++ > 10) {
+          break;
+        }
       }
     };
 
