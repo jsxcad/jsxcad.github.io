@@ -16,9 +16,10 @@
    }
    .sheet {
      position: absolute;
+     top: 1em;
+     bottom: 1em;
      width: 210mm;
      height: 278mm;
-     border: 1px black solid;
      overflow: hidden;
    }
    .column {
@@ -29,17 +30,23 @@
      grid-gap: 1fr;
    }
    .left {
+     top: 1em;
+     bottom: 1em;
      position: absolute;
-     left: 0;
-     right: 50%;
+     height: 320mm;
+     width: 105mm;
+     left: 5mm;
      border: 1px black solid;
      padding: 1em;
      overflow: hidden;
    }
    .right {
+     top: 1em;
+     bottom: 1em;
      position: absolute;
-     left: 50%;
-     right: 0;
+     height: 320mm;
+     width: 105mm;
+     left: 120mm;
      border: 1px black solid;
      padding: 1em;
      overflow: hidden;
@@ -143,31 +150,17 @@
 
     const chosen = new Set();
 
-    let nth = 0;
-
     const signature = [];
 
     const params = new URLSearchParams(document.location.search);
     const s = params.get("s");
 
     const renderColumn = (column) => {
-      let nth = 0;
-      for (;;) {
-        const margins = 50;
-        const remainingSpaceA = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
+      for (let nth = 0; nth < 10; nth++) {
         const problem = chooseProblem(chosen, problems);
         column.appendChild(renderProblem(problem));
-        const remainingSpace = (((278 - margins) * 96) / 25.4) - column.scrollHeight;
-        console.log(`QQ/remainingSpace: ${remainingSpaceA} ${remainingSpace}`);
-        if (remainingSpace < 10) {
-          column.removeChild(column.lastChild);
-          break;
-        }
         signature.push(problem.id);
         chosen.add(problem);
-        if (nth++ > 10) {
-          break;
-        }
       }
     };
 
