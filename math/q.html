@@ -155,7 +155,29 @@
       'two-variable-algebra',
     ]);
 
+
+
+    const decodeSignature = (params) => {
+      const s = params.get('s');
+      if (s) {
+        return s.split(',').map((string) => Number(string));
+      } else {
+        return [];
+      }
+    };
+
+    const params = new URLSearchParams(document.location.search);
+    const s = decodeSignature(params);
+
     const chooseProblem = (chosen, problems) => {
+      if (s.length > 0) {
+        const id = s.shift();
+        for (const problem of problems) {
+          if (problem.id === id) {
+            return problem;
+          }
+        }
+      }
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
@@ -179,9 +201,6 @@
 
     const signature = [];
 
-    const params = new URLSearchParams(document.location.search);
-    const s = params.get("s");
-
     const renderColumn = (column) => {
       for (let nth = 0; nth < 10; nth++) {
         const problem = chooseProblem(chosen, problems);
@@ -198,9 +217,9 @@
     renderColumn(right);
 
     {
-      const payload = `https://jsxcad.js.org/math/q.html?signature=${signature.join(',')}`;
+      const payload = `https://jsxcad.js.org/math/q.html?s=${signature.join(',')}`;
       const qr = qrcodegen.QrCode.encodeText(payload, qrcodegen.QrCode.Ecc.MEDIUM);
-      // 37 modules.
+
       const toSvgString = (qr, border, lightColor, darkColor) => {
         if (border < 0)
             throw new RangeError("Border must be non-negative");
@@ -224,9 +243,9 @@
       const firstPassage = right.firstChild.nextSibling;
       firstPassage.insertBefore(svg, firstPassage.firstChild);
       svg.style.float = 'right';
+      svg.style.zIndex = 10;
+      svg.onclick = (e) => { window.location = payload; };
     }
-
-    // await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 10ms
 
     while (!MathJax.startup) {
       await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
