@@ -133,12 +133,39 @@
       return div;
     };
 
+    const kEligibleGenerators = new Set([
+      'airplane-trivia',
+      'arithmetic',
+      'arithmetic-carry',
+      'arithmetic-division',
+      'arithmetic-multiplication',
+      'bad-grammar',
+      'bad-spelling',
+      'definition-question',
+      'gap-sentence',
+      'geometry',
+      'handwriting-exercise',
+      'korean-english',
+      'physics',
+      'probability',
+      'science',
+      'science-trivia',
+      'sentence-prompt',
+      'time-distance-speed',
+      'two-variable-algebra',
+    ]);
+
     const chooseProblem = (chosen, problems) => {
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
-        if (chosen.has(problem)) {
+        if (chosen.has(problem) || !kEligibleGenerators.has(problem.generator)) {
           continue;
+        }
+        if (problem.todo) {
+          if (problem.todo === 'fix' || problem.todo.include('fix')) {
+            continue;
+          }
         }
         seen += 1;
         if (Math.random() * seen <= 1) {

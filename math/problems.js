@@ -1171,7 +1171,7 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "myself",
-    "problem": "A circle has an area of ,,144 ext{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
+    "problem": "A circle has an area of ,,144 \\\\text{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
     "length": 222,
     "tags": [
       null,
@@ -1674,5 +1674,5062 @@ export const problems = [
     ],
     "solution": "To find the mass of the asteroid, we can use the formula: mass = density * volume. We already know the diameter, so we can find the volume by assuming a sphere and using the formula for the volume of a sphere: volume = (4/3)πr³. Then, we can substitute the values into the mass formula and solve for mass.",
     "id": 114
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "hate",
+    "problem": "An online game has two types of virtual pets: tigers and lions. The total number of tigers and lions in the game is 100. The number of tigers is 10 more than twice the number of lions. How many tigers and lions are there in the game?",
+    "length": 233,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "fifth-grade",
+      "metric",
+      "linear-equations",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of tigers and y be the number of lions.\n x + y = 100\n x = 2y + 10\n Substitute the second equation into the first equation:\n (2y + 10) + y = 100\n Combine like terms:\n 3y + 10 = 100\n Subtract 10 from both sides:\n 3y = 90\n Divide both sides by 3:\n y = 30\n Substitute y back into the second equation:\n x = 2(30) + 10\n x = 60 + 10\n x = 70\n There are **70 tigers** and **30 lions** in the game.",
+    "id": 115
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "hate",
+    "problem": "An angry robot travels 240 meters at a speed of 6 meters per second. How long will it take for the robot to reach its destination if it hates the journey and tries to slow down by half its speed every minute?",
+    "length": 208,
+    "tags": [
+      "time-distance",
+      "speed",
+      "arithmetic",
+      "fifth-grade",
+      "wordplay",
+      "hate",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find out how much the robot's speed decreases each minute. 6 / 2 = 3 meters per second. Then, we need to calculate how many minutes it will take for the robot to travel 240 meters at a speed of 3 meters per second. 240 / 3 = 80 minutes. Therefore, it will take the robot 80 minutes to reach its destination.",
+    "id": 116
+  },
+  {
+    "generator": "geometry",
+    "input": "hate",
+    "problem": "There is a square field with a side length of 10 meters. Hating triangles, someone cuts the field into an equilateral triangle shape. What is the perimeter of the resulting triangle?",
+    "length": 182,
+    "tags": [
+      "geometry",
+      "fifth-grade",
+      "perimeter",
+      "square",
+      "triangle",
+      "equilateral"
+    ],
+    "solution": "First, find the area of the square field by multiplying the side length by itself. Then, recall that an equilateral triangle has three equal sides. Use the perimeter formula for an equilateral triangle to find the perimeter of the triangle field.",
+    "id": 117
+  },
+  {
+    "generator": "probability",
+    "input": "hate",
+    "problem": "There is a group of friends who have strong feelings towards each other. Some of them hate each other with a probability of 0.2. The rest of them are indifferent, with a probability of 0.8. What is the probability that exactly two of them hate each other?",
+    "length": 255,
+    "tags": [
+      "probability",
+      "conditional",
+      "binomial",
+      "fifth-grade"
+    ],
+    "solution": "\frac{3 \times 0.2^2 \times 0.8^3}{0.8^5} = 0.0972",
+    "id": 118
+  },
+  {
+    "generator": "physics",
+    "input": "hate",
+    "problem": "An object experiences a force of repulsion that increases by 2 N for every 1 m of distance it is moved away from another object. If the initial distance between the objects is 5 m and the force of repulsion at that distance is 10 N, what is the force of repulsion when the distance between the objects is 10 m?",
+    "length": 310,
+    "tags": [
+      "inverse-proportionality",
+      "force",
+      "distance",
+      "5thGrade",
+      "physics"
+    ],
+    "solution": "This problem involves applying the concept of inverse proportionality, which is a fundamental relationship between distance and force. The problem requires students to understand that as the distance between two objects increases, the force of repulsion between them decreases.",
+    "id": 119
+  },
+  {
+    "generator": "science",
+    "input": "hate",
+    "problem": "There are 100 negative feelings spreading like a virus in a group of friends. Each negative feeling repels 3 other negative feelings. How many negative feelings will be left if each friend tries to eliminate 5 negative feelings each?,-",
+    "length": 235,
+    "tags": [
+      "multiplication",
+      "division",
+      "negative numbers",
+      "word problem",
+      "metric units",
+      "fifth grade",
+      "science"
+    ],
+    "solution": "This problem requires students to understand multiplication and division, as well as the concept of negative numbers. It also involves applying these concepts to a real-world scenario.",
+    "id": 120
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "tournament",
+    "problem": "A soccer tournament has 4 teams. Each team plays each other once. After the tournament, Team A scored 3 goals more than Team B. How many goals did Team A score if Team B scored 10 goals?",
+    "length": 186,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "tournament",
+      "goals",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of goals Team A scored and y be the number of goals Team B scored.\n x = y + 10\n 4y = 40\n y = 10\n x = 10 + 10 = 20\n Team A scored 20 goals.",
+    "id": 121
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "tournament",
+    "problem": "A mathematical tournament is happening over 3 hours. Participants are cycling at a speed of 15 kilometers per hour. How many kilometers will the participants have covered at the end of the tournament?",
+    "length": 200,
+    "tags": [
+      "cycling",
+      "distance",
+      "speed",
+      "time",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "To find the distance covered, we need to multiply the speed by the time. 15 kilometers per hour is the speed, and 3 hours is the time. 15 * 3 = 45 kilometers. The participants will have covered **45 kilometers** at the end of the tournament.",
+    "id": 122
+  },
+  {
+    "generator": "geometry",
+    "input": "tournament",
+    "problem": "A soccer tournament has 15 teams. Each team plays every other team once. How many games will be played in the tournament?",
+    "length": 121,
+    "tags": [
+      "geometry",
+      "combinatorics",
+      "tournament",
+      "perimeter",
+      "fifth-grade"
+    ],
+    "solution": "First, we need to find the number of games between two teams. There are 15 teams, so there are 15 * (15-1) / 2 = 105 games between two teams. There are 15 teams, so there are 15 games in total. 105 + 15 = 120 games will be played in the tournament.",
+    "id": 123
+  },
+  {
+    "generator": "probability",
+    "input": "tournament",
+    "problem": "A fencing tournament has 48 participants. If each participant has a 30% chance of winning each match, what is the probability that exactly 3 of the participants will win exactly 5 matches each?",
+    "length": 193,
+    "tags": [
+      "probability",
+      "combinations",
+      "binomial",
+      "fifth-grade"
+    ],
+    "solution": "\frac{48C3\times0.3^5\times0.7^5}{0.3^{48}}$",
+    "id": 124
+  },
+  {
+    "generator": "physics",
+    "input": "tournament",
+    "problem": "In a physics tournament, there are 12 teams with an average mass of 45 kg per team. How many kilograms of mass are there in the entire tournament?",
+    "length": 146,
+    "tags": [
+      "physics",
+      "tournament",
+      "average",
+      "mass",
+      "metric",
+      "fifth-grade"
+    ],
+    "solution": "First, we multiply the number of teams by the mass of each team to get the total mass of the teams. Then, we express the answer in kilograms.",
+    "id": 125
+  },
+  {
+    "generator": "science",
+    "input": "tournament",
+    "problem": "There are 8 teams in a soccer tournament. Each team plays every other team once. How many games are there in total?",
+    "length": 115,
+    "tags": [
+      "combinations",
+      "tournament",
+      "soccer",
+      "fifth-grade",
+      "metric",
+      "science"
+    ],
+    "solution": "This problem requires understanding of combinations. The students have to figure out how many games can be played if there are 8 teams and each team plays every other team once. This involves multiplying the number of teams by the number of other teams that each team can play against.",
+    "id": 126
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "tournament",
+    "problem": "The champion of the annual tennis tournament was crowned with a golden cup, that was the most expensive one ever seen in history.",
+    "length": 129,
+    "tags": [
+      "grammatical-error-noun-pronoun",
+      "incorrect-pronoun-reference",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'that' as a noun instead of 'which' to refer back to the 'cup'.",
+    "id": 127
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "tournament",
+    "problem": "The fierce jousting tournament of the Lionheart Kingdom attracted skilled warriors from all corners of the realm.",
+    "length": 113,
+    "tags": [
+      "5th-grade",
+      "spelling-error",
+      "misspelling",
+      "grammar",
+      "context",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'jousting' instead of 'tournament'. 'Jousting' refers to a single competition involving mounted knights, while 'tournament' refers to a series of competitive events.",
+    "id": 128
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "tournament",
+    "problem": "Explain how the popularity of a sport during a tournament can influence the outcome of the game.",
+    "length": 96,
+    "tags": [
+      "fifth-grade",
+      "sport",
+      "tournament",
+      "outcome",
+      "determination",
+      "sentence-prompt"
+    ],
+    "solution": "The fierce competition during the soccer tournament heightened the players' determination, leading to an exciting final match.",
+    "id": 129
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "tournament",
+    "problem": "In a competition called the 'International Air Race,' what is the maximum takeoff weight of the participating aircraft, if the regulation allows for a maximum wing loading of 250 kg/m^2 and a wing area of 40 m^2?",
+    "length": 212,
+    "tags": [
+      "airplane-trivia",
+      "competition",
+      "wing-loading",
+      "wing-area",
+      "takeoff-weight",
+      "5th-grade"
+    ],
+    "solution": "To find the maximum takeoff weight, we can use the formula: Maximum Takeoff Weight = Wing Loading × Wing Area. Plugging in the given values, we get: Maximum Takeoff Weight = 250 kg/m^2 × 40 m^2 = 10,000 kg. Therefore, the maximum takeoff weight of the aircraft in the competition is 10,000 kg.",
+    "id": 130
+  },
+  {
+    "generator": "science-trivia",
+    "input": "tournament",
+    "problem": "What is the scientific explanation for the fizzing you see when you mix baking soda and vinegar?",
+    "length": 96,
+    "tags": [
+      "chemistry",
+      "3rd-grade",
+      "chemical-reaction",
+      "carbon-dioxide",
+      "fizzing",
+      "science-trivia"
+    ],
+    "solution": "When baking soda (sodium bicarbonate) and vinegar (acetic acid) are mixed, a chemical reaction takes place. The sodium and acetate ions combine to form sodium acetate, while the carbonic acid formed in the reaction immediately decomposes into water and carbon dioxide gas. The escaping carbon dioxide gas causes the fizzing you see.",
+    "id": 131
+  },
+  {
+    "generator": "gap-sentence",
+    "input": "reason",
+    "problem": "The artist's vibrant paintings reflect the r____n sunlight reflects off water droplets in a rainbow's mesmerizing arc.",
+    "length": 118,
+    "tags": [
+      "5thGrade",
+      "Reason",
+      "Artist",
+      "Sunlight",
+      "Rainbow",
+      "missing-word"
+    ],
+    "id": 132
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "reason",
+    "problem": "An orange costs 3 times as much as a banana. Together, an orange and a banana cost 1.8 €, how much does a banana cost?",
+    "length": 118,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "unit-rates",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the price of a banana in €. The price of an orange is 3x. 3x + x = 1.8 €. 4x = 1.8 €. x = 0.45 €. A banana costs 0.45 €.",
+    "id": 133
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "reason",
+    "problem": "A train travels 720 km at a constant speed. If it had travelled 20% faster, the journey would have taken 1 hour less. What was the original speed of the train?",
+    "length": 159,
+    "tags": [
+      "reasoning",
+      "distance",
+      "speed",
+      "time",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the original speed of the train in km/h. Then, the speed of the train if it travelled 20% faster is x + (20/100)x = 1.2x km/h.  Using the formula: distance = speed × time, we can write:  $$720 = 1.2x \times (time-1)$$  Solving for time, we get:  $$time = \frac{720}{1.2x} + 1 = \frac{600}{x} + 1$$  Therefore, the original speed of the train is 600 km/h.",
+    "id": 134
+  },
+  {
+    "generator": "geometry",
+    "input": "reason",
+    "problem": "A triangular field has a perimeter of 90 meters. The length of one side is 3 meters less than the length of another side. What is the length of each side?",
+    "length": 154,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "triangle",
+      "fifth-grade",
+      "linear-equation"
+    ],
+    "solution": "First, let's represent the length of the shorter side as x meters. Then, the length of the longer side is (x + 3) meters. The perimeter is the sum of the lengths of all three sides. We can write an equation: x + (x + 3) + x = 90. Combining like terms, we get 3x + 3 = 90. Solving for x, we get x = 30 meters. So, the length of each side is 30 meters.",
+    "id": 135
+  },
+  {
+    "generator": "probability",
+    "input": "reason",
+    "problem": "A bag contains 30 red marbles and 20 blue marbles. If you randomly select 5 marbles from the bag without replacement, what is the probability that exactly 3 of them are red? Express your answer as a fraction in simplest form.",
+    "length": 225,
+    "tags": [
+      "probability",
+      "combinations",
+      "binomial",
+      "fifth-grade"
+    ],
+    "solution": "\frac{30 \binom{3}{2} 20}{5 \binom{50}{5}}$",
+    "id": 136
+  },
+  {
+    "generator": "physics",
+    "input": "reason",
+    "problem": "A train travels 300 km at a speed that is 20% faster than the speed of sound. What is the speed of the train in meters per second?",
+    "length": 130,
+    "tags": [
+      "proportion",
+      "ratio",
+      "speed",
+      "sound",
+      "metric",
+      "fifth-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of ratios and proportions to solve a real-world problem involving speed. It also involves converting kilometers per hour to meters per second.",
+    "id": 137
+  },
+  {
+    "generator": "science",
+    "input": "reason",
+    "problem": "A train travels 450 km at a speed that is 25% faster than the speed of another train on the same route. What is the speed of the slower train if the total distance covered by both trains is 1000 km?",
+    "length": 198,
+    "tags": [
+      "fifth-grade",
+      "ratio",
+      "proportion",
+      "distance",
+      "speed",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their understanding of ratios and proportions to solve a real-world problem. It challenges them to translate the given information into mathematical expressions and solve for the unknown variable.",
+    "id": 138
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "reason",
+    "problem": "The reason that she loves reading books are because they open up new worlds for her.",
+    "length": 84,
+    "tags": [
+      "grammatical-error",
+      "verb-agreement",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the plural verb 'are' instead of the singular verb 'is'. 'Is' is the correct verb to use when referring to a singular subject, such as 'she'.",
+    "id": 139
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "reason",
+    "problem": "The scientist's reason for creating the new formula was to improve the efficiency of the production process.",
+    "length": 108,
+    "tags": [
+      "5thGrade",
+      "Grammar",
+      "Spelling",
+      "SingularNoun",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'reason' instead of 'reasons'. This is because the sentence is talking about one main reason, not multiple reasons.",
+    "id": 140
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "reason",
+    "problem": "Explain how the size of the moon's orbit around the Earth affects the length of the lunar phases, considering the influence of gravity on the moon's rotation.",
+    "length": 158,
+    "tags": [
+      "earth-moon-gravity",
+      "lunar-phases",
+      "fifth-grade",
+      "science",
+      "astronomy",
+      "sentence-prompt"
+    ],
+    "solution": "The bigger the moon's orbit, the longer it takes for the moon to complete one full rotation around the Earth, resulting in longer phases.",
+    "id": 141
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "reason",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It helps to control the airplane's _,_.",
+    "length": 105,
+    "tags": [
+      "airplane",
+      "stability",
+      "horizontal",
+      "stabilizer",
+      "fifth-grade",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer is a wing-like surface located at the tail of an airplane. It helps to balance the airplane and maintain stable flight by adjusting the airflow over the wings.",
+    "id": 142
+  },
+  {
+    "generator": "science-trivia",
+    "input": "reason",
+    "problem": "Calculate the volume of a cube with a side length of 5 cm.",
+    "length": 58,
+    "tags": [
+      "geometry",
+      "cubes",
+      "volume",
+      "fifth-grade",
+      "science-trivia"
+    ],
+    "solution": "The volume of a cube is equal to the side length cubed. So, the volume of a cube with a side length of 5 cm is 5 cm * 5 cm * 5 cm = 125 cm^3.",
+    "id": 143
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "prosperity",
+    "problem": "A farmer wants to allocate his income between two investments: crops and livestock. He invests 3 times more in crops than in livestock. If he invests €100 in livestock and his total income from both investments is €150, how much did he invest in crops?",
+    "length": 252,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "investment",
+      "income",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the amount invested in livestock and y be the amount invested in crops.\n3x + x = 150\n4x = 150\nx = 37.5\ny = 3x = 3(37.5) = 112.5\nThe farmer invested €112.5 in crops.",
+    "id": 144
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "prosperity",
+    "problem": "A village starts with 100 families. If each family cultivates a field that produces 50 crops per year, how many crops will the village have in 3 years if each family's field produces 10% more crops each year?",
+    "length": 208,
+    "tags": [
+      "word problem",
+      "time",
+      "speed",
+      "growth",
+      "5th grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, find the annual increase in crops per field: 50 crops/year * 10% = 5 crops/year. Then, calculate the total crops for each family after 3 years: 50 crops/year + 5 crops/year * 3 = 60 crops/year. Finally, multiply the annual crops per family by the number of families in the village: 60 crops/year * 100 families = 6000 crops/year.",
+    "id": 145
+  },
+  {
+    "generator": "geometry",
+    "input": "prosperity",
+    "problem": "A rectangular garden bed is 3.5 meters long and 2.8 meters wide. If the owner wants to border the bed with edging that costs 15 euros per meter, how much will it cost to border the entire bed?",
+    "length": 192,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "multiplication",
+      "cost",
+      "fifth-grade"
+    ],
+    "solution": "First, we need to find the perimeter of the garden bed. The perimeter is the total length of all four sides. To find the perimeter, we add the lengths of all four sides. The garden bed has two long sides and two short sides. The perimeter is 2(length) + 2(width). Then, we multiply the perimeter by the cost per meter of edging to find the total cost.",
+    "id": 146
+  },
+  {
+    "generator": "probability",
+    "input": "prosperity",
+    "problem": "A small business owner wants to expand their bakery and increase their monthly income. They currently make $120,000 per month. If they expand their bakery, they estimate they can increase their monthly income by 20%. What will be their new monthly income if the expansion is successful?",
+    "length": 286,
+    "tags": [
+      "probability",
+      "percentage",
+      "income",
+      "business",
+      "fifth-grade"
+    ],
+    "solution": "$144,000",
+    "id": 147
+  },
+  {
+    "generator": "physics",
+    "input": "prosperity",
+    "problem": "A community wants to invest in renewable energy to achieve prosperity. A solar panel installation costs €100,000 and generates 10kWh of electricity per day. If the community wants to generate 1MWh of electricity per day, how many solar panels would they need? Assume each panel generates the same amount of electricity.",
+    "length": 319,
+    "tags": [
+      "5thGrade",
+      "ProportionalRelationships",
+      "Energy",
+      "RenewableEnergy",
+      "CommunityDevelopment",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of electrical energy and proportionality to solve a real-world problem related to sustainability and community development.",
+    "id": 148
+  },
+  {
+    "generator": "science",
+    "input": "prosperity",
+    "problem": "A farmer wants to allocate his income of €100,000 among his crops to maximize prosperity. He plants apples that yield a profit of €5/kg, and oranges that yield a profit of €4/kg. If he plants x kilograms of apples and y kilograms of oranges, how many kilograms of each crop should he plant to maximize his profit?",
+    "length": 313,
+    "tags": [
+      "linear-equations",
+      "optimization",
+      "profit",
+      "agriculture",
+      "5th-grade",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem requires students to understand linear equations and optimization. They need to translate the problem into mathematical expressions, solve the equations, and interpret the results to make an informed decision.",
+    "id": 149
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "prosperity",
+    "problem": "Prosperity brings a lot of wealth, but it can also mean a lot of poverty.",
+    "length": 73,
+    "tags": [
+      "5thGrade",
+      "LogicalContradiction",
+      "GrammarError",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a logical contradiction. It states that prosperity can bring wealth and poverty at the same time.",
+    "id": 150
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "prosperity",
+    "problem": "Prosperity brings a wealth of happiness, as families find more abundance and peace.",
+    "length": 83,
+    "tags": [
+      "fifth-grade",
+      "grammar",
+      "spelling",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'abundance' instead of 'abundances'. 'Abundance' is a singular noun, meaning 'a large amount of something'. 'Abundances' would mean 'a large amount of things', which is incorrect in this sentence.",
+    "id": 151
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "prosperity",
+    "problem": "Explain how investing in renewable energy can contribute to the prosperity of developing nations.",
+    "length": 97,
+    "tags": [
+      "5thGrade",
+      "EconomicDevelopment",
+      "RenewableEnergy",
+      "DevelopingNations",
+      "sentence-prompt"
+    ],
+    "solution": "Investing in solar and wind farms in countries like Kenya can create new jobs, reduce air pollution, and provide access to electricity for millions of people.",
+    "id": 152
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "prosperity",
+    "problem": "Which part of the airplane helps to stabilize it during takeoff and landing, like a giant wing that works underwater?",
+    "length": 117,
+    "tags": [
+      "airplane",
+      "stability",
+      "wing",
+      "horizontal",
+      "takeoff",
+      "landing",
+      "3rdGrade",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer, also known as the tail wing, helps to balance the airplane during takeoff and landing by counteracting the lift generated by the main wings. It maintains stability and prevents the airplane from pitching up or down.",
+    "id": 153
+  },
+  {
+    "generator": "science-trivia",
+    "input": "prosperity",
+    "problem": "What element makes up about 73% of the Earth's crust? Its symbol is Fe.",
+    "length": 71,
+    "tags": [
+      "earth science",
+      "chemistry",
+      "element",
+      "iron",
+      "crust",
+      "3rd grade",
+      "science-trivia"
+    ],
+    "solution": "Iron is the most abundant element in the Earth's crust. It plays a vital role in many geological processes and is essential for many living things.",
+    "id": 154
+  },
+  {
+    "generator": "arithmetic",
+    "input": "prosperity",
+    "problem": ",,x+1/3=2/3,,",
+    "length": 11,
+    "tags": [
+      "arithmetic",
+      "fraction",
+      "multiplication",
+      "division",
+      "fifth grade"
+    ],
+    "solution": ",,2/3-1/3=1/3",
+    "id": 155
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "consumer",
+    "problem": "A bakery sells croissants for €1.50 each and pain au chocolat for €2.00 each. If a consumer buys 10 croissants and 5 pain au chocolat, they spend €20. If they buy 5 croissants and 12 pain au chocolat, they spend €17.50. How much does a croissant cost? How much does a pain au chocolat cost?",
+    "length": 290,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "consumer",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the cost of a croissant and y be the cost of a pain au chocolat.\n10x + 5y = 20\n5x + 12y = 17.50\nSolving the first equation for x:\n10x = 20 - 5y\nx = (20 - 5y)/10\nSubstituting the expression for x in the second equation:\n5((20 - 5y)/10) + 12y = 17.50\nSolving for y:\ny = 2.5\nSubstituting the value for y back in the first equation:\nx = (20 - 5*2.5)/10\nx = 1.5\nTherefore, a croissant costs €1.50 and a pain au chocolat costs €2.50.",
+    "id": 156
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "consumer",
+    "problem": "A consumer travels 450 km at a speed of 60 km/h. How much time will it take for them to reach their destination?",
+    "length": 112,
+    "tags": [
+      "fifth-grade",
+      "distance",
+      "speed",
+      "time",
+      "consumer",
+      "time-distance-speed"
+    ],
+    "solution": "To find the time taken, we can use the formula: Time = Distance / Speed. Substituting the values given, we get: Time = 450 km / 60 km/h = 7.5 h. Therefore, it will take the consumer 7.5 hours to reach their destination.",
+    "id": 157
+  },
+  {
+    "generator": "geometry",
+    "input": "consumer",
+    "problem": "A consumer wants to create a rectangular vegetable garden with a perimeter of 30 meters. If the length of the garden is 3 meters longer than the width, what are the dimensions of the garden?",
+    "length": 190,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "dimensions",
+      "metric",
+      "5thgrade"
+    ],
+    "solution": "First, we can use the formula for the perimeter of a rectangle: Perimeter = 2(length + width). We know the perimeter is 30 meters, so we can write: 30 = 2(length + width). Next, we can use the information about the length being 3 meters longer than the width to write an equation: length = width + 3. We can substitute this into the first equation and solve for the width and length.",
+    "id": 158
+  },
+  {
+    "generator": "probability",
+    "input": "consumer",
+    "problem": "A store has 100 calculators, of which 20 are defective. If a consumer randomly selects 5 calculators from the store, what is the probability that exactly 2 of them are defective?",
+    "length": 178,
+    "tags": [
+      "probability",
+      "binomial",
+      "consumer",
+      "random",
+      "5thGrade"
+    ],
+    "solution": "\frac{bin(2,2)bin(80,3)}{bin(100,5)}",
+    "id": 159
+  },
+  {
+    "generator": "physics",
+    "input": "consumer",
+    "problem": "A consumer buys 2.5 kg of apples at a price of €2 per kilogram. What is the total cost of the apples?",
+    "length": 101,
+    "tags": [
+      "multiplication",
+      "measurement",
+      "metric",
+      "consumer",
+      "fifth-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to multiply the weight of the apples by the price per kilogram to find the total cost. This is a suitable problem for 5th graders as it involves basic multiplication and measurement concepts.",
+    "id": 160
+  },
+  {
+    "generator": "science",
+    "input": "consumer",
+    "problem": "A consumer buys 2.5kg of apples for €3.50/kg and 1.8kg of bananas for €2.75/kg. What is the total amount they spent on fruits?",
+    "length": 126,
+    "tags": [
+      "fifth-grade",
+      "measurement",
+      "decimal-numbers",
+      "multiplication",
+      "consumer-math",
+      "science"
+    ],
+    "solution": "This problem involves calculating the cost of different items based on their weight and price per kilogram. It requires understanding of decimal numbers and multiplication to find the total cost.",
+    "id": 161
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "consumer",
+    "problem": "The consumer production of electronic devices has increased significantly in recent years.",
+    "length": 90,
+    "tags": [
+      "grammatical-error",
+      "incorrect-word",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. The correct phrase should be 'The consumption of electronic devices has increased significantly in recent years.' 'Consumer production' implies the production of goods for consumers, while 'consumption' refers to the act of using or purchasing goods and services.",
+    "id": 162
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "consumer",
+    "problem": "The consumer of the sugary treats often crave for more.",
+    "length": 55,
+    "tags": [
+      "grammar-singular-verb-plural-noun",
+      "5th-grade-grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'crave for more' which should be 'craves for more'. This is because 'crave' is a singular verb and 'more' is a singular noun. In this sentence, we need to use the plural form of 'crave' which is 'craves'.",
+    "id": 163
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "consumer",
+    "problem": "Explain how a company can become a consumer of other companies through strategic acquisitions and mergers.",
+    "length": 106,
+    "tags": [
+      "consumerism",
+      "business",
+      "acquisitions",
+      "mergers",
+      "5thGrade",
+      "sentence-prompt"
+    ],
+    "solution": "Nestle became a consumer of Starbucks through its acquisition of a significant stake in the coffee chain.",
+    "id": 164
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "consumer",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It helps to maintain stable flight by countering the forces that cause the airplane to ____.",
+    "length": 158,
+    "tags": [
+      "airplane",
+      "stability",
+      "horizontal",
+      "stabilizer",
+      "fifth-grade",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer, also known as the tailplane, is an aerodynamic surface located at the tail of an airplane. It counteracts the upward force of lift generated by the wings, ensuring that the airplane maintains stable flight. The angle of the horizontal stabilizer can be adjusted to control the airplane's pitch attitude.",
+    "id": 165
+  },
+  {
+    "generator": "science-trivia",
+    "input": "consumer",
+    "problem": "A scientist discovers a new species of bacteria that can consume methane gas. If one gram of methane is consumed by the bacteria in one hour, what is the rate of methane consumption in millimoles per hour?",
+    "length": 205,
+    "tags": [
+      "consumption",
+      "methane",
+      "bacteria",
+      "rate",
+      "mole",
+      "5thGrade",
+      "science-trivia"
+    ],
+    "solution": "Methane has a molecular weight of 16 g/mol. Therefore, one millimole of methane is equal to 16 milligrams. The rate of methane consumption is therefore 62.5 millimoles per hour.",
+    "id": 166
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "the",
+    "problem": "The sum of two numbers is 12. One number is 3 less than the other. Find the numbers.",
+    "length": 84,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "linear-equations",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the larger number and y be the smaller number.   $$x + y = 12$$ $$x = y + 3$$   Substituting the second equation into the first equation:  $$(y + 3) + y = 12$$ $$2y + 3 = 12$$ $$2y = 9$$ $$y = 4.5$$   The larger number is x = y + 3 = 4.5 + 3 = 7.5.",
+    "id": 167
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "the",
+    "problem": "The train travels 300km at a speed of 60km/h. How long will it take the train to reach its destination?",
+    "length": 103,
+    "tags": [
+      "fifth-grade",
+      "distance",
+      "speed",
+      "time",
+      "formula",
+      "time-distance-speed"
+    ],
+    "solution": "To find the time taken, we can use the formula: time = distance / speed.   Plugging in the values, we get:   $$time = \frac{300km}{60km/h}$$  $$time = 5h$$  Therefore, it will take the train 5 hours to reach its destination.",
+    "id": 168
+  },
+  {
+    "generator": "geometry",
+    "input": "the",
+    "problem": "The playground has a circular sandbox with a diameter of 1.5 meters. If Sara wants to build a sandcastle at a distance of 0.75 meters from the center of the sandbox, what is the area of the remaining sandbox that she has not used?",
+    "length": 230,
+    "tags": [
+      "geometry",
+      "circle",
+      "area",
+      "diameter",
+      "radius",
+      "fifth-grade"
+    ],
+    "solution": "First, find the radius of the sandbox by dividing the diameter by 2. Then, find the area of the circle using the formula for the area of a circle: A = πr². Finally, subtract the area of the sandcastle from the area of the sandbox to find the remaining area.",
+    "id": 169
+  },
+  {
+    "generator": "probability",
+    "input": "the",
+    "problem": "There are 12 red marbles and 8 blue marbles in a jar. If you reach into the jar without looking and pick out 3 marbles, what is the probability that exactly 2 of them are red?",
+    "length": 175,
+    "tags": [
+      "probability",
+      "conditional-probability",
+      "binomial-distribution",
+      "fifth-grade"
+    ],
+    "solution": "\frac{12 \times 8}{20 \times 19}",
+    "id": 170
+  },
+  {
+    "generator": "physics",
+    "input": "the",
+    "problem": "The train travels 3600m at a speed of 40km/h. How long will it take for the train to travel 1800m?",
+    "length": 98,
+    "tags": [
+      "fifth-grade",
+      "speed",
+      "distance",
+      "time",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of speed and distance to calculate the time taken. It involves dividing the distance by the speed to find the time.",
+    "id": 171
+  },
+  {
+    "generator": "science",
+    "input": "the",
+    "problem": "The sum of two numbers is 100. One number is 30% of the other. Find the two numbers.",
+    "length": 84,
+    "tags": [
+      "algebra",
+      "proportions",
+      "percentage",
+      "fifth-grade",
+      "word-problem",
+      "science"
+    ],
+    "solution": "This problem involves proportional relationships and algebraic equations, concepts that are appropriate for 5th graders. It requires students to translate the word problem into mathematical equations and solve them to find the unknown numbers.",
+    "id": 172
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "the",
+    "problem": "The book the I read yesterday was really interesting.",
+    "length": 53,
+    "tags": [
+      "SyntaxError",
+      "MisplacedModifier",
+      "PrimarySubjectAgreement5",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a misplaced modifier. 'The book the I read yesterday' should be 'The book that I read yesterday'.",
+    "id": 173
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "the",
+    "problem": "The woldest tree in the forest is taller than the other ones.",
+    "length": 61,
+    "tags": [
+      "grammatical_error",
+      "spelling_error",
+      "5th_grade",
+      "bad-spelling"
+    ],
+    "solution": "The correct spelling is 'world' instead of 'wold'. 'Wold' is an incorrect spelling of 'world'.",
+    "id": 174
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "the",
+    "problem": "Write a sentence using the word 'the' that describes an object that can hold a volume of at least 100 cubic centimeters but not more than 500 cubic centimeters.",
+    "length": 160,
+    "tags": [
+      "english-grammar",
+      "sentence-structure",
+      "vocabulary",
+      "measurement",
+      "volume",
+      "metric-units",
+      "sentence-prompt"
+    ],
+    "solution": "The teapot holds exactly 200 cubic centimeters of tea.",
+    "id": 175
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "the",
+    "problem": "What is the function of the 'The' winglet on an airplane?",
+    "length": 57,
+    "tags": [
+      "airplane",
+      "winglet",
+      "lift",
+      "takeoff",
+      "landing",
+      "3rdGrade",
+      "airplane-trivia"
+    ],
+    "solution": "The winglet is an aerodynamic appendage that extends from the wingtip of an airplane. It increases lift at low angles of attack, allowing for tighter turns and better stability during takeoff and landing.",
+    "id": 176
+  },
+  {
+    "generator": "science-trivia",
+    "input": "the",
+    "problem": "What is the approximate mass of an oxygen molecule in grams?",
+    "length": 60,
+    "tags": [
+      "chemistry",
+      "molecules",
+      "atomic-mass",
+      "mass",
+      "3rd-grade",
+      "science-trivia"
+    ],
+    "solution": "An oxygen molecule is composed of two oxygen atoms. Each oxygen atom has a mass of approximately 16 atomic mass units (amu). Therefore, the approximate mass of an oxygen molecule is 2 x 16 amu = 32 amu, which is approximately 5.32 x 10^-23 grams.",
+    "id": 177
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "monetary",
+    "problem": "A monetary fund has a total of $150. Some of the money is in $5 bills and some is in $10 bills. If there are 10 more $5 bills than $10 bills, how many of each type of bill are there?",
+    "length": 182,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "monetary",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of $10 bills and y be the number of $5 bills.\n5y + 10x = 150\n y - x = 10\nSolving the second equation for y, we get y = x + 10.\nSubstituting that into the first equation, we get 5(x + 10) + 10x = 150.\nSolving this equation, we get x = 10 and y = 20.\nTherefore, there are 10 $10 bills and 20 $5 bills in the fund.",
+    "id": 178
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "monetary",
+    "problem": "A monetary policy decreases the speed of money in circulation by 3% per year. If the current speed of money is 10 times per year, how many years will it take for the speed to drop to 5 times per year?",
+    "length": 200,
+    "tags": [
+      "fifth-grade",
+      "speed-money",
+      "monetary-policy",
+      "time-distance",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the number of years it takes for the speed to drop from 10 to 5.   $$10e^{-0.03x} = 5$$  $$e^{-0.03x} = \frac{1}{2}$$  $$-0.03x = \text{ln}\frac{1}{2}$$  $$x = \frac{\text{ln}\frac{1}{2}}{-0.03} \boxed{ \text{approximately 23 years} }$$  ",
+    "id": 179
+  },
+  {
+    "generator": "geometry",
+    "input": "monetary",
+    "problem": "A monetary exchange bureau offers a rectangular space of 90 cm by 60 cm for exchanging currencies. If the bureau charges a fee of 5% of the exchange value for their services, what is the area of the space remaining after subtracting the fee?",
+    "length": 241,
+    "tags": [
+      "geometry",
+      "area",
+      "fee",
+      "monetary",
+      "exchange",
+      "fifth-grade"
+    ],
+    "solution": "First, calculate the area of the space at the bureau. Then, find 5% of the exchange value as the fee. Subtract the fee from the area of the space to find the remaining area.",
+    "id": 180
+  },
+  {
+    "generator": "probability",
+    "input": "monetary",
+    "problem": "A monetary policy expert suggests that the inflation rate in a certain country will be between 2% and 4% in the next year. What is the probability that the inflation rate will be exactly 3%?",
+    "length": 190,
+    "tags": [
+      "probability",
+      "inflation",
+      "monetary",
+      "percentage",
+      "fifth-grade"
+    ],
+    "solution": "\frac{1}{6}",
+    "id": 181
+  },
+  {
+    "generator": "physics",
+    "input": "monetary",
+    "problem": "The cost of renting a bike for 3 hours is €12. If the rental company charges an additional €2 per hour for every hour over 3 hours, how much would it cost to rent the bike for 5 hours?",
+    "length": 184,
+    "tags": [
+      "money",
+      "variable-cost",
+      "multiplication",
+      "fifth-grade",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to understand the concept of variable costs and how to calculate the total cost based on the number of hours. It involves multiplying the hourly rate by the number of hours exceeding the initial period.",
+    "id": 182
+  },
+  {
+    "generator": "science",
+    "input": "monetary",
+    "problem": "A monetary policy suggests increasing the value of one euro by 1.5% each month. If the current value of a euro is 1.20€, what will be the approximate value of a euro in 6 months?",
+    "length": 178,
+    "tags": [
+      "fifth-grade",
+      "percentage",
+      "monetary",
+      "inflation",
+      "approximate",
+      "euro",
+      "science"
+    ],
+    "solution": "This problem requires understanding of percentages and simple arithmetic. It is relatable to real-world situations involving inflation and monetary policy.",
+    "id": 183
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "monetary",
+    "problem": "The monetary value of the antique furniture was surprisingly high, despite its monetary depreciation over the years.",
+    "length": 116,
+    "tags": [
+      "5th-grade-syntax",
+      "noun-phrase-modification",
+      "grammar-error-correction",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second clause. 'Monetary depreciation' should be 'monetary value depreciation' to create a cohesive and grammatically correct sentence.",
+    "id": 184
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "monetary",
+    "problem": "The company's monetary growth was significantly impacted by the recent economic downturn.",
+    "length": 89,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "vocabulary-misuse",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'monetary' instead of 'monetory'. 'Monetary' refers to related to money or finances, while 'monetory' is not a recognized word.",
+    "id": 185
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "notional",
+    "problem": "A train travels for 3 hours at a constant speed of 80 km/h. Later, it travels for 2 hours at a speed that is 20 km/h slower. How far has the train traveled in total?",
+    "length": 165,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "speed",
+      "distance",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "50 km",
+    "id": 186
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "notional",
+    "problem": "A train travels 480 km at a speed that is 20% faster than its usual speed. If the journey took 6 hours, what was the usual speed of the train in km/h?",
+    "length": 150,
+    "tags": [
+      "fifth-grade",
+      "distance-time",
+      "speed",
+      "proportion",
+      "algebra",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the usual speed of the train in km/h. Then the speed of the train during the journey is x + (0.2x) = 1.2x km/h. Distance covered = 480 km. Time taken = 6 hours. Using the formula: Distance = Speed × Time, we get: 480 = 1.2x × 6. Solving for x, we get: x = 40 km/h. Therefore, the usual speed of the train is 40 km/h.",
+    "id": 187
+  },
+  {
+    "generator": "geometry",
+    "input": "notional",
+    "problem": "Calculate the perimeter of a square with a side length of 10 cm, considering that its perimeter is a purely mathematical concept that exists in our minds and is not physically measurable.",
+    "length": 187,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "square",
+      "notional",
+      "fifth-grade"
+    ],
+    "solution": "This problem involves the idea of a 'notional' perimeter. While we can easily measure the perimeter of physical shapes, the perimeter of a square is a mathematical concept that exists only in our minds. It is not something that can be physically measured or held in our hands.",
+    "id": 188
+  },
+  {
+    "generator": "probability",
+    "input": "notional",
+    "problem": "There are 100 notional marbles in a jar. 30% of them are red. How many red marbles are there in the jar?",
+    "length": 104,
+    "tags": [
+      "probability",
+      "percentage",
+      "fifth-grade",
+      "counting",
+      "notional"
+    ],
+    "solution": "30 marbles are red.",
+    "id": 189
+  },
+  {
+    "generator": "physics",
+    "input": "notional",
+    "problem": "A playful puppy chases a ball at a speed of 2 m/s. If the ball starts 5 m from the puppy, how long will it take the puppy to reach the ball? Assume the puppy moves in a straight line towards the ball.",
+    "length": 200,
+    "tags": [
+      "fifth-grade",
+      "distance-time",
+      "linear-motion",
+      "speed",
+      "toy-physics",
+      "physics"
+    ],
+    "solution": "This problem involves calculating the distance the puppy needs to travel and dividing it by the speed of the puppy. This requires understanding of distance, speed, and time relationships.",
+    "id": 190
+  },
+  {
+    "generator": "science",
+    "input": "notional",
+    "problem": "A toy car travels 3.5 meters every second. How many meters will it travel in 7.5 seconds, considering the distance travelled in the initial second is purely notional?",
+    "length": 166,
+    "tags": [
+      "fifth-grade",
+      "notional-distance",
+      "multiplication",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem requires students to understand the concept of notional distance, which means that the distance travelled in the first second is not included in the total distance travelled in 7.5 seconds. This problem also involves applying basic multiplication skills to find the total distance travelled.",
+    "id": 191
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "notional",
+    "problem": "The notional meaning of the word 'happy' is the feeling of joy.",
+    "length": 63,
+    "tags": [
+      "grammar-error",
+      "vocabulary-misuse",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. 'Notional' means related to an idea or concept, not a physical feeling. The correct word should be 'emotional'.",
+    "id": 192
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "notional",
+    "problem": "The author's use of notional concepts in the story helped to convey complex ideas in a clear and concise way.",
+    "length": 109,
+    "tags": [
+      "5th-grade-grammar",
+      "spelling-error",
+      "vocabulary-development",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'notional' instead of 'notionalism'. 'Notionalism' refers to the use of ideas or concepts as the basis for language or thought.",
+    "id": 193
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "notional",
+    "problem": "Write a sentence using the word 'notional' that explains the connection between the value of a currency and its purchasing power.",
+    "length": 129,
+    "tags": [
+      "grade-5",
+      "currency",
+      "inflation",
+      "notional",
+      "sentence-prompt"
+    ],
+    "solution": "The notional value of the dollar is high, but its purchasing power is low due to inflation.",
+    "id": 194
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "notional",
+    "problem": "What is the function of the notional winglet on an airplane? It's like a tiny wing that helps lift the airplane from the ground.",
+    "length": 128,
+    "tags": [
+      "airplane",
+      "winglet",
+      "notional",
+      "lift",
+      "design",
+      "fifth grade",
+      "airplane-trivia"
+    ],
+    "solution": "The notional winglet is a theoretical extension of the wing that helps designers understand how airflow affects wing lift. It's not a physical part of the airplane, but it's used in calculations to optimize wing design.",
+    "id": 195
+  },
+  {
+    "generator": "science-trivia",
+    "input": "notional",
+    "problem": "Calculate the volume of a cube with a side length of 5 cm.",
+    "length": 58,
+    "tags": [
+      "cube",
+      "volume",
+      "metric",
+      "fifth-grade",
+      "science-trivia"
+    ],
+    "solution": "The volume of a cube is equal to the side length cubed. Therefore, the volume of a cube with a side length of 5 cm is 5 cm * 5 cm * 5 cm = 125 cm^3.",
+    "id": 196
+  },
+  {
+    "generator": "arithmetic",
+    "input": "notional",
+    "problem": ",,5^{3} - 2^{4}/3,,",
+    "length": 19,
+    "tags": [
+      "algebraic-expression",
+      "fifth-grade",
+      "exponent",
+      "fraction",
+      "arithmetic"
+    ],
+    "solution": ",,125 - 32/3,,",
+    "id": 197
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "else",
+    "problem": "There are 15 coins in a jar. Some of them are nickels and the rest are dimes. If you have 3 times as many nickels as dimes, how many of each type of coin are there?",
+    "length": 164,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "linear-equations",
+      "solution-by-substitution",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let n and d represent the number of nickels and dimes, respectively.\n$$n + d = 15$$ and $$n = 3d$$ \nSolving the second equation for n, we get \n$$n = 3d$$ \nSubstituting this into the first equation, we get \n$$3d + d = 15$$ \nSolving for d, we get \n$$4d = 15$$ \nTherefore, there are 3.75 dimes and 11.25 nickels.",
+    "id": 198
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "else",
+    "problem": "A train travels 360 km at a speed of 80 km/h. If the journey takes 5 hours less if the train travels at a speed of 100 km/h, how long did the journey take at the slower speed?",
+    "length": 175,
+    "tags": [
+      "time-distance",
+      "speed",
+      "equation",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the time taken at the slower speed. Then, the journey time at the faster speed is (x-5). Using the formula distance = speed × time, we have: 360 = 80x and 360 = 100(x-5). Solving these equations, we find x = 4.5 hours. Therefore, the journey took 4.5 hours at the slower speed.",
+    "id": 199
+  },
+  {
+    "generator": "geometry",
+    "input": "else",
+    "problem": "A triangle has a perimeter of 30 cm. One side is 10 cm long. What is the length of the other two sides?**",
+    "length": 105,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "triangle",
+      "fifth-grade"
+    ],
+    "solution": "First, find the length of one side by subtracting the known side length from the perimeter. Then, since the triangle has two equal sides, each of the other two sides is equal to half the remaining perimeter.",
+    "id": 200
+  },
+  {
+    "generator": "probability",
+    "input": "else",
+    "problem": "A jar contains 12 red marbles and 8 blue marbles. If you randomly choose one marble from the jar, what is the probability that it will be neither red nor blue? Express your answer as a fraction in simplest form.",
+    "length": 211,
+    "tags": [
+      "probability",
+      "conditional",
+      "alternatives",
+      "fraction",
+      "fifth-grade"
+    ],
+    "solution": "\frac{2}{20}",
+    "id": 201
+  },
+  {
+    "generator": "physics",
+    "input": "else",
+    "problem": "A ball is rolling at 2 m/s. If it encounters an incline with a height of 1 m, what will be its speed at the top of the incline? Assume the incline is frictionless.",
+    "length": 163,
+    "tags": [
+      "physics",
+      "conservation-of-energy",
+      "frictionless-incline",
+      "fifth-grade"
+    ],
+    "solution": "This problem requires the student to apply the conservation of mechanical energy. They must calculate the potential energy at the top of the incline and then use the relationship between potential and kinetic energy to find the speed at the top.",
+    "id": 202
+  },
+  {
+    "generator": "science",
+    "input": "else",
+    "problem": "An apple farmer has 100 trees. If each tree yields 50kg of apples, how many kilograms of apples will the farmer have if 20 trees fail to yield any fruit, else the yield remains the same?",
+    "length": 186,
+    "tags": [
+      "multiplication",
+      "conditional-statements",
+      "logic",
+      "reasoning",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their understanding of multiplication and conditional statements. They need to consider the scenario where some trees fail to yield and adjust the total yield accordingly. This problem also involves applying logic and reasoning skills to solve the problem.",
+    "id": 203
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "else",
+    "problem": "If you want to eat something healthy, else pasta is a good option.",
+    "length": 66,
+    "tags": [
+      "grammatical-error",
+      "syntax-error",
+      "fifth-grade-level",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because 'else' should be followed by a positive or negative statement, but not both. In this sentence, 'else' is incorrectly used with 'pasta is a good option'.",
+    "id": 204
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "else",
+    "problem": "I would rather do anything, else but play outside today.",
+    "length": 56,
+    "tags": [
+      "5thGrade",
+      "Grammar",
+      "Spelling",
+      "WordChoice",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'else but'. The correct word should be 'except'. 'But' means 'however' or 'in addition to', while 'except' means 'excluding'.",
+    "id": 205
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "else",
+    "problem": "Write a sentence using the word 'else' that includes a description of something that is not likely to happen, but could be possible under certain circumstances.",
+    "length": 160,
+    "tags": [
+      "grade-5",
+      "conditional-sentence",
+      "possibility",
+      "contrary-condition",
+      "sentence-prompt"
+    ],
+    "solution": "If you practice diligently for the competition, else you might end up feeling disappointed.",
+    "id": 206
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "else",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like a giant wing that helps keep the plane balanced during flight, but which way does it tilt to achieve this?",
+    "length": 182,
+    "tags": [
+      "airplane",
+      "horizontal stabilizer",
+      "balance",
+      "flight",
+      "fifth grade",
+      "aviation",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer has a slight upward tilt, which counteracts the natural tendency of the airplane to yaw downwards due to air flowing over and under its wings. This small tilt helps maintain the airplane's equilibrium and stability during flight.",
+    "id": 207
+  },
+  {
+    "generator": "science-trivia",
+    "input": "else",
+    "problem": "What is the volume of a cube with an edge length of 5 cm?",
+    "length": 57,
+    "tags": [
+      "cube",
+      "volume",
+      "edge",
+      "length",
+      "cm",
+      "3rd grade",
+      "science-trivia"
+    ],
+    "solution": "The volume of a cube is equal to the side length cubed. So, the volume of a cube with an edge length of 5 cm is \text{5 cm}^3.",
+    "id": 208
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "schoolhouse",
+    "problem": "A schoolhouse has a rectangular roof with a perimeter of 40 meters. The length of the roof is 2 meters longer than the width. Find the length and width of the roof.",
+    "length": 164,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "rectangle",
+      "perimeter",
+      "fifth-grade",
+      "metric-units",
+      "two-variable-algebra"
+    ],
+    "solution": "Let l and w represent the length and width of the roof in meters.\n2l + 2w = 40\n l = w + 2\nSubstituting the second equation into the first equation:\n2(w + 2) + 2w = 40\n 2w + 4 + 2w = 40\n 4w = 36\n w = 9\n l = w + 2 = 9 + 2 = 11\n The length of the roof is 11 meters and the width is 9 meters.",
+    "id": 209
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "schoolhouse",
+    "problem": "The schoolhouse bell rings at a rate of 1 ring every 3 minutes. If a student walks at a steady pace of 5 meters per minute from their home to the schoolhouse, how long will it take them to reach the schoolhouse after the bell rings?",
+    "length": 232,
+    "tags": [
+      "fifth-grade",
+      "time-distance",
+      "speed",
+      "distance",
+      "schoolhouse",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the time it takes for the student to reach the schoolhouse. We can do this by dividing the distance (distance to school) by the speed (speed of student).  $$t = \frac{d}{v} = \frac{500\text{ m}}{5\text{ m/min}} = 100\text{ min}$$  Therefore, it will take the student 100 minutes to reach the schoolhouse after the bell rings.",
+    "id": 210
+  },
+  {
+    "generator": "geometry",
+    "input": "schoolhouse",
+    "problem": "The schoolhouse has a circular playground with a circumference of 24 meters. If the radius of the playground is increased by 2 meters, what will be the new circumference?",
+    "length": 170,
+    "tags": [
+      "geometry",
+      "circles",
+      "perimeter",
+      "radius",
+      "fifth-grade"
+    ],
+    "solution": "First, find the radius of the playground by dividing the circumference by 2π. Then, increase the radius by 2 meters and use the formula for the circumference of a circle to find the new circumference.",
+    "id": 211
+  },
+  {
+    "generator": "probability",
+    "input": "schoolhouse",
+    "problem": "There are 3 schoolhouses in a village. In the first schoolhouse, 1/4 of the students are boys. In the second schoolhouse, 2/5 of the students are girls. In the third schoolhouse, 3/7 of the students are boys. What is the probability that a randomly chosen student from the village is a boy?",
+    "length": 290,
+    "tags": [
+      "conditional-probability",
+      "fractions",
+      "school-math",
+      "probability-theory",
+      "fifth-grade",
+      "probability"
+    ],
+    "solution": "\frac{1}{4}+\frac{3}{7}=\frac{17}{28}",
+    "id": 212
+  },
+  {
+    "generator": "physics",
+    "input": "schoolhouse",
+    "problem": "A schoolhouse casts a ,1.5m long shadow at 3:00 PM when the sun is directly overhead. How high is the schoolhouse? Assume the sun is directly overhead and the shadow is cast vertically.",
+    "length": 185,
+    "tags": [
+      "geometry",
+      "shadows",
+      "proportion",
+      "fifth-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of triangles and the relationship between their sides. They need to use the proportion of the shadow length to the height of the schoolhouse to find the height of the schoolhouse.",
+    "id": 213
+  },
+  {
+    "generator": "science",
+    "input": "schoolhouse",
+    "problem": "The schoolhouse has a roof with a perimeter of 12 meters. The length of the roof is 3 meters longer than the width. What are the dimensions of the roof?",
+    "length": 152,
+    "tags": [
+      "perimeter",
+      "linear-equations",
+      "fifth-grade",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem requires students to use their knowledge of perimeter and linear equations to solve for the dimensions of the roof. It is a suitable challenge for 5th graders who have already learned these concepts.",
+    "id": 214
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "schoolhouse",
+    "problem": "The schoolhouse was the place where many children gather to learn everyday.",
+    "length": 75,
+    "tags": [
+      "verb-tense-error",
+      "grammar-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the verb tense. 'Gather' is in the present tense, but the sentence talks about an everyday action that happens repeatedly. The correct tense should be 'gatherS'.",
+    "id": 215
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "schoolhouse",
+    "problem": "The schoolhouse's bell rung a melody that echoed through the streets, reminding children of the lessons waiting for them inside.",
+    "length": 128,
+    "tags": [
+      "grammar-error-noun-possessive",
+      "5th-grade-grammar",
+      "incorrect-possessive-ending",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'schoolhouse's' instead of 'schoolhouse'.",
+    "id": 216
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "schoolhouse",
+    "problem": "Write a sentence using the word 'schoolhouse' that describes a place where students can gather to learn and grow.",
+    "length": 113,
+    "tags": [
+      "4thGrade",
+      "SentenceStructure",
+      "Vocabulary",
+      "LearningEnvironment",
+      "sentence-prompt"
+    ],
+    "solution": "The brightly painted schoolhouse is a happy place where children can explore new ideas and make new friends.",
+    "id": 217
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "schoolhouse",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like the 'ceiling' of the schoolhouse, but in the air!",
+    "length": 125,
+    "tags": [
+      "airplane",
+      "horizontal stabilizer",
+      "flight",
+      "stability",
+      "5th grade",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer helps maintain the airplane's level during flight by counteracting the natural tendency of the wings to create an upward lift. It works by adjusting the airflow over and under the wings, ensuring that the airplane maintains horizontal equilibrium.",
+    "id": 218
+  },
+  {
+    "generator": "science-trivia",
+    "input": "schoolhouse",
+    "problem": "What is the smallest unit of electricity in a circuit? Its charge is equal to the charge of approximately how many electrons?",
+    "length": 125,
+    "tags": [
+      "circuit",
+      "electricity",
+      "electron",
+      "charge",
+      "3rd-grade",
+      "science-trivia"
+    ],
+    "solution": "The smallest unit of electricity in a circuit is the electron. One electron carries a charge of approximately -1.6\times10^{-19} Coulomb.",
+    "id": 219
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "bonfire",
+    "problem": "There is a bonfire with a circular perimeter of 12 meters. The diameter of the bonfire is 2 meters less than the radius. What is the radius of the bonfire?",
+    "length": 155,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "circle-geometry",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let r be the radius of the bonfire in meters.\n 2r + 2(r-2) = 12\n 4r = 16\n r = 4 meters\n",
+    "id": 220
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "bonfire",
+    "problem": "A bonfire is consuming firewood at a rate of 1.5 meters per minute. If the bonfire starts at 7:30 PM, when will the firewood be completely consumed if there are 4.5 meters of firewood remaining?",
+    "length": 194,
+    "tags": [
+      "time-distance",
+      "speed",
+      "linear-motion",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "Let t be the time in minutes since the bonfire started. The amount of firewood remaining is then 4.5 - 1.5t meters. When the firewood is completely consumed, this amount is 0. So we can write the equation:  $$0 = 4.5 - 1.5t$$  Solving for t, we get:  $$1.5t = 4.5$$  $$t = 3$$  Therefore, the firewood will be completely consumed at 7:30 PM + 3 minutes = 7:33 PM.",
+    "id": 221
+  },
+  {
+    "generator": "geometry",
+    "input": "bonfire",
+    "problem": "A bonfire has a circular base with a diameter of 2 meters. If the bonfire is 1.5 meters tall, what is the volume of the bonfire's cone-shaped space?",
+    "length": 148,
+    "tags": [
+      "geometry",
+      "circle",
+      "cone",
+      "volume",
+      "fifth-grade"
+    ],
+    "solution": "First, find the radius of the circle by dividing the diameter by 2. Then, use the formula for the volume of a cone to find the volume of the bonfire's space.",
+    "id": 222
+  },
+  {
+    "generator": "probability",
+    "input": "bonfire",
+    "problem": "There's a bonfire with 30 cubic meters of wood. The bonfire burns at a rate of 0.5 cubic meters per minute. What's the probability that the bonfire will burn through all the wood in 2 hours?",
+    "length": 190,
+    "tags": [
+      "probability",
+      "uniform-distribution",
+      "conditional-probability",
+      "5th-grade"
+    ],
+    "solution": "P = (30cm / 0.5cm/min) * (2h / 1h) = 120. Therefore, the probability that the bonfire will burn through all the wood in 2 hours is 120 out of 120, or 1.",
+    "id": 223
+  },
+  {
+    "generator": "physics",
+    "input": "bonfire",
+    "problem": "A bonfire has a cylindrical shape with a height of 1.5 m and a diameter of 1.2 m. If the bonfire consumes fuel at a rate of 0.5 kg/min, how much fuel will be consumed in 20 minutes?",
+    "length": 181,
+    "tags": [
+      "volume-cylinder",
+      "mass-consumption",
+      "proportional-relationships",
+      "5th-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their knowledge of cylinder volume and mass to solve a real-world problem related to energy production. It also involves proportional relationships and unit conversions.",
+    "id": 224
+  },
+  {
+    "generator": "science",
+    "input": "bonfire",
+    "problem": "A bonfire has a radius of 1.5 meters. If the bonfire is 1.2 meters tall, what is its volume?",
+    "length": 92,
+    "tags": [
+      "math-volume",
+      "geometry-cylinder",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires students to recall the formula for the volume of a cylinder, which is V = πr²h. It also requires them to be able to substitute values into the formula and solve for the volume.",
+    "id": 225
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "bonfire",
+    "problem": "We built a bonfires last night to keep warm.",
+    "length": 44,
+    "tags": [
+      "grammatical-error",
+      "singular-noun",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'bonfires' instead of 'bonfire'. 'Bonfires' is the plural form of 'bonfire', so it should be 'We built a bonfire last night...'.",
+    "id": 226
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "bonfire",
+    "problem": "The roaring bonfire cast dancing shadows on the towering trees, casting an eerie glow upon the star-studded night sky.",
+    "length": 118,
+    "tags": [
+      "5th-grade-spelling",
+      "misspell-shadow",
+      "grammar-shadows-dancing",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'shadowing' instead of 'shadows'. 'Shadowing' means to reduce the brightness of something, while 'shadows' refers to dark areas created by an object blocking light.",
+    "id": 227
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "bonfire",
+    "problem": "Describe a cozy night where a bonfire is warming the night air, casting shadows of dancing flames onto the surrounding forest.",
+    "length": 126,
+    "tags": [
+      "fifth-grade",
+      "bonfire",
+      "night",
+      "shadows",
+      "forest",
+      "warming",
+      "cosy",
+      "sentence-prompt"
+    ],
+    "solution": "The crackling flames of the bonfire cast long shadows of dancing trees onto the moonlit forest.",
+    "id": 228
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "bonfire",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like the bonfire of wings that helps control the pitch, right?",
+    "length": 133,
+    "tags": [
+      "airplane",
+      "horizontal stabilizer",
+      "tailplane",
+      "pitch",
+      "fifth grade",
+      "aviation",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer, also known as the tailplane, helps maintain level flight by counteracting the natural tendency of an airplane to rise or dive. Its wings are angled slightly upwards to create lift, which counteracts the gravitational force pulling the airplane downwards.",
+    "id": 229
+  },
+  {
+    "generator": "science-trivia",
+    "input": "bonfire",
+    "problem": "What is the scientific explanation for the glowing embers of a bonfire?",
+    "length": 71,
+    "tags": [
+      "chemistry",
+      "3rd-grade",
+      "bonfire",
+      "chemical-reactions",
+      "embers",
+      "gas",
+      "science-trivia"
+    ],
+    "solution": "The glowing embers in a bonfire are due to the chemical reactions taking place between the wood and oxygen. As the wood burns, it releases gases like carbon monoxide and hydrogen, which react with oxygen in the air to produce carbon dioxide and water vapor. The heat from these reactions causes the embers to glow.",
+    "id": 230
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "abroad",
+    "problem": "A plane ticket to a foreign country costs 2000€, while a hotel room for the same trip costs 800€. If you spend a total of 3000€ on your trip abroad, how much did you spend on the plane ticket?",
+    "length": 192,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the cost of the plane ticket and y be the cost of the hotel room. We know that x + y = 3000€ and x = 2000€. Substituting the second equation into the first equation, we get 2000€ + y = 3000€. Solving for y, we get y = 1000€. Therefore, you spent 1000€ on the hotel room.",
+    "id": 231
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "abroad",
+    "problem": "An airplane departs from London at 10:00 am and travels abroad to Paris at a speed of 800 km/h. If the flight duration is 2 hours, what time will the airplane arrive in Paris?",
+    "length": 175,
+    "tags": [
+      "time-distance",
+      "speed",
+      "flight",
+      "metric-units",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate the distance between the two cities. Distance = Speed × Time. Distance = 800 km/h × 2h = 1600 km.  Next, we need to find the arrival time in Paris. Arrival time = Departure time + Flight duration. Arrival time = 10:00 am + 2h = 12:00 pm.  Therefore, the airplane will arrive in Paris at **12:00 pm**.",
+    "id": 232
+  },
+  {
+    "generator": "geometry",
+    "input": "abroad",
+    "problem": "An architect wants to design a rectangular building with a perimeter of 40 meters. The length of the building is 2 meters more than its width. What are the dimensions of the building?",
+    "length": 183,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "dimensions",
+      "fifth-grade"
+    ],
+    "solution": "First, let's represent the width of the building as 'w' meters. Since the length is 2 meters more than the width, the length can be expressed as 'w + 2' meters. The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 40 meters, so we can write the equation: 2(w + 2) + 2w = 40. Solving this equation will give us the values for both the width and length of the building.",
+    "id": 233
+  },
+  {
+    "generator": "probability",
+    "input": "abroad",
+    "problem": "An airline offers direct flights from London to two different cities: Paris and Rome. The probability of reaching Paris is 70%, while the probability of reaching Rome is 30%. If you book a flight to go abroad, what is the probability that you will reach Rome?",
+    "length": 259,
+    "tags": [
+      "probability",
+      "flight",
+      "destinations",
+      "conditional_probability",
+      "fifth_grade"
+    ],
+    "solution": "\frac{30}{70} = \frac{3}{7}",
+    "id": 234
+  },
+  {
+    "generator": "physics",
+    "input": "abroad",
+    "problem": "An airplane flies 3400,000 m abroad on a direct route. If the total fuel consumption on the trip is 180 kg, what is the average fuel consumption of the airplane per kilometer traveled?",
+    "length": 184,
+    "tags": [
+      "distance",
+      "mass",
+      "average",
+      "fifth-grade",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of distance, mass, and average to solve a real-world problem. It involves dividing the total fuel consumption by the distance traveled to find the average fuel consumption per kilometer.",
+    "id": 235
+  },
+  {
+    "generator": "science",
+    "input": "abroad",
+    "problem": "An airplane travels 3500 km abroad to reach its destination. If the average fuel consumption of the airplane is 200 L per 100 km, how many liters of fuel will the airplane need to reach its destination?",
+    "length": 202,
+    "tags": [
+      "multiplication",
+      "division",
+      "distance",
+      "fuel",
+      "conversion",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their understanding of multiplication and division to solve a real-world problem involving distance and fuel consumption. It also requires them to convert between kilometers and liters.",
+    "id": 236
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "abroad",
+    "problem": "She going abroad with her family next month.",
+    "length": 44,
+    "tags": [
+      "grammar-error",
+      "tense-error",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. The correct form is 'She is going abroad with her family next month.' The word 'going' should be 'is going' because 'she' is a singular third-person subject.",
+    "id": 237
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "abroad",
+    "problem": "I can't wait to abroad to Europe next summer!",
+    "length": 45,
+    "tags": [
+      "spell-check",
+      "grammar-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'abroad' instead of 'abroad to'. 'Abroad' means 'in a foreign country', but 'abroad to' means 'going to a foreign country'.",
+    "id": 238
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "abroad",
+    "problem": "Write a sentence using the word 'abroad' to describe a place you would like to visit that is far from your home.",
+    "length": 112,
+    "tags": [
+      "grade:5",
+      "vocabulary:abroad",
+      "context:travel",
+      "complexity:medium",
+      "sentence-prompt"
+    ],
+    "solution": "I would love to explore the vibrant streets of Barcelona abroad, tasting delicious pastries and learning about their culture.",
+    "id": 239
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "abroad",
+    "problem": "What is the function of the tail wing on an airplane? It helps to provide stability and control by influencing the aircraft's _,_ moment.",
+    "length": 137,
+    "tags": [
+      "airplane",
+      "stability",
+      "torque",
+      "fifth-grade",
+      "airplane-trivia"
+    ],
+    "solution": "The tail wing helps to stabilize the airplane during takeoff and landing by counteracting the rotating force (torque) generated by the engines. This ensures that the airplane remains stable and under control during these critical phases of flight.",
+    "id": 240
+  },
+  {
+    "generator": "science-trivia",
+    "input": "abroad",
+    "problem": "How many grams of sodium are in 1 liter of seawater, if the average salinity of seawater is 35 parts per thousand?",
+    "length": 114,
+    "tags": [
+      "chemistry",
+      "seawater",
+      "sodium",
+      "concentration",
+      "5thGrade",
+      "science-trivia"
+    ],
+    "solution": "The concentration of sodium in seawater can be calculated as 35 grams of sodium per kilogram of seawater. One liter of seawater is equal to 1 kilogram. Therefore, there are 35 grams of sodium in 1 liter of seawater.",
+    "id": 241
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "bustle",
+    "problem": "A bustling market has 3 times as many people buying fruits as those buying vegetables. If there are 120 people in the fruit section, how many people are there in the vegetable section?",
+    "length": 184,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "multi-step",
+      "5th-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of people in the vegetable section.\n3x=120\nx=40\nTherefore, there are 40 people in the vegetable section.",
+    "id": 242
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "bustle",
+    "problem": "A bustling marketplace has a foot traffic of 150 people per minute. If the average speed of a person in the marketplace is 1.2 m/s, how long will it take for 300 people to pass through the marketplace?",
+    "length": 201,
+    "tags": [
+      "fifth-grade",
+      "time-distance",
+      "speed",
+      "traffic",
+      "marketplace",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the time it takes for one person to pass through the marketplace. We can divide the total traffic per minute by the average speed of a person: 150 ÷ 1.2 = 125 s/person.  Next, we need to find the time it takes for 300 people to pass through the marketplace. We can multiply the time it takes for one person by the number of people: 125 × 3 = 375 s.  Therefore, it will take 375 seconds for 300 people to pass through the bustling marketplace.",
+    "id": 243
+  },
+  {
+    "generator": "geometry",
+    "input": "bustle",
+    "problem": "A bustling marketplace has a circular central plaza with a radius of 10 meters. Vendors set up booths along the perimeter of the plaza, leaving a 2-meter buffer zone around the central area. What is the total length of the perimeter of the vendor booths?",
+    "length": 254,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "circle",
+      "radius",
+      "buffer zone",
+      "fifth-grade"
+    ],
+    "solution": "First, we need to find the circumference of the central plaza using the formula: C = 2πr. Then, we need to calculate the length of the perimeter of the booths by adding the circumference of the plaza with the total buffer zone width around the plaza.",
+    "id": 244
+  },
+  {
+    "generator": "probability",
+    "input": "bustle",
+    "problem": "A bustling market has 300 stalls selling various goods. 40% of the stalls sell food, while the remaining 60% sell non-food items. If a customer randomly selects 5 stalls to visit, what is the probability that exactly 3 of them sell food items?",
+    "length": 243,
+    "tags": [
+      "probability-combinations",
+      "conditional-probability",
+      "fifth-grade",
+      "probability"
+    ],
+    "solution": "\frac{binom{120}{3}binom{180}{2}}{binom{300}{5}}$",
+    "id": 245
+  },
+  {
+    "generator": "physics",
+    "input": "bustle",
+    "problem": "A bustling marketplace has 300 people moving around at an average speed of 1.5 m/s. What is the total distance covered by all the people in the marketplace in one minute?",
+    "length": 170,
+    "tags": [
+      "fifth-grade",
+      "velocity",
+      "displacement",
+      "distance",
+      "marketplace",
+      "people",
+      "physics"
+    ],
+    "solution": "This problem involves calculating the total distance covered by a group of people moving at different speeds. It requires an understanding of velocity, displacement, and distance. This is a suitable problem for 5th graders who have been introduced to these concepts.",
+    "id": 246
+  },
+  {
+    "generator": "science",
+    "input": "bustle",
+    "problem": "A bustling marketplace has 360 shops. If each shop sells an average of 80 customers per hour, how many customers are there in the marketplace every hour?",
+    "length": 153,
+    "tags": [
+      "multiples",
+      "arithmetic",
+      "commerce",
+      "marketplace",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires students to multiply the number of shops by the average number of customers per hour to find the total number of customers in the marketplace every hour.",
+    "id": 247
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "bustle",
+    "problem": "The bustling streets were filled with cars, people, and even a few motorcycles, creating a lively atmosphere.",
+    "length": 109,
+    "tags": [
+      "grammatical-error",
+      "tense-agreement",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a minor grammatical error. 'Creating' should be 'creates' in the last sentence.",
+    "id": 248
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "bustle",
+    "problem": "The bustling marketplace was filled with the hum of conversations and the scent of spices, creating a lively atmosphere.",
+    "length": 120,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "MisspelledWord",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'bustling' instead of 'bustle'. 'Bustling' means very busy or active, while 'bustle' refers to a commotion or activity.",
+    "id": 249
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "bustle",
+    "problem": "Describe a bustling market where the scent of fresh spices fills the air and brightly colored fabrics dance like waves in the breeze.",
+    "length": 133,
+    "tags": [
+      "4th grade",
+      "figurative language",
+      "sensory details",
+      "market",
+      "spices",
+      "fabric",
+      "sentence-prompt"
+    ],
+    "solution": "The colorful spices at the market bustled around like happy little birds.",
+    "id": 250
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "bustle",
+    "problem": "What is the function of the winglet on an airplane? It's like a mini wing that helps the main wings generate more lift.",
+    "length": 119,
+    "tags": [
+      "airplane",
+      "winglet",
+      "lift",
+      "aviation",
+      "3rdGrade",
+      "airplane-trivia"
+    ],
+    "solution": "Winglets are small surfaces attached to the main wings of an airplane. They generate additional lift, which helps the airplane take off and climb more efficiently.",
+    "id": 251
+  },
+  {
+    "generator": "science-trivia",
+    "input": "bustle",
+    "problem": "What is the scientific term for the amount of activity or movement in a liquid solution?",
+    "length": 88,
+    "tags": [
+      "science",
+      "chemistry",
+      "solution",
+      "concentration",
+      "3rdGrade",
+      "science-trivia"
+    ],
+    "solution": "The scientific term for the amount of activity or movement in a liquid solution is **concentration**. Concentration is measured in moles of solute per liter of solution.",
+    "id": 252
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "heather",
+    "problem": "Heather wants to buy some flowers and a vase. Flowers cost €5 each and the vase costs €10. If she spends a total of €30, how many flowers could she buy?",
+    "length": 152,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "linear-equation",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of flowers Heather buys.\nx * 5 + 10 = 30\nx * 5 = 20\nx = 4\nHeather can buy 4 flowers.",
+    "id": 253
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "heather",
+    "problem": "Heather hikes along a trail at a speed of 3.5 kilometers per hour. If she started her hike at 8:30 AM, when will she reach a point that is 7 kilometers away from the trailhead?",
+    "length": 176,
+    "tags": [
+      "time-distance",
+      "speed",
+      "distance",
+      "trail",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate the time it will take Heather to reach the 7 kilometer point. We can use the formula: time = distance / speed.  Time = 7 kilometers / 3.5 kilometers per hour = 2 hours.  Therefore, Heather will reach the 7 kilometer point at 10:30 AM.",
+    "id": 254
+  },
+  {
+    "generator": "geometry",
+    "input": "heather",
+    "problem": "A rectangular garden bed has a perimeter of 10 m. If the length of the garden bed is 2 m less than twice the width, what are the dimensions of the garden bed?",
+    "length": 158,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "fifth-grade"
+    ],
+    "solution": "First, we can find the formula for the perimeter of a rectangle: Perimeter = 2(length + width). Then, we can substitute the given information into the formula and solve for the length and width.",
+    "id": 255
+  },
+  {
+    "generator": "probability",
+    "input": "heather",
+    "problem": "There are 40 heather plants in a field, and 1 out of every 5 plants has white flowers. What is the probability of selecting a plant with white flowers from the field?",
+    "length": 166,
+    "tags": [
+      "probability",
+      "ratio",
+      "fraction",
+      "fifth-grade"
+    ],
+    "solution": "\frac{8}{10} = 0.8",
+    "id": 256
+  },
+  {
+    "generator": "physics",
+    "input": "heather",
+    "problem": "A heather bush casts a shadow that is 2.5 m long on the ground when the sun is directly overhead. If the bush is 1.5 m tall, what is the length of the shadow when the sun is at a 45° angle to the horizon?",
+    "length": 204,
+    "tags": [
+      "geometry",
+      "shadows",
+      "angles",
+      "fifth-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of triangles and shadows to solve a real-world problem. It involves measuring lengths and using ratios to find the length of the shadow at a different angle.",
+    "id": 257
+  },
+  {
+    "generator": "science",
+    "input": "heather",
+    "problem": "A heather bush has a circumference of 1.5 meters. If the bush spreads outwards at a constant rate of 0.2 meters per week, how many weeks will it take for the circumference of the bush to be 2 meters?",
+    "length": 199,
+    "tags": [
+      "measurement",
+      "circumference",
+      "growth",
+      "linear",
+      "5thGrade",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their knowledge of circumference and linear growth. Students need to understand the concept of circumference and be able to calculate the rate of change of a variable. This problem also requires them to be able to solve linear equations.",
+    "id": 258
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "heather",
+    "problem": "The heather beauty of the sunrise was breathtaking.",
+    "length": 51,
+    "tags": [
+      "misspelling-level5",
+      "grammar-error-5th",
+      "age-appropriate-5th",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a misspelling. The correct word is 'Heather'.",
+    "id": 259
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "heather",
+    "problem": "The heather of the field smelled sweet in the morning breeze.",
+    "length": 61,
+    "tags": [
+      "5th-grade-spelling",
+      "misspelling",
+      "flower-vocabulary",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'heather' instead of 'heath'. 'Heath' is the correct word for a wild, bushy growth of heather plants.",
+    "id": 260
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "heather",
+    "problem": "Write a sentence using the word 'heather' that describes a colorful arrangement of flowers.",
+    "length": 91,
+    "tags": [
+      "english-grammar",
+      "flower-arrangement",
+      "sentence-construction",
+      "fifth-grade",
+      "sentence-prompt"
+    ],
+    "solution": "The vibrant heathers in the garden formed a stunning tapestry of reds, oranges, and purples.",
+    "id": 261
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "heather",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like a giant wing that helps control the airplane's _,_, and altitude.",
+    "length": 141,
+    "tags": [
+      "airplane",
+      "horizontal",
+      "stabilizer",
+      "equilibrium",
+      "stability",
+      "pitch",
+      "fifth-grade",
+      "aviation",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer helps to maintain the airplane's equilibrium and stability by countering the effects of airflow over the wings. By adjusting its angle, pilots can control the airplane's pitch and maintain a steady course.",
+    "id": 262
+  },
+  {
+    "generator": "science-trivia",
+    "input": "heather",
+    "problem": "What is the scientific name for a plant commonly known as 'Heather'?",
+    "length": 68,
+    "tags": [
+      "science",
+      "biology",
+      "plants",
+      "Ericaceae",
+      "flowers",
+      "mountains",
+      "3rdGrade",
+      "science-trivia"
+    ],
+    "solution": "The scientific name for heather is 'Ericaceae'. This family of plants includes many species with colorful flowers and foliage commonly found in mountainous regions.",
+    "id": 263
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "rebel",
+    "problem": "A rebel group has stashed away 240 kilograms of supplies in two secret locations. One stash holds 3 times as many supplies as the other. How many kilograms of supplies are in each stash?",
+    "length": 186,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the weight of the smaller stash (in kilograms).\nThe weight of the larger stash is then 3x.\nTogether, the stashes hold 240 kilograms, so:\nx + 3x = 240\nSolving for x, we get:\nx = 60\nThe smaller stash holds 60 kilograms, and the larger stash holds 3x = 3 * 60 = 180 kilograms.",
+    "id": 264
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "rebel",
+    "problem": "A rebel group travels 300km in 5 hours. At what speed did they travel, in kilometers per hour?",
+    "length": 94,
+    "tags": [
+      "time-distance",
+      "speed",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "To find the speed, we can use the formula: speed = distance / time. Substituting the given values, we get: speed = 300km / 5h = 60km/h. Therefore, the rebel group travelled at a speed of 60km/h.",
+    "id": 265
+  },
+  {
+    "generator": "geometry",
+    "input": "rebel",
+    "problem": "A rectangular field has a perimeter of 80 meters. If the length of the field is 10 meters more than its width, what are the dimensions of the field?",
+    "length": 148,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "dimensions",
+      "fifth-grade"
+    ],
+    "solution": "First, we can use the formula for the perimeter of a rectangle: Perimeter = 2(length + width). We know the perimeter is 80 meters, so we can write the equation: 80 = 2(length + width). Next, we can use the information about the length being 10 meters more than the width to write another equation: length = width + 10. We can substitute the second equation into the first equation and solve for the width. Then, we can use the value of the width to find the length.",
+    "id": 266
+  },
+  {
+    "generator": "probability",
+    "input": "rebel",
+    "problem": "A bag of rebel marbles contains 30 marbles, of which 15 are red and 15 are blue. If you randomly pick 5 marbles from the bag, what is the probability that exactly 3 of them are red?",
+    "length": 181,
+    "tags": [
+      "probability-concepts",
+      "conditional-probability",
+      "binomial-distribution",
+      "fifth-grade",
+      "probability"
+    ],
+    "solution": "\frac{13}{21}",
+    "id": 267
+  },
+  {
+    "generator": "physics",
+    "input": "rebel",
+    "problem": "An energetic rebel group throws a 1 kg ball horizontally with a speed of 5 m/s from a height of 2 m. What is the ball's potential energy when it reaches the ground?",
+    "length": 164,
+    "tags": [
+      "physics",
+      "gravity",
+      "potential-energy",
+      "kinetic-energy",
+      "fifth-grade"
+    ],
+    "solution": "This problem requires students to recall the formula for gravitational potential energy and apply it to a real-life scenario. It also involves understanding the relationship between potential and kinetic energy.",
+    "id": 268
+  },
+  {
+    "generator": "science",
+    "input": "rebel",
+    "problem": "An underground rebellion has 120 rebels, each with a supply of 500 grams of explosive material. The rebellion's leader wants to ensure that each rebel has the same amount of explosive material. How many grams of explosive material should each rebel have?",
+    "length": 254,
+    "tags": [
+      "division",
+      "metric-units",
+      "fifth-grade",
+      "rebellion",
+      "explosive-material",
+      "science"
+    ],
+    "solution": "This problem requires dividing a large quantity of explosive material equally among a group of rebels. This is a division problem suitable for 5th graders.",
+    "id": 269
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "rebel",
+    "problem": "The rebel group bravely fought against the oppressive government, seeking to restore freedom and justice for the people.",
+    "length": 120,
+    "tags": [
+      "grammatical-error",
+      "incorrect-verb-phrase",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence correctly uses the word 'rebel' but contains a grammatical error in the phrase 'seeking to restore freedom and justice for the people'. The correct form should be 'to restore freedom and justice for the people'.",
+    "id": 270
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "rebel",
+    "problem": "The rebel students whispered plans to overthrow the unfair principal's reign, but their voices were hushed by the watchful eyes of the teachers.",
+    "length": 144,
+    "tags": [
+      "5th-grade-vocabulary",
+      "spelling-error",
+      "grammar-agreement",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'hushed' instead of 'silenced'. 'Silenced' is the correct word when something is completely quiet, while 'hushed' means quieter or less loud. In this sentence, the students' voices were becoming quieter, not completely silent.",
+    "id": 271
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "rebel",
+    "problem": "Write a sentence using the word 'rebel' that describes a character who stands up for what they believe in, even when it means going against the majority.",
+    "length": 153,
+    "tags": [
+      "5thGrade",
+      "CharacterDevelopment",
+      "MoralDilemmas",
+      "MagicTheme",
+      "StandingUp",
+      "MajorityConsensus",
+      "sentence-prompt"
+    ],
+    "solution": "The young rebel hero used her magic to fight for the rights of the forest creatures.",
+    "id": 272
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "rebel",
+    "problem": "What special feature of a rebel aircraft allows it to take off and land vertically, like a bird?",
+    "length": 96,
+    "tags": [
+      "airplane",
+      "vertical takeoff",
+      "vertical landing",
+      "5th grade",
+      "aviation",
+      "airplane-trivia"
+    ],
+    "solution": "Rebel aircraft have a vertical takeoff and landing system (VTOL), which means they can generate enough lift to take off and land vertically. This feature allows them to operate from smaller landing pads and operate in more confined spaces.",
+    "id": 273
+  },
+  {
+    "generator": "science-trivia",
+    "input": "rebel",
+    "problem": "Which element has the highest atomic number that can exist in a stable, neutral state?",
+    "length": 86,
+    "tags": [
+      "science",
+      "chemistry",
+      "atomic number",
+      "element",
+      "fifth grade",
+      "science-trivia"
+    ],
+    "solution": "The atomic number of an element represents the number of protons in an atom's nucleus. The highest stable atomic number is 92, which corresponds to the element lead. Lead has 92 protons in its nucleus, giving it the highest atomic number of any stable element.",
+    "id": 274
+  },
+  {
+    "generator": "arithmetic",
+    "input": "rebel",
+    "problem": ",,5^2-2(1/3)^3,,",
+    "length": 16,
+    "tags": [
+      "arithmetic",
+      "exponents",
+      "fractions",
+      "decimals",
+      "fifth-grade"
+    ],
+    "solution": ",,125/27-2/27,,",
+    "id": 275
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "sparrow",
+    "problem": "There are twice as many sparrows as there are nests in a tree. If there are 15 nests, how many sparrows are there in total?",
+    "length": 123,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "word-problem",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of sparrows. Then, the number of nests is x/2. We know there are 15 nests, so:  $$x/2 = 15$$  Solving for x:  $$x = 15 * 2 = 30$$  There are **30 sparrows** in total.",
+    "id": 276
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "sparrow",
+    "problem": "A sparrow travels 3.5 kilometers in 7 minutes. What is the sparrow's average speed in meters per minute?",
+    "length": 104,
+    "tags": [
+      "distance",
+      "speed",
+      "time",
+      "conversion",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to convert kilometers to meters. 1 kilometer is equal to 1000 meters. So, 3.5 kilometers is equal to 3.5 * 1000 = 3500 meters.  Next, we need to find the average speed by dividing the distance traveled by the time taken.   $$Average speed = \frac{Distance}{Time}$$  $$Average speed = \frac{3500m}{7min}$$  $$Average speed = 500m/min$$  Therefore, the sparrow's average speed is 500 meters per minute.",
+    "id": 277
+  },
+  {
+    "generator": "geometry",
+    "input": "sparrow",
+    "problem": "A sparrow's nest is shaped like a pyramid with a slant height of 15 cm and a base perimeter of 40 cm. What is the area of the nest's roof?",
+    "length": 138,
+    "tags": [
+      "geometry",
+      "pyramid",
+      "perimeter",
+      "height",
+      "area",
+      "fifth-grade"
+    ],
+    "solution": "First, we need to find the length of one side of the base using the perimeter. Divide the perimeter by 4 to get the length of one side. Then, use the slant height and the side length to find the area of the triangle-shaped roof using the formula: area = (base * height) / 2.",
+    "id": 278
+  },
+  {
+    "generator": "probability",
+    "input": "sparrow",
+    "problem": "There are 100 sparrows chirping in a park. 30% of them are adult males. What is the probability of randomly selecting a sparrow that is not an adult male?",
+    "length": 154,
+    "tags": [
+      "probability",
+      "bird",
+      "park",
+      "adult",
+      "male",
+      "fifth-grade"
+    ],
+    "solution": "\frac{70}{100} = 0.7",
+    "id": 279
+  },
+  {
+    "generator": "physics",
+    "input": "sparrow",
+    "problem": "A sparrow flutters horizontally at a velocity of 5 m/s. If the sparrow's wings beat 10 times in one second, what is the distance the sparrow covers in one wingbeat?",
+    "length": 164,
+    "tags": [
+      "physics",
+      "motion",
+      "velocity",
+      "period",
+      "fifth-grade"
+    ],
+    "solution": "This problem requires students to combine their understanding of velocity and periodic motion to solve. They need to know how to calculate the distance covered in one wingbeat using the velocity and the number of wingbeats per second.",
+    "id": 280
+  },
+  {
+    "generator": "science",
+    "input": "sparrow",
+    "problem": "A sparrow can fly at a speed of 15 kilometers per hour. How many meters can a sparrow fly in 3 hours?",
+    "length": 101,
+    "tags": [
+      "measurement-conversion",
+      "speed",
+      "time",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires students to convert kilometers to meters and multiply the speed by the time spent flying.",
+    "id": 281
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "sparrow",
+    "problem": "The sparrow chirped happily as it flutters around the garden, munching on the juicy worms.",
+    "length": 90,
+    "tags": [
+      "grammar-error",
+      "verb-tense-mismatch",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second sentence. 'Flutters' should be 'flew'. 'Flutters' is the present tense, while 'flew' is the past tense.",
+    "id": 282
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "sparrow",
+    "problem": "The tiny sparrow fluttered around the garden, chirping happily as it searched for worms in the soil.",
+    "length": 100,
+    "tags": [
+      "5th-grade-spelling",
+      "misspelling",
+      "common-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'chirping happily'. The correct spelling is 'chirping happily' with two 'p's. This is a common misspelling that many students make.",
+    "id": 283
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "sparrow",
+    "problem": "Write a sentence using the word 'sparrow' that describes something small and feathered that might be seen flitting around in the springtime.",
+    "length": 140,
+    "tags": [
+      "sentence-construction",
+      "vocabulary-development",
+      "grammar-understanding",
+      "spring-theme",
+      "bird-knowledge",
+      "elementary-level",
+      "sentence-prompt"
+    ],
+    "solution": "The tiny sparrows chirped happily as they fluttered from flower to flower in the warm sunshine.",
+    "id": 284
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "sparrow",
+    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like the tail of a sparrow, but for aeroplanes!",
+    "length": 118,
+    "tags": [
+      "airplane",
+      "horizontal",
+      "stabilizer",
+      "sparrow",
+      "fifth-grade",
+      "metric",
+      "pitch",
+      "lift",
+      "drag",
+      "airplane-trivia"
+    ],
+    "solution": "The horizontal stabilizer helps to control the airplane's pitch. It counteracts the lift and drag forces acting on the wings, ensuring that the airplane maintains stable flight.",
+    "id": 285
+  },
+  {
+    "generator": "science-trivia",
+    "input": "sparrow",
+    "problem": "What is the approximate volume of a sparrow's beak in milliliters?",
+    "length": 66,
+    "tags": [
+      "birds",
+      "biology",
+      "volume",
+      "3rd-grade",
+      "science-trivia"
+    ],
+    "solution": "The beak of a sparrow is approximately the size of a small marble. A marble's volume is about 5 ml. So, the beak of a sparrow is roughly 5 milliliters.",
+    "id": 286
+  },
+  {
+    "generator": "arithmetic",
+    "input": "sparrow",
+    "problem": ",,3 + 1/5(2 - 1/3),,",
+    "length": 18,
+    "tags": [
+      "arithmetic",
+      "fractions",
+      "multiplication",
+      "fifth-grade"
+    ],
+    "solution": ",,11/15,,",
+    "id": 287
+  },
+  {
+    "generator": "arithmetic-carry",
+    "input": "sparrow",
+    "problem": ",=345, +, 87, - 12,34",
+    "length": 21,
+    "tags": [
+      "arithmetic",
+      "fifth-grade",
+      "borrowing",
+      "carrying",
+      "multi-digit",
+      "arithmetic-carry"
+    ],
+    "solution": "Remember that when you borrow 1 from the tens place to the ones place, you need to subtract 1 from the tens place as well. This is similar to when a sparrow uses its beak to take something away from another sparrow.",
+    "id": 288
+  },
+  {
+    "generator": "arithmetic-multiplication",
+    "input": "sparrow",
+    "problem": "543 x 234",
+    "length": 9,
+    "tags": [
+      "multi-digit-multiplication",
+      "fifth-grade",
+      "arithmetic",
+      "math",
+      "multiplication-error",
+      "arithmetic-multiplication"
+    ],
+    "id": 289
+  },
+  {
+    "generator": "arithmetic-division",
+    "input": "sparrow",
+    "problem": "1234 ÷ 567",
+    "length": 10,
+    "tags": [
+      "division-with-carrying",
+      "rounding-errors",
+      "fifth-grade-math",
+      "arithmetic-division"
+    ],
+    "solution": "This problem tests several common errors in integer division. Students may forget to carry digits correctly, or may not understand when to round their answer. It also requires dividing by a number that is slightly larger than the dividend, making the problem slightly more challenging.",
+    "id": 290
+  },
+  {
+    "generator": "handwriting-exercise",
+    "input": "sparrow",
+    "problem": "Sparrows flutter through the whispering grass.",
+    "length": 46,
+    "tags": [
+      "fifth-grade",
+      "grammar",
+      "handwriting",
+      "nonsense",
+      "handwriting-exercise"
+    ],
+    "solution": "This sentence uses basic sentence structure and common words that are appropriate for a 5th grade student.",
+    "id": 291
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "enthusiast",
+    "problem": "An enthusiast gardener has 30 meters of fencing material to enclose two rectangular vegetable patches. One patch is 2 meters longer than the other. Find the length of each patch.",
+    "length": 178,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "word-problem",
+      "metric-units",
+      "5th-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x and x+2 represent the lengths (in meters) of the two patches. Then, 2x + 2(x+2) = 30. Solving for x gives 2x = 20, so the lengths are 10 and 12 meters.",
+    "id": 292
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "enthusiast",
+    "problem": "An enthusiastic runner covers 300 meters in 5 minutes. At this rate, how many minutes will it take them to cover 800 meters?",
+    "length": 124,
+    "tags": [
+      "time-distance",
+      "speed",
+      "meters",
+      "minutes",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we can calculate the runner's speed in meters per minute by dividing the distance covered (300 meters) by the time taken (5 minutes). Speed = 300 meters / 5 minutes = 60 meters per minute.  Next, we can find the time it takes the runner to cover 800 meters by dividing the distance to be covered (800 meters) by the speed of the runner (60 meters per minute). Time = 800 meters / 60 meters per minute = 13 minutes.  Therefore, it will take the enthusiastic runner 13 minutes to cover 800 meters.",
+    "id": 293
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "upshot",
+    "problem": "A train travels 300 kilometers in 4 hours. Another train travels 200 kilometers in 3 hours. How much faster is the first train than the second train?",
+    "length": 149,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "The first train is 50 kilometers per hour faster than the second train.",
+    "id": 294
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "upshot",
+    "problem": "An airplane travels 450 km at a constant speed. If the pilot decides to increase the speed by 25%, how long will it take the airplane to cover the same distance at the new speed?",
+    "length": 178,
+    "tags": [
+      "time-distance",
+      "speed",
+      "proportion",
+      "5th-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the airplane's new speed. 25% of 450 km/h is 450 km/h * 0.25 = 112.5 km/h. So the new speed is 450 km/h + 112.5 km/h = 562.5 km/h.  Next, we need to use the formula: time = distance / speed.   Time taken at new speed = 450 km / 562.5 km/h = 0.8 hours.  Therefore, the airplane will take **0.8 hours** to cover the same distance at the new speed.",
+    "id": 295
+  },
+  {
+    "generator": "geometry",
+    "input": "upshot",
+    "problem": "A climber is at the bottom of a 30-meter tower. If they climb 5 meters every minute, what is the upshot (vertical distance climbed) after 6 minutes?",
+    "length": 148,
+    "tags": [
+      "geometry",
+      "fifth-grade",
+      "distance",
+      "vertical",
+      "climbing",
+      "tower"
+    ],
+    "solution": "First, find the total distance climbed in 6 minutes by multiplying 5 meters/minute by 6 minutes. Then, subtract the initial height (0 meters) from the total distance climbed to get the upshot.",
+    "id": 296
+  },
+  {
+    "generator": "probability",
+    "input": "upshot",
+    "problem": "There are 100 balls in a jar, of which 20 are red, 30 are blue, and the rest are green. If you reach into the jar and randomly select 10 balls, what is the probability that exactly 3 of them are red?",
+    "length": 199,
+    "tags": [
+      "probability",
+      "combinations",
+      "binomial",
+      "fifth-grade"
+    ],
+    "solution": "\frac{20\binom{80}{7}}{100\binom{100}{10}}$",
+    "id": 297
+  },
+  {
+    "generator": "physics",
+    "input": "upshot",
+    "problem": "An object is launched straight up from the ground with an initial velocity of 10 m/s. How high above the ground will the object be after 2 seconds?",
+    "length": 147,
+    "tags": [
+      "physics",
+      "mechanics",
+      "constant-acceleration",
+      "gravity",
+      "fifth-grade"
+    ],
+    "solution": "This problem requires students to apply the concept of constant acceleration due to gravity to calculate the height of an object launched vertically. It involves understanding the relationship between initial velocity, acceleration, and height.",
+    "id": 298
+  },
+  {
+    "generator": "science",
+    "input": "upshot",
+    "problem": "An astronaut on a space station throws a ball upwards with an initial velocity of 5 m/s. If the gravitational acceleration on the station is -2 m/s², how high above the station's surface will the ball be at the peak of its trajectory?",
+    "length": 234,
+    "tags": [
+      "fifth-grade",
+      "physics",
+      "gravity",
+      "projectile",
+      "potential-energy",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem involves applying the concept of potential energy to calculate the height reached by the ball. It requires understanding of velocity, gravitational acceleration, and potential energy changes during projectile motion.",
+    "id": 299
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "upshot",
+    "problem": "The upshot of their hard work was a remarkable transformation.",
+    "length": 62,
+    "tags": [
+      "grammatical-error",
+      "incorrect-word-usage",
+      "fifth-grade-level",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. 'Upshot' means 'result' or 'outcome,' so it should be 'The result of their hard work was a remarkable transformation.'",
+    "id": 300
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "upshot",
+    "problem": "The principal's upshot of the new policy caused quite a stir among the students.",
+    "length": 80,
+    "tags": [
+      "5th-grade",
+      "spelling-error",
+      "grammar-error",
+      "unfamiliar-word",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'upshot' instead of 'upshot'. 'Upshot' is an uncommon word that means 'a sudden change or development in a situation'.",
+    "id": 301
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "upshot",
+    "problem": "Write a sentence using the word 'upshot' that describes a situation where someone makes a sudden change that leads to a positive outcome.",
+    "length": 137,
+    "tags": [
+      "english-grammar",
+      "sentence-structure",
+      "vocabulary-development",
+      "grade-5",
+      "sentence-prompt"
+    ],
+    "solution": "The tired runner took an unexpected upshot by eating a banana and feeling a burst of energy.",
+    "id": 302
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "upshot",
+    "problem": "What is the function of the upshot in an airplane engine?",
+    "length": 57,
+    "tags": [
+      "airplane",
+      "engine",
+      "upshot",
+      "fuel",
+      "air",
+      "velocity",
+      "power",
+      "efficiency",
+      "school_grade_level:3",
+      "airplane-trivia"
+    ],
+    "solution": "The upshot is a device that increases the fuel-air mixture's velocity before it enters the engine's combustion chamber. This boosts the engine's power and efficiency by promoting better fuel-air mixing.",
+    "id": 303
+  },
+  {
+    "generator": "science-trivia",
+    "input": "upshot",
+    "problem": "What is the upshot of water vapor in the air at room temperature?",
+    "length": 65,
+    "tags": [
+      "science",
+      "chemistry",
+      "air",
+      "pressure",
+      "temperature",
+      "partial",
+      "3rd-grade",
+      "science-trivia"
+    ],
+    "solution": "The upshot of water vapor in the air at room temperature is its partial pressure. Partial pressure is the pressure exerted by a component of a mixture, in this case, the water vapor in the air.",
+    "id": 304
+  },
+  {
+    "generator": "arithmetic",
+    "input": "upshot",
+    "problem": ",,(3/4)-,((1/8)/(1/3)),,",
+    "length": 24,
+    "tags": [
+      "algebraic-expression",
+      "fraction",
+      "division",
+      "fifth-grade",
+      "arithmetic"
+    ],
+    "solution": ",,(11/24),",
+    "id": 305
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "recollect",
+    "problem": "A train travels 360km in the same direction as another train that travels 240km. If the two trains leave the same station at the same time, how long will it take for them to be 60km apart?",
+    "length": 188,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "distance",
+      "speed",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the time in hours it takes for the two trains to be 60km apart.\n360/x - 240/x = 60/x\n360 - 240 = 60x\n120 = 60x\nx = 2 hours",
+    "id": 306
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "recollect",
+    "problem": "A train travels at a speed of 60 km/h for 2 hours. How much distance did the train travel in total?",
+    "length": 99,
+    "tags": [
+      "time-distance",
+      "speed",
+      "metric",
+      "fifth-grade",
+      "algebraic-expression",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to convert the speed to meters per second. 60 km/h = 16.67 m/s. Next, we multiply the speed by the time to find the distance. 16.67 m/s * 2 h = 33.34 m. Therefore, the train traveled 33.34 meters in total.",
+    "id": 307
+  },
+  {
+    "generator": "geometry",
+    "input": "recollect",
+    "problem": "A circular garden bed has a circumference of 12 meters. If the gardener wants to recollect the soil from the inside of the bed, how much area does he need to cover? Remember, the formula for the area of a circle is A = πr^2.",
+    "length": 224,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "area",
+      "radius",
+      "fifth-grade"
+    ],
+    "solution": "First, the gardener needs to find the radius of the circle using the formula: C = 2πr. Then, he can use the area formula to find the amount of area he needs to cover.",
+    "id": 308
+  },
+  {
+    "generator": "probability",
+    "input": "recollect",
+    "problem": "There are 120 marbles in a jar, some of which are red and the rest are blue. If you randomly pick 30 marbles from the jar, you recollect that 20 of them are red. What is the probability that a randomly chosen marble from the jar is red?",
+    "length": 236,
+    "tags": [
+      "probability",
+      "random selection",
+      "ratio",
+      "fifth grade"
+    ],
+    "solution": "\frac{20}{30} = \frac{2}{3}",
+    "id": 309
+  },
+  {
+    "generator": "physics",
+    "input": "recollect",
+    "problem": "A student has collected 3.5 kg of rainwater in a barrel over the past month. If the barrel already contained 2.2 kg of water, how much water is in the barrel now?",
+    "length": 162,
+    "tags": [
+      "fifth-grade",
+      "measurement",
+      "weight",
+      "addition",
+      "decimals",
+      "physics"
+    ],
+    "solution": "This problem requires students to recall the concept of adding weights together. It also involves understanding place value and decimal notation.",
+    "id": 310
+  },
+  {
+    "generator": "science",
+    "input": "recollect",
+    "problem": "A scientist is recollecting data from a research project. He has recorded the amount of water collected in each of the 10 experimental containers in millilitres. If the total amount of water collected is 780 ml, what is the average amount of water in each container?",
+    "length": 266,
+    "tags": [
+      "division",
+      "average",
+      "metric-units",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem involves dividing a known total amount of water by the number of containers to find the average amount. This is a common division concept learned in 5th grade.",
+    "id": 311
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "sloppy",
+    "problem": "The bakery has a special offer: 5 croissant for 3€, and 3 pastries for 2€. How much would it cost to buy 7 croissants and 4 pastries?",
+    "length": 133,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "linear-equations",
+      "word-problem",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the cost of 1 croissant and y be the cost of 1 pastry.\n5x + 3y = 13\n3x + 4y = 10\nSolving the first equation for x: x = (13 - 3y) / 5\nSubstituting this into the second equation: 3((13 - 3y) / 5) + 4y = 10\nSolving for y: y = 2\nSubstituting this back into the first equation: x = (13 - 3*2) / 5 = 3.\nSo, 7 croissants and 4 pastries would cost 7*3 + 4*2 = 25€.",
+    "id": 312
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "sloppy",
+    "problem": "A ball is rolling on a grassy field at a speed of 2 m/s. If the ball starts at a point 5 meters from a tree, how long will it take for the ball to reach the tree if it continues to roll at a constant speed?",
+    "length": 206,
+    "tags": [
+      "time-distance",
+      "speed",
+      "fifth-grade",
+      "metric-units",
+      "time-distance-speed"
+    ],
+    "solution": "To find the time it takes for the ball to reach the tree, we can use the formula:  $$time = \frac{distance}{speed}$$  Substituting the given values into the formula:  $$time = \frac{5 m}{2 m/s} = 2.5 s$$  Therefore, it will take the ball 2.5 seconds to reach the tree.",
+    "id": 313
+  },
+  {
+    "generator": "geometry",
+    "input": "sloppy",
+    "problem": "A triangular sandbox has a perimeter of 120 cm. The longest side is 30 cm sloppier than the other two equal sides. What is the length of each equal side?",
+    "length": 153,
+    "tags": [
+      "fifth-grade",
+      "perimeter",
+      "triangle",
+      "sides",
+      "equality",
+      "measurement",
+      "geometry"
+    ],
+    "solution": "First, find the length of the longest side by subtracting 30 cm from the perimeter. Then, divide the remaining perimeter equally among the two equal sides.",
+    "id": 314
+  },
+  {
+    "generator": "probability",
+    "input": "sloppy",
+    "problem": "A baker has a jar containing 500 millilitres of sloppy batter. The batter is spilling over the rim at a rate of 10 millilitres per second. What is the probability that, after 30 seconds, less than 450 millilitres of batter remain in the jar?",
+    "length": 241,
+    "tags": [
+      "probability",
+      "uniform distribution",
+      "5th grade"
+    ],
+    "solution": "Let X be the amount of batter remaining in the jar after 30 seconds. Then, X follows a uniform distribution between 0 and 500 millilitres. The probability that X is less than 450 millilitres can be calculated as (450-0)/(500-0) = 0.9.",
+    "id": 315
+  },
+  {
+    "generator": "physics",
+    "input": "sloppy",
+    "problem": "A muddy puddle is 30 cm deep at its deepest point. If the puddle is considered to be 'sloppy' when it covers half of a circular playground with a radius of 10 m, what is the approximate volume of the muddy water in the puddle? Take π = 3.14.",
+    "length": 241,
+    "tags": [
+      "5thGrade",
+      "Measurement",
+      "Geometry",
+      "Area",
+      "Circumference",
+      "Volume",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of volume, area, and circumference to solve a real-world problem involving measurement and geometry. It involves two steps: calculating the area covered by the puddle and then calculating the volume of water using the depth and area.",
+    "id": 316
+  },
+  {
+    "generator": "science",
+    "input": "sloppy",
+    "problem": "A rectangular chocolate bar is 12 cm long and 8 cm wide. If the chocolate bar is melting at a rate of 0.5 cm/s, how long will it take for the chocolate bar to become completely sloppy?",
+    "length": 184,
+    "tags": [
+      "fifth-grade",
+      "rate of change",
+      "area",
+      "metric units",
+      "science"
+    ],
+    "solution": "This problem requires students to understand the concept of rate of change, specifically how to calculate the time it takes for something to change at a given rate. It also requires them to apply their knowledge of area to calculate the total amount of chocolate that is melting.",
+    "id": 317
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "sloppy",
+    "problem": "The sloopy spaghetti was all over the place, making it difficult to grab.",
+    "length": 73,
+    "tags": [
+      "grammar-error",
+      "mechanics",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'sloopy' in a way that is not standard in formal English. 'Sloopy' usually refers to something that is messy or drooping, but in this context, a more appropriate word would be 'sloppy' or 'sticky'.",
+    "id": 318
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "sloppy",
+    "problem": "The sloppy students were eating their lunch on the messy floor.",
+    "length": 63,
+    "tags": [
+      "5th-grade-grammar",
+      "plural-agreement",
+      "spelling-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'sloppy students'. The correct spelling should be 'sloppy students' with an 's' at the end to make the plural form.",
+    "id": 319
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "sloppy",
+    "problem": "Write a sentence using the word 'sloppy' and describing something that might be affected by gravity on the Moon.",
+    "length": 112,
+    "tags": [
+      "fifth-grade",
+      "gravity",
+      "moon",
+      "food",
+      "sloppy",
+      "sentence-prompt"
+    ],
+    "solution": "The astronaut's spaghetti dinner became incredibly sloppy due to the lack of gravity in space.",
+    "id": 320
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "sloppy",
+    "problem": "What is the approximate wingspan of a Boeing 747 in meters?",
+    "length": 59,
+    "tags": [
+      "airplane",
+      "wingspan",
+      "boeing",
+      "747",
+      "school:3",
+      "airplane-trivia"
+    ],
+    "solution": "The wingspan of a Boeing 747 is approximately 58 meters. This enormous wingspan helps the plane generate lift and keep it airborne.",
+    "id": 321
+  },
+  {
+    "generator": "science-trivia",
+    "input": "sloppy",
+    "problem": "If you have 250 milliliters of water in a glass and you add 30 milliliters of syrup, how much liquid will be in the glass in total?",
+    "length": 131,
+    "tags": [
+      "liquid-measurement",
+      "volume",
+      "metric-units",
+      "3rd-grade",
+      "science-trivia"
+    ],
+    "solution": "First, we add the volumes of water and syrup. 250 milliliters + 30 milliliters = 280 milliliters. Therefore, there will be **280 milliliters** of liquid in the glass in total.",
+    "id": 322
+  },
+  {
+    "generator": "arithmetic",
+    "input": "sloppy",
+    "problem": ",,(1/3) * (2/5) + 1/4,,",
+    "length": 21,
+    "tags": [
+      "arithmetic",
+      "multiplication",
+      "addition",
+      "fifth-grade"
+    ],
+    "solution": ",,(11/60),,",
+    "id": 323
+  },
+  {
+    "generator": "arithmetic-carry",
+    "input": "sloppy",
+    "problem": "Evaluate: 345,789 + 234,567 - 123,456",
+    "length": 37,
+    "tags": [
+      "fifth-grade",
+      "arithmetic",
+      "carries",
+      "borrows",
+      "symbolic-expression",
+      "arithmetic-carry"
+    ],
+    "solution": "This problem requires careful handling of carries and borrows. Remember to line up the digits from the right and work from the least significant digit to the most significant digit. Be sure to keep track of any carries or borrows that occur during the subtraction process.",
+    "id": 324
+  },
+  {
+    "generator": "arithmetic-multiplication",
+    "input": "sloppy",
+    "problem": "543 x 234 ?",
+    "length": 11,
+    "tags": [
+      "multiplication",
+      "integers",
+      "5thGrade",
+      "partial-products",
+      "zero-errors",
+      "place-value",
+      "arithmetic-multiplication"
+    ],
+    "id": 325
+  },
+  {
+    "generator": "arithmetic-division",
+    "input": "sloppy",
+    "problem": "432 : 89 = ?",
+    "length": 12,
+    "tags": [
+      "division",
+      "integers",
+      "partial-quotient-omission",
+      "rounding-error",
+      "fifth-grade",
+      "arithmetic-division"
+    ],
+    "solution": "This problem tests two common errors in integer division: \n- **Partial quotient omission:** Not dividing all the numbers in the dividend by the divisor.\n- **Incorrect rounding:** Rounding the quotient to the nearest whole number instead of the nearest decimal.",
+    "id": 326
+  },
+  {
+    "generator": "handwriting-exercise",
+    "input": "sloppy",
+    "problem": "Sloppy snails slurp sugary soup silently.",
+    "length": 41,
+    "tags": [
+      "fifth-grade-grammar",
+      "irregular-verbs",
+      "compound-adjectives",
+      "silent-letters",
+      "handwriting-exercise"
+    ],
+    "solution": "This sentence uses various word shapes and structures, including irregular verbs, compound adjectives, and silent letters.",
+    "id": 327
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "affinity",
+    "problem": "There is an affinity between the length of a rectangle and the width of a rectangle. If the length of a rectangle is 5 cm more than its width, and the perimeter of the rectangle is 40 cm, what are the dimensions of the rectangle?",
+    "length": 229,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "rectangle",
+      "perimeter",
+      "fifth-grade",
+      "metric",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x cm be the width of the rectangle.\nThe length of the rectangle is x + 5 cm.\nPerimeter = 2(width + length) = 40 cm\n2(x + x + 5) = 40\n2(2x + 5) = 40\n4x + 10 = 40\n4x = 30\nx = 7.5 cm\nTherefore, the width of the rectangle is 7.5 cm and the length is 7.5 + 5 = 12.5 cm.",
+    "id": 328
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "affinity",
+    "problem": "A train travels 300 km at a constant speed. If its speed were 20% faster, the journey would take 1 hour less. What was the original speed of the train?",
+    "length": 151,
+    "tags": [
+      "time-distance",
+      "speed",
+      "ratio",
+      "algebra",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the original speed of the train in km/h.  Using the formula: distance = speed × time  300 = x + (x * 0.2)  Solving for x, we get:  300 = x + 0.2x  300 = 1.2x  x = 300 / 1.2  x = 250 km/h  Therefore, the original speed of the train was 250 km/h.",
+    "id": 329
+  },
+  {
+    "generator": "geometry",
+    "input": "affinity",
+    "problem": "Given two squares, one with side length 3 cm and the other with side length 4 cm, find the ratio of the areas of the two squares.",
+    "length": 129,
+    "tags": [
+      "geometry",
+      "area",
+      "ratio",
+      "fifth-grade"
+    ],
+    "solution": "To find the ratio of the areas, we need to calculate the area of each square. The area of a square is equal to the side length squared. So, the area of the first square is 3 cm * 3 cm = 9 cm². The area of the second square is 4 cm * 4 cm = 16 cm². The ratio of the areas is 9 cm²/16 cm² = 9:16.",
+    "id": 330
+  },
+  {
+    "generator": "probability",
+    "input": "affinity",
+    "problem": "There are 100 people in a room. Some of them are friends with each other. The probability of two randomly chosen people being friends is 1/3. How many pairs of friends are there in the room?",
+    "length": 190,
+    "tags": [
+      "probability",
+      "combinations",
+      "fifth-grade"
+    ],
+    "solution": "\frac{100 \times (100-1)}{2 \times 3} = 250",
+    "id": 331
+  },
+  {
+    "generator": "physics",
+    "input": "affinity",
+    "problem": "An object has an affinity for another object if the force between them is greater than the force of repulsion. If a force of 3N is required to overcome the repulsion between two spheres, each with a mass of 1kg, what is the affinity force between them?",
+    "length": 252,
+    "tags": [
+      "physics",
+      "force",
+      "gravity",
+      "affinity",
+      "fifth-grade"
+    ],
+    "solution": "This problem requires students to apply their understanding of forces, specifically gravitational force. It involves calculating the net force between the two spheres, taking into account both the attractive and repulsive forces. This problem is appropriate for 5th graders as it involves manipulating basic mathematical concepts related to force and mass.",
+    "id": 332
+  },
+  {
+    "generator": "science",
+    "input": "affinity",
+    "problem": "An artist has two pigments with a 0.75 affinity for each other. If the artist uses 100 grams of the first pigment and 120 grams of the second pigment, what is the approximate total affinity between the two pigments?",
+    "length": 215,
+    "tags": [
+      "affinity",
+      "proportion",
+      "mass",
+      "metric",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires understanding of the concept of affinity, which is a measure of how much two substances are attracted to each other. The students need to calculate the total affinity by multiplying the affinity of the two pigments by the masses of each pigment. This problem is suitable for 5th graders as it requires applying their knowledge of ratios, proportions, and multiplication.",
+    "id": 333
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "affinity",
+    "problem": "She felt an afinity towards history, finding it more intresting than other subjects.",
+    "length": 84,
+    "tags": [
+      "grammar-error-affinity",
+      "grammar-error-interesting",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has two errors. 'Afinity' should be 'affinity' and 'intresting' should be 'interesting'.",
+    "id": 334
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "affinity",
+    "problem": "She felt a strong affinity to the music, her heart resonated with its melody.",
+    "length": 77,
+    "tags": [
+      "fifth-grade-grammar",
+      "verb-conjugation",
+      "spelling-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'resonated' instead of 'resonates'. 'Resonates' is the correct form of the verb, which means to vibrate or make a sound in response to an external force. 'Resonated' is the past tense of the verb.",
+    "id": 335
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "affinity",
+    "problem": "Write a sentence using the word 'affinity' to describe the connection between two things that seem unlikely but actually go together well.",
+    "length": 138,
+    "tags": [
+      "english-grammar",
+      "sentence-structure",
+      "vocabulary-development",
+      "grammar-4-5",
+      "sentence-prompt"
+    ],
+    "solution": "The artist's affinity for vibrant colors resulted in breathtaking paintings.",
+    "id": 336
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "affinity",
+    "problem": "What is the affinity between an airplane's wing and the airflow that helps it lift off the ground?",
+    "length": 98,
+    "tags": [
+      "affinity",
+      "airflow",
+      "lift",
+      "airplane",
+      "wing",
+      "3rdGrade",
+      "airplane-trivia"
+    ],
+    "solution": "Affinity in aviation refers to the attractive force between an airplane's wing and the airflow that enables lift. Airflow flowing over the wing's curved surface creates high-pressure zones, while the airflow under the wing creates low-pressure zones. This pressure differential generates an uplift force that counteracts the gravitational force and allows the airplane to lift off.",
+    "id": 337
+  },
+  {
+    "generator": "science-trivia",
+    "input": "affinity",
+    "problem": "Which element has the strongest affinity for oxygen? Explain your answer.",
+    "length": 73,
+    "tags": [
+      "chemistry",
+      "element",
+      "affinity",
+      "oxygen",
+      "fluorine",
+      "5thgrade",
+      "science-trivia"
+    ],
+    "solution": "The element with the strongest affinity for oxygen is fluorine due to its highly electronegative nature. Fluorine readily attracts electrons towards itself, making it eager to form bonds with oxygen atoms. This strong affinity is responsible for fluorine's reactivity and its importance in various industrial processes.",
+    "id": 338
+  },
+  {
+    "generator": "arithmetic",
+    "input": "affinity",
+    "problem": ",,(a-1)/3-2/5*a,=,,",
+    "length": 17,
+    "tags": [
+      "algebra",
+      "fraction",
+      "multiplication",
+      "division",
+      "fifth grade",
+      "arithmetic"
+    ],
+    "solution": ",,(a-1)/3-2a/15,=,,",
+    "id": 339
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "biographical",
+    "problem": "A biographical book about a scientist has 128 pages in total. Some pages are dedicated to their experiments, which are 3 times more numerous than the pages dedicated to their childhood. How many pages are there for each section?",
+    "length": 228,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "linear-equations",
+      "word-problem",
+      "fifth-grade",
+      "metric-units",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of pages dedicated to the scientist's childhood and y be the number of pages dedicated to their experiments.\n x + y = 128\n y = 3x\n Substituting y = 3x into the first equation:\n x + 3x = 128\n 4x = 128\n x = 32\n Therefore, there are 32 pages dedicated to the scientist's childhood and 3 * 32 = 96 pages dedicated to their experiments.",
+    "id": 340
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "biographical",
+    "problem": "A biography detailing the life of a renowned scientist mentions that their first groundbreaking discovery was published 24 years after their 18th birthday. If the scientist published their first discovery at a speed of 2.5 m/s, how old were they when their discovery was published?",
+    "length": 281,
+    "tags": [
+      "time-distance",
+      "speed",
+      "age",
+      "metric",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "Let x be the age of the scientist when their discovery was published. Then, their age when they published their first discovery was x - 24. The distance traveled in 24 years is 24 * 2.5 = 60 m. Therefore, x - 24 = 60. Solving for x gives x = 84. The scientist was 84 years old when their discovery was published.",
+    "id": 341
+  },
+  {
+    "generator": "geometry",
+    "input": "biographical",
+    "problem": "A circular garden has a circumference of 24 meters. If the radius of the garden is shortened by 2 meters, what will be the new area of the garden?",
+    "length": 146,
+    "tags": [
+      "geometry",
+      "circles",
+      "perimeter",
+      "area",
+      "fifth-grade"
+    ],
+    "solution": "First, find the radius of the garden by dividing the circumference by 2. Then, use the formula for the area of a circle, which is π multiplied by the radius squared, to find the new area.",
+    "id": 342
+  },
+  {
+    "generator": "probability",
+    "input": "biographical",
+    "problem": "There are 48 biographies in a library. If 3/8 of them are about women, how many biographies are about women?",
+    "length": 108,
+    "tags": [
+      "probability",
+      "ratio",
+      "fraction",
+      "fifth-grade"
+    ],
+    "solution": "3/8 * 48 = 3 * 12 = 36 biographies",
+    "id": 343
+  },
+  {
+    "generator": "physics",
+    "input": "biographical",
+    "problem": "A researcher is studying the growth of a bacteria culture over time. The initial population of the bacteria is 10^5 cells/mL. After one hour, the population has increased to 10^6 cells/mL. What is the average rate of population growth in cells/mL per hour?",
+    "length": 256,
+    "tags": [
+      "science-fiction",
+      "scientific-notation",
+      "rate-of-change",
+      "5th-grade",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to calculate the change in population and divide it by the time interval to find the average rate of growth. It involves understanding scientific notation and applying the concept of rate of change.",
+    "id": 344
+  },
+  {
+    "generator": "science",
+    "input": "biographical",
+    "problem": "Given the lifespan of a scientist is represented by a normal distribution with mean 70 years and standard deviation 10 years, what age should a researcher be to maximize the probability of living at least 80 years?",
+    "length": 214,
+    "tags": [
+      "normal-distribution",
+      "probability",
+      "calculus",
+      "5th-grade",
+      "statistics",
+      "science"
+    ],
+    "solution": "This problem requires understanding of normal distributions, probability concepts, and application of calculus to find the maximum probability. This aligns with 5th grade mathematical concepts and requires logical reasoning and statistical analysis.",
+    "id": 345
+  },
+  {
+    "generator": "bad-grammar",
+    "input": "biographical",
+    "problem": "The biographical novel tells us about real people's lives in a fictional way.",
+    "length": 77,
+    "tags": [
+      "grammar-error",
+      "confusion-of-fiction-and-reality",
+      "5th-grade-english",
+      "bad-grammar"
+    ],
+    "solution": "The sentence is incorrect because it suggests that biographical novels feature real people in a fictional setting. However, biographical novels are based on real people and events.",
+    "id": 346
+  },
+  {
+    "generator": "bad-spelling",
+    "input": "biographical",
+    "problem": "The writer's biographical notes shed light on the inspiration behind her novel.",
+    "length": 79,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "Misspelling",
+      "GrammarError",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'biographical' instead of 'biographic'. 'Biographic' means relating to a person's life, while 'biographical' refers to a written work about a person's life.",
+    "id": 347
+  },
+  {
+    "generator": "sentence-prompt",
+    "input": "biographical",
+    "problem": "Write a sentence using the word 'biographical' that describes something fictional but inspired by real life events.",
+    "length": 115,
+    "tags": [
+      "4thGrade",
+      "Comprehension",
+      "SentenceWriting",
+      "Vocabulary",
+      "Inspiration",
+      "Fiction",
+      "RealLife",
+      "sentence-prompt"
+    ],
+    "solution": "The magical creatures in the forest had a biographical history rooted in ancient legends.",
+    "id": 348
+  },
+  {
+    "generator": "airplane-trivia",
+    "input": "biographical",
+    "problem": "What is the lightweight material often used in airplane wings to reduce drag and improve fuel efficiency?",
+    "length": 105,
+    "tags": [
+      "airplane",
+      "materials",
+      "lightweight",
+      "wings",
+      "fuel",
+      "efficiency",
+      "5thGrade",
+      "airplane-trivia"
+    ],
+    "solution": "The lightweight material commonly used in airplane wings is fiberglass reinforced polymer (FRP). This material is strong and durable, yet it is significantly lighter than traditional materials like steel or aluminum. This reduction in weight helps to improve fuel efficiency and allows airplanes to carry more passengers and cargo.",
+    "id": 349
+  },
+  {
+    "generator": "science-trivia",
+    "input": "biographical",
+    "problem": "What is the smallest unit of life that can carry on all the characteristics of an organism?",
+    "length": 91,
+    "tags": [
+      "science",
+      "biology",
+      "cellular biology",
+      "3rd grade",
+      "science-trivia"
+    ],
+    "solution": "A cell is the smallest unit of life that can carry on all the characteristics of an organism. Cells are the basic building blocks of all living things, and they contain the genetic material and biochemical processes necessary for life.",
+    "id": 350
+  },
+  {
+    "generator": "arithmetic",
+    "input": "biographical",
+    "problem": ",,(3-1/4)^2-1/3,,",
+    "length": 18,
+    "tags": [
+      "algebraic-expression",
+      "fifth-grade",
+      "numerical-expression",
+      "rational-numbers",
+      "square",
+      "arithmetic"
+    ],
+    "solution": ",,(11/16)^2-1/3,,",
+    "id": 351
+  },
+  {
+    "generator": "arithmetic-carry",
+    "input": "biographical",
+    "problem": ",= 12345 + 6789 - 9876",
+    "length": 22,
+    "tags": [
+      "arithmetic",
+      "algebraic-expressions",
+      "carrying",
+      "borrowing",
+      "fifth-grade",
+      "arithmetic-carry"
+    ],
+    "solution": "This problem requires careful handling of carries and borrows. When adding the first two numbers, a carry of 1 should be done. When subtracting the last two numbers, a borrow of 1 should be done.",
+    "id": 352
+  },
+  {
+    "generator": "arithmetic-multiplication",
+    "input": "biographical",
+    "problem": "243 × 689",
+    "length": 9,
+    "tags": [
+      "multi-digit-multiplication",
+      "arithmetic",
+      "fifth-grade",
+      "math-error-analysis",
+      "arithmetic-multiplication"
+    ],
+    "id": 353
+  },
+  {
+    "generator": "arithmetic-division",
+    "input": "biographical",
+    "problem": "870 / 345",
+    "length": 9,
+    "tags": [
+      "fifth-grade",
+      "division-error",
+      "carrying",
+      "quotient-writing",
+      "large-numbers",
+      "non-zero-remainder",
+      "arithmetic-division"
+    ],
+    "solution": "This problem tests several common errors in integer division. Students might forget to carry digits, divide the numbers correctly, or write the quotient correctly. It also tests the ability to handle larger numbers and division involving non-zero remainders.",
+    "id": 354
+  },
+  {
+    "generator": "handwriting-exercise",
+    "input": "biographical",
+    "problem": "Serendipity whispers secrets in the echo's embrace.",
+    "length": 51,
+    "tags": [
+      "fifth-grade",
+      "grammar",
+      "handwriting",
+      "nonsense",
+      "handwriting-exercise"
+    ],
+    "solution": "This sentence uses complex vocabulary and figurative language that is appropriate for older students.",
+    "id": 355
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "mine",
+    "problem": "There are two boxes of chocolates. One box has 3 times as many chocolates as the other. If the smaller box has 18 chocolates, how many chocolates are in the bigger box?",
+    "length": 168,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "word-problems",
+      "multiples",
+      "5th-grade",
+      "two-variable-algebra"
+    ],
+    "solution": ",,81,,",
+    "id": 356
+  },
+  {
+    "generator": "time-distance-speed",
+    "input": "mine",
+    "problem": "A train travels 300km at a speed of 80km/h. How long will it take the train to reach its destination?",
+    "length": 101,
+    "tags": [
+      "time-distance",
+      "speed",
+      "fifth-grade",
+      "metric-units",
+      "mathematical-formula",
+      "time-distance-speed"
+    ],
+    "solution": "To find the time taken, we can use the formula: time = distance / speed.   Distance = 300km  Speed = 80km/h  Time = 300km / 80km/h = 3.75h.  Therefore, the train will take **3.75 hours** to reach its destination.",
+    "id": 357
+  },
+  {
+    "generator": "geometry",
+    "input": "mine",
+    "problem": "A rectangular garden bed has a perimeter of 24 meters. If the length is 2 meters longer than the width, find the dimensions of the garden bed.",
+    "length": 142,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "algebra",
+      "fifth-grade"
+    ],
+    "solution": "First, we can let x represent the width of the garden bed. The length is x + 2. The perimeter is 2(length + width) = 2(x + x + 2) = 2(2x + 2) = 4x + 4. We know the perimeter is 24, so 4x + 4 = 24. Solving this equation gives us x = 5. Therefore, the width is 5 meters and the length is 5 + 2 = 7 meters.",
+    "id": 358
+  },
+  {
+    "generator": "two-variable-algebra",
+    "input": "fateful",
+    "problem": "A farmer discovers a mysterious seed that doubles in size every day. He plants it on the first day of spring and notices it covers half of his field by the end of the day. If the field is 100 square meters, how many days will it take for the seed to cover the entire field?",
+    "length": 273,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "exponential-growth",
+      "fifth-grade",
+      "metric-units",
+      "two-variable-algebra"
+    ],
+    "solution": "Let x be the number of days it takes for the seed to cover the entire field.\n2^x = 100\n2^x = 10^2\nx = 4\nIt will take 4 days for the seed to cover the entire field.",
+    "id": 359
+  },
+  {
+    "generator": "korean-english",
+    "input": "recognizable",
+    "problem": "학생들이 자신이 인지할 만한 성과를 얻기 위해서는 어려움에 직면하고 학습해야 합니다.",
+    "length": 47,
+    "tags": [
+      "5thGrade",
+      "Challenge",
+      "Learning",
+      "Recognition",
+      "korean-english"
+    ],
+    "solution": "Students need to face challenges and learn in order to achieve something recognizable.",
+    "id": 360
+  },
+  {
+    "generator": "korean-english",
+    "input": "apparel",
+    "problem": "옷이 입고 있는 사람들이 옷을 입고 있지 않은 사람들보다 더 따뜻해지는 이유는 무엇일까?",
+    "length": 49,
+    "tags": [
+      "5th grade",
+      "inference",
+      "temperature",
+      "clothing",
+      "korean-english"
+    ],
+    "solution": "People who are wearing clothes tend to feel warmer than those who are not. Why might this be?",
+    "id": 361
+  },
+  {
+    "generator": "korean-english",
+    "input": "summer",
+    "problem": "여름바람은 해변에 도착하여 해안선을 가득 채웠다.",
+    "length": 27,
+    "tags": [
+      "5th grade",
+      "vocabulary",
+      "grammar",
+      "figurative language",
+      "korean-english"
+    ],
+    "solution": "The summer wind reached the seashore and filled the coastline with seaweed.",
+    "id": 362
+  },
+  {
+    "generator": "korean-english",
+    "input": "coffin",
+    "problem": "저리 덮개가 닫힌 상자는 무엇일까?",
+    "length": 19,
+    "tags": [
+      "fifth-grade",
+      "inference",
+      "literal-translation",
+      "context-dependent",
+      "korean-english"
+    ],
+    "solution": "What could a box with a closed lid be?",
+    "id": 363
+  },
+  {
+    "generator": "korean-english",
+    "input": "acknowledgmen",
+    "problem": "인정감은 이해의 시작이다.",
+    "length": 14,
+    "tags": [
+      "fifth-grade",
+      "comprehension",
+      "grammar",
+      "vocabulary",
+      "korean-english"
+    ],
+    "solution": "Acknowledgement is the beginning of understanding.",
+    "id": 364
+  },
+  {
+    "generator": "korean-english",
+    "input": "inconspicuous",
+    "problem": "침투성 없는 그림자는 눈에 보이지 않습니다.",
+    "length": 24,
+    "tags": [
+      "5th grade",
+      "figurative language",
+      "adverbial phrase",
+      "invisible",
+      "shadow",
+      "korean-english"
+    ],
+    "solution": "The inconspicuous shadow is invisible to the eye.",
+    "id": 365
+  },
+  {
+    "generator": "korean-english",
+    "input": "moisture",
+    "problem": "습기는 식물의 성장에 매우 중요합니다.",
+    "length": 21,
+    "tags": [
+      "grammar-complexity-5",
+      "vocabulary-diversity-5",
+      "concepts-familiar-5",
+      "difficulty-low-5",
+      "korean-english"
+    ],
+    "solution": "Moisture is vital for plant growth.",
+    "id": 366
+  },
+  {
+    "generator": "korean-english",
+    "input": "rare",
+    "problem": "희소한 비늘 속의 비늘은 빛을 반사하며 아름다움을 만듭니다.",
+    "length": 33,
+    "tags": [
+      "grammar-complex-sentence",
+      "vocabulary-advanced",
+      "grade-5-comprehension",
+      "korean-english"
+    ],
+    "solution": "The rare scales inside the fish reflect the light and create beauty.",
+    "id": 367
+  },
+  {
+    "generator": "korean-english",
+    "input": "stunning",
+    "problem": "아름다운 날, 해가 비추면 그늘 아래서 책을 읽는 것을 좋아합니다.",
+    "length": 37,
+    "tags": [
+      "5thGrade",
+      "UnderstandingGrammar",
+      "WordMeaning",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "I love reading books under the shade when the sun shines beautifully on a stunning day.",
+    "id": 368
+  },
+  {
+    "generator": "korean-english",
+    "input": "tenet",
+    "problem": "우리의 가치관은 이 사회에서 변화하고 있으며, 이 변화는 우리의 사고방식과 행동 패턴에 영향을 줄 것이다.",
+    "length": 59,
+    "tags": [
+      "5thGrade",
+      "Value Evolution",
+      "Social Influence",
+      "korean-english"
+    ],
+    "solution": "Our values have evolved in this society, and this evolution will impact our way of thinking and acting.",
+    "id": 369
+  },
+  {
+    "generator": "korean-english",
+    "input": "pineapple",
+    "problem": "날카가에 물리치는 물은 비늘기 시작합니다.",
+    "length": 23,
+    "tags": [
+      "fifth grade",
+      "biology",
+      "plant life",
+      "sprouting",
+      "korean-english"
+    ],
+    "solution": "When the pine tree seed is immersed in water, it starts to sprout.",
+    "id": 370
+  },
+  {
+    "generator": "korean-english",
+    "input": "creativity",
+    "problem": "색다른 문장 구조를 사용하여 흥미로운 한국어 문장을 만드세요.",
+    "length": 34,
+    "tags": [
+      "intermediate",
+      "korean",
+      "sentence",
+      "grammar",
+      "vocabulary",
+      "5thGrade",
+      "korean-english"
+    ],
+    "solution": "Create a short Korean sentence using an interesting sentence structure or vocabulary word.",
+    "id": 371
+  },
+  {
+    "generator": "korean-english",
+    "input": "recording",
+    "problem": "음악의 기록은 순간에 사라지지만, 감정은 기억에 남아있다.",
+    "length": 32,
+    "tags": [
+      "5th grade",
+      "figurative language",
+      "memory",
+      "emotion",
+      "korean-english"
+    ],
+    "solution": "The recording of music disappears in an instant, but the emotions remain in the memory.",
+    "id": 372
+  },
+  {
+    "generator": "korean-english",
+    "input": "lively",
+    "problem": "삶은 활기찬 순간들이 모여 만들어진다.",
+    "length": 21,
+    "tags": [
+      "5th grade",
+      "figurative language",
+      "composition",
+      "korean-english"
+    ],
+    "solution": "Life is made up of lively moments.",
+    "id": 373
+  },
+  {
+    "generator": "korean-english",
+    "input": "calf",
+    "problem": "소말은 발을 피고 있습니다.",
+    "length": 15,
+    "tags": [
+      "Korean5",
+      "AnimalComprehension",
+      "VerbMeaning",
+      "korean-english"
+    ],
+    "solution": "{\"wordForWordInOrder\":[\"소말\",\"발\",\"피고 있음\"],\"sentence\":{\"korean\":\"소말은 발을 피고 있습니다.\",\"english\":\"The calf is resting its foot.\"}}",
+    "id": 374
+  },
+  {
+    "generator": "korean-english",
+    "input": "airway",
+    "problem": "항공로를 통해 몸은 공기를 통합니다.",
+    "length": 20,
+    "tags": [
+      "Korean5",
+      "AirwayTranslation",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"wordForWordInOrder\":[{\"korean\":\"항공로\",\"english\":\"airway\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"통하는\",\"english\":\"passing through\"}],\"sentence\":{\"korean\":\"항공로를 통해 몸은 공기를 통합니다.\",\"english\":\"The body passes through the airway to breathe.\"}}",
+    "id": 375
+  },
+  {
+    "generator": "korean-english",
+    "input": "noise",
+    "problem": "소음은 시간의 흐름에 피크를 보여준다.",
+    "length": 21,
+    "tags": [
+      "grammar-past-tense",
+      "vocabulary-related-to-sound",
+      "fifth-grade",
+      "korean-english"
+    ],
+    "solution": "{\"wordForWordInOrder\":[\"소음\",\"발생\",\"피크\",\"시간\"],\"sentence\":{\"korean\":\"소음은 시간의 흐름에 피크를 보여준다.\",\"english\":\"Noise peaks during the course of time.\"}}",
+    "id": 376
+  },
+  {
+    "generator": "korean-english",
+    "input": "deadly",
+    "problem": "죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.",
+    "length": 56,
+    "tags": [
+      "5thGrade",
+      "Birds",
+      "Adverbs",
+      "Adjectives",
+      "korean-english"
+    ],
+    "solution": "{\"wordForWordInOrder\":[\"죽음에 가까운\",\"거대한\",\"날린\"],\"sentence\":{\"korean\":\"죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.\",\"english\":\"A bird with deadly large wings, even in dangerous situations, uses its wings as protection by flapping them.\"}}",
+    "id": 377
+  },
+  {
+    "generator": "korean-english",
+    "input": "solemn",
+    "problem": "절찬고백은 무슨 이유로 이루어지나요?",
+    "length": 20,
+    "tags": [
+      "grade5-grammar",
+      "vocabulary-solemn",
+      "context-confession",
+      "korean-english"
+    ],
+    "solution": "{\"orderedWords\":[{\"koreanWord\":\"절찬\",\"englishWord\":\"solemn\"},{\"koreanWord\":\"고백\",\"englishWord\":\"confession\"}],\"sentence\":{\"koreanSentence\":\"절찬고백은 무슨 이유로 이루어지나요?\",\"englishSentence\":\"Why is a solemn confession made?\"}}",
+    "id": 378
+  },
+  {
+    "generator": "korean-english",
+    "input": "pitfall",
+    "problem": "말려버린 장애물은 위험한 상황을 만들 수 있습니다.",
+    "length": 28,
+    "tags": [
+      "5thGrade",
+      "ReadingComprehension",
+      "FigurativeLanguage",
+      "AdverbialPhrase",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"말려버린\",\"english\":\"to slip away\"},{\"korean\":\"장애물\",\"english\":\"obstacle\"},{\"korean\":\"위험\",\"english\":\"danger\"}],\"sentence\":{\"korean\":\"말려버린 장애물은 위험한 상황을 만들 수 있습니다.\",\"english\":\"The slipping away obstacle can create a dangerous situation.\"}}",
+    "id": 379
+  },
+  {
+    "generator": "korean-english",
+    "input": "flourish",
+    "problem": "꽃잎이 빛을 흡수하고 성장합니다.",
+    "length": 18,
+    "tags": [
+      "5thGrade",
+      "KoreanToEnglish",
+      "Flower",
+      "Growth",
+      "Light",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수하고\",\"english\":\"absorbing\"},{\"korean\":\"성장합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수하고 성장합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
+    "id": 380
+  },
+  {
+    "generator": "korean-english",
+    "input": "exceedingly",
+    "problem": "매우 고난한 과제를 능력적으로 완료했습니다.",
+    "length": 24,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Effort",
+      "Ability",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"extremely\"},{\"korean\":\"고난\",\"english\":\"effort\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"매우 고난한 과제를 능력적으로 완료했습니다.\",\"english\":\"He completed the extremely difficult assignment effortlessly.\"}}",
+    "id": 381
+  },
+  {
+    "generator": "korean-english",
+    "input": "annoy",
+    "problem": "짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.",
+    "length": 29,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Vocabulary",
+      "Grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"짜증\",\"english\":\"annoying\"},{\"korean\":\"소리\",\"english\":\"noise\"},{\"korean\":\"피곤\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.\",\"english\":\"It is understandable that one feels tired due to the annoying noise.\"}}",
+    "id": 382
+  },
+  {
+    "generator": "korean-english",
+    "input": "hangar",
+    "problem": "Hangar chwi dae-i",
+    "length": 17,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "BasicGrammar",
+      "Vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"hangar\",\"english\":\"airplane\"},{\"korean\":\"chwi\",\"english\":\"to fly\"},{\"korean\":\"dae\",\"english\":\"high\"}],\"sentence\":{\"korean\":\"Hangar chwi dae-i\",\"english\":\"The airplane flies high.\"}}",
+    "id": 383
+  },
+  {
+    "generator": "korean-english",
+    "input": "promoter",
+    "problem": "프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.",
+    "length": 31,
+    "tags": [
+      "5thGrade",
+      "AcademicVocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"프롬otor\",\"english\":\"promoter\"},{\"korean\":\"학업\",\"english\":\"academic\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.\",\"english\":\"A promoter is an important factor in improving academic achievement.\"}}",
+    "id": 384
+  },
+  {
+    "generator": "korean-english",
+    "input": "gallop",
+    "problem": "동물이 뛰어다니다가 자유롭게 달린다.",
+    "length": 20,
+    "tags": [
+      "5thGrade",
+      "AnimalAction",
+      "VerbMeaning",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"뛰어다니다\",\"english\":\"to gallop\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"자유롭게\",\"english\":\"freely\"}],\"sentence\":{\"korean\":\"동물이 뛰어다니다가 자유롭게 달린다.\",\"english\":\"The animal gallops freely through the field.\"}}",
+    "id": 385
+  },
+  {
+    "generator": "korean-english",
+    "input": "luster",
+    "problem": "빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.",
+    "length": 35,
+    "tags": [
+      "5thGrade",
+      "Physics",
+      "Reflection",
+      "Luster",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"빛깔\",\"english\":\"luster\"},{\"korean\":\"빛을\",\"english\":\"emit light\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.\",\"english\":\"Luster is created by the reflection of internal energy of matter in physics.\"}}",
+    "id": 386
+  },
+  {
+    "generator": "korean-english",
+    "input": "mythical",
+    "problem": "신화적인 동물은 종종 해롭다.",
+    "length": 16,
+    "tags": [
+      "5thGrade",
+      "KoreanComprehension",
+      "Translation",
+      "MythicalCreatures",
+      "Danger",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"신화적인\",\"english\":\"mythical\"},{\"korean\":\"동물\",\"english\":\"creature\"},{\"korean\":\"해롭다\",\"english\":\"is dangerous\"}],\"sentence\":{\"korean\":\"신화적인 동물은 종종 해롭다.\",\"english\":\"Mythical creatures are often dangerous.\"}}",
+    "id": 387
+  },
+  {
+    "generator": "korean-english",
+    "input": "spokesman",
+    "problem": "말자는 사회적 상황에 중요한 소통 도구입니다.",
+    "length": 25,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "SocialCommunication",
+      "Spokesperson",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"말자\",\"english\":\"spokesperson\"},{\"korean\":\"소통\",\"english\":\"communication\"}],\"sentence\":{\"korean\":\"말자는 사회적 상황에 중요한 소통 도구입니다.\",\"english\":\"A spokesperson plays a crucial role in communication during social situations.\"}}",
+    "id": 388
+  },
+  {
+    "generator": "korean-english",
+    "input": "evolution",
+    "problem": "진화는 생물의 시간에 따른 변화입니다.",
+    "length": 21,
+    "tags": [
+      "5thGrade",
+      "Evolution",
+      "Organism",
+      "Time",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"진화\",\"english\":\"evolution\"},{\"korean\":\"생물\",\"english\":\"organism\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"진화는 생물의 시간에 따른 변화입니다.\",\"english\":\"Evolution is the changes in organisms over time.\"}}",
+    "id": 389
+  },
+  {
+    "generator": "korean-english",
+    "input": "aim",
+    "problem": "목표를 달성하기 위해서는 능력과 노력이 필요합니다.",
+    "length": 28,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "SentenceCompletion",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"목표\",\"english\":\"aim\"},{\"korean\":\"달성\",\"english\":\"to achieve\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하기 위해서는 능력과 노력이 필요합니다.\",\"english\":\"To achieve the aim, ability and effort are necessary.\"}}",
+    "id": 390
+  },
+  {
+    "generator": "korean-english",
+    "input": "Bible",
+    "problem": "성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.",
+    "length": 26,
+    "tags": [
+      "fifth-grade",
+      "translation",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"성경\",\"english\":\"Bible\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"용사\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.\",\"english\":\"The Bible was written to save human souls.\"}}",
+    "id": 391
+  },
+  {
+    "generator": "korean-english",
+    "input": "bitterly",
+    "problem": "비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.",
+    "length": 33,
+    "tags": [
+      "5thGrade",
+      "WordTranslation",
+      "Bitterly",
+      "Loss",
+      "Grief",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"비열하게\",\"english\":\"bitterly\"},{\"korean\":\"울상\",\"english\":\"grief\"},{\"korean\":\"상실\",\"english\":\"loss\"}],\"sentence\":{\"korean\":\"비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.\",\"english\":\"The bitter grief of loss is something that everyone experiences at some point in their lives.\"}}",
+    "id": 392
+  },
+  {
+    "generator": "korean-english",
+    "input": "homeland",
+    "problem": "고향의 정신은 애국심으로 가득 차 있습니다.",
+    "length": 24,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "Patriotism",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"고향\",\"english\":\"homeland\"},{\"korean\":\"애국\",\"english\":\"patriotism\"},{\"korean\":\"정신\",\"english\":\"mind\"}],\"sentence\":{\"korean\":\"고향의 정신은 애국심으로 가득 차 있습니다.\",\"english\":\"The spirit of the homeland is filled with patriotism.\"}}",
+    "id": 393
+  },
+  {
+    "generator": "korean-english",
+    "input": "heal",
+    "problem": "상처가 치유되면 감염이 사라집니다.",
+    "length": 19,
+    "tags": [
+      "5th-grade",
+      "translation",
+      "grammar",
+      "vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"치유\",\"english\":\"heal\"},{\"korean\":\"상처\",\"english\":\"wound\"},{\"korean\":\"감염\",\"english\":\"infection\"}],\"sentence\":{\"korean\":\"상처가 치유되면 감염이 사라집니다.\",\"english\":\"When the wound heals, the infection will disappear.\"}}",
+    "id": 394
+  },
+  {
+    "generator": "korean-english",
+    "input": "pore",
+    "problem": "피트의 담치는 파도를 타며 순돌아갑니다.",
+    "length": 22,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Verb",
+      "Adjective",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"피트\",\"english\":\"foot\"},{\"korean\":\"담치\",\"english\":\"splash\"},{\"korean\":\"파도\",\"english\":\"wave\"}],\"sentence\":{\"korean\":\"피트의 담치는 파도를 타며 순돌아갑니다.\",\"english\":\"The splash of the foot creates waves that spin around.\"}}",
+    "id": 395
+  },
+  {
+    "generator": "korean-english",
+    "input": "remittance",
+    "problem": "환금은 거주지에서 수입한 물건의 금액을 의미합니다.",
+    "length": 28,
+    "tags": [
+      "5thGrade",
+      "Vocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"환금\",\"english\":\"remittance\"},{\"korean\":\"거주\",\"english\":\"residence\"},{\"korean\":\"수입\",\"english\":\"import\"}],\"sentence\":{\"korean\":\"환금은 거주지에서 수입한 물건의 금액을 의미합니다.\",\"english\":\"The remittance refers to the amount of money imported with goods to the residence.\"}}",
+    "id": 396
+  },
+  {
+    "generator": "korean-english",
+    "input": "heat",
+    "problem": "뜨거움은 기압을 높여 확산합니다.",
+    "length": 18,
+    "tags": [
+      "5th-grade",
+      "chemistry",
+      "diffusion",
+      "pressure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"뜨거움\",\"english\":\"heat\"},{\"korean\":\"기압\",\"english\":\"pressure\"},{\"korean\":\"확산\",\"english\":\"diffusion\"}],\"sentence\":{\"korean\":\"뜨거움은 기압을 높여 확산합니다.\",\"english\":\"Heat increases the pressure and causes diffusion.\"}}",
+    "id": 397
+  },
+  {
+    "generator": "korean-english",
+    "input": "compost",
+    "problem": "퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.",
+    "length": 42,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Compost",
+      "Tree",
+      "Fat",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
+    "id": 398
+  },
+  {
+    "generator": "korean-english",
+    "input": "idol",
+    "problem": "아이돌은 용기에 내용물을 담아 보호합니다.",
+    "length": 23,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "IdolConcept",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"아이돌\",\"english\":\"idol\"},{\"korean\":\"용기\",\"english\":\"vessel\"},{\"korean\":\"내용물\",\"english\":\"content\"}],\"sentence\":{\"korean\":\"아이돌은 용기에 내용물을 담아 보호합니다.\",\"english\":\"An idol protects the content inside a vessel.\"}}",
+    "id": 399
+  },
+  {
+    "generator": "korean-english",
+    "input": "rumor",
+    "problem": "소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.",
+    "length": 27,
+    "tags": [
+      "5thGrade",
+      "Reading",
+      "Vocabulary",
+      "Grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"소문\",\"english\":\"rumor\"},{\"korean\":\"퍼뜨리다\",\"english\":\"to spread\"},{\"korean\":\"확실하지 않아\",\"english\":\"unsure\"}],\"sentence\":{\"korean\":\"소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.\",\"english\":\"A rumor has spread that the news is not clear.\"}}",
+    "id": 400
+  },
+  {
+    "generator": "korean-english",
+    "input": "feeble",
+    "problem": "약속은 무력한 목표를 달성하기 위해 노력해야 합니다.",
+    "length": 29,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Grammar",
+      "Vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"약속\",\"english\":\"promise\"},{\"korean\":\"무력\",\"english\":\"powerless\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"약속은 무력한 목표를 달성하기 위해 노력해야 합니다.\",\"english\":\"A promise is to work hard to achieve a meaningful goal.\"}}",
+    "id": 401
+  },
+  {
+    "generator": "korean-english",
+    "input": "planetary",
+    "problem": "행성계단 우리",
+    "length": 7,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Vocabulary",
+      "Grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"행성\",\"english\":\"planetary\"},{\"korean\":\"계단\",\"english\":\"stair\"},{\"korean\":\"우리\",\"english\":\"we\"}],\"sentence\":{\"korean\":\"행성계단 우리\",\"english\":\"We are on a planetary staircase.\"}}",
+    "id": 402
+  },
+  {
+    "generator": "korean-english",
+    "input": "soggy",
+    "problem": "비가 내리고 바닥이 젖어 있어요.",
+    "length": 18,
+    "tags": [
+      "5thGrade",
+      "Rain",
+      "SoggyFloor",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"비가 내리고\",\"english\":\"It's raining outside.\"},{\"korean\":\"바닥이 젖어\",\"english\":\"The floor is soggy.\"}],\"sentence\":{\"korean\":\"비가 내리고 바닥이 젖어 있어요.\",\"english\":\"It's raining outside and the floor is soggy.\"}}",
+    "id": 403
+  },
+  {
+    "generator": "korean-english",
+    "input": "touching",
+    "problem": "감동적인 이야기는 눈물과 고통을 남긴다.",
+    "length": 22,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "EmotionalStory",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"감동\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적인 이야기는 눈물과 고통을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
+    "id": 404
+  },
+  {
+    "generator": "korean-english",
+    "input": "janitor",
+    "problem": "청소원이 학교를 청소합니다.",
+    "length": 15,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "School",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"청소원\",\"english\":\"janitor\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"청소원이 학교를 청소합니다.\",\"english\":\"The janitor cleans the school.\"}}",
+    "id": 405
+  },
+  {
+    "generator": "korean-english",
+    "input": "potentially",
+    "problem": "잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.",
+    "length": 38,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "ConditionalProbability",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"잠재적으로\",\"english\":\"potentially\"},{\"korean\":\"상황에\",\"english\":\"depending on the situation\"},{\"korean\":\"대부분\",\"english\":\"most of the time\"}],\"sentence\":{\"korean\":\"잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.\",\"english\":\"The situation will most likely influence the possibility of success, potentially leading to high success rates.\"}}",
+    "id": 406
+  },
+  {
+    "generator": "korean-english",
+    "input": "wandering",
+    "problem": "방황하면서 길을 걸다가 자연에 도망친다.",
+    "length": 22,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Wander",
+      "Nature",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"방황하다\",\"english\":\"to wander\"},{\"korean\":\"길을 걸다\",\"english\":\"to walk along a path\"},{\"korean\":\"자연에 도망치다\",\"english\":\"to escape into nature\"}],\"sentence\":{\"korean\":\"방황하면서 길을 걸다가 자연에 도망친다.\",\"english\":\"When you wander, you walk along a path and escape into nature.\"}}",
+    "id": 407
+  },
+  {
+    "generator": "korean-english",
+    "input": "pang",
+    "problem": " pangneol sarang ",
+    "length": 17,
+    "tags": [
+      "5thGrade",
+      "KoreanSentence",
+      "WordTranslation",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\" pang \",\"english\":\"to pierce\"},{\"korean\":\" neol \",\"english\":\"the sun\"},{\"korean\":\" sarang \",\"english\":\"love\"}],\"sentence\":{\"korean\":\" pangneol sarang \",\"english\":\"The sun pierces love\"}}",
+    "id": 408
+  },
+  {
+    "generator": "korean-english",
+    "input": "sometime",
+    "problem": "언젠가 아침 날이 있을 거예요.",
+    "length": 17,
+    "tags": [
+      "fifth-grade",
+      "grammar",
+      "vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"언젠가\",\"english\":\"sometime\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"아침\",\"english\":\"morning\"}],\"sentence\":{\"korean\":\"언젠가 아침 날이 있을 거예요.\",\"english\":\"There will be a someday morning like that.\"}}",
+    "id": 409
+  },
+  {
+    "generator": "korean-english",
+    "input": "infect",
+    "problem": "감염은 병원에서 확산될 수 있습니다.",
+    "length": 20,
+    "tags": [
+      "fifth-grade",
+      "vocabulary",
+      "sentence-completion",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"병원\",\"english\":\"hospital\"}],\"sentence\":{\"korean\":\"감염은 병원에서 확산될 수 있습니다.\",\"english\":\"Infection can spread from the hospital.\"}}",
+    "id": 410
+  },
+  {
+    "generator": "korean-english",
+    "input": "breath",
+    "problem": "숨은 시간과 소용이 같아요.",
+    "length": 15,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "KoreanToEnglish",
+      "BreathConcept",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"소용\",\"english\":\"expense\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"숨은 시간과 소용이 같아요.\",\"english\":\"Breath is equal to time and expense.\"}}",
+    "id": 411
+  },
+  {
+    "generator": "korean-english",
+    "input": "route",
+    "problem": "경로는 길게 길게 거리를 가진다.",
+    "length": 18,
+    "tags": [
+      "fifth-grade",
+      "translation",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"도로\",\"english\":\"road\"},{\"korean\":\"경로\",\"english\":\"route\"}],\"sentence\":{\"korean\":\"경로는 길게 길게 거리를 가진다.\",\"english\":\"A route has a long distance.\"}}",
+    "id": 412
+  },
+  {
+    "generator": "korean-english",
+    "input": "sickle",
+    "problem": "곡선한 날개는 날린 날개보다 위험합니다.",
+    "length": 22,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Grammar",
+      "Vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"곡선\",\"english\":\"curve\"},{\"korean\":\"날개\",\"english\":\"blade\"},{\"korean\":\"날린\",\"english\":\"sharp\"}],\"sentence\":{\"korean\":\"곡선한 날개는 날린 날개보다 위험합니다.\",\"english\":\"A curved blade is more dangerous than a sharp blade.\"}}",
+    "id": 413
+  },
+  {
+    "generator": "korean-english",
+    "input": "inning",
+    "problem": "인닝 동안 선수가 볼을 때 3점을 얻었다.",
+    "length": 23,
+    "tags": [
+      "5th-grade",
+      "baseball",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"인닝\",\"english\":\"inning\"},{\"korean\":\"선수\",\"english\":\"batter\"},{\"korean\":\"볼\",\"english\":\"ball\"}],\"sentence\":{\"korean\":\"인닝 동안 선수가 볼을 때 3점을 얻었다.\",\"english\":\"The batter got 3 points during the inning.\"}}",
+    "id": 414
+  },
+  {
+    "generator": "korean-english",
+    "input": "kill",
+    "problem": "살숨은 죽일 때도 살아남는다.",
+    "length": 16,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "ComplexSentence",
+      "FigurativeLanguage",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"죽일\",\"english\":\"to die\"}],\"sentence\":{\"korean\":\"살숨은 죽일 때도 살아남는다.\",\"english\":\"Even when life and breath are gone, there is always life remaining.\"}}",
+    "id": 415
+  },
+  {
+    "generator": "korean-english",
+    "input": "depart",
+    "problem": "떠나다의 원인은 목적에 따라 달라질 수 있습니다.",
+    "length": 27,
+    "tags": [
+      "fifth-grade",
+      "grammar",
+      "vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"떠나다\",\"english\":\"to depart\"},{\"korean\":\"원인\",\"english\":\"reason\"},{\"korean\":\"목적\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"떠나다의 원인은 목적에 따라 달라질 수 있습니다.\",\"english\":\"The reason for departure can vary depending on the purpose.\"}}",
+    "id": 416
+  },
+  {
+    "generator": "korean-english",
+    "input": "deter",
+    "problem": "방해는 목표를 달성하는 데 인내가 요구됩니다.",
+    "length": 25,
+    "tags": [
+      "5thGrade",
+      "Vocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"방해\",\"english\":\"deter\"},{\"korean\":\"인내\",\"english\":\"patience\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"방해는 목표를 달성하는 데 인내가 요구됩니다.\",\"english\":\"Deterrence is required to achieve the goal.\"}}",
+    "id": 417
+  },
+  {
+    "generator": "korean-english",
+    "input": "danger",
+    "problem": "위험은 피해를 예방하기 위해 주의해야 합니다.",
+    "length": 25,
+    "tags": [
+      "5thGrade",
+      "Korean-English",
+      "Translation",
+      "Vocabulary",
+      "Grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"danger\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"예방\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"위험은 피해를 예방하기 위해 주의해야 합니다.\",\"english\":\"Danger requires attention to prevent damage.\"}}",
+    "id": 418
+  },
+  {
+    "generator": "korean-english",
+    "input": "tetanus",
+    "problem": "테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.",
+    "length": 29,
+    "tags": [
+      "5th-grade",
+      "medical-vocabulary",
+      "infectious-disease",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"테탄us\",\"english\":\"tetanus\"},{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"근력\",\"english\":\"muscle strength\"}],\"sentence\":{\"korean\":\"테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.\",\"english\":\"Tetanus can weaken muscles and cause infection.\"}}",
+    "id": 419
+  },
+  {
+    "generator": "korean-english",
+    "input": "transmitter",
+    "problem": "송신기는 정보를 전송합니다.",
+    "length": 15,
+    "tags": [
+      "5thGrade",
+      "KoreanToEnglish",
+      "Translation",
+      "Broadcast",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"송신기\",\"english\":\"transmitter\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전송\",\"english\":\"broadcast\"}],\"sentence\":{\"korean\":\"송신기는 정보를 전송합니다.\",\"english\":\"A transmitter broadcasts information.\"}}",
+    "id": 420
+  },
+  {
+    "generator": "korean-english",
+    "input": "repute",
+    "problem": "명성 있는 학생들은 학업적으로 성과를 얻습니다.",
+    "length": 26,
+    "tags": [
+      "5thGrade",
+      "ReadingComprehension",
+      "Vocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"명성\",\"english\":\"fame\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"업적\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"명성 있는 학생들은 학업적으로 성과를 얻습니다.\",\"english\":\"Famous students are known for their academic achievements.\"}}",
+    "id": 421
+  },
+  {
+    "generator": "korean-english",
+    "input": "antiquated",
+    "problem": "고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.",
+    "length": 30,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Conservation",
+      "Ancient",
+      "Book",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"고전적인\",\"english\":\"antiquated\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"보존\",\"english\":\"conservation\"}],\"sentence\":{\"korean\":\"고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.\",\"english\":\"Massive ancient books need to be conserved over time.\"}}",
+    "id": 422
+  },
+  {
+    "generator": "korean-english",
+    "input": "engrave",
+    "problem": "인각된 작품은 삶의 일부가 됩니다.",
+    "length": 19,
+    "tags": [
+      "5thGrade",
+      "WordTranslation",
+      "KoreanToEnglish",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"인각\",\"english\":\"engrave\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"삶\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"인각된 작품은 삶의 일부가 됩니다.\",\"english\":\"The engraved artwork becomes a part of life itself.\"}}",
+    "id": 423
+  },
+  {
+    "generator": "korean-english",
+    "input": "transplant",
+    "problem": "이식된 신체는 새로운 생명체가 되었습니다.",
+    "length": 23,
+    "tags": [
+      "fifth-grade",
+      "translation",
+      "medical-vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"이식\",\"english\":\"transplant\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"새로운\",\"english\":\"new\"}],\"sentence\":{\"korean\":\"이식된 신체는 새로운 생명체가 되었습니다.\",\"english\":\"The transplanted body became a new living entity.\"}}",
+    "id": 424
+  },
+  {
+    "generator": "korean-english",
+    "input": "airplane",
+    "problem": "고속비행기는 날다.",
+    "length": 10,
+    "tags": [
+      "fifth-grade",
+      "translation",
+      "grammar",
+      "vocabulary",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"비행기\",\"english\":\"airplane\"},{\"korean\":\"날다\",\"english\":\"to fly\"},{\"korean\":\"고속\",\"english\":\"fast\"}],\"sentence\":{\"korean\":\"고속비행기는 날다.\",\"english\":\"A high-speed airplane flies quickly.\"}}",
+    "id": 425
+  },
+  {
+    "generator": "korean-english",
+    "input": "happen",
+    "problem": "벌써 우리는 오늘 피크닉을 해",
+    "length": 16,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "VerbTenses",
+      "Adverbs",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"벌써\",\"english\":\"already\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"}],\"sentence\":{\"korean\":\"벌써 우리는 오늘 피크닉을 해\",\"english\":\"We are already having a picnic today\"}}",
+    "id": 426
+  },
+  {
+    "generator": "korean-english",
+    "input": "nationalize",
+    "problem": "국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.",
+    "length": 35,
+    "tags": [
+      "5th grade",
+      "translation",
+      "education",
+      "nationalization",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"국민화\",\"english\":\"nationalization\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.\",\"english\":\"Nationalized education systems contribute to improving the quality of education.\"}}",
+    "id": 427
+  },
+  {
+    "generator": "korean-english",
+    "input": "controversial",
+    "problem": "쟁점적 주장은 사회적으로 논란이 될 수 있습니다.",
+    "length": 27,
+    "tags": [
+      "5thGrade",
+      "Argument",
+      "Debate",
+      "Controversy",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"쟁점적\",\"english\":\"controversial\"},{\"korean\":\"논란\",\"english\":\"debate\"},{\"korean\":\"견해\",\"english\":\"opinion\"}],\"sentence\":{\"korean\":\"쟁점적 주장은 사회적으로 논란이 될 수 있습니다.\",\"english\":\"A controversial argument can be socially debated.\"}}",
+    "id": 428
+  },
+  {
+    "generator": "korean-english",
+    "input": "monotony",
+    "problem": "평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.",
+    "length": 31,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Routine",
+      "Monotony",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"평등한\",\"english\":\"uniform\"},{\"korean\":\"반복\",\"english\":\"repeated\"},{\"korean\":\"생활\",\"english\":\"routine\"}],\"sentence\":{\"korean\":\"평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.\",\"english\":\"A monotonous routine can become boring due to the repeated activities.\"}}",
+    "id": 429
+  },
+  {
+    "generator": "korean-english",
+    "input": "misplace",
+    "problem": "치레는 침대에 놓쳤어요.",
+    "length": 13,
+    "tags": [
+      "5thGrade",
+      "Misplacement",
+      "ObjectPlacement",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"치레\",\"english\":\"spoon\"},{\"korean\":\"침대\",\"english\":\"bathtub\"},{\"korean\":\"놓치다\",\"english\":\"to misplace\"}],\"sentence\":{\"korean\":\"치레는 침대에 놓쳤어요.\",\"english\":\"The spoon was misplaced in the bathtub.\"}}",
+    "id": 430
+  },
+  {
+    "generator": "korean-english",
+    "input": "watershed",
+    "problem": "물리선은 지점에서 변화를 일으킨다.",
+    "length": 19,
+    "tags": [
+      "5thGrade",
+      "WordTranslation",
+      "ConceptUnderstanding",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"물리선\",\"english\":\"watershed\"},{\"korean\":\"지점\",\"english\":\"point\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"물리선은 지점에서 변화를 일으킨다.\",\"english\":\"A watershed moment changes everything at the point.\"}}",
+    "id": 431
+  },
+  {
+    "generator": "korean-english",
+    "input": "favorite",
+    "problem": "애용한 식단은 건강에 도움이 됩니다.",
+    "length": 20,
+    "tags": [
+      "5thGrade",
+      "KoreanTranslation",
+      "HealthAndDiet",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"애용\",\"english\":\"favorite\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"애용한 식단은 건강에 도움이 됩니다.\",\"english\":\"A favorite diet helps keep you healthy.\"}}",
+    "id": 432
+  },
+  {
+    "generator": "korean-english",
+    "input": "tape",
+    "problem": "테이프는 길게 잡아다니다.",
+    "length": 14,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Tape",
+      "Holding",
+      "Length",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"테이프\",\"english\":\"tape\"},{\"korean\":\"길게\",\"english\":\"longly\"},{\"korean\":\"잡아다니다\",\"english\":\"to hold\"}],\"sentence\":{\"korean\":\"테이프는 길게 잡아다니다.\",\"english\":\"The tape is held longly.\"}}",
+    "id": 433
+  },
+  {
+    "generator": "korean-english",
+    "input": "crowded",
+    "problem": "인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.",
+    "length": 37,
+    "tags": [
+      "5thGrade",
+      "ReadingComprehension",
+      "SentenceTranslation",
+      "CrowdedArea",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"인근\",\"english\":\"crowded\"},{\"korean\":\"거주민들\",\"english\":\"people\"},{\"korean\":\"집\",\"english\":\"houses\"}],\"sentence\":{\"korean\":\"인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.\",\"english\":\"The crowded people in the neighborhood have difficulty walking on the street because of the densely packed houses.\"}}",
+    "id": 434
+  },
+  {
+    "generator": "korean-english",
+    "input": "painter",
+    "problem": "화가는 감성을 표현하는 작품을 그립니다.",
+    "length": 22,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Art",
+      "Emotion",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"화가\",\"english\":\"painter\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"화가는 감성을 표현하는 작품을 그립니다.\",\"english\":\"A painter expresses their emotions through their artwork.\"}}",
+    "id": 435
+  },
+  {
+    "generator": "korean-english",
+    "input": "fried",
+    "problem": "고지말은 오일에서 물을 흡수합니다.",
+    "length": 19,
+    "tags": [
+      "5thGrade",
+      "Vocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
+    "id": 436
+  },
+  {
+    "generator": "korean-english",
+    "input": "profitable",
+    "problem": "윤리적인 영업은 수익을 얻는 데 도움이 됩니다.",
+    "length": 26,
+    "tags": [
+      "5th grade",
+      "translation",
+      "profit",
+      "business",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"윤리적인\",\"english\":\"profitable\"},{\"korean\":\"영업\",\"english\":\"business\"},{\"korean\":\"수익\",\"english\":\"profit\"}],\"sentence\":{\"korean\":\"윤리적인 영업은 수익을 얻는 데 도움이 됩니다.\",\"english\":\"A profitable business brings in profit.\"}}",
+    "id": 437
+  },
+  {
+    "generator": "korean-english",
+    "input": "multimedia",
+    "problem": "멀티미디어는 정보 전달의 전문성을 제공합니다.",
+    "length": 25,
+    "tags": [
+      "5th grade",
+      "translation",
+      "multimedia",
+      "information",
+      "expertise",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"멀티미디어\",\"english\":\"multimedia\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전문성\",\"english\":\"expertise\"}],\"sentence\":{\"korean\":\"멀티미디어는 정보 전달의 전문성을 제공합니다.\",\"english\":\"Multimedia provides expertise in information delivery.\"}}",
+    "id": 438
+  },
+  {
+    "generator": "korean-english",
+    "input": "exhilarate",
+    "problem": "흥분으로 고통을 극복해야 성공할 수 있습니다.",
+    "length": 25,
+    "tags": [
+      "5thgrade",
+      "translation",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
+    "id": 439
+  },
+  {
+    "generator": "korean-english",
+    "input": "donkey",
+    "problem": "꽃밭에 말동쟁이가 돌돌아다니다.",
+    "length": 17,
+    "tags": [
+      "5thGrade",
+      "Translation",
+      "Animal",
+      "FlowerField",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"말동쟁이\",\"english\":\"Donkey\"},{\"korean\":\"꽃밭에\",\"english\":\"In the flower field\"},{\"korean\":\"돌돌아다니다\",\"english\":\"Wandering around\"}],\"sentence\":{\"korean\":\"꽃밭에 말동쟁이가 돌돌아다니다.\",\"english\":\"A donkey is wandering around in the flower field.\"}}",
+    "id": 440
+  },
+  {
+    "generator": "korean-english",
+    "input": "posh",
+    "problem": "부사한 물건은 깨져 있지 않습니다.",
+    "length": 19,
+    "tags": [
+      "fifth-grade",
+      "translation",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"부사\",\"english\":\"expensive\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"깨진\",\"english\":\"broken\"}],\"sentence\":{\"korean\":\"부사한 물건은 깨져 있지 않습니다.\",\"english\":\"An expensive thing is not broken.\"}}",
+    "id": 441
+  },
+  {
+    "generator": "korean-english",
+    "input": "null",
+    "problem": "무상상이 생각된다.",
+    "length": 10,
+    "tags": [
+      "5th-grade",
+      "vocabulary",
+      "grammar",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"무\",\"english\":\"nothing\"},{\"korean\":\"상상\",\"english\":\"imagination\"},{\"korean\":\"생각\",\"english\":\"thought\"}],\"sentence\":{\"korean\":\"무상상이 생각된다.\",\"english\":\"Something can be thought of as nothing.\"}}",
+    "id": 442
+  },
+  {
+    "generator": "korean-english",
+    "input": "affected",
+    "problem": "감염된 체계는 위험을 초래합니다.",
+    "length": 18,
+    "tags": [
+      "5thGrade",
+      "Infection",
+      "Body",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"감염된\",\"english\":\"infected\"},{\"korean\":\"체계\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"감염된 체계는 위험을 초래합니다.\",\"english\":\"An infected body poses a risk.\"}}",
+    "id": 443
+  },
+  {
+    "generator": "korean-english",
+    "input": "temperate",
+    "problem": "온화한 기후는 식물과 동물의 생활에 중요합니다.",
+    "length": 26,
+    "tags": [
+      "5th-grade",
+      "translation",
+      "climate",
+      "temperate",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
+    "id": 444
+  },
+  {
+    "generator": "korean-english",
+    "input": "satisfy",
+    "problem": "목표를 달성하면 만족감이 크게 늘어납니다.",
+    "length": 23,
+    "tags": [
+      "5thGrade",
+      "Vocabulary",
+      "SentenceStructure",
+      "korean-english"
+    ],
+    "solution": "{\"words\":[{\"korean\":\"만족감\",\"english\":\"fulfillment\"},{\"korean\":\"목표\",\"english\":\"goal\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하면 만족감이 크게 늘어납니다.\",\"english\":\"When you achieve your goal, you feel a great sense of fulfillment.\"}}",
+    "id": 445
   }
 ];
