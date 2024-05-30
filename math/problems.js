@@ -3780,7 +3780,7 @@ export const problems = [
   {
     "generator": "airplane-trivia",
     "input": "bustle",
-    "problem": "What is the function of the winglet on an airplane? It's like a mini wing that helps the main wings generate more lift.",
+    "problem": "What is the function of the winglet on an airplane?",
     "length": 119,
     "tags": [
       "airplane",
@@ -3792,22 +3792,6 @@ export const problems = [
     ],
     "solution": "Winglets are small surfaces attached to the main wings of an airplane. They generate additional lift, which helps the airplane take off and climb more efficiently.",
     "id": 251
-  },
-  {
-    "generator": "science-trivia",
-    "input": "bustle",
-    "problem": "What is the scientific term for the amount of activity or movement in a liquid solution?",
-    "length": 88,
-    "tags": [
-      "science",
-      "chemistry",
-      "solution",
-      "concentration",
-      "3rdGrade",
-      "science-trivia"
-    ],
-    "solution": "The scientific term for the amount of activity or movement in a liquid solution is **concentration**. Concentration is measured in moles of solute per liter of solution.",
-    "id": 252
   },
   {
     "generator": "two-variable-algebra",
@@ -3822,7 +3806,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the number of flowers Heather buys.\nx * 5 + 10 = 30\nx * 5 = 20\nx = 4\nHeather can buy 4 flowers.",
-    "id": 253
+    "id": 252
   },
   {
     "generator": "time-distance-speed",
@@ -3838,7 +3822,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "First, we need to calculate the time it will take Heather to reach the 7 kilometer point. We can use the formula: time = distance / speed.  Time = 7 kilometers / 3.5 kilometers per hour = 2 hours.  Therefore, Heather will reach the 7 kilometer point at 10:30 AM.",
-    "id": 254
+    "id": 253
   },
   {
     "generator": "geometry",
@@ -3852,7 +3836,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "First, we can find the formula for the perimeter of a rectangle: Perimeter = 2(length + width). Then, we can substitute the given information into the formula and solve for the length and width.",
-    "id": 255
+    "id": 254
   },
   {
     "generator": "probability",
@@ -3866,7 +3850,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "\frac{8}{10} = 0.8",
-    "id": 256
+    "id": 255
   },
   {
     "generator": "physics",
@@ -3881,7 +3865,7 @@ export const problems = [
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of triangles and shadows to solve a real-world problem. It involves measuring lengths and using ratios to find the length of the shadow at a different angle.",
-    "id": 257
+    "id": 256
   },
   {
     "generator": "science",
@@ -3897,7 +3881,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires students to apply their knowledge of circumference and linear growth. Students need to understand the concept of circumference and be able to calculate the rate of change of a variable. This problem also requires them to be able to solve linear equations.",
-    "id": 258
+    "id": 257
   },
   {
     "generator": "bad-grammar",
@@ -3911,7 +3895,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence has a misspelling. The correct word is 'Heather'.",
-    "id": 259
+    "id": 258
   },
   {
     "generator": "bad-spelling",
@@ -3925,7 +3909,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'heather' instead of 'heath'. 'Heath' is the correct word for a wild, bushy growth of heather plants.",
-    "id": 260
+    "id": 259
   },
   {
     "generator": "sentence-prompt",
@@ -3940,12 +3924,12 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The vibrant heathers in the garden formed a stunning tapestry of reds, oranges, and purples.",
-    "id": 261
+    "id": 260
   },
   {
     "generator": "airplane-trivia",
     "input": "heather",
-    "problem": "What is the function of the horizontal stabilizer on an airplane? It's like a giant wing that helps control the airplane's _,_, and altitude.",
+    "problem": "What is the function of the horizontal stabilizer on an airplane?",
     "length": 141,
     "tags": [
       "airplane",
@@ -3959,7 +3943,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "The horizontal stabilizer helps to maintain the airplane's equilibrium and stability by countering the effects of airflow over the wings. By adjusting its angle, pilots can control the airplane's pitch and maintain a steady course.",
-    "id": 262
+    "id": 261
   },
   {
     "generator": "science-trivia",
@@ -3977,7 +3961,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "The scientific name for heather is 'Ericaceae'. This family of plants includes many species with colorful flowers and foliage commonly found in mountainous regions.",
-    "id": 263
+    "id": 262
   },
   {
     "generator": "two-variable-algebra",
@@ -3992,7 +3976,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the weight of the smaller stash (in kilograms).\nThe weight of the larger stash is then 3x.\nTogether, the stashes hold 240 kilograms, so:\nx + 3x = 240\nSolving for x, we get:\nx = 60\nThe smaller stash holds 60 kilograms, and the larger stash holds 3x = 3 * 60 = 180 kilograms.",
-    "id": 264
+    "id": 263
   },
   {
     "generator": "time-distance-speed",
@@ -4006,7 +3990,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "To find the speed, we can use the formula: speed = distance / time. Substituting the given values, we get: speed = 300km / 5h = 60km/h. Therefore, the rebel group travelled at a speed of 60km/h.",
-    "id": 265
+    "id": 264
   },
   {
     "generator": "geometry",
@@ -4021,7 +4005,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "First, we can use the formula for the perimeter of a rectangle: Perimeter = 2(length + width). We know the perimeter is 80 meters, so we can write the equation: 80 = 2(length + width). Next, we can use the information about the length being 10 meters more than the width to write another equation: length = width + 10. We can substitute the second equation into the first equation and solve for the width. Then, we can use the value of the width to find the length.",
-    "id": 266
+    "id": 265
   },
   {
     "generator": "probability",
@@ -4036,7 +4020,7 @@ export const problems = [
       "probability"
     ],
     "solution": "\frac{13}{21}",
-    "id": 267
+    "id": 266
   },
   {
     "generator": "physics",
@@ -4051,7 +4035,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "This problem requires students to recall the formula for gravitational potential energy and apply it to a real-life scenario. It also involves understanding the relationship between potential and kinetic energy.",
-    "id": 268
+    "id": 267
   },
   {
     "generator": "science",
@@ -4067,7 +4051,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires dividing a large quantity of explosive material equally among a group of rebels. This is a division problem suitable for 5th graders.",
-    "id": 269
+    "id": 268
   },
   {
     "generator": "bad-grammar",
@@ -4081,7 +4065,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence correctly uses the word 'rebel' but contains a grammatical error in the phrase 'seeking to restore freedom and justice for the people'. The correct form should be 'to restore freedom and justice for the people'.",
-    "id": 270
+    "id": 269
   },
   {
     "generator": "bad-spelling",
@@ -4095,7 +4079,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'hushed' instead of 'silenced'. 'Silenced' is the correct word when something is completely quiet, while 'hushed' means quieter or less loud. In this sentence, the students' voices were becoming quieter, not completely silent.",
-    "id": 271
+    "id": 270
   },
   {
     "generator": "sentence-prompt",
@@ -4112,7 +4096,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The young rebel hero used her magic to fight for the rights of the forest creatures.",
-    "id": 272
+    "id": 271
   },
   {
     "generator": "airplane-trivia",
@@ -4128,7 +4112,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "Rebel aircraft have a vertical takeoff and landing system (VTOL), which means they can generate enough lift to take off and land vertically. This feature allows them to operate from smaller landing pads and operate in more confined spaces.",
-    "id": 273
+    "id": 272
   },
   {
     "generator": "science-trivia",
@@ -4144,7 +4128,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "The atomic number of an element represents the number of protons in an atom's nucleus. The highest stable atomic number is 92, which corresponds to the element lead. Lead has 92 protons in its nucleus, giving it the highest atomic number of any stable element.",
-    "id": 274
+    "id": 273
   },
   {
     "generator": "arithmetic",
@@ -4159,7 +4143,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": ",,125/27-2/27,,",
-    "id": 275
+    "id": 274
   },
   {
     "generator": "two-variable-algebra",
@@ -4175,7 +4159,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the number of sparrows. Then, the number of nests is x/2. We know there are 15 nests, so:  $$x/2 = 15$$  Solving for x:  $$x = 15 * 2 = 30$$  There are **30 sparrows** in total.",
-    "id": 276
+    "id": 275
   },
   {
     "generator": "time-distance-speed",
@@ -4191,23 +4175,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "First, we need to convert kilometers to meters. 1 kilometer is equal to 1000 meters. So, 3.5 kilometers is equal to 3.5 * 1000 = 3500 meters.  Next, we need to find the average speed by dividing the distance traveled by the time taken.   $$Average speed = \frac{Distance}{Time}$$  $$Average speed = \frac{3500m}{7min}$$  $$Average speed = 500m/min$$  Therefore, the sparrow's average speed is 500 meters per minute.",
-    "id": 277
-  },
-  {
-    "generator": "geometry",
-    "input": "sparrow",
-    "problem": "A sparrow's nest is shaped like a pyramid with a slant height of 15 cm and a base perimeter of 40 cm. What is the area of the nest's roof?",
-    "length": 138,
-    "tags": [
-      "geometry",
-      "pyramid",
-      "perimeter",
-      "height",
-      "area",
-      "fifth-grade"
-    ],
-    "solution": "First, we need to find the length of one side of the base using the perimeter. Divide the perimeter by 4 to get the length of one side. Then, use the slant height and the side length to find the area of the triangle-shaped roof using the formula: area = (base * height) / 2.",
-    "id": 278
+    "id": 276
   },
   {
     "generator": "probability",
@@ -4223,7 +4191,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "\frac{70}{100} = 0.7",
-    "id": 279
+    "id": 277
   },
   {
     "generator": "physics",
@@ -4238,7 +4206,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "This problem requires students to combine their understanding of velocity and periodic motion to solve. They need to know how to calculate the distance covered in one wingbeat using the velocity and the number of wingbeats per second.",
-    "id": 280
+    "id": 278
   },
   {
     "generator": "science",
@@ -4253,7 +4221,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires students to convert kilometers to meters and multiply the speed by the time spent flying.",
-    "id": 281
+    "id": 279
   },
   {
     "generator": "bad-grammar",
@@ -4267,7 +4235,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence has a grammatical error in the second sentence. 'Flutters' should be 'flew'. 'Flutters' is the present tense, while 'flew' is the past tense.",
-    "id": 282
+    "id": 280
   },
   {
     "generator": "bad-spelling",
@@ -4281,7 +4249,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'chirping happily'. The correct spelling is 'chirping happily' with two 'p's. This is a common misspelling that many students make.",
-    "id": 283
+    "id": 281
   },
   {
     "generator": "sentence-prompt",
@@ -4298,7 +4266,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The tiny sparrows chirped happily as they fluttered from flower to flower in the warm sunshine.",
-    "id": 284
+    "id": 282
   },
   {
     "generator": "airplane-trivia",
@@ -4318,7 +4286,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "The horizontal stabilizer helps to control the airplane's pitch. It counteracts the lift and drag forces acting on the wings, ensuring that the airplane maintains stable flight.",
-    "id": 285
+    "id": 283
   },
   {
     "generator": "science-trivia",
@@ -4333,7 +4301,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "The beak of a sparrow is approximately the size of a small marble. A marble's volume is about 5 ml. So, the beak of a sparrow is roughly 5 milliliters.",
-    "id": 286
+    "id": 284
   },
   {
     "generator": "arithmetic",
@@ -4347,12 +4315,12 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": ",,11/15,,",
-    "id": 287
+    "id": 285
   },
   {
     "generator": "arithmetic-carry",
     "input": "sparrow",
-    "problem": ",=345, +, 87, - 12,34",
+    "problem": ",,=345 + 87 - 12,,",
     "length": 21,
     "tags": [
       "arithmetic",
@@ -4363,7 +4331,7 @@ export const problems = [
       "arithmetic-carry"
     ],
     "solution": "Remember that when you borrow 1 from the tens place to the ones place, you need to subtract 1 from the tens place as well. This is similar to when a sparrow uses its beak to take something away from another sparrow.",
-    "id": 288
+    "id": 286
   },
   {
     "generator": "arithmetic-multiplication",
@@ -4378,7 +4346,7 @@ export const problems = [
       "multiplication-error",
       "arithmetic-multiplication"
     ],
-    "id": 289
+    "id": 287
   },
   {
     "generator": "arithmetic-division",
@@ -4392,7 +4360,7 @@ export const problems = [
       "arithmetic-division"
     ],
     "solution": "This problem tests several common errors in integer division. Students may forget to carry digits correctly, or may not understand when to round their answer. It also requires dividing by a number that is slightly larger than the dividend, making the problem slightly more challenging.",
-    "id": 290
+    "id": 288
   },
   {
     "generator": "handwriting-exercise",
@@ -4407,7 +4375,7 @@ export const problems = [
       "handwriting-exercise"
     ],
     "solution": "This sentence uses basic sentence structure and common words that are appropriate for a 5th grade student.",
-    "id": 291
+    "id": 289
   },
   {
     "generator": "two-variable-algebra",
@@ -4423,7 +4391,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x and x+2 represent the lengths (in meters) of the two patches. Then, 2x + 2(x+2) = 30. Solving for x gives 2x = 20, so the lengths are 10 and 12 meters.",
-    "id": 292
+    "id": 290
   },
   {
     "generator": "time-distance-speed",
@@ -4439,7 +4407,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "First, we can calculate the runner's speed in meters per minute by dividing the distance covered (300 meters) by the time taken (5 minutes). Speed = 300 meters / 5 minutes = 60 meters per minute.  Next, we can find the time it takes the runner to cover 800 meters by dividing the distance to be covered (800 meters) by the speed of the runner (60 meters per minute). Time = 800 meters / 60 meters per minute = 13 minutes.  Therefore, it will take the enthusiastic runner 13 minutes to cover 800 meters.",
-    "id": 293
+    "id": 291
   },
   {
     "generator": "two-variable-algebra",
@@ -4454,7 +4422,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "The first train is 50 kilometers per hour faster than the second train.",
-    "id": 294
+    "id": 292
   },
   {
     "generator": "time-distance-speed",
@@ -4469,7 +4437,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "First, we need to find the airplane's new speed. 25% of 450 km/h is 450 km/h * 0.25 = 112.5 km/h. So the new speed is 450 km/h + 112.5 km/h = 562.5 km/h.  Next, we need to use the formula: time = distance / speed.   Time taken at new speed = 450 km / 562.5 km/h = 0.8 hours.  Therefore, the airplane will take **0.8 hours** to cover the same distance at the new speed.",
-    "id": 295
+    "id": 293
   },
   {
     "generator": "geometry",
@@ -4485,7 +4453,7 @@ export const problems = [
       "tower"
     ],
     "solution": "First, find the total distance climbed in 6 minutes by multiplying 5 meters/minute by 6 minutes. Then, subtract the initial height (0 meters) from the total distance climbed to get the upshot.",
-    "id": 296
+    "id": 294
   },
   {
     "generator": "probability",
@@ -4499,7 +4467,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "\frac{20\binom{80}{7}}{100\binom{100}{10}}$",
-    "id": 297
+    "id": 295
   },
   {
     "generator": "physics",
@@ -4514,7 +4482,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "This problem requires students to apply the concept of constant acceleration due to gravity to calculate the height of an object launched vertically. It involves understanding the relationship between initial velocity, acceleration, and height.",
-    "id": 298
+    "id": 296
   },
   {
     "generator": "science",
@@ -4531,7 +4499,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem involves applying the concept of potential energy to calculate the height reached by the ball. It requires understanding of velocity, gravitational acceleration, and potential energy changes during projectile motion.",
-    "id": 299
+    "id": 297
   },
   {
     "generator": "bad-grammar",
@@ -4545,7 +4513,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence has a grammatical error. 'Upshot' means 'result' or 'outcome,' so it should be 'The result of their hard work was a remarkable transformation.'",
-    "id": 300
+    "id": 298
   },
   {
     "generator": "bad-spelling",
@@ -4560,7 +4528,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'upshot' instead of 'upshot'. 'Upshot' is an uncommon word that means 'a sudden change or development in a situation'.",
-    "id": 301
+    "id": 299
   },
   {
     "generator": "sentence-prompt",
@@ -4575,7 +4543,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The tired runner took an unexpected upshot by eating a banana and feeling a burst of energy.",
-    "id": 302
+    "id": 300
   },
   {
     "generator": "airplane-trivia",
@@ -4595,7 +4563,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "The upshot is a device that increases the fuel-air mixture's velocity before it enters the engine's combustion chamber. This boosts the engine's power and efficiency by promoting better fuel-air mixing.",
-    "id": 303
+    "id": 301
   },
   {
     "generator": "science-trivia",
@@ -4613,12 +4581,12 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "The upshot of water vapor in the air at room temperature is its partial pressure. Partial pressure is the pressure exerted by a component of a mixture, in this case, the water vapor in the air.",
-    "id": 304
+    "id": 302
   },
   {
     "generator": "arithmetic",
     "input": "upshot",
-    "problem": ",,(3/4)-,((1/8)/(1/3)),,",
+    "problem": ",,(3/4) - ((1/8)/(1/3)),,",
     "length": 24,
     "tags": [
       "algebraic-expression",
@@ -4627,8 +4595,8 @@ export const problems = [
       "fifth-grade",
       "arithmetic"
     ],
-    "solution": ",,(11/24),",
-    "id": 305
+    "solution": ",,(11/24),,",
+    "id": 303
   },
   {
     "generator": "two-variable-algebra",
@@ -4644,7 +4612,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the time in hours it takes for the two trains to be 60km apart.\n360/x - 240/x = 60/x\n360 - 240 = 60x\n120 = 60x\nx = 2 hours",
-    "id": 306
+    "id": 304
   },
   {
     "generator": "time-distance-speed",
@@ -4660,7 +4628,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "First, we need to convert the speed to meters per second. 60 km/h = 16.67 m/s. Next, we multiply the speed by the time to find the distance. 16.67 m/s * 2 h = 33.34 m. Therefore, the train traveled 33.34 meters in total.",
-    "id": 307
+    "id": 305
   },
   {
     "generator": "geometry",
@@ -4676,7 +4644,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "First, the gardener needs to find the radius of the circle using the formula: C = 2πr. Then, he can use the area formula to find the amount of area he needs to cover.",
-    "id": 308
+    "id": 306
   },
   {
     "generator": "probability",
@@ -4690,7 +4658,7 @@ export const problems = [
       "fifth grade"
     ],
     "solution": "\frac{20}{30} = \frac{2}{3}",
-    "id": 309
+    "id": 307
   },
   {
     "generator": "physics",
@@ -4706,7 +4674,7 @@ export const problems = [
       "physics"
     ],
     "solution": "This problem requires students to recall the concept of adding weights together. It also involves understanding place value and decimal notation.",
-    "id": 310
+    "id": 308
   },
   {
     "generator": "science",
@@ -4721,7 +4689,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem involves dividing a known total amount of water by the number of containers to find the average amount. This is a common division concept learned in 5th grade.",
-    "id": 311
+    "id": 309
   },
   {
     "generator": "two-variable-algebra",
@@ -4738,7 +4706,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the cost of 1 croissant and y be the cost of 1 pastry.\n5x + 3y = 13\n3x + 4y = 10\nSolving the first equation for x: x = (13 - 3y) / 5\nSubstituting this into the second equation: 3((13 - 3y) / 5) + 4y = 10\nSolving for y: y = 2\nSubstituting this back into the first equation: x = (13 - 3*2) / 5 = 3.\nSo, 7 croissants and 4 pastries would cost 7*3 + 4*2 = 25€.",
-    "id": 312
+    "id": 310
   },
   {
     "generator": "time-distance-speed",
@@ -4753,7 +4721,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "To find the time it takes for the ball to reach the tree, we can use the formula:  $$time = \frac{distance}{speed}$$  Substituting the given values into the formula:  $$time = \frac{5 m}{2 m/s} = 2.5 s$$  Therefore, it will take the ball 2.5 seconds to reach the tree.",
-    "id": 313
+    "id": 311
   },
   {
     "generator": "geometry",
@@ -4770,7 +4738,7 @@ export const problems = [
       "geometry"
     ],
     "solution": "First, find the length of the longest side by subtracting 30 cm from the perimeter. Then, divide the remaining perimeter equally among the two equal sides.",
-    "id": 314
+    "id": 312
   },
   {
     "generator": "probability",
@@ -4783,7 +4751,7 @@ export const problems = [
       "5th grade"
     ],
     "solution": "Let X be the amount of batter remaining in the jar after 30 seconds. Then, X follows a uniform distribution between 0 and 500 millilitres. The probability that X is less than 450 millilitres can be calculated as (450-0)/(500-0) = 0.9.",
-    "id": 315
+    "id": 313
   },
   {
     "generator": "physics",
@@ -4800,7 +4768,7 @@ export const problems = [
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of volume, area, and circumference to solve a real-world problem involving measurement and geometry. It involves two steps: calculating the area covered by the puddle and then calculating the volume of water using the depth and area.",
-    "id": 316
+    "id": 314
   },
   {
     "generator": "science",
@@ -4815,7 +4783,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires students to understand the concept of rate of change, specifically how to calculate the time it takes for something to change at a given rate. It also requires them to apply their knowledge of area to calculate the total amount of chocolate that is melting.",
-    "id": 317
+    "id": 315
   },
   {
     "generator": "bad-grammar",
@@ -4829,7 +4797,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence has a grammatical error because it uses 'sloopy' in a way that is not standard in formal English. 'Sloopy' usually refers to something that is messy or drooping, but in this context, a more appropriate word would be 'sloppy' or 'sticky'.",
-    "id": 318
+    "id": 316
   },
   {
     "generator": "bad-spelling",
@@ -4843,7 +4811,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'sloppy students'. The correct spelling should be 'sloppy students' with an 's' at the end to make the plural form.",
-    "id": 319
+    "id": 317
   },
   {
     "generator": "sentence-prompt",
@@ -4859,7 +4827,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The astronaut's spaghetti dinner became incredibly sloppy due to the lack of gravity in space.",
-    "id": 320
+    "id": 318
   },
   {
     "generator": "airplane-trivia",
@@ -4875,7 +4843,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "The wingspan of a Boeing 747 is approximately 58 meters. This enormous wingspan helps the plane generate lift and keep it airborne.",
-    "id": 321
+    "id": 319
   },
   {
     "generator": "science-trivia",
@@ -4890,7 +4858,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "First, we add the volumes of water and syrup. 250 milliliters + 30 milliliters = 280 milliliters. Therefore, there will be **280 milliliters** of liquid in the glass in total.",
-    "id": 322
+    "id": 320
   },
   {
     "generator": "arithmetic",
@@ -4904,7 +4872,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": ",,(11/60),,",
-    "id": 323
+    "id": 321
   },
   {
     "generator": "arithmetic-carry",
@@ -4920,7 +4888,7 @@ export const problems = [
       "arithmetic-carry"
     ],
     "solution": "This problem requires careful handling of carries and borrows. Remember to line up the digits from the right and work from the least significant digit to the most significant digit. Be sure to keep track of any carries or borrows that occur during the subtraction process.",
-    "id": 324
+    "id": 322
   },
   {
     "generator": "arithmetic-multiplication",
@@ -4936,7 +4904,7 @@ export const problems = [
       "place-value",
       "arithmetic-multiplication"
     ],
-    "id": 325
+    "id": 323
   },
   {
     "generator": "arithmetic-division",
@@ -4952,7 +4920,7 @@ export const problems = [
       "arithmetic-division"
     ],
     "solution": "This problem tests two common errors in integer division: \n- **Partial quotient omission:** Not dividing all the numbers in the dividend by the divisor.\n- **Incorrect rounding:** Rounding the quotient to the nearest whole number instead of the nearest decimal.",
-    "id": 326
+    "id": 324
   },
   {
     "generator": "handwriting-exercise",
@@ -4967,7 +4935,7 @@ export const problems = [
       "handwriting-exercise"
     ],
     "solution": "This sentence uses various word shapes and structures, including irregular verbs, compound adjectives, and silent letters.",
-    "id": 327
+    "id": 325
   },
   {
     "generator": "two-variable-algebra",
@@ -4984,7 +4952,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x cm be the width of the rectangle.\nThe length of the rectangle is x + 5 cm.\nPerimeter = 2(width + length) = 40 cm\n2(x + x + 5) = 40\n2(2x + 5) = 40\n4x + 10 = 40\n4x = 30\nx = 7.5 cm\nTherefore, the width of the rectangle is 7.5 cm and the length is 7.5 + 5 = 12.5 cm.",
-    "id": 328
+    "id": 326
   },
   {
     "generator": "time-distance-speed",
@@ -5000,7 +4968,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "Let x be the original speed of the train in km/h.  Using the formula: distance = speed × time  300 = x + (x * 0.2)  Solving for x, we get:  300 = x + 0.2x  300 = 1.2x  x = 300 / 1.2  x = 250 km/h  Therefore, the original speed of the train was 250 km/h.",
-    "id": 329
+    "id": 327
   },
   {
     "generator": "geometry",
@@ -5014,7 +4982,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "To find the ratio of the areas, we need to calculate the area of each square. The area of a square is equal to the side length squared. So, the area of the first square is 3 cm * 3 cm = 9 cm². The area of the second square is 4 cm * 4 cm = 16 cm². The ratio of the areas is 9 cm²/16 cm² = 9:16.",
-    "id": 330
+    "id": 328
   },
   {
     "generator": "probability",
@@ -5027,7 +4995,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "\frac{100 \times (100-1)}{2 \times 3} = 250",
-    "id": 331
+    "id": 329
   },
   {
     "generator": "physics",
@@ -5042,7 +5010,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "This problem requires students to apply their understanding of forces, specifically gravitational force. It involves calculating the net force between the two spheres, taking into account both the attractive and repulsive forces. This problem is appropriate for 5th graders as it involves manipulating basic mathematical concepts related to force and mass.",
-    "id": 332
+    "id": 330
   },
   {
     "generator": "science",
@@ -5058,7 +5026,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires understanding of the concept of affinity, which is a measure of how much two substances are attracted to each other. The students need to calculate the total affinity by multiplying the affinity of the two pigments by the masses of each pigment. This problem is suitable for 5th graders as it requires applying their knowledge of ratios, proportions, and multiplication.",
-    "id": 333
+    "id": 331
   },
   {
     "generator": "bad-grammar",
@@ -5072,7 +5040,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence has two errors. 'Afinity' should be 'affinity' and 'intresting' should be 'interesting'.",
-    "id": 334
+    "id": 332
   },
   {
     "generator": "bad-spelling",
@@ -5086,7 +5054,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'resonated' instead of 'resonates'. 'Resonates' is the correct form of the verb, which means to vibrate or make a sound in response to an external force. 'Resonated' is the past tense of the verb.",
-    "id": 335
+    "id": 333
   },
   {
     "generator": "sentence-prompt",
@@ -5101,7 +5069,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The artist's affinity for vibrant colors resulted in breathtaking paintings.",
-    "id": 336
+    "id": 334
   },
   {
     "generator": "airplane-trivia",
@@ -5118,7 +5086,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "Affinity in aviation refers to the attractive force between an airplane's wing and the airflow that enables lift. Airflow flowing over the wing's curved surface creates high-pressure zones, while the airflow under the wing creates low-pressure zones. This pressure differential generates an uplift force that counteracts the gravitational force and allows the airplane to lift off.",
-    "id": 337
+    "id": 335
   },
   {
     "generator": "science-trivia",
@@ -5135,7 +5103,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "The element with the strongest affinity for oxygen is fluorine due to its highly electronegative nature. Fluorine readily attracts electrons towards itself, making it eager to form bonds with oxygen atoms. This strong affinity is responsible for fluorine's reactivity and its importance in various industrial processes.",
-    "id": 338
+    "id": 336
   },
   {
     "generator": "arithmetic",
@@ -5151,7 +5119,7 @@ export const problems = [
       "arithmetic"
     ],
     "solution": ",,(a-1)/3-2a/15,=,,",
-    "id": 339
+    "id": 337
   },
   {
     "generator": "two-variable-algebra",
@@ -5168,7 +5136,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the number of pages dedicated to the scientist's childhood and y be the number of pages dedicated to their experiments.\n x + y = 128\n y = 3x\n Substituting y = 3x into the first equation:\n x + 3x = 128\n 4x = 128\n x = 32\n Therefore, there are 32 pages dedicated to the scientist's childhood and 3 * 32 = 96 pages dedicated to their experiments.",
-    "id": 340
+    "id": 338
   },
   {
     "generator": "time-distance-speed",
@@ -5184,7 +5152,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "Let x be the age of the scientist when their discovery was published. Then, their age when they published their first discovery was x - 24. The distance traveled in 24 years is 24 * 2.5 = 60 m. Therefore, x - 24 = 60. Solving for x gives x = 84. The scientist was 84 years old when their discovery was published.",
-    "id": 341
+    "id": 339
   },
   {
     "generator": "geometry",
@@ -5199,7 +5167,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "First, find the radius of the garden by dividing the circumference by 2. Then, use the formula for the area of a circle, which is π multiplied by the radius squared, to find the new area.",
-    "id": 342
+    "id": 340
   },
   {
     "generator": "probability",
@@ -5213,7 +5181,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "3/8 * 48 = 3 * 12 = 36 biographies",
-    "id": 343
+    "id": 341
   },
   {
     "generator": "physics",
@@ -5229,7 +5197,7 @@ export const problems = [
       "physics"
     ],
     "solution": "This problem requires students to calculate the change in population and divide it by the time interval to find the average rate of growth. It involves understanding scientific notation and applying the concept of rate of change.",
-    "id": 344
+    "id": 342
   },
   {
     "generator": "science",
@@ -5245,7 +5213,7 @@ export const problems = [
       "science"
     ],
     "solution": "This problem requires understanding of normal distributions, probability concepts, and application of calculus to find the maximum probability. This aligns with 5th grade mathematical concepts and requires logical reasoning and statistical analysis.",
-    "id": 345
+    "id": 343
   },
   {
     "generator": "bad-grammar",
@@ -5259,7 +5227,7 @@ export const problems = [
       "bad-grammar"
     ],
     "solution": "The sentence is incorrect because it suggests that biographical novels feature real people in a fictional setting. However, biographical novels are based on real people and events.",
-    "id": 346
+    "id": 344
   },
   {
     "generator": "bad-spelling",
@@ -5274,7 +5242,7 @@ export const problems = [
       "bad-spelling"
     ],
     "solution": "The spelling error is 'biographical' instead of 'biographic'. 'Biographic' means relating to a person's life, while 'biographical' refers to a written work about a person's life.",
-    "id": 347
+    "id": 345
   },
   {
     "generator": "sentence-prompt",
@@ -5292,7 +5260,7 @@ export const problems = [
       "sentence-prompt"
     ],
     "solution": "The magical creatures in the forest had a biographical history rooted in ancient legends.",
-    "id": 348
+    "id": 346
   },
   {
     "generator": "airplane-trivia",
@@ -5310,7 +5278,7 @@ export const problems = [
       "airplane-trivia"
     ],
     "solution": "The lightweight material commonly used in airplane wings is fiberglass reinforced polymer (FRP). This material is strong and durable, yet it is significantly lighter than traditional materials like steel or aluminum. This reduction in weight helps to improve fuel efficiency and allows airplanes to carry more passengers and cargo.",
-    "id": 349
+    "id": 347
   },
   {
     "generator": "science-trivia",
@@ -5325,7 +5293,7 @@ export const problems = [
       "science-trivia"
     ],
     "solution": "A cell is the smallest unit of life that can carry on all the characteristics of an organism. Cells are the basic building blocks of all living things, and they contain the genetic material and biochemical processes necessary for life.",
-    "id": 350
+    "id": 348
   },
   {
     "generator": "arithmetic",
@@ -5341,7 +5309,7 @@ export const problems = [
       "arithmetic"
     ],
     "solution": ",,(11/16)^2-1/3,,",
-    "id": 351
+    "id": 349
   },
   {
     "generator": "arithmetic-carry",
@@ -5357,7 +5325,7 @@ export const problems = [
       "arithmetic-carry"
     ],
     "solution": "This problem requires careful handling of carries and borrows. When adding the first two numbers, a carry of 1 should be done. When subtracting the last two numbers, a borrow of 1 should be done.",
-    "id": 352
+    "id": 350
   },
   {
     "generator": "arithmetic-multiplication",
@@ -5371,7 +5339,7 @@ export const problems = [
       "math-error-analysis",
       "arithmetic-multiplication"
     ],
-    "id": 353
+    "id": 351
   },
   {
     "generator": "arithmetic-division",
@@ -5388,7 +5356,7 @@ export const problems = [
       "arithmetic-division"
     ],
     "solution": "This problem tests several common errors in integer division. Students might forget to carry digits, divide the numbers correctly, or write the quotient correctly. It also tests the ability to handle larger numbers and division involving non-zero remainders.",
-    "id": 354
+    "id": 352
   },
   {
     "generator": "handwriting-exercise",
@@ -5403,7 +5371,7 @@ export const problems = [
       "handwriting-exercise"
     ],
     "solution": "This sentence uses complex vocabulary and figurative language that is appropriate for older students.",
-    "id": 355
+    "id": 353
   },
   {
     "generator": "two-variable-algebra",
@@ -5419,7 +5387,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": ",,81,,",
-    "id": 356
+    "id": 354
   },
   {
     "generator": "time-distance-speed",
@@ -5435,7 +5403,7 @@ export const problems = [
       "time-distance-speed"
     ],
     "solution": "To find the time taken, we can use the formula: time = distance / speed.   Distance = 300km  Speed = 80km/h  Time = 300km / 80km/h = 3.75h.  Therefore, the train will take **3.75 hours** to reach its destination.",
-    "id": 357
+    "id": 355
   },
   {
     "generator": "geometry",
@@ -5450,7 +5418,7 @@ export const problems = [
       "fifth-grade"
     ],
     "solution": "First, we can let x represent the width of the garden bed. The length is x + 2. The perimeter is 2(length + width) = 2(x + x + 2) = 2(2x + 2) = 4x + 4. We know the perimeter is 24, so 4x + 4 = 24. Solving this equation gives us x = 5. Therefore, the width is 5 meters and the length is 5 + 2 = 7 meters.",
-    "id": 358
+    "id": 356
   },
   {
     "generator": "two-variable-algebra",
@@ -5466,7 +5434,7 @@ export const problems = [
       "two-variable-algebra"
     ],
     "solution": "Let x be the number of days it takes for the seed to cover the entire field.\n2^x = 100\n2^x = 10^2\nx = 4\nIt will take 4 days for the seed to cover the entire field.",
-    "id": 359
+    "id": 357
   },
   {
     "generator": "korean-english",
@@ -5481,7 +5449,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Students need to face challenges and learn in order to achieve something recognizable.",
-    "id": 360
+    "id": 358
   },
   {
     "generator": "korean-english",
@@ -5496,7 +5464,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "People who are wearing clothes tend to feel warmer than those who are not. Why might this be?",
-    "id": 361
+    "id": 359
   },
   {
     "generator": "korean-english",
@@ -5511,7 +5479,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "The summer wind reached the seashore and filled the coastline with seaweed.",
-    "id": 362
+    "id": 360
   },
   {
     "generator": "korean-english",
@@ -5526,7 +5494,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "What could a box with a closed lid be?",
-    "id": 363
+    "id": 361
   },
   {
     "generator": "korean-english",
@@ -5541,7 +5509,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Acknowledgement is the beginning of understanding.",
-    "id": 364
+    "id": 362
   },
   {
     "generator": "korean-english",
@@ -5557,7 +5525,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "The inconspicuous shadow is invisible to the eye.",
-    "id": 365
+    "id": 363
   },
   {
     "generator": "korean-english",
@@ -5572,7 +5540,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Moisture is vital for plant growth.",
-    "id": 366
+    "id": 364
   },
   {
     "generator": "korean-english",
@@ -5586,7 +5554,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "The rare scales inside the fish reflect the light and create beauty.",
-    "id": 367
+    "id": 365
   },
   {
     "generator": "korean-english",
@@ -5601,7 +5569,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "I love reading books under the shade when the sun shines beautifully on a stunning day.",
-    "id": 368
+    "id": 366
   },
   {
     "generator": "korean-english",
@@ -5615,7 +5583,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Our values have evolved in this society, and this evolution will impact our way of thinking and acting.",
-    "id": 369
+    "id": 367
   },
   {
     "generator": "korean-english",
@@ -5630,7 +5598,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "When the pine tree seed is immersed in water, it starts to sprout.",
-    "id": 370
+    "id": 368
   },
   {
     "generator": "korean-english",
@@ -5647,7 +5615,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Create a short Korean sentence using an interesting sentence structure or vocabulary word.",
-    "id": 371
+    "id": 369
   },
   {
     "generator": "korean-english",
@@ -5662,7 +5630,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "The recording of music disappears in an instant, but the emotions remain in the memory.",
-    "id": 372
+    "id": 370
   },
   {
     "generator": "korean-english",
@@ -5676,7 +5644,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "Life is made up of lively moments.",
-    "id": 373
+    "id": 371
   },
   {
     "generator": "korean-english",
@@ -5690,7 +5658,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"소말\",\"발\",\"피고 있음\"],\"sentence\":{\"korean\":\"소말은 발을 피고 있습니다.\",\"english\":\"The calf is resting its foot.\"}}",
-    "id": 374
+    "id": 372
   },
   {
     "generator": "korean-english",
@@ -5704,7 +5672,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"wordForWordInOrder\":[{\"korean\":\"항공로\",\"english\":\"airway\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"통하는\",\"english\":\"passing through\"}],\"sentence\":{\"korean\":\"항공로를 통해 몸은 공기를 통합니다.\",\"english\":\"The body passes through the airway to breathe.\"}}",
-    "id": 375
+    "id": 373
   },
   {
     "generator": "korean-english",
@@ -5718,7 +5686,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"소음\",\"발생\",\"피크\",\"시간\"],\"sentence\":{\"korean\":\"소음은 시간의 흐름에 피크를 보여준다.\",\"english\":\"Noise peaks during the course of time.\"}}",
-    "id": 376
+    "id": 374
   },
   {
     "generator": "korean-english",
@@ -5733,7 +5701,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"죽음에 가까운\",\"거대한\",\"날린\"],\"sentence\":{\"korean\":\"죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.\",\"english\":\"A bird with deadly large wings, even in dangerous situations, uses its wings as protection by flapping them.\"}}",
-    "id": 377
+    "id": 375
   },
   {
     "generator": "korean-english",
@@ -5747,7 +5715,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"orderedWords\":[{\"koreanWord\":\"절찬\",\"englishWord\":\"solemn\"},{\"koreanWord\":\"고백\",\"englishWord\":\"confession\"}],\"sentence\":{\"koreanSentence\":\"절찬고백은 무슨 이유로 이루어지나요?\",\"englishSentence\":\"Why is a solemn confession made?\"}}",
-    "id": 378
+    "id": 376
   },
   {
     "generator": "korean-english",
@@ -5762,7 +5730,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말려버린\",\"english\":\"to slip away\"},{\"korean\":\"장애물\",\"english\":\"obstacle\"},{\"korean\":\"위험\",\"english\":\"danger\"}],\"sentence\":{\"korean\":\"말려버린 장애물은 위험한 상황을 만들 수 있습니다.\",\"english\":\"The slipping away obstacle can create a dangerous situation.\"}}",
-    "id": 379
+    "id": 377
   },
   {
     "generator": "korean-english",
@@ -5778,7 +5746,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수하고\",\"english\":\"absorbing\"},{\"korean\":\"성장합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수하고 성장합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
-    "id": 380
+    "id": 378
   },
   {
     "generator": "korean-english",
@@ -5793,7 +5761,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"extremely\"},{\"korean\":\"고난\",\"english\":\"effort\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"매우 고난한 과제를 능력적으로 완료했습니다.\",\"english\":\"He completed the extremely difficult assignment effortlessly.\"}}",
-    "id": 381
+    "id": 379
   },
   {
     "generator": "korean-english",
@@ -5808,7 +5776,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"짜증\",\"english\":\"annoying\"},{\"korean\":\"소리\",\"english\":\"noise\"},{\"korean\":\"피곤\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.\",\"english\":\"It is understandable that one feels tired due to the annoying noise.\"}}",
-    "id": 382
+    "id": 380
   },
   {
     "generator": "korean-english",
@@ -5823,7 +5791,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"hangar\",\"english\":\"airplane\"},{\"korean\":\"chwi\",\"english\":\"to fly\"},{\"korean\":\"dae\",\"english\":\"high\"}],\"sentence\":{\"korean\":\"Hangar chwi dae-i\",\"english\":\"The airplane flies high.\"}}",
-    "id": 383
+    "id": 381
   },
   {
     "generator": "korean-english",
@@ -5837,7 +5805,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"프롬otor\",\"english\":\"promoter\"},{\"korean\":\"학업\",\"english\":\"academic\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.\",\"english\":\"A promoter is an important factor in improving academic achievement.\"}}",
-    "id": 384
+    "id": 382
   },
   {
     "generator": "korean-english",
@@ -5851,7 +5819,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"뛰어다니다\",\"english\":\"to gallop\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"자유롭게\",\"english\":\"freely\"}],\"sentence\":{\"korean\":\"동물이 뛰어다니다가 자유롭게 달린다.\",\"english\":\"The animal gallops freely through the field.\"}}",
-    "id": 385
+    "id": 383
   },
   {
     "generator": "korean-english",
@@ -5866,7 +5834,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"빛깔\",\"english\":\"luster\"},{\"korean\":\"빛을\",\"english\":\"emit light\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.\",\"english\":\"Luster is created by the reflection of internal energy of matter in physics.\"}}",
-    "id": 386
+    "id": 384
   },
   {
     "generator": "korean-english",
@@ -5882,7 +5850,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"신화적인\",\"english\":\"mythical\"},{\"korean\":\"동물\",\"english\":\"creature\"},{\"korean\":\"해롭다\",\"english\":\"is dangerous\"}],\"sentence\":{\"korean\":\"신화적인 동물은 종종 해롭다.\",\"english\":\"Mythical creatures are often dangerous.\"}}",
-    "id": 387
+    "id": 385
   },
   {
     "generator": "korean-english",
@@ -5897,7 +5865,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말자\",\"english\":\"spokesperson\"},{\"korean\":\"소통\",\"english\":\"communication\"}],\"sentence\":{\"korean\":\"말자는 사회적 상황에 중요한 소통 도구입니다.\",\"english\":\"A spokesperson plays a crucial role in communication during social situations.\"}}",
-    "id": 388
+    "id": 386
   },
   {
     "generator": "korean-english",
@@ -5912,7 +5880,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"진화\",\"english\":\"evolution\"},{\"korean\":\"생물\",\"english\":\"organism\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"진화는 생물의 시간에 따른 변화입니다.\",\"english\":\"Evolution is the changes in organisms over time.\"}}",
-    "id": 389
+    "id": 387
   },
   {
     "generator": "korean-english",
@@ -5926,7 +5894,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"목표\",\"english\":\"aim\"},{\"korean\":\"달성\",\"english\":\"to achieve\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하기 위해서는 능력과 노력이 필요합니다.\",\"english\":\"To achieve the aim, ability and effort are necessary.\"}}",
-    "id": 390
+    "id": 388
   },
   {
     "generator": "korean-english",
@@ -5940,7 +5908,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"성경\",\"english\":\"Bible\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"용사\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.\",\"english\":\"The Bible was written to save human souls.\"}}",
-    "id": 391
+    "id": 389
   },
   {
     "generator": "korean-english",
@@ -5956,7 +5924,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비열하게\",\"english\":\"bitterly\"},{\"korean\":\"울상\",\"english\":\"grief\"},{\"korean\":\"상실\",\"english\":\"loss\"}],\"sentence\":{\"korean\":\"비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.\",\"english\":\"The bitter grief of loss is something that everyone experiences at some point in their lives.\"}}",
-    "id": 392
+    "id": 390
   },
   {
     "generator": "korean-english",
@@ -5970,7 +5938,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고향\",\"english\":\"homeland\"},{\"korean\":\"애국\",\"english\":\"patriotism\"},{\"korean\":\"정신\",\"english\":\"mind\"}],\"sentence\":{\"korean\":\"고향의 정신은 애국심으로 가득 차 있습니다.\",\"english\":\"The spirit of the homeland is filled with patriotism.\"}}",
-    "id": 393
+    "id": 391
   },
   {
     "generator": "korean-english",
@@ -5985,7 +5953,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"치유\",\"english\":\"heal\"},{\"korean\":\"상처\",\"english\":\"wound\"},{\"korean\":\"감염\",\"english\":\"infection\"}],\"sentence\":{\"korean\":\"상처가 치유되면 감염이 사라집니다.\",\"english\":\"When the wound heals, the infection will disappear.\"}}",
-    "id": 394
+    "id": 392
   },
   {
     "generator": "korean-english",
@@ -6000,7 +5968,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"피트\",\"english\":\"foot\"},{\"korean\":\"담치\",\"english\":\"splash\"},{\"korean\":\"파도\",\"english\":\"wave\"}],\"sentence\":{\"korean\":\"피트의 담치는 파도를 타며 순돌아갑니다.\",\"english\":\"The splash of the foot creates waves that spin around.\"}}",
-    "id": 395
+    "id": 393
   },
   {
     "generator": "korean-english",
@@ -6014,7 +5982,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"환금\",\"english\":\"remittance\"},{\"korean\":\"거주\",\"english\":\"residence\"},{\"korean\":\"수입\",\"english\":\"import\"}],\"sentence\":{\"korean\":\"환금은 거주지에서 수입한 물건의 금액을 의미합니다.\",\"english\":\"The remittance refers to the amount of money imported with goods to the residence.\"}}",
-    "id": 396
+    "id": 394
   },
   {
     "generator": "korean-english",
@@ -6029,7 +5997,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"뜨거움\",\"english\":\"heat\"},{\"korean\":\"기압\",\"english\":\"pressure\"},{\"korean\":\"확산\",\"english\":\"diffusion\"}],\"sentence\":{\"korean\":\"뜨거움은 기압을 높여 확산합니다.\",\"english\":\"Heat increases the pressure and causes diffusion.\"}}",
-    "id": 397
+    "id": 395
   },
   {
     "generator": "korean-english",
@@ -6045,7 +6013,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
-    "id": 398
+    "id": 396
   },
   {
     "generator": "korean-english",
@@ -6059,7 +6027,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"아이돌\",\"english\":\"idol\"},{\"korean\":\"용기\",\"english\":\"vessel\"},{\"korean\":\"내용물\",\"english\":\"content\"}],\"sentence\":{\"korean\":\"아이돌은 용기에 내용물을 담아 보호합니다.\",\"english\":\"An idol protects the content inside a vessel.\"}}",
-    "id": 399
+    "id": 397
   },
   {
     "generator": "korean-english",
@@ -6074,7 +6042,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"소문\",\"english\":\"rumor\"},{\"korean\":\"퍼뜨리다\",\"english\":\"to spread\"},{\"korean\":\"확실하지 않아\",\"english\":\"unsure\"}],\"sentence\":{\"korean\":\"소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.\",\"english\":\"A rumor has spread that the news is not clear.\"}}",
-    "id": 400
+    "id": 398
   },
   {
     "generator": "korean-english",
@@ -6089,7 +6057,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"약속\",\"english\":\"promise\"},{\"korean\":\"무력\",\"english\":\"powerless\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"약속은 무력한 목표를 달성하기 위해 노력해야 합니다.\",\"english\":\"A promise is to work hard to achieve a meaningful goal.\"}}",
-    "id": 401
+    "id": 399
   },
   {
     "generator": "korean-english",
@@ -6104,7 +6072,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"행성\",\"english\":\"planetary\"},{\"korean\":\"계단\",\"english\":\"stair\"},{\"korean\":\"우리\",\"english\":\"we\"}],\"sentence\":{\"korean\":\"행성계단 우리\",\"english\":\"We are on a planetary staircase.\"}}",
-    "id": 402
+    "id": 400
   },
   {
     "generator": "korean-english",
@@ -6118,7 +6086,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비가 내리고\",\"english\":\"It's raining outside.\"},{\"korean\":\"바닥이 젖어\",\"english\":\"The floor is soggy.\"}],\"sentence\":{\"korean\":\"비가 내리고 바닥이 젖어 있어요.\",\"english\":\"It's raining outside and the floor is soggy.\"}}",
-    "id": 403
+    "id": 401
   },
   {
     "generator": "korean-english",
@@ -6132,7 +6100,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감동\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적인 이야기는 눈물과 고통을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
-    "id": 404
+    "id": 402
   },
   {
     "generator": "korean-english",
@@ -6146,7 +6114,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"청소원\",\"english\":\"janitor\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"청소원이 학교를 청소합니다.\",\"english\":\"The janitor cleans the school.\"}}",
-    "id": 405
+    "id": 403
   },
   {
     "generator": "korean-english",
@@ -6160,7 +6128,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"잠재적으로\",\"english\":\"potentially\"},{\"korean\":\"상황에\",\"english\":\"depending on the situation\"},{\"korean\":\"대부분\",\"english\":\"most of the time\"}],\"sentence\":{\"korean\":\"잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.\",\"english\":\"The situation will most likely influence the possibility of success, potentially leading to high success rates.\"}}",
-    "id": 406
+    "id": 404
   },
   {
     "generator": "korean-english",
@@ -6175,7 +6143,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"방황하다\",\"english\":\"to wander\"},{\"korean\":\"길을 걸다\",\"english\":\"to walk along a path\"},{\"korean\":\"자연에 도망치다\",\"english\":\"to escape into nature\"}],\"sentence\":{\"korean\":\"방황하면서 길을 걸다가 자연에 도망친다.\",\"english\":\"When you wander, you walk along a path and escape into nature.\"}}",
-    "id": 407
+    "id": 405
   },
   {
     "generator": "korean-english",
@@ -6189,7 +6157,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\" pang \",\"english\":\"to pierce\"},{\"korean\":\" neol \",\"english\":\"the sun\"},{\"korean\":\" sarang \",\"english\":\"love\"}],\"sentence\":{\"korean\":\" pangneol sarang \",\"english\":\"The sun pierces love\"}}",
-    "id": 408
+    "id": 406
   },
   {
     "generator": "korean-english",
@@ -6203,7 +6171,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"언젠가\",\"english\":\"sometime\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"아침\",\"english\":\"morning\"}],\"sentence\":{\"korean\":\"언젠가 아침 날이 있을 거예요.\",\"english\":\"There will be a someday morning like that.\"}}",
-    "id": 409
+    "id": 407
   },
   {
     "generator": "korean-english",
@@ -6217,7 +6185,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"병원\",\"english\":\"hospital\"}],\"sentence\":{\"korean\":\"감염은 병원에서 확산될 수 있습니다.\",\"english\":\"Infection can spread from the hospital.\"}}",
-    "id": 410
+    "id": 408
   },
   {
     "generator": "korean-english",
@@ -6232,7 +6200,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"소용\",\"english\":\"expense\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"숨은 시간과 소용이 같아요.\",\"english\":\"Breath is equal to time and expense.\"}}",
-    "id": 411
+    "id": 409
   },
   {
     "generator": "korean-english",
@@ -6246,7 +6214,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"도로\",\"english\":\"road\"},{\"korean\":\"경로\",\"english\":\"route\"}],\"sentence\":{\"korean\":\"경로는 길게 길게 거리를 가진다.\",\"english\":\"A route has a long distance.\"}}",
-    "id": 412
+    "id": 410
   },
   {
     "generator": "korean-english",
@@ -6261,7 +6229,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"곡선\",\"english\":\"curve\"},{\"korean\":\"날개\",\"english\":\"blade\"},{\"korean\":\"날린\",\"english\":\"sharp\"}],\"sentence\":{\"korean\":\"곡선한 날개는 날린 날개보다 위험합니다.\",\"english\":\"A curved blade is more dangerous than a sharp blade.\"}}",
-    "id": 413
+    "id": 411
   },
   {
     "generator": "korean-english",
@@ -6275,7 +6243,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인닝\",\"english\":\"inning\"},{\"korean\":\"선수\",\"english\":\"batter\"},{\"korean\":\"볼\",\"english\":\"ball\"}],\"sentence\":{\"korean\":\"인닝 동안 선수가 볼을 때 3점을 얻었다.\",\"english\":\"The batter got 3 points during the inning.\"}}",
-    "id": 414
+    "id": 412
   },
   {
     "generator": "korean-english",
@@ -6290,7 +6258,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"죽일\",\"english\":\"to die\"}],\"sentence\":{\"korean\":\"살숨은 죽일 때도 살아남는다.\",\"english\":\"Even when life and breath are gone, there is always life remaining.\"}}",
-    "id": 415
+    "id": 413
   },
   {
     "generator": "korean-english",
@@ -6304,7 +6272,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"떠나다\",\"english\":\"to depart\"},{\"korean\":\"원인\",\"english\":\"reason\"},{\"korean\":\"목적\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"떠나다의 원인은 목적에 따라 달라질 수 있습니다.\",\"english\":\"The reason for departure can vary depending on the purpose.\"}}",
-    "id": 416
+    "id": 414
   },
   {
     "generator": "korean-english",
@@ -6318,7 +6286,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"방해\",\"english\":\"deter\"},{\"korean\":\"인내\",\"english\":\"patience\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"방해는 목표를 달성하는 데 인내가 요구됩니다.\",\"english\":\"Deterrence is required to achieve the goal.\"}}",
-    "id": 417
+    "id": 415
   },
   {
     "generator": "korean-english",
@@ -6334,7 +6302,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"danger\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"예방\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"위험은 피해를 예방하기 위해 주의해야 합니다.\",\"english\":\"Danger requires attention to prevent damage.\"}}",
-    "id": 418
+    "id": 416
   },
   {
     "generator": "korean-english",
@@ -6348,7 +6316,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"테탄us\",\"english\":\"tetanus\"},{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"근력\",\"english\":\"muscle strength\"}],\"sentence\":{\"korean\":\"테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.\",\"english\":\"Tetanus can weaken muscles and cause infection.\"}}",
-    "id": 419
+    "id": 417
   },
   {
     "generator": "korean-english",
@@ -6363,7 +6331,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"송신기\",\"english\":\"transmitter\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전송\",\"english\":\"broadcast\"}],\"sentence\":{\"korean\":\"송신기는 정보를 전송합니다.\",\"english\":\"A transmitter broadcasts information.\"}}",
-    "id": 420
+    "id": 418
   },
   {
     "generator": "korean-english",
@@ -6378,7 +6346,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"명성\",\"english\":\"fame\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"업적\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"명성 있는 학생들은 학업적으로 성과를 얻습니다.\",\"english\":\"Famous students are known for their academic achievements.\"}}",
-    "id": 421
+    "id": 419
   },
   {
     "generator": "korean-english",
@@ -6394,7 +6362,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고전적인\",\"english\":\"antiquated\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"보존\",\"english\":\"conservation\"}],\"sentence\":{\"korean\":\"고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.\",\"english\":\"Massive ancient books need to be conserved over time.\"}}",
-    "id": 422
+    "id": 420
   },
   {
     "generator": "korean-english",
@@ -6408,7 +6376,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인각\",\"english\":\"engrave\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"삶\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"인각된 작품은 삶의 일부가 됩니다.\",\"english\":\"The engraved artwork becomes a part of life itself.\"}}",
-    "id": 423
+    "id": 421
   },
   {
     "generator": "korean-english",
@@ -6422,7 +6390,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"이식\",\"english\":\"transplant\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"새로운\",\"english\":\"new\"}],\"sentence\":{\"korean\":\"이식된 신체는 새로운 생명체가 되었습니다.\",\"english\":\"The transplanted body became a new living entity.\"}}",
-    "id": 424
+    "id": 422
   },
   {
     "generator": "korean-english",
@@ -6437,7 +6405,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비행기\",\"english\":\"airplane\"},{\"korean\":\"날다\",\"english\":\"to fly\"},{\"korean\":\"고속\",\"english\":\"fast\"}],\"sentence\":{\"korean\":\"고속비행기는 날다.\",\"english\":\"A high-speed airplane flies quickly.\"}}",
-    "id": 425
+    "id": 423
   },
   {
     "generator": "korean-english",
@@ -6452,7 +6420,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"벌써\",\"english\":\"already\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"}],\"sentence\":{\"korean\":\"벌써 우리는 오늘 피크닉을 해\",\"english\":\"We are already having a picnic today\"}}",
-    "id": 426
+    "id": 424
   },
   {
     "generator": "korean-english",
@@ -6467,7 +6435,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"국민화\",\"english\":\"nationalization\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.\",\"english\":\"Nationalized education systems contribute to improving the quality of education.\"}}",
-    "id": 427
+    "id": 425
   },
   {
     "generator": "korean-english",
@@ -6482,7 +6450,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"쟁점적\",\"english\":\"controversial\"},{\"korean\":\"논란\",\"english\":\"debate\"},{\"korean\":\"견해\",\"english\":\"opinion\"}],\"sentence\":{\"korean\":\"쟁점적 주장은 사회적으로 논란이 될 수 있습니다.\",\"english\":\"A controversial argument can be socially debated.\"}}",
-    "id": 428
+    "id": 426
   },
   {
     "generator": "korean-english",
@@ -6497,7 +6465,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"평등한\",\"english\":\"uniform\"},{\"korean\":\"반복\",\"english\":\"repeated\"},{\"korean\":\"생활\",\"english\":\"routine\"}],\"sentence\":{\"korean\":\"평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.\",\"english\":\"A monotonous routine can become boring due to the repeated activities.\"}}",
-    "id": 429
+    "id": 427
   },
   {
     "generator": "korean-english",
@@ -6511,7 +6479,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"치레\",\"english\":\"spoon\"},{\"korean\":\"침대\",\"english\":\"bathtub\"},{\"korean\":\"놓치다\",\"english\":\"to misplace\"}],\"sentence\":{\"korean\":\"치레는 침대에 놓쳤어요.\",\"english\":\"The spoon was misplaced in the bathtub.\"}}",
-    "id": 430
+    "id": 428
   },
   {
     "generator": "korean-english",
@@ -6525,7 +6493,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"물리선\",\"english\":\"watershed\"},{\"korean\":\"지점\",\"english\":\"point\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"물리선은 지점에서 변화를 일으킨다.\",\"english\":\"A watershed moment changes everything at the point.\"}}",
-    "id": 431
+    "id": 429
   },
   {
     "generator": "korean-english",
@@ -6539,7 +6507,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"애용\",\"english\":\"favorite\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"애용한 식단은 건강에 도움이 됩니다.\",\"english\":\"A favorite diet helps keep you healthy.\"}}",
-    "id": 432
+    "id": 430
   },
   {
     "generator": "korean-english",
@@ -6555,7 +6523,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"테이프\",\"english\":\"tape\"},{\"korean\":\"길게\",\"english\":\"longly\"},{\"korean\":\"잡아다니다\",\"english\":\"to hold\"}],\"sentence\":{\"korean\":\"테이프는 길게 잡아다니다.\",\"english\":\"The tape is held longly.\"}}",
-    "id": 433
+    "id": 431
   },
   {
     "generator": "korean-english",
@@ -6570,7 +6538,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인근\",\"english\":\"crowded\"},{\"korean\":\"거주민들\",\"english\":\"people\"},{\"korean\":\"집\",\"english\":\"houses\"}],\"sentence\":{\"korean\":\"인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.\",\"english\":\"The crowded people in the neighborhood have difficulty walking on the street because of the densely packed houses.\"}}",
-    "id": 434
+    "id": 432
   },
   {
     "generator": "korean-english",
@@ -6585,7 +6553,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"화가\",\"english\":\"painter\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"화가는 감성을 표현하는 작품을 그립니다.\",\"english\":\"A painter expresses their emotions through their artwork.\"}}",
-    "id": 435
+    "id": 433
   },
   {
     "generator": "korean-english",
@@ -6599,7 +6567,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
-    "id": 436
+    "id": 434
   },
   {
     "generator": "korean-english",
@@ -6614,7 +6582,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"윤리적인\",\"english\":\"profitable\"},{\"korean\":\"영업\",\"english\":\"business\"},{\"korean\":\"수익\",\"english\":\"profit\"}],\"sentence\":{\"korean\":\"윤리적인 영업은 수익을 얻는 데 도움이 됩니다.\",\"english\":\"A profitable business brings in profit.\"}}",
-    "id": 437
+    "id": 435
   },
   {
     "generator": "korean-english",
@@ -6630,7 +6598,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"멀티미디어\",\"english\":\"multimedia\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전문성\",\"english\":\"expertise\"}],\"sentence\":{\"korean\":\"멀티미디어는 정보 전달의 전문성을 제공합니다.\",\"english\":\"Multimedia provides expertise in information delivery.\"}}",
-    "id": 438
+    "id": 436
   },
   {
     "generator": "korean-english",
@@ -6644,7 +6612,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
-    "id": 439
+    "id": 437
   },
   {
     "generator": "korean-english",
@@ -6659,7 +6627,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말동쟁이\",\"english\":\"Donkey\"},{\"korean\":\"꽃밭에\",\"english\":\"In the flower field\"},{\"korean\":\"돌돌아다니다\",\"english\":\"Wandering around\"}],\"sentence\":{\"korean\":\"꽃밭에 말동쟁이가 돌돌아다니다.\",\"english\":\"A donkey is wandering around in the flower field.\"}}",
-    "id": 440
+    "id": 438
   },
   {
     "generator": "korean-english",
@@ -6673,7 +6641,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"부사\",\"english\":\"expensive\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"깨진\",\"english\":\"broken\"}],\"sentence\":{\"korean\":\"부사한 물건은 깨져 있지 않습니다.\",\"english\":\"An expensive thing is not broken.\"}}",
-    "id": 441
+    "id": 439
   },
   {
     "generator": "korean-english",
@@ -6687,7 +6655,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"무\",\"english\":\"nothing\"},{\"korean\":\"상상\",\"english\":\"imagination\"},{\"korean\":\"생각\",\"english\":\"thought\"}],\"sentence\":{\"korean\":\"무상상이 생각된다.\",\"english\":\"Something can be thought of as nothing.\"}}",
-    "id": 442
+    "id": 440
   },
   {
     "generator": "korean-english",
@@ -6701,7 +6669,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"감염된\",\"english\":\"infected\"},{\"korean\":\"체계\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"감염된 체계는 위험을 초래합니다.\",\"english\":\"An infected body poses a risk.\"}}",
-    "id": 443
+    "id": 441
   },
   {
     "generator": "korean-english",
@@ -6716,7 +6684,7 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
-    "id": 444
+    "id": 442
   },
   {
     "generator": "korean-english",
@@ -6730,6 +6698,1281 @@ export const problems = [
       "korean-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"만족감\",\"english\":\"fulfillment\"},{\"korean\":\"목표\",\"english\":\"goal\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하면 만족감이 크게 늘어납니다.\",\"english\":\"When you achieve your goal, you feel a great sense of fulfillment.\"}}",
+    "id": 443
+  },
+  {
+    "generator": "javascript-program",
+    "input": "pleasurable",
+    "problem": "let count = 0;      const increment = () => count++;      const result = document.write(count);      increment();",
+    "tags": [
+      "javascript",
+      "variable",
+      "function",
+      "document",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "1. The program uses variables and functions to count up to 1. It writes the current count to the document using the `document.write()` method.",
+    "id": 444
+  },
+  {
+    "generator": "javascript-program",
+    "input": "impunity",
+    "problem": "let result = 3 ** 4; console.log(result);",
+    "tags": [
+      "fifth-grade",
+      "exponentiation",
+      "console",
+      "multiplication",
+      "javascript-program"
+    ],
+    "solution": "81. This code uses exponentiation (**) to multiply a number by itself several times. It then prints the result to the console.",
     "id": 445
+  },
+  {
+    "generator": "javascript-program",
+    "input": "gallop",
+    "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
+    "tags": [
+      "5thGrade",
+      "setInterval",
+      "Counter",
+      "javascript-program"
+    ],
+    "solution": "The program will output a sequence of numbers, each representing the current count after one second.. This code uses `setInterval` to repeatedly call a function every second, thereby incrementing a counter. The `console.log` statement then displays the current count after each second.",
+    "id": 446
+  },
+  {
+    "generator": "javascript-program",
+    "input": "casualty",
+    "problem": "let casualties = 0;       casualties = casualties + 1;      console.log(casualties);",
+    "tags": [
+      "fifth-grade",
+      "variables",
+      "arithmetic",
+      "javascript-program"
+    ],
+    "solution": "1. This program uses variables and basic arithmetic to track the number of casualties in a hypothetical situation. It starts with zero casualties, then increases the count by one each time and displays the final count in the console.",
+    "id": 447
+  },
+  {
+    "generator": "javascript-program",
+    "input": "forthright",
+    "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
+    "tags": [
+      "5thGrade",
+      "setInterval",
+      "Counter",
+      "javascript-program"
+    ],
+    "solution": "The program will print a series of numbers, each representing the current count of seconds elapsed.. The code uses `setInterval` to repeatedly call a function that increments a counter every second. The `console.log` statement prints the current count to the console.",
+    "id": 448
+  },
+  {
+    "generator": "javascript-program",
+    "input": "specialize",
+    "problem": "let result = 0;      for (let i = 1; i <= 10; i++) {          result += i;      }      console.log(result);",
+    "tags": [
+      "5thGrade",
+      "Loops",
+      "Arithmetic",
+      "javascript-program"
+    ],
+    "solution": "55. The code iterates from 1 to 10 and adds each number to a variable called 'result'. Then, it prints the value of 'result' to the console.",
+    "id": 449
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stolen",
+    "problem": "let stolen = 10;       const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';       console.log(mystery())",
+    "tags": [
+      "5thGrade",
+      "Variables",
+      "Functions",
+      "Modulus",
+      "javascript-program"
+    ],
+    "solution": "even. The program uses the concept of variables and functions to store and manipulate data. The `stolen` variable holds the number of stolen items, and the `mystery` function checks if the number is even or odd. The `console.log` function prints the result of the function to the console.",
+    "id": 450
+  },
+  {
+    "generator": "javascript-program",
+    "input": "scandalous",
+    "problem": "let result = 1;       for (let i = 2; i < 10; i++) {           result += i;       }       console.log(result);",
+    "tags": [
+      "fifth-grade",
+      "loop",
+      "addition",
+      "javascript-program"
+    ],
+    "solution": "55. The program uses a loop to add up all the numbers from 2 to 10, inclusive. The result is stored in the `result` variable and then displayed in the console.",
+    "id": 451
+  },
+  {
+    "generator": "javascript-program",
+    "input": "staunch",
+    "problem": "console.log(5 + 3 * 2)",
+    "tags": [
+      "arrow-function",
+      "multiplication",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "11. This program uses the arrow function syntax to define a function that adds 5 and the product of 3 and 2. The function is then called immediately using the `console.log` function to print the result to the console.",
+    "id": 452
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stop",
+    "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1))",
+    "tags": [
+      "array",
+      "arrow-function",
+      "iteration",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. The code generates the numbers from 1 to 10 using the Array.from() method and an arrow function. This demonstrates the concept of iterating over a range of numbers and creating an array.",
+    "id": 453
+  },
+  {
+    "generator": "javascript-program",
+    "input": "forced",
+    "problem": "=>console.log(Math.pow(2,3) + Math.sqrt(9))",
+    "tags": [
+      "arrow-function",
+      "math",
+      "square-root",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "13. This program uses arrow functions and mathematical operations to generate output. It squares the number 2 using `Math.pow` and then adds the square root of 9 to the result. The `console.log` function prints the final answer to the console.",
+    "id": 454
+  },
+  {
+    "generator": "javascript-program",
+    "input": "leaden",
+    "problem": "((n) => { console.log(n + 10); })(5);",
+    "tags": [
+      "js-arrow-function",
+      "js-conditional-statement",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "15. This program defines an arrow function that takes a number as an argument and adds 10 to it. It then calls the function with the argument 5 and prints the result to the console.",
+    "id": 455
+  },
+  {
+    "generator": "javascript-program",
+    "input": "seize",
+    "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
+    "tags": [
+      "array",
+      "loop",
+      "console",
+      "fifthGrade",
+      "javascript-program"
+    ],
+    "solution": "1 2 3 4 5. This program generates a sequence of numbers from 1 to the input number n. It uses the Array.prototype.map() method to create a new array of numbers from 1 to n, then joins the numbers together with spaces and logs the result to the console.",
+    "id": 456
+  },
+  {
+    "generator": "javascript-program",
+    "input": "validity",
+    "problem": "((n) => console.log(n % 2 === 0 ? 'even' : 'odd'))(5)",
+    "tags": [
+      "functional-programming",
+      "conditionals",
+      "arithmetic",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "odd. This program defines an arrow function that takes a single number (n) as input. The function checks if the remainder of n divided by 2 is equal to 0, and if so it prints 'even' to the console, otherwise it prints 'odd'. The function is then called with the number 5 as an argument, and the output is printed to the console.",
+    "id": 457
+  },
+  {
+    "generator": "javascript-program",
+    "input": "boarding",
+    "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
+    "tags": [
+      "recursion",
+      "array",
+      "mapping",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "1 2 3 4 5. This program uses recursion to print the numbers from 1 to n. It creates an array of n empty elements and then uses the map() function to populate it with the numbers from 1 to n. Finally, it joins the elements of the array into a string and prints it to the console.",
+    "id": 458
+  },
+  {
+    "generator": "javascript-program",
+    "input": "foul",
+    "problem": "=>console.log(Math.pow(2, 3) * 4 - 10, ",
+    "tags": [
+      "math-exponentiation",
+      "conditional-logic",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "34. The program uses the exponentiation operator (**) to square the number 2 three times, multiplies the result by 4, and then subtracts 10. The output is the final answer, which is 34.",
+    "id": 459
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stun",
+    "problem": "console.log(5 + (3 * 2))",
+    "tags": [
+      "arrow-function",
+      "math",
+      "multiplication",
+      "addition",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "11. This program uses arrow functions to perform mathematical operations.       The function `(3 * 2)` multiplies 3 and 2, and the `+ 5` adds the result to 5.       The `console.log()` function prints the final result to the console.",
+    "id": 460
+  },
+  {
+    "generator": "javascript-program",
+    "input": "equation",
+    "problem": "((a, b) => console.log(a + b))(3, 5)",
+    "tags": [
+      "arrow-function",
+      "addition",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "8. This program defines an arrow function that takes two arguments, 'a' and 'b', and uses the '+' operator to sum them. The function then uses the `console.log()` method to print the result to the console.",
+    "id": 461
+  },
+  {
+    "generator": "javascript-program",
+    "input": "distant",
+    "problem": "console.log(Math.pow(2, 5))",
+    "tags": [
+      "math",
+      "power",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "32. This code uses the `Math` object in JavaScript to calculate the power of 2 to the power of 5. The `Math.pow()` function takes two arguments: the base and the exponent. It returns the result of the exponentiation.",
+    "id": 462
+  },
+  {
+    "generator": "javascript-program",
+    "input": "immunize",
+    "problem": "console.log(5 + (2 * 3))",
+    "tags": [
+      "5thGrade",
+      "Arithmetic",
+      "ArrowFunctions",
+      "javascript-program"
+    ],
+    "solution": "11. This program uses arrow functions to perform arithmetic operations. The arrow function `(a, b) => a + b` adds two numbers together. The program calls this function with the numbers 5 and 6, and then prints the result to the console.",
+    "id": 463
+  },
+  {
+    "generator": "javascript-program",
+    "input": "allude",
+    "problem": "console.log(5 + 3 * 2)",
+    "tags": [
+      "functional-programming",
+      "arrow-function",
+      "arithmetic",
+      "console-log",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "11. This program uses arrow function syntax to perform arithmetic operations. The function takes no arguments and immediately calculates the sum of 5 and the product of 3 and 2, which is then displayed in the console.",
+    "id": 464
+  },
+  {
+    "generator": "javascript-program",
+    "input": "trademark",
+    "problem": "((n) => console.log(n + 3))(4)",
+    "tags": [
+      "arrow-function",
+      "number",
+      "addition",
+      "console-log",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "7. This program defines an arrow function that adds 3 to the input number (n) and then prints the result to the console. Arrow functions are concise and use less syntax than classic functions.",
+    "id": 465
+  },
+  {
+    "generator": "javascript-program",
+    "input": "dictation",
+    "problem": "(() => console.log(2, 3, 5, 7, 11))()",
+    "tags": [
+      "functional-programming",
+      "arrow-functions",
+      "prime-numbers",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "2,3,5,7,11. The code uses an arrow function to define a function that prints the first five prime numbers to the console. Prime numbers are numbers that can only be divided by themselves and 1.",
+    "id": 466
+  },
+  {
+    "generator": "javascript-program",
+    "input": "telegram",
+    "problem": "console.log(5 + 3 * 2)",
+    "tags": [
+      "arrow-function",
+      "multiplication",
+      "addition",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "16. This program uses arrow functions and mathematical operations to generate output. It adds the numbers 5 and 3, then multiplies the result by 2. Finally, it prints the result to the console.",
+    "id": 467
+  },
+  {
+    "generator": "javascript-program",
+    "input": "cupboard",
+    "problem": "(() => console.log(Math.pow(2, Math.floor(Math.random() * 5))))()",
+    "tags": [
+      "function-expression",
+      "random-number",
+      "exponent",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "64. The code uses arrow functions to define a function that generates a random exponent between 0 and 4, and then uses `Math.pow` to raise the number 2 to the power of the random exponent. The `console.log` function then prints the result of the exponentiation to the console.",
+    "id": 468
+  },
+  {
+    "generator": "javascript-program",
+    "input": "bonus",
+    "problem": "console.log(Math.pow(2,5) - Math.floor(Math.random() * 100))",
+    "tags": [
+      "5th-grade",
+      "numbers",
+      "random",
+      "exponentiation",
+      "javascript-program"
+    ],
+    "solution": "32. This code uses mathematical functions to generate a random number and then subtracts it from the result of raising 2 to the power of 5. The `console.log()` function is used to display the final value to the console.",
+    "id": 469
+  },
+  {
+    "generator": "javascript-program",
+    "input": "golf",
+    "problem": "((n) => console.log(n * n))(3)",
+    "tags": [
+      "functional-programming",
+      "arrow-functions",
+      "closures",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "9. This program defines an arrow function that takes a single argument `n` and multiplies it by itself. The result is then logged to the console using `console.log()`. This demonstrates the concept of closure, where the function remembers the value of its arguments even after the function call ends.",
+    "id": 470
+  },
+  {
+    "generator": "javascript-program",
+    "input": "blacken",
+    "problem": "console.log(5 + (3 * 2))",
+    "tags": [
+      "arrow-functions",
+      "arithmetic",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "11. This code uses the arrow function syntax to define a function that adds 5 to the product of 3 and 2. The function is then called and the result is logged to the console.",
+    "id": 471
+  },
+  {
+    "generator": "javascript-program",
+    "input": "affluent",
+    "problem": "console.log(Array.from({ length: 5 }, (_, i) => i + 10))",
+    "tags": [
+      "array",
+      "iteration",
+      "callback",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "11,12,13,14,15. This code utilizes the Array.from() method to create an array of 5 elements from an iterable object, in this case, an empty array. The callback function provided to the from() method iterates over the array and generates a new element for each index i. The element is calculated as the sum of i and 10. Finally, the console.log() method is called to print the resulting array to the console.",
+    "id": 472
+  },
+  {
+    "generator": "javascript-program",
+    "input": "ample",
+    "problem": "console.log(10, 20, 30.5, 'Hello, world!')",
+    "tags": [
+      "es6",
+      "arrow-functions",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "10 20 30.5 Hello, world!. This program uses the `console.log()` function to print multiple values to the console. The values 10, 20, 30.5, and 'Hello, world!' are the arguments passed to the `console.log()` function.",
+    "id": 473
+  },
+  {
+    "generator": "javascript-program",
+    "input": "showy",
+    "problem": "((n) => console.log([...Array(n).keys()]))(5)",
+    "tags": [
+      "Recursion",
+      "Array",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "['0', '1', '2', '3', '4']. This program uses recursion to generate the first n natural numbers. The function creates an array of the first n numbers using the Array.from() method and then uses recursion to print the indices of the array. This demonstrates the concept of recursion, which is a function that calls itself.",
+    "id": 474
+  },
+  {
+    "generator": "javascript-program",
+    "input": "revert",
+    "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1).join('-'))",
+    "tags": [
+      "array",
+      "iteration",
+      "callback",
+      "fifthGrade",
+      "javascript-program"
+    ],
+    "solution": "1-2-3-4-5-6-7-8-9-10. The code generates a hyphenated string of numbers from 1 to 10 using Array.from() to create an array of 10 undefined values and Array.prototype.join() to concatenate them with hyphens. This demonstrates the concept of iterating over an array using a callback function.",
+    "id": 475
+  },
+  {
+    "generator": "javascript-program",
+    "input": "box",
+    "problem": "((a, b) => console.log(a + b))(2, 3)",
+    "tags": [
+      "arrow-function",
+      "addition",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "5. This program defines an arrow function that takes two arguments, 'a' and 'b', and uses the '+' operator to add them together. The result is then printed to the console using 'console.log()'.",
+    "id": 476
+  },
+  {
+    "generator": "javascript-program",
+    "input": "woolen",
+    "problem": "((n) => console.log(n.toString().split('').reverse().join()))(1234)",
+    "tags": [
+      "arrow-function",
+      "string-manipulation",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "4321. This program reverses the digits of a number and prints it to the console. It uses arrow function syntax and string manipulation techniques.",
+    "id": 477
+  },
+  {
+    "generator": "javascript-program",
+    "input": "calling",
+    "problem": "console.log(5 + 3 * 2),",
+    "tags": [
+      "arrow-function",
+      "mathematical-expression",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "13. This code uses arrow functions and mathematical operations to generate output.     The function adds 5 and the product of 3 and 2, which is 3 multiplied by 2 equals 6.     The result of the addition is then displayed in the console using console.log().",
+    "id": 478
+  },
+  {
+    "generator": "javascript-program",
+    "input": "longstanding",
+    "problem": "((a, b) => console.log(a * b))(2, 5)",
+    "tags": [
+      "arrow-function",
+      "multiplication",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "10. This program defines an arrow function that takes two arguments, `a` and `b`, and uses the `console.log()` function to display the product of the two arguments to the console.",
+    "id": 479
+  },
+  {
+    "generator": "javascript-program",
+    "input": "surf",
+    "problem": "((a, b) => a * b)(3, 5)",
+    "tags": [
+      "arrow-function",
+      "multiplication",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "15. This program defines an arrow function that multiplies two numbers. It then calls the function with the arguments 3 and 5, and prints the result to the console.",
+    "id": 480
+  },
+  {
+    "generator": "javascript-program",
+    "input": "emotionally",
+    "problem": "((a, b) => a * b ? a * b : 0)(2, 5)",
+    "tags": [
+      "5thGrade",
+      "Functions",
+      "Arithmetic",
+      "Conditional",
+      "javascript-program"
+    ],
+    "solution": "10. This program uses arrow functions to define a binary operation that multiplies two numbers. If either number is 0, the program outputs 0. Otherwise, it outputs the product of the two numbers.",
+    "id": 481
+  },
+  {
+    "generator": "javascript-program",
+    "input": "dejected",
+    "problem": "const result = (a, b) => a + b; console.log(result(5, 3))",
+    "tags": [
+      "arrow-functions",
+      "addition",
+      "console-log",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "8. This program uses arrow functions to create a function that adds two numbers together. The function takes two arguments, 'a' and 'b', and then uses the 'console.log' function to display the sum of the two numbers in the console.",
+    "id": 482
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stairway",
+    "problem": "let sum = 0;\nfor (let i = 1; i <= 10; i++) { sum += i; }\nconsole.log(sum);",
+    "tags": [
+      "loop",
+      "accumulation",
+      "javascript",
+      "console.log",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "55. This program demonstrates the concept of **looping** and **accumulation** in JavaScript. The loop iterates from 1 to 10, adding each number to a variable called `sum` using the `+=` operator. Finally, the `console.log()` function prints the value of `sum` to the console.",
+    "id": 483
+  },
+  {
+    "generator": "javascript-program",
+    "input": "chaste",
+    "problem": "const result = (n) => n * 2; \nconsole.log(result(5))",
+    "tags": [
+      "js-function-definition",
+      "js-arrow-function",
+      "js-console-log",
+      "5th-grade-math-multiplication",
+      "javascript-program"
+    ],
+    "solution": "10. This program defines a function that multiplies a given number by 2. It then calls the function with the argument 5 and prints the result to the console.",
+    "id": 484
+  },
+  {
+    "generator": "javascript-program",
+    "input": "forgive",
+    "problem": "const result = (num1, num2) => num1 * num2; \nconsole.log(result(5, 3));",
+    "tags": [
+      "functional-programming",
+      "arrow-function",
+      "multiplication",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "15. This program defines an arrow function that multiplies two numbers. It then calls the function with the arguments 5 and 3, and prints the result to the console.",
+    "id": 485
+  },
+  {
+    "generator": "javascript-program",
+    "input": "bath",
+    "problem": "const bath = () => { console.log('A warm bath awaits you.') }      bath()",
+    "tags": [
+      "js-arrow-function",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "A warm bath awaits you.. This program uses an arrow function called `bath` that takes no arguments and simply calls `console.log` with a message indicating that a warm bath is waiting for the user.",
+    "id": 486
+  },
+  {
+    "generator": "javascript-program",
+    "input": "ominous",
+    "problem": "const n = 3; console.log((n => n * n)(n));",
+    "tags": [
+      "es6",
+      "arrow-function",
+      "variable",
+      "console.log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "9. This program uses an arrow function to square a number. It defines a variable `n` with the value 3, then calls the arrow function `n => n * n` with the `n` variable as an argument. The result of the function is multiplied by itself and the final result is logged to the console.",
+    "id": 487
+  },
+  {
+    "generator": "javascript-program",
+    "input": "carrot",
+    "problem": "const carrot = () => console.log(' munch munch, I love carrots!'); carrot();",
+    "tags": [
+      "es6",
+      "arrow-function",
+      "console-log",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": " munch munch, I love carrots!. This program uses an arrow function called 'carrot' that automatically calls 'console.log()' with the text ' munch munch, I love carrots!' when the program runs. This demonstrates the concept of an anonymous function that can be used to perform actions without explicitly naming the function.",
+    "id": 488
+  },
+  {
+    "generator": "javascript-program",
+    "input": "taxpayer",
+    "problem": "(() => { const a = 10; console.log(a * 3)})()",
+    "tags": [
+      "functional-programming",
+      "arrow-functions",
+      "variables",
+      "console-log",
+      "fifth-grade",
+      "javascript-program"
+    ],
+    "solution": "30. This program uses an arrow function to define a function that multiplies a variable by 3. The variable is initialized to 10. The function is then called, and the result is logged to the console.",
+    "id": 489
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stately",
+    "problem": "const result = (n) => n * 5; console.log(result(10))",
+    "tags": [
+      "functional-programming",
+      "arrow-functions",
+      "conditional-statements",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "50. This program defines a function called 'result' that multiplies its input by 5. It then calls the function with the argument 10 and prints the output to the console.",
+    "id": 490
+  },
+  {
+    "generator": "javascript-program",
+    "input": "starch",
+    "problem": "const x = (n) => console.log(n * n); x(25);",
+    "tags": [
+      "js-function-definition",
+      "js-arrow-function",
+      "js-console-log",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "25. This program defines a function called 'x' that takes a number 'n' and prints the square of 'n' to the console.",
+    "id": 491
+  },
+  {
+    "generator": "javascript-program",
+    "input": "whirlwind",
+    "problem": "const x = () => Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)); console.log(x())",
+    "tags": [
+      "probability",
+      "randomness",
+      "square root",
+      "fifth grade",
+      "javascript-program"
+    ],
+    "solution": "1.2345. The program generates a random number, squares it, adds another random number's square, then calculates the square root of the sum. This process creates a whirlwind of numbers, resulting in a constantly changing output.",
+    "id": 492
+  },
+  {
+    "generator": "javascript-program",
+    "input": "loose",
+    "problem": "(() => { const x = 10; const y = 20; console.log(x + y); })()",
+    "tags": [
+      "es6",
+      "arrow-functions",
+      "variables",
+      "addition",
+      "console-log",
+      "5thGrade",
+      "javascript-program"
+    ],
+    "solution": "30. This program uses arrow functions to define two variables, x and y, and then uses the addition operator (+) to combine their values. The console.log() function is used to display the result of the addition to the console.",
+    "id": 493
+  },
+  {
+    "generator": "javascript-program",
+    "input": "observant",
+    "problem": "observed = (a) => console.log(a); const numbers = [1, 2, 3, 4, 5]; numbers.forEach((a) => observed(a));",
+    "tags": [
+      "javascript",
+      "arrays",
+      "functions",
+      "console.log",
+      "grade-5",
+      "programming-concepts",
+      "javascript-program"
+    ],
+    "solution": "1\n2\n3\n4\n5\n. This program uses an arrow function to define a simple observer. The `observed` function takes one argument and logs it to the console. We then use the `forEach` method on an array of numbers to apply the `observed` function to each number in the array. This demonstrates the concept of mapping a function over a collection of data.",
+    "id": 494
+  },
+  {
+    "generator": "javascript-program",
+    "input": "stout",
+    "problem": "const stout = (n) => n * 3; console.log(stout(5));",
+    "tags": [
+      "javascript",
+      "function",
+      "variable",
+      "math",
+      "fifth-grade",
+      "programming",
+      "javascript-program"
+    ],
+    "solution": "15. This program defines a function `stout` that takes an argument `n` and returns the result of multiplying `n` by 3. The function is then called with the argument `5`, which means it will multiply 5 by 3 and log the result to the console.",
+    "id": 495
+  },
+  {
+    "generator": "javascript-program",
+    "input": "miscarriage",
+    "problem": "let a = 10; let b = (a) => { return a + 1; }; console.log(b());",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "function-closures",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "11. This code demonstrates the concept of variable scope and function closures. The variable `a` is defined in the outer scope, and the arrow function `b` has access to this variable because it was defined in the same scope. When we call `b()` and log its return value, we can see that the value of `a` is used within the function.",
+    "id": 496
+  },
+  {
+    "generator": "javascript-program",
+    "input": "signing",
+    "problem": "let signing = (name) => console.log(`Signing up as ${name}`); signing('John');",
+    "tags": [
+      "javascript",
+      "arrow-functions",
+      "variable-scope",
+      "hoisting",
+      "console-log",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "Signing up as John. In this code snippet, we're using an arrow function to define a simple signing-up process. The function takes a name as an argument and logs a message to the console with that name. We then call the function with the name 'John'. This demonstrates the concept of variable scope and how variables are hoisted in JavaScript.",
+    "id": 497
+  },
+  {
+    "generator": "javascript-program",
+    "input": "dally",
+    "problem": "  let dally = [1, 2, 3];  let result = dally.map((x) => x * 2);  console.log(result);  ",
+    "tags": [
+      "javascript",
+      "map",
+      "arrow-function",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "  [2, 4, 6]  .   This program demonstrates the concept of map() and arrow functions. The map() function applies a transformation to each element in an array. In this case, it multiplies each number by 2. The result is a new array with the transformed values.  ",
+    "id": 498
+  },
+  {
+    "generator": "javascript-program",
+    "input": "protect",
+    "problem": "let protect = () => { let sensitiveData = 'super secret'; return console.log(sensitiveData); }; protect();",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "lexical-closure",
+      "5th-grade",
+      "programming-concepts",
+      "javascript-program"
+    ],
+    "solution": "'super secret'. This program demonstrates the concept of variable scope and lexical closure. The `protect` function has its own local scope, which means that any variables declared inside it are not accessible outside of it. Even though we're trying to access the `sensitiveData` variable outside of the function, it's not possible because it's defined within the function's scope. This is a fundamental concept in programming, and it's essential to understand how variables are scoped.",
+    "id": 499
+  },
+  {
+    "generator": "javascript-program",
+    "input": "involuntary",
+    "problem": "const involuntary = (x) => { return x + 1; }; console.log(involuntary(2));",
+    "tags": [
+      "javascript",
+      "function-inversion",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "3. This program demonstrates the concept of function invocation and how it affects the output. The `involuntary` function takes an argument `x` and returns its value plus one. When we call the function with the argument `2`, the function is executed and the result is logged to the console. The key point here is that the function is not explicitly invoked when we define it, but rather when we call it later in the code.",
+    "id": 500
+  },
+  {
+    "generator": "javascript-program",
+    "input": "vehement",
+    "problem": "let vehement = (x) => { console.log(x); }; vehement(10);",
+    "tags": [
+      "javascript",
+      "function-declaration",
+      "function-invocation",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "10\n. This program demonstrates the concept of function declaration and invocation. The arrow function 'vehement' takes one argument 'x' and logs it to the console when called. In this case, we call 'vehement' with the argument 10.",
+    "id": 501
+  },
+  {
+    "generator": "javascript-program",
+    "input": "die",
+    "problem": "let x = 10; if (x < 11) { console.log('die'); } else { let y = () => console.log('alive'); y(); };",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "conditional-statements",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "alive. This program demonstrates the concept of variable scope and conditional statements. The variable `x` is declared with a value of 10, and then an `if` statement checks if `x` is less than 11. If it is, the program logs 'die' to the console. If not, it declares a new arrow function `y` that logs 'alive' when called. The key point here is that the variable `x` is declared outside of any function or block scope, so its value can be accessed and modified within the `if` statement.",
+    "id": 502
+  },
+  {
+    "generator": "javascript-program",
+    "input": "ensemble",
+    "problem": "let numbers = [1, 2, 3]; let doubleNumbers = numbers.map((num) => num * 2); console.log(doubleNumbers);",
+    "tags": [
+      "5th-grade",
+      "arrays",
+      "mapping",
+      "transformation",
+      "javascript",
+      "javascript-program"
+    ],
+    "solution": "[2, 4, 6]. This program demonstrates the concept of array mapping and the creation of a new array from an existing one. The `map` method is called on the `numbers` array, which applies a transformation to each element in the array. In this case, the transformation multiplies each number by 2. The resulting array, `doubleNumbers`, contains the doubled numbers.",
+    "id": 503
+  },
+  {
+    "generator": "javascript-program",
+    "input": "hygiene",
+    "problem": "let x = () => { console.log('Before'); return 'hello'; }; let y = x(); console.log(y);",
+    "tags": [
+      "javascript",
+      "variables",
+      "scope",
+      "arrow-functions",
+      "school-grade-level-5th",
+      "javascript-program"
+    ],
+    "solution": "Before\nhello. This program demonstrates the concept of variable scope and the use of arrow functions. The `x` function is defined as an arrow function that returns the string 'hello' after logging a message to the console. Then, the function `x` is called with the syntax `let y = x();`, which assigns the return value of the function to the variable `y`. Finally, the value of `y` is logged to the console.",
+    "id": 504
+  },
+  {
+    "generator": "javascript-program",
+    "input": "dialectic",
+    "problem": "let x = 10; let y = (x) => console.log(x); y(5);",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "function-hoisting",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": 5,
+    "id": 505
+  },
+  {
+    "generator": "javascript-program",
+    "input": "demolish",
+    "problem": "let demolish = (a) => { console.log(a);  }; demolish('hello');",
+    "tags": [
+      "javascript",
+      "5th-grade",
+      "arrow-function",
+      "function-call",
+      "javascript-program"
+    ],
+    "solution": "hello\n. The `demolish` function is a simple example of an arrow function in JavaScript. Arrow functions are used to define small, one-time-use functions that can be called with the arrow symbol (`=>`). In this case, the `demolish` function takes one argument `a` and logs it to the console using `console.log(a)`. The function is then called with the string `'hello'`, which should log `'hello'` to the console.  The concept being highlighted here is the use of arrow functions in JavaScript. Arrow functions are a shorthand way to define small functions that can be used to perform simple operations or transformations on data.",
+    "id": 506
+  },
+  {
+    "generator": "javascript-program",
+    "input": "canoe",
+    "problem": "let canoe = { length: 3.5, width: 0.8 }; console.log(canoe.length + canoe.width);",
+    "tags": [
+      "programming",
+      "javascript",
+      "objects",
+      "references",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "3.5, 0.8\n2.1, 0.9. This program demonstrates the concept of object references in JavaScript.",
+    "id": 507
+  },
+  {
+    "generator": "javascript-program",
+    "input": "magnitude",
+    "problem": "let magnitude = (x, y) => x + y; console.log(magnitude(10, 20));",
+    "tags": [
+      "javascript",
+      "function-closures",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "30. This program demonstrates the concept of function closures. The `magnitude` function takes two arguments and returns their sum. When we call `console.log(magnitude(10, 20))`, it prints `30`. This is because the `magnitude` function has access to its own scope, which includes the variables `x` and `y` that were passed to it. Even though these variables are no longer in scope outside of the function, they remain available within the function itself. This is an important concept for understanding how functions work in JavaScript.",
+    "id": 508
+  },
+  {
+    "generator": "javascript-program",
+    "input": "pole",
+    "problem": "  let pole = { lat: 40.7128, lon: -74.0060 };  console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);  ",
+    "tags": [
+      "javascript",
+      "template-literals",
+      "school-grade-level-5th",
+      "javascript-program"
+    ],
+    "solution": "  The coordinates of the pole are 40.7128, -74.0060  .   This code snippet demonstrates how to use template literals in JavaScript. Template literals allow you to embed expressions inside string literals, using the `${}` syntax.  In this example, we define an object `pole` with two properties: `lat` and `lon`. Then, we use a console.log statement to print out the coordinates of the pole. The `${}` syntax is used to insert the values of `pole.lat` and `pole.lon` into the string literal.  ",
+    "id": 509
+  },
+  {
+    "generator": "javascript-program",
+    "input": "rubbish",
+    "problem": "console.log(JSON.stringify({ x: 1, y: null }));",
+    "tags": [
+      "javascript-program"
+    ],
+    "solution": "  {.   This program demonstrates the concept of `null` as a default value for properties. When we try to access a property that doesn't exist or has no value assigned to it, JavaScript returns `undefined`. However, when we use `JSON.stringify()` to convert an object into a JSON string, any properties with no value (i.e., `null`) are omitted from the output. This is because JSON strings do not support `null` values.",
+    "id": 510
+  },
+  {
+    "generator": "javascript-program",
+    "input": "grammar",
+    "problem": "let x = 10; const y = () => console.log(x); x = 20; y();",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "hoisting",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "[20]. This program demonstrates the concept of variable scope and hoisting in JavaScript. The `x` variable is declared with the `let` keyword, which means it has block-level scope. The `y` function is a const arrow function that logs the value of `x`. The `x` variable is reassigned to 20. When the `y` function is called, it will log the current value of `x`, which is 20.",
+    "id": 511
+  },
+  {
+    "generator": "javascript-program",
+    "input": "alias",
+    "problem": "let alias = 'old value'; console.log(`Initial value: ${alias}`); alias = 'new value'; console.log(`Updated value: ${alias}`);",
+    "tags": [
+      "javascript",
+      "variable reassignment",
+      "reassignment gotcha",
+      "5th grade",
+      "javascript-program"
+    ],
+    "solution": "Initial value: old value\nUpdated value: new value. This code demonstrates the concept of variable reassignment. The `alias` variable is initially assigned the value `'old value'`. Then, its value is reassigned to `'new value'`. The output shows that the initial and updated values are logged to the console.",
+    "id": 512
+  },
+  {
+    "generator": "javascript-program",
+    "input": "nobleman",
+    "problem": "let nobleman = { name: 'John', title: 'Duke' }; console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);",
+    "tags": [
+      "javascript",
+      "template-literals",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "{ \"Hello, my name is John and I am a Duke\" }. This code snippet demonstrates the concept of template literals in JavaScript. Template literals allow us to embed expressions inside string literals using the `${expression}` syntax. In this example, we're using a template literal to create a greeting message that includes the nobleman's name and title.",
+    "id": 513
+  },
+  {
+    "generator": "javascript-program",
+    "input": "register",
+    "problem": "let register = { name: 'John', age: 30  }; console.log(Object.keys(register).join(', '));",
+    "tags": [
+      "javascript",
+      "object-keys",
+      "concatenation",
+      "array-methods",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "  name, age  .   This program uses a concept called `Object.keys()` which returns an array of the object's own enumerable property names. The `join()` method is then used to concatenate these property names into a single string, separated by commas.  ",
+    "id": 514
+  },
+  {
+    "generator": "javascript-program",
+    "input": "tuition",
+    "problem": "const tuition = { fee: 1000 }; console.log(tuition.fee);",
+    "tags": [
+      "grade-5",
+      "objects",
+      "references",
+      "assignment",
+      "javascript-program"
+    ],
+    "solution": "1000. This program demonstrates the concept of object references and assignment. We create an object called 'tuition' with a property 'fee' set to 1000. Then, we log the value of 'tuition.fee' to the console.",
+    "id": 515
+  },
+  {
+    "generator": "javascript-program",
+    "input": "adjustment",
+    "problem": "let x = 3; let adjustment = () => { console.log(x); }; adjustment();",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "function-scope",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "3. This program demonstrates the concept of variable scope and how it affects the behavior of a function. The `x` variable is declared in the global scope, while the `adjustment` function is defined inside another scope (the let block). When the `adjustment` function is called, it logs the value of `x`, which is still 3 because it's looking for the variable in its own scope.",
+    "id": 516
+  },
+  {
+    "generator": "javascript-program",
+    "input": "notional",
+    "problem": "let notional = { name: 'John', age: 25 }; console.log(`Name: ${notional.name}, Age: ${notional.age}`);",
+    "tags": [
+      "javascript",
+      "objects",
+      "references",
+      "es6",
+      "5th grade",
+      "javascript-program"
+    ],
+    "solution": "{ Name: John, Age: 25 }. This program demonstrates the concept of object references in JavaScript. When we assign an object to a variable, it creates a reference to that object. Changes made to the original object will be reflected in the referenced object.",
+    "id": 517
+  },
+  {
+    "generator": "javascript-program",
+    "input": "decentralize",
+    "problem": "console.log(Object.values({ a: 1, b: 2, c: 3 }).map(v => v * 2));",
+    "tags": [
+      "javascript",
+      "decentralize",
+      "map",
+      "object-values",
+      "school-grade-level:5th",
+      "javascript-program"
+    ],
+    "solution": "[2,4,6]. This program uses Object values and map functions to demonstrate the concept of decentralization in JavaScript. The Object.values function returns an array of values from an object, and the map function applies a transformation (in this case, multiplication by 2) to each value in the array. This decentralized processing allows for independent calculations on individual elements without affecting the entire dataset.",
+    "id": 518
+  },
+  {
+    "generator": "javascript-program",
+    "input": "corruption",
+    "problem": "let corruption = 0;  let obj = { Corruption: (x) => x }; console.log(obj.Corruption(10));",
+    "tags": [
+      "javascript",
+      "scope",
+      "variable-hoisting",
+      "objects",
+      "functions",
+      "corruption",
+      "javascript-program"
+    ],
+    "solution": "  10  . This program demonstrates the concept of variable scope and how objects can be used to simulate function-like behavior. The `corruption` variable is declared outside of any function, but its value is not changed until it's accessed through the `obj` object. This is because JavaScript has a mechanism called 'variable hoisting' which moves declarations to the top of their scope (in this case, the global scope).",
+    "id": 519
+  },
+  {
+    "generator": "javascript-program",
+    "input": "barrage",
+    "problem": "a = 1; b = (x) => console.log(x); b(2)",
+    "tags": [
+      "javascript",
+      "5th-grade",
+      "immediately-invoked-function-expression",
+      "iife",
+      "javascript-program"
+    ],
+    "solution": "2. This program demonstrates the concept of an Immediately Invoked Function Expression (IIFE). The IIFE is a function that is defined and immediately called. In this case, the function `b` takes one argument `x` and logs it to the console. When we call `b(2)`, it will log `2` to the console.",
+    "id": 520
+  },
+  {
+    "generator": "javascript-program",
+    "input": "digestive",
+    "problem": "const digestive = (input) => { let result = input.length; console.log(`Digestive length: ${result}`); }; digestive('hello');",
+    "tags": [
+      "javascript",
+      "es6",
+      "variable-scope",
+      "let-vs-const",
+      "console-log",
+      "school-grade-level-5th",
+      "javascript-program"
+    ],
+    "solution": "Digestive length: 5. This program demonstrates the concept of variable scope and the difference between using `let` and `const`. The function `digestive` takes an input string, calculates its length, and logs it to the console. The variable `result` is scoped within the function and is not accessible outside of it.",
+    "id": 521
+  },
+  {
+    "generator": "javascript-program",
+    "input": "portrait",
+    "problem": "const portrait = (name) => { console.log(`Hello, my name is ${name}`); }; portrait('Alice');",
+    "tags": [
+      "javascript",
+      "template-literals",
+      "strings",
+      "variables",
+      "grade-5",
+      "javascript-program"
+    ],
+    "solution": "Hello, my name is Alice. This program demonstrates the concept of template literals in JavaScript. A template literal is a string that can contain placeholders for values, which are replaced when the string is converted to a value. In this case, we're using template literals to insert the value of the `name` variable into a greeting message.",
+    "id": 522
+  },
+  {
+    "generator": "javascript-program",
+    "input": "extended",
+    "problem": "const extended = {name: 'John', age: 25}; console.log(extended.name);",
+    "tags": [
+      "javascript",
+      "object-oriented-programming",
+      "oop",
+      "5th-grade",
+      "programming",
+      "javascript-program"
+    ],
+    "solution": "John. This code snippet demonstrates how JavaScript objects can be extended or added to. In this case, an object named `extended` is defined with two properties: `name` and `age`. The value of the `name` property is then logged to the console using `console.log()`.",
+    "id": 523
+  },
+  {
+    "generator": "javascript-program",
+    "input": "particularly",
+    "problem": "let particularly = (x) => { console.log(x);  }; particularly('Hello');",
+    "tags": [
+      "javascript",
+      "scope",
+      "arrow functions",
+      "variable scope",
+      "5th grade",
+      "javascript-program"
+    ],
+    "solution": "  Hello  .   This code demonstrates the concept of variable scope and the use of arrow functions in JavaScript. The `particularly` function is defined with an argument `x`, which is then logged to the console using `console.log`. When called with the string 'Hello', it prints 'Hello' to the console.  ",
+    "id": 524
+  },
+  {
+    "generator": "javascript-program",
+    "input": "goalkeeper",
+    "problem": "let goalkeeper = (target) => { let goal = ' scored!'; if (!target) { console.log('No target, no goal'); } else { console.log(target + goal); } }; goalkeeper('Messi');",
+    "tags": [
+      "javascript",
+      "optional chaining",
+      "ternary operator",
+      "conditional statements",
+      "5th grade",
+      "javascript-program"
+    ],
+    "solution": "Messi scored!. This code demonstrates the concept of optional chaining in JavaScript. The `goalkeeper` function takes a `target` parameter and checks if it's truthy (not null or undefined). If the target is present, it logs the message with the goal scored by that target. The gotcha here is that the function uses the ternary operator (`? :`) to conditionally log the message, which can lead to unexpected behavior if not understood correctly.",
+    "id": 525
+  },
+  {
+    "generator": "javascript-program",
+    "input": "definitely",
+    "problem": "let definitely = (x) => x; console.log(definitely(3));",
+    "tags": [
+      "javascript",
+      "5th-grade",
+      "variables-scope",
+      "arrow-functions",
+      "javascript-program"
+    ],
+    "solution": "3. The program defines an arrow function `definitely` that takes a single argument `x`. The function simply returns the input value. Then it calls `console.log` with the result of calling `definitely` with the argument 3, which should log `3` to the console. This demonstrates the concept of variable scope and the use of arrow functions in JavaScript.",
+    "id": 526
+  },
+  {
+    "generator": "javascript-program",
+    "input": "detention",
+    "problem": "let detention = 'unexcused'; console.log('You are serving ' + detention);",
+    "tags": [
+      "javascript",
+      "template-literals",
+      "strings",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "You are serving unexcused. In this code snippet, we're using a variable `detention` and concatenating it with a string to form a sentence. The concept being tested is the usage of template literals in JavaScript. Template literals allow us to embed expressions inside string literals.",
+    "id": 527
+  },
+  {
+    "generator": "javascript-program",
+    "input": "premium",
+    "problem": "let premium = 'gold'; console.log(premium === 'silver' ? 'Not Premium' : `You have reached ${premium} level!`);  ",
+    "tags": [
+      "javascript",
+      "strict-equality",
+      "ternary-operator",
+      "conditional-statement",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "  You have reached gold level!  .   This code demonstrates the concept of strict equality (`===`) in JavaScript. The program defines a variable `premium` and sets it to `'gold'`. Then, it uses a conditional statement with a ternary operator to check if `premium` is equal to `'silver'`. If the condition is true, it logs the message `'Not Premium'`. Otherwise, it logs a congratulatory message indicating that you have reached the `'gold'` level. The program highlights the importance of strict equality in JavaScript, as opposed to loose equality (`==`).  ",
+    "id": 528
+  },
+  {
+    "generator": "javascript-program",
+    "input": "fortune",
+    "problem": "let fortune = { 'heads': 'You will have good luck', 'tails': 'You will have bad luck'  }; const coinFlip = () => {    const randomNum = Math.floor(Math.random() * 2); return (randomNum === 0) ? 'heads' : 'tails';  }; console.log(fortune[coinFlip()]);",
+    "tags": [
+      "javascript",
+      "functions",
+      "random-numbers",
+      "object-keys",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "undefined. undefined",
+    "id": 529
+  },
+  {
+    "model": "llama3",
+    "generator": "javascript-program",
+    "input": "fort",
+    "problem": "let fort = { height: 100 }; let fortHeight = () => console.log(fort.height); fortHeight();",
+    "tags": [
+      "javascript",
+      "variable shadowing",
+      "5th grade",
+      "javascript-program"
+    ],
+    "solution": "100. This program demonstrates variable shadowing. Variable shadowing occurs when a variable with the same name is declared inside a block (such as a function or an if statement), which hides the outer scope's variable with the same name. In this case, we create an object `fort` and assign it to a variable `fort`. Then, we define an arrow function `fortHeight` that logs the value of `fort.height`. We call `fortHeight()` to execute the function. The output will be 100.",
+    "id": 530
+  },
+  {
+    "model": "llama3",
+    "generator": "javascript-program",
+    "input": "tool",
+    "problem": "const tool = () => { let count = 0; return (count += 1); }; console.log(tool());",
+    "tags": [
+      "javascript",
+      "closure",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "  1  .   This program demonstrates the concept of closures. A closure is when a function has access to its own scope and any parent scopes, even after it's returned from or finished executing.  In this case, the `tool` function returns the current value of the `count` variable, which is incremented each time the function is called. This behavior might seem confusing at first, but it's an important concept in JavaScript programming.  ",
+    "id": 531
+  },
+  {
+    "model": "llama3",
+    "generator": "javascript-program",
+    "input": "stairway",
+    "problem": "const stairway = [1, 2, 3]; for (let i = 0; i < stairway.length; i++) { console.log(stairway[i]); }",
+    "tags": [
+      "javascript",
+      "array-indexing",
+      "const-let",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "1,2,3. This program demonstrates the concept of array indexing and the difference between const and let. The const variable 'stairway' is an array that contains three elements: 1, 2, and 3. The for loop iterates over the length of the array using a let variable 'i'. Inside the loop, we log each element of the array to the console.",
+    "id": 532
+  },
+  {
+    "model": "llama3",
+    "generator": "javascript-program",
+    "input": "flop",
+    "problem": "const flop = (x) => { return x; }; console.log(flop(3));",
+    "tags": [
+      "javascript",
+      "variable-scope",
+      "function-hoisting",
+      "5th-grade",
+      "javascript-program"
+    ],
+    "solution": "3. This program demonstrates the concept of variable scope and hoisting. The `flop` function is defined as a constant arrow function, which means it can only be reassigned with another value of the same type. In this case, we're returning the input value `x`. When we call `console.log(flop(3))`, we expect to see the output `3` because the function simply returns its input. However, the gotcha is that if we try to reassign the `flop` variable with a new value before calling it, JavaScript will automatically move the assignment to the top of the scope, effectively 'hoisting' the variable. This can lead to unexpected behavior.",
+    "id": 533
   }
 ];
