@@ -7974,5 +7974,1860 @@ export const problems = [
     ],
     "solution": "3. This program demonstrates the concept of variable scope and hoisting. The `flop` function is defined as a constant arrow function, which means it can only be reassigned with another value of the same type. In this case, we're returning the input value `x`. When we call `console.log(flop(3))`, we expect to see the output `3` because the function simply returns its input. However, the gotcha is that if we try to reassign the `flop` variable with a new value before calling it, JavaScript will automatically move the assignment to the top of the scope, effectively 'hoisting' the variable. This can lead to unexpected behavior.",
     "id": 533
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "exertion",
+    "problem": "An athlete runs 20 meters in 4 minutes. Another athlete runs 30 meters in 6 minutes. How much time did each athlete spend on each meter of exertion?",
+    "length": 148,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "unit-rate",
+      "metric-units",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Athlete 1: 5 minutes/meter, Athlete 2: 5 minutes/meter",
+    "id": 534
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "exertion",
+    "problem": "An athlete runs 3000 m in 10 minutes. What is the athlete's average speed in meters per second?",
+    "length": 95,
+    "tags": [
+      "fifth-grade",
+      "distance",
+      "speed",
+      "time",
+      "conversion",
+      "time-distance-speed"
+    ],
+    "solution": "First, convert minutes to seconds: 10 min = 600 s. Then, divide the distance covered by the time taken to get the average speed: 3000 m / 600 s = 5 m/s.",
+    "id": 535
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "exertion",
+    "problem": "A runner completes a 3 km loop in 18 minutes. What is the average speed of the runner in meters per minute?",
+    "length": 107,
+    "tags": [
+      "geometry",
+      "fifth-grade",
+      "distance",
+      "speed",
+      "conversion"
+    ],
+    "solution": "First, we need to convert kilometers to meters. 3 km = 3000 m. Then, we can calculate the average speed by dividing the distance covered by the time taken.",
+    "id": 536
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "exertion",
+    "problem": "An athlete completes a 100-meter course in 12 minutes. What is the average exertion, in watts, required to finish the course if the metabolic rate during exertion is approximated by 40 watts per kilogram of body weight?",
+    "length": 219,
+    "tags": [
+      "5th-grade",
+      "physics",
+      "exertion",
+      "power",
+      "metabolic-rate",
+      "probability"
+    ],
+    "solution": "\frac{40\text{ W/kg} \times 70\text{ kg}}{12\text{ min}\times 60\text{ s/min}}=35\text{ W}",
+    "id": 537
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "exertion",
+    "problem": "An athlete expends 300 J of energy while running for 5 minutes. What is the average power output of the athlete in watts?",
+    "length": 121,
+    "tags": [
+      "5thGrade",
+      "Physics",
+      "Energy",
+      "Power",
+      "Units",
+      "physics"
+    ],
+    "solution": "This problem requires students to recall the formula for power, P = E/t, and apply it to the given energy expenditure and time. It also involves converting minutes to seconds.",
+    "id": 538
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "exertion",
+    "problem": "An athlete runs 400m in 8 minutes. What is the average exertion in watts if the athlete consumes 1200W during the race?",
+    "length": 119,
+    "tags": [
+      "fifth-grade",
+      "power",
+      "energy",
+      "distance",
+      "time",
+      "exertion",
+      "science"
+    ],
+    "solution": "This problem involves calculating average power output from distance and time, concepts familiar to 5th graders. It requires understanding of SI units and simple division.",
+    "id": 539
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "exertion",
+    "problem": "The exertion of running marathon makes me feel exhausted, but it is also a great feeling of accomplishment.",
+    "length": 109,
+    "tags": [
+      "grammar-error-noun-verb",
+      "running-marathon",
+      "feeling-accomplishment",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a minor grammatical error. 'Exertion' is a noun that refers to the action of physical effort, but in this sentence, it is used as a verb. The correct form of the verb is 'exercise'.",
+    "id": 540
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "exertion",
+    "problem": "The runner exerted immense forces on his muscles, pushing his limits for the victory.",
+    "length": 84,
+    "tags": [
+      "fifth-grade",
+      "spelling-error",
+      "misuse-of-singular-noun",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'force' instead of 'forces'. 'Forces' would be incorrect as it implies more than one exertion.",
+    "id": 541
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "sentence-prompt",
+    "input": "exertion",
+    "problem": "Calculate the amount of exertion a runner experiences when running at a speed of 8 meters per second for 10 minutes.",
+    "length": 116,
+    "tags": [
+      "fifth-grade",
+      "running",
+      "speed",
+      "time",
+      "metabolic-units",
+      "exertion-calculation",
+      "sentence-prompt"
+    ],
+    "solution": "The exertion experienced is approximately 480 metabolic units.",
+    "id": 542
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "airplane-trivia",
+    "input": "exertion",
+    "problem": "What is the average wingspan of a Boeing 747-8, in meters?",
+    "length": 58,
+    "tags": [
+      "airplane",
+      "trivia",
+      "boeing",
+      "747-8",
+      "wingspan",
+      "fifth-grade",
+      "airplane-trivia"
+    ],
+    "solution": "The average wingspan of a Boeing 747-8 is approximately 60 meters. This massive wingspan allows the aircraft to generate enough lift to take off and land safely.",
+    "id": 543
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science-trivia",
+    "input": "exertion",
+    "problem": "What is the amount of oxygen consumed during physical exertion, expressed in milliliters per kilogram of body weight per minute?",
+    "length": 128,
+    "tags": [
+      "science",
+      "3rd grade",
+      "physiology",
+      "exercise",
+      "oxygen consumption",
+      "science-trivia"
+    ],
+    "solution": "Oxygen consumption during exertion is a measure of metabolic rate. It indicates the body's need for oxygen during physical activity. The rate is typically measured in milliliters per kilogram of body weight per minute (ml/kg/min).",
+    "id": 544
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "confess",
+    "problem": "A teacher has 120 colored pencils to share equally among her 30 students. How many pencils should each student get if she wants to confess that she secretly kept 10 for herself?",
+    "length": 177,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "wordplay",
+      "word-problem",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Each student gets 4 pens. The teacher secretly keeps 10 pens for herself.",
+    "id": 545
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "confess",
+    "problem": "An explorer confesses that it took him 3 hours to traverse a jungle at a speed of 5 km/h. How far did he travel?",
+    "length": 112,
+    "tags": [
+      "fifth-grade",
+      "distance-time",
+      "speed",
+      "metric-units",
+      "time-distance-speed"
+    ],
+    "solution": "To find the distance, we can use the formula: distance = speed × time. Distance = 5 km/h × 3 h = 15 kilometers. Therefore, the explorer traveled 15 kilometers.",
+    "id": 546
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "confess",
+    "problem": "A triangle has a perimeter of 30 cm. One side is 5 cm longer than the shortest side. What is the length of the shortest side?",
+    "length": 125,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "triangle",
+      "fifth-grade"
+    ],
+    "solution": "First, let's represent the length of the shortest side as x cm. Then, the length of the longest side is x + 5 cm. The perimeter is the sum of all three sides, so x + (x + 5) + x = 30 cm. Solving this equation will give us the length of the shortest side.",
+    "id": 547
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "confess",
+    "problem": "A bag contains 10 red marbles, 12 green marbles, and 18 blue marbles. If you randomly pick 5 marbles from the bag, what is the probability that exactly 2 of them are red?",
+    "length": 170,
+    "tags": [
+      "probability",
+      "combination",
+      "conditional",
+      "fifth-grade"
+    ],
+    "solution": "\frac{10 \times 4}{30 \times 4} = \frac{1}{3}",
+    "id": 548
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "confess",
+    "problem": "An astronaut confesses that their spaceship's fuel gauge reads 25% of its capacity. If the spaceship consumes fuel at a rate of 2.5% per hour, how many hours until the spaceship runs out of fuel?",
+    "length": 195,
+    "tags": [
+      "fraction",
+      "percentage",
+      "ratio",
+      "fifth-grade",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their knowledge of fractions and percentages to solve a real-world scenario. It involves dividing a percentage by another percentage to find the number of hours until the spaceship runs out of fuel.",
+    "id": 549
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "confess",
+    "problem": "A scientist confesses that the volume of a liquid in a cylinder is 400cm^3. If the cylinder's height is 10cm, what is the radius of the cylinder?",
+    "length": 145,
+    "tags": [
+      "volume",
+      "cylinder",
+      "height",
+      "radius",
+      "fifth-grade",
+      "science"
+    ],
+    "solution": "This problem requires understanding of the formula for the volume of a cylinder and the relationship between the volume, height, and radius of a cylinder. It is appropriate for a 5th grader who has been introduced to these concepts.",
+    "id": 550
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "confess",
+    "problem": "She confess that she had a secret crush her best friend.",
+    "length": 59,
+    "tags": [
+      "verb-tense-error",
+      "incorrect-word-choice",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. The correct form is 'She confessed that she had a secret crush on her best friend.'",
+    "id": 551
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "confess",
+    "problem": "She confessed that she had peek at the answer key, but promised never to do it again.",
+    "length": 87,
+    "tags": [
+      "5th-grade",
+      "spelling-error",
+      "grammar-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'peeked' instead of 'peeked'. 'Peek' means to take a quick look at something, while 'peeked' is the past tense of the verb.",
+    "id": 552
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "sentence-prompt",
+    "input": "confess",
+    "problem": "Use the word 'confess' to write a sentence about a time when someone shared something that was hidden or wrong.",
+    "length": 111,
+    "tags": [
+      "grade-5",
+      "confession",
+      "sharing",
+      "secret",
+      "admission",
+      "sentence-prompt"
+    ],
+    "solution": "The mischievous squirrel confessed to stealing the sunflower seeds from the bird feeder.",
+    "id": 553
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "airplane-trivia",
+    "input": "confess",
+    "problem": "An airplane needs to cover 3,000km to reach its destination. If the engine consumes 5kg of fuel per kilometer, how much fuel will it need in total to complete the journey?",
+    "length": 171,
+    "tags": [
+      "airplane",
+      "fuel",
+      "distance",
+      "consumption",
+      "metric",
+      "fifth-grade",
+      "airplane-trivia"
+    ],
+    "solution": "To find the total fuel needed, we multiply the distance by the fuel consumption per kilometer. 3,000km * 5kg/km = 15,000kg of fuel will be needed to complete the journey.",
+    "id": 554
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "arithmetic",
+    "input": "confess",
+    "problem": ",,= 3/4-1/8*1/3,,",
+    "length": 14,
+    "tags": [
+      "algebra",
+      "multiplication",
+      "division",
+      "fraction",
+      "fifth_grade",
+      "arithmetic"
+    ],
+    "solution": ",=,11/24",
+    "id": 555
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "arithmetic-carry",
+    "input": "confess",
+    "problem": "Evaluate the expression: ,,10^3 + 2\times10^2 + 5\times10 + 3,,",
+    "length": 58,
+    "tags": [
+      "fifth-grade",
+      "multi-digit-addition",
+      "exponents",
+      "carrying",
+      "borrowing",
+      "arithmetic-carry"
+    ],
+    "solution": "This problem requires careful handling of carries and borrows. Remember to perform the multiplication before addition, and keep track of any carries or borrows that occur.",
+    "id": 556
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "arithmetic-multiplication",
+    "input": "confess",
+    "problem": "Calculate: 325 × 689",
+    "length": 20,
+    "tags": [
+      "multiples-of-9",
+      "integer-multiplication",
+      "5th-grade",
+      "arithmetic-multiplication"
+    ],
+    "id": 557
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "arithmetic-division",
+    "input": "confess",
+    "problem": "876 / 234",
+    "length": 9,
+    "tags": [
+      "arithmetic",
+      "division",
+      "integers",
+      "place value",
+      "rounding",
+      "fifth-grade",
+      "arithmetic-division"
+    ],
+    "solution": "This problem tests the common errors of division involving 'carrying' and 'place value' that students make. In this case, students may forget to 'carry' the remainder from the lower digit to the next, or they may not correctly place the decimal point in the quotient.",
+    "id": 558
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "nature",
+    "problem": "There are twice as many butterflies as bees in a meadow. The total number of insects is 50. How many butterflies are there?",
+    "length": 123,
+    "tags": [
+      "algebra",
+      "system-of-equations",
+      "quadratic-equation",
+      "fifth-grade",
+      "two-variable-algebra"
+    ],
+    "solution": "Let b be the number of bees and f be the number of butterflies.\n b + 2f = 50\n f = (50-b)/2\n Therefore, there are 30 butterflies.",
+    "id": 559
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "nature",
+    "problem": "A squirrel travels 45 meters through a forest at a speed of 3 meters per second. How long will it take the squirrel to reach a tree that is 15 meters away?",
+    "length": 155,
+    "tags": [
+      "time-distance",
+      "speed",
+      "metric-units",
+      "fifth-grade",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate how many seconds it takes the squirrel to cover the 45-meter distance. We can do this by dividing the distance by the speed: 45m / 3m/s = 15s. Next, we need to subtract the distance remaining to the tree from the total time taken to get there: 15s - 15m / 3m/s = 5s. Therefore, it will take the squirrel 5 seconds to reach the tree.",
+    "id": 560
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "nature",
+    "problem": "A forest trail is 3.5 km long. If the trail winds through a circular meadow with a radius of 125 m, what is the total length of the trail and meadow perimeter combined?",
+    "length": 168,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "circle",
+      "triangle",
+      "fifth grade"
+    ],
+    "solution": "First, calculate the perimeter of the circular meadow. Then, add the length of the trail to the meadow perimeter.",
+    "id": 561
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "nature",
+    "problem": "A naturalist observes that 3 out of 5 trees in a forest have leaves that change color in autumn. If there are 200 trees in the forest, how many of them will have leaves that change color?",
+    "length": 187,
+    "tags": [
+      "probability-estimation",
+      "conditional-probability",
+      "fifth-grade",
+      "probability"
+    ],
+    "solution": ",240",
+    "id": 562
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "nature",
+    "problem": "A river has a flow rate of 2 m/s. The cross-sectional area of the river is 100 m². What is the volume of water that flows through the river in one minute?",
+    "length": 154,
+    "tags": [
+      "fifth-grade",
+      "flow-rate",
+      "cross-sectional-area",
+      "volume",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to recall the formula for flow rate and apply it to calculate the volume of water flowing through the river in one minute. It involves understanding the relationship between flow rate and cross-sectional area.",
+    "id": 563
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "nature",
+    "problem": "A forest path is 3.5 kilometers long. If the path winds through the forest at an average of 120 meters per minute, how many minutes will it take to walk the entire path?",
+    "length": 169,
+    "tags": [
+      "fifth-grade",
+      "division",
+      "distance",
+      "speed",
+      "time",
+      "science"
+    ],
+    "solution": "This problem involves dividing a distance (kilometers) by a speed (meters per minute) to find the time taken (minutes). This is a suitable challenge for 5th graders who have learned about fractions and conversions between units.",
+    "id": 564
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "function",
+    "problem": "The functions of the enzyme was to break down the sugars in the fruit into simpler molecules.",
+    "length": 92,
+    "tags": [
+      "grammar-5",
+      "spelling-error-function",
+      "science-enzymes",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'function' instead of 'functions'. This is because the sentence talks about only one enzyme, so we use the singular form 'function'.",
+    "id": 565
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "sleazy",
+    "problem": "The sleazy night market was full of suspicious characters, selling their goods in a underhandedness way.",
+    "length": 100,
+    "tags": [
+      "grammar-error",
+      "misspelling",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the word 'underhanded'. It should be 'underhandedness'. This is a common misspelling that many students make.",
+    "id": 566
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "comical",
+    "problem": "The silly clown's jokes were so comical that people were laughing were crazy.",
+    "length": 77,
+    "tags": [
+      "grammar-error",
+      "conjunction-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the conjunction 'like'. 'Like' should be replaced with 'were' to form a correct comparison.",
+    "id": 567
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "comical",
+    "problem": "The clumsy clown's pratfalls so comical that the audience roared with laughter.",
+    "length": 84,
+    "tags": [
+      "grammar-errors",
+      "spelling-errors",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'pratfalls' instead of 'pfalls'. 'Pratfalls' means 'stupid or clumsy actions', which is related to the meaning of 'comical'.",
+    "id": 568
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "larva",
+    "problem": "The larva of butterfly was flying around garden.",
+    "length": 52,
+    "tags": [
+      "grammar-error",
+      "tense-error",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the present tense 'was' instead of the past tense 'was' to describe an action that happened in the past.",
+    "id": 569
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "larva",
+    "problem": "The larva of the butterfly flutter around the garden, munching on leaves tiny creatures.",
+    "length": 93,
+    "tags": [
+      "grammar-misuse-of-verb",
+      "spelling-error",
+      "5th-grade-grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'flutter' instead of 'flies'. 'Flutter' means to move in a graceful or irregular way, while 'flies' refers to multiple insects. The sentence should use 'flies' because the larva are insects.",
+    "id": 570
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "convent",
+    "problem": "The convnet of nuns gathered in the church for a prayer meeting.",
+    "length": 64,
+    "tags": [
+      "misspelling-5",
+      "grammar-error-5",
+      "bad-grammar"
+    ],
+    "solution": "The word 'convnet' is misspelled. It should be 'convict'. 'Convict' means a group of religious women who live in a religious community and follow strict rules.",
+    "id": 571
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "convent",
+    "problem": "The convant's library holds thousands of ancient scrolls.",
+    "length": 57,
+    "tags": [
+      "spelling-error",
+      "grammar-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'convant' instead of 'convent'. 'Convant' is not a word. The correct word is 'convent', which means a religious community with a monastery or abbey.",
+    "id": 572
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "hence",
+    "problem": "Hence, we can conclude that the book quite enjoyable, from the numerous positive reviews.",
+    "length": 92,
+    "tags": [
+      "grammar-error",
+      "conjunction-incorrect",
+      "transition-word-needed",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence incorrectly uses 'hence' as a conjunction instead of a transition word. A conjunction joins two independent clauses, while a transition word connects two sentences or parts of a sentence.",
+    "id": 573
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "hence",
+    "problem": "The train departed hence the platform was empty.",
+    "length": 48,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'hence' instead of 'because'. 'Hence' means 'therefore' or 'as a result of', while 'because' is used to explain the reason for something.",
+    "id": 574
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "peach",
+    "problem": "The juicy peach was so sweet that it make my tummy feel happy.",
+    "length": 62,
+    "tags": [
+      "5th-grade-grammar",
+      "verb-tense",
+      "agreement",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'make' instead of 'makes' to form the correct present tense of the verb. 'Makes' is the singular form, while 'make' is the plural form.",
+    "id": 575
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "peach",
+    "problem": "The juicy, sweet pech was so delicious that it melted in my mouth like sunshine.",
+    "length": 80,
+    "tags": [
+      "5th-grade-spelling",
+      "misspell",
+      "fruit",
+      "punctuation",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'pech' instead of 'peach'. 'Peach' is the correct word for the sweet, juicy fruit.",
+    "id": 576
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "intermediate",
+    "problem": "The intermediate learners practiced writing stories, but they had to rewrite them because they was feeling unsatisfied.",
+    "length": 119,
+    "tags": [
+      "5thGrade",
+      "PluralVerb",
+      "GrammaticalError",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the underlined part. 'was' should be 'were' because 'learners' is a plural noun.",
+    "id": 577
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "intermediate",
+    "problem": "The intermediates hikers reached the summit in just over an hour.",
+    "length": 64,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'intermediate' instead of 'intermediates'. 'Intermediate' means 'at an intermediate stage or level', while 'intermediates' would mean 'a group of intermediates'.",
+    "id": 578
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "vanguard",
+    "problem": "The vanguard of the artistic movement challenged the norms of the time, paint the future with vibrant hues.",
+    "length": 110,
+    "tags": [
+      "5th-grade-verb-tense",
+      "5th-grade-grammar-error",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. 'Painting the future' should be 'painted the future' because the action happened in the past.",
+    "id": 579
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "vanguard",
+    "problem": "The vanguard of the artistic movement challenged traditional norm, bringing fresh perspectives to the canvas.",
+    "length": 110,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "SingularPlural",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'norm' instead of 'norms'. 'Norm' is a singular noun, while 'norms' is the plural form. In this sentence, the correct word is 'norms' because it refers to multiple artistic conventions that were being challenged.",
+    "id": 580
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "not",
+    "problem": "Not a lot of people know that the tallest mountain is, in fact, tallest than Mount Everest.",
+    "length": 90,
+    "tags": [
+      "grammar-error",
+      "comparative-adjective",
+      "superlative-adjective",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses a comparative adjective ('taller') instead of a superlative adjective ('tallest') to describe the mountain compared to Mount Everest.",
+    "id": 581
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "not",
+    "problem": "I not going to school today because I'm feeling sick.",
+    "length": 53,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "fifth-grade",
+      "bad-spelling"
+    ],
+    "solution": "The correct word is 'am not'. 'not' is a contraction of 'not am', which is incorrect.",
+    "id": 582
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "polish",
+    "problem": "She polish her nails with a pink polish, and she looked so pretty.",
+    "length": 68,
+    "tags": [
+      "verb-phrase-incorrect",
+      "grammar-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence is correct except for the word 'polish' which should be 'polish her nails'. 'Polish' by itself is not a complete action.",
+    "id": 583
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "trigger",
+    "problem": "The triggered of the explosion was a faulty wire, causing damage in the surrounding area.",
+    "length": 87,
+    "tags": [
+      "grammar-error-noun-verb",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'trigger' as a noun, instead of the correct action word 'triggered'.",
+    "id": 584
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "trigger",
+    "problem": "The triger of the memory was that old photograph, reminding me of happier times.",
+    "length": 81,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'trigger' instead of 'triger'. 'Trigger' means something that causes a memory or emotional response, while 'triger' is not a recognized word. ",
+    "id": 585
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "trait",
+    "problem": "Her curly hair and tall stature were trait that made her stand out from the crowd.",
+    "length": 83,
+    "tags": [
+      "grammar-error",
+      "singular-noun",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence is correct, except for the use of 'traits'. 'Trait' is a singular noun, so it should be 'trait' instead of 'traits'.",
+    "id": 586
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "trait",
+    "problem": "The playful puppy's wagging trait was a sign of his cheerful personality.",
+    "length": 73,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "vocabulary",
+      "punctuation",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'trait' instead of 'trait'. 'Trait' means a distinguishing characteristic or feature of a person or thing. In this sentence, it refers to the puppy's wagging tail, which is a physical feature that reveals his happy nature.",
+    "id": 587
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "unavoidable",
+    "problem": "The approaching storm's deafening roar and torrentiall rain were unavoidable, leaving the hikers stranded on the treacherous mountain path.",
+    "length": 138,
+    "tags": [
+      "grammar-run-on-sentence",
+      "grammar-incorrect-spelling",
+      "5th-grade-reading",
+      "5th-grade-grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'torrential', which should be 'torrential' with two 'l's. 'Torrential' means 'extremely large or intense, like a sudden downpour of rain'.",
+    "id": 588
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "neck",
+    "problem": "The neck of the dress was so long, it almost reach my ankles.",
+    "length": 63,
+    "tags": [
+      "5th-grade-verb-tense",
+      "grammatical-error-reached",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because 'reached' should be in the past tense, 'reached'.",
+    "id": 589
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "neck",
+    "problem": "The goose's neck was longer than tall tree, reaching all the way to the clouds.",
+    "length": 87,
+    "tags": [
+      "grammar-preposition",
+      "spelling-error",
+      "5th-grade",
+      "punctuation-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is '- instead of 'to'. 'To' is a preposition that means 'towards a place or person'. In this sentence, 'to' is necessary to complete the meaning of the sentence.",
+    "id": 590
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "session",
+    "problem": "The session of students is so excited to learn about space exploration.",
+    "length": 72,
+    "tags": [
+      "grammar-error",
+      "singular-verb",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a minor grammatical error. 'Session' is a singular noun and should be followed by a singular verb. In this case, the correct verb is 'was'.",
+    "id": 591
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "session",
+    "problem": "The sessions of students discussed their plans for the upcoming project.",
+    "length": 71,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'session' instead of 'sessions'. This is because 'session' refers to a single event, while 'sessions' refers to multiple events.",
+    "id": 592
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "shrug",
+    "problem": "She shrugged her shoulders and said, 'I don't know why so hard to shrug today.',",
+    "length": 85,
+    "tags": [
+      "grammar-misplaced-modifier",
+      "5th-grade-grammar",
+      "sentence-structure",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a misplaced modifier. The modifier 'today' should be closer to the verb 'shrugged'.",
+    "id": 593
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "shrug",
+    "problem": "She shrugged her shoulders, not caring what anyone thought her messy hair.",
+    "length": 77,
+    "tags": [
+      "5th-grade-spelling",
+      "misspell-intention",
+      "grammar-mechanics",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error 'not caring' should be 'didn't care' because it shows that the character didn't pay attention to what others thought.",
+    "id": 594
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "driveway",
+    "problem": "The children drived their bikes through the long driveway to school.",
+    "length": 68,
+    "tags": [
+      "5th-grade-verb-tense",
+      "misuse-of-past-tense",
+      "bad-grammar"
+    ],
+    "solution": "The correct word is 'drove'. 'Drived' is a past tense of 'drive', but the sentence is about present action. ",
+    "id": 595
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "driveway",
+    "problem": "The wide, astute driveway was perfect for a game of tag.",
+    "length": 55,
+    "tags": [
+      "misspell-word",
+      "5th-grade-spelling",
+      "orthography-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'dusty' instead of 'astute'. 'Astute' means having a sharp intellect or good judgment, while 'dusty' refers to covered in a layer of fine dust.",
+    "id": 596
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "label",
+    "problem": "The colorful label on the jar was so bigly, I could hardly read the words.",
+    "length": 72,
+    "tags": [
+      "5thGrade",
+      "Adverb",
+      "GrammarError",
+      "Label",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the adjective 'big' to describe the size of the label, but it should use an adverb to describe how big the label is. The correct form is 'The colorful label on the jar was so bigly written that I could hardly read the words.',",
+    "id": 597
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "label",
+    "problem": "The scientist labelled the new chemical compound with a unique identifier, ensuring its identity remained clear for future studies.",
+    "length": 131,
+    "tags": [
+      "fifth-grade",
+      "spelling-error",
+      "misspelled-word",
+      "labeling",
+      "chemistry",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'labelled' instead of 'labeled'. This is a common misspelling that many students make at this age. The correct spelling is 'labeled'.",
+    "id": 598
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "handiwork",
+    "problem": "The children's handiwork on the colorful mobiles is truly amazing, especially the intricate patterns in the hand-stitched are fabrics.",
+    "length": 130,
+    "tags": [
+      "5thGrade",
+      "VerbTense",
+      "SingularPlural",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second sentence. 'Hand-stitched' should be 'hand-stitched are' to make the tense consistent with the singular fabric.",
+    "id": 599
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "handiwork",
+    "problem": "The artist's handwork is truly remarkable, capturing the beauty of nature in every intricate detail.",
+    "length": 101,
+    "tags": [
+      "5th-grade",
+      "spelling-error",
+      "handwork-variation",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'handiwork' instead of 'handwork'. 'Handiwork' is a less common variant of 'handwork', which means skilled or artistic work done by hand. The extra 'h' is an unnecessary addition.",
+    "id": 600
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "precinct",
+    "problem": "The precinct of the police station was bustling with activity on the night of the festival.",
+    "length": 91,
+    "tags": [
+      "grammar-error",
+      "noun-usage",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because 'precinct' is a noun that refers to a geographical area, not an organizational unit. It should be 'The police station precinct was bustling with activity...' instead.",
+    "id": 601
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "precinct",
+    "problem": "The playful pups barked playfully in the prenicct, making it a happy place for them.",
+    "length": 84,
+    "tags": [
+      "5thGrade",
+      "Spelling",
+      "Misspelling",
+      "WordRecognition",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'prenicct' instead of 'precinct'. 'Precinct' means a small area of land surrounded by a fence or other barrier, like a park or neighborhood. The pups are probably barking happily in their own little park.",
+    "id": 602
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "media",
+    "problem": "The media is a powerful tool to inform people about the current events, but also to entertained them.",
+    "length": 101,
+    "tags": [
+      "verb-tense-agreement-5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the last word. 'Entertained' should be 'entertain' to make the tense consistent with 'inform'.",
+    "id": 603
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "media",
+    "problem": "The media of communication has become an important factor in shaping our lives.",
+    "length": 79,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'media' instead of 'medium'. 'Medium' means a size or amount, while 'media' refers to various channels of communication like television, radio, or the internet.",
+    "id": 604
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "backyard",
+    "problem": "The juicy, red apple the backyard tasted even sweeter when dipped in honey.",
+    "length": 80,
+    "tags": [
+      "5th-grade-conjunction",
+      "grammatical-error-junction",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the conjunction of the two sentences. It should be 'when I dipped it in honey'.",
+    "id": 605
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "backyard",
+    "problem": "The chirp birds in the backyard were singing a melody so sweet that it made me feel like I was in a dream.",
+    "length": 103,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'chirping' should be 'chirp' as the word is a past tense verb. ",
+    "id": 606
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "beyond",
+    "problem": "The mystery going beyond just a simple puzzle, it was a mind-blowing discovery.",
+    "length": 78,
+    "tags": [
+      "grammar-error",
+      "participle-tense",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the present participle 'going' instead of the past participle 'went'.",
+    "id": 607
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "beyond",
+    "problem": "The treasure lies beyond the whispering clifs, where the tides dance like silver threads.",
+    "length": 90,
+    "tags": [
+      "fifth-grade-spelling",
+      "common-misspelling",
+      "incorrect-cliffs",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'cliffs' instead of 'cliffs' with two 'f's. This is a common misspelling that many students make. The correct spelling is 'cliffs' because it has two 'f' sounds at the end.",
+    "id": 608
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "overlook",
+    "problem": "The breathtaking view of the mountain overlook the bustling village below.",
+    "length": 76,
+    "tags": [
+      "grammatical-error",
+      "singular-verb-agreement",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. 'Overlook' means to watch over something, but in this sentence, it should be 'overlooks' because 'view' is in the singular form.",
+    "id": 609
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "overlook",
+    "problem": "The hikers overlooked the treacherous path ahead, their eyes captivated by the vibrant sunset.",
+    "length": 94,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'overlook' instead of 'overlooked'. 'Overlook' means to miss something important, while 'overlooked' means to be ignored or forgotten.",
+    "id": 610
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "prize",
+    "problem": "The student received a prize for her outstanding performance on the math, test.",
+    "length": 85,
+    "tags": [
+      "5th-grade",
+      "comma-splice",
+      "grammar-error",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a comma splice error. A comma splice occurs when two independent clauses are joined by a comma instead of a conjunction or an semicolon.",
+    "id": 611
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "democracy",
+    "problem": "Democracy is when every citizen has a voice in how the government runs, and teh final decisions are made by the majority.",
+    "length": 121,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "fifth-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'teh' instead of 'the'. 'Teh' is an incorrect spelling and does not exist in the English language.",
+    "id": 612
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "tightly",
+    "problem": "The hikers tightened their shoes, their laces feeling like a tightrope, ensuring their safety on the treacherous mountain path.",
+    "length": 127,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "context",
+      "inference",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'tightrope' instead of 'tightly'. 'Tightrope' is a noun that refers to a high wire stretched between two towers, while 'tightly' is an adverb that means 'in a tight manner'.",
+    "id": 613
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "hospital",
+    "problem": "The children was running towards the hospital, but they get scared when they saw the tall building.",
+    "length": 99,
+    "tags": [
+      "verb-tense-error",
+      "grammar-agreement-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the plural verb 'was' with the singular subject 'children'. It should be 'were' instead of 'was'.",
+    "id": 614
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "dine",
+    "problem": "We dine our delicious dinner on fancy plates.",
+    "length": 45,
+    "tags": [
+      "verb-usage",
+      "grammar-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error. 'Dine' is a verb that means 'to eat'. 'Dinner' is a noun that refers to a meal. In this sentence, 'dine' should be replaced with 'eat'.",
+    "id": 615
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "nullify",
+    "problem": "The lawyer's clever arguments nullifies the judge's harsh sentence, leaving him with just a minor fine.",
+    "length": 103,
+    "tags": [
+      "grammar-error",
+      "tense-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence is incorrect because 'nullified' is a past tense verb. It should be 'nullifies' instead of 'nullified'.",
+    "id": 616
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "wise",
+    "problem": "The wise owl told the little fox, 'The greatest treasure is not the gold you collect, but the lessons you learn along the way are.'",
+    "length": 127,
+    "tags": [
+      "grammar-error",
+      "clause-construction",
+      "fifth-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second clause. 'But the lessons you learn along the way' should be 'but the lessons you learn along the way are'.",
+    "id": 617
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "picket",
+    "problem": "The picketing workers hold a sign that said 'Fair pay or go home!'",
+    "length": 66,
+    "tags": [
+      "5-grammatical-error",
+      "5-tense-agreement",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the past participle 'held' instead of the past tense 'held'.",
+    "id": 618
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "mechanic",
+    "problem": "The mechanic of the clock was broken, so we had to call a watch repairer.",
+    "length": 73,
+    "tags": [
+      "grammatical-error",
+      "mechanics-confusion",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence uses 'mechanic' in the context of a clock, which is incorrect. 'Mechanic' refers to a person who repairs machinery, not a clock.",
+    "id": 619
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "mechanic",
+    "problem": "The mechanic's put the broken engine back together using his tools.",
+    "length": 65,
+    "tags": [
+      "5th-grade-possessive-forms",
+      "5th-grade-spelling-error",
+      "mechanics-related",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'mechanic' instead of 'mechanic's'. The 's' at the end of the word indicates that it is a possessive form, meaning that something belongs to the mechanic. In this sentence, the mechanic is the one who put the engine back together.",
+    "id": 620
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "listen",
+    "problem": "Listen, I tolde you that you need to practice more.",
+    "length": 51,
+    "tags": [
+      "grammatical-error",
+      "past-tense",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the word 'tolde' instead of 'told'. 'Tolde' is not a correct past tense of 'tell'.",
+    "id": 621
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "listen",
+    "problem": "Listen carefull that the birds chirping outside are beautiful.",
+    "length": 62,
+    "tags": [
+      "5th-grade-grammar",
+      "spelling-error",
+      "misspelled-word",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'carefull' instead of 'carefully'. 'Carefull' is not a word in English. 'Carefully' means doing something in a thoughtful and careful manner.",
+    "id": 622
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "compliance",
+    "problem": "Compliance like a vital element to ensuring the smooth running of any organization, like ensuring employees adhere to company rules.",
+    "length": 130,
+    "tags": [
+      "grammar-conjunction-error",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the conjunction of the two sentences. It should be 'is' instead of 'like'.",
+    "id": 623
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "compliance",
+    "problem": "Compliance with the school's dress code is essential for maintainig a disciplined learning environment.",
+    "length": 104,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'maintainig' instead of 'maintaining'. 'Maintaining' is the correct word to mean keeping something in a certain state or condition. 'Maintainig' is not a recognized word in English.",
+    "id": 624
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "tournament",
+    "problem": "The school tournament was won by the team with the most points, but they had to play through a gruesome two-hour game.",
+    "length": 118,
+    "tags": [
+      "grammar",
+      "spelling",
+      "5thgrade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'grueling' which should be 'gruesome'. 'Grueling' means 'very difficult', while 'gruesome' means 'causing disgust or horror'.",
+    "id": 625
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "end",
+    "problem": "The rainbow ends the point where the sun meets the horizon.",
+    "length": 62,
+    "tags": [
+      "verb-singular",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence should use 'ends' instead of 'ends at' because 'ends' is the singular form of the verb. 'Ends at' is incorrect in this context.",
+    "id": 626
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "end",
+    "problem": "The teacher wondered when the students would finally ended their noisy discussion.",
+    "length": 80,
+    "tags": [
+      "5th-grade-grammar",
+      "past-tense",
+      "spelling-error",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'end' instead of 'ended'. 'Ended' is the past tense of 'end'.",
+    "id": 627
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "assign",
+    "problem": "The teacher assign the students to research different types of renewable energy sources.",
+    "length": 88,
+    "tags": [
+      "5th-grade",
+      "verb-agreement",
+      "grammar-error",
+      "bad-grammar"
+    ],
+    "solution": "The correct verb is 'assigned', not 'assign'. In this sentence, the students are the recipients of the assignment, so the past tense of 'assign' is used.",
+    "id": 628
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "assign",
+    "problem": "The teacher assigned the students their books for the next unit, but I can't seem to remembar what they were.",
+    "length": 109,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "misspell",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'remembar' which should be 'remember'. 'Remembar' is not a recognized word in English.",
+    "id": 629
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "yielding",
+    "problem": "The stubborn plant finally yielding to the harsh winds and blew over.",
+    "length": 68,
+    "tags": [
+      "fifth-grade",
+      "spelling-error",
+      "misspelling",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'yielding' instead of 'yield'. 'Yield' means to give in to pressure or force, while 'yielding' suggests something that easily gives way or breaks under pressure.",
+    "id": 630
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "education",
+    "problem": "Education is something that can't be buyed at any store, but it's the most important thing that anyone can get in life.",
+    "length": 119,
+    "tags": [
+      "grammatical-error",
+      "syntax-error",
+      "sentence-structure",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammar error in the phrase 'can't be buyed'. The correct form is 'cannot be bought'. 'Buyed' is not a recognized word in English.",
+    "id": 631
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "satchel",
+    "problem": "The satchel was full of books, papers, and a calculator, but I could only carried one of them at a time.",
+    "length": 104,
+    "tags": [
+      "verb-agreement-error",
+      "5th-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the verb 'carried'. It should be 'carry' instead of 'carried'.",
+    "id": 632
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "satchel",
+    "problem": "The student placed his satchel's of books on the table, and it almost reached the height of his chin.",
+    "length": 99,
+    "tags": [
+      "5thGrade",
+      "Possessive",
+      "SpellingError",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'satchel' instead of 'satchel's'. The 's' at the end of the word indicates that it is a possessive, meaning that it belongs to someone. In this sentence, the satchel belongs to the student.",
+    "id": 633
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "kite",
+    "problem": "The colorful kite soared high in the sky, it's string was so long that it could reach the moon.",
+    "length": 95,
+    "tags": [
+      "grammatical-error-possessive-pronoun",
+      "fifth-grade-grammar",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second sentence. 'it's' should be 'its'. 'its' is a possessive pronoun, while 'it's' is a contraction of 'it is'.",
+    "id": 634
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "kite",
+    "problem": "The wind carried the kite, soaring like bird, high up into the cerulean sky.",
+    "length": 78,
+    "tags": [
+      "grammar-error",
+      "vocabulary-error",
+      "5th-grade",
+      "language-arts",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'cerulean' instead of 'ceruleous'. 'Cerulean' is an uncommonly used adjective that means 'bright blue', while 'ceruleous' is the more common and appropriate word for describing a bright blue sky.",
+    "id": 635
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "facing",
+    "problem": "I am facing the challenges of learning a new language, but I am determined to overcomed them.",
+    "length": 93,
+    "tags": [
+      "5-grammatical-error",
+      "verb-conjugation",
+      "learning-challenges",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'overcomed' instead of 'overcome' to mean 'to overcome'.",
+    "id": 636
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "facing",
+    "problem": "Facing the storm, the brave captain steer his ship with unwavering determination.",
+    "length": 83,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "punctuation",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'steer' instead of 'steered'. 'Steered' is the past participle of 'steer', meaning 'to guide or control something'.",
+    "id": 637
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "journalist",
+    "problem": "The journalist writted an article about the importance of free speech.",
+    "length": 70,
+    "tags": [
+      "grammar-error",
+      "tense-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'writted' instead of 'wrote'. 'Writted' is not a correct tense of the verb 'write'.",
+    "id": 638
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "journalist",
+    "problem": "The journlist shared the news on the television screen.",
+    "length": 55,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "error",
+      "journalist",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'journlist' instead of 'journalist'. 'Journlist' is not a recognized word in English. The correct word is 'journalist', which means a person who reports news for a newspaper, magazine, or television station.",
+    "id": 639
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "quartz",
+    "problem": "The quartz clock was ticking quite quackerly, but the quartz timepiece was still keeping perfect time.",
+    "length": 102,
+    "tags": [
+      "grammar-error",
+      "typo",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a typo. 'Quackerly' should be 'quickly'. This is a common misspelling that many people make.",
+    "id": 640
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "quartz",
+    "problem": "The quartz crystals shimmered, cast a rainbow of colors across the cavern.",
+    "length": 77,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "RocksAndMinerals",
+      "CaveMorphology",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'cavern' instead of 'cave'. 'Cavern' refers to a large underground chamber, while 'cave' refers to a smaller underground space.",
+    "id": 641
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "balanced",
+    "problem": "The perfectly balanced book was floating in the air, reading it from both sides.",
+    "length": 80,
+    "tags": [
+      "grammar-error",
+      "present-continuous",
+      "tense-agreement",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the verb 'reading' in the present continuous tense, but the book is in a state of balance and not actually reading anything.",
+    "id": 642
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "sailor",
+    "problem": "The sailor sailed across ocean, munching on seaweed and dreaming of faraway lands.",
+    "length": 86,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "eating-incorrectly",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'munching'. The correct spelling is 'eating'. 'Munching' is a word that means to bite something slowly, while 'eating' means to consume something completely.",
+    "id": 643
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "parallel",
+    "problem": "The two trains running paralell on the tracks were almost touching at the crossing.",
+    "length": 83,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "grammar",
+      "misspell",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'parallel' instead of 'paralell'. 'Parallel' means running in the same direction and at the same speed as another thing.",
+    "id": 644
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "scourge",
+    "problem": "The pandemic was a scourges that ravaged our community, leaving behind scars that will linger for generations.",
+    "length": 109,
+    "tags": [
+      "grammar-error",
+      "spelling-error",
+      "5th-grade",
+      "complex-sentence",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'scourge' instead of 'scourges'. 'Scourge' is a singular noun meaning a severe or devastating adversity, while 'scourges' is the plural form.",
+    "id": 645
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "alienate",
+    "problem": "The loud music at the festival started to alienates some of the people who were enjoying the peaceful atmosphere.",
+    "length": 112,
+    "tags": [
+      "grammar-error",
+      "singular-noun-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses 'alienate' with a singular noun ('people'). 'Alienate' should be used with a plural noun in this context.",
+    "id": 646
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "alienate",
+    "problem": "The harsh words of the bully began to alienated her, making her feel like an outsider.",
+    "length": 85,
+    "tags": [
+      "grammar-alienated",
+      "vocabulary-alienate",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error 'alienate' is actually 'alienated', meaning to drive someone away or make them feel like they don't belong.",
+    "id": 647
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "conjure",
+    "problem": "The ancient wizard conjured a fiery beast from the depths of the volcano, but forgot to conjured the banishing spell before it conjured havoc in the village.",
+    "length": 153,
+    "tags": [
+      "verb-tense-error",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error in the second sentence. 'Conjured' is past tense, so it should be 'cast' instead of 'conjured'.",
+    "id": 648
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "conjure",
+    "problem": "The ancient wizard conjuring a fiery dragon, casting a spell with a tremor of the earth.",
+    "length": 87,
+    "tags": [
+      "grammar-conjunction",
+      "spelling-error",
+      "5th-grade",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'conjured' instead of 'conjuring'. 'conjured' means 'to create or summon something into existence', while 'conjuring' means 'the act of creating or summoning something into existence'.",
+    "id": 649
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-grammar",
+    "input": "Satan",
+    "problem": "Satan whisper tempting secrets in the night, they can't be trusted.",
+    "length": 68,
+    "tags": [
+      "grammar-error",
+      "singular-verb-mismatch",
+      "5th-grade",
+      "bad-grammar"
+    ],
+    "solution": "The sentence has a grammatical error because it uses the singular verb ' whispers' with the plural noun 'they'.",
+    "id": 650
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "Satan",
+    "problem": "Satan whispered secrets in the shadows, tempt me to steal the golden apple from the tree.",
+    "length": 92,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "GrammarError",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'tempting' - the correct spelling is 'tempt'. 'Tempting' means to try to persuade someone to do something wrong, while 'tempt' means to be tempted by something that is pleasurable but wrong.",
+    "id": 651
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "private",
+    "problem": "The privately school offered scholarships for students from low-income families.",
+    "length": 78,
+    "tags": [
+      "5th-grade",
+      "spelling",
+      "misspelling",
+      "grammar",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'private' instead of 'privately'. 'Privately' means 'in a private way', while 'private' refers to something that is owned or controlled by an individual or group.",
+    "id": 652
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "bad-spelling",
+    "input": "fourth",
+    "problem": "The artist displayed four paintings, but the forth one was her most recent work.",
+    "length": 81,
+    "tags": [
+      "5thGrade",
+      "SpellingError",
+      "Vocabulary",
+      "bad-spelling"
+    ],
+    "solution": "The spelling error is 'fourth' instead of 'forth'. 'Forth' means 'in the future,' while 'fourth' refers to the third number in a sequence.",
+    "id": 653
   }
 ];

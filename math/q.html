@@ -101,7 +101,19 @@
     </div>
   </div>
   <script type="module">
+    import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
     import { problems } from './problems.js';
+
+    const loadNote = async (key) => {
+      const value = await IDB.get(key);
+      if (value === undefined) {
+        return {};
+      } else {
+        return value;
+      }
+    };
+
+    const saveNote = async (key, value) => IDB.set(key, value);
 
     const renderRuledLine = () => {
       const div = document.createElement('div');
@@ -204,9 +216,19 @@
     const renderColumn = (column) => {
       for (let nth = 0; nth < 10; nth++) {
         const problem = chooseProblem(chosen, problems);
-        column.appendChild(renderProblem(problem));
+        const e = renderProblem(problem);
+        column.appendChild(e);
         signature.push(problem.id);
         chosen.add(problem);
+        e.addEventListener('click', async () => {
+          const note = await loadNote(problem.id);
+          if (note.count === undefined) {
+            note.count = 0;
+          }
+          note.count++;
+          await saveNote(problem.id, note);
+          alert(JSON.stringify(note));
+        });
       }
     };
 
