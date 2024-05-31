@@ -196,11 +196,17 @@
             continue;
           }
         }
-        seen += 1;
-        let threshold = 1;
-        for (const tag of problem.tags) {
-          threshold *= ((weights[tag] === undefined ? 100 : weights[tag]) / 100);
+        let threshold = 0;
+        if (!problem.tags || problem.tags.length === 0) {
+          continue;
         }
+        for (const tag of problem.tags) {
+          threshold = Math.max(threshold, (weights[tag] === undefined ? 100 : weights[tag]) / 100);
+        }
+        if (threshold === 0) {
+          continue;
+        }
+        seen += threshold;
         if (Math.random() * seen <= threshold) {
           chosenProblem = problem;
         }
@@ -224,6 +230,7 @@
         column.appendChild(e);
         signature.push(problem.id);
         chosen.add(problem);
+        /*
         e.addEventListener('click', async () => {
           const note = await loadNote(problem.id);
           if (note.count === undefined) {
@@ -233,6 +240,7 @@
           await saveNote(problem.id, note);
           alert(JSON.stringify(note));
         });
+        */
       }
     };
 

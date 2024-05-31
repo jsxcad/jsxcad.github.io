@@ -4593,7 +4593,7 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "moisture",
-    "problem": "습기는 식물의 성장에 매우 중요합니다.",
+    "problem": "습기(濕氣)는 식물(植物)의 성장(成長)에 매우 중요합니다.",
     "length": 21,
     "tags": [
       "korean-to-english"
@@ -4760,13 +4760,13 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "flourish",
-    "problem": "꽃잎이 빛을 흡수하고 성장합니다.",
+    "problem": "꽃잎이 빛을 흡수(吸收)하고 성장(成長)합니다.",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수하고\",\"english\":\"absorbing\"},{\"korean\":\"성장합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수하고 성장합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수(吸收)하고\",\"english\":\"absorbing\"},{\"korean\":\"성장(成長)합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수(吸收)하고 성장(成長)합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
     "id": 378
   },
   {
@@ -4995,14 +4995,14 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "compost",
-    "problem": "퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.",
+    "problem": "퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물(植物) 성장(成長)에 도움이 됩니다.",
     "length": 42,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물(植物) 성장(成長)에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
     "id": 396
   },
   {
@@ -5076,13 +5076,13 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "touching",
-    "problem": "감동적인 이야기는 눈물과 고통을 남긴다.",
+    "problem": "감동적(感動的)인 이야기는 눈물과 고통(苦痛)을 남긴다.",
     "length": 22,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감동\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적인 이야기는 눈물과 고통을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"감동(感動)\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통(苦痛)\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적(感動的)인 이야기는 눈물과 고통(苦痛)을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
     "id": 402
   },
   {
@@ -5493,7 +5493,7 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "fried",
-    "problem": "고지말은 오일에서 물을 흡수합니다.",
+    "problem": "고지말은 오일에서 물을 흡수(吸收)합니다.",
     "length": 19,
     "tags": [
       "grade-5",
@@ -5501,7 +5501,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수(吸收)합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
     "id": 434
   },
   {
@@ -5533,14 +5533,14 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "exhilarate",
-    "problem": "흥분으로 고통을 극복해야 성공할 수 있습니다.",
+    "problem": "흥분으로 고통(苦痛)을 극복해야 성공할 수 있습니다.",
     "length": 25,
     "tags": [
       "translation",
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통(苦痛)\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통(苦痛)을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
     "id": 437
   },
   {
@@ -5599,14 +5599,14 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "temperate",
-    "problem": "온화한 기후는 식물과 동물의 생활에 중요합니다.",
+    "problem": "온화한 기후는 식물(植物)과 동물의 생활에 중요합니다.",
     "length": 26,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
+    "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물(植物)과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
     "id": 442
   },
   {
@@ -5790,7 +5790,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "boarding",
-    "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
+    "problem": "((n) => console.log([...Array(n)]\n                      .map((_, i) => i + 1)\n                      .join(' ')))(5)\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5801,7 +5801,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "foul",
-    "problem": "=>console.log(Math.pow(2, 3) * 4 - 10, ",
+    "problem": "console.log(Math.pow(2, 3) * 4 - 10",
     "tags": [
       "grade-5",
       "javascript"
