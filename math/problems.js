@@ -4440,7 +4440,7 @@ export const problems = [
   {
     "generator": "arithmetic-division",
     "input": "biographical",
-    "problem": "870 / 345",
+    "problem": "\\\\frac{870}{345}",
     "length": 9,
     "tags": [
       "grade-5"
