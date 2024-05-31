@@ -127,7 +127,7 @@
       return div;
     }
 
-    const renderProblem = ({ id = -1, generator, problem, solution, lines = 3 }) => {
+    const renderProblem = ({ id = -1, generator, problem, solution, lines = 4, tags = [] }, { weight = 1.0 }) => {
       const div = document.createElement('div');
       div.classList.add('problem', 'tooltip');
       div.innerText = problem;
@@ -137,37 +137,18 @@
       const span = document.createElement('div')
       span.innerText = generator;
       span.classList.add('generator');
+
+      const shields = document.createElement('div')
+      shields.innerItext = weight;
+      shields.classList.add('shields');
+
       div.insertBefore(span, div.firstChild);
       const note = document.createElement('div');
-      note.innerHTML = `${id}<br>${solution}`;
+      note.innerHTML = `${id}<br>${solution}<br>${tags.join(', ')}`;
       note.classList.add('tooltiptext');
       div.appendChild(note);
       return div;
     };
-
-    const kEligibleGenerators = new Set([
-      'airplane-trivia',
-      'arithmetic',
-      'arithmetic-carry',
-      'arithmetic-division',
-      'arithmetic-multiplication',
-      'bad-grammar',
-      'bad-spelling',
-      'definition-question',
-      'gap-sentence',
-      'geometry',
-      'handwriting-exercise',
-      'korean-english',
-      'physics',
-      'probability',
-      'science',
-      'science-trivia',
-      'sentence-prompt',
-      'time-distance-speed',
-      'two-variable-algebra',
-    ]);
-
-
 
     const decodeSignature = (params) => {
       const s = params.get('s');
@@ -181,7 +162,7 @@
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
 
-    const chooseProblem = (chosen, problems) => {
+    const chooseProblem = (chosen, problems, weights) => {
       if (s.length > 0) {
         const id = s.shift();
         for (const problem of problems) {
@@ -193,7 +174,7 @@
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
-        if (chosen.has(problem) || !kEligibleGenerators.has(problem.generator)) {
+        if (chosen.has(problem)) {
           continue;
         }
         if (problem.todo) {
@@ -202,7 +183,11 @@
           }
         }
         seen += 1;
-        if (Math.random() * seen <= 1) {
+        let threshold = 1;
+        for (const tag of problem.tags) {
+          threshold *= ((weights[tag] === undefined ? 100 : weights[tag]) / 100);
+        }
+        if (Math.random() * seen <= threshold) {
           chosenProblem = problem;
         }
       }
@@ -213,10 +198,15 @@
 
     const signature = [];
 
-    const renderColumn = (column) => {
-      for (let nth = 0; nth < 10; nth++) {
-        const problem = chooseProblem(chosen, problems);
-        const e = renderProblem(problem);
+    const renderColumn = async (column) => {
+      const weights = (await IDB.get('weights')) || {};
+
+      for (let nth = 0; nth < 7; nth++) {
+        const problem = chooseProblem(chosen, problems, weights);
+        if (problem === undefined) {
+          continue;
+        }
+        const e = renderProblem(problem, await loadNote(problem.id));
         column.appendChild(e);
         signature.push(problem.id);
         chosen.add(problem);
@@ -235,8 +225,8 @@
     const left = document.getElementById('left');
     const right = document.getElementById('right');
 
-    renderColumn(left);
-    renderColumn(right);
+    await renderColumn(left);
+    await renderColumn(right);
 
     {
       const payload = `https://jsxcad.js.org/math/q.html?s=${signature.join(',')}`;

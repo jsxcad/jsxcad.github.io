@@ -1,0 +1,104 @@
+<html>
+ <head>
+  <script>
+  </script>
+  <style>
+   .items {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust 250px to desired minimum width */
+     gap: 0px; /* Optional spacing between items */
+   }
+
+   .item {
+     padding-left: 1em;
+   }
+
+   .entry {
+     display: flex;
+   }
+
+   .even {
+     background-color: #FFFFF0
+   }
+
+   .odd {
+     background-color: #F0F8FF;
+   }
+
+   .tag {
+     padding-left: 1em;
+   }
+
+   .weight {
+     width: 4em;
+   }
+
+   button {
+     margin: 1em;
+   }
+  </style>
+ </head>
+ <body>
+  <button id="update">Update</button>
+  <div class="items" id="tags">
+  </div>
+  <script type="module">
+    import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
+    import { problems } from './problems.js';
+
+    const accumulate = (map, tag) => {
+      if (!map.has(tag)) {
+        map.set(tag, 1);
+      } else {
+        map.set(tag, map.get(tag) + 1);
+      }
+    };
+
+    const sorted = (tags) => {
+      const sorted = [...tags.entries()];
+      sorted.sort(([a], [b]) => a.localeCompare(b));
+      return sorted;
+    };
+
+    const build = async () => {
+      const weights = (await IDB.get('weights')) || {};
+
+      const tagsElement = document.getElementById('tags');
+
+      const tags = new Map();
+
+      for (const problem of problems) {
+        for (const tag of problem.tags) {
+          if (tag) {
+            accumulate(tags, tag);
+          }
+        }
+      }
+
+      const fields = [];
+
+      const update = async () => {
+        for (const { tag, inputId } of fields) {
+          weights[tag] = Number(document.getElementById(inputId).value);
+        }
+        await IDB.set('weights', weights);
+      };
+
+      document.getElementById('update').addEventListener('click', (e) => update());
+
+      let nth = 0;
+      for (const [tag, weight] of sorted(tags)) {
+        const inputId = `input-${nth}`;
+        const e = document.createElement('div');
+        e.classList.add('item');
+        e.innerHTML = `<div class="entry ${(nth % 2) ? 'odd' : 'even'}"><input id="${inputId}" class="weight" size="3" type="number" value="${weights[tag] || 100}"><span class="tag">${tag}</span></div>`;
+        fields.push({ tag, inputId });
+        tagsElement.appendChild(e);
+        nth += 1;
+      }
+    };
+
+    build();
+  </script>
+ </body>
+</html>

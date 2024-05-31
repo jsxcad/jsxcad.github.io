@@ -5,12 +5,8 @@ export const problems = [
     "problem": "There are 25 people in a group. Some people like to share things equally, while others prefer to keep things for themselves. If there are three times as many who like to share as those who prefer to keep things for themselves, how many people like to share and how many prefer to keep things for themselves?",
     "length": 300,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      "Sharing",
-      "Equality",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "grade-5"
     ],
     "solution": "Let x be the number of people who share and y be the number of people who keep things for themselves.\n$$2x+y=25\newline 3x-y=25$$ \nSolving this system of equations gives us x = 5 and y = 20.\nTherefore, 5 people like to share and 20 people prefer to keep things for themselves.",
     "id": 0
@@ -21,11 +17,10 @@ export const problems = [
     "problem": "A group of socialists travels 360 kilometers in 4 hours. What is their average speed in meters per second?",
     "length": 106,
     "tags": [
-      "Distance-Time",
-      "Speed",
-      "Metric Units",
-      "Fifth Grade",
-      "Time-Distance-Speed"
+      "speed",
+      "metric-units",
+      "grade-5",
+      "time-distance-speed"
     ],
     "solution": "First, convert kilometers to meters: 360 kilometers = 360,000 meters. Then, divide the distance traveled by the time taken to find the average speed: 360,000 meters / 4 hours = 90 meters per second.",
     "id": 1
@@ -36,11 +31,8 @@ export const problems = [
     "problem": "A socialist bakery wants to share their delicious baguettes equally among the villagers. The bakery is 300 centimeters long and the villagers are 50 centimeters apart. How many villagers can the bakery share baguettes with if they want each villager to have at least 10 centimeters of baguette space?",
     "length": 283,
     "tags": [
-      "Geometry",
-      "Division",
-      "Measurement",
-      "Metric",
-      null
+      "division",
+      "metric-units"
     ],
     "solution": "First, we need to calculate the total length of baguette space available. 300 meters (bakery length) / 60 meters (villager spacing) = 5 villagers. Next, we need to ensure each villager gets at least 1 meter of baguette space. 1 meter / 60 meters = 1/6 of a baguette per villager. So, the bakery can share baguettes with 5 villagers while ensuring each gets at least 1/6 of a baguette.",
     "id": 2
@@ -51,11 +43,8 @@ export const problems = [
     "problem": "In a socialist community, each household contributes a fixed amount of food each month to a central pantry. The probability of a randomly chosen household contributing less than 2kg is 1/3. What is the probability that at least 2 out of 5 randomly chosen households contribute less than 2kg?",
     "length": 291,
     "tags": [
-      "Conditional Probability",
-      "Binomial Distribution",
-      "Probability Theory",
-      "Fifth Grade",
-      "Probability"
+      "grade-5",
+      "probability"
     ],
     "solution": "1 - (1/3)^5",
     "id": 3
@@ -66,10 +55,10 @@ export const problems = [
     "problem": "A group of friends share 12 meters of rope equally among themselves. If each friend received 3/4 of a meter of rope, how many friends are there in the group?",
     "length": 157,
     "tags": [
-      "Division",
-      "Fraction",
-      "Fifth Grade",
-      "Physics"
+      "division",
+      "fractions",
+      "grade-5",
+      "physics"
     ],
     "solution": "This problem requires students to divide a length of rope among a group of friends, involving fractions and division. It is suitable for 5th graders who have learned about fractions and division.",
     "id": 4
@@ -80,12 +69,9 @@ export const problems = [
     "problem": "There are 35 families in a socialist housing complex, and each family has an average of 3.2 people. What is the total population of the complex?",
     "length": 144,
     "tags": [
-      "Fifth Grade",
-      "Multiplication",
-      "Population",
-      "Socialist",
-      "Housing",
-      "Science"
+      "grade-5",
+      "multiplication",
+      "science"
     ],
     "solution": "This problem requires students to multiply the number of families by the average number of people per family to find the total population.",
     "id": 5
@@ -96,12 +82,8 @@ export const problems = [
     "problem": "Explain how a society's economic system, such as socialism, can influence the distribution of wealth and access to resources among its citizens.",
     "length": 144,
     "tags": [
-      "Fifth Grade",
-      "Economics",
-      "Socialism",
-      "Wealth Distribution",
-      "Resource Allocation",
-      "Sentence Prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "In a socialist system, the government might own and operate certain industries to ensure that everyone has access to affordable healthcare.",
     "id": 6
@@ -111,14 +93,7 @@ export const problems = [
     "input": "socialist",
     "problem": "Calculate the approximate number of electrons in a sodium atom, given that its atomic number is 11 and the mass number is 23?",
     "length": 125,
-    "tags": [
-      "Chemistry",
-      "Atomic Number",
-      "Mass Number",
-      "Sodium Atom",
-      "Seventh Grade",
-      "Science Trivia"
-    ],
+    "tags": [],
     "solution": "11",
     "id": 7
   },
@@ -128,11 +103,11 @@ export const problems = [
     "problem": ",,\\frac{1}{3} \\times \\frac{2}{5} - \\frac{1}{4},,",
     "length": 40,
     "tags": [
-      "Arithmetic",
-      "Multiplication",
-      "Division",
-      "Fraction",
-      "Fifth Grade"
+      "arithmetic",
+      "multiplication",
+      "division",
+      "fractions",
+      "grade-5"
     ],
     "solution": ",,\\frac{11}{60},,",
     "id": 8
@@ -143,11 +118,7 @@ export const problems = [
     "problem": "345 + 678 - 901",
     "length": 32,
     "tags": [
-      "Multidigit Arithmetic",
-      "Borrowing",
-      "Carrying",
-      "Fifth Grade",
-      "Arithmetic Carry"
+      "grade-5"
     ],
     "solution": "This problem assesses students' understanding of carries and borrows in multi-digit arithmetic. Specifically, it tests the ability to:  * Recognize when a carry is needed and correctly implement it.  * Understand the relationship between subtraction and borrowing.  * Maintain accuracy and precision with larger numbers.",
     "id": 9
@@ -158,12 +129,8 @@ export const problems = [
     "problem": "345 x 89",
     "length": 8,
     "tags": [
-      "Fifth Grade",
-      "Multiplication",
-      "Place Value",
-      "Partial Product",
-      "Carry Error",
-      "Arithmetic Multiplication"
+      "grade-5",
+      "multiplication"
     ],
     "solution": "This problem tests several common errors in integer multiplication. Specifically, it checks for:\n- **Place value errors:** The problem involves multiplying large numbers, which can easily lead to mistakes in placing the digits in the correct order.\n- **Partial product errors:** Students may forget to multiply all of the digits in the multiplier correctly, leading to a partial product that is too small.\n- **Carry errors:** When multiplying numbers with many digits, it is easy to make a carry error, where a sum of two digits is greater than 10 and a carry needs to be distributed to the next digit.",
     "id": 10
@@ -174,12 +141,8 @@ export const problems = [
     "problem": "1539 ÷ 246",
     "length": 12,
     "tags": [
-      "Division",
-      "Integers",
-      "Remainder",
-      "Quotient",
-      "Fifth Grade",
-      "Arithmetic Division"
+      "division",
+      "grade-5"
     ],
     "solution": "This problem tests several common errors in integer division. The large dividend and divisor make it easy for students to make mistakes when aligning the numbers. Students may also forget to check the remainder or make mistakes when writing the quotient. This problem is appropriate for 5th grade students who have learned about integer division.",
     "id": 11
@@ -189,12 +152,7 @@ export const problems = [
     "input": "socialist",
     "problem": "Serendipity whispers secrets to the cosmos.",
     "length": 43,
-    "tags": [
-      "Fifth Grade Grammar",
-      "Vocabulary Development",
-      "Sentence Structure",
-      "Handwriting Exercise"
-    ],
+    "tags": [],
     "solution": "This sentence uses complex vocabulary and sentence structure suitable for a 5th grade student. It includes uncommon words like 'serendipity' and 'cosmos' to challenge students while remaining grammatically correct.",
     "id": 12
   },
@@ -204,13 +162,9 @@ export const problems = [
     "problem": "There are 120 liters of water in a reservoir which can hold 200 liters. Water is flowing into the reservoir at a rate of 3 liters per minute, while water is flowing out of the reservoir at a rate of 2 liters per minute. How many minutes will it take for the reservoir to be completely full?",
     "length": 264,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      "Rate",
-      "Water",
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the number of minutes it takes for the reservoir to be completely full.\n3x - 2x = 120\nx = 60\nTherefore, it will take 60 minutes for the reservoir to be completely full.",
     "id": 13
@@ -221,12 +175,11 @@ export const problems = [
     "problem": "An object travels at a constant speed of 2 meters per second. How much distance has the object covered after 3.5 hours?",
     "length": 119,
     "tags": [
-      "Fifth Grade",
-      "Integration",
-      "Speed",
-      "Distance",
-      "Time",
-      "Time-Distance-Speed"
+      "grade-5",
+      "speed",
+      "distance",
+      "time",
+      "time-distance-speed"
     ],
     "solution": "To find the distance covered, we need to integrate the speed over time. The integral of 2 meters per second with respect to time is 2t meters. Substituting 3.5 for t gives us 2 * 3.5 = 7 meters. Therefore, the object has covered 7 meters after 3.5 hours.",
     "id": 14
@@ -237,11 +190,8 @@ export const problems = [
     "problem": "A farmer wants to fence in a rectangular garden with an area of 100 square meters. If the length of the garden is 5 meters more than the width, what are the dimensions of the garden?",
     "length": 182,
     "tags": [
-      null,
-      "Rectangle",
-      "Area",
-      "Dimensions",
-      "Fifth Grade"
+      "area",
+      "grade-5"
     ],
     "solution": "First, let's represent the width of the garden as 'w' meters. Then, the length can be expressed as 'w + 5' meters. We know that the area of the garden is 100 square meters, so we can write an equation: w(w + 5) = 100. Solving this equation will give us the width of the garden, and then we can find the length using the expression 'w + 5'.",
     "id": 15
@@ -252,10 +202,8 @@ export const problems = [
     "problem": "A box of marbles contains 30 blue marbles and 20 green marbles. If you reach into the box without looking and pick out 10 marbles, what is the probability that exactly 5 of them are blue?",
     "length": 187,
     "tags": [
-      "Probability",
-      "Combinations",
-      "Binomial",
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": ",,\\frac{30C5 \\times 20C5}{50C10},,",
     "id": 16
@@ -266,13 +214,10 @@ export const problems = [
     "problem": "A water slide at the park has a height of 3 meters. If the water flow rate at the top of the slide is 2 cubic meters per second, what is the total amount of water that has flowed down the slide in 5 minutes?",
     "length": 207,
     "tags": [
-      "Fifth Grade",
-      "Water Slide",
-      "Flow Rate",
-      "Integration",
-      "Area",
-      "Metric Units",
-      "Physics"
+      "grade-5",
+      "area",
+      "metric-units",
+      "physics"
     ],
     "solution": "This problem requires students to integrate the water flow rate over time to find the total amount of water that has flowed down the slide. This is a fundamental concept of calculus that involves understanding the area under a curve representing the water flow rate over time.",
     "id": 17
@@ -283,12 +228,9 @@ export const problems = [
     "problem": "A cylindrical water tank has a height of 1.5 meters and a base radius of 0.8 meters. If the water tank is ,,\\frac{3}{4},, full, how much water is inside the tank in cubic meters?",
     "length": 173,
     "tags": [
-      "Fifth Grade",
-      "Volume",
-      "Cylinder",
-      "Circle",
-      "Fraction",
-      "Science"
+      "grade-5",
+      "fractions",
+      "science"
     ],
     "solution": "This problem requires the student to calculate the volume of a cylinder, which involves integration of a circular base area with the height of the cylinder.",
     "id": 18
@@ -299,11 +241,8 @@ export const problems = [
     "problem": "The successful integration of technology in the classroom has significantly improved student engagement and performance.",
     "length": 120,
     "tags": [
-      "Fifth Grade",
-      "Grammar",
-      "Runon",
-      "Sentence",
-      "Bad Grammar"
+      "grade-5",
+      "grammar"
     ],
     "solution": "This sentence correctly uses the word 'integration' in the context of education. However, it contains a grammatical error in the form of a run-on sentence.",
     "id": 19
@@ -314,11 +253,7 @@ export const problems = [
     "problem": "The integration of digital learning tools into the classroom has significantly improved student engagement and performance in mathematics.",
     "length": 138,
     "tags": [
-      "Fifth Grade",
-      "Spelling Error",
-      "Grammar Complexity",
-      "Mathematical Concepts",
-      "Bad Spelling"
+      "grade-5"
     ],
     "solution": "Integration means combining different things to create something new and better. In this sentence, digital learning tools were combined with traditional teaching methods to enhance learning outcomes.",
     "id": 20
@@ -329,12 +264,7 @@ export const problems = [
     "problem": "Describe how cultural integration can contribute to building a more cohesive society, considering the diverse perspectives of various communities.",
     "length": 146,
     "tags": [
-      null,
-      "Cultural Diversity",
-      "Social Cohesion",
-      "Community Perspective",
-      "Cultural Understanding",
-      "Sentence Prompt"
+      "sentence-writing"
     ],
     "solution": "Cultural integration fosters understanding and acceptance among different groups, leading to stronger social bonds and a sense of unity within society.",
     "id": 21
@@ -345,13 +275,8 @@ export const problems = [
     "problem": "An airplane has a wingspan of 30 meters and a fuselage length of 25 meters. What is the total length of the airplane in meters?",
     "length": 127,
     "tags": [
-      "Airplane",
-      "Wingspan",
-      "Fuselage",
-      "Length",
-      "Metric",
-      "Fifth Grade",
-      "Airplane Trivia"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "55 meters",
     "id": 22
@@ -362,13 +287,7 @@ export const problems = [
     "problem": "Calculate the volume of a cylinder with a diameter of 2 cm and a height of 5 cm.",
     "length": 80,
     "tags": [
-      "Fifth Grade",
-      "Volume",
-      "Cylinder",
-      "Diameter",
-      "Height",
-      "Pi",
-      "Science Trivia"
+      "grade-5"
     ],
     "solution": ",,\\frac{\\text{π}\\times2^2\\times5}{3},,",
     "id": 23
@@ -379,10 +298,10 @@ export const problems = [
     "problem": ",,\\frac{1}{3}x+2=\\frac{1}{4},,",
     "length": 24,
     "tags": [
-      "Arithmetic",
-      "Division",
-      "Fraction",
-      "Fifth Grade"
+      "arithmetic",
+      "division",
+      "fractions",
+      "grade-5"
     ],
     "solution": "$x=\\frac{3}{4}$",
     "id": 24
@@ -393,13 +312,8 @@ export const problems = [
     "problem": "Calculate: ,,\\frac{1}{3} \\times (10^3 + 5 \\times 10^2 + 3 \\times 10 + 7),,",
     "length": 66,
     "tags": [
-      "Fifth Grade",
-      "Multiplication",
-      "Decimal",
-      "Place Value",
-      "Carry",
-      "Borrow",
-      "Arithmetic Carry"
+      "grade-5",
+      "multiplication"
     ],
     "solution": "This problem requires students to perform multiple carries and borrows when multiplying a decimal by a large number. Common errors include incorrect placement of digits during carries and borrows, and failing to consider the decimal point when multiplying. This problem assesses students' understanding of place value and decimal operations.",
     "id": 25
@@ -410,12 +324,8 @@ export const problems = [
     "problem": "253 x 487",
     "length": 9,
     "tags": [
-      "Fifth Grade",
-      "Multiplication",
-      "Partial Product",
-      "Zero Error",
-      "Place Value",
-      "Arithmetic Multiplication"
+      "grade-5",
+      "multiplication"
     ],
     "solution": "This problem tests common multiplication errors like: \n- **Partial Product Confusion:** Students sometimes mix up the order of the factors or multiply only parts of the numbers.\n- **Zero Errors:** Students sometimes forget or write down 0 as the answer.\n- **Place Value Mistakes:** Students sometimes make mistakes with the placement of digits in the answer.",
     "id": 26
@@ -426,10 +336,7 @@ export const problems = [
     "problem": "350 / 125",
     "length": 9,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Remainder",
-      "Arithmetic Division"
+      "grade-5"
     ],
     "solution": "This problem tests students' understanding of integer division with remainders. It specifically challenges them to divide a larger number by a smaller number, which can lead to a remainder. To solve this problem, students need to remember that the remainder is the amount left over after dividing the larger number by the smaller number.",
     "id": 27
@@ -440,10 +347,8 @@ export const problems = [
     "problem": "Whispering echoes integrate smoothly around the echoing sphere.",
     "length": 63,
     "tags": [
-      "Fifth Grade",
-      "Grammar",
-      null,
-      "Handwriting Exercise"
+      "grade-5",
+      "grammar"
     ],
     "solution": "The sentence uses complex vocabulary and sentence structure appropriate for a 5th grade level. It includes examples of compound words, verb phrases, and figurative language.",
     "id": 28
@@ -454,12 +359,9 @@ export const problems = [
     "problem": "A couple of friends share 20 cookies equally. How many cookies does each friend get?",
     "length": 84,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the number of cookies each friend gets. We know that 2x = 20. Solving for x, we get x = 10. Each friend gets 10 cookies.",
     "id": 29
@@ -470,10 +372,9 @@ export const problems = [
     "problem": "A couple goes for a bike ride at a speed of 15 km/h. If they want to reach their destination in 2 hours, how far must they travel in total?",
     "length": 139,
     "tags": [
-      null,
-      "Speed",
-      "Fifth Grade",
-      "Time-Distance-Speed"
+      "speed",
+      "grade-5",
+      "time-distance-speed"
     ],
     "solution": "First, we need to recall the formula: distance = speed × time. We know the speed is 15 km/h and the time is 2 hours. So, distance = 15 km/h × 2 h = 30 km. Therefore, the couple needs to travel 30 kilometers in total to reach their destination in 2 hours.",
     "id": 30
@@ -484,11 +385,10 @@ export const problems = [
     "problem": "A couple of hikers are planning a trail. They want to be exactly 3.5 kilometers apart at the start. If they each walk in opposite directions at speeds of 5 km/h and 4 km/h, how long will it take for them to be 3.5 kilometers apart?",
     "length": 231,
     "tags": [
-      "Fifth Grade",
-      "Distance",
-      "Speed",
-      "Time",
-      null
+      "grade-5",
+      "distance",
+      "speed",
+      "time"
     ],
     "solution": "First, we need to calculate how far each hiker will travel in the time it takes for them to be 3.5 kilometers apart. Then, we can use the formula: distance = speed × time. We can solve for time to find the answer.",
     "id": 31
@@ -499,10 +399,8 @@ export const problems = [
     "problem": "There are 12 couples of shoes in a closet. If each couple consists of two shoes, how many shoes are there in total?",
     "length": 115,
     "tags": [
-      "Probability",
-      "Combinations",
-      null,
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": ",,\\frac{12\\times2}{2}=12\\text{ shoes},,",
     "id": 32
@@ -513,10 +411,9 @@ export const problems = [
     "problem": "A couple of cyclists are riding tandem. Their combined mass is 120 kg. If each cyclist is 40 kg heavier than the other, what is the mass of each cyclist?",
     "length": 153,
     "tags": [
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Physics"
+      "metric-units",
+      "grade-5",
+      "physics"
     ],
     "solution": "This problem requires students to understand the concept of 'couple' as a pair of two things that are equal in quantity or weight. It also requires students to be able to solve a simple subtraction problem. This is a suitable problem for a 5th grade student as it challenges their understanding of these concepts but does not require advanced mathematical knowledge.",
     "id": 33
@@ -527,11 +424,10 @@ export const problems = [
     "problem": "There are 10 couples of penguins waddling along the icy coastline. Each couple consists of one male and one female penguin. How many penguins are there in total?",
     "length": 161,
     "tags": [
-      "Multiplication",
-      null,
-      "Fifth Grade",
-      "Metric Units",
-      "Science"
+      "multiplication",
+      "grade-5",
+      "metric-units",
+      "science"
     ],
     "solution": "This problem requires understanding of the relationship between couples and individuals. It involves basic multiplication of a whole number by a pair. This is suitable for a 5th grade student who has learned about multiplication.",
     "id": 34
@@ -541,10 +437,7 @@ export const problems = [
     "input": "couple",
     "problem": "The couple of friends shared a bag of chips, each munching their own favorite flavor.",
     "length": 85,
-    "tags": [
-      null,
-      "Bad Grammar"
-    ],
+    "tags": [],
     "solution": "The sentence is correct except for the use of 'couple' which should be 'a couple' in this context.",
     "id": 35
   },
@@ -554,10 +447,8 @@ export const problems = [
     "problem": "The couple of friends planned a secret picnic in the meadow.",
     "length": 60,
     "tags": [
-      "Fifth Grade",
-      "Grammar",
-      null,
-      "Bad Spelling"
+      "grade-5",
+      "grammar"
     ],
     "solution": "In this sentence, 'couple' means a small group of two people. It's similar to saying 'two friends'.",
     "id": 36
@@ -568,10 +459,7 @@ export const problems = [
     "problem": "Write a sentence using the word 'couple' that describes two friends sharing a delicious picnic lunch together.",
     "length": 110,
     "tags": [
-      "Grade 5",
-      null,
-      "Sharing",
-      "Sentence Prompt"
+      "sentence-writing"
     ],
     "solution": "The couple of friends giggled as they shared a juicy sandwich and a bag of grapes from their picnic lunch.",
     "id": 37
@@ -582,10 +470,7 @@ export const problems = [
     "problem": "An airplane has 8 engines, each producing 1.5 kN of thrust. What is the total thrust generated by the engines?",
     "length": 110,
     "tags": [
-      "Fifth Grade",
-      "Airplane",
-      null,
-      "Airplane Trivia"
+      "grade-5"
     ],
     "solution": "12 kN",
     "id": 38
@@ -596,11 +481,10 @@ export const problems = [
     "problem": ",,\\frac{1}{2} \\times 3 + \\frac{1}{4} = ?,,",
     "length": 35,
     "tags": [
-      "Arithmetic",
-      "Multiplication",
-      null,
-      "Fraction",
-      "Fifth Grade"
+      "arithmetic",
+      "multiplication",
+      "fractions",
+      "grade-5"
     ],
     "solution": ",,\\frac{7}{4},,",
     "id": 39
@@ -611,11 +495,7 @@ export const problems = [
     "problem": "Calculate: 357 + 892",
     "length": 20,
     "tags": [
-      null,
-      "Carry",
-      "Borrow",
-      "Fifth Grade",
-      "Arithmetic Carry"
+      "grade-5"
     ],
     "solution": "This problem tests students' understanding of carries and borrows when dealing with larger numbers. Specifically, it assesses their ability to correctly handle multiple-digit addition involving non-zero digits in the ones and tens places.",
     "id": 40
@@ -626,11 +506,8 @@ export const problems = [
     "problem": "345 x 678",
     "length": 9,
     "tags": [
-      "Fifth Grade",
-      "Multiplication",
-      "Place Value",
-      null,
-      "Arithmetic Multiplication"
+      "grade-5",
+      "multiplication"
     ],
     "solution": "This problem tests common multiplication errors made by students at the 5th grade level. It involves multiplying large numbers, which can be prone to mistakes due to the increased risk of carrying and regrouping. Specifically, this problem challenges students with:\n- **Place value errors:** Multiplying numbers with many digits can easily lead to mistakes in aligning the digits correctly.\n- **Partial products:** Students may forget to multiply all digits correctly, leading to incomplete or inaccurate results.\n- **Carry operations:** Multiplying large numbers can require multiple carries, which can be easily miscounted.",
     "id": 41
@@ -641,10 +518,7 @@ export const problems = [
     "problem": "2345 / 987",
     "length": 10,
     "tags": [
-      null,
-      "Remainder",
-      "Fifth Grade",
-      "Arithmetic Division"
+      "grade-5"
     ],
     "solution": "This problem tests students' understanding of integer division with remainders. 987 is not a divisor of 2345, so there will be a remainder. Students need to remember to write the remainder and interpret the quotient and remainder in the context of the problem.",
     "id": 42
@@ -655,9 +529,7 @@ export const problems = [
     "problem": "Couple flutters through hazy sky",
     "length": 32,
     "tags": [
-      null,
-      "Grammar",
-      "Handwriting Exercise"
+      "grammar"
     ],
     "solution": "The sentence uses the word 'couple' and includes simple vocabulary appropriate for 5th grade students. The sentence structure is also straightforward and uses basic sentence components.",
     "id": 43
@@ -668,9 +540,8 @@ export const problems = [
     "problem": "A word that means 'two things that go together or are often used or thought of together'. For example, a couple of socks or a couple of friends.",
     "length": 144,
     "tags": [
-      null,
-      "Grammar",
-      "Fifth Grade"
+      "grammar",
+      "grade-5"
     ],
     "id": 44
   },
@@ -680,12 +551,9 @@ export const problems = [
     "problem": "There are 3 times as many people at the front of the line as there are at the back. There are 12 people in the line in total. How many people are at the front of the line?",
     "length": 171,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the number of people at the front of the line and y be the number of people at the back of the line. We know that x = 3y. We also know that x + y = 12. Substituting the first equation into the second equation, we get 3y + y = 12. Combining like terms, we get 4y = 12. Dividing both sides by 4, we get y = 3. Substituting this back into the first equation, we get x = 3(3) = 9. There are 9 people at the front of the line.",
     "id": 45
@@ -696,11 +564,10 @@ export const problems = [
     "problem": "A train is 300 km from the front of the station. If the train travels at a speed of 80 km/h, how long will it take for the train to reach the front of the station?",
     "length": 163,
     "tags": [
-      null,
-      "Speed",
-      "Metric",
-      "Fifth Grade",
-      "Time-Distance-Speed"
+      "speed",
+      "metric-units",
+      "grade-5",
+      "time-distance-speed"
     ],
     "solution": "First, we need to find the time it takes for the train to travel 1 km. We can do this by dividing the speed by 1000: 80 km/h ÷ 1000 = 0.08 h/km. Then, we need to multiply the time per km by the distance to the station: 0.08 h/km × 300 km = 24 h. Therefore, it will take the train 24 hours to reach the front of the station.",
     "id": 46
@@ -711,10 +578,7 @@ export const problems = [
     "problem": "A rectangular garden has a perimeter of 40 meters. If the length of the front of the garden is 8 meters longer than the width, find the dimensions of the garden.",
     "length": 161,
     "tags": [
-      null,
-      "Rectangle",
-      "Dimensions",
-      "Fifth Grade"
+      "grade-5"
     ],
     "solution": "First, let's represent the width of the garden as 'w' meters. Then, the length of the front of the garden is 'w + 8' meters. The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 40 meters, so we can write an equation: 2(w + 8) + 2w = 40. Solving this equation will give us the values of both w and 'w + 8', which are the width and length of the garden.",
     "id": 47
@@ -725,10 +589,8 @@ export const problems = [
     "problem": "A toy truck is driving along a circular track with a 10-meter radius. If the truck's front wheels are 0.5 meters apart, what is the probability that the front wheels will land on the same side of the track after one complete lap?",
     "length": 229,
     "tags": [
-      "Probability",
-      "Circle",
-      null,
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": "Let the probability of landing on the same side be P. The front wheel can be on any point of the circle with a length of 10 meters. The front wheel needs to be within a distance of 0.25 meters from the center of the circle to be on the same side as the starting point. The area of this circular region is ,,frac{\theta}{2}r^2,,, where ,,\theta,, is the angle in radians. The probability P is the ratio of this area to the total area of the circle: $$P = \\frac{\\frac{\theta}{2}\\times10^2}{2\\times10^2} = \\frac{\theta}{4}$$ where \theta is the angle made by the front wheels in radians during one lap.",
     "id": 48
@@ -739,11 +601,10 @@ export const problems = [
     "problem": "A train is facing the front of the station platform, which is 45m long. If the train travels at a speed of 20m/s, how long will it take for the train to completely pass the platform?",
     "length": 182,
     "tags": [
-      "Fifth Grade",
-      "Speed",
-      "Distance",
-      null,
-      "Physics"
+      "grade-5",
+      "speed",
+      "distance",
+      "physics"
     ],
     "solution": "This problem involves calculating the distance the train needs to travel to pass the platform. It requires understanding of speed and distance concepts, which are appropriate for 5th graders.",
     "id": 49
@@ -754,12 +615,10 @@ export const problems = [
     "problem": "The school cafeteria has a rectangular lunch counter with a perimeter of 4 meters. The length of the counter is 2 meters. What is the area of the lunch counter?",
     "length": 160,
     "tags": [
-      null,
-      "Area",
-      "Rectangle",
-      "Metric",
-      "Fifth Grade",
-      "Science"
+      "area",
+      "metric-units",
+      "grade-5",
+      "science"
     ],
     "solution": "This problem requires students to apply their knowledge of perimeter and area to solve a real-world problem. It is slightly challenging for a 5th grader, but still accessible to them.",
     "id": 50
@@ -770,10 +629,7 @@ export const problems = [
     "problem": "The soldiers stood in the front of the castle, guarding the entrance.",
     "length": 69,
     "tags": [
-      null,
-      "Spelling Error",
-      "Fifth Grade",
-      "Bad Grammar"
+      "grade-5"
     ],
     "solution": "The sentence has a minor grammatical error. 'Front of' should be 'front of the'.",
     "id": 51
@@ -784,9 +640,7 @@ export const problems = [
     "problem": "The brave soldiers stood at the front of the line, their flags waving bravely in the wind.",
     "length": 90,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Bad Spelling"
+      "grade-5"
     ],
     "solution": "The word 'front' means the most forward position in a line or group. In this sentence, the soldiers are standing at the front of the line, which means they are the first ones in line.",
     "id": 52
@@ -797,13 +651,9 @@ export const problems = [
     "problem": "Calculate the area of a rectangle with a front length of 5 meters and a height of 2.5 meters.",
     "length": 93,
     "tags": [
-      "Rectangle",
-      null,
-      "Length",
-      "Height",
-      "Area",
-      "Metric Units",
-      "Sentence Prompt"
+      "area",
+      "metric-units",
+      "sentence-writing"
     ],
     "solution": "The area of the rectangle is 12.5 square meters.",
     "id": 53
@@ -814,13 +664,9 @@ export const problems = [
     "problem": "In a commercial airliner, what is the distance from the leading edge of the wing to the front of the fuselage, typically measured in meters?",
     "length": 140,
     "tags": [
-      "Airplane",
-      null,
-      "Fuselage",
-      "Distance",
-      "Metric",
-      "Fifth Grade",
-      "Airplane Trivia"
+      "distance",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "4.5",
     "id": 54
@@ -831,10 +677,8 @@ export const problems = [
     "problem": "What is the distance from the front of a cube to a point directly above its center, if the cube has a side length of 2 cm?",
     "length": 122,
     "tags": [
-      null,
-      "Distance",
-      "Fifth Grade",
-      "Science Trivia"
+      "distance",
+      "grade-5"
     ],
     "solution": "1 cm",
     "id": 55
@@ -845,10 +689,10 @@ export const problems = [
     "problem": ",,\\frac{1}{3} + \\frac{1}{4}x = \\frac{5}{6},,",
     "length": 37,
     "tags": [
-      "Arithmetic",
-      "Fraction",
-      "Multiplication",
-      "Fifth Grade"
+      "arithmetic",
+      "fractions",
+      "multiplication",
+      "grade-5"
     ],
     "solution": "x = 3",
     "id": 56
@@ -859,10 +703,9 @@ export const problems = [
     "problem": "A store owner wants to debase the value of a toy by offering it at a discount. If the original price of the toy is €15 and the discount is 20%, how much will the toy cost after the discount? Write an equation to represent this situation.",
     "length": 237,
     "tags": [
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "metric-units",
+      "grade-5",
+      "algebra"
     ],
     "solution": "Let x be the cost of the toy after the discount.\n x = €15 - (€15 * 0.2)\n x = €15 - €3\n x = €12",
     "id": 57
@@ -873,11 +716,10 @@ export const problems = [
     "problem": "A train travels 360 km at a constant speed. If the speed of the train was 20% less 10 hours ago, how far did the train travel in the past 10 hours?",
     "length": 147,
     "tags": [
-      null,
-      "Speed",
-      "Distance",
-      "Time",
-      "Time-Distance-Speed"
+      "speed",
+      "distance",
+      "time",
+      "time-distance-speed"
     ],
     "solution": "Let x be the current speed of the train in km/h. Then 80% of x is x - 20%. The distance travelled in the past 10 hours is 360 / x km. The distance travelled 10 hours ago is 360 / (x - 0.2x) km. The difference between these two distances is 360 km. So we have the equation: 360 / x - 360 / (0.8x) = 360. Solving this equation gives us x = 45 km/h. Therefore, the train travelled 360 / 45 = 8 km in the past 10 hours.",
     "id": 58
@@ -888,10 +730,8 @@ export const problems = [
     "problem": "A circle has a radius of 5 cm. If a semicircle is formed by de-arching half of the circle, what is the area of the semicircle?",
     "length": 126,
     "tags": [
-      null,
-      "Circle",
-      "Area",
-      "Fifth Grade"
+      "area",
+      "grade-5"
     ],
     "solution": "First, find the length of the semicircle's arc by finding half of the circumference of the circle. Then, use the formula for the area of a semicircle: area = (arc length)^2 / 2π",
     "id": 59
@@ -902,10 +742,8 @@ export const problems = [
     "problem": "There is a jar containing 100 marbles, some of which are debased. A debased marble has a 20% chance of being lighter than a normal marble. If you randomly pick 5 marbles from the jar, what is the probability that at least 3 of them are normal? Round your answer to the nearest hundredth.",
     "length": 287,
     "tags": [
-      "Probability",
-      null,
-      "Binomial",
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": ",,\\frac{315}{64},,",
     "id": 60
@@ -916,9 +754,8 @@ export const problems = [
     "problem": "A gold coin is debased by 5%. If its original mass was 10 grams, what is its mass after the debasing?",
     "length": 101,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Physics"
+      "grade-5",
+      "physics"
     ],
     "solution": "Debasing means removing some of the valuable material from a coin. We can think of this as a subtraction problem. We need to subtract the amount of valuable material that was removed from the original mass of the coin.",
     "id": 61
@@ -929,10 +766,9 @@ export const problems = [
     "problem": "A gold coin worth 1 gram is debased by 5%. How much is the debased gold coin worth in grams?",
     "length": 92,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Metric Units",
-      "Science"
+      "grade-5",
+      "metric-units",
+      "science"
     ],
     "solution": "The word 'debase' means to reduce the quality or purity of something. In this problem, the gold coin has lost 5% of its weight due to the debasement. We need to calculate the weight of the debased gold coin.",
     "id": 62
@@ -943,10 +779,8 @@ export const problems = [
     "problem": "The devaluation of the currency caused the purchasing power to decrease rapidly, leading to widespread economic distress.",
     "length": 121,
     "tags": [
-      "Fifth Grade",
-      "Grammar",
-      null,
-      "Bad Grammar"
+      "grade-5",
+      "grammar"
     ],
     "solution": "The sentence uses the word 'debase' in the context of economics, explaining how a decrease in the value of a currency can negatively impact the cost of goods and services.",
     "id": 63
@@ -957,9 +791,7 @@ export const problems = [
     "problem": "The devaluation of the currency led to a decrease in purchasing power, causing economic instability.",
     "length": 100,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Bad Spelling"
+      "grade-5"
     ],
     "solution": "The sentence discusses the negative impact of currency devaluation on economic stability. It explains how the loss of value of the currency can reduce the purchasing power of money, leading to economic difficulties.",
     "id": 64
@@ -970,9 +802,7 @@ export const problems = [
     "problem": "Explain how the value of a currency can be debased over time, and how this can affect the purchasing power of money.",
     "length": 116,
     "tags": [
-      null,
-      "Economics",
-      "Sentence Prompt"
+      "sentence-writing"
     ],
     "solution": "The introduction of new, more valuable notes can debase the old notes, meaning that they can buy less.",
     "id": 65
@@ -983,11 +813,8 @@ export const problems = [
     "problem": "An airplane has a wingspan of 30 meters. If the wingspan is increased by 10%, what is the new wingspan in meters?",
     "length": 113,
     "tags": [
-      null,
-      "Wingspan",
-      "Fifth Grade",
-      "Metric Units",
-      "Airplane Trivia"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "33 meters",
     "id": 66
@@ -998,11 +825,7 @@ export const problems = [
     "problem": "A scientist discovers a new element with an atomic number of 125. What is the likely charge on the ion formed by this element? ",
     "length": 127,
     "tags": [
-      "Chemistry",
-      "Atomic Number",
-      null,
-      "Fifth Grade",
-      "Science Trivia"
+      "grade-5"
     ],
     "solution": "+105e",
     "id": 67
@@ -1013,10 +836,9 @@ export const problems = [
     "problem": "Given a number x, express the process of devaluing it by 20% in symbolic notation.",
     "length": 82,
     "tags": [
-      "Arithmetic",
-      "Fraction",
-      null,
-      "Fifth Grade"
+      "arithmetic",
+      "fractions",
+      "grade-5"
     ],
     "solution": "x - (x * 20%)",
     "id": 68
@@ -1027,11 +849,8 @@ export const problems = [
     "problem": "Calculate: ,,348 + 923 - 187,,",
     "length": 30,
     "tags": [
-      "Arithmetic",
-      "Carrying",
-      "Borrowing",
-      "Fifth Grade",
-      "Arithmetic Carry"
+      "arithmetic",
+      "grade-5"
     ],
     "solution": "This problem tests students' understanding of carrying and borrowing in arithmetic. When adding and subtracting large numbers, students often make errors with these operations. The problem requires students to correctly identify when a carry or borrow is needed and then apply the correct mathematical operations to get the answer.",
     "id": 69
@@ -1042,12 +861,9 @@ export const problems = [
     "problem": "198 x 352",
     "length": 9,
     "tags": [
-      "Arithmetic",
-      "Multiplication",
-      null,
-      "Place Value",
-      "Fifth Grade",
-      "Arithmetic Multiplication"
+      "arithmetic",
+      "multiplication",
+      "grade-5"
     ],
     "solution": "This problem tests common multiplication errors like: \n- **Partial Product Confusion:** Students may confuse the size of the partial products they write down during the multiplication process.\n- **Zero Errors:** Students may incorrectly write zero as the answer or as a partial product.\n- **Place Value Errors:** Students may make mistakes with the placement of digits in the answer.",
     "id": 70
@@ -1058,10 +874,8 @@ export const problems = [
     "problem": "1500 / 234",
     "length": 10,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Metric Units",
-      "Arithmetic Division"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "This problem tests several common errors in integer division. It requires students to divide a large number by a smaller number, which can be difficult for younger students. Additionally, it involves remainders, which are often overlooked or misinterpreted. Finally, the use of metric units adds another layer of complexity that can be challenging for younger learners.",
     "id": 71
@@ -1072,13 +886,11 @@ export const problems = [
     "problem": "A train travels 180 km at a speed that is 20 km/h below its usual speed. What is the usual speed of the train if the journey takes 4 hours longer than usual? (Hint: Usual speed - 20 km/h = Travel speed)",
     "length": 202,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      "Speed",
-      "Distance",
-      "Time",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "speed",
+      "distance",
+      "time",
+      "grade-5"
     ],
     "solution": "Let x km/h be the usual speed of the train.\nTravel speed = x - 20 km/h\nTime taken at usual speed = 180 / x hours\nTime taken at travel speed = 180 / (x - 20) hours\nGiven: 180 / x - 180 / (x - 20) = 4 hours\nSolving this equation, we find that x = 60 km/h.",
     "id": 72
@@ -1089,11 +901,10 @@ export const problems = [
     "problem": "A train travels 360 km at a speed of 80 km/h. If the train is currently 180 km below its destination, how long will it take to arrive?",
     "length": 134,
     "tags": [
-      null,
-      "Speed",
-      "Fifth Grade",
-      "Metric Units",
-      "Time-Distance-Speed"
+      "speed",
+      "grade-5",
+      "metric-units",
+      "time-distance-speed"
     ],
     "solution": "First, we need to find the total distance the train needs to travel to reach its destination. 360 km - 180 km = 180 km.   Next, we can use the formula: time = distance / speed.   Time = 180 km / 80 km/h = 2.25 hours.   Therefore, it will take the train 2.25 hours to arrive at its destination.",
     "id": 73
@@ -1104,8 +915,7 @@ export const problems = [
     "problem": "A triangle has a perimeter of 30 cm. One side of the triangle is 5 cm below the longest side. If the shortest side is 4 cm longer than the middle side, find the lengths of all three sides.",
     "length": 188,
     "tags": [
-      null,
-      "Fifth Grade"
+      "grade-5"
     ],
     "solution": "First, find the length of the longest side by subtracting 5 cm from 30 cm. Then, find the length of the middle side by subtracting 4 cm from the longest side. Finally, find the length of the shortest side by subtracting the middle side length from the perimeter.",
     "id": 74
@@ -1116,9 +926,8 @@ export const problems = [
     "problem": "A bag of marbles weighs 500g. If 1/3 of the marbles are below 10mm in diameter, what is the weight of the marbles that are below 10mm in diameter?",
     "length": 146,
     "tags": [
-      "Probability",
-      null,
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": "166.67g",
     "id": 75
@@ -1129,10 +938,9 @@ export const problems = [
     "problem": "An underwater robot is exploring a lake. It is currently 3.5 meters below the surface. If the robot dives 2.7 meters deeper, how far below the surface will it be then?",
     "length": 167,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Distance",
-      "Physics"
+      "grade-5",
+      "distance",
+      "physics"
     ],
     "solution": "First, we need to subtract the distance the robot dives deeper from the current depth. This gives us 3.5m - 2.7m = 0.8m. So, the robot will be 0.8 meters below the surface after it dives deeper.",
     "id": 76
@@ -1143,12 +951,9 @@ export const problems = [
     "problem": "There are two numbers that are equal to each other. If we double one of the numbers and add 5 to the other, the sum is 15. What are the numbers?",
     "length": 144,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      null,
-      "Fifth Grade",
-      "Metric Units",
-      "Two-Variable Algebra"
+      "algebra",
+      "grade-5",
+      "metric-units"
     ],
     "solution": "The numbers are 5 and 5.",
     "id": 77
@@ -1159,11 +964,10 @@ export const problems = [
     "problem": "A train travels for 3 hours at a speed of 80 km/h. How far has the train traveled when it reaches a point that is 2 hours ahead of where it was 1 hour ago?",
     "length": 155,
     "tags": [
-      null,
-      "Speed",
-      "Metric Units",
-      "Fifth Grade",
-      "Time-Distance-Speed"
+      "speed",
+      "metric-units",
+      "grade-5",
+      "time-distance-speed"
     ],
     "solution": "First, we need to calculate the distance the train traveled in the last hour. 80 km/h is the speed of the train, and 1 hour is the time it took. So, the distance traveled in the last hour is 80 km.  Next, we need to calculate the distance the train traveled in the first two hours. The train traveled 80 km in the last hour, and it traveled for 2 hours before that. So, the distance traveled in the first two hours is 80 * 2 = 160 km.  Finally, the distance the train traveled when it reached the point that is 2 hours ahead of where it was 1 hour ago is 160 km + 80 km = 240 km.",
     "id": 78
@@ -1174,10 +978,8 @@ export const problems = [
     "problem": "A circle has an area of ,,144 \\\\text{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
     "length": 222,
     "tags": [
-      null,
-      "Circle",
-      "Fifth Grade",
-      "Metric"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "First, find the radius of the circle by dividing the circumference by 4. Then, use the formula for the circumference of a circle to find the answer.",
     "id": 79
@@ -1188,10 +990,9 @@ export const problems = [
     "problem": "A bag contains 10 red marbles and 5 blue marbles. If I pick out a marble without knowing its color, what is the probability that it is not myself? Express your answer as a fraction in simplest form.",
     "length": 198,
     "tags": [
-      "Probability",
-      "Fraction",
-      "Conditional Probability",
-      "Fifth Grade"
+      "probability",
+      "fractions",
+      "grade-5"
     ],
     "solution": "15/15",
     "id": 80
@@ -1202,11 +1003,10 @@ export const problems = [
     "problem": "Myself and my friend share 15 meters of rope. How much rope does each of us have if we share it equally?",
     "length": 104,
     "tags": [
-      "Division",
-      "Sharing",
-      "Metric Units",
-      "Fifth Grade",
-      "Physics"
+      "division",
+      "metric-units",
+      "grade-5",
+      "physics"
     ],
     "solution": "This problem involves division and sharing, which are key concepts in 5th grade math. Students need to understand how to divide a quantity among two or more people.",
     "id": 81
@@ -1217,10 +1017,9 @@ export const problems = [
     "problem": "Myself is making a fruit salad with 3/4 cup of blueberries and 1/3 cup of raspberries. How many cups of fruit does Myself have in total?",
     "length": 136,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Metric Units",
-      "Science"
+      "grade-5",
+      "metric-units",
+      "science"
     ],
     "solution": "This problem requires students to add fractions to find the total amount of fruit. It is suitable for 5th graders who have learned about adding fractions.",
     "id": 82
@@ -1230,10 +1029,7 @@ export const problems = [
     "input": "myself",
     "problem": "Myself has finished all the homework before dinner.",
     "length": 51,
-    "tags": [
-      null,
-      "Bad Grammar"
-    ],
+    "tags": [],
     "solution": "The sentence has a grammatical error. 'Myself' is a reflexive pronoun and should be in the singular form. 'Has' is the third person singular form of the verb 'to have'. The correct sentence is 'I have finished all the homework before dinner'.",
     "id": 83
   },
@@ -1243,9 +1039,7 @@ export const problems = [
     "problem": "The note was addressed to myself, but I can't seem to remember what it says.",
     "length": 76,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Bad Spelling"
+      "grade-5"
     ],
     "solution": "The sentence uses 'myself' as the direct object of the verb 'remember'. This means that the note was written to the speaker themself.",
     "id": 84
@@ -1256,9 +1050,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'myself' that includes an action that results in a change in the state of being of the subject.",
     "length": 127,
     "tags": [
-      null,
-      "Fifth Grade",
-      "Sentence Prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "Myself, I decided to be more responsible by completing my chores every day.",
     "id": 85
@@ -1268,12 +1061,7 @@ export const problems = [
     "input": "myself",
     "problem": "What is the approximate wingspan of a Boeing 747-8, in meters?",
     "length": 62,
-    "tags": [
-      "Airplane",
-      "Wingspan",
-      null,
-      "Airplane Trivia"
-    ],
+    "tags": [],
     "solution": "64.8",
     "id": 86
   },
@@ -1283,11 +1071,8 @@ export const problems = [
     "problem": "Calculate the volume of a cube with a side length of 10 cm. Express your answer in cubic centimeters.",
     "length": 101,
     "tags": [
-      null,
-      "Volume",
-      "Metric Units",
-      "Fifth Grade",
-      "Science Trivia"
+      "metric-units",
+      "grade-5"
     ],
     "solution": ",,\\text{1000 cm}^3,,",
     "id": 87
@@ -1298,10 +1083,10 @@ export const problems = [
     "problem": "Calculate: ,,\\frac{1}{3} \\times \\frac{3}{4},,",
     "length": 38,
     "tags": [
-      "Arithmetic",
-      "Multiplication",
-      "Fraction",
-      "Fifth Grade"
+      "arithmetic",
+      "multiplication",
+      "fractions",
+      "grade-5"
     ],
     "solution": ",,\\frac{1}{4},,",
     "id": 88
@@ -1312,13 +1097,9 @@ export const problems = [
     "problem": "Simplify: ,,348 + 923 - 175 \\\\times 2 \\\\times 5,,\nangle",
     "length": 47,
     "tags": [
-      "Fifth Grade",
-      "Arithmetic",
-      null,
-      "Carry",
-      "Borrow",
-      "Multiplication",
-      "Arithmetic Carry"
+      "grade-5",
+      "arithmetic",
+      "multiplication"
     ],
     "solution": "This problem requires students to accurately perform multiple steps involving carries and borrows. The carries and borrows involve understanding place value and how to handle them during arithmetic operations. The problem also requires proficiency in simplifying mathematical expressions involving multiplication and subtraction.",
     "id": 89
@@ -1329,10 +1110,7 @@ export const problems = [
     "problem": "534 x 987",
     "length": 9,
     "tags": [
-      null,
-      "Place Value",
-      "Fifth Grade",
-      "Arithmetic Multiplication"
+      "grade-5"
     ],
     "solution": "This problem tests various multiplication errors common among students at the 5th grade level. It involves large numbers and requires careful attention to place value. Students need to accurately multiply each digit, accounting for the different positions of the numbers. Common errors tested include: \n- Misplacing digits \n- Failing to multiply all digits correctly \n- Incorrectly handling zeros",
     "id": 90
@@ -1343,9 +1121,7 @@ export const problems = [
     "problem": "357 ÷ 103",
     "length": 9,
     "tags": [
-      null,
-      "Fifth Grade",
-      "Arithmetic Division"
+      "grade-5"
     ],
     "solution": "This problem tests several common errors in integer division. The large number of digits can easily lead to mistakes in aligning the numbers for division. Additionally, students may forget to check if the remainder is close to the divisor, which can lead to an incorrect answer. Finally, students may not be careful enough when dividing, and may make a simple arithmetic mistake.",
     "id": 91
@@ -1356,11 +1132,8 @@ export const problems = [
     "problem": "Myself whispers secrets to the moon.",
     "length": 36,
     "tags": [
-      null,
-      "Grammar",
-      "Sentence",
-      "Fifth Grade",
-      "Handwriting Exercise"
+      "grammar",
+      "grade-5"
     ],
     "solution": "This sentence uses the word 'myself' as a subject, which is appropriate for a 5th grade level.",
     "id": 92
@@ -1370,9 +1143,7 @@ export const problems = [
     "input": "myself",
     "problem": "A word that means 'the person or thing referred to by the subject of a sentence. For example, 'I am happy' means 'I am happy myself'.",
     "length": 133,
-    "tags": [
-      null
-    ],
+    "tags": [],
     "id": 93
   },
   {
@@ -1381,12 +1152,9 @@ export const problems = [
     "problem": "A debate team has 30 members. Some members are seniors and some are juniors. There are 7 more seniors than juniors. How many seniors and juniors are there in the debate team?",
     "length": 174,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the number of juniors and y be the number of seniors.\n x + y = 30\n y - x = 7\n Solving the second equation for y: y = x + 7\n Substituting y in the first equation: x + (x + 7) = 30\n 2x + 7 = 30\n 2x = 23\n x = 11.5\n So there are 11.5 juniors and 11.5 + 7 = 18.5 seniors in the debate team.",
     "id": 94
@@ -1397,12 +1165,11 @@ export const problems = [
     "problem": "A group of friends are debating which is the faster way to get to school. One friend claims they can arrive in 30 minutes if they bike at 10 meters per second. Another friend argues they can get there in 20 minutes if they run at 8 meters per second. How much time would they save if they biked instead of running?",
     "length": 314,
     "tags": [
-      "Fifth Grade",
-      "Distance",
-      "Speed",
-      "Time",
-      null,
-      "Time-Distance-Speed"
+      "grade-5",
+      "distance",
+      "speed",
+      "time",
+      "time-distance-speed"
     ],
     "solution": "First, we need to calculate the distance to school. Let's call it D meters. Then, we can use the formula: time = distance / speed.   Let's substitute the given speeds:  - Biking time = D / 10 m/s  - Running time = D / 8 m/s  The time saved by biking is the difference between the two running times:   Time saved = Running time - Biking time = D / 8 m/s - D / 10 m/s = D(1/8 - 1/10) m/s  Therefore, the time saved by biking instead of running is D/40 minutes.",
     "id": 95
@@ -1413,10 +1180,8 @@ export const problems = [
     "problem": "A rectangular garden bed is 30 cm longer than its width. If the perimeter of the garden bed is 100 cm, what are its dimensions?",
     "length": 127,
     "tags": [
-      null,
-      "Rectangle",
-      "Metric",
-      "Fifth Grade"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "First, let's represent the width of the garden bed as a variable, such as 'w'. Since the garden bed is 30 cm longer than its width, the length can be expressed as 'w + 30'.   The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 100 cm, so we can write an equation: 2(w + w + 30) = 100. Solving this equation will give us the values for the width and length of the garden bed.",
     "id": 96
@@ -1427,9 +1192,8 @@ export const problems = [
     "problem": "A debate is happening about whether school lunches should be mandatory or optional. 40% of students believe lunches should be mandatory, while 30% believe they should be optional. The remaining 30% neither agree nor disagree. If 120 students are attending the debate, how many of them believe lunches should be mandatory?",
     "length": 321,
     "tags": [
-      "Probability",
-      null,
-      "Fifth Grade"
+      "probability",
+      "grade-5"
     ],
     "solution": "48 students believe lunches should be mandatory.",
     "id": 97
@@ -1440,9 +1204,8 @@ export const problems = [
     "problem": "An argument about the mass of a planet can be made based on its gravitational pull. If the gravitational force of a planet is measured to be 10N, what is the mass of the planet in kilograms? Assume the gravitational constant is 6.674 × 10^{-11} N m²/kg².",
     "length": 254,
     "tags": [
-      "Physics",
-      null,
-      "Fifth Grade"
+      "physics",
+      "grade-5"
     ],
     "solution": "This problem requires students to apply their understanding of force, gravity, and mass to solve a real-world problem. It involves two steps: first calculating the gravitational force due to the planet and then using the formula F = Gm1m2/r^2 to find the mass of the planet.",
     "id": 98
@@ -1453,11 +1216,10 @@ export const problems = [
     "problem": "A debate team has 300 grams of snacks to share equally among 5 members. How many grams of snacks will each member receive?",
     "length": 122,
     "tags": [
-      "Division",
-      null,
-      "Metric Units",
-      "Fifth Grade",
-      "Science"
+      "division",
+      "metric-units",
+      "grade-5",
+      "science"
     ],
     "solution": "This problem requires students to divide a set amount of snacks among a group of people, which is a common real-world scenario. It involves simple division and is appropriate for 5th graders who have learned about fractions and division.",
     "id": 99
@@ -1467,10 +1229,7 @@ export const problems = [
     "input": "debate",
     "problem": "The lively debate about the merits of online learning versus traditional schooling sparked quite a lot of interest among the students.",
     "length": 134,
-    "tags": [
-      null,
-      "Bad Grammar"
-    ],
+    "tags": [],
     "solution": "The sentence uses the word 'debate' correctly, but there is a grammatical error in the second sentence. 'Sparked quite a lot of interest' should be 'generated quite a bit of interest'.",
     "id": 100
   },
@@ -1480,9 +1239,7 @@ export const problems = [
     "problem": "During the debate, the students presented their arguments, each claiming their chosen solution was the most effective for tackling the environmental crisis.",
     "length": 156,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Bad Spelling"
+      "grade-5"
     ],
     "solution": "The sentence uses the word 'debate' in the context of students presenting their opinions and evidence to support their positions on an environmental issue. It also demonstrates understanding of effective arguments and solutions.",
     "id": 101
@@ -1493,11 +1250,9 @@ export const problems = [
     "problem": "Explain how the length of a debate can affect the number of arguments presented in a formal speech.",
     "length": 99,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Length",
-      "Time",
-      "Sentence Prompt"
+      "grade-5",
+      "time",
+      "sentence-writing"
     ],
     "solution": "A longer debate allows for more time to present arguments, while a shorter debate requires speakers to be concise.",
     "id": 102
@@ -1508,10 +1263,7 @@ export const problems = [
     "problem": "What is the maximum takeoff weight of a Boeing 747-8, considering the fuel load is approximately 180,000 kg?",
     "length": 108,
     "tags": [
-      "Airplane",
-      null,
-      "Fifth Grade",
-      "Airplane Trivia"
+      "grade-5"
     ],
     "solution": "350,000 kg",
     "id": 103
@@ -1521,11 +1273,7 @@ export const problems = [
     "input": "debate",
     "problem": "How many moles of oxygen are there in 100 cubic meters of air at standard temperature and pressure?",
     "length": 99,
-    "tags": [
-      "Chemistry",
-      null,
-      "Science Trivia"
-    ],
+    "tags": [],
     "solution": "2.5 × 10^25 moles",
     "id": 104
   },
@@ -1535,10 +1283,9 @@ export const problems = [
     "problem": ",,\\frac{1}{3} + \\frac{1}{4} \\times \\frac{3}{5},,",
     "length": 40,
     "tags": [
-      "Arithmetic",
-      "Fraction",
-      "Multiplication",
-      null
+      "arithmetic",
+      "fractions",
+      "multiplication"
     ],
     "solution": ",,\\frac{13}{20},,",
     "id": 105
@@ -1549,9 +1296,7 @@ export const problems = [
     "problem": "Evaluate: ,,\\frac{1}{3}(2\\times10^3+3\\times10^2-5\\times10+7),,",
     "length": 55,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Arithmetic Carry"
+      "grade-5"
     ],
     "solution": "This problem assesses students' understanding of carries and borrows in multi-digit arithmetic. Specifically, it tests the ability to: \n- Perform multiplication and division involving numbers with exponents.\n- Handle carries and borrows correctly when performing these operations.\n- Simplify expressions involving fractions and powers of 10.",
     "id": 106
@@ -1562,11 +1307,8 @@ export const problems = [
     "problem": "432 x 789",
     "length": 9,
     "tags": [
-      "Multiplication",
-      "Place Value",
-      null,
-      "Fifth Grade",
-      "Arithmetic Multiplication"
+      "multiplication",
+      "grade-5"
     ],
     "solution": "This problem tests several common multiplication errors, including: \n- **Place value errors:** Students may forget to align the digits correctly, leading to incorrect answers. \n- **Partial products:** Students may not multiply all the digits correctly, leading to incomplete answers. \n- **Arithmetic slips:** Students may make simple math mistakes during the multiplication process.",
     "id": 107
@@ -1577,10 +1319,7 @@ export const problems = [
     "problem": "456 ÷ 98",
     "length": 8,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Borrowing",
-      "Arithmetic Division"
+      "grade-5"
     ],
     "solution": "This problem tests various errors in integer division. The large quotient (456) and divisor (98) can easily lead to mistakes. Students may forget to borrow correctly, or make mistakes in their partial products. Additionally, some students may divide the units place incorrectly, leading to an inaccurate answer.",
     "id": 108
@@ -1590,12 +1329,7 @@ export const problems = [
     "input": "debate",
     "problem": "Zephyrs debate flutters in the meadow.",
     "length": 38,
-    "tags": [
-      null,
-      "Sentence Structure",
-      "Vocabulary Development",
-      "Handwriting Exercise"
-    ],
+    "tags": [],
     "solution": "This sentence uses various parts of speech, including nouns, verbs, and adjectives.",
     "id": 109
   },
@@ -1605,11 +1339,9 @@ export const problems = [
     "problem": "A massive rock has a volume of 100 cubic meters and weighs 2000 kilograms. Another rock has a volume of 50 cubic meters and weighs 1000 kilograms. Together, how much do both rocks weigh?",
     "length": 186,
     "tags": [
-      "Algebra",
-      "System of Equations",
-      "Metric Units",
-      "Fifth Grade",
-      "Two-Variable Algebra"
+      "algebra",
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the weight of the first rock and y be the weight of the second rock.\n x + y = 2000\nx - y = 1000\nSolving the system of equations, we find that x = 1500 and y = 500.\nTherefore, both rocks weigh 1500 + 500 = 2000 kilograms.",
     "id": 110
@@ -1620,12 +1352,11 @@ export const problems = [
     "problem": "A massive asteroid, traveling at a speed of 20 kilometers per second, is hurtling towards Earth. If it takes the space agency 3 hours to intercept and redirect the asteroid, how far away from Earth must the asteroid be when it is spotted?",
     "length": 238,
     "tags": [
-      "Fifth Grade",
-      "Speed",
-      "Distance",
-      "Time",
-      null,
-      "Time-Distance-Speed"
+      "grade-5",
+      "speed",
+      "distance",
+      "time",
+      "time-distance-speed"
     ],
     "solution": "First, we need to convert the speed of the asteroid to meters per second: 20 km/s = 20,000 m/s. Then, we can use the formula: distance = speed × time. Distance = 20,000 m/s × 3 h = 60,000 meters. Therefore, the asteroid must be 60,000 meters away from Earth when it is spotted.",
     "id": 111
@@ -1636,11 +1367,9 @@ export const problems = [
     "problem": "A massive construction project involves building a rectangular foundation with a length of 45 meters and a width of 30 meters. What is the area of the foundation in square meters?",
     "length": 179,
     "tags": [
-      null,
-      "Multiplication",
-      "Area",
-      "Rectangle",
-      "Fifth Grade"
+      "multiplication",
+      "area",
+      "grade-5"
     ],
     "solution": "First, multiply the length and width of the foundation to find the area. Then, write the area as a mathematical expression using the multiplication symbol (×).",
     "id": 112
@@ -1651,11 +1380,9 @@ export const problems = [
     "problem": "There are 3 massive sandcastles on a beach, each with a volume of 80 cubic meters. If the average volume of sand in each cubic meter is 100 grams, how many kilograms of sand are there in the three sandcastles combined?",
     "length": 218,
     "tags": [
-      "Probability",
-      "Volume",
-      null,
-      "Metric",
-      "Fifth Grade"
+      "probability",
+      "metric-units",
+      "grade-5"
     ],
     "solution": ",,\\frac{80 \\text{ m}^3 \\times 100 \\text{ g}}{1 \\text{ m}^3} = 8000 \\text{ kg},,",
     "id": 113
@@ -1666,11 +1393,9 @@ export const problems = [
     "problem": "A massive asteroid with a diameter of 100 meters and a density of 2000 kg/m^3 hurtles through space. What is its mass?",
     "length": 118,
     "tags": [
-      "Fifth Grade",
-      null,
-      "Volume",
-      "Metric",
-      "Physics"
+      "grade-5",
+      "metric-units",
+      "physics"
     ],
     "solution": "To find the mass of the asteroid, we can use the formula: mass = density * volume. We already know the diameter, so we can find the volume by assuming a sphere and using the formula for the volume of a sphere: volume = (4/3)πr³. Then, we can substitute the values into the mass formula and solve for mass.",
     "id": 114
@@ -1682,11 +1407,9 @@ export const problems = [
     "length": 233,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "fifth-grade",
-      "metric",
-      "linear-equations",
-      "two-variable-algebra"
+      "grade-5",
+      "metric-units",
+      "linear-equations"
     ],
     "solution": "Let x be the number of tigers and y be the number of lions.\n x + y = 100\n x = 2y + 10\n Substitute the second equation into the first equation:\n (2y + 10) + y = 100\n Combine like terms:\n 3y + 10 = 100\n Subtract 10 from both sides:\n 3y = 90\n Divide both sides by 3:\n y = 30\n Substitute y back into the second equation:\n x = 2(30) + 10\n x = 60 + 10\n x = 70\n There are **70 tigers** and **30 lions** in the game.",
     "id": 115
@@ -1697,13 +1420,10 @@ export const problems = [
     "problem": "An angry robot travels 240 meters at a speed of 6 meters per second. How long will it take for the robot to reach its destination if it hates the journey and tries to slow down by half its speed every minute?",
     "length": 208,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
       "arithmetic",
-      "fifth-grade",
-      "wordplay",
-      "hate",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we need to find out how much the robot's speed decreases each minute. 6 / 2 = 3 meters per second. Then, we need to calculate how many minutes it will take for the robot to travel 240 meters at a speed of 3 meters per second. 240 / 3 = 80 minutes. Therefore, it will take the robot 80 minutes to reach its destination.",
     "id": 116
@@ -1715,11 +1435,9 @@ export const problems = [
     "length": 182,
     "tags": [
       "geometry",
-      "fifth-grade",
+      "grade-5",
       "perimeter",
-      "square",
-      "triangle",
-      "equilateral"
+      "triangle"
     ],
     "solution": "First, find the area of the square field by multiplying the side length by itself. Then, recall that an equilateral triangle has three equal sides. Use the perimeter formula for an equilateral triangle to find the perimeter of the triangle field.",
     "id": 117
@@ -1731,9 +1449,7 @@ export const problems = [
     "length": 255,
     "tags": [
       "probability",
-      "conditional",
-      "binomial",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{3 \times 0.2^2 \times 0.8^3}{0.8^5} = 0.0972",
     "id": 118
@@ -1744,10 +1460,8 @@ export const problems = [
     "problem": "An object experiences a force of repulsion that increases by 2 N for every 1 m of distance it is moved away from another object. If the initial distance between the objects is 5 m and the force of repulsion at that distance is 10 N, what is the force of repulsion when the distance between the objects is 10 m?",
     "length": 310,
     "tags": [
-      "inverse-proportionality",
-      "force",
       "distance",
-      "5thGrade",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem involves applying the concept of inverse proportionality, which is a fundamental relationship between distance and force. The problem requires students to understand that as the distance between two objects increases, the force of repulsion between them decreases.",
@@ -1761,10 +1475,7 @@ export const problems = [
     "tags": [
       "multiplication",
       "division",
-      "negative numbers",
-      "word problem",
-      "metric units",
-      "fifth grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to understand multiplication and division, as well as the concept of negative numbers. It also involves applying these concepts to a real-world scenario.",
@@ -1777,11 +1488,7 @@ export const problems = [
     "length": 186,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "tournament",
-      "goals",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the number of goals Team A scored and y be the number of goals Team B scored.\n x = y + 10\n 4y = 40\n y = 10\n x = 10 + 10 = 20\n Team A scored 20 goals.",
     "id": 121
@@ -1792,11 +1499,10 @@ export const problems = [
     "problem": "A mathematical tournament is happening over 3 hours. Participants are cycling at a speed of 15 kilometers per hour. How many kilometers will the participants have covered at the end of the tournament?",
     "length": 200,
     "tags": [
-      "cycling",
       "distance",
       "speed",
       "time",
-      "fifth-grade",
+      "grade-5",
       "time-distance-speed"
     ],
     "solution": "To find the distance covered, we need to multiply the speed by the time. 15 kilometers per hour is the speed, and 3 hours is the time. 15 * 3 = 45 kilometers. The participants will have covered **45 kilometers** at the end of the tournament.",
@@ -1809,10 +1515,8 @@ export const problems = [
     "length": 121,
     "tags": [
       "geometry",
-      "combinatorics",
-      "tournament",
       "perimeter",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we need to find the number of games between two teams. There are 15 teams, so there are 15 * (15-1) / 2 = 105 games between two teams. There are 15 teams, so there are 15 games in total. 105 + 15 = 120 games will be played in the tournament.",
     "id": 123
@@ -1824,9 +1528,7 @@ export const problems = [
     "length": 193,
     "tags": [
       "probability",
-      "combinations",
-      "binomial",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{48C3\times0.3^5\times0.7^5}{0.3^{48}}$",
     "id": 124
@@ -1838,11 +1540,8 @@ export const problems = [
     "length": 146,
     "tags": [
       "physics",
-      "tournament",
-      "average",
-      "mass",
-      "metric",
-      "fifth-grade"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "First, we multiply the number of teams by the mass of each team to get the total mass of the teams. Then, we express the answer in kilograms.",
     "id": 125
@@ -1853,11 +1552,8 @@ export const problems = [
     "problem": "There are 8 teams in a soccer tournament. Each team plays every other team once. How many games are there in total?",
     "length": 115,
     "tags": [
-      "combinations",
-      "tournament",
-      "soccer",
-      "fifth-grade",
-      "metric",
+      "grade-5",
+      "metric-units",
       "science"
     ],
     "solution": "This problem requires understanding of combinations. The students have to figure out how many games can be played if there are 8 teams and each team plays every other team once. This involves multiplying the number of teams by the number of other teams that each team can play against.",
@@ -1869,10 +1565,8 @@ export const problems = [
     "problem": "The champion of the annual tennis tournament was crowned with a golden cup, that was the most expensive one ever seen in history.",
     "length": 129,
     "tags": [
-      "grammatical-error-noun-pronoun",
-      "incorrect-pronoun-reference",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses 'that' as a noun instead of 'which' to refer back to the 'cup'.",
     "id": 127
@@ -1883,12 +1577,9 @@ export const problems = [
     "problem": "The fierce jousting tournament of the Lionheart Kingdom attracted skilled warriors from all corners of the realm.",
     "length": 113,
     "tags": [
-      "5th-grade",
-      "spelling-error",
-      "misspelling",
-      "grammar",
-      "context",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'jousting' instead of 'tournament'. 'Jousting' refers to a single competition involving mounted knights, while 'tournament' refers to a series of competitive events.",
     "id": 128
@@ -1899,12 +1590,8 @@ export const problems = [
     "problem": "Explain how the popularity of a sport during a tournament can influence the outcome of the game.",
     "length": 96,
     "tags": [
-      "fifth-grade",
-      "sport",
-      "tournament",
-      "outcome",
-      "determination",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "The fierce competition during the soccer tournament heightened the players' determination, leading to an exciting final match.",
     "id": 129
@@ -1915,12 +1602,8 @@ export const problems = [
     "problem": "In a competition called the 'International Air Race,' what is the maximum takeoff weight of the participating aircraft, if the regulation allows for a maximum wing loading of 250 kg/m^2 and a wing area of 40 m^2?",
     "length": 212,
     "tags": [
-      "airplane-trivia",
-      "competition",
-      "wing-loading",
-      "wing-area",
-      "takeoff-weight",
-      "5th-grade"
+      "airplane",
+      "grade-5"
     ],
     "solution": "To find the maximum takeoff weight, we can use the formula: Maximum Takeoff Weight = Wing Loading × Wing Area. Plugging in the given values, we get: Maximum Takeoff Weight = 250 kg/m^2 × 40 m^2 = 10,000 kg. Therefore, the maximum takeoff weight of the aircraft in the competition is 10,000 kg.",
     "id": 130
@@ -1932,11 +1615,8 @@ export const problems = [
     "length": 96,
     "tags": [
       "chemistry",
-      "3rd-grade",
-      "chemical-reaction",
-      "carbon-dioxide",
-      "fizzing",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "When baking soda (sodium bicarbonate) and vinegar (acetic acid) are mixed, a chemical reaction takes place. The sodium and acetate ions combine to form sodium acetate, while the carbonic acid formed in the reaction immediately decomposes into water and carbon dioxide gas. The escaping carbon dioxide gas causes the fizzing you see.",
     "id": 131
@@ -1947,12 +1627,7 @@ export const problems = [
     "problem": "The artist's vibrant paintings reflect the r____n sunlight reflects off water droplets in a rainbow's mesmerizing arc.",
     "length": 118,
     "tags": [
-      "5thGrade",
-      "Reason",
-      "Artist",
-      "Sunlight",
-      "Rainbow",
-      "missing-word"
+      "grade-5"
     ],
     "id": 132
   },
@@ -1963,10 +1638,7 @@ export const problems = [
     "length": 118,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "unit-rates",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the price of a banana in €. The price of an orange is 3x. 3x + x = 1.8 €. 4x = 1.8 €. x = 0.45 €. A banana costs 0.45 €.",
     "id": 133
@@ -1977,11 +1649,10 @@ export const problems = [
     "problem": "A train travels 720 km at a constant speed. If it had travelled 20% faster, the journey would have taken 1 hour less. What was the original speed of the train?",
     "length": 159,
     "tags": [
-      "reasoning",
       "distance",
       "speed",
       "time",
-      "fifth-grade",
+      "grade-5",
       "time-distance-speed"
     ],
     "solution": "Let x be the original speed of the train in km/h. Then, the speed of the train if it travelled 20% faster is x + (20/100)x = 1.2x km/h.  Using the formula: distance = speed × time, we can write:  $$720 = 1.2x \times (time-1)$$  Solving for time, we get:  $$time = \frac{720}{1.2x} + 1 = \frac{600}{x} + 1$$  Therefore, the original speed of the train is 600 km/h.",
@@ -1996,8 +1667,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "triangle",
-      "fifth-grade",
-      "linear-equation"
+      "grade-5"
     ],
     "solution": "First, let's represent the length of the shorter side as x meters. Then, the length of the longer side is (x + 3) meters. The perimeter is the sum of the lengths of all three sides. We can write an equation: x + (x + 3) + x = 90. Combining like terms, we get 3x + 3 = 90. Solving for x, we get x = 30 meters. So, the length of each side is 30 meters.",
     "id": 135
@@ -2009,9 +1679,7 @@ export const problems = [
     "length": 225,
     "tags": [
       "probability",
-      "combinations",
-      "binomial",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{30 \binom{3}{2} 20}{5 \binom{50}{5}}$",
     "id": 136
@@ -2025,9 +1693,8 @@ export const problems = [
       "proportion",
       "ratio",
       "speed",
-      "sound",
-      "metric",
-      "fifth-grade",
+      "metric-units",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of ratios and proportions to solve a real-world problem involving speed. It also involves converting kilometers per hour to meters per second.",
@@ -2039,7 +1706,7 @@ export const problems = [
     "problem": "A train travels 450 km at a speed that is 25% faster than the speed of another train on the same route. What is the speed of the slower train if the total distance covered by both trains is 1000 km?",
     "length": 198,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "ratio",
       "proportion",
       "distance",
@@ -2055,10 +1722,8 @@ export const problems = [
     "problem": "The reason that she loves reading books are because they open up new worlds for her.",
     "length": 84,
     "tags": [
-      "grammatical-error",
-      "verb-agreement",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the plural verb 'are' instead of the singular verb 'is'. 'Is' is the correct verb to use when referring to a singular subject, such as 'she'.",
     "id": 139
@@ -2069,11 +1734,9 @@ export const problems = [
     "problem": "The scientist's reason for creating the new formula was to improve the efficiency of the production process.",
     "length": 108,
     "tags": [
-      "5thGrade",
-      "Grammar",
-      "Spelling",
-      "SingularNoun",
-      "bad-spelling"
+      "grade-5",
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'reason' instead of 'reasons'. This is because the sentence is talking about one main reason, not multiple reasons.",
     "id": 140
@@ -2084,12 +1747,9 @@ export const problems = [
     "problem": "Explain how the size of the moon's orbit around the Earth affects the length of the lunar phases, considering the influence of gravity on the moon's rotation.",
     "length": 158,
     "tags": [
-      "earth-moon-gravity",
-      "lunar-phases",
-      "fifth-grade",
+      "grade-5",
       "science",
-      "astronomy",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The bigger the moon's orbit, the longer it takes for the moon to complete one full rotation around the Earth, resulting in longer phases.",
     "id": 141
@@ -2101,11 +1761,7 @@ export const problems = [
     "length": 105,
     "tags": [
       "airplane",
-      "stability",
-      "horizontal",
-      "stabilizer",
-      "fifth-grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer is a wing-like surface located at the tail of an airplane. It helps to balance the airplane and maintain stable flight by adjusting the airflow over the wings.",
     "id": 142
@@ -2117,10 +1773,9 @@ export const problems = [
     "length": 58,
     "tags": [
       "geometry",
-      "cubes",
       "volume",
-      "fifth-grade",
-      "science-trivia"
+      "grade-5",
+      "science"
     ],
     "solution": "The volume of a cube is equal to the side length cubed. So, the volume of a cube with a side length of 5 cm is 5 cm * 5 cm * 5 cm = 125 cm^3.",
     "id": 143
@@ -2132,11 +1787,7 @@ export const problems = [
     "length": 252,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "investment",
-      "income",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the amount invested in livestock and y be the amount invested in crops.\n3x + x = 150\n4x = 150\nx = 37.5\ny = 3x = 3(37.5) = 112.5\nThe farmer invested €112.5 in crops.",
     "id": 144
@@ -2147,11 +1798,9 @@ export const problems = [
     "problem": "A village starts with 100 families. If each family cultivates a field that produces 50 crops per year, how many crops will the village have in 3 years if each family's field produces 10% more crops each year?",
     "length": 208,
     "tags": [
-      "word problem",
       "time",
       "speed",
-      "growth",
-      "5th grade",
+      "grade-5",
       "time-distance-speed"
     ],
     "solution": "First, find the annual increase in crops per field: 50 crops/year * 10% = 5 crops/year. Then, calculate the total crops for each family after 3 years: 50 crops/year + 5 crops/year * 3 = 60 crops/year. Finally, multiply the annual crops per family by the number of families in the village: 60 crops/year * 100 families = 6000 crops/year.",
@@ -2166,8 +1815,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "multiplication",
-      "cost",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we need to find the perimeter of the garden bed. The perimeter is the total length of all four sides. To find the perimeter, we add the lengths of all four sides. The garden bed has two long sides and two short sides. The perimeter is 2(length) + 2(width). Then, we multiply the perimeter by the cost per meter of edging to find the total cost.",
     "id": 146
@@ -2180,9 +1828,7 @@ export const problems = [
     "tags": [
       "probability",
       "percentage",
-      "income",
-      "business",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "$144,000",
     "id": 147
@@ -2193,11 +1839,7 @@ export const problems = [
     "problem": "A community wants to invest in renewable energy to achieve prosperity. A solar panel installation costs €100,000 and generates 10kWh of electricity per day. If the community wants to generate 1MWh of electricity per day, how many solar panels would they need? Assume each panel generates the same amount of electricity.",
     "length": 319,
     "tags": [
-      "5thGrade",
-      "ProportionalRelationships",
-      "Energy",
-      "RenewableEnergy",
-      "CommunityDevelopment",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of electrical energy and proportionality to solve a real-world problem related to sustainability and community development.",
@@ -2210,10 +1852,7 @@ export const problems = [
     "length": 313,
     "tags": [
       "linear-equations",
-      "optimization",
-      "profit",
-      "agriculture",
-      "5th-grade",
+      "grade-5",
       "metric-units",
       "science"
     ],
@@ -2226,10 +1865,8 @@ export const problems = [
     "problem": "Prosperity brings a lot of wealth, but it can also mean a lot of poverty.",
     "length": 73,
     "tags": [
-      "5thGrade",
-      "LogicalContradiction",
-      "GrammarError",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a logical contradiction. It states that prosperity can bring wealth and poverty at the same time.",
     "id": 150
@@ -2240,10 +1877,9 @@ export const problems = [
     "problem": "Prosperity brings a wealth of happiness, as families find more abundance and peace.",
     "length": 83,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "grammar",
-      "spelling",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'abundance' instead of 'abundances'. 'Abundance' is a singular noun, meaning 'a large amount of something'. 'Abundances' would mean 'a large amount of things', which is incorrect in this sentence.",
     "id": 151
@@ -2254,11 +1890,8 @@ export const problems = [
     "problem": "Explain how investing in renewable energy can contribute to the prosperity of developing nations.",
     "length": 97,
     "tags": [
-      "5thGrade",
-      "EconomicDevelopment",
-      "RenewableEnergy",
-      "DevelopingNations",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "Investing in solar and wind farms in countries like Kenya can create new jobs, reduce air pollution, and provide access to electricity for millions of people.",
     "id": 152
@@ -2269,14 +1902,7 @@ export const problems = [
     "problem": "Which part of the airplane helps to stabilize it during takeoff and landing, like a giant wing that works underwater?",
     "length": 117,
     "tags": [
-      "airplane",
-      "stability",
-      "wing",
-      "horizontal",
-      "takeoff",
-      "landing",
-      "3rdGrade",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "The horizontal stabilizer, also known as the tail wing, helps to balance the airplane during takeoff and landing by counteracting the lift generated by the main wings. It maintains stability and prevents the airplane from pitching up or down.",
     "id": 153
@@ -2287,13 +1913,8 @@ export const problems = [
     "problem": "What element makes up about 73% of the Earth's crust? Its symbol is Fe.",
     "length": 71,
     "tags": [
-      "earth science",
       "chemistry",
-      "element",
-      "iron",
-      "crust",
-      "3rd grade",
-      "science-trivia"
+      "science"
     ],
     "solution": "Iron is the most abundant element in the Earth's crust. It plays a vital role in many geological processes and is essential for many living things.",
     "id": 154
@@ -2305,10 +1926,10 @@ export const problems = [
     "length": 11,
     "tags": [
       "arithmetic",
-      "fraction",
+      "fractions",
       "multiplication",
       "division",
-      "fifth grade"
+      "grade-5"
     ],
     "solution": ",,2/3-1/3=1/3",
     "id": 155
@@ -2320,11 +1941,8 @@ export const problems = [
     "length": 290,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "consumer",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the cost of a croissant and y be the cost of a pain au chocolat.\n10x + 5y = 20\n5x + 12y = 17.50\nSolving the first equation for x:\n10x = 20 - 5y\nx = (20 - 5y)/10\nSubstituting the expression for x in the second equation:\n5((20 - 5y)/10) + 12y = 17.50\nSolving for y:\ny = 2.5\nSubstituting the value for y back in the first equation:\nx = (20 - 5*2.5)/10\nx = 1.5\nTherefore, a croissant costs €1.50 and a pain au chocolat costs €2.50.",
     "id": 156
@@ -2335,11 +1953,10 @@ export const problems = [
     "problem": "A consumer travels 450 km at a speed of 60 km/h. How much time will it take for them to reach their destination?",
     "length": 112,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "distance",
       "speed",
       "time",
-      "consumer",
       "time-distance-speed"
     ],
     "solution": "To find the time taken, we can use the formula: Time = Distance / Speed. Substituting the values given, we get: Time = 450 km / 60 km/h = 7.5 h. Therefore, it will take the consumer 7.5 hours to reach their destination.",
@@ -2354,9 +1971,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "rectangle",
-      "dimensions",
-      "metric",
-      "5thgrade"
+      "metric-units"
     ],
     "solution": "First, we can use the formula for the perimeter of a rectangle: Perimeter = 2(length + width). We know the perimeter is 30 meters, so we can write: 30 = 2(length + width). Next, we can use the information about the length being 3 meters longer than the width to write an equation: length = width + 3. We can substitute this into the first equation and solve for the width and length.",
     "id": 158
@@ -2368,10 +1983,7 @@ export const problems = [
     "length": 178,
     "tags": [
       "probability",
-      "binomial",
-      "consumer",
-      "random",
-      "5thGrade"
+      "grade-5"
     ],
     "solution": "\frac{bin(2,2)bin(80,3)}{bin(100,5)}",
     "id": 159
@@ -2384,9 +1996,8 @@ export const problems = [
     "tags": [
       "multiplication",
       "measurement",
-      "metric",
-      "consumer",
-      "fifth-grade",
+      "metric-units",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to multiply the weight of the apples by the price per kilogram to find the total cost. This is a suitable problem for 5th graders as it involves basic multiplication and measurement concepts.",
@@ -2398,11 +2009,9 @@ export const problems = [
     "problem": "A consumer buys 2.5kg of apples for €3.50/kg and 1.8kg of bananas for €2.75/kg. What is the total amount they spent on fruits?",
     "length": 126,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "measurement",
-      "decimal-numbers",
       "multiplication",
-      "consumer-math",
       "science"
     ],
     "solution": "This problem involves calculating the cost of different items based on their weight and price per kilogram. It requires understanding of decimal numbers and multiplication to find the total cost.",
@@ -2414,10 +2023,8 @@ export const problems = [
     "problem": "The consumer production of electronic devices has increased significantly in recent years.",
     "length": 90,
     "tags": [
-      "grammatical-error",
-      "incorrect-word",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error. The correct phrase should be 'The consumption of electronic devices has increased significantly in recent years.' 'Consumer production' implies the production of goods for consumers, while 'consumption' refers to the act of using or purchasing goods and services.",
     "id": 162
@@ -2428,9 +2035,8 @@ export const problems = [
     "problem": "The consumer of the sugary treats often crave for more.",
     "length": 55,
     "tags": [
-      "grammar-singular-verb-plural-noun",
-      "5th-grade-grammar",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'crave for more' which should be 'craves for more'. This is because 'crave' is a singular verb and 'more' is a singular noun. In this sentence, we need to use the plural form of 'crave' which is 'craves'.",
     "id": 163
@@ -2441,12 +2047,8 @@ export const problems = [
     "problem": "Explain how a company can become a consumer of other companies through strategic acquisitions and mergers.",
     "length": 106,
     "tags": [
-      "consumerism",
-      "business",
-      "acquisitions",
-      "mergers",
-      "5thGrade",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "Nestle became a consumer of Starbucks through its acquisition of a significant stake in the coffee chain.",
     "id": 164
@@ -2458,11 +2060,7 @@ export const problems = [
     "length": 158,
     "tags": [
       "airplane",
-      "stability",
-      "horizontal",
-      "stabilizer",
-      "fifth-grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer, also known as the tailplane, is an aerodynamic surface located at the tail of an airplane. It counteracts the upward force of lift generated by the wings, ensuring that the airplane maintains stable flight. The angle of the horizontal stabilizer can be adjusted to control the airplane's pitch attitude.",
     "id": 165
@@ -2473,13 +2071,8 @@ export const problems = [
     "problem": "A scientist discovers a new species of bacteria that can consume methane gas. If one gram of methane is consumed by the bacteria in one hour, what is the rate of methane consumption in millimoles per hour?",
     "length": 205,
     "tags": [
-      "consumption",
-      "methane",
-      "bacteria",
-      "rate",
-      "mole",
-      "5thGrade",
-      "science-trivia"
+      "grade-5",
+      "science"
     ],
     "solution": "Methane has a molecular weight of 16 g/mol. Therefore, one millimole of methane is equal to 16 milligrams. The rate of methane consumption is therefore 62.5 millimoles per hour.",
     "id": 166
@@ -2491,11 +2084,9 @@ export const problems = [
     "length": 84,
     "tags": [
       "algebra",
-      "system-of-equations",
       "linear-equations",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the larger number and y be the smaller number.   $$x + y = 12$$ $$x = y + 3$$   Substituting the second equation into the first equation:  $$(y + 3) + y = 12$$ $$2y + 3 = 12$$ $$2y = 9$$ $$y = 4.5$$   The larger number is x = y + 3 = 4.5 + 3 = 7.5.",
     "id": 167
@@ -2506,11 +2097,10 @@ export const problems = [
     "problem": "The train travels 300km at a speed of 60km/h. How long will it take the train to reach its destination?",
     "length": 103,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "distance",
       "speed",
       "time",
-      "formula",
       "time-distance-speed"
     ],
     "solution": "To find the time taken, we can use the formula: time = distance / speed.   Plugging in the values, we get:   $$time = \frac{300km}{60km/h}$$  $$time = 5h$$  Therefore, it will take the train 5 hours to reach its destination.",
@@ -2523,11 +2113,8 @@ export const problems = [
     "length": 230,
     "tags": [
       "geometry",
-      "circle",
       "area",
-      "diameter",
-      "radius",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, find the radius of the sandbox by dividing the diameter by 2. Then, find the area of the circle using the formula for the area of a circle: A = πr². Finally, subtract the area of the sandcastle from the area of the sandbox to find the remaining area.",
     "id": 169
@@ -2540,8 +2127,7 @@ export const problems = [
     "tags": [
       "probability",
       "conditional-probability",
-      "binomial-distribution",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{12 \times 8}{20 \times 19}",
     "id": 170
@@ -2552,7 +2138,7 @@ export const problems = [
     "problem": "The train travels 3600m at a speed of 40km/h. How long will it take for the train to travel 1800m?",
     "length": 98,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "speed",
       "distance",
       "time",
@@ -2569,10 +2155,8 @@ export const problems = [
     "length": 84,
     "tags": [
       "algebra",
-      "proportions",
       "percentage",
-      "fifth-grade",
-      "word-problem",
+      "grade-5",
       "science"
     ],
     "solution": "This problem involves proportional relationships and algebraic equations, concepts that are appropriate for 5th graders. It requires students to translate the word problem into mathematical equations and solve them to find the unknown numbers.",
@@ -2584,10 +2168,7 @@ export const problems = [
     "problem": "The book the I read yesterday was really interesting.",
     "length": 53,
     "tags": [
-      "SyntaxError",
-      "MisplacedModifier",
-      "PrimarySubjectAgreement5",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a misplaced modifier. 'The book the I read yesterday' should be 'The book that I read yesterday'.",
     "id": 173
@@ -2598,10 +2179,7 @@ export const problems = [
     "problem": "The woldest tree in the forest is taller than the other ones.",
     "length": 61,
     "tags": [
-      "grammatical_error",
-      "spelling_error",
-      "5th_grade",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The correct spelling is 'world' instead of 'wold'. 'Wold' is an incorrect spelling of 'world'.",
     "id": 174
@@ -2612,13 +2190,11 @@ export const problems = [
     "problem": "Write a sentence using the word 'the' that describes an object that can hold a volume of at least 100 cubic centimeters but not more than 500 cubic centimeters.",
     "length": 160,
     "tags": [
-      "english-grammar",
-      "sentence-structure",
       "vocabulary",
       "measurement",
       "volume",
       "metric-units",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The teapot holds exactly 200 cubic centimeters of tea.",
     "id": 175
@@ -2629,13 +2205,7 @@ export const problems = [
     "problem": "What is the function of the 'The' winglet on an airplane?",
     "length": 57,
     "tags": [
-      "airplane",
-      "winglet",
-      "lift",
-      "takeoff",
-      "landing",
-      "3rdGrade",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "The winglet is an aerodynamic appendage that extends from the wingtip of an airplane. It increases lift at low angles of attack, allowing for tighter turns and better stability during takeoff and landing.",
     "id": 176
@@ -2647,11 +2217,8 @@ export const problems = [
     "length": 60,
     "tags": [
       "chemistry",
-      "molecules",
-      "atomic-mass",
-      "mass",
-      "3rd-grade",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "An oxygen molecule is composed of two oxygen atoms. Each oxygen atom has a mass of approximately 16 atomic mass units (amu). Therefore, the approximate mass of an oxygen molecule is 2 x 16 amu = 32 amu, which is approximately 5.32 x 10^-23 grams.",
     "id": 177
@@ -2663,11 +2230,8 @@ export const problems = [
     "length": 182,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "monetary",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the number of $10 bills and y be the number of $5 bills.\n5y + 10x = 150\n y - x = 10\nSolving the second equation for y, we get y = x + 10.\nSubstituting that into the first equation, we get 5(x + 10) + 10x = 150.\nSolving this equation, we get x = 10 and y = 20.\nTherefore, there are 10 $10 bills and 20 $5 bills in the fund.",
     "id": 178
@@ -2678,10 +2242,7 @@ export const problems = [
     "problem": "A monetary policy decreases the speed of money in circulation by 3% per year. If the current speed of money is 10 times per year, how many years will it take for the speed to drop to 5 times per year?",
     "length": 200,
     "tags": [
-      "fifth-grade",
-      "speed-money",
-      "monetary-policy",
-      "time-distance",
+      "grade-5",
       "time-distance-speed"
     ],
     "solution": "Let x be the number of years it takes for the speed to drop from 10 to 5.   $$10e^{-0.03x} = 5$$  $$e^{-0.03x} = \frac{1}{2}$$  $$-0.03x = \text{ln}\frac{1}{2}$$  $$x = \frac{\text{ln}\frac{1}{2}}{-0.03} \boxed{ \text{approximately 23 years} }$$  ",
@@ -2695,10 +2256,7 @@ export const problems = [
     "tags": [
       "geometry",
       "area",
-      "fee",
-      "monetary",
-      "exchange",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, calculate the area of the space at the bureau. Then, find 5% of the exchange value as the fee. Subtract the fee from the area of the space to find the remaining area.",
     "id": 180
@@ -2710,10 +2268,8 @@ export const problems = [
     "length": 190,
     "tags": [
       "probability",
-      "inflation",
-      "monetary",
       "percentage",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{1}{6}",
     "id": 181
@@ -2724,10 +2280,8 @@ export const problems = [
     "problem": "The cost of renting a bike for 3 hours is €12. If the rental company charges an additional €2 per hour for every hour over 3 hours, how much would it cost to rent the bike for 5 hours?",
     "length": 184,
     "tags": [
-      "money",
-      "variable-cost",
       "multiplication",
-      "fifth-grade",
+      "grade-5",
       "metric-units",
       "physics"
     ],
@@ -2740,12 +2294,8 @@ export const problems = [
     "problem": "A monetary policy suggests increasing the value of one euro by 1.5% each month. If the current value of a euro is 1.20€, what will be the approximate value of a euro in 6 months?",
     "length": 178,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "percentage",
-      "monetary",
-      "inflation",
-      "approximate",
-      "euro",
       "science"
     ],
     "solution": "This problem requires understanding of percentages and simple arithmetic. It is relatable to real-world situations involving inflation and monetary policy.",
@@ -2757,10 +2307,7 @@ export const problems = [
     "problem": "The monetary value of the antique furniture was surprisingly high, despite its monetary depreciation over the years.",
     "length": 116,
     "tags": [
-      "5th-grade-syntax",
-      "noun-phrase-modification",
-      "grammar-error-correction",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the second clause. 'Monetary depreciation' should be 'monetary value depreciation' to create a cohesive and grammatically correct sentence.",
     "id": 184
@@ -2771,11 +2318,8 @@ export const problems = [
     "problem": "The company's monetary growth was significantly impacted by the recent economic downturn.",
     "length": 89,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "vocabulary-misuse",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'monetary' instead of 'monetory'. 'Monetary' refers to related to money or finances, while 'monetory' is not a recognized word.",
     "id": 185
@@ -2787,11 +2331,9 @@ export const problems = [
     "length": 165,
     "tags": [
       "algebra",
-      "system-of-equations",
       "speed",
       "distance",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "50 km",
     "id": 186
@@ -2802,8 +2344,7 @@ export const problems = [
     "problem": "A train travels 480 km at a speed that is 20% faster than its usual speed. If the journey took 6 hours, what was the usual speed of the train in km/h?",
     "length": 150,
     "tags": [
-      "fifth-grade",
-      "distance-time",
+      "grade-5",
       "speed",
       "proportion",
       "algebra",
@@ -2820,9 +2361,7 @@ export const problems = [
     "tags": [
       "geometry",
       "perimeter",
-      "square",
-      "notional",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem involves the idea of a 'notional' perimeter. While we can easily measure the perimeter of physical shapes, the perimeter of a square is a mathematical concept that exists only in our minds. It is not something that can be physically measured or held in our hands.",
     "id": 188
@@ -2835,9 +2374,7 @@ export const problems = [
     "tags": [
       "probability",
       "percentage",
-      "fifth-grade",
-      "counting",
-      "notional"
+      "grade-5"
     ],
     "solution": "30 marbles are red.",
     "id": 189
@@ -2848,11 +2385,8 @@ export const problems = [
     "problem": "A playful puppy chases a ball at a speed of 2 m/s. If the ball starts 5 m from the puppy, how long will it take the puppy to reach the ball? Assume the puppy moves in a straight line towards the ball.",
     "length": 200,
     "tags": [
-      "fifth-grade",
-      "distance-time",
-      "linear-motion",
+      "grade-5",
       "speed",
-      "toy-physics",
       "physics"
     ],
     "solution": "This problem involves calculating the distance the puppy needs to travel and dividing it by the speed of the puppy. This requires understanding of distance, speed, and time relationships.",
@@ -2864,8 +2398,7 @@ export const problems = [
     "problem": "A toy car travels 3.5 meters every second. How many meters will it travel in 7.5 seconds, considering the distance travelled in the initial second is purely notional?",
     "length": 166,
     "tags": [
-      "fifth-grade",
-      "notional-distance",
+      "grade-5",
       "multiplication",
       "metric-units",
       "science"
@@ -2879,10 +2412,8 @@ export const problems = [
     "problem": "The notional meaning of the word 'happy' is the feeling of joy.",
     "length": 63,
     "tags": [
-      "grammar-error",
-      "vocabulary-misuse",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error. 'Notional' means related to an idea or concept, not a physical feeling. The correct word should be 'emotional'.",
     "id": 192
@@ -2893,10 +2424,8 @@ export const problems = [
     "problem": "The author's use of notional concepts in the story helped to convey complex ideas in a clear and concise way.",
     "length": 109,
     "tags": [
-      "5th-grade-grammar",
-      "spelling-error",
-      "vocabulary-development",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'notional' instead of 'notionalism'. 'Notionalism' refers to the use of ideas or concepts as the basis for language or thought.",
     "id": 193
@@ -2908,10 +2437,7 @@ export const problems = [
     "length": 129,
     "tags": [
       "grade-5",
-      "currency",
-      "inflation",
-      "notional",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The notional value of the dollar is high, but its purchasing power is low due to inflation.",
     "id": 194
@@ -2923,12 +2449,7 @@ export const problems = [
     "length": 128,
     "tags": [
       "airplane",
-      "winglet",
-      "notional",
-      "lift",
-      "design",
-      "fifth grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The notional winglet is a theoretical extension of the wing that helps designers understand how airflow affects wing lift. It's not a physical part of the airplane, but it's used in calculations to optimize wing design.",
     "id": 195
@@ -2939,11 +2460,10 @@ export const problems = [
     "problem": "Calculate the volume of a cube with a side length of 5 cm.",
     "length": 58,
     "tags": [
-      "cube",
       "volume",
-      "metric",
-      "fifth-grade",
-      "science-trivia"
+      "metric-units",
+      "grade-5",
+      "science"
     ],
     "solution": "The volume of a cube is equal to the side length cubed. Therefore, the volume of a cube with a side length of 5 cm is 5 cm * 5 cm * 5 cm = 125 cm^3.",
     "id": 196
@@ -2954,10 +2474,8 @@ export const problems = [
     "problem": ",,5^{3} - 2^{4}/3,,",
     "length": 19,
     "tags": [
-      "algebraic-expression",
-      "fifth-grade",
-      "exponent",
-      "fraction",
+      "grade-5",
+      "fractions",
       "arithmetic"
     ],
     "solution": ",,125 - 32/3,,",
@@ -2970,12 +2488,9 @@ export const problems = [
     "length": 164,
     "tags": [
       "algebra",
-      "system-of-equations",
       "linear-equations",
-      "solution-by-substitution",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let n and d represent the number of nickels and dimes, respectively.\n$$n + d = 15$$ and $$n = 3d$$ \nSolving the second equation for n, we get \n$$n = 3d$$ \nSubstituting this into the first equation, we get \n$$3d + d = 15$$ \nSolving for d, we get \n$$4d = 15$$ \nTherefore, there are 3.75 dimes and 11.25 nickels.",
     "id": 198
@@ -2986,11 +2501,9 @@ export const problems = [
     "problem": "A train travels 360 km at a speed of 80 km/h. If the journey takes 5 hours less if the train travels at a speed of 100 km/h, how long did the journey take at the slower speed?",
     "length": 175,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "equation",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "Let x be the time taken at the slower speed. Then, the journey time at the faster speed is (x-5). Using the formula distance = speed × time, we have: 360 = 80x and 360 = 100(x-5). Solving these equations, we find x = 4.5 hours. Therefore, the journey took 4.5 hours at the slower speed.",
     "id": 199
@@ -3004,7 +2517,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "triangle",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, find the length of one side by subtracting the known side length from the perimeter. Then, since the triangle has two equal sides, each of the other two sides is equal to half the remaining perimeter.",
     "id": 200
@@ -3016,10 +2529,8 @@ export const problems = [
     "length": 211,
     "tags": [
       "probability",
-      "conditional",
-      "alternatives",
-      "fraction",
-      "fifth-grade"
+      "fractions",
+      "grade-5"
     ],
     "solution": "\frac{2}{20}",
     "id": 201
@@ -3031,9 +2542,7 @@ export const problems = [
     "length": 163,
     "tags": [
       "physics",
-      "conservation-of-energy",
-      "frictionless-incline",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem requires the student to apply the conservation of mechanical energy. They must calculate the potential energy at the top of the incline and then use the relationship between potential and kinetic energy to find the speed at the top.",
     "id": 202
@@ -3045,10 +2554,7 @@ export const problems = [
     "length": 186,
     "tags": [
       "multiplication",
-      "conditional-statements",
-      "logic",
-      "reasoning",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to apply their understanding of multiplication and conditional statements. They need to consider the scenario where some trees fail to yield and adjust the total yield accordingly. This problem also involves applying logic and reasoning skills to solve the problem.",
@@ -3060,10 +2566,7 @@ export const problems = [
     "problem": "If you want to eat something healthy, else pasta is a good option.",
     "length": 66,
     "tags": [
-      "grammatical-error",
-      "syntax-error",
-      "fifth-grade-level",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because 'else' should be followed by a positive or negative statement, but not both. In this sentence, 'else' is incorrectly used with 'pasta is a good option'.",
     "id": 204
@@ -3074,11 +2577,9 @@ export const problems = [
     "problem": "I would rather do anything, else but play outside today.",
     "length": 56,
     "tags": [
-      "5thGrade",
-      "Grammar",
-      "Spelling",
-      "WordChoice",
-      "bad-spelling"
+      "grade-5",
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'else but'. The correct word should be 'except'. 'But' means 'however' or 'in addition to', while 'except' means 'excluding'.",
     "id": 205
@@ -3090,10 +2591,7 @@ export const problems = [
     "length": 160,
     "tags": [
       "grade-5",
-      "conditional-sentence",
-      "possibility",
-      "contrary-condition",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "If you practice diligently for the competition, else you might end up feeling disappointed.",
     "id": 206
@@ -3105,12 +2603,7 @@ export const problems = [
     "length": 182,
     "tags": [
       "airplane",
-      "horizontal stabilizer",
-      "balance",
-      "flight",
-      "fifth grade",
-      "aviation",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer has a slight upward tilt, which counteracts the natural tendency of the airplane to yaw downwards due to air flowing over and under its wings. This small tilt helps maintain the airplane's equilibrium and stability during flight.",
     "id": 207
@@ -3121,13 +2614,8 @@ export const problems = [
     "problem": "What is the volume of a cube with an edge length of 5 cm?",
     "length": 57,
     "tags": [
-      "cube",
       "volume",
-      "edge",
-      "length",
-      "cm",
-      "3rd grade",
-      "science-trivia"
+      "science"
     ],
     "solution": "The volume of a cube is equal to the side length cubed. So, the volume of a cube with an edge length of 5 cm is \text{5 cm}^3.",
     "id": 208
@@ -3139,12 +2627,10 @@ export const problems = [
     "length": 164,
     "tags": [
       "algebra",
-      "system-of-equations",
       "rectangle",
       "perimeter",
-      "fifth-grade",
-      "metric-units",
-      "two-variable-algebra"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "Let l and w represent the length and width of the roof in meters.\n2l + 2w = 40\n l = w + 2\nSubstituting the second equation into the first equation:\n2(w + 2) + 2w = 40\n 2w + 4 + 2w = 40\n 4w = 36\n w = 9\n l = w + 2 = 9 + 2 = 11\n The length of the roof is 11 meters and the width is 9 meters.",
     "id": 209
@@ -3155,12 +2641,10 @@ export const problems = [
     "problem": "The schoolhouse bell rings at a rate of 1 ring every 3 minutes. If a student walks at a steady pace of 5 meters per minute from their home to the schoolhouse, how long will it take them to reach the schoolhouse after the bell rings?",
     "length": 232,
     "tags": [
-      "fifth-grade",
-      "time-distance",
+      "grade-5",
+      "time-distance-speed",
       "speed",
-      "distance",
-      "schoolhouse",
-      "time-distance-speed"
+      "distance"
     ],
     "solution": "First, we need to find the time it takes for the student to reach the schoolhouse. We can do this by dividing the distance (distance to school) by the speed (speed of student).  $$t = \frac{d}{v} = \frac{500\text{ m}}{5\text{ m/min}} = 100\text{ min}$$  Therefore, it will take the student 100 minutes to reach the schoolhouse after the bell rings.",
     "id": 210
@@ -3172,10 +2656,8 @@ export const problems = [
     "length": 170,
     "tags": [
       "geometry",
-      "circles",
       "perimeter",
-      "radius",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, find the radius of the playground by dividing the circumference by 2π. Then, increase the radius by 2 meters and use the formula for the circumference of a circle to find the new circumference.",
     "id": 211
@@ -3188,9 +2670,7 @@ export const problems = [
     "tags": [
       "conditional-probability",
       "fractions",
-      "school-math",
-      "probability-theory",
-      "fifth-grade",
+      "grade-5",
       "probability"
     ],
     "solution": "\frac{1}{4}+\frac{3}{7}=\frac{17}{28}",
@@ -3203,9 +2683,8 @@ export const problems = [
     "length": 185,
     "tags": [
       "geometry",
-      "shadows",
       "proportion",
-      "fifth-grade",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of triangles and the relationship between their sides. They need to use the proportion of the shadow length to the height of the schoolhouse to find the height of the schoolhouse.",
@@ -3219,7 +2698,7 @@ export const problems = [
     "tags": [
       "perimeter",
       "linear-equations",
-      "fifth-grade",
+      "grade-5",
       "metric-units",
       "science"
     ],
@@ -3232,10 +2711,8 @@ export const problems = [
     "problem": "The schoolhouse was the place where many children gather to learn everyday.",
     "length": 75,
     "tags": [
-      "verb-tense-error",
-      "grammar-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error in the verb tense. 'Gather' is in the present tense, but the sentence talks about an everyday action that happens repeatedly. The correct tense should be 'gatherS'.",
     "id": 215
@@ -3246,10 +2723,8 @@ export const problems = [
     "problem": "The schoolhouse's bell rung a melody that echoed through the streets, reminding children of the lessons waiting for them inside.",
     "length": 128,
     "tags": [
-      "grammar-error-noun-possessive",
-      "5th-grade-grammar",
-      "incorrect-possessive-ending",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'schoolhouse's' instead of 'schoolhouse'.",
     "id": 216
@@ -3260,11 +2735,9 @@ export const problems = [
     "problem": "Write a sentence using the word 'schoolhouse' that describes a place where students can gather to learn and grow.",
     "length": 113,
     "tags": [
-      "4thGrade",
-      "SentenceStructure",
-      "Vocabulary",
-      "LearningEnvironment",
-      "sentence-prompt"
+      "grammar",
+      "vocabulary",
+      "sentence-writing"
     ],
     "solution": "The brightly painted schoolhouse is a happy place where children can explore new ideas and make new friends.",
     "id": 217
@@ -3276,11 +2749,7 @@ export const problems = [
     "length": 125,
     "tags": [
       "airplane",
-      "horizontal stabilizer",
-      "flight",
-      "stability",
-      "5th grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer helps maintain the airplane's level during flight by counteracting the natural tendency of the wings to create an upward lift. It works by adjusting the airflow over and under the wings, ensuring that the airplane maintains horizontal equilibrium.",
     "id": 218
@@ -3291,12 +2760,8 @@ export const problems = [
     "problem": "What is the smallest unit of electricity in a circuit? Its charge is equal to the charge of approximately how many electrons?",
     "length": 125,
     "tags": [
-      "circuit",
-      "electricity",
-      "electron",
-      "charge",
-      "3rd-grade",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "The smallest unit of electricity in a circuit is the electron. One electron carries a charge of approximately -1.6\times10^{-19} Coulomb.",
     "id": 219
@@ -3308,11 +2773,8 @@ export const problems = [
     "length": 155,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "circle-geometry",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let r be the radius of the bonfire in meters.\n 2r + 2(r-2) = 12\n 4r = 16\n r = 4 meters\n",
     "id": 220
@@ -3323,11 +2785,9 @@ export const problems = [
     "problem": "A bonfire is consuming firewood at a rate of 1.5 meters per minute. If the bonfire starts at 7:30 PM, when will the firewood be completely consumed if there are 4.5 meters of firewood remaining?",
     "length": 194,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "linear-motion",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "Let t be the time in minutes since the bonfire started. The amount of firewood remaining is then 4.5 - 1.5t meters. When the firewood is completely consumed, this amount is 0. So we can write the equation:  $$0 = 4.5 - 1.5t$$  Solving for t, we get:  $$1.5t = 4.5$$  $$t = 3$$  Therefore, the firewood will be completely consumed at 7:30 PM + 3 minutes = 7:33 PM.",
     "id": 221
@@ -3339,10 +2799,8 @@ export const problems = [
     "length": 148,
     "tags": [
       "geometry",
-      "circle",
-      "cone",
       "volume",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, find the radius of the circle by dividing the diameter by 2. Then, use the formula for the volume of a cone to find the volume of the bonfire's space.",
     "id": 222
@@ -3354,9 +2812,8 @@ export const problems = [
     "length": 190,
     "tags": [
       "probability",
-      "uniform-distribution",
       "conditional-probability",
-      "5th-grade"
+      "grade-5"
     ],
     "solution": "P = (30cm / 0.5cm/min) * (2h / 1h) = 120. Therefore, the probability that the bonfire will burn through all the wood in 2 hours is 120 out of 120, or 1.",
     "id": 223
@@ -3367,10 +2824,7 @@ export const problems = [
     "problem": "A bonfire has a cylindrical shape with a height of 1.5 m and a diameter of 1.2 m. If the bonfire consumes fuel at a rate of 0.5 kg/min, how much fuel will be consumed in 20 minutes?",
     "length": 181,
     "tags": [
-      "volume-cylinder",
-      "mass-consumption",
-      "proportional-relationships",
-      "5th-grade",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their knowledge of cylinder volume and mass to solve a real-world problem related to energy production. It also involves proportional relationships and unit conversions.",
@@ -3382,9 +2836,7 @@ export const problems = [
     "problem": "A bonfire has a radius of 1.5 meters. If the bonfire is 1.2 meters tall, what is its volume?",
     "length": 92,
     "tags": [
-      "math-volume",
-      "geometry-cylinder",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to recall the formula for the volume of a cylinder, which is V = πr²h. It also requires them to be able to substitute values into the formula and solve for the volume.",
@@ -3396,10 +2848,8 @@ export const problems = [
     "problem": "We built a bonfires last night to keep warm.",
     "length": 44,
     "tags": [
-      "grammatical-error",
-      "singular-noun",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses 'bonfires' instead of 'bonfire'. 'Bonfires' is the plural form of 'bonfire', so it should be 'We built a bonfire last night...'.",
     "id": 226
@@ -3410,10 +2860,7 @@ export const problems = [
     "problem": "The roaring bonfire cast dancing shadows on the towering trees, casting an eerie glow upon the star-studded night sky.",
     "length": 118,
     "tags": [
-      "5th-grade-spelling",
-      "misspell-shadow",
-      "grammar-shadows-dancing",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'shadowing' instead of 'shadows'. 'Shadowing' means to reduce the brightness of something, while 'shadows' refers to dark areas created by an object blocking light.",
     "id": 227
@@ -3424,14 +2871,8 @@ export const problems = [
     "problem": "Describe a cozy night where a bonfire is warming the night air, casting shadows of dancing flames onto the surrounding forest.",
     "length": 126,
     "tags": [
-      "fifth-grade",
-      "bonfire",
-      "night",
-      "shadows",
-      "forest",
-      "warming",
-      "cosy",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "The crackling flames of the bonfire cast long shadows of dancing trees onto the moonlit forest.",
     "id": 228
@@ -3443,12 +2884,7 @@ export const problems = [
     "length": 133,
     "tags": [
       "airplane",
-      "horizontal stabilizer",
-      "tailplane",
-      "pitch",
-      "fifth grade",
-      "aviation",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer, also known as the tailplane, helps maintain level flight by counteracting the natural tendency of an airplane to rise or dive. Its wings are angled slightly upwards to create lift, which counteracts the gravitational force pulling the airplane downwards.",
     "id": 229
@@ -3460,12 +2896,8 @@ export const problems = [
     "length": 71,
     "tags": [
       "chemistry",
-      "3rd-grade",
-      "bonfire",
-      "chemical-reactions",
-      "embers",
-      "gas",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "The glowing embers in a bonfire are due to the chemical reactions taking place between the wood and oxygen. As the wood burns, it releases gases like carbon monoxide and hydrogen, which react with oxygen in the air to produce carbon dioxide and water vapor. The heat from these reactions causes the embers to glow.",
     "id": 230
@@ -3477,10 +2909,8 @@ export const problems = [
     "length": 192,
     "tags": [
       "algebra",
-      "system-of-equations",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the cost of the plane ticket and y be the cost of the hotel room. We know that x + y = 3000€ and x = 2000€. Substituting the second equation into the first equation, we get 2000€ + y = 3000€. Solving for y, we get y = 1000€. Therefore, you spent 1000€ on the hotel room.",
     "id": 231
@@ -3491,12 +2921,10 @@ export const problems = [
     "problem": "An airplane departs from London at 10:00 am and travels abroad to Paris at a speed of 800 km/h. If the flight duration is 2 hours, what time will the airplane arrive in Paris?",
     "length": 175,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "flight",
       "metric-units",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we need to calculate the distance between the two cities. Distance = Speed × Time. Distance = 800 km/h × 2h = 1600 km.  Next, we need to find the arrival time in Paris. Arrival time = Departure time + Flight duration. Arrival time = 10:00 am + 2h = 12:00 pm.  Therefore, the airplane will arrive in Paris at **12:00 pm**.",
     "id": 232
@@ -3510,8 +2938,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "rectangle",
-      "dimensions",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, let's represent the width of the building as 'w' meters. Since the length is 2 meters more than the width, the length can be expressed as 'w + 2' meters. The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 40 meters, so we can write the equation: 2(w + 2) + 2w = 40. Solving this equation will give us the values for both the width and length of the building.",
     "id": 233
@@ -3522,11 +2949,7 @@ export const problems = [
     "problem": "An airline offers direct flights from London to two different cities: Paris and Rome. The probability of reaching Paris is 70%, while the probability of reaching Rome is 30%. If you book a flight to go abroad, what is the probability that you will reach Rome?",
     "length": 259,
     "tags": [
-      "probability",
-      "flight",
-      "destinations",
-      "conditional_probability",
-      "fifth_grade"
+      "probability"
     ],
     "solution": "\frac{30}{70} = \frac{3}{7}",
     "id": 234
@@ -3538,9 +2961,7 @@ export const problems = [
     "length": 184,
     "tags": [
       "distance",
-      "mass",
-      "average",
-      "fifth-grade",
+      "grade-5",
       "metric-units",
       "physics"
     ],
@@ -3556,9 +2977,7 @@ export const problems = [
       "multiplication",
       "division",
       "distance",
-      "fuel",
-      "conversion",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to apply their understanding of multiplication and division to solve a real-world problem involving distance and fuel consumption. It also requires them to convert between kilometers and liters.",
@@ -3570,10 +2989,8 @@ export const problems = [
     "problem": "She going abroad with her family next month.",
     "length": 44,
     "tags": [
-      "grammar-error",
-      "tense-error",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error. The correct form is 'She is going abroad with her family next month.' The word 'going' should be 'is going' because 'she' is a singular third-person subject.",
     "id": 237
@@ -3584,10 +3001,8 @@ export const problems = [
     "problem": "I can't wait to abroad to Europe next summer!",
     "length": 45,
     "tags": [
-      "spell-check",
-      "grammar-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'abroad' instead of 'abroad to'. 'Abroad' means 'in a foreign country', but 'abroad to' means 'going to a foreign country'.",
     "id": 238
@@ -3598,11 +3013,7 @@ export const problems = [
     "problem": "Write a sentence using the word 'abroad' to describe a place you would like to visit that is far from your home.",
     "length": 112,
     "tags": [
-      "grade:5",
-      "vocabulary:abroad",
-      "context:travel",
-      "complexity:medium",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "I would love to explore the vibrant streets of Barcelona abroad, tasting delicious pastries and learning about their culture.",
     "id": 239
@@ -3614,10 +3025,7 @@ export const problems = [
     "length": 137,
     "tags": [
       "airplane",
-      "stability",
-      "torque",
-      "fifth-grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The tail wing helps to stabilize the airplane during takeoff and landing by counteracting the rotating force (torque) generated by the engines. This ensures that the airplane remains stable and under control during these critical phases of flight.",
     "id": 240
@@ -3629,11 +3037,8 @@ export const problems = [
     "length": 114,
     "tags": [
       "chemistry",
-      "seawater",
-      "sodium",
-      "concentration",
-      "5thGrade",
-      "science-trivia"
+      "grade-5",
+      "science"
     ],
     "solution": "The concentration of sodium in seawater can be calculated as 35 grams of sodium per kilogram of seawater. One liter of seawater is equal to 1 kilogram. Therefore, there are 35 grams of sodium in 1 liter of seawater.",
     "id": 241
@@ -3645,10 +3050,7 @@ export const problems = [
     "length": 184,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "multi-step",
-      "5th-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the number of people in the vegetable section.\n3x=120\nx=40\nTherefore, there are 40 people in the vegetable section.",
     "id": 242
@@ -3659,12 +3061,9 @@ export const problems = [
     "problem": "A bustling marketplace has a foot traffic of 150 people per minute. If the average speed of a person in the marketplace is 1.2 m/s, how long will it take for 300 people to pass through the marketplace?",
     "length": 201,
     "tags": [
-      "fifth-grade",
-      "time-distance",
-      "speed",
-      "traffic",
-      "marketplace",
-      "time-distance-speed"
+      "grade-5",
+      "time-distance-speed",
+      "speed"
     ],
     "solution": "First, we need to find the time it takes for one person to pass through the marketplace. We can divide the total traffic per minute by the average speed of a person: 150 ÷ 1.2 = 125 s/person.  Next, we need to find the time it takes for 300 people to pass through the marketplace. We can multiply the time it takes for one person by the number of people: 125 × 3 = 375 s.  Therefore, it will take 375 seconds for 300 people to pass through the bustling marketplace.",
     "id": 243
@@ -3677,10 +3076,7 @@ export const problems = [
     "tags": [
       "geometry",
       "perimeter",
-      "circle",
-      "radius",
-      "buffer zone",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we need to find the circumference of the central plaza using the formula: C = 2πr. Then, we need to calculate the length of the perimeter of the booths by adding the circumference of the plaza with the total buffer zone width around the plaza.",
     "id": 244
@@ -3691,9 +3087,8 @@ export const problems = [
     "problem": "A bustling market has 300 stalls selling various goods. 40% of the stalls sell food, while the remaining 60% sell non-food items. If a customer randomly selects 5 stalls to visit, what is the probability that exactly 3 of them sell food items?",
     "length": 243,
     "tags": [
-      "probability-combinations",
       "conditional-probability",
-      "fifth-grade",
+      "grade-5",
       "probability"
     ],
     "solution": "\frac{binom{120}{3}binom{180}{2}}{binom{300}{5}}$",
@@ -3705,12 +3100,8 @@ export const problems = [
     "problem": "A bustling marketplace has 300 people moving around at an average speed of 1.5 m/s. What is the total distance covered by all the people in the marketplace in one minute?",
     "length": 170,
     "tags": [
-      "fifth-grade",
-      "velocity",
-      "displacement",
+      "grade-5",
       "distance",
-      "marketplace",
-      "people",
       "physics"
     ],
     "solution": "This problem involves calculating the total distance covered by a group of people moving at different speeds. It requires an understanding of velocity, displacement, and distance. This is a suitable problem for 5th graders who have been introduced to these concepts.",
@@ -3722,11 +3113,8 @@ export const problems = [
     "problem": "A bustling marketplace has 360 shops. If each shop sells an average of 80 customers per hour, how many customers are there in the marketplace every hour?",
     "length": 153,
     "tags": [
-      "multiples",
       "arithmetic",
-      "commerce",
-      "marketplace",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to multiply the number of shops by the average number of customers per hour to find the total number of customers in the marketplace every hour.",
@@ -3738,10 +3126,8 @@ export const problems = [
     "problem": "The bustling streets were filled with cars, people, and even a few motorcycles, creating a lively atmosphere.",
     "length": 109,
     "tags": [
-      "grammatical-error",
-      "tense-agreement",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a minor grammatical error. 'Creating' should be 'creates' in the last sentence.",
     "id": 248
@@ -3752,10 +3138,8 @@ export const problems = [
     "problem": "The bustling marketplace was filled with the hum of conversations and the scent of spices, creating a lively atmosphere.",
     "length": 120,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "MisspelledWord",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'bustling' instead of 'bustle'. 'Bustling' means very busy or active, while 'bustle' refers to a commotion or activity.",
     "id": 249
@@ -3766,13 +3150,7 @@ export const problems = [
     "problem": "Describe a bustling market where the scent of fresh spices fills the air and brightly colored fabrics dance like waves in the breeze.",
     "length": 133,
     "tags": [
-      "4th grade",
-      "figurative language",
-      "sensory details",
-      "market",
-      "spices",
-      "fabric",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The colorful spices at the market bustled around like happy little birds.",
     "id": 250
@@ -3783,12 +3161,7 @@ export const problems = [
     "problem": "What is the function of the winglet on an airplane?",
     "length": 119,
     "tags": [
-      "airplane",
-      "winglet",
-      "lift",
-      "aviation",
-      "3rdGrade",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "Winglets are small surfaces attached to the main wings of an airplane. They generate additional lift, which helps the airplane take off and climb more efficiently.",
     "id": 251
@@ -3800,10 +3173,7 @@ export const problems = [
     "length": 152,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "linear-equation",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the number of flowers Heather buys.\nx * 5 + 10 = 30\nx * 5 = 20\nx = 4\nHeather can buy 4 flowers.",
     "id": 252
@@ -3814,12 +3184,10 @@ export const problems = [
     "problem": "Heather hikes along a trail at a speed of 3.5 kilometers per hour. If she started her hike at 8:30 AM, when will she reach a point that is 7 kilometers away from the trailhead?",
     "length": 176,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
       "distance",
-      "trail",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we need to calculate the time it will take Heather to reach the 7 kilometer point. We can use the formula: time = distance / speed.  Time = 7 kilometers / 3.5 kilometers per hour = 2 hours.  Therefore, Heather will reach the 7 kilometer point at 10:30 AM.",
     "id": 253
@@ -3833,7 +3201,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "rectangle",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we can find the formula for the perimeter of a rectangle: Perimeter = 2(length + width). Then, we can substitute the given information into the formula and solve for the length and width.",
     "id": 254
@@ -3846,8 +3214,8 @@ export const problems = [
     "tags": [
       "probability",
       "ratio",
-      "fraction",
-      "fifth-grade"
+      "fractions",
+      "grade-5"
     ],
     "solution": "\frac{8}{10} = 0.8",
     "id": 255
@@ -3859,9 +3227,7 @@ export const problems = [
     "length": 204,
     "tags": [
       "geometry",
-      "shadows",
-      "angles",
-      "fifth-grade",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of triangles and shadows to solve a real-world problem. It involves measuring lengths and using ratios to find the length of the shadow at a different angle.",
@@ -3874,10 +3240,7 @@ export const problems = [
     "length": 199,
     "tags": [
       "measurement",
-      "circumference",
-      "growth",
-      "linear",
-      "5thGrade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to apply their knowledge of circumference and linear growth. Students need to understand the concept of circumference and be able to calculate the rate of change of a variable. This problem also requires them to be able to solve linear equations.",
@@ -3889,10 +3252,7 @@ export const problems = [
     "problem": "The heather beauty of the sunrise was breathtaking.",
     "length": 51,
     "tags": [
-      "misspelling-level5",
-      "grammar-error-5th",
-      "age-appropriate-5th",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a misspelling. The correct word is 'Heather'.",
     "id": 258
@@ -3903,10 +3263,7 @@ export const problems = [
     "problem": "The heather of the field smelled sweet in the morning breeze.",
     "length": 61,
     "tags": [
-      "5th-grade-spelling",
-      "misspelling",
-      "flower-vocabulary",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'heather' instead of 'heath'. 'Heath' is the correct word for a wild, bushy growth of heather plants.",
     "id": 259
@@ -3917,11 +3274,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'heather' that describes a colorful arrangement of flowers.",
     "length": 91,
     "tags": [
-      "english-grammar",
-      "flower-arrangement",
-      "sentence-construction",
-      "fifth-grade",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "The vibrant heathers in the garden formed a stunning tapestry of reds, oranges, and purples.",
     "id": 260
@@ -3933,14 +3287,7 @@ export const problems = [
     "length": 141,
     "tags": [
       "airplane",
-      "horizontal",
-      "stabilizer",
-      "equilibrium",
-      "stability",
-      "pitch",
-      "fifth-grade",
-      "aviation",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The horizontal stabilizer helps to maintain the airplane's equilibrium and stability by countering the effects of airflow over the wings. By adjusting its angle, pilots can control the airplane's pitch and maintain a steady course.",
     "id": 261
@@ -3951,14 +3298,7 @@ export const problems = [
     "problem": "What is the scientific name for a plant commonly known as 'Heather'?",
     "length": 68,
     "tags": [
-      "science",
-      "biology",
-      "plants",
-      "Ericaceae",
-      "flowers",
-      "mountains",
-      "3rdGrade",
-      "science-trivia"
+      "science"
     ],
     "solution": "The scientific name for heather is 'Ericaceae'. This family of plants includes many species with colorful flowers and foliage commonly found in mountainous regions.",
     "id": 262
@@ -3970,10 +3310,8 @@ export const problems = [
     "length": 186,
     "tags": [
       "algebra",
-      "system-of-equations",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the weight of the smaller stash (in kilograms).\nThe weight of the larger stash is then 3x.\nTogether, the stashes hold 240 kilograms, so:\nx + 3x = 240\nSolving for x, we get:\nx = 60\nThe smaller stash holds 60 kilograms, and the larger stash holds 3x = 3 * 60 = 180 kilograms.",
     "id": 263
@@ -3984,10 +3322,9 @@ export const problems = [
     "problem": "A rebel group travels 300km in 5 hours. At what speed did they travel, in kilometers per hour?",
     "length": 94,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "To find the speed, we can use the formula: speed = distance / time. Substituting the given values, we get: speed = 300km / 5h = 60km/h. Therefore, the rebel group travelled at a speed of 60km/h.",
     "id": 264
@@ -4001,8 +3338,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "rectangle",
-      "dimensions",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we can use the formula for the perimeter of a rectangle: Perimeter = 2(length + width). We know the perimeter is 80 meters, so we can write the equation: 80 = 2(length + width). Next, we can use the information about the length being 10 meters more than the width to write another equation: length = width + 10. We can substitute the second equation into the first equation and solve for the width. Then, we can use the value of the width to find the length.",
     "id": 265
@@ -4013,10 +3349,8 @@ export const problems = [
     "problem": "A bag of rebel marbles contains 30 marbles, of which 15 are red and 15 are blue. If you randomly pick 5 marbles from the bag, what is the probability that exactly 3 of them are red?",
     "length": 181,
     "tags": [
-      "probability-concepts",
       "conditional-probability",
-      "binomial-distribution",
-      "fifth-grade",
+      "grade-5",
       "probability"
     ],
     "solution": "\frac{13}{21}",
@@ -4029,10 +3363,7 @@ export const problems = [
     "length": 164,
     "tags": [
       "physics",
-      "gravity",
-      "potential-energy",
-      "kinetic-energy",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem requires students to recall the formula for gravitational potential energy and apply it to a real-life scenario. It also involves understanding the relationship between potential and kinetic energy.",
     "id": 267
@@ -4045,9 +3376,7 @@ export const problems = [
     "tags": [
       "division",
       "metric-units",
-      "fifth-grade",
-      "rebellion",
-      "explosive-material",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires dividing a large quantity of explosive material equally among a group of rebels. This is a division problem suitable for 5th graders.",
@@ -4059,10 +3388,8 @@ export const problems = [
     "problem": "The rebel group bravely fought against the oppressive government, seeking to restore freedom and justice for the people.",
     "length": 120,
     "tags": [
-      "grammatical-error",
-      "incorrect-verb-phrase",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence correctly uses the word 'rebel' but contains a grammatical error in the phrase 'seeking to restore freedom and justice for the people'. The correct form should be 'to restore freedom and justice for the people'.",
     "id": 269
@@ -4073,10 +3400,7 @@ export const problems = [
     "problem": "The rebel students whispered plans to overthrow the unfair principal's reign, but their voices were hushed by the watchful eyes of the teachers.",
     "length": 144,
     "tags": [
-      "5th-grade-vocabulary",
-      "spelling-error",
-      "grammar-agreement",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'hushed' instead of 'silenced'. 'Silenced' is the correct word when something is completely quiet, while 'hushed' means quieter or less loud. In this sentence, the students' voices were becoming quieter, not completely silent.",
     "id": 270
@@ -4087,13 +3411,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'rebel' that describes a character who stands up for what they believe in, even when it means going against the majority.",
     "length": 153,
     "tags": [
-      "5thGrade",
-      "CharacterDevelopment",
-      "MoralDilemmas",
-      "MagicTheme",
-      "StandingUp",
-      "MajorityConsensus",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "The young rebel hero used her magic to fight for the rights of the forest creatures.",
     "id": 271
@@ -4105,11 +3424,7 @@ export const problems = [
     "length": 96,
     "tags": [
       "airplane",
-      "vertical takeoff",
-      "vertical landing",
-      "5th grade",
-      "aviation",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "Rebel aircraft have a vertical takeoff and landing system (VTOL), which means they can generate enough lift to take off and land vertically. This feature allows them to operate from smaller landing pads and operate in more confined spaces.",
     "id": 272
@@ -4122,10 +3437,7 @@ export const problems = [
     "tags": [
       "science",
       "chemistry",
-      "atomic number",
-      "element",
-      "fifth grade",
-      "science-trivia"
+      "grade-5"
     ],
     "solution": "The atomic number of an element represents the number of protons in an atom's nucleus. The highest stable atomic number is 92, which corresponds to the element lead. Lead has 92 protons in its nucleus, giving it the highest atomic number of any stable element.",
     "id": 273
@@ -4137,10 +3449,8 @@ export const problems = [
     "length": 16,
     "tags": [
       "arithmetic",
-      "exponents",
       "fractions",
-      "decimals",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": ",,125/27-2/27,,",
     "id": 274
@@ -4152,11 +3462,8 @@ export const problems = [
     "length": 123,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "word-problem",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the number of sparrows. Then, the number of nests is x/2. We know there are 15 nests, so:  $$x/2 = 15$$  Solving for x:  $$x = 15 * 2 = 30$$  There are **30 sparrows** in total.",
     "id": 275
@@ -4170,8 +3477,7 @@ export const problems = [
       "distance",
       "speed",
       "time",
-      "conversion",
-      "fifth-grade",
+      "grade-5",
       "time-distance-speed"
     ],
     "solution": "First, we need to convert kilometers to meters. 1 kilometer is equal to 1000 meters. So, 3.5 kilometers is equal to 3.5 * 1000 = 3500 meters.  Next, we need to find the average speed by dividing the distance traveled by the time taken.   $$Average speed = \frac{Distance}{Time}$$  $$Average speed = \frac{3500m}{7min}$$  $$Average speed = 500m/min$$  Therefore, the sparrow's average speed is 500 meters per minute.",
@@ -4184,11 +3490,7 @@ export const problems = [
     "length": 154,
     "tags": [
       "probability",
-      "bird",
-      "park",
-      "adult",
-      "male",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{70}{100} = 0.7",
     "id": 277
@@ -4200,10 +3502,7 @@ export const problems = [
     "length": 164,
     "tags": [
       "physics",
-      "motion",
-      "velocity",
-      "period",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem requires students to combine their understanding of velocity and periodic motion to solve. They need to know how to calculate the distance covered in one wingbeat using the velocity and the number of wingbeats per second.",
     "id": 278
@@ -4214,10 +3513,9 @@ export const problems = [
     "problem": "A sparrow can fly at a speed of 15 kilometers per hour. How many meters can a sparrow fly in 3 hours?",
     "length": 101,
     "tags": [
-      "measurement-conversion",
       "speed",
       "time",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires students to convert kilometers to meters and multiply the speed by the time spent flying.",
@@ -4229,10 +3527,8 @@ export const problems = [
     "problem": "The sparrow chirped happily as it flutters around the garden, munching on the juicy worms.",
     "length": 90,
     "tags": [
-      "grammar-error",
-      "verb-tense-mismatch",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error in the second sentence. 'Flutters' should be 'flew'. 'Flutters' is the present tense, while 'flew' is the past tense.",
     "id": 280
@@ -4243,10 +3539,7 @@ export const problems = [
     "problem": "The tiny sparrow fluttered around the garden, chirping happily as it searched for worms in the soil.",
     "length": 100,
     "tags": [
-      "5th-grade-spelling",
-      "misspelling",
-      "common-error",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'chirping happily'. The correct spelling is 'chirping happily' with two 'p's. This is a common misspelling that many students make.",
     "id": 281
@@ -4257,13 +3550,7 @@ export const problems = [
     "problem": "Write a sentence using the word 'sparrow' that describes something small and feathered that might be seen flitting around in the springtime.",
     "length": 140,
     "tags": [
-      "sentence-construction",
-      "vocabulary-development",
-      "grammar-understanding",
-      "spring-theme",
-      "bird-knowledge",
-      "elementary-level",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The tiny sparrows chirped happily as they fluttered from flower to flower in the warm sunshine.",
     "id": 282
@@ -4275,15 +3562,8 @@ export const problems = [
     "length": 118,
     "tags": [
       "airplane",
-      "horizontal",
-      "stabilizer",
-      "sparrow",
-      "fifth-grade",
-      "metric",
-      "pitch",
-      "lift",
-      "drag",
-      "airplane-trivia"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "The horizontal stabilizer helps to control the airplane's pitch. It counteracts the lift and drag forces acting on the wings, ensuring that the airplane maintains stable flight.",
     "id": 283
@@ -4294,11 +3574,9 @@ export const problems = [
     "problem": "What is the approximate volume of a sparrow's beak in milliliters?",
     "length": 66,
     "tags": [
-      "birds",
-      "biology",
       "volume",
-      "3rd-grade",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "The beak of a sparrow is approximately the size of a small marble. A marble's volume is about 5 ml. So, the beak of a sparrow is roughly 5 milliliters.",
     "id": 284
@@ -4312,7 +3590,7 @@ export const problems = [
       "arithmetic",
       "fractions",
       "multiplication",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": ",,11/15,,",
     "id": 285
@@ -4324,11 +3602,7 @@ export const problems = [
     "length": 21,
     "tags": [
       "arithmetic",
-      "fifth-grade",
-      "borrowing",
-      "carrying",
-      "multi-digit",
-      "arithmetic-carry"
+      "grade-5"
     ],
     "solution": "Remember that when you borrow 1 from the tens place to the ones place, you need to subtract 1 from the tens place as well. This is similar to when a sparrow uses its beak to take something away from another sparrow.",
     "id": 286
@@ -4339,12 +3613,8 @@ export const problems = [
     "problem": "543 x 234",
     "length": 9,
     "tags": [
-      "multi-digit-multiplication",
-      "fifth-grade",
-      "arithmetic",
-      "math",
-      "multiplication-error",
-      "arithmetic-multiplication"
+      "grade-5",
+      "arithmetic"
     ],
     "id": 287
   },
@@ -4353,12 +3623,7 @@ export const problems = [
     "input": "sparrow",
     "problem": "1234 ÷ 567",
     "length": 10,
-    "tags": [
-      "division-with-carrying",
-      "rounding-errors",
-      "fifth-grade-math",
-      "arithmetic-division"
-    ],
+    "tags": [],
     "solution": "This problem tests several common errors in integer division. Students may forget to carry digits correctly, or may not understand when to round their answer. It also requires dividing by a number that is slightly larger than the dividend, making the problem slightly more challenging.",
     "id": 288
   },
@@ -4368,11 +3633,8 @@ export const problems = [
     "problem": "Sparrows flutter through the whispering grass.",
     "length": 46,
     "tags": [
-      "fifth-grade",
-      "grammar",
-      "handwriting",
-      "nonsense",
-      "handwriting-exercise"
+      "grade-5",
+      "grammar"
     ],
     "solution": "This sentence uses basic sentence structure and common words that are appropriate for a 5th grade student.",
     "id": 289
@@ -4384,11 +3646,8 @@ export const problems = [
     "length": 178,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "word-problem",
       "metric-units",
-      "5th-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x and x+2 represent the lengths (in meters) of the two patches. Then, 2x + 2(x+2) = 30. Solving for x gives 2x = 20, so the lengths are 10 and 12 meters.",
     "id": 290
@@ -4399,12 +3658,9 @@ export const problems = [
     "problem": "An enthusiastic runner covers 300 meters in 5 minutes. At this rate, how many minutes will it take them to cover 800 meters?",
     "length": 124,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "meters",
-      "minutes",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we can calculate the runner's speed in meters per minute by dividing the distance covered (300 meters) by the time taken (5 minutes). Speed = 300 meters / 5 minutes = 60 meters per minute.  Next, we can find the time it takes the runner to cover 800 meters by dividing the distance to be covered (800 meters) by the speed of the runner (60 meters per minute). Time = 800 meters / 60 meters per minute = 13 minutes.  Therefore, it will take the enthusiastic runner 13 minutes to cover 800 meters.",
     "id": 291
@@ -4416,10 +3672,8 @@ export const problems = [
     "length": 149,
     "tags": [
       "algebra",
-      "system-of-equations",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "The first train is 50 kilometers per hour faster than the second train.",
     "id": 292
@@ -4430,11 +3684,10 @@ export const problems = [
     "problem": "An airplane travels 450 km at a constant speed. If the pilot decides to increase the speed by 25%, how long will it take the airplane to cover the same distance at the new speed?",
     "length": 178,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
       "proportion",
-      "5th-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we need to find the airplane's new speed. 25% of 450 km/h is 450 km/h * 0.25 = 112.5 km/h. So the new speed is 450 km/h + 112.5 km/h = 562.5 km/h.  Next, we need to use the formula: time = distance / speed.   Time taken at new speed = 450 km / 562.5 km/h = 0.8 hours.  Therefore, the airplane will take **0.8 hours** to cover the same distance at the new speed.",
     "id": 293
@@ -4446,11 +3699,8 @@ export const problems = [
     "length": 148,
     "tags": [
       "geometry",
-      "fifth-grade",
-      "distance",
-      "vertical",
-      "climbing",
-      "tower"
+      "grade-5",
+      "distance"
     ],
     "solution": "First, find the total distance climbed in 6 minutes by multiplying 5 meters/minute by 6 minutes. Then, subtract the initial height (0 meters) from the total distance climbed to get the upshot.",
     "id": 294
@@ -4462,9 +3712,7 @@ export const problems = [
     "length": 199,
     "tags": [
       "probability",
-      "combinations",
-      "binomial",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{20\binom{80}{7}}{100\binom{100}{10}}$",
     "id": 295
@@ -4476,10 +3724,7 @@ export const problems = [
     "length": 147,
     "tags": [
       "physics",
-      "mechanics",
-      "constant-acceleration",
-      "gravity",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem requires students to apply the concept of constant acceleration due to gravity to calculate the height of an object launched vertically. It involves understanding the relationship between initial velocity, acceleration, and height.",
     "id": 296
@@ -4490,11 +3735,8 @@ export const problems = [
     "problem": "An astronaut on a space station throws a ball upwards with an initial velocity of 5 m/s. If the gravitational acceleration on the station is -2 m/s², how high above the station's surface will the ball be at the peak of its trajectory?",
     "length": 234,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "physics",
-      "gravity",
-      "projectile",
-      "potential-energy",
       "metric-units",
       "science"
     ],
@@ -4507,10 +3749,7 @@ export const problems = [
     "problem": "The upshot of their hard work was a remarkable transformation.",
     "length": 62,
     "tags": [
-      "grammatical-error",
-      "incorrect-word-usage",
-      "fifth-grade-level",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error. 'Upshot' means 'result' or 'outcome,' so it should be 'The result of their hard work was a remarkable transformation.'",
     "id": 298
@@ -4521,11 +3760,8 @@ export const problems = [
     "problem": "The principal's upshot of the new policy caused quite a stir among the students.",
     "length": 80,
     "tags": [
-      "5th-grade",
-      "spelling-error",
-      "grammar-error",
-      "unfamiliar-word",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'upshot' instead of 'upshot'. 'Upshot' is an uncommon word that means 'a sudden change or development in a situation'.",
     "id": 299
@@ -4536,11 +3772,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'upshot' that describes a situation where someone makes a sudden change that leads to a positive outcome.",
     "length": 137,
     "tags": [
-      "english-grammar",
-      "sentence-structure",
-      "vocabulary-development",
       "grade-5",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The tired runner took an unexpected upshot by eating a banana and feeling a burst of energy.",
     "id": 300
@@ -4551,16 +3784,7 @@ export const problems = [
     "problem": "What is the function of the upshot in an airplane engine?",
     "length": 57,
     "tags": [
-      "airplane",
-      "engine",
-      "upshot",
-      "fuel",
-      "air",
-      "velocity",
-      "power",
-      "efficiency",
-      "school_grade_level:3",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "The upshot is a device that increases the fuel-air mixture's velocity before it enters the engine's combustion chamber. This boosts the engine's power and efficiency by promoting better fuel-air mixing.",
     "id": 301
@@ -4573,12 +3797,7 @@ export const problems = [
     "tags": [
       "science",
       "chemistry",
-      "air",
-      "pressure",
-      "temperature",
-      "partial",
-      "3rd-grade",
-      "science-trivia"
+      "grade-3"
     ],
     "solution": "The upshot of water vapor in the air at room temperature is its partial pressure. Partial pressure is the pressure exerted by a component of a mixture, in this case, the water vapor in the air.",
     "id": 302
@@ -4589,10 +3808,9 @@ export const problems = [
     "problem": ",,(3/4) - ((1/8)/(1/3)),,",
     "length": 24,
     "tags": [
-      "algebraic-expression",
-      "fraction",
+      "fractions",
       "division",
-      "fifth-grade",
+      "grade-5",
       "arithmetic"
     ],
     "solution": ",,(11/24),,",
@@ -4605,11 +3823,9 @@ export const problems = [
     "length": 188,
     "tags": [
       "algebra",
-      "system-of-equations",
       "distance",
       "speed",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the time in hours it takes for the two trains to be 60km apart.\n360/x - 240/x = 60/x\n360 - 240 = 60x\n120 = 60x\nx = 2 hours",
     "id": 304
@@ -4620,12 +3836,10 @@ export const problems = [
     "problem": "A train travels at a speed of 60 km/h for 2 hours. How much distance did the train travel in total?",
     "length": 99,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "metric",
-      "fifth-grade",
-      "algebraic-expression",
-      "time-distance-speed"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "First, we need to convert the speed to meters per second. 60 km/h = 16.67 m/s. Next, we multiply the speed by the time to find the distance. 16.67 m/s * 2 h = 33.34 m. Therefore, the train traveled 33.34 meters in total.",
     "id": 305
@@ -4637,11 +3851,8 @@ export const problems = [
     "length": 224,
     "tags": [
       "geometry",
-      "circle",
-      "circumference",
       "area",
-      "radius",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, the gardener needs to find the radius of the circle using the formula: C = 2πr. Then, he can use the area formula to find the amount of area he needs to cover.",
     "id": 306
@@ -4653,9 +3864,8 @@ export const problems = [
     "length": 236,
     "tags": [
       "probability",
-      "random selection",
       "ratio",
-      "fifth grade"
+      "grade-5"
     ],
     "solution": "\frac{20}{30} = \frac{2}{3}",
     "id": 307
@@ -4666,11 +3876,9 @@ export const problems = [
     "problem": "A student has collected 3.5 kg of rainwater in a barrel over the past month. If the barrel already contained 2.2 kg of water, how much water is in the barrel now?",
     "length": 162,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "measurement",
-      "weight",
       "addition",
-      "decimals",
       "physics"
     ],
     "solution": "This problem requires students to recall the concept of adding weights together. It also involves understanding place value and decimal notation.",
@@ -4683,9 +3891,8 @@ export const problems = [
     "length": 266,
     "tags": [
       "division",
-      "average",
       "metric-units",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem involves dividing a known total amount of water by the number of containers to find the average amount. This is a common division concept learned in 5th grade.",
@@ -4698,12 +3905,9 @@ export const problems = [
     "length": 133,
     "tags": [
       "algebra",
-      "system-of-equations",
       "linear-equations",
-      "word-problem",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let x be the cost of 1 croissant and y be the cost of 1 pastry.\n5x + 3y = 13\n3x + 4y = 10\nSolving the first equation for x: x = (13 - 3y) / 5\nSubstituting this into the second equation: 3((13 - 3y) / 5) + 4y = 10\nSolving for y: y = 2\nSubstituting this back into the first equation: x = (13 - 3*2) / 5 = 3.\nSo, 7 croissants and 4 pastries would cost 7*3 + 4*2 = 25€.",
     "id": 310
@@ -4714,11 +3918,10 @@ export const problems = [
     "problem": "A ball is rolling on a grassy field at a speed of 2 m/s. If the ball starts at a point 5 meters from a tree, how long will it take for the ball to reach the tree if it continues to roll at a constant speed?",
     "length": 206,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "fifth-grade",
-      "metric-units",
-      "time-distance-speed"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "To find the time it takes for the ball to reach the tree, we can use the formula:  $$time = \frac{distance}{speed}$$  Substituting the given values into the formula:  $$time = \frac{5 m}{2 m/s} = 2.5 s$$  Therefore, it will take the ball 2.5 seconds to reach the tree.",
     "id": 311
@@ -4729,11 +3932,9 @@ export const problems = [
     "problem": "A triangular sandbox has a perimeter of 120 cm. The longest side is 30 cm sloppier than the other two equal sides. What is the length of each equal side?",
     "length": 153,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "perimeter",
       "triangle",
-      "sides",
-      "equality",
       "measurement",
       "geometry"
     ],
@@ -4747,8 +3948,7 @@ export const problems = [
     "length": 241,
     "tags": [
       "probability",
-      "uniform distribution",
-      "5th grade"
+      "grade-5"
     ],
     "solution": "Let X be the amount of batter remaining in the jar after 30 seconds. Then, X follows a uniform distribution between 0 and 500 millilitres. The probability that X is less than 450 millilitres can be calculated as (450-0)/(500-0) = 0.9.",
     "id": 313
@@ -4759,12 +3959,8 @@ export const problems = [
     "problem": "A muddy puddle is 30 cm deep at its deepest point. If the puddle is considered to be 'sloppy' when it covers half of a circular playground with a radius of 10 m, what is the approximate volume of the muddy water in the puddle? Take π = 3.14.",
     "length": 241,
     "tags": [
-      "5thGrade",
-      "Measurement",
-      "Geometry",
-      "Area",
-      "Circumference",
-      "Volume",
+      "grade-5",
+      "area",
       "physics"
     ],
     "solution": "This problem requires students to apply their understanding of volume, area, and circumference to solve a real-world problem involving measurement and geometry. It involves two steps: calculating the area covered by the puddle and then calculating the volume of water using the depth and area.",
@@ -4776,10 +3972,8 @@ export const problems = [
     "problem": "A rectangular chocolate bar is 12 cm long and 8 cm wide. If the chocolate bar is melting at a rate of 0.5 cm/s, how long will it take for the chocolate bar to become completely sloppy?",
     "length": 184,
     "tags": [
-      "fifth-grade",
-      "rate of change",
+      "grade-5",
       "area",
-      "metric units",
       "science"
     ],
     "solution": "This problem requires students to understand the concept of rate of change, specifically how to calculate the time it takes for something to change at a given rate. It also requires them to apply their knowledge of area to calculate the total amount of chocolate that is melting.",
@@ -4791,10 +3985,8 @@ export const problems = [
     "problem": "The sloopy spaghetti was all over the place, making it difficult to grab.",
     "length": 73,
     "tags": [
-      "grammar-error",
-      "mechanics",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses 'sloopy' in a way that is not standard in formal English. 'Sloopy' usually refers to something that is messy or drooping, but in this context, a more appropriate word would be 'sloppy' or 'sticky'.",
     "id": 316
@@ -4805,10 +3997,8 @@ export const problems = [
     "problem": "The sloppy students were eating their lunch on the messy floor.",
     "length": 63,
     "tags": [
-      "5th-grade-grammar",
-      "plural-agreement",
-      "spelling-error",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'sloppy students'. The correct spelling should be 'sloppy students' with an 's' at the end to make the plural form.",
     "id": 317
@@ -4819,12 +4009,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'sloppy' and describing something that might be affected by gravity on the Moon.",
     "length": 112,
     "tags": [
-      "fifth-grade",
-      "gravity",
-      "moon",
-      "food",
-      "sloppy",
-      "sentence-prompt"
+      "grade-5",
+      "sentence-writing"
     ],
     "solution": "The astronaut's spaghetti dinner became incredibly sloppy due to the lack of gravity in space.",
     "id": 318
@@ -4835,12 +4021,7 @@ export const problems = [
     "problem": "What is the approximate wingspan of a Boeing 747 in meters?",
     "length": 59,
     "tags": [
-      "airplane",
-      "wingspan",
-      "boeing",
-      "747",
-      "school:3",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "The wingspan of a Boeing 747 is approximately 58 meters. This enormous wingspan helps the plane generate lift and keep it airborne.",
     "id": 319
@@ -4851,11 +4032,10 @@ export const problems = [
     "problem": "If you have 250 milliliters of water in a glass and you add 30 milliliters of syrup, how much liquid will be in the glass in total?",
     "length": 131,
     "tags": [
-      "liquid-measurement",
       "volume",
       "metric-units",
-      "3rd-grade",
-      "science-trivia"
+      "grade-3",
+      "science"
     ],
     "solution": "First, we add the volumes of water and syrup. 250 milliliters + 30 milliliters = 280 milliliters. Therefore, there will be **280 milliliters** of liquid in the glass in total.",
     "id": 320
@@ -4869,7 +4049,7 @@ export const problems = [
       "arithmetic",
       "multiplication",
       "addition",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": ",,(11/60),,",
     "id": 321
@@ -4880,12 +4060,8 @@ export const problems = [
     "problem": "Evaluate: 345,789 + 234,567 - 123,456",
     "length": 37,
     "tags": [
-      "fifth-grade",
-      "arithmetic",
-      "carries",
-      "borrows",
-      "symbolic-expression",
-      "arithmetic-carry"
+      "grade-5",
+      "arithmetic"
     ],
     "solution": "This problem requires careful handling of carries and borrows. Remember to line up the digits from the right and work from the least significant digit to the most significant digit. Be sure to keep track of any carries or borrows that occur during the subtraction process.",
     "id": 322
@@ -4897,12 +4073,8 @@ export const problems = [
     "length": 11,
     "tags": [
       "multiplication",
-      "integers",
-      "5thGrade",
-      "partial-products",
-      "zero-errors",
-      "place-value",
-      "arithmetic-multiplication"
+      "grade-5",
+      "place-value"
     ],
     "id": 323
   },
@@ -4913,11 +4085,7 @@ export const problems = [
     "length": 12,
     "tags": [
       "division",
-      "integers",
-      "partial-quotient-omission",
-      "rounding-error",
-      "fifth-grade",
-      "arithmetic-division"
+      "grade-5"
     ],
     "solution": "This problem tests two common errors in integer division: \n- **Partial quotient omission:** Not dividing all the numbers in the dividend by the divisor.\n- **Incorrect rounding:** Rounding the quotient to the nearest whole number instead of the nearest decimal.",
     "id": 324
@@ -4927,13 +4095,7 @@ export const problems = [
     "input": "sloppy",
     "problem": "Sloppy snails slurp sugary soup silently.",
     "length": 41,
-    "tags": [
-      "fifth-grade-grammar",
-      "irregular-verbs",
-      "compound-adjectives",
-      "silent-letters",
-      "handwriting-exercise"
-    ],
+    "tags": [],
     "solution": "This sentence uses various word shapes and structures, including irregular verbs, compound adjectives, and silent letters.",
     "id": 325
   },
@@ -4944,12 +4106,10 @@ export const problems = [
     "length": 229,
     "tags": [
       "algebra",
-      "system-of-equations",
       "rectangle",
       "perimeter",
-      "fifth-grade",
-      "metric",
-      "two-variable-algebra"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "Let x cm be the width of the rectangle.\nThe length of the rectangle is x + 5 cm.\nPerimeter = 2(width + length) = 40 cm\n2(x + x + 5) = 40\n2(2x + 5) = 40\n4x + 10 = 40\n4x = 30\nx = 7.5 cm\nTherefore, the width of the rectangle is 7.5 cm and the length is 7.5 + 5 = 12.5 cm.",
     "id": 326
@@ -4960,12 +4120,11 @@ export const problems = [
     "problem": "A train travels 300 km at a constant speed. If its speed were 20% faster, the journey would take 1 hour less. What was the original speed of the train?",
     "length": 151,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
       "ratio",
       "algebra",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "Let x be the original speed of the train in km/h.  Using the formula: distance = speed × time  300 = x + (x * 0.2)  Solving for x, we get:  300 = x + 0.2x  300 = 1.2x  x = 300 / 1.2  x = 250 km/h  Therefore, the original speed of the train was 250 km/h.",
     "id": 327
@@ -4979,7 +4138,7 @@ export const problems = [
       "geometry",
       "area",
       "ratio",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "To find the ratio of the areas, we need to calculate the area of each square. The area of a square is equal to the side length squared. So, the area of the first square is 3 cm * 3 cm = 9 cm². The area of the second square is 4 cm * 4 cm = 16 cm². The ratio of the areas is 9 cm²/16 cm² = 9:16.",
     "id": 328
@@ -4991,8 +4150,7 @@ export const problems = [
     "length": 190,
     "tags": [
       "probability",
-      "combinations",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{100 \times (100-1)}{2 \times 3} = 250",
     "id": 329
@@ -5004,10 +4162,7 @@ export const problems = [
     "length": 252,
     "tags": [
       "physics",
-      "force",
-      "gravity",
-      "affinity",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "This problem requires students to apply their understanding of forces, specifically gravitational force. It involves calculating the net force between the two spheres, taking into account both the attractive and repulsive forces. This problem is appropriate for 5th graders as it involves manipulating basic mathematical concepts related to force and mass.",
     "id": 330
@@ -5018,11 +4173,9 @@ export const problems = [
     "problem": "An artist has two pigments with a 0.75 affinity for each other. If the artist uses 100 grams of the first pigment and 120 grams of the second pigment, what is the approximate total affinity between the two pigments?",
     "length": 215,
     "tags": [
-      "affinity",
       "proportion",
-      "mass",
-      "metric",
-      "fifth-grade",
+      "metric-units",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires understanding of the concept of affinity, which is a measure of how much two substances are attracted to each other. The students need to calculate the total affinity by multiplying the affinity of the two pigments by the masses of each pigment. This problem is suitable for 5th graders as it requires applying their knowledge of ratios, proportions, and multiplication.",
@@ -5034,10 +4187,8 @@ export const problems = [
     "problem": "She felt an afinity towards history, finding it more intresting than other subjects.",
     "length": 84,
     "tags": [
-      "grammar-error-affinity",
-      "grammar-error-interesting",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has two errors. 'Afinity' should be 'affinity' and 'intresting' should be 'interesting'.",
     "id": 332
@@ -5048,10 +4199,7 @@ export const problems = [
     "problem": "She felt a strong affinity to the music, her heart resonated with its melody.",
     "length": 77,
     "tags": [
-      "fifth-grade-grammar",
-      "verb-conjugation",
-      "spelling-error",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'resonated' instead of 'resonates'. 'Resonates' is the correct form of the verb, which means to vibrate or make a sound in response to an external force. 'Resonated' is the past tense of the verb.",
     "id": 333
@@ -5062,11 +4210,7 @@ export const problems = [
     "problem": "Write a sentence using the word 'affinity' to describe the connection between two things that seem unlikely but actually go together well.",
     "length": 138,
     "tags": [
-      "english-grammar",
-      "sentence-structure",
-      "vocabulary-development",
-      "grammar-4-5",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The artist's affinity for vibrant colors resulted in breathtaking paintings.",
     "id": 334
@@ -5077,13 +4221,7 @@ export const problems = [
     "problem": "What is the affinity between an airplane's wing and the airflow that helps it lift off the ground?",
     "length": 98,
     "tags": [
-      "affinity",
-      "airflow",
-      "lift",
-      "airplane",
-      "wing",
-      "3rdGrade",
-      "airplane-trivia"
+      "airplane"
     ],
     "solution": "Affinity in aviation refers to the attractive force between an airplane's wing and the airflow that enables lift. Airflow flowing over the wing's curved surface creates high-pressure zones, while the airflow under the wing creates low-pressure zones. This pressure differential generates an uplift force that counteracts the gravitational force and allows the airplane to lift off.",
     "id": 335
@@ -5095,12 +4233,7 @@ export const problems = [
     "length": 73,
     "tags": [
       "chemistry",
-      "element",
-      "affinity",
-      "oxygen",
-      "fluorine",
-      "5thgrade",
-      "science-trivia"
+      "science"
     ],
     "solution": "The element with the strongest affinity for oxygen is fluorine due to its highly electronegative nature. Fluorine readily attracts electrons towards itself, making it eager to form bonds with oxygen atoms. This strong affinity is responsible for fluorine's reactivity and its importance in various industrial processes.",
     "id": 336
@@ -5112,10 +4245,10 @@ export const problems = [
     "length": 17,
     "tags": [
       "algebra",
-      "fraction",
+      "fractions",
       "multiplication",
       "division",
-      "fifth grade",
+      "grade-5",
       "arithmetic"
     ],
     "solution": ",,(a-1)/3-2a/15,=,,",
@@ -5128,12 +4261,9 @@ export const problems = [
     "length": 228,
     "tags": [
       "algebra",
-      "system-of-equations",
       "linear-equations",
-      "word-problem",
-      "fifth-grade",
-      "metric-units",
-      "two-variable-algebra"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "Let x be the number of pages dedicated to the scientist's childhood and y be the number of pages dedicated to their experiments.\n x + y = 128\n y = 3x\n Substituting y = 3x into the first equation:\n x + 3x = 128\n 4x = 128\n x = 32\n Therefore, there are 32 pages dedicated to the scientist's childhood and 3 * 32 = 96 pages dedicated to their experiments.",
     "id": 338
@@ -5144,12 +4274,10 @@ export const problems = [
     "problem": "A biography detailing the life of a renowned scientist mentions that their first groundbreaking discovery was published 24 years after their 18th birthday. If the scientist published their first discovery at a speed of 2.5 m/s, how old were they when their discovery was published?",
     "length": 281,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "age",
-      "metric",
-      "fifth-grade",
-      "time-distance-speed"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "Let x be the age of the scientist when their discovery was published. Then, their age when they published their first discovery was x - 24. The distance traveled in 24 years is 24 * 2.5 = 60 m. Therefore, x - 24 = 60. Solving for x gives x = 84. The scientist was 84 years old when their discovery was published.",
     "id": 339
@@ -5161,10 +4289,9 @@ export const problems = [
     "length": 146,
     "tags": [
       "geometry",
-      "circles",
       "perimeter",
       "area",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, find the radius of the garden by dividing the circumference by 2. Then, use the formula for the area of a circle, which is π multiplied by the radius squared, to find the new area.",
     "id": 340
@@ -5177,8 +4304,8 @@ export const problems = [
     "tags": [
       "probability",
       "ratio",
-      "fraction",
-      "fifth-grade"
+      "fractions",
+      "grade-5"
     ],
     "solution": "3/8 * 48 = 3 * 12 = 36 biographies",
     "id": 341
@@ -5189,10 +4316,7 @@ export const problems = [
     "problem": "A researcher is studying the growth of a bacteria culture over time. The initial population of the bacteria is 10^5 cells/mL. After one hour, the population has increased to 10^6 cells/mL. What is the average rate of population growth in cells/mL per hour?",
     "length": 256,
     "tags": [
-      "science-fiction",
-      "scientific-notation",
-      "rate-of-change",
-      "5th-grade",
+      "grade-5",
       "metric-units",
       "physics"
     ],
@@ -5205,11 +4329,8 @@ export const problems = [
     "problem": "Given the lifespan of a scientist is represented by a normal distribution with mean 70 years and standard deviation 10 years, what age should a researcher be to maximize the probability of living at least 80 years?",
     "length": 214,
     "tags": [
-      "normal-distribution",
       "probability",
-      "calculus",
-      "5th-grade",
-      "statistics",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires understanding of normal distributions, probability concepts, and application of calculus to find the maximum probability. This aligns with 5th grade mathematical concepts and requires logical reasoning and statistical analysis.",
@@ -5221,10 +4342,7 @@ export const problems = [
     "problem": "The biographical novel tells us about real people's lives in a fictional way.",
     "length": 77,
     "tags": [
-      "grammar-error",
-      "confusion-of-fiction-and-reality",
-      "5th-grade-english",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence is incorrect because it suggests that biographical novels feature real people in a fictional setting. However, biographical novels are based on real people and events.",
     "id": 344
@@ -5235,11 +4353,8 @@ export const problems = [
     "problem": "The writer's biographical notes shed light on the inspiration behind her novel.",
     "length": 79,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "Misspelling",
-      "GrammarError",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'biographical' instead of 'biographic'. 'Biographic' means relating to a person's life, while 'biographical' refers to a written work about a person's life.",
     "id": 345
@@ -5250,14 +4365,8 @@ export const problems = [
     "problem": "Write a sentence using the word 'biographical' that describes something fictional but inspired by real life events.",
     "length": 115,
     "tags": [
-      "4thGrade",
-      "Comprehension",
-      "SentenceWriting",
-      "Vocabulary",
-      "Inspiration",
-      "Fiction",
-      "RealLife",
-      "sentence-prompt"
+      "vocabulary",
+      "sentence-writing"
     ],
     "solution": "The magical creatures in the forest had a biographical history rooted in ancient legends.",
     "id": 346
@@ -5269,13 +4378,7 @@ export const problems = [
     "length": 105,
     "tags": [
       "airplane",
-      "materials",
-      "lightweight",
-      "wings",
-      "fuel",
-      "efficiency",
-      "5thGrade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The lightweight material commonly used in airplane wings is fiberglass reinforced polymer (FRP). This material is strong and durable, yet it is significantly lighter than traditional materials like steel or aluminum. This reduction in weight helps to improve fuel efficiency and allows airplanes to carry more passengers and cargo.",
     "id": 347
@@ -5286,11 +4389,7 @@ export const problems = [
     "problem": "What is the smallest unit of life that can carry on all the characteristics of an organism?",
     "length": 91,
     "tags": [
-      "science",
-      "biology",
-      "cellular biology",
-      "3rd grade",
-      "science-trivia"
+      "science"
     ],
     "solution": "A cell is the smallest unit of life that can carry on all the characteristics of an organism. Cells are the basic building blocks of all living things, and they contain the genetic material and biochemical processes necessary for life.",
     "id": 348
@@ -5301,11 +4400,7 @@ export const problems = [
     "problem": ",,(3-1/4)^2-1/3,,",
     "length": 18,
     "tags": [
-      "algebraic-expression",
-      "fifth-grade",
-      "numerical-expression",
-      "rational-numbers",
-      "square",
+      "grade-5",
       "arithmetic"
     ],
     "solution": ",,(11/16)^2-1/3,,",
@@ -5318,11 +4413,7 @@ export const problems = [
     "length": 22,
     "tags": [
       "arithmetic",
-      "algebraic-expressions",
-      "carrying",
-      "borrowing",
-      "fifth-grade",
-      "arithmetic-carry"
+      "grade-5"
     ],
     "solution": "This problem requires careful handling of carries and borrows. When adding the first two numbers, a carry of 1 should be done. When subtracting the last two numbers, a borrow of 1 should be done.",
     "id": 350
@@ -5333,11 +4424,8 @@ export const problems = [
     "problem": "243 × 689",
     "length": 9,
     "tags": [
-      "multi-digit-multiplication",
       "arithmetic",
-      "fifth-grade",
-      "math-error-analysis",
-      "arithmetic-multiplication"
+      "grade-5"
     ],
     "id": 351
   },
@@ -5347,13 +4435,7 @@ export const problems = [
     "problem": "870 / 345",
     "length": 9,
     "tags": [
-      "fifth-grade",
-      "division-error",
-      "carrying",
-      "quotient-writing",
-      "large-numbers",
-      "non-zero-remainder",
-      "arithmetic-division"
+      "grade-5"
     ],
     "solution": "This problem tests several common errors in integer division. Students might forget to carry digits, divide the numbers correctly, or write the quotient correctly. It also tests the ability to handle larger numbers and division involving non-zero remainders.",
     "id": 352
@@ -5364,11 +4446,8 @@ export const problems = [
     "problem": "Serendipity whispers secrets in the echo's embrace.",
     "length": 51,
     "tags": [
-      "fifth-grade",
-      "grammar",
-      "handwriting",
-      "nonsense",
-      "handwriting-exercise"
+      "grade-5",
+      "grammar"
     ],
     "solution": "This sentence uses complex vocabulary and figurative language that is appropriate for older students.",
     "id": 353
@@ -5380,11 +4459,7 @@ export const problems = [
     "length": 168,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "word-problems",
-      "multiples",
-      "5th-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": ",,81,,",
     "id": 354
@@ -5395,12 +4470,10 @@ export const problems = [
     "problem": "A train travels 300km at a speed of 80km/h. How long will it take the train to reach its destination?",
     "length": 101,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
-      "fifth-grade",
-      "metric-units",
-      "mathematical-formula",
-      "time-distance-speed"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "To find the time taken, we can use the formula: time = distance / speed.   Distance = 300km  Speed = 80km/h  Time = 300km / 80km/h = 3.75h.  Therefore, the train will take **3.75 hours** to reach its destination.",
     "id": 355
@@ -5415,7 +4488,7 @@ export const problems = [
       "perimeter",
       "rectangle",
       "algebra",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, we can let x represent the width of the garden bed. The length is x + 2. The perimeter is 2(length + width) = 2(x + x + 2) = 2(2x + 2) = 4x + 4. We know the perimeter is 24, so 4x + 4 = 24. Solving this equation gives us x = 5. Therefore, the width is 5 meters and the length is 5 + 2 = 7 meters.",
     "id": 356
@@ -5427,11 +4500,8 @@ export const problems = [
     "length": 273,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "exponential-growth",
-      "fifth-grade",
-      "metric-units",
-      "two-variable-algebra"
+      "grade-5",
+      "metric-units"
     ],
     "solution": "Let x be the number of days it takes for the seed to cover the entire field.\n2^x = 100\n2^x = 10^2\nx = 4\nIt will take 4 days for the seed to cover the entire field.",
     "id": 357
@@ -5442,11 +4512,8 @@ export const problems = [
     "problem": "학생들이 자신이 인지할 만한 성과를 얻기 위해서는 어려움에 직면하고 학습해야 합니다.",
     "length": 47,
     "tags": [
-      "5thGrade",
-      "Challenge",
-      "Learning",
-      "Recognition",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "Students need to face challenges and learn in order to achieve something recognizable.",
     "id": 358
@@ -5457,11 +4524,8 @@ export const problems = [
     "problem": "옷이 입고 있는 사람들이 옷을 입고 있지 않은 사람들보다 더 따뜻해지는 이유는 무엇일까?",
     "length": 49,
     "tags": [
-      "5th grade",
-      "inference",
-      "temperature",
-      "clothing",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "People who are wearing clothes tend to feel warmer than those who are not. Why might this be?",
     "id": 359
@@ -5472,11 +4536,10 @@ export const problems = [
     "problem": "여름바람은 해변에 도착하여 해안선을 가득 채웠다.",
     "length": 27,
     "tags": [
-      "5th grade",
+      "grade-5",
       "vocabulary",
       "grammar",
-      "figurative language",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "The summer wind reached the seashore and filled the coastline with seaweed.",
     "id": 360
@@ -5487,11 +4550,8 @@ export const problems = [
     "problem": "저리 덮개가 닫힌 상자는 무엇일까?",
     "length": 19,
     "tags": [
-      "fifth-grade",
-      "inference",
-      "literal-translation",
-      "context-dependent",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "What could a box with a closed lid be?",
     "id": 361
@@ -5502,11 +4562,10 @@ export const problems = [
     "problem": "인정감은 이해의 시작이다.",
     "length": 14,
     "tags": [
-      "fifth-grade",
-      "comprehension",
+      "grade-5",
       "grammar",
       "vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "Acknowledgement is the beginning of understanding.",
     "id": 362
@@ -5517,12 +4576,8 @@ export const problems = [
     "problem": "침투성 없는 그림자는 눈에 보이지 않습니다.",
     "length": 24,
     "tags": [
-      "5th grade",
-      "figurative language",
-      "adverbial phrase",
-      "invisible",
-      "shadow",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "The inconspicuous shadow is invisible to the eye.",
     "id": 363
@@ -5533,11 +4588,7 @@ export const problems = [
     "problem": "습기는 식물의 성장에 매우 중요합니다.",
     "length": 21,
     "tags": [
-      "grammar-complexity-5",
-      "vocabulary-diversity-5",
-      "concepts-familiar-5",
-      "difficulty-low-5",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "Moisture is vital for plant growth.",
     "id": 364
@@ -5548,10 +4599,7 @@ export const problems = [
     "problem": "희소한 비늘 속의 비늘은 빛을 반사하며 아름다움을 만듭니다.",
     "length": 33,
     "tags": [
-      "grammar-complex-sentence",
-      "vocabulary-advanced",
-      "grade-5-comprehension",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "The rare scales inside the fish reflect the light and create beauty.",
     "id": 365
@@ -5562,11 +4610,9 @@ export const problems = [
     "problem": "아름다운 날, 해가 비추면 그늘 아래서 책을 읽는 것을 좋아합니다.",
     "length": 37,
     "tags": [
-      "5thGrade",
-      "UnderstandingGrammar",
-      "WordMeaning",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "I love reading books under the shade when the sun shines beautifully on a stunning day.",
     "id": 366
@@ -5577,10 +4623,8 @@ export const problems = [
     "problem": "우리의 가치관은 이 사회에서 변화하고 있으며, 이 변화는 우리의 사고방식과 행동 패턴에 영향을 줄 것이다.",
     "length": 59,
     "tags": [
-      "5thGrade",
-      "Value Evolution",
-      "Social Influence",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "Our values have evolved in this society, and this evolution will impact our way of thinking and acting.",
     "id": 367
@@ -5591,11 +4635,8 @@ export const problems = [
     "problem": "날카가에 물리치는 물은 비늘기 시작합니다.",
     "length": 23,
     "tags": [
-      "fifth grade",
-      "biology",
-      "plant life",
-      "sprouting",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "When the pine tree seed is immersed in water, it starts to sprout.",
     "id": 368
@@ -5606,13 +4647,10 @@ export const problems = [
     "problem": "색다른 문장 구조를 사용하여 흥미로운 한국어 문장을 만드세요.",
     "length": 34,
     "tags": [
-      "intermediate",
-      "korean",
-      "sentence",
       "grammar",
       "vocabulary",
-      "5thGrade",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "Create a short Korean sentence using an interesting sentence structure or vocabulary word.",
     "id": 369
@@ -5623,11 +4661,8 @@ export const problems = [
     "problem": "음악의 기록은 순간에 사라지지만, 감정은 기억에 남아있다.",
     "length": 32,
     "tags": [
-      "5th grade",
-      "figurative language",
-      "memory",
-      "emotion",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "The recording of music disappears in an instant, but the emotions remain in the memory.",
     "id": 370
@@ -5638,10 +4673,8 @@ export const problems = [
     "problem": "삶은 활기찬 순간들이 모여 만들어진다.",
     "length": 21,
     "tags": [
-      "5th grade",
-      "figurative language",
-      "composition",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "Life is made up of lively moments.",
     "id": 371
@@ -5652,10 +4685,7 @@ export const problems = [
     "problem": "소말은 발을 피고 있습니다.",
     "length": 15,
     "tags": [
-      "Korean5",
-      "AnimalComprehension",
-      "VerbMeaning",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"소말\",\"발\",\"피고 있음\"],\"sentence\":{\"korean\":\"소말은 발을 피고 있습니다.\",\"english\":\"The calf is resting its foot.\"}}",
     "id": 372
@@ -5666,10 +4696,8 @@ export const problems = [
     "problem": "항공로를 통해 몸은 공기를 통합니다.",
     "length": 20,
     "tags": [
-      "Korean5",
-      "AirwayTranslation",
-      "SentenceStructure",
-      "korean-english"
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"wordForWordInOrder\":[{\"korean\":\"항공로\",\"english\":\"airway\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"통하는\",\"english\":\"passing through\"}],\"sentence\":{\"korean\":\"항공로를 통해 몸은 공기를 통합니다.\",\"english\":\"The body passes through the airway to breathe.\"}}",
     "id": 373
@@ -5680,10 +4708,8 @@ export const problems = [
     "problem": "소음은 시간의 흐름에 피크를 보여준다.",
     "length": 21,
     "tags": [
-      "grammar-past-tense",
-      "vocabulary-related-to-sound",
-      "fifth-grade",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"소음\",\"발생\",\"피크\",\"시간\"],\"sentence\":{\"korean\":\"소음은 시간의 흐름에 피크를 보여준다.\",\"english\":\"Noise peaks during the course of time.\"}}",
     "id": 374
@@ -5694,11 +4720,8 @@ export const problems = [
     "problem": "죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.",
     "length": 56,
     "tags": [
-      "5thGrade",
-      "Birds",
-      "Adverbs",
-      "Adjectives",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"wordForWordInOrder\":[\"죽음에 가까운\",\"거대한\",\"날린\"],\"sentence\":{\"korean\":\"죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.\",\"english\":\"A bird with deadly large wings, even in dangerous situations, uses its wings as protection by flapping them.\"}}",
     "id": 375
@@ -5709,10 +4732,7 @@ export const problems = [
     "problem": "절찬고백은 무슨 이유로 이루어지나요?",
     "length": 20,
     "tags": [
-      "grade5-grammar",
-      "vocabulary-solemn",
-      "context-confession",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"orderedWords\":[{\"koreanWord\":\"절찬\",\"englishWord\":\"solemn\"},{\"koreanWord\":\"고백\",\"englishWord\":\"confession\"}],\"sentence\":{\"koreanSentence\":\"절찬고백은 무슨 이유로 이루어지나요?\",\"englishSentence\":\"Why is a solemn confession made?\"}}",
     "id": 376
@@ -5723,11 +4743,8 @@ export const problems = [
     "problem": "말려버린 장애물은 위험한 상황을 만들 수 있습니다.",
     "length": 28,
     "tags": [
-      "5thGrade",
-      "ReadingComprehension",
-      "FigurativeLanguage",
-      "AdverbialPhrase",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말려버린\",\"english\":\"to slip away\"},{\"korean\":\"장애물\",\"english\":\"obstacle\"},{\"korean\":\"위험\",\"english\":\"danger\"}],\"sentence\":{\"korean\":\"말려버린 장애물은 위험한 상황을 만들 수 있습니다.\",\"english\":\"The slipping away obstacle can create a dangerous situation.\"}}",
     "id": 377
@@ -5738,12 +4755,8 @@ export const problems = [
     "problem": "꽃잎이 빛을 흡수하고 성장합니다.",
     "length": 18,
     "tags": [
-      "5thGrade",
-      "KoreanToEnglish",
-      "Flower",
-      "Growth",
-      "Light",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수하고\",\"english\":\"absorbing\"},{\"korean\":\"성장합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수하고 성장합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
     "id": 378
@@ -5754,11 +4767,9 @@ export const problems = [
     "problem": "매우 고난한 과제를 능력적으로 완료했습니다.",
     "length": 24,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Effort",
-      "Ability",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"extremely\"},{\"korean\":\"고난\",\"english\":\"effort\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"매우 고난한 과제를 능력적으로 완료했습니다.\",\"english\":\"He completed the extremely difficult assignment effortlessly.\"}}",
     "id": 379
@@ -5769,11 +4780,11 @@ export const problems = [
     "problem": "짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.",
     "length": 29,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Vocabulary",
-      "Grammar",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"짜증\",\"english\":\"annoying\"},{\"korean\":\"소리\",\"english\":\"noise\"},{\"korean\":\"피곤\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.\",\"english\":\"It is understandable that one feels tired due to the annoying noise.\"}}",
     "id": 380
@@ -5784,11 +4795,9 @@ export const problems = [
     "problem": "Hangar chwi dae-i",
     "length": 17,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "BasicGrammar",
-      "Vocabulary",
-      "korean-english"
+      "grade-5",
+      "korean-to-english",
+      "vocabulary"
     ],
     "solution": "{\"words\":[{\"korean\":\"hangar\",\"english\":\"airplane\"},{\"korean\":\"chwi\",\"english\":\"to fly\"},{\"korean\":\"dae\",\"english\":\"high\"}],\"sentence\":{\"korean\":\"Hangar chwi dae-i\",\"english\":\"The airplane flies high.\"}}",
     "id": 381
@@ -5799,10 +4808,9 @@ export const problems = [
     "problem": "프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.",
     "length": 31,
     "tags": [
-      "5thGrade",
-      "AcademicVocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"프롬otor\",\"english\":\"promoter\"},{\"korean\":\"학업\",\"english\":\"academic\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.\",\"english\":\"A promoter is an important factor in improving academic achievement.\"}}",
     "id": 382
@@ -5813,10 +4821,8 @@ export const problems = [
     "problem": "동물이 뛰어다니다가 자유롭게 달린다.",
     "length": 20,
     "tags": [
-      "5thGrade",
-      "AnimalAction",
-      "VerbMeaning",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"뛰어다니다\",\"english\":\"to gallop\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"자유롭게\",\"english\":\"freely\"}],\"sentence\":{\"korean\":\"동물이 뛰어다니다가 자유롭게 달린다.\",\"english\":\"The animal gallops freely through the field.\"}}",
     "id": 383
@@ -5827,11 +4833,9 @@ export const problems = [
     "problem": "빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.",
     "length": 35,
     "tags": [
-      "5thGrade",
-      "Physics",
-      "Reflection",
-      "Luster",
-      "korean-english"
+      "grade-5",
+      "physics",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"빛깔\",\"english\":\"luster\"},{\"korean\":\"빛을\",\"english\":\"emit light\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.\",\"english\":\"Luster is created by the reflection of internal energy of matter in physics.\"}}",
     "id": 384
@@ -5842,12 +4846,9 @@ export const problems = [
     "problem": "신화적인 동물은 종종 해롭다.",
     "length": 16,
     "tags": [
-      "5thGrade",
-      "KoreanComprehension",
-      "Translation",
-      "MythicalCreatures",
-      "Danger",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"신화적인\",\"english\":\"mythical\"},{\"korean\":\"동물\",\"english\":\"creature\"},{\"korean\":\"해롭다\",\"english\":\"is dangerous\"}],\"sentence\":{\"korean\":\"신화적인 동물은 종종 해롭다.\",\"english\":\"Mythical creatures are often dangerous.\"}}",
     "id": 385
@@ -5858,11 +4859,8 @@ export const problems = [
     "problem": "말자는 사회적 상황에 중요한 소통 도구입니다.",
     "length": 25,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "SocialCommunication",
-      "Spokesperson",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말자\",\"english\":\"spokesperson\"},{\"korean\":\"소통\",\"english\":\"communication\"}],\"sentence\":{\"korean\":\"말자는 사회적 상황에 중요한 소통 도구입니다.\",\"english\":\"A spokesperson plays a crucial role in communication during social situations.\"}}",
     "id": 386
@@ -5873,11 +4871,9 @@ export const problems = [
     "problem": "진화는 생물의 시간에 따른 변화입니다.",
     "length": 21,
     "tags": [
-      "5thGrade",
-      "Evolution",
-      "Organism",
-      "Time",
-      "korean-english"
+      "grade-5",
+      "time",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"진화\",\"english\":\"evolution\"},{\"korean\":\"생물\",\"english\":\"organism\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"진화는 생물의 시간에 따른 변화입니다.\",\"english\":\"Evolution is the changes in organisms over time.\"}}",
     "id": 387
@@ -5888,10 +4884,9 @@ export const problems = [
     "problem": "목표를 달성하기 위해서는 능력과 노력이 필요합니다.",
     "length": 28,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "SentenceCompletion",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"목표\",\"english\":\"aim\"},{\"korean\":\"달성\",\"english\":\"to achieve\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하기 위해서는 능력과 노력이 필요합니다.\",\"english\":\"To achieve the aim, ability and effort are necessary.\"}}",
     "id": 388
@@ -5902,10 +4897,10 @@ export const problems = [
     "problem": "성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.",
     "length": 26,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "translation",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"성경\",\"english\":\"Bible\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"용사\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.\",\"english\":\"The Bible was written to save human souls.\"}}",
     "id": 389
@@ -5916,12 +4911,8 @@ export const problems = [
     "problem": "비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.",
     "length": 33,
     "tags": [
-      "5thGrade",
-      "WordTranslation",
-      "Bitterly",
-      "Loss",
-      "Grief",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비열하게\",\"english\":\"bitterly\"},{\"korean\":\"울상\",\"english\":\"grief\"},{\"korean\":\"상실\",\"english\":\"loss\"}],\"sentence\":{\"korean\":\"비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.\",\"english\":\"The bitter grief of loss is something that everyone experiences at some point in their lives.\"}}",
     "id": 390
@@ -5932,10 +4923,8 @@ export const problems = [
     "problem": "고향의 정신은 애국심으로 가득 차 있습니다.",
     "length": 24,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "Patriotism",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고향\",\"english\":\"homeland\"},{\"korean\":\"애국\",\"english\":\"patriotism\"},{\"korean\":\"정신\",\"english\":\"mind\"}],\"sentence\":{\"korean\":\"고향의 정신은 애국심으로 가득 차 있습니다.\",\"english\":\"The spirit of the homeland is filled with patriotism.\"}}",
     "id": 391
@@ -5946,11 +4935,11 @@ export const problems = [
     "problem": "상처가 치유되면 감염이 사라집니다.",
     "length": 19,
     "tags": [
-      "5th-grade",
+      "grade-5",
       "translation",
       "grammar",
       "vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"치유\",\"english\":\"heal\"},{\"korean\":\"상처\",\"english\":\"wound\"},{\"korean\":\"감염\",\"english\":\"infection\"}],\"sentence\":{\"korean\":\"상처가 치유되면 감염이 사라집니다.\",\"english\":\"When the wound heals, the infection will disappear.\"}}",
     "id": 392
@@ -5961,11 +4950,9 @@ export const problems = [
     "problem": "피트의 담치는 파도를 타며 순돌아갑니다.",
     "length": 22,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Verb",
-      "Adjective",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"피트\",\"english\":\"foot\"},{\"korean\":\"담치\",\"english\":\"splash\"},{\"korean\":\"파도\",\"english\":\"wave\"}],\"sentence\":{\"korean\":\"피트의 담치는 파도를 타며 순돌아갑니다.\",\"english\":\"The splash of the foot creates waves that spin around.\"}}",
     "id": 393
@@ -5976,10 +4963,10 @@ export const problems = [
     "problem": "환금은 거주지에서 수입한 물건의 금액을 의미합니다.",
     "length": 28,
     "tags": [
-      "5thGrade",
-      "Vocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"환금\",\"english\":\"remittance\"},{\"korean\":\"거주\",\"english\":\"residence\"},{\"korean\":\"수입\",\"english\":\"import\"}],\"sentence\":{\"korean\":\"환금은 거주지에서 수입한 물건의 금액을 의미합니다.\",\"english\":\"The remittance refers to the amount of money imported with goods to the residence.\"}}",
     "id": 394
@@ -5990,11 +4977,9 @@ export const problems = [
     "problem": "뜨거움은 기압을 높여 확산합니다.",
     "length": 18,
     "tags": [
-      "5th-grade",
+      "grade-5",
       "chemistry",
-      "diffusion",
-      "pressure",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"뜨거움\",\"english\":\"heat\"},{\"korean\":\"기압\",\"english\":\"pressure\"},{\"korean\":\"확산\",\"english\":\"diffusion\"}],\"sentence\":{\"korean\":\"뜨거움은 기압을 높여 확산합니다.\",\"english\":\"Heat increases the pressure and causes diffusion.\"}}",
     "id": 395
@@ -6005,12 +4990,9 @@ export const problems = [
     "problem": "퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.",
     "length": 42,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Compost",
-      "Tree",
-      "Fat",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
     "id": 396
@@ -6021,10 +5003,8 @@ export const problems = [
     "problem": "아이돌은 용기에 내용물을 담아 보호합니다.",
     "length": 23,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "IdolConcept",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"아이돌\",\"english\":\"idol\"},{\"korean\":\"용기\",\"english\":\"vessel\"},{\"korean\":\"내용물\",\"english\":\"content\"}],\"sentence\":{\"korean\":\"아이돌은 용기에 내용물을 담아 보호합니다.\",\"english\":\"An idol protects the content inside a vessel.\"}}",
     "id": 397
@@ -6035,11 +5015,10 @@ export const problems = [
     "problem": "소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.",
     "length": 27,
     "tags": [
-      "5thGrade",
-      "Reading",
-      "Vocabulary",
-      "Grammar",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"소문\",\"english\":\"rumor\"},{\"korean\":\"퍼뜨리다\",\"english\":\"to spread\"},{\"korean\":\"확실하지 않아\",\"english\":\"unsure\"}],\"sentence\":{\"korean\":\"소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.\",\"english\":\"A rumor has spread that the news is not clear.\"}}",
     "id": 398
@@ -6050,11 +5029,11 @@ export const problems = [
     "problem": "약속은 무력한 목표를 달성하기 위해 노력해야 합니다.",
     "length": 29,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Grammar",
-      "Vocabulary",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "grammar",
+      "vocabulary",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"약속\",\"english\":\"promise\"},{\"korean\":\"무력\",\"english\":\"powerless\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"약속은 무력한 목표를 달성하기 위해 노력해야 합니다.\",\"english\":\"A promise is to work hard to achieve a meaningful goal.\"}}",
     "id": 399
@@ -6065,11 +5044,11 @@ export const problems = [
     "problem": "행성계단 우리",
     "length": 7,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Vocabulary",
-      "Grammar",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"행성\",\"english\":\"planetary\"},{\"korean\":\"계단\",\"english\":\"stair\"},{\"korean\":\"우리\",\"english\":\"we\"}],\"sentence\":{\"korean\":\"행성계단 우리\",\"english\":\"We are on a planetary staircase.\"}}",
     "id": 400
@@ -6080,10 +5059,8 @@ export const problems = [
     "problem": "비가 내리고 바닥이 젖어 있어요.",
     "length": 18,
     "tags": [
-      "5thGrade",
-      "Rain",
-      "SoggyFloor",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비가 내리고\",\"english\":\"It's raining outside.\"},{\"korean\":\"바닥이 젖어\",\"english\":\"The floor is soggy.\"}],\"sentence\":{\"korean\":\"비가 내리고 바닥이 젖어 있어요.\",\"english\":\"It's raining outside and the floor is soggy.\"}}",
     "id": 401
@@ -6094,10 +5071,8 @@ export const problems = [
     "problem": "감동적인 이야기는 눈물과 고통을 남긴다.",
     "length": 22,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "EmotionalStory",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감동\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적인 이야기는 눈물과 고통을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
     "id": 402
@@ -6108,10 +5083,9 @@ export const problems = [
     "problem": "청소원이 학교를 청소합니다.",
     "length": 15,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "School",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"청소원\",\"english\":\"janitor\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"청소원이 학교를 청소합니다.\",\"english\":\"The janitor cleans the school.\"}}",
     "id": 403
@@ -6122,10 +5096,9 @@ export const problems = [
     "problem": "잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.",
     "length": 38,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "ConditionalProbability",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"잠재적으로\",\"english\":\"potentially\"},{\"korean\":\"상황에\",\"english\":\"depending on the situation\"},{\"korean\":\"대부분\",\"english\":\"most of the time\"}],\"sentence\":{\"korean\":\"잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.\",\"english\":\"The situation will most likely influence the possibility of success, potentially leading to high success rates.\"}}",
     "id": 404
@@ -6136,11 +5109,9 @@ export const problems = [
     "problem": "방황하면서 길을 걸다가 자연에 도망친다.",
     "length": 22,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Wander",
-      "Nature",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"방황하다\",\"english\":\"to wander\"},{\"korean\":\"길을 걸다\",\"english\":\"to walk along a path\"},{\"korean\":\"자연에 도망치다\",\"english\":\"to escape into nature\"}],\"sentence\":{\"korean\":\"방황하면서 길을 걸다가 자연에 도망친다.\",\"english\":\"When you wander, you walk along a path and escape into nature.\"}}",
     "id": 405
@@ -6151,10 +5122,8 @@ export const problems = [
     "problem": " pangneol sarang ",
     "length": 17,
     "tags": [
-      "5thGrade",
-      "KoreanSentence",
-      "WordTranslation",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\" pang \",\"english\":\"to pierce\"},{\"korean\":\" neol \",\"english\":\"the sun\"},{\"korean\":\" sarang \",\"english\":\"love\"}],\"sentence\":{\"korean\":\" pangneol sarang \",\"english\":\"The sun pierces love\"}}",
     "id": 406
@@ -6165,10 +5134,10 @@ export const problems = [
     "problem": "언젠가 아침 날이 있을 거예요.",
     "length": 17,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "grammar",
       "vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"언젠가\",\"english\":\"sometime\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"아침\",\"english\":\"morning\"}],\"sentence\":{\"korean\":\"언젠가 아침 날이 있을 거예요.\",\"english\":\"There will be a someday morning like that.\"}}",
     "id": 407
@@ -6179,10 +5148,9 @@ export const problems = [
     "problem": "감염은 병원에서 확산될 수 있습니다.",
     "length": 20,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "vocabulary",
-      "sentence-completion",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"병원\",\"english\":\"hospital\"}],\"sentence\":{\"korean\":\"감염은 병원에서 확산될 수 있습니다.\",\"english\":\"Infection can spread from the hospital.\"}}",
     "id": 408
@@ -6193,11 +5161,9 @@ export const problems = [
     "problem": "숨은 시간과 소용이 같아요.",
     "length": 15,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "KoreanToEnglish",
-      "BreathConcept",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"소용\",\"english\":\"expense\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"숨은 시간과 소용이 같아요.\",\"english\":\"Breath is equal to time and expense.\"}}",
     "id": 409
@@ -6208,10 +5174,10 @@ export const problems = [
     "problem": "경로는 길게 길게 거리를 가진다.",
     "length": 18,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "translation",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"도로\",\"english\":\"road\"},{\"korean\":\"경로\",\"english\":\"route\"}],\"sentence\":{\"korean\":\"경로는 길게 길게 거리를 가진다.\",\"english\":\"A route has a long distance.\"}}",
     "id": 410
@@ -6222,11 +5188,11 @@ export const problems = [
     "problem": "곡선한 날개는 날린 날개보다 위험합니다.",
     "length": 22,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Grammar",
-      "Vocabulary",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "grammar",
+      "vocabulary",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"곡선\",\"english\":\"curve\"},{\"korean\":\"날개\",\"english\":\"blade\"},{\"korean\":\"날린\",\"english\":\"sharp\"}],\"sentence\":{\"korean\":\"곡선한 날개는 날린 날개보다 위험합니다.\",\"english\":\"A curved blade is more dangerous than a sharp blade.\"}}",
     "id": 411
@@ -6237,10 +5203,9 @@ export const problems = [
     "problem": "인닝 동안 선수가 볼을 때 3점을 얻었다.",
     "length": 23,
     "tags": [
-      "5th-grade",
-      "baseball",
+      "grade-5",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인닝\",\"english\":\"inning\"},{\"korean\":\"선수\",\"english\":\"batter\"},{\"korean\":\"볼\",\"english\":\"ball\"}],\"sentence\":{\"korean\":\"인닝 동안 선수가 볼을 때 3점을 얻었다.\",\"english\":\"The batter got 3 points during the inning.\"}}",
     "id": 412
@@ -6251,11 +5216,8 @@ export const problems = [
     "problem": "살숨은 죽일 때도 살아남는다.",
     "length": 16,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "ComplexSentence",
-      "FigurativeLanguage",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"죽일\",\"english\":\"to die\"}],\"sentence\":{\"korean\":\"살숨은 죽일 때도 살아남는다.\",\"english\":\"Even when life and breath are gone, there is always life remaining.\"}}",
     "id": 413
@@ -6266,10 +5228,10 @@ export const problems = [
     "problem": "떠나다의 원인은 목적에 따라 달라질 수 있습니다.",
     "length": 27,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "grammar",
       "vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"떠나다\",\"english\":\"to depart\"},{\"korean\":\"원인\",\"english\":\"reason\"},{\"korean\":\"목적\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"떠나다의 원인은 목적에 따라 달라질 수 있습니다.\",\"english\":\"The reason for departure can vary depending on the purpose.\"}}",
     "id": 414
@@ -6280,10 +5242,10 @@ export const problems = [
     "problem": "방해는 목표를 달성하는 데 인내가 요구됩니다.",
     "length": 25,
     "tags": [
-      "5thGrade",
-      "Vocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"방해\",\"english\":\"deter\"},{\"korean\":\"인내\",\"english\":\"patience\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"방해는 목표를 달성하는 데 인내가 요구됩니다.\",\"english\":\"Deterrence is required to achieve the goal.\"}}",
     "id": 415
@@ -6294,12 +5256,11 @@ export const problems = [
     "problem": "위험은 피해를 예방하기 위해 주의해야 합니다.",
     "length": 25,
     "tags": [
-      "5thGrade",
-      "Korean-English",
-      "Translation",
-      "Vocabulary",
-      "Grammar",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"danger\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"예방\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"위험은 피해를 예방하기 위해 주의해야 합니다.\",\"english\":\"Danger requires attention to prevent damage.\"}}",
     "id": 416
@@ -6310,10 +5271,8 @@ export const problems = [
     "problem": "테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.",
     "length": 29,
     "tags": [
-      "5th-grade",
-      "medical-vocabulary",
-      "infectious-disease",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"테탄us\",\"english\":\"tetanus\"},{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"근력\",\"english\":\"muscle strength\"}],\"sentence\":{\"korean\":\"테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.\",\"english\":\"Tetanus can weaken muscles and cause infection.\"}}",
     "id": 417
@@ -6324,11 +5283,9 @@ export const problems = [
     "problem": "송신기는 정보를 전송합니다.",
     "length": 15,
     "tags": [
-      "5thGrade",
-      "KoreanToEnglish",
-      "Translation",
-      "Broadcast",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"송신기\",\"english\":\"transmitter\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전송\",\"english\":\"broadcast\"}],\"sentence\":{\"korean\":\"송신기는 정보를 전송합니다.\",\"english\":\"A transmitter broadcasts information.\"}}",
     "id": 418
@@ -6339,11 +5296,10 @@ export const problems = [
     "problem": "명성 있는 학생들은 학업적으로 성과를 얻습니다.",
     "length": 26,
     "tags": [
-      "5thGrade",
-      "ReadingComprehension",
-      "Vocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"명성\",\"english\":\"fame\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"업적\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"명성 있는 학생들은 학업적으로 성과를 얻습니다.\",\"english\":\"Famous students are known for their academic achievements.\"}}",
     "id": 419
@@ -6354,12 +5310,9 @@ export const problems = [
     "problem": "고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.",
     "length": 30,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Conservation",
-      "Ancient",
-      "Book",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고전적인\",\"english\":\"antiquated\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"보존\",\"english\":\"conservation\"}],\"sentence\":{\"korean\":\"고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.\",\"english\":\"Massive ancient books need to be conserved over time.\"}}",
     "id": 420
@@ -6370,10 +5323,8 @@ export const problems = [
     "problem": "인각된 작품은 삶의 일부가 됩니다.",
     "length": 19,
     "tags": [
-      "5thGrade",
-      "WordTranslation",
-      "KoreanToEnglish",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인각\",\"english\":\"engrave\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"삶\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"인각된 작품은 삶의 일부가 됩니다.\",\"english\":\"The engraved artwork becomes a part of life itself.\"}}",
     "id": 421
@@ -6384,10 +5335,9 @@ export const problems = [
     "problem": "이식된 신체는 새로운 생명체가 되었습니다.",
     "length": 23,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "translation",
-      "medical-vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"이식\",\"english\":\"transplant\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"새로운\",\"english\":\"new\"}],\"sentence\":{\"korean\":\"이식된 신체는 새로운 생명체가 되었습니다.\",\"english\":\"The transplanted body became a new living entity.\"}}",
     "id": 422
@@ -6398,11 +5348,11 @@ export const problems = [
     "problem": "고속비행기는 날다.",
     "length": 10,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "translation",
       "grammar",
       "vocabulary",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"비행기\",\"english\":\"airplane\"},{\"korean\":\"날다\",\"english\":\"to fly\"},{\"korean\":\"고속\",\"english\":\"fast\"}],\"sentence\":{\"korean\":\"고속비행기는 날다.\",\"english\":\"A high-speed airplane flies quickly.\"}}",
     "id": 423
@@ -6413,11 +5363,9 @@ export const problems = [
     "problem": "벌써 우리는 오늘 피크닉을 해",
     "length": 16,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "VerbTenses",
-      "Adverbs",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"벌써\",\"english\":\"already\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"}],\"sentence\":{\"korean\":\"벌써 우리는 오늘 피크닉을 해\",\"english\":\"We are already having a picnic today\"}}",
     "id": 424
@@ -6428,11 +5376,9 @@ export const problems = [
     "problem": "국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.",
     "length": 35,
     "tags": [
-      "5th grade",
+      "grade-5",
       "translation",
-      "education",
-      "nationalization",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"국민화\",\"english\":\"nationalization\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.\",\"english\":\"Nationalized education systems contribute to improving the quality of education.\"}}",
     "id": 425
@@ -6443,11 +5389,8 @@ export const problems = [
     "problem": "쟁점적 주장은 사회적으로 논란이 될 수 있습니다.",
     "length": 27,
     "tags": [
-      "5thGrade",
-      "Argument",
-      "Debate",
-      "Controversy",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"쟁점적\",\"english\":\"controversial\"},{\"korean\":\"논란\",\"english\":\"debate\"},{\"korean\":\"견해\",\"english\":\"opinion\"}],\"sentence\":{\"korean\":\"쟁점적 주장은 사회적으로 논란이 될 수 있습니다.\",\"english\":\"A controversial argument can be socially debated.\"}}",
     "id": 426
@@ -6458,11 +5401,9 @@ export const problems = [
     "problem": "평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.",
     "length": 31,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Routine",
-      "Monotony",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"평등한\",\"english\":\"uniform\"},{\"korean\":\"반복\",\"english\":\"repeated\"},{\"korean\":\"생활\",\"english\":\"routine\"}],\"sentence\":{\"korean\":\"평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.\",\"english\":\"A monotonous routine can become boring due to the repeated activities.\"}}",
     "id": 427
@@ -6473,10 +5414,8 @@ export const problems = [
     "problem": "치레는 침대에 놓쳤어요.",
     "length": 13,
     "tags": [
-      "5thGrade",
-      "Misplacement",
-      "ObjectPlacement",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"치레\",\"english\":\"spoon\"},{\"korean\":\"침대\",\"english\":\"bathtub\"},{\"korean\":\"놓치다\",\"english\":\"to misplace\"}],\"sentence\":{\"korean\":\"치레는 침대에 놓쳤어요.\",\"english\":\"The spoon was misplaced in the bathtub.\"}}",
     "id": 428
@@ -6487,10 +5426,8 @@ export const problems = [
     "problem": "물리선은 지점에서 변화를 일으킨다.",
     "length": 19,
     "tags": [
-      "5thGrade",
-      "WordTranslation",
-      "ConceptUnderstanding",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"물리선\",\"english\":\"watershed\"},{\"korean\":\"지점\",\"english\":\"point\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"물리선은 지점에서 변화를 일으킨다.\",\"english\":\"A watershed moment changes everything at the point.\"}}",
     "id": 429
@@ -6501,10 +5438,8 @@ export const problems = [
     "problem": "애용한 식단은 건강에 도움이 됩니다.",
     "length": 20,
     "tags": [
-      "5thGrade",
-      "KoreanTranslation",
-      "HealthAndDiet",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"애용\",\"english\":\"favorite\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"애용한 식단은 건강에 도움이 됩니다.\",\"english\":\"A favorite diet helps keep you healthy.\"}}",
     "id": 430
@@ -6515,12 +5450,9 @@ export const problems = [
     "problem": "테이프는 길게 잡아다니다.",
     "length": 14,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Tape",
-      "Holding",
-      "Length",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"테이프\",\"english\":\"tape\"},{\"korean\":\"길게\",\"english\":\"longly\"},{\"korean\":\"잡아다니다\",\"english\":\"to hold\"}],\"sentence\":{\"korean\":\"테이프는 길게 잡아다니다.\",\"english\":\"The tape is held longly.\"}}",
     "id": 431
@@ -6531,11 +5463,8 @@ export const problems = [
     "problem": "인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.",
     "length": 37,
     "tags": [
-      "5thGrade",
-      "ReadingComprehension",
-      "SentenceTranslation",
-      "CrowdedArea",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"인근\",\"english\":\"crowded\"},{\"korean\":\"거주민들\",\"english\":\"people\"},{\"korean\":\"집\",\"english\":\"houses\"}],\"sentence\":{\"korean\":\"인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.\",\"english\":\"The crowded people in the neighborhood have difficulty walking on the street because of the densely packed houses.\"}}",
     "id": 432
@@ -6546,11 +5475,9 @@ export const problems = [
     "problem": "화가는 감성을 표현하는 작품을 그립니다.",
     "length": 22,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Art",
-      "Emotion",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"화가\",\"english\":\"painter\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"화가는 감성을 표현하는 작품을 그립니다.\",\"english\":\"A painter expresses their emotions through their artwork.\"}}",
     "id": 433
@@ -6561,10 +5488,10 @@ export const problems = [
     "problem": "고지말은 오일에서 물을 흡수합니다.",
     "length": 19,
     "tags": [
-      "5thGrade",
-      "Vocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
     "id": 434
@@ -6575,11 +5502,9 @@ export const problems = [
     "problem": "윤리적인 영업은 수익을 얻는 데 도움이 됩니다.",
     "length": 26,
     "tags": [
-      "5th grade",
+      "grade-5",
       "translation",
-      "profit",
-      "business",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"윤리적인\",\"english\":\"profitable\"},{\"korean\":\"영업\",\"english\":\"business\"},{\"korean\":\"수익\",\"english\":\"profit\"}],\"sentence\":{\"korean\":\"윤리적인 영업은 수익을 얻는 데 도움이 됩니다.\",\"english\":\"A profitable business brings in profit.\"}}",
     "id": 435
@@ -6590,12 +5515,9 @@ export const problems = [
     "problem": "멀티미디어는 정보 전달의 전문성을 제공합니다.",
     "length": 25,
     "tags": [
-      "5th grade",
+      "grade-5",
       "translation",
-      "multimedia",
-      "information",
-      "expertise",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"멀티미디어\",\"english\":\"multimedia\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전문성\",\"english\":\"expertise\"}],\"sentence\":{\"korean\":\"멀티미디어는 정보 전달의 전문성을 제공합니다.\",\"english\":\"Multimedia provides expertise in information delivery.\"}}",
     "id": 436
@@ -6606,10 +5528,9 @@ export const problems = [
     "problem": "흥분으로 고통을 극복해야 성공할 수 있습니다.",
     "length": 25,
     "tags": [
-      "5thgrade",
       "translation",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
     "id": 437
@@ -6620,11 +5541,9 @@ export const problems = [
     "problem": "꽃밭에 말동쟁이가 돌돌아다니다.",
     "length": 17,
     "tags": [
-      "5thGrade",
-      "Translation",
-      "Animal",
-      "FlowerField",
-      "korean-english"
+      "grade-5",
+      "translation",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"말동쟁이\",\"english\":\"Donkey\"},{\"korean\":\"꽃밭에\",\"english\":\"In the flower field\"},{\"korean\":\"돌돌아다니다\",\"english\":\"Wandering around\"}],\"sentence\":{\"korean\":\"꽃밭에 말동쟁이가 돌돌아다니다.\",\"english\":\"A donkey is wandering around in the flower field.\"}}",
     "id": 438
@@ -6635,10 +5554,10 @@ export const problems = [
     "problem": "부사한 물건은 깨져 있지 않습니다.",
     "length": 19,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "translation",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"부사\",\"english\":\"expensive\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"깨진\",\"english\":\"broken\"}],\"sentence\":{\"korean\":\"부사한 물건은 깨져 있지 않습니다.\",\"english\":\"An expensive thing is not broken.\"}}",
     "id": 439
@@ -6649,10 +5568,10 @@ export const problems = [
     "problem": "무상상이 생각된다.",
     "length": 10,
     "tags": [
-      "5th-grade",
+      "grade-5",
       "vocabulary",
       "grammar",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"무\",\"english\":\"nothing\"},{\"korean\":\"상상\",\"english\":\"imagination\"},{\"korean\":\"생각\",\"english\":\"thought\"}],\"sentence\":{\"korean\":\"무상상이 생각된다.\",\"english\":\"Something can be thought of as nothing.\"}}",
     "id": 440
@@ -6663,10 +5582,8 @@ export const problems = [
     "problem": "감염된 체계는 위험을 초래합니다.",
     "length": 18,
     "tags": [
-      "5thGrade",
-      "Infection",
-      "Body",
-      "korean-english"
+      "grade-5",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"감염된\",\"english\":\"infected\"},{\"korean\":\"체계\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"감염된 체계는 위험을 초래합니다.\",\"english\":\"An infected body poses a risk.\"}}",
     "id": 441
@@ -6677,11 +5594,9 @@ export const problems = [
     "problem": "온화한 기후는 식물과 동물의 생활에 중요합니다.",
     "length": 26,
     "tags": [
-      "5th-grade",
+      "grade-5",
       "translation",
-      "climate",
-      "temperate",
-      "korean-english"
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
     "id": 442
@@ -6692,10 +5607,10 @@ export const problems = [
     "problem": "목표를 달성하면 만족감이 크게 늘어납니다.",
     "length": 23,
     "tags": [
-      "5thGrade",
-      "Vocabulary",
-      "SentenceStructure",
-      "korean-english"
+      "grade-5",
+      "vocabulary",
+      "grammar",
+      "korean-to-english"
     ],
     "solution": "{\"words\":[{\"korean\":\"만족감\",\"english\":\"fulfillment\"},{\"korean\":\"목표\",\"english\":\"goal\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하면 만족감이 크게 늘어납니다.\",\"english\":\"When you achieve your goal, you feel a great sense of fulfillment.\"}}",
     "id": 443
@@ -6706,11 +5621,7 @@ export const problems = [
     "problem": "let count = 0;      const increment = () => count++;      const result = document.write(count);      increment();",
     "tags": [
       "javascript",
-      "variable",
-      "function",
-      "document",
-      "5thGrade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "1. The program uses variables and functions to count up to 1. It writes the current count to the document using the `document.write()` method.",
     "id": 444
@@ -6720,11 +5631,9 @@ export const problems = [
     "input": "impunity",
     "problem": "let result = 3 ** 4; console.log(result);",
     "tags": [
-      "fifth-grade",
-      "exponentiation",
-      "console",
+      "grade-5",
       "multiplication",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "81. This code uses exponentiation (**) to multiply a number by itself several times. It then prints the result to the console.",
     "id": 445
@@ -6734,10 +5643,8 @@ export const problems = [
     "input": "gallop",
     "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
     "tags": [
-      "5thGrade",
-      "setInterval",
-      "Counter",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "The program will output a sequence of numbers, each representing the current count after one second.. This code uses `setInterval` to repeatedly call a function every second, thereby incrementing a counter. The `console.log` statement then displays the current count after each second.",
     "id": 446
@@ -6747,10 +5654,9 @@ export const problems = [
     "input": "casualty",
     "problem": "let casualties = 0;       casualties = casualties + 1;      console.log(casualties);",
     "tags": [
-      "fifth-grade",
-      "variables",
+      "grade-5",
       "arithmetic",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "1. This program uses variables and basic arithmetic to track the number of casualties in a hypothetical situation. It starts with zero casualties, then increases the count by one each time and displays the final count in the console.",
     "id": 447
@@ -6760,10 +5666,8 @@ export const problems = [
     "input": "forthright",
     "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
     "tags": [
-      "5thGrade",
-      "setInterval",
-      "Counter",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "The program will print a series of numbers, each representing the current count of seconds elapsed.. The code uses `setInterval` to repeatedly call a function that increments a counter every second. The `console.log` statement prints the current count to the console.",
     "id": 448
@@ -6773,10 +5677,9 @@ export const problems = [
     "input": "specialize",
     "problem": "let result = 0;      for (let i = 1; i <= 10; i++) {          result += i;      }      console.log(result);",
     "tags": [
-      "5thGrade",
-      "Loops",
-      "Arithmetic",
-      "javascript-program"
+      "grade-5",
+      "arithmetic",
+      "javascript"
     ],
     "solution": "55. The code iterates from 1 to 10 and adds each number to a variable called 'result'. Then, it prints the value of 'result' to the console.",
     "id": 449
@@ -6786,11 +5689,8 @@ export const problems = [
     "input": "stolen",
     "problem": "let stolen = 10;       const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';       console.log(mystery())",
     "tags": [
-      "5thGrade",
-      "Variables",
-      "Functions",
-      "Modulus",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "even. The program uses the concept of variables and functions to store and manipulate data. The `stolen` variable holds the number of stolen items, and the `mystery` function checks if the number is even or odd. The `console.log` function prints the result of the function to the console.",
     "id": 450
@@ -6800,10 +5700,9 @@ export const problems = [
     "input": "scandalous",
     "problem": "let result = 1;       for (let i = 2; i < 10; i++) {           result += i;       }       console.log(result);",
     "tags": [
-      "fifth-grade",
-      "loop",
+      "grade-5",
       "addition",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "55. The program uses a loop to add up all the numbers from 2 to 10, inclusive. The result is stored in the `result` variable and then displayed in the console.",
     "id": 451
@@ -6813,11 +5712,10 @@ export const problems = [
     "input": "staunch",
     "problem": "console.log(5 + 3 * 2)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "multiplication",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "11. This program uses the arrow function syntax to define a function that adds 5 and the product of 3 and 2. The function is then called immediately using the `console.log` function to print the result to the console.",
     "id": 452
@@ -6827,11 +5725,9 @@ export const problems = [
     "input": "stop",
     "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1))",
     "tags": [
-      "array",
-      "arrow-function",
-      "iteration",
-      "5thGrade",
-      "javascript-program"
+      "arrow-functions",
+      "grade-5",
+      "javascript"
     ],
     "solution": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. The code generates the numbers from 1 to 10 using the Array.from() method and an arrow function. This demonstrates the concept of iterating over a range of numbers and creating an array.",
     "id": 453
@@ -6841,11 +5737,9 @@ export const problems = [
     "input": "forced",
     "problem": "=>console.log(Math.pow(2,3) + Math.sqrt(9))",
     "tags": [
-      "arrow-function",
-      "math",
-      "square-root",
-      "fifth-grade",
-      "javascript-program"
+      "arrow-functions",
+      "grade-5",
+      "javascript"
     ],
     "solution": "13. This program uses arrow functions and mathematical operations to generate output. It squares the number 2 using `Math.pow` and then adds the square root of 9 to the result. The `console.log` function prints the final answer to the console.",
     "id": 454
@@ -6855,10 +5749,8 @@ export const problems = [
     "input": "leaden",
     "problem": "((n) => { console.log(n + 10); })(5);",
     "tags": [
-      "js-arrow-function",
-      "js-conditional-statement",
-      "5th-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "15. This program defines an arrow function that takes a number as an argument and adds 10 to it. It then calls the function with the argument 5 and prints the result to the console.",
     "id": 455
@@ -6868,11 +5760,7 @@ export const problems = [
     "input": "seize",
     "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
     "tags": [
-      "array",
-      "loop",
-      "console",
-      "fifthGrade",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "1 2 3 4 5. This program generates a sequence of numbers from 1 to the input number n. It uses the Array.prototype.map() method to create a new array of numbers from 1 to n, then joins the numbers together with spaces and logs the result to the console.",
     "id": 456
@@ -6883,10 +5771,9 @@ export const problems = [
     "problem": "((n) => console.log(n % 2 === 0 ? 'even' : 'odd'))(5)",
     "tags": [
       "functional-programming",
-      "conditionals",
       "arithmetic",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "odd. This program defines an arrow function that takes a single number (n) as input. The function checks if the remainder of n divided by 2 is equal to 0, and if so it prints 'even' to the console, otherwise it prints 'odd'. The function is then called with the number 5 as an argument, and the output is printed to the console.",
     "id": 457
@@ -6896,11 +5783,8 @@ export const problems = [
     "input": "boarding",
     "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
     "tags": [
-      "recursion",
-      "array",
-      "mapping",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "1 2 3 4 5. This program uses recursion to print the numbers from 1 to n. It creates an array of n empty elements and then uses the map() function to populate it with the numbers from 1 to n. Finally, it joins the elements of the array into a string and prints it to the console.",
     "id": 458
@@ -6910,10 +5794,8 @@ export const problems = [
     "input": "foul",
     "problem": "=>console.log(Math.pow(2, 3) * 4 - 10, ",
     "tags": [
-      "math-exponentiation",
-      "conditional-logic",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "34. The program uses the exponentiation operator (**) to square the number 2 three times, multiplies the result by 4, and then subtracts 10. The output is the final answer, which is 34.",
     "id": 459
@@ -6923,12 +5805,11 @@ export const problems = [
     "input": "stun",
     "problem": "console.log(5 + (3 * 2))",
     "tags": [
-      "arrow-function",
-      "math",
+      "arrow-functions",
       "multiplication",
       "addition",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "11. This program uses arrow functions to perform mathematical operations.       The function `(3 * 2)` multiplies 3 and 2, and the `+ 5` adds the result to 5.       The `console.log()` function prints the final result to the console.",
     "id": 460
@@ -6938,11 +5819,10 @@ export const problems = [
     "input": "equation",
     "problem": "((a, b) => console.log(a + b))(3, 5)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "addition",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "8. This program defines an arrow function that takes two arguments, 'a' and 'b', and uses the '+' operator to sum them. The function then uses the `console.log()` method to print the result to the console.",
     "id": 461
@@ -6952,10 +5832,8 @@ export const problems = [
     "input": "distant",
     "problem": "console.log(Math.pow(2, 5))",
     "tags": [
-      "math",
-      "power",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "32. This code uses the `Math` object in JavaScript to calculate the power of 2 to the power of 5. The `Math.pow()` function takes two arguments: the base and the exponent. It returns the result of the exponentiation.",
     "id": 462
@@ -6965,10 +5843,9 @@ export const problems = [
     "input": "immunize",
     "problem": "console.log(5 + (2 * 3))",
     "tags": [
-      "5thGrade",
-      "Arithmetic",
-      "ArrowFunctions",
-      "javascript-program"
+      "grade-5",
+      "arithmetic",
+      "javascript"
     ],
     "solution": "11. This program uses arrow functions to perform arithmetic operations. The arrow function `(a, b) => a + b` adds two numbers together. The program calls this function with the numbers 5 and 6, and then prints the result to the console.",
     "id": 463
@@ -6979,11 +5856,10 @@ export const problems = [
     "problem": "console.log(5 + 3 * 2)",
     "tags": [
       "functional-programming",
-      "arrow-function",
+      "arrow-functions",
       "arithmetic",
-      "console-log",
-      "5th-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "11. This program uses arrow function syntax to perform arithmetic operations. The function takes no arguments and immediately calculates the sum of 5 and the product of 3 and 2, which is then displayed in the console.",
     "id": 464
@@ -6993,12 +5869,10 @@ export const problems = [
     "input": "trademark",
     "problem": "((n) => console.log(n + 3))(4)",
     "tags": [
-      "arrow-function",
-      "number",
+      "arrow-functions",
       "addition",
-      "console-log",
-      "5thGrade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "7. This program defines an arrow function that adds 3 to the input number (n) and then prints the result to the console. Arrow functions are concise and use less syntax than classic functions.",
     "id": 465
@@ -7010,9 +5884,8 @@ export const problems = [
     "tags": [
       "functional-programming",
       "arrow-functions",
-      "prime-numbers",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "2,3,5,7,11. The code uses an arrow function to define a function that prints the first five prime numbers to the console. Prime numbers are numbers that can only be divided by themselves and 1.",
     "id": 466
@@ -7022,12 +5895,11 @@ export const problems = [
     "input": "telegram",
     "problem": "console.log(5 + 3 * 2)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "multiplication",
       "addition",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "16. This program uses arrow functions and mathematical operations to generate output. It adds the numbers 5 and 3, then multiplies the result by 2. Finally, it prints the result to the console.",
     "id": 467
@@ -7037,11 +5909,8 @@ export const problems = [
     "input": "cupboard",
     "problem": "(() => console.log(Math.pow(2, Math.floor(Math.random() * 5))))()",
     "tags": [
-      "function-expression",
-      "random-number",
-      "exponent",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "64. The code uses arrow functions to define a function that generates a random exponent between 0 and 4, and then uses `Math.pow` to raise the number 2 to the power of the random exponent. The `console.log` function then prints the result of the exponentiation to the console.",
     "id": 468
@@ -7051,11 +5920,8 @@ export const problems = [
     "input": "bonus",
     "problem": "console.log(Math.pow(2,5) - Math.floor(Math.random() * 100))",
     "tags": [
-      "5th-grade",
-      "numbers",
-      "random",
-      "exponentiation",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "32. This code uses mathematical functions to generate a random number and then subtracts it from the result of raising 2 to the power of 5. The `console.log()` function is used to display the final value to the console.",
     "id": 469
@@ -7067,9 +5933,8 @@ export const problems = [
     "tags": [
       "functional-programming",
       "arrow-functions",
-      "closures",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "9. This program defines an arrow function that takes a single argument `n` and multiplies it by itself. The result is then logged to the console using `console.log()`. This demonstrates the concept of closure, where the function remembers the value of its arguments even after the function call ends.",
     "id": 470
@@ -7081,9 +5946,8 @@ export const problems = [
     "tags": [
       "arrow-functions",
       "arithmetic",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "11. This code uses the arrow function syntax to define a function that adds 5 to the product of 3 and 2. The function is then called and the result is logged to the console.",
     "id": 471
@@ -7093,12 +5957,8 @@ export const problems = [
     "input": "affluent",
     "problem": "console.log(Array.from({ length: 5 }, (_, i) => i + 10))",
     "tags": [
-      "array",
-      "iteration",
-      "callback",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "11,12,13,14,15. This code utilizes the Array.from() method to create an array of 5 elements from an iterable object, in this case, an empty array. The callback function provided to the from() method iterates over the array and generates a new element for each index i. The element is calculated as the sum of i and 10. Finally, the console.log() method is called to print the resulting array to the console.",
     "id": 472
@@ -7108,11 +5968,9 @@ export const problems = [
     "input": "ample",
     "problem": "console.log(10, 20, 30.5, 'Hello, world!')",
     "tags": [
-      "es6",
+      "javascript",
       "arrow-functions",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "10 20 30.5 Hello, world!. This program uses the `console.log()` function to print multiple values to the console. The values 10, 20, 30.5, and 'Hello, world!' are the arguments passed to the `console.log()` function.",
     "id": 473
@@ -7122,10 +5980,8 @@ export const problems = [
     "input": "showy",
     "problem": "((n) => console.log([...Array(n).keys()]))(5)",
     "tags": [
-      "Recursion",
-      "Array",
-      "5thGrade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "['0', '1', '2', '3', '4']. This program uses recursion to generate the first n natural numbers. The function creates an array of the first n numbers using the Array.from() method and then uses recursion to print the indices of the array. This demonstrates the concept of recursion, which is a function that calls itself.",
     "id": 474
@@ -7135,11 +5991,7 @@ export const problems = [
     "input": "revert",
     "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1).join('-'))",
     "tags": [
-      "array",
-      "iteration",
-      "callback",
-      "fifthGrade",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "1-2-3-4-5-6-7-8-9-10. The code generates a hyphenated string of numbers from 1 to 10 using Array.from() to create an array of 10 undefined values and Array.prototype.join() to concatenate them with hyphens. This demonstrates the concept of iterating over an array using a callback function.",
     "id": 475
@@ -7149,11 +6001,10 @@ export const problems = [
     "input": "box",
     "problem": "((a, b) => console.log(a + b))(2, 3)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "addition",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "5. This program defines an arrow function that takes two arguments, 'a' and 'b', and uses the '+' operator to add them together. The result is then printed to the console using 'console.log()'.",
     "id": 476
@@ -7163,10 +6014,9 @@ export const problems = [
     "input": "woolen",
     "problem": "((n) => console.log(n.toString().split('').reverse().join()))(1234)",
     "tags": [
-      "arrow-function",
-      "string-manipulation",
-      "fifth-grade",
-      "javascript-program"
+      "arrow-functions",
+      "grade-5",
+      "javascript"
     ],
     "solution": "4321. This program reverses the digits of a number and prints it to the console. It uses arrow function syntax and string manipulation techniques.",
     "id": 477
@@ -7176,10 +6026,9 @@ export const problems = [
     "input": "calling",
     "problem": "console.log(5 + 3 * 2),",
     "tags": [
-      "arrow-function",
-      "mathematical-expression",
-      "5th-grade",
-      "javascript-program"
+      "arrow-functions",
+      "grade-5",
+      "javascript"
     ],
     "solution": "13. This code uses arrow functions and mathematical operations to generate output.     The function adds 5 and the product of 3 and 2, which is 3 multiplied by 2 equals 6.     The result of the addition is then displayed in the console using console.log().",
     "id": 478
@@ -7189,11 +6038,10 @@ export const problems = [
     "input": "longstanding",
     "problem": "((a, b) => console.log(a * b))(2, 5)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "multiplication",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "10. This program defines an arrow function that takes two arguments, `a` and `b`, and uses the `console.log()` function to display the product of the two arguments to the console.",
     "id": 479
@@ -7203,11 +6051,10 @@ export const problems = [
     "input": "surf",
     "problem": "((a, b) => a * b)(3, 5)",
     "tags": [
-      "arrow-function",
+      "arrow-functions",
       "multiplication",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "15. This program defines an arrow function that multiplies two numbers. It then calls the function with the arguments 3 and 5, and prints the result to the console.",
     "id": 480
@@ -7217,11 +6064,9 @@ export const problems = [
     "input": "emotionally",
     "problem": "((a, b) => a * b ? a * b : 0)(2, 5)",
     "tags": [
-      "5thGrade",
-      "Functions",
-      "Arithmetic",
-      "Conditional",
-      "javascript-program"
+      "grade-5",
+      "arithmetic",
+      "javascript"
     ],
     "solution": "10. This program uses arrow functions to define a binary operation that multiplies two numbers. If either number is 0, the program outputs 0. Otherwise, it outputs the product of the two numbers.",
     "id": 481
@@ -7233,9 +6078,8 @@ export const problems = [
     "tags": [
       "arrow-functions",
       "addition",
-      "console-log",
-      "5thGrade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "8. This program uses arrow functions to create a function that adds two numbers together. The function takes two arguments, 'a' and 'b', and then uses the 'console.log' function to display the sum of the two numbers in the console.",
     "id": 482
@@ -7245,12 +6089,8 @@ export const problems = [
     "input": "stairway",
     "problem": "let sum = 0;\nfor (let i = 1; i <= 10; i++) { sum += i; }\nconsole.log(sum);",
     "tags": [
-      "loop",
-      "accumulation",
       "javascript",
-      "console.log",
-      "5thGrade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "55. This program demonstrates the concept of **looping** and **accumulation** in JavaScript. The loop iterates from 1 to 10, adding each number to a variable called `sum` using the `+=` operator. Finally, the `console.log()` function prints the value of `sum` to the console.",
     "id": 483
@@ -7260,11 +6100,7 @@ export const problems = [
     "input": "chaste",
     "problem": "const result = (n) => n * 2; \nconsole.log(result(5))",
     "tags": [
-      "js-function-definition",
-      "js-arrow-function",
-      "js-console-log",
-      "5th-grade-math-multiplication",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "10. This program defines a function that multiplies a given number by 2. It then calls the function with the argument 5 and prints the result to the console.",
     "id": 484
@@ -7275,10 +6111,10 @@ export const problems = [
     "problem": "const result = (num1, num2) => num1 * num2; \nconsole.log(result(5, 3));",
     "tags": [
       "functional-programming",
-      "arrow-function",
+      "arrow-functions",
       "multiplication",
-      "5th-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "15. This program defines an arrow function that multiplies two numbers. It then calls the function with the arguments 5 and 3, and prints the result to the console.",
     "id": 485
@@ -7288,10 +6124,8 @@ export const problems = [
     "input": "bath",
     "problem": "const bath = () => { console.log('A warm bath awaits you.') }      bath()",
     "tags": [
-      "js-arrow-function",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "A warm bath awaits you.. This program uses an arrow function called `bath` that takes no arguments and simply calls `console.log` with a message indicating that a warm bath is waiting for the user.",
     "id": 486
@@ -7301,12 +6135,9 @@ export const problems = [
     "input": "ominous",
     "problem": "const n = 3; console.log((n => n * n)(n));",
     "tags": [
-      "es6",
-      "arrow-function",
-      "variable",
-      "console.log",
-      "fifth-grade",
-      "javascript-program"
+      "javascript",
+      "arrow-functions",
+      "grade-5"
     ],
     "solution": "9. This program uses an arrow function to square a number. It defines a variable `n` with the value 3, then calls the arrow function `n => n * n` with the `n` variable as an argument. The result of the function is multiplied by itself and the final result is logged to the console.",
     "id": 487
@@ -7316,11 +6147,9 @@ export const problems = [
     "input": "carrot",
     "problem": "const carrot = () => console.log(' munch munch, I love carrots!'); carrot();",
     "tags": [
-      "es6",
-      "arrow-function",
-      "console-log",
-      "5thGrade",
-      "javascript-program"
+      "javascript",
+      "arrow-functions",
+      "grade-5"
     ],
     "solution": " munch munch, I love carrots!. This program uses an arrow function called 'carrot' that automatically calls 'console.log()' with the text ' munch munch, I love carrots!' when the program runs. This demonstrates the concept of an anonymous function that can be used to perform actions without explicitly naming the function.",
     "id": 488
@@ -7332,10 +6161,8 @@ export const problems = [
     "tags": [
       "functional-programming",
       "arrow-functions",
-      "variables",
-      "console-log",
-      "fifth-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "30. This program uses an arrow function to define a function that multiplies a variable by 3. The variable is initialized to 10. The function is then called, and the result is logged to the console.",
     "id": 489
@@ -7347,9 +6174,8 @@ export const problems = [
     "tags": [
       "functional-programming",
       "arrow-functions",
-      "conditional-statements",
       "grade-5",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "50. This program defines a function called 'result' that multiplies its input by 5. It then calls the function with the argument 10 and prints the output to the console.",
     "id": 490
@@ -7359,11 +6185,8 @@ export const problems = [
     "input": "starch",
     "problem": "const x = (n) => console.log(n * n); x(25);",
     "tags": [
-      "js-function-definition",
-      "js-arrow-function",
-      "js-console-log",
-      "5th-grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "25. This program defines a function called 'x' that takes a number 'n' and prints the square of 'n' to the console.",
     "id": 491
@@ -7374,10 +6197,8 @@ export const problems = [
     "problem": "const x = () => Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)); console.log(x())",
     "tags": [
       "probability",
-      "randomness",
-      "square root",
-      "fifth grade",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "1.2345. The program generates a random number, squares it, adds another random number's square, then calculates the square root of the sum. This process creates a whirlwind of numbers, resulting in a constantly changing output.",
     "id": 492
@@ -7387,13 +6208,10 @@ export const problems = [
     "input": "loose",
     "problem": "(() => { const x = 10; const y = 20; console.log(x + y); })()",
     "tags": [
-      "es6",
+      "javascript",
       "arrow-functions",
-      "variables",
       "addition",
-      "console-log",
-      "5thGrade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "30. This program uses arrow functions to define two variables, x and y, and then uses the addition operator (+) to combine their values. The console.log() function is used to display the result of the addition to the console.",
     "id": 493
@@ -7404,12 +6222,7 @@ export const problems = [
     "problem": "observed = (a) => console.log(a); const numbers = [1, 2, 3, 4, 5]; numbers.forEach((a) => observed(a));",
     "tags": [
       "javascript",
-      "arrays",
-      "functions",
-      "console.log",
-      "grade-5",
-      "programming-concepts",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "1\n2\n3\n4\n5\n. This program uses an arrow function to define a simple observer. The `observed` function takes one argument and logs it to the console. We then use the `forEach` method on an array of numbers to apply the `observed` function to each number in the array. This demonstrates the concept of mapping a function over a collection of data.",
     "id": 494
@@ -7420,12 +6233,7 @@ export const problems = [
     "problem": "const stout = (n) => n * 3; console.log(stout(5));",
     "tags": [
       "javascript",
-      "function",
-      "variable",
-      "math",
-      "fifth-grade",
-      "programming",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "15. This program defines a function `stout` that takes an argument `n` and returns the result of multiplying `n` by 3. The function is then called with the argument `5`, which means it will multiply 5 by 3 and log the result to the console.",
     "id": 495
@@ -7437,9 +6245,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "function-closures",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "11. This code demonstrates the concept of variable scope and function closures. The variable `a` is defined in the outer scope, and the arrow function `b` has access to this variable because it was defined in the same scope. When we call `b()` and log its return value, we can see that the value of `a` is used within the function.",
     "id": 496
@@ -7452,10 +6258,7 @@ export const problems = [
       "javascript",
       "arrow-functions",
       "variable-scope",
-      "hoisting",
-      "console-log",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "Signing up as John. In this code snippet, we're using an arrow function to define a simple signing-up process. The function takes a name as an argument and logs a message to the console with that name. We then call the function with the name 'John'. This demonstrates the concept of variable scope and how variables are hoisted in JavaScript.",
     "id": 497
@@ -7466,10 +6269,8 @@ export const problems = [
     "problem": "  let dally = [1, 2, 3];  let result = dally.map((x) => x * 2);  console.log(result);  ",
     "tags": [
       "javascript",
-      "map",
-      "arrow-function",
-      "grade-5",
-      "javascript-program"
+      "arrow-functions",
+      "grade-5"
     ],
     "solution": "  [2, 4, 6]  .   This program demonstrates the concept of map() and arrow functions. The map() function applies a transformation to each element in an array. In this case, it multiplies each number by 2. The result is a new array with the transformed values.  ",
     "id": 498
@@ -7481,10 +6282,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "lexical-closure",
-      "5th-grade",
-      "programming-concepts",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "'super secret'. This program demonstrates the concept of variable scope and lexical closure. The `protect` function has its own local scope, which means that any variables declared inside it are not accessible outside of it. Even though we're trying to access the `sensitiveData` variable outside of the function, it's not possible because it's defined within the function's scope. This is a fundamental concept in programming, and it's essential to understand how variables are scoped.",
     "id": 499
@@ -7495,9 +6293,7 @@ export const problems = [
     "problem": "const involuntary = (x) => { return x + 1; }; console.log(involuntary(2));",
     "tags": [
       "javascript",
-      "function-inversion",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "3. This program demonstrates the concept of function invocation and how it affects the output. The `involuntary` function takes an argument `x` and returns its value plus one. When we call the function with the argument `2`, the function is executed and the result is logged to the console. The key point here is that the function is not explicitly invoked when we define it, but rather when we call it later in the code.",
     "id": 500
@@ -7508,10 +6304,7 @@ export const problems = [
     "problem": "let vehement = (x) => { console.log(x); }; vehement(10);",
     "tags": [
       "javascript",
-      "function-declaration",
-      "function-invocation",
-      "grade-5",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "10\n. This program demonstrates the concept of function declaration and invocation. The arrow function 'vehement' takes one argument 'x' and logs it to the console when called. In this case, we call 'vehement' with the argument 10.",
     "id": 501
@@ -7523,9 +6316,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "conditional-statements",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "alive. This program demonstrates the concept of variable scope and conditional statements. The variable `x` is declared with a value of 10, and then an `if` statement checks if `x` is less than 11. If it is, the program logs 'die' to the console. If not, it declares a new arrow function `y` that logs 'alive' when called. The key point here is that the variable `x` is declared outside of any function or block scope, so its value can be accessed and modified within the `if` statement.",
     "id": 502
@@ -7535,12 +6326,8 @@ export const problems = [
     "input": "ensemble",
     "problem": "let numbers = [1, 2, 3]; let doubleNumbers = numbers.map((num) => num * 2); console.log(doubleNumbers);",
     "tags": [
-      "5th-grade",
-      "arrays",
-      "mapping",
-      "transformation",
-      "javascript",
-      "javascript-program"
+      "grade-5",
+      "javascript"
     ],
     "solution": "[2, 4, 6]. This program demonstrates the concept of array mapping and the creation of a new array from an existing one. The `map` method is called on the `numbers` array, which applies a transformation to each element in the array. In this case, the transformation multiplies each number by 2. The resulting array, `doubleNumbers`, contains the doubled numbers.",
     "id": 503
@@ -7551,11 +6338,7 @@ export const problems = [
     "problem": "let x = () => { console.log('Before'); return 'hello'; }; let y = x(); console.log(y);",
     "tags": [
       "javascript",
-      "variables",
-      "scope",
-      "arrow-functions",
-      "school-grade-level-5th",
-      "javascript-program"
+      "arrow-functions"
     ],
     "solution": "Before\nhello. This program demonstrates the concept of variable scope and the use of arrow functions. The `x` function is defined as an arrow function that returns the string 'hello' after logging a message to the console. Then, the function `x` is called with the syntax `let y = x();`, which assigns the return value of the function to the variable `y`. Finally, the value of `y` is logged to the console.",
     "id": 504
@@ -7567,9 +6350,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "function-hoisting",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": 5,
     "id": 505
@@ -7580,10 +6361,8 @@ export const problems = [
     "problem": "let demolish = (a) => { console.log(a);  }; demolish('hello');",
     "tags": [
       "javascript",
-      "5th-grade",
-      "arrow-function",
-      "function-call",
-      "javascript-program"
+      "grade-5",
+      "arrow-functions"
     ],
     "solution": "hello\n. The `demolish` function is a simple example of an arrow function in JavaScript. Arrow functions are used to define small, one-time-use functions that can be called with the arrow symbol (`=>`). In this case, the `demolish` function takes one argument `a` and logs it to the console using `console.log(a)`. The function is then called with the string `'hello'`, which should log `'hello'` to the console.  The concept being highlighted here is the use of arrow functions in JavaScript. Arrow functions are a shorthand way to define small functions that can be used to perform simple operations or transformations on data.",
     "id": 506
@@ -7593,12 +6372,8 @@ export const problems = [
     "input": "canoe",
     "problem": "let canoe = { length: 3.5, width: 0.8 }; console.log(canoe.length + canoe.width);",
     "tags": [
-      "programming",
       "javascript",
-      "objects",
-      "references",
-      "grade-5",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "3.5, 0.8\n2.1, 0.9. This program demonstrates the concept of object references in JavaScript.",
     "id": 507
@@ -7609,9 +6384,7 @@ export const problems = [
     "problem": "let magnitude = (x, y) => x + y; console.log(magnitude(10, 20));",
     "tags": [
       "javascript",
-      "function-closures",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "30. This program demonstrates the concept of function closures. The `magnitude` function takes two arguments and returns their sum. When we call `console.log(magnitude(10, 20))`, it prints `30`. This is because the `magnitude` function has access to its own scope, which includes the variables `x` and `y` that were passed to it. Even though these variables are no longer in scope outside of the function, they remain available within the function itself. This is an important concept for understanding how functions work in JavaScript.",
     "id": 508
@@ -7621,10 +6394,7 @@ export const problems = [
     "input": "pole",
     "problem": "  let pole = { lat: 40.7128, lon: -74.0060 };  console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);  ",
     "tags": [
-      "javascript",
-      "template-literals",
-      "school-grade-level-5th",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "  The coordinates of the pole are 40.7128, -74.0060  .   This code snippet demonstrates how to use template literals in JavaScript. Template literals allow you to embed expressions inside string literals, using the `${}` syntax.  In this example, we define an object `pole` with two properties: `lat` and `lon`. Then, we use a console.log statement to print out the coordinates of the pole. The `${}` syntax is used to insert the values of `pole.lat` and `pole.lon` into the string literal.  ",
     "id": 509
@@ -7634,7 +6404,7 @@ export const problems = [
     "input": "rubbish",
     "problem": "console.log(JSON.stringify({ x: 1, y: null }));",
     "tags": [
-      "javascript-program"
+      "javascript"
     ],
     "solution": "  {.   This program demonstrates the concept of `null` as a default value for properties. When we try to access a property that doesn't exist or has no value assigned to it, JavaScript returns `undefined`. However, when we use `JSON.stringify()` to convert an object into a JSON string, any properties with no value (i.e., `null`) are omitted from the output. This is because JSON strings do not support `null` values.",
     "id": 510
@@ -7646,9 +6416,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "hoisting",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "[20]. This program demonstrates the concept of variable scope and hoisting in JavaScript. The `x` variable is declared with the `let` keyword, which means it has block-level scope. The `y` function is a const arrow function that logs the value of `x`. The `x` variable is reassigned to 20. When the `y` function is called, it will log the current value of `x`, which is 20.",
     "id": 511
@@ -7659,10 +6427,7 @@ export const problems = [
     "problem": "let alias = 'old value'; console.log(`Initial value: ${alias}`); alias = 'new value'; console.log(`Updated value: ${alias}`);",
     "tags": [
       "javascript",
-      "variable reassignment",
-      "reassignment gotcha",
-      "5th grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "Initial value: old value\nUpdated value: new value. This code demonstrates the concept of variable reassignment. The `alias` variable is initially assigned the value `'old value'`. Then, its value is reassigned to `'new value'`. The output shows that the initial and updated values are logged to the console.",
     "id": 512
@@ -7673,9 +6438,7 @@ export const problems = [
     "problem": "let nobleman = { name: 'John', title: 'Duke' }; console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);",
     "tags": [
       "javascript",
-      "template-literals",
-      "grade-5",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "{ \"Hello, my name is John and I am a Duke\" }. This code snippet demonstrates the concept of template literals in JavaScript. Template literals allow us to embed expressions inside string literals using the `${expression}` syntax. In this example, we're using a template literal to create a greeting message that includes the nobleman's name and title.",
     "id": 513
@@ -7686,11 +6449,7 @@ export const problems = [
     "problem": "let register = { name: 'John', age: 30  }; console.log(Object.keys(register).join(', '));",
     "tags": [
       "javascript",
-      "object-keys",
-      "concatenation",
-      "array-methods",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "  name, age  .   This program uses a concept called `Object.keys()` which returns an array of the object's own enumerable property names. The `join()` method is then used to concatenate these property names into a single string, separated by commas.  ",
     "id": 514
@@ -7701,10 +6460,7 @@ export const problems = [
     "problem": "const tuition = { fee: 1000 }; console.log(tuition.fee);",
     "tags": [
       "grade-5",
-      "objects",
-      "references",
-      "assignment",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "1000. This program demonstrates the concept of object references and assignment. We create an object called 'tuition' with a property 'fee' set to 1000. Then, we log the value of 'tuition.fee' to the console.",
     "id": 515
@@ -7716,9 +6472,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "function-scope",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "3. This program demonstrates the concept of variable scope and how it affects the behavior of a function. The `x` variable is declared in the global scope, while the `adjustment` function is defined inside another scope (the let block). When the `adjustment` function is called, it logs the value of `x`, which is still 3 because it's looking for the variable in its own scope.",
     "id": 516
@@ -7729,11 +6483,7 @@ export const problems = [
     "problem": "let notional = { name: 'John', age: 25 }; console.log(`Name: ${notional.name}, Age: ${notional.age}`);",
     "tags": [
       "javascript",
-      "objects",
-      "references",
-      "es6",
-      "5th grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "{ Name: John, Age: 25 }. This program demonstrates the concept of object references in JavaScript. When we assign an object to a variable, it creates a reference to that object. Changes made to the original object will be reflected in the referenced object.",
     "id": 517
@@ -7743,12 +6493,7 @@ export const problems = [
     "input": "decentralize",
     "problem": "console.log(Object.values({ a: 1, b: 2, c: 3 }).map(v => v * 2));",
     "tags": [
-      "javascript",
-      "decentralize",
-      "map",
-      "object-values",
-      "school-grade-level:5th",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "[2,4,6]. This program uses Object values and map functions to demonstrate the concept of decentralization in JavaScript. The Object.values function returns an array of values from an object, and the map function applies a transformation (in this case, multiplication by 2) to each value in the array. This decentralized processing allows for independent calculations on individual elements without affecting the entire dataset.",
     "id": 518
@@ -7758,13 +6503,7 @@ export const problems = [
     "input": "corruption",
     "problem": "let corruption = 0;  let obj = { Corruption: (x) => x }; console.log(obj.Corruption(10));",
     "tags": [
-      "javascript",
-      "scope",
-      "variable-hoisting",
-      "objects",
-      "functions",
-      "corruption",
-      "javascript-program"
+      "javascript"
     ],
     "solution": "  10  . This program demonstrates the concept of variable scope and how objects can be used to simulate function-like behavior. The `corruption` variable is declared outside of any function, but its value is not changed until it's accessed through the `obj` object. This is because JavaScript has a mechanism called 'variable hoisting' which moves declarations to the top of their scope (in this case, the global scope).",
     "id": 519
@@ -7775,10 +6514,7 @@ export const problems = [
     "problem": "a = 1; b = (x) => console.log(x); b(2)",
     "tags": [
       "javascript",
-      "5th-grade",
-      "immediately-invoked-function-expression",
-      "iife",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "2. This program demonstrates the concept of an Immediately Invoked Function Expression (IIFE). The IIFE is a function that is defined and immediately called. In this case, the function `b` takes one argument `x` and logs it to the console. When we call `b(2)`, it will log `2` to the console.",
     "id": 520
@@ -7789,12 +6525,7 @@ export const problems = [
     "problem": "const digestive = (input) => { let result = input.length; console.log(`Digestive length: ${result}`); }; digestive('hello');",
     "tags": [
       "javascript",
-      "es6",
-      "variable-scope",
-      "let-vs-const",
-      "console-log",
-      "school-grade-level-5th",
-      "javascript-program"
+      "variable-scope"
     ],
     "solution": "Digestive length: 5. This program demonstrates the concept of variable scope and the difference between using `let` and `const`. The function `digestive` takes an input string, calculates its length, and logs it to the console. The variable `result` is scoped within the function and is not accessible outside of it.",
     "id": 521
@@ -7805,11 +6536,7 @@ export const problems = [
     "problem": "const portrait = (name) => { console.log(`Hello, my name is ${name}`); }; portrait('Alice');",
     "tags": [
       "javascript",
-      "template-literals",
-      "strings",
-      "variables",
-      "grade-5",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "Hello, my name is Alice. This program demonstrates the concept of template literals in JavaScript. A template literal is a string that can contain placeholders for values, which are replaced when the string is converted to a value. In this case, we're using template literals to insert the value of the `name` variable into a greeting message.",
     "id": 522
@@ -7820,11 +6547,7 @@ export const problems = [
     "problem": "const extended = {name: 'John', age: 25}; console.log(extended.name);",
     "tags": [
       "javascript",
-      "object-oriented-programming",
-      "oop",
-      "5th-grade",
-      "programming",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "John. This code snippet demonstrates how JavaScript objects can be extended or added to. In this case, an object named `extended` is defined with two properties: `name` and `age`. The value of the `name` property is then logged to the console using `console.log()`.",
     "id": 523
@@ -7835,11 +6558,7 @@ export const problems = [
     "problem": "let particularly = (x) => { console.log(x);  }; particularly('Hello');",
     "tags": [
       "javascript",
-      "scope",
-      "arrow functions",
-      "variable scope",
-      "5th grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "  Hello  .   This code demonstrates the concept of variable scope and the use of arrow functions in JavaScript. The `particularly` function is defined with an argument `x`, which is then logged to the console using `console.log`. When called with the string 'Hello', it prints 'Hello' to the console.  ",
     "id": 524
@@ -7850,11 +6569,7 @@ export const problems = [
     "problem": "let goalkeeper = (target) => { let goal = ' scored!'; if (!target) { console.log('No target, no goal'); } else { console.log(target + goal); } }; goalkeeper('Messi');",
     "tags": [
       "javascript",
-      "optional chaining",
-      "ternary operator",
-      "conditional statements",
-      "5th grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "Messi scored!. This code demonstrates the concept of optional chaining in JavaScript. The `goalkeeper` function takes a `target` parameter and checks if it's truthy (not null or undefined). If the target is present, it logs the message with the goal scored by that target. The gotcha here is that the function uses the ternary operator (`? :`) to conditionally log the message, which can lead to unexpected behavior if not understood correctly.",
     "id": 525
@@ -7865,10 +6580,8 @@ export const problems = [
     "problem": "let definitely = (x) => x; console.log(definitely(3));",
     "tags": [
       "javascript",
-      "5th-grade",
-      "variables-scope",
-      "arrow-functions",
-      "javascript-program"
+      "grade-5",
+      "arrow-functions"
     ],
     "solution": "3. The program defines an arrow function `definitely` that takes a single argument `x`. The function simply returns the input value. Then it calls `console.log` with the result of calling `definitely` with the argument 3, which should log `3` to the console. This demonstrates the concept of variable scope and the use of arrow functions in JavaScript.",
     "id": 526
@@ -7879,10 +6592,7 @@ export const problems = [
     "problem": "let detention = 'unexcused'; console.log('You are serving ' + detention);",
     "tags": [
       "javascript",
-      "template-literals",
-      "strings",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "You are serving unexcused. In this code snippet, we're using a variable `detention` and concatenating it with a string to form a sentence. The concept being tested is the usage of template literals in JavaScript. Template literals allow us to embed expressions inside string literals.",
     "id": 527
@@ -7893,11 +6603,7 @@ export const problems = [
     "problem": "let premium = 'gold'; console.log(premium === 'silver' ? 'Not Premium' : `You have reached ${premium} level!`);  ",
     "tags": [
       "javascript",
-      "strict-equality",
-      "ternary-operator",
-      "conditional-statement",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "  You have reached gold level!  .   This code demonstrates the concept of strict equality (`===`) in JavaScript. The program defines a variable `premium` and sets it to `'gold'`. Then, it uses a conditional statement with a ternary operator to check if `premium` is equal to `'silver'`. If the condition is true, it logs the message `'Not Premium'`. Otherwise, it logs a congratulatory message indicating that you have reached the `'gold'` level. The program highlights the importance of strict equality in JavaScript, as opposed to loose equality (`==`).  ",
     "id": 528
@@ -7908,11 +6614,7 @@ export const problems = [
     "problem": "let fortune = { 'heads': 'You will have good luck', 'tails': 'You will have bad luck'  }; const coinFlip = () => {    const randomNum = Math.floor(Math.random() * 2); return (randomNum === 0) ? 'heads' : 'tails';  }; console.log(fortune[coinFlip()]);",
     "tags": [
       "javascript",
-      "functions",
-      "random-numbers",
-      "object-keys",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "undefined. undefined",
     "id": 529
@@ -7924,9 +6626,7 @@ export const problems = [
     "problem": "let fort = { height: 100 }; let fortHeight = () => console.log(fort.height); fortHeight();",
     "tags": [
       "javascript",
-      "variable shadowing",
-      "5th grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "100. This program demonstrates variable shadowing. Variable shadowing occurs when a variable with the same name is declared inside a block (such as a function or an if statement), which hides the outer scope's variable with the same name. In this case, we create an object `fort` and assign it to a variable `fort`. Then, we define an arrow function `fortHeight` that logs the value of `fort.height`. We call `fortHeight()` to execute the function. The output will be 100.",
     "id": 530
@@ -7938,9 +6638,7 @@ export const problems = [
     "problem": "const tool = () => { let count = 0; return (count += 1); }; console.log(tool());",
     "tags": [
       "javascript",
-      "closure",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "  1  .   This program demonstrates the concept of closures. A closure is when a function has access to its own scope and any parent scopes, even after it's returned from or finished executing.  In this case, the `tool` function returns the current value of the `count` variable, which is incremented each time the function is called. This behavior might seem confusing at first, but it's an important concept in JavaScript programming.  ",
     "id": 531
@@ -7952,10 +6650,7 @@ export const problems = [
     "problem": "const stairway = [1, 2, 3]; for (let i = 0; i < stairway.length; i++) { console.log(stairway[i]); }",
     "tags": [
       "javascript",
-      "array-indexing",
-      "const-let",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "1,2,3. This program demonstrates the concept of array indexing and the difference between const and let. The const variable 'stairway' is an array that contains three elements: 1, 2, and 3. The for loop iterates over the length of the array using a let variable 'i'. Inside the loop, we log each element of the array to the console.",
     "id": 532
@@ -7968,9 +6663,7 @@ export const problems = [
     "tags": [
       "javascript",
       "variable-scope",
-      "function-hoisting",
-      "5th-grade",
-      "javascript-program"
+      "grade-5"
     ],
     "solution": "3. This program demonstrates the concept of variable scope and hoisting. The `flop` function is defined as a constant arrow function, which means it can only be reassigned with another value of the same type. In this case, we're returning the input value `x`. When we call `console.log(flop(3))`, we expect to see the output `3` because the function simply returns its input. However, the gotcha is that if we try to reassign the `flop` variable with a new value before calling it, JavaScript will automatically move the assignment to the top of the scope, effectively 'hoisting' the variable. This can lead to unexpected behavior.",
     "id": 533
@@ -7983,11 +6676,8 @@ export const problems = [
     "length": 148,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "unit-rate",
       "metric-units",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Athlete 1: 5 minutes/meter, Athlete 2: 5 minutes/meter",
     "id": 534
@@ -7999,11 +6689,10 @@ export const problems = [
     "problem": "An athlete runs 3000 m in 10 minutes. What is the athlete's average speed in meters per second?",
     "length": 95,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "distance",
       "speed",
       "time",
-      "conversion",
       "time-distance-speed"
     ],
     "solution": "First, convert minutes to seconds: 10 min = 600 s. Then, divide the distance covered by the time taken to get the average speed: 3000 m / 600 s = 5 m/s.",
@@ -8017,10 +6706,9 @@ export const problems = [
     "length": 107,
     "tags": [
       "geometry",
-      "fifth-grade",
+      "grade-5",
       "distance",
-      "speed",
-      "conversion"
+      "speed"
     ],
     "solution": "First, we need to convert kilometers to meters. 3 km = 3000 m. Then, we can calculate the average speed by dividing the distance covered by the time taken.",
     "id": 536
@@ -8032,11 +6720,8 @@ export const problems = [
     "problem": "An athlete completes a 100-meter course in 12 minutes. What is the average exertion, in watts, required to finish the course if the metabolic rate during exertion is approximated by 40 watts per kilogram of body weight?",
     "length": 219,
     "tags": [
-      "5th-grade",
+      "grade-5",
       "physics",
-      "exertion",
-      "power",
-      "metabolic-rate",
       "probability"
     ],
     "solution": "\frac{40\text{ W/kg} \times 70\text{ kg}}{12\text{ min}\times 60\text{ s/min}}=35\text{ W}",
@@ -8049,11 +6734,7 @@ export const problems = [
     "problem": "An athlete expends 300 J of energy while running for 5 minutes. What is the average power output of the athlete in watts?",
     "length": 121,
     "tags": [
-      "5thGrade",
-      "Physics",
-      "Energy",
-      "Power",
-      "Units",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to recall the formula for power, P = E/t, and apply it to the given energy expenditure and time. It also involves converting minutes to seconds.",
@@ -8066,12 +6747,9 @@ export const problems = [
     "problem": "An athlete runs 400m in 8 minutes. What is the average exertion in watts if the athlete consumes 1200W during the race?",
     "length": 119,
     "tags": [
-      "fifth-grade",
-      "power",
-      "energy",
+      "grade-5",
       "distance",
       "time",
-      "exertion",
       "science"
     ],
     "solution": "This problem involves calculating average power output from distance and time, concepts familiar to 5th graders. It requires understanding of SI units and simple division.",
@@ -8084,11 +6762,8 @@ export const problems = [
     "problem": "The exertion of running marathon makes me feel exhausted, but it is also a great feeling of accomplishment.",
     "length": 109,
     "tags": [
-      "grammar-error-noun-verb",
-      "running-marathon",
-      "feeling-accomplishment",
-      "fifth-grade",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a minor grammatical error. 'Exertion' is a noun that refers to the action of physical effort, but in this sentence, it is used as a verb. The correct form of the verb is 'exercise'.",
     "id": 540
@@ -8100,10 +6775,8 @@ export const problems = [
     "problem": "The runner exerted immense forces on his muscles, pushing his limits for the victory.",
     "length": 84,
     "tags": [
-      "fifth-grade",
-      "spelling-error",
-      "misuse-of-singular-noun",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'force' instead of 'forces'. 'Forces' would be incorrect as it implies more than one exertion.",
     "id": 541
@@ -8115,13 +6788,10 @@ export const problems = [
     "problem": "Calculate the amount of exertion a runner experiences when running at a speed of 8 meters per second for 10 minutes.",
     "length": 116,
     "tags": [
-      "fifth-grade",
-      "running",
+      "grade-5",
       "speed",
       "time",
-      "metabolic-units",
-      "exertion-calculation",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The exertion experienced is approximately 480 metabolic units.",
     "id": 542
@@ -8134,12 +6804,7 @@ export const problems = [
     "length": 58,
     "tags": [
       "airplane",
-      "trivia",
-      "boeing",
-      "747-8",
-      "wingspan",
-      "fifth-grade",
-      "airplane-trivia"
+      "grade-5"
     ],
     "solution": "The average wingspan of a Boeing 747-8 is approximately 60 meters. This massive wingspan allows the aircraft to generate enough lift to take off and land safely.",
     "id": 543
@@ -8151,12 +6816,7 @@ export const problems = [
     "problem": "What is the amount of oxygen consumed during physical exertion, expressed in milliliters per kilogram of body weight per minute?",
     "length": 128,
     "tags": [
-      "science",
-      "3rd grade",
-      "physiology",
-      "exercise",
-      "oxygen consumption",
-      "science-trivia"
+      "science"
     ],
     "solution": "Oxygen consumption during exertion is a measure of metabolic rate. It indicates the body's need for oxygen during physical activity. The rate is typically measured in milliliters per kilogram of body weight per minute (ml/kg/min).",
     "id": 544
@@ -8169,11 +6829,7 @@ export const problems = [
     "length": 177,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "wordplay",
-      "word-problem",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Each student gets 4 pens. The teacher secretly keeps 10 pens for herself.",
     "id": 545
@@ -8185,8 +6841,7 @@ export const problems = [
     "problem": "An explorer confesses that it took him 3 hours to traverse a jungle at a speed of 5 km/h. How far did he travel?",
     "length": 112,
     "tags": [
-      "fifth-grade",
-      "distance-time",
+      "grade-5",
       "speed",
       "metric-units",
       "time-distance-speed"
@@ -8204,7 +6859,7 @@ export const problems = [
       "geometry",
       "perimeter",
       "triangle",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "First, let's represent the length of the shortest side as x cm. Then, the length of the longest side is x + 5 cm. The perimeter is the sum of all three sides, so x + (x + 5) + x = 30 cm. Solving this equation will give us the length of the shortest side.",
     "id": 547
@@ -8217,9 +6872,7 @@ export const problems = [
     "length": 170,
     "tags": [
       "probability",
-      "combination",
-      "conditional",
-      "fifth-grade"
+      "grade-5"
     ],
     "solution": "\frac{10 \times 4}{30 \times 4} = \frac{1}{3}",
     "id": 548
@@ -8231,10 +6884,10 @@ export const problems = [
     "problem": "An astronaut confesses that their spaceship's fuel gauge reads 25% of its capacity. If the spaceship consumes fuel at a rate of 2.5% per hour, how many hours until the spaceship runs out of fuel?",
     "length": 195,
     "tags": [
-      "fraction",
+      "fractions",
       "percentage",
       "ratio",
-      "fifth-grade",
+      "grade-5",
       "physics"
     ],
     "solution": "This problem requires students to apply their knowledge of fractions and percentages to solve a real-world scenario. It involves dividing a percentage by another percentage to find the number of hours until the spaceship runs out of fuel.",
@@ -8248,10 +6901,7 @@ export const problems = [
     "length": 145,
     "tags": [
       "volume",
-      "cylinder",
-      "height",
-      "radius",
-      "fifth-grade",
+      "grade-5",
       "science"
     ],
     "solution": "This problem requires understanding of the formula for the volume of a cylinder and the relationship between the volume, height, and radius of a cylinder. It is appropriate for a 5th grader who has been introduced to these concepts.",
@@ -8264,10 +6914,8 @@ export const problems = [
     "problem": "She confess that she had a secret crush her best friend.",
     "length": 59,
     "tags": [
-      "verb-tense-error",
-      "incorrect-word-choice",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error. The correct form is 'She confessed that she had a secret crush on her best friend.'",
     "id": 551
@@ -8279,10 +6927,8 @@ export const problems = [
     "problem": "She confessed that she had peek at the answer key, but promised never to do it again.",
     "length": 87,
     "tags": [
-      "5th-grade",
-      "spelling-error",
-      "grammar-error",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'peeked' instead of 'peeked'. 'Peek' means to take a quick look at something, while 'peeked' is the past tense of the verb.",
     "id": 552
@@ -8295,11 +6941,7 @@ export const problems = [
     "length": 111,
     "tags": [
       "grade-5",
-      "confession",
-      "sharing",
-      "secret",
-      "admission",
-      "sentence-prompt"
+      "sentence-writing"
     ],
     "solution": "The mischievous squirrel confessed to stealing the sunflower seeds from the bird feeder.",
     "id": 553
@@ -8312,12 +6954,9 @@ export const problems = [
     "length": 171,
     "tags": [
       "airplane",
-      "fuel",
       "distance",
-      "consumption",
-      "metric",
-      "fifth-grade",
-      "airplane-trivia"
+      "metric-units",
+      "grade-5"
     ],
     "solution": "To find the total fuel needed, we multiply the distance by the fuel consumption per kilometer. 3,000km * 5kg/km = 15,000kg of fuel will be needed to complete the journey.",
     "id": 554
@@ -8332,8 +6971,7 @@ export const problems = [
       "algebra",
       "multiplication",
       "division",
-      "fraction",
-      "fifth_grade",
+      "fractions",
       "arithmetic"
     ],
     "solution": ",=,11/24",
@@ -8346,12 +6984,7 @@ export const problems = [
     "problem": "Evaluate the expression: ,,10^3 + 2\times10^2 + 5\times10 + 3,,",
     "length": 58,
     "tags": [
-      "fifth-grade",
-      "multi-digit-addition",
-      "exponents",
-      "carrying",
-      "borrowing",
-      "arithmetic-carry"
+      "grade-5"
     ],
     "solution": "This problem requires careful handling of carries and borrows. Remember to perform the multiplication before addition, and keep track of any carries or borrows that occur.",
     "id": 556
@@ -8363,10 +6996,7 @@ export const problems = [
     "problem": "Calculate: 325 × 689",
     "length": 20,
     "tags": [
-      "multiples-of-9",
-      "integer-multiplication",
-      "5th-grade",
-      "arithmetic-multiplication"
+      "grade-5"
     ],
     "id": 557
   },
@@ -8379,11 +7009,7 @@ export const problems = [
     "tags": [
       "arithmetic",
       "division",
-      "integers",
-      "place value",
-      "rounding",
-      "fifth-grade",
-      "arithmetic-division"
+      "grade-5"
     ],
     "solution": "This problem tests the common errors of division involving 'carrying' and 'place value' that students make. In this case, students may forget to 'carry' the remainder from the lower digit to the next, or they may not correctly place the decimal point in the quotient.",
     "id": 558
@@ -8396,10 +7022,7 @@ export const problems = [
     "length": 123,
     "tags": [
       "algebra",
-      "system-of-equations",
-      "quadratic-equation",
-      "fifth-grade",
-      "two-variable-algebra"
+      "grade-5"
     ],
     "solution": "Let b be the number of bees and f be the number of butterflies.\n b + 2f = 50\n f = (50-b)/2\n Therefore, there are 30 butterflies.",
     "id": 559
@@ -8411,11 +7034,10 @@ export const problems = [
     "problem": "A squirrel travels 45 meters through a forest at a speed of 3 meters per second. How long will it take the squirrel to reach a tree that is 15 meters away?",
     "length": 155,
     "tags": [
-      "time-distance",
+      "time-distance-speed",
       "speed",
       "metric-units",
-      "fifth-grade",
-      "time-distance-speed"
+      "grade-5"
     ],
     "solution": "First, we need to calculate how many seconds it takes the squirrel to cover the 45-meter distance. We can do this by dividing the distance by the speed: 45m / 3m/s = 15s. Next, we need to subtract the distance remaining to the tree from the total time taken to get there: 15s - 15m / 3m/s = 5s. Therefore, it will take the squirrel 5 seconds to reach the tree.",
     "id": 560
@@ -8429,9 +7051,8 @@ export const problems = [
     "tags": [
       "geometry",
       "perimeter",
-      "circle",
       "triangle",
-      "fifth grade"
+      "grade-5"
     ],
     "solution": "First, calculate the perimeter of the circular meadow. Then, add the length of the trail to the meadow perimeter.",
     "id": 561
@@ -8443,9 +7064,8 @@ export const problems = [
     "problem": "A naturalist observes that 3 out of 5 trees in a forest have leaves that change color in autumn. If there are 200 trees in the forest, how many of them will have leaves that change color?",
     "length": 187,
     "tags": [
-      "probability-estimation",
       "conditional-probability",
-      "fifth-grade",
+      "grade-5",
       "probability"
     ],
     "solution": ",240",
@@ -8458,9 +7078,7 @@ export const problems = [
     "problem": "A river has a flow rate of 2 m/s. The cross-sectional area of the river is 100 m². What is the volume of water that flows through the river in one minute?",
     "length": 154,
     "tags": [
-      "fifth-grade",
-      "flow-rate",
-      "cross-sectional-area",
+      "grade-5",
       "volume",
       "metric-units",
       "physics"
@@ -8475,7 +7093,7 @@ export const problems = [
     "problem": "A forest path is 3.5 kilometers long. If the path winds through the forest at an average of 120 meters per minute, how many minutes will it take to walk the entire path?",
     "length": 169,
     "tags": [
-      "fifth-grade",
+      "grade-5",
       "division",
       "distance",
       "speed",
@@ -8492,10 +7110,7 @@ export const problems = [
     "problem": "The functions of the enzyme was to break down the sugars in the fruit into simpler molecules.",
     "length": 92,
     "tags": [
-      "grammar-5",
-      "spelling-error-function",
-      "science-enzymes",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'function' instead of 'functions'. This is because the sentence talks about only one enzyme, so we use the singular form 'function'.",
     "id": 565
@@ -8507,10 +7122,8 @@ export const problems = [
     "problem": "The sleazy night market was full of suspicious characters, selling their goods in a underhandedness way.",
     "length": 100,
     "tags": [
-      "grammar-error",
-      "misspelling",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error in the word 'underhanded'. It should be 'underhandedness'. This is a common misspelling that many students make.",
     "id": 566
@@ -8522,10 +7135,8 @@ export const problems = [
     "problem": "The silly clown's jokes were so comical that people were laughing were crazy.",
     "length": 77,
     "tags": [
-      "grammar-error",
-      "conjunction-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error in the conjunction 'like'. 'Like' should be replaced with 'were' to form a correct comparison.",
     "id": 567
@@ -8537,10 +7148,8 @@ export const problems = [
     "problem": "The clumsy clown's pratfalls so comical that the audience roared with laughter.",
     "length": 84,
     "tags": [
-      "grammar-errors",
-      "spelling-errors",
-      "5th-grade",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'pratfalls' instead of 'pfalls'. 'Pratfalls' means 'stupid or clumsy actions', which is related to the meaning of 'comical'.",
     "id": 568
@@ -8552,10 +7161,8 @@ export const problems = [
     "problem": "The larva of butterfly was flying around garden.",
     "length": 52,
     "tags": [
-      "grammar-error",
-      "tense-error",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the present tense 'was' instead of the past tense 'was' to describe an action that happened in the past.",
     "id": 569
@@ -8567,10 +7174,8 @@ export const problems = [
     "problem": "The larva of the butterfly flutter around the garden, munching on leaves tiny creatures.",
     "length": 93,
     "tags": [
-      "grammar-misuse-of-verb",
-      "spelling-error",
-      "5th-grade-grammar",
-      "bad-spelling"
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'flutter' instead of 'flies'. 'Flutter' means to move in a graceful or irregular way, while 'flies' refers to multiple insects. The sentence should use 'flies' because the larva are insects.",
     "id": 570
@@ -8582,9 +7187,7 @@ export const problems = [
     "problem": "The convnet of nuns gathered in the church for a prayer meeting.",
     "length": 64,
     "tags": [
-      "misspelling-5",
-      "grammar-error-5",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The word 'convnet' is misspelled. It should be 'convict'. 'Convict' means a group of religious women who live in a religious community and follow strict rules.",
     "id": 571
@@ -8596,10 +7199,8 @@ export const problems = [
     "problem": "The convant's library holds thousands of ancient scrolls.",
     "length": 57,
     "tags": [
-      "spelling-error",
-      "grammar-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'convant' instead of 'convent'. 'Convant' is not a word. The correct word is 'convent', which means a religious community with a monastery or abbey.",
     "id": 572
@@ -8611,11 +7212,8 @@ export const problems = [
     "problem": "Hence, we can conclude that the book quite enjoyable, from the numerous positive reviews.",
     "length": 92,
     "tags": [
-      "grammar-error",
-      "conjunction-incorrect",
-      "transition-word-needed",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence incorrectly uses 'hence' as a conjunction instead of a transition word. A conjunction joins two independent clauses, while a transition word connects two sentences or parts of a sentence.",
     "id": 573
@@ -8627,10 +7225,8 @@ export const problems = [
     "problem": "The train departed hence the platform was empty.",
     "length": 48,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'hence' instead of 'because'. 'Hence' means 'therefore' or 'as a result of', while 'because' is used to explain the reason for something.",
     "id": 574
@@ -8642,10 +7238,8 @@ export const problems = [
     "problem": "The juicy peach was so sweet that it make my tummy feel happy.",
     "length": 62,
     "tags": [
-      "5th-grade-grammar",
-      "verb-tense",
-      "agreement",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses 'make' instead of 'makes' to form the correct present tense of the verb. 'Makes' is the singular form, while 'make' is the plural form.",
     "id": 575
@@ -8657,11 +7251,7 @@ export const problems = [
     "problem": "The juicy, sweet pech was so delicious that it melted in my mouth like sunshine.",
     "length": 80,
     "tags": [
-      "5th-grade-spelling",
-      "misspell",
-      "fruit",
-      "punctuation",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'pech' instead of 'peach'. 'Peach' is the correct word for the sweet, juicy fruit.",
     "id": 576
@@ -8673,10 +7263,8 @@ export const problems = [
     "problem": "The intermediate learners practiced writing stories, but they had to rewrite them because they was feeling unsatisfied.",
     "length": 119,
     "tags": [
-      "5thGrade",
-      "PluralVerb",
-      "GrammaticalError",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the underlined part. 'was' should be 'were' because 'learners' is a plural noun.",
     "id": 577
@@ -8688,10 +7276,9 @@ export const problems = [
     "problem": "The intermediates hikers reached the summit in just over an hour.",
     "length": 64,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'intermediate' instead of 'intermediates'. 'Intermediate' means 'at an intermediate stage or level', while 'intermediates' would mean 'a group of intermediates'.",
     "id": 578
@@ -8703,9 +7290,7 @@ export const problems = [
     "problem": "The vanguard of the artistic movement challenged the norms of the time, paint the future with vibrant hues.",
     "length": 110,
     "tags": [
-      "5th-grade-verb-tense",
-      "5th-grade-grammar-error",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error. 'Painting the future' should be 'painted the future' because the action happened in the past.",
     "id": 579
@@ -8717,10 +7302,8 @@ export const problems = [
     "problem": "The vanguard of the artistic movement challenged traditional norm, bringing fresh perspectives to the canvas.",
     "length": 110,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "SingularPlural",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'norm' instead of 'norms'. 'Norm' is a singular noun, while 'norms' is the plural form. In this sentence, the correct word is 'norms' because it refers to multiple artistic conventions that were being challenged.",
     "id": 580
@@ -8732,11 +7315,8 @@ export const problems = [
     "problem": "Not a lot of people know that the tallest mountain is, in fact, tallest than Mount Everest.",
     "length": 90,
     "tags": [
-      "grammar-error",
-      "comparative-adjective",
-      "superlative-adjective",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses a comparative adjective ('taller') instead of a superlative adjective ('tallest') to describe the mountain compared to Mount Everest.",
     "id": 581
@@ -8748,10 +7328,8 @@ export const problems = [
     "problem": "I not going to school today because I'm feeling sick.",
     "length": 53,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "fifth-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The correct word is 'am not'. 'not' is a contraction of 'not am', which is incorrect.",
     "id": 582
@@ -8763,10 +7341,8 @@ export const problems = [
     "problem": "She polish her nails with a pink polish, and she looked so pretty.",
     "length": 68,
     "tags": [
-      "verb-phrase-incorrect",
-      "grammar-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence is correct except for the word 'polish' which should be 'polish her nails'. 'Polish' by itself is not a complete action.",
     "id": 583
@@ -8778,9 +7354,8 @@ export const problems = [
     "problem": "The triggered of the explosion was a faulty wire, causing damage in the surrounding area.",
     "length": 87,
     "tags": [
-      "grammar-error-noun-verb",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses 'trigger' as a noun, instead of the correct action word 'triggered'.",
     "id": 584
@@ -8792,10 +7367,8 @@ export const problems = [
     "problem": "The triger of the memory was that old photograph, reminding me of happier times.",
     "length": 81,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'trigger' instead of 'triger'. 'Trigger' means something that causes a memory or emotional response, while 'triger' is not a recognized word. ",
     "id": 585
@@ -8807,10 +7380,8 @@ export const problems = [
     "problem": "Her curly hair and tall stature were trait that made her stand out from the crowd.",
     "length": 83,
     "tags": [
-      "grammar-error",
-      "singular-noun",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence is correct, except for the use of 'traits'. 'Trait' is a singular noun, so it should be 'trait' instead of 'traits'.",
     "id": 586
@@ -8822,12 +7393,10 @@ export const problems = [
     "problem": "The playful puppy's wagging trait was a sign of his cheerful personality.",
     "length": 73,
     "tags": [
-      "5th-grade",
-      "spelling",
+      "grade-5",
+      "english-errors",
       "grammar",
-      "vocabulary",
-      "punctuation",
-      "bad-spelling"
+      "vocabulary"
     ],
     "solution": "The spelling error is 'trait' instead of 'trait'. 'Trait' means a distinguishing characteristic or feature of a person or thing. In this sentence, it refers to the puppy's wagging tail, which is a physical feature that reveals his happy nature.",
     "id": 587
@@ -8839,11 +7408,8 @@ export const problems = [
     "problem": "The approaching storm's deafening roar and torrentiall rain were unavoidable, leaving the hikers stranded on the treacherous mountain path.",
     "length": 138,
     "tags": [
-      "grammar-run-on-sentence",
-      "grammar-incorrect-spelling",
-      "5th-grade-reading",
-      "5th-grade-grammar",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'torrential', which should be 'torrential' with two 'l's. 'Torrential' means 'extremely large or intense, like a sudden downpour of rain'.",
     "id": 588
@@ -8855,9 +7421,7 @@ export const problems = [
     "problem": "The neck of the dress was so long, it almost reach my ankles.",
     "length": 63,
     "tags": [
-      "5th-grade-verb-tense",
-      "grammatical-error-reached",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because 'reached' should be in the past tense, 'reached'.",
     "id": 589
@@ -8869,11 +7433,8 @@ export const problems = [
     "problem": "The goose's neck was longer than tall tree, reaching all the way to the clouds.",
     "length": 87,
     "tags": [
-      "grammar-preposition",
-      "spelling-error",
-      "5th-grade",
-      "punctuation-error",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is '- instead of 'to'. 'To' is a preposition that means 'towards a place or person'. In this sentence, 'to' is necessary to complete the meaning of the sentence.",
     "id": 590
@@ -8885,10 +7446,8 @@ export const problems = [
     "problem": "The session of students is so excited to learn about space exploration.",
     "length": 72,
     "tags": [
-      "grammar-error",
-      "singular-verb",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a minor grammatical error. 'Session' is a singular noun and should be followed by a singular verb. In this case, the correct verb is 'was'.",
     "id": 591
@@ -8900,10 +7459,9 @@ export const problems = [
     "problem": "The sessions of students discussed their plans for the upcoming project.",
     "length": 71,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'session' instead of 'sessions'. This is because 'session' refers to a single event, while 'sessions' refers to multiple events.",
     "id": 592
@@ -8915,10 +7473,8 @@ export const problems = [
     "problem": "She shrugged her shoulders and said, 'I don't know why so hard to shrug today.',",
     "length": 85,
     "tags": [
-      "grammar-misplaced-modifier",
-      "5th-grade-grammar",
-      "sentence-structure",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a misplaced modifier. The modifier 'today' should be closer to the verb 'shrugged'.",
     "id": 593
@@ -8930,10 +7486,7 @@ export const problems = [
     "problem": "She shrugged her shoulders, not caring what anyone thought her messy hair.",
     "length": 77,
     "tags": [
-      "5th-grade-spelling",
-      "misspell-intention",
-      "grammar-mechanics",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error 'not caring' should be 'didn't care' because it shows that the character didn't pay attention to what others thought.",
     "id": 594
@@ -8945,9 +7498,7 @@ export const problems = [
     "problem": "The children drived their bikes through the long driveway to school.",
     "length": 68,
     "tags": [
-      "5th-grade-verb-tense",
-      "misuse-of-past-tense",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The correct word is 'drove'. 'Drived' is a past tense of 'drive', but the sentence is about present action. ",
     "id": 595
@@ -8959,10 +7510,7 @@ export const problems = [
     "problem": "The wide, astute driveway was perfect for a game of tag.",
     "length": 55,
     "tags": [
-      "misspell-word",
-      "5th-grade-spelling",
-      "orthography-error",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'dusty' instead of 'astute'. 'Astute' means having a sharp intellect or good judgment, while 'dusty' refers to covered in a layer of fine dust.",
     "id": 596
@@ -8974,11 +7522,8 @@ export const problems = [
     "problem": "The colorful label on the jar was so bigly, I could hardly read the words.",
     "length": 72,
     "tags": [
-      "5thGrade",
-      "Adverb",
-      "GrammarError",
-      "Label",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses the adjective 'big' to describe the size of the label, but it should use an adverb to describe how big the label is. The correct form is 'The colorful label on the jar was so bigly written that I could hardly read the words.',",
     "id": 597
@@ -8990,12 +7535,9 @@ export const problems = [
     "problem": "The scientist labelled the new chemical compound with a unique identifier, ensuring its identity remained clear for future studies.",
     "length": 131,
     "tags": [
-      "fifth-grade",
-      "spelling-error",
-      "misspelled-word",
-      "labeling",
-      "chemistry",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "chemistry"
     ],
     "solution": "The spelling error is 'labelled' instead of 'labeled'. This is a common misspelling that many students make at this age. The correct spelling is 'labeled'.",
     "id": 598
@@ -9007,10 +7549,8 @@ export const problems = [
     "problem": "The children's handiwork on the colorful mobiles is truly amazing, especially the intricate patterns in the hand-stitched are fabrics.",
     "length": 130,
     "tags": [
-      "5thGrade",
-      "VerbTense",
-      "SingularPlural",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the second sentence. 'Hand-stitched' should be 'hand-stitched are' to make the tense consistent with the singular fabric.",
     "id": 599
@@ -9022,10 +7562,8 @@ export const problems = [
     "problem": "The artist's handwork is truly remarkable, capturing the beauty of nature in every intricate detail.",
     "length": 101,
     "tags": [
-      "5th-grade",
-      "spelling-error",
-      "handwork-variation",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'handiwork' instead of 'handwork'. 'Handiwork' is a less common variant of 'handwork', which means skilled or artistic work done by hand. The extra 'h' is an unnecessary addition.",
     "id": 600
@@ -9037,10 +7575,8 @@ export const problems = [
     "problem": "The precinct of the police station was bustling with activity on the night of the festival.",
     "length": 91,
     "tags": [
-      "grammar-error",
-      "noun-usage",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because 'precinct' is a noun that refers to a geographical area, not an organizational unit. It should be 'The police station precinct was bustling with activity...' instead.",
     "id": 601
@@ -9052,11 +7588,8 @@ export const problems = [
     "problem": "The playful pups barked playfully in the prenicct, making it a happy place for them.",
     "length": 84,
     "tags": [
-      "5thGrade",
-      "Spelling",
-      "Misspelling",
-      "WordRecognition",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'prenicct' instead of 'precinct'. 'Precinct' means a small area of land surrounded by a fence or other barrier, like a park or neighborhood. The pups are probably barking happily in their own little park.",
     "id": 602
@@ -9068,8 +7601,7 @@ export const problems = [
     "problem": "The media is a powerful tool to inform people about the current events, but also to entertained them.",
     "length": 101,
     "tags": [
-      "verb-tense-agreement-5th-grade",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the last word. 'Entertained' should be 'entertain' to make the tense consistent with 'inform'.",
     "id": 603
@@ -9081,10 +7613,8 @@ export const problems = [
     "problem": "The media of communication has become an important factor in shaping our lives.",
     "length": 79,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'media' instead of 'medium'. 'Medium' means a size or amount, while 'media' refers to various channels of communication like television, radio, or the internet.",
     "id": 604
@@ -9096,9 +7626,7 @@ export const problems = [
     "problem": "The juicy, red apple the backyard tasted even sweeter when dipped in honey.",
     "length": 80,
     "tags": [
-      "5th-grade-conjunction",
-      "grammatical-error-junction",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the conjunction of the two sentences. It should be 'when I dipped it in honey'.",
     "id": 605
@@ -9110,10 +7638,9 @@ export const problems = [
     "problem": "The chirp birds in the backyard were singing a melody so sweet that it made me feel like I was in a dream.",
     "length": 103,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'chirping' should be 'chirp' as the word is a past tense verb. ",
     "id": 606
@@ -9125,10 +7652,8 @@ export const problems = [
     "problem": "The mystery going beyond just a simple puzzle, it was a mind-blowing discovery.",
     "length": 78,
     "tags": [
-      "grammar-error",
-      "participle-tense",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the present participle 'going' instead of the past participle 'went'.",
     "id": 607
@@ -9140,10 +7665,7 @@ export const problems = [
     "problem": "The treasure lies beyond the whispering clifs, where the tides dance like silver threads.",
     "length": 90,
     "tags": [
-      "fifth-grade-spelling",
-      "common-misspelling",
-      "incorrect-cliffs",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'cliffs' instead of 'cliffs' with two 'f's. This is a common misspelling that many students make. The correct spelling is 'cliffs' because it has two 'f' sounds at the end.",
     "id": 608
@@ -9155,10 +7677,8 @@ export const problems = [
     "problem": "The breathtaking view of the mountain overlook the bustling village below.",
     "length": 76,
     "tags": [
-      "grammatical-error",
-      "singular-verb-agreement",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error. 'Overlook' means to watch over something, but in this sentence, it should be 'overlooks' because 'view' is in the singular form.",
     "id": 609
@@ -9170,10 +7690,8 @@ export const problems = [
     "problem": "The hikers overlooked the treacherous path ahead, their eyes captivated by the vibrant sunset.",
     "length": 94,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'overlook' instead of 'overlooked'. 'Overlook' means to miss something important, while 'overlooked' means to be ignored or forgotten.",
     "id": 610
@@ -9185,10 +7703,8 @@ export const problems = [
     "problem": "The student received a prize for her outstanding performance on the math, test.",
     "length": 85,
     "tags": [
-      "5th-grade",
-      "comma-splice",
-      "grammar-error",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a comma splice error. A comma splice occurs when two independent clauses are joined by a comma instead of a conjunction or an semicolon.",
     "id": 611
@@ -9200,10 +7716,8 @@ export const problems = [
     "problem": "Democracy is when every citizen has a voice in how the government runs, and teh final decisions are made by the majority.",
     "length": 121,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "fifth-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'teh' instead of 'the'. 'Teh' is an incorrect spelling and does not exist in the English language.",
     "id": 612
@@ -9215,12 +7729,9 @@ export const problems = [
     "problem": "The hikers tightened their shoes, their laces feeling like a tightrope, ensuring their safety on the treacherous mountain path.",
     "length": 127,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "context",
-      "inference",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'tightrope' instead of 'tightly'. 'Tightrope' is a noun that refers to a high wire stretched between two towers, while 'tightly' is an adverb that means 'in a tight manner'.",
     "id": 613
@@ -9232,10 +7743,8 @@ export const problems = [
     "problem": "The children was running towards the hospital, but they get scared when they saw the tall building.",
     "length": 99,
     "tags": [
-      "verb-tense-error",
-      "grammar-agreement-error",
-      "5th-grade",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses the plural verb 'was' with the singular subject 'children'. It should be 'were' instead of 'was'.",
     "id": 614
@@ -9247,10 +7756,8 @@ export const problems = [
     "problem": "We dine our delicious dinner on fancy plates.",
     "length": 45,
     "tags": [
-      "verb-usage",
-      "grammar-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error. 'Dine' is a verb that means 'to eat'. 'Dinner' is a noun that refers to a meal. In this sentence, 'dine' should be replaced with 'eat'.",
     "id": 615
@@ -9262,10 +7769,8 @@ export const problems = [
     "problem": "The lawyer's clever arguments nullifies the judge's harsh sentence, leaving him with just a minor fine.",
     "length": 103,
     "tags": [
-      "grammar-error",
-      "tense-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence is incorrect because 'nullified' is a past tense verb. It should be 'nullifies' instead of 'nullified'.",
     "id": 616
@@ -9277,10 +7782,8 @@ export const problems = [
     "problem": "The wise owl told the little fox, 'The greatest treasure is not the gold you collect, but the lessons you learn along the way are.'",
     "length": 127,
     "tags": [
-      "grammar-error",
-      "clause-construction",
-      "fifth-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error in the second clause. 'But the lessons you learn along the way' should be 'but the lessons you learn along the way are'.",
     "id": 617
@@ -9292,9 +7795,7 @@ export const problems = [
     "problem": "The picketing workers hold a sign that said 'Fair pay or go home!'",
     "length": 66,
     "tags": [
-      "5-grammatical-error",
-      "5-tense-agreement",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses the past participle 'held' instead of the past tense 'held'.",
     "id": 618
@@ -9306,10 +7807,8 @@ export const problems = [
     "problem": "The mechanic of the clock was broken, so we had to call a watch repairer.",
     "length": 73,
     "tags": [
-      "grammatical-error",
-      "mechanics-confusion",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence uses 'mechanic' in the context of a clock, which is incorrect. 'Mechanic' refers to a person who repairs machinery, not a clock.",
     "id": 619
@@ -9321,10 +7820,7 @@ export const problems = [
     "problem": "The mechanic's put the broken engine back together using his tools.",
     "length": 65,
     "tags": [
-      "5th-grade-possessive-forms",
-      "5th-grade-spelling-error",
-      "mechanics-related",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'mechanic' instead of 'mechanic's'. The 's' at the end of the word indicates that it is a possessive form, meaning that something belongs to the mechanic. In this sentence, the mechanic is the one who put the engine back together.",
     "id": 620
@@ -9336,10 +7832,8 @@ export const problems = [
     "problem": "Listen, I tolde you that you need to practice more.",
     "length": 51,
     "tags": [
-      "grammatical-error",
-      "past-tense",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the word 'tolde' instead of 'told'. 'Tolde' is not a correct past tense of 'tell'.",
     "id": 621
@@ -9351,10 +7845,8 @@ export const problems = [
     "problem": "Listen carefull that the birds chirping outside are beautiful.",
     "length": 62,
     "tags": [
-      "5th-grade-grammar",
-      "spelling-error",
-      "misspelled-word",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'carefull' instead of 'carefully'. 'Carefull' is not a word in English. 'Carefully' means doing something in a thoughtful and careful manner.",
     "id": 622
@@ -9366,9 +7858,8 @@ export const problems = [
     "problem": "Compliance like a vital element to ensuring the smooth running of any organization, like ensuring employees adhere to company rules.",
     "length": 130,
     "tags": [
-      "grammar-conjunction-error",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the conjunction of the two sentences. It should be 'is' instead of 'like'.",
     "id": 623
@@ -9380,10 +7871,8 @@ export const problems = [
     "problem": "Compliance with the school's dress code is essential for maintainig a disciplined learning environment.",
     "length": 104,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'maintainig' instead of 'maintaining'. 'Maintaining' is the correct word to mean keeping something in a certain state or condition. 'Maintainig' is not a recognized word in English.",
     "id": 624
@@ -9396,9 +7885,7 @@ export const problems = [
     "length": 118,
     "tags": [
       "grammar",
-      "spelling",
-      "5thgrade",
-      "bad-spelling"
+      "english-errors"
     ],
     "solution": "The spelling error is 'grueling' which should be 'gruesome'. 'Grueling' means 'very difficult', while 'gruesome' means 'causing disgust or horror'.",
     "id": 625
@@ -9410,9 +7897,8 @@ export const problems = [
     "problem": "The rainbow ends the point where the sun meets the horizon.",
     "length": 62,
     "tags": [
-      "verb-singular",
-      "5th-grade",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence should use 'ends' instead of 'ends at' because 'ends' is the singular form of the verb. 'Ends at' is incorrect in this context.",
     "id": 626
@@ -9424,10 +7910,8 @@ export const problems = [
     "problem": "The teacher wondered when the students would finally ended their noisy discussion.",
     "length": 80,
     "tags": [
-      "5th-grade-grammar",
-      "past-tense",
-      "spelling-error",
-      "bad-spelling"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The spelling error is 'end' instead of 'ended'. 'Ended' is the past tense of 'end'.",
     "id": 627
@@ -9439,10 +7923,8 @@ export const problems = [
     "problem": "The teacher assign the students to research different types of renewable energy sources.",
     "length": 88,
     "tags": [
-      "5th-grade",
-      "verb-agreement",
-      "grammar-error",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The correct verb is 'assigned', not 'assign'. In this sentence, the students are the recipients of the assignment, so the past tense of 'assign' is used.",
     "id": 628
@@ -9454,11 +7936,8 @@ export const problems = [
     "problem": "The teacher assigned the students their books for the next unit, but I can't seem to remembar what they were.",
     "length": 109,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "misspell",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'remembar' which should be 'remember'. 'Remembar' is not a recognized word in English.",
     "id": 629
@@ -9470,10 +7949,8 @@ export const problems = [
     "problem": "The stubborn plant finally yielding to the harsh winds and blew over.",
     "length": 68,
     "tags": [
-      "fifth-grade",
-      "spelling-error",
-      "misspelling",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'yielding' instead of 'yield'. 'Yield' means to give in to pressure or force, while 'yielding' suggests something that easily gives way or breaks under pressure.",
     "id": 630
@@ -9485,11 +7962,8 @@ export const problems = [
     "problem": "Education is something that can't be buyed at any store, but it's the most important thing that anyone can get in life.",
     "length": 119,
     "tags": [
-      "grammatical-error",
-      "syntax-error",
-      "sentence-structure",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammar error in the phrase 'can't be buyed'. The correct form is 'cannot be bought'. 'Buyed' is not a recognized word in English.",
     "id": 631
@@ -9501,9 +7975,8 @@ export const problems = [
     "problem": "The satchel was full of books, papers, and a calculator, but I could only carried one of them at a time.",
     "length": 104,
     "tags": [
-      "verb-agreement-error",
-      "5th-grade-grammar",
-      "bad-grammar"
+      "grammar",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the verb 'carried'. It should be 'carry' instead of 'carried'.",
     "id": 632
@@ -9515,10 +7988,8 @@ export const problems = [
     "problem": "The student placed his satchel's of books on the table, and it almost reached the height of his chin.",
     "length": 99,
     "tags": [
-      "5thGrade",
-      "Possessive",
-      "SpellingError",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'satchel' instead of 'satchel's'. The 's' at the end of the word indicates that it is a possessive, meaning that it belongs to someone. In this sentence, the satchel belongs to the student.",
     "id": 633
@@ -9530,9 +8001,7 @@ export const problems = [
     "problem": "The colorful kite soared high in the sky, it's string was so long that it could reach the moon.",
     "length": 95,
     "tags": [
-      "grammatical-error-possessive-pronoun",
-      "fifth-grade-grammar",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the second sentence. 'it's' should be 'its'. 'its' is a possessive pronoun, while 'it's' is a contraction of 'it is'.",
     "id": 634
@@ -9544,11 +8013,8 @@ export const problems = [
     "problem": "The wind carried the kite, soaring like bird, high up into the cerulean sky.",
     "length": 78,
     "tags": [
-      "grammar-error",
-      "vocabulary-error",
-      "5th-grade",
-      "language-arts",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'cerulean' instead of 'ceruleous'. 'Cerulean' is an uncommonly used adjective that means 'bright blue', while 'ceruleous' is the more common and appropriate word for describing a bright blue sky.",
     "id": 635
@@ -9560,10 +8026,7 @@ export const problems = [
     "problem": "I am facing the challenges of learning a new language, but I am determined to overcomed them.",
     "length": 93,
     "tags": [
-      "5-grammatical-error",
-      "verb-conjugation",
-      "learning-challenges",
-      "bad-grammar"
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error because it uses 'overcomed' instead of 'overcome' to mean 'to overcome'.",
     "id": 636
@@ -9575,11 +8038,9 @@ export const problems = [
     "problem": "Facing the storm, the brave captain steer his ship with unwavering determination.",
     "length": 83,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "punctuation",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'steer' instead of 'steered'. 'Steered' is the past participle of 'steer', meaning 'to guide or control something'.",
     "id": 637
@@ -9591,10 +8052,8 @@ export const problems = [
     "problem": "The journalist writted an article about the importance of free speech.",
     "length": 70,
     "tags": [
-      "grammar-error",
-      "tense-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses 'writted' instead of 'wrote'. 'Writted' is not a correct tense of the verb 'write'.",
     "id": 638
@@ -9606,11 +8065,8 @@ export const problems = [
     "problem": "The journlist shared the news on the television screen.",
     "length": 55,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "error",
-      "journalist",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'journlist' instead of 'journalist'. 'Journlist' is not a recognized word in English. The correct word is 'journalist', which means a person who reports news for a newspaper, magazine, or television station.",
     "id": 639
@@ -9622,10 +8078,8 @@ export const problems = [
     "problem": "The quartz clock was ticking quite quackerly, but the quartz timepiece was still keeping perfect time.",
     "length": 102,
     "tags": [
-      "grammar-error",
-      "typo",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a typo. 'Quackerly' should be 'quickly'. This is a common misspelling that many people make.",
     "id": 640
@@ -9637,11 +8091,8 @@ export const problems = [
     "problem": "The quartz crystals shimmered, cast a rainbow of colors across the cavern.",
     "length": 77,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "RocksAndMinerals",
-      "CaveMorphology",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'cavern' instead of 'cave'. 'Cavern' refers to a large underground chamber, while 'cave' refers to a smaller underground space.",
     "id": 641
@@ -9653,11 +8104,8 @@ export const problems = [
     "problem": "The perfectly balanced book was floating in the air, reading it from both sides.",
     "length": 80,
     "tags": [
-      "grammar-error",
-      "present-continuous",
-      "tense-agreement",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the verb 'reading' in the present continuous tense, but the book is in a state of balance and not actually reading anything.",
     "id": 642
@@ -9669,11 +8117,8 @@ export const problems = [
     "problem": "The sailor sailed across ocean, munching on seaweed and dreaming of faraway lands.",
     "length": 86,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "eating-incorrectly",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'munching'. The correct spelling is 'eating'. 'Munching' is a word that means to bite something slowly, while 'eating' means to consume something completely.",
     "id": 643
@@ -9685,11 +8130,9 @@ export const problems = [
     "problem": "The two trains running paralell on the tracks were almost touching at the crossing.",
     "length": 83,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "grammar",
-      "misspell",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'parallel' instead of 'paralell'. 'Parallel' means running in the same direction and at the same speed as another thing.",
     "id": 644
@@ -9701,11 +8144,8 @@ export const problems = [
     "problem": "The pandemic was a scourges that ravaged our community, leaving behind scars that will linger for generations.",
     "length": 109,
     "tags": [
-      "grammar-error",
-      "spelling-error",
-      "5th-grade",
-      "complex-sentence",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'scourge' instead of 'scourges'. 'Scourge' is a singular noun meaning a severe or devastating adversity, while 'scourges' is the plural form.",
     "id": 645
@@ -9717,10 +8157,8 @@ export const problems = [
     "problem": "The loud music at the festival started to alienates some of the people who were enjoying the peaceful atmosphere.",
     "length": 112,
     "tags": [
-      "grammar-error",
-      "singular-noun-error",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses 'alienate' with a singular noun ('people'). 'Alienate' should be used with a plural noun in this context.",
     "id": 646
@@ -9732,10 +8170,8 @@ export const problems = [
     "problem": "The harsh words of the bully began to alienated her, making her feel like an outsider.",
     "length": 85,
     "tags": [
-      "grammar-alienated",
-      "vocabulary-alienate",
-      "5th-grade",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error 'alienate' is actually 'alienated', meaning to drive someone away or make them feel like they don't belong.",
     "id": 647
@@ -9747,9 +8183,8 @@ export const problems = [
     "problem": "The ancient wizard conjured a fiery beast from the depths of the volcano, but forgot to conjured the banishing spell before it conjured havoc in the village.",
     "length": 153,
     "tags": [
-      "verb-tense-error",
-      "5th-grade",
-      "bad-grammar"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The sentence has a grammatical error in the second sentence. 'Conjured' is past tense, so it should be 'cast' instead of 'conjured'.",
     "id": 648
@@ -9761,10 +8196,8 @@ export const problems = [
     "problem": "The ancient wizard conjuring a fiery dragon, casting a spell with a tremor of the earth.",
     "length": 87,
     "tags": [
-      "grammar-conjunction",
-      "spelling-error",
-      "5th-grade",
-      "bad-spelling"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The spelling error is 'conjured' instead of 'conjuring'. 'conjured' means 'to create or summon something into existence', while 'conjuring' means 'the act of creating or summoning something into existence'.",
     "id": 649
@@ -9776,10 +8209,8 @@ export const problems = [
     "problem": "Satan whisper tempting secrets in the night, they can't be trusted.",
     "length": 68,
     "tags": [
-      "grammar-error",
-      "singular-verb-mismatch",
-      "5th-grade",
-      "bad-grammar"
+      "english-errors",
+      "grade-5"
     ],
     "solution": "The sentence has a grammatical error because it uses the singular verb ' whispers' with the plural noun 'they'.",
     "id": 650
@@ -9791,10 +8222,8 @@ export const problems = [
     "problem": "Satan whispered secrets in the shadows, tempt me to steal the golden apple from the tree.",
     "length": 92,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "GrammarError",
-      "bad-spelling"
+      "grade-5",
+      "english-errors"
     ],
     "solution": "The spelling error is 'tempting' - the correct spelling is 'tempt'. 'Tempting' means to try to persuade someone to do something wrong, while 'tempt' means to be tempted by something that is pleasurable but wrong.",
     "id": 651
@@ -9806,11 +8235,9 @@ export const problems = [
     "problem": "The privately school offered scholarships for students from low-income families.",
     "length": 78,
     "tags": [
-      "5th-grade",
-      "spelling",
-      "misspelling",
-      "grammar",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "grammar"
     ],
     "solution": "The spelling error is 'private' instead of 'privately'. 'Privately' means 'in a private way', while 'private' refers to something that is owned or controlled by an individual or group.",
     "id": 652
@@ -9822,10 +8249,9 @@ export const problems = [
     "problem": "The artist displayed four paintings, but the forth one was her most recent work.",
     "length": 81,
     "tags": [
-      "5thGrade",
-      "SpellingError",
-      "Vocabulary",
-      "bad-spelling"
+      "grade-5",
+      "english-errors",
+      "vocabulary"
     ],
     "solution": "The spelling error is 'fourth' instead of 'forth'. 'Forth' means 'in the future,' while 'fourth' refers to the third number in a sequence.",
     "id": 653
