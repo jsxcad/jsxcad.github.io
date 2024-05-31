@@ -2398,7 +2398,7 @@ export const problems = [
   {
     "generator": "science",
     "input": "notional",
-    "problem": "A toy car travels 3.5 meters every second. How many meters will it travel in 7.5 seconds, considering the distance travelled in the initial second is purely notional?",
+    "problem": "A toy car travels 3.5 meters every second. How many meters will it travel in 7.5 seconds?",
     "length": 166,
     "tags": [
       "grade-5",
@@ -3451,7 +3451,7 @@ export const problems = [
   {
     "generator": "arithmetic",
     "input": "rebel",
-    "problem": ",,5^2-2(1/3)^3,,",
+    "problem": ",,5^2-2(\\frac{1}{3})^3,,",
     "length": 16,
     "tags": [
       "arithmetic",
@@ -6403,7 +6403,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "pole",
-    "problem": "  let pole = { lat: 40.7128, lon: -74.0060 };  console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);  ",
+    "problem": "\"let pole = { lat: 40.7128, lon: -74.0060 };\"\n\"console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);\"\n",
     "tags": [
       "javascript"
     ],
