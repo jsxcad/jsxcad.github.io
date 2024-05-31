@@ -1395,7 +1395,8 @@ export const problems = [
     "tags": [
       "grade-5",
       "metric-units",
-      "physics"
+      "physics",
+      "density"
     ],
     "solution": "To find the mass of the asteroid, we can use the formula: mass = density * volume. We already know the diameter, so we can find the volume by assuming a sphere and using the formula for the volume of a sphere: volume = (4/3)πr³. Then, we can substitute the values into the mass formula and solve for mass.",
     "id": 114
@@ -1417,7 +1418,7 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "hate",
-    "problem": "An angry robot travels 240 meters at a speed of 6 meters per second. How long will it take for the robot to reach its destination if it hates the journey and tries to slow down by half its speed every minute?",
+    "problem": "An angry robot travels 240 meters at a speed of 6 meters per second. How long will it take for the robot to reach its destination if it hates the journey?",
     "length": 208,
     "tags": [
       "time-distance-speed",
@@ -2071,6 +2072,7 @@ export const problems = [
     "problem": "A scientist discovers a new species of bacteria that can consume methane gas. If one gram of methane is consumed by the bacteria in one hour, what is the rate of methane consumption in millimoles per hour?",
     "length": 205,
     "tags": [
+      "mole",
       "grade-5",
       "science"
     ],
@@ -3642,7 +3644,7 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "enthusiast",
-    "problem": "An enthusiast gardener has 30 meters of fencing material to enclose two rectangular vegetable patches. One patch is 2 meters longer than the other. Find the length of each patch.",
+    "problem": "An enthusiast gardener has 30 meters of fencing material to enclose two rectangular vegetable patches which are both 1 meter wide. One patch is 2 meters longer than the other. Find the length of each patch.",
     "length": 178,
     "tags": [
       "algebra",
@@ -5618,7 +5620,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "pleasurable",
-    "problem": "let count = 0;      const increment = () => count++;      const result = document.write(count);      increment();",
+    "problem": "let count = 0;\nconst increment = () => count++;\nconst result = document.write(count);\nincrement();\n",
     "tags": [
       "javascript",
       "grade-5"
