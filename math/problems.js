@@ -5672,7 +5672,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "forthright",
-    "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
+    "problem": "let count = 0;\nconst increment = () => count++;\nsetInterval(increment, 1000);\nconsole.log(count);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6446,7 +6446,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "nobleman",
-    "problem": "let nobleman = { name: 'John', title: 'Duke' }; console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);",
+    "problem": "\"let nobleman = { name: 'John', title: 'Duke' };\"\n\"console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);\"\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6533,7 +6533,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "digestive",
-    "problem": "const digestive = (input) => { let result = input.length; console.log(`Digestive length: ${result}`); }; digestive('hello');",
+    "problem": "\"const digestive = (input) => {\"\n\"  let result = input.length;\"\n\"  console.log(`Digestive length: ${result}`);\"\n\"};\"\n\"digestive('hello');\"\n",
     "tags": [
       "javascript",
       "variable-scope"
@@ -6555,7 +6555,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "extended",
-    "problem": "const extended = {name: 'John', age: 25}; console.log(extended.name);",
+    "problem": "\"const extended = {name: 'John', age: 25};\"\n\"console.log(extended.name);\"\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6566,7 +6566,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "particularly",
-    "problem": "let particularly = (x) => { console.log(x);  }; particularly('Hello');",
+    "problem": "\"let particularly = (x) => {\"\n\"  console.log(x);\"\n\"};\"\n\"particularly('Hello');\"\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6646,7 +6646,7 @@ export const problems = [
     "model": "llama3",
     "generator": "javascript-program",
     "input": "tool",
-    "problem": "const tool = () => { let count = 0; return (count += 1); }; console.log(tool());",
+    "problem": "const tool = () => {\n  let count = 0; return (count += 1);\n};\nconsole.log(tool());\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6658,7 +6658,7 @@ export const problems = [
     "model": "llama3",
     "generator": "javascript-program",
     "input": "stairway",
-    "problem": "const stairway = [1, 2, 3]; for (let i = 0; i < stairway.length; i++) { console.log(stairway[i]); }",
+    "problem": "const stairway = [1, 2, 3];\nfor (let i = 0; i < stairway.length; i++) {\n  console.log(stairway[i]);\n}\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6670,7 +6670,7 @@ export const problems = [
     "model": "llama3",
     "generator": "javascript-program",
     "input": "flop",
-    "problem": "const flop = (x) => { return x; }; console.log(flop(3));",
+    "problem": "const flop = (x) => { return x; };\nconsole.log(flop(3));\n",
     "tags": [
       "javascript",
       "variable-scope",

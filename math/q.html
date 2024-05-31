@@ -138,7 +138,13 @@
     const renderProblem = ({ id = -1, generator, problem, solution, lines = 4, tags = [] }, { weight = 1.0 }) => {
       const div = document.createElement('div');
       div.classList.add('problem', 'tooltip');
-      div.innerHTML = problem.split('\n').map((text) => escapeHtml(text)).join('<br>');
+      let pre = '';
+      let post = '';
+      if (generator === 'javascript-program') {
+        pre = '<pre>';
+        post = '</pre>';
+      }
+      div.innerHTML = `${pre}${problem.split('\n').map((text) => escapeHtml(text)).join('<br>')}${post}`;
       for (let line = 0; line < lines; line++) {
         div.appendChild(renderRuledLine());
       }
