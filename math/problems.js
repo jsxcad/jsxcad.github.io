@@ -2116,6 +2116,7 @@ export const problems = [
     "tags": [
       "geometry",
       "area",
+      "radius",
       "grade-5"
     ],
     "solution": "First, find the radius of the sandbox by dividing the diameter by 2. Then, find the area of the circle using the formula for the area of a circle: A = πr². Finally, subtract the area of the sandcastle from the area of the sandbox to find the remaining area.",
@@ -2659,6 +2660,7 @@ export const problems = [
     "tags": [
       "geometry",
       "perimeter",
+      "radius",
       "grade-5"
     ],
     "solution": "First, find the radius of the playground by dividing the circumference by 2π. Then, increase the radius by 2 meters and use the formula for the circumference of a circle to find the new circumference.",
@@ -2776,7 +2778,8 @@ export const problems = [
     "tags": [
       "algebra",
       "metric-units",
-      "grade-5"
+      "grade-5",
+      "radius"
     ],
     "solution": "Let r be the radius of the bonfire in meters.\n 2r + 2(r-2) = 12\n 4r = 16\n r = 4 meters\n",
     "id": 220
@@ -3078,6 +3081,7 @@ export const problems = [
     "tags": [
       "geometry",
       "perimeter",
+      "radius",
       "grade-5"
     ],
     "solution": "First, we need to find the circumference of the central plaza using the formula: C = 2πr. Then, we need to calculate the length of the perimeter of the booths by adding the circumference of the plaza with the total buffer zone width around the plaza.",
@@ -3854,6 +3858,7 @@ export const problems = [
     "tags": [
       "geometry",
       "area",
+      "radius",
       "grade-5"
     ],
     "solution": "First, the gardener needs to find the radius of the circle using the formula: C = 2πr. Then, he can use the area formula to find the amount of area he needs to cover.",
@@ -6904,6 +6909,7 @@ export const problems = [
     "length": 145,
     "tags": [
       "volume",
+      "radius",
       "grade-5",
       "science"
     ],
