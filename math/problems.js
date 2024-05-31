@@ -4331,6 +4331,7 @@ export const problems = [
     "problem": "Given the lifespan of a scientist is represented by a normal distribution with mean 70 years and standard deviation 10 years, what age should a researcher be to maximize the probability of living at least 80 years?",
     "length": 214,
     "tags": [
+      "normal-distribution",
       "probability",
       "grade-5",
       "science"

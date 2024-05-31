@@ -91,7 +91,7 @@
         const inputId = `input-${nth}`;
         const e = document.createElement('div');
         e.classList.add('item');
-        e.innerHTML = `<div class="entry ${(nth % 2) ? 'odd' : 'even'}"><input id="${inputId}" class="weight" size="3" type="number" value="${weights[tag] || 100}"><span class="tag">${tag}</span></div>`;
+        e.innerHTML = `<div class="entry ${(nth % 2) ? 'odd' : 'even'}"><input id="${inputId}" class="weight" size="3" type="number" value="${weights[tag] === undefined ? 100 : weights[tag]}"><span class="tag">${tag}</span></div>`;
         fields.push({ tag, inputId });
         tagsElement.appendChild(e);
         nth += 1;
