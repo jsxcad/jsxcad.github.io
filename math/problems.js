@@ -5734,6 +5734,7 @@ export const problems = [
     "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1))",
     "tags": [
       "arrow-functions",
+      "iteration",
       "grade-5",
       "javascript"
     ],
@@ -5965,6 +5966,7 @@ export const problems = [
     "input": "affluent",
     "problem": "console.log(Array.from({ length: 5 }, (_, i) => i + 10))",
     "tags": [
+      "iteration",
       "grade-5",
       "javascript"
     ],
@@ -5999,6 +6001,7 @@ export const problems = [
     "input": "revert",
     "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1).join('-'))",
     "tags": [
+      "iteration",
       "javascript"
     ],
     "solution": "1-2-3-4-5-6-7-8-9-10. The code generates a hyphenated string of numbers from 1 to 10 using Array.from() to create an array of 10 undefined values and Array.prototype.join() to concatenate them with hyphens. This demonstrates the concept of iterating over an array using a callback function.",
