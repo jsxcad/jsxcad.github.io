@@ -975,7 +975,7 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "myself",
-    "problem": "A circle has an area of ,,144 \\\\text{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
+    "problem": "A circle has an area of ,,144 \\text{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
     "length": 222,
     "tags": [
       "grade-5",
@@ -2514,7 +2514,7 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "else",
-    "problem": "A triangle has a perimeter of 30 cm. One side is 10 cm long. What is the length of the other two sides?**",
+    "problem": "A triangle has a perimeter of 30 cm. One side is 10 cm long. What is the length of the other two sides?",
     "length": 105,
     "tags": [
       "geometry",
@@ -5695,7 +5695,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "stolen",
-    "problem": "let stolen = 10;       const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';       console.log(mystery())",
+    "problem": "\"let stolen = 10;\"\n\"const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';\"\n\"console.log(mystery())\"\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6133,7 +6133,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "bath",
-    "problem": "const bath = () => { console.log('A warm bath awaits you.') }      bath()",
+    "problem": "const bath = () => { console.log('A warm bath awaits you.') }\nbath();\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6181,7 +6181,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "stately",
-    "problem": "const result = (n) => n * 5; console.log(result(10))",
+    "problem": "const result = (n) => n * 5;\nconsole.log(result(10));\n",
     "tags": [
       "functional-programming",
       "arrow-functions",
@@ -6194,7 +6194,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "starch",
-    "problem": "const x = (n) => console.log(n * n); x(25);",
+    "problem": "const x = (n) => console.log(n * n);\nx(25);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6241,7 +6241,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "stout",
-    "problem": "const stout = (n) => n * 3; console.log(stout(5));",
+    "problem": "const stout = (n) => n * 3;\nconsole.log(stout(5));\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6301,7 +6301,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "involuntary",
-    "problem": "const involuntary = (x) => { return x + 1; }; console.log(involuntary(2));",
+    "problem": "const involuntary = (x) => { return x + 1; };\nconsole.log(involuntary(2));\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6392,7 +6392,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "magnitude",
-    "problem": "let magnitude = (x, y) => x + y; console.log(magnitude(10, 20));",
+    "problem": "let magnitude = (x, y) => x + y;\nconsole.log(magnitude(10, 20));\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6457,7 +6457,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "register",
-    "problem": "let register = { name: 'John', age: 30  }; console.log(Object.keys(register).join(', '));",
+    "problem": "\"let register = { name: 'John', age: 30  };\"\n\"console.log(Object.keys(register).join(', '));\"\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6468,7 +6468,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "tuition",
-    "problem": "const tuition = { fee: 1000 }; console.log(tuition.fee);",
+    "problem": "\"const tuition = { fee: 1000 };\"\n\"console.log(tuition.fee);\"\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6544,7 +6544,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "portrait",
-    "problem": "const portrait = (name) => { console.log(`Hello, my name is ${name}`); }; portrait('Alice');",
+    "problem": "const portrait = (name) => { console.log(`Hello, my name is ${name}`); };\nportrait('Alice');\n",
     "tags": [
       "javascript",
       "grade-5"
