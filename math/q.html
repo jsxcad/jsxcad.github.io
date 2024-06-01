@@ -100,6 +100,15 @@
     import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
     import { problems } from './problems.js';
 
+    const weights = (await IDB.get('weights')) || {};
+    const requiredTags = new Set();
+    for (const tag of Object.keys(weights)) {
+      const { isRequired = false } = weights[tag];
+      if (isRequired) {
+        requiredTags.add(tag);
+      }
+    }
+
     const loadNote = async (key) => {
       const value = await IDB.get(key);
       if (value === undefined) {
@@ -172,7 +181,7 @@
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
 
-    const chooseProblem = (chosen, problems, weights) => {
+    const chooseProblem = (chosen, problems) => {
       if (s.length > 0) {
         const id = s.shift();
         for (const problem of problems) {
@@ -192,14 +201,22 @@
             continue;
           }
         }
-        let threshold = 0;
+        let threshold = 1;
         if (!problem.tags || problem.tags.length === 0) {
           continue;
         }
         for (const tag of problem.tags) {
-          threshold = Math.max(threshold, (weights[tag] === undefined ? 100 : weights[tag]) / 100);
+          const { weight = 100 } = weights[tag] === undefined ? {} : weights[tag];
+          threshold *= weight / 100;
         }
-        if (threshold === 0) {
+        let hasRequiredTags = true;
+        for (const tag of requiredTags) {
+          if (!problem.tags.includes(tag)) {
+            hasRequiredTags = false;
+            break;
+          }
+        }
+        if (!hasRequiredTags || threshold === 0) {
           continue;
         }
         seen += threshold;
@@ -215,10 +232,8 @@
     const signature = [];
 
     const renderColumn = async (column) => {
-      const weights = (await IDB.get('weights')) || {};
-
       for (let nth = 0; nth < 7; nth++) {
-        const problem = chooseProblem(chosen, problems, weights);
+        const problem = chooseProblem(chosen, problems);
         if (problem === undefined) {
           continue;
         }

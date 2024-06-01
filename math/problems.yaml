@@ -6959,7 +6959,9 @@
   id: 444
 - generator: javascript-program
   input: impunity
-  problem: let result = 3 ** 4; console.log(result);
+  problem: |
+    let result = 3 ** 4;
+    console.log(result);
   tags:
     - fifth-grade
     - exponentiation
@@ -6971,8 +6973,11 @@
   id: 445
 - generator: javascript-program
   input: gallop
-  problem: let count = 0;      const increment = () =>
-    count++;      setInterval(increment, 1000);      console.log(count);
+  problem: |
+    let count = 0;
+    const increment = () => count++;
+    setInterval(increment, 1000);
+    console.log(count);
   tags:
     - 5thGrade
     - setInterval
@@ -6985,8 +6990,10 @@
   id: 446
 - generator: javascript-program
   input: casualty
-  problem: let casualties = 0;       casualties = casualties +
-    1;      console.log(casualties);
+  problem: |
+    let casualties = 0;
+    casualties = casualties + 1;
+    console.log(casualties);
   tags:
     - fifth-grade
     - variables
@@ -7016,8 +7023,12 @@
   id: 448
 - generator: javascript-program
   input: specialize
-  problem: let result = 0;      for (let i = 1; i <= 10; i++) {          result +=
-    i;      }      console.log(result);
+  problem: |
+    let result = 0;
+    for (let i = 1; i <= 10; i++) {
+      result += i;
+    }
+    console.log(result);
   tags:
     - 5thGrade
     - Loops
@@ -7029,9 +7040,10 @@
 - generator: javascript-program
   input: stolen
   problem: |
-    "let stolen = 10;"
-    "const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';"
-    "console.log(mystery())"
+    let stolen = 10;
+    const mystery = () =>
+      stolen % 2 === 0 ? 'even' : 'odd';
+    console.log(mystery());
   tags:
     - 5thGrade
     - Variables
@@ -7045,8 +7057,12 @@
   id: 450
 - generator: javascript-program
   input: scandalous
-  problem: let result = 1;       for (let i = 2; i < 10; i++) {           result
-    += i;       }       console.log(result);
+  problem: |
+    let result = 1;
+    for (let i = 2; i < 10; i++) {
+      result += i;
+    }
+    console.log(result);
   tags:
     - fifth-grade
     - loop
@@ -7072,7 +7088,11 @@
   id: 452
 - generator: javascript-program
   input: stop
-  problem: "console.log(Array.from({ length: 10 }, (_, i) => i + 1))"
+  problem: |
+    console.log(
+      Array.from({ length: 10 },
+                 (_, i) => i + 1)
+    );
   tags:
     - array
     - arrow-function
@@ -7086,7 +7106,8 @@
   id: 453
 - generator: javascript-program
   input: forced
-  problem: =>console.log(Math.pow(2,3) + Math.sqrt(9))
+  problem: |
+    console.log(Math.pow(2,3) + Math.sqrt(9));
   tags:
     - arrow-function
     - math
@@ -7100,7 +7121,10 @@
   id: 454
 - generator: javascript-program
   input: leaden
-  problem: ((n) => { console.log(n + 10); })(5);
+  problem: |
+    ((n) => {
+      console.log(n + 10);
+    })(5);
   tags:
     - js-arrow-function
     - js-conditional-statement
@@ -7112,7 +7136,11 @@
   id: 455
 - generator: javascript-program
   input: seize
-  problem: ((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)
+  problem: |
+    ((n) => console.log([...Array(n)]
+                   .map((_, i) => i + 1)
+                   .join(' '))
+    )(5)
   tags:
     - array
     - loop
@@ -7158,7 +7186,7 @@
   id: 458
 - generator: javascript-program
   input: foul
-  problem: "console.log(Math.pow(2, 3) * 4 - 10"
+  problem: console.log(Math.pow(2, 3) * 4 - 10);
   tags:
     - math-exponentiation
     - conditional-logic
@@ -7198,7 +7226,7 @@
   id: 461
 - generator: javascript-program
   input: distant
-  problem: console.log(Math.pow(2, 5))
+  problem: console.log(Math.pow(2, 5));
   tags:
     - math
     - power
@@ -7278,7 +7306,11 @@
   id: 467
 - generator: javascript-program
   input: cupboard
-  problem: (() => console.log(Math.pow(2, Math.floor(Math.random() * 5))))()
+  problem: |
+    (() => console.log(
+             Math.pow(2, Math.floor(
+                           Math.random()
+                           * 5))))();
   tags:
     - function-expression
     - random-number
@@ -7292,7 +7324,10 @@
   id: 468
 - generator: javascript-program
   input: bonus
-  problem: console.log(Math.pow(2,5) - Math.floor(Math.random() * 100))
+  problem: |
+    console.log(
+      Math.pow(2,5) -
+      Math.floor(Math.random() * 100));
   tags:
     - 5th-grade
     - numbers
@@ -7333,7 +7368,9 @@
   id: 471
 - generator: javascript-program
   input: affluent
-  problem: "console.log(Array.from({ length: 5 }, (_, i) => i + 10))"
+  problem: |
+    console.log(Array.from({ length: 5 },
+                           (_, i) => i + 10));
   tags:
     - array
     - iteration
@@ -7406,7 +7443,13 @@
   id: 476
 - generator: javascript-program
   input: woolen
-  problem: ((n) => console.log(n.toString().split('').reverse().join()))(1234)
+  problem: |
+    ((n) => console.log(
+              n.toString()
+               .split('')
+               .reverse()
+               .join())
+    )(1234)
   tags:
     - arrow-function
     - string-manipulation
@@ -7546,7 +7589,9 @@
   id: 486
 - generator: javascript-program
   input: ominous
-  problem: const n = 3; console.log((n => n * n)(n));
+  problem: |
+    const n = 3;
+    console.log((n => n * n)(n));
   tags:
     - es6
     - arrow-function
@@ -7561,7 +7606,10 @@
   id: 487
 - generator: javascript-program
   input: carrot
-  problem: const carrot = () => console.log(' munch munch, I love carrots!'); carrot();
+  problem: |
+    const carrot = () =>
+      console.log(' munch munch, I love carrots!');
+    carrot();
   tags:
     - es6
     - arrow-function
@@ -7576,7 +7624,11 @@
   id: 488
 - generator: javascript-program
   input: taxpayer
-  problem: (() => { const a = 10; console.log(a * 3)})()
+  problem: |
+    (() => {
+      const a = 10;
+      console.log(a * 3);
+    })()
   tags:
     - functional-programming
     - arrow-functions
@@ -7634,7 +7686,12 @@
   id: 492
 - generator: javascript-program
   input: loose
-  problem: (() => { const x = 10; const y = 20; console.log(x + y); })()
+  problem: |
+    (() => {
+      const x = 10;
+      const y = 20;
+      console.log(x + y);
+    })();
   tags:
     - es6
     - arrow-functions
@@ -7650,7 +7707,9 @@
   id: 493
 - generator: javascript-program
   input: observant
-  problem: observed = (a) => console.log(a); const numbers = [1, 2, 3, 4, 5];
+  problem: |
+    const observed = (a) => console.log(a);
+    const numbers = [1, 2, 3, 4, 5];
     numbers.forEach((a) => observed(a));
   tags:
     - javascript
@@ -7697,7 +7756,12 @@
   id: 495
 - generator: javascript-program
   input: miscarriage
-  problem: let a = 10; let b = (a) => { return a + 1; }; console.log(b());
+  problem: |
+    let a = 10;
+    let b = (a) => {
+      return a + 1;
+    };
+    console.log(b());
   tags:
     - javascript
     - variable-scope
@@ -7730,8 +7794,10 @@
   id: 497
 - generator: javascript-program
   input: dally
-  problem: "  let dally = [1, 2, 3];  let result = dally.map((x) => x *
-    2);  console.log(result);  "
+  problem: |
+    let dally = [1, 2, 3];
+    let result = dally.map((x) => x * 2);
+    console.log(result);
   tags:
     - javascript
     - map
@@ -7745,8 +7811,12 @@
   id: 498
 - generator: javascript-program
   input: protect
-  problem: let protect = () => { let sensitiveData = 'super secret'; return
-    console.log(sensitiveData); }; protect();
+  problem: |
+    let protect = () => {
+      let sensitiveData = 'super secret';
+      return console.log(sensitiveData);
+    };
+    protect();
   tags:
     - javascript
     - variable-scope
@@ -7798,8 +7868,14 @@
   id: 501
 - generator: javascript-program
   input: die
-  problem: let x = 10; if (x < 11) { console.log('die'); } else { let y = () =>
-    console.log('alive'); y(); };
+  problem: |
+    let x = 10;
+    if (x < 11) {
+      console.log('die');
+    } else {
+      let y = () => console.log('alive');
+      y();
+    };
   tags:
     - javascript
     - variable-scope
@@ -7816,8 +7892,10 @@
   id: 502
 - generator: javascript-program
   input: ensemble
-  problem: let numbers = [1, 2, 3]; let doubleNumbers = numbers.map((num) => num *
-    2); console.log(doubleNumbers);
+  problem: |
+    let numbers = [1, 2, 3];
+    let doubleNumbers = numbers.map((num) => num * 2);
+    console.log(doubleNumbers);
   tags:
     - 5th-grade
     - arrays
@@ -7854,7 +7932,10 @@
   id: 504
 - generator: javascript-program
   input: dialectic
-  problem: let x = 10; let y = (x) => console.log(x); y(5);
+  problem: |
+    let x = 10;
+    let y = (x) => console.log(x);
+    y(5);
   tags:
     - javascript
     - variable-scope
@@ -7865,7 +7946,11 @@
   id: 505
 - generator: javascript-program
   input: demolish
-  problem: let demolish = (a) => { console.log(a);  }; demolish('hello');
+  problem: |
+    let demolish = (a) => {
+      console.log(a);
+    };
+    demolish('hello');
   tags:
     - javascript
     - 5th-grade
@@ -7887,8 +7972,9 @@
   id: 506
 - generator: javascript-program
   input: canoe
-  problem: "let canoe = { length: 3.5, width: 0.8 }; console.log(canoe.length +
-    canoe.width);"
+  problem: |
+    let canoe = { length: 3.5, width: 0.8 };
+    console.log(canoe.length + canoe.width);
   tags:
     - programming
     - javascript
@@ -7924,8 +8010,9 @@
 - generator: javascript-program
   input: pole
   problem: |
-    "let pole = { lat: 40.7128, lon: -74.0060 };"
-    "console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);"
+    let pole = { lat: 40.7128, lon: -74.0060 };
+    console.log(`The coordinates of the pole are
+                 ${pole.lat}, ${pole.lon}`);
   tags:
     - javascript
     - template-literals
@@ -7953,7 +8040,11 @@
   id: 510
 - generator: javascript-program
   input: grammar
-  problem: let x = 10; const y = () => console.log(x); x = 20; y();
+  problem: |
+    let x = 10;
+    const y = () => console.log(x);
+    x = 20;
+    y();
   tags:
     - javascript
     - variable-scope
@@ -7969,8 +8060,11 @@
   id: 511
 - generator: javascript-program
   input: alias
-  problem: "let alias = 'old value'; console.log(`Initial value: ${alias}`); alias
-    = 'new value'; console.log(`Updated value: ${alias}`);"
+  problem: |
+    let alias = 'old value';
+    console.log(`Initial value: ${alias}`);
+    alias = 'new value';
+    console.log(`Updated value: ${alias}`);
   tags:
     - javascript
     - variable reassignment
@@ -7988,8 +8082,9 @@
 - generator: javascript-program
   input: nobleman
   problem: |
-    "let nobleman = { name: 'John', title: 'Duke' };"
-    "console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);"
+    let nobleman = { name: 'John', title: 'Duke' };
+    console.log(`Hello, my name is ${nobleman.name}
+                 and I am a ${nobleman.title}`);
   tags:
     - javascript
     - template-literals
@@ -8021,8 +8116,8 @@
 - generator: javascript-program
   input: tuition
   problem: |
-    "const tuition = { fee: 1000 };"
-    "console.log(tuition.fee);"
+    const tuition = { fee: 1000 };
+    console.log(tuition.fee);
   tags:
     - grade-5
     - objects
@@ -8035,7 +8130,12 @@
   id: 515
 - generator: javascript-program
   input: adjustment
-  problem: let x = 3; let adjustment = () => { console.log(x); }; adjustment();
+  problem: |
+    let x = 3;
+    let adjustment = () => {
+      console.log(x);
+    };
+    adjustment();
   tags:
     - javascript
     - variable-scope
@@ -8051,8 +8151,10 @@
   id: 516
 - generator: javascript-program
   input: notional
-  problem: "let notional = { name: 'John', age: 25 }; console.log(`Name:
-    ${notional.name}, Age: ${notional.age}`);"
+  problem: |
+    let notional = { name: 'John', age: 25 };
+    console.log(`Name: ${notional.name},
+                 Age: ${notional.age}`);
   tags:
     - javascript
     - objects
@@ -8067,7 +8169,11 @@
   id: 517
 - generator: javascript-program
   input: decentralize
-  problem: "console.log(Object.values({ a: 1, b: 2, c: 3 }).map(v => v * 2));"
+  problem: |
+    console.log(
+      Object.values({ a: 1, b: 2, c: 3 })
+            .map(v => v * 2)
+      );
   tags:
     - javascript
     - decentralize
@@ -8103,7 +8209,10 @@
   id: 519
 - generator: javascript-program
   input: barrage
-  problem: a = 1; b = (x) => console.log(x); b(2)
+  problem: |
+    const a = 1;
+    const b = (x) => console.log(x);
+    b(2);
   tags:
     - javascript
     - 5th-grade
@@ -8119,11 +8228,11 @@
 - generator: javascript-program
   input: digestive
   problem: |
-    "const digestive = (input) => {"
-    "  let result = input.length;"
-    "  console.log(`Digestive length: ${result}`);"
-    "};"
-    "digestive('hello');"
+    const digestive = (input) => {
+      let result = input.length;
+      console.log(`Digestive length: ${result}`);
+    };
+    digestive('hello');
   tags:
     - javascript
     - es6
@@ -8141,7 +8250,9 @@
 - generator: javascript-program
   input: portrait
   problem: |
-    const portrait = (name) => { console.log(`Hello, my name is ${name}`); };
+    const portrait = (name) => {
+      console.log(`Hello, my name is ${name}`);
+    };
     portrait('Alice');
   tags:
     - javascript
@@ -8159,8 +8270,8 @@
 - generator: javascript-program
   input: extended
   problem: |
-    "const extended = {name: 'John', age: 25};"
-    "console.log(extended.name);"
+    const extended = {name: 'John', age: 25};
+    console.log(extended.name);
   tags:
     - javascript
     - object-oriented-programming
@@ -8176,10 +8287,10 @@
 - generator: javascript-program
   input: particularly
   problem: |
-    "let particularly = (x) => {"
-    "  console.log(x);"
-    "};"
-    "particularly('Hello');"
+    let particularly = (x) => {
+      console.log(x);
+    };
+    particularly('Hello');
   tags:
     - javascript
     - scope
@@ -8214,7 +8325,9 @@
   id: 525
 - generator: javascript-program
   input: definitely
-  problem: let definitely = (x) => x; console.log(definitely(3));
+  problem: |
+    const definitely = (x) => x;
+    console.log(definitely(3));
   tags:
     - javascript
     - 5th-grade
@@ -8229,7 +8342,9 @@
   id: 526
 - generator: javascript-program
   input: detention
-  problem: let detention = 'unexcused'; console.log('You are serving ' + detention);
+  problem: |
+    let detention = 'unexcused';
+    console.log('You are serving ' + detention);
   tags:
     - javascript
     - template-literals
@@ -8263,10 +8378,16 @@
   id: 528
 - generator: javascript-program
   input: fortune
-  problem: "let fortune = { 'heads': 'You will have good luck', 'tails': 'You will
-    have bad luck'  }; const coinFlip = () => {    const randomNum =
-    Math.floor(Math.random() * 2); return (randomNum === 0) ? 'heads' :
-    'tails';  }; console.log(fortune[coinFlip()]);"
+  problem: |
+    let fortune = {
+      'heads': 'You will have good luck',
+      'tails': 'You will have bad luck'
+    };
+    const coinFlip = () => {
+      const randomNum = Math.floor(Math.random() * 2);
+      return (randomNum === 0) ? 'heads' : 'tails';  
+    };
+    console.log(fortune[coinFlip()]);
   tags:
     - javascript
     - functions
@@ -8339,7 +8460,9 @@
   generator: javascript-program
   input: flop
   problem: |
-    const flop = (x) => { return x; };
+    const flop = (x) => {
+      return x;
+    };
     console.log(flop(3));
   tags:
     - javascript

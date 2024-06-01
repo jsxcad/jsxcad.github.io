@@ -79,7 +79,9 @@
 
       const update = async () => {
         for (const { tag, inputId } of fields) {
-          weights[tag] = Number(document.getElementById(inputId).value);
+          const weight = Number(document.getElementById(`${inputId}-weight`).value);
+          const isRequired = Boolean(document.getElementById(`${inputId}-isRequired`).checked);
+          weights[tag] = { weight, isRequired };
         }
         await IDB.set('weights', weights);
       };
@@ -89,9 +91,21 @@
       let nth = 0;
       for (const [tag, weight] of sorted(tags)) {
         const inputId = `input-${nth}`;
+        let entry = weights[tag];
+        if (entry === undefined || typeof entry != 'object') {
+          entry = {};
+        }
+        const { weight = 100, isRequired = false } = entry;
         const e = document.createElement('div');
         e.classList.add('item');
-        e.innerHTML = `<div class="entry ${(nth % 2) ? 'odd' : 'even'}"><input id="${inputId}" class="weight" size="3" type="number" value="${weights[tag] === undefined ? 100 : weights[tag]}"><span class="tag">${tag}</span></div>`;
+        e.innerHTML = 
+          `
+            <div class="entry ${(nth % 2) ? 'odd' : 'even'}">
+              <input id="${inputId}-weight" class="weight" size="3" type="number" value="${weight}">
+              <input id="${inputId}-isRequired" class="weight" size="3" type="checkbox" ${isRequired ? 'checked' : ''}>
+              <span class="tag">${tag}</span>
+            </div>
+          `;
         fields.push({ tag, inputId });
         tagsElement.appendChild(e);
         nth += 1;

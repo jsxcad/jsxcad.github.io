@@ -5645,7 +5645,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "impunity",
-    "problem": "let result = 3 ** 4; console.log(result);",
+    "problem": "let result = 3 ** 4;\nconsole.log(result);\n",
     "tags": [
       "grade-5",
       "multiplication",
@@ -5657,7 +5657,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "gallop",
-    "problem": "let count = 0;      const increment = () => count++;      setInterval(increment, 1000);      console.log(count);",
+    "problem": "let count = 0;\nconst increment = () => count++;\nsetInterval(increment, 1000);\nconsole.log(count);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5668,7 +5668,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "casualty",
-    "problem": "let casualties = 0;       casualties = casualties + 1;      console.log(casualties);",
+    "problem": "let casualties = 0;\ncasualties = casualties + 1;\nconsole.log(casualties);\n",
     "tags": [
       "grade-5",
       "arithmetic",
@@ -5691,7 +5691,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "specialize",
-    "problem": "let result = 0;      for (let i = 1; i <= 10; i++) {          result += i;      }      console.log(result);",
+    "problem": "let result = 0;\nfor (let i = 1; i <= 10; i++) {\n  result += i;\n}\nconsole.log(result);\n",
     "tags": [
       "grade-5",
       "arithmetic",
@@ -5703,7 +5703,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "stolen",
-    "problem": "\"let stolen = 10;\"\n\"const mystery = () => stolen % 2 === 0 ? 'even' : 'odd';\"\n\"console.log(mystery())\"\n",
+    "problem": "let stolen = 10;\nconst mystery = () =>\n  stolen % 2 === 0 ? 'even' : 'odd';\nconsole.log(mystery());\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5714,7 +5714,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "scandalous",
-    "problem": "let result = 1;       for (let i = 2; i < 10; i++) {           result += i;       }       console.log(result);",
+    "problem": "let result = 1;\nfor (let i = 2; i < 10; i++) {\n  result += i;\n}\nconsole.log(result);\n",
     "tags": [
       "grade-5",
       "addition",
@@ -5739,7 +5739,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "stop",
-    "problem": "console.log(Array.from({ length: 10 }, (_, i) => i + 1))",
+    "problem": "console.log(\n  Array.from({ length: 10 },\n             (_, i) => i + 1)\n);\n",
     "tags": [
       "arrow-functions",
       "iteration",
@@ -5752,7 +5752,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "forced",
-    "problem": "=>console.log(Math.pow(2,3) + Math.sqrt(9))",
+    "problem": "console.log(Math.pow(2,3) + Math.sqrt(9));\n",
     "tags": [
       "arrow-functions",
       "grade-5",
@@ -5764,7 +5764,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "leaden",
-    "problem": "((n) => { console.log(n + 10); })(5);",
+    "problem": "((n) => {\n  console.log(n + 10);\n})(5);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5775,7 +5775,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "seize",
-    "problem": "((n) => console.log([...Array(n)].map((_, i) => i + 1).join(' ')))(5)",
+    "problem": "((n) => console.log([...Array(n)]\n               .map((_, i) => i + 1)\n               .join(' '))\n)(5)\n",
     "tags": [
       "javascript"
     ],
@@ -5809,7 +5809,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "foul",
-    "problem": "console.log(Math.pow(2, 3) * 4 - 10",
+    "problem": "console.log(Math.pow(2, 3) * 4 - 10);",
     "tags": [
       "grade-5",
       "javascript"
@@ -5847,7 +5847,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "distant",
-    "problem": "console.log(Math.pow(2, 5))",
+    "problem": "console.log(Math.pow(2, 5));",
     "tags": [
       "grade-5",
       "javascript"
@@ -5924,7 +5924,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "cupboard",
-    "problem": "(() => console.log(Math.pow(2, Math.floor(Math.random() * 5))))()",
+    "problem": "(() => console.log(\n         Math.pow(2, Math.floor(\n                       Math.random()\n                       * 5))))();\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5935,7 +5935,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "bonus",
-    "problem": "console.log(Math.pow(2,5) - Math.floor(Math.random() * 100))",
+    "problem": "console.log(\n  Math.pow(2,5) -\n  Math.floor(Math.random() * 100));\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -5972,7 +5972,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "affluent",
-    "problem": "console.log(Array.from({ length: 5 }, (_, i) => i + 10))",
+    "problem": "console.log(Array.from({ length: 5 },\n                       (_, i) => i + 10));\n",
     "tags": [
       "iteration",
       "grade-5",
@@ -6031,7 +6031,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "woolen",
-    "problem": "((n) => console.log(n.toString().split('').reverse().join()))(1234)",
+    "problem": "((n) => console.log(\n          n.toString()\n           .split('')\n           .reverse()\n           .join())\n)(1234)\n",
     "tags": [
       "arrow-functions",
       "grade-5",
@@ -6152,7 +6152,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "ominous",
-    "problem": "const n = 3; console.log((n => n * n)(n));",
+    "problem": "const n = 3;\nconsole.log((n => n * n)(n));\n",
     "tags": [
       "javascript",
       "arrow-functions",
@@ -6164,7 +6164,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "carrot",
-    "problem": "const carrot = () => console.log(' munch munch, I love carrots!'); carrot();",
+    "problem": "const carrot = () =>\n  console.log(' munch munch, I love carrots!');\ncarrot();\n",
     "tags": [
       "javascript",
       "arrow-functions",
@@ -6176,7 +6176,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "taxpayer",
-    "problem": "(() => { const a = 10; console.log(a * 3)})()",
+    "problem": "(() => {\n  const a = 10;\n  console.log(a * 3);\n})()\n",
     "tags": [
       "functional-programming",
       "arrow-functions",
@@ -6225,7 +6225,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "loose",
-    "problem": "(() => { const x = 10; const y = 20; console.log(x + y); })()",
+    "problem": "(() => {\n  const x = 10;\n  const y = 20;\n  console.log(x + y);\n})();\n",
     "tags": [
       "javascript",
       "arrow-functions",
@@ -6238,7 +6238,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "observant",
-    "problem": "observed = (a) => console.log(a); const numbers = [1, 2, 3, 4, 5]; numbers.forEach((a) => observed(a));",
+    "problem": "const observed = (a) => console.log(a);\nconst numbers = [1, 2, 3, 4, 5];\nnumbers.forEach((a) => observed(a));\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6260,7 +6260,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "miscarriage",
-    "problem": "let a = 10; let b = (a) => { return a + 1; }; console.log(b());",
+    "problem": "let a = 10;\nlet b = (a) => {\n  return a + 1;\n};\nconsole.log(b());\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6285,7 +6285,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "dally",
-    "problem": "  let dally = [1, 2, 3];  let result = dally.map((x) => x * 2);  console.log(result);  ",
+    "problem": "let dally = [1, 2, 3];\nlet result = dally.map((x) => x * 2);\nconsole.log(result);\n",
     "tags": [
       "javascript",
       "arrow-functions",
@@ -6297,7 +6297,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "protect",
-    "problem": "let protect = () => { let sensitiveData = 'super secret'; return console.log(sensitiveData); }; protect();",
+    "problem": "let protect = () => {\n  let sensitiveData = 'super secret';\n  return console.log(sensitiveData);\n};\nprotect();\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6331,7 +6331,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "die",
-    "problem": "let x = 10; if (x < 11) { console.log('die'); } else { let y = () => console.log('alive'); y(); };",
+    "problem": "let x = 10;\nif (x < 11) {\n  console.log('die');\n} else {\n  let y = () => console.log('alive');\n  y();\n};\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6343,7 +6343,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "ensemble",
-    "problem": "let numbers = [1, 2, 3]; let doubleNumbers = numbers.map((num) => num * 2); console.log(doubleNumbers);",
+    "problem": "let numbers = [1, 2, 3];\nlet doubleNumbers = numbers.map((num) => num * 2);\nconsole.log(doubleNumbers);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6365,7 +6365,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "dialectic",
-    "problem": "let x = 10; let y = (x) => console.log(x); y(5);",
+    "problem": "let x = 10;\nlet y = (x) => console.log(x);\ny(5);\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6377,7 +6377,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "demolish",
-    "problem": "let demolish = (a) => { console.log(a);  }; demolish('hello');",
+    "problem": "let demolish = (a) => {\n  console.log(a);\n};\ndemolish('hello');\n",
     "tags": [
       "javascript",
       "grade-5",
@@ -6389,7 +6389,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "canoe",
-    "problem": "let canoe = { length: 3.5, width: 0.8 }; console.log(canoe.length + canoe.width);",
+    "problem": "let canoe = { length: 3.5, width: 0.8 };\nconsole.log(canoe.length + canoe.width);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6411,7 +6411,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "pole",
-    "problem": "\"let pole = { lat: 40.7128, lon: -74.0060 };\"\n\"console.log(`The coordinates of the pole are ${pole.lat}, ${pole.lon}`);\"\n",
+    "problem": "let pole = { lat: 40.7128, lon: -74.0060 };\nconsole.log(`The coordinates of the pole are\n             ${pole.lat}, ${pole.lon}`);\n",
     "tags": [
       "javascript"
     ],
@@ -6431,7 +6431,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "grammar",
-    "problem": "let x = 10; const y = () => console.log(x); x = 20; y();",
+    "problem": "let x = 10;\nconst y = () => console.log(x);\nx = 20;\ny();\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6443,7 +6443,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "alias",
-    "problem": "let alias = 'old value'; console.log(`Initial value: ${alias}`); alias = 'new value'; console.log(`Updated value: ${alias}`);",
+    "problem": "let alias = 'old value';\nconsole.log(`Initial value: ${alias}`);\nalias = 'new value';\nconsole.log(`Updated value: ${alias}`);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6454,7 +6454,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "nobleman",
-    "problem": "\"let nobleman = { name: 'John', title: 'Duke' };\"\n\"console.log(`Hello, my name is ${nobleman.name} and I am a ${nobleman.title}`);\"\n",
+    "problem": "let nobleman = { name: 'John', title: 'Duke' };\nconsole.log(`Hello, my name is ${nobleman.name}\n             and I am a ${nobleman.title}`);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6476,7 +6476,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "tuition",
-    "problem": "\"const tuition = { fee: 1000 };\"\n\"console.log(tuition.fee);\"\n",
+    "problem": "const tuition = { fee: 1000 };\nconsole.log(tuition.fee);\n",
     "tags": [
       "grade-5",
       "javascript"
@@ -6487,7 +6487,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "adjustment",
-    "problem": "let x = 3; let adjustment = () => { console.log(x); }; adjustment();",
+    "problem": "let x = 3;\nlet adjustment = () => {\n  console.log(x);\n};\nadjustment();\n",
     "tags": [
       "javascript",
       "variable-scope",
@@ -6499,7 +6499,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "notional",
-    "problem": "let notional = { name: 'John', age: 25 }; console.log(`Name: ${notional.name}, Age: ${notional.age}`);",
+    "problem": "let notional = { name: 'John', age: 25 };\nconsole.log(`Name: ${notional.name},\n             Age: ${notional.age}`);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6510,7 +6510,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "decentralize",
-    "problem": "console.log(Object.values({ a: 1, b: 2, c: 3 }).map(v => v * 2));",
+    "problem": "console.log(\n  Object.values({ a: 1, b: 2, c: 3 })\n        .map(v => v * 2)\n  );\n",
     "tags": [
       "javascript"
     ],
@@ -6530,7 +6530,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "barrage",
-    "problem": "a = 1; b = (x) => console.log(x); b(2)",
+    "problem": "const a = 1;\nconst b = (x) => console.log(x);\nb(2);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6541,7 +6541,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "digestive",
-    "problem": "\"const digestive = (input) => {\"\n\"  let result = input.length;\"\n\"  console.log(`Digestive length: ${result}`);\"\n\"};\"\n\"digestive('hello');\"\n",
+    "problem": "const digestive = (input) => {\n  let result = input.length;\n  console.log(`Digestive length: ${result}`);\n};\ndigestive('hello');\n",
     "tags": [
       "javascript",
       "variable-scope"
@@ -6552,7 +6552,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "portrait",
-    "problem": "const portrait = (name) => { console.log(`Hello, my name is ${name}`); };\nportrait('Alice');\n",
+    "problem": "const portrait = (name) => {\n  console.log(`Hello, my name is ${name}`);\n};\nportrait('Alice');\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6563,7 +6563,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "extended",
-    "problem": "\"const extended = {name: 'John', age: 25};\"\n\"console.log(extended.name);\"\n",
+    "problem": "const extended = {name: 'John', age: 25};\nconsole.log(extended.name);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6574,7 +6574,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "particularly",
-    "problem": "\"let particularly = (x) => {\"\n\"  console.log(x);\"\n\"};\"\n\"particularly('Hello');\"\n",
+    "problem": "let particularly = (x) => {\n  console.log(x);\n};\nparticularly('Hello');\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6596,7 +6596,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "definitely",
-    "problem": "let definitely = (x) => x; console.log(definitely(3));",
+    "problem": "const definitely = (x) => x;\nconsole.log(definitely(3));\n",
     "tags": [
       "javascript",
       "grade-5",
@@ -6608,7 +6608,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "detention",
-    "problem": "let detention = 'unexcused'; console.log('You are serving ' + detention);",
+    "problem": "let detention = 'unexcused';\nconsole.log('You are serving ' + detention);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6630,7 +6630,7 @@ export const problems = [
   {
     "generator": "javascript-program",
     "input": "fortune",
-    "problem": "let fortune = { 'heads': 'You will have good luck', 'tails': 'You will have bad luck'  }; const coinFlip = () => {    const randomNum = Math.floor(Math.random() * 2); return (randomNum === 0) ? 'heads' : 'tails';  }; console.log(fortune[coinFlip()]);",
+    "problem": "let fortune = {\n  'heads': 'You will have good luck',\n  'tails': 'You will have bad luck'\n};\nconst coinFlip = () => {\n  const randomNum = Math.floor(Math.random() * 2);\n  return (randomNum === 0) ? 'heads' : 'tails';  \n};\nconsole.log(fortune[coinFlip()]);\n",
     "tags": [
       "javascript",
       "grade-5"
@@ -6678,7 +6678,7 @@ export const problems = [
     "model": "llama3",
     "generator": "javascript-program",
     "input": "flop",
-    "problem": "const flop = (x) => { return x; };\nconsole.log(flop(3));\n",
+    "problem": "const flop = (x) => {\n  return x;\n};\nconsole.log(flop(3));\n",
     "tags": [
       "javascript",
       "variable-scope",
