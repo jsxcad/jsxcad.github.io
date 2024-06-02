@@ -8402,8 +8402,11 @@
 - model: llama3
   generator: javascript-program
   input: fort
-  problem: "let fort = { height: 100 }; let fortHeight = () =>
-    console.log(fort.height); fortHeight();"
+  problem: |
+    let fort = { height: 100 };
+    let fortHeight = () =>
+      console.log(fort.height);
+    fortHeight();"
   tags:
     - javascript
     - variable shadowing
