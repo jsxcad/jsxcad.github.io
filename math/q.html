@@ -98,76 +98,10 @@
   </div>
   <script type="module">
     import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
-    import { problems } from './problems.js';
+    import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem } from './common.js';
 
-    const weights = (await IDB.get('weights')) || {};
-    const requiredTags = new Set();
-    for (const tag of Object.keys(weights)) {
-      const { isRequired = false } = weights[tag];
-      if (isRequired) {
-        requiredTags.add(tag);
-      }
-    }
-
-    const loadNote = async (key) => {
-      const value = await IDB.get(key);
-      if (value === undefined) {
-        return {};
-      } else {
-        return value;
-      }
-    };
-
-    const saveNote = async (key, value) => IDB.set(key, value);
-
-    const renderRuledLine = () => {
-      const div = document.createElement('div');
-      div.innerHTML = `
-        <svg width="100%" height="30" viewBox="0 0 4 30" preserveAspectRatio="none">
-          <path stroke="black" stroke-opacity="0.25" d="M 0 10 L 4 10"/>
-          <path stroke="black" stroke-opacity="0.25" d="M 0 15 L 4 15"/>
-          <path stroke="black" stroke-opacity="0.50" d="M 0 25 L 4 25"/>
-          <path stroke="black" stroke-opacity="0.25" d="M 0 30 L 4 30"/>
-        </svg>`;
-      return div;
-    }
-
-    const escapeHtml = (unsafe) =>
-      unsafe
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-    const renderProblem = ({ id = -1, generator, problem, solution, lines = 4, tags = [] }, { weight = 1.0 }) => {
-      const div = document.createElement('div');
-      div.classList.add('problem', 'tooltip');
-      let pre = '';
-      let post = '';
-      if (generator === 'javascript-program') {
-        pre = '<pre>';
-        post = '</pre>';
-      }
-      div.innerHTML = `${pre}${problem.split('\n').map((text) => escapeHtml(text)).join('<br>')}${post}`;
-      for (let line = 0; line < lines; line++) {
-        div.appendChild(renderRuledLine());
-      }
-      const span = document.createElement('div')
-      span.innerText = generator;
-      span.classList.add('generator');
-
-      const shields = document.createElement('div')
-      shields.innerItext = weight;
-      shields.classList.add('shields');
-
-      div.insertBefore(span, div.firstChild);
-      const note = document.createElement('div');
-      note.innerHTML = `${id}<br>${solution}<br>${tags.join(', ')}`;
-      note.classList.add('tooltiptext');
-      div.appendChild(note);
-      return div;
-    };
+    const problems = await loadProblems();
+    const { weights, requiredTags } = await loadTags();
 
     const decodeSignature = (params) => {
       const s = params.get('s');
@@ -193,13 +127,8 @@
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
-        if (chosen.has(problem)) {
+        if (chosen.has(problem) || problem.note.isBlocked) {
           continue;
-        }
-        if (problem.todo) {
-          if (problem.todo === 'fix' || problem.todo.include('fix')) {
-            continue;
-          }
         }
         let threshold = 1;
         if (!problem.tags || problem.tags.length === 0) {
@@ -219,6 +148,7 @@
         if (!hasRequiredTags || threshold === 0) {
           continue;
         }
+        threshold *= problem.note.weight;
         seen += threshold;
         if (Math.random() * seen <= threshold) {
           chosenProblem = problem;
@@ -231,27 +161,57 @@
 
     const signature = [];
 
+    const problemByRender = new Map();
+
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener('mousemove', (event) => {
+      currentX = event.clientX;
+      currentY = event.clientY;
+    });
+
+    document.addEventListener('keydown', async (e) => {
+      const { key } = e;
+      let target = document.elementFromPoint(currentX, currentY);
+      let problem;
+      while (target) {
+        problem = problemByRender.get(target);
+        if (problem !== undefined) {
+          break;
+        }
+        target = target.parentElement;
+      }
+      const note = problem.note;
+      if (note.weight === undefined) {
+        note.weight = 1;
+      }
+      switch (key) {
+        case 'x':
+          note.isBlocked = true;
+          target.style.display = 'none';
+          break;
+        case 'g':
+          note.weight *= 1.1;
+          break;
+        case 'b':
+          note.weight *= 0.9;
+          break;
+      }
+      await saveProblem(problem);
+    }, true);
+
     const renderColumn = async (column) => {
       for (let nth = 0; nth < 7; nth++) {
         const problem = chooseProblem(chosen, problems);
         if (problem === undefined) {
           continue;
         }
-        const e = renderProblem(problem, await loadNote(problem.id));
+        const e = renderProblem(problem);
         column.appendChild(e);
         signature.push(problem.id);
         chosen.add(problem);
-        /*
-        e.addEventListener('click', async () => {
-          const note = await loadNote(problem.id);
-          if (note.count === undefined) {
-            note.count = 0;
-          }
-          note.count++;
-          await saveNote(problem.id, note);
-          alert(JSON.stringify(note));
-        });
-        */
+        problemByRender.set(e, problem);
       }
     };
 

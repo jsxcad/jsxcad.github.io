@@ -1,0 +1,75 @@
+<html>
+ <head>
+  <script src="./qrcodegen-v1.8.0-es6.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [[',,', ',,']] // Enable inline math delimiters
+      }
+    };
+  </script>
+  <style>
+  </style>
+ </head>
+ <body>
+  <div class="sheet" id="sheet">
+  </div>
+  <script type="module">
+    import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
+    import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem } from './common.js';
+
+    const problems = await loadProblems();
+    const { weights, requiredTags } = await loadTags();
+
+    const chooseProblem = () => {
+      for (const problem of problems) {
+        if (!problem.note.isBlocked) {
+          continue;
+        }
+        return problem;
+      }
+    }
+
+    const renderSheet = async (sheet) => {
+      const problem = chooseProblem();
+      if (problem === undefined) {
+        return;
+      }
+      const e = renderProblem(problem);
+      sheet.appendChild(e);
+      signature.push(problem.id);
+      e.addEventListener('keydown', async ({ key }) => {
+        const note = problem.note;
+        if (note.weight === undefined) {
+          note.weight = 1;
+        }
+        switch (key) {
+          case 'x':
+            note.isBlocked = true;
+            break;
+          case 'g':
+            note.weight *= 1.1;
+            break;
+          case 'b':
+            note.weight *= 0.9;
+            break;
+        }
+        await saveProblem(problem);
+      });
+    };
+
+    const sheet = document.getElementById('sheet');
+
+    await renderSheet(sheet);
+
+    while (!MathJax.startup) {
+      await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
+    }
+
+    await MathJax.startup.promise;
+    await MathJax.typesetPromise();
+
+  </script>
+ </body>
+</html>
