@@ -4551,32 +4551,32 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "recognizable",
-    "problem": "학생(學生)들이 자신(自身)이 인지(認知)할 만한 성과(成果)를 얻기 위해서는 어려움에 직면(直面)하고 학습(學習)해야 합니다.\n",
+    "problem": "학생(學生)들은 자신(自身)이 성과(成果)를 얻기 위해 어려움에 직면(直面)하고 학습(學習)해야 합니다.\n",
     "length": 47,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "Students need to face challenges and learn in order to achieve something recognizable.",
+    "solution": "{\"학생들\":\"Students\",\"자신\":\"themselves\",\"성과\":\"achievement\",\"직면\":\"face\",\"어려움\":\"difficulty\",\"학습\":\"study\"}\n\n         {\"english\":\"Students must face challenges and learn in order to achieve success.\"}",
     "id": 358
   },
   {
     "generator": "korean-english",
     "input": "apparel",
-    "problem": "옷이 입고 있는 사람들이 옷을 입고 있지 않은 사람들보다 더 따뜻해지는 이유(理由)는 무엇일까?\n",
+    "problem": "옷 입은 사람들이 그렇지 않은 사람들보다 더 따뜻해지는 이유(理由)는 옷 자체(自體)가 따뜻하기 때문입니다.\n",
     "length": 49,
     "tags": [
       "grade-5",
       "inference",
       "korean-to-english"
     ],
-    "solution": "People who are wearing clothes tend to feel warmer than those who are not. Why might this be?",
+    "solution": "{\"옷 입은 사람들이 그렇지 않은 사람들보다 더 따뜻해지는 이유는 옷 자체가 따뜻하기 때문입니다.\":\"The reason why people who wear clothes get warmer is because the clothes themselves are warm.\"}\n\n         {\"english\":\"People who wear clothes tend to get warmer than those who don't because the clothes themselves are warm.\"}",
     "id": 359
   },
   {
     "generator": "korean-english",
     "input": "summer",
-    "problem": "여름바람은 해변(海邊)에 도착(到着)하여 해안선(海岸線)을 가득 채웠다.\n",
+    "problem": "여름바람이 해안선(海岸線)을 가득 채우며 해변(海邊)에 도착(到着)했다.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -4584,13 +4584,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "The summer wind reached the seashore and filled the coastline with seaweed.",
+    "solution": "{\"여름바람\":\"Summer breeze\",\"해안선\":\"Coastal line\",\"가득 채우며\":\"Filling completely\",\"해변\":\"Beach\",\"도착했다\":\"Arrived\"}\n\n         {\"english\":\"The summer wind filled the coastline and brought them to the beach.\"}",
     "id": 360
   },
   {
     "generator": "korean-english",
     "input": "coffin",
-    "problem": "저리 덮개가 닫힌 상자(箱子)는 무엇일까?\n",
+    "problem": "덮개가 닫힌 상자(箱子)는 무엇일까?\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -4598,13 +4598,13 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "What could a box with a closed lid be?",
+    "solution": "{\"덮개가 닫힌 상자는 무엇일까?\":{\"덮개\":\"cover\",\"닫힌\":\"closed\",\"상자\":\"box\",\"무엇일까?\":\"what is it?\"}}\n\n         {\"english\":\"What is a box with a closed lid?\"}",
     "id": 361
   },
   {
     "generator": "korean-english",
     "input": "acknowledgmen",
-    "problem": "인정감(人情感)은 이해(理解)의 시작(始作)이다.\n",
+    "problem": "인정감(人情感)은 이해(理解)의 첫 단계(段階)다.\n",
     "length": 14,
     "tags": [
       "grade-5",
@@ -4613,7 +4613,7 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "Acknowledgement is the beginning of understanding.",
+    "solution": "{\"인정감\":\"Acknowledgement\",\" 이해\":\"Understanding\",\"첫 단계\":\"First step\"}\n\n         {\"english\":\"Acknowledgement is the first step to understanding.\"}",
     "id": 362
   },
   {
@@ -4625,72 +4625,72 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "The inconspicuous shadow is invisible to the eye.",
+    "solution": "{\"침투성 없는 그림자\":\"Non-penetrating shadow\",\"눈\":\"Eye\",\"보이지 않습니다\":\"Cannot be seen\"}\n\n         {\"english\":\"Invisible shadows cannot be seen in the eyes.\"}",
     "id": 363
   },
   {
     "generator": "korean-english",
     "input": "moisture",
-    "problem": "습기(濕氣)는 식물(植物)의 성장(成長)에 매우 중요(重要)합니다.\n",
+    "problem": "습기(濕氣)는 식물(植物) 성장(成長)에 매우 중요(重要)합니다.\n",
     "length": 21,
     "tags": [
       "korean-to-english"
     ],
-    "solution": "Moisture is vital for plant growth.",
+    "solution": "{\"습기\":\"humidity\",\"식물\":\"plants\",\"성장\":\"growth\",\"매우\":\"very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Humidity is very important for plant growth.\"}",
     "id": 364
   },
   {
     "generator": "korean-english",
     "input": "rare",
-    "problem": "희소(稀少)한 비늘 속의 비늘은 빛을 반사(反射)하며 아름다움을 만듭니다.\n",
+    "problem": "희소(稀少)한 비늘 속의 비늘은 빛을 반사(反射)하여 아름다움을 만듭니다.\n",
     "length": 33,
     "tags": [
       "korean-to-english"
     ],
-    "solution": "The rare scales inside the fish reflect the light and create beauty.",
+    "solution": "{\"희소한\":\"sparse\",\"비늘\":\"scales\",\"속의\":\"inside\",\"빛\":\"light\",\"반사\":\"reflection\",\"아름다움\":\"beauty\"}\n\n         {\"english\":\"The rare scales within reflect light, creating beauty.\"}",
     "id": 365
   },
   {
     "generator": "korean-english",
     "input": "stunning",
-    "problem": "아름다운 날, 해가 비추면 그늘 아래서 책(冊)을 읽는 것을 좋아합니다.\n",
+    "problem": "아름다운 날에 해가 비추면 그늘 아래서 책(冊)을 읽는 것을 좋아합니다.\n",
     "length": 37,
     "tags": [
       "grade-5",
       "grammar",
       "korean-to-english"
     ],
-    "solution": "I love reading books under the shade when the sun shines beautifully on a stunning day.",
+    "solution": "{\"아름다운 날에\":\"On a beautiful day\",\"해가 비추면\":\"when the sun shines brightly\",\"그늘 아래서\":\"under the shadow\",\"책을 읽는 것을 좋아합니다\":\"I like reading books\"}\n\n         {\"english\":\"I enjoy reading books under the shade when the sun shines beautifully on a clear day.\"}",
     "id": 366
   },
   {
     "generator": "korean-english",
     "input": "tenet",
-    "problem": "우리의 가치관(價値觀)은 이 사회(社會)에서 변화(變化)하고 있으며, 이 변화(變化)는 우리의 사고방식(思考方式)과 행동(行動) 패턴에 영향(影響)을 줄 것이다.\n",
+    "problem": "우리의 가치관(價値觀)은 사회(社會)가 바뀌면서 변화(變化)하고 있으며, 이러한 변화(變化)는 우리가 사고(思考)하고 행동(行動)하는 방식(方式)에 영향(影響)을 줄 것이다.\n",
     "length": 59,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "Our values have evolved in this society, and this evolution will impact our way of thinking and acting.",
+    "solution": "{\"우리의 가치관\":\"Our values\",\"사회가 바뀌면서\":\"as society changes\",\"변화\":\"change\",\"영향\":\"influence\",\"사고\":\"thinking\",\"행동\":\"behavior\"}\n\n         {\"english\":\"Our values system is changing as society evolves, and these changes will impact the way we think and act.\"}",
     "id": 367
   },
   {
     "generator": "korean-english",
     "input": "pineapple",
-    "problem": "날카가에 물리치는 물은 비늘기(機) 시작(始作)합니다.\n",
+    "problem": "물이 날카가에 물리치면 비늘기(機) 시작(始作)합니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "When the pine tree seed is immersed in water, it starts to sprout.",
+    "solution": "{\"물이 날카가에 물리치면 비늘기 시작합니다.\":\"When water touches the scaly skin, it starts to scale up.\"}\n\n         {\"english\":\"When water touches the scaly skin, it starts to swell.\"}",
     "id": 368
   },
   {
     "generator": "korean-english",
     "input": "creativity",
-    "problem": "색(色)다른 문장(文章) 구조(構造)를 사용(使用)하여 흥미로운 한국어(韓國語) 문장(文章)을 만드세요.\n",
+    "problem": "색(色)다른 문장(文章) 구조(構造)를 활용(活用)하여 한국어(韓國語)에서 흥미로운 문장(文章)을 만드세요.\n",
     "length": 34,
     "tags": [
       "grammar",
@@ -4698,133 +4698,133 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "Create a short Korean sentence using an interesting sentence structure or vocabulary word.",
+    "solution": "{\"색다른\":\"diverse\",\"문장 구조\":\"sentence structure\",\"활용\":\"to utilize\",\"흥미로운\":\"interesting\",\"한국어\":\"Korean\",\"문장\":\"sentence\",\"구조\":\"structure\",\" 활용하여\":\"by utilizing\",\"만드세요\":\"create\"}\n\n         {\"english\":\"Create interesting sentences in Korean by utilizing diverse sentence structures.\"}",
     "id": 369
   },
   {
     "generator": "korean-english",
     "input": "recording",
-    "problem": "음악(音樂)의 기록(記錄)은 순간(瞬間)에 사라지지만, 감정(鑑定)은 기억(記憶)에 남아있다.\n",
+    "problem": "음악(音樂)은 순간(瞬間)에 사라지지만, 감정(鑑定)은 기억(記憶)에 남아있다.\n",
     "length": 32,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "The recording of music disappears in an instant, but the emotions remain in the memory.",
+    "solution": "{\"음악은 순간에 사라지지만, 감정은 기억에 남아있다.\":\"Music disappears in an instant, but emotions remain in memory.\"}\n\n         {\"english\":\"Music disappears in an instant, but emotions linger in memory.\"}",
     "id": 370
   },
   {
     "generator": "korean-english",
     "input": "lively",
-    "problem": "삶은 활기찬 순간(瞬間)들이 모여 만들어진다.\n",
+    "problem": "삶은 활기찬 순간(瞬間)들이 모여 만들어지고, 그 순간(瞬間)들이 삶의 아름다움이 된다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "Life is made up of lively moments.",
+    "solution": "{\"삶은 활기찬 순간\":\"Moments filled with energy\",\"모여 만들어지고\":\"come together to create\",\"그 순간들이\":\"Those moments\",\"삶의 아름다움\":\"The beauty of life\"}\n\n         {\"english\":\"Life is a collection of vibrant moments that come together to create its beauty.\"}",
     "id": 371
   },
   {
     "generator": "korean-english",
     "input": "calf",
-    "problem": "소(小)말은 발을 피고 있습니다.\n",
+    "problem": "소(小)말도 발을 피기 시작(始作)했습니다.\n",
     "length": 15,
     "tags": [
       "korean-to-english"
     ],
-    "solution": "{\"wordForWordInOrder\":[\"소말\",\"발\",\"피고 있음\"],\"sentence\":{\"korean\":\"소말은 발을 피고 있습니다.\",\"english\":\"The calf is resting its foot.\"}}",
+    "solution": "{\"소말도\":\"even though\",\"발을\":\"foot\",\"피기\":\"to avoid\",\"시작했습니다\":\"started\"}\n\n         {\"english\":\"He/She started avoiding even small talk.\"}",
     "id": 372
   },
   {
     "generator": "korean-english",
     "input": "airway",
-    "problem": "항공로(航空路)를 통해 몸은 공기(空氣)를 통합니다.\n",
+    "problem": "몸은 항공로(航空路)를 통해 공기(空氣)를 통합니다.\n",
     "length": 20,
     "tags": [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"wordForWordInOrder\":[{\"korean\":\"항공로\",\"english\":\"airway\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"통하는\",\"english\":\"passing through\"}],\"sentence\":{\"korean\":\"항공로를 통해 몸은 공기를 통합니다.\",\"english\":\"The body passes through the airway to breathe.\"}}",
+    "solution": "{\"몸은 항공로를 통해 공기를 통합니다.\":\"The body passes air through airways.\",\"몸\":\"body\",\"항공로\":\"airway\",\"통합니다\":\"passes\"}\n\n         {\"english\":\"The body passes air through airways.\"}",
     "id": 373
   },
   {
     "generator": "korean-english",
     "input": "noise",
-    "problem": "소음(騷音)은 시간(時間)의 흐름에 피크를 보여준다.\n",
+    "problem": "소음(騷音)은 시간(時間)이 지나가는 과정(過程)에서 최고점(最高點)을 보여준다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"wordForWordInOrder\":[\"소음\",\"발생\",\"피크\",\"시간\"],\"sentence\":{\"korean\":\"소음은 시간의 흐름에 피크를 보여준다.\",\"english\":\"Noise peaks during the course of time.\"}}",
+    "solution": "{\"소음\":\"Noise\",\"시간\":\"Time\",\"지나가는\":\"passing\",\"과정\":\"process\",\"최고점\":\"peak\",\"보여준다\":\"shows\"}\n\n         {\"english\":\"Noise peaks during the passage of time.\"}",
     "id": 374
   },
   {
     "generator": "korean-english",
     "input": "deadly",
-    "problem": "죽음에 가까운 거대(巨大)한 날린 날개를 가진 새는, 위험(危險)한 상황(狀況)에도 살아남기 위해 날개를 돌려 방어(防禦)합니다.\n",
+    "problem": "죽음에 가까운 거대(巨大)한 날개를 가진 새는 위험(危險)한 상황(狀況)에 도피(逃避)하기 위해 날개를 돌려 방어(防禦)합니다.\n",
     "length": 56,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"wordForWordInOrder\":[\"죽음에 가까운\",\"거대한\",\"날린\"],\"sentence\":{\"korean\":\"죽음에 가까운 거대한 날린 날개를 가진 새는, 위험한 상황에도 살아남기 위해 날개를 돌려 방어합니다.\",\"english\":\"A bird with deadly large wings, even in dangerous situations, uses its wings as protection by flapping them.\"}}",
+    "solution": "{\"죽음에 가까운 거대한 날개를 가진 새\":\"Bird with large wings nearing death\",\"위험한 상황\":\"Dangerous situation\",\"날개를 돌려\":\"Flapping wings\",\"방어\":\"Defense\"}\n\n         {\"english\":\"Birds with massive wings that are close to death use their wings to defend themselves in dangerous situations by flapping them.\"}",
     "id": 375
   },
   {
     "generator": "korean-english",
     "input": "solemn",
-    "problem": "절찬고백(絶讚告白)은 무슨 이유(理由)로 이루어지나요?\n",
+    "problem": "절찬고백(絶讚告白)은 어떤 이유(理由)로 생기나요?\n",
     "length": 20,
     "tags": [
       "korean-to-english"
     ],
-    "solution": "{\"orderedWords\":[{\"koreanWord\":\"절찬\",\"englishWord\":\"solemn\"},{\"koreanWord\":\"고백\",\"englishWord\":\"confession\"}],\"sentence\":{\"koreanSentence\":\"절찬고백은 무슨 이유로 이루어지나요?\",\"englishSentence\":\"Why is a solemn confession made?\"}}",
+    "solution": "{\"절찬고백은 어떤 이유로 생기나요?\":\"What are the reasons for sudden confessions?\",\"절찬\":\"sudden\",\"고백\":\"confession\",\"이유\":\"reason\",\"생기나요\":\"arise\",\"어떤\":\"what\",\"이유로\":\"for the reason that\"}\n\n         {\"english\":\"Why does a confession in the cold light of day happen?\"}",
     "id": 376
   },
   {
     "generator": "korean-english",
     "input": "pitfall",
-    "problem": "말려버린 장애물(障礙物)은 위험(危險)한 상황(狀況)을 만들 수 있습니다.\n",
+    "problem": "말려버린 장애물(障礙物)은 위험(危險)한 상황(狀況)을 초래(招來)할 수 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "reading-comprehension",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말려버린\",\"english\":\"to slip away\"},{\"korean\":\"장애물\",\"english\":\"obstacle\"},{\"korean\":\"위험\",\"english\":\"danger\"}],\"sentence\":{\"korean\":\"말려버린 장애물은 위험한 상황을 만들 수 있습니다.\",\"english\":\"The slipping away obstacle can create a dangerous situation.\"}}",
+    "solution": "{\"말려버린 장애물\":\"Hidden obstacle\",\"위험한 상황\":\"Dangerous situation\",\"초래\":\"Cause\",\"초래할 수 있습니다\":\"can cause\"}\n\n         {\"english\":\"Obstacles that are left unspoken can lead to dangerous situations.\"}",
     "id": 377
   },
   {
     "generator": "korean-english",
     "input": "flourish",
-    "problem": "꽃잎이 빛을 흡수(吸收)하고 성장(成長)합니다.\n",
+    "problem": "꽃잎은 빛을 흡수(吸收)하여 성장(成長)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower petal\"},{\"korean\":\"빛을\",\"english\":\"light\"},{\"korean\":\"흡수하고\",\"english\":\"absorbing\"},{\"korean\":\"성장(成長)합니다.\",\"english\":\"grows.\"}],\"sentence\":{\"korean\":\"꽃잎이 빛을 흡수하고 성장(成長)합니다.\",\"english\":\"Flower petals absorb light and grow.\"}}",
+    "solution": "{\"꽃잎\":\"Petals\",\"빛\":\"Light\",\"흡수\":\"Absorb\",\"성장\":\"Growth\"}\n\n         {\"english\":\"Petals absorb light to grow.\"}",
     "id": 378
   },
   {
     "generator": "korean-english",
     "input": "exceedingly",
-    "problem": "매우 고난(苦難)한 과제(課題)를 능력적(能力敵)으로 완료(完了)했습니다.\n",
+    "problem": "매우 고난(苦難)한 과제(課題)를 뛰어나게 완료(完了)했습니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"extremely\"},{\"korean\":\"고난\",\"english\":\"effort\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"매우 고난한 과제를 능력적으로 완료했습니다.\",\"english\":\"He completed the extremely difficult assignment effortlessly.\"}}",
+    "solution": "{\"매우 고난한 과제\":\"Extremely difficult assignment\",\"뛰어나게\":\"exceptionally\",\"완료했습니다\":\"completed successfully\"}\n\n         {\"english\":\"I completed the extremely difficult assignment exceptionally well.\"}",
     "id": 379
   },
   {
     "generator": "korean-english",
     "input": "annoy",
-    "problem": "짜증한(韓) 소리 때문에 피곤(疲困)해지는 것은 이해(理解)할 수 있다.\n",
+    "problem": "짜증한(韓) 소리 때문에 피곤(疲困)해지는 것은 당연(當然)하다.\n",
     "length": 29,
     "tags": [
       "grade-5",
@@ -4833,20 +4833,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"짜증\",\"english\":\"annoying\"},{\"korean\":\"소리\",\"english\":\"noise\"},{\"korean\":\"피곤\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"짜증한 소리 때문에 피곤해지는 것은 이해할 수 있다.\",\"english\":\"It is understandable that one feels tired due to the annoying noise.\"}}",
+    "solution": "{\"짜증한 소리 때문에 피곤해지는 것은 당연하다.\":\"When stressed out by unpleasant words, it is natural to feel tired.\"}\n\n         {\"english\":\"It's natural for someone to feel tired due to annoying noise.\"}",
     "id": 380
   },
   {
     "generator": "korean-english",
     "input": "hangar",
-    "problem": "Hangar chwi dae-i\n",
+    "problem": " hangerchwi dae-i\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english",
       "vocabulary"
     ],
-    "solution": "{\"words\":[{\"korean\":\"hangar\",\"english\":\"airplane\"},{\"korean\":\"chwi\",\"english\":\"to fly\"},{\"korean\":\"dae\",\"english\":\"high\"}],\"sentence\":{\"korean\":\"Hangar chwi dae-i\",\"english\":\"The airplane flies high.\"}}",
+    "solution": "{\" hangerchwi dae-i\":\"hang in there\",\"hangerchwi\":\"to endure\",\"dae-i\":\"it is good\",\"i\":\"to be\",\"nae\":\"it is\"}\n\n         {\"english\":\"How are you?\"}",
     "id": 381
   },
   {
@@ -4859,89 +4859,89 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"프롬otor\",\"english\":\"promoter\"},{\"korean\":\"학업\",\"english\":\"academic\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"프롬otor는 학업 성과를 향상시키는 중요한 요인입니다.\",\"english\":\"A promoter is an important factor in improving academic achievement.\"}}",
+    "solution": "{\"프롬otor\":\"Promotor\",\"학업 성과\":\"Academic performance\",\"향상시키는\":\"Improving\",\"중요한\":\"Important\",\"요인\":\"Factor\"}\n\n         {\"english\":\"Promoters are crucial factors in improving academic performance.\"}",
     "id": 382
   },
   {
     "generator": "korean-english",
     "input": "gallop",
-    "problem": "동물(動物)이 뛰어다니다가 자유롭게 달린다.\n",
+    "problem": "동물(動物)들이 자유롭게 달린다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"뛰어다니다\",\"english\":\"to gallop\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"자유롭게\",\"english\":\"freely\"}],\"sentence\":{\"korean\":\"동물이 뛰어다니다가 자유롭게 달린다.\",\"english\":\"The animal gallops freely through the field.\"}}",
+    "solution": "{\"동물들이\":\"Animals\",\"자유롭게\":\"freely\",\"달린다\":\"run\"}\n\n         {\"english\":\"Animals run freely.\"}",
     "id": 383
   },
   {
     "generator": "korean-english",
     "input": "luster",
-    "problem": "빛깔은 물리적(物理的)으로 물질(物質)의 내부(內部) 에너지를 반사(反射)하여 만들어지(御旨)합니다.\n",
+    "problem": "빛깔은 물질(物質)의 내부(內部) 에너지를 반사(反射)하여 생긴다.\n",
     "length": 35,
     "tags": [
       "grade-5",
       "physics",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"빛깔\",\"english\":\"luster\"},{\"korean\":\"빛을\",\"english\":\"emit light\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"빛깔은 물리적으로 물질의 내부 에너지를 반사하여 만들어지합니다.\",\"english\":\"Luster is created by the reflection of internal energy of matter in physics.\"}}",
+    "solution": "{\"빛깔\":\"light\",\"물질\":\"matter\",\"내부\":\"interior\",\"에너지\":\"energy\",\"반사\":\"reflection\",\"생긴다\":\"is created\"}\n\n         {\"english\":\"The color is reflected from the internal energy of the material.\"}",
     "id": 384
   },
   {
     "generator": "korean-english",
     "input": "mythical",
-    "problem": "신화적(神話的)인 동물(動物)은 종종(種種) 해(害)롭다.\n",
+    "problem": "신화적(神話的)인 동물(動物)들은 종종(種種) 해(害)롭다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"신화적인\",\"english\":\"mythical\"},{\"korean\":\"동물\",\"english\":\"creature\"},{\"korean\":\"해롭다\",\"english\":\"is dangerous\"}],\"sentence\":{\"korean\":\"신화적인 동물은 종종 해롭다.\",\"english\":\"Mythical creatures are often dangerous.\"}}",
+    "solution": "{\"신화적인\":\"Exotic\",\"동물들\":\"animals\",\"종종\":\"often\",\"해롭다\":\"are harmful\"}\n\n         {\"english\":\"Exotic animals are often dangerous.\"}",
     "id": 385
   },
   {
     "generator": "korean-english",
     "input": "spokesman",
-    "problem": "말자는 사회적(社會的) 상황(狀況)에 중요(重要)한 소통(疏通) 도구(道具)입니다.\n",
+    "problem": "말은 사회적(社會的) 상황(狀況)에서 매우 중요(重要)한 소통(疏通) 도구(道具)입니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말자\",\"english\":\"spokesperson\"},{\"korean\":\"소통\",\"english\":\"communication\"}],\"sentence\":{\"korean\":\"말자는 사회적 상황에 중요한 소통 도구입니다.\",\"english\":\"A spokesperson plays a crucial role in communication during social situations.\"}}",
+    "solution": "{\"말은\":\"Language is\",\"사회적\":\"social\",\"상황\":\"situation\",\"매우\":\"very\",\"중요한\":\"important\",\"소통\":\"communication\",\"도구\":\"tool\"}\n\n         {\"english\":\"Language is a crucial communication tool in social situations.\"}",
     "id": 386
   },
   {
     "generator": "korean-english",
     "input": "evolution",
-    "problem": "진화(進化)는 생물(生物)의 시간(時間)에 따른 변화(變化)입니다.\n",
+    "problem": "진화(進化)는 생물(生物)이 시간(時間)에 따라 바뀌는 과정(過程)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "time",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"진화\",\"english\":\"evolution\"},{\"korean\":\"생물\",\"english\":\"organism\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"진화는 생물의 시간에 따른 변화입니다.\",\"english\":\"Evolution is the changes in organisms over time.\"}}",
+    "solution": "{\"진화\":\"evolution\",\"생물\":\"organism\",\"시간\":\"time\",\"바뀌는\":\"changing\",\"과정\":\"process\"}\n\n         {\"english\":\"Evolution is the gradual change in the characteristics of biological populations over time.\"}",
     "id": 387
   },
   {
     "generator": "korean-english",
     "input": "aim",
-    "problem": "목표(目標)를 달성(達成)하기 위해서는 능력(能力)과 노력(努力)이 필요(必要)합니다.\n",
+    "problem": "목표(目標)를 달성(達成)하기 위해서는 뛰어난 능력(能力)과 열심(熱心)한 노력(努力)이 필요(必要)합니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"목표\",\"english\":\"aim\"},{\"korean\":\"달성\",\"english\":\"to achieve\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하기 위해서는 능력과 노력이 필요합니다.\",\"english\":\"To achieve the aim, ability and effort are necessary.\"}}",
+    "solution": "{\"목표를 달성하기 위해서는 뛰어난 능력과 열심한 노력이 필요합니다.\":\"To achieve goals, exceptional abilities and diligent efforts are necessary.\"}\n\n         {\"english\":\"Excellence in ability and diligent effort are necessary to achieve your goals.\"}",
     "id": 388
   },
   {
     "generator": "korean-english",
     "input": "Bible",
-    "problem": "성경(聖經)은 인간(人間)의 영혼(靈魂)을 구(救)하기 위(爲)해 쓰여졌습니다.\n",
+    "problem": "성경(聖經)은 인간(人間) 영혼(靈魂)을 구(救)하기 위해 만들어졌습니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -4949,38 +4949,38 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"성경\",\"english\":\"Bible\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"용사\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"성경은 인간의 영혼을 구하기 위해 쓰여졌습니다.\",\"english\":\"The Bible was written to save human souls.\"}}",
+    "solution": "{\"성경\":\"Bible\",\"인간\":\"human\",\"영혼\":\"soul\",\"구하기\":\"save\",\"만들어졌습니다\":\"was created\"}\n\n         {\"english\":\"The Bible was created to save human souls.\"}",
     "id": 389
   },
   {
     "generator": "korean-english",
     "input": "bitterly",
-    "problem": "비열(卑劣)하게 울상한(蔚上限) 상실감(喪失感)은 누구나 경험(經驗)한 적이 있을 것입니다.\n",
+    "problem": "비열(卑劣)한 상실감(喪失感)은 누구나 경험(經驗)한 적이 있을 것입니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비열하게\",\"english\":\"bitterly\"},{\"korean\":\"울상\",\"english\":\"grief\"},{\"korean\":\"상실\",\"english\":\"loss\"}],\"sentence\":{\"korean\":\"비열하게 울상한 상실감은 누구나 경험한 적이 있을 것입니다.\",\"english\":\"The bitter grief of loss is something that everyone experiences at some point in their lives.\"}}",
+    "solution": "{\"비열한 상실감\":\"Feeling of disillusionment\",\"누구나\":\"Everyone\",\"경험한 적\":\"has experienced at some point\",\"경험\":\"to experience\"}\n\n         {\"english\":\"Everyone has probably experienced a sense of loss at some point in their lives.\"}",
     "id": 390
   },
   {
     "generator": "korean-english",
     "input": "homeland",
-    "problem": "고향(故鄕)의 정신(精神)은 애국심(愛國心)으로 가득 차 있습니다.\n",
+    "problem": "고향(故鄕)은 애국심(愛國心)이 넘치게 담겨 있습니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고향\",\"english\":\"homeland\"},{\"korean\":\"애국\",\"english\":\"patriotism\"},{\"korean\":\"정신\",\"english\":\"mind\"}],\"sentence\":{\"korean\":\"고향의 정신은 애국심으로 가득 차 있습니다.\",\"english\":\"The spirit of the homeland is filled with patriotism.\"}}",
+    "solution": "{\"고향은\":\"Hometown is\",\"애국심\":\"patriotism\",\"넘치게\":\"overflowingly\",\"담겨 있습니다\":\"is filled\"}\n\n         {\"english\":\"One's hometown is overflowing with patriotism.\"}",
     "id": 391
   },
   {
     "generator": "korean-english",
     "input": "heal",
-    "problem": "상처(傷處)가 치유(治癒)되면 감염(感染)이 사라집니다.\n",
+    "problem": "상처(傷處)가 치유(治癒)되면 감염(感染)이 사라지게 됩니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -4989,13 +4989,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치유\",\"english\":\"heal\"},{\"korean\":\"상처\",\"english\":\"wound\"},{\"korean\":\"감염\",\"english\":\"infection\"}],\"sentence\":{\"korean\":\"상처가 치유되면 감염이 사라집니다.\",\"english\":\"When the wound heals, the infection will disappear.\"}}",
+    "solution": "{\"상처\":\"wound\",\"치유\":\"heals\",\"감염\":\"infection\",\"사라지게\":\"disappears\"}\n\n         {\"english\":\"When the wound heals, the infection will disappear.\"}",
     "id": 392
   },
   {
     "generator": "korean-english",
     "input": "pore",
-    "problem": "피트의 담치(淡치)는 파도(波濤)를 타며 순(順)돌아갑니다.\n",
+    "problem": "피트의 담치(淡치)는 파도(波濤) 위를 타며 순(順)돌아갑니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -5003,13 +5003,13 @@ export const problems = [
       "adjective",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피트\",\"english\":\"foot\"},{\"korean\":\"담치\",\"english\":\"splash\"},{\"korean\":\"파도\",\"english\":\"wave\"}],\"sentence\":{\"korean\":\"피트의 담치는 파도를 타며 순돌아갑니다.\",\"english\":\"The splash of the foot creates waves that spin around.\"}}",
+    "solution": "{\"피트의 담치\":\"Foot-long mackerel\",\"파도\":\"Waves\",\"위\":\"Surface\",\"타다\":\"To ride\",\"순돌아갑니다\":\"Goes around in circles\"}\n\n         {\"english\":\"The fish in the foot are swimming around on top of the waves.\"}",
     "id": 393
   },
   {
     "generator": "korean-english",
     "input": "remittance",
-    "problem": "환금(換金)은 거주지(居住地)에서 수입(輸入)한 물건(物件)의 금액(金額)을 의미합니다.\n",
+    "problem": "환금(換金)은 거주지(居住地)에서 수입(輸入)한 물건(物件)의 가격(價格)을 의미합니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
@@ -5017,51 +5017,51 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"환금\",\"english\":\"remittance\"},{\"korean\":\"거주\",\"english\":\"residence\"},{\"korean\":\"수입\",\"english\":\"import\"}],\"sentence\":{\"korean\":\"환금은 거주지에서 수입한 물건의 금액을 의미합니다.\",\"english\":\"The remittance refers to the amount of money imported with goods to the residence.\"}}",
+    "solution": "{\"환금\":\"Refund\",\"거주지\":\"Residential area\",\"수입\":\"Import\",\"물건\":\"Items\",\"가격\":\"Price\"}\n\n         {\"english\":\"The refund is the price of the items imported at the residence.\"}",
     "id": 394
   },
   {
     "generator": "korean-english",
     "input": "heat",
-    "problem": "뜨거움은 기압(氣壓)을 높여 확산(擴散)합니다.\n",
+    "problem": "뜨거움은 공기(空氣) 압력(壓力)을 높여 확산(擴散)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "chemistry",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"뜨거움\",\"english\":\"heat\"},{\"korean\":\"기압\",\"english\":\"pressure\"},{\"korean\":\"확산\",\"english\":\"diffusion\"}],\"sentence\":{\"korean\":\"뜨거움은 기압을 높여 확산합니다.\",\"english\":\"Heat increases the pressure and causes diffusion.\"}}",
+    "solution": "{\"뜨거움은\":\"Heat is\",\"공기 압력\":\"air pressure\",\"을 높여\":\"increases\",\"확산합니다\":\"spreads out\"}\n\n         {\"english\":\"Heat increases air pressure and promotes diffusion.\"}",
     "id": 395
   },
   {
     "generator": "korean-english",
     "input": "compost",
-    "problem": "퇴비(堆肥)는 나무의 지방(地方)을 포함(包含)하여 만들어지고, 이는 식물(植物) 성장(成長)에 도움이 됩니다.\n",
+    "problem": "퇴비(堆肥)는 나무 지방(地方)이 포함(包含)되어 만들어지고, 이는 식물(植物) 성장(成長)을 촉진(促進)합니다.\n",
     "length": 42,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"퇴비\",\"english\":\"compost\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"지방\",\"english\":\"fat\"}],\"sentence\":{\"korean\":\"퇴비는 나무의 지방을 포함하여 만들어지고, 이는 식물 성장에 도움이 됩니다.\",\"english\":\"Compost is made from the fat of trees and helps plant growth.\"}}",
+    "solution": "{\"퇴비\":\"compost\",\"나무 지방\":\"tree fat\",\"포함\":\"contains\",\"만드립니다\":\"is made\",\"식물 성장\":\"plant growth\",\"촉진\":\"promotes\"}\n\n         {\"english\":\"Compost is made with tree fat included, which promotes plant growth.\"}",
     "id": 396
   },
   {
     "generator": "korean-english",
     "input": "idol",
-    "problem": "아이돌은 용기(容器)에 내용물(內容物)을 담아 보호(保護)합니다.\n",
+    "problem": "아이돌은 용기(容器) 안에 내용물(內容物)을 담아 보호(保護)합니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아이돌\",\"english\":\"idol\"},{\"korean\":\"용기\",\"english\":\"vessel\"},{\"korean\":\"내용물\",\"english\":\"content\"}],\"sentence\":{\"korean\":\"아이돌은 용기에 내용물을 담아 보호합니다.\",\"english\":\"An idol protects the content inside a vessel.\"}}",
+    "solution": "{\"아이돌\":\"Pop idol\",\"용기\":\"Container\",\"내용물\":\"Contents\",\"담아\":\"To put in\",\"보호\":\"Protection\"}\n\n         {\"english\":\"Idols protect the contents inside them like they are in a container.\"}",
     "id": 397
   },
   {
     "generator": "korean-english",
     "input": "rumor",
-    "problem": "소문(所聞)이 퍼뜨리다 보니, 그 사실(事實)이 확실(確實)하지 않아.\n",
+    "problem": "소문(所聞)이 돌아다니면, 그 사실(事實)이 확실(確實)하지 않아.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -5070,13 +5070,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"소문\",\"english\":\"rumor\"},{\"korean\":\"퍼뜨리다\",\"english\":\"to spread\"},{\"korean\":\"확실하지 않아\",\"english\":\"unsure\"}],\"sentence\":{\"korean\":\"소문이 퍼뜨리다 보니, 그 사실이 확실하지 않아.\",\"english\":\"A rumor has spread that the news is not clear.\"}}",
+    "solution": "{\"소문이 돌아다니면\":\"When rumors spread\",\"그 사실이 확실하지 않아\":\"It is not clear whether that is the case\"}\n\n         {\"english\":\"When rumors start circulating, it doesn't necessarily mean they're true.\"}",
     "id": 398
   },
   {
     "generator": "korean-english",
     "input": "feeble",
-    "problem": "약속(約束)은 무력(無力)한 목표(目標)를 달성(達成)하기 위해 노력(努力)해야 합니다.\n",
+    "problem": "약속(約束)은 목표(目標)를 달성(達成)하기 위해 열심히(熱心히) 노력(努力)해야 합니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
@@ -5085,13 +5085,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"약속\",\"english\":\"promise\"},{\"korean\":\"무력\",\"english\":\"powerless\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"약속은 무력한 목표를 달성하기 위해 노력해야 합니다.\",\"english\":\"A promise is to work hard to achieve a meaningful goal.\"}}",
+    "solution": "{\"약속\":\"commitment\",\"목표\":\"goal\",\"열심히\":\"diligently\",\"노력\":\"effort\",\"해야\":\"should\",\"만약\":\"in order to\"}\n\n         {\"english\":\"Promises require hard work to achieve their goals.\"}",
     "id": 399
   },
   {
     "generator": "korean-english",
     "input": "planetary",
-    "problem": "행성계단(行星階段) 우리\n",
+    "problem": "우리 행성계단(行星階段)도 아름답니까. 어떨 날에 그 행성계단(行星階段)을 순회(巡廻)할까?\n",
     "length": 7,
     "tags": [
       "grade-5",
@@ -5100,89 +5100,89 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"행성\",\"english\":\"planetary\"},{\"korean\":\"계단\",\"english\":\"stair\"},{\"korean\":\"우리\",\"english\":\"we\"}],\"sentence\":{\"korean\":\"행성계단 우리\",\"english\":\"We are on a planetary staircase.\"}}",
+    "solution": "{\"우리 행성계단도 아름답니까\":\"Our solar system is beautiful too\",\"행성계단\":\"Solar system\",\"순회\":\"Orbit\",\"날\":\"Day\"}\n\n         {\"english\":\"Our solar system is beautiful too. When might we make a trip around it?\"}",
     "id": 400
   },
   {
     "generator": "korean-english",
     "input": "soggy",
-    "problem": "비가 내리고 바닥이 젖어 있어요.\n",
+    "problem": "비가 내리면서 바닥이 젖어 있어요.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비가 내리고\",\"english\":\"It's raining outside.\"},{\"korean\":\"바닥이 젖어\",\"english\":\"The floor is soggy.\"}],\"sentence\":{\"korean\":\"비가 내리고 바닥이 젖어 있어요.\",\"english\":\"It's raining outside and the floor is soggy.\"}}",
+    "solution": "{\"비가 내리면서\":\"While it is raining\",\"바닥이\":\"the floor\",\"젖어 있어요\":\"is wet\"}\n\n         {\"english\":\"It's raining and the floor is wet.\"}",
     "id": 401
   },
   {
     "generator": "korean-english",
     "input": "touching",
-    "problem": "감동적(感動的)인 이야기는 눈물과 고통(苦痛)을 남긴다.\n",
+    "problem": "감동적(感動的)인 이야기는 눈물과 고통(苦痛)을 남긴다. 그들은 순간적(瞬間的)으로 슬픔과 고통(苦痛)을 경험(經驗)하게 하고, 기억(記憶)에 남는 감정(感情)을 남긴다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감동(感動)\",\"english\":\"touching\"},{\"korean\":\"눈물\",\"english\":\"tears\"},{\"korean\":\"고통\",\"english\":\"suffering\"}],\"sentence\":{\"korean\":\"감동적인 이야기는 눈물과 고통을 남긴다.\",\"english\":\"A touching story leaves tears and suffering behind.\"}}",
+    "solution": "{\"감동적인\":\"Emotional\",\"이야기\":\"story\",\"눈물\":\"tears\",\"고통\":\"pain\",\"순간적으로\":\"suddenly\",\"슬픔\":\"sadness\",\"기억에 남는\":\"memorable\",\"감정\":\"emotions\"}\n\n         {\"english\":\"Emotional stories leave behind tears and pain. They momentarily evoke sadness and suffering, leaving behind lasting emotional imprints.\"}",
     "id": 402
   },
   {
     "generator": "korean-english",
     "input": "janitor",
-    "problem": "청소원(淸掃員)이 학교(學校)를 청소(淸掃)합니다.\n",
+    "problem": "청소원(淸掃員)들이 학교(學校)를 청소(淸掃)합니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"청소원\",\"english\":\"janitor\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"청소원이 학교를 청소합니다.\",\"english\":\"The janitor cleans the school.\"}}",
+    "solution": "{\"청소원들\":\"janitors\",\"학교\":\"school\",\"청소\":\"cleaning\",\"합니다\":\"are doing\"}\n\n         {\"english\":\"Custodians are cleaning the school.\"}",
     "id": 403
   },
   {
     "generator": "korean-english",
     "input": "potentially",
-    "problem": "잠재적(潛在的)으로 상황(狀況)에 따라 대부분(大部分)의 경우(境遇) 성공(成功)할 가능성(可能性)이 높아지겠습니다.\n",
+    "problem": "상황(狀況)에 따라 대부분(大部分)의 경우(境遇) 성공(成功)할 가능성(可能性)이 높아지겠습니다.\n",
     "length": 38,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잠재적으로\",\"english\":\"potentially\"},{\"korean\":\"상황에\",\"english\":\"depending on the situation\"},{\"korean\":\"대부분\",\"english\":\"most of the time\"}],\"sentence\":{\"korean\":\"잠재적으로 상황에 따라 대부분의 경우 성공할 가능성이 높아지겠습니다.\",\"english\":\"The situation will most likely influence the possibility of success, potentially leading to high success rates.\"}}",
+    "solution": "{\"상황에 따라\":\"depending on the situation\",\"대부분의 경우\":\"most of the cases\",\"성공할 가능성\":\"possibility of success\",\"높아지겠습니다\":\"will increase\"}\n\n         {\"english\":\"The chances of success will increase in most cases depending on the situation.\"}",
     "id": 404
   },
   {
     "generator": "korean-english",
     "input": "wandering",
-    "problem": "방황(彷徨)하면서 길을 걸다가 자연(自然)에 도망친다.\n",
+    "problem": "길을 걸다가 방황(彷徨)하면서 자연(自然)에 도망친다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방황하다\",\"english\":\"to wander\"},{\"korean\":\"길을 걸다\",\"english\":\"to walk along a path\"},{\"korean\":\"자연에 도망치다\",\"english\":\"to escape into nature\"}],\"sentence\":{\"korean\":\"방황하면서 길을 걸다가 자연에 도망친다.\",\"english\":\"When you wander, you walk along a path and escape into nature.\"}}",
+    "solution": "{\"길을 걸다가 방황하면서 자연에 도망친다.\":{\"길을 걸다가\":\"to walk along a path\",\"방황하다\":\"to get lost\",\"자연\":\"nature\",\"도망친다\":\"to escape to\"}}\n\n         {\"english\":\"When walking along the path, if you get lost, you escape into the wilderness.\"}",
     "id": 405
   },
   {
     "generator": "korean-english",
     "input": "pang",
-    "problem": " pangneol sarang \n",
+    "problem": "판늘 사랑\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\" pang \",\"english\":\"to pierce\"},{\"korean\":\" neol \",\"english\":\"the sun\"},{\"korean\":\" sarang \",\"english\":\"love\"}],\"sentence\":{\"korean\":\" pangneol sarang \",\"english\":\"The sun pierces love\"}}",
+    "solution": "{\"판늘 사랑\":\"puppy love\",\"판늘\":\"puppy\",\"사랑\":\"love\"}\n\n         {\"english\":\"Affection for a friend\"}",
     "id": 406
   },
   {
     "generator": "korean-english",
     "input": "sometime",
-    "problem": "언젠가 아침 날이 있을 거예요.\n",
+    "problem": "언젠가 아침이 오면 날이 있을 거예요.\n",
     "length": 17,
     "tags": [
       "grade-5",
@@ -5190,39 +5190,39 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"언젠가\",\"english\":\"sometime\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"아침\",\"english\":\"morning\"}],\"sentence\":{\"korean\":\"언젠가 아침 날이 있을 거예요.\",\"english\":\"There will be a someday morning like that.\"}}",
+    "solution": "{\"언젠가\":\"sometime\",\"아침\":\"morning\",\"오면\":\"when it comes\",\"날\":\"day\",\"있을 거예요\":\"will be there\"}\n\n         {\"english\":\"If morning ever comes, I will be there.\"}",
     "id": 407
   },
   {
     "generator": "korean-english",
     "input": "infect",
-    "problem": "감염(感染)은 병원(病院)에서 확산(擴散)될 수 있습니다.\n",
+    "problem": "감염(感染)은 병원(病院) 내(內)에서 확산(擴散)될 가능성(可能性)이 높습니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"병원\",\"english\":\"hospital\"}],\"sentence\":{\"korean\":\"감염은 병원에서 확산될 수 있습니다.\",\"english\":\"Infection can spread from the hospital.\"}}",
+    "solution": "{\"감염\":\"infection\",\"병원\":\"hospital\",\"확산\":\"spread\",\"가능성\":\"possibility\",\"높습니다\":\"is high\"}\n\n         {\"english\":\"Infections have a high potential to spread within the hospital.\"}",
     "id": 408
   },
   {
     "generator": "korean-english",
     "input": "breath",
-    "problem": "숨은 시간(時間)과 소용(所用)이 같아요.\n",
+    "problem": "숨은 시간(時間)과 소용(所用)이 비슷해요.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"소용\",\"english\":\"expense\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"숨은 시간과 소용이 같아요.\",\"english\":\"Breath is equal to time and expense.\"}}",
+    "solution": "{\"숨은 시간과 소용이 비슷해요.\":\"The time of breathing is similar to the time of using\",\"숨\":\"breath\",\"시간\":\"time\",\"소용\":\"use\",\"비슷해요\":\"is similar\"}\n\n         {\"english\":\"Your breath is about the same as the time it takes you to consume something.\"}",
     "id": 409
   },
   {
     "generator": "korean-english",
     "input": "route",
-    "problem": "경로(經路)는 길게 길게 거리(距離)를 가진다.\n",
+    "problem": "경로(經路)는 길게 긴 거리(距離)를 가진다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -5230,13 +5230,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"도로\",\"english\":\"road\"},{\"korean\":\"경로\",\"english\":\"route\"}],\"sentence\":{\"korean\":\"경로는 길게 길게 거리를 가진다.\",\"english\":\"A route has a long distance.\"}}",
+    "solution": "{\"경로\":\"path\",\"길게\":\"longly\",\"긴\":\"long\",\"거리\":\"distance\",\"가진다\":\"has\"}\n\n         {\"english\":\"The path is long for the distant journey.\"}",
     "id": 410
   },
   {
     "generator": "korean-english",
     "input": "sickle",
-    "problem": "곡선한(曲線韓) 날개는 날린 날개보다 위험(危險)합니다.\n",
+    "problem": "곡선한(曲線韓) 날개는 날린 날개보다 위험(危險)할 수 있습니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -5245,38 +5245,38 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"곡선\",\"english\":\"curve\"},{\"korean\":\"날개\",\"english\":\"blade\"},{\"korean\":\"날린\",\"english\":\"sharp\"}],\"sentence\":{\"korean\":\"곡선한 날개는 날린 날개보다 위험합니다.\",\"english\":\"A curved blade is more dangerous than a sharp blade.\"}}",
+    "solution": "{\"곡선한 날개\":\"Curved wing\",\"날린 날개\":\"Straight wing\",\"위험할 수 있습니다\":\"May be dangerous\"}\n\n         {\"english\":\"Curved wings can be more dangerous than straight wings.\"}",
     "id": 411
   },
   {
     "generator": "korean-english",
     "input": "inning",
-    "problem": "인(人)닝 동안 선수(選手)가 볼을 때 3점(點)을 얻었다.\n",
+    "problem": "선수(選手)가 인(人)닝 동안 볼을 때 3점(點)을 얻었다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인닝\",\"english\":\"inning\"},{\"korean\":\"선수\",\"english\":\"batter\"},{\"korean\":\"볼\",\"english\":\"ball\"}],\"sentence\":{\"korean\":\"인닝 동안 선수가 볼을 때 3점을 얻었다.\",\"english\":\"The batter got 3 points during the inning.\"}}",
+    "solution": "{\"선수가\":\"The player\",\"인닝 동안\":\"during the inning\",\"볼을 볼 때\":\"when he/she hit the ball\",\"3점을 얻었다\":\"scored 3 points\"}\n\n         {\"english\":\"The player got 3 points when they hit the ball during an inning.\"}",
     "id": 412
   },
   {
     "generator": "korean-english",
     "input": "kill",
-    "problem": "살숨은 죽일 때도 살아남는다.\n",
+    "problem": "죽음 앞에서도 살아남는다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"숨\",\"english\":\"breath\"},{\"korean\":\"죽일\",\"english\":\"to die\"}],\"sentence\":{\"korean\":\"살숨은 죽일 때도 살아남는다.\",\"english\":\"Even when life and breath are gone, there is always life remaining.\"}}",
+    "solution": "{\"죽음 앞에서도 살아남는다.\":\"To survive even in the face of death\",\"죽음\":\"Death\",\"앞에서도\":\"Even in the face of\",\"살아남는다.\":\"To survive\"}\n\n         {\"english\":\"Even in the face of death, one must learn to survive.\"}",
     "id": 413
   },
   {
     "generator": "korean-english",
     "input": "depart",
-    "problem": "떠나다의 원인(原因)은 목적(目的)에 따라 달라질 수 있습니다.\n",
+    "problem": "떠나는 이유(理由)는 목표(目標)에 따라 달라질 수 있습니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -5284,13 +5284,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"떠나다\",\"english\":\"to depart\"},{\"korean\":\"원인\",\"english\":\"reason\"},{\"korean\":\"목적\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"떠나다의 원인은 목적에 따라 달라질 수 있습니다.\",\"english\":\"The reason for departure can vary depending on the purpose.\"}}",
+    "solution": "{\"떠나는 이유는 목표에 따라 달라질 수 있습니다.\":\"The reason for leaving varies depending on the goal.\"}\n\n         {\"english\":\"The reason for leaving can vary depending on the goal.\"}",
     "id": 414
   },
   {
     "generator": "korean-english",
     "input": "deter",
-    "problem": "방해(妨害)는 목표(目標)를 달성(達成)하는 데 인내(忍耐)가 요구(要求)됩니다.\n",
+    "problem": "방해(妨害)는 목표(目標) 달성(達成)을 위해서는 인내(忍耐)가 필요(必要)합니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -5298,13 +5298,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방해\",\"english\":\"deter\"},{\"korean\":\"인내\",\"english\":\"patience\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"방해는 목표를 달성하는 데 인내가 요구됩니다.\",\"english\":\"Deterrence is required to achieve the goal.\"}}",
+    "solution": "{\"방해는\":\"Obstacles are\",\"목표 달성을 위해서는\":\"necessary for achieving\",\"인내가\":\"patience is\",\"필요합니다\":\"required.\"}\n\n         {\"english\":\"Obstacles require patience to achieve goals.\"}",
     "id": 415
   },
   {
     "generator": "korean-english",
     "input": "danger",
-    "problem": "위험(危險)은 피해(被害)를 예방(豫防)하기 위해 주의(注意)해야 합니다.\n",
+    "problem": "위험(危險)을 피(避)하기 위해 주의(注意)해야 합니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -5313,38 +5313,38 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"danger\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"예방\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"위험은 피해를 예방하기 위해 주의해야 합니다.\",\"english\":\"Danger requires attention to prevent damage.\"}}",
+    "solution": "{\"위험을 피하기 위해\":\"To avoid danger\",\"주의해야 합니다\":\"attention is required\"}\n\n         {\"english\":\"Attention is required to avoid risks.\"}",
     "id": 416
   },
   {
     "generator": "korean-english",
     "input": "tetanus",
-    "problem": "테탄스는 근력(筋力)을 약화(弱化)하고 감염(感染)을 유발(誘發)할 수 있습니다.\n",
+    "problem": "테탄스는 근력(筋力)을 약화(弱化)하고 감염(感染)의 가능성(可能性)을 높일 수 있습니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"테탄us\",\"english\":\"tetanus\"},{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"근력\",\"english\":\"muscle strength\"}],\"sentence\":{\"korean\":\"테탄스는 근력을 약화하고 감염을 유발할 수 있습니다.\",\"english\":\"Tetanus can weaken muscles and cause infection.\"}}",
+    "solution": "{\"테탄스\":\"tetanus\",\"근력\":\"strength\",\"약화\":\"weaken\",\"감염\":\"infection\",\"가능성\":\"possibility\",\"높일\":\"increase\"}\n\n         {\"english\":\"Tetanus can weaken muscles and increase the risk of infection.\"}",
     "id": 417
   },
   {
     "generator": "korean-english",
     "input": "transmitter",
-    "problem": "송신기(送信機)는 정보(情報)를 전송(電送)합니다.\n",
+    "problem": "송신기(送信機)는 정보(情報)를 전송(電送)하는 역할(役割)을 합니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"송신기\",\"english\":\"transmitter\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전송\",\"english\":\"broadcast\"}],\"sentence\":{\"korean\":\"송신기는 정보를 전송합니다.\",\"english\":\"A transmitter broadcasts information.\"}}",
+    "solution": "{\"송신기\":\"transmitter\",\"정보\":\"information\",\"전송\":\"transmit\",\"역할\":\"role\",\"하\":\"to\"}\n\n         {\"english\":\"Transmitting devices play a role in transmitting information.\"}",
     "id": 418
   },
   {
     "generator": "korean-english",
     "input": "repute",
-    "problem": "명성(名聲) 있는 학생(學生)들은 학업적(學業敵)으로 성과(成果)를 얻습니다.\n",
+    "problem": "명성(名聲) 있는 학생(學生)들은 학업적(學業的)으로 뛰어나 성과(成果)를 얻습니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -5353,52 +5353,52 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명성\",\"english\":\"fame\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"업적\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"명성 있는 학생들은 학업적으로 성과를 얻습니다.\",\"english\":\"Famous students are known for their academic achievements.\"}}",
+    "solution": "{\"명성 있는 학생들은\":\"Talented students\",\"학업적으로 뛰어나\":\"excel academically\",\"성과를 얻습니다\":\"achieve good results\"}\n\n         {\"english\":\"Talented students achieve academic excellence through their hard work.\"}",
     "id": 419
   },
   {
     "generator": "korean-english",
     "input": "antiquated",
-    "problem": "고전적(古典的)인 거대(巨大)한 도서(圖書)는 시간(時間)의 흐름에 보존(保存)해야 합니다.\n",
+    "problem": "고전적(古典的)인 거대(巨大)한 도서(圖書)는 시간(時間)이 흐르면서 보존(保存)해야 합니다.\n",
     "length": 30,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고전적인\",\"english\":\"antiquated\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"보존\",\"english\":\"conservation\"}],\"sentence\":{\"korean\":\"고전적인 거대한 도서는 시간의 흐름에 보존해야 합니다.\",\"english\":\"Massive ancient books need to be conserved over time.\"}}",
+    "solution": "{\"고전적인\":\"traditional\",\"거대한\":\"vast\",\"도서는\":\"books\",\"시간이\":\"time passes\",\"흐르면서\":\"as time goes by\",\"보존해야 합니다\":\"must be preserved\"}\n\n         {\"english\":\"Classical and massive books should be preserved as time passes.\"}",
     "id": 420
   },
   {
     "generator": "korean-english",
     "input": "engrave",
-    "problem": "인각(印刻)된 작품(作品)은 삶의 일부(一部)가 됩니다.\n",
+    "problem": "인각(印刻)된 작품(作品)은 우리 삶의 일부(一部)가 됩니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인각\",\"english\":\"engrave\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"삶\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"인각된 작품은 삶의 일부가 됩니다.\",\"english\":\"The engraved artwork becomes a part of life itself.\"}}",
+    "solution": "{\"인각된\":\"memorable\",\"작품\":\"artwork\",\"은\":\"is\",\"우리\":\"our\",\"삶\":\"life\",\"의\":\"of\",\" 일부\":\"part\",\"됩니다\":\"becomes\"}\n\n         {\"english\":\"Notable works become a part of our lives.\"}",
     "id": 421
   },
   {
     "generator": "korean-english",
     "input": "transplant",
-    "problem": "이식(移植)된 신체(身體)는 새로운 생명체(生命體)가 되었습니다.\n",
+    "problem": "신체(身體)는 이식(移植)되었고, 새로운 생명체(生命體)가 되었습니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"이식\",\"english\":\"transplant\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"새로운\",\"english\":\"new\"}],\"sentence\":{\"korean\":\"이식된 신체는 새로운 생명체가 되었습니다.\",\"english\":\"The transplanted body became a new living entity.\"}}",
+    "solution": "{\"신체\":\"body\",\"이식\":\"transplant\",\"새로운\":\"new\",\"생명체\":\"organism\",\"되었습니다\":\"became\"}\n\n         {\"english\":\"My body has been transplanted, and I am now a new being.\"}",
     "id": 422
   },
   {
     "generator": "korean-english",
     "input": "airplane",
-    "problem": "고속비행기(高速飛行氣)는 날다.\n",
+    "problem": "고속비행기(高速飛行機)가 날아갑니다.\n",
     "length": 10,
     "tags": [
       "grade-5",
@@ -5407,83 +5407,83 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비행기\",\"english\":\"airplane\"},{\"korean\":\"날다\",\"english\":\"to fly\"},{\"korean\":\"고속\",\"english\":\"fast\"}],\"sentence\":{\"korean\":\"고속비행기는 날다.\",\"english\":\"A high-speed airplane flies quickly.\"}}",
+    "solution": "{\"고속비행기\":\"High-speed aircraft\",\"날아갑니다\":\"takes off\",\"비행기\":\"Aircraft\",\"날\":\"to take off\",\"갑니다\":\"suddenly\"}\n\n         {\"english\":\"A high-speed aircraft is taking off.\"}",
     "id": 423
   },
   {
     "generator": "korean-english",
     "input": "happen",
-    "problem": "벌써 우리는 오늘 피크닉을 해\n",
+    "problem": "벌써 오늘 피크닉 해도 좋겠네.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"벌써\",\"english\":\"already\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"}],\"sentence\":{\"korean\":\"벌써 우리는 오늘 피크닉을 해\",\"english\":\"We are already having a picnic today\"}}",
+    "solution": "{\"벌써\":\"already\",\"오늘\":\"today\",\"피크닉\":\"picnic\",\"해도\":\"it would be good to\",\" 좋겠네\":\"I think so\"}\n\n         {\"english\":\"I'd love to have a picnic today if possible.\"}",
     "id": 424
   },
   {
     "generator": "korean-english",
     "input": "nationalize",
-    "problem": "국민화(國民化)된 교육(敎育)시스템은 교육(敎育)의 질(質)을 향상(向上)시키는 데 도움이 됩니다.\n",
+    "problem": "국민화(國民化)된 교육(敎育) 시스템은 교육(敎育)의 품질(品質)을 향상(向上)시키는 데 도움이 됩니다.\n",
     "length": 35,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"국민화\",\"english\":\"nationalization\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"국민화된 교육시스템은 교육의 질을 향상시키는 데 도움이 됩니다.\",\"english\":\"Nationalized education systems contribute to improving the quality of education.\"}}",
+    "solution": "{\"국민화된 교육 시스템\":\"Nationalized education system\",\"교육의 품질\":\"Quality of education\",\"향상시키다\":\"To improve\",\"도움이 됩니다\":\"is helpful\"}\n\n         {\"english\":\"The nationalized education system helps to improve the quality of education.\"}",
     "id": 425
   },
   {
     "generator": "korean-english",
     "input": "controversial",
-    "problem": "쟁점(爭點)적 주장(主張)은 사회적(社會的)으로 논란(論難)이 될 수 있습니다.\n",
+    "problem": "쟁점적(爭點的)인 주장(主張)은 사회적(社會的)으로 논쟁(論爭)의 대상(對象)이 될 수 있습니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"쟁점적\",\"english\":\"controversial\"},{\"korean\":\"논란\",\"english\":\"debate\"},{\"korean\":\"견해\",\"english\":\"opinion\"}],\"sentence\":{\"korean\":\"쟁점적 주장은 사회적으로 논란이 될 수 있습니다.\",\"english\":\"A controversial argument can be socially debated.\"}}",
+    "solution": "{\"쟁점적인\":\"controversial\",\"주장\":\"argument\",\"사회적으로\":\"socially\",\"논쟁\":\"debate\",\"대상\":\"target\",\"될\":\"can\"}\n\n         {\"english\":\"Controversial arguments can become the subject of social debate.\"}",
     "id": 426
   },
   {
     "generator": "korean-english",
     "input": "monotony",
-    "problem": "평등(平等)한 생활(生活)은 반복(反復)된 활동(活動) 때문에 지루해질 수 있습니다.\n",
+    "problem": "평등(平等)한 생활(生活)은 반복(反復)되는 일상(日常) 때문에 지루해질 수 있습니다.\n",
     "length": 31,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"평등한\",\"english\":\"uniform\"},{\"korean\":\"반복\",\"english\":\"repeated\"},{\"korean\":\"생활\",\"english\":\"routine\"}],\"sentence\":{\"korean\":\"평등한 생활은 반복된 활동 때문에 지루해질 수 있습니다.\",\"english\":\"A monotonous routine can become boring due to the repeated activities.\"}}",
+    "solution": "{\"평등한 생활\":\"Equal living\",\"반복되는 일상\":\"Daily routine\",\"지루해질\":\"To become boring\",\"수 있습니다\":\"May be\"}\n\n         {\"english\":\"A mundane life can become boring due to the repetitive daily routine.\"}",
     "id": 427
   },
   {
     "generator": "korean-english",
     "input": "misplace",
-    "problem": "치레는 침대(寢臺)에 놓쳤어요.\n",
+    "problem": "치레는 침대(寢臺)에 놓치네요.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치레\",\"english\":\"spoon\"},{\"korean\":\"침대\",\"english\":\"bathtub\"},{\"korean\":\"놓치다\",\"english\":\"to misplace\"}],\"sentence\":{\"korean\":\"치레는 침대에 놓쳤어요.\",\"english\":\"The spoon was misplaced in the bathtub.\"}}",
+    "solution": "{\"치레는\":\"The soup is\",\"침대에\":\"in the bathtub\",\"놓치네요\":\"has been left behind\"}\n\n         {\"english\":\"The chopsticks are left in the bathtub.\"}",
     "id": 428
   },
   {
     "generator": "korean-english",
     "input": "watershed",
-    "problem": "물리선(物理船)은 지점(支店)에서 변화(變化)를 일으킨다.\n",
+    "problem": "물리선(物理船)은 지점(支店)에서 변화(變化)를 유발(誘發)합니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"물리선\",\"english\":\"watershed\"},{\"korean\":\"지점\",\"english\":\"point\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"물리선은 지점에서 변화를 일으킨다.\",\"english\":\"A watershed moment changes everything at the point.\"}}",
+    "solution": "{\"물리선\":\"Physical line\",\"지점\":\"Point of origin\",\"변화\":\"Change\",\"유발\":\"Cause\"}\n\n         {\"english\":\"Physical lines cause changes at points.\"}",
     "id": 429
   },
   {
@@ -5495,52 +5495,52 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"애용\",\"english\":\"favorite\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"애용한 식단은 건강에 도움이 됩니다.\",\"english\":\"A favorite diet helps keep you healthy.\"}}",
+    "solution": "{\"애용한\":\"dietary\",\"식단\":\"diet\",\"건강\":\"health\",\"도움\":\"benefit\",\"됩니다\":\"is helpful\"}\n\n         {\"english\":\"A healthy diet can benefit your health.\"}",
     "id": 430
   },
   {
     "generator": "korean-english",
     "input": "tape",
-    "problem": "테이프는 길게 잡아다니다.\n",
+    "problem": "테이프은 길게 길게 잡아다니다.\n",
     "length": 14,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"테이프\",\"english\":\"tape\"},{\"korean\":\"길게\",\"english\":\"longly\"},{\"korean\":\"잡아다니다\",\"english\":\"to hold\"}],\"sentence\":{\"korean\":\"테이프는 길게 잡아다니다.\",\"english\":\"The tape is held longly.\"}}",
+    "solution": "{\"테이프\":\"tape\",\"길게\":\"longly\",\"잡아다니다\":\"is holding/grabbing\"}\n\n         {\"english\":\"The tape is being tightly wound up.\"}",
     "id": 431
   },
   {
     "generator": "korean-english",
     "input": "crowded",
-    "problem": "인근(隣近) 거주민(居住民)들은 집들이 너무 밀집(密集)하여 길을 걸어다니기가 어렵습니다.\n",
+    "problem": "근처(近處) 거주민(居住民)들은 집들이 너무 가까워 길을 걸다보면 편안(便安)하지 않습니다.\n",
     "length": 37,
     "tags": [
       "grade-5",
       "reading-comprehension",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인근\",\"english\":\"crowded\"},{\"korean\":\"거주민들\",\"english\":\"people\"},{\"korean\":\"집\",\"english\":\"houses\"}],\"sentence\":{\"korean\":\"인근 거주민들은 집들이 너무 밀집하여 길을 걸어다니기가 어렵습니다.\",\"english\":\"The crowded people in the neighborhood have difficulty walking on the street because of the densely packed houses.\"}}",
+    "solution": "{\"근처 거주민들은\":\"The nearby residents\",\"집들이 너무 가까워\":\"Their houses are too close together\",\"길을 걸다보면\":\"while walking on the street\",\"편안하지 않습니다\":\"is not comfortable\"}\n\n         {\"english\":\"People living nearby find it uncomfortable to walk on the street because their houses are too close together.\"}",
     "id": 432
   },
   {
     "generator": "korean-english",
     "input": "painter",
-    "problem": "화가(畫家)는 감성(感性)을 표현(表現)하는 작품(作品)을 그립니다.\n",
+    "problem": "화가(畫家)는 감성(感性)을 표현(表現)하는 작품(作品)을 만듭니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"화가\",\"english\":\"painter\"},{\"korean\":\"작품\",\"english\":\"artwork\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"화가는 감성을 표현하는 작품을 그립니다.\",\"english\":\"A painter expresses their emotions through their artwork.\"}}",
+    "solution": "{\"화가는\":\"Artists express their emotions\",\"감성\":\"feelings\",\"표현\":\"expression\",\"작품\":\"work of art\",\"만듭니다\":\"create\"}\n\n         {\"english\":\"Anger manifests in works of art that express emotions.\"}",
     "id": 433
   },
   {
     "generator": "korean-english",
     "input": "fried",
-    "problem": "고지(告知)말은 오일에서 물을 흡수(吸收)합니다.\n",
+    "problem": "고지(告知)말은 오일 속에서 물을 흡수(吸收)합니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -5548,20 +5548,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고지말\",\"english\":\"deep-fried\"},{\"korean\":\"오일\",\"english\":\"oil\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"고지말은 오일에서 물을 흡수합니다.\",\"english\":\"Deep-fried food absorbs water from the oil.\"}}",
+    "solution": "{\"고지말\":\"fatty matter\",\"오일\":\"oil\",\"물\":\"water\",\"흡수\":\"absorb\"}\n\n         {\"english\":\"High-density lipoprotein (HDL) cholesterol absorbs water from oil.\"}",
     "id": 434
   },
   {
     "generator": "korean-english",
     "input": "profitable",
-    "problem": "윤리적(倫理的)인 영업(營業)은 수익(收益)을 얻는 데 도움이 됩니다.\n",
+    "problem": "윤리적(倫理的)인 영업(營業)은 수익(收益) 얻는 데 도움이 됩니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"윤리적인\",\"english\":\"profitable\"},{\"korean\":\"영업\",\"english\":\"business\"},{\"korean\":\"수익\",\"english\":\"profit\"}],\"sentence\":{\"korean\":\"윤리적인 영업은 수익을 얻는 데 도움이 됩니다.\",\"english\":\"A profitable business brings in profit.\"}}",
+    "solution": "{\"윤리적인\":\"Ethical\",\"영업\":\"Business\",\"수익\":\"Profit\",\" 얻는\":\"to obtain\",\" 도움이 됩니다\":\"is helpful\"}\n\n         {\"english\":\"Ethical business practices help to achieve profit.\"}",
     "id": 435
   },
   {
@@ -5574,13 +5574,13 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"멀티미디어\",\"english\":\"multimedia\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"전문성\",\"english\":\"expertise\"}],\"sentence\":{\"korean\":\"멀티미디어는 정보 전달의 전문성을 제공합니다.\",\"english\":\"Multimedia provides expertise in information delivery.\"}}",
+    "solution": "{\"멀티미디어\":\"multimedia\",\"정보\":\"information\",\"전달\":\"transmission\",\"전문성\":\"expertise\",\"제공\":\"provides\"}\n\n         {\"english\":\"Multimedia provides expertise in information transmission.\"}",
     "id": 436
   },
   {
     "generator": "korean-english",
     "input": "exhilarate",
-    "problem": "흥분(興奮)으로 고통(苦痛)을 극복(克服)해야 성공(成功)할 수 있습니다.\n",
+    "problem": "흥분(興奮)은 고통(苦痛)을 극복(克服)하고 성공(成功)할 수 있습니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -5588,26 +5588,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excited\"},{\"korean\":\"고통\",\"english\":\"trouble\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"흥분으로 고통을 극복해야 성공할 수 있습니다.\",\"english\":\"When you are excited, you can overcome any trouble and succeed.\"}}",
+    "solution": "{\"흥분\":\" enthusiasm\",\"고통\":\"pain\",\"극복\":\"overcome\",\"성공\":\"success\",\"수 있습니다\":\"can be done\"}\n\n         {\"english\":\"Excitement can overcome hardship and lead to success.\"}",
     "id": 437
   },
   {
     "generator": "korean-english",
     "input": "donkey",
-    "problem": "꽃밭에 말동쟁이가 돌돌아다니다.\n",
+    "problem": "꽃밭에서 말동쟁이들이 돌돌아갑니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말동쟁이\",\"english\":\"Donkey\"},{\"korean\":\"꽃밭에\",\"english\":\"In the flower field\"},{\"korean\":\"돌돌아다니다\",\"english\":\"Wandering around\"}],\"sentence\":{\"korean\":\"꽃밭에 말동쟁이가 돌돌아다니다.\",\"english\":\"A donkey is wandering around in the flower field.\"}}",
+    "solution": "{\"꽃밭에서 말동쟁이들이 돌돌아갑니다.\":\"Flower field where mischievous rabbits return home\",\"꽃밭\":\"flower field\",\"말동쟁이\":\"mischievous rabbit\",\"돌돌아갑니다\":\"returned home\"}\n\n         {\"english\":\"The mischievous rabbits are hopping back home from the flower field.\"}",
     "id": 438
   },
   {
     "generator": "korean-english",
     "input": "posh",
-    "problem": "부사(父事)한 물건(物件)은 깨져 있지 않습니다.\n",
+    "problem": "부사(父事)한 물건(物件)들은 깨져 있지 않습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -5615,13 +5615,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부사\",\"english\":\"expensive\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"깨진\",\"english\":\"broken\"}],\"sentence\":{\"korean\":\"부사한 물건은 깨져 있지 않습니다.\",\"english\":\"An expensive thing is not broken.\"}}",
+    "solution": "{\"부사한 물건들은 깨져 있지 않습니다.\":\"The broken items are not expensive.\",\"부사한\":\"expensive\",\"물건들\":\"items\",\"깨져\":\"broken\",\"있지 않습니다\":\"are not\"}\n\n         {\"english\":\"Bad items aren't broken.\"}",
     "id": 439
   },
   {
     "generator": "korean-english",
     "input": "null",
-    "problem": "무상상(無償床)이 생각된다.\n",
+    "problem": "무슨 생각이 들까.\n",
     "length": 10,
     "tags": [
       "grade-5",
@@ -5629,38 +5629,38 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무\",\"english\":\"nothing\"},{\"korean\":\"상상\",\"english\":\"imagination\"},{\"korean\":\"생각\",\"english\":\"thought\"}],\"sentence\":{\"korean\":\"무상상이 생각된다.\",\"english\":\"Something can be thought of as nothing.\"}}",
+    "solution": "{\"무슨 생각이 들까.\":\"What's on your mind?\",\"무슨\":\"what\",\"생각\":\"thought\",\"들까.\":\"to come to mind\"}\n\n         {\"english\":\"What's on your mind?\"}",
     "id": 440
   },
   {
     "generator": "korean-english",
     "input": "affected",
-    "problem": "감염(感染)된 체계(體系)는 위험(危險)을 초래(招來)합니다.\n",
+    "problem": "감염(感染)된 체계(體系)는 위험(危險)을 유발(誘發)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"감염된\",\"english\":\"infected\"},{\"korean\":\"체계\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"감염된 체계는 위험을 초래합니다.\",\"english\":\"An infected body poses a risk.\"}}",
+    "solution": "{\"감염된 체계는 위험을 유발합니다.\":\"Infected system poses risks\",\"체계\":\"system\",\"감염된\":\"infected\",\"위험\":\"risks\",\"유발합니다\":\"poses\"}\n\n         {\"english\":\"Infected systems pose risks.\"}",
     "id": 441
   },
   {
     "generator": "korean-english",
     "input": "temperate",
-    "problem": "온화(溫和)한 기후(氣候)는 식물(植物)과 동물(動物)의 생활(生活)에 중요(重要)합니다.\n",
+    "problem": "온화(溫和)한 기후(氣候)는 식물(植物)과 동물(動物)의 생활(生活)에 매우 중요(重要)합니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"온화한\",\"english\":\"temperate\"},{\"korean\":\"기후\",\"english\":\"climate\"}],\"sentence\":{\"korean\":\"온화한 기후는 식물과 동물의 생활에 중요합니다.\",\"english\":\"A temperate climate is crucial for the survival of plants and animals.\"}}",
+    "solution": "{\"온화한\":\"warm\",\"기후\":\"climate\",\"식물\":\"plants\",\"동물\":\"animals\",\"생활\":\"life\",\"매우\":\"very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Warm weather is very important for the survival of plants and animals.\"}",
     "id": 442
   },
   {
     "generator": "korean-english",
     "input": "satisfy",
-    "problem": "목표(目標)를 달성(達成)하면 만족감(滿足感)이 크게 늘어납니다.\n",
+    "problem": "목표(目標)를 달성(達成)하면 만족감(滿足感)이 막대적(莫大敵)으로 증가(增加)합니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
@@ -5668,7 +5668,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"만족감\",\"english\":\"fulfillment\"},{\"korean\":\"목표\",\"english\":\"goal\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"목표를 달성하면 만족감이 크게 늘어납니다.\",\"english\":\"When you achieve your goal, you feel a great sense of fulfillment.\"}}",
+    "solution": "{\"목표를 달성하면\":\"When the goal is achieved\",\" 만족감이\":\"a sense of satisfaction\",\"막대적으로\":\"significantly\",\"증가합니다\":\"increases\"}\n\n         {\"english\":\"Achieving goals significantly increases satisfaction.\"}",
     "id": 443
   },
   {
@@ -8326,20 +8326,20 @@ export const problems = [
   {
     "generator": "korean-english",
     "input": "dent",
-    "problem": "치명(致命)은 파도(波濤)에 꽃잎을 타고 다닌다.\n",
+    "problem": "치명(致命)은 파도(波濤)가 치명(致命)꽃잎을 타고 다닌다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치명\",\"english\":\"tooth\"},{\"korean\":\"파도\",\"english\":\"wave\"},{\"korean\":\"꽃잎\",\"english\":\"petal\"}],\"sentence\":{\"korean\":\"치명은 파도에 꽃잎을 타고 다닌다.\",\"english\":\"The tooth is riding on a wave with a petal.\"}}",
+    "solution": "{\"치명\":\"fate\",\"파도\":\"wave\",\"치명꽃잎\":\"cherry blossom petal\",\"타다니다\":\"rides on\"}\n\n         {\"english\":\"The tide brings the seaweed to the shore.\"}",
     "id": 654
   },
   {
     "generator": "korean-english",
     "input": "phrase",
-    "problem": "절절(切切)한 말은 하하, 이제 이해(理解)할 수 있다.\n",
+    "problem": "이제 이해(理解)할 수 있다. 절절(切切)한 말은 하지 말아줘.\n",
     "length": 23,
     "tags": [
       "grade-5",
@@ -8347,13 +8347,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"절절한\",\"english\":\"brief\"},{\"korean\":\"말\",\"english\":\"phrase\"},{\"korean\":\"하하\",\"english\":\"indeed\"}],\"sentence\":{\"korean\":\"절절한 말은 하하, 이제 이해할 수 있다.\",\"english\":\"A brief phrase indeed, now you can understand it.\"}}",
+    "solution": "{\"이제 이해할 수 있다\":\"I understand now\",\"절절한 말\":\"meaningful words\",\"하지 말아줘\":\"Please don't say that\"}\n\n         {\"english\":\"I understand now. Please don't say anything unnecessary.\"}",
     "id": 655
   },
   {
     "generator": "korean-english",
     "input": "conceal",
-    "problem": "숨겨진 비밀(祕密)은 누구에게도 드러나지 않습니다.\n",
+    "problem": "비밀(祕密)은 누구에게나 드러나지 않습니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -8361,13 +8361,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"숨기다\",\"english\":\"to conceal\"},{\"korean\":\"피복\",\"english\":\"cover\"},{\"korean\":\"비밀\",\"english\":\"secret\"}],\"sentence\":{\"korean\":\"숨겨진 비밀은 누구에게도 드러나지 않습니다.\",\"english\":\"The secrets that are concealed will never be revealed to anyone.\"}}",
+    "solution": "{\"비밀은 누구에게나 드러나지 않습니다.\":\"Secrets never reveal themselves to anyone.\"}\n\n         {\"english\":\"Secrets never leak out to anyone.\"}",
     "id": 656
   },
   {
     "generator": "korean-english",
     "input": "interested",
-    "problem": "흥미(興味)있어 그 책(冊)을 읽었어요.\n",
+    "problem": "흥미(興味)있네 그 책(冊)을 읽었어요.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -8375,13 +8375,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흥미있어\",\"english\":\"interesting\"},{\"korean\":\"그\",\"english\":\"that\"},{\"korean\":\"책\",\"english\":\"book\"}],\"sentence\":{\"korean\":\"흥미있어 그 책을 읽었어요.\",\"english\":\"It was interesting that I read that book.\"}}",
+    "solution": "{\"흥미있네\":\"It's interesting\",\"그 책\":\"that book\",\"읽었어요\":\"I read it\"}\n\n         {\"english\":\"I found that book interesting. I read it.\"}",
     "id": 657
   },
   {
     "generator": "korean-english",
     "input": "ethic",
-    "problem": "이윤(利潤)은 책임(責任)과 정직(正直)의 결점(缺點)입니다.\n",
+    "problem": "이윤(利潤)은 책임(責任)과 정직성(正直性)의 한계(限界)입니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -8390,13 +8390,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"이윤\",\"english\":\"profit\"},{\"korean\":\"책임\",\"english\":\"responsibility\"},{\"korean\":\"정직\",\"english\":\"integrity\"}],\"sentence\":{\"korean\":\"이윤은 책임과 정직의 결점입니다.\",\"english\":\"Profit is the outcome of balancing responsibility and integrity.\"}}",
+    "solution": "{\"이윤\":\"Profit\",\"책임\":\"Responsibility\",\"정직성\":\"Integrity\",\"한계\":\"Limit\",\"입니다\":\"is\"}\n\n         {\"english\":\"Profit has its limits with responsibility and integrity.\"}",
     "id": 658
   },
   {
     "generator": "korean-english",
     "input": "newscaster",
-    "problem": "뉴스캐스터는 방송(放送)을 통해 정보(情報)를 전달(傳達)합니다.\n",
+    "problem": "뉴스캐스터는 방송(放送)을 통해 정보(情報)를 전(傳)해줍니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -8404,50 +8404,50 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"뉴스캐스터\",\"english\":\"newscaster\"},{\"korean\":\"방송\",\"english\":\"broadcast\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"뉴스캐스터는 방송을 통해 정보를 전달합니다.\",\"english\":\"A newscaster delivers information through a broadcast.\"}}",
+    "solution": "{\"뉴스캐스터\":\"Newscaster\",\"방송\":\"Broadcast\",\"정보\":\"Information\",\"전해줍니다\":\"Delivers\"}\n\n         {\"english\":\"Newscasters deliver information through broadcasts.\"}",
     "id": 659
   },
   {
     "generator": "korean-english",
     "input": "hunt",
-    "problem": "사냥꾼들은 사자(獅子)를 찾기 위해 숲에 가고 있습니다.\n",
+    "problem": "사냥꾼들은 사자(獅子)를 찾기 위해 숲 속으로 들어갔습니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사냥\",\"english\":\"hunt\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"장소\",\"english\":\"place\"}],\"sentence\":{\"korean\":\"사냥꾼들은 사자를 찾기 위해 숲에 가고 있습니다.\",\"english\":\"The hunters are searching for a lion in the forest.\"}}",
+    "solution": "{\"사냥꾼들은\":\"The hunters went into\",\"사자를 찾기 위해\":\"to find a lion\",\"숲 속으로\":\"into the forest\",\"들어갔습니다\":\"went in\"}\n\n         {\"english\":\"Hunters entered the forest in search of a lion.\"}",
     "id": 660
   },
   {
     "generator": "korean-english",
     "input": "implacable",
-    "problem": "불타버릴 피리는 예상(豫想)치 못한 상황(狀況)에 생각하게 해준다.\n",
+    "problem": "불타버릴 피리는 예상(豫想)치 못한 상황(狀況)에 생각을 자극(刺戟)한다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불타버릴\",\"english\":\"implacable\"},{\"korean\":\"피리\",\"english\":\"anger\"},{\"korean\":\"생각\",\"english\":\"thought\"}],\"sentence\":{\"korean\":\"불타버릴 피리는 예상치 못한 상황에 생각하게 해준다.\",\"english\":\"Implacable anger often leads to unexpected situations that require careful thought.\"}}",
+    "solution": "{\"불타버릴\":\"unforgettable\",\"피인\":\"passion\",\"예상치 못한\":\"unexpected\",\"상황\":\"situation\",\"생각\":\"thought\",\"자극\":\"stimulate\"}\n\n         {\"english\":\"Burning coals stimulate thoughts in unexpected situations.\"}",
     "id": 661
   },
   {
     "generator": "korean-english",
     "input": "December",
-    "problem": "편월(片月) 오늘 눈이 많이 내립니다.\n",
+    "problem": "오늘은 눈이 많이 내립니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"편월\",\"english\":\"December\"},{\"korean\":\"오늘\",\"english\":\"Today\"},{\"korean\":\"눈\",\"english\":\"Snow\"}],\"sentence\":{\"korean\":\"편월 오늘 눈이 많이 내립니다.\",\"english\":\"It snows a lot today in December.\"}}",
+    "solution": "{\"오늘\":\"Today\",\"눈\":\"Snow\",\" 많이\":\"Much\",\"내립니다\":\"Falls down\"}\n\n         {\"english\":\"My eyes are watering quite a bit today.\"}",
     "id": 662
   },
   {
     "generator": "korean-english",
     "input": "polish",
-    "problem": "연화는 꽃잎을 날카로 싸다가 변화(變化)합니다.\n",
+    "problem": "연화는 꽃잎을 날카로 싸다가 다른 형태(形態)로 바뀌게 됩니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -8455,13 +8455,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연화\",\"english\":\"chrysalis\"},{\"korean\":\"꽃잎\",\"english\":\"flower petal\"},{\"korean\":\"날카\",\"english\":\"needle\"}],\"sentence\":{\"korean\":\"연화는 꽃잎을 날카로 싸다가 변화합니다.\",\"english\":\"A chrysalis wraps itself in a needle to change into something new.\"}}",
+    "solution": "{\"연화\":\"lotus\",\"꽃잎\":\"flower petal\",\"날카\":\"spine\",\"싸다\":\"to wrap\",\"바뀌게\":\"to change\",\"형태\":\"shape\"}\n\n         {\"english\":\"Petals of lotus transform into sharp blades, wrapping themselves around the stem and changing their form.\"}",
     "id": 663
   },
   {
     "generator": "korean-english",
     "input": "onerous",
-    "problem": "무거운 물건(物件)을 다 들기가 어렵다.\n",
+    "problem": "무거운 물건(物件)을 들기가 어렵다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -8470,7 +8470,7 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무거운\",\"english\":\"heavy\"},{\"korean\":\"물건\",\"english\":\"burden\"}],\"sentence\":{\"korean\":\"무거운 물건을 다 들기가 어렵다.\",\"english\":\"It is difficult to carry a heavy burden.\"}}",
+    "solution": "{\"무거운 물건을 들기가 어렵다.\":\"Heavy objects are difficult to lift.\",\"무거운\":\"heavy\",\"물건\":\"object\",\" 들기\":\"to lift\",\"어렵다\":\"is difficult\"}\n\n         {\"english\":\"It is difficult to lift heavy objects.\"}",
     "id": 664
   },
   {
@@ -8483,45 +8483,45 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침수성\",\"english\":\"absorbent\"},{\"korean\":\"흡수\",\"english\":\"absorb\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"침수성 물은 물을 잘 흡수합니다.\",\"english\":\"Absorbent water absorbs water efficiently.\"}}",
+    "solution": "{\"침수성 물\":\"Hydrophilic material\",\"물\":\"Water\",\"흡수\":\"Absorbs\",\" 잘\":\"Easily\",\"흡수합니다\":\"absorbs quickly/easily\"}\n\n         {\"english\":\"Immersible water readily absorbs water.\"}",
     "id": 665
   },
   {
     "generator": "korean-english",
     "input": "heroic",
-    "problem": "영웅(英雄)은 기본적(基本的)인 무력(武力)을 가지고 있지만, 이는 영웅(英雄)이 아니라는 의미(意味)는 아닙니다.\n",
+    "problem": "영웅(英雄)들은 기본적(基本的)인 무력(武力)을 가지고 있지만, 이는 영웅(英雄)이 아니라는 의미(意味)는 아닙니다.\n",
     "length": 43,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"영웅\",\"english\":\"hero\"},{\"korean\":\"기본\",\"english\":\"fundamental\"},{\"korean\":\"무력\",\"english\":\"power\"}],\"sentence\":{\"korean\":\"영웅은 기본적인 무력을 가지고 있지만, 이는 영웅이 아니라는 의미는 아닙니다.\",\"english\":\"A hero possesses fundamental power, but that doesn't mean he is not a hero.\"}}",
+    "solution": "{\"영웅들은 기본적인 무력을 가지고 있지만\":\"Heroes possess basic skills\",\"이는 영웅이 아니라는 의미는 아닙니다\":\"This does not mean they are not heroes\"}\n\n         {\"english\":\"Heroes possess basic abilities, but that doesn't mean they aren't heroes.\"}",
     "id": 666
   },
   {
     "generator": "korean-english",
     "input": "velvet",
-    "problem": "보름색(色) 피부(皮膚)가 매운 날에 특히(特히) 부드럽다.\n",
+    "problem": "보름날에 피부(皮膚)가 매운 날에 특히(特히) 부드럽다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "korean-to-english",
       "vocabulary"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보름\",\"english\":\"velvet\"},{\"korean\":\"색\",\"english\":\"color\"},{\"korean\":\"피부\",\"english\":\"skin\"}],\"sentence\":{\"korean\":\"보름색 피부가 매운 날에 특히 부드럽다.\",\"english\":\"The skin becomes especially soft on days when the velvet color is out.\"}}",
+    "solution": "{\"보름날\":\"Full moon day\",\"피부\":\"Skin\",\"매운\":\"Hot\",\"날\":\"Day\",\"부드럽다\":\"Soft\"}\n\n         {\"english\":\"The skin is particularly soft on days when it is hot and humid.\"}",
     "id": 667
   },
   {
     "generator": "korean-english",
     "input": "careless",
-    "problem": "무근해로(無根海路) 피해(被害)를 입힐 확률(確率)은 낮습니다.\n",
+    "problem": "무근해로(無根海路) 피해(被害)를 입히는 가능성(可能性)은 낮습니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "conditional-probability",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무근해\",\"english\":\"careless\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"확률\",\"english\":\"probability\"}],\"sentence\":{\"korean\":\"무근해로 피해를 입힐 확률은 낮습니다.\",\"english\":\"The probability of damage due to carelessness is low.\"}}",
+    "solution": "{\"무근해로 피해를 입히는 가능성은 낮습니다.\":\"The possibility of causing damage due to lack of preparation is low.\"}\n\n         {\"english\":\"The possibility of causing damage is low.\"}",
     "id": 668
   },
   {
@@ -8534,51 +8534,51 @@ export const problems = [
       "korean-to-english",
       "adjective"
     ],
-    "solution": "{\"words\":[{\"korean\":\"눈락\",\"english\":\"snowflake\"},{\"korean\":\"고요\",\"english\":\"fine\"},{\"korean\":\"꽃잎\",\"english\":\"petal\"}],\"sentence\":{\"korean\":\"눈락은 고요한 꽃잎처럼 아름답습니다.\",\"english\":\"Snowflakes are like delicate flower petals, each one beautiful.\"}}",
+    "solution": "{\"눈락\":\"snowflake\",\"고요한\":\"graceful, elegant\",\"꽃잎\":\"flower petal\",\"아름답습니다\":\"is beautiful\"}\n\n         {\"english\":\"The gaze is like a quiet flower petal, beautiful.\"}",
     "id": 669
   },
   {
     "generator": "korean-english",
     "input": "she",
-    "problem": "그녀(그女)는 꽃을 장소(場所)에 꽃길을 만듭니다.\n",
+    "problem": "그녀(그女)는 꽃길을 만드는 데 꽃을 장소(場所)에 사용(使用)합니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"그녀\",\"english\":\"she\"},{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"장소\",\"english\":\"place\"}],\"sentence\":{\"korean\":\"그녀는 꽃을 장소에 꽃길을 만듭니다.\",\"english\":\"She makes a flower path on the way to the place with flowers.\"}}",
+    "solution": "{\"그녀는\":\"She\",\"꽃길을 만드는\":\"makes a flower path\",\"데\":\"to\",\"꽃\":\"flowers\",\"장소\":\"place\",\"사용합니다\":\"uses\"}\n\n         {\"english\":\"She uses flowers to decorate the place for making a flower path.\"}",
     "id": 670
   },
   {
     "generator": "korean-english",
     "input": "enigma",
-    "problem": "명랑(明朗)한 문제(問題)를 풀고, 고요한 해결책(解決策)을 찾는 것은 중요(重要)합니다.\n",
+    "problem": "명랑(明朗)한 문제(問題)를 해결(解決)하고, 고요한 해결책(解決策)을 찾는 것이 중요(重要)합니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명랑\",\"english\":\"mystery\"},{\"korean\":\"풀기\",\"english\":\"to solve\"},{\"korean\":\"고요\",\"english\":\"important\"}],\"sentence\":{\"korean\":\"명랑한 문제를 풀고, 고요한 해결책을 찾는 것은 중요합니다.\",\"english\":\"Solving a mysterious problem and finding an important solution is important.\"}}",
+    "solution": "{\"명랑한 문제\":\"Serious problem\",\"해결하고\":\"Solving\",\"고요한 해결책\":\"Important solution\",\"찾는\":\"Finding\",\"중요합니다\":\"Is important\"}\n\n         {\"english\":\"Solving the pressing issues and finding a profound solution is crucial.\"}",
     "id": 671
   },
   {
     "generator": "korean-english",
     "input": "retired",
-    "problem": "퇴학(退學)한 학생(學生)은 새로운 목표(目標)를 설정(設定)하고 새로운 시작(始作)을 합니다.\n",
+    "problem": "퇴학(退學)한 학생(學生)들은 새로운 목표(目標)를 설정(設定)하고 새로운 시작(始作)을 합니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"퇴학\",\"english\":\"retired\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"퇴학한 학생은 새로운 목표를 설정하고 새로운 시작을 합니다.\",\"english\":\"The retired student sets a new goal and starts anew.\"}}",
+    "solution": "{\"퇴학한 학생들은\":\"The departing students\",\"새로운 목표를 설정하고\":\"set new goals\",\"새로운 시작을 합니다\":\"make a new start\"}\n\n         {\"english\":\"Outgoing students set new goals and make a fresh start.\"}",
     "id": 672
   },
   {
     "generator": "korean-english",
     "input": "jest",
-    "problem": "jest은 두려움을 떨어뜨려 싸우다\n",
+    "problem": "jest은 두려움을 버리고 싸우다\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -8587,25 +8587,25 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"jest\",\"english\":\"play\"},{\"korean\":\"두려움\",\"english\":\"fear\"},{\"korean\":\"싸우다\",\"english\":\"to fight\"}],\"sentence\":{\"korean\":\"jest은 두려움을 떨어뜨려 싸우다\",\"english\":\"Play can drive away fear and fight\"}}",
+    "solution": "{\"jest\":\"to fight bravely despite fear\",\"두려움\":\"fear\",\"버리고\":\"discarding\",\"싸우다\":\"to fight\"}\n\n         {\"english\":\"He overcomes his fear and fights.\"}",
     "id": 673
   },
   {
     "generator": "korean-english",
     "input": "misunderstanding",
-    "problem": "오해(誤解)는 모든 작업(作業)의 중요(重要)한 부분(部分)이 될 수 있습니다.\n",
+    "problem": "오해(誤解)는 모든 작업(作業)에서 중요(重要)한 요소(要素)가 될 수 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오해\",\"english\":\"misunderstanding\"},{\"korean\":\"시각\",\"english\":\"aspect\"},{\"korean\":\"두통\",\"english\":\"burden\"}],\"sentence\":{\"korean\":\"오해는 모든 작업의 중요한 부분이 될 수 있습니다.\",\"english\":\"A misunderstanding can become a significant part of any task.\"}}",
+    "solution": "{\"오해\":\"Misunderstanding\",\"작업\":\"Task\",\"요소\":\"Element\",\"중요\":\"Important\",\"일수\":\"Can be\"}\n\n         {\"english\":\"Understanding can be a crucial element in all tasks.\"}",
     "id": 674
   },
   {
     "generator": "korean-english",
     "input": "instructive",
-    "problem": "지시적(指示的) 학습(學習) 자료(資料)는 새로운 정보(情報)를 제공(提供)하여 학습(學習)을 향상(向上)시킵니다.\n",
+    "problem": "지시적(指示的) 학습(學習) 자료(資料)는 새로운 정보(情報)를 제공(提供)하여 학습(學習) 성과(成果)를 향상(向上)시킵니다.\n",
     "length": 35,
     "tags": [
       "grade-5",
@@ -8613,7 +8613,7 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지시적\",\"english\":\"instructive\"},{\"korean\":\"학습\",\"english\":\"learning\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"지시적 학습 자료는 새로운 정보를 제공하여 학습을 향상시킵니다.\",\"english\":\"Instructive learning materials provide new information to enhance learning.\"}}",
+    "solution": "{\"지시적 학습 자료\":\"Instructional learning materials\",\"새로운 정보\":\"New information\",\"학습 성과\":\"Learning performance\",\"향상시킵니다\":\"Improve\"}\n\n         {\"english\":\"Instructional materials provide new information to enhance learning outcomes.\"}",
     "id": 675
   },
   {
@@ -8626,13 +8626,13 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지금\",\"english\":\"now\"},{\"korean\":\"바닥에서\",\"english\":\"from the bottom\"},{\"korean\":\"새롭게\",\"english\":\"newly\"}],\"sentence\":{\"korean\":\"지금 바닥에서 새롭게 등장했습니다.\",\"english\":\"Something new emerged from the bottom just now.\"}}",
+    "solution": "{\"지금\":\"now\",\"바닥\":\"floor\",\"등장\":\"appeared\",\"새롭게\":\"newly\",\"새롭다\":\"new\"}\n\n         {\"english\":\"A new figure has emerged from the bottom just now.\"}",
     "id": 676
   },
   {
     "generator": "korean-english",
     "input": "conceited",
-    "problem": "자랑심으로 말을 하더라도, 정확(正確)해야 해.\n",
+    "problem": "언론(言論) 자랑심(審) 있어 말을 해도, 정확(正確)해야 해.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -8641,13 +8641,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"자랑심\",\"english\":\"conceited\"},{\"korean\":\"말\",\"english\":\"speech\"},{\"korean\":\"정확\",\"english\":\"accurate\"}],\"sentence\":{\"korean\":\"자랑심으로 말을 하더라도, 정확해야 해.\",\"english\":\"Even if you speak conceitedly, you have to be accurate.\"}}",
+    "solution": "{\"언론 자랑심 있어 말을 해도\":\"To speak confidently despite knowing the media will criticize\",\"정확해야 해\":\"It must be accurate\"}\n\n         {\"english\":\"It’s okay to be proud, but you have to speak truthfully.\"}",
     "id": 677
   },
   {
     "generator": "korean-english",
     "input": "latest",
-    "problem": "최근(最近) 새로운 상품(商品)이 판매(販賣)되었습니다.\n",
+    "problem": "최근(最近) 새로운 상품(商品)들이 판매(販賣)되었습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -8655,32 +8655,32 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"최근\",\"english\":\"latest\"},{\"korean\":\"판매\",\"english\":\"sale\"},{\"korean\":\"품\",\"english\":\"product\"}],\"sentence\":{\"korean\":\"최근 새로운 상품이 판매되었습니다.\",\"english\":\"The latest new products were on sale recently.\"}}",
+    "solution": "{\"최근\":\"Recently\",\"새로운\":\"new\",\"상품\":\"products\",\"판매되었습니다\":\"were sold\"}\n\n         {\"english\":\"New products have been sold recently.\"}",
     "id": 678
   },
   {
     "generator": "korean-english",
     "input": "analysis",
-    "problem": "데이터 분석(分析)을 통해 패턴을 찾습니다.\n",
+    "problem": " 데이터 분석(分析)을 통해 패턴을 발견(發見)합니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"분석\",\"english\":\"analysis\"},{\"korean\":\"데이터\",\"english\":\"data\"},{\"korean\":\"패턴\",\"english\":\"pattern\"}],\"sentence\":{\"korean\":\"데이터 분석을 통해 패턴을 찾습니다.\",\"english\":\"Patterns are found through data analysis.\"}}",
+    "solution": "{\" 데이터 분석을 통해 패턴을 발견합니다.\":\"Data analysis reveals patterns\",\" 데이터\":\"Data\",\"분석\":\"Analysis\",\"패턴\":\"Patterns\",\"발견\":\"Discovery\"}\n\n         {\"english\":\"Patterns are discovered through data analysis.\"}",
     "id": 679
   },
   {
     "generator": "korean-english",
     "input": "spit",
-    "problem": "플립한(韓) 물에 나비가 떨어났습니다.\n",
+    "problem": "물이 플립하고 나비가 떨어났습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"플립\",\"english\":\"flip\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"나비\",\"english\":\"butterfly\"}],\"sentence\":{\"korean\":\"플립한 물에 나비가 떨어났습니다.\",\"english\":\"A butterfly fell into the flipped water.\"}}",
+    "solution": "{\"물이 플립하고 나비가 떨어났습니다.\":\"Water flipped and butterflies fell down.\"}\n\n         {\"english\":\"The water flipped and a butterfly fell down.\"}",
     "id": 680
   },
   {
@@ -8695,13 +8695,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"risk\"},{\"korean\":\"불안\",\"english\":\"unstable\"},{\"korean\":\"상황\",\"english\":\"situation\"}],\"sentence\":{\"korean\":\"위험한 상황에서 불안한 상태로 유지될 가능성이 높아지네요.\",\"english\":\"The possibility of remaining in an unstable state increases in a precarious situation.\"}}",
+    "solution": "{\"위험한 상황\":\"Dangerous situation\",\"불안한 상태\":\"Unstable state\",\"유지될 가능성\":\"Probability of persistence\",\"높아지네요\":\"Is increasing\"}\n\n         {\"english\":\"The probability of instability increases in dangerous situations.\"}",
     "id": 681
   },
   {
     "generator": "korean-english",
     "input": "bored",
-    "problem": "치명적(致命的)인 여행(旅行)은 흥분(興奮)한 순간(瞬間)이 될 수 있다.\n",
+    "problem": "치명적(致命的)인 여행(旅行)은 흥분(興奮)한 순간(瞬間)이 될 수도 있다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -8709,13 +8709,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치명적인\",\"english\":\"boring\"},{\"korean\":\"흥분\",\"english\":\"interesting\"}],\"sentence\":{\"korean\":\"치명적인 여행은 흥분한 순간이 될 수 있다.\",\"english\":\"A boring trip can become an interesting moment.\"}}",
+    "solution": "{\"치명적인\":\"potentially deadly\",\"여행\":\"trip\",\"흥분한\":\"exciting\",\"순간\":\"moment\",\"일 수도 있다\":\"can also be\"}\n\n         {\"english\":\"A dangerous journey can also be an exciting moment.\"}",
     "id": 682
   },
   {
     "generator": "korean-english",
     "input": "secede",
-    "problem": "분리(分離)된 목표(目標)를 달성(達成)하기 위해 독립성(獨立性)을 얻다.\n",
+    "problem": "독립성(獨立性)을 얻고 목표(目標)를 달성(達成)하기 위해 분리(分離)된 작업(作業)을 합니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -8723,13 +8723,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"분리\",\"english\":\"separation\"},{\"korean\":\"독립\",\"english\":\"independence\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"분리된 목표를 달성하기 위해 독립성을 얻다.\",\"english\":\"To achieve a separated goal, independence is obtained.\"}}",
+    "solution": "{\"독립성을 얻고 목표를 달성하기 위해 분리된 작업을 합니다.\":\"Tasks are separated to achieve independence and accomplish goals.\"}\n\n         {\"english\":\"Independent work is done to gain independence and achieve goals.\"}",
     "id": 683
   },
   {
     "generator": "korean-english",
     "input": "parent",
-    "problem": "부모(父母)의 자랑은 무엇보다 더 큰 것입니다.\n",
+    "problem": "부모(父母)의 자랑은 다른 모든 것 보다 크고 가치(價値)있습니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -8737,7 +8737,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부모\",\"english\":\"parents\"},{\"korean\":\"자랑\",\"english\":\"pride\"}],\"sentence\":{\"korean\":\"부모의 자랑은 무엇보다 더 큰 것입니다.\",\"english\":\"The pride of parents is greater than anything else.\"}}",
+    "solution": "{\"부모의 자랑\":\"Parents' pride\",\"다른 모든 것\":\"everything else\",\"크고\":\"big\",\"가치있습니다\":\"is valuable\"}\n\n         {\"english\":\"A parent's pride is greater and more valuable than anything else.\"}",
     "id": 684
   },
   {
@@ -8750,45 +8750,45 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전망\",\"english\":\"horizon\"},{\"korean\":\"바닥\",\"english\":\"ground\"},{\"korean\":\"두려움\",\"english\":\"fear\"}],\"sentence\":{\"korean\":\"전망선은 바닥에 두려움을 가지고 돌아갑니다.\",\"english\":\"The horizon line flees with fear of the ground.\"}}",
+    "solution": "{\"전망선\":\"ferry\",\"바닥\":\"bottom\",\"두려움\":\"fear\",\"가지\":\"to have\",\"돌아갑니다\":\"returns\"}\n\n         {\"english\":\"The lookout boat returns with fear gripping the bottom.\"}",
     "id": 685
   },
   {
     "generator": "korean-english",
     "input": "blessed",
-    "problem": "복(複)다운 생활(生活)은 고난(苦難)을 이기는 길이니다.\n",
+    "problem": "복(複)다운 생활(生活)은 고난(苦難)을 극복(克服)하는 길이니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"복다운\",\"english\":\"blessed\"},{\"korean\":\"생활\",\"english\":\"life\"},{\"korean\":\"고난\",\"english\":\"hardships\"}],\"sentence\":{\"korean\":\"복다운 생활은 고난을 이기는 길이니다.\",\"english\":\"A blessed life is a path to overcoming hardships.\"}}",
+    "solution": "{\"복다운 생활\":\"Difficult everyday life\",\"고난\":\"Challenges\",\"극복\":\"Overcome\",\"길\":\"Path\",\"니다\":\"is\"}\n\n         {\"english\":\"Hard work is the path to overcoming adversity.\"}",
     "id": 686
   },
   {
     "generator": "korean-english",
     "input": "adorn",
-    "problem": "장신(長身)의 꽃잎은 아름다워 보네.\n",
+    "problem": "장신(長身)꽃잎은 아름답네.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장신\",\"english\":\"graceful\"},{\"korean\":\"입고\",\"english\":\"to adorn\"},{\"korean\":\"꽃잎\",\"english\":\"flower petals\"}],\"sentence\":{\"korean\":\"장신의 꽃잎은 아름다워 보네.\",\"english\":\"The graceful flower petals are beautiful to behold.\"}}",
+    "solution": "{\"장신꽃잎은\":\"Petals of the lotus flower\",\"아름답네\":\"Are beautiful.\"}\n\n         {\"english\":\"The peach blossom petals are beautiful.\"}",
     "id": 687
   },
   {
     "generator": "korean-english",
     "input": "pod",
-    "problem": "나무에 잎들이 날카로 덮여있어요.\n",
+    "problem": "나무잎들은 날카로 덮여있어요.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"잎\",\"english\":\"leaf\"},{\"korean\":\"날카\",\"english\":\"needle\"}],\"sentence\":{\"korean\":\"나무에 잎들이 날카로 덮여있어요.\",\"english\":\"The needles cover the leaves of the tree.\"}}",
+    "solution": "{\"나무잎들은 날카로 덮여있어요\":{\"나무잎들\":\"leaves\",\"날카\":\"needle\",\"덮여있어요\":\"covered\"}}\n\n         {\"english\":\"The leaves of the tree are covered with a sharp point.\"}",
     "id": 688
   },
   {
@@ -8801,26 +8801,26 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명예\",\"english\":\"honor\"},{\"korean\":\"행동\",\"english\":\"actions\"},{\"korean\":\"우리\",\"english\":\"we\"}],\"sentence\":{\"korean\":\"명예는 행동에 반영됩니다.\",\"english\":\"Honor is reflected in our actions.\"}}",
+    "solution": "{\"명예\":\"honor\",\"행동\":\"behavior\",\"반영\":\"reflected\",\"입니다\":\"is\"}\n\n         {\"english\":\"Integrity reflects in behavior.\"}",
     "id": 689
   },
   {
     "generator": "korean-english",
     "input": "plow",
-    "problem": "농기(農旗)는 땅을 날다.\n",
+    "problem": "농기(農旗)는 땅을 날립니다.\n",
     "length": 10,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"농기\",\"english\":\"plow\"},{\"korean\":\"땅\",\"english\":\"field\"},{\"korean\":\"날다\",\"english\":\"to till\"}],\"sentence\":{\"korean\":\"농기는 땅을 날다.\",\"english\":\"The plow tills the field.\"}}",
+    "solution": "{\"농기는\":\"The plough\",\"땅을\":\"the land\",\"날립니다\":\"is turning/tilting\"}\n\n         {\"english\":\"The plough turns the land.\"}",
     "id": 690
   },
   {
     "generator": "korean-english",
     "input": "wanton",
-    "problem": "무리(無理) 날카로 물을 나그리\n",
+    "problem": "물을 날카로 날아나다.\n",
     "length": 13,
     "tags": [
       "grade-5",
@@ -8828,39 +8828,39 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무리\",\"english\":\"recklessly\"},{\"korean\":\"날카\",\"english\":\"knife\"},{\"korean\":\"나그리\",\"english\":\"splash\"}],\"sentence\":{\"korean\":\"무리 날카로 물을 나그리\",\"english\":\"He carelessly plunged the knife into the water.\"}}",
+    "solution": "{\"물을 날카로 날아나다.\":\"To splash around playfully\",\"물\":\"Water\",\"날카로\":\"Like a splash\",\"날아나다.\":\"To splash around playfully\"}\n\n         {\"english\":\"He is running away like a mad dog.\"}",
     "id": 691
   },
   {
     "generator": "korean-english",
     "input": "soapy",
-    "problem": "오늘 비가 내고 있어요. 물기(물氣)가 비늘어나요.\n",
+    "problem": "비가 내(內)네요. 물기(물氣)가 비늘어(語)나네요.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "reading-comprehension",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오늘\",\"english\":\"Today\"},{\"korean\":\"비가 내리고 있어요\",\"english\":\"It's raining outside.\"},{\"korean\":\"물기가 비늘어나요\",\"english\":\"Bubbles are floating up.\"}],\"sentence\":{\"korean\":\"오늘 비가 내고 있어요. 물기가 비늘어나요.\",\"english\":\"It's raining today. Bubbles are floating up.\"}}",
+    "solution": "{\"비가 내네요\":\"It's raining\",\"물기가 비늘어나네요\":\"The puddles are getting bigger\"}\n\n         {\"english\":\"It's raining. The puddles are getting bigger.\"}",
     "id": 692
   },
   {
     "generator": "korean-english",
     "input": "splendid",
-    "problem": "아름다운 풍경(風景)은 눈에 남는다.\n",
+    "problem": "아름다운 풍경(風景)은 눈에 그려 남는다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아름다운\",\"english\":\"splendid\"},{\"korean\":\"풍경\",\"english\":\"landscape\"}],\"sentence\":{\"korean\":\"아름다운 풍경은 눈에 남는다.\",\"english\":\"The splendid landscape leaves a lasting impression in the eyes.\"}}",
+    "solution": "{\"아름다운\":\"beautiful\",\"풍경\":\"landscape\",\"눈\":\"eye\",\"그려\":\"stays etched\",\"남는다\":\"remains\"}\n\n         {\"english\":\"Beautiful scenery leaves a lasting impression on the eyes.\"}",
     "id": 693
   },
   {
     "generator": "korean-english",
     "input": "childish",
-    "problem": "아이물리(物理)한 감정(鑑定)은 적절(適切)한 이유(理由)를 이해(理解)해야 합니다.\n",
+    "problem": "아이물리(物理)한 감정(感情)은 이해(理解)하기 위해 적절(適切)한 이유(理由)를 탐구(探究)해야 합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -8869,13 +8869,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아이물리한\",\"english\":\"childish\"},{\"korean\":\"감정\",\"english\":\"feelings\"},{\"korean\":\"인지\",\"english\":\"reason\"}],\"sentence\":{\"korean\":\"아이물리한 감정은 적절한 이유를 이해해야 합니다.\",\"english\":\"Childish feelings need to be understood in order to make sense.\"}}",
+    "solution": "{\"아이물리한 감정은 이해하기 위해 적절한 이유를 탐구해야 합니다.\":\"Emotional responses are best understood by exploring the underlying reasons.\"}\n\n         {\"english\":\"Physical emotions need to be explored in order to understand them properly.\"}",
     "id": 694
   },
   {
     "generator": "korean-english",
     "input": "trouble",
-    "problem": "곤란(困難)은 해결책(解決策)을 찾는 것이 중요(重要)합니다.\n",
+    "problem": "곤란(困難)을 해결(解決)하기 위해 해결책(解決策)을 찾는 것이 중요(重要)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -8884,13 +8884,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"곤란\",\"english\":\"trouble\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"곤란은 해결책을 찾는 것이 중요합니다.\",\"english\":\"Trouble is important to find a solution.\"}}",
+    "solution": "{\"곤란을 해결하기 위해 해결책을 찾는 것이 중요합니다.\":\"Finding a solution is crucial for solving the problem.\"}\n\n         {\"english\":\"It is important to find a solution to solve the problem.\"}",
     "id": 695
   },
   {
     "generator": "korean-english",
     "input": "debatable",
-    "problem": "논쟁(論爭)할 만한 사안(事案)은, 어떤 이유(理由)로 여부(與否)를 결정(決定)할까?\n",
+    "problem": "논쟁(論爭)할 가치(價値) 있는 문제(問題)는, 어떤 이유(理由)에 따라 진실(眞實) 여부(與否)를 결정(決定)해야 합니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
@@ -8898,13 +8898,13 @@ export const problems = [
       "inference",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"논쟁할 만한\",\"english\":\"debatable\"},{\"korean\":\"사안\",\"english\":\"issue\"},{\"korean\":\"여부\",\"english\":\"whether\"}],\"sentence\":{\"korean\":\"논쟁할 만한 사안은, 어떤 이유로 여부를 결정할까?\",\"english\":\"A debatable issue is one where the answer is not easily determined.\"}}",
+    "solution": "{\"논쟁할 가치 있는 문제\":\"Significant issues to debate\",\"어떤 이유에 따라\":\"depending on the reasons\",\"진실 여부\":\"truthfulness\",\"결정해야 합니다\":\"must be determined\"}\n\n         {\"english\":\"Significant issues warrant an assessment of their veracity, as their truthfulness depends on the underlying reasons.\"}",
     "id": 696
   },
   {
     "generator": "korean-english",
     "input": "major",
-    "problem": "주요(主要) 학업(學業) 수준(水準)은 어떻게 설정(設定)할까?\n",
+    "problem": "주요(主要) 학업(學業) 수준(水準)은 어떻게 설정(設定)해야 할까?\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -8912,7 +8912,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"주요\",\"english\":\"major\"},{\"korean\":\"학업\",\"english\":\"studies\"},{\"korean\":\"수준\",\"english\":\"level\"}],\"sentence\":{\"korean\":\"주요 학업 수준은 어떻게 설정할까?\",\"english\":\"How should the major study level be set?\"}}",
+    "solution": "{\"주요 학업 수준은 어떻게 설정해야 할까?\":\"How should the main academic level be set?\",\"학업 수준\":\"Academic level\",\"주요\":\"Main\",\"설정\":\"Setting\",\"어떻게\":\"How\",\" 설정해야\":\"should be set\",\"할까\":\"to\"}\n\n         {\"english\":\"What is the best way to set the main learning level?\"}",
     "id": 697
   },
   {
@@ -8927,13 +8927,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"bane\",\"english\":\"harm\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"확산\",\"english\":\"spread\"}],\"sentence\":{\"korean\":\"bane는 피해를 확산합니다.\",\"english\":\"Harm spreads damage.\"}}",
+    "solution": "{\"bane는 피해를 확산합니다.\":\"The bane spreads damage\",\"bane\":\"bane\",\"피해\":\"damage\",\"확산\":\"spread\",\"합니다\":\"does\"}\n\n         {\"english\":\"The bane spreads damage.\"}",
     "id": 698
   },
   {
     "generator": "korean-english",
     "input": "pump",
-    "problem": "펌프는 물리학적(物理學的)으로 물을 움직이는 기기(機器)입니다.\n",
+    "problem": "펌프는 물을 물리학적(物理學的)으로 움직이는 기기(機器)입니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -8941,25 +8941,25 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"펌프\",\"english\":\"pump\"},{\"korean\":\"수\",\"english\":\"water\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"펌프는 물리학적으로 물을 움직이는 기기입니다.\",\"english\":\"A pump is a device that moves water physically based on physics.\"}}",
+    "solution": "{\"펌프\":\"Pump\",\"물\":\"Water\",\"물리학적으로\":\"Physically\",\"움직이는\":\"Moving\",\"기기\":\"Device\"}\n\n         {\"english\":\"A pump is a device that physically moves water.\"}",
     "id": 699
   },
   {
     "generator": "korean-english",
     "input": "charge",
-    "problem": "전(傳)하는 운동(運動)하는 물질(物質)에 전기(電氣)를 유입(流入)합니다.\n",
+    "problem": "전(傳)하는 물질(物質)은 운동(運動)하면 전기(電氣)를 유입(流入)합니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전하\",\"english\":\"charge\"},{\"korean\":\"운동\",\"english\":\"motion\"},{\"korean\":\"전기\",\"english\":\"electricity\"}],\"sentence\":{\"korean\":\"전하는 운동하는 물질에 전기를 유입합니다.\",\"english\":\"Charge is absorbed into a moving material, creating electricity.\"}}",
+    "solution": "{\"전하는 물질은 운동하면 전기를 유입합니다.\":\"The material being transported generates electricity when in motion.\"}\n\n         {\"english\":\"When matter is in motion, it generates electricity.\"}",
     "id": 700
   },
   {
     "generator": "korean-english",
     "input": "per",
-    "problem": "거대(巨大)한 파도(波濤)가 바람에 의(依)해 이리저리 흔들립니다.\n",
+    "problem": "거대(巨大)한 파도(波濤)는 바람에 의(依)해 이리저리 흔들립니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -8968,103 +8968,103 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거대한\",\"english\":\"huge\"},{\"korean\":\"파도\",\"english\":\"wave\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"거대한 파도가 바람에 의해 이리저리 흔들립니다.\",\"english\":\"Huge waves are tossed and turned by the wind.\"}}",
+    "solution": "{\"거대한 파도\":\"Vast waves\",\"바람\":\"Wind\",\"흔들립니다\":\"Are tossed about\"}\n\n         {\"english\":\"Massive waves are tossed and turned by the wind.\"}",
     "id": 701
   },
   {
     "generator": "korean-english",
     "input": "aide",
-    "problem": "도움이 필요(必要)한 작업(作業)을 완료(完了)했습니다.\n",
+    "problem": "도움이 필요(必要)했던 작업(作業)을 완료(完了)했습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"도움\",\"english\":\"help\"},{\"korean\":\"작업\",\"english\":\"assignment\"},{\"korean\":\"완료\",\"english\":\"complete\"}],\"sentence\":{\"korean\":\"도움이 필요한 작업을 완료했습니다.\",\"english\":\"I completed the assignment that required help.\"}}",
+    "solution": "{\"도움이 필요했던 작업을 완료했습니다.\":\"The necessary task was completed.\",\"작업\":\"task\",\"필요했던\":\"necessary\",\"완료했습니다\":\"was completed\"}\n\n         {\"english\":\"I completed the task that required assistance.\"}",
     "id": 702
   },
   {
     "generator": "korean-english",
     "input": "prairie",
-    "problem": "풀바닥에 풍경(風景)이 아름다워.\n",
+    "problem": "풀바닥에 풍경(風景)이 아름답네.\n",
     "length": 14,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"풀\",\"english\":\"grass\"},{\"korean\":\"바닥\",\"english\":\"ground\"},{\"korean\":\"풍경\",\"english\":\"landscape\"}],\"sentence\":{\"korean\":\"풀바닥에 풍경이 아름다워.\",\"english\":\"The landscape is beautiful on the grass ground.\"}}",
+    "solution": "{\"풀바닥\":\"muddy bottom\",\"풍경\":\"landscape\",\"아름답네\":\"is beautiful\"}\n\n         {\"english\":\"The scenery at the bottom of the pool is beautiful.\"}",
     "id": 703
   },
   {
     "generator": "korean-english",
     "input": "ecstatic",
-    "problem": "낙심(落心)으로 무용(無用)한 춤을 추고 있습니다.\n",
+    "problem": "낙심(落心)에 무용(無用)한 춤을 추고 있어요.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"낙심\",\"english\":\"joyful\"},{\"korean\":\"춤추기\",\"english\":\"to dance\"},{\"korean\":\"무용한\",\"english\":\"effortless\"}],\"sentence\":{\"korean\":\"낙심으로 무용한 춤을 추고 있습니다.\",\"english\":\"They are dancing ecstatically.\"}}",
+    "solution": "{\"낙심에\":\"Feeling down\",\"무용한\":\"Meaningless\",\"춤\":\"Dance\",\"추고 있어요\":\"Is doing\"}\n\n         {\"english\":\"He/She is dancing foolishly out of boredom.\"}",
     "id": 704
   },
   {
     "generator": "korean-english",
     "input": "sleigh",
-    "problem": "슬라이는 하늘 아래 바람에 흔들려갑니다.\n",
+    "problem": "슬라이는 바람에 흔들려 하늘 아래로 떠납니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"슬라이\",\"english\":\"sled\"},{\"korean\":\"하늘\",\"english\":\"sky\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"슬라이는 하늘 아래 바람에 흔들려갑니다.\",\"english\":\"The sled is blown around by the wind under the sky.\"}}",
+    "solution": "{\"슬라이\":\"slide\",\"바람\":\"wind\",\"흔들려\":\"to sway\",\"하늘 아래로\":\"towards the sky\",\"떠납니다\":\"is lifted up\"}\n\n         {\"english\":\"The snowflake is tossed by the wind and drifts down towards the ground.\"}",
     "id": 705
   },
   {
     "generator": "korean-english",
     "input": "endangered",
-    "problem": "멸종(滅種) 위험(危險) 동물(動物)들은 생태계(生態系)의 건강(健康)을 위협(威脅)합니다.\n",
+    "problem": "멸종(滅種) 위험(危險)한 동물(動物)들은 생태계(生態系) 건강(健康)에 위협(威脅)이 됩니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"멸종 위험\",\"english\":\"endangered\"},{\"korean\":\"동물\",\"english\":\"animal\"},{\"korean\":\"생태계\",\"english\":\"ecosystem\"}],\"sentence\":{\"korean\":\"멸종 위험 동물들은 생태계의 건강을 위협합니다.\",\"english\":\"Endangered animals threaten the health of ecosystems.\"}}",
+    "solution": "{\"멸종 위험한 동물들은 생태계 건강에 위협이 됩니다.\":\"Endangered animals threaten ecosystem health.\",\"멸종 위험한 동물들\":\"Endangered animals\",\"생태계 건강\":\"Ecosystem health\",\"위협\":\"Threat\",\"동물들\":\"Animals\"}\n\n         {\"english\":\"Endangered animals threaten the health of ecosystems.\"}",
     "id": 706
   },
   {
     "generator": "korean-english",
     "input": "detailed",
-    "problem": "상세(詳細)한 정보(情報) 보고서(報告書)를 제출(提出)했습니다.\n",
+    "problem": "상세(詳細) 정보(情報) 보고서(報告書)를 제출(提出)했습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상세\",\"english\":\"detailed\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"보고\",\"english\":\"report\"}],\"sentence\":{\"korean\":\"상세한 정보 보고서를 제출했습니다.\",\"english\":\"A detailed report was submitted.\"}}",
+    "solution": "{\"상세 정보 보고서를 제출했습니다.\":\"Detailed information report was submitted.\",\"상세 정보\":\"Detailed information\",\"보고서\":\"Report\",\"제출했습니다.\":\"submitted\"}\n\n         {\"english\":\"A detailed report was submitted.\"}",
     "id": 707
   },
   {
     "generator": "korean-english",
     "input": "camper",
-    "problem": "캠퍼는 물리학적(物理學的)으로 이동(移動)할 때 움직임이 발생(發生)합니다.\n",
+    "problem": "캠퍼는 물리적(物理的)으로 이동(移動)할 때 자연적(自然的)으로 움직임이 발생(發生)합니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "physics",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"캠퍼\",\"english\":\"camper\"},{\"korean\":\"물리학\",\"english\":\"physics\"},{\"korean\":\"움직임\",\"english\":\"motion\"}],\"sentence\":{\"korean\":\"캠퍼는 물리학적으로 이동할 때 움직임이 발생합니다.\",\"english\":\"A camper experiences motion due to physics during movement.\"}}",
+    "solution": "{\"캠퍼\":\"camper\",\"물리적으로\":\"physically\",\"이동할\":\"to move\",\"자연적으로\":\"naturally\",\"움직임\":\"movement\",\"발생합니다\":\"occurs\"}\n\n         {\"english\":\"When a camper physically moves, natural movements occur.\"}",
     "id": 708
   },
   {
     "generator": "korean-english",
     "input": "pernicious",
-    "problem": "악명(惡名)의 침략(侵略)은 피해(被害)를 입히고 있습니다.\n",
+    "problem": "악명(惡名)이 침략(侵略)하면 피해(被害)를 입히고 있습니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -9072,26 +9072,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"악명\",\"english\":\"pernicious\"},{\"korean\":\"침략\",\"english\":\"invasion\"},{\"korean\":\"피해\",\"english\":\"damage\"}],\"sentence\":{\"korean\":\"악명의 침략은 피해를 입히고 있습니다.\",\"english\":\"The invasion of the pernicious force is causing damage.\"}}",
+    "solution": "{\"악명이 침략하면 피해를 입히고 있습니다.\":\"When fame attacks, it causes damage.\"}\n\n         {\"english\":\"When fame attacks, it causes damage.\"}",
     "id": 709
   },
   {
     "generator": "korean-english",
     "input": "convoy",
-    "problem": "군사대열(軍事隊列)은 보호(保護)를 위해 이동(移動)합니다.\n",
+    "problem": "군사대열(軍事隊列)은 보호(保護)를 위해 이동(移動)하고 있습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"대열\",\"english\":\"convoy\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"군사\",\"english\":\"military\"}],\"sentence\":{\"korean\":\"군사대열은 보호를 위해 이동합니다.\",\"english\":\"The military convoy moves for protection.\"}}",
+    "solution": "{\"군사대열\":\"Military column\",\"보호\":\"Protection\",\"이동\":\"Move\",\"고 있습니다\":\"is moving\"}\n\n         {\"english\":\"Military units are moving for protection.\"}",
     "id": 710
   },
   {
     "generator": "korean-english",
     "input": "luckily",
-    "problem": "행복(幸福)하게 우연히(偶然히) 날짜가 좋은 날이었어요.\n",
+    "problem": "행복(幸福)한 우연(偶然)으로 날짜가 좋은 날이었어요.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -9100,13 +9100,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"행복하게\",\"english\":\"luckily\"},{\"korean\":\"우연히\",\"english\":\"coincidentally\"},{\"korean\":\"날짜가\",\"english\":\"it just so happens that\"},{\"korean\":\"좋아\",\"english\":\"good\"}],\"sentence\":{\"korean\":\"행복하게 우연히 날짜가 좋은 날이었어요.\",\"english\":\"Fortunately, it just so happened that the day was good.\"}}",
+    "solution": "{\"행복한\":\"happy\",\"우연\":\"coincidence\",\"날짜\":\"date\",\"좋은\":\"good\",\"날\":\"day\"}\n\n         {\"english\":\"It was a lucky day with a great date.\"}",
     "id": 711
   },
   {
     "generator": "korean-english",
     "input": "inspect",
-    "problem": "학교(學校)에서 학생(學生)의 검사(檢事)는 중요(重要)합니다.\n",
+    "problem": "학교(學校)에서 학생(學生)의 시험(試驗)은 중요(重要)합니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -9114,170 +9114,170 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"검사\",\"english\":\"inspection\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"학교\",\"english\":\"school\"}],\"sentence\":{\"korean\":\"학교에서 학생의 검사는 중요합니다.\",\"english\":\"Inspection is important for students at school.\"}}",
+    "solution": "{\"학교에서\":\"At school\",\"학생의\":\"students'\",\"시험\":\"exams\",\"중요합니다\":\"are important\"}\n\n         {\"english\":\"Exams are important for students in school.\"}",
     "id": 712
   },
   {
     "generator": "korean-english",
     "input": "sherry",
-    "problem": "서리꽃은 보름에 만나요.\n",
+    "problem": "서리꽃은 보름에 만납니다.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"서리\",\"english\":\"cherry\"},{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"보름\",\"english\":\"blooming\"}],\"sentence\":{\"korean\":\"서리꽃은 보름에 만나요.\",\"english\":\"Cherry blossoms bloom in spring.\"}}",
+    "solution": "{\"서리꽃은 보름에 만납니다.\":\"The lotus flower blooms in summer.\"}\n\n         {\"english\":\"Lotus flowers bloom in summer.\"}",
     "id": 713
   },
   {
     "generator": "korean-english",
     "input": "obsession",
-    "problem": "집착(執着)은 우연한 사건(事件)과 세상(世上)의 모든 일이 연결(連結)됩니다.\n",
+    "problem": "집착(執着)은 우연한 일(一)과 세상(世上)의 모든 것이 연결(連結)됩니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"집착\",\"english\":\"obsession\"},{\"korean\":\"우연\",\"english\":\"coincidence\"},{\"korean\":\"세상\",\"english\":\"world\"}],\"sentence\":{\"korean\":\"집착은 우연한 사건과 세상의 모든 일이 연결됩니다.\",\"english\":\"Obsession is when coincidences and things in the world all connect to each other.\"}}",
+    "solution": "{\"집착은 우연한 일\":\"Random wandering\",\"세상의 모든 것이 연결됩니다\":\"Everything in the world is connected\"}\n\n         {\"english\":\"Obsessiveness connects everything in the world, even the most random events.\"}",
     "id": 714
   },
   {
     "generator": "korean-english",
     "input": "independently",
-    "problem": "독립적(獨立的)으로 우리는 작업(作業)을 합니다\n",
+    "problem": "우리 스스로 작업(作業)을 합니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"독립적으로\",\"english\":\"independently\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"작업을 합니다\",\"english\":\"complete the task\"}],\"sentence\":{\"korean\":\"독립적으로 우리는 작업을 합니다\",\"english\":\"We independently complete the task.\"}}",
+    "solution": "{\"우리\":\"we\",\"스스로\":\"ourselves\",\"작업\":\"work\",\"합니다\":\"are doing\"}\n\n         {\"english\":\"We do the work ourselves.\"}",
     "id": 715
   },
   {
     "generator": "korean-english",
     "input": "food",
-    "problem": "매일(每日) 음식(飮食)은 맛있어요.\n",
+    "problem": "매일(每日) 음식(飮食)은 맛있네요.\n",
     "length": 12,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"음식\",\"english\":\"food\"},{\"korean\":\"맛있어요\",\"english\":\"is delicious\"},{\"korean\":\"매일\",\"english\":\"every day\"}],\"sentence\":{\"korean\":\"매일 음식은 맛있어요.\",\"english\":\"Food is delicious every day.\"}}",
+    "solution": "{\"매일\":\"every day\",\"음식\":\"food\",\"맛있네요\":\"is delicious\"}\n\n         {\"english\":\"Every day, the food is delicious.\"}",
     "id": 716
   },
   {
     "generator": "korean-english",
     "input": "capitalize",
-    "problem": "자본(資本)을 말의 처음 부분(部分)에 합니다.\n",
+    "problem": "자본(資本)은 말의 처음 부분(部分)에 위치(位置)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"자본을\",\"english\":\"to capitalize\"},{\"korean\":\"말의 처음 부분\",\"english\":\"the first part of a sentence\"}],\"sentence\":{\"korean\":\"자본을 말의 처음 부분에 합니다.\",\"english\":\"We capitalize the first part of a sentence.\"}}",
+    "solution": "{\"자본\":\"capital\",\"말\":\"word\",\"처음\":\"first\",\"부분\":\"part\",\"위치합니다\":\"is located\"}\n\n         {\"english\":\"The capital is located at the beginning of the sentence.\"}",
     "id": 717
   },
   {
     "generator": "korean-english",
     "input": "profound",
-    "problem": "깊은 생각은 깊이에 존재(存在)합니다.\n",
+    "problem": "깊은 생각은 깊은 곳에 존재(存在)합니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"깊이\",\"english\":\"depth\"},{\"korean\":\"생각\",\"english\":\"thought\"},{\"korean\":\"깊은\",\"english\":\"profound\"}],\"sentence\":{\"korean\":\"깊은 생각은 깊이에 존재합니다.\",\"english\":\"Profound thoughts exist at great depth.\"}}",
+    "solution": "{\"깊은 생각\":\"deep thoughts\",\"깊은 곳\":\"deep places\",\"존재합니다\":\"exist\"}\n\n         {\"english\":\"Deep thoughts exist in deep places.\"}",
     "id": 718
   },
   {
     "generator": "korean-english",
     "input": "scream",
-    "problem": "소리는 발산점(發散點)에서 피크를 이루었다.\n",
+    "problem": "소리는 발산점(發散點)에서 최고점(最高點)에 도달(到達)했다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"소리\",\"english\":\"sound\"},{\"korean\":\"발산\",\"english\":\"explosion\"},{\"korean\":\"피크\",\"english\":\"peak\"}],\"sentence\":{\"korean\":\"소리는 발산점에서 피크를 이루었다.\",\"english\":\"The sound reached its peak at the explosion point.\"}}",
+    "solution": "{\"소리\":\"sound\",\"발산점\":\"origin point\",\"최고점\":\"peak\",\"도달했다\":\"reached\"}\n\n         {\"english\":\"The sound has reached its peak at the source point.\"}",
     "id": 719
   },
   {
     "generator": "korean-english",
     "input": "playful",
-    "problem": "다양한 활동(活動)을 통해 놀회롭게 시간(時間)을 보내다.\n",
+    "problem": "다양한 활동(活動)을 통해 시간(時間)을 즐기다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"놀회롭다\",\"english\":\"to be playful\"},{\"korean\":\"다양한\",\"english\":\"various\"},{\"korean\":\"놀기\",\"english\":\"play\"}],\"sentence\":{\"korean\":\"다양한 활동을 통해 놀회롭게 시간을 보내다.\",\"english\":\"He/She spends time playfully engaging in various activities.\"}}",
+    "solution": "{\"다양한 활동\":\"various activities\",\"시간\":\"time\",\"즐기다\":\"to enjoy\",\"활동\":\"activities\",\"다양\":\"various\",\"즐기\":\"to find pleasure in\"}\n\n         {\"english\":\"To enjoy time through various activities.\"}",
     "id": 720
   },
   {
     "generator": "korean-english",
     "input": "extinguish",
-    "problem": "불은 물로 끄겼다.\n",
+    "problem": "불은 물로 소화(消化)됐다.\n",
     "length": 10,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"끄기\",\"english\":\"to extinguish\"},{\"korean\":\"불\",\"english\":\"fire\"},{\"korean\":\"소주\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"불은 물로 끄겼다.\",\"english\":\"The fire was extinguished by water.\"}}",
+    "solution": "{\"불은 물로 소화됐다.\":\"The fire was consumed by water.\"}\n\n         {\"english\":\"The fire was digested by water.\"}",
     "id": 721
   },
   {
     "generator": "korean-english",
     "input": "skinner",
-    "problem": "피부(皮膚)는 살의(殺意) 숨을 담당(擔當)합니다.\n",
+    "problem": "피부(皮膚)는 살의(殺意) 생명력(生命力)을 담당(擔當)합니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피부\",\"english\":\"skin\"},{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"숨\",\"english\":\"breath\"}],\"sentence\":{\"korean\":\"피부는 살의 숨을 담당합니다.\",\"english\":\"The skin breathes life's breath.\"}}",
+    "solution": "{\"피부\":\"Skin\",\"살\":\"Life\",\"생명력\":\"Vitality\",\"담당\":\"Responsible for\"}\n\n         {\"english\":\"The skin is responsible for the vitality of life.\"}",
     "id": 722
   },
   {
     "generator": "korean-english",
     "input": "additive",
-    "problem": "수치(數値) 3개(個)를 증가(增加)하여 총계(總計)를 계산(計算)합니다.\n",
+    "problem": "3개(個)의 수치(數値)를 더하여 총계(總計)를 계산(計算)합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "arithmetic",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"증가\",\"english\":\"addition\"},{\"korean\":\"수치\",\"english\":\"number\"},{\"korean\":\"총계\",\"english\":\"sum\"}],\"sentence\":{\"korean\":\"수치 3개를 증가하여 총계를 계산합니다.\",\"english\":\"The sum can be calculated by adding up 3 numbers.\"}}",
+    "solution": "{\"3개의 수치를 더하여 총계를 계산합니다.\":\"Total is calculated by adding 3 values.\"}\n\n         {\"english\":\"The total is calculated by adding up three values.\"}",
     "id": 723
   },
   {
     "generator": "korean-english",
     "input": "homosexual",
-    "problem": "동성애(同性愛) 사람도 정말(正말) 사람입니다.\n",
+    "problem": "동성애(同性愛)도 사람은 정말(正말) 사람입니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동성애\",\"english\":\"homosexuality\"},{\"korean\":\"사람\",\"english\":\"person\"}],\"sentence\":{\"korean\":\"동성애 사람도 정말 사람입니다.\",\"english\":\"Humans who are homosexual are also truly people.\"}}",
+    "solution": "{\"동성애도 사람은 정말 사람입니다.\":\"Same-sex love is also truly love.\"}\n\n         {\"english\":\"Even same-sex relationships are truly human.\"}",
     "id": 724
   },
   {
     "generator": "korean-english",
     "input": "dribble",
-    "problem": "방울이 날카에 바닥에 떨어나\n",
+    "problem": "방울이 날카에 떨어나서 바닥에 떨어났다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방울\",\"english\":\"drop\"},{\"korean\":\"날카\",\"english\":\"wind\"},{\"korean\":\"바닥\",\"english\":\"floor\"}],\"sentence\":{\"korean\":\"방울이 날카에 바닥에 떨어나\",\"english\":\"The droplets dripped from the wind onto the floor\"}}",
+    "solution": "{\"방울이\":\"Seedling\",\"날카\":\"Needle\",\"떨어나서\":\"Fell from\",\"바닥\":\"Floor\",\"떨어났다\":\"Fell\"}\n\n         {\"english\":\"The marble fell from the table and landed on the floor.\"}",
     "id": 725
   },
   {
@@ -9291,7 +9291,7 @@ export const problems = [
       "speed",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피프\",\"english\":\"pep\"},{\"korean\":\"발걸음\",\"english\":\"step\"},{\"korean\":\"속도\",\"english\":\"speed\"}],\"sentence\":{\"korean\":\"피프 발걸음은 속도를 높여 다양한 곳에 도달합니다.\",\"english\":\"Pep step can reach various places by increasing speed.\"}}",
+    "solution": "{\"피프 발걸음\":\"foot steps\",\"속도\":\"speed\",\"다양한\":\"various\",\"곳\":\"places\",\"도달합니다\":\"arrive\"}\n\n         {\"english\":\"The pip foot step speeds up and reaches various places.\"}",
     "id": 726
   },
   {
@@ -9304,26 +9304,26 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"우리\",\"english\":\"us\"},{\"korean\":\"세상\",\"english\":\"world\"}],\"sentence\":{\"korean\":\"우리는 세상을 보호해야 합니다.\",\"english\":\"We must protect the world.\"}}",
+    "solution": "{\"우리는\":\"We must\",\"세상\":\"world\",\"보호\":\"protect\",\"야 합니다\":\"it is our responsibility\"}\n\n         {\"english\":\"We must protect the world.\"}",
     "id": 727
   },
   {
     "generator": "korean-english",
     "input": "vane",
-    "problem": "vane는 바람에 날개를 날립니다.\n",
+    "problem": "바람이 바람날개를 날리며vane가 날립니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"vane\",\"english\":\"wing\"},{\"korean\":\"날개\",\"english\":\"feather\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"vane는 바람에 날개를 날립니다.\",\"english\":\"The wing is flying in the wind.\"}}",
+    "solution": "{\"바람\":\"wind\",\"바람날개\":\"wind vane\",\"날리다\":\"to rotate\",\"vane\":\"vane\",\"날립니다\":\"is rotating\"}\n\n         {\"english\":\"The wind blows the windmill wings and the vane spins.\"}",
     "id": 728
   },
   {
     "generator": "korean-english",
     "input": "drawn",
-    "problem": "지금(只今) 그림자는 끌려 있습니다.\n",
+    "problem": "지금(只今) 그림자는 끌려가고 있습니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
@@ -9331,64 +9331,64 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"그림자\",\"english\":\"shadow\"},{\"korean\":\"끌려\",\"english\":\"drawn\"},{\"korean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"지금 그림자는 끌려 있습니다.\",\"english\":\"The shadow is drawn now.\"}}",
+    "solution": "{\"지금\":\"now\",\"그림자\":\"shadow\",\"끌려가고\":\"is being dragged\",\"있습니다\":\"exists\"}\n\n         {\"english\":\"The shadow is being dragged away right now.\"}",
     "id": 729
   },
   {
     "generator": "korean-english",
     "input": "accountant",
-    "problem": "계정(計定) 책임(責任)은 업무(業務)에 매우 중요(重要)합니다.\n",
+    "problem": "계정(計定) 책임(責任)은 업무(業務)의 성공(成功)에 매우 중요(重要)합니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"계정\",\"english\":\"account\"},{\"korean\":\"책임\",\"english\":\"responsibility\"},{\"korean\":\"업무\",\"english\":\"duty\"}],\"sentence\":{\"korean\":\"계정 책임은 업무에 매우 중요합니다.\",\"english\":\"Accountability is very important in business.\"}}",
+    "solution": "{\"계정 책임\":\"accountability\",\"업무\":\"business\",\"성공\":\"success\",\"매우\":\"extremely\",\"중요합니다\":\"is crucial\"}\n\n         {\"english\":\"Financial responsibility is crucial for business success.\"}",
     "id": 730
   },
   {
     "generator": "korean-english",
     "input": "weighty",
-    "problem": "중요(重要)한 부담(負擔)은 물리적(物理的)으로도 중요(重要)합니다.\n",
+    "problem": "물리적(物理的)으로도 중요(重要)한 부담(負擔)은 물리적(物理的)으로도 중요(重要)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"중요\",\"english\":\"important\"},{\"korean\":\"부담\",\"english\":\"burden\"},{\"korean\":\"물리적\",\"english\":\"physical\"}],\"sentence\":{\"korean\":\"중요한 부담은 물리적으로도 중요합니다.\",\"english\":\"The physical burden is also important in terms of importance.\"}}",
+    "solution": "{\"물리적으로도 중요한 부담\":\"Physiological burden\",\"물리적으로도 중요합니다\":\"is also important physically\"}\n\n         {\"english\":\"Physical burdens are also important physically.\"}",
     "id": 731
   },
   {
     "generator": "korean-english",
     "input": "warm",
-    "problem": "따뜻한 감기(感氣)는 보온(保溫)을 해준다.\n",
+    "problem": "따뜻한 감기(感氣)는 보온(保溫)을 해줍니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"따뜻한\",\"english\":\"warm\"},{\"korean\":\"감기\",\"english\":\"cold\"},{\"korean\":\"보온\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"따뜻한 감기는 보온을 해준다.\",\"english\":\"Warmth can protect against the cold.\"}}",
+    "solution": "{\"따뜻한 감기\":\"Warm cold\",\"보온\":\"Isolation\",\"해줍니다\":\"Provides relief\"}\n\n         {\"english\":\"A warm cold can protect you from the cold.\"}",
     "id": 732
   },
   {
     "generator": "korean-english",
     "input": "whichever",
-    "problem": "무슨 상황(狀況)이라도, 좋아하면 해\n",
+    "problem": "무슨 상황(狀況)이든, 좋아하면 해\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무슨\",\"english\":\"whatever\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"좋아\",\"english\":\"likes\"}],\"sentence\":{\"korean\":\"무슨 상황이라도, 좋아하면 해\",\"english\":\"Whatever the situation, if you like it, do it.\"}}",
+    "solution": "{\"무슨 상황이든\":\"In any situation\",\"좋아하면 해\":\"I like it, so be it\"}\n\n         {\"english\":\"Whatever the situation, do what you like.\"}",
     "id": 733
   },
   {
     "generator": "korean-english",
     "input": "snarl",
-    "problem": "성물(聖物)은 치명적(致命的)인 견주(犬主)가 될 수 있습니다.\n",
+    "problem": "성물(聖物)은 치명적(致命的)인 위험(危險)이 될 수 있습니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -9397,26 +9397,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"성물\",\"english\":\"snarl\"},{\"korean\":\"치명\",\"english\":\"dangerous\"},{\"korean\":\"견주\",\"english\":\"leader\"}],\"sentence\":{\"korean\":\"성물은 치명적인 견주가 될 수 있습니다.\",\"english\":\"A snarling dog can become a dangerous leader.\"}}",
+    "solution": "{\"성물\":\"creature\",\"치명적인\":\"lethal\",\"위험\":\"risk\",\"일 수 있습니다\":\"can be\"}\n\n         {\"english\":\"The creature can become a deadly danger.\"}",
     "id": 734
   },
   {
     "generator": "korean-english",
     "input": "waltz",
-    "problem": "말츠에서 용자와 함께 춤을 합니다.\n",
+    "problem": "말츠에서 용자(龍者)들과 함께 춤을 합니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말츠\",\"english\":\"waltz\"},{\"korean\":\"춤\",\"english\":\"dance\"},{\"korean\":\"용자\",\"english\":\"partner\"}],\"sentence\":{\"korean\":\"말츠에서 용자와 함께 춤을 합니다.\",\"english\":\"They dance a waltz together.\"}}",
+    "solution": "{\"말츠에서\":\"In Malts\",\"용자들\":\"Warriors\",\"과\":\"with\",\"춤\":\"Dance\",\"합니다\":\"does\"}\n\n         {\"english\":\"They are dancing with the heroes in Malts.\"}",
     "id": 735
   },
   {
     "generator": "korean-english",
     "input": "approximately",
-    "problem": "약간(若干) 시간(時間) 경험(經驗)이 많으면 좋은 결과(結果)를 얻을 수 있습니다.\n",
+    "problem": "시간(時間)을 경험(經驗)하면 좋은 결과(結果)를 얻을 수 있습니다.\n",
     "length": 31,
     "tags": [
       "grade-5",
@@ -9424,13 +9424,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"약간\",\"english\":\"somewhat\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"경험\",\"english\":\"experience\"}],\"sentence\":{\"korean\":\"약간 시간 경험이 많으면 좋은 결과를 얻을 수 있습니다.\",\"english\":\"The more time you have experience, the better results you will get.\"}}",
+    "solution": "{\"시간을 경험하면 좋은 결과를 얻을 수 있습니다.\":\"Time spent experiences can lead to good results.\"}\n\n         {\"english\":\"Experience time and you can achieve good results.\"}",
     "id": 736
   },
   {
     "generator": "korean-english",
     "input": "toothpaste",
-    "problem": "치약(齒藥)을 치아(齒牙)에 풀리다.\n",
+    "problem": "치약(齒藥)을 치아(齒牙)에 적절(適切)히 풀리다.\n",
     "length": 12,
     "tags": [
       "grade-5",
@@ -9438,50 +9438,50 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치약\",\"english\":\"toothpaste\"},{\"korean\":\"치아\",\"english\":\"tooth\"},{\"korean\":\"풀리다\",\"english\":\"to brush\"}],\"sentence\":{\"korean\":\"치약을 치아에 풀리다.\",\"english\":\"They brush their teeth with toothpaste.\"}}",
+    "solution": "{\"치약을 치아에 적절히 풀리다.\":\"To apply toothpaste to teeth appropriately\",\"치약\":\"Toothpaste\",\"치아\":\"Teeth\",\"적절히\":\"appropriately\",\"풀리다.\":\"To apply\"}\n\n         {\"english\":\"Brush the teeth with an appropriate amount of toothpaste.\"}",
     "id": 737
   },
   {
     "generator": "korean-english",
     "input": "diagonal",
-    "problem": "대각선(對角線)은 직각(直角)의 두 점(點)에서 만납니다.\n",
+    "problem": "대각선(對角線)은 직각(直角)의 두 변(邊)의 끝점(끝點)에서 만납니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"대각선\",\"english\":\"diagonal\"},{\"korean\":\"직각\",\"english\":\"right angle\"},{\"korean\":\"점\",\"english\":\"point\"}],\"sentence\":{\"korean\":\"대각선은 직각의 두 점에서 만납니다.\",\"english\":\"The diagonal meets at two points on a right angle.\"}}",
+    "solution": "{\"대각선\":\"diagonal\",\"직각\":\"right angle\",\"변\":\"side\",\"끝점\":\"endpoint\",\"만납니다\":\"meets\"}\n\n         {\"english\":\"The diagonal line meets at the endpoints of the two sides of a rectangle.\"}",
     "id": 738
   },
   {
     "generator": "korean-english",
     "input": "tinker",
-    "problem": "치명적(致命的)으로 문제(問題)를 돌려다니다.\n",
+    "problem": "매우 심각(深刻)한 문제(問題)가 발생(發生)했습니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"돌려다니다\",\"english\":\"to tinker around\"},{\"korean\":\"치명적으로\",\"english\":\"urgently\"},{\"korean\":\"문제\",\"english\":\"problem\"}],\"sentence\":{\"korean\":\"치명적으로 문제를 돌려다니다.\",\"english\":\"He is urgently tinkering around the problem.\"}}",
+    "solution": "{\"매우 심각한 문제가 발생했습니다.\":\"A very serious problem has occurred.\",\"매우\":\"very\",\"심각한\":\"serious\",\"문제\":\"problem\",\"가\":\"has\",\"발생했습니다.\":\"occurred\"}\n\n         {\"english\":\"A very serious problem has occurred.\"}",
     "id": 739
   },
   {
     "generator": "korean-english",
     "input": "pedagogy",
-    "problem": "교수학(敎授學)은 학습(學習)의 목표(目標)를 설정(設定)하고 이를 달성(達成)하기 위해 계획(計劃)과 방법(方法)을 연구(硏究)합니다.\n",
+    "problem": "교수학(敎授學)은 학습(學習) 목표(目標)를 설정(設定)하고 이를 달성(達成)하기 위해 계획(計劃)과 방법(方法)을 연구(硏究)합니다.\n",
     "length": 43,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"교수학\",\"english\":\"Pedagogy\"},{\"korean\":\"학습\",\"english\":\"Learning\"},{\"korean\":\"목표\",\"english\":\"Goal\"}],\"sentence\":{\"korean\":\"교수학은 학습의 목표를 설정하고 이를 달성하기 위해 계획과 방법을 연구합니다.\",\"english\":\"Pedagogy researches plans and methods to set and achieve learning goals.\"}}",
+    "solution": "{\"교수학\":\"Curriculum development\",\"학습 목표\":\"Learning objectives\",\"설정\":\"Setting\",\"계획\":\"Planning\",\"방법\":\"Methods\",\"연구\":\"Research\"}\n\n         {\"english\":\"Academic research explores the setting of learning goals and planning and strategizing ways to achieve them.\"}",
     "id": 740
   },
   {
     "generator": "korean-english",
     "input": "solitary",
-    "problem": "외로움은 삶의 깨진 부분(部分)이 될 수 있다.\n",
+    "problem": "외로움은 삶에서 필연적(必然的)으로 나타날 수 있으며, 이는 삶의 일부(一部)가 될 수 있다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -9489,13 +9489,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"외로움\",\"english\":\"solitude\"},{\"korean\":\"삶\",\"english\":\"life\"},{\"korean\":\"깨진\",\"english\":\"broken\"}],\"sentence\":{\"korean\":\"외로움은 삶의 깨진 부분이 될 수 있다.\",\"english\":\"Solitude can be a broken part of life.\"}}",
+    "solution": "{\"외로움은\":\"Loneliness is\",\"삶에서 필연적으로 나타날 수 있다\":\"an inevitable part of life\",\"이는\":\"This\",\"삶의 일부가 될 수 있다\":\"can be a part of life\"}\n\n         {\"english\":\"Loneliness is an inevitable part of life, and can be a part of the human experience.\"}",
     "id": 741
   },
   {
     "generator": "korean-english",
     "input": "eviction",
-    "problem": "보호(保護)받은 거주민(居住民)들은 소유권(所有權)을 가지고 있어 이직(移職)은 불가능(不可能)합니다.\n",
+    "problem": "보호(保護)받은 거주민(居住民)들은 소유권(所有權)을 가지고 있기 때문에 이직(移職)은 허락(許諾)되지 않습니다.\n",
     "length": 34,
     "tags": [
       "grade-5",
@@ -9503,7 +9503,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"거주\",\"english\":\"habitation\"},{\"korean\":\"소유\",\"english\":\"ownership\"}],\"sentence\":{\"korean\":\"보호받은 거주민들은 소유권을 가지고 있어 이직은 불가능합니다.\",\"english\":\"Protected residents have ownership rights, so eviction is not possible.\"}}",
+    "solution": "{\"보호받은 거주민\":\"Protected residents\",\"소유권\":\"Ownership rights\",\"이직\":\"Eviction\",\"허락되지 않습니다\":\"Is not permitted\"}\n\n         {\"english\":\"Protected residents are permitted to retain ownership and cannot be evicted.\"}",
     "id": 742
   },
   {
@@ -9518,13 +9518,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"두려움\",\"english\":\"fear\"},{\"korean\":\"심리\",\"english\":\"mind\"}],\"sentence\":{\"korean\":\"우리 두려움은 심리적으로 해결해야 합니다.\",\"english\":\"We need to solve our fear mentally.\"}}",
+    "solution": "{\"우리 두려움은 심리적으로 해결해야 합니다.\":\"Our fears must be resolved psychologically.\",\"우리\":\"we\",\"두려움\":\"fear\",\"심리적으로\":\"psychologically\",\"해결해야 합니다\":\"must be resolved\"}\n\n         {\"english\":\"Our fears need to be resolved psychologically.\"}",
     "id": 743
   },
   {
     "generator": "korean-english",
     "input": "research",
-    "problem": "연구(硏究)는 새로운 정보(情報)와 기술(技術) 발전(發展)의 기본(基本)입니다.\n",
+    "problem": "연구(硏究)는 새로운 정보(情報)와 기술(技術) 발전(發展)의 근본(根本)이 되어요.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -9533,13 +9533,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연구\",\"english\":\"research\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"발전\",\"english\":\"development\"}],\"sentence\":{\"korean\":\"연구는 새로운 정보와 기술 발전의 기본입니다.\",\"english\":\"Research is the foundation of new information and technological development.\"}}",
+    "solution": "{\"연구\":\"research\",\"새로운\":\"new\",\"정보\":\"information\",\"기술\":\"technology\",\"발전\":\"development\",\"근본\":\"foundation\",\"되어요\":\"becomes\"}\n\n         {\"english\":\"Research serves as the foundation for new information and technological advancements.\"}",
     "id": 744
   },
   {
     "generator": "korean-english",
     "input": "disturbance",
-    "problem": "교란(攪亂)은 학습(學習)을 방해(妨害)할 수 있습니다.\n",
+    "problem": "교란(攪亂)은 학습(學習) 과정(過程)에 방해(妨害)가 될 수 있습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -9548,38 +9548,38 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"교란\",\"english\":\"disturbance\"},{\"korean\":\"행동\",\"english\":\"behavior\"},{\"korean\":\"학습\",\"english\":\"learning\"}],\"sentence\":{\"korean\":\"교란은 학습을 방해할 수 있습니다.\",\"english\":\"A disturbance can interfere with learning.\"}}",
+    "solution": "{\"교란\":\"Distraction\",\"학습\":\"Learning\",\"과정\":\"Process\",\"방해\":\"Hinderance\",\"수 있습니다\":\"Can be\"}\n\n         {\"english\":\"Eggs can interfere with the learning process.\"}",
     "id": 745
   },
   {
     "generator": "korean-english",
     "input": "soften",
-    "problem": "완화(緩和)된 상기(想起)는 감기(感氣)를 가지고 있습니다.\n",
+    "problem": "완료(完了)된 기억(記憶)은 감기(感氣)를 포함(包含)하고 있습니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"완화\",\"english\":\"completion\"},{\"korean\":\"상기\",\"english\":\"memory\"},{\"korean\":\"감기\",\"english\":\"feeling\"}],\"sentence\":{\"korean\":\"완화된 상기는 감기를 가지고 있습니다.\",\"english\":\"The completion of memory carries a feeling.\"}}",
+    "solution": "{\"완료된 기억은 감기를 포함하고 있습니다\":\"Completed memories include sadness.\"}\n\n         {\"english\":\"Completed memories include chills.\"}",
     "id": 746
   },
   {
     "generator": "korean-english",
     "input": "cockpit",
-    "problem": "cockpit 안의 조종석(操縱席)은 시스템의 중심(中心)입니다.\n",
+    "problem": "cockpit 안의 조종석(操縱席)은 시스템의 중심(中心)이에요.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"cockpit\",\"english\":\"pilot's cabin\"},{\"korean\":\"조종석\",\"english\":\"control panel\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"cockpit 안의 조종석은 시스템의 중심입니다.\",\"english\":\"The control panel in the cockpit is the center of the system.\"}}",
+    "solution": "{\"cockpit 안의 조종석은 시스템의 중심이에요.\":\"The cockpit's pilot seat is the center of the system.\",\"cockpit\":\"cockpit\",\"조종석\":\"pilot seat\",\"시스템\":\"system\",\"중심\":\"center\",\"에요\":\"is\"}\n\n         {\"english\":\"The pilot in the cockpit is the central system of the aircraft.\"}",
     "id": 747
   },
   {
     "generator": "korean-english",
     "input": "cholesterol",
-    "problem": "콜레스테롤은 단백질(蛋白質)과 고지방(高脂肪)의 결합체(結合體)입니다.\n",
+    "problem": "콜레스테롤은 단백질(蛋白質)과 고지방(高脂肪)의 결합물(結合物)입니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -9588,26 +9588,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"콜레스테롤\",\"english\":\"cholesterol\"},{\"korean\":\"고지방\",\"english\":\"fatty acid\"},{\"korean\":\"단백질\",\"english\":\"protein\"}],\"sentence\":{\"korean\":\"콜레스테롤은 단백질과 고지방의 결합체입니다.\",\"english\":\"Cholesterol is a combination of protein and fatty acid.\"}}",
+    "solution": "{\"콜레스테롤\":\"Cholesterol\",\"단백질\":\"Protein\",\"고지방\":\"Fat\",\"결합물\":\"Combination\"}\n\n         {\"english\":\"Cholesterol is a combination of protein and fat.\"}",
     "id": 748
   },
   {
     "generator": "korean-english",
     "input": "tighten",
-    "problem": "긴장(緊張)된 물리계(物理系)의 총합력(總合力)은 힘을 더합니다.\n",
+    "problem": "긴장(緊張)된 물리계(物理系)는 힘을 더하여 총합력(總合力)을 높입니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "physics",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"긴장\",\"english\":\"tension\"},{\"korean\":\"모음\",\"english\":\"aggregate\"},{\"korean\":\"힘\",\"english\":\"force\"}],\"sentence\":{\"korean\":\"긴장된 물리계의 총합력은 힘을 더합니다.\",\"english\":\"The aggregate force of a tense physical system increases the force.\"}}",
+    "solution": "{\"긴장된 물리계\":\"Tensioned physical system\",\"힘\":\"Force\",\"총합력\":\"Total force\",\"높입니다\":\"Increases\"}\n\n         {\"english\":\"A stressed physical system increases the total force by adding force.\"}",
     "id": 749
   },
   {
     "generator": "korean-english",
     "input": "walk",
-    "problem": "길을 걸어다니다\n",
+    "problem": "길을 걸으며 다닙니다.\n",
     "length": 8,
     "tags": [
       "grade-5",
@@ -9615,13 +9615,13 @@ export const problems = [
       "adjective",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"걷다\",\"english\":\"to walk\"},{\"korean\":\"길을\",\"english\":\"the street\"},{\"korean\":\"걸어다니다\",\"english\":\"to go for a walk\"}],\"sentence\":{\"korean\":\"길을 걸어다니다\",\"english\":\"She goes for a walk on the street.\"}}",
+    "solution": "{\"길을 걸으며 다닙니다.\":\"to wander aimlessly\",\"길\":\"path, way\",\"걸다\":\"to walk\",\"다닙니다\":\"to wander, aimlessly wander\"}\n\n         {\"english\":\"He walks along the path and cries.\"}",
     "id": 750
   },
   {
     "generator": "korean-english",
     "input": "mantle",
-    "problem": "보호막(保護膜)은 피해(被害)를 보호(保護)합니다.\n",
+    "problem": "피해(被害)를 방지(防止)하는 보호막(保護膜)이 있습니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -9629,13 +9629,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보호막\",\"english\":\"mantle\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"피해\",\"english\":\"damage\"}],\"sentence\":{\"korean\":\"보호막은 피해를 보호합니다.\",\"english\":\"A mantle protects against damage.\"}}",
+    "solution": "{\"피해를 방지하는\":\"protective\",\"보호막\":\"barrier\",\"있습니다\":\"exists\"}\n\n         {\"english\":\"There is a protective barrier to prevent damage.\"}",
     "id": 751
   },
   {
     "generator": "korean-english",
     "input": "persistent",
-    "problem": "지속적(持續的)으로 노력(努力)하여 목표(目標)를 달성(達成)합니다.\n",
+    "problem": "지속적(持續的)으로 노력(努力)하여 목표(目標)에 도달(到達)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -9644,52 +9644,52 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지속적으로\",\"english\":\"persistently\"},{\"korean\":\"노력\",\"english\":\"effort\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"지속적으로 노력하여 목표를 달성합니다.\",\"english\":\"He persists in his effort to achieve his goal.\"}}",
+    "solution": "{\"지속적으로\":\"continuously\",\"노력\":\"effort\",\"목표\":\"goal\",\"도달합니다\":\"to achieve\"}\n\n         {\"english\":\"Continuously striving to achieve the goal.\"}",
     "id": 752
   },
   {
     "generator": "korean-english",
     "input": "trout",
-    "problem": "어깨에 두통(頭痛)이 있어 물리치료(物理治療)를 받는다.\n",
+    "problem": "어깨통증(痛症)이 있어 물리치료(物理治療)를 받고 있다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"어깨\",\"english\":\"shoulder\"},{\"korean\":\"두통\",\"english\":\"pain\"},{\"korean\":\"물리치료\",\"english\":\"physical therapy\"}],\"sentence\":{\"korean\":\"어깨에 두통이 있어 물리치료를 받는다.\",\"english\":\"He receives physical therapy because of the pain in his shoulder.\"}}",
+    "solution": "{\"어깨통증\":\"shoulder pain\",\"물리치료\":\"physical therapy\",\"받고 있다\":\"is receiving\"}\n\n         {\"english\":\"I am receiving physical therapy because I have shoulder pain.\"}",
     "id": 753
   },
   {
     "generator": "korean-english",
     "input": "sierra",
-    "problem": "시라의 정상(頂上)은 고지(高地)로 둘러싸여 있다.\n",
+    "problem": "시라의 정상(頂上)은 고지(高地)에 둘러싸여 있다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"시라\",\"english\":\"mountain\"},{\"korean\":\"고지\",\"english\":\"peak\"},{\"korean\":\"둘러싸\",\"english\":\"surrounded by\"}],\"sentence\":{\"korean\":\"시라의 정상은 고지로 둘러싸여 있다.\",\"english\":\"The peak of the mountain is surrounded by mountains.\"}}",
+    "solution": "{\"시라\":\" Shira\",\"정상\":\"normality\",\"고지\":\"obesity\",\"둘러싸여 있다\":\"is surrounded by\"}\n\n         {\"english\":\"The summit of Sierra is surrounded by mountains.\"}",
     "id": 754
   },
   {
     "generator": "korean-english",
     "input": "courthouse",
-    "problem": "법원(法院)은 재판(裁判)을 위해 사람들을 모집(募集)합니다.\n",
+    "problem": "법원(法院)은 재판(裁判)을 위해 사람들을 소집(召集)합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"법원\",\"english\":\"courthouse\"},{\"korean\":\"건물\",\"english\":\"building\"},{\"korean\":\"재판\",\"english\":\"trial\"}],\"sentence\":{\"korean\":\"법원은 재판을 위해 사람들을 모집합니다.\",\"english\":\"The courthouse gathers people for trials.\"}}",
+    "solution": "{\"법원\":\"Court\",\"재판\":\"Trial\",\"사람\":\"People\",\"소집\":\"Summoning\",\"등록\":\"Registration\"}\n\n         {\"english\":\"The court summons people for trials.\"}",
     "id": 755
   },
   {
     "generator": "korean-english",
     "input": "showy",
-    "problem": "감각적(感覺的)인 행동(行動)으로 시선(視線)을 사로잡는 것은 아름다운 일이야.\n",
+    "problem": "감각적(感覺的)인 행동(行動)으로 시선(視線)을 사로잡는 것은 아름다운 일이에요.\n",
     "length": 31,
     "tags": [
       "grade-5",
@@ -9698,13 +9698,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"시선을 사로잡는\",\"english\":\"to steal the show\"},{\"korean\":\"감각적인\",\"english\":\"sensational\"},{\"korean\":\"행동\",\"english\":\"behavior\"}],\"sentence\":{\"korean\":\"감각적인 행동으로 시선을 사로잡는 것은 아름다운 일이야.\",\"english\":\"It is beautiful to steal the show with sensational behavior.\"}}",
+    "solution": "{\"감각적인\":\"Sensory\",\"행동\":\"behavior\",\"시선\":\"attention\",\"사로잡는\":\"captivating\",\"아름다운\":\"beautiful\",\"일\":\"thing\"}\n\n         {\"english\":\"Grabbing attention with sensitive behavior is a beautiful thing.\"}",
     "id": 756
   },
   {
     "generator": "korean-english",
     "input": "recovery",
-    "problem": "회복(回復)은 지속적(持續的)으로 지속성(持續性)을 유지(維持)합니다.\n",
+    "problem": "회복(回復) 과정(過程)은 지속적(持續的)으로 지속성(持續性)을 유지(維持)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -9713,26 +9713,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"회복\",\"english\":\"recovery\"},{\"korean\":\"지속\",\"english\":\"continuous\"},{\"korean\":\"지속성\",\"english\":\"sustainability\"}],\"sentence\":{\"korean\":\"회복은 지속적으로 지속성을 유지합니다.\",\"english\":\"Recovery is continuously sustained through sustainability.\"}}",
+    "solution": "{\"회복 과정\":\"Recovery process\",\"지속적으로\":\"continuously\",\"지속성\":\"sustainability\",\"유지\":\"maintain\"}\n\n         {\"english\":\"The recovery process continuously sustains sustainability.\"}",
     "id": 757
   },
   {
     "generator": "korean-english",
     "input": "emotionally",
-    "problem": "감정적(感情的)으로 상상력(想像力)을 통해 문제(問題)를 해결(解決)하는 과정(過程)이 중요(重要)합니다.\n",
+    "problem": "감정(感情)과 상상력(想像力)을 통해 문제(問題)를 해결(解決)하는 과정(過程)이 중요(重要)합니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감정적으로\",\"english\":\"Emotionally\"},{\"korean\":\"상상력\",\"english\":\"Imagination\"},{\"korean\":\"피상\",\"english\":\"Process\"}],\"sentence\":{\"korean\":\"감정적으로 상상력을 통해 문제를 해결하는 과정이 중요합니다.\",\"english\":\"The process of solving problems through emotional imagination is important.\"}}",
+    "solution": "{\"감정과 상상력\":\"Emotions and imagination\",\"문제를 해결\":\"Solving problems\",\"과정\":\"Process\",\"중요합니다\":\"Is important\"}\n\n         {\"english\":\"Problem-solving involves utilizing both emotions and imagination to find solutions.\"}",
     "id": 758
   },
   {
     "generator": "korean-english",
     "input": "birth",
-    "problem": "생(生)새꽃이 피었습니다.\n",
+    "problem": "새로운 꽃이 피었습니다.\n",
     "length": 11,
     "tags": [
       "grade-5",
@@ -9740,25 +9740,25 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"생\",\"english\":\"birth\"},{\"korean\":\"새\",\"english\":\"fresh\"},{\"korean\":\"꽃\",\"english\":\"flower\"}],\"sentence\":{\"korean\":\"생새꽃이 피었습니다.\",\"english\":\"A fresh flower bloomed at birth.\"}}",
+    "solution": "{\"새로운\":\"new\",\"꽃\":\"flower\",\"피었습니다\":\"bloomed\"}\n\n         {\"english\":\"A new flower has bloomed.\"}",
     "id": 759
   },
   {
     "generator": "korean-english",
     "input": "oscillate",
-    "problem": "진동(振動)하는 파동(波動)의 주기(週期)는 0.5초(秒)입니다.\n",
+    "problem": "진동(振動)하는 파동(波動)의 주기(週期)는 0.5초(秒) 정도(程度)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"진동\",\"english\":\"oscillate\"},{\"korean\":\"주기\",\"english\":\"period\"},{\"korean\":\"파동\",\"english\":\"wave\"}],\"sentence\":{\"korean\":\"진동하는 파동의 주기는 0.5초입니다.\",\"english\":\"The period of the oscillating wave is 0.5 seconds.\"}}",
+    "solution": "{\"진동하는\":\"vibrating\",\"파동\":\"wave\",\"주기\":\"period\",\"정도\":\"about\",\"0.5초\":\"0.5 seconds\"}\n\n         {\"english\":\"The period of the vibrating wave is around 0.5 seconds.\"}",
     "id": 760
   },
   {
     "generator": "korean-english",
     "input": "demand",
-    "problem": "요구(要求)는 시장(市場)에서 품질(品質)에 영향(影響)을 미친다.\n",
+    "problem": "품질(品質)은 시장(市場)에서 요구(要求)에 영향(影響)을 미친다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -9766,13 +9766,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"요구\",\"english\":\"demand\"},{\"korean\":\"시장\",\"english\":\"market\"},{\"korean\":\"품질\",\"english\":\"quality\"}],\"sentence\":{\"korean\":\"요구는 시장에서 품질에 영향을 미친다.\",\"english\":\"Demand affects the quality of goods in the market.\"}}",
+    "solution": "{\"품질\":\"Quality\",\"시장\":\"Market\",\"요구\":\"Demand\",\"영향\":\"Influence\",\"미친다\":\"Affects\"}\n\n         {\"english\":\"Quality influences market demands.\"}",
     "id": 761
   },
   {
     "generator": "korean-english",
     "input": "meeting",
-    "problem": "회동(會同)은 오전(午前) 10시(時)에 인사(人事)와 함께 시작(始作)합니다.\n",
+    "problem": "회동(會同)은 오전(午前) 10시(時)에 인사(人事)를 하고 시작(始作)합니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -9780,37 +9780,37 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"회동\",\"english\":\"meeting\"},{\"korean\":\"인사\",\"english\":\"greetings\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"회동은 오전 10시에 인사와 함께 시작합니다.\",\"english\":\"The meeting starts with greetings at 10 AM.\"}}",
+    "solution": "{\"회동\":\"Meeting\",\"오전\":\"Morning\",\"10시\":\"10am\",\"인사\":\"Greeting\",\"시작\":\"Start\"}\n\n         {\"english\":\"The meeting starts with greetings at 10am.\"}",
     "id": 762
   },
   {
     "generator": "korean-english",
     "input": "disciplined",
-    "problem": "지속적(持續的)으로 훈련(訓鍊)하면 자기통제(自己統制)가 향상(向上)하여 학업(學業) 성과(成果)도 향상(向上)합니다.\n",
+    "problem": "꾸준히 연습(練習)하면 자기통제력(自己統制力)이 향상(向上)하고 학업(學業) 성과(成果)도 향상(向上)합니다.\n",
     "length": 35,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지속적으로\",\"english\":\"continuously\"},{\"korean\":\"훈련\",\"english\":\"training\"},{\"korean\":\"자기통제\",\"english\":\"self-control\"}],\"sentence\":{\"korean\":\"지속적으로 훈련하면 자기통제가 향상하여 학업 성과도 향상합니다.\",\"english\":\"Continuous training will improve self-control, leading to better academic performance.\"}}",
+    "solution": "{\"꾸준히\":\"continuously\",\"연습\":\"practice\",\"자기통제력\":\"self-control\",\"향상\":\"improve\",\"학업 성과\":\"academic performance\"}\n\n         {\"english\":\"Consistent practice improves self-control and academic performance.\"}",
     "id": 763
   },
   {
     "generator": "korean-english",
     "input": "lump",
-    "problem": "덩크한(韓) 물건(物件)을 풀이하면 그 안에 비늘이 숨겨있습니다.\n",
+    "problem": "덩크한(韓) 물건(物件)을 풀이하면 비늘이 숨겨있습니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"덩크\",\"english\":\"lump\"},{\"korean\":\"풀기\",\"english\":\"to unravel\"}],\"sentence\":{\"korean\":\"덩크한 물건을 풀이하면 그 안에 비늘이 숨겨있습니다.\",\"english\":\"When you unravel the lump, there is a pin hidden inside.\"}}",
+    "solution": "{\"덩크한 물건\":\"Thick object\",\"풀이하다\":\"To peel\",\"비늘\":\"Scales\",\"숨겨있습니다\":\"Are hidden\"}\n\n         {\"english\":\"If you peel off the thick object, there are scales hidden underneath.\"}",
     "id": 764
   },
   {
     "generator": "korean-english",
     "input": "forefront",
-    "problem": "전면적(全面的)으로 우리 주장(主張)은 새로운 아이디어의 도입(導入)입니다.\n",
+    "problem": "우리 주장(主張)은 새로운 아이디어를 도입(導入)하여 전면적(全面的)으로 개선(改善)되었습니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
@@ -9819,38 +9819,38 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전면\",\"english\":\"forefront\"},{\"korean\":\"우리\",\"english\":\"us\"},{\"korean\":\"주장\",\"english\":\"claim\"}],\"sentence\":{\"korean\":\"전면적으로 우리 주장은 새로운 아이디어의 도입입니다.\",\"english\":\"Our claim stands at the forefront of introducing new ideas.\"}}",
+    "solution": "{\"우리 주장은\":\"Our argument has\",\"새로운 아이디어를 도입하여\":\"introduced new ideas in order to\",\"전면적으로 개선되었습니다\":\"significantly improved.\"}\n\n         {\"english\":\"Our arguments have been completely improved by introducing new ideas.\"}",
     "id": 765
   },
   {
     "generator": "korean-english",
     "input": "imagery",
-    "problem": "상상력(想像力)은 다양한 색채(色彩)를 사용(使用)하여 감성(感性)을 표현(表現)하는 도구(道具)입니다.\n",
+    "problem": "상상력(想像力)은 다양한 색채(色彩)들을 활용(活用)하여 감성(感性)을 표현(表現)하는 도구(道具)입니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상상력\",\"english\":\"imagination\"},{\"korean\":\"색채\",\"english\":\"palette\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"상상력은 다양한 색채를 사용하여 감성을 표현하는 도구입니다.\",\"english\":\"Imagination is a tool that uses various colors to express emotions.\"}}",
+    "solution": "{\"상상력\":\"Imagination\",\"색채\":\"Colors\",\"활용\":\"Utilize\",\"감성\":\"Emotions\",\"표현\":\"Express\"}\n\n         {\"english\":\"Imagination is a tool that utilizes diverse colors to express emotions.\"}",
     "id": 766
   },
   {
     "generator": "korean-english",
     "input": "finery",
-    "problem": "고명품(高名品) 예술(藝術)은 고품질(高品質)이라 말할 수 있습니다.\n",
+    "problem": "고명품(高名品) 예술(藝術)은 높은 품질(品質)이라 할 수 있습니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고명품\",\"english\":\"finery\"},{\"korean\":\"예술\",\"english\":\"art\"},{\"korean\":\"고품질\",\"english\":\"high-quality\"}],\"sentence\":{\"korean\":\"고명품 예술은 고품질이라 말할 수 있습니다.\",\"english\":\"Fine art is known for its high quality.\"}}",
+    "solution": "{\"고명품\":\"High-quality\",\"예술\":\"Art\",\"높은\":\"High\",\"품질\":\"Quality\",\"라 할 수 있습니다\":\"can be said\"}\n\n         {\"english\":\"High-quality art is often referred to as haute couture.\"}",
     "id": 767
   },
   {
     "generator": "korean-english",
     "input": "repeat",
-    "problem": "반복적(反復的)으로 다음 작업(作業)을 합니다.\n",
+    "problem": "반복적(反復的)으로 다음 작업(作業)들을 합니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
@@ -9858,51 +9858,51 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"반복\",\"english\":\"repeat\"},{\"korean\":\"다음\",\"english\":\"next\"},{\"korean\":\"작업\",\"english\":\"task\"}],\"sentence\":{\"korean\":\"반복적으로 다음 작업을 합니다.\",\"english\":\"We repeat the next task repeatedly.\"}}",
+    "solution": "{\"반복적으로\":\"repeatedly\",\"다음\":\"next\",\"작업들\":\"tasks\",\"합니다\":\"does\"}\n\n         {\"english\":\"I repeatedly perform the following tasks.\"}",
     "id": 768
   },
   {
     "generator": "korean-english",
     "input": "ritual",
-    "problem": "리치얼은 문화(文化)에서 상징적(象徵的)으로 고요한 의미(意味)를 가집니다.\n",
+    "problem": "리치얼은 문화(文化)에서 매우 중요(重要)한 의미(意味)를 가지고 있습니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"리치얼\",\"english\":\"ritual\"},{\"korean\":\"상징\",\"english\":\"symbol\"},{\"korean\":\"고요\",\"english\":\"important\"}],\"sentence\":{\"korean\":\"리치얼은 문화에서 상징적으로 고요한 의미를 가집니다.\",\"english\":\"Rituals hold symbolic significance and carry important meaning within cultures.\"}}",
+    "solution": "{\"리치얼\":\"Culture\",\"은\":\"is\",\"매우\":\"very\",\"중요한\":\"important\",\"의\":\"of\"}\n\n         {\"english\":\"Richal has a very significant meaning in culture.\"}",
     "id": 769
   },
   {
     "generator": "korean-english",
     "input": "nitrogen",
-    "problem": "질소(窒素)의 온도(溫度)가 변화(變化)하면 기체(氣體)의 성질(性質)이 바뀌게 됩니다.\n",
+    "problem": "질소(窒素)의 온도(溫度)가 바뀌면 기체(氣體)의 성질(性質)이 달라지게 됩니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"질소\",\"english\":\"nitrogen\"},{\"korean\":\"온도\",\"english\":\"temperature\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"질소의 온도가 변화하면 기체의 성질이 바뀌게 됩니다.\",\"english\":\"The properties of a gas change when the temperature of nitrogen changes.\"}}",
+    "solution": "{\"질소의 온도가 바뀌면\":\"The temperature of nitrogen changes\",\"기체의 성질\":\"Physical properties of the gas\",\"달라지게 됩니다\":\"change accordingly\"}\n\n         {\"english\":\"The properties of a gas change when the temperature of nitrogen changes.\"}",
     "id": 770
   },
   {
     "generator": "korean-english",
     "input": "everywhere",
-    "problem": "여기저기 살아나다 세상(世上)에\n",
+    "problem": "여기저기 살다보면 세상(世上)이 변(變)해버린다.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"여기저기\",\"english\":\"everywhere\"},{\"korean\":\"살아나다\",\"english\":\"to exist\"},{\"korean\":\"세상\",\"english\":\"world\"}],\"sentence\":{\"korean\":\"여기저기 살아나다 세상에\",\"english\":\"Life exists everywhere in the world\"}}",
+    "solution": "{\"여기저기 살다보면\":\"As time goes by\",\"세상이 변해버린다\":\"The world changes completely\"}\n\n         {\"english\":\"If you stay in one place long enough, the world will change around you.\"}",
     "id": 771
   },
   {
     "generator": "korean-english",
     "input": "gentry",
-    "problem": "고층계층(高層階層)은 부유층(富裕層)의 소유물(所有物)을 가지고 있습니다.\n",
+    "problem": "고층계층(高層階層)은 부유층(富裕層)이 소유(所有)하고 있는 물건(物件)을 가지고 있습니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -9910,13 +9910,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고층계층\",\"english\":\"elite\"},{\"korean\":\"부유층\",\"english\":\"wealthy\"},{\"korean\":\"소유\",\"english\":\"possession\"}],\"sentence\":{\"korean\":\"고층계층은 부유층의 소유물을 가지고 있습니다.\",\"english\":\"The elite possess the possessions of the wealthy.\"}}",
+    "solution": "{\"고층계층\":\"Elite class\",\"부유층\":\"Wealthy class\",\"물건\":\"Material possessions\",\"가지는\":\"To possess\",\"소유\":\"Ownership\"}\n\n         {\"english\":\"The upper class owns material possessions.\"}",
     "id": 772
   },
   {
     "generator": "korean-english",
     "input": "preacher",
-    "problem": "선교자(宣敎者)가 말을 해 학생(學生)들이 배웠다.\n",
+    "problem": "선교자(宣敎者)가 말을 해 학생(學生)들은 가르쳤다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -9924,39 +9924,39 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선교자\",\"english\":\"preacher\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"말\",\"english\":\"word\"}],\"sentence\":{\"korean\":\"선교자가 말을 해 학생들이 배웠다.\",\"english\":\"The preacher preached a word and the students learned.\"}}",
+    "solution": "{\"선교자가 말을 해\":\"The missionary spoke\",\"학생들은 가르쳤다\":\"The students learned\"}\n\n         {\"english\":\"The missionary taught the students, who spoke in reply.\"}",
     "id": 773
   },
   {
     "generator": "korean-english",
     "input": "reliable",
-    "problem": "능력(能力)이 뛰어난 사람은 신뢰(信賴)할 수 있다.\n",
+    "problem": "뛰어난 능력(能力)을 가진 사람은 신뢰(信賴)할 만하다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"신뢰할 수 있다\",\"english\":\"is reliable\"},{\"korean\":\"능력이 뛰어나\",\"english\":\"has excellent abilities\"}],\"sentence\":{\"korean\":\"능력이 뛰어난 사람은 신뢰할 수 있다.\",\"english\":\"Someone with excellent abilities is reliable.\"}}",
+    "solution": "{\"뛰어난 능력을 가진 사람은 신뢰할 만하다.\":\"A person with exceptional abilities is worthy of trust.\"}\n\n         {\"english\":\"A person with exceptional abilities is worthy of trust.\"}",
     "id": 774
   },
   {
     "generator": "korean-english",
     "input": "accuracy",
-    "problem": "정확성(正確性)은 측정(測定)에서 오차(誤差)를 최소화(最少化)하는 중요(重要)한 요소(要素)입니다.\n",
+    "problem": "정확성(正確性)은 측정(測定) 과정(過程)에서 오차(誤差)를 최소화(最少化)하는 매우 중요(重要)한 요소(要素)입니다.\n",
     "length": 30,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정확성\",\"english\":\"accuracy\"},{\"korean\":\"측정\",\"english\":\"measurement\"},{\"korean\":\"오차\",\"english\":\"error\"}],\"sentence\":{\"korean\":\"정확성은 측정에서 오차를 최소화하는 중요한 요소입니다.\",\"english\":\"Accuracy is an important factor in minimizing errors during measurement.\"}}",
+    "solution": "{\"정확성\":\"Accuracy\",\"측정\":\"Measurement\",\"오차\":\"Error\",\"최소화\":\"Minimize\",\"요소\":\"Factor\"}\n\n         {\"english\":\"Accuracy is a vital element in minimizing errors during the measurement process.\"}",
     "id": 775
   },
   {
     "generator": "korean-english",
     "input": "perform",
-    "problem": "행동(行動)과 시도(試圖)는 목표(目標)를 달성(達成)하기 위해 중요(重要)합니다.\n",
+    "problem": "행동(行動)과 노력(努力)은 목표(目標)를 달성(達成)하기 위해 매우 중요(重要)합니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -9965,25 +9965,25 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"행동\",\"english\":\"action\"},{\"korean\":\"시도\",\"english\":\"effort\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"행동과 시도는 목표를 달성하기 위해 중요합니다.\",\"english\":\"Action and effort are important for achieving the goal.\"}}",
+    "solution": "{\"행동\":\"Action\",\"노력\":\"Effort\",\"목표\":\"Goal\",\"달성\":\"Achieve\",\"매우\":\"Very\",\"중요\":\"Important\"}\n\n         {\"english\":\"Action and effort are vital for achieving goals.\"}",
     "id": 776
   },
   {
     "generator": "korean-english",
     "input": "fruitful",
-    "problem": "과일 생산(生産) 능력(能力)은 중요(重要)합니다.\n",
+    "problem": "과일 생산(生産) 능력(能力)은 매우 중요(重要)합니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"과일\",\"english\":\"fruit\"},{\"korean\":\"생산\",\"english\":\"production\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"과일 생산 능력은 중요합니다.\",\"english\":\"Fruit production ability is important.\"}}",
+    "solution": "{\"과일 생산 능력\":\"Fruit production capacity\",\"매우\":\"Very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Fruit production capacity is very important.\"}",
     "id": 777
   },
   {
     "generator": "korean-english",
     "input": "during",
-    "problem": "동안 날개에 비늘이 생긴다.\n",
+    "problem": "날개에 비늘이 생기면서 시간(時間)이 지나갑니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -9991,13 +9991,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동안\",\"english\":\"during\"},{\"korean\":\"날개\",\"english\":\"wing\"},{\"korean\":\"비늘\",\"english\":\"scale\"}],\"sentence\":{\"korean\":\"동안 날개에 비늘이 생긴다.\",\"english\":\"Scales grow on the wings during the flight.\"}}",
+    "solution": "{\"날개에 비늘이 생기면서 시간이 지나갑니다.\":\"As time passes while feathers develop\",\"날개\":\"wing\",\"비늘\":\"feather\",\"생기면서\":\"as it develops\",\"시간\":\"time\",\"지나갑니다.\":\"passes\"}\n\n         {\"english\":\"As time passes, feathers grow on wings.\"}",
     "id": 778
   },
   {
     "generator": "korean-english",
     "input": "emancipate",
-    "problem": "해방(解放)은 인지(認知)의 시작(始作)이다.\n",
+    "problem": "해방(解放)은 인지(認知)의 시작(始作)이라 할 수 있다.\n",
     "length": 13,
     "tags": [
       "grade-5",
@@ -10005,64 +10005,64 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"해방\",\"english\":\"liberation\"},{\"korean\":\"인지\",\"english\":\"consciousness\"},{\"korean\":\"자유\",\"english\":\"freedom\"}],\"sentence\":{\"korean\":\"해방은 인지의 시작이다.\",\"english\":\"Liberation is the beginning of consciousness.\"}}",
+    "solution": "{\"해방은\":\"Liberation is\",\"인지의\":\"a recognition of\",\"시작이라\":\"the beginning of\",\"할 수 있다\":\"can be said to be\"}\n\n         {\"english\":\"Freedom is the beginning of knowledge.\"}",
     "id": 779
   },
   {
     "generator": "korean-english",
     "input": "partnership",
-    "problem": "파트너십을 통해 학업(學業) 성과(成果)를 향상(向上)시킨다.\n",
+    "problem": "파트너십을 통해 학업(學業) 성과(成果)를 개선(改善)한다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\" 파트너십\",\"english\":\"partnership\"},{\"korean\":\" 학업\",\"english\":\"study\"},{\"korean\":\" 성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"파트너십을 통해 학업 성과를 향상시킨다.\",\"english\":\"Partnership can improve academic achievement.\"}}",
+    "solution": "{\"파트너십\":\"Partnership\",\"학업 성과\":\"Academic performance\",\"개선\":\"Improve\",\"통해\":\"Through\"}\n\n         {\"english\":\"Academic performance is improved through partnerships.\"}",
     "id": 780
   },
   {
     "generator": "korean-english",
     "input": "coloring",
-    "problem": "색칠(色漆)은 색(色)과 필로 완벽(完璧)해요.\n",
+    "problem": "색칠(色漆)은 색(色)과 필로 완벽(完璧)합니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"색칠\",\"english\":\"coloring\"},{\"korean\":\"색\",\"english\":\"color\"},{\"korean\":\"필\",\"english\":\"pencil\"}],\"sentence\":{\"korean\":\"색칠은 색과 필로 완벽해요.\",\"english\":\"Coloring is perfect with color and a pencil.\"}}",
+    "solution": "{\"색칠\":\"Paint\",\"색\":\"Color\",\"필로\":\"Brush\",\"완벽\":\"Perfect\"}\n\n         {\"english\":\"The paint is perfect with the color and brush.\"}",
     "id": 781
   },
   {
     "generator": "korean-english",
     "input": "paper",
-    "problem": "지름의 피크는 꽃잎처럼 아름다워.\n",
+    "problem": "지름의 피크는 꽃잎처럼 아름답습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지름\",\"english\":\"paper\"},{\"korean\":\"피크\",\"english\":\"peak\"},{\"korean\":\"꽃잎\",\"english\":\"petal\"}],\"sentence\":{\"korean\":\"지름의 피크는 꽃잎처럼 아름다워.\",\"english\":\"The peak of the paper is as beautiful as a petal.\"}}",
+    "solution": "{\"지름의 피크\":\"Peak of summer\",\"꽃잎처럼\":\"Like flower petals\",\"아름답습니다\":\"Is beautiful\"}\n\n         {\"english\":\"The peak of summer is as beautiful as flower petals.\"}",
     "id": 782
   },
   {
     "generator": "korean-english",
     "input": "yoga",
-    "problem": "요가는 정신(精神)과 평화(平和)를 찾는 운동(運動)입니다.\n",
+    "problem": "요가는 정신(精神)과 평화(平和)를 얻는 운동(運動)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"요가\",\"english\":\"yoga\"},{\"korean\":\"정신\",\"english\":\"mind\"},{\"korean\":\"평화\",\"english\":\"peace\"}],\"sentence\":{\"korean\":\"요가는 정신과 평화를 찾는 운동입니다.\",\"english\":\"Yoga is an exercise that helps to find peace and tranquility of the mind.\"}}",
+    "solution": "{\"요가\":\"Yoga\",\"정신\":\"Mind\",\"평화\":\"Peace\",\"운동\":\"Exercise\",\"는\":\"is\"}\n\n         {\"english\":\"Yoga is an exercise that helps to obtain mental and peace.\"}",
     "id": 783
   },
   {
     "generator": "korean-english",
     "input": "urn",
-    "problem": "잔잔한 우물통에 물이 가득찬다.\n",
+    "problem": "잔잔한 우물통에 물이 가득 채워진다.\n",
     "length": 17,
     "tags": [
       "grade-5",
@@ -10070,13 +10070,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우물통\",\"english\":\"urn\"},{\"korean\":\"잔잔한\",\"english\":\"smooth\"},{\"korean\":\"물이 가득찬\",\"english\":\"full of water\"}],\"sentence\":{\"korean\":\"잔잔한 우물통에 물이 가득찬다.\",\"english\":\"The smooth urn is full of water.\"}}",
+    "solution": "{\"잔잔한\":\"calm\",\"우물통\":\"pail\",\"물\":\"water\",\"가득\":\"full\",\"채워진다\":\"is filled\"}\n\n         {\"english\":\"A quiet well fills up with water.\"}",
     "id": 784
   },
   {
     "generator": "korean-english",
     "input": "gun",
-    "problem": "건(乾)은 공(功)을 발사(發射)합니다.\n",
+    "problem": "공(功)을 발사(發射)하기 위해 건(件)을 사용(使用)합니다.\n",
     "length": 12,
     "tags": [
       "grade-5",
@@ -10084,26 +10084,26 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"건\",\"english\":\"gun\"},{\"korean\":\"발사\",\"english\":\"launch\"}],\"sentence\":{\"korean\":\"건은 공을 발사합니다.\",\"english\":\"The gun launches the ball.\"}}",
+    "solution": "{\"공을 발사하기 위해 건을 사용합니다.\":\"To launch the ball, the gun is used.\",\"공\":\"ball\",\"발사\":\"launch\",\"건\":\"gun\",\"사용하다\":\"to use\"}\n\n         {\"english\":\"The gun is used to launch the ball.\"}",
     "id": 785
   },
   {
     "generator": "korean-english",
     "input": "actor",
-    "problem": "배역자(背逆者)가 극장(劇場)에서 연기(演技)를 합니다.\n",
+    "problem": "배역자(背逆者)가 무대(舞臺)에서 연기(演技)를 합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"배역자\",\"english\":\"actor\"},{\"korean\":\"극장\",\"english\":\"stage\"},{\"korean\":\"연기\",\"english\":\"performance\"}],\"sentence\":{\"korean\":\"배역자가 극장에서 연기를 합니다.\",\"english\":\"The actor is performing on the stage.\"}}",
+    "solution": "{\"배역자가\":\"actor/actress\",\"무대\":\"stage\",\"연기\":\"performance\",\"합니다\":\"is doing\"}\n\n         {\"english\":\"The actor is performing on stage.\"}",
     "id": 786
   },
   {
     "generator": "korean-english",
     "input": "rift",
-    "problem": "rifts가 생기면 발전(發展)이 계속(繼續)됩니다.\n",
+    "problem": "피트가 생기면 발전(發展)은 계속(繼續)됩니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -10112,13 +10112,13 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"rifts\",\"english\":\"cracks\"},{\"korean\":\"발전\",\"english\":\"progress\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"rifts가 생기면 발전이 계속됩니다.\",\"english\":\"As cracks appear, progress continues.\"}}",
+    "solution": "{\"피트가 생기면 발전은 계속됩니다.\":\"As feet appear, evolution continues.\",\"피트\":\"feet\",\"생기면\":\"as they appear\",\"발전\":\"evolution\",\"계속됩니다.\":\"continues\"}\n\n         {\"english\":\"As feet grow, evolution continues.\"}",
     "id": 787
   },
   {
     "generator": "korean-english",
     "input": "really",
-    "problem": "정말(正말) 피곤(疲困)해 침대(寢臺)에 빠지다.\n",
+    "problem": "정말(正말) 피곤(疲困)해서 침대(寢臺)에 빠지다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -10127,13 +10127,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정말\",\"english\":\"really\"},{\"korean\":\"피곤해\",\"english\":\"tired\"},{\"korean\":\"침대에\",\"english\":\"in the bathtub\"}],\"sentence\":{\"korean\":\"정말 피곤해 침대에 빠지다.\",\"english\":\"I'm really tired, so I went into the bathtub.\"}}",
+    "solution": "{\"정말\":\"really\",\"피곤\":\"tired\",\"침대\":\"bathtub\",\"빠지다\":\"to dive in\"}\n\n         {\"english\":\"I'm so tired that I'm diving into the bathtub.\"}",
     "id": 788
   },
   {
     "generator": "korean-english",
     "input": "devil",
-    "problem": "악마(惡魔)는 지금(只今) 계약(契約)을 합니다.\n",
+    "problem": "악마(惡魔)는 지금(只今) 계약(契約)을 하고 있습니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -10141,13 +10141,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"악마\",\"english\":\"devil\"},{\"korean\":\"계약\",\"english\":\"contract\"},{\"korean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"악마는 지금 계약을 합니다.\",\"english\":\"The devil is making a contract now.\"}}",
+    "solution": "{\"악마는\":\"The devil\",\"지금\":\"now\",\"계약을\":\"is making a contract\",\"하고 있습니다\":\"is doing\"}\n\n         {\"english\":\"The devil is currently making a contract.\"}",
     "id": 789
   },
   {
     "generator": "korean-english",
     "input": "further",
-    "problem": "더 나아가다는 목표(目標)는 성취(成就)의 시작(始作)이다.\n",
+    "problem": "더 나아가는 목표(目標)는 성취(成就)의 시작(始作)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -10155,19 +10155,19 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"더 나아가다\",\"english\":\"to progress further\"},{\"korean\":\"목표\",\"english\":\"goal\"},{\"korean\":\"성취\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"더 나아가다는 목표는 성취의 시작이다.\",\"english\":\"The goal of progress further is the beginning of achievement.\"}}",
+    "solution": "{\"더 나아가는 목표는 성취의 시작입니다.\":\"The goal of continuing forward is the beginning of accomplishment.\"}\n\n         {\"english\":\"The next goal is the beginning of achievement.\"}",
     "id": 790
   },
   {
     "generator": "korean-english",
     "input": "alcoholism",
-    "problem": "알코올은 사람의 생활(生活)에 해롭고, 이율(利率)로 이어질 수 있습니다.\n",
+    "problem": "알코올은 생활(生活)에 해롭고, 이러한 결과(結果)로 이어질 수 있습니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"알코올\",\"english\":\"alcohol\"},{\"korean\":\"이율\",\"english\":\"addiction\"}],\"sentence\":{\"korean\":\"알코올은 사람의 생활에 해롭고, 이율로 이어질 수 있습니다.\",\"english\":\"Alcohol can be harmful to people's lives and can lead to addiction.\"}}",
+    "solution": "{\"알코올은 생활에 해롭고\":\"Alcohol is harmful to life\",\"이러한 결과로 이어질 수 있습니다\":\"These consequences can follow.\"}\n\n         {\"english\":\"Alcohol can be harmful to daily life, leading to these consequences.\"}",
     "id": 791
   },
   {
@@ -10179,20 +10179,20 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"놀라움을 주는\",\"english\":\"astonishing\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"상상을 뛰어넘는\",\"english\":\"transcending imagination\"}],\"sentence\":{\"korean\":\"놀라움을 주는 거대한 상상이 이 순간에 나타났다.\",\"english\":\"A massive imagination that transcends imagination appeared at this moment.\"}}",
+    "solution": "{\"놀라움을\":\"Wonder\",\"주는\":\"bringing\",\"거대한\":\"vast\",\"상상\":\"imagination\",\"이\":\"this\",\"순간\":\"moment\"}\n\n         {\"english\":\"A huge imagination that brings wonder appeared at this moment.\"}",
     "id": 792
   },
   {
     "generator": "korean-english",
     "input": "melancholy",
-    "problem": "슬픔은 말없이 두근두근 사라지는 일이야.\n",
+    "problem": "슬픔은 말없이 두근두근 사라지는 일이에.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"슬픔\",\"english\":\"melancholy\"},{\"korean\":\"말없이\",\"english\":\"without a word\"},{\"korean\":\"두근두근\",\"english\":\"deeply\"}],\"sentence\":{\"korean\":\"슬픔은 말없이 두근두근 사라지는 일이야.\",\"english\":\"Melancholy just disappears silently.\"}}",
+    "solution": "{\"슬픔은\":\"Sadness is\",\"말없이\":\"without words\",\"두근두근\":\"intensely\",\"사라지는\":\"disappearing\",\"일이에\":\"a matter of fact\"}\n\n         {\"english\":\"Sadness just disappears without a word.\"}",
     "id": 793
   },
   {
@@ -10207,26 +10207,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"밝게\",\"english\":\"brightly\"},{\"korean\":\"빛나다\",\"english\":\"to shine\"},{\"korean\":\"별\",\"english\":\"star\"}],\"sentence\":{\"korean\":\"밝게 빛나는 별들\",\"english\":\"The brightly shining stars\"}}",
+    "solution": "{\"밝게\":\"brightly\",\"빛나는\":\"shining\",\"별들\":\"stars\"}\n\n         {\"english\":\"Bright stars that shine brightly\"}",
     "id": 794
   },
   {
     "generator": "korean-english",
     "input": "rag",
-    "problem": "바닥에 걸음은 날개처럼 빠르게 회전(回轉)합니다.\n",
+    "problem": "바닥에 걸음은 날개처럼 빠르게 돌아갑니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"바닥\",\"english\":\"floor\"},{\"korean\":\"걸음\",\"english\":\"step\"},{\"korean\":\"날개\",\"english\":\"wing\"}],\"sentence\":{\"korean\":\"바닥에 걸음은 날개처럼 빠르게 회전합니다.\",\"english\":\"The step on the floor rotates like a wing.\"}}",
+    "solution": "{\"바닥에 걸음\":\"footprints on the floor\",\"날개처럼\":\"like wings\",\"빠르게\":\"quickly\",\"돌아갑니다\":\"disappear\"}\n\n         {\"english\":\"If you stumble on the floor, you'll be back on your feet like a bird's wings.\"}",
     "id": 795
   },
   {
     "generator": "korean-english",
     "input": "bookstore",
-    "problem": "책점(冊點)에서 책(冊)을 많이 사서 읽는다.\n",
+    "problem": "책점(冊點)에서 책(冊)들을 많이 사서 읽어 들니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -10235,32 +10235,32 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"책점\",\"english\":\"bookstore\"},{\"korean\":\"서점\",\"english\":\"library\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"페이지\",\"english\":\"page\"}],\"sentence\":{\"korean\":\"책점에서 책을 많이 사서 읽는다.\",\"english\":\"I often buy many books from the bookstore and read them.\"}}",
+    "solution": "{\"책점에서\":\"At the bookstore\",\"책들을\":\"books\",\" 많이\":\"many\",\"사서\":\"bought\",\"읽어\":\"read\",\" 들니다\":\"likes to do\"}\n\n         {\"english\":\"I often buy books from bookstores and read them.\"}",
     "id": 796
   },
   {
     "generator": "korean-english",
     "input": "wing",
-    "problem": "날개는 풍(風)부리에 날개를 날립니다.\n",
+    "problem": "날개는 풍(風)부리 속에서 날개를 날립니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"날개\",\"english\":\"wing\"},{\"korean\":\"풍부리\",\"english\":\"wind current\"},{\"korean\":\"날개를\",\"english\":\"to flap the wing\"}],\"sentence\":{\"korean\":\"날개는 풍부리에 날개를 날립니다.\",\"english\":\"The wing flaps in the wind current.\"}}",
+    "solution": "{\"날개\":\"wings\",\"풍부리\":\"wind current\",\"날립니다\":\"is flying\"}\n\n         {\"english\":\"The wings fly within the wind's embrace.\"}",
     "id": 797
   },
   {
     "generator": "korean-english",
     "input": "swap",
-    "problem": "교체(交替) 학습(學習) 방법(方法)을 찾고 있습니다.\n",
+    "problem": "교체(交替) 학습(學習) 방식(方式)을 찾고 있습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"교체\",\"english\":\"swap\"},{\"korean\":\"학습\",\"english\":\"learning\"},{\"korean\":\"방법\",\"english\":\"method\"}],\"sentence\":{\"korean\":\"교체 학습 방법을 찾고 있습니다.\",\"english\":\"He is searching for a way to swap learning methods.\"}}",
+    "solution": "{\"교체 학습 방식\":\"Replacement learning method\",\"학습\":\"Learning\",\"방식\":\"Method\",\"찾고 있습니다\":\"Searching for\"}\n\n         {\"english\":\"I am looking for an alternative learning method.\"}",
     "id": 798
   },
   {
@@ -10273,32 +10273,32 @@ export const problems = [
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"머리\",\"english\":\"head\"},{\"korean\":\"깨진\",\"english\":\"broken\"},{\"korean\":\"조용해\",\"english\":\"quiet\"}],\"sentence\":{\"korean\":\"머리가 깨져서 조용해졌다.\",\"english\":\"The quietness came after the head was broken.\"}}",
+    "solution": "{\"머리가 깨져서 조용해졌다.\":\"Her hair is broken and quiet now.\"}\n\n         {\"english\":\"His head was cracked and he became quiet.\"}",
     "id": 799
   },
   {
     "generator": "korean-english",
     "input": "change",
-    "problem": "봄철에는 새로운 꽃이 피어나고 변화(變化)합니다.\n",
+    "problem": "봄철에는 새로운 꽃들이 피어나고 변화(變化)합니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"변화\",\"english\":\"change\"},{\"korean\":\"시기\",\"english\":\"season\"},{\"korean\":\"꽃\",\"english\":\"flower\"}],\"sentence\":{\"korean\":\"봄철에는 새로운 꽃이 피어나고 변화합니다.\",\"english\":\"New flowers bloom in the spring, bringing change.\"}}",
+    "solution": "{\"봄철에는 새로운 꽃들이 피어나고 변화합니다.\":\"Spring brings new flowers blooming and change.\",\"봄철\":\"spring\",\"꽃들\":\"flowers\",\"피어나다\":\"to bloom\",\"변화\":\"change\"}\n\n         {\"english\":\"New flowers bloom and the season changes in the spring.\"}",
     "id": 800
   },
   {
     "generator": "korean-english",
     "input": "acute",
-    "problem": "급성(急性) 질병(疾病)의 치명적(致命的) 확률(確率)은 매우 낮습니다.\n",
+    "problem": "급성(急性) 질병(疾病)의 치명율(致命率)은 상당히(相當히) 낮습니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "probability",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"급성\",\"english\":\"acute\"},{\"korean\":\"치명적\",\"english\":\"critical\"},{\"korean\":\"확률\",\"english\":\"probability\"}],\"sentence\":{\"korean\":\"급성 질병의 치명적 확률은 매우 낮습니다.\",\"english\":\"The probability of a critical illness is very low in the case of an acute disease.\"}}",
+    "solution": "{\"급성 질병의 치명율\":\"Acute disease mortality rate\",\"상당히\":\"Significantly\",\"낮습니다\":\"is low\"}\n\n         {\"english\":\"The mortality rate of acute diseases is relatively low.\"}",
     "id": 801
   },
   {
@@ -10310,20 +10310,20 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장애물\",\"english\":\"obstacle\"},{\"korean\":\"버리기\",\"english\":\"to overcome\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"장애물을 극복하고 목표를 달성했습니다.\",\"english\":\"He overcame the obstacle and achieved his goal.\"}}",
+    "solution": "{\"장애물\":\"Obstacles\",\"극복\":\"Overcome\",\"목표\":\"Goal\",\"달성\":\"Achieve\"}\n\n         {\"english\":\"Overcame obstacles and achieved the goal.\"}",
     "id": 802
   },
   {
     "generator": "korean-english",
     "input": "sovereignty",
-    "problem": "권리(權利)는 국민(國民)들에게 무력(無力)하지 않습니다.\n",
+    "problem": "권리(權利)는 국민(國民)들에겐 무력(無力)하지 않습니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"권리\",\"english\":\"sovereignty\"},{\"korean\":\"국민\",\"english\":\"citizens\"},{\"korean\":\"무력\",\"english\":\"powerless\"}],\"sentence\":{\"korean\":\"권리는 국민들에게 무력하지 않습니다.\",\"english\":\"Sovereignty rests with the people.\"}}",
+    "solution": "{\"권리는\":\"The power\",\"국민들에겐\":\"to the people\",\"무력하지 않습니다\":\"is not weak\"}\n\n         {\"english\":\"Power is not without its responsibility towards the people.\"}",
     "id": 803
   },
   {
@@ -10336,26 +10336,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"브리슬\",\"english\":\"spine\"},{\"korean\":\"날카\",\"english\":\"needle\"},{\"korean\":\"꽃잎\",\"english\":\"petal\"}],\"sentence\":{\"korean\":\"브리슬에 날카가 꽃잎으로 묶여 있습니다.\",\"english\":\"The needle is tied to the petal with a spine.\"}}",
+    "solution": "{\"브리슬\":\"brilliance\",\"날카\":\"needle\",\"꽃잎\":\"petal\",\"묶여\":\"bound\",\"있습니다\":\"is present\"}\n\n         {\"english\":\"The butterfly is trapped by its wings to the flower petal.\"}",
     "id": 804
   },
   {
     "generator": "korean-english",
     "input": "outright",
-    "problem": "명백히(明白히) 거부(拒否)된 아이들의 통제(統制)는 어려울 수 있습니다.\n",
+    "problem": "명백히(明白히) 거부(拒否)된 아이들에 대(對)한 통제(統制)는 어려울 수 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명백히\",\"english\":\"Outright\"},{\"korean\":\"거부\",\"english\":\"Rejection\"},{\"korean\":\"통제\",\"english\":\"Control\"}],\"sentence\":{\"korean\":\"명백히 거부된 아이들의 통제는 어려울 수 있습니다.\",\"english\":\"Control of the outright rejected children can be difficult.\"}}",
+    "solution": "{\"명백히 거부된 아이들에 대한 통제\":\"Managing defiant children can be difficult.\",\"명백히\":\"Clearly\",\"거부된\":\"rebellious\",\"아이들\":\"children\",\"통제\":\"management\"}\n\n         {\"english\":\"It can be difficult to manage children who have clearly rejected the arrangement.\"}",
     "id": 805
   },
   {
     "generator": "korean-english",
     "input": "casually",
-    "problem": "편안(便安)하게 주차(駐車)에 책(冊)을 읽다가 생각이 났어요.\n",
+    "problem": "편안(便安)하게 책(冊)을 주차(駐車)에 읽다가 생각이 났어요.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -10363,26 +10363,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"편안하게\",\"english\":\"casually\"},{\"korean\":\"주차에\",\"english\":\"on a whim\"},{\"korean\":\"책을 읽다가\",\"english\":\"while reading a book\"}],\"sentence\":{\"korean\":\"편안하게 주차에 책을 읽다가 생각이 났어요.\",\"english\":\"I casually thought of something while reading a book on a whim.\"}}",
+    "solution": "{\"편안하게\":\"comfortably\",\"책\":\"book\",\"주차에\":\"weekly\",\"독다가\":\"reading\",\"생각이\":\"idea\",\"났어요\":\"came out\"}\n\n         {\"english\":\"I had a thought while reading a book every week. \"}",
     "id": 806
   },
   {
     "generator": "korean-english",
     "input": "channel",
-    "problem": "채널을 통해 정보(情報)를 흐르게 합니다.\n",
+    "problem": "채널을 통해 정보(情報)가 흐릅니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"채널\",\"english\":\"channel\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"흐름\",\"english\":\"flow\"}],\"sentence\":{\"korean\":\"채널을 통해 정보를 흐르게 합니다.\",\"english\":\"Information flows through the channel.\"}}",
+    "solution": "{\"채널\":\"channel\",\"통해\":\"through\",\"정보\":\"information\",\"흐릅니다\":\"flows\"}\n\n         {\"english\":\"Information flows through the channel.\"}",
     "id": 807
   },
   {
     "generator": "korean-english",
     "input": "footnote",
-    "problem": "피해자(被害者)는 말단주장(末端主張)을 통해 문서(文書)에 담긴 사실(事實)을 확인(確認)할 수 있습니다.\n",
+    "problem": "피해자(被害者)가 말단(末端) 주장(主張)을 통해 문서(文書)에 담긴 사실(事實)을 확인(確認)할 수 있습니다.\n",
     "length": 36,
     "tags": [
       "grade-5",
@@ -10391,7 +10391,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피해자\",\"english\":\"victim\"},{\"korean\":\"말단주장\",\"english\":\"marginal note\"},{\"korean\":\"문헌\",\"english\":\"document\"}],\"sentence\":{\"korean\":\"피해자는 말단주장을 통해 문서에 담긴 사실을 확인할 수 있습니다.\",\"english\":\"The victim can confirm the facts recorded in the document through the marginal notes.\"}}",
+    "solution": "{\"피해자가 말단 주장을 통해 문서에 담긴 사실을 확인할 수 있습니다.\":\"Victims can verify the facts documented in the report through their statements.\"}\n\n         {\"english\":\"Facts documented in the report can be verified through the claims made by the victims.\"}",
     "id": 808
   },
   {
@@ -10406,13 +10406,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가장\",\"english\":\"most\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"눈\",\"english\":\"eye\"},{\"korean\":\"빛\",\"english\":\"light\"}],\"sentence\":{\"korean\":\"가장 우리 눈은 빛을 반사합니다.\",\"english\":\"Our eyes reflect the most light.\"}}",
+    "solution": "{\"가장\":\"most\",\"우리 눈\":\"our eyes\",\"빛\":\"light\",\"반사\":\"reflect\",\"합니다\":\"does\"}\n\n         {\"english\":\"Our eyes reflect the light.\"}",
     "id": 809
   },
   {
     "generator": "korean-english",
     "input": "margin",
-    "problem": "말의 범주(範疇)는 텍스트의 측면(側面)에서 의미(意味)를 표현(表現)하는 중요(重要)한 요소(要素)입니다.\n",
+    "problem": "말의 범주(範疇)는 텍스트에서 의미(意味)를 표현(表現)하는 중요(重要)한 요소(要素)입니다.\n",
     "length": 36,
     "tags": [
       "grade-5",
@@ -10420,20 +10420,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말의 범주\",\"english\":\"boundary of speech\"},{\"korean\":\"텍스트의 측면\",\"english\":\"margin of a text\"}],\"sentence\":{\"korean\":\"말의 범주는 텍스트의 측면에서 의미를 표현하는 중요한 요소입니다.\",\"english\":\"The boundary of speech is an important element in expressing meaning within the margins of a text.\"}}",
+    "solution": "{\"말의 범주\":\"Word category\",\"텍스트\":\"Text\",\"의미\":\"Meaning\",\"표현\":\"Expression\",\"요소\":\"Element\"}\n\n         {\"english\":\"The category of words is an important element in expressing meaning in text.\"}",
     "id": 810
   },
   {
     "generator": "korean-english",
     "input": "ungainly",
-    "problem": "불편(不便)한 말을 해서 피고 있는 것 같네요.\n",
+    "problem": "불편(不便)한 말을 해서 피고 있어 보네요.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불편하다\",\"english\":\"Ungainly\"},{\"korean\":\"말을 해서\",\"english\":\"By saying\"},{\"korean\":\"피고 있는 것 같네요\",\"english\":\"It seems like something is bothering you.\"}],\"sentence\":{\"korean\":\"불편한 말을 해서 피고 있는 것 같네요.\",\"english\":\"It seems like you're saying something ungainly.\"}}",
+    "solution": "{\"불편한 말을 해서 피고 있어 보네요.\":\"Feeling uncomfortable because of the unpleasant words spoken.\"}\n\n         {\"english\":\"You’re avoiding me after saying something unpleasant.\"}",
     "id": 811
   },
   {
@@ -10445,32 +10445,32 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"나무\",\"english\":\"tree\"},{\"korean\":\"색\",\"english\":\"color\"}],\"sentence\":{\"korean\":\"꽃은 나무에 다양한 색으로 피어나.\",\"english\":\"Flowers bloom in various colors on trees.\"}}",
+    "solution": "{\"꽃은\":\"Flowers are\",\"나무에\":\"on a tree\",\"다양한\":\"various\",\"색으로\":\"in different colors\",\"피어나\":\"blooming\"}\n\n         {\"english\":\"Flowers bloom in various colors on the trees.\"}",
     "id": 812
   },
   {
     "generator": "korean-english",
     "input": "vinegar",
-    "problem": "구리산(産)에 꽃잎이 비늘다.\n",
+    "problem": "구리산(産)에 꽃잎이 떨어나다.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"구리\",\"english\":\"copper\"},{\"korean\":\"산\",\"english\":\"mountain\"},{\"korean\":\"꽃잎\",\"english\":\"petal\"},{\"korean\":\"비늘\",\"english\":\"drop\"}],\"sentence\":{\"korean\":\"구리산에 꽃잎이 비늘다.\",\"english\":\"Copper mountains have drops of petals.\"}}",
+    "solution": "{\"구리산\":\"Copper Mountain\",\"꽃잎\":\"Petal\",\"떨어나다\":\"Falling down\"}\n\n         {\"english\":\"Copper Mountain flowers are falling from the leaves.\"}",
     "id": 813
   },
   {
     "generator": "korean-english",
     "input": "decadence",
-    "problem": "부패(腐敗)한 사치(奢侈)는 풍요한 사회(社會)의 특징(特徵)이다.\n",
+    "problem": "부패(腐敗)한 것은 풍요한 사회(社會)의 특징(特徵)이다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부패\",\"english\":\"corruption\"},{\"korean\":\"사치\",\"english\":\"luxury\"},{\"korean\":\"풍요\",\"english\":\"excess\"}],\"sentence\":{\"korean\":\"부패한 사치는 풍요한 사회의 특징이다.\",\"english\":\"Excess luxury is a characteristic of a corrupt society.\"}}",
+    "solution": "{\"부패한 것은\":\"Decay is\",\"풍요한 사회\":\"a wealthy society\",\"특징이다\":\"a characteristic\"}\n\n         {\"english\":\"Rottenness is a characteristic of a prosperous society.\"}",
     "id": 814
   },
   {
@@ -10482,64 +10482,64 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방문\",\"english\":\"visit\"},{\"korean\":\"장소\",\"english\":\"place\"},{\"korean\":\"즐거움\",\"english\":\"joy\"}],\"sentence\":{\"korean\":\"방문한 장소는 즐거움이 많아요.\",\"english\":\"The place you visited is very enjoyable.\"}}",
+    "solution": "{\"방문한 장소\":\"visited places\",\"즐거움\":\"joy\",\" 많아요\":\"are many\"}\n\n         {\"english\":\"The places I visited were very enjoyable.\"}",
     "id": 815
   },
   {
     "generator": "korean-english",
     "input": "deafening",
-    "problem": "청각(聽覺)한 울림은 감각(感覺)을 자극(刺戟)한다.\n",
+    "problem": "청각(聽覺)한 소리는 감각(感覺)을 자극(刺戟)한다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"청각\",\"english\":\"deafening\"},{\"korean\":\"울림\",\"english\":\"sound\"},{\"korean\":\"감각\",\"english\":\"sensory\"}],\"sentence\":{\"korean\":\"청각한 울림은 감각을 자극한다.\",\"english\":\"Deafening sounds stimulate the senses.\"}}",
+    "solution": "{\"청각한\":\"deafening\",\"소리\":\"sound\",\"감각\":\"sensory\",\"자극\":\"stimulate\"}\n\n         {\"english\":\"Loud noises can stimulate the senses.\"}",
     "id": 816
   },
   {
     "generator": "korean-english",
     "input": "gear",
-    "problem": "기어는 움직이는 계기(契機)입니다.\n",
+    "problem": "기어는 움직이는 요인(要因)입니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"기어\",\"english\":\"gear\"},{\"korean\":\"움직이는\",\"english\":\"moving\"},{\"korean\":\"계기\",\"english\":\"device\"}],\"sentence\":{\"korean\":\"기어는 움직이는 계기입니다.\",\"english\":\"The gear is a moving device.\"}}",
+    "solution": "{\"기어\":\"Gear\",\"움직이는\":\"Moving\",\"요인\":\"Factor\",\"입니다\":\"Is\"}\n\n         {\"english\":\"The gear is a factor in motion.\"}",
     "id": 817
   },
   {
     "generator": "korean-english",
     "input": "clear",
-    "problem": "흐름은 물이 깨끗합니다.\n",
+    "problem": "물은 순수(純粹)합니다.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흐름\",\"english\":\"flow\"},{\"korean\":\"깨끗\",\"english\":\"clear\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"흐름은 물이 깨끗합니다.\",\"english\":\"The water flows clearly.\"}}",
+    "solution": "{\"물은 순수합니다.\":\"Water is pure.\",\"물\":\"Water\",\"순수\":\"Pure\",\"합니다\":\"is\"}\n\n         {\"english\":\"Water is pure.\"}",
     "id": 818
   },
   {
     "generator": "korean-english",
     "input": "lastly",
-    "problem": "마지막으로 우리는 학업(學業)에 성공(成功)했습니다.\n",
+    "problem": "마지막으로 학업(學業)에 성공(成功)했습니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"마지막으로\",\"english\":\"Finally\"},{\"korean\":\"우리\",\"english\":\"We\"},{\"korean\":\"학업\",\"english\":\"studies\"},{\"korean\":\"성공\",\"english\":\"succeeded\"}],\"sentence\":{\"korean\":\"마지막으로 우리는 학업에 성공했습니다.\",\"english\":\"Finally, we succeeded in our studies.\"}}",
+    "solution": "{\"마지막으로\":\"Finally\",\"학업\":\"studies\",\"성공했습니다\":\"succeeded\"}\n\n         {\"english\":\"I finally succeeded in my studies.\"}",
     "id": 819
   },
   {
     "generator": "korean-english",
     "input": "ignition",
-    "problem": "점화(點火) 시(時) 엔진 활동(活動)이 시작(始作)합니다.\n",
+    "problem": "점화(點火) 신호(信號)가 도착(到着)하면 엔진 활동(活動)이 시작(始作)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -10547,20 +10547,20 @@ export const problems = [
       "vocabulary",
       "grammar"
     ],
-    "solution": "{\"words\":[{\"korean\":\"점화\",\"english\":\"ignition\"},{\"korean\":\"엔진\",\"english\":\"engine\"},{\"korean\":\"활동\",\"english\":\"activation\"}],\"sentence\":{\"korean\":\"점화 시 엔진 활동이 시작합니다.\",\"english\":\"Ignition starts the engine activation.\"}}",
+    "solution": "{\"점화 신호가 도착하면\":\"When the ignition signal arrives\",\"엔진 활동이 시작합니다\":\"the engine starts\"}\n\n         {\"english\":\"Once the ignition signal arrives, the engine activates.\"}",
     "id": 820
   },
   {
     "generator": "korean-english",
     "input": "pelvis",
-    "problem": "골반(骨盤)은 근력(筋力)과 움직임에 중요(重要)한 부위(部位)입니다.\n",
+    "problem": "골반(骨盤)은 근력(筋力)과 움직임에 중요(重要)한 곳입니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"골반\",\"english\":\"pelvis\"},{\"korean\":\"움직임\",\"english\":\"movement\"},{\"korean\":\"근력\",\"english\":\"muscle force\"}],\"sentence\":{\"korean\":\"골반은 근력과 움직임에 중요한 부위입니다.\",\"english\":\"The pelvis is an important structure for muscle force and movement.\"}}",
+    "solution": "{\"골반\":\"pelvis\",\"근력\":\"muscle strength\",\"움직임\":\"movement\",\"중요한\":\"important\",\"곳\":\"place\"}\n\n         {\"english\":\"The pelvis is an important place for both muscle power and movement.\"}",
     "id": 821
   },
   {
@@ -10572,13 +10572,13 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"더 나아가지 말고\",\"english\":\"Don't stop moving forward\"},{\"korean\":\"다음 단계에 도달\",\"english\":\"Reach the next stage\"}],\"sentence\":{\"korean\":\"더 나아가지 말고, 다음 단계에 도달하더라.\",\"english\":\"Don't stop moving forward, and reach the next stage.\"}}",
+    "solution": "{\"더 나아가지 말고\":\"Don't stop moving forward\",\"다음 단계에 도달하더라\":\"You will reach the next stage\"}\n\n         {\"english\":\"Don't stop now. Reach the next step.\"}",
     "id": 822
   },
   {
     "generator": "korean-english",
     "input": "examiner",
-    "problem": "점검자(點檢者)가 학습(學習) 내용(內容)의 결과(結果)를 평가(評價)합니다.\n",
+    "problem": "점검자(點檢者)가 학습(學習) 내용(內容)을 평가(評價)합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -10586,13 +10586,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"점검자\",\"english\":\"examiner\"},{\"korean\":\"학습\",\"english\":\"learning\"},{\"korean\":\"결과\",\"english\":\"result\"}],\"sentence\":{\"korean\":\"점검자가 학습 내용의 결과를 평가합니다.\",\"english\":\"The examiner evaluates the results of the learning content.\"}}",
+    "solution": "{\"점검자가\":\"Examiner\",\"학습 내용\":\"Learning content\",\"평가합니다\":\"Evaluates\"}\n\n         {\"english\":\"The inspector assesses the learning content.\"}",
     "id": 823
   },
   {
     "generator": "korean-english",
     "input": "share",
-    "problem": "공유(共有)한 보물(寶物)은 다음 번(番)에 더 크게 만들어야 합니다.\n",
+    "problem": "공유(共有)된 보물(寶物)은 다음 번(番)에 더 크게 만들어야 합니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
@@ -10600,13 +10600,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"공유\",\"english\":\"to share\"},{\"korean\":\"보물\",\"english\":\"treasure\"},{\"korean\":\"다음\",\"english\":\"next\"}],\"sentence\":{\"korean\":\"공유한 보물은 다음 번에 더 크게 만들어야 합니다.\",\"english\":\"The treasure that was shared should be made bigger next time.\"}}",
+    "solution": "{\"공유된 보물\":\"Shared treasure\",\"다음 번\":\"Next time\",\"크게 만들어야 합니다\":\"Should be made bigger\"}\n\n         {\"english\":\"Shared treasures should be made bigger next time.\"}",
     "id": 824
   },
   {
     "generator": "korean-english",
     "input": "extraordinary",
-    "problem": "아름다운 우연(偶然)이기 때문에, 이 기적(奇跡)이 일어났다.\n",
+    "problem": "아름다운 운명(運命)이기 때문에, 이 기적(奇跡)이 일어났다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -10615,38 +10615,38 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아름다운\",\"english\":\"beautiful\"},{\"korean\":\"우연\",\"english\":\"coincidence\"},{\"korean\":\"기적\",\"english\":\"miracle\"}],\"sentence\":{\"korean\":\"아름다운 우연이기 때문에, 이 기적이 일어났다.\",\"english\":\"The beautiful coincidence led to this miracle.\"}}",
+    "solution": "{\"아름다운 운명이기 때문에\":\"Because of one's beautiful destiny\",\"이 기적이 일어났다\":\"This miracle happened\"}\n\n         {\"english\":\"It happened because of their beautiful destiny.\"}",
     "id": 825
   },
   {
     "generator": "korean-english",
     "input": "anteroom",
-    "problem": "방(房) 앞에 작은 실이 있습니다.\n",
+    "problem": "방(房) 앞에 작은 실이 있어요.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방 앞\",\"english\":\"front room\"},{\"korean\":\"작은\",\"english\":\"small\"},{\"korean\":\"실\",\"english\":\"room\"}],\"sentence\":{\"korean\":\"방 앞에 작은 실이 있습니다.\",\"english\":\"There is a small front room.\"}}",
+    "solution": "{\"방 앞에 작은 실이 있어요.\":\"There is a small thread in front of the room.\",\"방\":\"room\",\"앞에\":\"in front of\",\"작은\":\"small\",\"실이\":\"thread\"}\n\n         {\"english\":\"There's a small spool in front of the room.\"}",
     "id": 826
   },
   {
     "generator": "korean-english",
     "input": "junction",
-    "problem": "회점(回點)에서 교차(交叉)하는 두 개(個)의 선(線)이 만납니다.\n",
+    "problem": "회점(回點)에서 두 선(線)이 만납니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"회점\",\"english\":\"junction\"},{\"korean\":\"교차\",\"english\":\"intersection\"},{\"korean\":\"점\",\"english\":\"point\"}],\"sentence\":{\"korean\":\"회점에서 교차하는 두 개의 선이 만납니다.\",\"english\":\"Two lines intersect at the junction.\"}}",
+    "solution": "{\"회점에서\":\"In the store\",\"두 선\":\"Two lines\",\"만납니다\":\"Meet/converge\"}\n\n         {\"english\":\"Two lines meet at the junction.\"}",
     "id": 827
   },
   {
     "generator": "korean-english",
     "input": "curious",
-    "problem": "궁금해지는 것은 신세한 사고(事故)의 시작(始作)이다.\n",
+    "problem": "궁금해지는 것은 새로운 생각의 시작(始作)이다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -10655,7 +10655,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"궁금해\",\"english\":\"Curious\"},{\"korean\":\"탐구\",\"english\":\"Exploration\"},{\"korean\":\"신세\",\"english\":\"Novel\"},{\"korean\":\"사고\",\"english\":\"Thought\"}],\"sentence\":{\"korean\":\"궁금해지는 것은 신세한 사고의 시작이다.\",\"english\":\"Curiosity is the beginning of new and innovative thoughts.\"}}",
+    "solution": "{\"궁금해지는 것은 새로운 생각의 시작이다.\":\"Curiosity is the beginning of new thoughts.\"}\n\n         {\"english\":\"Curiosity is the beginning of new ideas.\"}",
     "id": 828
   },
   {
@@ -10670,13 +10670,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"생산성이 높은\",\"english\":\"prolific\"},{\"korean\":\"작업\",\"english\":\"work\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"생산성이 높은 작업능력을 가진 학생은 많은 작업을 완료합니다.\",\"english\":\"A prolific student possesses high work ability and completes many tasks efficiently.\"}}",
+    "solution": "{\"생산성이 높은 작업능력을 가진 학생\":\"Students with high productivity and work ability\",\"많은 작업\":\"Many tasks\",\"완료\":\"Completed\"}\n\n         {\"english\":\"Students with high productivity possess the ability to complete many tasks efficiently.\"}",
     "id": 829
   },
   {
     "generator": "korean-english",
     "input": "precisely",
-    "problem": "정확히(正確히) 시간(時間)이 절반(折半)이 걸렸습니다.\n",
+    "problem": "시간(時間)이 절반(折半) 걸렸어요.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -10684,19 +10684,19 @@ export const problems = [
       "translation",
       "time"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정확히\",\"english\":\"Exactly\"},{\"korean\":\"시간이\",\"english\":\"is the\"},{\"korean\":\"절반\",\"english\":\"half\"}],\"sentence\":{\"korean\":\"정확히 시간이 절반이 걸렸습니다.\",\"english\":\"Exactly half of the time passed.\"}}",
+    "solution": "{\"시간이\":\"time\",\"절반\":\"half\",\"걸렸어요\":\"passed\"}\n\n         {\"english\":\"Half the time has passed.\"}",
     "id": 830
   },
   {
     "generator": "korean-english",
     "input": "inspire",
-    "problem": "감동(感動)은 고통(苦痛)을 이기고 성취(成就)를 얻는 힘입니다.\n",
+    "problem": "감동(感動)은 고통(苦痛)을 뛰어넘고 성취(成就)를 얻는 힘입니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감동\",\"english\":\"inspiration\"},{\"korean\":\"고통\",\"english\":\"struggle\"},{\"korean\":\"성취\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"감동은 고통을 이기고 성취를 얻는 힘입니다.\",\"english\":\"Inspiration is the power to overcome struggle and achieve success.\"}}",
+    "solution": "{\"감동\":\"emotion\",\"고통\":\"suffering\",\"뛰어넘\":\"surpasses\",\"성취\":\"achievement\",\"힘\":\"strength\"}\n\n         {\"english\":\"Passion is the force that transcends pain and leads to accomplishment.\"}",
     "id": 831
   },
   {
@@ -10710,13 +10710,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"편부\",\"english\":\"fragment\"},{\"korean\":\"잔잔해\",\"english\":\"silvery\"},{\"korean\":\"빛나다\",\"english\":\"twinkles\"}],\"sentence\":{\"korean\":\"편부한 은빛이 잔잔해 비추네\",\"english\":\"The fragmented moonlight twinkles silvery.\"}}",
+    "solution": "{\"편부한\":\"calm\",\"은빛\":\"silver light\",\"잔잔해\":\"tranquil\",\"비추네\":\"is shining\"}\n\n         {\"english\":\"The pale moonlight is gently falling.\"}",
     "id": 832
   },
   {
     "generator": "korean-english",
     "input": "assign",
-    "problem": "학생(學生)은 교사(敎師)에게 과제(課題)를 받습니다.\n",
+    "problem": "학생(學生)은 교사(敎師)로부터 과제(課題)를 받습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -10724,33 +10724,33 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"주어\",\"english\":\"assign\"},{\"korean\":\"작업\",\"english\":\"assignment\"}],\"sentence\":{\"korean\":\"학생은 교사에게 과제를 받습니다.\",\"english\":\"The student receives an assignment from the teacher.\"}}",
+    "solution": "{\"학생은\":\"The student is\",\"교사로부터\":\"from the teacher\",\"과제를\":\"a homework\",\"받습니다\":\"receives\"}\n\n         {\"english\":\"Students receive assignments from their teachers.\"}",
     "id": 833
   },
   {
     "generator": "korean-english",
     "input": "antagonist",
-    "problem": "적금(積金)은 용사(勇士)와 대립(對立)하여 전쟁(戰爭)을 이기려고 노력(努力)합니다.\n",
+    "problem": "적금(積金)은 용사(勇士)들과 대립(對立)하여 전쟁(戰爭)을 승리(勝利)하기 위해 노력(努力)하고 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"적금\",\"english\":\"antagonist\"},{\"korean\":\"용사\",\"english\":\"hero\"},{\"korean\":\"대립\",\"english\":\"conflict\"}],\"sentence\":{\"korean\":\"적금은 용사와 대립하여 전쟁을 이기려고 노력합니다.\",\"english\":\"The antagonist struggles to defeat the hero, creating a conflict in the war.\"}}",
+    "solution": "{\"적금\":\"resources\",\"용사들\":\"soldiers\",\"대립\":\"conflict\",\"전쟁\":\"war\",\"승리\":\"victory\",\"노력\":\"effort\"}\n\n         {\"english\":\"The funds are working towards securing victory in the war by opposing the mercenaries.\"}",
     "id": 834
   },
   {
     "generator": "korean-english",
     "input": "undercover",
-    "problem": "감옥(監獄)아래 정보(情報)를 수집(蒐集)합니다.\n",
+    "problem": "감옥(監獄) 아래 정보(情報)를 수집(蒐集)합니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감옥아래\",\"english\":\"undercover\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"수집\",\"english\":\"collection\"}],\"sentence\":{\"korean\":\"감옥아래 정보를 수집합니다.\",\"english\":\"Information is collected undercover.\"}}",
+    "solution": "{\"감옥 아래 정보를 수집합니다.\":\"Information is being collected from below ground\",\"감옥\":\"Prison\",\"아래\":\"Below\",\"정보\":\"Information\",\"수집\":\"Collecting\"}\n\n         {\"english\":\"Information is being collected from below the prison.\"}",
     "id": 835
   },
   {
@@ -10763,7 +10763,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"메인프레임\",\"english\":\"mainframe\"},{\"korean\":\"데이터\",\"english\":\"data\"},{\"korean\":\"처리\",\"english\":\"processing\"}],\"sentence\":{\"korean\":\"메인프레임은 데이터를 처리하는 중앙 시스템입니다.\",\"english\":\"A mainframe is a central system that processes data.\"}}",
+    "solution": "{\"메인프레임\":\"Mainframe\",\"데이터\":\"Data\",\"처리\":\"Process\",\"중앙\":\"Central\",\"시스템\":\"System\"}\n\n         {\"english\":\"The mainframe is a central system that processes data.\"}",
     "id": 836
   },
   {
@@ -10776,13 +10776,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잔명한\",\"english\":\"treacherous\"},{\"korean\":\"거래\",\"english\":\"deal\"},{\"korean\":\"배신\",\"english\":\"betrayal\"}],\"sentence\":{\"korean\":\"잔명한 거래는 누구나 배신할 수 있습니다.\",\"english\":\"Treachery in a deal can be done by anyone.\"}}",
+    "solution": "{\"잔명한 거래는 누구나 배신할 수 있습니다.\":\"Honest deals can betray anyone.\"}\n\n         {\"english\":\"Loyal customers can betray you too.\"}",
     "id": 837
   },
   {
     "generator": "korean-english",
     "input": "quilt",
-    "problem": "매직으로 피크닉을 하고꽃잎들이 날아갑니다.\n",
+    "problem": "매직으로 피크닉을 하고 꽃잎들이 날아갑니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
@@ -10790,7 +10790,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매직\",\"english\":\"magic\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"},{\"korean\":\"꽃잎\",\"english\":\"flower petals\"}],\"sentence\":{\"korean\":\"매직으로 피크닉을 하고꽃잎들이 날아갑니다.\",\"english\":\"Magic brings a picnic and the flower petals fly away.\"}}",
+    "solution": "{\"매직으로\":\"magically\",\"피크닉\":\"picnic\",\"꽃잎들\":\"flower petals\",\"날아갑니다\":\"fly away\"}\n\n         {\"english\":\"The picnic is being enchanted, and the flower petals are flying away.\"}",
     "id": 838
   },
   {
@@ -10804,32 +10804,32 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"ointment\",\"english\":\"ointment\"},{\"korean\":\"용기\",\"english\":\"container\"},{\"korean\":\"무지성\",\"english\":\"curiosity\"}],\"sentence\":{\"korean\":\"ointment는 용기에 담겨 무지성을 만듭니다.\",\"english\":\"An ointment is placed in a container to pique curiosity.\"}}",
+    "solution": "{\"ointment는 용기에 담겨 무지성을 만듭니다.\":\"The ointment is placed in a container and makes people stupid.\",\"ointment\":\"ointment\",\"용기\":\"container\",\"담겨\":\"placed\",\"무지성\":\"stupidity\",\"만듭니다.\":\"makes\"}\n\n         {\"english\":\"Ointment makes fools of those who put it on.\"}",
     "id": 839
   },
   {
     "generator": "korean-english",
     "input": "communion",
-    "problem": "성사(成事) 주님(主님)은 교회(敎會)에서 주님(主님)과 함께 성사(成事)합니다.\n",
+    "problem": "성사(成事)님은 교회(敎會) 안에서 주님(主님)과 함께 성사(成事)합니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"성사\",\"english\":\"communion\"},{\"korean\":\"주님\",\"english\":\"teacher\"},{\"korean\":\"교회\",\"english\":\"church\"}],\"sentence\":{\"korean\":\"성사 주님은 교회에서 주님과 함께 성사합니다.\",\"english\":\"The teacher shares communion with the teacher and others in the church.\"}}",
+    "solution": "{\"성사님은\":\"The pastor\",\"교회 안에서\":\"inside the church\",\"주님과 함께\":\"together with the Lord\",\"성사합니다\":\"is praying\"}\n\n         {\"english\":\"The pastor is serving alongside the Lord within the church.\"}",
     "id": 840
   },
   {
     "generator": "korean-english",
     "input": "sunken",
-    "problem": "바닥에 침전(沈澱)한 선박(船舶)은 물면 아래로 가버렸다.\n",
+    "problem": "바닥에 침몰(沈沒)한 선박(船舶)은 물면 아래로 사라졌다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침전\",\"english\":\"submerged\"},{\"korean\":\"바닥\",\"english\":\"bottom\"}],\"sentence\":{\"korean\":\"바닥에 침전한 선박은 물면 아래로 가버렸다.\",\"english\":\"The sunken ship had vanished beneath the water surface.\"}}",
+    "solution": "{\"바닥에 침몰한 선박\":\"Flooded vessel on the seabed\",\"침몰\":\"Submerged\",\"선박\":\"Ship\",\"물면\":\"Surface of the water\",\"아래\":\"Below\",\"사라졌다\":\"Vanished\"}\n\n         {\"english\":\"The sunken ship at the bottom of the ocean disappeared underwater.\"}",
     "id": 841
   },
   {
@@ -10841,13 +10841,13 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"출생지\",\"english\":\"Birthplace\"},{\"korean\":\"고향\",\"english\":\"Hometown\"},{\"korean\":\"장소\",\"english\":\"Place\"}],\"sentence\":{\"korean\":\"출생지는 고향이지만, 저는 다른 곳에서 성장했습니다.\",\"english\":\"My birthplace is my hometown, but I grew up in a different place.\"}}",
+    "solution": "{\"출생지는\":\"Place of birth\",\"고향이지만\":\"is my hometown\",\"저는\":\"I\",\"다른 곳에서\":\"in another place\",\"성장했습니다\":\"grew up\"}\n\n         {\"english\":\"My birthplace is my hometown, but I grew up elsewhere.\"}",
     "id": 842
   },
   {
     "generator": "korean-english",
     "input": "monarch",
-    "problem": "왕(王)은 나라를 다 다루고 있습니다.\n",
+    "problem": "왕(王)은 나라를 전적(全的)으로 다루고 있습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
@@ -10855,20 +10855,20 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"왕\",\"english\":\"monarch\"},{\"korean\":\"나라\",\"english\":\"country\"}],\"sentence\":{\"korean\":\"왕은 나라를 다 다루고 있습니다.\",\"english\":\"The monarch governs the country.\"}}",
+    "solution": "{\"왕은\":\"The king is\",\"나라를\":\"the nation\",\"전적으로\":\"completely\",\"다루고 있습니다\":\"managing\"}\n\n         {\"english\":\"The king is governing the country entirely.\"}",
     "id": 843
   },
   {
     "generator": "korean-english",
     "input": "insert",
-    "problem": "삽입(揷入)된 파일은 데이터베이스에 저장(貯藏)됩니다.\n",
+    "problem": "삽입(揷入)된 파일은 데이터베이스에 기록(記錄)됩니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"삽입\",\"english\":\"insert\"},{\"korean\":\"파일\",\"english\":\"file\"},{\"korean\":\"데이터\",\"english\":\"data\"}],\"sentence\":{\"korean\":\"삽입된 파일은 데이터베이스에 저장됩니다.\",\"english\":\"The inserted file is saved in the database.\"}}",
+    "solution": "{\"삽입된 파일은 데이터베이스에 기록됩니다.\":\"Inserted file is recorded in the database.\"}\n\n         {\"english\":\"The inserted file is recorded in the database.\"}",
     "id": 844
   },
   {
@@ -10883,39 +10883,39 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"버스\",\"english\":\"bus\"},{\"korean\":\"기차\",\"english\":\"train\"},{\"korean\":\"도로\",\"english\":\"road\"}],\"sentence\":{\"korean\":\"버스는 도로를 통해 기차를 따라갑니다.\",\"english\":\"The bus travels along the road following the train.\"}}",
+    "solution": "{\"버스\":\"Bus\",\"도로\":\"Road\",\"갑니다\":\"Goes\",\"기차\":\"Train\",\"따라\":\"Following\",\"저기\":\"Here\"}\n\n         {\"english\":\"The bus follows the train along the road.\"}",
     "id": 845
   },
   {
     "generator": "korean-english",
     "input": "endurance",
-    "problem": "지속적(持續的)인 피로(疲勞)와 고난(苦難)은 목표(目標)를 달성(達成)하기 위해서는 반드시 극복(克服)해야 합니다.\n",
+    "problem": "지속적(持續的)인 피로(疲勞)와 고난(苦難)은 목표(目標)를 달성(達成)하기 위해 반드시 극복(克服)해야 합니다.\n",
     "length": 40,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지속\",\"english\":\"endurance\"},{\"korean\":\"피로\",\"english\":\"fatigue\"},{\"korean\":\"고난\",\"english\":\"hardship\"}],\"sentence\":{\"korean\":\"지속적인 피로와 고난은 목표를 달성하기 위해서는 반드시 극복해야 합니다.\",\"english\":\"Endurance through fatigue and hardship is essential to achieve your goals.\"}}",
+    "solution": "{\"지속적인 피로와 고난\":\"Persistent fatigue and hardship\",\"목표를 달성하기 위해\":\"to achieve the goal\",\"반드시 극복해야 합니다\":\"must be overcome\"}\n\n         {\"english\":\"Continuous fatigue and hardship must be overcome in order to achieve the goal.\"}",
     "id": 846
   },
   {
     "generator": "korean-english",
     "input": "booty",
-    "problem": "부티(富티)는 숨겨 보물(寶物)입니다.\n",
+    "problem": "부티(富티)는 은밀히(隱密히) 보물(寶物)입니다.\n",
     "length": 13,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부티\",\"english\":\"treasure\"},{\"korean\":\"숨겨\",\"english\":\"hid\"},{\"korean\":\"보물\",\"english\":\"treasure\"}],\"sentence\":{\"korean\":\"부티는 숨겨 보물입니다.\",\"english\":\"The booty is hidden treasure.\"}}",
+    "solution": "{\"부티\":\"box\",\"은밀히\":\"secretly\",\"보물\":\"treasure\"}\n\n         {\"english\":\"Butterflies are secretly treasures.\"}",
     "id": 847
   },
   {
     "generator": "korean-english",
     "input": "crane",
-    "problem": "까락은 하늘을 날다다.\n",
+    "problem": "까락은 하늘을 날다.\n",
     "length": 12,
     "tags": [
       "grade-5",
@@ -10923,63 +10923,63 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"까락\",\"english\":\"crane\"},{\"korean\":\"날다다\",\"english\":\"to fly\"},{\"korean\":\"하늘\",\"english\":\"sky\"}],\"sentence\":{\"korean\":\"까락은 하늘을 날다다.\",\"english\":\"Cranes fly across the sky.\"}}",
+    "solution": "{\"까락\":\"flock\",\"은\":\"is\",\"하늘\":\"sky\",\"날다\":\"to fly\"}\n\n         {\"english\":\"The kite is flying high in the sky.\"}",
     "id": 848
   },
   {
     "generator": "korean-english",
     "input": "veritable",
-    "problem": "정확(正確)한 말은 참의(參議) 근본(根本)이 됩니다.\n",
+    "problem": "정확(正確)한 말은 참의(參議) 기본(基本)이 됩니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정확한\",\"english\":\"veritable\"},{\"korean\":\"말\",\"english\":\"word\"},{\"korean\":\"참\",\"english\":\"truth\"}],\"sentence\":{\"korean\":\"정확한 말은 참의 근본이 됩니다.\",\"english\":\"Veritable words are the foundation of truth.\"}}",
+    "solution": "{\"정확한 말\":\"Accurate words\",\"참의\":\"attention\",\"기본\":\"foundation\",\"됩니다\":\"is essential\"}\n\n         {\"english\":\"Accurate words are the foundation of attention.\"}",
     "id": 849
   },
   {
     "generator": "korean-english",
     "input": "divisional",
-    "problem": "분할(分割) 점수(點數)를 얻기 위해 팀은 최대한(最大限) 많은 점수(點數)를 얻는 것이 중요(重要)합니다.\n",
+    "problem": "팀은 점수(點數)를 최대한(最大限) 얻기 위해 분할(分割) 점수(點數)를 얻는 것이 중요(重要)합니다.\n",
     "length": 39,
     "tags": [
       "grade-5",
       "division",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"분할\",\"english\":\"division\"},{\"korean\":\"점수\",\"english\":\"score\"},{\"korean\":\"팀\",\"english\":\"team\"}],\"sentence\":{\"korean\":\"분할 점수를 얻기 위해 팀은 최대한 많은 점수를 얻는 것이 중요합니다.\",\"english\":\"In order to win the division, the team needs to score as many points as possible.\"}}",
+    "solution": "{\"팀은 점수를 최대한 얻기 위해 분할 점수를 얻는 것이 중요합니다.\":\"Teamwork is crucial for maximizing scores as it involves securing partial scores.\",\"팀\":\"Team\",\"점수\":\"Score\",\"최대한\":\"Maximizing\",\"분할\":\"Partial\",\"이 중요합니다.\":\"is crucial.\"}\n\n         {\"english\":\"The team needs to focus on scoring points by obtaining split points in order to maximize their score.\"}",
     "id": 850
   },
   {
     "generator": "korean-english",
     "input": "Christmas",
-    "problem": "크리스마스에는 선물(膳物)을 보내다.\n",
+    "problem": "크리스마스에는 선물(膳物)을 보냅니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"크리스마스\",\"english\":\"Christmas\"},{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"보내다\",\"english\":\"to send\"}],\"sentence\":{\"korean\":\"크리스마스에는 선물을 보내다.\",\"english\":\"Christmas is a time to send gifts.\"}}",
+    "solution": "{\"크리스마스에는 선물을 보냅니다.\":\"Christmas is a time for gift-giving.\",\"크리스마스\":\"Christmas\",\"선물\":\"gift\",\"보내다\":\"to send\",\"니다.\":\"is\"}\n\n         {\"english\":\"Christmas brings gifts.\"}",
     "id": 851
   },
   {
     "generator": "korean-english",
     "input": "unusually",
-    "problem": "특별히(特別히) 우리나라 음식(飮食)은 세계(世界)에서 가장 풍부(豐富)합니다.\n",
+    "problem": "우리나라 음식(飮食)은 세계(世界)에서 가장 풍부(豐富)합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"특별히\",\"english\":\"especially\"},{\"korean\":\"우리나라\",\"english\":\"in Korea\"},{\"korean\":\"음식\",\"english\":\"food\"}],\"sentence\":{\"korean\":\"특별히 우리나라 음식은 세계에서 가장 풍부합니다.\",\"english\":\"Especially Korean food is the most abundant in the world.\"}}",
+    "solution": "{\"우리나라\":\"Our country\",\"음식\":\"Food\",\"은\":\"is\",\"세계에서\":\"in the world\",\"가장\":\"most\",\"풍부합니다\":\"abundant\"}\n\n         {\"english\":\"Our food is the most abundant in the world.\"}",
     "id": 852
   },
   {
     "generator": "korean-english",
     "input": "gorilla",
-    "problem": "ゴリ라가 숲을 탐험(探險)합니다.\n",
+    "problem": "거대(巨大)한 원숭이가 임무(任務)를 하고 산림(山林)을 탐험(探險)합니다.\n",
     "length": 14,
     "tags": [
       "grade-5",
@@ -10987,20 +10987,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"ゴリ라\",\"english\":\"gorilla\"},{\"korean\":\"숲\",\"english\":\"forest\"},{\"korean\":\"탐험\",\"english\":\"exploration\"}],\"sentence\":{\"korean\":\"ゴリ라가 숲을 탐험합니다.\",\"english\":\"The gorilla explores the forest.\"}}",
+    "solution": "{\"거대한 원숭이\":\"Giant ape\",\"임무\":\"Mission\",\"산림\":\"Forest\",\"탐험\":\"Exploration\"}\n\n         {\"english\":\"A massive monkey is completing its mission and exploring the forest.\"}",
     "id": 853
   },
   {
     "generator": "korean-english",
     "input": "thou",
-    "problem": "당신(當身)은 다음 시간(時間)에 시간(時間)을 가지고 있어.\n",
+    "problem": "다음 시간(時間)에는 시간(時間)이 있어.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"당신\",\"english\":\"thou\"},{\"korean\":\"다음\",\"english\":\"next\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"당신은 다음 시간에 시간을 가지고 있어.\",\"english\":\"Thou hast time next time.\"}}",
+    "solution": "{\"다음 시간에는 시간이 있어.\":\"Next time there will be time.\"}\n\n         {\"english\":\"There will be time next time.\"}",
     "id": 854
   },
   {
@@ -11013,13 +11013,13 @@ export const problems = [
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"강사\",\"english\":\"lecturer\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"강의\",\"english\":\"lecture\"}],\"sentence\":{\"korean\":\"강사는 학생들에게 강의를 합니다.\",\"english\":\"The lecturer gives a lecture to the students.\"}}",
+    "solution": "{\"강사\":\"Teacher\",\"학생\":\"Student\",\"강의\":\"Lecture\",\"합니다\":\"does\"}\n\n         {\"english\":\"The teacher teaches the students.\"}",
     "id": 855
   },
   {
     "generator": "korean-english",
     "input": "craze",
-    "problem": "열광(熱狂)한 소동(騷動)이 있어서 모든 사람들이 그에 대(對)해 퍼트리기 시작(始作)했다.\n",
+    "problem": "열광(熱狂)한 소동(騷動)이 있어서 모든 사람들이 그에 대(對)해 알리기 시작(始作)했다.\n",
     "length": 36,
     "tags": [
       "grade-5",
@@ -11028,13 +11028,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"열광\",\"english\":\"craze\"},{\"korean\":\"소동\",\"english\":\"rumor\"},{\"korean\":\"퍼트리기\",\"english\":\"spread\"}],\"sentence\":{\"korean\":\"열광한 소동이 있어서 모든 사람들이 그에 대해 퍼트리기 시작했다.\",\"english\":\"A craze has spread around that everyone is talking about.\"}}",
+    "solution": "{\"열광한\":\"Extremely popular\",\"소동\":\"Gossip\",\"있어서\":\"because of that\",\"모든\":\"all\",\"사람들이\":\"people\",\"그에 대해\":\"about that\",\"알리기 시작했다\":\"began to spread\"}\n\n         {\"english\":\"There was a lot of commotion, and everyone started talking about it.\"}",
     "id": 856
   },
   {
     "generator": "korean-english",
     "input": "deficient",
-    "problem": "부족(不足)한 능력(能力)은 목표(目標)를 달성(達成)하기 위해서는 무엇을 해야 할까?\n",
+    "problem": "부족(不足)한 능력(能力)은 목표(目標)를 달성(達成)하기 위해서는 무엇을 해야 할까? 이 점(點)에 대(對)해 고민(苦悶)해 보세요.\n",
     "length": 32,
     "tags": [
       "grade-5",
@@ -11043,26 +11043,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부족한\",\"english\":\"deficient\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"부족한 능력은 목표를 달성하기 위해서는 무엇을 해야 할까?\",\"english\":\"A deficient ability leaves one wondering what steps to take to achieve the goal?\"}}",
+    "solution": "{\"부족한 능력\":\"Lacking abilities\",\"목표\":\"Goal\",\"해야 할까\":\"What should one do?\",\"고민\":\"Reflection\",\"능력\":\"Abilities\",\"무엇\":\"Something\",\"목표를 달성\":\"Achieve the goal\"}\n\n         {\"english\":\"Insufficient ability requires you to consider what steps to take to achieve your goals. Reflect on this point.\"}",
     "id": 857
   },
   {
     "generator": "korean-english",
     "input": "tetanus",
-    "problem": "tetanus는 근(筋)긴 상태(狀態)에서 발생(發生)할 수 있습니다.\n",
+    "problem": "근(筋)긴 상태(狀態)에서 텐anus가 발생(發生)할 수 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"tetanus\",\"english\":\"lockjaw\"},{\"korean\":\"발생\",\"english\":\"occurrence\"},{\"korean\":\"근긴\",\"english\":\"stiff\"}],\"sentence\":{\"korean\":\"tetanus는 근긴 상태에서 발생할 수 있습니다.\",\"english\":\"Tetanus can occur when muscles become stiff.\"}}",
+    "solution": "{\"근긴 상태에서 텐anus가 발생할 수 있습니다.\":\"Muscle tension can occur in a tense state.\"}\n\n         {\"english\":\"Muscle tension can occur in a tense state.\"}",
     "id": 858
   },
   {
     "generator": "korean-english",
     "input": "get",
-    "problem": "지금(只今) 우리는 문제(問題)를 해결(解決)해야 합니다.\n",
+    "problem": " 지금(只今) 우리는 문제(問題)를 해결(解決)해야 해.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -11070,20 +11070,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지금\",\"english\":\"now\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"해결\",\"english\":\"solve\"},{\"korean\":\"문제\",\"english\":\"problem\"}],\"sentence\":{\"korean\":\"지금 우리는 문제를 해결해야 합니다.\",\"english\":\"We need to solve the problem now.\"}}",
+    "solution": "{\"지금\":\"now\",\"우리\":\"we\",\"문제\":\"problem\",\"해결해야 해\":\"need to be solved\"}\n\n         {\"english\":\"We need to solve this problem right now.\"}",
     "id": 859
   },
   {
     "generator": "korean-english",
     "input": "ration",
-    "problem": "식단(食單)은 필요(必要)한 분할(分割)로 나누어야 합니다.\n",
+    "problem": "식단(食單)은 필요(必要)한 성분(成分)으로 나누어야 합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"분할\",\"english\":\"ration\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"필요\",\"english\":\"necessary\"}],\"sentence\":{\"korean\":\"식단은 필요한 분할로 나누어야 합니다.\",\"english\":\"A diet should be divided into necessary rations.\"}}",
+    "solution": "{\"식단\":\"diet\",\"필요한\":\"necessary\",\"성분\":\"components\",\"나누어야\":\"should be divided\",\"매\":\"into\"}\n\n         {\"english\":\"The diet should be divided into necessary nutrients.\"}",
     "id": 860
   },
   {
@@ -11095,7 +11095,7 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"택시\",\"english\":\"taxi\"},{\"korean\":\"고속\",\"english\":\"express\"},{\"korean\":\"도로\",\"english\":\"highway\"}],\"sentence\":{\"korean\":\"고속택시가 도로를 지나갑니다.\",\"english\":\"An express taxi is driving on the highway.\"}}",
+    "solution": "{\"고속택시\":\"High-speed taxi\",\"도로\":\"Road\",\"지나갑니다\":\"Passes by\"}\n\n         {\"english\":\"A high-speed taxi is passing the road.\"}",
     "id": 861
   },
   {
@@ -11108,25 +11108,25 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전기\",\"english\":\"electricity\"},{\"korean\":\"회로\",\"english\":\"circuit\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"전기회로는 정보를 전달합니다.\",\"english\":\"Electricity travels through a circuit, transmitting information.\"}}",
+    "solution": "{\"전기회로\":\"Electrical circuit\",\"정보\":\"Information\",\"전달\":\"Transmission\",\"합니다\":\"is done\"}\n\n         {\"english\":\"Electricity circuits transmit information.\"}",
     "id": 862
   },
   {
     "generator": "korean-english",
     "input": "orderly",
-    "problem": "순서(順序) 있게 책(冊)을 배열(配列)하여 편안(便安)하게 독서(讀書)할 수 있습니다.\n",
+    "problem": "책(冊)을 순차적(順次的)으로 배열(配列)하여 편안(便安)하게 독서(讀書)할 수 있습니다.\n",
     "length": 30,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"순서 있게\",\"english\":\"in an orderly fashion\"},{\"korean\":\"배열\",\"english\":\"arrangement\"},{\"korean\":\"편안하게\",\"english\":\"comfortably\"}],\"sentence\":{\"korean\":\"순서 있게 책을 배열하여 편안하게 독서할 수 있습니다.\",\"english\":\"You can read comfortably by arranging the books in an orderly fashion.\"}}",
+    "solution": "{\"책을 순차적으로 배열하여 편안하게 독서할 수 있습니다.\":{\"책을 순차적으로 배열\":\"To arrange books in order\",\"편안하게 독서할\":\"To read comfortably\",\"수 있습니다\":\"Can be done\"}}\n\n         {\"english\":\"Books can be arranged in order to read them comfortably.\"}",
     "id": 863
   },
   {
     "generator": "korean-english",
     "input": "rainbow",
-    "problem": "무지개는 무용(無用)한 빛이지만 아름다워 보인다.\n",
+    "problem": "무지개는 유용(有用)하지 않은 빛이지만 아름답네 보인다.\n",
     "length": 23,
     "tags": [
       "grade-5",
@@ -11135,39 +11135,39 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무지개\",\"english\":\"rainbow\"},{\"korean\":\"무용한\",\"english\":\"meaningless\"},{\"korean\":\"빛\",\"english\":\"light\"}],\"sentence\":{\"korean\":\"무지개는 무용한 빛이지만 아름다워 보인다.\",\"english\":\"A rainbow is meaningless light, but it is beautiful to look at.\"}}",
+    "solution": "{\"무지개\":\"Rainbow\",\"유용하지 않은\":\"Not useful\",\"빛\":\"Light\",\"아름답네\":\"Beautiful\",\"보인다\":\"Looks\"}\n\n         {\"english\":\"Rainbow is not a useful light, but it is beautiful to look at.\"}",
     "id": 864
   },
   {
     "generator": "korean-english",
     "input": "prosperous",
-    "problem": "풍요성(豐饒性)은 성장(成長)의 결과(結果)로, 부상(負傷)을 가져옵니다.\n",
+    "problem": "풍요성(豐饒性)은 성장(成長) 과정(過程)의 결과(結果)로 부상(負傷)을 입히게 됩니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english",
       "vocabulary"
     ],
-    "solution": "{\"words\":[{\"korean\":\"풍요성\",\"english\":\"prosperity\"},{\"korean\":\"성장\",\"english\":\"growth\"},{\"korean\":\"부상\",\"english\":\"benefit\"}],\"sentence\":{\"korean\":\"풍요성은 성장의 결과로, 부상을 가져옵니다.\",\"english\":\"Prosperity is a result of growth, bringing benefits.\"}}",
+    "solution": "{\"풍요성은\":\"The turbulence\",\"성장 과정\":\"growth process\",\"결과로\":\"as a result\",\"부상\":\"damage\",\"입히게\":\"causes\"}\n\n         {\"english\":\"Turbulence is a result of the growth process and causes damage.\"}",
     "id": 865
   },
   {
     "generator": "korean-english",
     "input": "influenza",
-    "problem": "영감(令監)은 사회(社會) 시스템에 확산(擴散)되어 변화(變化)를 일으킨다.\n",
+    "problem": "영감(令監)은 사회계(社會界)에 확산(擴散)되어 변화(變化)를 일으킨다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"영감\",\"english\":\"influence\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"시스템\",\"english\":\"system\"}],\"sentence\":{\"korean\":\"영감은 사회 시스템에 확산되어 변화를 일으킨다.\",\"english\":\"Influence spreads throughout the social system and brings about change.\"}}",
+    "solution": "{\"영감\":\"inspiration\",\"확산\":\"spread\",\"사회계\":\"society\",\"변화\":\"change\",\"일으킨다\":\"causes\"}\n\n         {\"english\":\"Inspiration spreads throughout society and brings about change.\"}",
     "id": 866
   },
   {
     "generator": "korean-english",
     "input": "stout",
-    "problem": "거대(巨大)한 나무의 목길은 그림자를 그린다.\n",
+    "problem": "거대(巨大)한 나무의 목길은 그림자를 그립니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -11175,13 +11175,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거대한\",\"english\":\"tall\"},{\"korean\":\"목길\",\"english\":\"trunk\"},{\"korean\":\"그림자\",\"english\":\"shadow\"}],\"sentence\":{\"korean\":\"거대한 나무의 목길은 그림자를 그린다.\",\"english\":\"The tall tree casts a shadow on the ground.\"}}",
+    "solution": "{\"거대한 나무의 목길\":\"Trunk of the giant tree\",\"그립니다\":\"casts a shadow\",\"그림자\":\"shadow\"}\n\n         {\"english\":\"The trunk of a giant tree casts a shadow.\"}",
     "id": 867
   },
   {
     "generator": "korean-english",
     "input": "adoration",
-    "problem": "숭배심지(地)깊은 감성(感性)을 가지는 사람들은, 다른 사람들에 비해 위대(偉大)한 것을 이해(理解)합니다.\n",
+    "problem": "깊은 감성(感性)을 가진 사람들은 다른 사람들보다 큰 것을 이해(理解)합니다.\n",
     "length": 45,
     "tags": [
       "grade-5",
@@ -11189,7 +11189,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"숭배\",\"english\":\"adoration\"},{\"korean\":\"심지\",\"english\":\"depth\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"숭배심지깊은 감성을 가지는 사람들은, 다른 사람들에 비해 위대한 것을 이해합니다.\",\"english\":\"Those who have deep adoration develop a profound understanding of greatness.\"}}",
+    "solution": "{\"깊은 감성을 가진 사람들은 다른 사람들보다 큰 것을 이해합니다.\":{\"깊은 감성\":\"Deep emotions\",\"가진\":\"possessing\",\"사람들은\":\"people\",\"다른\":\"other\",\"사람들보다\":\"than others\",\"큰 것을\":\"big things\",\"이해합니다\":\"understand\"}}\n\n         {\"english\":\"People with deep emotions understand bigger things than others.\"}",
     "id": 868
   },
   {
@@ -11201,26 +11201,26 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"신선함\",\"english\":\"novelty\"},{\"korean\":\"경험\",\"english\":\"experience\"},{\"korean\":\"감각\",\"english\":\"sensory\"}],\"sentence\":{\"korean\":\"신선한 경험은 새로운 감각을 제공합니다.\",\"english\":\"Novel experiences provide new sensory experiences.\"}}",
+    "solution": "{\"신선한\":\"fresh\",\"경험\":\"experience\",\"새로운\":\"new\",\"감각\":\"sensations\",\"제공\":\"provide\"}\n\n         {\"english\":\"Fresh experiences provide new sensations.\"}",
     "id": 869
   },
   {
     "generator": "korean-english",
     "input": "landmark",
-    "problem": "기념물(記念物)은 위치(位置)에 따라 중요도(重要度)가 달라질 수 있습니다.\n",
+    "problem": "기념물(記念物)은 위치(位置)에 따라 중요도(重要度)가 다양해질 수 있습니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"기념물\",\"english\":\"monument\"},{\"korean\":\"위치\",\"english\":\"location\"}],\"sentence\":{\"korean\":\"기념물은 위치에 따라 중요도가 달라질 수 있습니다.\",\"english\":\"The importance of a monument can change depending on its location.\"}}",
+    "solution": "{\"기념물\":\"memorial object\",\"위치\":\"location\",\"중요도\":\"importance\",\"다양해질\":\"can vary\",\"수 있습니다\":\"is possible\"}\n\n         {\"english\":\"Significance of commemorative objects can vary depending on their location.\"}",
     "id": 870
   },
   {
     "generator": "korean-english",
     "input": "typically",
-    "problem": "거시적(巨視的)으로 학교(學校)에서 학생(學生)들은 책(冊)을 읽습니다.\n",
+    "problem": "학교(學校)에서 학생(學生)들은 책(冊)을 읽고 있습니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -11228,26 +11228,26 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거시적으로\",\"english\":\"typically\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생들\",\"english\":\"students\"}],\"sentence\":{\"korean\":\"거시적으로 학교에서 학생들은 책을 읽습니다.\",\"english\":\"Typically, students read books at school.\"}}",
+    "solution": "{\"학교에서\":\"At school\",\"학생들은\":\"Students are\",\"책을\":\"a book\",\"읽고 있습니다\":\"reading\"}\n\n         {\"english\":\"Students are reading books in school.\"}",
     "id": 871
   },
   {
     "generator": "korean-english",
     "input": "risky",
-    "problem": "위험(危險)한 시도(試圖)는 종종(種種) 고통(苦痛)과 함께 성공(成功)의 가능성(可能性)도 포함(包含)합니다.\n",
+    "problem": "위험(危險)한 시도(試圖)는 종종(種種) 고통(苦痛)과 함께 성공(成功) 가능성(可能性)도 포함(包含)합니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"risky\"},{\"korean\":\"고통\",\"english\":\"painful\"},{\"korean\":\"성공\",\"english\":\"success\"}],\"sentence\":{\"korean\":\"위험한 시도는 종종 고통과 함께 성공의 가능성도 포함합니다.\",\"english\":\"Risky attempts often include the possibility of both pain and success.\"}}",
+    "solution": "{\"위험한 시도\":\"risky attempt\",\"종종\":\"often\",\"고통\":\"pain\",\"성공 가능성\":\"possibility of success\"}\n\n         {\"english\":\"Dangerous attempts often carry the potential for both pain and success.\"}",
     "id": 872
   },
   {
     "generator": "korean-english",
     "input": "curiosity",
-    "problem": "궁금증(궁금症)은 문제(問題)를 해결(解決)하는 탐구(探究)의 시작(始作)입니다.\n",
+    "problem": "궁금증(궁금症)은 문제(問題) 해결(解決)을 위한 연구(硏究)의 시작(始作)이랍니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -11256,20 +11256,20 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"궁금증\",\"english\":\"curiosity\"},{\"korean\":\"탐구\",\"english\":\"investigation\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"궁금증은 문제를 해결하는 탐구의 시작입니다.\",\"english\":\"Curiosity is the beginning of solving problems.\"}}",
+    "solution": "{\"궁금증은\":\"Curiosity is\",\"문제 해결\":\"problem-solving\",\"연구의\":\"a research\",\"시작\":\"beginning\"}\n\n         {\"english\":\"Curiosity is the beginning of research for problem-solving.\"}",
     "id": 873
   },
   {
     "generator": "korean-english",
     "input": "traffic",
-    "problem": "교통(交通)은 혼잡(混雜)하고 인사(人士)가 많아 교통량(交通量)이 많습니다.\n",
+    "problem": "교통(交通)은 혼잡(混雜)하고 인사(人士)가 많아 교통량(交通量)이 많아요.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "volume",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"교통\",\"english\":\"traffic\"},{\"korean\":\"혼잡\",\"english\":\"crowded\"},{\"korean\":\"인사\",\"english\":\"people\"}],\"sentence\":{\"korean\":\"교통은 혼잡하고 인사가 많아 교통량이 많습니다.\",\"english\":\"Traffic is crowded with many people, making the traffic volume quite high.\"}}",
+    "solution": "{\"교통\":\"traffic\",\"혼잡\":\"crowded\",\"인사\":\"people\",\"교통량\":\"traffic volume\",\"많아요\":\"is a lot\"}\n\n         {\"english\":\"The traffic is very congested due to the high volume of people and vehicles.\"}",
     "id": 874
   },
   {
@@ -11281,7 +11281,7 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"합창\",\"english\":\"choir\"},{\"korean\":\"악단\",\"english\":\"band\"},{\"korean\":\"음악\",\"english\":\"music\"}],\"sentence\":{\"korean\":\"합창과 악단은 음악을 함께 합니다.\",\"english\":\"Choirs and bands play music together.\"}}",
+    "solution": "{\"합창과 악단은 음악을 함께 합니다.\":\"The chorus and the band perform music together.\"}\n\n         {\"english\":\"Both chorus and orchestra perform music together.\"}",
     "id": 875
   },
   {
@@ -11294,7 +11294,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"경영자\",\"english\":\"manager\"},{\"korean\":\"업무\",\"english\":\"task\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"경영자는 복잡한 업무를 수행할 능력을 가집니다.\",\"english\":\"A manager has the ability to perform complex tasks.\"}}",
+    "solution": "{\"경영자는\":\"The manager is\",\"복잡한\":\"complex\",\"업무\":\"work\",\"수행\":\"to perform\",\"능력\":\"ability\",\"가집니다\":\"possesses\"}\n\n         {\"english\":\"Managers possess the ability to handle complex tasks.\"}",
     "id": 876
   },
   {
@@ -11308,13 +11308,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"향기난\",\"english\":\"fragrant\"},{\"korean\":\"꽃잎\",\"english\":\"flower petals\"},{\"korean\":\"날카스\",\"english\":\"fragrance\"}],\"sentence\":{\"korean\":\"향기난 꽃잎은 날카스을 풍겼다.\",\"english\":\"The fragrant flower petals filled the air with fragrance.\"}}",
+    "solution": "{\"향기난꽃잎\":\"Petals with a fragrance\",\"날카스\":\"Needle-like thorns\",\"풍겼다\":\"Were filled with\"}\n\n         {\"english\":\"The scented flower petals filled the air with fragrance.\"}",
     "id": 877
   },
   {
     "generator": "korean-english",
     "input": "mob",
-    "problem": "모브의 확산(擴散)은 동기(動機)가 높은 사람들에게 더 잘 일어납니다.\n",
+    "problem": "동기(動機)가 높은 사람들에게 모브 확산(擴散)은 더 잘 일어납니다.\n",
     "length": 31,
     "tags": [
       "grade-5",
@@ -11323,7 +11323,7 @@ export const problems = [
       "inference",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"모브\",\"english\":\"crowd\"},{\"korean\":\"확산\",\"english\":\"diffusion\"},{\"korean\":\"동기\",\"english\":\"motivation\"}],\"sentence\":{\"korean\":\"모브의 확산은 동기가 높은 사람들에게 더 잘 일어납니다.\",\"english\":\"Diffusion within a crowd is better among those with high motivation.\"}}",
+    "solution": "{\"동기가 높은 사람들에게\":\"Highly motivated individuals\",\"모브 확산\":\"Spread of movement\",\"더 잘\":\"better\"}\n\n         {\"english\":\"People with high motivation spread the movement better.\"}",
     "id": 878
   },
   {
@@ -11336,13 +11336,13 @@ export const problems = [
       "algebra",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지표\",\"english\":\"exponent\"},{\"korean\":\"변수\",\"english\":\"variable\"},{\"korean\":\"수학적\",\"english\":\"mathematical\"}],\"sentence\":{\"korean\":\"지표는 변수에 지수를 포함하여 수학적 표현을 만듭니다.\",\"english\":\"An exponent is included with a variable to form a mathematical expression.\"}}",
+    "solution": "{\"지표\":\"Indicator\",\"변수\":\"Variable\",\"지수\":\"Index\",\"수학적\":\"Mathematical\",\"표현\":\"Expression\"}\n\n         {\"english\":\"Mathematical expressions are formed by including exponents on variables in the index.\"}",
     "id": 879
   },
   {
     "generator": "korean-english",
     "input": "calmly",
-    "problem": "평온히 바닥을 돌며꽃잎이 부풀어오르다\n",
+    "problem": "평온(平穩)한 바닥을 돌며 꽃잎은 부풀려오네.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -11351,51 +11351,51 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"평온히\",\"english\":\"calmly\"},{\"korean\":\"바닥을 돌며\",\"english\":\"stepping on the ground\"},{\"korean\":\"꽃잎이 부풀어오르다\",\"english\":\"petals blooming\"}],\"sentence\":{\"korean\":\"평온히 바닥을 돌며꽃잎이 부풀어오르다\",\"english\":\"Calmly stepping on the ground, petals bloom.\"}}",
+    "solution": "{\"평온한 바닥\":\"calm floor\",\"돌며\":\"while walking on\",\"꽃잎\":\"flower petals\",\"부풀려오네\":\"puff up\"}\n\n         {\"english\":\"Petals unfurl on a tranquil floor.\"}",
     "id": 880
   },
   {
     "generator": "korean-english",
     "input": "fervent",
-    "problem": "뜨거움이 발랄(潑剌)한 목표(目標)를 향(向)해 달려갑니다.\n",
+    "problem": "뜨거움은 발랄(潑剌)한 목표(目標)를 향(向)해 달려갑니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"뜨거움\",\"english\":\"heat\"},{\"korean\":\"발랄\",\"english\":\"passionate\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"뜨거움이 발랄한 목표를 향해 달려갑니다.\",\"english\":\"He runs towards his goal with passionate heat.\"}}",
+    "solution": "{\"뜨거움은\":\"Heat is\",\"발랄한\":\"ambitious\",\"목표\":\"goal\",\"향해\":\"toward\",\"달려갑니다\":\"runs away\"}\n\n         {\"english\":\"Heat drives towards a lofty goal.\"}",
     "id": 881
   },
   {
     "generator": "korean-english",
     "input": "forestry",
-    "problem": "임목(林木) 생태계(生態系) 보호(保護)가 중요(重要)합니다.\n",
+    "problem": "임목(林木) 생태계(生態系) 보호(保護)는 중요(重要)합니다.\n",
     "length": 17,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"임목\",\"english\":\"forest\"},{\"korean\":\"생태\",\"english\":\"ecosystem\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"임목 생태계 보호가 중요합니다.\",\"english\":\"Protecting the forest ecosystem is important.\"}}",
+    "solution": "{\"임목 생태계 보호는 중요합니다.\":\"Protecting the mangrove ecosystem is crucial.\",\"임목\":\"mangrove\",\"생태계\":\"ecosystem\",\"보호\":\"protection\",\"중요합니다\":\"is crucial\"}\n\n         {\"english\":\"Conservation of mangrove ecosystems is important.\"}",
     "id": 882
   },
   {
     "generator": "korean-english",
     "input": "orthodox",
-    "problem": "오르그래드한 전통적(傳統的)인 관습(慣習)은 오늘날도 중요(重要)합니다.\n",
+    "problem": "오래된 전통(傳統) 관습(慣習)은 오늘날도 중요(重要)합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오르그래드\",\"english\":\"orthodox\"},{\"korean\":\"전통\",\"english\":\"traditional\"},{\"korean\":\"습관\",\"english\":\"habit\"}],\"sentence\":{\"korean\":\"오르그래드한 전통적인 관습은 오늘날도 중요합니다.\",\"english\":\"Orthodox traditional habits are still important today.\"}}",
+    "solution": "{\"오래된 전통 관습\":\"Ancient traditions\",\"오늘날\":\"Nowadays\",\"중요합니다\":\"are important\"}\n\n         {\"english\":\"Ancient traditions and customs remain important today.\"}",
     "id": 883
   },
   {
     "generator": "korean-english",
     "input": "diary",
-    "problem": "일기장(日記帳)에 이번(이番) 주(週) 동안의 모든 감정(感情)을 썼어요.\n",
+    "problem": "일기장(日記帳)에 이번(이番) 주(週) 동안 모든 감정(感情)을 적었다.\n",
     "length": 25,
     "tags": [
       "grammar",
@@ -11403,7 +11403,7 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"일기장\",\"english\":\"diary\"},{\"korean\":\"쓰기\",\"english\":\"to write\"},{\"korean\":\"감정\",\"english\":\"feelings\"}],\"sentence\":{\"korean\":\"일기장에 이번 주 동안의 모든 감정을 썼어요.\",\"english\":\"He wrote down all his feelings from this week in his diary.\"}}",
+    "solution": "{\"일기장\":\"diary\",\"이번\":\"this\",\"주 동안\":\"past week\",\"모든\":\"all\",\"감정\":\"emotions\",\"적었다\":\"wrote down\"}\n\n         {\"english\":\"I wrote down all my emotions this week in my diary.\"}",
     "id": 884
   },
   {
@@ -11415,25 +11415,25 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"끝났다\",\"english\":\"is finished\"},{\"korean\":\"작업\",\"english\":\"work\"},{\"korean\":\"완벽하다\",\"english\":\"is perfect\"}],\"sentence\":{\"korean\":\"작업이 끝났고 완벽합니다.\",\"english\":\"The work is finished and it is perfect.\"}}",
+    "solution": "{\"작업이 끝났고 완벽합니다.\":\"The work is finished and perfect.\",\"작업\":\"work\",\"끝났다\":\"finished\",\"완벽합니다\":\"is perfect\"}\n\n         {\"english\":\"The work is finished and perfect.\"}",
     "id": 885
   },
   {
     "generator": "korean-english",
     "input": "wrangle",
-    "problem": "상황(狀況)을 잡아내고 해결책(解決策)을 찾는 것은 중요(重要)합니다.\n",
+    "problem": "상황(狀況)을 이해(理解)하고 해결방안(解決方案)을 찾는 것이 중요(重要)합니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잡아내다\",\"english\":\"to grapple\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"상황을 잡아내고 해결책을 찾는 것은 중요합니다.\",\"english\":\"It is important to grapple with the situation and find a solution.\"}}",
+    "solution": "{\"상황을 이해하고\":\"to understand the situation\",\"해결방안을 찾는\":\"to find a solution\",\"이 중요합니다\":\"is important\"}\n\n         {\"english\":\"It is important to understand the situation and find solutions.\"}",
     "id": 886
   },
   {
     "generator": "korean-english",
     "input": "developmental",
-    "problem": "발전적(發展的) 환경(環境)에서 성장(成長)할 수 있습니다.\n",
+    "problem": "발전(發展)된 환경(環境)에서 성장(成長)할 수 있습니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -11442,13 +11442,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"발전적\",\"english\":\"developmental\"},{\"korean\":\"환경\",\"english\":\"environment\"},{\"korean\":\"성장\",\"english\":\"growth\"}],\"sentence\":{\"korean\":\"발전적 환경에서 성장할 수 있습니다.\",\"english\":\"Growth is possible in a developmental environment.\"}}",
+    "solution": "{\"발전된 환경에서\":\"Advanced environment\",\"성장할 수 있습니다\":\"Can grow\"}\n\n         {\"english\":\"Growth is possible in a developed environment.\"}",
     "id": 887
   },
   {
     "generator": "korean-english",
     "input": "onus",
-    "problem": "onus은 보호(保護)받는 다양성(多樣性)의 중요성(重要性)을 가진다.\n",
+    "problem": "다양성(多樣性)은 보호(保護)받아야 할 가치(價値)가 있다.\n",
     "length": 25,
     "tags": [
       "grade-5",
@@ -11456,13 +11456,13 @@ export const problems = [
       "translation",
       "grammar"
     ],
-    "solution": "{\"words\":[{\"korean\":\"onus\",\"english\":\"burden\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"다양성\",\"english\":\"diversity\"}],\"sentence\":{\"korean\":\"onus은 보호받는 다양성의 중요성을 가진다.\",\"english\":\"Burden emphasizes the importance of diversity that is protected.\"}}",
+    "solution": "{\"다양성\":\"Diversity\",\"보호받아야\":\"should be protected\",\"가치\":\"value\",\"있다\":\"exists\"}\n\n         {\"english\":\"Diversity should be valued and protected.\"}",
     "id": 888
   },
   {
     "generator": "korean-english",
     "input": "paid",
-    "problem": "지불(支拂)한 금액(金額)은 받아졌습니다.\n",
+    "problem": "지불(支拂)한 금액(金額)이 이미 받아졌습니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -11471,50 +11471,50 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지불\",\"english\":\"payment\"},{\"korean\":\"받아\",\"english\":\"received\"},{\"korean\":\"금액\",\"english\":\"amount\"}],\"sentence\":{\"korean\":\"지불한 금액은 받아졌습니다.\",\"english\":\"The payment amount has been received.\"}}",
+    "solution": "{\"지불한 금액이 이미 받아졌습니다.\":\"Payment has already been received.\"}\n\n         {\"english\":\"The amount has already been received.\"}",
     "id": 889
   },
   {
     "generator": "korean-english",
     "input": "pomp",
-    "problem": "아름다움이 있는 꽃잎은 날카롭게 절단(切斷)합니다.\n",
+    "problem": "아름다움이 담긴 꽃잎은 날카롭게 잘라냅니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english",
       "grammar"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아름다움\",\"english\":\"beauty\"},{\"korean\":\"꽃잎\",\"english\":\"flower petal\"},{\"korean\":\"날카롭게\",\"english\":\"sharply\"}],\"sentence\":{\"korean\":\"아름다움이 있는 꽃잎은 날카롭게 절단합니다.\",\"english\":\"The flower petals with beauty are cut sharply.\"}}",
+    "solution": "{\"아름다움이 담긴꽃잎\":\"Petals with beauty inside\",\"날카롭게\":\"Sharply\",\"잘라냅니다\":\"Are cut off\"}\n\n         {\"english\":\"The flower petals filled with beauty are sharply sliced off.\"}",
     "id": 890
   },
   {
     "generator": "korean-english",
     "input": "madden",
-    "problem": "매dden한 마음은 무력(無力)한 상황(狀況)에 망설임을 해\n",
+    "problem": "매우 슬픈 마음은 무력(無力)한 상황(狀況)에 생각하고 헤매갑니다.\n",
     "length": 25,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매dden\",\"english\":\"ecstatic\"},{\"korean\":\"무력\",\"english\":\"helpless\"},{\"korean\":\"망설임\",\"english\":\"doubtful\"}],\"sentence\":{\"korean\":\"매dden한 마음은 무력한 상황에 망설임을 해\",\"english\":\"An ecstatic heart is doubtful in a helpless situation.\"}}",
+    "solution": "{\"매우 슬픈 마음\":\"Very sad heart\",\"무력한 상황\":\"helpless situation\",\"생각하고 헤매갑니다\":\"thinks and wanders aimlessly\"}\n\n         {\"english\":\"A sad heart is prone to brooding in weak situations.\"}",
     "id": 891
   },
   {
     "generator": "korean-english",
     "input": "explanatory",
-    "problem": "설명적(說明的) 정보(情報)의 확인(確認)은 중요(重要)합니다.\n",
+    "problem": "설명(說明) 정보(情報)를 확인(確認)하는 것이 중요(重要)합니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"설명적\",\"english\":\"explanatory\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"확인\",\"english\":\"verification\"}],\"sentence\":{\"korean\":\"설명적 정보의 확인은 중요합니다.\",\"english\":\"Verification of explanatory information is important.\"}}",
+    "solution": "{\"설명 정보를 확인하는 것이 중요합니다.\":\"It is important to check the explanation information.\",\"설명 정보\":\"explanation information\",\"확인하는\":\"checking\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"It is important to check the explanation information.\"}",
     "id": 892
   },
   {
     "generator": "korean-english",
     "input": "female",
-    "problem": "여성(女性)은 모두 인물(人物)입니다.\n",
+    "problem": "여성(女性)들은 모두 사람입니다.\n",
     "length": 13,
     "tags": [
       "grade-5",
@@ -11522,20 +11522,20 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"여성\",\"english\":\"female\"},{\"korean\":\"다\",\"english\":\"all\"},{\"korean\":\"인물\",\"english\":\"people\"}],\"sentence\":{\"korean\":\"여성은 모두 인물입니다.\",\"english\":\"All people are female.\"}}",
+    "solution": "{\"여성들은 모두 사람입니다.\":\"Women are all human beings.\",\"여성들\":\"women\",\"모두\":\"all\",\"사람입니다.\":\"are human beings\"}\n\n         {\"english\":\"Women are all people.\"}",
     "id": 893
   },
   {
     "generator": "korean-english",
     "input": "freshly",
-    "problem": "깨끗한 바람이 부풀다.\n",
+    "problem": "깨끗한 바람이 부풀어온다.\n",
     "length": 12,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"깨끗한\",\"english\":\"fresh\"},{\"korean\":\"바람이 부풀다\",\"english\":\"the wind blows gently\"}],\"sentence\":{\"korean\":\"깨끗한 바람이 부풀다.\",\"english\":\"The fresh wind blows gently.\"}}",
+    "solution": "{\"깨끗한\":\"clean\",\"바람\":\"wind\",\"부풀어온다\":\"is blowing up\"}\n\n         {\"english\":\"The clean wind is blowing up.\"}",
     "id": 894
   },
   {
@@ -11548,7 +11548,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상담\",\"english\":\"consultation\"},{\"korean\":\"전문가\",\"english\":\"expert\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"상담 전문가는 정보를 제공하여 문제를 해결합니다.\",\"english\":\"Consultants provide information to solve problems.\"}}",
+    "solution": "{\"상담 전문가\":\"Consultant\",\"정보\":\"Information\",\"제공\":\"Provide\",\"문제\":\"Problem\",\"해결\":\"Solve\"}\n\n         {\"english\":\"Consultants provide information to solve problems.\"}",
     "id": 895
   },
   {
@@ -11563,13 +11563,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연약한\",\"english\":\"fragile\"},{\"korean\":\"꽃잎\",\"english\":\"flower petal\"}],\"sentence\":{\"korean\":\"연약한 꽃잎은 바람에 부풀면 깨지거나 날아갑니다.\",\"english\":\"The fragile flower petals will tear or fly away if blown by the wind.\"}}",
+    "solution": "{\"연약한\":\"fragile\",\"꽃잎\":\"petal\",\"바람\":\"wind\",\"부풀면\":\"when blown by\",\"깨지거나\":\"breaks or\",\"날아갑니다\":\"flies away\"}\n\n         {\"english\":\"Fragile flower petals break or fly away when blown by the wind.\"}",
     "id": 896
   },
   {
     "generator": "korean-english",
     "input": "disrupt",
-    "problem": "장애물(障礙物)이 있는 길을 걸으며 파괴(破壞)와 변화(變化)를 초래(招來)했습니다.\n",
+    "problem": "장애물(障礙物)을 극복(克服)하며 파괴(破壞)와 변화(變化)를 일으켰습니다.\n",
     "length": 30,
     "tags": [
       "grade-5",
@@ -11578,7 +11578,7 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장애\",\"english\":\"obstacle\"},{\"korean\":\"파괴\",\"english\":\"destruction\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"장애물이 있는 길을 걸으며 파괴와 변화를 초래했습니다.\",\"english\":\"The obstacle on the path caused destruction and change.\"}}",
+    "solution": "{\"장애물\":\"Obstacles\",\"극복\":\"Overcome\",\"파괴\":\"Destruction\",\"변화\":\"Change\"}\n\n         {\"english\":\"Overcoming obstacles, they brought about destruction and change.\"}",
     "id": 897
   },
   {
@@ -11593,13 +11593,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"원래성\",\"english\":\"Originality\"},{\"korean\":\"고유성\",\"english\":\"Uniqueness\"},{\"korean\":\"창작\",\"english\":\"Creativity\"}],\"sentence\":{\"korean\":\"고유한 아이디어는 새로운 문제 해결의 창작성을 제공합니다.\",\"english\":\"Unique ideas provide creativity for solving new problems.\"}}",
+    "solution": "{\"고유한\":\"unique\",\"아이디어\":\"idea\",\"창작성\":\"creativity\",\"새로운\":\"new\",\"문제 해결\":\"problem-solving\"}\n\n         {\"english\":\"Unique ideas foster creativity in solving new problems.\"}",
     "id": 898
   },
   {
     "generator": "korean-english",
     "input": "charcoal",
-    "problem": "연탄(煉炭)은 두께 1cm 정도(程度)로 만들어집니다.\n",
+    "problem": "연탄(煉炭)은 두께 1cm 정도(程度)로 제작(製作)됩니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -11608,13 +11608,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연탄\",\"english\":\"charcoal\"},{\"korean\":\"두께\",\"english\":\"thickness\"}],\"sentence\":{\"korean\":\"연탄은 두께 1cm 정도로 만들어집니다.\",\"english\":\"Charcoal is usually made to be about 1 centimeter thick.\"}}",
+    "solution": "{\"연탄\":\"Coal briquette\",\"두께\":\"Thickness\",\"1cm\":\"1 centimeter\",\"정도\":\"extent\",\"제작됩니다\":\"is manufactured\"}\n\n         {\"english\":\"Coal is usually manufactured to a thickness of around 1cm.\"}",
     "id": 899
   },
   {
     "generator": "korean-english",
     "input": "reconnaissance",
-    "problem": "재발견(再發見)은 피상(皮相)에 이어지고, 이는 새로운 목표(目標)를 설정(設定)하고 달성(達成)하는 계기(契機)가 됩니다.\n",
+    "problem": "재발견(再發見)은 피상(皮相)에 이어지고, 이는 새로운 목표(目標)를 설정(設定)하고 달성(達成)하기의 계기(契機)가 됩니다.\n",
     "length": 44,
     "tags": [
       "grade-5",
@@ -11622,26 +11622,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"재발견\",\"english\":\"recognition\"},{\"korean\":\"피상\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"재발견은 피상에 이어지고, 이는 새로운 목표를 설정하고 달성하는 계기가 됩니다.\",\"english\":\"Recognition leads to achievement, which in turn inspires the setting and attainment of new goals.\"}}",
+    "solution": "{\"재발견\":\"Rediscovery\",\"피상\":\"Aftermath\",\"이어지고\":\"follows\",\"새로운\":\"new\",\"목표\":\"Goal\",\"설정\":\"Setting\",\"달성\":\"Achieving\",\"계기\":\"Motivation\"}\n\n         {\"english\":\"Recurrence leads to elevation, which in turn inspires the setting and achievement of new goals.\"}",
     "id": 900
   },
   {
     "generator": "korean-english",
     "input": "epoch",
-    "problem": "대기(待機)된 시대(時代)는 변화(變化)를 가져옵니다.\n",
+    "problem": "대(臺)기던 시대(時代)는 변화(變化)를 가져옵니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "korean-to-english",
       "translation"
     ],
-    "solution": "{\"words\":[{\"korean\":\"대기\",\"english\":\"expectation\"},{\"korean\":\"시대\",\"english\":\"era\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"대기된 시대는 변화를 가져옵니다.\",\"english\":\"Expectations of an era bring about change.\"}}",
+    "solution": "{\"대기던 시대\":\"Era that has been waiting\",\"변화\":\"Change\",\"가져옵니다\":\"brings about\"}\n\n         {\"english\":\"The waiting era brings about change.\"}",
     "id": 901
   },
   {
     "generator": "korean-english",
     "input": "ago",
-    "problem": "아오 시간(時間)이 지금(只今)이야.\n",
+    "problem": "아오 시간(時間)이 지금(只今)이에요.\n",
     "length": 12,
     "tags": [
       "grade-5",
@@ -11649,46 +11649,46 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아오\",\"english\":\"ago\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"아오 시간이 지금이야.\",\"english\":\"It’s been a while since now.\"}}",
+    "solution": "{\"아오\":\"now\",\"시간\":\"time\",\"이\":\"is\",\"지금\":\"current\",\"이에요\":\"is that so\"}\n\n         {\"english\":\"The time is now.\"}",
     "id": 902
   },
   {
     "generator": "korean-english",
     "input": "jostle",
-    "problem": "동기는 발전(發展)의 과정(過程)에서 피해(被害)를 최소화(最少化)해야 합니다.\n",
+    "problem": "동기는 발전(發展) 과정(過程)에서 피해(被害)를 최소화(最少化)해야 합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동기\",\"english\":\"motivation\"},{\"korean\":\"발전\",\"english\":\"development\"},{\"korean\":\"피해\",\"english\":\"damage\"}],\"sentence\":{\"korean\":\"동기는 발전의 과정에서 피해를 최소화해야 합니다.\",\"english\":\"Motivation is crucial to minimize damage during the process of development.\"}}",
+    "solution": "{\"동기\":\"Motivation\",\"발전\":\"Development\",\"피해\":\"Damage\",\"최소화\":\"Minimize\",\"야야합니다\":\"should\"}\n\n         {\"english\":\"Motivation should minimize damage during the development process.\"}",
     "id": 903
   },
   {
     "generator": "korean-english",
     "input": "deliverance",
-    "problem": "피해(被害)를 극복(克服)하고 구출(救出)되었다.\n",
+    "problem": "피해(被害)를 극복(克服)하고 구출(救出)되었습니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"구출\",\"english\":\"rescue\"},{\"korean\":\"피해\",\"english\":\"suffering\"},{\"korean\":\"지나치다\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"피해를 극복하고 구출되었다.\",\"english\":\"He overcame his suffering and was rescued.\"}}",
+    "solution": "{\"피해를 극복하고 구출되었습니다.\":{\"피해\":\"damage\",\"극복\":\"overcome\",\"구출\":\"rescue\",\"되었습니다\":\"was/were\"}}\n\n         {\"english\":\"He overcame the damage and was rescued.\"}",
     "id": 904
   },
   {
     "generator": "korean-english",
     "input": "difficult",
-    "problem": "복잡(複雜)한 상황(狀況)에 맞춰 적절(適切)한 해결책(解決策)을 찾는 것은 어려운 일이다.\n",
+    "problem": "복잡(複雜)한 상황(狀況)에 적절(適切)한 해결책(解決策)을 찾는 것은 어려운 일이다.\n",
     "length": 34,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"복잡\",\"english\":\"complex\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"복잡한 상황에 맞춰 적절한 해결책을 찾는 것은 어려운 일이다.\",\"english\":\"Finding a suitable solution to a complex situation is a difficult task.\"}}",
+    "solution": "{\"복잡한 상황에\":\"complex situation\",\"적절한 해결책\":\"appropriate solution\",\"찾는 것은\":\"to find\",\"어려운 일이다\":\"is difficult\"}\n\n         {\"english\":\"Finding appropriate solutions in complex situations is a difficult task.\"}",
     "id": 905
   },
   {
@@ -11700,20 +11700,20 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감각\",\"english\":\"sensory\"},{\"korean\":\"경험\",\"english\":\"experience\"},{\"korean\":\"물리적\",\"english\":\"physical\"},{\"korean\":\"감각적\",\"english\":\"sensory\"}],\"sentence\":{\"korean\":\"감각 경험은 물리적 그리고 감각적으로 풍부합니다.\",\"english\":\"Sensory experiences are rich both physically and sensually.\"}}",
+    "solution": "{\"감각 경험\":\"sensory experiences\",\"물리적\":\"physical\",\"감각적으로\":\"sensory\",\"풍부\":\"rich\"}\n\n         {\"english\":\"Sensory experiences are rich both physically and sensually.\"}",
     "id": 906
   },
   {
     "generator": "korean-english",
     "input": "renovate",
-    "problem": "재생(再生)된 구조(構造)는 새로운 변화(變化)를 가져옵니다.\n",
+    "problem": "재생(再生)된 구조(構造)는 새로운 변화(變化)를 초래(招來)합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"재생\",\"english\":\"renovate\"},{\"korean\":\"구성\",\"english\":\"structure\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"재생된 구조는 새로운 변화를 가져옵니다.\",\"english\":\"The renovated structure brings about new changes.\"}}",
+    "solution": "{\"재생된 구조\":\"renewed structure\",\"새로운 변화\":\"new change\",\"초래\":\"causes\"}\n\n         {\"english\":\"The renewed structure brings about new changes.\"}",
     "id": 907
   },
   {
@@ -11728,13 +11728,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동서방향\",\"english\":\"transverse\"},{\"korean\":\"선을 따라\",\"english\":\"along\"},{\"korean\":\"중앙\",\"english\":\"center\"}],\"sentence\":{\"korean\":\"동서방향으로 선을 따라 중앙에 도착했습니다.\",\"english\":\"The line arrived at the center along a transverse direction.\"}}",
+    "solution": "{\"동서방향으로\":\"east-west direction\",\"선\":\"line\",\"따라\":\"along\",\"중앙에\":\"center\",\"도착했습니다\":\"arrived\"}\n\n         {\"english\":\"The line arrived in the center following a direction from east to west.\"}",
     "id": 908
   },
   {
     "generator": "korean-english",
     "input": "prodigious",
-    "problem": "천재(天才)는 학교(學校)에서 뛰어난 성취(成就)를 이뤄.\n",
+    "problem": "천재(天才)는 학교(學校)에서 뛰어난 성취(成就)를 얻었다.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -11743,44 +11743,44 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"천재\",\"english\":\"prodigy\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"성취\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"천재는 학교에서 뛰어난 성취를 이뤄.\",\"english\":\"A prodigy achieves remarkable accomplishments at school.\"}}",
+    "solution": "{\"천재\":\"prodigy\",\"학교\":\"school\",\"뛰어난\":\"outstanding\",\"성취\":\"achievement\",\" 얻었다\":\"obtained\"}\n\n         {\"english\":\"The prodigy excelled in their studies at school.\"}",
     "id": 909
   },
   {
     "generator": "korean-english",
     "input": "antagonize",
-    "problem": "상대(相對)와 협력(協力)하여 이기는 것은 어렵습니다.\n",
+    "problem": "상대(相對)와 함께 노력(努力)하여 이기는 것은 어렵습니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상대\",\"english\":\"opponent\"},{\"korean\":\"협력\",\"english\":\"collaboration\"}],\"sentence\":{\"korean\":\"상대와 협력하여 이기는 것은 어렵습니다.\",\"english\":\"It is difficult to win by collaborating with your opponent.\"}}",
+    "solution": "{\"상대와 함께 노력하여 이기는 것은 어렵습니다.\":\"Collaboration is tough to achieve victory.\"}\n\n         {\"english\":\"It is difficult to win when working together with the opponent.\"}",
     "id": 910
   },
   {
     "generator": "korean-english",
     "input": "polyglot",
-    "problem": "다양성(多樣性) 있는 어학(語學) 능력(能力)은 세계(世界) 곳곳에 살고 있는 모든 사람들을 이해(理解)하고 함께 살게 합니다.\n",
+    "problem": "다양한 어학(語學) 능력(能力)은 세계(世界) 각지(各地)에 살고 있는 모든 사람들을 이해(理解)하고 함께 살도록 합니다.\n",
     "length": 50,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"다양성\",\"english\":\"diversity\"},{\"korean\":\"어학\",\"english\":\"language\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"다양성 있는 어학 능력은 세계 곳곳에 살고 있는 모든 사람들을 이해하고 함께 살게 합니다.\",\"english\":\"Diversity in language ability allows people to understand and live together in all parts of the world.\"}}",
+    "solution": "{\"다양한 어학 능력\":\"Diverse language abilities\",\"어학\":\"Language\",\"능력\":\"Abilities\",\"세계 각지\":\"Different parts of the world\",\"살고\":\"Living\",\"모든 사람들을 이해\":\"Understanding everyone\",\"함께 살도록 합니다\":\"Enabling people to live together\"}\n\n         {\"english\":\"Diverse language abilities enable people to understand and live together in various parts of the world.\"}",
     "id": 911
   },
   {
     "generator": "korean-english",
     "input": "marginal",
-    "problem": "지선선상(地選線上)의 작업(作業)은 어려울 수 있습니다.\n",
+    "problem": "지선선상(線船上) 작업(作業)은 어렵다. \n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지선\",\"english\":\"boundary\"},{\"korean\":\"선상\",\"english\":\"above\"},{\"korean\":\"작업\",\"english\":\"task\"}],\"sentence\":{\"korean\":\"지선선상의 작업은 어려울 수 있습니다.\",\"english\":\"The task above the boundary can be difficult.\"}}",
+    "solution": "{\"지선선상 작업은 어렵다\":\"The job of cleaning the sewage tank is difficult\",\"지선선상\":\"Sewage tank cleaning\",\"작업\":\"Job\",\"어렵다\":\"Difficult\"}\n\n         {\"english\":\"The underwater work is tough.\"}",
     "id": 912
   },
   {
@@ -11794,26 +11794,26 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"실제\",\"english\":\"actual\"},{\"korean\":\"상상\",\"english\":\"imagination\"},{\"korean\":\"보여주는\",\"english\":\"showing\"},{\"korean\":\"세상\",\"english\":\"world\"}],\"sentence\":{\"korean\":\"실제 상상은 보여주는 세상이 될 수 있습니다.\",\"english\":\"Actual imagination can become the showing world.\"}}",
+    "solution": "{\"실제\":\"actual\",\"상상\":\"imagination\",\"보여주는\":\"revealing\",\"세상\":\"world\",\"될\":\"can become\",\"수 있습니다\":\"is possible\"}\n\n         {\"english\":\"Actual imagination can become a world that shows you things.\"}",
     "id": 913
   },
   {
     "generator": "korean-english",
     "input": "periphery",
-    "problem": "외곽지역(外郭地域)의 위치(位置)는 중요(重要)합니다.\n",
+    "problem": "외곽지역(外郭地域)의 위치(位置)는 매우 중요(重要)합니다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"외곽\",\"english\":\"perimeter\"},{\"korean\":\"지역\",\"english\":\"region\"},{\"korean\":\"위치\",\"english\":\"position\"}],\"sentence\":{\"korean\":\"외곽지역의 위치는 중요합니다.\",\"english\":\"The position of the perimeter is important.\"}}",
+    "solution": "{\"외곽지역의 위치\":\"Peripheral location\",\"매우 중요합니다\":\"is very important\"}\n\n         {\"english\":\"Location in the outlying areas is of great importance.\"}",
     "id": 914
   },
   {
     "generator": "korean-english",
     "input": "evangelical",
-    "problem": "선전적(宣傳的) 교사(敎師)는 학습(學習)을 통해 성장(成長)합니다.\n",
+    "problem": "선전적(宣傳的)인 교사(敎師)들은 학습(學習)을 통해 성장(成長)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -11821,7 +11821,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선전적\",\"english\":\"evangelical\"},{\"korean\":\"교사\",\"english\":\"teacher\"},{\"korean\":\"학습\",\"english\":\"learning\"}],\"sentence\":{\"korean\":\"선전적 교사는 학습을 통해 성장합니다.\",\"english\":\"Evangelical teachers grow through the learning process.\"}}",
+    "solution": "{\"선전적인 교사들은\":\"Dedicated teachers\",\"학습을 통해\":\"through learning\",\"성장합니다\":\"grow\"}\n\n         {\"english\":\"Progressive teachers grow through learning.\"}",
     "id": 915
   },
   {
@@ -11834,13 +11834,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"수사\",\"english\":\"investigation\"},{\"korean\":\"증거\",\"english\":\"evidence\"},{\"korean\":\"분석\",\"english\":\"analysis\"}],\"sentence\":{\"korean\":\"수사 결과는 증거 분석을 통해 의미 있는 정보를 제공합니다.\",\"english\":\"The results of the investigation provide meaningful information through evidence analysis.\"}}",
+    "solution": "{\"수사 결과\":\"Investigation results\",\"증거 분석\":\"Evidence analysis\",\" 의미 있는 정보\":\"Meaningful information\",\"제공합니다\":\"Provides\"}\n\n         {\"english\":\"The results of the investigation provide meaningful information through evidence analysis.\"}",
     "id": 916
   },
   {
     "generator": "korean-english",
     "input": "quirk",
-    "problem": "머리에 오즈는 특성(特性)이 될 수 있습니다.\n",
+    "problem": "머리에 오즈는 특성(特性)으로 나타날 수 있습니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -11849,32 +11849,32 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"머리\",\"english\":\"head\"},{\"korean\":\"오즈\",\"english\":\"habit\"},{\"korean\":\"특성\",\"english\":\"quirks\"}],\"sentence\":{\"korean\":\"머리에 오즈는 특성이 될 수 있습니다.\",\"english\":\"Habits can sometimes be quirks of the head.\"}}",
+    "solution": "{\"머리에 오즈는 특성으로 나타날 수 있습니다.\":\"The characteristics can appear due to the presence of fish in the head.\"}\n\n         {\"english\":\"The characteristics of the fish may appear in the head.\"}",
     "id": 917
   },
   {
     "generator": "korean-english",
     "input": "fleet",
-    "problem": "보선(補選)은 해양(海洋)의 군사력(軍事力)이 될 수 있다.\n",
+    "problem": "보선(補選)은 해양(海洋)의 군사력(軍事力)이 될 수 있습니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보선\",\"english\":\"fleet\"},{\"korean\":\"선\",\"english\":\"ship\"}],\"sentence\":{\"korean\":\"보선은 해양의 군사력이 될 수 있다.\",\"english\":\"A fleet can be a formidable military force at sea.\"}}",
+    "solution": "{\"보선\":\"Patrol boat\",\"해양\":\"Ocean\",\"군사력\":\"Military power\",\"될\":\"can\",\"수 있습니다\":\"exist\"}\n\n         {\"english\":\"Nursing can be the military power of the sea.\"}",
     "id": 918
   },
   {
     "generator": "korean-english",
     "input": "argument",
-    "problem": "논쟁(論爭)은 주장(主張)을 뒷받침하는 증거(證據)를 제공(提供)합니다.\n",
+    "problem": "논쟁(論爭)은 주장(主張)을 뒷받침하기 위해 증거(證據)를 제공(提供)합니다.\n",
     "length": 24,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"논쟁\",\"english\":\"argument\"},{\"korean\":\"주장\",\"english\":\"claim\"},{\"korean\":\"증거\",\"english\":\"evidence\"}],\"sentence\":{\"korean\":\"논쟁은 주장을 뒷받침하는 증거를 제공합니다.\",\"english\":\"An argument provides evidence to support its claim.\"}}",
+    "solution": "{\"논쟁은\":\"The argument is\",\"주장을\":\"to support the claim\",\"뒷받침하기 위해\":\"to provide evidence in order to\",\"증거를\":\"evidence\",\"제공합니다\":\"is provided\"}\n\n         {\"english\":\"Arguments provide evidence to support their claims.\"}",
     "id": 919
   },
   {
@@ -11887,13 +11887,13 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무더기\",\"english\":\"to get confused\"},{\"korean\":\"말단\",\"english\":\"the end\"},{\"korean\":\"해결\",\"english\":\"to solve\"}],\"sentence\":{\"korean\":\"무더기 말단은 해결할 수 있습니다.\",\"english\":\"Getting confused at the end is solvable.\"}}",
+    "solution": "{\"무더기 말단\":\"stubborn problem\",\"해결\":\"to solve\",\"수 있습니다\":\"it is possible to do\"}\n\n         {\"english\":\"Even the most difficult problem can be solved.\"}",
     "id": 920
   },
   {
     "generator": "korean-english",
     "input": "shroud",
-    "problem": "사막(沙漠)의 투명(透明)한 피복(被服)은 무엇을 은폐(隱蔽)할까?\n",
+    "problem": "사막(沙漠)의 투명(透明)한 피복(被服)은 무엇을 감추고 있을까?\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -11901,7 +11901,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사막\",\"english\":\"desert\"},{\"korean\":\"투명\",\"english\":\"transparent\"},{\"korean\":\"피복\",\"english\":\"shroud\"}],\"sentence\":{\"korean\":\"사막의 투명한 피복은 무엇을 은폐할까?\",\"english\":\"What might be hidden under the transparent shroud in the desert?\"}}",
+    "solution": "{\"사막의 투명한 피복\":\"Transparent covering of the desert\",\"무엇을 감추고 있을까?\":\"What is it concealing?\"}\n\n         {\"english\":\"The transparent covering of the desert hides what?\"}",
     "id": 921
   },
   {
@@ -11915,7 +11915,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"해방\",\"english\":\"liberation\"},{\"korean\":\"자유\",\"english\":\"freedom\"},{\"korean\":\"생명\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"해방은 생명의 자유를 얻는 과정입니다.\",\"english\":\"Liberation is the process of gaining freedom of life.\"}}",
+    "solution": "{\"해방은\":\"Liberation is\",\"생명의\":\"life's\",\"자유를\":\"freedom of\",\" 얻는\":\"to obtain\",\"과정입니다\":\"a process.\"}\n\n         {\"english\":\"Liberation is a process of obtaining freedom of life.\"}",
     "id": 922
   },
   {
@@ -11929,25 +11929,25 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명예로운\",\"english\":\"illustrious\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"업적\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"명예로운 학생들은 위대한 업적을 달성했습니다.\",\"english\":\"The illustrious students achieved great accomplishments.\"}}",
+    "solution": "{\"명예로운 학생들은\":\"Honourable students\",\"위대한 업적을 달성했습니다\":\"achieved great feats\"}\n\n         {\"english\":\"Honorable students have achieved great accomplishments.\"}",
     "id": 923
   },
   {
     "generator": "korean-english",
     "input": "context",
-    "problem": "맥락(脈絡)에 의(依)해 제공(提供)된 정보(情報)는 데이터 분석(分析)에 매우 중요(重要)합니다.\n",
+    "problem": "맥락(脈絡) 정보(情報)는 데이터 분석(分析)에 매우 중요(重要)합니다.\n",
     "length": 32,
     "tags": [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"맥락\",\"english\":\"context\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"데이터\",\"english\":\"data\"}],\"sentence\":{\"korean\":\"맥락에 의해 제공된 정보는 데이터 분석에 매우 중요합니다.\",\"english\":\"The information provided in the context is very important for data analysis.\"}}",
+    "solution": "{\"맥락 정보\":\"Contextual information\",\"데이터 분석\":\"Data analysis\",\"매우 중요합니다\":\"is crucial\"}\n\n         {\"english\":\"Context information is very important for data analysis.\"}",
     "id": 924
   },
   {
     "generator": "korean-english",
     "input": "monstrous",
-    "problem": "크린스러운 동물(動物)의 깨진 부위(部位)는 공포(恐怖)를 자극(刺戟)합니다.\n",
+    "problem": "깨진 동물(動物)의 부위(部位)는 공포(恐怖)를 유발(誘發)합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -11955,51 +11955,51 @@ export const problems = [
       "adjective",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"크린스러운\",\"english\":\"monstrous\"},{\"korean\":\"동물\",\"english\":\"creature\"},{\"korean\":\"깨진\",\"english\":\"shattered\"}],\"sentence\":{\"korean\":\"크린스러운 동물의 깨진 부위는 공포를 자극합니다.\",\"english\":\"The shattered parts of the monstrous creature stir up fear.\"}}",
+    "solution": "{\"깨진 동물의 부위\":\"Broken animal parts\",\"공포\":\"Fear\",\"유발합니다\":\"Cause\"}\n\n         {\"english\":\"The parts of a broken animal can cause fear.\"}",
     "id": 925
   },
   {
     "generator": "korean-english",
     "input": "beer",
-    "problem": "오늘 맥주(麥酒)는 맛있어요.\n",
+    "problem": "오늘 마치주(週)는 맛있어요.\n",
     "length": 12,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"맥주\",\"english\":\"beer\"},{\"korean\":\"맛있어요\",\"english\":\"it's delicious\"},{\"korean\":\"오늘\",\"english\":\"today\"}],\"sentence\":{\"korean\":\"오늘 맥주는 맛있어요.\",\"english\":\"Today, beer is delicious.\"}}",
+    "solution": "{\"오늘\":\"Today\",\"마치주는\":\"it's like\",\"맛있어요\":\"delicious\"}\n\n         {\"english\":\"It tastes delicious today.\"}",
     "id": 926
   },
   {
     "generator": "korean-english",
     "input": "creation",
-    "problem": "물리적(物理的)인 창작(創作)은 새로운 아이디어의 생성(生成)을 의미합니다.\n",
+    "problem": "물리적(物理的)인 창작(創作)은 새로운 아이디어의 발생(發生)에 해당(該當)합니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"창작\",\"english\":\"creation\"},{\"korean\":\"생성\",\"english\":\"generation\"},{\"korean\":\"물리\",\"english\":\"physical\"}],\"sentence\":{\"korean\":\"물리적인 창작은 새로운 아이디어의 생성을 의미합니다.\",\"english\":\"Physical creation implies the generation of new ideas.\"}}",
+    "solution": "{\"물리적인 창작\":\"Physical manifestation\",\"새로운 아이디어\":\"New ideas\",\"발생\":\"Emergence\",\"해당합니다\":\"Counts as\"}\n\n         {\"english\":\"Physical creativity contributes to the emergence of new ideas.\"}",
     "id": 927
   },
   {
     "generator": "korean-english",
     "input": "elaboration",
-    "problem": "선명(鮮明)한 주장(主張)은 고요한 문제(問題)의 해결(解決)에 도움이 됩니다.\n",
+    "problem": "명확(明確)한 주장(主張)은 어려운 문제(問題)의 해결(解決)에 도움이 됩니다.\n",
     "length": 28,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선명한\",\"english\":\"clear\"},{\"korean\":\"고요한\",\"english\":\"important\"},{\"korean\":\"주장\",\"english\":\"argument\"}],\"sentence\":{\"korean\":\"선명한 주장은 고요한 문제의 해결에 도움이 됩니다.\",\"english\":\"A clear argument can be helpful in solving a serious problem.\"}}",
+    "solution": "{\"명확한\":\"Clear\",\"주장\":\"Argument\",\"어려운\":\"Difficult\",\"문제\":\"Problem\",\"해결\":\"Solution\",\" 도움\":\"Help\"}\n\n         {\"english\":\"A clear argument can be helpful in solving complex problems.\"}",
     "id": 928
   },
   {
     "generator": "korean-english",
     "input": "crushing",
-    "problem": "우리는 부서(部署)는 분노(憤怒)로 도전(挑戰)할 준비(準備)이다.\n",
+    "problem": "우리는 부모님(父母님)의 분노(憤怒)에 도전(挑戰)할 준비(準備)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
@@ -12007,13 +12007,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부서\",\"english\":\"crushing\"},{\"korean\":\"분노\",\"english\":\"anger\"},{\"korean\":\"우리\",\"english\":\"us\"}],\"sentence\":{\"korean\":\"우리는 부서는 분노로 도전할 준비이다.\",\"english\":\"We are prepared to overcome our crushing anger.\"}}",
+    "solution": "{\"우리는\":\"We are\",\"부모님의\":\"parents'\",\"분노\":\"anger\",\" 도전\":\"challenge\",\"준비\":\"prepared\"}\n\n         {\"english\":\"We are prepared to challenge your anger.\"}",
     "id": 929
   },
   {
     "generator": "korean-english",
     "input": "homage",
-    "problem": "호(好)마지를 위한 꽃은 장신(長身)이야.\n",
+    "problem": "호마지(胡馬地)에게는 장신(長身)이에요.\n",
     "length": 16,
     "tags": [
       "grade-5",
@@ -12021,13 +12021,13 @@ export const problems = [
       "height",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"호마지\",\"english\":\"homage\"},{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"장신\",\"english\":\"tall\"}],\"sentence\":{\"korean\":\"호마지를 위한 꽃은 장신이야.\",\"english\":\"The flower for homage is tall.\"}}",
+    "solution": "{\"호마지에게는\":\"To Homaji, because of\",\"장신이에요\":\"you are tall\"}\n\n         {\"english\":\"He's tall for his age.\"}",
     "id": 930
   },
   {
     "generator": "korean-english",
     "input": "stubborn",
-    "problem": "견장한(肩章韓) 아이는 말을 다해 부침거리(距離)에 직면(直面)합니다.\n",
+    "problem": "견장한(肩章韓) 아이는 말을 다 해 부침거리(距離)에 직면(直面)합니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
@@ -12036,58 +12036,58 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"견장하다\",\"english\":\"to be stubborn\"},{\"korean\":\"말을 다해\",\"english\":\"to give up easily\"},{\"korean\":\"부침거리\",\"english\":\"a challenge\"}],\"sentence\":{\"korean\":\"견장한 아이는 말을 다해 부침거리에 직면합니다.\",\"english\":\"A stubborn child gives up easily when faced with a challenge.\"}}",
+    "solution": "{\"견장한 아이는 말을 다 해 부침거리에 직면합니다.\":\"A stubborn child speaks excessively and faces trouble in the playground.\",\"견장한 아이\":\"Stubborn child\",\"말을 다 해\":\"speaks excessively\",\"부침거리\":\"playground\",\"직면합니다.\":\"faces trouble\"}\n\n         {\"english\":\"A stubborn child speaks too much and faces trouble head-on.\"}",
     "id": 931
   },
   {
     "generator": "korean-english",
     "input": "exult",
-    "problem": "절약(節約)한 성취(成就)는 풍부(豐富)한 기쁨을 가져옵니다.\n",
+    "problem": "단순(單純)한 성취(成就)는 풍부(豐富)한 기쁨을 가져옵니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"절약\",\"english\":\"joyfully\"},{\"korean\":\"풍부\",\"english\":\"abundant\"},{\"korean\":\"성취\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"절약한 성취는 풍부한 기쁨을 가져옵니다.\",\"english\":\"Joyful achievement brings abundant joy.\"}}",
+    "solution": "{\"단순한\":\"simple\",\"성취\":\"achievement\",\"풍부한\":\"abundant\",\"기쁨\":\"joy\",\" 가져옵니다\":\"brings about\"}\n\n         {\"english\":\"Simple achievements bring abundant joy.\"}",
     "id": 932
   },
   {
     "generator": "korean-english",
     "input": "somehow",
-    "problem": "어떤 방식(方式)으로 피해자(被害者)들이 상황(狀況)에 맞춰 목표(目標)를 달성(達成)할 수 있습니다.\n",
+    "problem": "피해자(被害者)들은 상황(狀況)에 맞춰 목표(目標)를 달성(達成)하기 위해 어떻게 노력(努力)할 수 있습니다.\n",
     "length": 36,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"어떤 방식으로\",\"english\":\"Somehow\"},{\"korean\":\"피해자들이\",\"english\":\"people involved\"},{\"korean\":\"상황에 맞춰\",\"english\":\"depending on the situation\"}],\"sentence\":{\"korean\":\"어떤 방식으로 피해자들이 상황에 맞춰 목표를 달성할 수 있습니다.\",\"english\":\"Somehow, people involved can achieve their goals depending on the situation.\"}}",
+    "solution": "{\"피해자들은 상황에 맞춰 목표를 달성하기 위해 어떻게 노력할 수 있습니다.\":\"How victims can strive to achieve their goals in response to the situation\",\"피해자들\":\"Victims\",\"상황\":\"Situation\",\"목표\":\"Goal\",\"노력\":\"Effort\",\"어떻게\":\"How\",\"수 있\":\"can\",\"있습니다.\":\"is.\"}\n\n         {\"english\":\"How can victims adapt to their situation and achieve their goals.\"}",
     "id": 933
   },
   {
     "generator": "korean-english",
     "input": "movie",
-    "problem": "영화(映畫)을 보는 시간(時間)은 길게 느껴집니다.\n",
+    "problem": "영화(映畫)보는 시간(時間)이 길게 느껴집니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"영화\",\"english\":\"movie\"},{\"korean\":\"보는\",\"english\":\"watching\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"영화을 보는 시간은 길게 느껴집니다.\",\"english\":\"Watching a movie feels like a long time.\"}}",
+    "solution": "{\"영화보는 시간이 길게 느껴집니다.\":{\"영화보는 시간\":\"Watching time\",\"길게\":\"Longly\",\"느껴집니다\":\"Feels like a long time\"}}\n\n         {\"english\":\"Watching movies feels like it takes forever.\"}",
     "id": 934
   },
   {
     "generator": "korean-english",
     "input": "burrow",
-    "problem": "굴다가 동굴(洞窟)에 비늘을 잡아 먹는다.\n",
+    "problem": "굴다가 동굴(洞窟)에 비늘을 잡아 먹습니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"굴다\",\"english\":\"to burrow\"},{\"korean\":\"동굴\",\"english\":\"cave\"},{\"korean\":\"비늘\",\"english\":\"worm\"}],\"sentence\":{\"korean\":\"굴다가 동굴에 비늘을 잡아 먹는다.\",\"english\":\"The animal burrows into the cave and eats worms.\"}}",
+    "solution": "{\"굴다가\":\"to wriggle around\",\"동굴\":\"cave\",\"비늘\":\"scale\",\"잡아\":\"to catch\",\"먹습니다\":\"to eat\"}\n\n         {\"english\":\"He is picking mushrooms in the cave.\"}",
     "id": 935
   },
   {
@@ -12099,7 +12099,7 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"영원\",\"english\":\"eternal\"},{\"korean\":\"생명\",\"english\":\"life\"},{\"korean\":\"나누기\",\"english\":\"story\"}],\"sentence\":{\"korean\":\"영원한 생명의 이야기는 항상 감동적이다.\",\"english\":\"The stories of eternal life are always moving.\"}}",
+    "solution": "{\"영원한 생명의 이야기\":\"Story of eternal life\",\"항상\":\"Always\",\"감동적\":\"Emotional\",\"이다\":\"is\"}\n\n         {\"english\":\"The story of eternal life is always poignant.\"}",
     "id": 936
   },
   {
@@ -12112,7 +12112,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"눈폭주\",\"english\":\"snowstorm\"},{\"korean\":\"날개\",\"english\":\"wing\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"눈폭주는 날개를 돌려 바람과 함께 날아갑니다.\",\"english\":\"A snowstorm spins its wings and flies away with the wind.\"}}",
+    "solution": "{\"눈폭주\":\"Snowflake\",\"날개\":\"Wing\",\"돌려\":\"Spins around\",\"바람\":\"Wind\",\"날아갑니다\":\"Flies away\"}\n\n         {\"english\":\"The snowball is flying through the air with the wind after flapping its wings.\"}",
     "id": 937
   },
   {
@@ -12124,13 +12124,13 @@ export const problems = [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동지\",\"english\":\"friend\"},{\"korean\":\"협력\",\"english\":\"collaboration\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"동지는 목표를 달성하기 위해 협력합니다.\",\"english\":\"Friends collaborate to achieve their goals.\"}}",
+    "solution": "{\"동지는\":\"teammates\",\"목표를\":\"goals\",\"달성하기 위해\":\"to achieve\",\"협력합니다\":\"collaborate\"}\n\n         {\"english\":\"The team works together to achieve their goals.\"}",
     "id": 938
   },
   {
     "generator": "korean-english",
     "input": "foolish",
-    "problem": "무리로 피고리에 치명적(致命的)인 상황(狀況)이 되었어요.\n",
+    "problem": "무리로 피고리에 치명적(致命的)인 상황(狀況)이 되었습니다.\n",
     "length": 23,
     "tags": [
       "grade-5",
@@ -12139,13 +12139,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무리\",\"english\":\"foolishness\"},{\"korean\":\"피고리\",\"english\":\"trouble\"},{\"korean\":\"치명적\",\"english\":\"critical\"}],\"sentence\":{\"korean\":\"무리로 피고리에 치명적인 상황이 되었어요.\",\"english\":\"Foolishness has become a critical situation.\"}}",
+    "solution": "{\"무리로\":\"recklessly\",\"피고리\":\"chaos\",\"치명적인\":\"critical\",\"상황\":\"situation\"}\n\n         {\"english\":\"The situation has become life-threatening.\"}",
     "id": 939
   },
   {
     "generator": "korean-english",
     "input": "weaken",
-    "problem": "피로(疲勞)는 개인(個人)의 약점(弱點)을 가진다.\n",
+    "problem": "피로(疲勞)는 개인(個人)의 약점(弱點)을 지닌다.\n",
     "length": 16,
     "tags": [
       "grade-5",
@@ -12153,38 +12153,38 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"약점\",\"english\":\"weakness\"},{\"korean\":\"피로\",\"english\":\"tiredness\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"피로는 개인의 약점을 가진다.\",\"english\":\"Tiredness is often a weakness of individuals.\"}}",
+    "solution": "{\"피로는\":\"Fatigue is\",\"개인의\":\"individual's\",\"약점을\":\"weakness\",\"지닌다\":\"possesses\"}\n\n         {\"english\":\"Fatigue reveals an individual's weaknesses.\"}",
     "id": 940
   },
   {
     "generator": "korean-english",
     "input": "obese",
-    "problem": "비만(肥滿)한 체중(體重)의 측정치(測定値)는 얼마나 되나요?\n",
+    "problem": "비만도(肥滿度)는 얼마나 되나요?\n",
     "length": 21,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비만\",\"english\":\"obese\"},{\"korean\":\"체중\",\"english\":\"weight\"},{\"korean\":\"측정\",\"english\":\"measurement\"}],\"sentence\":{\"korean\":\"비만한 체중의 측정치는 얼마나 되나요?\",\"english\":\"What is the measurement of the obese weight?\"}}",
+    "solution": "{\"비만도는 얼마나 되나요?\":\"What is your body mass index (BMI)?\",\"비만도\":\"Body mass index\",\"얼마나\":\"How much\",\"되나요?\":\"Is that?\"}\n\n         {\"english\":\"How much does a biscuit weigh?\"}",
     "id": 941
   },
   {
     "generator": "korean-english",
     "input": "dredge",
-    "problem": "바닥에 물을 끌다\n",
+    "problem": "바닥에 물을 들다\n",
     "length": 9,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"물을 끌다\",\"english\":\"to dredge\"},{\"korean\":\"바닥\",\"english\":\"bottom\"}],\"sentence\":{\"korean\":\"바닥에 물을 끌다\",\"english\":\"To dredge the bottom of the lake.\"}}",
+    "solution": "{\"바닥에 물을 들다\":\"To scoop up water from the floor\",\"바닥\":\"floor\",\"물\":\"water\",\" 들다\":\"to scoop up, to gather\"}\n\n         {\"english\":\"To scoop water from the bottom\"}",
     "id": 942
   },
   {
     "generator": "korean-english",
     "input": "slowly",
-    "problem": "느린 날개로 날다\n",
+    "problem": "느린 날개로 날아갑니다.\n",
     "length": 9,
     "tags": [
       "grade-5",
@@ -12192,7 +12192,7 @@ export const problems = [
       "korean-to-english",
       "grammar"
     ],
-    "solution": "{\"words\":[{\"korean\":\"느린\",\"english\":\"slow\"},{\"korean\":\"날개\",\"english\":\"wing\"},{\"korean\":\"날다\",\"english\":\"to fly\"}],\"sentence\":{\"korean\":\"느린 날개로 날다\",\"english\":\"It flies slowly with wide wings.\"}}",
+    "solution": "{\"느린 날개로 날아갑니다.\":\"Flutters with slow wings\",\"느린\":\"slow\",\"날개\":\"wings\",\"날아갑니다.\":\"flies away\"}\n\n         {\"english\":\"It flies with quick wings.\"}",
     "id": 943
   },
   {
@@ -12207,7 +12207,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보충\",\"english\":\"supplement\"},{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"보충식단은 건강을 개선하는 데 도움이 됩니다.\",\"english\":\"A supplement diet can help improve health.\"}}",
+    "solution": "{\"보충식단\":\"dietary supplement\",\"건강\":\"health\",\"개선\":\"improve\",\"도움\":\"helpful\",\"됩니다\":\"is helpful\"}\n\n         {\"english\":\"Dietary supplements can help improve health.\"}",
     "id": 944
   },
   {
@@ -12220,7 +12220,7 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"약간\",\"english\":\"a little\"},{\"korean\":\"두려움\",\"english\":\"fear\"},{\"korean\":\"피기는\",\"english\":\"to shiver\"}],\"sentence\":{\"korean\":\"약간 두려움이 있지만, 피기는 것을 두려워하지 말아요.\",\"english\":\"There is a little fear, but don't be afraid to shiver.\"}}",
+    "solution": "{\"약간\":\"a little\",\"두려움\":\"fear\",\"있지만\":\"but\",\"피기는\":\"to give up\",\"것\":\"it\",\"두려워하지 말아요\":\"don't be afraid\"}\n\n         {\"english\":\"I have a little bit of fear, but don't be afraid to try.\"}",
     "id": 945
   },
   {
@@ -12234,13 +12234,13 @@ export const problems = [
       "inference",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선례\",\"english\":\"precedent\"},{\"korean\":\"고지\",\"english\":\"decision\"},{\"korean\":\"대상\",\"english\":\"target\"}],\"sentence\":{\"korean\":\"선례는 새로운 고지에 설정된 대상에 영향을 미칠 수 있습니다.\",\"english\":\"The precedent can influence the subsequent decisions regarding the target.\"}}",
+    "solution": "{\"선례\":\"precedent\",\"새로운\":\"new\",\"고지\":\"principle\",\"대상\":\"target\",\"영향\":\"influence\",\"미칠\":\"to have an effect on\"}\n\n         {\"english\":\"Precedents can have an impact on subsequent targets that are set.\"}",
     "id": 946
   },
   {
     "generator": "korean-english",
     "input": "ideally",
-    "problem": "상상적(想像的)으로 좋은 장소(場所)에서 학생(學生)들의 참여(參與)가 중요(重要)합니다.\n",
+    "problem": "상상력(想像力)에 풍부(豐富)한 곳에서 학생(學生)들의 참여(參與)가 중요(重要)합니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
@@ -12248,57 +12248,57 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상상적으로\",\"english\":\"ideally\"},{\"korean\":\"장소\",\"english\":\"place\"},{\"korean\":\"참여\",\"english\":\"participation\"}],\"sentence\":{\"korean\":\"상상적으로 좋은 장소에서 학생들의 참여가 중요합니다.\",\"english\":\"Participation of students is important ideally in a good place.\"}}",
+    "solution": "{\"상상력에 풍부한 곳\":\"Places rich in imagination\",\"학생들\":\"Students\",\"참여\":\"Participation\",\"중요합니다\":\"Is important\"}\n\n         {\"english\":\"Participation of students is important in places rich in imagination.\"}",
     "id": 947
   },
   {
     "generator": "korean-english",
     "input": "thunderous",
-    "problem": "번개가 거대(巨大)한 날개로 날아갑니다.\n",
+    "problem": "번개가 크게 날개처럼 날아갑니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"번개\",\"english\":\"thunder\"},{\"korean\":\"거대한\",\"english\":\"massive\"},{\"korean\":\"날개\",\"english\":\"wing\"}],\"sentence\":{\"korean\":\"번개가 거대한 날개로 날아갑니다.\",\"english\":\"The massive thunder wings into the sky.\"}}",
+    "solution": "{\"번개\":\"thunder\",\"크게\":\"very\",\"날개\":\"wing\",\"날아갑니다\":\"flees\"}\n\n         {\"english\":\"The storm is flying away like a large wing.\"}",
     "id": 948
   },
   {
     "generator": "korean-english",
     "input": "proportional",
-    "problem": "비례(比例) 상수(常數)는 변수(變數) 간(間)의 비례(比例) 관계(關係)를 나타냅니다.\n",
+    "problem": "비례(比例) 상수(常數)는 변수(變數) 간(間)의 비례(比例) 관계(關係)를 나타내는 수(數)입니다.\n",
     "length": 26,
     "tags": [
       "grade-5",
       "algebra",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비례\",\"english\":\"proportional\"},{\"korean\":\"변수\",\"english\":\"variable\"},{\"korean\":\"비례 상수\",\"english\":\"proportionality constant\"}],\"sentence\":{\"korean\":\"비례 상수는 변수 간의 비례 관계를 나타냅니다.\",\"english\":\"The proportionality constant represents the proportional relationship between the variables.\"}}",
+    "solution": "{\"비례 상수\":\"Proportion constant\",\"변수\":\"Variable\",\"비례 관계\":\"Proportional relationship\",\"수\":\"Number\"}\n\n         {\"english\":\"The proportionality constant is a number that represents the proportionality relationship between variables.\"}",
     "id": 949
   },
   {
     "generator": "korean-english",
     "input": "sunset",
-    "problem": "황혼(黃昏)이 하늘을 비추다.\n",
+    "problem": "황혼(黃昏)이 하늘을 비추네.\n",
     "length": 12,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"황혼\",\"english\":\"sunset\"},{\"korean\":\"하늘\",\"english\":\"sky\"},{\"korean\":\"빛나다\",\"english\":\"twinkles\"}],\"sentence\":{\"korean\":\"황혼이 하늘을 비추다.\",\"english\":\"The sunset twinkles the sky.\"}}",
+    "solution": "{\"황혼\":\"darkness\",\"하늘\":\"sky\",\"비추네\":\"is shining\"}\n\n         {\"english\":\"The twilight paints the sky.\"}",
     "id": 950
   },
   {
     "generator": "korean-english",
     "input": "worship",
-    "problem": "신(神)을 숭배(崇拜)하는 작용(作用)은 신성(神性)에 대(對)한 존중(尊重)과 경배(敬拜)입니다.\n",
+    "problem": "신(神)을 존중(尊重)하고 경배(敬拜)하는 행동(行動)은 신성(神性)에 대(對)한 존중(尊重)과 경배(敬拜)입니다.\n",
     "length": 29,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"숭배\",\"english\":\"worship\"},{\"korean\":\"신\",\"english\":\"god\"},{\"korean\":\"작용\",\"english\":\"action\"}],\"sentence\":{\"korean\":\"신을 숭배하는 작용은 신성에 대한 존중과 경배입니다.\",\"english\":\"The action of worshiping God is an expression of respect and reverence towards the divine.\"}}",
+    "solution": "{\"신을 존중하고 경배하는 행동\":\"Respectful and reverent behavior\",\"신성\":\"Divine nature\",\"존중\":\"Respect\",\"경배\":\"Reverence\",\"행동\":\"Action\",\"신성에 대한\":\"Towards the divine\",\"존중과 경배\":\"Respect and reverence\"}\n\n         {\"english\":\"Honoring and bowing towards the deity is a manifestation of respect and reverence towards the divine.\"}",
     "id": 951
   },
   {
@@ -12311,7 +12311,7 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"beckon\",\"english\":\"to call or attract someone\"},{\"korean\":\"두려움\",\"english\":\"fear\"},{\"korean\":\"용기\",\"english\":\"courage\"}],\"sentence\":{\"korean\":\"beckon은 두려움을 뛰어넘는 용기가 필요합니다.\",\"english\":\"Courage is necessary to overcome fear.\"}}",
+    "solution": "{\"beckon은\":\"It is important to\",\"두려움을\":\"fear\",\"뛰어넘는\":\"overcome\",\"용기가\":\"courage\",\"필요합니다\":\"is necessary\"}\n\n         {\"english\":\"Courage is needed to overcome fear.\"}",
     "id": 952
   },
   {
@@ -12325,39 +12325,39 @@ export const problems = [
       "adjective",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"버추\",\"english\":\"groove\"},{\"korean\":\"피크\",\"english\":\"peak\"},{\"korean\":\"피크한\",\"english\":\"intense\"}],\"sentence\":{\"korean\":\"버추한 피크를 향해 달려갑니다.\",\"english\":\"He dashes towards the intense peak.\"}}",
+    "solution": "{\"버추한\":\"brightly colored\",\"피크\":\"peak\",\"향해\":\"towards\",\"달려갑니다\":\"runs\"}\n\n         {\"english\":\"He/She is running towards the peak in the blizzard.\"}",
     "id": 953
   },
   {
     "generator": "korean-english",
     "input": "wretch",
-    "problem": "고통한(苦痛恨) 생각과 피로(疲勞)로 가득찬 날은, 어떻게 생활(生活)해야 할까?\n",
+    "problem": "고통한(苦痛恨) 생각과 피로(疲勞)로 가득찬 날은, 어떻게 살아야 할까?\n",
     "length": 32,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고통\",\"english\":\"suffering\"},{\"korean\":\"생각\",\"english\":\"thought\"},{\"korean\":\"피로\",\"english\":\"tiredness\"}],\"sentence\":{\"korean\":\"고통한 생각과 피로로 가득찬 날은, 어떻게 생활해야 할까?\",\"english\":\"When the day is filled with suffering, thoughts, and tiredness, how should one live?\"}}",
+    "solution": "{\"고통한 생각과 피로로 가득찬 날\":\"Days filled with pain and fatigue\",\"어떻게 살아야 할까\":\"How should one live in such a state\",\"고통\":\"Pain\",\"피로\":\"Fatigue\",\"날\":\"Day\",\"살아야\":\"To live\",\"어떻게\":\"How\",\"생활\":\"Life\",\"상황\":\"Situation\"}\n\n         {\"english\":\"Days filled with painful thoughts and fatigue, how should one live through them?\"}",
     "id": 954
   },
   {
     "generator": "korean-english",
     "input": "loser",
-    "problem": "패배자(敗北者)가 실패(失敗)를 하고 고통(苦痛)을 받는다.\n",
+    "problem": "패배자(敗北者)가 실패(失敗)하고 고통(苦痛)을 받는다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"패배자\",\"english\":\"loser\"},{\"korean\":\"실패\",\"english\":\"failure\"},{\"korean\":\"고통\",\"english\":\"pain\"}],\"sentence\":{\"korean\":\"패배자가 실패를 하고 고통을 받는다.\",\"english\":\"A loser suffers from failure and pain.\"}}",
+    "solution": "{\"패배자가 실패하고 고통을 받는다.\":\"To fail and suffer hardship\",\"패배자\":\"Loser\",\"실패\":\"Failure\",\"고통\":\"Suffering\",\"받는다\":\"To suffer\"}\n\n         {\"english\":\"The packhorse is suffering from its failure.\"}",
     "id": 955
   },
   {
     "generator": "korean-english",
     "input": "knot",
-    "problem": "매듭은 풀에 묶여있습니다.\n",
+    "problem": "매듭은 물에 묶여 있습니다.\n",
     "length": 14,
     "tags": [
       "grade-5",
@@ -12365,26 +12365,26 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매듭\",\"english\":\"knot\"},{\"korean\":\"풀\",\"english\":\"rope\"}],\"sentence\":{\"korean\":\"매듭은 풀에 묶여있습니다.\",\"english\":\"The knot is tied on the rope.\"}}",
+    "solution": "{\"매듭\":\"knot\",\"물\":\"water\",\"묶여\":\"is tied\",\"있습니다\":\"is\"}\n\n         {\"english\":\"The knots are tied up in the water.\"}",
     "id": 956
   },
   {
     "generator": "korean-english",
     "input": "senator",
-    "problem": "상원(上院)은 대학(大學)에 입학(入學)한 학생(學生)입니다.\n",
+    "problem": "상원(上院)은 대학(大學)에 입학(入學)했습니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상원\",\"english\":\"senator\"},{\"korean\":\"대학\",\"english\":\"university\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"상원은 대학에 입학한 학생입니다.\",\"english\":\"A senator is a student who has enrolled in university.\"}}",
+    "solution": "{\"상원\":\"Sangwon\",\"은\":\"is\",\"대학\":\"university\",\"입학했습니다\":\"enrolled\"}\n\n         {\"english\":\"The freshman enrolled in college.\"}",
     "id": 957
   },
   {
     "generator": "korean-english",
     "input": "coal",
-    "problem": "탄(彈)은 열(熱)을 생산(生産)하여 에너지를 제공(提供)합니다.\n",
+    "problem": "탄(彈)은 열(熱)을 발생(發生)시켜 에너지를 공급(供給)합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -12393,13 +12393,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"탄\",\"english\":\"coal\"},{\"korean\":\"열\",\"english\":\"heat\"},{\"korean\":\"생산\",\"english\":\"production\"}],\"sentence\":{\"korean\":\"탄은 열을 생산하여 에너지를 제공합니다.\",\"english\":\"Coal produces heat for energy production.\"}}",
+    "solution": "{\"탄\":\"Coal\",\"열\":\"Heat\",\"발생시켜\":\"generates\",\"에너지\":\"energy\",\"공급합니다\":\"supplies\"}\n\n         {\"english\":\"Coal generates heat to produce energy.\"}",
     "id": 958
   },
   {
     "generator": "korean-english",
     "input": "incorrect",
-    "problem": "오류(誤謬)를 최대한(最大限) 방지(防止)하면 정확(正確)한 시도(試圖)를 할 수 있습니다.\n",
+    "problem": "오류(誤謬)를 가능(可能)한 한(限) 예방(豫防)하면 정확(正確)한 시도(試圖)를 할 수 있습니다.\n",
     "length": 30,
     "tags": [
       "grade-5",
@@ -12407,25 +12407,25 @@ export const problems = [
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오류\",\"english\":\"error\"},{\"korean\":\"시도\",\"english\":\"attempt\"},{\"korean\":\"정확\",\"english\":\"accurate\"}],\"sentence\":{\"korean\":\"오류를 최대한 방지하면 정확한 시도를 할 수 있습니다.\",\"english\":\"By preventing errors as much as possible, you can make accurate attempts.\"}}",
+    "solution": "{\"오류를 가능한 한 예방하면\":\"To prevent errors as much as possible\",\"정확한\":\"Accurate\",\"시도\":\"Attempt\",\"할 수 있습니다\":\"is possible\"}\n\n         {\"english\":\"Avoiding errors allows for more accurate attempts.\"}",
     "id": 959
   },
   {
     "generator": "korean-english",
     "input": "hike",
-    "problem": "산길(山길)을 걸어다니다 자연(自然)을 감상(鑑賞)했다.\n",
+    "problem": "산길(山길)을 걸으며 자연(自然)의 소리와 풍경(風景)을 감상(鑑賞)했다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"산길\",\"english\":\"hiking trail\"},{\"korean\":\"걸어다니다\",\"english\":\"to walk\"},{\"korean\":\"자연\",\"english\":\"nature\"}],\"sentence\":{\"korean\":\"산길을 걸어다니다 자연을 감상했다.\",\"english\":\"He went hiking in the mountains to appreciate the beauty of nature.\"}}",
+    "solution": "{\"산길\":\"mountain trail\",\"걸으며\":\"walking\",\"자연의\":\"nature's\",\"소리\":\"sound\",\"풍경\":\"landscape\",\"감상했다\":\"admired\"}\n\n         {\"english\":\"He walked along the mountain trail and admired the sounds of nature and the scenery.\"}",
     "id": 960
   },
   {
     "generator": "korean-english",
     "input": "imperial",
-    "problem": "황실(皇室) 제국(帝國)은 모든 민족(民族)의 권리(權利)를 보호(保護)해야 합니다.\n",
+    "problem": "황실(皇室) 제국(帝國)은 모든 민족(民族)의 권리(權利)를 보호(保護)하여야 합니다.\n",
     "length": 27,
     "tags": [
       "grade-5",
@@ -12433,13 +12433,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"황실\",\"english\":\"imperial\"},{\"korean\":\"제국\",\"english\":\"empire\"},{\"korean\":\"권리\",\"english\":\"rights\"}],\"sentence\":{\"korean\":\"황실 제국은 모든 민족의 권리를 보호해야 합니다.\",\"english\":\"An imperial empire must protect the rights of all nations.\"}}",
+    "solution": "{\"황실 제국은\":\"The Imperial Court must\",\"모든 민족의 권리를\":\"the rights of all nations\",\"보호하여야 합니다\":\"must be protected\"}\n\n         {\"english\":\"The Yellow Imperial Court must protect the rights of all nations.\"}",
     "id": 961
   },
   {
     "generator": "korean-english",
     "input": "babble",
-    "problem": "침상한(上限) 말소리로 선명(鮮明)한 생각이 떠납니다.\n",
+    "problem": "침상한(上限) 말처럼 선명(鮮明)한 생각이 떠납니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
@@ -12447,52 +12447,52 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말소리\",\"english\":\"babble\"},{\"korean\":\"침상\",\"english\":\"concentration\"},{\"korean\":\"선명\",\"english\":\"clear\"}],\"sentence\":{\"korean\":\"침상한 말소리로 선명한 생각이 떠납니다.\",\"english\":\"Clear thoughts float up with the babbling concentration.\"}}",
+    "solution": "{\"침상한 말처럼 선명한 생각이 떠납니다.\":\"Deep thoughts emerge like words that have been carefully considered.\"}\n\n         {\"english\":\"Clear thoughts emerge like words from a dream.\"}",
     "id": 962
   },
   {
     "generator": "korean-english",
     "input": "stint",
-    "problem": "임시(臨時) 업무(業務)는 지속적(持續的)으로 수행(遂行)해야 합니다.\n",
+    "problem": "임시(臨時) 업무(業務)는 지속적(持續的)으로 수행(遂行)하여야 합니다.\n",
     "length": 22,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"임시\",\"english\":\"temporary\"},{\"korean\":\"업무\",\"english\":\"assignment\"},{\"korean\":\"지속\",\"english\":\"continuous\"}],\"sentence\":{\"korean\":\"임시 업무는 지속적으로 수행해야 합니다.\",\"english\":\"Temporary assignments should be completed continuously.\"}}",
+    "solution": "{\"임시 업무\":\"Temporary work\",\"지속적으로\":\"Continuously\",\"수행\":\"Performed\",\"야야 합니다\":\"should be done\"}\n\n         {\"english\":\"Temporary tasks should be continued until completion.\"}",
     "id": 963
   },
   {
     "generator": "korean-english",
     "input": "charity",
-    "problem": "선물(膳物)은 사회(社會)에서 사랑의 표현(表現)입니다.\n",
+    "problem": "선물(膳物)은 사회(社會)에서 사랑을 표현(表現)하는 중요(重要)한 방법(方法)입니다.\n",
     "length": 19,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"사랑\",\"english\":\"love\"},{\"korean\":\"사회\",\"english\":\"society\"}],\"sentence\":{\"korean\":\"선물은 사회에서 사랑의 표현입니다.\",\"english\":\"Gifts are expressions of love within society.\"}}",
+    "solution": "{\"선물\":\"gift\",\"사회\":\"society\",\"사랑\":\"love\",\"표현\":\"expression\",\"중요\":\"important\",\"방법\":\"method\"}\n\n         {\"english\":\"Gifts are a significant way to express love within society.\"}",
     "id": 964
   },
   {
     "generator": "korean-english",
     "input": "sight",
-    "problem": "시각(時刻)에 거대(巨大)한 구름이 떠나다.\n",
+    "problem": "시각(時刻)에 거대(巨大)한 구름이 사라지다.\n",
     "length": 16,
     "tags": [
       "grade-5",
       "adjective",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"시각\",\"english\":\"sight\"},{\"korean\":\"거대한\",\"english\":\"huge\"},{\"korean\":\"구름\",\"english\":\"cloud\"}],\"sentence\":{\"korean\":\"시각에 거대한 구름이 떠나다.\",\"english\":\"A huge cloud is floating in the sky.\"}}",
+    "solution": "{\"시각\":\"visual\",\"거대한\":\"massive\",\"구름\":\"cloud\",\"사라지다\":\"disappearing\",\"다\":\"completely\"}\n\n         {\"english\":\"A giant cloud in the sky is vanishing.\"}",
     "id": 965
   },
   {
     "generator": "korean-english",
     "input": "deliberate",
-    "problem": "의사적(醫師敵)으로 계획(計劃)을 수행(遂行)하여 성공(成功)했다.\n",
+    "problem": "계획(計劃)을 정(定)하여 효율적(效率的)으로 수행(遂行)하여 성공(成功)했다.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -12501,13 +12501,13 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"의사적으로\",\"english\":\"deliberately\"},{\"korean\":\"계획을\",\"english\":\"make a plan\"},{\"korean\":\"수행하다\",\"english\":\"to perform\"}],\"sentence\":{\"korean\":\"의사적으로 계획을 수행하여 성공했다.\",\"english\":\"He deliberately made a plan and succeeded.\"}}",
+    "solution": "{\"계획을 정하여\":\"To establish a plan\",\"효율적으로\":\"Efficiently\",\"수행하여\":\"To execute\",\"성공했다\":\"Achieved success\"}\n\n         {\"english\":\"He planned carefully and executed it efficiently to achieve success.\"}",
     "id": 966
   },
   {
     "generator": "korean-english",
     "input": "striped",
-    "problem": "무선(無線) 네트워크는 색(色)무리로 구성(構成)됩니다.\n",
+    "problem": "무선(無線) 네트워크는 색(色)다른 색상(色相)으로 구성(構成)됩니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -12515,20 +12515,20 @@ export const problems = [
       "vocabulary",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무선\",\"english\":\"wireless\"},{\"korean\":\"색무리\",\"english\":\"stripes\"}],\"sentence\":{\"korean\":\"무선 네트워크는 색무리로 구성됩니다.\",\"english\":\"Wireless networks are constructed with stripes.\"}}",
+    "solution": "{\"무선 네트워크\":\"Wireless network\",\"색다른\":\"Multicolored\",\"색상\":\"Colors\",\"구성됩니다\":\"Composed\"}\n\n         {\"english\":\"Wireless networks are composed of various colors.\"}",
     "id": 967
   },
   {
     "generator": "korean-english",
     "input": "cursory",
-    "problem": "순회(巡廻)적 탐구(探究)는 증거(證據)를 찾는 과정(過程)입니다.\n",
+    "problem": "순회(巡廻)적 연구(硏究)는 증거(證據)를 찾는 과정(過程)입니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "translation",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"순회적\",\"english\":\"cursory\"},{\"korean\":\"탐구\",\"english\":\"investigation\"},{\"korean\":\"증거\",\"english\":\"evidence\"}],\"sentence\":{\"korean\":\"순회적 탐구는 증거를 찾는 과정입니다.\",\"english\":\"A cursory investigation is the process of finding evidence.\"}}",
+    "solution": "{\"순회적 연구\":\"Iterative research\",\"증거\":\"Evidence\",\"찾는\":\"To search for\",\"과정\":\"Process\"}\n\n         {\"english\":\"Circumscribed research is a process of evidence-seeking.\"}",
     "id": 968
   },
   {
@@ -12542,13 +12542,13 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"승리\",\"english\":\"victory\"},{\"korean\":\"무력\",\"english\":\"powerlessness\"},{\"korean\":\"극복\",\"english\":\"overcome\"}],\"sentence\":{\"korean\":\"무력한 상황에서도 극복하여 승리를 얻는 것은 중요합니다.\",\"english\":\"It is important to overcome adversity to achieve victory, even in powerless situations.\"}}",
+    "solution": "{\"무력한 상황에서도\":\"Despite being powerless\",\"극복하여\":\"to overcome\",\"승리를 얻는 것은\":\"to achieve victory\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"It is important to overcome adversity and achieve victory even in weak situations.\"}",
     "id": 969
   },
   {
     "generator": "korean-english",
     "input": "impetuous",
-    "problem": "발발(勃發)한 계획(計劃) 없이 고통스러운 결정(決定)을 내렸다.\n",
+    "problem": "갑자기 계획(計劃) 없이 고통스러운 결정(決定)을 내렸다.\n",
     "length": 24,
     "tags": [
       "grade-5",
@@ -12556,7 +12556,7 @@ export const problems = [
       "grammar",
       "korean-to-english"
     ],
-    "solution": "{\"words\":[{\"korean\":\"발발한\",\"english\":\"impulsive\"},{\"korean\":\"계획 없이\",\"english\":\"without a plan\"},{\"korean\":\"고통스러운 결정\",\"english\":\"painful decision\"}],\"sentence\":{\"korean\":\"발발한 계획 없이 고통스러운 결정을 내렸다.\",\"english\":\"He made a painful decision without a plan.\"}}",
+    "solution": "{\"갑자기\":\"Suddenly\",\"계획 없이\":\"Without planning\",\"고통스러운\":\"Painful\",\"결정\":\"Decision\",\"내렸다\":\"Made\"}\n\n         {\"english\":\"He made a painful decision without any planning.\"}",
     "id": 970
   },
   {
@@ -21044,7 +21044,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"깨끗해지다\",\"english\":\"to become clean\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"꽃은 시간이 지나면 깨끗해진다.\",\"english\":\"Flowers become clean over time.\"}}",
+    "solution": "{\"꽃은 시간이 지나면 순수해진다.\":\"Flowers become purer as time passes.\"}\n\n         {\"english\":\"Flowers become pure when time passes.\"}",
     "id": 1563
   },
   {
@@ -21059,7 +21059,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아레나\",\"english\":\"arena\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"},{\"korean\":\"깨끗한\",\"english\":\"clean\"}],\"sentence\":{\"korean\":\"아레나에서 피크닉을 하다가, 깨끗한 공원에 도착했습니다.\",\"english\":\"We had a picnic in the arena, and then we arrived at a clean park.\"}}",
+    "solution": "{\"아레나에서\":\"At the arena\",\"피크닉을 하다가\":\"having a picnic\",\"깨끗한\":\"clean\",\"공원\":\"park\",\"도착했습니다\":\"arrived\"}\n\n         {\"english\":\"While picnicking in the arena, they arrived at a clean park.\"}",
     "id": 1564
   },
   {
@@ -21100,7 +21100,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"어디서든\",\"english\":\"anywhere\"},{\"korean\":\"거기\",\"english\":\"there\"},{\"korean\":\"깨진\",\"english\":\"broken\"},{\"korean\":\"편\",\"english\":\"piece\"}],\"sentence\":{\"korean\":\"어디서든 깨진 편은 그 곳에 남아있어요.\",\"english\":\"A broken piece is left over wherever it breaks.\"}}",
+    "solution": "{\"깨진 편은 어디서든 그 곳에 남아있어요.\":\"The broken piece is left everywhere.\"}\n\n         {\"english\":\"A broken piece will stay wherever it falls.\"}",
     "id": 1567
   },
   {
@@ -21114,7 +21114,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동의\",\"english\":\"agreement\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"보상\",\"english\":\"compensation\"}],\"sentence\":{\"korean\":\"피해가 발생하면 동의된 보상을 받는다.\",\"english\":\"When damage occurs, compensation is received in accordance with the agreement.\"}}",
+    "solution": "{\"피해가 발생하면\":\"In the event of damage occurs\",\"동의된\":\"agreed upon\",\"보상\":\"compensation\",\"받게 됩니다\":\"you are eligible to receive\"}\n\n         {\"english\":\"If damage occurs, you will be eligible for compensation that has been agreed upon.\"}",
     "id": 1568
   },
   {
@@ -21128,7 +21128,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장식\",\"english\":\"decorative\"},{\"korean\":\"꽃\",\"english\":\"flower\"},{\"korean\":\"병\",\"english\":\"vase\"}],\"sentence\":{\"korean\":\"장식꽃은 병에 담아 아름답게 만듭니다.\",\"english\":\"Decorative flowers are beautifully arranged in a vase.\"}}",
+    "solution": "{\"장식꽃\":\"Ornamental flower\",\"병\":\"Vase\",\"담아\":\"Put into\",\"아름답게\":\"Beautifully\",\"보여줍니다\":\"Is shown/displayed\"}\n\n         {\"english\":\"Ornamental flowers are beautifully displayed when placed in a vase.\"}",
     "id": 1569
   },
   {
@@ -21142,7 +21142,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"등길\",\"english\":\"aisle\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"책상\",\"english\":\"desk\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"등길을 따라 학생들은 책상을 배열합니다.\",\"english\":\"Students walk along the aisle and arrange their desks.\"}}",
+    "solution": "{\"등길을 따라\":\"Following the rows\",\"학생들은\":\"Students are\",\"책상 위에\":\"on the desks\",\"책을 배열합니다\":\"arranging books\"}\n\n         {\"english\":\"Students arrange books on their desks along the aisle.\"}",
     "id": 1570
   },
   {
@@ -21155,7 +21155,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우리의 생각은 주변 환경에 영향을 미칠 수 있습니다.\",\"english\":\"Our thoughts can influence the surrounding environment.\"},{\"korean\":\"주변 환경은 우리의 생각을 형성합니다.\",\"english\":\"The surrounding environment shapes our thoughts.\"}],\"sentence\":{\"korean\":\"우리의 생각과 주변 환경 간의 관계는 매우 복잡합니다.\",\"english\":\"The relationship between our thoughts and the surrounding environment is very complex.\"}}",
+    "solution": "{\"우리의 생각\":\"Our thoughts\",\"주변 환경\":\"Surrounding environment\",\"매우 복잡한\":\"Very complex\",\"관계\":\"Relationship\"}\n\n         {\"english\":\"Our thoughts and the surrounding environment have a very complex relationship.\"}",
     "id": 1571
   },
   {
@@ -21168,7 +21168,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불교\",\"english\":\"Buddhism\"},{\"korean\":\"작심\",\"english\":\"Concentration\"},{\"korean\":\"깨달음\",\"english\":\"Enlightenment\"}],\"sentence\":{\"korean\":\"불교에서 작심을 하면 깨달음이 생긴다.\",\"english\":\"Concentration in Buddhism brings enlightenment.\"}}",
+    "solution": "{\"불교\":\"Buddhism\",\"작심\":\"Concentration\",\"깨달음\":\"Enlightenment\",\"생긴다\":\"Comes into existence\"}\n\n         {\"english\":\"If you meditate in Buddhism, enlightenment will arise.\"}",
     "id": 1572
   },
   {
@@ -21181,7 +21181,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지배\",\"english\":\"power\"},{\"korean\":\"절약\",\"english\":\"deprive\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"지배을 절약하면 능력이 늘어납니다.\",\"english\":\"When power is deprived, ability increases.\"}}",
+    "solution": "{\"능력을 개발하기 위해 지배을 줄이는 것이 중요합니다.\":\"Reducing control is crucial for developing abilities.\"}\n\n         {\"english\":\"Reducing control is important for developing abilities.\"}",
     "id": 1573
   },
   {
@@ -21195,7 +21195,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거동자\",\"english\":\"diver\"},{\"korean\":\"해저\",\"english\":\"underwater\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"거동자가 해저 물리 현상을 이해하고 물리 법칙을 적용하여 물리 현상을 예측할 수 있습니다.\",\"english\":\"Divers can understand underwater physics phenomena and apply physical laws to predict physical phenomena.\"}}",
+    "solution": "{\"거동자\":\"Diver\",\"해저\":\"Deep sea\",\"물리 현상\":\"Physical phenomena\",\"이해\":\"Understanding\",\"물리 법칙\":\"Physical laws\",\"적용\":\"Applying\",\"예측\":\"Predicting\"}\n\n         {\"english\":\"Physicists can understand underwater physical phenomena by studying physical laws and applying them to predict physical phenomena.\"}",
     "id": 1574
   },
   {
@@ -21208,7 +21208,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전제\",\"english\":\"premise\"},{\"korean\":\"거부\",\"english\":\"denial\"},{\"korean\":\"증거\",\"english\":\"evidence\"}],\"sentence\":{\"korean\":\"전제가 사실이 아니더라도, 증거는 참고해야 합니다.\",\"english\":\"Even if the premise is not true, the evidence must be considered.\"}}",
+    "solution": "{\"증거\":\"evidence\",\"사실\":\"facts\",\"여부\":\"whether or not\",\"참고\":\"to refer\",\"해야\":\"should\"}\n\n         {\"english\":\"Evidence should be referenced regardless of its relevance to the truth of the matter.\"}",
     "id": 1575
   },
   {
@@ -21223,7 +21223,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가속도\",\"english\":\"Acceleration\"},{\"korean\":\"거리\",\"english\":\"Distance\"},{\"korean\":\"시간\",\"english\":\"Time\"}],\"sentence\":{\"korean\":\"가속도는 거리를 시간에 따라 변경합니다.\",\"english\":\"Acceleration changes the distance over time.\"}}",
+    "solution": "{\"거리는\":\"Distance\",\"시간에 따라\":\"over time\",\"가속도\":\"Acceleration\",\"영향을 받습니다\":\"is affected\"}\n\n         {\"english\":\"Distance is affected by acceleration depending on time.\"}",
     "id": 1576
   },
   {
@@ -21236,7 +21236,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"레지멘\",\"english\":\"routine\"},{\"korean\":\"생활\",\"english\":\"daily life\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"레지멘은 생활의 시간 관리를 잘 해줍니다.\",\"english\":\"A routine helps to manage time efficiently in daily life.\"}}",
+    "solution": "{\"레지멘\":\"Routine\",\"생활 시간\":\"Daily time\",\"효율적으로\":\"Efficiently\",\"관리\":\"Management\",\"생활의 질\":\"Quality of life\",\"높여줍니다\":\"Improves\"}\n\n         {\"english\":\"Regiment helps optimize daily time to improve the quality of life.\"}",
     "id": 1577
   },
   {
@@ -21250,7 +21250,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"구출\",\"english\":\"to extricate\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"상황을 어려움에서 구출하고 새로운 해결책을 찾는 것은 중요합니다.\",\"english\":\"It is important to extricate oneself from difficult situations and find new solutions.\"}}",
+    "solution": "{\"처리상황\":\"Processing situation\",\"어려움\":\"Difficulty\",\"구출\":\"Rescue\",\"새로운\":\"New\",\"해결책\":\"Solution\",\"중요\":\"Important\"}\n\n         {\"english\":\"It is crucial to extract the current situation from difficulties and explore new solutions.\"}",
     "id": 1578
   },
   {
@@ -21263,7 +21263,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"모순\",\"english\":\"conspiracy\"},{\"korean\":\"모임\",\"english\":\"gathering\"},{\"korean\":\"계획\",\"english\":\"plan\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"모순이 일어나면 모임하고 목표를 달성하기 위해 계획을 세웁니다.\",\"english\":\"When a conspiracy arises, people gather to plan and set goals to overcome it.\"}}",
+    "solution": "{\"모순이 생기면\":\"When contradictions arise\",\"모여\":\"Gathering\",\"목표를 달성하기 위해\":\"to achieve the goal\",\"계획을 세웁니다\":\"They plan accordingly\"}\n\n         {\"english\":\"When a contradiction arises, we gather to establish goals and plan accordingly to achieve them.\"}",
     "id": 1579
   },
   {
@@ -21277,7 +21277,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃잎이\",\"english\":\"flower bud\"},{\"korean\":\"피어나다가\",\"english\":\"burgeons out\"}],\"sentence\":{\"korean\":\"꽃잎이 피어나다가 아름다워요.\",\"english\":\"The flower buds are blooming beautifully.\"}}",
+    "solution": "{\"꽃잎\":\"petals\",\"피어나\":\"emerge\",\"아름답네요\":\"it is beautiful\"}\n\n         {\"english\":\"When the flower petals bloom, they are beautiful.\"}",
     "id": 1580
   },
   {
@@ -21305,7 +21305,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"아침\",\"english\":\"morning\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"밥을\",\"english\":\"eat breakfast\"},{\"korean\":\"먹고\",\"english\":\"and then\"},{\"korean\":\"학교에\",\"english\":\"go to school\"}],\"sentence\":{\"korean\":\"아침은 우리가 밥을 먹고 학교에 가요.\",\"english\":\"We eat breakfast and then go to school in the morning.\"}}",
+    "solution": "{\"아침\":\"morning\",\"아침 식사\":\"breakfast\",\"하고\":\"and\",\"학교로\":\"to school\",\"가요\":\"go\"}\n\n         {\"english\":\"I have breakfast and then go to school in the morning.\"}",
     "id": 1582
   },
   {
@@ -21320,7 +21320,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"차원\",\"english\":\"dimension\"},{\"korean\":\"피크업\",\"english\":\"pickup\"},{\"korean\":\"용량\",\"english\":\"capacity\"}],\"sentence\":{\"korean\":\"차원이 큰 용기는 많은 물건을 피크업할 수 있습니다.\",\"english\":\"A container with a large capacity can pick up many things.\"}}",
+    "solution": "{\"크기가 큰 용기\":\"Large container\",\"많은 물건\":\"Many items\",\"담아두기\":\"To put in/hold\",\"용이합니다\":\"Is easy\"}\n\n         {\"english\":\"Larger containers make it easier to store many items.\"}",
     "id": 1583
   },
   {
@@ -21334,7 +21334,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불명할\",\"english\":\"inexplicable\"},{\"korean\":\"연상\",\"english\":\"mystery\"},{\"korean\":\"보편\",\"english\":\"universal\"}],\"sentence\":{\"korean\":\"불명할 것은 현실에 보편적으로 나타나지만, 그 이유는 언젠가 이해할 수 없다.\",\"english\":\"The inexplicable often manifests in reality, but its reason remains inexplicable until the very end.\"}}",
+    "solution": "{\"불명한 것은 현실의 일부로 보편적으로 나타나지만\":\"The unknown is commonly found as part of reality\",\"그 이유는 아직 이해할 수 없다\":\"The reason for this remains unknown.\"}\n\n         {\"english\":\"The enigmatic arises as a part of reality, but its underlying reasons remain elusive.\"}",
     "id": 1584
   },
   {
@@ -21349,7 +21349,7 @@ export const problems = [
       "comprehension",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지금\",\"english\":\"nowadays\"},{\"korean\":\"물론\",\"english\":\"of course\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"살아가고\",\"english\":\"are living\"},{\"korean\":\"삶의\",\"english\":\"life's\"},{\"korean\":\"소리\",\"english\":\"meaning\"}],\"sentence\":{\"korean\":\"지금 물론 우리 살아가고 삶의 소리는 무엇일까?\",\"english\":\"Of course we are living nowadays. What is the meaning of life?\"}}",
+    "solution": "{\"물론 지금 살아가고\":\"Of course I'm living now\",\"삶의 소리는\":\"The sound of life is\",\"무슨 소리할까?\":\"What kind of sound should it make?\"}\n\n         {\"english\":\"Of course I'm alive right now, what kind of noise does life make?\"}",
     "id": 1585
   },
   {
@@ -21362,7 +21362,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"약약한\",\"english\":\"weak\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"피로\",\"english\":\"fatigue\"}],\"sentence\":{\"korean\":\"약약한몸은 피로로 인해 활동이 부족해집니다.\",\"english\":\"A weak body often leads to a lack of activity due to fatigue.\"}}",
+    "solution": "{\"약약한 체력\":\"weak physical fitness\",\"피로\":\"fatigue\",\"활동량\":\"activity level\",\"줄어납니다\":\"decreases\"}\n\n         {\"english\":\"Moderate physical fitness can lead to a reduction in activity levels due to fatigue.\"}",
     "id": 1586
   },
   {
@@ -21375,7 +21375,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사라지다\",\"english\":\"to disappear\"},{\"korean\":\"생명\",\"english\":\"life\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"바람이 강해지면 생명은 사라지더라.\",\"english\":\"When the wind gets strong, life disappears.\"}}",
+    "solution": "{\"바람이 강해지면\":\"When the wind gets strong\",\"생명은 사라지고\":\"life disappears\",\"말이에\":\"it's over\"}\n\n         {\"english\":\"When the wind gets strong, life disappears and words are gone.\"}",
     "id": 1587
   },
   {
@@ -21390,7 +21390,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"신뢰할 만한\",\"english\":\"creditable\"},{\"korean\":\"업적\",\"english\":\"performance\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"신뢰할 만한 업적을 보여주면, 능력을 가진 사람으로 여겨지겠습니다.\",\"english\":\"If you demonstrate creditable performance, people will recognize you as someone with great ability.\"}}",
+    "solution": "{\"신뢰할 만한 업적\":\"Reliable achievements\",\"능력\":\"Abilities\",\"풍부\":\"Abundant\",\"사람\":\"Person\",\"여겨질\":\"Be considered\",\"만\":\"Only\",\"보여줘면\":\"If shown\"}\n\n         {\"english\":\"If you demonstrate reliable business practices, people will recognize you as someone with great ability.\"}",
     "id": 1588
   },
   {
@@ -21417,7 +21417,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"변화\",\"english\":\"change\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"고통\",\"english\":\"burden\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"시간이 지남에 변화는 고통이지만, 목표를 달성하면 고통은 사라집니다.\",\"english\":\"As time passes, change brings burdens, but when you achieve your goal, the burdens disappear.\"}}",
+    "solution": "{\"시간이 지남에 변화는 고통일 수 있지만, 목표를 달성하면 고통은 사라집니다.\":{\"시간이 지남에\":\"As time passes\",\"변화는\":\"changes are\",\"고통일 수 있지만\":\"can cause pain\",\"목표를 달성하면\":\"when the goal is achieved\",\"고통은 사라집니다\":\"the pain disappears\"}}\n\n         {\"english\":\"Pain may arise as time passes, but achieving goals eliminates the pain.\"}",
     "id": 1590
   },
   {
@@ -21432,7 +21432,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"용감\",\"english\":\"bravery\"},{\"korean\":\"거침\",\"english\":\"determination\"},{\"korean\":\"용기\",\"english\":\"courage\"},{\"korean\":\"고난\",\"english\":\"hardship\"}],\"sentence\":{\"korean\":\"용감한 결심과 용기가 큰 사람들은 어려움을 극복하고 목표를 달성합니다.\",\"english\":\"People with great bravery, determination, and courage overcome hardships and achieve their goals.\"}}",
+    "solution": "{\"용감한 결심\":\"Courageous determination\",\"용기\":\"Courage\",\"극복\":\"Overcome\",\"목표\":\"Goal\",\"달성\":\"Achieve\"}\n\n         {\"english\":\"People with strong determination and great courage overcome difficulties and achieve their goals.\"}",
     "id": 1591
   },
   {
@@ -21446,14 +21446,14 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"슬랙\",\"english\":\"lazy\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"슬랙한 사람들은 시간을 활용하는 능력이 높아야 합니다.\",\"english\":\"Lazy people should have high ability to utilize time efficiently.\"}}",
+    "solution": "{\"슬랙한 사람들은\":\"Busy people should\",\"시간을 효율적으로 활용할 수 있는\":\"be able to efficiently utilize time\",\"능력\":\"ability\",\" 높아야 합니다\":\"should be high\"}\n\n         {\"english\":\"People who are slacking should be able to utilize time efficiently.\"}",
     "id": 1592
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "turnpike",
-    "problem": "1시간(時間) 동안 회전도로(回戰道路)를 통해 100km를 이동(移動)합니다.\n",
+    "problem": "회전도로(回戰道路)를 통해 100km를 1시간(時間) 동안 이동(移動)합니다.\n",
     "length": 32,
     "tags": [
       "grade-5",
@@ -21462,7 +21462,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"회전도로\",\"english\":\"highway\"},{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"회전도로를 통해 거리 100km를 1시간 동안 이동합니다.\",\"english\":\"It takes 1 hour to travel 100km on the highway.\"}}",
+    "solution": "{\"회전도로를 통해\":\"via circular highway\",\"100km\":\"100 kilometers\",\"1시간 동안\":\"in 1 hour\",\"이동합니다\":\"is moving\"}\n\n         {\"english\":\"The vehicle travels 100 kilometers in one hour through the rotary route.\"}",
     "id": 1593
   },
   {
@@ -21502,7 +21502,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"움직임\",\"english\":\"movement\"},{\"korean\":\"작동\",\"english\":\"operation\"},{\"korean\":\"진행\",\"english\":\"progress\"}],\"sentence\":{\"korean\":\"움직임은 작업의 진행에 중요합니다.\",\"english\":\"Movement is crucial for the progress of work.\"}}",
+    "solution": "{\"움직임\":\"movement\",\"작업\":\"work\",\"진행\":\"progress\",\"매우\":\"very\",\"중요합니다\":\"important is\"}\n\n         {\"english\":\"Movement is crucial to the progress of work.\"}",
     "id": 1596
   },
   {
@@ -21516,7 +21516,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"책임이 있다\",\"english\":\"There is responsibility.\"},{\"korean\":\"무슨 일이 있더라도\",\"english\":\"Whatever happens.\"},{\"korean\":\"대처해야 한다\",\"english\":\"You have to deal with it.\"}],\"sentence\":{\"korean\":\"책임이 있다 무슨 일이 있더라도 대처해야 한다\",\"english\":\"There is responsibility whatever happens, so you have to deal with it.\"}}",
+    "solution": "{\"책임은 있기 때문에\":\"Because there is responsibility\",\"무슨 일이 생기더라도\":\"whatever happens\",\"대처해야 합니다\":\"you must deal with it\"}\n\n         {\"english\":\"Since there is responsibility, one must be prepared to deal with whatever happens.\"}",
     "id": 1597
   },
   {
@@ -21543,7 +21543,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매물\",\"english\":\"purchase\"},{\"korean\":\"돈\",\"english\":\"money\"},{\"korean\":\"필요\",\"english\":\"necessary\"}],\"sentence\":{\"korean\":\"매물은 필요한 돈으로 사야 합니다.\",\"english\":\"Purchases require necessary money.\"}}",
+    "solution": "{\"매물은 필요한 비용으로 사야합니다.\":\"The item is considered necessary expense.\"}\n\n         {\"english\":\"The goods are considered necessary expenses.\"}",
     "id": 1599
   },
   {
@@ -21559,7 +21559,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"절약\",\"english\":\"cutback\"},{\"korean\":\"편도\",\"english\":\"convenience store\"},{\"korean\":\"피크업\",\"english\":\"pickup\"}],\"sentence\":{\"korean\":\"절약한 편도에서 피크업할 때, 시간을 절약할 수 있습니다.\",\"english\":\"When picking up from a convenience store with a cutback, you can save time.\"}}",
+    "solution": "{\"피크업 시\":\"Pick up time\",\"절약한 편도\":\"efficient express delivery\",\"이용하면\":\"by using\",\"시간을 절약할 수 있습니다\":\"saves time\"}\n\n         {\"english\":\"Using a pickup truck can save you time.\"}",
     "id": 1600
   },
   {
@@ -21573,7 +21573,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"건축가\",\"english\":\"architect\"},{\"korean\":\"공간\",\"english\":\"space\"},{\"korean\":\"생활\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"건축가는 공간을 효율적으로 활용하여 생활의 편리성을 높입니다.\",\"english\":\"An architect maximizes space utilization to enhance convenience in daily life.\"}}",
+    "solution": "{\"건축가\":\"Architect\",\"공간\":\"Space\",\"효율적으로\":\"Efficiently\",\"활용\":\"Utilize\",\"생활\":\"Life\",\"편리성\":\"Convenience\"}\n\n         {\"english\":\"Architects optimize space utilization to enhance the convenience of life.\"}",
     "id": 1601
   },
   {
@@ -21588,7 +21588,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우울한\",\"english\":\"wistful\"},{\"korean\":\"상록\",\"english\":\"pine tree\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"우울한 상록은 바람에 날다가 사라지네.\",\"english\":\"The wistful pine tree disappears into the wind.\"}}",
+    "solution": "{\"우울한\":\"sad\",\"상록\":\"moss\",\"바람\":\"wind\",\"날다가\":\"swept away by\",\"사라지네\":\"disappears\"}\n\n         {\"english\":\"A sad pine tree is blown away by the wind and disappears.\"}",
     "id": 1602
   },
   {
@@ -21602,7 +21602,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"꽃잎\",\"english\":\"flower petal\"},{\"korean\":\"날카스\",\"english\":\"spine\"},{\"korean\":\"풍선\",\"english\":\"balloon\"}],\"sentence\":{\"korean\":\"꽃잎은 날카스 위에 풍선이 부풀어 올라갑니다.\",\"english\":\"The flower petals float up on the spine like a balloon.\"}}",
+    "solution": "{\"꽃잎들은 날카스 위에 풍선이 부풀어 오르다가갑니다.\":{\"꽃잎들\":\"Petals\",\"날카스 위에\":\"On the thorn\",\"풍선\":\"Blossom\",\"부풀어 오르다가\":\"Puffing up\",\"갑니다.\":\"Suddenly\"}}\n\n         {\"english\":\"The flower petals are swelling up on the needle like balloons.\"}",
     "id": 1603
   },
   {
@@ -21616,7 +21616,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치어리더\",\"english\":\"cheerleader\"},{\"korean\":\"팀\",\"english\":\"team\"},{\"korean\":\"동기\",\"english\":\"motivation\"}],\"sentence\":{\"korean\":\"치어리더는 팀의 동기를 높여 우승을 합니다.\",\"english\":\"Cheerleaders motivate the team and lead them to victory.\"}}",
+    "solution": "{\"치어리더\":\"Cheerleader\",\"팀\":\"Team\",\"동기\":\"Motivation\",\"유발\":\"To inspire\",\"우승\":\"Victory\"}\n\n         {\"english\":\"Cheerleaders inspire team motivation, which ultimately leads to victory.\"}",
     "id": 1604
   },
   {
@@ -21655,7 +21655,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보름\",\"english\":\"summer\"},{\"korean\":\"날카\",\"english\":\"breeze\"},{\"korean\":\"꽃잎\",\"english\":\"flower petal\"}],\"sentence\":{\"korean\":\"보름의 날카는 꽃잎을 부풀립니다.\",\"english\":\"The summer breeze flutters the flower petals.\"}}",
+    "solution": "{\"보름날\":\"full moon\",\"카는\":\"falling\",\"날카\":\"petals\",\"꽃잎\":\"flower petal\",\"부풀립니다\":\"puff up\"}\n\n         {\"english\":\"On a rainy day, the lotus flower unfolds its petals.\"}",
     "id": 1607
   },
   {
@@ -21685,7 +21685,7 @@ export const problems = [
       "length",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인치\",\"english\":\"inch\"},{\"korean\":\"크기\",\"english\":\"size\"},{\"korean\":\"피치\",\"english\":\"pitch\"}],\"sentence\":{\"korean\":\"인치 크기는 피치에 비해 약간 작아요.\",\"english\":\"The size of an inch is slightly smaller than the pitch.\"}}",
+    "solution": "{\"피치에\":\"In comparison to\",\"비해\":\"than\",\"인치\":\"inch\",\"크기\":\"size\",\"약간\":\"slightly\",\"작아요\":\"is smaller\"}\n\n         {\"english\":\"It's slightly smaller in inch size compared to a peach.\"}",
     "id": 1609
   },
   {
@@ -21727,7 +21727,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지표\",\"english\":\"index\"},{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"점수\",\"english\":\"score\"}],\"sentence\":{\"korean\":\"지표는 선물과 점수를 모두 포함합니다.\",\"english\":\"The index includes both gifts and scores.\"}}",
+    "solution": "{\"지표에는 선물과 점수가 모두 포함됩니다.\":\"The score and gifts are both included in the report.\"}\n\n         {\"english\":\"Both gifts and scores are included in the index.\"}",
     "id": 1612
   },
   {
@@ -21753,7 +21753,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"면지는\",\"english\":\"towel\"},{\"korean\":\"물이 많아지면\",\"english\":\"when there is a lot of water\"},{\"korean\":\"건조하기 위해\",\"english\":\"to dry it off\"}],\"sentence\":{\"korean\":\"면지는 물이 많아지면 건조하기 위해 사용합니다.\",\"english\":\"Towels are used to dry things off when there is a lot of water.\"}}",
+    "solution": "{\"면지는 물이 늘어나면 건조하기 위해 사용합니다.\":\"The moisture is used to dry things when it increases.\"}\n\n         {\"english\":\"When the reservoir water level rises, it is used to dry out the surrounding area.\"}",
     "id": 1614
   },
   {
@@ -21767,7 +21767,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선생님\",\"english\":\"teacher\"},{\"korean\":\"고문\",\"english\":\"advice\"},{\"korean\":\"상황\",\"english\":\"situation\"}],\"sentence\":{\"korean\":\"선생님의 고문은 어떤 상황에 어떻게 해야 할지 생각해 보세요.\",\"english\":\"Consider what kind of advice your teacher would give in different situations.\"}}",
+    "solution": "{\"선생님의 고문\":\"teacher's criticism\",\"상황\":\"situation\",\"해야 할\":\"should be done\",\"생각해 보세요\":\"consider\",\"고문\":\"criticism\",\"상황에\":\"in the situation\",\"어떻게\":\"how\",\"해야\":\"should be done\"}\n\n         {\"english\":\"Consider how you should handle a teacher's reprimand in different situations.\"}",
     "id": 1615
   },
   {
@@ -21781,7 +21781,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"플그\",\"english\":\"plug\"},{\"korean\":\"인터넷\",\"english\":\"internet\"},{\"korean\":\"연결\",\"english\":\"connection\"}],\"sentence\":{\"korean\":\"플그은 인터넷 연결을 제공합니다.\",\"english\":\"A plug provides an internet connection.\"}}",
+    "solution": "{\"플그은\":\"The plug provides\",\"인터넷 연결\":\"internet connection\",\"을 제공합니다\":\"offers\"}\n\n         {\"english\":\"The plug provides internet connection.\"}",
     "id": 1616
   },
   {
@@ -21794,7 +21794,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"진단\",\"english\":\"diagnosis\"},{\"korean\":\"증상\",\"english\":\"symptoms\"},{\"korean\":\"치료\",\"english\":\"treatment\"}],\"sentence\":{\"korean\":\"진단 결과에 따라 증상에 맞는 치료를 찾습니다.\",\"english\":\"Treatment is found based on the diagnosis results.\"}}",
+    "solution": "{\"진단 결과에 따라\":\"Based on the diagnosis results\",\"증상\":\"Symptoms\",\"적합한\":\"Appropriate\",\"치료\":\"Treatment\",\"찾고 있습니다\":\"Is being searched for\"}\n\n         {\"english\":\"Treatment options are being sought based on the diagnosis results to address the symptoms.\"}",
     "id": 1617
   },
   {
@@ -21808,7 +21808,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"그림\",\"english\":\"shadow\"},{\"korean\":\"빛\",\"english\":\"light\"},{\"korean\":\"보이기\",\"english\":\"to appear\"}],\"sentence\":{\"korean\":\"그림은 빛이 없으면 보이기 않습니다.\",\"english\":\"A shadow only appears when there is light.\"}}",
+    "solution": "{\"그림\":\"shadow\",\"빛\":\"light\",\"없으면\":\"without\",\"보이지 않아요\":\"cannot be seen\"}\n\n         {\"english\":\"The image won't be visible without light.\"}",
     "id": 1618
   },
   {
@@ -21822,7 +21822,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"경기\",\"english\":\"enthusiasm\"},{\"korean\":\"발걸음\",\"english\":\"step\"},{\"korean\":\"피크\",\"english\":\"peak\"}],\"sentence\":{\"korean\":\"경기가 높아지면 발걸음이 피크할 때 최대한 활기차게 활동해야 합니다.\",\"english\":\"The higher the enthusiasm, the greater the peak of activity should be.\"}}",
+    "solution": "{\"경기\":\"Energy\",\"발걸음\":\"Heartbeat\",\"활동량\":\"Activity level\",\"활기차게\":\"Energetically\",\"활동\":\"Activity\"}\n\n         {\"english\":\"As the core strength increases, the ankle plantarflexor muscle tension also increases. To maximize activity, you should increase your activity level and stay active.\"}",
     "id": 1619
   },
   {
@@ -21836,7 +21836,7 @@ export const problems = [
       "adjective",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"다우\",\"english\":\"splash\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"꽃잎\",\"english\":\"flower petal\"}],\"sentence\":{\"korean\":\"다우는 물에꽃잎이 떠납니다.\",\"english\":\"When you splash water, the flower petals float up.\"}}",
+    "solution": "{\"꽃잎\":\"Petals\",\"다우는\":\"Submerged\",\"물\":\"Water\",\"떠납니다\":\"Float\"}\n\n         {\"english\":\"Petals float on the surface of water when the rain subsides.\"}",
     "id": 1620
   },
   {
@@ -21850,7 +21850,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"군주\",\"english\":\"horde\"},{\"korean\":\"피해자\",\"english\":\"victims\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"군주는 피해자를 보호할 책임이 있다.\",\"english\":\"A horde has the responsibility to protect the victims.\"}}",
+    "solution": "{\"군주는 피해자를 보호하는 책임이 있다\":{\"군주\":\"ruler\",\"피해자\":\"victim\",\"보호\":\"protection\",\"책임\":\"responsibility\"}}\n\n         {\"english\":\"The ruler has the responsibility to protect the victims.\"}",
     "id": 1621
   },
   {
@@ -21865,7 +21865,7 @@ export const problems = [
       "probability",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"예측\",\"english\":\"Prediction\"},{\"korean\":\"확률\",\"english\":\"Probability\"},{\"korean\":\"경향\",\"english\":\"Trend\"}],\"sentence\":{\"korean\":\"예측은 미래의 일을 현재의 데이터와 경향으로 예측합니다.\",\"english\":\"Prediction is the estimation of future events based on current data and trends.\"}}",
+    "solution": "{\"예측\":\"Prediction\",\"현재\":\"Current\",\"데이터\":\"Data\",\"경향\":\"Trend\",\"미래\":\"Future\",\"일\":\"Event\",\"예측합니다\":\"Predicts\"}\n\n         {\"english\":\"Predictions are made based on current data and trends to forecast future events.\"}",
     "id": 1622
   },
   {
@@ -21892,7 +21892,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가족\",\"english\":\"family\"},{\"korean\":\"애정\",\"english\":\"love\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"가족은 애정과 보호를 제공하여 가족들을 행복하게 합니다.\",\"english\":\"Family provides love and protection, making them happy.\"}}",
+    "solution": "{\"가족들은\":\"Family members provide\",\"애정\":\"love and care\",\"보호\":\"protection\",\"행복\":\"happiness\",\"합니다\":\"makes them happy\"}\n\n         {\"english\":\"Family members provide love and protection, bringing happiness to the family.\"}",
     "id": 1624
   },
   {
@@ -21905,7 +21905,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"건축\",\"english\":\"architectural\"},{\"korean\":\"디자인\",\"english\":\"design\"},{\"korean\":\"공간\",\"english\":\"space\"},{\"korean\":\"효율\",\"english\":\"efficiency\"}],\"sentence\":{\"korean\":\"건축 디자인은 공간의 효율을 최대한 높이는 데 중요합니다.\",\"english\":\"Architectural design is important for maximizing the efficiency of space.\"}}",
+    "solution": "{\"건축 디자인\":\"Architectural design\",\"공간\":\"Space\",\"최대한\":\"Maximally\",\"효율적으로\":\"Efficiently\",\"활용\":\"Utilization\",\"매우\":\"Very\",\"중요\":\"Important\"}\n\n         {\"english\":\"Construction design is crucial for maximizing the efficient use of space.\"}",
     "id": 1625
   },
   {
@@ -21920,7 +21920,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"금속\",\"english\":\"metal\"},{\"korean\":\"고통\",\"english\":\"suffering\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"금속은 고통을 받지만, 변화를 통해 새로운 것을 만듭니다.\",\"english\":\"Metals suffer through hardship, but through change, they become new things.\"}}",
+    "solution": "{\"금속\":\"Metals\",\"고통\":\"Suffering\",\"받다\":\"to endure\",\"변화\":\"Change\",\"만듭니다\":\"makes/produces\"}\n\n         {\"english\":\"Metals are pained, but through suffering they forge new things.\"}",
     "id": 1626
   },
   {
@@ -21935,7 +21935,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"외계적\",\"english\":\"Otherworldly\"},{\"korean\":\"감각\",\"english\":\"Feeling\"},{\"korean\":\"불확실\",\"english\":\"Uncertain\"}],\"sentence\":{\"korean\":\"외계적 감각은 불확실한 미래를 예고합니다.\",\"english\":\"An otherworldly feeling hints at an uncertain future.\"}}",
+    "solution": "{\"외계적 감각\":\"extraterrestrial sensations\",\"불확실한\":\"uncertain\",\"미래\":\"future\",\"예지\":\"predict\"}\n\n         {\"english\":\"Extraterrestrial sensations predict an uncertain future.\"}",
     "id": 1627
   },
   {
@@ -21947,7 +21947,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부움\",\"english\":\"boom\"},{\"korean\":\"피크\",\"english\":\"peak\"},{\"korean\":\"인구\",\"english\":\"population\"}],\"sentence\":{\"korean\":\"부움은 인구 증가의 피크 시기입니다.\",\"english\":\"The boom is the peak period of population growth.\"}}",
+    "solution": "{\"부움\":\"Population growth\",\"인구\":\"Population\",\"증가\":\"Increase\",\"정점\":\"Peak\",\"도달\":\"Reached\"}\n\n         {\"english\":\"Population growth has reached its peak.\"}",
     "id": 1628
   },
   {
@@ -21960,7 +21960,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고혈압\",\"english\":\"hypertension\"},{\"korean\":\"피로\",\"english\":\"fatigue\"},{\"korean\":\"식단\",\"english\":\"diet\"}],\"sentence\":{\"korean\":\"고혈압은 피로를 유발하고, 건강에 해롭습니다.\",\"english\":\"Hypertension can lead to fatigue and is harmful to health.\"}}",
+    "solution": "{\"고혈압\":\"High blood pressure\",\"피로\":\"Fatigue\",\"유발\":\"Cause\",\"건강\":\"Health\",\"해롭니다\":\"Is harmful to\"}\n\n         {\"english\":\"High blood pressure can cause fatigue and is harmful to health.\"}",
     "id": 1629
   },
   {
@@ -21973,7 +21973,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"확산\",\"english\":\"spreading\"},{\"korean\":\"감염\",\"english\":\"infection\"},{\"korean\":\"인플루언스\",\"english\":\"influenza\"}],\"sentence\":{\"korean\":\"감염이 확산하면 인플루언스가 증가합니다.\",\"english\":\"When an infection spreads, the influenza increases.\"}}",
+    "solution": "{\"감염이\":\"infection\",\"확산하면\":\"spread\",\"인플루언스\":\"influence\",\"증가합니다\":\"increases\"}\n\n         {\"english\":\"When infections spread, influenza increases.\"}",
     "id": 1630
   },
   {
@@ -21987,7 +21987,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치명\",\"english\":\"symptom\"},{\"korean\":\"발생\",\"english\":\"arise\"},{\"korean\":\"확진\",\"english\":\"spread\"}],\"sentence\":{\"korean\":\"치명은 발생하여 확진하여 다른 사람들에게 전염될 수 있습니다.\",\"english\":\"Symptoms can arise and spread, infecting others.\"}}",
+    "solution": "{\"치명\":\"fatal\",\"발생\":\"occur\",\"위험\":\"risk\",\"전염\":\"transmission\",\"다른\":\"other\",\"사람들\":\"people\"}\n\n         {\"english\":\"There is a risk of transmission to other people due to the occurrence of the epidemic.\"}",
     "id": 1631
   },
   {
@@ -22001,7 +22001,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부끄러움\",\"english\":\"shame\"},{\"korean\":\"소박한\",\"english\":\"modest\"},{\"korean\":\"용기\",\"english\":\"resolve\"}],\"sentence\":{\"korean\":\"부끄러움에 소박한 사람들은 용기 있게 문제를 해결해야 합니다.\",\"english\":\"People who are modest often resolve problems with courage.\"}}",
+    "solution": "{\"부끄러움에 소박한 사람들은\":\"Humiliated and modest people\",\"용기를 내고\":\"Must gather courage and\",\"문제를 해결해야 합니다\":\"Must solve the problem\"}\n\n         {\"english\":\"Humble people should overcome their shyness and solve their problems bravely.\"}",
     "id": 1632
   },
   {
@@ -22015,21 +22015,21 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전제\",\"english\":\"antecedent\"},{\"korean\":\"말\",\"english\":\"sentence\"},{\"korean\":\"연결\",\"english\":\"connection\"}],\"sentence\":{\"korean\":\"전제는 문장의 시작 부분이 되어 다른 말과 연결하여 의미를 구성합니다.\",\"english\":\"An antecedent is the part of a sentence that connects to other words and creates meaning.\"}}",
+    "solution": "{\"문장의 시작 부분\":\"Sentence's starting part\",\" 다른 말\":\"Other words\",\"연결\":\"Connected\",\"의미\":\"Meaning\",\"구성\":\"Formation\"}\n\n         {\"english\":\"The beginning part of a sentence connects with other words to form meaning.\"}",
     "id": 1633
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "mournful",
-    "problem": "애 자랑은 무거움을 드려도 온순(溫順)을 찾는다.\n",
+    "problem": "애저(애저)는 무거움을 드려도 온순(溫順)을 찾는다.\n",
     "length": 25,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"애 żalo\",\"english\":\"to grieve\"},{\"korean\":\"무거움\",\"english\":\"burden\"},{\"korean\":\"온순\",\"english\":\"comfort\"}],\"sentence\":{\"korean\":\"애 żalo는 무거움을 드려도 온순을 찾는다.\",\"english\":\"Though mourning brings a burden, it also leads to comfort.\"}}",
+    "solution": "{\"애저\":\"puppy\",\"무거움\":\"burden\",\"드려도\":\"despite\",\"온순\":\"temper\",\"찾는다\":\"finds\"}\n\n         {\"english\":\"Even if burdened by hardship, she searches for her warmth.\"}",
     "id": 1634
   },
   {
@@ -22043,7 +22043,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부유하다\",\"english\":\"to float\"},{\"korean\":\"바닥\",\"english\":\"floor\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"바닥에 물을 담그면 물은 바닥에 부유합니다.\",\"english\":\"When water is poured into the container, it floats on the floor.\"}}",
+    "solution": "{\"물을 바닥에 담그면\":\"To pour water onto the floor\",\"바닥에\":\"on the floor\",\"부유합니다\":\"floats\"}\n\n         {\"english\":\"When water is poured on the floor, it floats on the surface.\"}",
     "id": 1635
   },
   {
@@ -22081,7 +22081,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상품\",\"english\":\"goods\"},{\"korean\":\"매출\",\"english\":\"sales\"},{\"korean\":\"소비자\",\"english\":\"consumers\"}],\"sentence\":{\"korean\":\"상품은 매출과 소비자에게 가치를 제공합니다.\",\"english\":\"Goods provide value to both sales and consumers.\"}}",
+    "solution": "{\"상품\":\"Product\",\"매출\":\"Sales\",\"소비자\":\"Consumers\",\"가치\":\"Value\",\"만족도\":\"Satisfaction\",\"높입니다\":\"Increases\"}\n\n         {\"english\":\"Products provide value to both sales and consumers, thereby enhancing customer satisfaction.\"}",
     "id": 1638
   },
   {
@@ -22094,7 +22094,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오비크\",\"english\":\"oblique\"},{\"korean\":\"각도\",\"english\":\"angle\"},{\"korean\":\"선\",\"english\":\"line\"}],\"sentence\":{\"korean\":\"오비크각도의 직선은 직각선이 아닙니다.\",\"english\":\"The line of an oblique angle is not a straight line.\"}}",
+    "solution": "{\"오비크각도의\":\"oblique angle's\",\"직선\":\"straight line\",\"직각선\":\"perpendicular line\",\"아닙니다\":\"is not\"}\n\n         {\"english\":\"The straight line of the Oblique angle is not a straight line.\"}",
     "id": 1639
   },
   {
@@ -22108,7 +22108,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"관성\",\"english\":\"momentum\"},{\"korean\":\"동력\",\"english\":\"force\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"동력을 가진 물체는 관성을 가지고 있어 변화하기 어렵습니다.\",\"english\":\"Objects with momentum have inertia, making it difficult for them to change their motion.\"}}",
+    "solution": "{\"동력을 가진 물체는 관성 때문에 변경하기 쉽지 않습니다.\":\"Objects with momentum are difficult to change due to inertia.\"}\n\n         {\"english\":\"Objects with momentum are difficult to change due to their inertia.\"}",
     "id": 1640
   },
   {
@@ -22120,7 +22120,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"용감한\",\"english\":\"resolute\"},{\"korean\":\"책임\",\"english\":\"responsibility\"},{\"korean\":\"업무\",\"english\":\"duty\"}],\"sentence\":{\"korean\":\"용감한 책임감으로 모든 업무를 완료했습니다.\",\"english\":\"She completed all her duties with resolute responsibility.\"}}",
+    "solution": "{\"용감한 책임감을 가지고 모든 업무를 완료했습니다.\":\"Demonstrated remarkable accountability and completed all assigned tasks successfully.\"}\n\n         {\"english\":\"He completed all his tasks with great responsibility and courage.\"}",
     "id": 1641
   },
   {
@@ -22148,7 +22148,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"파편\",\"english\":\"fragment\"},{\"korean\":\"깨지는\",\"english\":\"breaking\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"파편은 시간이 지나면 깨지는 물건이예.\",\"english\":\"A fragment will break if left for a long time.\"}}",
+    "solution": "{\"시간이 지나면 파편은 깨지는 물건이에요.\":\"As time passes, things will break into fragments.\"}\n\n         {\"english\":\"As time passes, even the most solid objects eventually crumble to pieces.\"}",
     "id": 1643
   },
   {
@@ -22162,7 +22162,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"따뜻하게\",\"english\":\"warmly\"},{\"korean\":\"우리\",\"english\":\"us\"},{\"korean\":\"고민\",\"english\":\"worry\"}],\"sentence\":{\"korean\":\"따뜻하게 우리 고민을 해서 좋은 결과를 얻을 수 있습니다.\",\"english\":\"When we worry warmly, we can achieve good results.\"}}",
+    "solution": "{\"따뜻한 고민\":\"thoughtful consideration\",\"노력\":\"effort\",\"좋은 결과\":\"favorable outcome\",\"수 있습니다\":\"is possible\"}\n\n         {\"english\":\"Good results can be achieved through warm thoughts and diligent efforts.\"}",
     "id": 1644
   },
   {
@@ -22176,7 +22176,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"이데올리스트\",\"english\":\"idealist\"},{\"korean\":\"삶\",\"english\":\"life\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"이데올리스트들은 삶의 변화를 통해 새로운 것을 배우고 성장합니다.\",\"english\":\"Idealists learn and grow through the changes in life.\"}}",
+    "solution": "{\"삶의 변화를 통해 이데올리스트들은 새로운 것을 배워 성장합니다.\":\"Life changes allow ideologists to learn new things and grow.\"}\n\n         {\"english\":\"Ideologists learn new things and grow through changes in life.\"}",
     "id": 1645
   },
   {
@@ -22190,7 +22190,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"친구들\",\"english\":\"friends\"},{\"korean\":\"다양성\",\"english\":\"diversity\"},{\"korean\":\"세상을 바꾸다\",\"english\":\"to change the world\"}],\"sentence\":{\"korean\":\"다양성 있는 친구들은 세상을 바꾸다.\",\"english\":\"Friends with diverse backgrounds can change the world.\"}}",
+    "solution": "{\"다양한 친구들은\":\"Various friends\",\"세상을 바꾸는\":\"changing the world\",\"역할을 합니다\":\"play a role\"}\n\n         {\"english\":\"Different friends play a role in changing the world.\"}",
     "id": 1646
   },
   {
@@ -22205,7 +22205,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불려내다\",\"english\":\"to summon\"},{\"korean\":\"세상\",\"english\":\"the world\"},{\"korean\":\"사랑\",\"english\":\"love\"}],\"sentence\":{\"korean\":\"불려나서 세상을 사랑한다.\",\"english\":\"Love summons the world.\"}}",
+    "solution": "{\"세상을 향해 열심히 살다가\":\"To live diligently towards the world\",\"세상을 사랑한다\":\"To love the world\"}\n\n         {\"english\":\"To diligently live towards the world, to love the world.\"}",
     "id": 1647
   },
   {
@@ -22219,7 +22219,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거부하다\",\"english\":\"to be obstinate\"},{\"korean\":\"피고리\",\"english\":\"principle\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"거부하지 말고, 목표를 위해 피고리를 이기는 것은 중요합니다.\",\"english\":\"It is important to be resolute and overcome challenges in pursuit of your goals.\"}}",
+    "solution": "{\"목표를 달성하기 위해서는 피고리를 이기는 것이 중요합니다\":\"It is important to overcome fear to achieve your goals\",\"목표에 도달하기 위해서는 어려움을 극복해야 합니다\":\"You need to overcome difficulties to reach your goals\"}\n\n         {\"english\":\"Success requires overcoming obstacles. To achieve your goals, you must overcome difficulties.\"}",
     "id": 1648
   },
   {
@@ -22232,7 +22232,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"협등\",\"english\":\"coeducation\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"협등학교에서 학생들은 공동의 학업과 사회생활을 경험합니다.\",\"english\":\"Students in coeducational schools experience shared academic and social activities.\"}}",
+    "solution": "{\"협등학교\":\"Cooperative school\",\"학생들\":\"Students\",\"공동 학업\":\"Collaborative learning\",\"사회 생활\":\"Social life\",\"경험\":\"Experience\",\"협동 학습\":\"Cooperative learning\",\"사회성\":\"Sociality\"}\n\n         {\"english\":\"Students in cooperative schools experience collaborative learning and social interaction, fostering cooperative learning and social skills.\"}",
     "id": 1649
   },
   {
@@ -22246,7 +22246,7 @@ export const problems = [
       "division",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"분할\",\"english\":\"division\"},{\"korean\":\"부분\",\"english\":\"part\"},{\"korean\":\"절대\",\"english\":\"absolute\"}],\"sentence\":{\"korean\":\"절대 분할은 부분의 총합이 1이 됩니다.\",\"english\":\"The sum of all the parts in absolute division is always 1.\"}}",
+    "solution": "{\"절대\":\"absolute\",\"분할\":\"division\",\"부분\":\"part\",\"합계\":\"sum\",\"이\":\"is\",\"됩니다\":\"equals\"}\n\n         {\"english\":\"The sum of any parts of a whole is equal to 1.\"}",
     "id": 1650
   },
   {
@@ -22260,7 +22260,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말\",\"english\":\"word\"},{\"korean\":\"뜻\",\"english\":\"meaning\"},{\"korean\":\"용어\",\"english\":\"vocabulary\"}],\"sentence\":{\"korean\":\"말의 뜻은 용어에 따라 달라질 수 있습니다.\",\"english\":\"The meaning of a word can change depending on the vocabulary.\"}}",
+    "solution": "{\"말의 의미는 사용하는 용어에 따라 달라질 수 있습니다.\":\"Meaning of words can vary depending on the words used.\"}\n\n         {\"english\":\"The meaning of words can vary depending on the context in which they are used.\"}",
     "id": 1651
   },
   {
@@ -22273,7 +22273,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인증\",\"english\":\"validation\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"확인\",\"english\":\"confirmation\"}],\"sentence\":{\"korean\":\"정보를 입력하면, 정보가 올바르게 입력되었는지 확인하여 인증합니다.\",\"english\":\"When you input information, it is validated by confirming that the information is entered correctly.\"}}",
+    "solution": "{\"정보를 입력하면\":\"Information is entered\",\"입력된 정보가 정확한지 확인\":\"The entered information is verified to be accurate\",\"인증합니다\":\"Authentication is performed\"}\n\n         {\"english\":\"When information is entered, it is verified for accuracy and authenticated.\"}",
     "id": 1652
   },
   {
@@ -22287,7 +22287,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"파이\",\"english\":\"wave\"},{\"korean\":\"도해\",\"english\":\" tide\"},{\"korean\":\"바람\",\"english\":\"wind\"}],\"sentence\":{\"korean\":\"파이는 돌해에 바람을 타고 돌아갑니다.\",\"english\":\"The wave is riding the tide with the wind.\"}}",
+    "solution": "{\"파이는 돌 돌아갑니다.\":\"The waves are returning to the shore.\",\"파이\":\"wave\",\"돌\":\"stone\",\"돌아갑니다\":\"is returning\"}\n\n         {\"english\":\"The waves will eventually return to their origin.\"}",
     "id": 1653
   },
   {
@@ -22315,7 +22315,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"머니\",\"english\":\"mind\"},{\"korean\":\"피크\",\"english\":\"peak\"},{\"korean\":\"전문\",\"english\":\"expert\"}],\"sentence\":{\"korean\":\"머니는 피크에 전문가가 됩니다.\",\"english\":\"The mind reaches its peak when it becomes an expert.\"}}",
+    "solution": "{\"돈은 피크에 전문가가 됩니다.\":\"Money becomes an expert at the peak.\"}\n\n         {\"english\":\"Money becomes an expert at the peak.\"}",
     "id": 1655
   },
   {
@@ -22330,7 +22330,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감기\",\"english\":\"cold\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"방지\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"감기는 사회적으로 확산되므로, 방지하기 위해서는 개인 보호 장치를 착용하고 사회적 거리를 유지해야 합니다.\",\"english\":\"Since the common cold spreads socially, wearing a face mask and maintaining physical distance is important for preventing its spread.\"}}",
+    "solution": "{\"감기\":\"Flu\",\"사회적으로\":\"socially\",\"전염되므로\":\"is contagious, therefore\",\"개인 보호 장치\":\"personal protective equipment\",\"착용\":\"wear\",\"사회적 거리\":\"social distance\",\"유지\":\"maintain\",\"방지해야 합니다\":\"prevention is required\"}\n\n         {\"english\":\"Colds are contagious socially, so wear protective gear and maintain social distance to prevent the spread.\"}",
     "id": 1656
   },
   {
@@ -22343,7 +22343,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무리\",\"english\":\"absurdity\"},{\"korean\":\"피고리\",\"english\":\"struggle\"},{\"korean\":\"용기\",\"english\":\"capacity\"}],\"sentence\":{\"korean\":\"무리로 피고리한 용기는 어떻게 설정할까?\",\"english\":\"How would you set up a container that struggles with absurdity?\"}}",
+    "solution": "{\"무리없이 피고리한 용기\":\"Effortlessly accommodating container\",\"피고리한\":\"Spacious\",\"용기\":\"Container\",\"어떻게\":\"How\",\"설정해야\":\"Should be set up\",\"할까\":\"to do\"}\n\n         {\"english\":\"How should a container that holds water without any leaks be set up?\"}",
     "id": 1657
   },
   {
@@ -22357,7 +22357,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"플롯\",\"english\":\"plot\"},{\"korean\":\"작업\",\"english\":\"work\"},{\"korean\":\"성공\",\"english\":\"success\"}],\"sentence\":{\"korean\":\"플롯은 좋은 작업을 하고 성공할 수 있습니다.\",\"english\":\"A plot can do a good work and succeed.\"}}",
+    "solution": "{\"플롯\":\"plot\",\"좋은\":\"good\",\"작업\":\"work\",\"성공\":\"success\",\"가능성\":\"probability\",\"높아요\":\"is high\"}\n\n         {\"english\":\"The plot is doing a good job and has a high probability of success.\"}",
     "id": 1658
   },
   {
@@ -22371,7 +22371,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침착\",\"english\":\"calm\"},{\"korean\":\"분노\",\"english\":\"anger\"},{\"korean\":\"조화\",\"english\":\"balance\"}],\"sentence\":{\"korean\":\"침착한 마음은 분노를 조화하고, 평화를 얻는 데 도움이 됩니다.\",\"english\":\"A calm mind can balance anger and lead to peace.\"}}",
+    "solution": "{\"침략적인 마음\":\"Aggressive mindset\",\"분노\":\"Anger\",\"조화\":\"Moderate\",\"평화\":\"Peace\",\"도움이 됩니다\":\"is helpful\"}\n\n         {\"english\":\"Aggressive minds can help to pacify anger and bring about peace.\"}",
     "id": 1659
   },
   {
@@ -22387,7 +22387,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"강화\",\"english\":\"intensify\"},{\"korean\":\"주위\",\"english\":\"surrounding\"},{\"korean\":\"생활\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"강화된 주위의 생활은 삶의 질을 향상시킵니다.\",\"english\":\"Intensifying the surrounding daily life enhances the quality of life.\"}}",
+    "solution": "{\"생활 환경\":\"living environment\",\"개선\":\"improvement\",\"삶의 질\":\"quality of life\",\"향상\":\"improvement\"}\n\n         {\"english\":\"As the living environment improves, the quality of life increases.\"}",
     "id": 1660
   },
   {
@@ -22403,7 +22403,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"청년\",\"english\":\"youthful\"},{\"korean\":\" 활기차워\",\"english\":\"energetic\"},{\"korean\":\"동청기\",\"english\":\"fresh air\"}],\"sentence\":{\"korean\":\"청년의 활기차워는 동청기를 만듭니다.\",\"english\":\"The youthful energy fills the fresh air.\"}}",
+    "solution": "{\"청년기\":\"youthful vigor\",\"활기차워\":\"energetic\",\"동청기\":\"spirit\",\"만듭니다\":\"is created\"}\n\n         {\"english\":\"The spirited youthfulness makes the pine tree grow tall.\"}",
     "id": 1661
   },
   {
@@ -22415,7 +22415,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고백\",\"english\":\"testimony\"},{\"korean\":\"보증\",\"english\":\"guarantee\"},{\"korean\":\"신뢰\",\"english\":\"trust\"}],\"sentence\":{\"korean\":\"고백은 신뢰의 근거가 되고, 보증이 되어 모든 것이 잘 이루어지는 것을 의미합니다.\",\"english\":\"A testimony becomes the basis of trust, and acts as a guarantee that everything will turn out well.\"}}",
+    "solution": "{\"고백\":\"confession\",\"신뢰\":\"trust\",\"기반\":\"foundation\",\"보증\":\"guarantee\",\"작동\":\"function\",\"모든\":\"everything\",\"좋아\":\"well\"}\n\n         {\"english\":\"Confession serves as the foundation of trust and acts as a guarantee, ensuring that everything operates smoothly.\"}",
     "id": 1662
   },
   {
@@ -22443,7 +22443,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"그녀\",\"english\":\"she\"},{\"korean\":\"집에\",\"english\":\"went home\"},{\"korean\":\"오전\",\"english\":\"this morning\"}],\"sentence\":{\"korean\":\"오전 그녀는 집에 갔습니다.\",\"english\":\"She went home this morning.\"}}",
+    "solution": "{\"그녀는\":\"She\",\"오전\":\"morning\",\"집에 가서\":\"went home and\",\"집에 있었습니다\":\"was at home.\"}\n\n         {\"english\":\"She was at home in the morning.\"}",
     "id": 1664
   },
   {
@@ -22458,7 +22458,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감각\",\"english\":\"sensuous\"},{\"korean\":\"맛\",\"english\":\"flavor\"},{\"korean\":\"냄새\",\"english\":\"aroma\"}],\"sentence\":{\"korean\":\"감각적인 향기와 매력적인 맛으로 식탁을 만듭니다.\",\"english\":\"The dish is made with a captivating aroma and a flavorful taste.\"}}",
+    "solution": "{\"감각적인 향기\":\"Sensory aroma\",\"매력적인 맛\":\"Attractive taste\",\"식탁을 완성합니다\":\"Completes the meal\"}\n\n         {\"english\":\"The dish is completed with a captivating aroma and a charming flavor.\"}",
     "id": 1665
   },
   {
@@ -22472,7 +22472,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가면\",\"english\":\"guise\"},{\"korean\":\"피부\",\"english\":\"skin\"},{\"korean\":\"거울\",\"english\":\"mirror\"}],\"sentence\":{\"korean\":\"가면을 입고 피부에 반사된 이미지는 거울에 보인다.\",\"english\":\"When you wear a disguise, the image reflected on the skin appears in the mirror.\"}}",
+    "solution": "{\"가면\":\"Mask\",\"입고\":\"Wearing\",\"반사된\":\"Reflected\",\"이미지\":\"Image\",\"거울\":\"Mirror\",\"보여준다\":\"Shows\"}\n\n         {\"english\":\"When you wear a mask, the reflected image is shown in the mirror.\"}",
     "id": 1666
   },
   {
@@ -22487,7 +22487,7 @@ export const problems = [
       "science",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"중성자\",\"english\":\"Neutron\"},{\"korean\":\"보통\",\"english\":\"Usual\"},{\"korean\":\"물리\",\"english\":\"Physics\"}],\"sentence\":{\"korean\":\"중성자가 보통 물리 현상에서 중요한 역할을 합니다.\",\"english\":\"Neutrons play a crucial role in many common physical phenomena.\"}}",
+    "solution": "{\"중성자\":\"neutrons\",\"평소\":\"ordinary\",\"물리 현상\":\"physical phenomena\",\"역할\":\"role\",\"매우\":\"very\",\"중요\":\"important\"}\n\n         {\"english\":\"Neutrons play a crucial role in many ordinary physical phenomena.\"}",
     "id": 1667
   },
   {
@@ -22501,7 +22501,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"페이지\",\"english\":\"page\"},{\"korean\":\"망\",\"english\":\"web\"},{\"korean\":\"보여주기\",\"english\":\"showing\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"페이지에 웹이 보여주는 정보는 매우 유용합니다.\",\"english\":\"The information shown on a web page is very useful.\"}}",
+    "solution": "{\"웹페이지에서 제공하는 정보는 매우 유용합니다.\":\"The information provided on the webpage is very useful.\"}\n\n         {\"english\":\"The information provided on the webpage is very useful.\"}",
     "id": 1668
   },
   {
@@ -22514,7 +22514,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"very\"},{\"korean\":\"피곤해\",\"english\":\"tired\"},{\"korean\":\"침대물을 채워\",\"english\":\"fill the bathtub with\"},{\"korean\":\"물을 담근다\",\"english\":\"water it fills\"}],\"sentence\":{\"korean\":\"매우 피곤해 그래서 침대물을 채워 물을 담근다\",\"english\":\"I'm very tired, so I'll fill the bathtub with water.\"}}",
+    "solution": "{\"매우 피곤해서\":\"Very tired\",\"침대물\":\"bathtub\",\"채워\":\"filled\",\"물\":\"water\",\"담근다\":\"puts in\"}\n\n         {\"english\":\"I am very tired and am filling the bathtub with water.\"}",
     "id": 1669
   },
   {
@@ -22541,7 +22541,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감각\",\"english\":\"feeling\"},{\"korean\":\"신경\",\"english\":\"nerve\"},{\"korean\":\"통증\",\"english\":\"pain\"}],\"sentence\":{\"korean\":\"감각적인 신경은 통증을 유발할 수 있습니다.\",\"english\":\"Feeling can trigger pain through nerves.\"}}",
+    "solution": "{\"감각적인\":\"Sensory\",\"신경\":\"Nerve\",\"통증\":\"Pain\",\"원인\":\"Cause\",\"일 수 있습니다\":\"May be\"}\n\n         {\"english\":\"Sensitive nerves can be a cause of pain.\"}",
     "id": 1671
   },
   {
@@ -22567,7 +22567,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고통\",\"english\":\"blame\"},{\"korean\":\"무력\",\"english\":\"helpless\"},{\"korean\":\"책임\",\"english\":\"responsibility\"}],\"sentence\":{\"korean\":\"고통은 누군가에게 무력하지 않습니다. 책임을 다해야 합니다.\",\"english\":\"Blame should not fall on someone else. We must take responsibility for our actions.\"}}",
+    "solution": "{\"고통은 누군가에게 무력하지 않습니다\":\"Pain is not powerless to anyone. Responsibility should be taken.\",\"고통\":\"Pain\",\"누군가\":\"Someone\",\"무력\":\"Powerless\",\"책임\":\"Responsibility\",\"다야 합니다\":\"Must take responsibility\"}\n\n         {\"english\":\"Pain is not powerless to anyone. One must take responsibility for it.\"}",
     "id": 1673
   },
   {
@@ -22606,7 +22606,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"마치\",\"english\":\"like\"},{\"korean\":\"쪽\",\"english\":\"side\"},{\"korean\":\"발린\",\"english\":\"garlic\"},{\"korean\":\"치명\",\"english\":\"benefit\"}],\"sentence\":{\"korean\":\"마치 발린 쪽은 치명이에요.\",\"english\":\"Like garlic, its side effects are beneficial.\"}}",
+    "solution": "{\"발린 쪽은 치명적으로 위험해요.\":\"It is extremely dangerous on the side that was bitten.\"}\n\n         {\"english\":\"The side that was bitten is dangerously risky.\"}",
     "id": 1676
   },
   {
@@ -22621,7 +22621,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"대체\",\"english\":\"substitute\"},{\"korean\":\"학업\",\"english\":\"study\"},{\"korean\":\"능력\",\"english\":\"ability\"}],\"sentence\":{\"korean\":\"대체적으로 학업 능력은 중요합니다.\",\"english\":\"Generally, study ability is important.\"}}",
+    "solution": "{\"대체적으로\":\"Generally\",\"학업 능력\":\"academic ability\",\"매우\":\"very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Academic ability is generally very important.\"}",
     "id": 1677
   },
   {
@@ -22635,7 +22635,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사자\",\"english\":\"lion\"},{\"korean\":\"목에\",\"english\":\"around the neck\"},{\"korean\":\"걸린다\",\"english\":\"walks\"}],\"sentence\":{\"korean\":\"사자가 목에 걸려 다닌다\",\"english\":\"The lion walks around its neck.\"}}",
+    "solution": "{\"사자가 목에 걸려 다닌다\":\"The tiger is limping due to something around its neck\",\"사자\":\"tiger\",\"목\":\"neck\",\"걸려\":\"limping\",\"다닌다\":\"is walking\"}\n\n         {\"english\":\"The tiger walks with its neck hooked.\"}",
     "id": 1678
   },
   {
@@ -22648,7 +22648,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피\",\"english\":\"peel\"},{\"korean\":\"오디\",\"english\":\"orange\"},{\"korean\":\"나오기\",\"english\":\"to come out\"}],\"sentence\":{\"korean\":\"피오디의 피는 나오기 때문에 오디는 꼭 절 때에 피해야 합니다.\",\"english\":\"The peel of an orange comes out when it is ripe, so it must be peeled when it is ripe.\"}}",
+    "solution": "{\"피오디가 피를 때\":\"When puppies play\",\"오디는\":\"dogs should\",\"절때\":\"never\",\"피해야 합니다\":\"have to avoid\"}\n\n         {\"english\":\"When pigs are afraid, dogs must never be afraid.\"}",
     "id": 1679
   },
   {
@@ -22675,7 +22675,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사라지다\",\"english\":\"to vanish\"},{\"korean\":\"두께\",\"english\":\"depth\"},{\"korean\":\"숨기다\",\"english\":\"to hide\"}],\"sentence\":{\"korean\":\"깊은 물에서 물리면 사라지더라.\",\"english\":\"When something sinks into deep water, it disappears.\"}}",
+    "solution": "{\"물이 깊게 물리면 사라지네.\":\"When water is deeply submerged, it disappears.\"}\n\n         {\"english\":\"When water gets deep, it disappears.\"}",
     "id": 1681
   },
   {
@@ -22690,7 +22690,7 @@ export const problems = [
       "statistics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불가능\",\"english\":\"Improbable\"},{\"korean\":\"확률\",\"english\":\"Probability\"},{\"korean\":\"통계\",\"english\":\"Statistics\"}],\"sentence\":{\"korean\":\"불가능한 사건의 발생 횟수는 통계적으로 낮습니다.\",\"english\":\"The frequency of improbable events is statistically low.\"}}",
+    "solution": "{\"불가능한 사건\":\"impossible events\",\"통계적으로\":\"statistically\",\"낮게\":\"rarely\",\"발생합니다\":\"occur\"}\n\n         {\"english\":\"Improbable events statistically occur less frequently.\"}",
     "id": 1682
   },
   {
@@ -22703,7 +22703,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인과\",\"english\":\"cause\"},{\"korean\":\"생각\",\"english\":\"thought\"},{\"korean\":\"작용\",\"english\":\"effect\"}],\"sentence\":{\"korean\":\"인과적인 생각은 결과적으로 다른 사람들에게 영향을 줄 수 있습니다.\",\"english\":\"A causal thought can have an effect on others.\"}}",
+    "solution": "{\"인과적인 생각\":\"causal thinking\",\"결과적으로\":\"ultimately\",\"다른 사람들에게\":\"others\",\"영향을 미칠\":\"influence\",\"수 있습니다\":\"can\"}\n\n         {\"english\":\"Causative thoughts can influence others in their outcomes.\"}",
     "id": 1683
   },
   {
@@ -22716,7 +22716,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"다름\",\"english\":\"someone else\"},{\"korean\":\"행복\",\"english\":\"happiness\"}],\"sentence\":{\"korean\":\"선물을 다른 사람에게 하면 행복해집니다.\",\"english\":\"When you give gifts to someone else, you will be happy.\"}}",
+    "solution": "{\"선물을\":\"Gift\",\"다른\":\"others\",\"사람들에게\":\"to people\",\"하면\":\"to give\",\"행복해집니다\":\"feels happy\"}\n\n         {\"english\":\"When you give gifts to others, you are happy yourself.\"}",
     "id": 1684
   },
   {
@@ -22729,7 +22729,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우호\",\"english\":\"cordial\"},{\"korean\":\"친구\",\"english\":\"friend\"},{\"korean\":\"행복\",\"english\":\"happiness\"}],\"sentence\":{\"korean\":\"우호한 친구들과 함께 행복한 순간들이 많아요.\",\"english\":\"There are many happy moments when I am with my good friends.\"}}",
+    "solution": "{\"우호한 친구들\":\"Close friends\",\"함께\":\"together\",\"행복한\":\"happy\",\"순간\":\"moments\",\"많아요\":\"are many\"}\n\n         {\"english\":\"I have many happy moments with my close friends.\"}",
     "id": 1685
   },
   {
@@ -22743,7 +22743,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"바이러스\",\"english\":\"virus\"},{\"korean\":\"확산\",\"english\":\"spread\"},{\"korean\":\"방지\",\"english\":\"prevention\"}],\"sentence\":{\"korean\":\"바이러스는 사회적 접촉을 통해 빠르게 확산되고, 이를 방지하기 위해서는 개인 보호 장비를 착용하고 사회적 거리를 유지해야 합니다.\",\"english\":\"A virus spreads quickly through social contact, and to prevent this, individuals should wear protective gear and maintain social distance.\"}}",
+    "solution": "{\"바이러스\":\"virus\",\"사회적 접촉\":\"social contact\",\"빠르게 전염\":\"spread rapidly\",\"개인 보호 장비\":\"personal protective equipment\",\"착용\":\"wear\",\"사회적 거리\":\"social distance\",\"확산\":\"spread\"}\n\n         {\"english\":\"Viruses spread quickly through social contact, so it is important to wear personal protective equipment and maintain social distance to prevent the spread.\"}",
     "id": 1686
   },
   {
@@ -22757,7 +22757,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불법자\",\"english\":\"outlaw\"},{\"korean\":\"죄수\",\"english\":\"prisoner\"},{\"korean\":\"재판\",\"english\":\"retrial\"}],\"sentence\":{\"korean\":\"불법자가 범죄를 저지하고 재판을 받아 사실을 확인해야 합니다.\",\"english\":\"An outlaw must confess their crime, go through a trial to verify the facts.\"}}",
+    "solution": "{\"불법자는\":\"Illegal individuals are\",\"범죄를 저지하고\":\"responsible for committing crimes and\",\"재판을 받아\":\"must undergo trial to\",\"사실을 확인해야 합니다\":\"confirm the facts.\"}\n\n         {\"english\":\"Illegal aliens must prevent crimes, undergo trials to confirm the facts.\"}",
     "id": 1687
   },
   {
@@ -22771,7 +22771,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"하복하다\",\"english\":\"to bow respectfully\"},{\"korean\":\"말\",\"english\":\"speech\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"하복하여 말을 해야 성과가 나오겠습니다.\",\"english\":\"When you bow respectfully and speak intelligently, you will achieve success.\"}}",
+    "solution": "{\"성과를 얻기 위해서는 열심히 말을 해야 합니다.\":\"To achieve success, one must diligently speak up.\"}\n\n         {\"english\":\"Hard work is necessary to achieve success.\"}",
     "id": 1688
   },
   {
@@ -22785,7 +22785,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고지요\",\"english\":\"Please\"},{\"korean\":\"도움이\",\"english\":\"be of help\"},{\"korean\":\"되다\",\"english\":\"to become\"},{\"korean\":\"상황\",\"english\":\"situation\"}],\"sentence\":{\"korean\":\"고지요, 이 상황에서 도움이 되다가요.\",\"english\":\"Please be of help in this situation.\"}}",
+    "solution": "{\"고지해\":\"Excuse me\",\"이\":\"this\",\"상황\":\"situation\",\"도와줄\":\"help\",\"수 있어요\":\"please\"}\n\n         {\"english\":\"It's my pleasure to help in this situation.\"}",
     "id": 1689
   },
   {
@@ -22812,7 +22812,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"성공\",\"english\":\"success\"},{\"korean\":\"능력\",\"english\":\"ability\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"성공은 능력과 목표를 달성하는 과정입니다.\",\"english\":\"Success is the process of achieving goals with your ability.\"}}",
+    "solution": "{\"성공\":\"Success\",\"능력\":\"Ability\",\"목표\":\"Goal\",\"달성\":\"Achievement\",\"과정\":\"Process\"}\n\n         {\"english\":\"Success is a process necessary for achieving goals and abilities.\"}",
     "id": 1691
   },
   {
@@ -22840,21 +22840,21 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"수세\",\"english\":\"abundance\"},{\"korean\":\"도구\",\"english\":\"tool\"},{\"korean\":\"깨끗\",\"english\":\"clean\"}],\"sentence\":{\"korean\":\"수세한 도구를 사용하여 정말 깨끗하게 만들 수 있다.\",\"english\":\"Abundant tools can be used to make something truly clean.\"}}",
+    "solution": "{\"수세한 도구를 사용하여\":\"Using specialized tools\",\"정말 깨끗하게 만들 수 있습니다\":\"can be made truly clean\"}\n\n         {\"english\":\"You can really make it clean using the excellent tools.\"}",
     "id": 1693
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "lucid",
-    "problem": "명확(明確)한 braking 빛은 어둡고 위험(危險)합니다.\n",
+    "problem": "명확(明確)한 braking빛은 어둡고 위험(危險)합니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명확\",\"english\":\"lucid\"},{\"korean\":\"깨진\",\"english\":\"broken\"},{\"korean\":\"빛\",\"english\":\"light\"}],\"sentence\":{\"korean\":\"명확한 깨진 빛은 어둡고 위험합니다.\",\"english\":\"Luminous broken light is dark and dangerous.\"}}",
+    "solution": "{\"명확한 braking빛\":\"Distinctive brake lights\",\"어둡고\":\"dimly\",\"위험합니다\":\"are dangerous\"}\n\n         {\"english\":\"Clear braking lights are dim and dangerous.\"}",
     "id": 1694
   },
   {
@@ -22869,7 +22869,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"헤어\",\"english\":\"hair\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"머리\",\"english\":\"head\"},{\"korean\":\"용이하게\",\"english\":\"easily\"}],\"sentence\":{\"korean\":\"헤어는 우리 머리의 용이하게 움직여요.\",\"english\":\"Our hair moves easily on our heads.\"}}",
+    "solution": "{\"헤어는\":\"Hair is\",\"우리 머리 위를\":\"on our heads\",\"움직여요\":\"moving freely\"}\n\n         {\"english\":\"Your hair is moving freely on top of your head.\"}",
     "id": 1695
   },
   {
@@ -22881,7 +22881,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인가요\",\"english\":\"Please\"},{\"korean\":\"인상이 되네요\",\"english\":\"It makes sense.\"},{\"korean\":\"다음 시간에는 더 잘 해줄게요\",\"english\":\"I'll do better next time.\"}],\"sentence\":{\"korean\":\"인가요? 이 문제는 그렇게 복잡하지 않습니다. 인상이 되네요. 다음 시간에는 더 잘 해 줄게요.\",\"english\":\"Please? This problem isn't that complicated. It makes sense. I'll do better next time.\"}}",
+    "solution": "{\"아 그렇구나\":\"That's right\",\"이 문제는 그렇게 복잡하지 않습니다\":\"This problem isn't that complex\",\"인상이 되네요\":\"I'm impressed\",\"다음 시간에는 더 잘 해 줄게요\":\"I'll do better next time\"}\n\n         {\"english\":\"Oh, that's right? This problem isn't actually that complex. It's quite impressive. I'll do better next time.\"}",
     "id": 1696
   },
   {
@@ -22921,7 +22921,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"두꺼운\",\"english\":\"thick\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"막대기\",\"english\":\"stick\"}],\"sentence\":{\"korean\":\"두꺼운 물막대기를 물에 담그다.\",\"english\":\"He put the thick stick into the water.\"}}",
+    "solution": "{\"두꺼운 물막대기\":\"Thick straw\",\"물\":\"Water\",\"담그다\":\"To dip/plug into\"}\n\n         {\"english\":\"He dips a thick straw into the water.\"}",
     "id": 1699
   },
   {
@@ -22935,7 +22935,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정부\",\"english\":\"government\"},{\"korean\":\"시민\",\"english\":\"citizens\"},{\"korean\":\"민주\",\"english\":\"democracy\"}],\"sentence\":{\"korean\":\"정부는 시민들의 민주를 보호해야 합니다.\",\"english\":\"The government must protect the democracy of the citizens.\"}}",
+    "solution": "{\"정부\":\"Government\",\"시민\":\"Citizens\",\"민주 권리\":\"Democratic rights\",\"보호\":\"Protection\",\"중요\":\"Important\"}\n\n         {\"english\":\"The government must protect the democratic rights of the people.\"}",
     "id": 1700
   },
   {
@@ -22949,7 +22949,7 @@ export const problems = [
       "statistics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"통계적\",\"english\":\"statistical\"},{\"korean\":\"데이터\",\"english\":\"data\"},{\"korean\":\"분석\",\"english\":\"analysis\"}],\"sentence\":{\"korean\":\"통계적으로 수집된 데이터는 분석하여 유용한 정보를 얻을 수 있습니다.\",\"english\":\"Statistical data collected can be analyzed to obtain valuable information.\"}}",
+    "solution": "{\"통계적으로\":\"Statistically\",\"수집된\":\"collected\",\"데이터\":\"data\",\"분석\":\"analyzed\",\"유용한\":\"useful\",\"정보\":\"information\"}\n\n         {\"english\":\"Statistical data collected can be analyzed to obtain valuable insights.\"}",
     "id": 1701
   },
   {
@@ -22962,7 +22962,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동기\",\"english\":\"motivation\"},{\"korean\":\"고난\",\"english\":\"challenge\"},{\"korean\":\"전환\",\"english\":\"transformation\"}],\"sentence\":{\"korean\":\"동기가 크면 어려움을 극복하고 성장할 수 있습니다.\",\"english\":\"When you have strong motivation, you can overcome challenges and grow.\"}}",
+    "solution": "{\"동기가 크면\":\"Motivation is great\",\"어려움을 극복\":\"overcome difficulties\",\"성장할 수 있습니다\":\"growth is possible\"}\n\n         {\"english\":\"When motivation is strong, one can overcome challenges and grow.\"}",
     "id": 1702
   },
   {
@@ -22988,21 +22988,21 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"어패\",\"english\":\"fish\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"잡아\",\"english\":\"catch\"},{\"korean\":\"맛있게\",\"english\":\"deliciously\"}],\"sentence\":{\"korean\":\"어패를 물에서 잡아 맛있게 먹어요.\",\"english\":\"We catch fish in the water and eat them deliciously.\"}}",
+    "solution": "{\"어패\":\"oyster\",\"물\":\"water\",\"잡아\":\"to catch\",\"먹어요\":\"to eat\"}\n\n         {\"english\":\"I am eating fish that I caught from the water.\"}",
     "id": 1704
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "ewe",
-    "problem": "이제 산(山)에서 활기차게뛰어다니다.\n",
+    "problem": "에그는 지금(只今) 산(山)에서 뛰어다립니다.\n",
     "length": 18,
     "tags": [
       "grade-5",
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"ewe\",\"english\":\"elephant\"},{\"korean\":\"지금\",\"english\":\"now\"},{\"korean\":\"산에서\",\"english\":\"on a mountain\"},{\"korean\":\"뛰어다니다\",\"english\":\"running around\"}],\"sentence\":{\"korean\":\"ewe는 지금 산에서 뛰어다니다.\",\"english\":\"The elephant is running around on a mountain now.\"}}",
+    "solution": "{\"에그는\":\"He is\",\"지금\":\"now\",\"산\":\"mountain\",\"뛰어다립니다\":\"running around\"}\n\n         {\"english\":\"They are running around on the mountain right now.\"}",
     "id": 1705
   },
   {
@@ -23015,7 +23015,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불편\",\"english\":\"uncomfortable\"},{\"korean\":\"피로\",\"english\":\"fatigue\"},{\"korean\":\"침상\",\"english\":\"tiredness\"}],\"sentence\":{\"korean\":\"불편한 날에는 집에 편안하게 누워 피로도 침상합니다.\",\"english\":\"When the weather is uncomfortable, we tend to rest comfortably at home due to fatigue and tiredness.\"}}",
+    "solution": "{\"불편한 날\":\"Bad weather\",\"집\":\"Home\",\"편안하게\":\"comfortably\",\"누워\":\"lying down\",\"피로도\":\"Fatigue\",\"해소합니다\":\"is relieved\"}\n\n         {\"english\":\"On uncomfortable days, resting comfortably at home helps relieve fatigue.\"}",
     "id": 1706
   },
   {
@@ -23053,7 +23053,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"용서\",\"english\":\"forgiveness\"},{\"korean\":\"상처\",\"english\":\"wound\"},{\"korean\":\"깨진\",\"english\":\"broken\"},{\"korean\":\"다시\",\"english\":\"again\"}],\"sentence\":{\"korean\":\"용서하면 상처가 깨진 마음은 다시 시작할 수 있습니다.\",\"english\":\"Forgiveness allows a wounded heart to begin anew.\"}}",
+    "solution": "{\"용서하면\":\"To accept\",\"상처\":\"Wound\",\"치유\":\"Heal\",\"마음\":\"Heart\",\"새로\":\"New\",\"시작할\":\"To begin\"}\n\n         {\"english\":\"When you let go of your grievances, your wounds will heal and your heart will begin anew.\"}",
     "id": 1709
   },
   {
@@ -23091,7 +23091,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"기술\",\"english\":\"technical\"},{\"korean\":\"분석\",\"english\":\"analysis\"},{\"korean\":\"데이터\",\"english\":\"data\"},{\"korean\":\"패턴\",\"english\":\"pattern\"}],\"sentence\":{\"korean\":\"기술적인 분석을 통해 데이터 패턴을 찾는 것은 중요합니다.\",\"english\":\"Finding patterns in data through technical analysis is important.\"}}",
+    "solution": "{\"데이터 패턴\":\"Data patterns\",\"분석\":\"Analysis\",\"기술적인 지식\":\"Technical knowledge\",\"중요합니다\":\"Is important\"}\n\n         {\"english\":\"Analyzing data patterns is crucial for acquiring technical knowledge.\"}",
     "id": 1712
   },
   {
@@ -23105,7 +23105,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"종속\",\"english\":\"dependence\"},{\"korean\":\"필요\",\"english\":\"necessity\"},{\"korean\":\"지속\",\"english\":\"continuous\"}],\"sentence\":{\"korean\":\"종속성은 필요한 작업을 지속적으로 수행하는 데 중요합니다.\",\"english\":\"Continuity of dependence is important for performing necessary tasks continuously.\"}}",
+    "solution": "{\"종속성\":\"dependency\",\"지속적으로\":\"continuously\",\"중요한\":\"important\",\"작업\":\"task\",\"필수\":\"essential\",\"수행\":\"perform\"}\n\n         {\"english\":\"Dependency is crucial for performing critical tasks continuously.\"}",
     "id": 1713
   },
   {
@@ -23120,7 +23120,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매물\",\"english\":\"procurement\"},{\"korean\":\"필요\",\"english\":\"necessary\"},{\"korean\":\"품질\",\"english\":\"quality\"}],\"sentence\":{\"korean\":\"매물은 필요에 따라 품질을 확인해야 합니다.\",\"english\":\"Procurement requires checking the quality based on necessity.\"}}",
+    "solution": "{\"매물은 필요에 따라 품질을 확인해야 합니다.\":\"Products must be quality-checked depending on their necessity.\"}\n\n         {\"english\":\"The quality of the goods should be checked depending on the need.\"}",
     "id": 1714
   },
   {
@@ -23162,7 +23162,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"항상\",\"english\":\"always\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"삶은\",\"english\":\"life is\"},{\"korean\":\"변화\",\"english\":\"change\"},{\"korean\":\"고난\",\"english\":\"hardship\"}],\"sentence\":{\"korean\":\"항상 우리 삶은 변화와 고난은 우리를 더 강하게 합니다.\",\"english\":\"Life is always changing and bringing hardship, but it also makes us stronger.\"}}",
+    "solution": "{\"삶의 변화\":\"Change in life\",\"고난\":\"Adversity\",\"우리\":\"We\",\"강하게\":\"Stronger\",\" 만들니다\":\"Makes\"}\n\n         {\"english\":\"Challenges and changes in life make us stronger.\"}",
     "id": 1717
   },
   {
@@ -23176,7 +23176,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"심심히\",\"english\":\"suspiciously\"},{\"korean\":\"보니\",\"english\":\"watch\"},{\"korean\":\"거기\",\"english\":\"over there\"},{\"korean\":\"움직임\",\"english\":\"moving\"}],\"sentence\":{\"korean\":\"심심히 보니 거기 움직임이라 의심해\",\"english\":\"It seems suspicious that something is moving over there.\"}}",
+    "solution": "{\"심심히 보니 그쪽에 움직임이라 의심해\":{\"심심히\":\"deeply\",\"보니\":\"watching\",\"그쪽에\":\"that side\",\"움직임이라\":\"is moving\",\"의심해\":\"suspect\"}}\n\n         {\"english\":\"I suspect something is moving over there based on the way it looks.\"}",
     "id": 1718
   },
   {
@@ -23190,7 +23190,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"싸렴\",\"english\":\"cheap\"},{\"korean\":\"거품\",\"english\":\"thing\"},{\"korean\":\"치고\",\"english\":\"to save\"},{\"korean\":\"용이\",\"english\":\"benefit\"}],\"sentence\":{\"korean\":\"싸렴한 거품은 용이가 크니까.\",\"english\":\"Cheap things often have great benefits.\"}}",
+    "solution": "{\"싸렴한 거품은 크기가 크니까.\":\"The big bubbles are floating up.\"}\n\n         {\"english\":\"Cheap things are usually bigger in size.\"}",
     "id": 1719
   },
   {
@@ -23204,7 +23204,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"클릭\",\"english\":\"click\"},{\"korean\":\"버튼\",\"english\":\"button\"},{\"korean\":\"크립\",\"english\":\"chip\"}],\"sentence\":{\"korean\":\"클릭버튼에 크립을 넣으면 자동으로 작동합니다.\",\"english\":\"When you put a chip into the click button, it automatically works.\"}}",
+    "solution": "{\"클릭 버튼\":\"Click button\",\"크립\":\"Clip\",\"넣으면\":\"when inserted\",\"작동하기 시작합니다\":\"starts working automatically\"}\n\n         {\"english\":\"When a clip is inserted into the click button, it automatically starts working.\"}",
     "id": 1720
   },
   {
@@ -23219,7 +23219,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흐린\",\"english\":\"foggy\"},{\"korean\":\"두께\",\"english\":\"thickness\"},{\"korean\":\"무용\",\"english\":\"useless\"}],\"sentence\":{\"korean\":\"흐린 바람은 두께로 무용합니다.\",\"english\":\"The misty wind is uselessly thick.\"}}",
+    "solution": "{\"바람\":\"Wind\",\"날카\":\"Rustling\",\"하며\":\"While making\",\"두께로\":\"Thickly\",\"무용\":\"Effortlessly\"}\n\n         {\"english\":\"The wind whispers and dances erratically, without a moment's rest.\"}",
     "id": 1721
   },
   {
@@ -23244,7 +23244,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"북\",\"english\":\"north\"},{\"korean\":\"말\",\"english\":\"pole\"},{\"korean\":\"위\",\"english\":\"above\"}],\"sentence\":{\"korean\":\"북쪽 말 위에 위치합니다.\",\"english\":\"The pole is located above the north.\"}}",
+    "solution": "{\"북쪽 말의 위에 위치합니다.\":\"Located above the northern words\",\"북쪽\":\"Northern\",\"말\":\"Words\",\"위\":\"Above\",\"위에\":\"Located above\",\" 위치합니다.\":\"Is located\"}\n\n         {\"english\":\"The horse is located to the north.\"}",
     "id": 1723
   },
   {
@@ -23259,7 +23259,7 @@ export const problems = [
       "height",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"저기 높은 교통기구\",\"english\":\"tall transportation vehicle\"},{\"korean\":\"피크업한 상태\",\"english\":\"picked up\"},{\"korean\":\"지금 바닥에 도착했습니다\",\"english\":\"has just arrived on the ground\"}],\"sentence\":{\"korean\":\"저기 높은 교통기구가 피크업한 상태이기 때문에 지금 바닥에 도착했습니다\",\"english\":\"Because the tall transportation vehicle was picked up, it has just arrived on the ground.\"}}",
+    "solution": "{\"피크업한\":\"picked up\",\"교통기구\":\"vehicle\",\"높은\":\"high\",\"있었기 때문에\":\"because it was there\",\"지금\":\"now\",\"바닥\":\"ground\",\"도착했습니다\":\"arrived\"}\n\n         {\"english\":\"The vehicle was parked at a high elevation, and has now arrived on the ground.\"}",
     "id": 1724
   },
   {
@@ -23272,7 +23272,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"재판\",\"english\":\"trial\"},{\"korean\":\"판사\",\"english\":\"judge\"},{\"korean\":\"피고인\",\"english\":\"defendant\"},{\"korean\":\"피고인이\",\"english\":\"is accused of\"},{\"korean\":\"범죄\",\"english\":\"crime\"}],\"sentence\":{\"korean\":\"재판에서 피고인이 범죄를 저지했습니다.\",\"english\":\"The defendant was found not guilty in the trial.\"}}",
+    "solution": "{\"재판\":\"Trial\",\"피고인\":\"Defendant\",\"범죄\":\"Crime\",\"저지\":\"Prevented\",\"습니다\":\"is\"}\n\n         {\"english\":\"The defendant thwarted the crime during the trial.\"}",
     "id": 1725
   },
   {
@@ -23286,14 +23286,14 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"디지털\",\"english\":\"digital\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"네트워크\",\"english\":\"network\"}],\"sentence\":{\"korean\":\"디지털 정보는 네트워크를 통해 빠르게 공유됩니다.\",\"english\":\"Digital information is quickly shared through a network.\"}}",
+    "solution": "{\"디지털 정보\":\"Digital information\",\"네트워크\":\"Network\",\"빠르게\":\"Quickly\",\"공유\":\"Shared\"}\n\n         {\"english\":\"Digital information is quickly shared through networks.\"}",
     "id": 1726
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "ebb",
-    "problem": "물이 흐르네요. 낙하천(落下千)에서.\n",
+    "problem": "물이 흐르네요. 흘러갑니다.\n",
     "length": 15,
     "tags": [
       "grade-5",
@@ -23301,7 +23301,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"ebb\",\"english\":\"to flow out\"},{\"korean\":\"하천\",\"english\":\"river\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"ebb하천에 물이 흐르네요.\",\"english\":\"The river is flowing out with water.\"}}",
+    "solution": "{\"물이 흐르네요\":\"The water is flowing.\",\"흘러갑니다\":\"It is flowing away.\"}\n\n         {\"english\":\"Water is flowing. It runs.\"}",
     "id": 1727
   },
   {
@@ -23316,7 +23316,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"동의\",\"english\":\"agreement\"},{\"korean\":\"모금\",\"english\":\"fundraising\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"동의한 모금 목표를 설정하고 활동합니다.\",\"english\":\"We set a fundraising goal and are working towards it.\"}}",
+    "solution": "{\"동의한\":\"consensus\",\"모금\":\"fundraising\",\"목표\":\"goal\",\"설정\":\"setting\",\"활동\":\"activities\",\"노력\":\"effort\",\"달성\":\"achievement\"}\n\n         {\"english\":\"They set specific fundraising goals and strive to achieve them through their activities.\"}",
     "id": 1728
   },
   {
@@ -23331,7 +23331,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"대사\",\"english\":\"envoy\"},{\"korean\":\"용사\",\"english\":\"mission\"},{\"korean\":\"성과\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"대사는 특정 용사를 수행하고, 성과를 얻습니다.\",\"english\":\"The envoy carries out a specific mission and achieves success.\"}}",
+    "solution": "{\"대사\":\"assignment\",\"특정\":\"specific\",\"작업\":\"task\",\"수행\":\"perform\",\"성과\":\"achievement\",\" 얻습니다\":\"is obtained\"}\n\n         {\"english\":\"The tasks assigned are performed to achieve specific goals, resulting in performance.\"}",
     "id": 1729
   },
   {
@@ -23345,7 +23345,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상징\",\"english\":\"symbol\"},{\"korean\":\"표현\",\"english\":\"expression\"},{\"korean\":\"내용\",\"english\":\"content\"}],\"sentence\":{\"korean\":\"상징은 의미를 가지고 표현의 내용을 나타냅니다.\",\"english\":\"A symbol represents a meaning and expresses the content of the expression.\"}}",
+    "solution": "{\"상징\":\"Symbol\",\"은\":\"is\",\"의\":\"of\",\" 의미\":\"meaning\",\"가\":\"has\",\"표현\":\"expression\",\"내용\":\"content\"}\n\n         {\"english\":\"Symbols carry meaning and represent the content of expression.\"}",
     "id": 1730
   },
   {
@@ -23374,7 +23374,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상자\",\"english\":\"box\"},{\"korean\":\"물건\",\"english\":\"stuff\"},{\"korean\":\"보관\",\"english\":\"storage\"}],\"sentence\":{\"korean\":\"상자에 물건을 담아 보관하면 잘 보호됩니다.\",\"english\":\"Stuffing things into a box will protect them well.\"}}",
+    "solution": "{\"물건\":\"goods\",\"상자\":\"box\",\"담아\":\"put in\",\"보관\":\"store\",\"보호\":\"protection\",\"좋아\":\"well\"}\n\n         {\"english\":\"Keeping things in a box protects them well.\"}",
     "id": 1732
   },
   {
@@ -23388,7 +23388,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"조명\",\"english\":\"spotlight\"},{\"korean\":\"그림\",\"english\":\"shadow\"},{\"korean\":\"거리\",\"english\":\"distance\"}],\"sentence\":{\"korean\":\"조명은 그림의 거리를 결정합니다.\",\"english\":\"The spotlight determines the distance of the shadow.\"}}",
+    "solution": "{\"조명은 그림의 위치를 결정합니다.\":{\"조명\":\"Lighting\",\"그림\":\"Shadow\",\"위치\":\"Position\",\"결정합니다\":\"Determines\"}}\n\n         {\"english\":\"Light determines the position of the shadow.\"}",
     "id": 1733
   },
   {
@@ -23402,7 +23402,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말의 순서를 바꾸다\",\"english\":\"To change the order of words\"},{\"korean\":\"맥락에 따라 의미가 달라질 수 있다\",\"english\":\"The meaning can change depending on the context\"},{\"korean\":\"다양한 문장구조가 존재한다\",\"english\":\"There are many sentence structures\"}],\"sentence\":{\"korean\":\"맥락에 따라 말의 순서를 바꾸고 다양한 문장구조를 활용하여 의미를 전달한다\",\"english\":\"Meaning is conveyed by changing the order of words and using various sentence structures depending on the context.\"}}",
+    "solution": "{\"맥락에 따라 말의 순서를 바꾸다\":\"To adjust word order according to context\",\"다양한 문장구조\":\"Various sentence structures\",\"효율적으로 의미를 전달하다\":\"To convey meaning efficiently\"}\n\n         {\"english\":\"The sentence adjusts the word order and utilizes various sentence structures depending on the context to efficiently convey meaning.\"}",
     "id": 1734
   },
   {
@@ -23416,14 +23416,14 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"탐욕쟁이\",\"english\":\"Glutton\"},{\"korean\":\"밥을 먹다가\",\"english\":\"While eating rice\"},{\"korean\":\"전부 다 먹고 싶네요\",\"english\":\"I want to eat it all up\"}],\"sentence\":{\"korean\":\"탐욕쟁이는밥을 먹다가 전부 다 먹고 싶네요.\",\"english\":\"The glutton wants to eat everything while eating rice.\"}}",
+    "solution": "{\"탐욕쟁이는\":\"He is greedy\",\"식단을 먹다가\":\"eating his meal\",\"전부 다 먹고 싶네요\":\"he wants to eat everything\"}\n\n         {\"english\":\"I want to eat everything on my diet plan.\"}",
     "id": 1735
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "trough",
-    "problem": "물고기의 체화(體化)는 약(約) 10cm 정도(程度)입니다.\n",
+    "problem": "트러그 물의 두께는 10cm입니다.\n",
     "length": 20,
     "tags": [
       "grade-5",
@@ -23431,7 +23431,7 @@ export const problems = [
       "measurement",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"트러그\",\"english\":\"trough\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"두께\",\"english\":\"depth\"}],\"sentence\":{\"korean\":\"트러그에 물의 두께는 10cm입니다.\",\"english\":\"The depth of water in the trough is 10cm.\"}}",
+    "solution": "{\"트러그 물의 두께\":\"Thickness of the water in the tray\",\"두께\":\"Thickness\",\"10cm\":\"10 centimeters\"}\n\n         {\"english\":\"The depth of the water in the trough is 10cm.\"}",
     "id": 1736
   },
   {
@@ -23444,7 +23444,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"용기\",\"english\":\"pot\"},{\"korean\":\"불꽃\",\"english\":\"flame flower\"},{\"korean\":\"불타는\",\"english\":\"burning\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"용기 속에 불꽃이 불타는 물을 담아 두면 불꽃은 더 크아집니다.\",\"english\":\"When water is put into a pot containing a flame flower, the flame flower will grow bigger.\"}}",
+    "solution": "{\"불꽃\":\"lotus flower\",\"용기\":\"vase\",\"담아두면\":\"to put into\",\"물\":\"water\",\"잠겨\":\"to be submerged\",\"불타\":\"to burn\",\"크아집니다\":\"becomes bigger\"}\n\n         {\"english\":\"If a lotus flower is placed in a vase, the submerged flower will burn brighter.\"}",
     "id": 1737
   },
   {
@@ -23458,7 +23458,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"과장\",\"english\":\"exaggeration\"},{\"korean\":\"말\",\"english\":\"speech\"},{\"korean\":\"작동\",\"english\":\"effect\"}],\"sentence\":{\"korean\":\"과장된 말은 종종 작동한다.\",\"english\":\"Exaggerated speech often has an effect.\"}}",
+    "solution": "{\"과장된 말\":\"exaggerated speech\",\"종종\":\"often\",\"잘\":\"effectively\",\"작동한다\":\"works well\"}\n\n         {\"english\":\"Exaggerated speech often works well.\"}",
     "id": 1738
   },
   {
@@ -23472,7 +23472,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침략\",\"english\":\"invasion\"},{\"korean\":\"군사\",\"english\":\"military\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"침략자들은 보호막을 건립하여 도시를 점령하려고 시도했습니다.\",\"english\":\"The invaders attempted to capture the city by building a protective barrier.\"}}",
+    "solution": "{\"침략자들은\":\"The invaders\",\"도시를 점령하려고\":\"to occupy the city\",\"보호막을 건립했습니다\":\"erected a protective barrier\"}\n\n         {\"english\":\"The invaders constructed a protective barrier to attempt to capture the city.\"}",
     "id": 1739
   },
   {
@@ -23487,7 +23487,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"코멘터\",\"english\":\"commentator\"},{\"korean\":\"방송\",\"english\":\"broadcast\"},{\"korean\":\"스토리\",\"english\":\"story\"}],\"sentence\":{\"korean\":\"코멘터는 방송에서 스토리를 전합니다.\",\"english\":\"A commentator tells a story on the broadcast.\"}}",
+    "solution": "{\"코멘터\":\"Commentator\",\"방송\":\"Broadcast\",\" 이야기\":\"Story\",\"전합니다\":\"Presents\"}\n\n         {\"english\":\"Commentators narrate stories during broadcasts.\"}",
     "id": 1740
   },
   {
@@ -23501,7 +23501,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흉물\",\"english\":\"scar\"},{\"korean\":\"남겨지는\",\"english\":\"left behind\"},{\"korean\":\"경험\",\"english\":\"experience\"}],\"sentence\":{\"korean\":\"흉물은 남겨지는 경험이 되고, 새로운 경험을 통해 다시 회복합니다.\",\"english\":\"A scar is left behind as an experience, but new experiences can help to heal it.\"}}",
+    "solution": "{\"흉물은 남겨지는 경험이 되지만, 새로운 경험을 통해 다시 회복합니다.\":\"Trauma leaves a mark, but new experiences help to recover from it.\"}\n\n         {\"english\":\"The scars of the past remain, but new experiences help to heal them.\"}",
     "id": 1741
   },
   {
@@ -23516,7 +23516,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"재건\",\"english\":\"Reconstruction\"},{\"korean\":\"삶\",\"english\":\"Life\"},{\"korean\":\"변화\",\"english\":\"Change\"}],\"sentence\":{\"korean\":\"재건은 새로운 삶의 시작이 될 수 있습니다.\",\"english\":\"Reconstruction can be the beginning of a new life.\"}}",
+    "solution": "{\"재건\":\"recovery\",\"새로운\":\"new\",\"시작\":\"beginning\",\"일\":\"can\",\"수 있습니다\":\"be possible\"}\n\n         {\"english\":\"Recovery can be a new beginning.\"}",
     "id": 1742
   },
   {
@@ -23529,7 +23529,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"창립자\",\"english\":\"founder\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"창립자가 학교에 새로운 학생들을 위한 꿈을 가진다.\",\"english\":\"The founder has a dream of welcoming new students to the school.\"}}",
+    "solution": "{\"창립자는\":\"Founder/s\",\"새로운\":\"new\",\"학생들을 위한\":\"for students\",\"학교의\":\"school's\",\"꿈\":\"dream/vision\",\"가진다\":\"has/possesses\"}\n\n         {\"english\":\"The founder has a dream of a school for new students.\"}",
     "id": 1743
   },
   {
@@ -23544,7 +23544,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"출발\",\"english\":\"departure\"},{\"korean\":\"버스\",\"english\":\"bus\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"버스 출발은 오전 8시에 합니다.\",\"english\":\"The bus departs at 8am.\"}}",
+    "solution": "{\"버스\":\"Bus\",\"출발\":\"Departure\",\"오전\":\"Morning\",\"8시\":\"8 o'clock\",\"에\":\"at\"}\n\n         {\"english\":\"The bus departs at 8am.\"}",
     "id": 1744
   },
   {
@@ -23558,7 +23558,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"경고\",\"english\":\"warning\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"심각\",\"english\":\"serious\"}],\"sentence\":{\"korean\":\"경고 상황은 심각합니다.\",\"english\":\"The warning situation is serious.\"}}",
+    "solution": "{\"경고 상황은 매우 심각합니다.\":\"The situation is extremely serious.\",\"경고\":\"warning\",\"상황\":\"situation\",\"매우\":\"very\",\"심각합니다\":\"is extremely serious\"}\n\n         {\"english\":\"The situation is very serious.\"}",
     "id": 1745
   },
   {
@@ -23597,7 +23597,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흥분\",\"english\":\"excitement\"},{\"korean\":\"발전\",\"english\":\"progress\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"흥분이 크면 목표를 달성할 발전이 더 많아지겠습니다.\",\"english\":\"The greater the excitement, the more progress you will make towards your goal.\"}}",
+    "solution": "{\"목표를 달성하기 위해서는 흥분도 중요하지만, 발전도 필요합니다.\":\"Motivation is important for achieving goals, but development is also necessary.\"}\n\n         {\"english\":\"Motivation is important for achieving goals, but development is also necessary.\"}",
     "id": 1748
   },
   {
@@ -23611,7 +23611,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부정\",\"english\":\"negative\"},{\"korean\":\"영감\",\"english\":\"impression\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"부정적인 영감을 보호하면, 자기의 가치는 더 높아집니다.\",\"english\":\"Protecting a negative impression creates a higher sense of self-worth.\"}}",
+    "solution": "{\"긍정적인 영감을 받는 것이 중요합니다\":\"It is important to receive positive inspiration\",\"자기 가치\":\"Self-worth\",\"더 높아집니다\":\"increases\"}\n\n         {\"english\":\"It is important to be inspired positively. This will raise your self-esteem.\"}",
     "id": 1749
   },
   {
@@ -23625,7 +23625,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피\",\"english\":\"urine\"},{\"korean\":\"발\",\"english\":\"foot\"},{\"korean\":\"두피\",\"english\":\"twice\"}],\"sentence\":{\"korean\":\"피발 두피 하다가 발에 피가 뿌려지네요.\",\"english\":\"After peeing twice, there's pee on my foot.\"}}",
+    "solution": "{\"피발 두피 해서\":\"to stomp feet impatiently\",\"발에 피가 뿌려지네요\":\"to feel a tingling sensation in the feet\"}\n\n         {\"english\":\"When you put your feet on something hard, your blood vessels dilate.\"}",
     "id": 1750
   },
   {
@@ -23639,7 +23639,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"점프러\",\"english\":\"jumper\"},{\"korean\":\"물리\",\"english\":\"physics\"},{\"korean\":\"속도\",\"english\":\"velocity\"},{\"korean\":\"무게\",\"english\":\"weight\"}],\"sentence\":{\"korean\":\"점프러는 물리적으로 높은 속도로 이동할수록 무게가 줄어납니다.\",\"english\":\"The jumper moves faster due to physics, the weight of the jumper decreases.\"}}",
+    "solution": "{\"점프러\":\"jumper\",\"빠르게\":\"quickly\",\"뛰면\":\"runs\",\"물리적으로\":\"physically\",\"가벼워집니다\":\"becomes lighter\"}\n\n         {\"english\":\"If a jumper runs quickly, they become physically lighter.\"}",
     "id": 1751
   },
   {
@@ -23654,7 +23654,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"포사\",\"english\":\"artillery\"},{\"korean\":\"탄약\",\"english\":\"ammunition\"},{\"korean\":\"발사\",\"english\":\"launch\"}],\"sentence\":{\"korean\":\"포사는 탄약을 발사하여 적군을 물리합니다.\",\"english\":\"Artillery launches ammunition to defeat the enemy.\"}}",
+    "solution": "{\"포사\":\"Gun\",\"탄약\":\"Ammunition\",\"발사\":\"Firing\",\"적군\":\"Enemies\",\"물리\":\"Destroy\"}\n\n         {\"english\":\"The fortress shoots bullets to physically repel the enemy.\"}",
     "id": 1752
   },
   {
@@ -23668,7 +23668,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인사\",\"english\":\"applause\"},{\"korean\":\"행동\",\"english\":\"behavior\"},{\"korean\":\"무용\",\"english\":\"skillful\"},{\"korean\":\"무슨 일이 있나요?\",\"english\":\"What's up?\"}],\"sentence\":{\"korean\":\"인사가 좋은 학생들은 무용한 행동을 보여줄 수 있습니다.\",\"english\":\"Students with good applause can show off their skillful behavior.\"}}",
+    "solution": "{\"좋은 학생들은 무용한 행동을 보이지 않습니다.\":\"Good students do not engage in pointless behavior.\",\"좋은 학생들\":\"Good students\",\"무용한 행동\":\"pointless behavior\",\"보이지 않습니다\":\"do not engage in\"}\n\n         {\"english\":\"Good students do not engage in frivolous behavior.\"}",
     "id": 1753
   },
   {
@@ -23684,7 +23684,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"생존\",\"english\":\"survival\"},{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"생존은 피해를 최소화하여 보호를 제공해야 합니다.\",\"english\":\"Survival requires minimizing damage and providing protection.\"}}",
+    "solution": "{\"생존은 피해를 최대한 줄이고 보호를 제공해야 합니다.\":\"Survival necessitates minimizing damage and providing protection.\"}\n\n         {\"english\":\"Survival necessitates minimizing damage and providing protection.\"}",
     "id": 1754
   },
   {
@@ -23698,7 +23698,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"충전\",\"english\":\"recharge\"},{\"korean\":\"에너지\",\"english\":\"energy\"},{\"korean\":\"몸\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"몸은 작업 동안 에너지를 충전합니다.\",\"english\":\"The body recharges energy during work.\"}}",
+    "solution": "{\"몸은 작업 동안 에너지를 축적합니다.\":\"The body accumulates energy during work\",\"몸\":\"body\",\"작업\":\"work\",\"동안\":\"during\",\"에너지를 축적합니다.\":\"accumulates energy\"}\n\n         {\"english\":\"The body accumulates energy during work.\"}",
     "id": 1755
   },
   {
@@ -23714,7 +23714,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"사면\",\"english\":\"avalanche\"},{\"korean\":\"침략\",\"english\":\"invasion\"},{\"korean\":\"피해\",\"english\":\"damage\"}],\"sentence\":{\"korean\":\"사면이 강한 바람에 침략하여 피해를 입히다.\",\"english\":\"The avalanche invaded by strong wind causing damage.\"}}",
+    "solution": "{\"바람의 강도가 큰 사면\":\"Large sand dunes\",\"공격\":\"Attack\",\"피해\":\"Damage\",\"입히다\":\"To cause\"}\n\n         {\"english\":\"Strong winds attack the steep slopes, causing damage.\"}",
     "id": 1756
   },
   {
@@ -23728,7 +23728,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"내부\",\"english\":\"interior\"},{\"korean\":\"디자인\",\"english\":\"design\"},{\"korean\":\"감성\",\"english\":\"emotion\"}],\"sentence\":{\"korean\":\"내부 디자인은 감성을 유발하는 중요한 요소입니다.\",\"english\":\"Interior design is an important factor in evoking emotions.\"}}",
+    "solution": "{\"내부 디자인\":\"Internal design\",\"감성\":\"Emotion\",\"유발\":\"Trigger\",\"중요한\":\"Important\",\"요소\":\"Element\"}\n\n         {\"english\":\"Internal design is a crucial element in evoking emotions.\"}",
     "id": 1757
   },
   {
@@ -23742,7 +23742,7 @@ export const problems = [
       "distance",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"공간\",\"english\":\"space\"},{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"정확\",\"english\":\"accurate\"}],\"sentence\":{\"korean\":\"공간적으로 정확한 거리는 길게 걸어갑니다.\",\"english\":\"The accurately spatial distance is far.\"}}",
+    "solution": "{\"거리는\":\"The distance\",\"공간적으로\":\"spatially\",\"정확하게\":\"accurately\",\"걸춰갑니다\":\"walks\"}\n\n         {\"english\":\"Distance is accurately walked in spatial terms.\"}",
     "id": 1758
   },
   {
@@ -23769,7 +23769,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"악명\",\"english\":\"reputation\"},{\"korean\":\"피고리\",\"english\":\"trouble\"},{\"korean\":\"생활\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"악명을 얻는 것은 어려울 수 있지만, 악명을 버리는 것은 더 어렵다.\",\"english\":\"It is hard to gain a reputation, but it is even harder to lose it.\"}}",
+    "solution": "{\"악명 얻는 것은 어려울 수 있지만\":\"It is difficult to gain a bad reputation\",\"악명을 버리는 것은 더 어렵다\":\"It is even more difficult to lose a bad reputation\"}\n\n         {\"english\":\"It is harder to shed a bad reputation than to acquire one.\"}",
     "id": 1760
   },
   {
@@ -23784,7 +23784,7 @@ export const problems = [
       "adjective",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"곤쟁이\",\"english\":\"roach\"},{\"korean\":\"거대한\",\"english\":\"huge\"},{\"korean\":\"도피처\",\"english\":\"hideaway\"}],\"sentence\":{\"korean\":\"곤쟁이는 거대한 도피처를 찾아다니네요.\",\"english\":\"The cockroach is searching for a huge hideaway.\"}}",
+    "solution": "{\"곤쟁이는 큰 은거처를 찾아다니네요.\":\"The ant is searching for a large anthill.\",\"곤쟁이\":\"ant\",\"큰\":\"large\",\"은거처\":\"anthill\",\"찾아다니네요.\":\"is searching for\"}\n\n         {\"english\":\"The grasshopper is looking for a big hiding place.\"}",
     "id": 1761
   },
   {
@@ -23813,7 +23813,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"희소\",\"english\":\"rare\"},{\"korean\":\"거품\",\"english\":\"jewel\"},{\"korean\":\"보물\",\"english\":\"treasure\"}],\"sentence\":{\"korean\":\"희소한 거품은 가치 있는 보물이야\",\"english\":\"Rare jewels are valuable treasures.\"}}",
+    "solution": "{\"희소한 물건\":\"Precious items\",\"가치 있는\":\"valuable\",\"보물\":\"treasure\",\"이에요\":\"indeed\"}\n\n         {\"english\":\"Rare objects are valuable treasures.\"}",
     "id": 1763
   },
   {
@@ -23827,7 +23827,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"왕정\",\"english\":\"monarchy\"},{\"korean\":\"국민\",\"english\":\"citizens\"},{\"korean\":\"지배\",\"english\":\"rule\"}],\"sentence\":{\"korean\":\"왕정은 국민들에게 지배를 하고 있습니다.\",\"english\":\"A monarchy exercises rule over its citizens.\"}}",
+    "solution": "{\"정부\":\"Government\",\"국민\":\"People\",\"지배\":\"Rule\",\"하고 있습니다\":\"is doing\"}\n\n         {\"english\":\"The government is exercising control over the people.\"}",
     "id": 1764
   },
   {
@@ -23842,7 +23842,7 @@ export const problems = [
       "length",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"미터\",\"english\":\"meter\"},{\"korean\":\"톤\",\"english\":\"ton\"},{\"korean\":\"크기\",\"english\":\"size\"}],\"sentence\":{\"korean\":\"미터 길이의 선물은 크기가 1톤입니다.\",\"english\":\"The gift is 1 ton in size, measuring a meter in length.\"}}",
+    "solution": "{\"미터 길이는\":\"The length is\",\"크기가\":\"about\",\"1톤에 달합니다\":\"one ton in size\"}\n\n         {\"english\":\"The length of a meter is equal to one ton.\"}",
     "id": 1765
   },
   {
@@ -23855,7 +23855,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"절차\",\"english\":\"procedure\"},{\"korean\":\"약품\",\"english\":\"medicine\"},{\"korean\":\"환자\",\"english\":\"patient\"},{\"korean\":\"확진\",\"english\":\"diagnosis\"}],\"sentence\":{\"korean\":\"절차적으로 약품을 투여하고 환자의 상태를 확인합니다.\",\"english\":\"The medicine is administered according to the procedure and the patient's condition is checked periodically.\"}}",
+    "solution": "{\"약품을 순차적으로 투여하고 환자의 상태를 주기적으로 확인합니다.\":\"Drugs are administered sequentially and patient status is periodically checked.\"}\n\n         {\"english\":\"Drugs are administered in a sequential order and patient status is periodically checked.\"}",
     "id": 1766
   },
   {
@@ -23879,7 +23879,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"저기물\",\"english\":\"spoon\"},{\"korean\":\"물을 담아\",\"english\":\"to scoop up water\"},{\"korean\":\"그릇에\",\"english\":\"into that bowl\"},{\"korean\":\"물을 담았어요\",\"english\":\"I scooped up the water.\"}],\"sentence\":{\"korean\":\"저기물을 그릇에 담아 물을 담았어요.\",\"english\":\"I scooped up the water with a spoon and poured it into the bowl.\"}}",
+    "solution": "{\"물을\":\"water\",\"그릇\":\"vessel\",\"담아\":\"to put in\",\"담았어요\":\"did (put)\"}\n\n         {\"english\":\"I put water in the bowl.\"}",
     "id": 1768
   },
   {
@@ -23893,7 +23893,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"노래\",\"english\":\"worn\"},{\"korean\":\"옷\",\"english\":\"clothes\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"노래한옷은 시간이 지나면서 변합니다.\",\"english\":\"Worn clothes change over time.\"}}",
+    "solution": "{\"노래한옷은\":\"clothes that were once\",\"시간이 지남에 따라\":\"as time passes\",\"바뀌네요\":\"change(s)\"}\n\n         {\"english\":\"The clothes you wore yesterday are different today.\"}",
     "id": 1769
   },
   {
@@ -23908,7 +23908,7 @@ export const problems = [
       "conversion",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전환기\",\"english\":\"transformer\"},{\"korean\":\"전기\",\"english\":\"electricity\"},{\"korean\":\"전환\",\"english\":\"conversion\"}],\"sentence\":{\"korean\":\"전환기는 전기를 다른 형태로 전환합니다.\",\"english\":\"A transformer converts electricity into different forms.\"}}",
+    "solution": "{\"전환기\":\"Converter\",\"전기\":\"Electricity\",\"다른\":\"different\",\"형태\":\"form\",\"변환\":\"convert\"}\n\n         {\"english\":\"Transformers convert electricity into different forms.\"}",
     "id": 1770
   },
   {
@@ -23934,7 +23934,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"많이\",\"english\":\"a lot\"},{\"korean\":\"맛있어\",\"english\":\"delicious\"},{\"korean\":\"고기\",\"english\":\"meat\"}],\"sentence\":{\"korean\":\"많이 맛있어 고기가 좋아해\",\"english\":\"I love meat because it's delicious.\"}}",
+    "solution": "{\"고기\":\"meat\",\"정말\":\"really\",\"맛있어요\":\"delicious\"}\n\n         {\"english\":\"The meat is really delicious.\"}",
     "id": 1772
   },
   {
@@ -23974,7 +23974,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장절\",\"english\":\"chapter\"},{\"korean\":\"책\",\"english\":\"book\"},{\"korean\":\"페이지\",\"english\":\"page\"}],\"sentence\":{\"korean\":\"다음 장절은 50페이지에 있어요.\",\"english\":\"The next chapter is on page 50.\"}}",
+    "solution": "{\"다음 장절은 50페이지 정도에 있어요.\":\"The next chapter is approximately 50 pages long.\",\"다음\":\"next\",\"장절\":\"chapter\",\"정도\":\"approximately\",\"에 있어요\":\"is\"}\n\n         {\"english\":\"The next chapter is around 50 pages long.\"}",
     "id": 1775
   },
   {
@@ -24012,7 +24012,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가방\",\"english\":\"bag\"},{\"korean\":\"용도\",\"english\":\"purpose\"},{\"korean\":\"무슨\",\"english\":\"what kind of\"},{\"korean\":\"물건\",\"english\":\"thing\"}],\"sentence\":{\"korean\":\"가방의 용도는 무슨 물건을 담는 데에 사용합니다.\",\"english\":\"The purpose of a handbag is to carry various items.\"}}",
+    "solution": "{\"가방\":\"bag\",\"물건\":\"goods\",\"담는\":\"to contain\",\"용도\":\"purpose\",\"사용합니다\":\"is used\"}\n\n         {\"english\":\"Bags are used to hold goods.\"}",
     "id": 1778
   },
   {
@@ -24049,7 +24049,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"편안하고 휴식감이 좋은 곳\",\"english\":\"a comfortable and relaxing place\"},{\"korean\":\"친구들과 함께 시간을 보내다\",\"english\":\"spending time with friends\"},{\"korean\":\"다음 주말에 여행을 계획하고 있어\",\"english\":\"planning a trip next weekend\"}],\"sentence\":{\"korean\":\"편안하고 휴식감이 좋은 곳에서 친구들과 함께 시간을 보내다가, 다음 주말에 여행을 계획하고 있어\",\"english\":\"We are spending time with friends in a comfortable and relaxing place, and we are planning a trip next weekend.\"}}",
+    "solution": "{\"편안하고 휴식감이 좋은 곳에서\":\"A comfortable and restful place\",\"친구들과 함께 시간을 보내다가\":\"spending time with friends\",\"다음 주말에 여행을 계획하고 있어\":\"planning a trip next weekend\"}\n\n         {\"english\":\"We're spending time together in a comfortable and relaxing place, and next weekend we're planning a trip.\"}",
     "id": 1781
   },
   {
@@ -24076,7 +24076,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"손톱\",\"english\":\"nail\"},{\"korean\":\"목에 걸려\",\"english\":\"hanging from\"},{\"korean\":\"발판 아래\",\"english\":\"under the footboard\"}],\"sentence\":{\"korean\":\"손톱은 목에 걸려 발판 아래에 숨겨져 있다.\",\"english\":\"The nail is hanging from under the footboard.\"}}",
+    "solution": "{\"손톱\":\"Fingernails\",\"목\":\"Neck\",\"아래\":\"Below\",\"걸려\":\"Hanging\",\"발판\":\"Heel\",\"숨겨져 있다\":\"Hidden\"}\n\n         {\"english\":\"The nails are tucked under the belly and hidden under the heel.\"}",
     "id": 1783
   },
   {
@@ -24092,7 +24092,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"트렌치\",\"english\":\"trench\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"고지\",\"english\":\"hill\"}],\"sentence\":{\"korean\":\"트렌치에서 물고지까지 물을 채워 산 위까지 올렸습니다.\",\"english\":\"They filled the trench with water from the bottom of the hill to the top.\"}}",
+    "solution": "{\"트렌치\":\"trench\",\"물고지\":\"fishing bait\",\"물\":\"water\",\"채워\":\"filled\",\"산 위\":\"mountain top\"}\n\n         {\"english\":\"They filled water including fish up to the mountaintop from the trench.\"}",
     "id": 1784
   },
   {
@@ -24108,7 +24108,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\" hue\",\"english\":\"rainbow\"},{\"korean\":\"보름\",\"english\":\"cloud\"},{\"korean\":\"빛\",\"english\":\"light\"}],\"sentence\":{\"korean\":\"무용한 무지막은 하늘의 보름에 빛나는 무지막이 되어요.\",\"english\":\"A colorful rainbow appears in the clouds when sunlight shines through rain droplets.\"}}",
+    "solution": "{\"무용한 무지막\":\"Meaningless fog\",\"하늘의 빛\":\"Sunlight\",\"반사\":\"Reflection\",\"보름처럼\":\"Like snow\",\"빛나요\":\"Glows\"}\n\n         {\"english\":\"When ignorance is boundless, it reflects the light of the sky like the moon, shining brightly.\"}",
     "id": 1785
   },
   {
@@ -24123,7 +24123,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방\",\"english\":\"room\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"위험\",\"english\":\"danger\"}],\"sentence\":{\"korean\":\"방 안은 보호가 필요합니다. 위험이 많아요.\",\"english\":\"The room needs protection. There is a lot of danger.\"}}",
+    "solution": "{\"방 안은 위험이 많아서 보호가 필요합니다.\":\"The room is dangerous, so protection is necessary.\"}\n\n         {\"english\":\"The room is dangerous, so protection is necessary.\"}",
     "id": 1786
   },
   {
@@ -24148,7 +24148,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"산행\",\"english\":\"hiking\"},{\"korean\":\"자연\",\"english\":\"nature\"},{\"korean\":\"감성\",\"english\":\"feelings\"}],\"sentence\":{\"korean\":\"산행하면 자연의 아름다움과 감성이 풍부해집니다.\",\"english\":\"Hiking brings beauty of nature and rich feelings.\"}}",
+    "solution": "{\"산행하면\":\"Going hiking\",\"자연의 아름다움에\":\"the beauty of nature\",\"직면\":\"face\",\"감성\":\"feelings\",\"풍부해집니다\":\"increases\"}\n\n         {\"english\":\"Hiking allows you to encounter the beauty of nature and enrich your emotions.\"}",
     "id": 1788
   },
   {
@@ -24162,7 +24162,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피크\",\"english\":\"peek\"},{\"korean\":\"창고\",\"english\":\"warehouse\"},{\"korean\":\"비밀\",\"english\":\"secret\"}],\"sentence\":{\"korean\":\"피크 창고에 비밀을 보물고 있어.\",\"english\":\"There's a secret hidden in the warehouse.\"}}",
+    "solution": "{\"피크 창고\":\"Peak warehouse\",\"비밀\":\"Secret\",\"보물려\":\"Hidden\",\"있어\":\"Is there\"}\n\n         {\"english\":\"There is a secret treasure in the peak warehouse.\"}",
     "id": 1789
   },
   {
@@ -24175,7 +24175,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"두려움\",\"english\":\"worry\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"결점\",\"english\":\"outcome\"}],\"sentence\":{\"korean\":\"두려움에 처한 상황의 결점은 무엇일까?\",\"english\":\"What could be the outcome of a situation where there is worry?\"}}",
+    "solution": "{\"두려움에 처한 상황에서 결점은 무엇일까?\":\"What is the flaw in a situation of fear?\",\"두려움\":\"fear\",\"상황\":\"situation\",\"결점\":\"flaw\",\"무엇일까?\":\"what is it?\"}\n\n         {\"english\":\"What is the flaw in a situation filled with fear?\"}",
     "id": 1790
   },
   {
@@ -24190,7 +24190,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"경치\",\"english\":\"marvel\"},{\"korean\":\"무슨 일이\",\"english\":\"what's going on\"},{\"korean\":\"상상치 않은 일이야\",\"english\":\"it's something beyond imagination\"}],\"sentence\":{\"korean\":\"경치로 무슨 일이 상상치 않은 일이야\",\"english\":\"It's a marvel what's going on.\"}}",
+    "solution": "{\"경치로\":\"hardly imaginable\",\"상상도\":\"even imagination\",\"못한\":\"unimaginable\",\"일\":\"thing\",\"많아요\":\"many\"}\n\n         {\"english\":\"There are many things that I can't even imagine happening.\"}",
     "id": 1791
   },
   {
@@ -24206,7 +24206,7 @@ export const problems = [
       "inference",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"변형\",\"english\":\"deformed\"},{\"korean\":\"형상\",\"english\":\"shape\"},{\"korean\":\"상상\",\"english\":\"imagination\"}],\"sentence\":{\"korean\":\"그 아이의 상상력은 매우 변형된 형상을 가진다.\",\"english\":\"The child's imagination has a very deformed shape.\"}}",
+    "solution": "{\"그 아이의 상상력은 매우 변형된 모양을 가지고 있다.\":\"The child's imagination has taken on a highly transformed shape.\"}\n\n         {\"english\":\"The child's imagination has a highly deformed shape.\"}",
     "id": 1792
   },
   {
@@ -24220,7 +24220,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"추출\",\"english\":\"extract\"},{\"korean\":\"데이터\",\"english\":\"data\"}],\"sentence\":{\"korean\":\"정보를 분석하여 데이터를 추출했습니다.\",\"english\":\"The information was extracted after analyzing it.\"}}",
+    "solution": "{\"정보 분석 결과\":\"Analysis results\",\"데이터를 추출했습니다\":\"Data was extracted\"}\n\n         {\"english\":\"The analysis results showed that data was extracted.\"}",
     "id": 1793
   },
   {
@@ -24234,7 +24234,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"바늘\",\"english\":\"needle\"},{\"korean\":\"뜨기\",\"english\":\"to embroider\"},{\"korean\":\"패턴\",\"english\":\"pattern\"}],\"sentence\":{\"korean\":\"바늘로 패턴을 뜨기가 좋아해요.\",\"english\":\"I love to embroider patterns with a needle.\"}}",
+    "solution": "{\"바늘로 패턴을 짓기가 좋아해요.\":\"Likes to make patterns with needles.\"}\n\n         {\"english\":\"I like to make patterns with needles.\"}",
     "id": 1794
   },
   {
@@ -24248,7 +24248,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"중력\",\"english\":\"gravity\"},{\"korean\":\"물리\",\"english\":\"physics\"},{\"korean\":\"힘\",\"english\":\"force\"}],\"sentence\":{\"korean\":\"중력은 물리학에서 물체에 힘을 주어 지구 표면에 위치하게 합니다.\",\"english\":\"Gravity is a force that physics exerts on objects to position them on the surface of the Earth.\"}}",
+    "solution": "{\"중력\":\"Gravity\",\"물리학\":\"Physics\",\"물체\":\"Object\",\"힘\":\"Force\",\"지구 표면\":\"Earth's surface\",\"위치\":\"Position\"}\n\n         {\"english\":\"Gravity provides force to objects, allowing them to be positioned on the surface of the Earth.\"}",
     "id": 1795
   },
   {
@@ -24262,7 +24262,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"부드러운\",\"english\":\"merciful\"},{\"korean\":\"죄책감\",\"english\":\"guilt\"},{\"korean\":\"용서\",\"english\":\"forgiveness\"}],\"sentence\":{\"korean\":\"죄책감에 부드러운 용서를 받은 사람들은 평화롭게 살 수 있습니다.\",\"english\":\"Those who receive merciful forgiveness for their guilt can live peacefully.\"}}",
+    "solution": "{\"죄책감\":\"guilt\",\"부드러운\":\"soft\",\"용서\":\"pardon\",\"받은\":\"received\",\"평화\":\"peace\",\"살 수\":\"can live\"}\n\n         {\"english\":\"People who receive compassionate forgiveness for their remorse can live peacefully.\"}",
     "id": 1796
   },
   {
@@ -24275,7 +24275,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상속녀\",\"english\":\"heiress\"},{\"korean\":\"부모님\",\"english\":\"parents\"},{\"korean\":\"재산\",\"english\":\"wealth\"}],\"sentence\":{\"korean\":\"상속녀는 부모님의 재산을 물려받습니다.\",\"english\":\"The heiress inherits the wealth of her parents.\"}}",
+    "solution": "{\"상속녀\":\"Heiress\",\"부모님\":\"Parents\",\"재산\":\"Property\",\"물려받게\":\"Inherit\",\"됩니다\":\"Will become\"}\n\n         {\"english\":\"The heir will inherit their parents' wealth.\"}",
     "id": 1797
   },
   {
@@ -24290,7 +24290,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"색다르게\",\"english\":\"brightly\"},{\"korean\":\"옷\",\"english\":\"clothes\"},{\"korean\":\"보여준다\",\"english\":\"shows\"}],\"sentence\":{\"korean\":\"색다르게 입은옷은 사람들을 보고 있다.\",\"english\":\"The brightly colored clothes show that people are watching.\"}}",
+    "solution": "{\"색다른옷을 입은 사람들은\":\"People wearing colorful clothes\",\"주변을 관찰하고 있다\":\"are observing their surroundings\"}\n\n         {\"english\":\"People wearing clothes of different colors are observing their surroundings.\"}",
     "id": 1798
   },
   {
@@ -24306,7 +24306,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"덜\",\"english\":\"less\"},{\"korean\":\"밥\",\"english\":\"rice\"},{\"korean\":\"음식\",\"english\":\"food\"},{\"korean\":\"좋아\",\"english\":\"like\"}],\"sentence\":{\"korean\":\"덜밥은 음식을 좋아합니다.\",\"english\":\"I like rice less than food.\"}}",
+    "solution": "{\"밥보다 음식을 더 좋아합니다.\":{\"밥\":\"Rice\",\"음식\":\"Food\",\"더\":\"More\",\" 좋아합니다\":\"Likes\"}}\n\n         {\"english\":\"I like food more than rice.\"}",
     "id": 1799
   },
   {
@@ -24320,7 +24320,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상해\",\"english\":\"injured\"},{\"korean\":\"치료\",\"english\":\"treatment\"},{\"korean\":\"몸\",\"english\":\"body\"}],\"sentence\":{\"korean\":\"상해한 몸은 치료를 받아 회복했습니다.\",\"english\":\"The injured body recovered after receiving treatment.\"}}",
+    "solution": "{\"몸은 상해한 상태였지만 치료를 받아 회복했습니다.\":{\"몸\":\"Body\",\"상해\":\"Injured\",\"상태\":\"Condition\",\"치료\":\"Treatment\",\"회복\":\"Recovered\"}}\n\n         {\"english\":\"The body was in a critical state, but after receiving treatment, it recovered.\"}",
     "id": 1800
   },
   {
@@ -24332,7 +24332,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상급자\",\"english\":\"senior\"},{\"korean\":\"경력\",\"english\":\"experience\"},{\"korean\":\"학업\",\"english\":\"studies\"}],\"sentence\":{\"korean\":\"상급자들은 경력과 학업에서 앞서갑니다.\",\"english\":\"Seniors are often ahead in both experience and studies.\"}}",
+    "solution": "{\"상급자들은\":\"Senior employees are\",\"경력\":\"experience\",\"학력\":\"education\",\"앞서갑니다\":\"ahead of others\"}\n\n         {\"english\":\"Senior employees are ahead in terms of experience and qualifications.\"}",
     "id": 1801
   },
   {
@@ -24348,7 +24348,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"장치가\",\"english\":\"The gadget\"},{\"korean\":\"무슨 용도를\",\"english\":\"what is the purpose of\"},{\"korean\":\"할까요?\",\"english\":\"to do?\"}],\"sentence\":{\"korean\":\"장치가 무슨 용도를 할까요?\",\"english\":\"What's the purpose of this gadget?\"}}",
+    "solution": "{\"장치의\":\"device's\",\"용도\":\"purpose\",\"무엇일까요?\":\"what is it for?\"}\n\n         {\"english\":\"What is the purpose of the device?\"}",
     "id": 1802
   },
   {
@@ -24363,7 +24363,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"편감\",\"english\":\"comfort\"},{\"korean\":\"편하고\",\"english\":\"comfortably\"},{\"korean\":\"피로\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"피로한 날에 편감한 공간이 필요해요.\",\"english\":\"You need a comfortable space when you're tired.\"}}",
+    "solution": "{\"피로한 날에는\":\"On tired days\",\"편안한 공간\":\"comfortable space\",\"필요해요\":\"is needed\"}\n\n         {\"english\":\"When you're tired, you need a comfortable space.\"}",
     "id": 1803
   },
   {
@@ -24377,7 +24377,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"발음\",\"english\":\"articulation\"},{\"korean\":\"말\",\"english\":\"speech\"},{\"korean\":\"정확\",\"english\":\"precise\"}],\"sentence\":{\"korean\":\"발음은 정확한 말을 표현하는 능력입니다.\",\"english\":\"Articulation is the ability to express precise speech.\"}}",
+    "solution": "{\"발음\":\"Pronunciation\",\"정확한\":\"Accurate\",\"말\":\"Speech\",\"표현\":\"Expression\",\"능력\":\"Ability\"}\n\n         {\"english\":\"The ability to accurately express oneself through speech.\"}",
     "id": 1804
   },
   {
@@ -24391,7 +24391,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가시기\",\"english\":\"sneaking\"},{\"korean\":\"비밀\",\"english\":\"secret\"},{\"korean\":\"움직임\",\"english\":\"movement\"}],\"sentence\":{\"korean\":\"가시기는 비밀이기 때문에 움직임이 거저합니다.\",\"english\":\"Since sneaking is a secret, movement is quiet.\"}}",
+    "solution": "{\"가시기\":\"Visibility\",\"비밀\":\"Secret\",\"움직임\":\"Movement\",\"숨겨지게\":\"Hidden\",\"숨겨지는\":\"To be hidden\"}\n\n         {\"english\":\"Visibility is a secret, so movements are hidden.\"}",
     "id": 1805
   },
   {
@@ -24405,7 +24405,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"발걸음\",\"english\":\"footing\"},{\"korean\":\"다음\",\"english\":\"next\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"걸음\",\"english\":\"step\"}],\"sentence\":{\"korean\":\"발걸음은 다음 시간에 걸음이 더 많아졌습니다.\",\"english\":\"The footprint increased next time.\"}}",
+    "solution": "{\"발걸음은\":\"Step count\",\"이제\":\"Now\",\"다음 시간에\":\"next time\",\"걸음이\":\"steps\",\"더 많아졌습니다\":\"increased\"}\n\n         {\"english\":\"Your gait is now more frequent than before.\"}",
     "id": 1806
   },
   {
@@ -24421,7 +24421,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"록커\",\"english\":\"rocker\"},{\"korean\":\"말\",\"english\":\"word\"},{\"korean\":\"등\",\"english\":\"back\"},{\"korean\":\"느린\",\"english\":\"slow\"}],\"sentence\":{\"korean\":\"록커는 말의 등에느린다.\",\"english\":\"A rocker leans back slowly.\"}}",
+    "solution": "{\"록커는 말의 등에 빠르게 달린다.\":\"The rocker is quickly galloping on the horse's back.\"}\n\n         {\"english\":\"The rocker sprints quickly on the back of his words.\"}",
     "id": 1807
   },
   {
@@ -24436,7 +24436,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"민치\",\"english\":\"to mince\"},{\"korean\":\"고기\",\"english\":\"meat\"},{\"korean\":\"간장\",\"english\":\"soy sauce\"}],\"sentence\":{\"korean\":\"민치된 고기는 간장으로 잘 먹입니다.\",\"english\":\"Minced meat is delicious with soy sauce.\"}}",
+    "solution": "{\"민치된 고기\":\"Marinated meat\",\"간장\":\"Soy sauce\",\" 잘\":\"Well\",\"먹습니다\":\"is eaten\"}\n\n         {\"english\":\"Marinated meat tastes good with soy sauce.\"}",
     "id": 1808
   },
   {
@@ -24450,7 +24450,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"신호\",\"english\":\"signal\"},{\"korean\":\"전기\",\"english\":\"electricity\"},{\"korean\":\"통합\",\"english\":\"combined\"},{\"korean\":\"효율\",\"english\":\"efficient\"}],\"sentence\":{\"korean\":\"신호 전기는 통합 효율적으로 사용하여 에너지를 절약합니다.\",\"english\":\"Electricity signals are combined efficiently to save energy.\"}}",
+    "solution": "{\"신호 전기\":\"Signal electricity\",\"통합적으로\":\"Integratedly\",\"사용\":\"Used\",\"에너지를\":\"energy\",\"절약\":\"saving\"}\n\n         {\"english\":\"Signal electricity is used in an integrated manner to save energy.\"}",
     "id": 1809
   },
   {
@@ -24465,7 +24465,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"낭비하다\",\"english\":\"to waste\"},{\"korean\":\"물론\",\"english\":\"of course\"},{\"korean\":\"필요한 것들은 사전에 준비해야 합니다\",\"english\":\"necessary things should be prepared beforehand\"}],\"sentence\":{\"korean\":\"낭비하지 말고 필요한 것들을 사전에 준비해야 합니다\",\"english\":\"Don't waste things. Prepare necessary things beforehand.\"}}",
+    "solution": "{\"낭비하지 말고 필요한 물건들을 사전에 준비해야 합니다.\":\"Prepare necessary items beforehand to avoid waste.\",\"낭비하다\":\"to waste\",\"물건들\":\"items\",\"사전에\":\"in advance\",\"준비해야 합니다.\":\"should be prepared.\"}\n\n         {\"english\":\"You should prepare necessary items in advance instead of wasting money.\"}",
     "id": 1810
   },
   {
@@ -24480,7 +24480,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잃어버린\",\"english\":\"lost\"},{\"korean\":\"물건\",\"english\":\"thing\"}],\"sentence\":{\"korean\":\"잃어버린 물건은 어디에 있을까?\",\"english\":\"Where could the lost thing be?\"}}",
+    "solution": "{\"잃어버린 물건은 어디에 있을까? 그 곳을 찾는다면?\":{\"잃어버린 물건\":\"Lost item\",\"어디에\":\"Where\",\"있을까\":\"Could be\",\"그 곳\":\"That place\",\"찾는다면\":\"To find out\"}}\n\n         {\"english\":\"Where could the lost item be? We'll find out where it is if we look for it.\"}",
     "id": 1811
   },
   {
@@ -24495,7 +24495,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"호스테스\",\"english\":\"hostess\"},{\"korean\":\"고객\",\"english\":\"customer\"},{\"korean\":\"서비스\",\"english\":\"service\"}],\"sentence\":{\"korean\":\"호스테스는 고객들에게 서비스를 제공합니다.\",\"english\":\"Hostesses provide service to customers.\"}}",
+    "solution": "{\"호스테스\":\"Host\",\"고객\":\"Guests\",\"서비스\":\"Services\",\"제공\":\"Provide\"}\n\n         {\"english\":\"The host provides service to guests.\"}",
     "id": 1812
   },
   {
@@ -24510,21 +24510,21 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"육십 번째\",\"english\":\"sixtieth\"},{\"korean\":\"살\",\"english\":\"year\"},{\"korean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"육십 번째 살이 지금이야.\",\"english\":\"It's the sixties year now.\"}}",
+    "solution": "{\"육십 번째 살이 지금이야.\":\"It's time for the sixtieth birthday.\",\"육십 번째\":\"sixtieth\",\"살이\":\"birthday\",\"지금이야\":\"it's time\",\"다.\":\".\"}\n\n         {\"english\":\"It's time for the sixty-ninth life.\"}",
     "id": 1813
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "screwdriver",
-    "problem": "크롬 드라이버는 물리학(物理學)의 법칙(法則)에 따라 회전(回轉)합니다.\n",
+    "problem": "크롬 스크린드는 물리학(物理學) 법칙(法則)에 따라 회전(回轉)합니다.\n",
     "length": 33,
     "tags": [
       "grade-5",
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"크롬 screwdriver\",\"english\":\"chrome screwdriver\"},{\"korean\":\"크롬\",\"english\":\"chrome\"},{\"korean\":\"드라이버\",\"english\":\"driver\"}],\"sentence\":{\"korean\":\"크롬 screwdriver는 물리학 법칙에 따라 회전합니다.\",\"english\":\"A chrome screwdriver rotates according to the laws of physics.\"}}",
+    "solution": "{\"크롬 스크린드는\":\"The Chromium screen rotates\",\"물리학 법칙에 따라\":\"according to the laws of physics\",\"회전합니다\":\"rotates\"}\n\n         {\"english\":\"Chrome Screen rotates according to the laws of physics.\"}",
     "id": 1814
   },
   {
@@ -24538,7 +24538,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"야구\",\"english\":\"baseball\"},{\"korean\":\"장바구니\",\"english\":\"bat\"},{\"korean\":\"볼\",\"english\":\"ball\"},{\"korean\":\"구원\",\"english\":\"field\"}],\"sentence\":{\"korean\":\"야구장에서 볼을 치고 구원을 돌아갑니다.\",\"english\":\"He hits the ball with a bat and runs around the field.\"}}",
+    "solution": "{\"야구장에서\":\"Baseball field\",\"볼을 치고\":\"hit the ball\",\"구원을 돌아갑니다\":\"returns to the outfield\"}\n\n         {\"english\":\"He is batting in the baseball field and running back to the dugout.\"}",
     "id": 1815
   },
   {
@@ -24552,7 +24552,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"난감\",\"english\":\"challenge\"},{\"korean\":\"거대한\",\"english\":\"huge\"},{\"korean\":\"업무\",\"english\":\"work\"}],\"sentence\":{\"korean\":\"난감한 거대한 업무를 하고 있습니다.\",\"english\":\"I am working on a huge challenge.\"}}",
+    "solution": "{\"나 큰 업무를 하고 있습니다.\":\"I am working on a big project.\",\"나\":\"I\",\"큰\":\"big\",\"업무\":\"project\",\"를\":\"particle indicating the direct object\",\"하고 있습니다.\":\"am doing\"}\n\n         {\"english\":\"I am working on a big project.\"}",
     "id": 1816
   },
   {
@@ -24565,7 +24565,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"풀린\",\"english\":\"Ragged\"},{\"korean\":\"옷\",\"english\":\"Clothes\"},{\"korean\":\"깨진\",\"english\":\"Broken\"},{\"korean\":\"피고\",\"english\":\"Patching up\"}],\"sentence\":{\"korean\":\"풀린옷은 깨진 부분을 피고 수리합니다.\",\"english\":\"Ragged clothes are patched up to fix the broken parts.\"}}",
+    "solution": "{\"깨진 부분을 피하고 수리하기 위해 풀린옷을 수리합니다.\":\"Torn parts are avoided and the loosened clothes are repaired to fix the damage.\"}\n\n         {\"english\":\"The clothes are repaired to fix the damaged parts and avoid further damage.\"}",
     "id": 1817
   },
   {
@@ -24579,7 +24579,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잔디가\",\"english\":\"The lawn\"},{\"korean\":\"깨지는\",\"english\":\"crumbles\"},{\"korean\":\"날개\",\"english\":\"wings\"}],\"sentence\":{\"korean\":\"잔디가 날개처럼 깨지는 것을 볼 수 있어요.\",\"english\":\"You can see the lawn crumbling like wings.\"}}",
+    "solution": "{\"잔디\":\"grass\",\"날개\":\"wing\",\"깨지는\":\"breaking\",\"걸\":\"see\",\"볼\":\"to watch\",\"수 있어요\":\"can see\"}\n\n         {\"english\":\"The grass is like wings breaking off. It's amazing.\"}",
     "id": 1818
   },
   {
@@ -24594,7 +24594,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지속적으로\",\"english\":\"continuously\"},{\"korean\":\"진행\",\"english\":\"progressing\"},{\"korean\":\"목표\",\"english\":\"goal\"}],\"sentence\":{\"korean\":\"지속적으로 학업을 진행하면 목표를 달성할 수 있습니다.\",\"english\":\"If you continuously study, you can achieve your goal.\"}}",
+    "solution": "{\"학업을 지속적으로 이어나면\":\"to consistently follow through with studies\",\"목표에 도달할 수 있습니다\":\"to be able to reach the goal\"}\n\n         {\"english\":\"If you consistently continue your studies, you will eventually reach your goal.\"}",
     "id": 1819
   },
   {
@@ -24609,7 +24609,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"처음학생\",\"english\":\"freshman\"},{\"korean\":\"학교에 다닌다\",\"english\":\"goes to school\"},{\"korean\":\"좋아\",\"english\":\"likes\"}],\"sentence\":{\"korean\":\"처음학생은 학교에 다니고 싶어요.\",\"english\":\"A freshman likes to go to school.\"}}",
+    "solution": "{\"처음학생\":\"First-grader\",\"학교\":\"School\",\"가고 싶어요\":\"wants to go\"}\n\n         {\"english\":\"The first student wants to go to school.\"}",
     "id": 1820
   },
   {
@@ -24624,7 +24624,7 @@ export const problems = [
       "volume",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"크기가 작아지다\",\"english\":\"to shrink\"},{\"korean\":\"거대한\",\"english\":\"big\"},{\"korean\":\"물리적으로\",\"english\":\"physically\"}],\"sentence\":{\"korean\":\"물리적으로 거대한 물체는 크기가 작아지더라도, 그 부피는 여전히 크다.\",\"english\":\"Even though large objects shrink physically, their volume remains large.\"}}",
+    "solution": "{\"물리적으로 큰 물체\":\"Large physical object\",\"크기가 작아지더라도\":\"despite becoming smaller\",\"그 부피\":\"its volume\",\"크게 유지된다\":\"remains large\"}\n\n         {\"english\":\"Large physical objects maintain their volume even when their size diminishes.\"}",
     "id": 1821
   },
   {
@@ -24639,7 +24639,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"판단\",\"english\":\"judicious\"},{\"korean\":\"명리\",\"english\":\"reason\"},{\"korean\":\"결정\",\"english\":\"decision\"}],\"sentence\":{\"korean\":\"판단과 명리의 결정은 중요합니다.\",\"english\":\"A judicious decision based on reason is important.\"}}",
+    "solution": "{\"판단\":\"judgment\",\"명리\":\"reasoning\",\"결정\":\"decision\",\"매우\":\"very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"The decision of judgment and reason is very important.\"}",
     "id": 1822
   },
   {
@@ -24652,7 +24652,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불확실\",\"english\":\"ambiguous\"},{\"korean\":\"두려움\",\"english\":\"worry\"},{\"korean\":\"두려움 없이\",\"english\":\"without worry\"}],\"sentence\":{\"korean\":\"불확실한 정보는 두려움 없이 처리해야 합니다.\",\"english\":\"Ambiguous information should be handled without worry.\"}}",
+    "solution": "{\"불확실한 정보\":\"Uncertain information\",\"두려움 없이\":\"Without fear\",\"다룰 필요가 있습니다\":\"It is necessary to deal with it\"}\n\n         {\"english\":\"Uncertain information needs to be handled without fear.\"}",
     "id": 1823
   },
   {
@@ -24666,7 +24666,7 @@ export const problems = [
       "inference",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"생명처럼 생긴\",\"english\":\"Lifelike in every way\"},{\"korean\":\"생활 속에서\",\"english\":\"In daily life\"},{\"korean\":\"매우 설득력이 큰\",\"english\":\"Incredibly convincing\"}],\"sentence\":{\"korean\":\"생명처럼 생긴 이야기들은, 생활 속에서 매우 설득력이 큰 편입니다.\",\"english\":\"Stories that are lifelike in every way are incredibly convincing in daily life.\"}}",
+    "solution": "{\"생명처럼 생긴 이야기들은\":\"Stories that were born like life\",\"설득력이 큰 편\":\"Highly persuasive stories\",\"생활 속에서\":\"In daily life\",\"편이랍니다\":\"Are easier to believe\"}\n\n         {\"english\":\"Stories that arise like life itself tend to be more persuasive in daily life.\"}",
     "id": 1824
   },
   {
@@ -24679,7 +24679,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보선\",\"english\":\"bosom\"},{\"korean\":\"고통\",\"english\":\"pain\"},{\"korean\":\"온몸\",\"english\":\"whole body\"}],\"sentence\":{\"korean\":\"보선은 고통의 온몸에 있다.\",\"english\":\"The bosom carries the pain of the whole body.\"}}",
+    "solution": "{\"보선\":\"caregiver\",\"고통\":\"pain\",\"온몸\":\"whole body\",\"요인\":\"factor\",\"해소\":\"relief\"}\n\n         {\"english\":\"Caregiver support is present throughout the physical suffering and is the most important factor in relieving pain.\"}",
     "id": 1825
   },
   {
@@ -24694,7 +24694,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"증가\",\"english\":\"increase\"},{\"korean\":\"금액\",\"english\":\"amount\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"시간이 지남에 따라, 예치금액은 점차적으로 증가합니다.\",\"english\":\"The amount of the deposit increases gradually over time.\"}}",
+    "solution": "{\"시간이 지남에 따라\":\"As time passes\",\"예치금\":\"Deposit\",\"점차적으로\":\"Gradually\",\"증가합니다\":\"Increases\"}\n\n         {\"english\":\"The deposit gradually increases over time.\"}",
     "id": 1826
   },
   {
@@ -24709,7 +24709,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오리엔트\",\"english\":\"Orient\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"삶\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"오리엔트 날은 삶의 시작이다.\",\"english\":\"An orient day is the beginning of life.\"}}",
+    "solution": "{\"오리엔트 날은\":\"The day of orientation is\",\"삶의 시작이라고 합니다\":\"the beginning of life\"}\n\n         {\"english\":\"The Orient Day is said to be the beginning of life.\"}",
     "id": 1827
   },
   {
@@ -24722,7 +24722,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"뉴런\",\"english\":\"neuron\"},{\"korean\":\"망막\",\"english\":\"retina\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"뉴런은 망막에 정보를 전달합니다.\",\"english\":\"Neurons transmit information across the retina.\"}}",
+    "solution": "{\"뉴런\":\"Neuron\",\"망막\":\"Retina\",\"정보\":\"Information\",\"전달\":\"Transmission\",\"역할\":\"Role\"}\n\n         {\"english\":\"Neurons transmit information to the retina.\"}",
     "id": 1828
   },
   {
@@ -24736,7 +24736,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피스\",\"english\":\"puzzle\"},{\"korean\":\"정리\",\"english\":\"arrangement\"},{\"korean\":\"해결\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"피스의 정리는 완벽한 해결을 찾는 과정입니다.\",\"english\":\"Solving a puzzle is a process of finding the perfect solution.\"}}",
+    "solution": "{\"피스의 정리는\":\"Peacekeeping\",\"완벽한 해결\":\"Perfect solution\",\"찾는 순서입니다\":\"is the process of finding\"}\n\n         {\"english\":\"The arrangement of peace is the order that finds a perfect solution.\"}",
     "id": 1829
   },
   {
@@ -24749,7 +24749,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감소\",\"english\":\"reduction\"},{\"korean\":\"수준\",\"english\":\"level\"},{\"korean\":\"효율\",\"english\":\"efficiency\"}],\"sentence\":{\"korean\":\"감소된 수준의 효율은 최대한 높여야 합니다.\",\"english\":\"The efficiency at the reduced level should be maximized.\"}}",
+    "solution": "{\"효율성\":\"Efficiency\",\"최대한\":\"Maximally\",\"유지해야 합니다\":\"should be maintained\"}\n\n         {\"english\":\"Efficiency should be maximized and maintained at its highest level.\"}",
     "id": 1830
   },
   {
@@ -24763,7 +24763,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"브라우징\",\"english\":\"browsing\"},{\"korean\":\"웹사이트\",\"english\":\"website\"},{\"korean\":\"관심있어\",\"english\":\"interesting\"}],\"sentence\":{\"korean\":\"브라우징한 웹사이트 중에 관심있어요.\",\"english\":\"There are many interesting websites to browse through.\"}}",
+    "solution": "{\"저는\":\"I\",\"브라우징한\":\"browsing\",\"웹사이트\":\"website\",\"중에\":\"among\",\"관심있는\":\"interesting\",\"것이 있어요\":\"is\"}\n\n         {\"english\":\"I have something that interests me among the browsing websites.\"}",
     "id": 1831
   },
   {
@@ -24778,7 +24778,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무리없이\",\"english\":\"without any reason\"},{\"korean\":\"그들이 하고 싶지 않은 일\",\"english\":\"something they don't want to do\"},{\"korean\":\"어떨까\",\"english\":\"what's up?\"}],\"sentence\":{\"korean\":\"무리없이 그들이 하고 싶지 않은 일을 하고 있으면 어떨까?\",\"english\":\"If they're doing something they don't want to do without any reason, what's up?\"}}",
+    "solution": "{\"무슨 일이 있더라도\":\"Whatever the case may be\",\"그들이 하고 싶지 않는 일은\":\"things they don't want to do\",\"하지 않는다면\":\"if they don't do it\",\"어떨까?\":\"what would happen?\"}\n\n         {\"english\":\"If they don't want to do it even if there's something to be done, what's the use?\"}",
     "id": 1832
   },
   {
@@ -24792,7 +24792,7 @@ export const problems = [
       "inference",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"이론\",\"english\":\"theory\"},{\"korean\":\"생각\",\"english\":\"thought\"},{\"korean\":\"해결책\",\"english\":\"solution\"}],\"sentence\":{\"korean\":\"이론적인 사고를 통해 문제의 해결책을 찾는다.\",\"english\":\"Solutions to problems can be found through theoretical thinking.\"}}",
+    "solution": "{\"문제의 해결책은 이론적인 사고를 통해 찾는다\":{\"문제\":\"problem\",\"해결책\":\"solution\",\"이론적인\":\"theoretical\",\"사고\":\"thinking\",\"통해\":\"through\"}}\n\n         {\"english\":\"Solutions to problems are found through theoretical thinking.\"}",
     "id": 1833
   },
   {
@@ -24807,7 +24807,7 @@ export const problems = [
       "probability",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"예측\",\"english\":\"to predict\"},{\"korean\":\"날짜\",\"english\":\"the day\"},{\"korean\":\"확실하다\",\"english\":\"to be clear\"}],\"sentence\":{\"korean\":\"오늘 날짜를 예측하면 내 주말 계획을 확실할 수 있습니다.\",\"english\":\"If you predict today's date, you can make clear your plans for next week.\"}}",
+    "solution": "{\"오늘 날짜를 예측\":\"To predict today's date\",\"날짜\":\"Date\",\"예측\":\"Prediction\",\"내 주말 계획\":\"My weekend plans\",\"정할\":\"To finalize\",\"수 있습니다\":\"It is possible\"}\n\n         {\"english\":\"Knowing today's date allows me to plan my weekend schedule.\"}",
     "id": 1834
   },
   {
@@ -24821,7 +24821,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지명\",\"english\":\"reason\"},{\"korean\":\"나오다가\",\"english\":\"because of that\"},{\"korean\":\"오류\",\"english\":\"mistake\"}],\"sentence\":{\"korean\":\"지명으로 나오다가 오류를 만들었다.\",\"english\":\"He made a mistake because of the reason.\"}}",
+    "solution": "{\"지명으로 나오다가 오류를 만들었다.\":\"To make an error while trying to state one's name\",\"지명\":\"Name\",\"나오다가\":\"While saying/mentioning\",\"오류\":\"Error\",\"만들었다.\":\"Made\"}\n\n         {\"english\":\"He made a mistake while coming up with the name.\"}",
     "id": 1835
   },
   {
@@ -24833,7 +24833,7 @@ export const problems = [
     "tags": [
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"별\",\"english\":\"star\"},{\"korean\":\"빛나다\",\"english\":\"to shine\"},{\"korean\":\"늘\",\"english\":\"always\"}],\"sentence\":{\"korean\":\"별은 늘 빛나다.\",\"english\":\"The stars always shine.\"}}",
+    "solution": "{\"별은 항상 빛나.\":\"star is always shining.\"}\n\n         {\"english\":\"Stars always shine.\"}",
     "id": 1836
   },
   {
@@ -24849,7 +24849,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지식\",\"english\":\"knowledge\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"늘\",\"english\":\"always\"}],\"sentence\":{\"korean\":\"지식은 몸의 모든 부분을 이기고, 늘 몸의 성장에 도움이 됩니다.\",\"english\":\"Knowledge conquers every part of the body and always helps the growth of the body.\"}}",
+    "solution": "{\"지식\":\"Knowledge\",\"몸\":\"Body\",\"부분\":\"Parts\",\"향상시키\":\"Improve\",\"성장\":\"Growth\",\"도움\":\"Benefit\"}\n\n         {\"english\":\"Knowledge enhances every part of the body and contributes to growth.\"}",
     "id": 1837
   },
   {
@@ -24864,7 +24864,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피해\",\"english\":\"damage\"},{\"korean\":\"완전해\",\"english\":\"solution\"},{\"korean\":\"치료\",\"english\":\"treatment\"}],\"sentence\":{\"korean\":\"피해는 완전해의 치료이 될 수 있습니다.\",\"english\":\"Damage can be cured by a solution.\"}}",
+    "solution": "{\"피해는\":\"Damage can\",\"완전해의\":\"a complete healing\",\"치료\":\"treatment\",\"이 될 수 있습니다\":\"might become\"}\n\n         {\"english\":\"Damage can sometimes be a cure for perfection.\"}",
     "id": 1838
   },
   {
@@ -24877,7 +24877,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가정에서 사과를 먹지만, 친구들은 오렌지를 먹습니다. 이는 어떤 가정의 사고방식인가요?\",\"english\":\"Even though I eat apples at home, my friends eat oranges. What might be the thinking style of this family?\"},{\"korean\":\"사고방식\",\"english\":\"thinking style\"},{\"korean\":\"오렌지\",\"english\":\"oranges\"},{\"korean\":\"사과\",\"english\":\"apples\"}],\"sentence\":{\"korean\":\"가정의 사고방식은 개인의 식단에 따라 달라질 수 있습니다.\",\"english\":\"The thinking style of a family can differ depending on their individual diet.\"}}",
+    "solution": "{\"가정의 사고방식\":\"Household thought patterns\",\"개인\":\"Individual\",\"식단\":\"Diet\",\"달라질 수 있습니다\":\"can vary\"}\n\n         {\"english\":\"The thinking style of a family can vary depending on the individual's diet.\"}",
     "id": 1839
   },
   {
@@ -24890,7 +24890,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"통할\",\"english\":\"to mediate\"},{\"korean\":\"정리\",\"english\":\"to organize\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"상황\",\"english\":\"situation\"}],\"sentence\":{\"korean\":\"우리는 어려운 상황을 효율적으로 통할 수 있습니다.\",\"english\":\"We can efficiently mediate difficult situations.\"}}",
+    "solution": "{\"우리는 어려운 상황을 효율적으로 처리할 수 있습니다.\":\"We can efficiently handle difficult situations.\",\"우리\":\"We\",\"어려운\":\"difficult\",\"상황\":\"situation\",\"효율적으로\":\"efficiently\",\"처리\":\"handle\",\"수 있습니다.\":\"can do\"}\n\n         {\"english\":\"We can efficiently handle difficult situations.\"}",
     "id": 1840
   },
   {
@@ -24905,7 +24905,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"청년\",\"english\":\"youth\"},{\"korean\":\"활약\",\"english\":\"to be active\"},{\"korean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"청년들은 지금 활약하고 있어요.\",\"english\":\"Young people are actively engaged now.\"}}",
+    "solution": "{\"청년들은\":\"Young people are\",\"현재\":\"currently\",\"활동하고 있습니다\":\"engaged in activities\"}\n\n         {\"english\":\"Young people are currently active.\"}",
     "id": 1841
   },
   {
@@ -24920,7 +24920,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불변\",\"english\":\"inexorable\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"경험\",\"english\":\"experience\"}],\"sentence\":{\"korean\":\"불변한 시간은 경험에 가치가 있다.\",\"english\":\"Inextorable time is valuable in experience.\"}}",
+    "solution": "{\"불변한\":\"immutable\",\"시간\":\"time\",\"경험\":\"experiences\",\"가치\":\"value\",\"갖는다\":\"has\"}\n\n         {\"english\":\"Unchanging time holds value in experience.\"}",
     "id": 1842
   },
   {
@@ -24933,7 +24933,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연료\",\"english\":\"fuel\"},{\"korean\":\"전기\",\"english\":\"electricity\"},{\"korean\":\"차량\",\"english\":\"vehicle\"}],\"sentence\":{\"korean\":\"연료와 전기는 차량의 운동을 가능하게 합니다.\",\"english\":\"Fuel and electricity make it possible for a vehicle to run.\"}}",
+    "solution": "{\"연료\":\"Fuel\",\"전기\":\"Electricity\",\"차량\":\"Vehicle\",\"운동\":\"Motion\",\"해줍니다\":\"Enables\"}\n\n         {\"english\":\"Fuel or electricity enables a vehicle to operate.\"}",
     "id": 1843
   },
   {
@@ -24947,7 +24947,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"모두\",\"english\":\"together\"},{\"korean\":\"한\",\"english\":\"one\"},{\"korean\":\"심지어\",\"english\":\"even\"}],\"sentence\":{\"korean\":\"우리 모두가 하나로 심지어 생각하고 행동하면 더 강해지겠습니다.\",\"english\":\"When we all think and act as one, we will become even stronger.\"}}",
+    "solution": "{\"만약\":\"If\",\"우리 모두가\":\"all of us\",\"동일한\":\"same\",\"사고\":\"thoughts\",\"행동\":\"actions\",\"더\":\"more\",\"강해질\":\"become stronger\"}\n\n         {\"english\":\"If we all think and act in the same way, we will become stronger.\"}",
     "id": 1844
   },
   {
@@ -24960,7 +24960,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가버지\",\"english\":\"goad\"},{\"korean\":\"말\",\"english\":\"word\"},{\"korean\":\"용기\",\"english\":\"vessel\"}],\"sentence\":{\"korean\":\"가버지는 말을 하고 용기에 담아 준다.\",\"english\":\"The goad encourages the word and puts it in the vessel.\"}}",
+    "solution": "{\"가버지는\":\"The guardian\",\"말을 하고\":\"speaks\",\"용기에\":\"into a container\",\"담아줍니다\":\"puts\"}\n\n         {\"english\":\"The elder speaks and pours the words into a vessel.\"}",
     "id": 1845
   },
   {
@@ -24974,7 +24974,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"욕심이 많아\",\"english\":\"To have a strong desire\"},{\"korean\":\"물건을 얻는 것\",\"english\":\"To obtain something\"},{\"korean\":\"무슨 일이든 간주\",\"english\":\"Whatever the case may be\"}],\"sentence\":{\"korean\":\"욕심이 많아 물건을 얻는 것도 중요하지만, 무슨 일이든 간주해야 합니다.\",\"english\":\"It is important to obtain things when you have a strong desire, but you should also accept whatever happens.\"}}",
+    "solution": "{\"욕심이 많아 물건을 얻는 것은 중요하지만\":\"Materialistic desire for things is important, but\",\"무슨 일이든 간주하고\":\"one should disregard any task\",\"중요한 것은 목표에 집중해야 합니다\":\"the important thing is to focus on the goal\"}\n\n         {\"english\":\"While it's important to pursue material possessions when you have a strong desire, simply disregarding all tasks and focusing solely on that is not the key. The main thing is to concentrate on achieving your goals.\"}",
     "id": 1846
   },
   {
@@ -24987,7 +24987,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"법령을 해지하다\",\"english\":\"to repeal a law\"},{\"korean\":\"다음 단계\",\"english\":\"next step\"},{\"korean\":\"문제 해결\",\"english\":\"problem-solving\"}],\"sentence\":{\"korean\":\"법령을 해지하고 다음 단계로 문제 해결 과정이 시작되었습니다.\",\"english\":\"The law was repealed and the problem-solving process for the next step has begun.\"}}",
+    "solution": "{\"법령이 해지되었으며\":\"The ordinance has been repealed.\",\"이제\":\"Now\",\"문제 해결 과정이 시작되었습니다\":\"The process of solving the problem has begun.\"}\n\n         {\"english\":\"The regulations have been repealed, and the process of resolving the issue has begun.\"}",
     "id": 1847
   },
   {
@@ -25001,7 +25001,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"산업화\",\"english\":\"industrialization\"},{\"korean\":\"시대\",\"english\":\"era\"},{\"korean\":\"전문성\",\"english\":\"expertise\"}],\"sentence\":{\"korean\":\"산업화는 새로운 시대에 기술과 전문성을 요구합니다.\",\"english\":\"Industrialization demands technological advancements and expertise in the new era.\"}}",
+    "solution": "{\"산업화\":\"Industrialization\",\"새로운\":\"new\",\"시대\":\"era\",\"기술\":\"technology\",\"전문성\":\"expertise\",\"요구\":\"required\"}\n\n         {\"english\":\"Industrialization demands new eras' technology and expertise.\"}",
     "id": 1848
   },
   {
@@ -25016,7 +25016,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"열정이\",\"english\":\"enthusiasm\"},{\"korean\":\"말을\",\"english\":\"to speak\"},{\"korean\":\"피고 있어\",\"english\":\"is bubbling over\"}],\"sentence\":{\"korean\":\"열정이말을 피고 있어요.\",\"english\":\"He/She is bubbling over with enthusiasm.\"}}",
+    "solution": "{\"열정이 말을 해버립니다.\":\"Passion fades away\",\"열정\":\"Passion\",\"말\":\"Word\",\"해버리다\":\"Fades away\",\"있다\":\"Is\"}\n\n         {\"english\":\"Passion boils over the words.\"}",
     "id": 1849
   },
   {
@@ -25030,7 +25030,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무리\",\"english\":\"countless\"},{\"korean\":\"무궁히\",\"english\":\"limitless\"},{\"korean\":\"늘\",\"english\":\"always\"}],\"sentence\":{\"korean\":\"무리 없는 이 순간은 무궁히 아름다워.\",\"english\":\"The moment without any count is endlessly beautiful.\"}}",
+    "solution": "{\"이 순간은\":\"This moment is\",\"무슨 이유 없이\":\"without any reason\",\"아름답네\":\"beautiful indeed\"}\n\n         {\"english\":\"This moment is beautiful for no particular reason.\"}",
     "id": 1850
   },
   {
@@ -25043,7 +25043,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상기\",\"english\":\"memory\"},{\"korean\":\"잔잔\",\"english\":\"lasting\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"상기는 순간이 지나간다. 하지만, 잔잔한 상기는 남아있어요.\",\"english\":\"Memories are fleeting moments that pass by. But lasting memories remain.\"}}",
+    "solution": "{\"상기\":\"memory\",\"순간적으로\":\"suddenly\",\"지나간다\":\"passes\",\"잔잔한\":\"calm\",\"남아 있어요\":\"remains\"}\n\n         {\"english\":\"Memories fade away instantly. But the gentle memories remain.\"}",
     "id": 1851
   },
   {
@@ -25057,7 +25057,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명령하다\",\"english\":\"to prescribe\"},{\"korean\":\"약물\",\"english\":\"medicine\"},{\"korean\":\"치료\",\"english\":\"treatment\"}],\"sentence\":{\"korean\":\"약물을 처방하고 치료를 시작하면 환자가 빠르게 회복합니다.\",\"english\":\"When medicine is prescribed and treatment starts, the patient recovers quickly.\"}}",
+    "solution": "{\"약물을 처방하고 치료를 시작하면 환자가 빠르게 회복합니다.\":{\"약물\":\"Medication\",\"처방\":\"Prescribe\",\"치료\":\"Treatment\",\"환자\":\"Patient\",\"빠르게\":\"Quickly\",\"회복\":\"Recover\"}}\n\n         {\"english\":\"When medication is prescribed and treatment begins, patients recover quickly.\"}",
     "id": 1852
   },
   {
@@ -25070,7 +25070,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"데이터\",\"english\":\"data\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"보관\",\"english\":\"stored\"}],\"sentence\":{\"korean\":\"오늘 데이터는 새로운 정보를 보관했습니다.\",\"english\":\"The data today was stored with new information.\"}}",
+    "solution": "{\"오늘\":\"Today\",\"데이터\":\"Data\",\"는\":\"is\",\"새로운\":\"new\",\"정보\":\"information\",\"포함했습니다\":\"included\"}\n\n         {\"english\":\"Today's data includes new information.\"}",
     "id": 1853
   },
   {
@@ -25085,7 +25085,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거짓말\",\"english\":\"lying\"},{\"korean\":\"피고리\",\"english\":\"blame\"},{\"korean\":\"거진\",\"english\":\"trouble\"}],\"sentence\":{\"korean\":\"피고리한 거짓말은 거진이 됩니다.\",\"english\":\"Blaming someone for a lie makes trouble.\"}}",
+    "solution": "{\"피고리한 거짓말\":\"False promises\",\"거진\":\"Promises\",\"됩니다\":\"come true\"}\n\n         {\"english\":\"Lies that are spoken in secret will be overheard by the villagers.\"}",
     "id": 1854
   },
   {
@@ -25100,7 +25100,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"참치\",\"english\":\"tuna\"},{\"korean\":\"생선\",\"english\":\"fish\"},{\"korean\":\"맛있어요\",\"english\":\"delicious\"}],\"sentence\":{\"korean\":\"참치는 생선 중에 가장 맛있어요.\",\"english\":\"Tuna is the most delicious of all the fish.\"}}",
+    "solution": "{\"참치\":\"Tuna\",\"생선\":\"Seafood\",\"가장\":\"Most\",\"맛있습니다\":\"Tastes good\"}\n\n         {\"english\":\"Tuna is the tastiest fish of all.\"}",
     "id": 1855
   },
   {
@@ -25115,7 +25115,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"포장\",\"english\":\"wrapper\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"보호\",\"english\":\"protection\"}],\"sentence\":{\"korean\":\"포장은 물건을 보호하는 데 도움이 됩니다.\",\"english\":\"The wrapper protects the thing.\"}}",
+    "solution": "{\"포장\":\"Packaging\",\"물건\":\"Items\",\"보호\":\"Protection\",\"안전\":\"Safety\",\"보관\":\"Storage\",\"도움\":\"Help\",\"됩니다\":\"is useful\"}\n\n         {\"english\":\"Packaging helps to protect and securely store goods.\"}",
     "id": 1856
   },
   {
@@ -25129,7 +25129,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"힘\",\"english\":\"strength\"},{\"korean\":\"내용\",\"english\":\"inner\"},{\"korean\":\"거두\",\"english\":\"to gather\"}],\"sentence\":{\"korean\":\"힘이 내용으로 거두어지면, 어려움을 극복할 수 있습니다.\",\"english\":\"When strength gathers inside, one can overcome any difficulty.\"}}",
+    "solution": "{\"힘이 내용으로 쌓여지면 어려움을 극복할 수 있습니다.\":\"When effort accumulates in content, it allows one to overcome difficulties.\"}\n\n         {\"english\":\"When power accumulates in content, it can overcome difficulties.\"}",
     "id": 1857
   },
   {
@@ -25143,7 +25143,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"밥\",\"english\":\"rice\"},{\"korean\":\"맛있어요\",\"english\":\"it's delicious\"},{\"korean\":\"오전 식사에 먹어요\",\"english\":\"I ate it for breakfast\"}],\"sentence\":{\"korean\":\"밥은 오전 식사에맛있어요.\",\"english\":\"Rice is delicious for breakfast.\"}}",
+    "solution": "{\"밥은\":\"The rice\",\"오전\":\"morning meal\",\"식사에\":\"for breakfast\",\"맛있습니다\":\"is delicious\"}\n\n         {\"english\":\"The rice is delicious for breakfast.\"}",
     "id": 1858
   },
   {
@@ -25158,7 +25158,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"마을\",\"english\":\"neighborhood\"},{\"korean\":\"살다\",\"english\":\"to live\"},{\"korean\":\"깨끗해\",\"english\":\"clean\"}],\"sentence\":{\"korean\":\"마을에서 살다보면, 순화한 공기가 깨끗해요.\",\"english\":\"Living in the neighborhood, the clean fresh air is really nice.\"}}",
+    "solution": "{\"마을\":\"village\",\"생활\":\"daily life\",\"순화한\":\"pure\",\"공기\":\"air\",\"깨끗해요\":\"is clean\"}\n\n         {\"english\":\"Living in a village brings pure air that is clean.\"}",
     "id": 1859
   },
   {
@@ -25172,7 +25172,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"유산\",\"english\":\"legacy\"},{\"korean\":\"인사\",\"english\":\"influence\"},{\"korean\":\"작업\",\"english\":\"work\"}],\"sentence\":{\"korean\":\"유산은 인사를 통해 다른 사람들에게 작업을 남긴다.\",\"english\":\"A legacy is left through the influence on others.\"}}",
+    "solution": "{\"유산은\":\"Legacy leaves\",\"인사를\":\"words of appreciation\",\"통해\":\"through\",\"다른 사람들에게\":\"for others\",\"작업을\":\"tasks\",\"남긴다\":\"remains\"}\n\n         {\"english\":\"Legacy leaves an imprint on others through words and actions.\"}",
     "id": 1860
   },
   {
@@ -25187,7 +25187,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"식지\",\"english\":\"awareness\"},{\"korean\":\"명상\",\"english\":\"meditation\"},{\"korean\":\"상상력\",\"english\":\"imagination\"}],\"sentence\":{\"korean\":\"식지는 명상과 상상력을 통해 더욱 풍부해질 수 있습니다.\",\"english\":\"Awareness can be enriched through meditation and imagination.\"}}",
+    "solution": "{\"식지는\":\"Meditation can\",\"명상\":\"meditation\",\"상상력\":\"imagination\",\"풍부해질\":\"become richer\",\"수 있습니다\":\"is possible\"}\n\n         {\"english\":\"Meditation and imagination can enrich your life.\"}",
     "id": 1861
   },
   {
@@ -25202,7 +25202,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"순순한\",\"english\":\"Simple\"},{\"korean\":\"생활 속\",\"english\":\"In everyday life\"},{\"korean\":\"무슨 일이 있더라도\",\"english\":\"even if something happens\"}],\"sentence\":{\"korean\":\"순순한 생활 속 무슨 일이 있더라도, 잊지 말아야 할 것은 가족이야.\",\"english\":\"Even in simple everyday life, the most important thing is family, even if something happens.\"}}",
+    "solution": "{\"물론 순순한 생활 속에서\":\"Of course in a quiet life\",\"무슨 일이 있더라도\":\"even if anything happens\",\"가족은 절대 잊지 말아야 할 사람들이야\":\"family members should never forget the people who are truly special\"}\n\n         {\"english\":\"Of course, even in a mundane life, whenever anything happens, family are the people who you can never forget.\"}",
     "id": 1862
   },
   {
@@ -25216,7 +25216,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"전략\",\"english\":\"strategy\"},{\"korean\":\"상황에 맞춰\",\"english\":\"depending on the situation\"},{\"korean\":\"결과를 얻기 위해\",\"english\":\"to achieve results\"}],\"sentence\":{\"korean\":\"상황에 맞춰 전략을 설정하여 결과를 얻기 위해 노력하세요.\",\"english\":\"Set a strategy depending on the situation and work hard to achieve results.\"}}",
+    "solution": "{\"상황에 맞춰\":\"situation-based\",\"전략\":\"strategy\",\"세우고\":\"developing\",\"노력\":\"effort\",\"결과\":\"outcome\"}\n\n         {\"english\":\"Strategize and work in accordance with the situation to achieve desired outcomes.\"}",
     "id": 1863
   },
   {
@@ -25231,7 +25231,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"가전\",\"english\":\"gadget\"},{\"korean\":\"늘\",\"english\":\"always\"},{\"korean\":\"편하게\",\"english\":\"comfortably\"}],\"sentence\":{\"korean\":\"가전은 항상 편하게 사용합니다.\",\"english\":\"Gadgets are always used comfortably.\"}}",
+    "solution": "{\"가전\":\"Electronics\",\"편리\":\"Convenient\",\"사용\":\"Use\",\"수 있습니다\":\"Can be done\"}\n\n         {\"english\":\"Appliances can be used conveniently.\"}",
     "id": 1864
   },
   {
@@ -25246,7 +25246,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"시간이 지나\",\"english\":\"Time has passed\"},{\"korean\":\"주말 동안\",\"english\":\"over the weekend\"},{\"korean\":\"작업을 하고\",\"english\":\"doing homework\"}],\"sentence\":{\"korean\":\"시간이 지나 주말 동안 작업을 하고 있어요.\",\"english\":\"Time has passed over the weekend and I've been doing homework.\"}}",
+    "solution": "{\"시간이 지나서\":\"Time has passed\",\"주말 동안\":\"over the weekend\",\"작업을 하고 있어요\":\"I have been working\"}\n\n         {\"english\":\"I have been working during the weekend after time passed.\"}",
     "id": 1865
   },
   {
@@ -25260,7 +25260,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"마음\",\"english\":\"heart\"},{\"korean\":\"악마\",\"english\":\"demon\"},{\"korean\":\"싸움\",\"english\":\"fight\"}],\"sentence\":{\"korean\":\"마음에 악마가 싸움을 하고 있어요.\",\"english\":\"There's a fight going on in my heart.\"}}",
+    "solution": "{\"마음에 악마가 싸움을 하고 있어요.\":\"There's a devil in my heart\",\"마음\":\"heart\",\"악마\":\"devil\",\"싸움\":\"fight\",\"하고 있어요\":\"is doing\"}\n\n         {\"english\":\"There's a devil in my heart causing trouble.\"}",
     "id": 1866
   },
   {
@@ -25276,7 +25276,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"두께가 얇아\",\"english\":\"very thin\"},{\"korean\":\"바닥에 물이 잔잔해\",\"english\":\"the floor is covered in a thin layer of water\"},{\"korean\":\"물이 얇아지면 사라지네\",\"english\":\"when the water is thin, it disappears\"}],\"sentence\":{\"korean\":\"두께가 얇아 물이 잔잔해면 사라지네\",\"english\":\"When the water is very thin, it disappears from the surface.\"}}",
+    "solution": "{\"물이 잔잔해지면 두께가 얇아 사라지네\":{\"물이\":\"Water\",\"잔잔해지면\":\"becomes calm\",\"두께가\":\"thickness\",\"얇아\":\"thin\",\"사라지네\":\"disappears\"}}\n\n         {\"english\":\"As the water becomes still, its depth diminishes and it disappears.\"}",
     "id": 1867
   },
   {
@@ -25290,7 +25290,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"화랑\",\"english\":\"anger\"},{\"korean\":\"두려움\",\"english\":\"worry\"},{\"korean\":\"용기\",\"english\":\"tolerance\"}],\"sentence\":{\"korean\":\"화랑은 두려움을 제거할 용기가 중요합니다.\",\"english\":\"Anger can be important for removing worry.\"}}",
+    "solution": "{\"화랑\":\"hero\",\"두려움\":\"fear\",\"없애\":\"to vanquish\",\"용기\":\"courage\",\"중요\":\"important\"}\n\n         {\"english\":\"Courage is important to overcome fear.\"}",
     "id": 1868
   },
   {
@@ -25305,7 +25305,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"겁나기\",\"english\":\"to frighten\"},{\"korean\":\"악한\",\"english\":\"evil\"},{\"korean\":\"물건\",\"english\":\"thing\"}],\"sentence\":{\"korean\":\"악한 물건은 사람을 겁나게 합니다.\",\"english\":\"Evil things frighten people.\"}}",
+    "solution": "{\"악한 물건\":\"Dangerous object\",\"사람\":\"People\",\"두려울\":\"To frighten\",\"수 있습니다\":\"Can be\"}\n\n         {\"english\":\"Dangerous goods can scare people.\"}",
     "id": 1869
   },
   {
@@ -25320,7 +25320,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"마법사\",\"english\":\"sorcerer\"},{\"korean\":\"거동\",\"english\":\"move\"},{\"korean\":\"물리\",\"english\":\"physics\"}],\"sentence\":{\"korean\":\"마법사는 물리적으로 거동할 수 있습니다.\",\"english\":\"A sorcerer can move physically.\"}}",
+    "solution": "{\"마법사\":\"Wizard\",\"물리적으로\":\"Physically\",\"행동할\":\"to act\",\"수 있습니다\":\"can\"}\n\n         {\"english\":\"Mages can physically act.\"}",
     "id": 1870
   },
   {
@@ -25334,7 +25334,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"주류\",\"english\":\"mainstream\"},{\"korean\":\"다양성\",\"english\":\"diversity\"},{\"korean\":\"생활 속\",\"english\":\"in daily life\"}],\"sentence\":{\"korean\":\"주류 생활 속 다양성은 중요합니다.\",\"english\":\"Diversity in daily life is important.\"}}",
+    "solution": "{\"다양성\":\"Diversity\",\"주류 생활\":\"Mainstream life\",\"중요\":\"Important\"}\n\n         {\"english\":\"Diversity is very important in everyday life.\"}",
     "id": 1871
   },
   {
@@ -25348,7 +25348,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"염소\",\"english\":\"bleach\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"반창\",\"english\":\"stain\"}],\"sentence\":{\"korean\":\"염소가 물에 반창을 제거했다.\",\"english\":\"Bleach removed the stain from the water.\"}}",
+    "solution": "{\"염소가 물에 반창을 제거했습니다.\":\"The chlorine removed the scale from the water.\",\"염소\":\"chlorine\",\"물\":\"water\",\"반창\":\"scale\",\"제거\":\"removed\"}\n\n         {\"english\":\"Chlorine removed the scale from the water.\"}",
     "id": 1872
   },
   {
@@ -25363,7 +25363,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오해\",\"english\":\"misunderstanding\"},{\"korean\":\"막상\",\"english\":\"suddenly\"},{\"korean\":\"말버린다\",\"english\":\"speaks carelessly\"}],\"sentence\":{\"korean\":\"오해가 막상 말버린다.\",\"english\":\"There was a sudden misunderstanding.\"}}",
+    "solution": "{\"오해\":\"Misunderstanding\",\"사실상\":\"In fact\",\"말버린다\":\"Means it is true\"}\n\n         {\"english\":\"Misunderstanding often turns out to be true.\"}",
     "id": 1873
   },
   {
@@ -25377,7 +25377,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"용기\",\"english\":\"container\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"편안\",\"english\":\"comfortable\"}],\"sentence\":{\"korean\":\"용기는 보호를 제공하고 편안함을 준다.\",\"english\":\"A container provides protection and comfort.\"}}",
+    "solution": "{\"용기\":\"Container\",\"보호\":\"Protection\",\"편안함\":\"Comfort\",\" 제공\":\"Provides\"}\n\n         {\"english\":\"The container provides protection and comfort.\"}",
     "id": 1874
   },
   {
@@ -25391,7 +25391,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"확실히\",\"english\":\"Certainly\"},{\"korean\":\"오늘\",\"english\":\"Today\"},{\"korean\":\"우리\",\"english\":\"We\"},{\"korean\":\"학교\",\"english\":\"school\"},{\"korean\":\"맛있게\",\"english\":\"deliciously\"}],\"sentence\":{\"korean\":\"확실히 오늘 우리학교는 맛있게 식단이 준비되었습니다.\",\"english\":\"Certainly, we have delicious meals prepared for school today.\"}}",
+    "solution": "{\"오늘\":\"Today\",\"우리학교\":\"Our school\",\"식단\":\"Meal plan\",\"맛있게\":\"Deliciously\",\"준비되었습니다\":\"Was prepared\"}\n\n         {\"english\":\"Today our school cafeteria has prepared a delicious menu.\"}",
     "id": 1875
   },
   {
@@ -25406,7 +25406,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"치명적인\",\"english\":\"critical\"},{\"korean\":\"선망\",\"english\":\"sigh\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"치명적인 선망이, 이 순간의 시간은 너무 길게 느껴지네요.\",\"english\":\"A critical sigh fills the air, making this moment feel incredibly long.\"}}",
+    "solution": "{\"치명적인\":\"Critical\",\"선망\":\"Longing\",\"시간\":\"Time\",\"느껴지네요\":\"Feels like a long time\"}\n\n         {\"english\":\"It's a deadly perspective, but this moment seems to stretch on forever.\"}",
     "id": 1876
   },
   {
@@ -25420,7 +25420,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"투표\",\"english\":\"vote\"},{\"korean\":\"선거\",\"english\":\"election\"},{\"korean\":\"민주\",\"english\":\"democracy\"}],\"sentence\":{\"korean\":\"투표는 민주주의의 근본이다.\",\"english\":\"Voting is the foundation of democracy.\"}}",
+    "solution": "{\"투표\":\"Voting\",\"민주주의\":\"Democracy\",\"기본\":\"Fundamental\",\"요소\":\"Element\",\"중요\":\"Important\"}\n\n         {\"english\":\"Voting is a crucial element of democracy.\"}",
     "id": 1877
   },
   {
@@ -25433,7 +25433,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"버크\",\"english\":\"buck\"},{\"korean\":\"살\",\"english\":\"life\"},{\"korean\":\"피크업\",\"english\":\"pickup\"}],\"sentence\":{\"korean\":\"버크는 살의 가치를 찾는 피크업이야.\",\"english\":\"A buck is a pickup in the value of life.\"}}",
+    "solution": "{\"버크\":\"Bark\",\"살\":\"Life\",\"가치\":\"Value\",\"찾는\":\"Searching for\",\"여행\":\"Journey\"}\n\n         {\"english\":\"A voyage to find the worth of life.\"}",
     "id": 1878
   },
   {
@@ -25449,7 +25449,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"매우\",\"english\":\"extremely\"},{\"korean\":\"대단히\",\"english\":\"significantly\"},{\"korean\":\"성공\",\"english\":\"success\"}],\"sentence\":{\"korean\":\"매우 대단히 시도해 성공했다.\",\"english\":\"He succeeded extremely significantly after trying very hard.\"}}",
+    "solution": "{\"매우 열심히 시도하여 성공했다.\":\"Made great efforts and succeeded\",\"매우\":\"very\",\"열심히\":\"diligently, with great effort\",\"시도\":\"attempt, try\",\"성공했다\":\"succeeded\"}\n\n         {\"english\":\"I worked extremely hard and succeeded.\"}",
     "id": 1879
   },
   {
@@ -25463,7 +25463,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"이윤\",\"english\":\"profit\"},{\"korean\":\"정직\",\"english\":\"integrity\"},{\"korean\":\"선명\",\"english\":\"transparent\"}],\"sentence\":{\"korean\":\"이윤은 정직하고 선명해야 사회가 발전합니다.\",\"english\":\"Profit should be generated with integrity and transparency for social development.\"}}",
+    "solution": "{\"이윤\":\"profit\",\"정직\":\"integrity\",\"투명\":\"transparency\",\"사회\":\"society\",\"발전\":\"development\"}\n\n         {\"english\":\"Profit must be fair and transparent for society to progress.\"}",
     "id": 1880
   },
   {
@@ -25477,21 +25477,21 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"구성\",\"english\":\"configuration\"},{\"korean\":\"변화\",\"english\":\"change\"},{\"korean\":\"계획\",\"english\":\"plan\"}],\"sentence\":{\"korean\":\"다양한 구성 요소를 변경하여 최적의 계획을 만듭니다.\",\"english\":\"We configure various components to make the best plan.\"}}",
+    "solution": "{\"다양한 구성 요소\":\"various components\",\"조정\":\"adjustment\",\"최적\":\"optimal\",\"계획\":\"plan\",\"만듭니다\":\"is made\"}\n\n         {\"english\":\"We tailor plans by adjusting various components to achieve optimal outcomes.\"}",
     "id": 1881
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "pail",
-    "problem": "pail은 물을 담아 날에 사용(使用)합니다.\n",
+    "problem": "물통(물桶)은 물을 담아 날에 사용(使用)합니다.\n",
     "length": 21,
     "tags": [
       "grade-5",
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"pail\",\"english\":\"bucket\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"물\",\"english\":\"water\"}],\"sentence\":{\"korean\":\"pail은 물을 담아 날에 사용합니다.\",\"english\":\"We use a bucket to carry water for the day.\"}}",
+    "solution": "{\"물통\":\"Jug\",\"물\":\"Water\",\"담아\":\"Filled\",\"날\":\"Day\",\"사용합니다\":\"Is used\"}\n\n         {\"english\":\"Water jars are used to hold water and are used on the day.\"}",
     "id": 1882
   },
   {
@@ -25504,7 +25504,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"애교하다\",\"english\":\"to coddle\"},{\"korean\":\"용기\",\"english\":\"a container\"},{\"korean\":\"말\",\"english\":\"a word\"}],\"sentence\":{\"korean\":\"애교할 용기 말은 가치 있다.\",\"english\":\"The word that is coddled is valuable.\"}}",
+    "solution": "{\"애교할 용기 말은 가치가 있다.\":\"Words that speak from experience hold value.\"}\n\n         {\"english\":\"Those who can endure hardship have great value.\"}",
     "id": 1883
   },
   {
@@ -25518,7 +25518,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"모방하다\",\"english\":\"to mimic\"},{\"korean\":\"치명적으로\",\"english\":\"extremely\"},{\"korean\":\"재미있다\",\"english\":\"is fun\"}],\"sentence\":{\"korean\":\"치명적으로 모방하다면 재미있겠어요.\",\"english\":\"If you mimic something extremely, it will be fun, you know.\"}}",
+    "solution": "{\"치명적으로\":\"Extremely\",\"모방\":\"Mimicry\",\"재미있겠네요\":\"Would be fun\"}\n\n         {\"english\":\"If you mimic me critically, it will be fun.\"}",
     "id": 1884
   },
   {
@@ -25534,7 +25534,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"깨끗한\",\"english\":\"clean\"},{\"korean\":\"침입\",\"english\":\"intrusion\"},{\"korean\":\"방해\",\"english\":\"obstacle\"}],\"sentence\":{\"korean\":\"깨끗한 공기는 방해 없이 침입하여 호흡기 건강에 도움이 됩니다.\",\"english\":\"Clean air intrudes without obstacles to promote respiratory health.\"}}",
+    "solution": "{\"깨끗한 공기\":\"Clean air\",\"방해 없이\":\"without hindering\",\"호흡기로\":\"into the respiratory tract\",\"침입\":\"infiltration\",\"건강\":\"health\",\"도움이 됩니다\":\"is beneficial\"}\n\n         {\"english\":\"Clean air readily penetrates the respiratory system without hindrance and promotes health.\"}",
     "id": 1885
   },
   {
@@ -25548,7 +25548,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보관함\",\"english\":\"locker\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"물건\",\"english\":\"belongings\"}],\"sentence\":{\"korean\":\"보관함에 학생의 물건을 담아 있습니다.\",\"english\":\"The student's belongings are in the locker.\"}}",
+    "solution": "{\"학생들이 물건을 보관함에 담아 있습니다.\":\"Students have placed their belongings in storage.\",\"학생들\":\"students\",\"물건\":\"belongings\",\"보관\":\"storage\",\"담아 있습니다.\":\"have placed\"}\n\n         {\"english\":\"The students have it stored away.\"}",
     "id": 1886
   },
   {
@@ -25564,7 +25564,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감기\",\"english\":\"cold\"},{\"korean\":\"색깔\",\"english\":\"color\"},{\"korean\":\"투명\",\"english\":\"transparent\"},{\"korean\":\"빛\",\"english\":\"light\"}],\"sentence\":{\"korean\":\"감기의 색깔은 투명한 빛이지만, 실제로는 색깔이 있다.\",\"english\":\"The cold has a transparent light, but in reality, it has color.\"}}",
+    "solution": "{\"감기\":\"fog\",\"투명한\":\"transparent\",\"빛\":\"light\",\"보이지만\":\"appears to be\",\"실제로\":\"actually\",\"색깔\":\"color\"}\n\n         {\"english\":\"It looks transparent like light, but actually has color.\"}",
     "id": 1887
   },
   {
@@ -25578,7 +25578,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"후원자\",\"english\":\"patron\"},{\"korean\":\"보호\",\"english\":\"protection\"},{\"korean\":\"보호받는\",\"english\":\"protected\"}],\"sentence\":{\"korean\":\"후원자가 보호받는 것은 보호를 제공하는 것이 중요합니다.\",\"english\":\"It is important for a patron to be protected, as they provide protection.\"}}",
+    "solution": "{\"보호자\":\"Guardian\",\"보호\":\"Protection\",\"중요합니다\":\"is important\",\"그들이\":\"They\",\"보호받는\":\"are protected\",\"당연합니다\":\"is natural\"}\n\n         {\"english\":\"Protectors are vital in providing protection. It is natural for those being protected to receive protection.\"}",
     "id": 1888
   },
   {
@@ -25593,7 +25593,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불공정\",\"english\":\"intolerance\"},{\"korean\":\"차이\",\"english\":\"difference\"},{\"korean\":\"우리\",\"english\":\"we\"},{\"korean\":\"생각\",\"english\":\"belief\"}],\"sentence\":{\"korean\":\"불공정한 사고는 사회의 발전을 방해합니다.\",\"english\":\"Intolerance of difference hinders the progress of society.\"}}",
+    "solution": "{\"불공정한 사고\":\"Unfair thinking\",\"사회 발전\":\"Social development\",\"장애물\":\"Obstacle\"}\n\n         {\"english\":\"Unfair thinking is an obstacle to social development.\"}",
     "id": 1889
   },
   {
@@ -25607,7 +25607,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"종속\",\"english\":\"dependence\"},{\"korean\":\"삶\",\"english\":\"life\"},{\"korean\":\"무슨 일이든\",\"english\":\"whatever happens\"}],\"sentence\":{\"korean\":\"삶은 무슨 일이든 종속될 수 있다.\",\"english\":\"Life is bound to depend on something, whatever that may be.\"}}",
+    "solution": "{\"삶은 무슨 일이든 끝나거나 종속될 수 있다\":{\"삶\":\"life\",\"무슨\":\"any\",\"일\":\"thing\",\"끝나거나\":\"ends or terminates\",\"종속될\":\"can be terminated\",\"수 있다\":\"is possible\"}}\n\n         {\"english\":\"Life is fleeting, and everything eventually ends or ceases to exist.\"}",
     "id": 1890
   },
   {
@@ -25620,7 +25620,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"관찰\",\"english\":\"observe\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"상황을 관찰하여 변화를 예측합니다.\",\"english\":\"We predict changes by observing the situation.\"}}",
+    "solution": "{\"상황을 관찰하여\":\"Observing the situation\",\"변화의 패턴\":\"Patterns of change\",\"분석하여\":\"Analyzing to identify\",\"예측합니다\":\"Predicting\"}\n\n         {\"english\":\"The situation is observed and analyzed to predict patterns of change.\"}",
     "id": 1891
   },
   {
@@ -25635,7 +25635,7 @@ export const problems = [
       "inference",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무관심\",\"english\":\"indifferent\"},{\"korean\":\"날카스한\",\"english\":\"calm\"},{\"korean\":\"상황에\",\"english\":\"depending on the situation\"}],\"sentence\":{\"korean\":\"무관심한 날카스한 상황에 처하면, 어떻게 해야 할지 생각해 보세요.\",\"english\":\"If you are indifferent and calm in a situation, think about what you should do.\"}}",
+    "solution": "{\"무관심한 날카스한 상황에 처하면, 어떻게 해야 할지 생각해 보세요.\":\"How to deal with a casual and indifferent situation\",\"날카스한\":\"indifferent\",\"상황\":\"situation\",\"처하면\":\"to deal with\",\"어떻게 해야 할지\":\"how to\",\"생각해 보세요.\":\"consider\"}\n\n         {\"english\":\"When faced with a nonchalant and precarious situation, contemplate how to navigate it effectively.\"}",
     "id": 1892
   },
   {
@@ -25650,7 +25650,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"교사\",\"english\":\"teacher\"},{\"korean\":\"책임\",\"english\":\"responsibility\"},{\"korean\":\"학생\",\"english\":\"student\"}],\"sentence\":{\"korean\":\"교사는 학생들에게 책임을 다해야 합니다.\",\"english\":\"Teachers are responsible for taking care of students.\"}}",
+    "solution": "{\"교사\":\"Teacher\",\"학생들\":\"Students\",\"학업 성과\":\"Academic performance\",\"책임\":\"Responsibility\",\"다야\":\"Should\"}\n\n         {\"english\":\"Teachers are responsible for the academic performance of their students.\"}",
     "id": 1893
   },
   {
@@ -25663,7 +25663,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"중개자\",\"english\":\"intermediary\"},{\"korean\":\"피해자\",\"english\":\"victim\"},{\"korean\":\"상황\",\"english\":\"situation\"}],\"sentence\":{\"korean\":\"피해자가 상황을 이해하고 중개자가 도와야 합니다.\",\"english\":\"The victim needs to understand the situation and the intermediary should help.\"}}",
+    "solution": "{\"피해자가 상황을 이해하고\":\"The victim must understand the situation\",\"중개자가 도와야 합니다\":\"The mediator should help.\"}\n\n         {\"english\":\"The victim needs to understand the situation, and the mediator needs to assist them.\"}",
     "id": 1894
   },
   {
@@ -25676,7 +25676,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침해\",\"english\":\"intrusion\"},{\"korean\":\"영역\",\"english\":\"domain\"},{\"korean\":\"경계\",\"english\":\"boundary\"}],\"sentence\":{\"korean\":\"그들의 영역은 공평한 경계 내에서 침해될 수 없습니다.\",\"english\":\"Their domain cannot be infringed within the fair boundaries.\"}}",
+    "solution": "{\"그들의 영역\":\"Their territory\",\"공평한 경계\":\"Fair boundaries\",\"침해될 수 없\":\"Cannot be invaded\",\"이는\":\"This is\",\"평등과 권리의 원리\":\"Principle of equality and rights\",\"위배\":\"Violates\"}\n\n         {\"english\":\"Their domain cannot be encroached upon within fair boundaries, as this violates the principles of equality and rights.\"}",
     "id": 1895
   },
   {
@@ -25689,7 +25689,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상담\",\"english\":\"consult\"},{\"korean\":\"전문가\",\"english\":\"expert\"},{\"korean\":\"정보\",\"english\":\"information\"}],\"sentence\":{\"korean\":\"상담 전문가에게 문제 해결 정보를 얻었다.\",\"english\":\"I got the solution information from an expert consultant.\"}}",
+    "solution": "{\"상담 전문가로부터\":\"From the consultant specialist\",\"문제 해결 정보를\":\"problem-solving information\",\" 얻었다\":\"received\"}\n\n         {\"english\":\"I got problem-solving information from a consultant.\"}",
     "id": 1896
   },
   {
@@ -25704,7 +25704,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침입\",\"english\":\"intrusion\"},{\"korean\":\"거주\",\"english\":\"resident\"},{\"korean\":\"공간\",\"english\":\"space\"}],\"sentence\":{\"korean\":\"침입자가 거주하는 공간은 작아서 매우 좁습니다.\",\"english\":\"The space occupied by the intruders is very small.\"}}",
+    "solution": "{\"침입자가 거주하는 공간은 너무 작아 매우 좁아요.\":\"The space occupied by the infiltrators is too small and very cramped.\"}\n\n         {\"english\":\"The space where the invaders reside is too small and very cramped.\"}",
     "id": 1897
   },
   {
@@ -25718,7 +25718,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무고해\",\"english\":\"careless\"},{\"korean\":\"선물\",\"english\":\"present\"},{\"korean\":\"받기\",\"english\":\"to receive\"}],\"sentence\":{\"korean\":\"무고해 선물을 받아서 정말 기뻐해요.\",\"english\":\"I'm so happy to receive the careless present.\"}}",
+    "solution": "{\"무고해\":\"grateful\",\"선물\":\"gift\",\"받아서\":\"receiving\",\"정말\":\"really\",\"고맙해요\":\"thank you very much\"}\n\n         {\"english\":\"I'm so grateful to receive such a thoughtful gift. Thank you so much!\"}",
     "id": 1898
   },
   {
@@ -25732,7 +25732,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명백히\",\"english\":\"blatantly\"},{\"korean\":\"죄책감 없이\",\"english\":\"without a shred of guilt\"},{\"korean\":\"선의를 다 하고\",\"english\":\"having fulfilled all obligations\"}],\"sentence\":{\"korean\":\"명백히 죄책감 없이 선의를 다 하고 있기 때문에, 지금 이 순간에 이 상황이 가능합니다.\",\"english\":\"Since I have fulfilled all my duties blatantly without any guilt, this situation is now possible.\"}}",
+    "solution": "{\"죄책감 없이 선의를 다 하고 있기 때문에\":\"Feeling no guilt, making decisions accordingly\",\"이 순간\":\"This moment\",\"이 상황\":\"This situation\",\"가능합니다\":\"is possible\"}\n\n         {\"english\":\"Since you take responsibility without any burden, such a situation is possible at this moment.\"}",
     "id": 1899
   },
   {
@@ -25747,7 +25747,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"명확하다\",\"english\":\"is obvious\"},{\"korean\":\"상상력\",\"english\":\"imagination\"},{\"korean\":\"경험\",\"english\":\"experience\"}],\"sentence\":{\"korean\":\"상상력과 경험이 결합되어 명확해진다.\",\"english\":\"When imagination and experience are combined, it becomes obvious.\"}}",
+    "solution": "{\"상상력\":\"Imagination\",\"경험\":\"Experience\",\"결합\":\"Combination\",\"명확해진다\":\"Became clear\"}\n\n         {\"english\":\"Imagination combined with experience clarifies things.\"}",
     "id": 1900
   },
   {
@@ -25762,7 +25762,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"식단\",\"english\":\"diet\"},{\"korean\":\"몸\",\"english\":\"body\"},{\"korean\":\"건강\",\"english\":\"health\"}],\"sentence\":{\"korean\":\"식단을 통해 건강을 향상시킨다.\",\"english\":\"A diet can improve health.\"}}",
+    "solution": "{\"식단을 통해 건강을 개선한다.\":\"Dietary changes improve health\",\"식단\":\"Diet\",\"건강\":\"Health\",\"개선하다\":\"Improve\",\"다음\":\"Through\",\"건강을 개선한다.\":\"Improves health\"}\n\n         {\"english\":\"Diet improves health.\"}",
     "id": 1901
   },
   {
@@ -25776,7 +25776,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"옷\",\"english\":\"clothes\"},{\"korean\":\"두피\",\"english\":\"fabric\"},{\"korean\":\"색\",\"english\":\"color\"}],\"sentence\":{\"korean\":\"옷은 두피의 색으로 만들어집니다.\",\"english\":\"Clothes are made from the fabric's color.\"}}",
+    "solution": "{\"옷은\":\"The clothes are\",\"두피색으로\":\"made in two-tone color\",\" 만들어집니다\":\"made\"}\n\n         {\"english\":\"The clothes are made in two-tone.\"}",
     "id": 1902
   },
   {
@@ -25790,7 +25790,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"친구\",\"english\":\"friend\"},{\"korean\":\"놀이\",\"english\":\"play\"},{\"korean\":\"함께\",\"english\":\"together\"}],\"sentence\":{\"korean\":\"친구들과 함께놀이하면 더 재미있어요.\",\"english\":\"It's more fun to play with friends.\"}}",
+    "solution": "{\"친구들과 함께 하면 더 재미있어요.\":\"It's more fun to do things with friends.\"}\n\n         {\"english\":\"It's more fun to do things with friends.\"}",
     "id": 1903
   },
   {
@@ -25804,7 +25804,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"플랫폼\",\"english\":\"platform\"},{\"korean\":\"정보\",\"english\":\"information\"},{\"korean\":\"접근\",\"english\":\"access\"}],\"sentence\":{\"korean\":\"플랫폼에 새로운 정보가 접근했습니다.\",\"english\":\"New information has been accessed on the platform.\"}}",
+    "solution": "{\"새로운 정보\":\"New information\",\"플랫폼\":\"Platform\",\"도착했습니다\":\"arrived\"}\n\n         {\"english\":\"New information has arrived on the platform.\"}",
     "id": 1904
   },
   {
@@ -25819,7 +25819,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"폭포\",\"english\":\"cascade\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"내린다\",\"english\":\"flows down\"}],\"sentence\":{\"korean\":\"폭포는 물이 내린다.\",\"english\":\"A cascade flows down with water.\"}}",
+    "solution": "{\"폭포\":\"waterfall\",\"물\":\"water\",\"내립니다\":\"is pouring out\"}\n\n         {\"english\":\"The waterfall releases water.\"}",
     "id": 1905
   },
   {
@@ -25835,7 +25835,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"화석\",\"english\":\"fossil\"},{\"korean\":\"날짜\",\"english\":\"time\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"화석은 시간의 변화를 보여준다.\",\"english\":\"Fossils show the changes that have happened over time.\"}}",
+    "solution": "{\"화석\":\"Fossil\",\"시간\":\"Time\",\"변화\":\"Change\",\"보여줍니다\":\"Shows\"}\n\n         {\"english\":\"Fossil fuels show the changes in time.\"}",
     "id": 1906
   },
   {
@@ -25849,7 +25849,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"피크업\",\"english\":\"pickup\"},{\"korean\":\"리더\",\"english\":\"leader\"},{\"korean\":\"팀\",\"english\":\"team\"}],\"sentence\":{\"korean\":\"피크업 리더는 팀원들과 함께 계획을 세웁니다.\",\"english\":\"The pickup leader sets plans together with the team members.\"}}",
+    "solution": "{\"피크업 리더\":\"Pick-up leader\",\"팀원들\":\"Team members\",\"계획\":\"Plan\",\"세우다\":\"To make/devise\"}\n\n         {\"english\":\"The pickup leader sets plans with the team members.\"}",
     "id": 1907
   },
   {
@@ -25862,20 +25862,20 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선생님\",\"english\":\"teacher\"},{\"korean\":\"학생\",\"english\":\"student\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\"korean\":\"수업\",\"english\":\"class\"}],\"sentence\":{\"korean\":\"오늘 선생님의 수업은 매우 재미있네요.\",\"english\":\"Today's class was very fun with the teacher.\"}}",
+    "solution": "{\"오늘\":\"Today\",\"선생님\":\"Teacher\",\"수업\":\"Lesson\",\"정말\":\"Really\",\"재미있네요\":\"It's fun/interesting\"}\n\n         {\"english\":\"Today's class with the teacher was actually fun.\"}",
     "id": 1908
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "proviso",
-    "problem": "프리viso는 패턴이 불규칙(不規則)하면 예상(豫想)치 못한 결과(結果)가 나타날 수 있습니다.\n",
+    "problem": "프리viso는 패턴이 규칙(規則)하지 않으면 예상(豫想)치 못한 결과(結果)가 나타날 수 있습니다.\n",
     "length": 43,
     "tags": [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"프리viso\",\"english\":\"condition\"},{\"korean\":\"만약\",\"english\":\"if\"},{\"korean\":\"불규칙한\",\"english\":\"irregular\"},{\"korean\":\"패턴\",\"english\":\"pattern\"}],\"sentence\":{\"korean\":\"프리viso는 만약 패턴이 불규칙하면 예상치 못한 결과가 나타날 수 있습니다.\",\"english\":\"The proviso is if there is an irregular pattern, it can lead to unexpected results.\"}}",
+    "solution": "{\"프리viso\":\"Predictor\",\"패턴\":\"Pattern\",\"규칙\":\"Rule\",\"예상치 못한\":\"Unexpected\",\"결과\":\"Outcome\"}\n\n         {\"english\":\"If a pattern is not regular in Freviso, unexpected results may occur.\"}",
     "id": 1909
   },
   {
@@ -25888,7 +25888,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상황을 정할\",\"english\":\"to situate\"},{\"korean\":\"인지\",\"english\":\"understanding\"},{\"korean\":\"맥락\",\"english\":\"context\"}],\"sentence\":{\"korean\":\"상황을 이해하고 맥락을 정할 수록 더 나은 결정을 내릴 수 있습니다.\",\"english\":\"When you understand the situation and its context, you can make better decisions.\"}}",
+    "solution": "{\"상황을 이해하고\":\"To understand the situation\",\"그 배경을 파악하면\":\"To identify the background\",\"더 나은 결정을 내릴 수 있습니다\":\"Better decisions can be made\"}\n\n         {\"english\":\"Understanding the situation and its background will enable you to make better decisions.\"}",
     "id": 1910
   },
   {
@@ -25903,7 +25903,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"크림색\",\"english\":\"Crimson\"},{\"korean\":\"날개\",\"english\":\"Wing\"},{\"korean\":\"날개하단\",\"english\":\"Feather\"}],\"sentence\":{\"korean\":\"크림색 날개하단은 날개 위에 비춰 보인다.\",\"english\":\"Crimson feathers on the wing are visible against the sky.\"}}",
+    "solution": "{\"크림색 날개 하단\":\"Cream-colored underside of the wing\",\"날개 위\":\"Upper part of the wing\",\"비춰 보임\":\"To be visible\",\"이에\":\"Thus\"}\n\n         {\"english\":\"The underside of the cream-colored wings is visible from above.\"}",
     "id": 1911
   },
   {
@@ -25918,7 +25918,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상품\",\"english\":\"product\"},{\"korean\":\"고품질\",\"english\":\"high-quality\"},{\"korean\":\"편리\",\"english\":\"convenient\"}],\"sentence\":{\"korean\":\"상품의 고품질과 편리성 때문에, 많은 사람들이 선택합니다.\",\"english\":\"People often choose this product because of its high quality and convenience.\"}}",
+    "solution": "{\"상품의\":\"Product's\",\"뛰어난\":\"excellent\",\"품질\":\"quality\",\"편리성\":\"convenience\",\"사람들에게\":\"for people\",\"선택의\":\"reason for selection\",\"이유\":\"reason\"}\n\n         {\"english\":\"The excellent quality and convenience of the product are reasons why people choose it.\"}",
     "id": 1912
   },
   {
@@ -25933,7 +25933,7 @@ export const problems = [
       "time",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"안녕하세요\",\"english\":\"Hello\"},{\"korean\":\"오전에 만날 예정이에요\",\"english\":\"We're scheduled to meet in the morning\"},{\"korean\":\"약 10시에 집에 도착할 예정이에요\",\"english\":\"We're expected to arrive home around 10am\"}],\"sentence\":{\"korean\":\"안녕하세요, 오전에 만날 예정이에요. 약 10시에 집에 도착할 예정이에요.\",\"english\":\"Hello, we're scheduled to meet this morning. We're expected to arrive home around 10am.\"}}",
+    "solution": "{\"안녕하세요\":\"Hello\",\"오전\":\"Morning\",\"만날\":\"to meet\",\"예정\":\"scheduled\",\"약\":\"around\",\"10시\":\"10 o'clock\",\"집에\":\"home\",\"도착\":\"to arrive\"}\n\n         {\"english\":\"Hello. I'm scheduled to arrive home around 10am today.\"}",
     "id": 1913
   },
   {
@@ -25947,7 +25947,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"복수\",\"english\":\"revenge\"},{\"korean\":\"피고리\",\"english\":\"to suffer\"},{\"korean\":\"용기\",\"english\":\"container\"}],\"sentence\":{\"korean\":\"복수한 피고리는 용기에 담겨 있더라.\",\"english\":\"Many of the sufferings are contained within the container.\"}}",
+    "solution": "{\"복수한 피고리는\":\"There are many suspects\",\"용기 속에 담겨있어요\":\"are contained in a container\"}\n\n         {\"english\":\"There are multiple defendants enclosed in the container.\"}",
     "id": 1914
   },
   {
@@ -25963,7 +25963,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"발사소리\",\"english\":\" gunshot\"},{\"korean\":\"경악\",\"english\":\"trouble\"},{\"korean\":\"피해자\",\"english\":\"victim\"}],\"sentence\":{\"korean\":\"발사소리는 종종 경악의 피해자들이 됩니다.\",\"english\":\"Gunshots often leave victims of trouble.\"}}",
+    "solution": "{\"발사소리는\":\"The noise of gunfire\",\"종종\":\"often\",\"경악\":\"hostility\",\"피해를 입히는\":\"causes damage\",\"경악에\":\"due to hostility\"}\n\n         {\"english\":\"Rocket launches often cause damage to nearby structures.\"}",
     "id": 1915
   },
   {
@@ -25978,7 +25978,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"보여주는\",\"english\":\"revealing\"},{\"korean\":\"거대한\",\"english\":\"vast\"},{\"korean\":\"비밀\",\"english\":\"mystery\"}],\"sentence\":{\"korean\":\"보여주는 거대한 비밀은, 시간이 지남에 점점 해소됩니다.\",\"english\":\"The vast mystery that is revealed over time gradually disappears as time passes.\"}}",
+    "solution": "{\"시간이 지남에 보여주는 거대한 비밀\":\"The immense secret revealed by the passage of time\",\"점점 해소됩니다\":\"Gradually fades away\"}\n\n         {\"english\":\"The immense mystery revealed by the passage of time gradually dissolves.\"}",
     "id": 1916
   },
   {
@@ -25991,7 +25991,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"짧아지다\",\"english\":\"to become shorter\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"시간이 지나면 모든 것은 바뀌고 짧아지더라.\",\"english\":\"As time passes, everything changes and becomes shorter.\"}}",
+    "solution": "{\"시간이 지나면\":\"As time passes\",\"모든 것은\":\"Everything\",\"바뀌고\":\"changes\",\"단기간에\":\"in a short period of time\",\"사라지더라\":\"disappears\"}\n\n         {\"english\":\"As time passes, everything changes and even vanishes in a short period.\"}",
     "id": 1917
   },
   {
@@ -26006,7 +26006,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"조금\",\"english\":\"a little\"},{\"korean\":\"더\",\"english\":\"more\"},{\"korean\":\"피곤해\",\"english\":\"tired\"}],\"sentence\":{\"korean\":\"조금 더 피곤해졌어요.\",\"english\":\"I feel a little more tired now.\"}}",
+    "solution": "{\"조금\":\"a little\",\"피곤해졌어요\":\"tired/exhausted\"}\n\n         {\"english\":\"I feel a little tired.\"}",
     "id": 1918
   },
   {
@@ -26021,7 +26021,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"잎들\",\"english\":\"leaves\"},{\"korean\":\"꽃잎\",\"english\":\"petals\"},{\"korean\":\"나무\",\"english\":\"tree\"}],\"sentence\":{\"korean\":\"나무의 잎들은 가을에 색을 바꿔요.\",\"english\":\"The leaves of the tree change color in fall.\"}}",
+    "solution": "{\"가을이 되면\":\"When fall comes\",\"나무의 잎들은\":\"The leaves of the trees\",\"색을 바꿔요\":\"change color\"}\n\n         {\"english\":\"When autumn comes, the leaves of the trees change color.\"}",
     "id": 1919
   },
   {
@@ -26036,7 +26036,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"감사\",\"english\":\"gratitude\"},{\"korean\":\"나누기\",\"english\":\"conversation\"}],\"sentence\":{\"korean\":\"선물은 감사의 나누기를 해줍니다.\",\"english\":\"A gift brings about a conversation of gratitude.\"}}",
+    "solution": "{\"선물은\":\"A gift is\",\"감사의\":\"a token of gratitude\",\"말을 해줍니다\":\"it speaks of thanks.\"}\n\n         {\"english\":\"A gift speaks louder than words of gratitude.\"}",
     "id": 1920
   },
   {
@@ -26052,7 +26052,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비늘\",\"english\":\"grit\"},{\"korean\":\"바닥\",\"english\":\"floor\"},{\"korean\":\"날카스\",\"english\":\"heel\"}],\"sentence\":{\"korean\":\"비늘이 바닥에 날카스를 합니다.\",\"english\":\"There is grit on the heel of the floor.\"}}",
+    "solution": "{\"비늘\":\"scales\",\"바닥\":\"bottom\",\"날카스\":\"sharp object\",\"날다\":\"to pierce\"}\n\n         {\"english\":\"The nails are scratching the bottom.\"}",
     "id": 1921
   },
   {
@@ -26068,7 +26068,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"깨끗\",\"english\":\"neat\"},{\"korean\":\"거물\",\"english\":\"things\"},{\"korean\":\"치리\",\"english\":\"tidy\"}],\"sentence\":{\"korean\":\"깨끗한 거물은 치리할 수 있어요.\",\"english\":\"Neat things can be easily tidied up.\"}}",
+    "solution": "{\"깨끗한 물건\":\"Clean items\",\"치리\":\"To rinse off\",\"할 수 있어요\":\"can be done\"}\n\n         {\"english\":\"Clean items can be sterilized.\"}",
     "id": 1922
   },
   {
@@ -26083,7 +26083,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"정의\",\"english\":\"definition\"},{\"korean\":\"용어\",\"english\":\"word\"},{\"korean\":\"뜻\",\"english\":\"meaning\"}],\"sentence\":{\"korean\":\"정의는 단어의 뜻을 정하는 것입니다.\",\"english\":\"A definition is the act of establishing the meaning of a word.\"}}",
+    "solution": "{\"정의는 단어의 의미를 결정합니다.\":\"Justice determines the meaning of words.\"}\n\n         {\"english\":\"Justice determines the meaning of words.\"}",
     "id": 1923
   },
   {
@@ -26098,7 +26098,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"일기가 처음에 예상했던 것보다 더 따뜻해졌네요\",\"english\":\"The weather is warmer than expected at first.\"},{\"korean\":\"예상치 못한 변화\",\"english\":\"Unanticipated change\"},{\"korean\":\"온도\",\"english\":\"Temperature\"}],\"sentence\":{\"korean\":\"일기가 처음에 예상했던 것보다 더 따뜻해졌네요. 변화는 예상치 못했기 때문에 더 특별해.\",\"english\":\"The weather is warmer than expected at first. The change is unanticipated, making it even more special.\"}}",
+    "solution": "{\"기후\":\"climate\",\"처음\":\"initial\",\"예상했던\":\"was expected\",\"더 따뜻해졌네요\":\"is warmer than expected\",\"예상치 못했던\":\"unexpected\",\"변화\":\"change\",\"특별해\":\"special\"}\n\n         {\"english\":\"The weather is warmer than originally predicted. It's an unexpected change that makes it even more special.\"}",
     "id": 1924
   },
   {
@@ -26113,14 +26113,14 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"극단\",\"english\":\"supreme\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"대비\",\"english\":\"preparation\"}],\"sentence\":{\"korean\":\"극단한 상황에서도, 대비를 잘 하면 어려움 없이 해결할 수 있습니다.\",\"english\":\"Even in a supreme situation, if you prepare well, you can solve it without difficulty.\"}}",
+    "solution": "{\"극심한 상황에서도\":\"Even in extreme situations\",\"잘 준비하면\":\"If you prepare well\",\"어려움 없이 해결할 수 있습니다\":\"you can solve it without difficulty\"}\n\n         {\"english\":\"Even in the most extreme situations, if you prepare well, you can easily solve them.\"}",
     "id": 1925
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "undue",
-    "problem": "나 insuffisamment 큰 프로젝트들이 너무 피해(被害)를 입히고 있습니다.\n",
+    "problem": "필요(必要)치 않은 거대(巨大)한 프로젝트들은 너무 많은 피해(被害)를 입히고 있습니다.\n",
     "length": 34,
     "tags": [
       "grade-5",
@@ -26128,7 +26128,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"불필요\",\"english\":\"unnecessary\"},{\"korean\":\"거대한\",\"english\":\"huge\"},{\"korean\":\"피해\",\"english\":\"damage\"}],\"sentence\":{\"korean\":\"불필요한 거대한 프로젝트는 너무 많은 피해를 입히고 있습니다.\",\"english\":\"The huge unnecessary project is causing a lot of damage.\"}}",
+    "solution": "{\"필요치 않은 거대한 프로젝트들은\":\"Unnecessary large projects\",\"너무 많은 피해를 입히고 있습니다\":\"are causing a lot of damage\"}\n\n         {\"english\":\"Large projects that are not necessary are causing significant harm.\"}",
     "id": 1926
   },
   {
@@ -26142,7 +26142,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"첫 번째\",\"english\":\"first\"},{\"korean\":\"걸음\",\"english\":\"step\"},{\"korean\":\"경험\",\"english\":\"experience\"}],\"sentence\":{\"korean\":\"첫 번째 걸음은 경험에 중요합니다.\",\"english\":\"The first step is important for experience.\"}}",
+    "solution": "{\"첫 번째歩み\":\"first step\",\"経験\":\"experience\",\"非常に\":\"extremely\",\"重要\":\"important\"}\n\n         {\"english\":\"The first step is incredibly important in the process of experience.\"}",
     "id": 1927
   },
   {
@@ -26157,7 +26157,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"기억\",\"english\":\"memory\"},{\"korean\":\"날\",\"english\":\"day\"},{\"korean\":\"사랑\",\"english\":\"love\"}],\"sentence\":{\"korean\":\"기억한 날의 사랑은 영원합니다.\",\"english\":\"The love of a remembered day lasts forever.\"}}",
+    "solution": "{\"기억에 남은 날의 사랑은 영원합니다.\":\"Memories of yesterday's love remain forever.\",\"기억\":\"memory\",\"남은\":\"remaining\",\"날\":\"day\",\"사랑\":\"love\",\"영원합니다\":\"forever\"}\n\n         {\"english\":\"Love that remains in memory lasts forever.\"}",
     "id": 1928
   },
   {
@@ -26173,7 +26173,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"무시할 만한\",\"english\":\"unimportant\"},{\"korean\":\"작업\",\"english\":\"task\"},{\"korean\":\"하지 말고\",\"english\":\"don't forget\"},{\"korean\":\"전부 완료해야\",\"english\":\"you have to finish everything\"}],\"sentence\":{\"korean\":\"무시할 만한 작업은 하지 말고 전부 완료해야 합니다.\",\"english\":\"Unimportant tasks can be forgotten, but you have to finish everything else.\"}}",
+    "solution": "{\"무시할 만한 작업\":\"Negligible tasks\",\"하지 말고\":\"Do not leave undone\",\"전부 완료해야 합니다\":\"Must be completed entirely\"}\n\n         {\"english\":\"Neglectful tasks should not be left undone. They must be completed entirely.\"}",
     "id": 1929
   },
   {
@@ -26188,7 +26188,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"인사원\",\"english\":\"personnel\"},{\"korean\":\"직원들\",\"english\":\"employees\"},{\"korean\":\"업무를 합니다\",\"english\":\"are working\"}],\"sentence\":{\"korean\":\"인사원 직원들은 업무를 합니다.\",\"english\":\"The personnel are working.\"}}",
+    "solution": "{\"인사원 직원들은\":\"The HR staff\",\"업무에 종사합니다\":\"are engaged in work\"}\n\n         {\"english\":\"The office staff are working on their duties.\"}",
     "id": 1930
   },
   {
@@ -26201,7 +26201,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"달리다\",\"english\":\"to run\"},{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"달리는 거리는 시간에 비례합니다.\",\"english\":\"The distance you run is proportional to the time you spend running.\"}}",
+    "solution": "{\"달리는 거리는\":\"Distance covered\",\"시간에\":\"in time\",\"비례합니다\":\"is proportional\"}\n\n         {\"english\":\"The distance traveled is proportional to the time spent.\"}",
     "id": 1931
   },
   {
@@ -26215,7 +26215,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고통\",\"english\":\"suffering\"},{\"korean\":\"용기\",\"english\":\"burden\"},{\"korean\":\"보상\",\"english\":\"reward\"}],\"sentence\":{\"korean\":\"고통을 이기는 것은 용기가 크고, 용기가 크면 보상이 크겠어요.\",\"english\":\"Overcoming suffering means you have a big heart, and the bigger your heart, the greater the reward.\"}}",
+    "solution": "{\"고통을 극복하는 데는 용기가 중요합니다\":\"Determination is important for overcoming pain\",\"용기\":\"Determination\",\"크면\":\"Greater\",\"보상\":\"Reward\"}\n\n         {\"english\":\"Courage is important in overcoming hardship. The bigger the courage, the bigger the reward.\"}",
     "id": 1932
   },
   {
@@ -26229,7 +26229,7 @@ export const problems = [
       "arithmetic",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"수학\",\"english\":\"arithmetic\"},{\"korean\":\"계산\",\"english\":\"calculation\"},{\"korean\":\"숫자\",\"english\":\"number\"},{\"korean\":\"총\",\"english\":\"sum\"}],\"sentence\":{\"korean\":\"수학은 여러 개의 숫자를 계산하여 총을 계산합니다.\",\"english\":\"Arithmetic is the calculation of multiple numbers to get the sum.\"}}",
+    "solution": "{\"수학\":\"Mathematics\",\"숫자\":\"Numbers\",\"더하기\":\"Addition\",\"빼기\":\"Subtraction\",\"곱하기\":\"Multiplication\",\"나누기\":\"Division\",\"총\":\"Sum\",\"계산\":\"Calculation\"}\n\n         {\"english\":\"Mathematics involves performing operations such as addition, subtraction, multiplication and division to calculate totals from multiple numbers.\"}",
     "id": 1933
   },
   {
@@ -26244,7 +26244,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"반발\",\"english\":\"repulsion\"},{\"korean\":\"피로\",\"english\":\"tiredness\"},{\"korean\":\"진지\",\"english\":\"seriously\"}],\"sentence\":{\"korean\":\"피로로 인해 반발감이 진지합니다.\",\"english\":\"He feels serious repulsion due to tiredness.\"}}",
+    "solution": "{\"피로로 인해\":\"due to fatigue\",\"반발감\":\"rebellion\",\"심해지네요\":\"is getting severe\"}\n\n         {\"english\":\"The backlash is getting severe due to fatigue.\"}",
     "id": 1934
   },
   {
@@ -26257,7 +26257,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"남자가 과도하게 게임에 빠지는 것\",\"english\":\"When a boy gets addicted to video games\"},{\"korean\":\"인내심이 부족해\",\"english\":\"because he lacks patience\"},{\"korean\":\"생활 속에서 깨닫게 돼\",\"english\":\"he realizes it in his daily life\"}],\"sentence\":{\"korean\":\"남자가 과도하게 게임에 빠지는 것은 인내심이 부족하여 생활 속에서 깨닫게 돼\",\"english\":\"Getting addicted to video games is when a boy lacks patience and realizes it in his daily life\"}}",
+    "solution": "{\"남들이 과도하게 게임에 빠지는 것은 인내심이 부족하여 생활 속에서 깨닫게 돼.\":{\"남들이\":\"People\",\"과도하게\":\"excessively\",\"게임에 빠지는 것은\":\"engaging in games becomes\",\"인내심이 부족하여\":\"due to lack of patience\",\"생활 속에서\":\"in daily life\",\"깨닫게 돼\":\"realizes\"}}\n\n         {\"english\":\"People become aware of their lack of patience when they become too engrossed in games. \"}",
     "id": 1935
   },
   {
@@ -26271,7 +26271,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"배송하다\",\"english\":\"to deliver\"},{\"korean\":\"물건\",\"english\":\"thing\"},{\"korean\":\"받기\",\"english\":\"to receive\"}],\"sentence\":{\"korean\":\"배송된 물건은 수령자가 받습니다.\",\"english\":\"The delivered thing is received by the receiver.\"}}",
+    "solution": "{\"배송된 물건은 수령자가 직접 받습니다.\":\"Delivered items are received directly by the recipient.\",\"배송된\":\"Delivered\",\"물건\":\"Items\",\"수령자\":\"Recipient\",\"직접\":\"Directly\",\"받습니다\":\"Receive\"}\n\n         {\"english\":\"The delivered items will be received directly by the recipient.\"}",
     "id": 1936
   },
   {
@@ -26285,7 +26285,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"날카락\",\"english\":\"excitement\"},{\"korean\":\"두렵다\",\"english\":\"to feel nervous\"},{\"korean\":\"성공하다\",\"english\":\"to succeed\"}],\"sentence\":{\"korean\":\"날카락은 두렵다가, 과업을 잘 해서 성공할 수 있다.\",\"english\":\"Excitement is natural before a test, but you can succeed if you study hard.\"}}",
+    "solution": "{\"날카락은 두렵지 말고\":\"Don't be afraid of setbacks\",\"두렵지 말고\":\"Be not afraid\",\"과업을 잘 해\":\"Do your job well\",\"성공할 수 있다\":\"You can succeed\"}\n\n         {\"english\":\"Don't be afraid of challenges, work hard and you can achieve success.\"}",
     "id": 1937
   },
   {
@@ -26300,7 +26300,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"풀린\",\"english\":\"loose\"},{\"korean\":\"옷\",\"english\":\"clothes\"},{\"korean\":\"치우러\",\"english\":\"hang\"}],\"sentence\":{\"korean\":\"풀린옷은 치우러 길게 걸립니다.\",\"english\":\"Loose clothes hang along the long hallway.\"}}",
+    "solution": "{\"풀린옷은 치우러 길게 늘어나갑니다.\":\"Clothes that have been washed become long and wrinkle-free.\",\"풀린옷\":\"washed clothes\",\"치우러\":\"wrinkled\",\"길게\":\"longly\",\"늘어나갑니다\":\"become long and wrinkle-free\"}\n\n         {\"english\":\"Wet clothes hang long and wrinkle easily.\"}",
     "id": 1938
   },
   {
@@ -26314,7 +26314,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"감금\",\"english\":\"confinement\"},{\"korean\":\"거주\",\"english\":\"stay at home\"},{\"korean\":\"시간\",\"english\":\"time\"},{\"korean\":\"생활\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"감금으로 시간이 길게 생활해야 생활의 질은 향상합니다.\",\"english\":\"Spending time in confinement improves the quality of daily life.\"}}",
+    "solution": "{\"감금 생활할수록\":\"As one spends time in solitary confinement\",\"시간이 길어지고\":\"time becomes longer\",\"생활의 질\":\"quality of life\",\"향상합니다\":\"improves\"}\n\n         {\"english\":\"The longer the period of incarceration, the longer the time seems to pass, leading to an improvement in the quality of life.\"}",
     "id": 1939
   },
   {
@@ -26329,7 +26329,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"목이 길다\",\"english\":\"It is tall\"},{\"korean\":\"잎이 많다\",\"english\":\"There are many leaves\"},{\"korean\":\"꽃이 아름다워\",\"english\":\"The flowers are beautiful\"}],\"sentence\":{\"korean\":\"목이 길고, 잎이 많고, 꽃이 아름다워\",\"english\":\"It is tall with many leaves and beautiful flowers\"}}",
+    "solution": "{\"목이 길고\":\"Neck is long\",\"잎이 많고\":\"Leaves are many\",\"꽃이 아름답게 성장했다\":\"Flowers grew beautifully\"}\n\n         {\"english\":\"The tree has a long trunk, many leaves, and beautiful flowers have bloomed.\"}",
     "id": 1940
   },
   {
@@ -26345,7 +26345,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"너비\",\"english\":\"width\"},{\"korean\":\"피크닉\",\"english\":\"picnic\"},{\"korean\":\"풀\",\"english\":\"pool\"}],\"sentence\":{\"korean\":\"너비한 피크닉장은 풀과 함께 아름답습니다.\",\"english\":\"The wide picnic area is beautiful with the pool nearby.\"}}",
+    "solution": "{\"너비한\":\"Spacious\",\"피크닉장\":\"Picnic area\",\"풀\":\"Grass\",\"아름답습니다\":\"Looks beautiful\"}\n\n         {\"english\":\"The spacious picnic area is beautiful with flowers.\"}",
     "id": 1941
   },
   {
@@ -26360,7 +26360,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"숨기다\",\"english\":\"to hide\"},{\"korean\":\"물건\",\"english\":\"things\"},{\"korean\":\"밀접\",\"english\":\"closely\"}],\"sentence\":{\"korean\":\"숨기다 물건을 밀접 해도, 누군가 알 수 없어.\",\"english\":\"Even if you hide the things closely, someone will always find out.\"}}",
+    "solution": "{\"숨기다 물건을 밀접 해도\":\"To keep something a secret, even if it's close to someone's knowledge\",\"누군가가 알 수 없어\":\"Nobody will ever know\"}\n\n         {\"english\":\"No matter how tightly you pack your belongings, someone will always find out.\"}",
     "id": 1942
   },
   {
@@ -26375,7 +26375,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"춤을 추다가\",\"english\":\"to dance while\"},{\"korean\":\"춤을 추는 동안\",\"english\":\"during the dance\"},{\"korean\":\"음악에 따라\",\"english\":\"depending on the music\"}],\"sentence\":{\"korean\":\"춤을 추다가 춤을 추는 동안 음악에 따라 다양한 춤형이 나타납니다.\",\"english\":\"While dancing, various dance styles appear depending on the music during the dance.\"}}",
+    "solution": "{\"춤을 추다가\":\"To dance following the rhythm\",\"음악의 리듬\":\"Musical rhythm\",\"다양한\":\"Various\",\"춤형\":\"Dance style\",\"표현됩니다\":\"Is expressed\"}\n\n         {\"english\":\"As the dance progresses, various dance forms are expressed according to the rhythm of the music.\"}",
     "id": 1943
   },
   {
@@ -26390,7 +26390,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"목걸이\",\"english\":\"necktie\"},{\"korean\":\"착용하다\",\"english\":\"to wear\"},{\"korean\":\"매우 예쁘다\",\"english\":\"to look very nice\"}],\"sentence\":{\"korean\":\"목걸이는 매우 예쁘고 입고 있어.\",\"english\":\"Neckties look very nice when worn.\"}}",
+    "solution": "{\"목걸이는 예쁘고 입고 있어.\":\"The necklace is sparkling and looks good on.\",\"목걸이\":\"necklace\",\"예쁘고\":\"sparkling\",\"입고 있어\":\"looks good on\"}\n\n         {\"english\":\"The necklace is sparkling and looks beautiful.\"}",
     "id": 1944
   },
   {
@@ -26405,14 +26405,14 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"함\",\"english\":\"cup\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"맛있어요\",\"english\":\"it's delicious\"}],\"sentence\":{\"korean\":\"함에 물을 담아 마셔요. 맛있어요.\",\"english\":\"I drink water from the cup. It's delicious.\"}}",
+    "solution": "{\"물을 담아 마셔요\":\"to drink water\",\"맛있어요\":\"it's delicious\"}\n\n         {\"english\":\"I am drinking water. It is delicious.\"}",
     "id": 1945
   },
   {
     "model": "gemma:7b",
     "generator": "korean-english-daily-life",
     "input": "hulk",
-    "problem": " Hulk은 공을 잡아 손에 넣었다.\n",
+    "problem": " Hulk이 공을 잡아 손에 담겼다.\n",
     "length": 19,
     "tags": [
       "grade-5",
@@ -26421,7 +26421,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\" Hulk이 공을 잡아 손에 넣었다.\",\"english\":\"The Hulk caught the ball and put it in his hand.\"},{\"korean\":\"잡아\",\"english\":\"caught\"},{\"korean\":\"넣었다\",\"english\":\"put\"},{\"korean\":\"공\",\"english\":\"ball\"},{\"korean\":\"손\",\"english\":\"hand\"}],\"sentence\":{\"korean\":\"Hulk이 공을 잡아 손에 넣었다.\",\"english\":\"The Hulk caught the ball and put it in his hand.\"}}",
+    "solution": "{\" Hulk이 공을 잡아 손에 담겼다.\":{\"Hulk\":\"Hulk\",\"공\":\"ball\",\"잡아\":\"grabbed\",\"손\":\"hand\",\"담겼다\":\"put in/held\"}}\n\n         {\"english\":\"The Hulk caught the ball and put it in his hand.\"}",
     "id": 1946
   },
   {
@@ -26436,7 +26436,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"강도\",\"english\":\"intensity\"},{\"korean\":\"감각\",\"english\":\"sensation\"},{\"korean\":\"일상\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"강도 높은 감각은 일상에서 흔히 경험합니다.\",\"english\":\"High intensity sensations are often experienced in daily life.\"}}",
+    "solution": "{\"강한 감각\":\"Strong sensations\",\"일상\":\"Daily life\",\"흔히\":\"Frequently\",\"만날\":\"Encounter\",\"수 있습니다\":\"can occur\"}\n\n         {\"english\":\"Strong sensations are commonly encountered in everyday life.\"}",
     "id": 1947
   },
   {
@@ -26451,7 +26451,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말을 하다가\",\"english\":\"To grumble while speaking\"},{\"korean\":\"불편해지다\",\"english\":\"To become uncomfortable\"},{\"korean\":\"치곤해지네요\",\"english\":\"It's annoying\"}],\"sentence\":{\"korean\":\"말을 하다가 불편해지다가 치곤해지네요.\",\"english\":\"She grumbled while speaking, and it became uncomfortable, and it was annoying.\"}}",
+    "solution": "{\"말을 하다가 편안해지다가 지금은 치곤해지네요.\":\"As I was talking, I felt comfortable, but now I feel awkward.\"}\n\n         {\"english\":\"I feel uncomfortable even though I was feeling comfortable while talking. Now I feel awkward.\"}",
     "id": 1948
   },
   {
@@ -26466,7 +26466,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"등불\",\"english\":\"lamppost\"},{\"korean\":\"빛나다\",\"english\":\"to shine\"},{\"korean\":\"거리\",\"english\":\"distance\"}],\"sentence\":{\"korean\":\"등불은 길을 빛나다.\",\"english\":\"The lamppost illuminates the way.\"}}",
+    "solution": "{\"등불\":\"candle\",\"은\":\"is\",\"길\":\"way\",\"조명\":\"illuminates\",\"해\":\"does\"}\n\n         {\"english\":\"The candle illuminates the path ahead.\"}",
     "id": 1949
   },
   {
@@ -26480,7 +26480,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"근래\",\"english\":\"recently\"},{\"korean\":\"밥을 먹고\",\"english\":\"having eaten rice\"},{\"korean\":\"출발했어요.\",\"english\":\"left.\"}],\"sentence\":{\"korean\":\"근래밥을 먹고 출발했어요.\",\"english\":\"I left after having eaten rice recently.\"}}",
+    "solution": "{\"근래\":\"recently\",\"밥\":\"rice meal\",\"먹고\":\"eating and\",\"바로\":\"immediately\",\"출발\":\"departure\"}\n\n         {\"english\":\"I ate dinner and immediately left.\"}",
     "id": 1950
   },
   {
@@ -26494,7 +26494,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"여행자\",\"english\":\"traveler\"},{\"korean\":\"세상\",\"english\":\"world\"},{\"korean\":\"탐험\",\"english\":\"exploration\"}],\"sentence\":{\"korean\":\"여행자는 세상을 돌아 다양한 곳을 탐험합니다.\",\"english\":\"The traveler explores various places around the world.\"}}",
+    "solution": "{\"여행자\":\"Traveler\",\"세상\":\"World\",\"돌아\":\"Around\",\"다양한\":\"Various\",\"곳\":\"Places\",\"탐험\":\"Exploration\"}\n\n         {\"english\":\"The traveler explores various places around the world.\"}",
     "id": 1951
   },
   {
@@ -26509,7 +26509,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"흔히\",\"english\":\"commonly\"},{\"korean\":\"거주합니다\",\"english\":\"live\"},{\"korean\":\"어디서?\",\"english\":\"where?\"}],\"sentence\":{\"korean\":\"흔히 거주하는 곳은 어디서?\",\"english\":\"Where do people commonly live?\"}}",
+    "solution": "{\"어디서 거주하는 곳이 흔한가요?\":\"Where is it common for people to live?\",\"거주\":\"to live\",\"곳\":\"place\",\"흔한\":\"common\",\"가요?\":\"isn't it?\"}\n\n         {\"english\":\"Where is it common for people to live?\"}",
     "id": 1952
   },
   {
@@ -26523,7 +26523,7 @@ export const problems = [
       "physics",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"원자\",\"english\":\"atom\"},{\"korean\":\"입체\",\"english\":\"solid\"},{\"korean\":\"변화\",\"english\":\"change\"}],\"sentence\":{\"korean\":\"원자는 물리적인 상태를 바꾸는 과정이기도 합니다.\",\"english\":\"Atoms can undergo physical changes of state.\"}}",
+    "solution": "{\"원자는 물리적인 상태를 바꾸는 과정이기도 합니다.\":\"An atom undergoes a process of changing its physical state.\"}\n\n         {\"english\":\"Atoms can also undergo processes that change their physical states.\"}",
     "id": 1953
   },
   {
@@ -26539,7 +26539,7 @@ export const problems = [
       "inference",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"거두리\",\"english\":\"retract\"},{\"korean\":\"발\",\"english\":\"foot\"},{\"korean\":\"침해\",\"english\":\"invasion\"}],\"sentence\":{\"korean\":\"거두리 발은 해안선을 침해하려고 합니다.\",\"english\":\"The retreating foot is trying to invade the coastline.\"}}",
+    "solution": "{\"거두리 발\":\"crab claw foot\",\"해안선\":\"beach line\",\"도달하다\":\"to reach\",\"고 합니다\":\"is going\"}\n\n         {\"english\":\"The crabs are trying to reach the coastline.\"}",
     "id": 1954
   },
   {
@@ -26554,7 +26554,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"선물\",\"english\":\"gift\"},{\"korean\":\"다행\",\"english\":\"lucky\"},{\"korean\":\"받다\",\"english\":\"to receive\"}],\"sentence\":{\"korean\":\"선물은 다행한 순간에 받는 것이 좋겠어요.\",\"english\":\"It would be nice to receive a gift during a lucky moment.\"}}",
+    "solution": "{\"선물\":\"Gift\",\"행복한\":\"Happy\",\"순간\":\"Moment\",\"받는\":\"To receive\",\"좋겠어요\":\"Would be good\"}\n\n         {\"english\":\"It would be better to receive a gift during a happy moment.\"}",
     "id": 1955
   },
   {
@@ -26569,7 +26569,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상대\",\"english\":\"corresponding\"},{\"korean\":\"거리\",\"english\":\"distance\"},{\"korean\":\"시간\",\"english\":\"time\"}],\"sentence\":{\"korean\":\"상대거리와 시간은 중요합니다.\",\"english\":\"Distance and time are important factors.\"}}",
+    "solution": "{\"시간과 상대거리는 중요합니다.\":\"Time and relative distance are important.\"}\n\n         {\"english\":\"Time and distance are important.\"}",
     "id": 1956
   },
   {
@@ -26584,7 +26584,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"도크\",\"english\":\"dock\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"위치\",\"english\":\"location\"}],\"sentence\":{\"korean\":\"도크 근처에 물의 위치는 어디일까?\",\"english\":\"Where might the water be located near the dock?\"}}",
+    "solution": "{\"물은 도크 주변에 어디에 있을까?\":{\"물\":\"Water\",\"도크\":\"Dock\",\"주변\":\"Surrounding\",\"어디\":\"Where\",\"있을까\":\"Could be\"}}\n\n         {\"english\":\"Where is the water around the dock?\"}",
     "id": 1957
   },
   {
@@ -26598,7 +26598,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"임무\",\"english\":\"mission\"},{\"korean\":\"대상\",\"english\":\"target\"},{\"korean\":\"달성\",\"english\":\"achievement\"}],\"sentence\":{\"korean\":\"임무는 설정된 대상을 달성하기 위해 노력하는 과정입니다.\",\"english\":\"A mission is the process of trying to achieve a set target.\"}}",
+    "solution": "{\"임무\":\"Mission\",\"설정된\":\"Defined\",\"목표\":\"Goal\",\"달성\":\"Achieve\",\"노력\":\"Effort\",\"과정\":\"Process\"}\n\n         {\"english\":\"The mission is the process of exerting effort to achieve the predetermined goals.\"}",
     "id": 1958
   },
   {
@@ -26612,7 +26612,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"풀을 물려다니다\",\"english\":\"to water the plants\"},{\"korean\":\"풀\",\"english\":\"plants\"},{\"korean\":\"물려다니다\",\"english\":\"to water\"}],\"sentence\":{\"korean\":\"풀을 물려다니면 식물이 건강해집니다\",\"english\":\"When we water the plants, they become healthy.\"}}",
+    "solution": "{\"풀을 물려다니면 식물의 건강이 개선됩니다.\":{\"풀\":\"moss\",\"물려다니면\":\"to water regularly\",\"식물\":\"plant\",\"건강\":\"health\",\"개선됩니다\":\"improves\"}}\n\n         {\"english\":\"When you water the roots, the health of the plants improves.\"}",
     "id": 1959
   },
   {
@@ -26626,7 +26626,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"상품\",\"english\":\"commodity\"},{\"korean\":\"치가\",\"english\":\"price\"},{\"korean\":\"시장\",\"english\":\"market\"}],\"sentence\":{\"korean\":\"상품의 치가는 시장에 따라 달라집니다.\",\"english\":\"The price of a commodity changes depending on the market.\"}}",
+    "solution": "{\"상품의 가격\":\"Product price\",\"시장\":\"Market\",\"따라\":\"depending on\",\"달라질\":\"can vary\",\"수 있습니다\":\"is possible\"}\n\n         {\"english\":\"The price of the product can vary depending on the market.\"}",
     "id": 1960
   },
   {
@@ -26641,7 +26641,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"외손\",\"english\":\"nephew\"},{\"korean\":\"친구\",\"english\":\"friend\"},{\"korean\":\"우리\",\"english\":\"us\"},{\"korean\":\"좋아\",\"english\":\"likes\"}],\"sentence\":{\"korean\":\"외손은 친구들을 위해 항상 우리와 함께 해줄게요.\",\"english\":\"The nephew always helps us out with his friends.\"}}",
+    "solution": "{\"외손\":\"Grandchild\",\"친구들\":\"friends\",\"항상\":\"always\",\"우리\":\"us\",\"와\":\"with\",\"해줄\":\"to do\",\"의향\":\"intention\"}\n\n         {\"english\":\"My elder brother always wants to do things with us for our friends.\"}",
     "id": 1961
   },
   {
@@ -26656,7 +26656,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"칠십 번째\",\"english\":\"seventieth\"},{\"korean\":\"살이\",\"english\":\"life\"},{\"korean\":\"오랜 시간 동안\",\"english\":\"for a long time\"}],\"sentence\":{\"korean\":\"칠십 번째 살이 오랜 시간 동안 지나간다.\",\"english\":\"Life has passed seventy years.\"}}",
+    "solution": "{\"칠십 번째 살은 오랜 시간이 지나간다.\":\"The seventieth birthday has passed a long time.\"}\n\n         {\"english\":\"The seventieth birthday is a long time coming.\"}",
     "id": 1962
   },
   {
@@ -26669,7 +26669,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"막다\",\"english\":\"to prevent\"},{\"korean\":\"상황\",\"english\":\"situation\"},{\"korean\":\"성공\",\"english\":\"success\"}],\"sentence\":{\"korean\":\"막다른 상황은 어떤 목표를 달성하는 데 도움이 됩니다.\",\"english\":\"Preventing certain situations helps achieve goals.\"}}",
+    "solution": "{\"막다른 상황은 어떤 목표를 달성하기 위해 도움이 됩니다.\":\"Difficult situations require a goal to be achieved in order to be helpful.\"}\n\n         {\"english\":\"Difficult situations can provide helpful guidance towards achieving a goal.\"}",
     "id": 1963
   },
   {
@@ -26684,7 +26684,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"고지\",\"english\":\"matter\"},{\"korean\":\"거지는\",\"english\":\"is related to\"},{\"korean\":\"생활\",\"english\":\"daily life\"}],\"sentence\":{\"korean\":\"고지는 생활에 매우 중요합니다.\",\"english\":\"Matter is very important in daily life.\"}}",
+    "solution": "{\"고지\":\"diet\",\"생활\":\"lifestyle\",\"매우\":\"very\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Mountains are very important for life.\"}",
     "id": 1964
   },
   {
@@ -26698,7 +26698,7 @@ export const problems = [
       "adjective",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"비교\",\"english\":\"to compare\"},{\"korean\":\"두 개\",\"english\":\"two\"},{\"korean\":\"것\",\"english\":\"things\"},{\"korean\":\"더 잘\",\"english\":\"better\"}],\"sentence\":{\"korean\":\"두 개의 물건을 비교해 보면 이쪽이 더 잘이다.\",\"english\":\"When you compare the two things, this one is better.\"}}",
+    "solution": "{\"두 개의 물건을 비교해 보면 이쪽이 더 좋겠네.\":\"To compare two objects, it seems that this one is better.\"}\n\n         {\"english\":\"If you compare the two things, this one seems better.\"}",
     "id": 1965
   },
   {
@@ -26713,7 +26713,7 @@ export const problems = [
       "vocabulary",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"방법론\",\"english\":\"methodology\"},{\"korean\":\"학습\",\"english\":\"learning\"},{\"korean\":\"효율\",\"english\":\"efficiency\"}],\"sentence\":{\"korean\":\"방법론을 통해 학습 과정의 효율을 높일 수 있습니다.\",\"english\":\"Methodology can improve the efficiency of the learning process.\"}}",
+    "solution": "{\"방법론\":\"Methodological approach\",\"효율성\":\"Efficiency\",\"학습 과정\":\"Learning process\",\"높일\":\"Increase\"}\n\n         {\"english\":\"Learning efficiency can be improved through methodology.\"}",
     "id": 1966
   },
   {
@@ -26727,7 +26727,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"그래픽\",\"english\":\"graphite\"},{\"korean\":\"필\",\"english\":\"pencil\"},{\"korean\":\"무슨\",\"english\":\"what\"},{\"korean\":\"용도\",\"english\":\"purpose\"}],\"sentence\":{\"korean\":\"그래픽 필은 무슨 용도로 사용할까?\",\"english\":\"What is the purpose of using a graphite pencil?\"}}",
+    "solution": "{\"그래픽 필은 어떻게 활용할 수 있을까?\":\"How can graphics files be utilized?\",\"그래픽 필\":\"Graphic file\",\"활용\":\"Utilize\",\"수 있\":\"Possible\",\"어떻게\":\"How\",\"활용할\":\"To utilize\",\"수 있을까\":\"Possible?\"}\n\n         {\"english\":\"How can graphic files be utilized?\"}",
     "id": 1967
   },
   {
@@ -26740,7 +26740,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"오염\",\"english\":\"pollution\"},{\"korean\":\"대기\",\"english\":\"air\"},{\"korean\":\"생명\",\"english\":\"life\"}],\"sentence\":{\"korean\":\"오염된 대기는 생명을 위협합니다.\",\"english\":\"Polluted air threatens life.\"}}",
+    "solution": "{\"오염된 공기\":\"Polluted air\",\"생명체\":\"Living organisms\",\"위험\":\"Dangerous\",\"는\":\"is\"}\n\n         {\"english\":\"Polluted air is dangerous to life forms.\"}",
     "id": 1968
   },
   {
@@ -26753,7 +26753,7 @@ export const problems = [
       "grade-5",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"진단\",\"english\":\"diagnosis\"},{\"korean\":\"증상\",\"english\":\"symptoms\"},{\"korean\":\"확인\",\"english\":\"confirmation\"}],\"sentence\":{\"korean\":\"진단 결과, 증상의 확인이 중요합니다.\",\"english\":\"The confirmation of the diagnosis is important based on the symptoms.\"}}",
+    "solution": "{\"진단 결과\":\"diagnosis results\",\"증상\":\"symptoms\",\"확인\":\"verification\",\"중요합니다\":\"is important\"}\n\n         {\"english\":\"Diagnosis results are crucial for symptom confirmation.\"}",
     "id": 1969
   },
   {
@@ -26767,7 +26767,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"황제\",\"english\":\"monarch\"},{\"korean\":\"정부\",\"english\":\"government\"},{\"korean\":\"권한\",\"english\":\"authority\"}],\"sentence\":{\"korean\":\"황제는 국가의 모든 권한을 가지고 있습니다.\",\"english\":\"The monarch has all the authority of the nation.\"}}",
+    "solution": "{\"황제\":\"Emperor\",\"권한\":\"authority\",\"소유\":\"possesses\",\"국가\":\"nation\",\"모든\":\"all\"}\n\n         {\"english\":\"The emperor possesses all the power of the nation.\"}",
     "id": 1970
   },
   {
@@ -26782,7 +26782,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"위험\",\"english\":\"risk\"},{\"korean\":\"대장\",\"english\":\"big deal\"},{\"korean\":\"해결\",\"english\":\"solve\"}],\"sentence\":{\"korean\":\"위험은 대장이지만, 위험을 해결하면 문제가 해결된다.\",\"english\":\"There is a big deal about risk, but if we solve the risk, the problem will be solved.\"}}",
+    "solution": "{\"위험은 크지만, 위험을 해결하면 문제는 해결된다.\":\"Risks are great, but solving risks solves the problem.\"}\n\n         {\"english\":\"The risk is great, but if the risk is overcome, the problem is solved.\"}",
     "id": 1971
   },
   {
@@ -26796,7 +26796,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"팔다리\",\"english\":\"armsful\"},{\"korean\":\"물건\",\"english\":\"things\"},{\"korean\":\"다진\",\"english\":\"packed\"}],\"sentence\":{\"korean\":\"팔다리는 물건을 다진다.\",\"english\":\"You have an armful of things.\"}}",
+    "solution": "{\"팔다리는 물건을 다잡니다.\":\"Arms can hold and carry things.\",\"팔다리\":\"Arms\",\"물건\":\"Things\",\"다잡니다.\":\"Can hold/carry\"}\n\n         {\"english\":\"Your arms can hold anything.\"}",
     "id": 1972
   },
   {
@@ -26811,7 +26811,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"소방관\",\"english\":\"fire station\"},{\"korean\":\"파고있다\",\"english\":\"is on duty\"},{\"korean\":\"화재를 막는다\",\"english\":\"puts out fires\"}],\"sentence\":{\"korean\":\"소방관은 화재를 막는 데 파고 있습니다.\",\"english\":\"The fire station is on duty putting out fires.\"}}",
+    "solution": "{\"소방관\":\"Fire department\",\"화재\":\"Fire\",\"예방\":\"Prevention\",\"제어\":\"Control\",\"노력\":\"Effort\",\"입니다\":\"is\"}\n\n         {\"english\":\"Fire stations are working to prevent and control fires.\"}",
     "id": 1973
   },
   {
@@ -26826,7 +26826,7 @@ export const problems = [
       "translation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"능력\",\"english\":\"power\"},{\"korean\":\"무엇을\",\"english\":\"what\"},{\"korean\":\"할 수 있을까\",\"english\":\"can do\"}],\"sentence\":{\"korean\":\"능력은 무엇을 할 수 있을까?\",\"english\":\"What can power do?\"}}",
+    "solution": "{\"능력은 무슨 일을 해낼 수 있을까?\":\"What can ability do?\",\"능력\":\"ability\",\"무슨\":\"what\",\"일\":\"thing\",\"해낼\":\"to be able to do\",\"수 있을까\":\"can it be done?\"}\n\n         {\"english\":\"What can you do with your abilities?\"}",
     "id": 1974
   },
   {
@@ -26841,7 +26841,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"난방\",\"english\":\"heating\"},{\"korean\":\"온도\",\"english\":\"temperature\"},{\"korean\":\"정확하다\",\"english\":\"is accurate\"}],\"sentence\":{\"korean\":\"난방은 현재 온도를 정확히 유지하고 있어요.\",\"english\":\"The heating is currently maintaining the temperature accurately.\"}}",
+    "solution": "{\"난방\":\"heating\",\"현재\":\"currently\",\"온도\":\"temperature\",\"정확하게\":\"accurately\",\"조절\":\"adjust\",\"있어요\":\"is\"}\n\n         {\"english\":\"The heating is currently regulating the temperature accurately.\"}",
     "id": 1975
   },
   {
@@ -26856,7 +26856,7 @@ export const problems = [
       "grammar",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"지속적으로\",\"english\":\"persistently\"},{\"korean\":\"노력\",\"english\":\"effort\"},{\"korean\":\"목표를 달성하기 위해\",\"english\":\"to achieve the goal\"}],\"sentence\":{\"korean\":\"지속적으로 노력하여 목표를 달성하기 위해 노력을 해야 합니다.\",\"english\":\"You need to persistently exert effort to achieve your goal.\"}}",
+    "solution": "{\"지속적으로\":\"continuously\",\"노력\":\"effort\",\"목표\":\"goal\",\"달성하기 위해\":\"to achieve\"}\n\n         {\"english\":\"Continuous effort is important to achieve your goals.\"}",
     "id": 1976
   },
   {
@@ -26870,7 +26870,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"연주하다\",\"english\":\"to perform\"},{\"korean\":\"무용\",\"english\":\"dance\"},{\"korean\":\"작품\",\"english\":\"work\"}],\"sentence\":{\"korean\":\"연주한 무용 작품은 아름다워요.\",\"english\":\"The performance is beautiful.\"}}",
+    "solution": "{\"연주된\":\"performed\",\"무용\":\"ballet\",\"작품\":\"work\",\"아름답네요\":\"is beautiful\"}\n\n         {\"english\":\"The performed dance piece is beautiful.\"}",
     "id": 1977
   },
   {
@@ -26885,7 +26885,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"펌프\",\"english\":\"pump\"},{\"korean\":\"물\",\"english\":\"water\"},{\"korean\":\"오르다\",\"english\":\"to rise\"}],\"sentence\":{\"korean\":\"펌프는 물을 오르다.\",\"english\":\"The pump raises the water.\"}}",
+    "solution": "{\"펌프\":\"Pump\",\"물\":\"Water\",\"상승\":\"To rise up\",\"시킵니다\":\"Raises\"}\n\n         {\"english\":\"A pump raises water.\"}",
     "id": 1978
   },
   {
@@ -26899,7 +26899,7 @@ export const problems = [
       "reading-comprehension",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"침상시간\",\"english\":\"bedtime\"},{\"korean\":\"근처\",\"english\":\"nearby\"},{\"korean\":\"책\",\"english\":\"book\"}],\"sentence\":{\"korean\":\"침상시간이 되면 근처에 책을 읽는다.\",\"english\":\"When bedtime comes, I read a book nearby.\"}}",
+    "solution": "{\"침상시간이 되면 근처에 책을 읽는다.\":\"When bedtime comes, I read a book nearby.\"}\n\n         {\"english\":\"When bedtime comes, I read a book near me.\"}",
     "id": 1979
   },
   {
@@ -26915,7 +26915,7 @@ export const problems = [
       "daily-conversation",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"춤꾼\",\"english\":\"dancer\"},{\"korean\":\"무용\",\"english\":\"dance\"},{\"korean\":\"무용한\",\"english\":\"talented\"}],\"sentence\":{\"korean\":\"춤꾼들은 무용한 무용을 합니다.\",\"english\":\"The dancers are talented dancers.\"}}",
+    "solution": "{\"춤꾼들은 무용한 무용을 하지 않습니다.\":\"Professional dancers do not perform meaningless dances.\"}\n\n         {\"english\":\"Professional dancers do not do clumsy dancing.\"}",
     "id": 1980
   },
   {
@@ -26929,7 +26929,7 @@ export const problems = [
       "korean-to-english",
       "korean-english-daily-life"
     ],
-    "solution": "{\"words\":[{\"korean\":\"말벌\",\"english\":\"locust\"},{\"korean\":\"날개\",\"english\":\"wings\"},{\"korean\":\"피기\",\"english\":\"to swarm\"}],\"sentence\":{\"korean\":\"말벌은 날개를 벌려 대단히 피기합니다.\",\"english\":\"Locusts swarm together using their wings to protect themselves.\"}}",
+    "solution": "{\"말벌은\":\"The punishment\",\"날개를\":\"wing\",\"벌려\":\"flies out\",\"대단히\":\"extremely\",\"회피합니다\":\"avoids\"}\n\n         {\"english\":\"Discipline is like a wing that helps you avoid great things.\"}",
     "id": 1981
   }
 ];
