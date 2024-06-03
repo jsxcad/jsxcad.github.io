@@ -3435,7 +3435,7 @@
   id: 212
 - generator: physics
   input: schoolhouse
-  problem: A schoolhouse casts a ,1.5m long shadow at 3:00 PM when the sun is
+  problem: A schoolhouse casts a 1.5m long shadow at 3:00 PM when the sun is
     directly overhead. How high is the schoolhouse? Assume the sun is directly
     overhead and the shadow is cast vertically.
   length: 185
@@ -5030,7 +5030,7 @@
 - generator: geometry
   input: sloppy
   problem: A triangular sandbox has a perimeter of 120 cm. The longest side is 30
-    cm sloppier than the other two equal sides. What is the length of each equal
+    cm shorter than the other two equal sides. What is the length of each equal
     side?
   length: 153
   tags:
@@ -5686,7 +5686,7 @@
   id: 351
 - generator: arithmetic-division
   input: biographical
-  problem: \\frac{870}{345}
+  problem: ",,\\frac{870}{345},,"
   length: 9
   tags:
     - fifth-grade
@@ -8308,8 +8308,15 @@
   id: 524
 - generator: javascript-program
   input: goalkeeper
-  problem: let goalkeeper = (target) => { let goal = ' scored!'; if (!target) {
-    console.log('No target, no goal'); } else { console.log(target + goal); } };
+  problem: |
+    let goalkeeper = (target) => {
+      let goal = ' scored!';
+      if (!target) {
+        console.log('No target, no goal');
+      } else {
+        console.log(target + goal);
+      }
+    };
     goalkeeper('Messi');
   tags:
     - javascript
@@ -28189,4 +28196,3589 @@
   solution: '{"words":[{"korean":"충전","english":"recharge"},{"korean":"에너지","english":"energy"},{"korean":"몸","english":"body"}],"sentence":{"korean":"몸은
     작업 동안 에너지를 충전합니다.","english":"The body recharges energy during work."}}'
   id: 1717319293599
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: avalanche
+  problem: 사면이 강한 바람에 침략하여 피해를 입히다.
+  length: 24
+  tags:
+    - 5thGrade
+    - Reading
+    - Vocabulary
+    - SentenceStructure
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"사면","english":"avalanche"},{"korean":"침략","english":"invasion"},{"korean":"피해","english":"damage"}],"sentence":{"korean":"사면이
+    강한 바람에 침략하여 피해를 입히다.","english":"The avalanche invaded by strong wind
+    causing damage."}}'
+  id: 1717319361909
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: interior
+  problem: 내부 디자인은 감성을 유발하는 중요한 요소입니다.
+  length: 27
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - InteriorDesign
+    - Emotion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"내부","english":"interior"},{"korean":"디자인","english":"design"},{"korean":"감성","english":"emotion"}],"sentence":{"korean":"내부
+    디자인은 감성을 유발하는 중요한 요소입니다.","english":"Interior design is an important factor
+    in evoking emotions."}}'
+  id: 1717319426633
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: spatial
+  problem: 공간적으로 정확한 거리는 길게 걸어갑니다.
+  length: 23
+  tags:
+    - fifth-grade
+    - spatial
+    - distance
+    - accuracy
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"공간","english":"space"},{"korean":"거리","english":"distance"},{"korean":"정확","english":"accurate"}],"sentence":{"korean":"공간적으로
+    정확한 거리는 길게 걸어갑니다.","english":"The accurately spatial distance is far."}}'
+  id: 1717319493341
+
+- model: gemma:7b
+  generator: definition-question
+  input: evil
+  problem: A word that means 'causing harm or suffering to others, or having a
+    very negative influence'?
+  length: 93
+  tags:
+    - english-vocabulary
+    - fifth-grade
+    - moral-concepts
+    - causativity
+    - definition-question
+  id: 1717319541437
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: evil
+  problem: 악명을 얻는 것은 어려울 수 있지만, 악명을 버리는 것은 더 어렵다.
+  length: 38
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - Reputation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"악명","english":"reputation"},{"korean":"피고리","english":"trouble"},{"korean":"생활","english":"daily
+    life"}],"sentence":{"korean":"악명을 얻는 것은 어려울 수 있지만, 악명을 버리는 것은 더
+    어렵다.","english":"It is hard to gain a reputation, but it is even harder to
+    lose it."}}'
+  id: 1717319617701
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: roach
+  problem: 곤쟁이는 거대한 도피처를 찾아다니네요.
+  length: 21
+  tags:
+    - 5thGrade
+    - Translation
+    - Insect
+    - Adjective
+    - Noun
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"곤쟁이","english":"roach"},{"korean":"거대한","english":"huge"},{"korean":"도피처","english":"hideaway"}],"sentence":{"korean":"곤쟁이는
+    거대한 도피처를 찾아다니네요.","english":"The cockroach is searching for a huge
+    hideaway."}}'
+  id: 1717319691941
+
+- model: gemma:7b
+  generator: definition-question
+  input: rare
+  problem: A word that means something that is not very common, like a special or
+    valuable animal or plant that you might not see very often.
+  length: 130
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Rarity
+    - Nature
+    - definition-question
+  id: 1717319738604
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: rare
+  problem: 희소한 거품은 가치 있는 보물이야
+  length: 18
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - Reading
+    - Vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"희소","english":"rare"},{"korean":"거품","english":"jewel"},{"korean":"보물","english":"treasure"}],"sentence":{"korean":"희소한
+    거품은 가치 있는 보물이야","english":"Rare jewels are valuable treasures."}}'
+  id: 1717319807062
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: monarchy
+  problem: 왕정은 국민들에게 지배를 하고 있습니다.
+  length: 22
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - MonarchyConcept
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"왕정","english":"monarchy"},{"korean":"국민","english":"citizens"},{"korean":"지배","english":"rule"}],"sentence":{"korean":"왕정은
+    국민들에게 지배를 하고 있습니다.","english":"A monarchy exercises rule over its
+    citizens."}}'
+  id: 1717319870069
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: metric
+  problem: 미터 길이의 선물은 크기가 1톤입니다.
+  length: 21
+  tags:
+    - fifth-grade
+    - metric-units
+    - length
+    - weight
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"미터","english":"meter"},{"korean":"톤","english":"ton"},{"korean":"크기","english":"size"}],"sentence":{"korean":"미터
+    길이의 선물은 크기가 1톤입니다.","english":"The gift is 1 ton in size, measuring a meter
+    in length."}}'
+  id: 1717319937389
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: procedure
+  problem: 절차적으로 약품을 투여하고 환자의 상태를 확인합니다.
+  length: 29
+  tags:
+    - fifth-grade
+    - medical
+    - procedure
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"절차\",\"english\":\"procedure\"},{\"korean\
+    \":\"약품\",\"english\":\"medicine\"},{\"korean\":\"환자\",\"english\":\"patient\
+    \"},{\"korean\":\"확진\",\"english\":\"diagnosis\"}],\"sentence\":{\"korean\":\
+    \"절차적으로 약품을 투여하고 환자의 상태를 확인합니다.\",\"english\":\"The medicine is administered
+    according to the procedure and the patient's condition is checked
+    periodically.\"}}"
+  id: 1717320013153
+
+- model: gemma:7b
+  generator: definition-question
+  input: spoon
+  problem: A word that means a small, flat object with a scoop at one end that is
+    used for eating or stirring.
+  length: 99
+  tags:
+    - word-definition
+    - 5th-grade
+    - utensil-identification
+    - scooping-tool
+    - definition-question
+  id: 1717320102360
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: spoon
+  problem: 저기물을 그릇에 담아 물을 담았어요.
+  length: 20
+  tags:
+    - ml-comprehension
+    - 5th-grade-korean
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"저기물","english":"spoon"},{"korean":"물을
+    담아","english":"to scoop up water"},{"korean":"그릇에","english":"into that
+    bowl"},{"korean":"물을 담았어요","english":"I scooped up the
+    water."}],"sentence":{"korean":"저기물을 그릇에 담아 물을 담았어요.","english":"I scooped
+    up the water with a spoon and poured it into the bowl."}}'
+  id: 1717320182256
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: worn
+  problem: 노래한옷은 시간이 지나면서 변합니다.
+  length: 20
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - EverydayConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"노래","english":"worn"},{"korean":"옷","english":"clothes"},{"korean":"시간","english":"time"}],"sentence":{"korean":"노래한옷은
+    시간이 지나면서 변합니다.","english":"Worn clothes change over time."}}'
+  id: 1717320244820
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: transitional
+  problem: 전환기는 전기를 다른 형태로 전환합니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - vocabulary
+    - electricity
+    - conversion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"전환기","english":"transformer"},{"korean":"전기","english":"electricity"},{"korean":"전환","english":"conversion"}],"sentence":{"korean":"전환기는
+    전기를 다른 형태로 전환합니다.","english":"A transformer converts electricity into
+    different forms."}}'
+  id: 1717320309657
+
+- model: gemma:7b
+  generator: definition-question
+  input: much
+  problem: A word that means 'a large amount' or 'a significant quantity'?
+  length: 63
+  tags:
+    - fifth-grade
+    - quantifier
+    - comparison
+    - amount
+    - large
+    - definition-question
+  id: 1717320355040
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: much
+  problem: 많이 맛있어 고기가 좋아해
+  length: 14
+  tags:
+    - fifth-grade
+    - korean-english
+    - translating-sentence
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"많이\",\"english\":\"a
+    lot\"},{\"korean\":\"맛있어\",\"english\":\"delicious\"},{\"korean\":\"고기\",\"\
+    english\":\"meat\"}],\"sentence\":{\"korean\":\"많이 맛있어 고기가
+    좋아해\",\"english\":\"I love meat because it's delicious.\"}}"
+  id: 1717320423421
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: chapter
+  problem: The mischievous squirrel leaped from one towering c_____r of the forest
+    to another, gathering nuts along the way.
+  length: 113
+  tags:
+    - fifth-grade
+    - animal-story
+    - prepositional-phrases
+    - missing-word
+  id: 1717320476656
+
+- model: gemma:7b
+  generator: definition-question
+  input: chapter
+  problem: A word that means 'a part of a book that tells a story or explains
+    something in order'.
+  length: 87
+  tags:
+    - english-vocabulary
+    - reading-comprehension
+    - fifth-grade
+    - definition-question
+  id: 1717320519452
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: chapter
+  problem: 다음 장절은 50페이지에 있어요.
+  length: 18
+  tags:
+    - fifth-grade
+    - reading
+    - translation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"장절","english":"chapter"},{"korean":"책","english":"book"},{"korean":"페이지","english":"page"}],"sentence":{"korean":"다음
+    장절은 50페이지에 있어요.","english":"The next chapter is on page 50."}}'
+  id: 1717320597064
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: handbag
+  problem: The artist carefully placed her vibrant h_____g into the display case,
+    ensuring it was the perfect complement to the exhibit's theme.
+  length: 133
+  tags:
+    - english-composition
+    - 5th-grade-reading
+    - bag-vocabulary
+    - missing-word
+  id: 1717320652551
+
+- model: gemma:7b
+  generator: definition-question
+  input: handbag
+  problem: A word that means 'a small bag you carry, usually for things like books
+    or personal items'
+  length: 90
+  tags:
+    - english-vocabulary
+    - bag
+    - personal-item
+    - 5th-grade
+    - definition-question
+  id: 1717320696020
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: handbag
+  problem: 가방의 용도는 무슨 물건을 담는 데에 사용합니다.
+  length: 27
+  tags:
+    - fifth-grade
+    - vocabulary
+    - sentence-completion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"가방","english":"bag"},{"korean":"용도","english":"purpose"},{"korean":"무슨","english":"what
+    kind of"},{"korean":"물건","english":"thing"}],"sentence":{"korean":"가방의 용도는
+    무슨 물건을 담는 데에 사용합니다.","english":"The purpose of a handbag is to carry various
+    items."}}'
+  id: 1717320777949
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: casual
+  problem: The c____l arrangement of the leaves in the forest creates a
+    mesmerizing pattern that changes with the wind.
+  length: 108
+  tags:
+    - 5thGrade
+    - Nature
+    - Pattern
+    - Wind
+    - missing-word
+  id: 1717320825904
+
+- model: gemma:7b
+  generator: definition-question
+  input: casual
+  problem: A word that means 'not very formal, but still respectful and
+    appropriate in certain situations?**
+  length: 97
+  tags:
+    - english-vocabulary
+    - fifth-grade
+    - formal-informal
+    - situation-appropriate
+    - definition-question
+  id: 1717320867036
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: casual
+  problem: 편안하고 휴식감이 좋은 곳에서 친구들과 함께 시간을 보내다가, 다음 주말에 여행을 계획하고 있어
+  length: 53
+  tags:
+    - "school: 5th grade"
+    - "complexity: moderate"
+    - "language: Korean to English"
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"편안하고 휴식감이 좋은 곳","english":"a comfortable and
+    relaxing place"},{"korean":"친구들과 함께 시간을 보내다","english":"spending time with
+    friends"},{"korean":"다음 주말에 여행을 계획하고 있어","english":"planning a trip next
+    weekend"}],"sentence":{"korean":"편안하고 휴식감이 좋은 곳에서 친구들과 함께 시간을 보내다가, 다음 주말에
+    여행을 계획하고 있어","english":"We are spending time with friends in a comfortable
+    and relaxing place, and we are planning a trip next weekend."}}'
+  id: 1717320968025
+
+- model: gemma:7b
+  generator: definition-question
+  input: nail
+  problem: A word that means something that holds something in place or helps it
+    grow strong?
+  length: 82
+  tags:
+    - english-vocabulary
+    - fifth-grade
+    - literal-meaning
+    - fixation
+    - support
+    - definition-question
+  id: 1717321014484
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: nail
+  problem: 손톱은 목에 걸려 발판 아래에 숨겨져 있다.
+  length: 24
+  tags:
+    - fifth-grade
+    - literal-translation
+    - noun-phrase
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"손톱","english":"nail"},{"korean":"목에
+    걸려","english":"hanging from"},{"korean":"발판 아래","english":"under the
+    footboard"}],"sentence":{"korean":"손톱은 목에 걸려 발판 아래에 숨겨져 있다.","english":"The
+    nail is hanging from under the footboard."}}'
+  id: 1717321091628
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: trench
+  problem: 트렌치에서 물고지까지 물을 채워 산 위까지 올렸습니다.
+  length: 30
+  tags:
+    - 5thGrade
+    - Reading
+    - Vocabulary
+    - SentenceStructure
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"트렌치","english":"trench"},{"korean":"물","english":"water"},{"korean":"고지","english":"hill"}],"sentence":{"korean":"트렌치에서
+    물고지까지 물을 채워 산 위까지 올렸습니다.","english":"They filled the trench with water from
+    the bottom of the hill to the top."}}'
+  id: 1717321174048
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: hue
+  problem: 무용한 무지막은 하늘의 보름에 빛나는 무지막이 되어요.
+  length: 30
+  tags:
+    - 5thGrade
+    - Reading
+    - Vocabulary
+    - Grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"
+    hue","english":"rainbow"},{"korean":"보름","english":"cloud"},{"korean":"빛","english":"light"}],"sentence":{"korean":"무용한
+    무지막은 하늘의 보름에 빛나는 무지막이 되어요.","english":"A colorful rainbow appears in the
+    clouds when sunlight shines through rain droplets."}}'
+  id: 1717321247288
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ward
+  problem: 방 안은 보호가 필요합니다. 위험이 많아요.
+  length: 24
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"방","english":"room"},{"korean":"보호","english":"protection"},{"korean":"위험","english":"danger"}],"sentence":{"korean":"방
+    안은 보호가 필요합니다. 위험이 많아요.","english":"The room needs protection. There is a lot
+    of danger."}}'
+  id: 1717321320208
+
+- model: gemma:7b
+  generator: definition-question
+  input: hiking
+  problem: A word that means 'going on a long walk in the mountains or woods,
+    usually for exercise or fun'.
+  length: 96
+  tags:
+    - fifth-grade
+    - outdoor-activity
+    - physical-exercise
+    - nature-exploration
+    - definition-question
+  id: 1717321408928
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: hiking
+  problem: 산행하면 자연의 아름다움과 감성이 풍부해집니다.
+  length: 26
+  tags:
+    - fifth-grade
+    - hiking
+    - nature
+    - feelings
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"산행","english":"hiking"},{"korean":"자연","english":"nature"},{"korean":"감성","english":"feelings"}],"sentence":{"korean":"산행하면
+    자연의 아름다움과 감성이 풍부해집니다.","english":"Hiking brings beauty of nature and rich
+    feelings."}}'
+  id: 1717321483484
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: peep
+  problem: 피크 창고에 비밀을 보물고 있어.
+  length: 18
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Inference
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"피크\",\"english\":\"peek\"},{\"korean\":\"창고\
+    \",\"english\":\"warehouse\"},{\"korean\":\"비밀\",\"english\":\"secret\"}],\
+    \"sentence\":{\"korean\":\"피크 창고에 비밀을 보물고 있어.\",\"english\":\"There's a
+    secret hidden in the warehouse.\"}}"
+  id: 1717321554084
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: dilemma
+  problem: 두려움에 처한 상황의 결점은 무엇일까?
+  length: 21
+  tags:
+    - 5thGrade
+    - WordMeaning
+    - ProblemSolving
+    - DecisionMaking
+    - SituationAnalysis
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"두려움","english":"worry"},{"korean":"상황","english":"situation"},{"korean":"결점","english":"outcome"}],"sentence":{"korean":"두려움에
+    처한 상황의 결점은 무엇일까?","english":"What could be the outcome of a situation where
+    there is worry?"}}'
+  id: 1717324178794
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: marvel
+  problem: 경치로 무슨 일이 상상치 않은 일이야
+  length: 20
+  tags:
+    - 5thGrade
+    - Comprehension
+    - Translation
+    - Korean
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"경치\",\"english\":\"marvel\"},{\"korean\":\
+    \"무슨 일이\",\"english\":\"what's going on\"},{\"korean\":\"상상치 않은
+    일이야\",\"english\":\"it's something beyond
+    imagination\"}],\"sentence\":{\"korean\":\"경치로 무슨 일이 상상치 않은
+    일이야\",\"english\":\"It's a marvel what's going on.\"}}"
+  id: 1717324386901
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: deform
+  problem: 그 아이의 상상력은 매우 변형된 형상을 가진다.
+  length: 26
+  tags:
+    - fifth-grade
+    - vocabulary
+    - grammar
+    - inference
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"변형\",\"english\":\"deformed\"},{\"korean\":\
+    \"형상\",\"english\":\"shape\"},{\"korean\":\"상상\",\"english\":\"imagination\
+    \"}],\"sentence\":{\"korean\":\"그 아이의 상상력은 매우 변형된 형상을
+    가진다.\",\"english\":\"The child's imagination has a very deformed shape.\"}}"
+  id: 1717324456599
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: extract
+  problem: 정보를 분석하여 데이터를 추출했습니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - Translation
+    - ExtractData
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"정보","english":"information"},{"korean":"추출","english":"extract"},{"korean":"데이터","english":"data"}],"sentence":{"korean":"정보를
+    분석하여 데이터를 추출했습니다.","english":"The information was extracted after analyzing
+    it."}}'
+  id: 1717324526527
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: stitch
+  problem: 바늘로 패턴을 뜨기가 좋아해요.
+  length: 17
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Embroidery
+    - Needle
+    - Pattern
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"바늘","english":"needle"},{"korean":"뜨기","english":"to
+    embroider"},{"korean":"패턴","english":"pattern"}],"sentence":{"korean":"바늘로
+    패턴을 뜨기가 좋아해요.","english":"I love to embroider patterns with a needle."}}'
+  id: 1717324594042
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: gravitation
+  problem: 중력은 물리학에서 물체에 힘을 주어 지구 표면에 위치하게 합니다.
+  length: 36
+  tags:
+    - fifth-grade
+    - physics
+    - gravity
+    - force
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"중력","english":"gravity"},{"korean":"물리","english":"physics"},{"korean":"힘","english":"force"}],"sentence":{"korean":"중력은
+    물리학에서 물체에 힘을 주어 지구 표면에 위치하게 합니다.","english":"Gravity is a force that physics
+    exerts on objects to position them on the surface of the Earth."}}'
+  id: 1717324664818
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: merciful
+  problem: 죄책감에 부드러운 용서를 받은 사람들은 평화롭게 살 수 있습니다.
+  length: 36
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Merciful
+    - Forgiveness
+    - Guilt
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"부드러운","english":"merciful"},{"korean":"죄책감","english":"guilt"},{"korean":"용서","english":"forgiveness"}],"sentence":{"korean":"죄책감에
+    부드러운 용서를 받은 사람들은 평화롭게 살 수 있습니다.","english":"Those who receive merciful
+    forgiveness for their guilt can live peacefully."}}'
+  id: 1717324740129
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: heiress
+  problem: 상속녀는 부모님의 재산을 물려받습니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - Inheritance
+    - Wealth
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상속녀","english":"heiress"},{"korean":"부모님","english":"parents"},{"korean":"재산","english":"wealth"}],"sentence":{"korean":"상속녀는
+    부모님의 재산을 물려받습니다.","english":"The heiress inherits the wealth of her
+    parents."}}'
+  id: 1717324814484
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: garish
+  problem: 색다르게 입은옷은 사람들을 보고 있다.
+  length: 21
+  tags:
+    - fifth-grade
+    - literal-translation
+    - daily-conversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"색다르게","english":"brightly"},{"korean":"옷","english":"clothes"},{"korean":"보여준다","english":"shows"}],"sentence":{"korean":"색다르게
+    입은옷은 사람들을 보고 있다.","english":"The brightly colored clothes show that people
+    are watching."}}'
+  id: 1717324888170
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: less
+  problem: 덜밥은 음식을 좋아합니다.
+  length: 14
+  tags:
+    - 5thGrade
+    - Korean
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"덜","english":"less"},{"korean":"밥","english":"rice"},{"korean":"음식","english":"food"},{"korean":"좋아","english":"like"}],"sentence":{"korean":"덜밥은
+    음식을 좋아합니다.","english":"I like rice less than food."}}'
+  id: 1717324961600
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: injured
+  problem: 상해한 몸은 치료를 받아 회복했습니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanLanguage
+    - MedicalVocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상해","english":"injured"},{"korean":"치료","english":"treatment"},{"korean":"몸","english":"body"}],"sentence":{"korean":"상해한
+    몸은 치료를 받아 회복했습니다.","english":"The injured body recovered after receiving
+    treatment."}}'
+  id: 1717325032463
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: seniority
+  problem: 상급자들은 경력과 학업에서 앞서갑니다.
+  length: 21
+  tags:
+    - school-5th-grade
+    - sentence-completion
+    - vocabulary-expansion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상급자","english":"senior"},{"korean":"경력","english":"experience"},{"korean":"학업","english":"studies"}],"sentence":{"korean":"상급자들은
+    경력과 학업에서 앞서갑니다.","english":"Seniors are often ahead in both experience and
+    studies."}}'
+  id: 1717325102571
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pickle
+  problem: 장치가 무슨 용도를 할까요?
+  length: 15
+  tags:
+    - fifth-grade
+    - translation
+    - vocabulary
+    - grammar
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"장치가\",\"english\":\"The
+    gadget\"},{\"korean\":\"무슨 용도를\",\"english\":\"what is the purpose
+    of\"},{\"korean\":\"할까요?\",\"english\":\"to
+    do?\"}],\"sentence\":{\"korean\":\"장치가 무슨 용도를 할까요?\",\"english\":\"What's
+    the purpose of this gadget?\"}}"
+  id: 1717325177850
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: hate
+  problem: 피로한 날에 편감한 공간이 필요해요.
+  length: 20
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"편감\",\"english\":\"comfort\"},{\"korean\":\
+    \"편하고\",\"english\":\"comfortably\"},{\"korean\":\"피로\",\"english\":\"tired\
+    \"}],\"sentence\":{\"korean\":\"피로한 날에 편감한 공간이 필요해요.\",\"english\":\"You
+    need a comfortable space when you're tired.\"}}"
+  id: 1717325246758
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: articulation
+  problem: 발음은 정확한 말을 표현하는 능력입니다.
+  length: 22
+  tags:
+    - 5thGrade
+    - Korean
+    - SentenceTranslation
+    - Articulation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"발음","english":"articulation"},{"korean":"말","english":"speech"},{"korean":"정확","english":"precise"}],"sentence":{"korean":"발음은
+    정확한 말을 표현하는 능력입니다.","english":"Articulation is the ability to express
+    precise speech."}}'
+  id: 1717325324842
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: furtive
+  problem: 가시기는 비밀이기 때문에 움직임이 거저합니다.
+  length: 25
+  tags:
+    - fifth-grade
+    - translation
+    - verb-conjugation
+    - adverb
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"가시기","english":"sneaking"},{"korean":"비밀","english":"secret"},{"korean":"움직임","english":"movement"}],"sentence":{"korean":"가시기는
+    비밀이기 때문에 움직임이 거저합니다.","english":"Since sneaking is a secret, movement is
+    quiet."}}'
+  id: 1717325409322
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: footing
+  problem: 발걸음은 다음 시간에 걸음이 더 많아졌습니다.
+  length: 25
+  tags:
+    - fifth-grade
+    - footprints
+    - time
+    - increased
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"발걸음","english":"footing"},{"korean":"다음","english":"next"},{"korean":"시간","english":"time"},{"korean":"걸음","english":"step"}],"sentence":{"korean":"발걸음은
+    다음 시간에 걸음이 더 많아졌습니다.","english":"The footprint increased next time."}}'
+  id: 1717325493641
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: rocker
+  problem: 록커는 말의 등에느린다.
+  length: 13
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"록커","english":"rocker"},{"korean":"말","english":"word"},{"korean":"등","english":"back"},{"korean":"느린","english":"slow"}],"sentence":{"korean":"록커는
+    말의 등에느린다.","english":"A rocker leans back slowly."}}'
+  id: 1717325573934
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: mince
+  problem: 민치된 고기는 간장으로 잘 먹입니다.
+  length: 20
+  tags:
+    - fifth-grade
+    - translation
+    - daily-conversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"민치","english":"to
+    mince"},{"korean":"고기","english":"meat"},{"korean":"간장","english":"soy
+    sauce"}],"sentence":{"korean":"민치된 고기는 간장으로 잘 먹입니다.","english":"Minced meat
+    is delicious with soy sauce."}}'
+  id: 1717325647770
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: signal
+  problem: 신호 전기는 통합 효율적으로 사용하여 에너지를 절약합니다.
+  length: 32
+  tags:
+    - 5thGrade
+    - Korean
+    - Signal
+    - Efficiency
+    - Conservation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"신호","english":"signal"},{"korean":"전기","english":"electricity"},{"korean":"통합","english":"combined"},{"korean":"효율","english":"efficient"}],"sentence":{"korean":"신호
+    전기는 통합 효율적으로 사용하여 에너지를 절약합니다.","english":"Electricity signals are combined
+    efficiently to save energy."}}'
+  id: 1717325736370
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: wasteful
+  problem: 낭비하지 말고 필요한 것들을 사전에 준비해야 합니다
+  length: 28
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"낭비하다\",\"english\":\"to
+    waste\"},{\"korean\":\"물론\",\"english\":\"of course\"},{\"korean\":\"필요한 것들은
+    사전에 준비해야 합니다\",\"english\":\"necessary things should be prepared
+    beforehand\"}],\"sentence\":{\"korean\":\"낭비하지 말고 필요한 것들을 사전에 준비해야
+    합니다\",\"english\":\"Don't waste things. Prepare necessary things
+    beforehand.\"}}"
+  id: 1717325816302
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: lost
+  problem: 잃어버린 물건은 어디에 있을까?
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"잃어버린","english":"lost"},{"korean":"물건","english":"thing"}],"sentence":{"korean":"잃어버린
+    물건은 어디에 있을까?","english":"Where could the lost thing be?"}}'
+  id: 1717325881294
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: hostess
+  problem: 호스테스는 고객들에게 서비스를 제공합니다.
+  length: 23
+  tags:
+    - 5thGrade
+    - KoreanLanguage
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"호스테스","english":"hostess"},{"korean":"고객","english":"customer"},{"korean":"서비스","english":"service"}],"sentence":{"korean":"호스테스는
+    고객들에게 서비스를 제공합니다.","english":"Hostesses provide service to customers."}}'
+  id: 1717325957926
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: sixtieth
+  problem: 육십 번째 살이 지금이야.
+  length: 14
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"육십
+    번째\",\"english\":\"sixtieth\"},{\"korean\":\"살\",\"english\":\"year\"},{\"k\
+    orean\":\"지금\",\"english\":\"now\"}],\"sentence\":{\"korean\":\"육십 번째 살이
+    지금이야.\",\"english\":\"It's the sixties year now.\"}}"
+  id: 1717326034450
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: screwdriver
+  problem: 크롬 screwdriver는 물리학 법칙에 따라 회전합니다.
+  length: 33
+  tags:
+    - 5thGrade
+    - Physics
+    - Screwdriver
+    - Rotation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"크롬 screwdriver","english":"chrome
+    screwdriver"},{"korean":"크롬","english":"chrome"},{"korean":"드라이버","english":"driver"}],"sentence":{"korean":"크롬
+    screwdriver는 물리학 법칙에 따라 회전합니다.","english":"A chrome screwdriver rotates
+    according to the laws of physics."}}'
+  id: 1717326112783
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: baseball
+  problem: 야구장에서 볼을 치고 구원을 돌아갑니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - translation
+    - baseball
+    - bat
+    - field
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"야구","english":"baseball"},{"korean":"장바구니","english":"bat"},{"korean":"볼","english":"ball"},{"korean":"구원","english":"field"}],"sentence":{"korean":"야구장에서
+    볼을 치고 구원을 돌아갑니다.","english":"He hits the ball with a bat and runs around the
+    field."}}'
+  id: 1717326201478
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: difficulty
+  problem: 난감한 거대한 업무를 하고 있습니다.
+  length: 20
+  tags:
+    - 5th grade
+    - translation
+    - complex grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"난감","english":"challenge"},{"korean":"거대한","english":"huge"},{"korean":"업무","english":"work"}],"sentence":{"korean":"난감한
+    거대한 업무를 하고 있습니다.","english":"I am working on a huge challenge."}}'
+  id: 1717326278366
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ragged
+  problem: 풀린옷은 깨진 부분을 피고 수리합니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - Verb-Object
+    - Adjective-Noun
+    - Action
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"풀린","english":"Ragged"},{"korean":"옷","english":"Clothes"},{"korean":"깨진","english":"Broken"},{"korean":"피고","english":"Patching
+    up"}],"sentence":{"korean":"풀린옷은 깨진 부분을 피고 수리합니다.","english":"Ragged clothes
+    are patched up to fix the broken parts."}}'
+  id: 1717326371754
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: crumble
+  problem: 잔디가 날개처럼 깨지는 것을 볼 수 있어요.
+  length: 24
+  tags:
+    - fifth-grade
+    - literal-translation
+    - idiomatic-expression
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"잔디가","english":"The
+    lawn"},{"korean":"깨지는","english":"crumbles"},{"korean":"날개","english":"wings"}],"sentence":{"korean":"잔디가
+    날개처럼 깨지는 것을 볼 수 있어요.","english":"You can see the lawn crumbling like
+    wings."}}'
+  id: 1717326452434
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ongoing
+  problem: 지속적으로 학업을 진행하면 목표를 달성할 수 있습니다.
+  length: 30
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"지속적으로","english":"continuously"},{"korean":"진행","english":"progressing"},{"korean":"목표","english":"goal"}],"sentence":{"korean":"지속적으로
+    학업을 진행하면 목표를 달성할 수 있습니다.","english":"If you continuously study, you can
+    achieve your goal."}}'
+  id: 1717326535738
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: freshman
+  problem: 처음학생은 학교에 다니고 싶어요.
+  length: 18
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"처음학생","english":"freshman"},{"korean":"학교에
+    다닌다","english":"goes to
+    school"},{"korean":"좋아","english":"likes"}],"sentence":{"korean":"처음학생은 학교에
+    다니고 싶어요.","english":"A freshman likes to go to school."}}'
+  id: 1717326616926
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: shrink
+  problem: 물리적으로 거대한 물체는 크기가 작아지더라도, 그 부피는 여전히 크다.
+  length: 39
+  tags:
+    - fifth-grade
+    - translation
+    - shrinkage
+    - volume
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"크기가 작아지다","english":"to
+    shrink"},{"korean":"거대한","english":"big"},{"korean":"물리적으로","english":"physically"}],"sentence":{"korean":"물리적으로
+    거대한 물체는 크기가 작아지더라도, 그 부피는 여전히 크다.","english":"Even though large objects
+    shrink physically, their volume remains large."}}'
+  id: 1717326706302
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: judicious
+  problem: 판단과 명리의 결정은 중요합니다.
+  length: 18
+  tags:
+    - 5thgrade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"판단","english":"judicious"},{"korean":"명리","english":"reason"},{"korean":"결정","english":"decision"}],"sentence":{"korean":"판단과
+    명리의 결정은 중요합니다.","english":"A judicious decision based on reason is
+    important."}}'
+  id: 1717326776118
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ambivalent
+  problem: 불확실한 정보는 두려움 없이 처리해야 합니다.
+  length: 25
+  tags:
+    - fifth-grade
+    - ambiguity
+    - handling-information
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"불확실","english":"ambiguous"},{"korean":"두려움","english":"worry"},{"korean":"두려움
+    없이","english":"without worry"}],"sentence":{"korean":"불확실한 정보는 두려움 없이 처리해야
+    합니다.","english":"Ambiguous information should be handled without worry."}}'
+  id: 1717326862006
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: lifelike
+  problem: 생명처럼 생긴 이야기들은, 생활 속에서 매우 설득력이 큰 편입니다.
+  length: 37
+  tags:
+    - fifth-grade
+    - figurative-language
+    - inference
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"생명처럼 생긴","english":"Lifelike in every
+    way"},{"korean":"생활 속에서","english":"In daily life"},{"korean":"매우 설득력이
+    큰","english":"Incredibly convincing"}],"sentence":{"korean":"생명처럼 생긴 이야기들은,
+    생활 속에서 매우 설득력이 큰 편입니다.","english":"Stories that are lifelike in every way
+    are incredibly convincing in daily life."}}'
+  id: 1717326955798
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: bosom
+  problem: 보선은 고통의 온몸에 있다.
+  length: 15
+  tags:
+    - KoreanSentenceTranslation
+    - 5thGradeKorean
+    - MedicalVocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"보선","english":"bosom"},{"korean":"고통","english":"pain"},{"korean":"온몸","english":"whole
+    body"}],"sentence":{"korean":"보선은 고통의 온몸에 있다.","english":"The bosom carries
+    the pain of the whole body."}}'
+  id: 1717327034278
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: accrue
+  problem: 시간이 지남에 따라, 예치금액은 점차적으로 증가합니다.
+  length: 30
+  tags:
+    - 5th-grade
+    - vocabulary
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"증가","english":"increase"},{"korean":"금액","english":"amount"},{"korean":"시간","english":"time"}],"sentence":{"korean":"시간이
+    지남에 따라, 예치금액은 점차적으로 증가합니다.","english":"The amount of the deposit increases
+    gradually over time."}}'
+  id: 1717327119158
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: orient
+  problem: 오리엔트 날은 삶의 시작이다.
+  length: 16
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - WordTranslation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"오리엔트","english":"Orient"},{"korean":"날","english":"day"},{"korean":"삶","english":"life"}],"sentence":{"korean":"오리엔트
+    날은 삶의 시작이다.","english":"An orient day is the beginning of life."}}'
+  id: 1717327197834
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: neuron
+  problem: 뉴런은 망막에 정보를 전달합니다.
+  length: 18
+  tags:
+    - fifth-grade
+    - neuroscience
+    - biology
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"뉴런","english":"neuron"},{"korean":"망막","english":"retina"},{"korean":"정보","english":"information"}],"sentence":{"korean":"뉴런은
+    망막에 정보를 전달합니다.","english":"Neurons transmit information across the
+    retina."}}'
+  id: 1717327276550
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: puzzle
+  problem: 피스의 정리는 완벽한 해결을 찾는 과정입니다.
+  length: 25
+  tags:
+    - 5thGrade
+    - WordMeaning
+    - SentenceStructure
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"피스","english":"puzzle"},{"korean":"정리","english":"arrangement"},{"korean":"해결","english":"solution"}],"sentence":{"korean":"피스의
+    정리는 완벽한 해결을 찾는 과정입니다.","english":"Solving a puzzle is a process of finding
+    the perfect solution."}}'
+  id: 1717327356478
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: reduced
+  problem: 감소된 수준의 효율은 최대한 높여야 합니다.
+  length: 24
+  tags:
+    - fifth-grade
+    - reduction
+    - efficiency
+    - level
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"감소","english":"reduction"},{"korean":"수준","english":"level"},{"korean":"효율","english":"efficiency"}],"sentence":{"korean":"감소된
+    수준의 효율은 최대한 높여야 합니다.","english":"The efficiency at the reduced level should
+    be maximized."}}'
+  id: 1717327434998
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: browse
+  problem: 브라우징한 웹사이트 중에 관심있어요.
+  length: 20
+  tags:
+    - fifth-grade
+    - reading
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"브라우징","english":"browsing"},{"korean":"웹사이트","english":"website"},{"korean":"관심있어","english":"interesting"}],"sentence":{"korean":"브라우징한
+    웹사이트 중에 관심있어요.","english":"There are many interesting websites to browse
+    through."}}'
+  id: 1717327518342
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: oddly
+  problem: 무리없이 그들이 하고 싶지 않은 일을 하고 있으면 어떨까?
+  length: 32
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - interesting
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"무리없이\",\"english\":\"without any
+    reason\"},{\"korean\":\"그들이 하고 싶지 않은 일\",\"english\":\"something they don't
+    want to do\"},{\"korean\":\"어떨까\",\"english\":\"what's
+    up?\"}],\"sentence\":{\"korean\":\"무리없이 그들이 하고 싶지 않은 일을 하고 있으면
+    어떨까?\",\"english\":\"If they're doing something they don't want to do
+    without any reason, what's up?\"}}"
+  id: 1717327608383
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: theorist
+  problem: 이론적인 사고를 통해 문제의 해결책을 찾는다.
+  length: 25
+  tags:
+    - 5th-grade
+    - inference
+    - problem-solving
+    - theory
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"이론","english":"theory"},{"korean":"생각","english":"thought"},{"korean":"해결책","english":"solution"}],"sentence":{"korean":"이론적인
+    사고를 통해 문제의 해결책을 찾는다.","english":"Solutions to problems can be found through
+    theoretical thinking."}}'
+  id: 1717327708018
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: predict
+  problem: 오늘 날짜를 예측하면 내 주말 계획을 확실할 수 있습니다.
+  length: 32
+  tags:
+    - fifth-grade
+    - inference
+    - probability
+    - prediction
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"예측\",\"english\":\"to
+    predict\"},{\"korean\":\"날짜\",\"english\":\"the
+    day\"},{\"korean\":\"확실하다\",\"english\":\"to be
+    clear\"}],\"sentence\":{\"korean\":\"오늘 날짜를 예측하면 내 주말 계획을 확실할 수
+    있습니다.\",\"english\":\"If you predict today's date, you can make clear your
+    plans for next week.\"}}"
+  id: 1717327845441
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: slip
+  problem: 지명으로 나오다가 오류를 만들었다.
+  length: 19
+  tags:
+    - fifth-grade
+    - translation
+    - sentence-completion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"지명","english":"reason"},{"korean":"나오다가","english":"because
+    of that"},{"korean":"오류","english":"mistake"}],"sentence":{"korean":"지명으로
+    나오다가 오류를 만들었다.","english":"He made a mistake because of the reason."}}'
+  id: 1717327935042
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: star
+  problem: 별은 늘 빛나다.
+  length: 9
+  tags:
+    - school:5
+    - grammar:present-continuous
+    - vocabulary:astrology
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"별","english":"star"},{"korean":"빛나다","english":"to
+    shine"},{"korean":"늘","english":"always"}],"sentence":{"korean":"별은 늘
+    빛나다.","english":"The stars always shine."}}'
+  id: 1717328019150
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: knowledge
+  problem: 지식은 몸의 모든 부분을 이기고, 늘 몸의 성장에 도움이 됩니다.
+  length: 36
+  tags:
+    - 5thGrade
+    - Korean
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"지식","english":"knowledge"},{"korean":"몸","english":"body"},{"korean":"늘","english":"always"}],"sentence":{"korean":"지식은
+    몸의 모든 부분을 이기고, 늘 몸의 성장에 도움이 됩니다.","english":"Knowledge conquers every part
+    of the body and always helps the growth of the body."}}'
+  id: 1717328106915
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: panacea
+  problem: 피해는 완전해의 치료이 될 수 있습니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"피해","english":"damage"},{"korean":"완전해","english":"solution"},{"korean":"치료","english":"treatment"}],"sentence":{"korean":"피해는
+    완전해의 치료이 될 수 있습니다.","english":"Damage can be cured by a solution."}}'
+  id: 1717328183306
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: presumption
+  problem: 가정의 사고방식은 개인의 식단에 따라 달라질 수 있습니다.
+  length: 32
+  tags:
+    - 5thGrade
+    - DeductiveReasoning
+    - FamilyValues
+    - DietPreferences
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"가정에서 사과를 먹지만, 친구들은 오렌지를 먹습니다. 이는 어떤 가정의
+    사고방식인가요?","english":"Even though I eat apples at home, my friends eat
+    oranges. What might be the thinking style of this
+    family?"},{"korean":"사고방식","english":"thinking
+    style"},{"korean":"오렌지","english":"oranges"},{"korean":"사과","english":"apples"}],"sentence":{"korean":"가정의
+    사고방식은 개인의 식단에 따라 달라질 수 있습니다.","english":"The thinking style of a family can
+    differ depending on their individual diet."}}'
+  id: 1717328303431
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: governing
+  problem: 우리는 어려운 상황을 효율적으로 통할 수 있습니다.
+  length: 28
+  tags:
+    - 5thGrade
+    - Mediation
+    - Situation
+    - Organization
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"통할","english":"to
+    mediate"},{"korean":"정리","english":"to
+    organize"},{"korean":"우리","english":"we"},{"korean":"상황","english":"situation"}],"sentence":{"korean":"우리는
+    어려운 상황을 효율적으로 통할 수 있습니다.","english":"We can efficiently mediate difficult
+    situations."}}'
+  id: 1717328411678
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: youth
+  problem: 청년들은 지금 활약하고 있어요.
+  length: 17
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"청년","english":"youth"},{"korean":"활약","english":"to
+    be active"},{"korean":"지금","english":"now"}],"sentence":{"korean":"청년들은 지금
+    활약하고 있어요.","english":"Young people are actively engaged now."}}'
+  id: 1717328526694
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: inexorable
+  problem: 불변한 시간은 경험에 가치가 있다.
+  length: 19
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Inextorable
+    - Time
+    - Experience
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"불변","english":"inexorable"},{"korean":"시간","english":"time"},{"korean":"경험","english":"experience"}],"sentence":{"korean":"불변한
+    시간은 경험에 가치가 있다.","english":"Inextorable time is valuable in experience."}}'
+  id: 1717328647549
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: fuel
+  problem: 연료와 전기는 차량의 운동을 가능하게 합니다.
+  length: 25
+  tags:
+    - 5th-grade
+    - Korean-English translation
+    - common words
+    - daily life
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"연료","english":"fuel"},{"korean":"전기","english":"electricity"},{"korean":"차량","english":"vehicle"}],"sentence":{"korean":"연료와
+    전기는 차량의 운동을 가능하게 합니다.","english":"Fuel and electricity make it possible for
+    a vehicle to run."}}'
+  id: 1717328771257
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: oneness
+  problem: 우리 모두가 하나로 심지어 생각하고 행동하면 더 강해지겠습니다.
+  length: 35
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - ComplexGrammar
+    - ConceptOfOneness
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"우리","english":"we"},{"korean":"모두","english":"together"},{"korean":"한","english":"one"},{"korean":"심지어","english":"even"}],"sentence":{"korean":"우리
+    모두가 하나로 심지어 생각하고 행동하면 더 강해지겠습니다.","english":"When we all think and act as
+    one, we will become even stronger."}}'
+  id: 1717328900241
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: goad
+  problem: 가버지는 말을 하고 용기에 담아 준다.
+  length: 21
+  tags:
+    - fifth-grade
+    - figurative-language
+    - idiomatic
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"가버지","english":"goad"},{"korean":"말","english":"word"},{"korean":"용기","english":"vessel"}],"sentence":{"korean":"가버지는
+    말을 하고 용기에 담아 준다.","english":"The goad encourages the word and puts it in the
+    vessel."}}'
+  id: 1717329012117
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: lusty
+  problem: 욕심이 많아 물건을 얻는 것도 중요하지만, 무슨 일이든 간주해야 합니다.
+  length: 40
+  tags:
+    - Korean
+    - 5thGrade
+    - Desire
+    - Acceptance
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"욕심이 많아","english":"To have a strong
+    desire"},{"korean":"물건을 얻는 것","english":"To obtain something"},{"korean":"무슨
+    일이든 간주","english":"Whatever the case may be"}],"sentence":{"korean":"욕심이 많아
+    물건을 얻는 것도 중요하지만, 무슨 일이든 간주해야 합니다.","english":"It is important to obtain
+    things when you have a strong desire, but you should also accept whatever
+    happens."}}'
+  id: 1717329141089
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: repeal
+  problem: 법령을 해지하고 다음 단계로 문제 해결 과정이 시작되었습니다.
+  length: 34
+  tags:
+    - fifth-grade
+    - repeal
+    - law
+    - problem-solving
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"법령을 해지하다","english":"to repeal a
+    law"},{"korean":"다음 단계","english":"next step"},{"korean":"문제
+    해결","english":"problem-solving"}],"sentence":{"korean":"법령을 해지하고 다음 단계로 문제
+    해결 과정이 시작되었습니다.","english":"The law was repealed and the problem-solving
+    process for the next step has begun."}}'
+  id: 1717329257806
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: industrialize
+  problem: 산업화는 새로운 시대에 기술과 전문성을 요구합니다.
+  length: 28
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - Industrialization
+    - Era
+    - Expertise
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"산업화","english":"industrialization"},{"korean":"시대","english":"era"},{"korean":"전문성","english":"expertise"}],"sentence":{"korean":"산업화는
+    새로운 시대에 기술과 전문성을 요구합니다.","english":"Industrialization demands technological
+    advancements and expertise in the new era."}}'
+  id: 1717329353702
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: enthusiast
+  problem: 열정이말을 피고 있어요.
+  length: 13
+  tags:
+    - 5thgrade
+    - Korean
+    - Enthusiasm
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"열정이","english":"enthusiasm"},{"korean":"말을","english":"to
+    speak"},{"korean":"피고 있어","english":"is bubbling
+    over"}],"sentence":{"korean":"열정이말을 피고 있어요.","english":"He/She is bubbling
+    over with enthusiasm."}}'
+  id: 1717329426967
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: myriad
+  problem: 무리 없는 이 순간은 무궁히 아름다워.
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Countless
+    - Limitless
+    - Beauty
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"무리","english":"countless"},{"korean":"무궁히","english":"limitless"},{"korean":"늘","english":"always"}],"sentence":{"korean":"무리
+    없는 이 순간은 무궁히 아름다워.","english":"The moment without any count is endlessly
+    beautiful."}}'
+  id: 1717329504270
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: permanence
+  problem: 상기는 순간이 지나간다. 하지만, 잔잔한 상기는 남아있어요.
+  length: 33
+  tags:
+    - fifth-grade
+    - memory
+    - permanence
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상기","english":"memory"},{"korean":"잔잔","english":"lasting"},{"korean":"시간","english":"time"}],"sentence":{"korean":"상기는
+    순간이 지나간다. 하지만, 잔잔한 상기는 남아있어요.","english":"Memories are fleeting moments that
+    pass by. But lasting memories remain."}}'
+  id: 1717329582262
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: proscribe
+  problem: 약물을 처방하고 치료를 시작하면 환자가 빠르게 회복합니다.
+  length: 32
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - MedicationPrescribing
+    - Treatment
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"명령하다","english":"to
+    prescribe"},{"korean":"약물","english":"medicine"},{"korean":"치료","english":"treatment"}],"sentence":{"korean":"약물을
+    처방하고 치료를 시작하면 환자가 빠르게 회복합니다.","english":"When medicine is prescribed and
+    treatment starts, the patient recovers quickly."}}'
+  id: 1717329658778
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: data
+  problem: 오늘 데이터는 새로운 정보를 보관했습니다.
+  length: 23
+  tags:
+    - fifth-grade
+    - data-storage
+    - information-technology
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"데이터","english":"data"},{"korean":"오늘","english":"today"},{"korean":"정보","english":"information"},{"korean":"보관","english":"stored"}],"sentence":{"korean":"오늘
+    데이터는 새로운 정보를 보관했습니다.","english":"The data today was stored with new
+    information."}}'
+  id: 1717329735418
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: deceit
+  problem: 피고리한 거짓말은 거진이 됩니다.
+  length: 18
+  tags:
+    - fifth-grade
+    - inference
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"거짓말","english":"lying"},{"korean":"피고리","english":"blame"},{"korean":"거진","english":"trouble"}],"sentence":{"korean":"피고리한
+    거짓말은 거진이 됩니다.","english":"Blaming someone for a lie makes trouble."}}'
+  id: 1717329806622
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: sesame
+  problem: 참치는 생선 중에 가장 맛있어요.
+  length: 18
+  tags:
+    - 5thGrade
+    - Translation
+    - KoreanToEnglish
+    - Seafood
+    - Taste
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"참치","english":"tuna"},{"korean":"생선","english":"fish"},{"korean":"맛있어요","english":"delicious"}],"sentence":{"korean":"참치는
+    생선 중에 가장 맛있어요.","english":"Tuna is the most delicious of all the fish."}}'
+  id: 1717329880878
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: wrapper
+  problem: 포장은 물건을 보호하는 데 도움이 됩니다.
+  length: 23
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"포장","english":"wrapper"},{"korean":"물건","english":"thing"},{"korean":"보호","english":"protection"}],"sentence":{"korean":"포장은
+    물건을 보호하는 데 도움이 됩니다.","english":"The wrapper protects the thing."}}'
+  id: 1717329952498
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: strength
+  problem: 힘이 내용으로 거두어지면, 어려움을 극복할 수 있습니다.
+  length: 31
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Strength
+    - InnerStrength
+    - Gathering
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"힘","english":"strength"},{"korean":"내용","english":"inner"},{"korean":"거두","english":"to
+    gather"}],"sentence":{"korean":"힘이 내용으로 거두어지면, 어려움을 극복할 수
+    있습니다.","english":"When strength gathers inside, one can overcome any
+    difficulty."}}'
+  id: 1717330027222
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: rice
+  problem: 밥은 오전 식사에맛있어요.
+  length: 14
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - BasicGrammar
+    - FoodVocabulary
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"밥\",\"english\":\"rice\"},{\"korean\":\"맛있\
+    어요\",\"english\":\"it's delicious\"},{\"korean\":\"오전 식사에
+    먹어요\",\"english\":\"I ate it for breakfast\"}],\"sentence\":{\"korean\":\"밥은
+    오전 식사에맛있어요.\",\"english\":\"Rice is delicious for breakfast.\"}}"
+  id: 1717330101246
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: neighborhood
+  problem: 마을에서 살다보면, 순화한 공기가 깨끗해요.
+  length: 24
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"마을","english":"neighborhood"},{"korean":"살다","english":"to
+    live"},{"korean":"깨끗해","english":"clean"}],"sentence":{"korean":"마을에서 살다보면,
+    순화한 공기가 깨끗해요.","english":"Living in the neighborhood, the clean fresh air is
+    really nice."}}'
+  id: 1717330176634
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: legacy
+  problem: 유산은 인사를 통해 다른 사람들에게 작업을 남긴다.
+  length: 28
+  tags:
+    - 5thGrade
+    - KoreanToEnglish
+    - Legacy
+    - Influence
+    - Work
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"유산","english":"legacy"},{"korean":"인사","english":"influence"},{"korean":"작업","english":"work"}],"sentence":{"korean":"유산은
+    인사를 통해 다른 사람들에게 작업을 남긴다.","english":"A legacy is left through the influence
+    on others."}}'
+  id: 1717330250510
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: consciousness
+  problem: 식지는 명상과 상상력을 통해 더욱 풍부해질 수 있습니다.
+  length: 31
+  tags:
+    - fifth-grade
+    - vocabulary
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"식지","english":"awareness"},{"korean":"명상","english":"meditation"},{"korean":"상상력","english":"imagination"}],"sentence":{"korean":"식지는
+    명상과 상상력을 통해 더욱 풍부해질 수 있습니다.","english":"Awareness can be enriched through
+    meditation and imagination."}}'
+  id: 1717330315566
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: simplistic
+  problem: 순순한 생활 속 무슨 일이 있더라도, 잊지 말아야 할 것은 가족이야.
+  length: 38
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - FamilyImportance
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"순순한","english":"Simple"},{"korean":"생활
+    속","english":"In everyday life"},{"korean":"무슨 일이 있더라도","english":"even if
+    something happens"}],"sentence":{"korean":"순순한 생활 속 무슨 일이 있더라도, 잊지 말아야 할 것은
+    가족이야.","english":"Even in simple everyday life, the most important thing is
+    family, even if something happens."}}'
+  id: 1717330397330
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: strategy
+  problem: 상황에 맞춰 전략을 설정하여 결과를 얻기 위해 노력하세요.
+  length: 32
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - Strategy
+    - Situation
+    - Result
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"전략","english":"strategy"},{"korean":"상황에
+    맞춰","english":"depending on the situation"},{"korean":"결과를 얻기
+    위해","english":"to achieve results"}],"sentence":{"korean":"상황에 맞춰 전략을 설정하여
+    결과를 얻기 위해 노력하세요.","english":"Set a strategy depending on the situation and
+    work hard to achieve results."}}'
+  id: 1717330475442
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: gadget
+  problem: 가전은 항상 편하게 사용합니다.
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - daily-life
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"가전","english":"gadget"},{"korean":"늘","english":"always"},{"korean":"편하게","english":"comfortably"}],"sentence":{"korean":"가전은
+    항상 편하게 사용합니다.","english":"Gadgets are always used comfortably."}}'
+  id: 1717330541983
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: meantime
+  problem: 시간이 지나 주말 동안 작업을 하고 있어요.
+  length: 24
+  tags:
+    - 5thGrade
+    - Translation
+    - KoreanToEnglish
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"시간이 지나\",\"english\":\"Time has
+    passed\"},{\"korean\":\"주말 동안\",\"english\":\"over the
+    weekend\"},{\"korean\":\"작업을 하고\",\"english\":\"doing
+    homework\"}],\"sentence\":{\"korean\":\"시간이 지나 주말 동안 작업을 하고
+    있어요.\",\"english\":\"Time has passed over the weekend and I've been doing
+    homework.\"}}"
+  id: 1717330617470
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: demon
+  problem: 마음에 악마가 싸움을 하고 있어요.
+  length: 19
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - Demon
+    - Heart
+    - Fight
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"마음\",\"english\":\"heart\"},{\"korean\":\"\
+    악마\",\"english\":\"demon\"},{\"korean\":\"싸움\",\"english\":\"fight\"}],\"se\
+    ntence\":{\"korean\":\"마음에 악마가 싸움을 하고 있어요.\",\"english\":\"There's a fight
+    going on in my heart.\"}}"
+  id: 1717330690075
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: thinly
+  problem: 두께가 얇아 물이 잔잔해면 사라지네
+  length: 19
+  tags:
+    - korean-english
+    - grammar
+    - literal-translation
+    - fifth-grade
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"두께가 얇아","english":"very thin"},{"korean":"바닥에 물이
+    잔잔해","english":"the floor is covered in a thin layer of
+    water"},{"korean":"물이 얇아지면 사라지네","english":"when the water is thin, it
+    disappears"}],"sentence":{"korean":"두께가 얇아 물이 잔잔해면 사라지네","english":"When the
+    water is very thin, it disappears from the surface."}}'
+  id: 1717330775158
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: furor
+  problem: 화랑은 두려움을 제거할 용기가 중요합니다.
+  length: 23
+  tags:
+    - fifth-grade
+    - translation
+    - literal-translation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"화랑","english":"anger"},{"korean":"두려움","english":"worry"},{"korean":"용기","english":"tolerance"}],"sentence":{"korean":"화랑은
+    두려움을 제거할 용기가 중요합니다.","english":"Anger can be important for removing
+    worry."}}'
+  id: 1717330846090
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: frighten
+  problem: 악한 물건은 사람을 겁나게 합니다.
+  length: 19
+  tags:
+    - 5thGrade
+    - Translation
+    - Frighten
+    - KoreanSentence
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"겁나기","english":"to
+    frighten"},{"korean":"악한","english":"evil"},{"korean":"물건","english":"thing"}],"sentence":{"korean":"악한
+    물건은 사람을 겁나게 합니다.","english":"Evil things frighten people."}}'
+  id: 1717330916217
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: sorcerer
+  problem: 마법사는 물리적으로 거동할 수 있습니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"마법사","english":"sorcerer"},{"korean":"거동","english":"move"},{"korean":"물리","english":"physics"}],"sentence":{"korean":"마법사는
+    물리적으로 거동할 수 있습니다.","english":"A sorcerer can move physically."}}'
+  id: 1717330983366
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: mainstream
+  problem: 주류 생활 속 다양성은 중요합니다.
+  length: 19
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyLife
+    - Diversity
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"주류","english":"mainstream"},{"korean":"다양성","english":"diversity"},{"korean":"생활
+    속","english":"in daily life"}],"sentence":{"korean":"주류 생활 속 다양성은
+    중요합니다.","english":"Diversity in daily life is important."}}'
+  id: 1717331054286
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: stain
+  problem: 염소가 물에 반창을 제거했다.
+  length: 16
+  tags:
+    - fifth-grade
+    - literal-translation
+    - grammar-passive-voice
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"염소","english":"bleach"},{"korean":"물","english":"water"},{"korean":"반창","english":"stain"}],"sentence":{"korean":"염소가
+    물에 반창을 제거했다.","english":"Bleach removed the stain from the water."}}'
+  id: 1717331119654
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: swear
+  problem: 오해가 막상 말버린다.
+  length: 12
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"오해","english":"misunderstanding"},{"korean":"막상","english":"suddenly"},{"korean":"말버린다","english":"speaks
+    carelessly"}],"sentence":{"korean":"오해가 막상 말버린다.","english":"There was a
+    sudden misunderstanding."}}'
+  id: 1717331188106
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pamper
+  problem: 용기는 보호를 제공하고 편안함을 준다.
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - ContainersAndProtection
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"용기","english":"container"},{"korean":"보호","english":"protection"},{"korean":"편안","english":"comfortable"}],"sentence":{"korean":"용기는
+    보호를 제공하고 편안함을 준다.","english":"A container provides protection and
+    comfort."}}'
+  id: 1717331258990
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: undoubtedly
+  problem: 확실히 오늘 우리학교는 맛있게 식단이 준비되었습니다.
+  length: 29
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - EverydayConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"확실히","english":"Certainly"},{"korean":"오늘","english":"Today"},{"korean":"우리","english":"We"},{"korean":"학교","english":"school"},{"korean":"맛있게","english":"deliciously"}],"sentence":{"korean":"확실히
+    오늘 우리학교는 맛있게 식단이 준비되었습니다.","english":"Certainly, we have delicious meals
+    prepared for school today."}}'
+  id: 1717331342698
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: senile
+  problem: 치명적인 선망이, 이 순간의 시간은 너무 길게 느껴지네요.
+  length: 32
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Sigh
+    - Critical
+    - Time
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"치명적인","english":"critical"},{"korean":"선망","english":"sigh"},{"korean":"시간","english":"time"}],"sentence":{"korean":"치명적인
+    선망이, 이 순간의 시간은 너무 길게 느껴지네요.","english":"A critical sigh fills the air,
+    making this moment feel incredibly long."}}'
+  id: 1717331418462
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: election
+  problem: 투표는 민주주의의 근본이다.
+  length: 15
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - ElectionVocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"투표","english":"vote"},{"korean":"선거","english":"election"},{"korean":"민주","english":"democracy"}],"sentence":{"korean":"투표는
+    민주주의의 근본이다.","english":"Voting is the foundation of democracy."}}'
+  id: 1717331485454
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: buck
+  problem: 버크는 살의 가치를 찾는 피크업이야.
+  length: 20
+  tags:
+    - 5thGrade
+    - LiteralTranslation
+    - FigurativeLanguage
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"버크","english":"buck"},{"korean":"살","english":"life"},{"korean":"피크업","english":"pickup"}],"sentence":{"korean":"버크는
+    살의 가치를 찾는 피크업이야.","english":"A buck is a pickup in the value of life."}}'
+  id: 1717331554126
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: exceedingly
+  problem: 매우 대단히 시도해 성공했다.
+  length: 16
+  tags:
+    - 5thGrade
+    - Translation
+    - KoreanToEnglish
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"매우","english":"extremely"},{"korean":"대단히","english":"significantly"},{"korean":"성공","english":"success"}],"sentence":{"korean":"매우
+    대단히 시도해 성공했다.","english":"He succeeded extremely significantly after trying
+    very hard."}}'
+  id: 1717331619233
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ethic
+  problem: 이윤은 정직하고 선명해야 사회가 발전합니다.
+  length: 24
+  tags:
+    - 5thGrade
+    - KoreanGrammar
+    - Vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"이윤","english":"profit"},{"korean":"정직","english":"integrity"},{"korean":"선명","english":"transparent"}],"sentence":{"korean":"이윤은
+    정직하고 선명해야 사회가 발전합니다.","english":"Profit should be generated with integrity
+    and transparency for social development."}}'
+  id: 1717331691114
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: configuration
+  problem: 다양한 구성 요소를 변경하여 최적의 계획을 만듭니다.
+  length: 29
+  tags:
+    - 5thGrade
+    - SentenceTranslation
+    - KoreanLanguage
+    - ConfigurationConcept
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"구성","english":"configuration"},{"korean":"변화","english":"change"},{"korean":"계획","english":"plan"}],"sentence":{"korean":"다양한
+    구성 요소를 변경하여 최적의 계획을 만듭니다.","english":"We configure various components to
+    make the best plan."}}'
+  id: 1717331763730
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pail
+  problem: pail은 물을 담아 날에 사용합니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanVocabulary
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"pail","english":"bucket"},{"korean":"날","english":"day"},{"korean":"물","english":"water"}],"sentence":{"korean":"pail은
+    물을 담아 날에 사용합니다.","english":"We use a bucket to carry water for the day."}}'
+  id: 1717331829978
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: coddle
+  problem: 애교할 용기 말은 가치 있다.
+  length: 16
+  tags:
+    - 5thGrade
+    - VerbalConcept
+    - Metaphor
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"애교하다","english":"to
+    coddle"},{"korean":"용기","english":"a container"},{"korean":"말","english":"a
+    word"}],"sentence":{"korean":"애교할 용기 말은 가치 있다.","english":"The word that is
+    coddled is valuable."}}'
+  id: 1717331900762
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: mimic
+  problem: 치명적으로 모방하다면 재미있겠어요.
+  length: 19
+  tags:
+    - 5thGrade
+    - Mimicry
+    - DailyConversation
+    - ExpressEmotion
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"모방하다","english":"to
+    mimic"},{"korean":"치명적으로","english":"extremely"},{"korean":"재미있다","english":"is
+    fun"}],"sentence":{"korean":"치명적으로 모방하다면 재미있겠어요.","english":"If you mimic
+    something extremely, it will be fun, you know."}}'
+  id: 1717331969370
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: immaculate
+  problem: 깨끗한 공기는 방해 없이 침입하여 호흡기 건강에 도움이 됩니다.
+  length: 35
+  tags:
+    - 5thGrade
+    - Translation
+    - Korean
+    - English
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"깨끗한","english":"clean"},{"korean":"침입","english":"intrusion"},{"korean":"방해","english":"obstacle"}],"sentence":{"korean":"깨끗한
+    공기는 방해 없이 침입하여 호흡기 건강에 도움이 됩니다.","english":"Clean air intrudes without
+    obstacles to promote respiratory health."}}'
+  id: 1717332046438
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: locker
+  problem: 보관함에 학생의 물건을 담아 있습니다.
+  length: 21
+  tags:
+    - fifth-grade
+    - translation
+    - locker
+    - school
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"보관함\",\"english\":\"locker\"},{\"korean\":\
+    \"학생\",\"english\":\"student\"},{\"korean\":\"물건\",\"english\":\"belongings\
+    \"}],\"sentence\":{\"korean\":\"보관함에 학생의 물건을 담아 있습니다.\",\"english\":\"The
+    student's belongings are in the locker.\"}}"
+  id: 1717332120386
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: tinge
+  problem: 감기의 색깔은 투명한 빛이지만, 실제로는 색깔이 있다.
+  length: 30
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"감기","english":"cold"},{"korean":"색깔","english":"color"},{"korean":"투명","english":"transparent"},{"korean":"빛","english":"light"}],"sentence":{"korean":"감기의
+    색깔은 투명한 빛이지만, 실제로는 색깔이 있다.","english":"The cold has a transparent light, but
+    in reality, it has color."}}'
+  id: 1717332203838
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: patron
+  problem: 후원자가 보호받는 것은 보호를 제공하는 것이 중요합니다.
+  length: 31
+  tags:
+    - 5thGrade
+    - Translation
+    - Patronage
+    - Protection
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"후원자","english":"patron"},{"korean":"보호","english":"protection"},{"korean":"보호받는","english":"protected"}],"sentence":{"korean":"후원자가
+    보호받는 것은 보호를 제공하는 것이 중요합니다.","english":"It is important for a patron to be
+    protected, as they provide protection."}}'
+  id: 1717332279230
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: intolerance
+  problem: 불공정한 사고는 사회의 발전을 방해합니다.
+  length: 23
+  tags:
+    - fifth-grade
+    - comprehension
+    - translation
+    - intolerance
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"불공정","english":"intolerance"},{"korean":"차이","english":"difference"},{"korean":"우리","english":"we"},{"korean":"생각","english":"belief"}],"sentence":{"korean":"불공정한
+    사고는 사회의 발전을 방해합니다.","english":"Intolerance of difference hinders the
+    progress of society."}}'
+  id: 1717332830385
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: dependence
+  problem: 삶은 무슨 일이든 종속될 수 있다.
+  length: 19
+  tags:
+    - 5thGrade
+    - Dependency
+    - KoreanSentence
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"종속","english":"dependence"},{"korean":"삶","english":"life"},{"korean":"무슨
+    일이든","english":"whatever happens"}],"sentence":{"korean":"삶은 무슨 일이든 종속될 수
+    있다.","english":"Life is bound to depend on something, whatever that may
+    be."}}'
+  id: 1717332908702
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: observe
+  problem: 상황을 관찰하여 변화를 예측합니다.
+  length: 19
+  tags:
+    - 5thGrade
+    - Observation
+    - Prediction
+    - SituationChange
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"관찰","english":"observe"},{"korean":"상황","english":"situation"},{"korean":"변화","english":"change"}],"sentence":{"korean":"상황을
+    관찰하여 변화를 예측합니다.","english":"We predict changes by observing the
+    situation."}}'
+  id: 1717332989450
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: nonchalant
+  problem: 무관심한 날카스한 상황에 처하면, 어떻게 해야 할지 생각해 보세요.
+  length: 37
+  tags:
+    - fifth-grade
+    - translation
+    - inference
+    - situation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"무관심","english":"indifferent"},{"korean":"날카스한","english":"calm"},{"korean":"상황에","english":"depending
+    on the situation"}],"sentence":{"korean":"무관심한 날카스한 상황에 처하면, 어떻게 해야 할지 생각해
+    보세요.","english":"If you are indifferent and calm in a situation, think about
+    what you should do."}}'
+  id: 1717333070686
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: syllabus
+  problem: 교사는 학생들에게 책임을 다해야 합니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"교사","english":"teacher"},{"korean":"책임","english":"responsibility"},{"korean":"학생","english":"student"}],"sentence":{"korean":"교사는
+    학생들에게 책임을 다해야 합니다.","english":"Teachers are responsible for taking care of
+    students."}}'
+  id: 1717333160450
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: intervene
+  problem: 피해자가 상황을 이해하고 중개자가 도와야 합니다.
+  length: 27
+  tags:
+    - 5thGrade
+    - Intermediation
+    - Understanding
+    - Collaboration
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"중개자","english":"intermediary"},{"korean":"피해자","english":"victim"},{"korean":"상황","english":"situation"}],"sentence":{"korean":"피해자가
+    상황을 이해하고 중개자가 도와야 합니다.","english":"The victim needs to understand the
+    situation and the intermediary should help."}}'
+  id: 1717333278310
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: infringe
+  problem: 그들의 영역은 공평한 경계 내에서 침해될 수 없습니다.
+  length: 30
+  tags:
+    - 5th grade
+    - literal translation
+    - domain infringement
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"침해","english":"intrusion"},{"korean":"영역","english":"domain"},{"korean":"경계","english":"boundary"}],"sentence":{"korean":"그들의
+    영역은 공평한 경계 내에서 침해될 수 없습니다.","english":"Their domain cannot be infringed
+    within the fair boundaries."}}'
+  id: 1717333398283
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: consult
+  problem: 상담 전문가에게 문제 해결 정보를 얻었다.
+  length: 23
+  tags:
+    - 5thGrade
+    - Consulting
+    - Expert
+    - Information
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상담","english":"consult"},{"korean":"전문가","english":"expert"},{"korean":"정보","english":"information"}],"sentence":{"korean":"상담
+    전문가에게 문제 해결 정보를 얻었다.","english":"I got the solution information from an
+    expert consultant."}}'
+  id: 1717333521286
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: intrusion
+  problem: 침입자가 거주하는 공간은 작아서 매우 좁습니다.
+  length: 26
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"침입","english":"intrusion"},{"korean":"거주","english":"resident"},{"korean":"공간","english":"space"}],"sentence":{"korean":"침입자가
+    거주하는 공간은 작아서 매우 좁습니다.","english":"The space occupied by the intruders is
+    very small."}}'
+  id: 1717333634262
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: thoughtless
+  problem: 무고해 선물을 받아서 정말 기뻐해요.
+  length: 20
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - CarelessGift
+    - SimpleGrammar
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"무고해\",\"english\":\"careless\"},{\"korean\
+    \":\"선물\",\"english\":\"present\"},{\"korean\":\"받기\",\"english\":\"to
+    receive\"}],\"sentence\":{\"korean\":\"무고해 선물을 받아서 정말
+    기뻐해요.\",\"english\":\"I'm so happy to receive the careless present.\"}}"
+  id: 1717333751407
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: blatant
+  problem: 명백히 죄책감 없이 선의를 다 하고 있기 때문에, 지금 이 순간에 이 상황이 가능합니다.
+  length: 49
+  tags:
+    - fifth-grade
+    - literal-translation
+    - complex-grammar
+    - conjunction
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"명백히","english":"blatantly"},{"korean":"죄책감
+    없이","english":"without a shred of guilt"},{"korean":"선의를 다
+    하고","english":"having fulfilled all obligations"}],"sentence":{"korean":"명백히
+    죄책감 없이 선의를 다 하고 있기 때문에, 지금 이 순간에 이 상황이 가능합니다.","english":"Since I have
+    fulfilled all my duties blatantly without any guilt, this situation is now
+    possible."}}'
+  id: 1717333859307
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: obvious
+  problem: 상상력과 경험이 결합되어 명확해진다.
+  length: 20
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - common-words
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"명확하다","english":"is
+    obvious"},{"korean":"상상력","english":"imagination"},{"korean":"경험","english":"experience"}],"sentence":{"korean":"상상력과
+    경험이 결합되어 명확해진다.","english":"When imagination and experience are combined, it
+    becomes obvious."}}'
+  id: 1717333922242
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: diet
+  problem: 식단을 통해 건강을 향상시킨다.
+  length: 17
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"식단","english":"diet"},{"korean":"몸","english":"body"},{"korean":"건강","english":"health"}],"sentence":{"korean":"식단을
+    통해 건강을 향상시킨다.","english":"A diet can improve health."}}'
+  id: 1717333992127
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: apparel
+  problem: 옷은 두피의 색으로 만들어집니다.
+  length: 18
+  tags:
+    - Korean
+    - 5thGrade
+    - SentenceCompletion
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"옷\",\"english\":\"clothes\"},{\"korean\":\
+    \"두피\",\"english\":\"fabric\"},{\"korean\":\"색\",\"english\":\"color\"}],\"\
+    sentence\":{\"korean\":\"옷은 두피의 색으로 만들어집니다.\",\"english\":\"Clothes are made
+    from the fabric's color.\"}}"
+  id: 1717334060978
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: playmate
+  problem: 친구들과 함께놀이하면 더 재미있어요.
+  length: 20
+  tags:
+    - fifth-grade
+    - translation
+    - playmate
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"친구\",\"english\":\"friend\"},{\"korean\":\
+    \"놀이\",\"english\":\"play\"},{\"korean\":\"함께\",\"english\":\"together\"}],\
+    \"sentence\":{\"korean\":\"친구들과 함께놀이하면 더 재미있어요.\",\"english\":\"It's more
+    fun to play with friends.\"}}"
+  id: 1717334130702
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: platform
+  problem: 플랫폼에 새로운 정보가 접근했습니다.
+  length: 20
+  tags:
+    - 5thGrade
+    - KoreanToEnglish
+    - Access
+    - Platform
+    - Information
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"플랫폼","english":"platform"},{"korean":"정보","english":"information"},{"korean":"접근","english":"access"}],"sentence":{"korean":"플랫폼에
+    새로운 정보가 접근했습니다.","english":"New information has been accessed on the
+    platform."}}'
+  id: 1717334201702
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: cascade
+  problem: 폭포는 물이 내린다.
+  length: 11
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"폭포","english":"cascade"},{"korean":"물","english":"water"},{"korean":"내린다","english":"flows
+    down"}],"sentence":{"korean":"폭포는 물이 내린다.","english":"A cascade flows down
+    with water."}}'
+  id: 1717334266102
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: fossil
+  problem: 화석은 시간의 변화를 보여준다.
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - vocabulary
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"화석","english":"fossil"},{"korean":"날짜","english":"time"},{"korean":"변화","english":"change"}],"sentence":{"korean":"화석은
+    시간의 변화를 보여준다.","english":"Fossils show the changes that have happened over
+    time."}}'
+  id: 1717334334810
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: involve
+  problem: 피크업 리더는 팀원들과 함께 계획을 세웁니다.
+  length: 25
+  tags:
+    - 5thgrade
+    - translation
+    - dailyconversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"피크업","english":"pickup"},{"korean":"리더","english":"leader"},{"korean":"팀","english":"team"}],"sentence":{"korean":"피크업
+    리더는 팀원들과 함께 계획을 세웁니다.","english":"The pickup leader sets plans together with
+    the team members."}}'
+  id: 1717334406730
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: mistress
+  problem: 오늘 선생님의 수업은 매우 재미있네요.
+  length: 21
+  tags:
+    - grade5
+    - translation
+    - korean
+    - english
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"선생님\",\"english\":\"teacher\"},{\"korean\":\
+    \"학생\",\"english\":\"student\"},{\"korean\":\"오늘\",\"english\":\"today\"},{\
+    \"korean\":\"수업\",\"english\":\"class\"}],\"sentence\":{\"korean\":\"오늘 선생님의
+    수업은 매우 재미있네요.\",\"english\":\"Today's class was very fun with the
+    teacher.\"}}"
+  id: 1717334478362
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: proviso
+  problem: 프리viso는 만약 패턴이 불규칙하면 예상치 못한 결과가 나타날 수 있습니다.
+  length: 43
+  tags:
+    - fifth-grade
+    - conditional-sentence
+    - irregular-pattern
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"프리viso","english":"condition"},{"korean":"만약","english":"if"},{"korean":"불규칙한","english":"irregular"},{"korean":"패턴","english":"pattern"}],"sentence":{"korean":"프리viso는
+    만약 패턴이 불규칙하면 예상치 못한 결과가 나타날 수 있습니다.","english":"The proviso is if there is
+    an irregular pattern, it can lead to unexpected results."}}'
+  id: 1717334557862
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: situate
+  problem: 상황을 이해하고 맥락을 정할 수록 더 나은 결정을 내릴 수 있습니다.
+  length: 38
+  tags:
+    - 5thGrade
+    - Situation
+    - Understanding
+    - Context
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상황을 정할","english":"to
+    situate"},{"korean":"인지","english":"understanding"},{"korean":"맥락","english":"context"}],"sentence":{"korean":"상황을
+    이해하고 맥락을 정할 수록 더 나은 결정을 내릴 수 있습니다.","english":"When you understand the
+    situation and its context, you can make better decisions."}}'
+  id: 1717334658426
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: crimson
+  problem: 크림색 날개하단은 날개 위에 비춰 보인다.
+  length: 23
+  tags:
+    - fifth-grade
+    - literal-translation
+    - daily-conversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"크림색","english":"Crimson"},{"korean":"날개","english":"Wing"},{"korean":"날개하단","english":"Feather"}],"sentence":{"korean":"크림색
+    날개하단은 날개 위에 비춰 보인다.","english":"Crimson feathers on the wing are visible
+    against the sky."}}'
+  id: 1717334750250
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: luxury
+  problem: 상품의 고품질과 편리성 때문에, 많은 사람들이 선택합니다.
+  length: 32
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상품","english":"product"},{"korean":"고품질","english":"high-quality"},{"korean":"편리","english":"convenient"}],"sentence":{"korean":"상품의
+    고품질과 편리성 때문에, 많은 사람들이 선택합니다.","english":"People often choose this product
+    because of its high quality and convenience."}}'
+  id: 1717334837126
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: greet
+  problem: 안녕하세요, 오전에 만날 예정이에요. 약 10시에 집에 도착할 예정이에요.
+  length: 41
+  tags:
+    - fifth-grade
+    - translation
+    - meeting
+    - time
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"안녕하세요\",\"english\":\"Hello\"},{\"korean\":\
+    \"오전에 만날 예정이에요\",\"english\":\"We're scheduled to meet in the
+    morning\"},{\"korean\":\"약 10시에 집에 도착할 예정이에요\",\"english\":\"We're expected
+    to arrive home around 10am\"}],\"sentence\":{\"korean\":\"안녕하세요, 오전에 만날
+    예정이에요. 약 10시에 집에 도착할 예정이에요.\",\"english\":\"Hello, we're scheduled to meet
+    this morning. We're expected to arrive home around 10am.\"}}"
+  id: 1717334968966
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: vengeance
+  problem: 복수한 피고리는 용기에 담겨 있더라.
+  length: 20
+  tags:
+    - fifth-grade
+    - literal-translation
+    - figurative-language
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"복수","english":"revenge"},{"korean":"피고리","english":"to
+    suffer"},{"korean":"용기","english":"container"}],"sentence":{"korean":"복수한
+    피고리는 용기에 담겨 있더라.","english":"Many of the sufferings are contained within the
+    container."}}'
+  id: 1717335077257
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: gunshot
+  problem: 발사소리는 종종 경악의 피해자들이 됩니다.
+  length: 23
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"발사소리","english":"
+    gunshot"},{"korean":"경악","english":"trouble"},{"korean":"피해자","english":"victim"}],"sentence":{"korean":"발사소리는
+    종종 경악의 피해자들이 됩니다.","english":"Gunshots often leave victims of trouble."}}'
+  id: 1717335199558
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: revealing
+  problem: 보여주는 거대한 비밀은, 시간이 지남에 점점 해소됩니다.
+  length: 31
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Grammar
+    - Contextualization
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"보여주는","english":"revealing"},{"korean":"거대한","english":"vast"},{"korean":"비밀","english":"mystery"}],"sentence":{"korean":"보여주는
+    거대한 비밀은, 시간이 지남에 점점 해소됩니다.","english":"The vast mystery that is revealed
+    over time gradually disappears as time passes."}}'
+  id: 1717335315025
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: brevity
+  problem: 시간이 지나면 모든 것은 바뀌고 짧아지더라.
+  length: 24
+  tags:
+    - fifth-grade
+    - sentence-completion
+    - vocabulary-development
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"짧아지다","english":"to become
+    shorter"},{"korean":"시간","english":"time"},{"korean":"변화","english":"change"}],"sentence":{"korean":"시간이
+    지나면 모든 것은 바뀌고 짧아지더라.","english":"As time passes, everything changes and
+    becomes shorter."}}'
+  id: 1717335429757
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: even
+  problem: 조금 더 피곤해졌어요.
+  length: 12
+  tags:
+    - fifth-grade
+    - comprehension
+    - daily-conversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"조금","english":"a
+    little"},{"korean":"더","english":"more"},{"korean":"피곤해","english":"tired"}],"sentence":{"korean":"조금
+    더 피곤해졌어요.","english":"I feel a little more tired now."}}'
+  id: 1717335528594
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: foliage
+  problem: 나무의 잎들은 가을에 색을 바꿔요.
+  length: 19
+  tags:
+    - fifth-grade
+    - reading
+    - vocabulary
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"잎들","english":"leaves"},{"korean":"꽃잎","english":"petals"},{"korean":"나무","english":"tree"}],"sentence":{"korean":"나무의
+    잎들은 가을에 색을 바꿔요.","english":"The leaves of the tree change color in fall."}}'
+  id: 1717335611382
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: refreshment
+  problem: 선물은 감사의 나누기를 해줍니다.
+  length: 18
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"선물","english":"gift"},{"korean":"감사","english":"gratitude"},{"korean":"나누기","english":"conversation"}],"sentence":{"korean":"선물은
+    감사의 나누기를 해줍니다.","english":"A gift brings about a conversation of
+    gratitude."}}'
+  id: 1717335687422
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: gravestone
+  problem: 비늘이 바닥에 날카스를 합니다.
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"비늘","english":"grit"},{"korean":"바닥","english":"floor"},{"korean":"날카스","english":"heel"}],"sentence":{"korean":"비늘이
+    바닥에 날카스를 합니다.","english":"There is grit on the heel of the floor."}}'
+  id: 1717335753838
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: neat
+  problem: 깨끗한 거물은 치리할 수 있어요.
+  length: 18
+  tags:
+    - 5thGrade
+    - KoreanLanguage
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"깨끗","english":"neat"},{"korean":"거물","english":"things"},{"korean":"치리","english":"tidy"}],"sentence":{"korean":"깨끗한
+    거물은 치리할 수 있어요.","english":"Neat things can be easily tidied up."}}'
+  id: 1717335824838
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: define
+  problem: 정의는 단어의 뜻을 정하는 것입니다.
+  length: 20
+  tags:
+    - korean-english
+    - translation
+    - 5thgrade
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"정의","english":"definition"},{"korean":"용어","english":"word"},{"korean":"뜻","english":"meaning"}],"sentence":{"korean":"정의는
+    단어의 뜻을 정하는 것입니다.","english":"A definition is the act of establishing the
+    meaning of a word."}}'
+  id: 1717335895958
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: revel
+  problem: 일기가 처음에 예상했던 것보다 더 따뜻해졌네요. 변화는 예상치 못했기 때문에 더 특별해.
+  length: 49
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"일기가 처음에 예상했던 것보다 더 따뜻해졌네요","english":"The
+    weather is warmer than expected at first."},{"korean":"예상치 못한
+    변화","english":"Unanticipated
+    change"},{"korean":"온도","english":"Temperature"}],"sentence":{"korean":"일기가
+    처음에 예상했던 것보다 더 따뜻해졌네요. 변화는 예상치 못했기 때문에 더 특별해.","english":"The weather is
+    warmer than expected at first. The change is unanticipated, making it even
+    more special."}}'
+  id: 1717335990878
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: supreme
+  problem: 극단한 상황에서도, 대비를 잘 하면 어려움 없이 해결할 수 있습니다.
+  length: 38
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - CommonGrammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"극단","english":"supreme"},{"korean":"상황","english":"situation"},{"korean":"대비","english":"preparation"}],"sentence":{"korean":"극단한
+    상황에서도, 대비를 잘 하면 어려움 없이 해결할 수 있습니다.","english":"Even in a supreme situation,
+    if you prepare well, you can solve it without difficulty."}}'
+  id: 1717336078086
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: undue
+  problem: 불필요한 거대한 프로젝트는 너무 많은 피해를 입히고 있습니다.
+  length: 34
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"불필요","english":"unnecessary"},{"korean":"거대한","english":"huge"},{"korean":"피해","english":"damage"}],"sentence":{"korean":"불필요한
+    거대한 프로젝트는 너무 많은 피해를 입히고 있습니다.","english":"The huge unnecessary project is
+    causing a lot of damage."}}'
+  id: 1717336156030
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: first
+  problem: 첫 번째 걸음은 경험에 중요합니다.
+  length: 19
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - Step
+    - Experience
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"첫
+    번째","english":"first"},{"korean":"걸음","english":"step"},{"korean":"경험","english":"experience"}],"sentence":{"korean":"첫
+    번째 걸음은 경험에 중요합니다.","english":"The first step is important for
+    experience."}}'
+  id: 1717336235234
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: memento
+  problem: 기억한 날의 사랑은 영원합니다.
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"기억","english":"memory"},{"korean":"날","english":"day"},{"korean":"사랑","english":"love"}],"sentence":{"korean":"기억한
+    날의 사랑은 영원합니다.","english":"The love of a remembered day lasts forever."}}'
+  id: 1717336309145
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: unimportant
+  problem: 무시할 만한 작업은 하지 말고 전부 완료해야 합니다.
+  length: 29
+  tags:
+    - korean-english
+    - translation
+    - grammar
+    - 5thgrade
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"무시할
+    만한\",\"english\":\"unimportant\"},{\"korean\":\"작업\",\"english\":\"task\"},{\
+    \"korean\":\"하지 말고\",\"english\":\"don't forget\"},{\"korean\":\"전부
+    완료해야\",\"english\":\"you have to finish
+    everything\"}],\"sentence\":{\"korean\":\"무시할 만한 작업은 하지 말고 전부 완료해야
+    합니다.\",\"english\":\"Unimportant tasks can be forgotten, but you have to
+    finish everything else.\"}}"
+  id: 1717336391311
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: personnel
+  problem: 인사원 직원들은 업무를 합니다.
+  length: 17
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"인사원","english":"personnel"},{"korean":"직원들","english":"employees"},{"korean":"업무를
+    합니다","english":"are working"}],"sentence":{"korean":"인사원 직원들은 업무를
+    합니다.","english":"The personnel are working."}}'
+  id: 1717336461506
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: runner
+  problem: 달리는 거리는 시간에 비례합니다.
+  length: 18
+  tags:
+    - 5thGrade
+    - ProportionalRelationship
+    - DistanceTime
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"달리다","english":"to
+    run"},{"korean":"거리","english":"distance"},{"korean":"시간","english":"time"}],"sentence":{"korean":"달리는
+    거리는 시간에 비례합니다.","english":"The distance you run is proportional to the time
+    you spend running."}}'
+  id: 1717336535638
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: penance
+  problem: 고통을 이기는 것은 용기가 크고, 용기가 크면 보상이 크겠어요.
+  length: 35
+  tags:
+    - 5thGrade
+    - Translation
+    - Suffering
+    - Reward
+    - Burden
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"고통","english":"suffering"},{"korean":"용기","english":"burden"},{"korean":"보상","english":"reward"}],"sentence":{"korean":"고통을
+    이기는 것은 용기가 크고, 용기가 크면 보상이 크겠어요.","english":"Overcoming suffering means you
+    have a big heart, and the bigger your heart, the greater the reward."}}'
+  id: 1717336614294
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: arithmetic
+  problem: 수학은 여러 개의 숫자를 계산하여 총을 계산합니다.
+  length: 28
+  tags:
+    - fifth-grade
+    - arithmetic
+    - calculation
+    - numbers
+    - sum
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"수학","english":"arithmetic"},{"korean":"계산","english":"calculation"},{"korean":"숫자","english":"number"},{"korean":"총","english":"sum"}],"sentence":{"korean":"수학은
+    여러 개의 숫자를 계산하여 총을 계산합니다.","english":"Arithmetic is the calculation of
+    multiple numbers to get the sum."}}'
+  id: 1717336691766
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: repulse
+  problem: 피로로 인해 반발감이 진지합니다.
+  length: 18
+  tags:
+    - korean-english
+    - translation
+    - 5thGrade
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"반발","english":"repulsion"},{"korean":"피로","english":"tiredness"},{"korean":"진지","english":"seriously"}],"sentence":{"korean":"피로로
+    인해 반발감이 진지합니다.","english":"He feels serious repulsion due to tiredness."}}'
+  id: 1717336760794
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: addictive
+  problem: 남자가 과도하게 게임에 빠지는 것은 인내심이 부족하여 생활 속에서 깨닫게 돼
+  length: 42
+  tags:
+    - fifth-grade
+    - addiction
+    - video-games
+    - patience
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"남자가 과도하게 게임에 빠지는 것","english":"When a boy gets
+    addicted to video games"},{"korean":"인내심이 부족해","english":"because he lacks
+    patience"},{"korean":"생활 속에서 깨닫게 돼","english":"he realizes it in his daily
+    life"}],"sentence":{"korean":"남자가 과도하게 게임에 빠지는 것은 인내심이 부족하여 생활 속에서 깨닫게
+    돼","english":"Getting addicted to video games is when a boy lacks patience
+    and realizes it in his daily life"}}'
+  id: 1717336849797
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: deliver
+  problem: 배송된 물건은 수령자가 받습니다.
+  length: 18
+  tags:
+    - fifth-grade
+    - translation
+    - delivery
+    - receiving
+    - thing
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"배송하다","english":"to
+    deliver"},{"korean":"물건","english":"thing"},{"korean":"받기","english":"to
+    receive"}],"sentence":{"korean":"배송된 물건은 수령자가 받습니다.","english":"The
+    delivered thing is received by the receiver."}}'
+  id: 1717336933634
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: exhilarate
+  problem: 날카락은 두렵다가, 과업을 잘 해서 성공할 수 있다.
+  length: 29
+  tags:
+    - 5thGrade
+    - KoreanGrammar
+    - Vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"날카락","english":"excitement"},{"korean":"두렵다","english":"to
+    feel nervous"},{"korean":"성공하다","english":"to
+    succeed"}],"sentence":{"korean":"날카락은 두렵다가, 과업을 잘 해서 성공할 수
+    있다.","english":"Excitement is natural before a test, but you can succeed if
+    you study hard."}}'
+  id: 1717337016770
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: loose
+  problem: 풀린옷은 치우러 길게 걸립니다.
+  length: 17
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"풀린","english":"loose"},{"korean":"옷","english":"clothes"},{"korean":"치우러","english":"hang"}],"sentence":{"korean":"풀린옷은
+    치우러 길게 걸립니다.","english":"Loose clothes hang along the long hallway."}}'
+  id: 1717337091558
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: confinement
+  problem: 감금으로 시간이 길게 생활해야 생활의 질은 향상합니다.
+  length: 30
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - Confinement
+    - DailyLife
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"감금","english":"confinement"},{"korean":"거주","english":"stay
+    at home"},{"korean":"시간","english":"time"},{"korean":"생활","english":"daily
+    life"}],"sentence":{"korean":"감금으로 시간이 길게 생활해야 생활의 질은
+    향상합니다.","english":"Spending time in confinement improves the quality of
+    daily life."}}'
+  id: 1717337178414
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: fern
+  problem: 목이 길고, 잎이 많고, 꽃이 아름다워
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"목이 길다","english":"It is tall"},{"korean":"잎이
+    많다","english":"There are many leaves"},{"korean":"꽃이 아름다워","english":"The
+    flowers are beautiful"}],"sentence":{"korean":"목이 길고, 잎이 많고, 꽃이
+    아름다워","english":"It is tall with many leaves and beautiful flowers"}}'
+  id: 1717337260186
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: width
+  problem: 너비한 피크닉장은 풀과 함께 아름답습니다.
+  length: 23
+  tags:
+    - 5thGrade
+    - KoreanSentenceTranslation
+    - Vocabulary
+    - Grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"너비","english":"width"},{"korean":"피크닉","english":"picnic"},{"korean":"풀","english":"pool"}],"sentence":{"korean":"너비한
+    피크닉장은 풀과 함께 아름답습니다.","english":"The wide picnic area is beautiful with the
+    pool nearby."}}'
+  id: 1717337331526
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: smuggle
+  problem: 숨기다 물건을 밀접 해도, 누군가 알 수 없어.
+  length: 26
+  tags:
+    - fifth-grade
+    - inference
+    - literal-translation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"숨기다","english":"to
+    hide"},{"korean":"물건","english":"things"},{"korean":"밀접","english":"closely"}],"sentence":{"korean":"숨기다
+    물건을 밀접 해도, 누군가 알 수 없어.","english":"Even if you hide the things closely,
+    someone will always find out."}}'
+  id: 1717337406591
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: funk
+  problem: 춤을 추다가 춤을 추는 동안 음악에 따라 다양한 춤형이 나타납니다.
+  length: 37
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"춤을 추다가","english":"to dance
+    while"},{"korean":"춤을 추는 동안","english":"during the dance"},{"korean":"음악에
+    따라","english":"depending on the music"}],"sentence":{"korean":"춤을 추다가 춤을 추는
+    동안 음악에 따라 다양한 춤형이 나타납니다.","english":"While dancing, various dance styles
+    appear depending on the music during the dance."}}'
+  id: 1717337489070
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: necktie
+  problem: 목걸이는 매우 예쁘고 입고 있어.
+  length: 18
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - WordTranslation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"목걸이","english":"necktie"},{"korean":"착용하다","english":"to
+    wear"},{"korean":"매우 예쁘다","english":"to look very
+    nice"}],"sentence":{"korean":"목걸이는 매우 예쁘고 입고 있어.","english":"Neckties look
+    very nice when worn."}}'
+  id: 1717337563138
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: ham
+  problem: 함에 물을 담아 마셔요. 맛있어요.
+  length: 19
+  tags:
+    - fifth-grade
+    - comprehension
+    - sentence-structure
+    - vocabulary
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"함\",\"english\":\"cup\"},{\"korean\":\"물\",\
+    \"english\":\"water\"},{\"korean\":\"맛있어요\",\"english\":\"it's
+    delicious\"}],\"sentence\":{\"korean\":\"함에 물을 담아 마셔요.
+    맛있어요.\",\"english\":\"I drink water from the cup. It's delicious.\"}}"
+  id: 1717337638650
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: hulk
+  problem: Hulk이 공을 잡아 손에 넣었다.
+  length: 19
+  tags:
+    - fifth-grade
+    - translation
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":" Hulk이 공을 잡아 손에 넣었다.","english":"The Hulk caught
+    the ball and put it in his
+    hand."},{"korean":"잡아","english":"caught"},{"korean":"넣었다","english":"put"},{"korean":"공","english":"ball"},{"korean":"손","english":"hand"}],"sentence":{"korean":"Hulk이
+    공을 잡아 손에 넣었다.","english":"The Hulk caught the ball and put it in his
+    hand."}}'
+  id: 1717337730714
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: intensity
+  problem: 강도 높은 감각은 일상에서 흔히 경험합니다.
+  length: 24
+  tags:
+    - 5thGrade
+    - KoreanLanguage
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"강도","english":"intensity"},{"korean":"감각","english":"sensation"},{"korean":"일상","english":"daily
+    life"}],"sentence":{"korean":"강도 높은 감각은 일상에서 흔히 경험합니다.","english":"High
+    intensity sensations are often experienced in daily life."}}'
+  id: 1717337879737
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: grumble
+  problem: 말을 하다가 불편해지다가 치곤해지네요.
+  length: 21
+  tags:
+    - fifth-grade
+    - translation
+    - daily-conversation
+    - korean-english-daily-life
+  solution: "{\"words\":[{\"korean\":\"말을 하다가\",\"english\":\"To grumble while
+    speaking\"},{\"korean\":\"불편해지다\",\"english\":\"To become
+    uncomfortable\"},{\"korean\":\"치곤해지네요\",\"english\":\"It's
+    annoying\"}],\"sentence\":{\"korean\":\"말을 하다가 불편해지다가
+    치곤해지네요.\",\"english\":\"She grumbled while speaking, and it became
+    uncomfortable, and it was annoying.\"}}"
+  id: 1717338023333
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: lamppost
+  problem: 등불은 길을 빛나다.
+  length: 11
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"등불","english":"lamppost"},{"korean":"빛나다","english":"to
+    shine"},{"korean":"거리","english":"distance"}],"sentence":{"korean":"등불은 길을
+    빛나다.","english":"The lamppost illuminates the way."}}'
+  id: 1717338134177
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: recently
+  problem: 근래밥을 먹고 출발했어요.
+  length: 14
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - BasicGrammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"근래","english":"recently"},{"korean":"밥을
+    먹고","english":"having eaten
+    rice"},{"korean":"출발했어요.","english":"left."}],"sentence":{"korean":"근래밥을 먹고
+    출발했어요.","english":"I left after having eaten rice recently."}}'
+  id: 1717338229561
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: traveler
+  problem: 여행자는 세상을 돌아 다양한 곳을 탐험합니다.
+  length: 25
+  tags:
+    - fifth-grade
+    - translation
+    - travel
+    - exploration
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"여행자","english":"traveler"},{"korean":"세상","english":"world"},{"korean":"탐험","english":"exploration"}],"sentence":{"korean":"여행자는
+    세상을 돌아 다양한 곳을 탐험합니다.","english":"The traveler explores various places around
+    the world."}}'
+  id: 1717338328709
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: commonly
+  problem: 흔히 거주하는 곳은 어디서?
+  length: 15
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"흔히","english":"commonly"},{"korean":"거주합니다","english":"live"},{"korean":"어디서?","english":"where?"}],"sentence":{"korean":"흔히
+    거주하는 곳은 어디서?","english":"Where do people commonly live?"}}'
+  id: 1717338441477
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: atomic
+  problem: 원자는 물리적인 상태를 바꾸는 과정이기도 합니다.
+  length: 27
+  tags:
+    - 5thGrade
+    - Physics
+    - AtomicConcept
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"원자","english":"atom"},{"korean":"입체","english":"solid"},{"korean":"변화","english":"change"}],"sentence":{"korean":"원자는
+    물리적인 상태를 바꾸는 과정이기도 합니다.","english":"Atoms can undergo physical changes of
+    state."}}'
+  id: 1717338545970
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: retract
+  problem: 거두리 발은 해안선을 침해하려고 합니다.
+  length: 22
+  tags:
+    - fifth-grade
+    - vocabulary
+    - grammar
+    - inference
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"거두리","english":"retract"},{"korean":"발","english":"foot"},{"korean":"침해","english":"invasion"}],"sentence":{"korean":"거두리
+    발은 해안선을 침해하려고 합니다.","english":"The retreating foot is trying to invade the
+    coastline."}}'
+  id: 1717338646757
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: gift
+  problem: 선물은 다행한 순간에 받는 것이 좋겠어요.
+  length: 23
+  tags:
+    - fifth-grade
+    - grammar
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"선물","english":"gift"},{"korean":"다행","english":"lucky"},{"korean":"받다","english":"to
+    receive"}],"sentence":{"korean":"선물은 다행한 순간에 받는 것이 좋겠어요.","english":"It
+    would be nice to receive a gift during a lucky moment."}}'
+  id: 1717338742110
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: corresponding
+  problem: 상대거리와 시간은 중요합니다.
+  length: 16
+  tags:
+    - 5thGrade
+    - KoreanTranslation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상대","english":"corresponding"},{"korean":"거리","english":"distance"},{"korean":"시간","english":"time"}],"sentence":{"korean":"상대거리와
+    시간은 중요합니다.","english":"Distance and time are important factors."}}'
+  id: 1717338827670
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: dock
+  problem: 도크 근처에 물의 위치는 어디일까?
+  length: 19
+  tags:
+    - 5thGrade
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"도크","english":"dock"},{"korean":"물","english":"water"},{"korean":"위치","english":"location"}],"sentence":{"korean":"도크
+    근처에 물의 위치는 어디일까?","english":"Where might the water be located near the
+    dock?"}}'
+  id: 1717338902030
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: mission
+  problem: 임무는 설정된 대상을 달성하기 위해 노력하는 과정입니다.
+  length: 31
+  tags:
+    - 5thGrade
+    - Translation
+    - Mission
+    - Target
+    - Achievement
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"임무","english":"mission"},{"korean":"대상","english":"target"},{"korean":"달성","english":"achievement"}],"sentence":{"korean":"임무는
+    설정된 대상을 달성하기 위해 노력하는 과정입니다.","english":"A mission is the process of trying
+    to achieve a set target."}}'
+  id: 1717338980538
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: watering
+  problem: 풀을 물려다니면 식물이 건강해집니다
+  length: 19
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - PlantWatering
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"풀을 물려다니다","english":"to water the
+    plants"},{"korean":"풀","english":"plants"},{"korean":"물려다니다","english":"to
+    water"}],"sentence":{"korean":"풀을 물려다니면 식물이 건강해집니다","english":"When we water
+    the plants, they become healthy."}}'
+  id: 1717339061526
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: commodity
+  problem: 상품의 치가는 시장에 따라 달라집니다.
+  length: 21
+  tags:
+    - fifth-grade
+    - translation
+    - commerce
+    - market
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"상품","english":"commodity"},{"korean":"치가","english":"price"},{"korean":"시장","english":"market"}],"sentence":{"korean":"상품의
+    치가는 시장에 따라 달라집니다.","english":"The price of a commodity changes depending on
+    the market."}}'
+  id: 1717339133442
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: nephew
+  problem: 외손은 친구들을 위해 항상 우리와 함께 해줄게요.
+  length: 27
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"외손","english":"nephew"},{"korean":"친구","english":"friend"},{"korean":"우리","english":"us"},{"korean":"좋아","english":"likes"}],"sentence":{"korean":"외손은
+    친구들을 위해 항상 우리와 함께 해줄게요.","english":"The nephew always helps us out with his
+    friends."}}'
+  id: 1717339221253
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: seventieth
+  problem: 칠십 번째 살이 오랜 시간 동안 지나간다.
+  length: 23
+  tags:
+    - fifth-grade
+    - translation
+    - Korean
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"칠십
+    번째","english":"seventieth"},{"korean":"살이","english":"life"},{"korean":"오랜
+    시간 동안","english":"for a long time"}],"sentence":{"korean":"칠십 번째 살이 오랜 시간 동안
+    지나간다.","english":"Life has passed seventy years."}}'
+  id: 1717339295978
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: preclude
+  problem: 막다른 상황은 어떤 목표를 달성하는 데 도움이 됩니다.
+  length: 30
+  tags:
+    - 5thGrade
+    - Inference
+    - Situation
+    - Goal
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"막다","english":"to
+    prevent"},{"korean":"상황","english":"situation"},{"korean":"성공","english":"success"}],"sentence":{"korean":"막다른
+    상황은 어떤 목표를 달성하는 데 도움이 됩니다.","english":"Preventing certain situations helps
+    achieve goals."}}'
+  id: 1717339375562
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pertain
+  problem: 고지는 생활에 매우 중요합니다.
+  length: 17
+  tags:
+    - fifth-grade
+    - translation
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"고지","english":"matter"},{"korean":"거지는","english":"is
+    related to"},{"korean":"생활","english":"daily
+    life"}],"sentence":{"korean":"고지는 생활에 매우 중요합니다.","english":"Matter is very
+    important in daily life."}}'
+  id: 1717339479493
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: compare
+  problem: 두 개의 물건을 비교해 보면 이쪽이 더 잘이다.
+  length: 26
+  tags:
+    - 5thGrade
+    - Comparison
+    - Adjective
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"비교","english":"to compare"},{"korean":"두
+    개","english":"two"},{"korean":"것","english":"things"},{"korean":"더
+    잘","english":"better"}],"sentence":{"korean":"두 개의 물건을 비교해 보면 이쪽이 더
+    잘이다.","english":"When you compare the two things, this one is better."}}'
+  id: 1717339632501
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: methodology
+  problem: 방법론을 통해 학습 과정의 효율을 높일 수 있습니다.
+  length: 29
+  tags:
+    - fifth-grade
+    - translation
+    - vocabulary
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"방법론","english":"methodology"},{"korean":"학습","english":"learning"},{"korean":"효율","english":"efficiency"}],"sentence":{"korean":"방법론을
+    통해 학습 과정의 효율을 높일 수 있습니다.","english":"Methodology can improve the efficiency
+    of the learning process."}}'
+  id: 1717339767298
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: graphite
+  problem: 그래픽 필은 무슨 용도로 사용할까?
+  length: 19
+  tags:
+    - 5thGrade
+    - Translation
+    - EverydayConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"그래픽","english":"graphite"},{"korean":"필","english":"pencil"},{"korean":"무슨","english":"what"},{"korean":"용도","english":"purpose"}],"sentence":{"korean":"그래픽
+    필은 무슨 용도로 사용할까?","english":"What is the purpose of using a graphite
+    pencil?"}}'
+  id: 1717339881662
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pollution
+  problem: 오염된 대기는 생명을 위협합니다.
+  length: 18
+  tags:
+    - 5th grade
+    - environmental issue
+    - air pollution
+    - threat
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"오염","english":"pollution"},{"korean":"대기","english":"air"},{"korean":"생명","english":"life"}],"sentence":{"korean":"오염된
+    대기는 생명을 위협합니다.","english":"Polluted air threatens life."}}'
+  id: 1717339983782
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: diagnose
+  problem: 진단 결과, 증상의 확인이 중요합니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - Medical
+    - Diagnosis
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"진단","english":"diagnosis"},{"korean":"증상","english":"symptoms"},{"korean":"확인","english":"confirmation"}],"sentence":{"korean":"진단
+    결과, 증상의 확인이 중요합니다.","english":"The confirmation of the diagnosis is
+    important based on the symptoms."}}'
+  id: 1717340096501
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: monarchy
+  problem: 황제는 국가의 모든 권한을 가지고 있습니다.
+  length: 24
+  tags:
+    - 5thGrade
+    - KoreanLanguage
+    - Government
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"황제","english":"monarch"},{"korean":"정부","english":"government"},{"korean":"권한","english":"authority"}],"sentence":{"korean":"황제는
+    국가의 모든 권한을 가지고 있습니다.","english":"The monarch has all the authority of the
+    nation."}}'
+  id: 1717340179970
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: risk
+  problem: 위험은 대장이지만, 위험을 해결하면 문제가 해결된다.
+  length: 29
+  tags:
+    - fifth-grade
+    - translation
+    - risk
+    - grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"위험","english":"risk"},{"korean":"대장","english":"big
+    deal"},{"korean":"해결","english":"solve"}],"sentence":{"korean":"위험은 대장이지만,
+    위험을 해결하면 문제가 해결된다.","english":"There is a big deal about risk, but if we
+    solve the risk, the problem will be solved."}}'
+  id: 1717340253954
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: armful
+  problem: 팔다리는 물건을 다진다.
+  length: 13
+  tags:
+    - grade-5
+    - literal-translation
+    - packing
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"팔다리","english":"armsful"},{"korean":"물건","english":"things"},{"korean":"다진","english":"packed"}],"sentence":{"korean":"팔다리는
+    물건을 다진다.","english":"You have an armful of things."}}'
+  id: 1717340324586
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: firefighter
+  problem: 소방관은 화재를 막는 데 파고 있습니다.
+  length: 22
+  tags:
+    - 5thGrade
+    - Korean
+    - Translation
+    - Fire
+    - Station
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"소방관","english":"fire
+    station"},{"korean":"파고있다","english":"is on duty"},{"korean":"화재를
+    막는다","english":"puts out fires"}],"sentence":{"korean":"소방관은 화재를 막는 데 파고
+    있습니다.","english":"The fire station is on duty putting out fires."}}'
+  id: 1717340403462
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: power
+  problem: 능력은 무엇을 할 수 있을까?
+  length: 16
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - WordTranslation
+    - PowerConcept
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"능력","english":"power"},{"korean":"무엇을","english":"what"},{"korean":"할
+    수 있을까","english":"can do"}],"sentence":{"korean":"능력은 무엇을 할 수
+    있을까?","english":"What can power do?"}}'
+  id: 1717340476987
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: heating
+  problem: 난방은 현재 온도를 정확히 유지하고 있어요.
+  length: 24
+  tags:
+    - 5th-grade
+    - translation
+    - daily-conversation
+    - common-words
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"난방","english":"heating"},{"korean":"온도","english":"temperature"},{"korean":"정확하다","english":"is
+    accurate"}],"sentence":{"korean":"난방은 현재 온도를 정확히 유지하고 있어요.","english":"The
+    heating is currently maintaining the temperature accurately."}}'
+  id: 1717340550502
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: persist
+  problem: 지속적으로 노력하여 목표를 달성하기 위해 노력을 해야 합니다.
+  length: 34
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Grammar
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"지속적으로","english":"persistently"},{"korean":"노력","english":"effort"},{"korean":"목표를
+    달성하기 위해","english":"to achieve the goal"}],"sentence":{"korean":"지속적으로 노력하여
+    목표를 달성하기 위해 노력을 해야 합니다.","english":"You need to persistently exert effort to
+    achieve your goal."}}'
+  id: 1717340628150
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: performing
+  problem: 연주한 무용 작품은 아름다워요.
+  length: 17
+  tags:
+    - fifth-grade
+    - performing-arts
+    - korean-english
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"연주하다","english":"to
+    perform"},{"korean":"무용","english":"dance"},{"korean":"작품","english":"work"}],"sentence":{"korean":"연주한
+    무용 작품은 아름다워요.","english":"The performance is beautiful."}}'
+  id: 1717341355646
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: pump
+  problem: 펌프는 물을 오르다.
+  length: 11
+  tags:
+    - fifth-grade
+    - translation
+    - daily-conversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"펌프","english":"pump"},{"korean":"물","english":"water"},{"korean":"오르다","english":"to
+    rise"}],"sentence":{"korean":"펌프는 물을 오르다.","english":"The pump raises the
+    water."}}'
+  id: 1717341477599
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: bedtime
+  problem: 침상시간이 되면 근처에 책을 읽는다.
+  length: 20
+  tags:
+    - 5thGrade
+    - Reading
+    - Bedtime
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"침상시간","english":"bedtime"},{"korean":"근처","english":"nearby"},{"korean":"책","english":"book"}],"sentence":{"korean":"침상시간이
+    되면 근처에 책을 읽는다.","english":"When bedtime comes, I read a book nearby."}}'
+  id: 1717341679602
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: dancer
+  problem: 춤꾼들은 무용한 무용을 합니다.
+  length: 17
+  tags:
+    - 5thGrade
+    - Korean
+    - Translation
+    - DailyConversation
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"춤꾼","english":"dancer"},{"korean":"무용","english":"dance"},{"korean":"무용한","english":"talented"}],"sentence":{"korean":"춤꾼들은
+    무용한 무용을 합니다.","english":"The dancers are talented dancers."}}'
+  id: 1717341798053
+
+- model: gemma:7b
+  generator: korean-english-daily-life
+  input: locust
+  problem: 말벌은 날개를 벌려 대단히 피기합니다.
+  length: 21
+  tags:
+    - 5thGrade
+    - KoreanSentence
+    - SwarmBehavior
+    - korean-english-daily-life
+  solution: '{"words":[{"korean":"말벌","english":"locust"},{"korean":"날개","english":"wings"},{"korean":"피기","english":"to
+    swarm"}],"sentence":{"korean":"말벌은 날개를 벌려 대단히 피기합니다.","english":"Locusts
+    swarm together using their wings to protect themselves."}}'
+  id: 1717341931737
 
