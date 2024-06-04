@@ -2,7 +2,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "socialist",
-    "problem": "There are 25 people in a group. Some people like to share things equally, while others prefer to keep things for themselves. If there are three times as many who like to share as those who prefer to keep things for themselves, how many people like to share and how many prefer to keep things for themselves?",
+    "problem": {
+      "natural": "There are 25 people in a group. Some prefer to share things equally, while others prefer to keep things for themselves. If three times as many people like to share as those who prefer to keep things for themselves, how many people like to share and how many prefer to keep things for themselves?"
+    },
     "length": 300,
     "tags": [
       "algebra",
@@ -14,7 +16,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "socialist",
-    "problem": "A group of socialists travels 360 kilometers in 4 hours. What is their average speed in meters per second?",
+    "problem": {
+      "natural": "A group of socialists travels 360 kilometers in 4 hours. What is their average speed in meters per second?"
+    },
     "length": 106,
     "tags": [
       "speed",
@@ -28,7 +32,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "socialist",
-    "problem": "A socialist bakery wants to share their delicious baguettes equally among the villagers. The bakery is 300 centimeters long and the villagers are 50 centimeters apart. How many villagers can the bakery share baguettes with if they want each villager to have at least 10 centimeters of baguette space?",
+    "problem": {
+      "natural": "A socialist bakery wants to share their delicious baguettes equally among the villagers. The bakery is 3 meters long and the villagers are 0.5 meters apart. How many villagers can the bakery share baguettes with if they want each villager to have at least 0.1 meters of baguette space?"
+    },
     "length": 283,
     "tags": [
       "division",
@@ -40,7 +46,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "socialist",
-    "problem": "In a socialist community, each household contributes a fixed amount of food each month to a central pantry. The probability of a randomly chosen household contributing less than 2kg is 1/3. What is the probability that at least 2 out of 5 randomly chosen households contribute less than 2kg?",
+    "problem": {
+      "natural": "In a socialist community, each household contributes a fixed amount of food to a central pantry every month. The probability of a randomly chosen household contributing less than 2kg is 1/3. What is the probability that at least two out of the next five randomly chosen households will contribute less than 2kg?"
+    },
     "length": 291,
     "tags": [
       "grade-5",
@@ -52,7 +60,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "socialist",
-    "problem": "A group of friends share 12 meters of rope equally among themselves. If each friend received 3/4 of a meter of rope, how many friends are there in the group?",
+    "problem": {
+      "natural": "A group of friends share 12 meters of rope equally. Each friend receives 3 out of 4 of a meter of rope. How many friends are there in the group?"
+    },
     "length": 157,
     "tags": [
       "division",
@@ -66,7 +76,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "socialist",
-    "problem": "There are 35 families in a socialist housing complex, and each family has an average of 3.2 people. What is the total population of the complex?",
+    "problem": {
+      "natural": "How many people live in the socialist housing complex if there are 35 families and each family has an average of 3.2 people?"
+    },
     "length": 144,
     "tags": [
       "grade-5",
@@ -159,7 +171,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "integration",
-    "problem": "There are 120 liters of water in a reservoir which can hold 200 liters. Water is flowing into the reservoir at a rate of 3 liters per minute, while water is flowing out of the reservoir at a rate of 2 liters per minute. How many minutes will it take for the reservoir to be completely full?",
+    "problem": {
+      "natural": "A reservoir holds 200 liters of water. Water is flowing into the reservoir at a rate of 3 liters per minute, while water is flowing out of the reservoir at a rate of 2 liters per minute. If the reservoir initially contains 120 liters of water, how many minutes will it take for the reservoir to be completely full?"
+    },
     "length": 264,
     "tags": [
       "algebra",
@@ -172,7 +186,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "integration",
-    "problem": "An object travels at a constant speed of 2 meters per second. How much distance has the object covered after 3.5 hours?",
+    "problem": {
+      "natural": "An object is moving at a steady speed of 2 meters per second. How much distance has the object covered after 3.5 hours?"
+    },
     "length": 119,
     "tags": [
       "grade-5",
@@ -187,7 +203,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "integration",
-    "problem": "A farmer wants to fence in a rectangular garden with an area of 100 square meters. If the length of the garden is 5 meters more than the width, what are the dimensions of the garden?",
+    "problem": {
+      "natural": "A farmer wants to enclose a rectangular garden with an area of 100 square meters. The length of the garden is 5 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 182,
     "tags": [
       "area",
@@ -199,7 +217,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "integration",
-    "problem": "A box of marbles contains 30 blue marbles and 20 green marbles. If you reach into the box without looking and pick out 10 marbles, what is the probability that exactly 5 of them are blue?",
+    "problem": {
+      "natural": "A box of marbles holds 30 blue marbles and 20 green marbles. If you randomly pick 10 marbles from the box without looking, what is the probability that exactly 5 of them are blue?"
+    },
     "length": 187,
     "tags": [
       "probability",
@@ -211,7 +231,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "integration",
-    "problem": "A water slide at the park has a height of 3 meters. If the water flow rate at the top of the slide is 2 cubic meters per second, what is the total amount of water that has flowed down the slide in 5 minutes?",
+    "problem": {
+      "natural": "A water slide at the park is 3 meters tall. If the water flow rate at the top is 2 cubic meters per second, how much water has flowed down the slide in 5 minutes?"
+    },
     "length": 207,
     "tags": [
       "grade-5",
@@ -225,7 +247,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "integration",
-    "problem": "A cylindrical water tank has a height of 1.5 meters and a base radius of 0.8 meters. If the water tank is ,,\\frac{3}{4},, full, how much water is inside the tank in cubic meters?",
+    "problem": {
+      "natural": "A cylindrical water tank is 1.5 meters tall with a base radius of 0.8 meters. If the tank is \frac{3}{4} full, how much water is inside in cubic meters?"
+    },
     "length": 173,
     "tags": [
       "grade-5",
@@ -356,7 +380,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "couple",
-    "problem": "A couple of friends share 20 cookies equally. How many cookies does each friend get?",
+    "problem": {
+      "natural": "Two friends share 20 cookies equally. How many cookies does each friend get?"
+    },
     "length": 84,
     "tags": [
       "algebra",
@@ -369,7 +395,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "couple",
-    "problem": "A couple goes for a bike ride at a speed of 15 km/h. If they want to reach their destination in 2 hours, how far must they travel in total?",
+    "problem": {
+      "natural": "A couple sets out on a bike ride at a speed of 15 kilometers per hour. If they need to reach their destination in 2 hours, how far should they travel in total?"
+    },
     "length": 139,
     "tags": [
       "speed",
@@ -382,7 +410,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "couple",
-    "problem": "A couple of hikers are planning a trail. They want to be exactly 3.5 kilometers apart at the start. If they each walk in opposite directions at speeds of 5 km/h and 4 km/h, how long will it take for them to be 3.5 kilometers apart?",
+    "problem": {
+      "natural": "Two hikers are planning a trail and want to be exactly 3.5 kilometers apart at the start. If one hiker walks in one direction at a speed of 5 km/h and the other hiker walks in the opposite direction at a speed of 4 km/h, how long will it take for them to be 3.5 kilometers apart?"
+    },
     "length": 231,
     "tags": [
       "grade-5",
@@ -396,7 +426,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "couple",
-    "problem": "There are 12 couples of shoes in a closet. If each couple consists of two shoes, how many shoes are there in total?",
+    "problem": {
+      "natural": "There are 12 pairs of shoes in a closet. Each pair has two shoes. How many shoes are there in total?"
+    },
     "length": 115,
     "tags": [
       "probability",
@@ -408,7 +440,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "couple",
-    "problem": "A couple of cyclists are riding tandem. Their combined mass is 120 kg. If each cyclist is 40 kg heavier than the other, what is the mass of each cyclist?",
+    "problem": {
+      "natural": "Two cyclists are riding side-by-side. Together, they weigh 120 kg. One cyclist weighs 40 kg more than the other. What is the weight of each cyclist?"
+    },
     "length": 153,
     "tags": [
       "metric-units",
@@ -421,7 +455,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "couple",
-    "problem": "There are 10 couples of penguins waddling along the icy coastline. Each couple consists of one male and one female penguin. How many penguins are there in total?",
+    "problem": {
+      "natural": "There are 20 penguins waddling along the icy coastline. How many penguins are there in total?"
+    },
     "length": 161,
     "tags": [
       "multiplication",
@@ -548,7 +584,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "front",
-    "problem": "There are 3 times as many people at the front of the line as there are at the back. There are 12 people in the line in total. How many people are at the front of the line?",
+    "problem": {
+      "natural": "There are 12 people in a line. If there are 3 times as many people at the front as at the back, how many people are at the front of the line?"
+    },
     "length": 171,
     "tags": [
       "algebra",
@@ -561,7 +599,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "front",
-    "problem": "A train is 300 km from the front of the station. If the train travels at a speed of 80 km/h, how long will it take for the train to reach the front of the station?",
+    "problem": {
+      "natural": "A train is 300 kilometers away from the station. If it travels at a speed of 80 kilometers per hour, how long will it take for the train to reach the station?"
+    },
     "length": 163,
     "tags": [
       "speed",
@@ -575,7 +615,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "front",
-    "problem": "A rectangular garden has a perimeter of 40 meters. If the length of the front of the garden is 8 meters longer than the width, find the dimensions of the garden.",
+    "problem": {
+      "natural": "A rectangular garden has a perimeter of 40 meters. The length of the front of the garden is 8 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 161,
     "tags": [
       "grade-5"
@@ -586,7 +628,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "front",
-    "problem": "A toy truck is driving along a circular track with a 10-meter radius. If the truck's front wheels are 0.5 meters apart, what is the probability that the front wheels will land on the same side of the track after one complete lap?",
+    "problem": {
+      "natural": "A toy truck is driving around a circular track with a 10-meter radius. If the front wheels are 0.5 meters apart, what is the probability that the front wheels will end up on the same side of the track after completing one lap?"
+    },
     "length": 229,
     "tags": [
       "probability",
@@ -598,7 +642,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "front",
-    "problem": "A train is facing the front of the station platform, which is 45m long. If the train travels at a speed of 20m/s, how long will it take for the train to completely pass the platform?",
+    "problem": {
+      "natural": "A train, moving at a speed of 20 meters per second, reaches the front of a 45-meter-long platform. How long will it take for the train to completely pass the platform?"
+    },
     "length": 182,
     "tags": [
       "grade-5",
@@ -612,7 +658,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "front",
-    "problem": "The school cafeteria has a rectangular lunch counter with a perimeter of 4 meters. The length of the counter is 2 meters. What is the area of the lunch counter?",
+    "problem": {
+      "natural": "The school cafeteria has a rectangular lunch counter with a perimeter of 4 meters. The length is 2 meters. What is the area of the lunch counter?"
+    },
     "length": 160,
     "tags": [
       "area",
@@ -700,7 +748,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "debase",
-    "problem": "A store owner wants to debase the value of a toy by offering it at a discount. If the original price of the toy is €15 and the discount is 20%, how much will the toy cost after the discount? Write an equation to represent this situation.",
+    "problem": {
+      "natural": "A toy originally priced at €15 is on sale with a 20% discount. What is the sale price of the toy?"
+    },
     "length": 237,
     "tags": [
       "metric-units",
@@ -713,7 +763,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "debase",
-    "problem": "A train travels 360 km at a constant speed. If the speed of the train was 20% less 10 hours ago, how far did the train travel in the past 10 hours?",
+    "problem": {
+      "natural": "A train covered 360 kilometers at a steady pace. If its speed 10 hours ago was 20% slower than its current speed, how many kilometers did the train travel during the past 10 hours?"
+    },
     "length": 147,
     "tags": [
       "speed",
@@ -727,7 +779,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "debase",
-    "problem": "A circle has a radius of 5 cm. If a semicircle is formed by de-arching half of the circle, what is the area of the semicircle?",
+    "problem": {
+      "natural": "A circle with a radius of 5 cm is given. What is the area of the semicircle formed by removing half of the circle?"
+    },
     "length": 126,
     "tags": [
       "area",
@@ -739,7 +793,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "debase",
-    "problem": "There is a jar containing 100 marbles, some of which are debased. A debased marble has a 20% chance of being lighter than a normal marble. If you randomly pick 5 marbles from the jar, what is the probability that at least 3 of them are normal? Round your answer to the nearest hundredth.",
+    "problem": {
+      "natural": "There's a jar with 100 marbles, some of which are faulty. A faulty marble is 20% lighter than a normal one. If you randomly pick 5 marbles from the jar, what's the probability that at least 3 of them are normal? Round your answer to the nearest hundredth."
+    },
     "length": 287,
     "tags": [
       "probability",
@@ -751,7 +807,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "debase",
-    "problem": "A gold coin is debased by 5%. If its original mass was 10 grams, what is its mass after the debasing?",
+    "problem": {
+      "natural": "A gold coin originally weighing 10 grams undergoes a 5% devaluation. What is its mass after the devaluation?"
+    },
     "length": 101,
     "tags": [
       "grade-5",
@@ -763,7 +821,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "debase",
-    "problem": "A gold coin worth 1 gram is debased by 5%. How much is the debased gold coin worth in grams?",
+    "problem": {
+      "natural": "A gold coin initially worth 1 gram undergoes a 5% devaluation. What is the weight of the debased gold coin in grams?"
+    },
     "length": 92,
     "tags": [
       "grade-5",
@@ -883,7 +943,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "below",
-    "problem": "A train travels 180 km at a speed that is 20 km/h below its usual speed. What is the usual speed of the train if the journey takes 4 hours longer than usual? (Hint: Usual speed - 20 km/h = Travel speed)",
+    "problem": {
+      "natural": "A train usually travels at a speed that is 20 km/h faster than its current speed. If the train travels 180 km at this reduced speed, the journey takes 4 hours longer than usual. What is the usual speed of the train?"
+    },
     "length": 202,
     "tags": [
       "algebra",
@@ -898,7 +960,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "below",
-    "problem": "A train travels 360 km at a speed of 80 km/h. If the train is currently 180 km below its destination, how long will it take to arrive?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 km/h. If it is currently 180 km away from its destination, how long will it take for the train to arrive?"
+    },
     "length": 134,
     "tags": [
       "speed",
@@ -912,7 +976,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "below",
-    "problem": "A triangle has a perimeter of 30 cm. One side of the triangle is 5 cm below the longest side. If the shortest side is 4 cm longer than the middle side, find the lengths of all three sides.",
+    "problem": {
+      "natural": "A triangle has a perimeter of 30 cm. One side is 5 cm less than the longest side. The shortest side is 4 cm longer than the middle side. Find the lengths of all three sides."
+    },
     "length": 188,
     "tags": [
       "grade-5"
@@ -923,7 +989,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "below",
-    "problem": "A bag of marbles weighs 500g. If 1/3 of the marbles are below 10mm in diameter, what is the weight of the marbles that are below 10mm in diameter?",
+    "problem": {
+      "natural": "A bag of marbles weighs 500 grams. If one-third of the marbles are less than 10 millimeters in diameter, what is the weight of the marbles that are less than 10 millimeters in diameter?"
+    },
     "length": 146,
     "tags": [
       "probability",
@@ -935,7 +1003,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "below",
-    "problem": "An underwater robot is exploring a lake. It is currently 3.5 meters below the surface. If the robot dives 2.7 meters deeper, how far below the surface will it be then?",
+    "problem": {
+      "natural": "An underwater robot is exploring a lake. It is currently 3.5 meters below the surface. If the robot dives 2.7 meters deeper, how far below the surface will it be then?"
+    },
     "length": 167,
     "tags": [
       "grade-5",
@@ -948,7 +1018,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "myself",
-    "problem": "There are two numbers that are equal to each other. If we double one of the numbers and add 5 to the other, the sum is 15. What are the numbers?",
+    "problem": {
+      "natural": "Two numbers are equal to each other. If we double one number and add 5 to the other, their sum is 15. What are the numbers?"
+    },
     "length": 144,
     "tags": [
       "algebra",
@@ -961,7 +1033,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "myself",
-    "problem": "A train travels for 3 hours at a speed of 80 km/h. How far has the train traveled when it reaches a point that is 2 hours ahead of where it was 1 hour ago?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 kilometers per hour. If its current location is 2 hours ahead of its position one hour ago, how far has the train traveled?"
+    },
     "length": 155,
     "tags": [
       "speed",
@@ -975,7 +1049,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "myself",
-    "problem": "A circle has an area of ,,144 \\text{ cm}^2,,. If the radius of the circle is equal to a quarter of its circumference, what is the length of the circumference of the circle? Round your answer to the nearest tenth of a centimeter.",
+    "problem": {
+      "natural": "A circle has an area of 144 cm². If the radius of the circle is one-quarter of its circumference, find the length of the circumference. Round your answer to the nearest tenth of a centimeter."
+    },
     "length": 222,
     "tags": [
       "grade-5",
@@ -987,7 +1063,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "myself",
-    "problem": "A bag contains 10 red marbles and 5 blue marbles. If I pick out a marble without knowing its color, what is the probability that it is not myself? Express your answer as a fraction in simplest form.",
+    "problem": {
+      "natural": "A bag holds 10 red marbles and 5 blue marbles. If you randomly pick out a marble without knowing its color, what is the probability that it's not red?"
+    },
     "length": 198,
     "tags": [
       "probability",
@@ -1000,7 +1078,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "myself",
-    "problem": "Myself and my friend share 15 meters of rope. How much rope does each of us have if we share it equally?",
+    "problem": {
+      "natural": "We share 15 meters of rope equally between myself and a friend. How many meters of rope does each of us have?"
+    },
     "length": 104,
     "tags": [
       "division",
@@ -1014,7 +1094,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "myself",
-    "problem": "Myself is making a fruit salad with 3/4 cup of blueberries and 1/3 cup of raspberries. How many cups of fruit does Myself have in total?",
+    "problem": {
+      "natural": "How many cups of fruit does Myself have in total when making a fruit salad with 3/4 cup of blueberries and 1/3 cup of raspberries?"
+    },
     "length": 136,
     "tags": [
       "grade-5",
@@ -1149,7 +1231,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "debate",
-    "problem": "A debate team has 30 members. Some members are seniors and some are juniors. There are 7 more seniors than juniors. How many seniors and juniors are there in the debate team?",
+    "problem": {
+      "natural": "A debate team has 30 members. Some are seniors and some are juniors. There are 7 more seniors than juniors. How many seniors and juniors are there on the debate team?"
+    },
     "length": 174,
     "tags": [
       "algebra",
@@ -1162,7 +1246,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "debate",
-    "problem": "A group of friends are debating which is the faster way to get to school. One friend claims they can arrive in 30 minutes if they bike at 10 meters per second. Another friend argues they can get there in 20 minutes if they run at 8 meters per second. How much time would they save if they biked instead of running?",
+    "problem": {
+      "natural": "A group of friends are discussing the fastest way to get to school. One friend claims they can arrive in 30 minutes if they bike at a speed of 10 meters per second. Another friend argues they can get there in 20 minutes if they run at 8 meters per second. How much time could they save if they biked instead of running?"
+    },
     "length": 314,
     "tags": [
       "grade-5",
@@ -1177,7 +1263,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "debate",
-    "problem": "A rectangular garden bed is 30 cm longer than its width. If the perimeter of the garden bed is 100 cm, what are its dimensions?",
+    "problem": {
+      "natural": "A rectangular garden bed is 30 cm longer than its width. The perimeter of the garden bed is 100 cm. What are the dimensions of the garden bed?"
+    },
     "length": 127,
     "tags": [
       "metric-units",
@@ -1189,7 +1277,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "debate",
-    "problem": "A debate is happening about whether school lunches should be mandatory or optional. 40% of students believe lunches should be mandatory, while 30% believe they should be optional. The remaining 30% neither agree nor disagree. If 120 students are attending the debate, how many of them believe lunches should be mandatory?",
+    "problem": {
+      "natural": "A debate is underway regarding the mandatory or optional nature of school lunches. While 40% of students firmly believe lunches should be mandatory, 30% hold the opposing view. The remaining 30% neither support nor oppose the proposal. Given that 120 students are participating in the debate, how many of them advocate for making lunches mandatory?"
+    },
     "length": 321,
     "tags": [
       "probability",
@@ -1201,7 +1291,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "debate",
-    "problem": "An argument about the mass of a planet can be made based on its gravitational pull. If the gravitational force of a planet is measured to be 10N, what is the mass of the planet in kilograms? Assume the gravitational constant is 6.674 × 10^{-11} N m²/kg².",
+    "problem": {
+      "natural": "The gravitational force of a planet can be used to determine its mass. If the gravitational force of a planet is measured to be 10N, what is its mass in kilograms? Assume the gravitational constant is 6.674 × 10^{-11} N m²/kg². Provide the initial conditions necessary to solve the problem."
+    },
     "length": 254,
     "tags": [
       "physics",
@@ -1213,7 +1305,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "debate",
-    "problem": "A debate team has 300 grams of snacks to share equally among 5 members. How many grams of snacks will each member receive?",
+    "problem": {
+      "natural": "A debate team has 300 grams of snacks to share equally among 5 members. How many grams of snacks will each member receive?"
+    },
     "length": 122,
     "tags": [
       "division",
@@ -1336,7 +1430,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "massive",
-    "problem": "A massive rock has a volume of 100 cubic meters and weighs 2000 kilograms. Another rock has a volume of 50 cubic meters and weighs 1000 kilograms. Together, how much do both rocks weigh?",
+    "problem": {
+      "natural": "A large rock has a volume of 100 cubic meters and weighs 2000 kilograms. Another rock has a volume of 50 cubic meters and weighs 1000 kilograms. Combined, how much do both rocks weigh?"
+    },
     "length": 186,
     "tags": [
       "algebra",
@@ -1349,7 +1445,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "massive",
-    "problem": "A massive asteroid, traveling at a speed of 20 kilometers per second, is hurtling towards Earth. If it takes the space agency 3 hours to intercept and redirect the asteroid, how far away from Earth must the asteroid be when it is spotted?",
+    "problem": {
+      "natural": "An asteroid is hurtling towards Earth at a speed of 20 kilometers per second. When spotted, it is determined that the asteroid is 3 hours away from Earth. How far from Earth must the asteroid be when it is spotted?"
+    },
     "length": 238,
     "tags": [
       "grade-5",
@@ -1364,7 +1462,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "massive",
-    "problem": "A massive construction project involves building a rectangular foundation with a length of 45 meters and a width of 30 meters. What is the area of the foundation in square meters?",
+    "problem": {
+      "natural": "A large construction project involves building a rectangular foundation with a length of 45 meters and a width of 30 meters. What is the area of the foundation?"
+    },
     "length": 179,
     "tags": [
       "multiplication",
@@ -1377,7 +1477,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "massive",
-    "problem": "There are 3 massive sandcastles on a beach, each with a volume of 80 cubic meters. If the average volume of sand in each cubic meter is 100 grams, how many kilograms of sand are there in the three sandcastles combined?",
+    "problem": {
+      "natural": "There are three colossal sandcastles on a beach, each holding 80 cubic meters of sand. If each cubic meter of sand weighs 100 grams, how many kilograms of sand are there in all three sandcastles combined?"
+    },
     "length": 218,
     "tags": [
       "probability",
@@ -1390,7 +1492,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "massive",
-    "problem": "A massive asteroid with a diameter of 100 meters and a density of 2000 kg/m^3 hurtles through space. What is its mass?",
+    "problem": {
+      "natural": "A massive asteroid, 100 meters in diameter and with a density of 2000 kilograms per cubic meter, streaks through space. Calculate the asteroid's mass."
+    },
     "length": 118,
     "tags": [
       "grade-5",
@@ -1404,7 +1508,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "hate",
-    "problem": "An online game has two types of virtual pets: tigers and lions. The total number of tigers and lions in the game is 100. The number of tigers is 10 more than twice the number of lions. How many tigers and lions are there in the game?",
+    "problem": {
+      "natural": "There are 100 virtual pets in an online game, some of which are tigers and lions. The number of tigers is 10 more than twice the number of lions. How many tigers and lions are there in the game?"
+    },
     "length": 233,
     "tags": [
       "algebra",
@@ -1418,7 +1524,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "hate",
-    "problem": "An angry robot travels 240 meters at a speed of 6 meters per second. How long will it take for the robot to reach its destination if it hates the journey?",
+    "problem": {
+      "natural": "An angry robot speeds along a 240-meter path at a rate of 6 meters per second. How long will its grumpy journey take?"
+    },
     "length": 208,
     "tags": [
       "time-distance-speed",
@@ -1432,7 +1540,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "hate",
-    "problem": "There is a square field with a side length of 10 meters. Hating triangles, someone cuts the field into an equilateral triangle shape. What is the perimeter of the resulting triangle?",
+    "problem": {
+      "natural": "A square field with a side length of 10 meters has been irregularly shaped into an equilateral triangle. What is the perimeter of the resulting triangle?"
+    },
     "length": 182,
     "tags": [
       "geometry",
@@ -1447,7 +1557,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "hate",
-    "problem": "There is a group of friends who have strong feelings towards each other. Some of them hate each other with a probability of 0.2. The rest of them are indifferent, with a probability of 0.8. What is the probability that exactly two of them hate each other?",
+    "problem": {
+      "natural": "Among a group of friends, some harbor strong negative feelings towards each other. It turns out that 20% of them genuinely dislike each other, while the remaining 80% are neutral. What is the probability that exactly two of them have opposing feelings?"
+    },
     "length": 255,
     "tags": [
       "probability",
@@ -1461,7 +1573,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "hate",
-    "problem": "An object experiences a force of repulsion that increases by 2 N for every 1 m of distance it is moved away from another object. If the initial distance between the objects is 5 m and the force of repulsion at that distance is 10 N, what is the force of repulsion when the distance between the objects is 10 m?",
+    "problem": {
+      "natural": "An object experiences a repulsive force that increases by 2 newtons for every meter of distance from another object. If the initial distance between them is 5 meters and the repulsive force at that distance is 10 newtons, what will be the repulsive force when they are 10 meters apart?"
+    },
     "length": 310,
     "tags": [
       "distance",
@@ -1474,7 +1588,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "hate",
-    "problem": "There are 100 negative feelings spreading like a virus in a group of friends. Each negative feeling repels 3 other negative feelings. How many negative feelings will be left if each friend tries to eliminate 5 negative feelings each?,-",
+    "problem": {
+      "natural": "There are 100 negative feelings affecting a group of friends. Each negative feeling naturally repels three other negative feelings. If each friend manages to eliminate 5 negative feelings each, how many negative feelings will remain in the group?"
+    },
     "length": 235,
     "tags": [
       "multiplication",
@@ -1488,7 +1604,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "tournament",
-    "problem": "A soccer tournament has 4 teams. Each team plays each other once. After the tournament, Team A scored 3 goals more than Team B. How many goals did Team A score if Team B scored 10 goals?",
+    "problem": {
+      "natural": "In a soccer tournament with 4 teams, each team plays every other once. After the tournament, Team A scored 3 more goals than Team B. If Team B scored 10 goals, how many goals did Team A score?"
+    },
     "length": 186,
     "tags": [
       "algebra",
@@ -1500,7 +1618,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "tournament",
-    "problem": "A mathematical tournament is happening over 3 hours. Participants are cycling at a speed of 15 kilometers per hour. How many kilometers will the participants have covered at the end of the tournament?",
+    "problem": {
+      "natural": "A mathematical competition is running for 3 hours. Participants are cycling at a speed of 15 kilometers per hour. How many kilometers will they cover by the end of the competition?"
+    },
     "length": 200,
     "tags": [
       "distance",
@@ -1515,7 +1635,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "tournament",
-    "problem": "A soccer tournament has 15 teams. Each team plays every other team once. How many games will be played in the tournament?",
+    "problem": {
+      "natural": "A soccer tournament features 15 teams. Each team plays every other team exactly once. How many games will be played in the tournament?"
+    },
     "length": 121,
     "tags": [
       "geometry",
@@ -1528,7 +1650,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "tournament",
-    "problem": "A fencing tournament has 48 participants. If each participant has a 30% chance of winning each match, what is the probability that exactly 3 of the participants will win exactly 5 matches each?",
+    "problem": {
+      "natural": "In a fencing tournament with 48 participants, each of whom has a 30% chance of winning each match, what is the probability that exactly 3 participants will win exactly 5 matches each?"
+    },
     "length": 193,
     "tags": [
       "probability",
@@ -1542,7 +1666,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "tournament",
-    "problem": "In a physics tournament, there are 12 teams with an average mass of 45 kg per team. How many kilograms of mass are there in the entire tournament?",
+    "problem": {
+      "natural": "In a physics tournament with 12 teams, each averaging 45 kilograms, how much mass is there in the entire tournament?"
+    },
     "length": 146,
     "tags": [
       "physics",
@@ -1555,7 +1681,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "tournament",
-    "problem": "There are 8 teams in a soccer tournament. Each team plays every other team once. How many games are there in total?",
+    "problem": {
+      "natural": "There are eight teams in a soccer tournament. Each team plays every other team once. How many games are there in total?"
+    },
     "length": 115,
     "tags": [
       "combinations",
@@ -1642,7 +1770,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "reason",
-    "problem": "An orange costs 3 times as much as a banana. Together, an orange and a banana cost 1.8 €, how much does a banana cost?",
+    "problem": {
+      "natural": "An orange costs three times the price of a banana. If an orange and a banana together cost 1.8 €, what is the price of a banana?"
+    },
     "length": 118,
     "tags": [
       "algebra",
@@ -1654,7 +1784,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "reason",
-    "problem": "A train travels 720 km at a constant speed. If it had travelled 20% faster, the journey would have taken 1 hour less. What was the original speed of the train?",
+    "problem": {
+      "natural": "A train travels 720 kilometers at a constant speed. If it had travelled 20% faster, the journey would have taken 1 hour less. What was the original speed of the train?"
+    },
     "length": 159,
     "tags": [
       "distance",
@@ -1669,7 +1801,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "reason",
-    "problem": "A triangular field has a perimeter of 90 meters. The length of one side is 3 meters less than the length of another side. What is the length of each side?",
+    "problem": {
+      "natural": "A triangular field has a perimeter of 90 meters. One side is 3 meters shorter than another side. What is the length of each side?"
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -1683,7 +1817,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "reason",
-    "problem": "A bag contains 30 red marbles and 20 blue marbles. If you randomly select 5 marbles from the bag without replacement, what is the probability that exactly 3 of them are red? Express your answer as a fraction in simplest form.",
+    "problem": {
+      "natural": "A bag holds 30 red marbles and 20 blue marbles. If you randomly pick 5 marbles from the bag without replacement, what is the probability that exactly 3 of them are red? Express your answer as a fraction in its simplest form."
+    },
     "length": 225,
     "tags": [
       "probability",
@@ -1697,7 +1833,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "reason",
-    "problem": "A train travels 300 km at a speed that is 20% faster than the speed of sound. What is the speed of the train in meters per second?",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a speed that is 20% faster than the speed of sound. What is the train's speed in meters per second?"
+    },
     "length": 130,
     "tags": [
       "proportion",
@@ -1713,7 +1851,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "reason",
-    "problem": "A train travels 450 km at a speed that is 25% faster than the speed of another train on the same route. What is the speed of the slower train if the total distance covered by both trains is 1000 km?",
+    "problem": {
+      "natural": "A train travels 450 kilometers at a speed 25% faster than another train on the same route. The total distance covered by both trains is 1000 kilometers. What is the speed of the slower train?"
+    },
     "length": 198,
     "tags": [
       "grade-5",
@@ -1793,7 +1933,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "prosperity",
-    "problem": "A farmer wants to allocate his income between two investments: crops and livestock. He invests 3 times more in crops than in livestock. If he invests €100 in livestock and his total income from both investments is €150, how much did he invest in crops?",
+    "problem": {
+      "natural": "A farmer wants to invest his income between crops and livestock. He invests three times more in crops than in livestock. If he invests €100 in livestock and his total income from both investments is €150, how much did he invest in crops?"
+    },
     "length": 252,
     "tags": [
       "algebra",
@@ -1805,7 +1947,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "prosperity",
-    "problem": "A village starts with 100 families. If each family cultivates a field that produces 50 crops per year, how many crops will the village have in 3 years if each family's field produces 10% more crops each year?",
+    "problem": {
+      "natural": "A village initially has 100 families. Each family cultivates a field that produces 50 crops per year. How many crops will the village have in 3 years if each family's field increases its yield by 10% annually?"
+    },
     "length": 208,
     "tags": [
       "time",
@@ -1819,7 +1963,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "prosperity",
-    "problem": "A rectangular garden bed is 3.5 meters long and 2.8 meters wide. If the owner wants to border the bed with edging that costs 15 euros per meter, how much will it cost to border the entire bed?",
+    "problem": {
+      "natural": "A rectangular garden bed measures 3.5 meters in length and 2.8 meters in width. If edging costs 15 euros per meter, what is the cost of edging the entire bed?"
+    },
     "length": 192,
     "tags": [
       "geometry",
@@ -1833,7 +1979,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "prosperity",
-    "problem": "A small business owner wants to expand their bakery and increase their monthly income. They currently make $120,000 per month. If they expand their bakery, they estimate they can increase their monthly income by 20%. What will be their new monthly income if the expansion is successful?",
+    "problem": {
+      "natural": "A small business owner wants to expand their bakery to boost their monthly income. Currently, their bakery generates $120,000 each month. If the expansion proves successful, they estimate their monthly income could increase by 20%. What will their new monthly income be after the expansion?"
+    },
     "length": 286,
     "tags": [
       "probability",
@@ -1846,7 +1994,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "prosperity",
-    "problem": "A community wants to invest in renewable energy to achieve prosperity. A solar panel installation costs €100,000 and generates 10kWh of electricity per day. If the community wants to generate 1MWh of electricity per day, how many solar panels would they need? Assume each panel generates the same amount of electricity.",
+    "problem": {
+      "natural": "A community wants to invest in renewable energy to achieve prosperity. A single solar panel installation costs €100,000 and generates 10kWh of electricity per day. How many solar panels would they need to generate 1MWh of electricity per day? Each panel produces the same amount of electricity."
+    },
     "length": 319,
     "tags": [
       "grade-5",
@@ -1858,7 +2008,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "prosperity",
-    "problem": "A farmer wants to allocate his income of €100,000 among his crops to maximize prosperity. He plants apples that yield a profit of €5/kg, and oranges that yield a profit of €4/kg. If he plants x kilograms of apples and y kilograms of oranges, how many kilograms of each crop should he plant to maximize his profit?",
+    "problem": {
+      "natural": "A farmer wants to maximize his income from his €100,000 budget. He can sell apples for €5/kg and oranges for €4/kg. How many kilograms of each crop should he plant to get the highest profit?"
+    },
     "length": 313,
     "tags": [
       "linear-equations",
@@ -1947,7 +2099,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "consumer",
-    "problem": "A bakery sells croissants for €1.50 each and pain au chocolat for €2.00 each. If a consumer buys 10 croissants and 5 pain au chocolat, they spend €20. If they buy 5 croissants and 12 pain au chocolat, they spend €17.50. How much does a croissant cost? How much does a pain au chocolat cost?",
+    "problem": {
+      "natural": "A bakery sells croissants for €1.50 each and pain au chocolat for €2.00 each. If a customer buys 10 croissants and 5 pain au chocolat, their total comes to €20. If they buy 5 croissants and 12 pain au chocolat, their total is €17.50. Find the cost of a croissant and a pain au chocolat."
+    },
     "length": 290,
     "tags": [
       "algebra",
@@ -1960,7 +2114,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "consumer",
-    "problem": "A consumer travels 450 km at a speed of 60 km/h. How much time will it take for them to reach their destination?",
+    "problem": {
+      "natural": "A consumer travels 450 kilometers at a speed of 60 kilometers per hour. How long will it take them to reach their destination?"
+    },
     "length": 112,
     "tags": [
       "grade-5",
@@ -1975,7 +2131,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "consumer",
-    "problem": "A consumer wants to create a rectangular vegetable garden with a perimeter of 30 meters. If the length of the garden is 3 meters longer than the width, what are the dimensions of the garden?",
+    "problem": {
+      "natural": "A consumer wants to build a rectangular vegetable garden with a total perimeter of 30 meters. The length of the garden is 3 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 190,
     "tags": [
       "geometry",
@@ -1990,7 +2148,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "consumer",
-    "problem": "A store has 100 calculators, of which 20 are defective. If a consumer randomly selects 5 calculators from the store, what is the probability that exactly 2 of them are defective?",
+    "problem": {
+      "natural": "A store has 100 calculators, 20 of which are faulty. If a customer randomly picks 5 calculators from the store, what is the probability that exactly two of them are faulty?"
+    },
     "length": 178,
     "tags": [
       "probability",
@@ -2003,7 +2163,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "consumer",
-    "problem": "A consumer buys 2.5 kg of apples at a price of €2 per kilogram. What is the total cost of the apples?",
+    "problem": {
+      "natural": "A consumer buys 2.5 kilograms of apples at €2 per kilogram. What is the total cost of the apples?"
+    },
     "length": 101,
     "tags": [
       "multiplication",
@@ -2018,7 +2180,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "consumer",
-    "problem": "A consumer buys 2.5kg of apples for €3.50/kg and 1.8kg of bananas for €2.75/kg. What is the total amount they spent on fruits?",
+    "problem": {
+      "natural": "A consumer spends €3.50 per kilogram for 2.5 kilograms of apples and €2.75 per kilogram for 1.8 kilograms of bananas. What is the total amount spent on fruits?"
+    },
     "length": 126,
     "tags": [
       "grade-5",
@@ -2093,7 +2257,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "the",
-    "problem": "The sum of two numbers is 12. One number is 3 less than the other. Find the numbers.",
+    "problem": {
+      "natural": "The sum of two numbers is 12. One number is 3 less than the other. What are the numbers?"
+    },
     "length": 84,
     "tags": [
       "algebra",
@@ -2107,7 +2273,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "the",
-    "problem": "The train travels 300km at a speed of 60km/h. How long will it take the train to reach its destination?",
+    "problem": {
+      "natural": "A train travels for 300 kilometers at a speed of 60 kilometers per hour. How long will it take the train to reach its destination?"
+    },
     "length": 103,
     "tags": [
       "grade-5",
@@ -2122,7 +2290,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "the",
-    "problem": "The playground has a circular sandbox with a diameter of 1.5 meters. If Sara wants to build a sandcastle at a distance of 0.75 meters from the center of the sandbox, what is the area of the remaining sandbox that she has not used?",
+    "problem": {
+      "natural": "A circular sandbox with a diameter of 1.5 meters surrounds you on the playground. If you want to build a sandcastle exactly halfway between the sandbox's center and the edge, how much of the sandbox's area will remain untouched?"
+    },
     "length": 230,
     "tags": [
       "geometry",
@@ -2137,7 +2307,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "the",
-    "problem": "There are 12 red marbles and 8 blue marbles in a jar. If you reach into the jar without looking and pick out 3 marbles, what is the probability that exactly 2 of them are red?",
+    "problem": {
+      "natural": "There are 12 red marbles and 8 blue marbles in a jar. If you randomly pick 3 marbles from the jar, what is the probability that exactly two of them are red?"
+    },
     "length": 175,
     "tags": [
       "probability",
@@ -2150,7 +2322,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "the",
-    "problem": "The train travels 3600m at a speed of 40km/h. How long will it take for the train to travel 1800m?",
+    "problem": {
+      "natural": "A train travels at a speed of 40 kilometers per hour. If the train travels 3600 meters, how long will it take to cover 1800 meters?"
+    },
     "length": 98,
     "tags": [
       "grade-5",
@@ -2166,7 +2340,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "the",
-    "problem": "The sum of two numbers is 100. One number is 30% of the other. Find the two numbers.",
+    "problem": {
+      "natural": "The sum of two numbers is 100. One number is 30% of the other. Find the two numbers."
+    },
     "length": 84,
     "tags": [
       "algebra",
@@ -2242,7 +2418,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "monetary",
-    "problem": "A monetary fund has a total of $150. Some of the money is in $5 bills and some is in $10 bills. If there are 10 more $5 bills than $10 bills, how many of each type of bill are there?",
+    "problem": {
+      "natural": "A monetary fund has $150 in total. There are 10 more $5 bills than $10 bills. How many of each type of bill are there?"
+    },
     "length": 182,
     "tags": [
       "algebra",
@@ -2255,7 +2433,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "monetary",
-    "problem": "A monetary policy decreases the speed of money in circulation by 3% per year. If the current speed of money is 10 times per year, how many years will it take for the speed to drop to 5 times per year?",
+    "problem": {
+      "natural": "A monetary policy reduces the speed of money in circulation by 3% annually. Currently, the speed of money is 10 times per year. How many years will it take for the speed to decrease to 5 times per year?"
+    },
     "length": 200,
     "tags": [
       "grade-5",
@@ -2267,7 +2447,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "monetary",
-    "problem": "A monetary exchange bureau offers a rectangular space of 90 cm by 60 cm for exchanging currencies. If the bureau charges a fee of 5% of the exchange value for their services, what is the area of the space remaining after subtracting the fee?",
+    "problem": {
+      "natural": "A monetary exchange bureau charges a 5% fee for its services. The bureau provides a rectangular space of 90 cm by 60 cm for exchanging currencies. What is the area of the space remaining after subtracting the fee?"
+    },
     "length": 241,
     "tags": [
       "geometry",
@@ -2280,7 +2462,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "monetary",
-    "problem": "A monetary policy expert suggests that the inflation rate in a certain country will be between 2% and 4% in the next year. What is the probability that the inflation rate will be exactly 3%?",
+    "problem": {
+      "natural": "An expert estimates that the inflation rate in a particular country will range from 2% to 4% in the coming year. What is the probability that the inflation rate will precisely be 3%?"
+    },
     "length": 190,
     "tags": [
       "probability",
@@ -2293,7 +2477,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "monetary",
-    "problem": "The cost of renting a bike for 3 hours is €12. If the rental company charges an additional €2 per hour for every hour over 3 hours, how much would it cost to rent the bike for 5 hours?",
+    "problem": {
+      "natural": "The cost of renting a bike for 3 hours is €12. If the rental company charges an additional €2 per hour for every hour beyond 3 hours, how much would it cost to rent the bike for 5 hours? Assume the rental cost remains constant for the first 3 hours."
+    },
     "length": 184,
     "tags": [
       "multiplication",
@@ -2307,7 +2493,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "monetary",
-    "problem": "A monetary policy suggests increasing the value of one euro by 1.5% each month. If the current value of a euro is 1.20€, what will be the approximate value of a euro in 6 months?",
+    "problem": {
+      "natural": "A monetary policy suggests increasing the value of the euro by 1.5% each month. If the current value of a euro is €1.20, what will be the approximate value of a euro in 6 months, to the nearest cent?"
+    },
     "length": 178,
     "tags": [
       "grade-5",
@@ -2343,7 +2531,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "notional",
-    "problem": "A train travels for 3 hours at a constant speed of 80 km/h. Later, it travels for 2 hours at a speed that is 20 km/h slower. How far has the train traveled in total?",
+    "problem": {
+      "natural": "A train travels for 3 hours at a constant speed of 80 kilometers per hour. Later, it travels for 2 hours at a speed that is 20 kilometers per hour slower. What is the total distance traveled by the train?"
+    },
     "length": 165,
     "tags": [
       "algebra",
@@ -2357,7 +2547,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "notional",
-    "problem": "A train travels 480 km at a speed that is 20% faster than its usual speed. If the journey took 6 hours, what was the usual speed of the train in km/h?",
+    "problem": {
+      "natural": "A train travels 480 km at a speed 20% faster than usual. If the journey took 6 hours, what was the usual speed of the train?"
+    },
     "length": 150,
     "tags": [
       "grade-5",
@@ -2372,7 +2564,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "notional",
-    "problem": "Calculate the perimeter of a square with a side length of 10 cm, considering that its perimeter is a purely mathematical concept that exists in our minds and is not physically measurable.",
+    "problem": {
+      "natural": "Calculate the perimeter of a square with a side length of 10 cm. Note that perimeter is a mathematical concept that exists in our minds and is not physically measurable."
+    },
     "length": 187,
     "tags": [
       "geometry",
@@ -2386,7 +2580,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "notional",
-    "problem": "There are 100 notional marbles in a jar. 30% of them are red. How many red marbles are there in the jar?",
+    "problem": {
+      "natural": "A jar contains 100 marbles. If 30% of them are red, how many red marbles are there in the jar?"
+    },
     "length": 104,
     "tags": [
       "probability",
@@ -2399,7 +2595,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "notional",
-    "problem": "A playful puppy chases a ball at a speed of 2 m/s. If the ball starts 5 m from the puppy, how long will it take the puppy to reach the ball? Assume the puppy moves in a straight line towards the ball.",
+    "problem": {
+      "natural": "A playful puppy is chasing a ball that is 5 meters away. If the puppy can move in a straight line at a speed of 2 meters per second, how long will it take for the puppy to reach the ball?"
+    },
     "length": 200,
     "tags": [
       "grade-5",
@@ -2412,7 +2610,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "notional",
-    "problem": "A toy car travels 3.5 meters every second. How many meters will it travel in 7.5 seconds?",
+    "problem": {
+      "natural": "A toy car speeds along at a rate of 3.5 meters per second. How many meters will it cover in 7.5 seconds?"
+    },
     "length": 166,
     "tags": [
       "grade-5",
@@ -2501,7 +2701,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "else",
-    "problem": "There are 15 coins in a jar. Some of them are nickels and the rest are dimes. If you have 3 times as many nickels as dimes, how many of each type of coin are there?",
+    "problem": {
+      "natural": "There are 15 coins in a jar. Some are nickels and the rest are dimes. If there are three times as many nickels as dimes, how many of each type of coin are there?"
+    },
     "length": 164,
     "tags": [
       "algebra",
@@ -2515,7 +2717,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "else",
-    "problem": "A train travels 360 km at a speed of 80 km/h. If the journey takes 5 hours less if the train travels at a speed of 100 km/h, how long did the journey take at the slower speed?",
+    "problem": {
+      "natural": "A train travels 360 kilometers at a speed of 80 kilometers per hour. If the journey takes 5 hours less when the train travels at a speed of 100 kilometers per hour, how long did the journey take at the slower speed?"
+    },
     "length": 175,
     "tags": [
       "time-distance-speed",
@@ -2528,7 +2732,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "else",
-    "problem": "A triangle has a perimeter of 30 cm. One side is 10 cm long. What is the length of the other two sides?",
+    "problem": {
+      "natural": "A triangle has a perimeter of 30 cm. One side is 10 cm long. Find the length of the other two sides."
+    },
     "length": 105,
     "tags": [
       "geometry",
@@ -2542,7 +2748,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "else",
-    "problem": "A jar contains 12 red marbles and 8 blue marbles. If you randomly choose one marble from the jar, what is the probability that it will be neither red nor blue? Express your answer as a fraction in simplest form.",
+    "problem": {
+      "natural": "A jar holds 12 red marbles and 8 blue marbles. If you randomly pick one marble from the jar, what is the probability that it won't be either red or blue? Express your answer as a fraction in simplest form."
+    },
     "length": 211,
     "tags": [
       "probability",
@@ -2556,7 +2764,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "else",
-    "problem": "A ball is rolling at 2 m/s. If it encounters an incline with a height of 1 m, what will be its speed at the top of the incline? Assume the incline is frictionless.",
+    "problem": {
+      "natural": "A ball is rolling with a speed of 2 m/s. If it encounters an incline with a height of 1 meter, what will be its speed at the top of the incline? Assume the incline is frictionless."
+    },
     "length": 163,
     "tags": [
       "physics",
@@ -2568,7 +2778,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "else",
-    "problem": "An apple farmer has 100 trees. If each tree yields 50kg of apples, how many kilograms of apples will the farmer have if 20 trees fail to yield any fruit, else the yield remains the same?",
+    "problem": {
+      "natural": "An apple farmer has 100 apple trees. Each tree typically yields 50 kilograms of fruit. How many kilograms of apples will the farmer have if 20 trees fail to produce any fruit, while the yield remains the same for the remaining trees?"
+    },
     "length": 186,
     "tags": [
       "multiplication",
@@ -2642,7 +2854,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "schoolhouse",
-    "problem": "A schoolhouse has a rectangular roof with a perimeter of 40 meters. The length of the roof is 2 meters longer than the width. Find the length and width of the roof.",
+    "problem": {
+      "natural": "A rectangular schoolhouse roof has a perimeter of 40 meters. The length is 2 meters more than the width. What are the dimensions of the roof?"
+    },
     "length": 164,
     "tags": [
       "algebra",
@@ -2657,7 +2871,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "schoolhouse",
-    "problem": "The schoolhouse bell rings at a rate of 1 ring every 3 minutes. If a student walks at a steady pace of 5 meters per minute from their home to the schoolhouse, how long will it take them to reach the schoolhouse after the bell rings?",
+    "problem": {
+      "natural": "The schoolhouse bell tolls once every 3 minutes. If a student walks steadily at a rate of 5 meters per minute from home to school, how long will it take them to reach school after the bell rings?"
+    },
     "length": 232,
     "tags": [
       "grade-5",
@@ -2671,7 +2887,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "schoolhouse",
-    "problem": "The schoolhouse has a circular playground with a circumference of 24 meters. If the radius of the playground is increased by 2 meters, what will be the new circumference?",
+    "problem": {
+      "natural": "A circular playground at the schoolhouse has a circumference of 24 meters. If the radius of the playground is increased by 2 meters, what will be the new circumference?"
+    },
     "length": 170,
     "tags": [
       "geometry",
@@ -2686,7 +2904,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "schoolhouse",
-    "problem": "There are 3 schoolhouses in a village. In the first schoolhouse, 1/4 of the students are boys. In the second schoolhouse, 2/5 of the students are girls. In the third schoolhouse, 3/7 of the students are boys. What is the probability that a randomly chosen student from the village is a boy?",
+    "problem": {
+      "natural": "In a village with three schoolhouses, one-fourth of the students in the first schoolhouse are boys, two-fifths of the students in the second schoolhouse are girls, and three-sevenths of the students in the third schoolhouse are boys. What is the probability that a randomly chosen student from the village is a boy?"
+    },
     "length": 290,
     "tags": [
       "conditional-probability",
@@ -2700,7 +2920,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "schoolhouse",
-    "problem": "A schoolhouse casts a 1.5m long shadow at 3:00 PM when the sun is directly overhead. How high is the schoolhouse? Assume the sun is directly overhead and the shadow is cast vertically.",
+    "problem": {
+      "natural": "A schoolhouse casts a 1.5-meter shadow at 3:00 PM when the sun is directly overhead. How high is the schoolhouse? Assume the sun is directly overhead and the shadow is cast vertically."
+    },
     "length": 185,
     "tags": [
       "geometry",
@@ -2714,7 +2936,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "schoolhouse",
-    "problem": "The schoolhouse has a roof with a perimeter of 12 meters. The length of the roof is 3 meters longer than the width. What are the dimensions of the roof?",
+    "problem": {
+      "natural": "The rooftop of the schoolhouse has a perimeter of 12 meters. Its length is 3 meters more than its width. What are the dimensions of the rooftop?"
+    },
     "length": 152,
     "tags": [
       "perimeter",
@@ -2790,7 +3014,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "bonfire",
-    "problem": "There is a bonfire with a circular perimeter of 12 meters. The diameter of the bonfire is 2 meters less than the radius. What is the radius of the bonfire?",
+    "problem": {
+      "natural": "A circular bonfire has a perimeter of 12 meters. The diameter of the bonfire is 2 meters less than the radius. Find the radius of the bonfire."
+    },
     "length": 155,
     "tags": [
       "algebra",
@@ -2804,7 +3030,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "bonfire",
-    "problem": "A bonfire is consuming firewood at a rate of 1.5 meters per minute. If the bonfire starts at 7:30 PM, when will the firewood be completely consumed if there are 4.5 meters of firewood remaining?",
+    "problem": {
+      "natural": "A bonfire is consuming firewood at a rate of 1.5 meters per minute. If there are 4.5 meters of firewood remaining at 7:30 PM, when will the firewood be completely consumed?"
+    },
     "length": 194,
     "tags": [
       "time-distance-speed",
@@ -2817,7 +3045,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "bonfire",
-    "problem": "A bonfire has a circular base with a diameter of 2 meters. If the bonfire is 1.5 meters tall, what is the volume of the bonfire's cone-shaped space?",
+    "problem": {
+      "natural": "A bonfire has a circular base with a diameter of 2 meters. If the bonfire is 1.5 meters tall, what is the volume of the cone-shaped space it creates?"
+    },
     "length": 148,
     "tags": [
       "geometry",
@@ -2831,7 +3061,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "bonfire",
-    "problem": "There's a bonfire with 30 cubic meters of wood. The bonfire burns at a rate of 0.5 cubic meters per minute. What's the probability that the bonfire will burn through all the wood in 2 hours?",
+    "problem": {
+      "natural": "A bonfire has 30 cubic meters of wood. It burns at a rate of 0.5 cubic meters per minute. What is the probability that the bonfire will consume all the wood in 2 hours?"
+    },
     "length": 190,
     "tags": [
       "probability",
@@ -2844,7 +3076,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "bonfire",
-    "problem": "A bonfire has a cylindrical shape with a height of 1.5 m and a diameter of 1.2 m. If the bonfire consumes fuel at a rate of 0.5 kg/min, how much fuel will be consumed in 20 minutes?",
+    "problem": {
+      "natural": "A bonfire has a cylindrical shape, standing 1.5 meters tall and 1.2 meters in diameter. If the bonfire consumes fuel at a rate of 0.5 kilograms per minute, how much fuel will be consumed in 20 minutes?"
+    },
     "length": 181,
     "tags": [
       "grade-5",
@@ -2856,7 +3090,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "bonfire",
-    "problem": "A bonfire has a radius of 1.5 meters. If the bonfire is 1.2 meters tall, what is its volume?",
+    "problem": {
+      "natural": "A bonfire has a circular base with a radius of 1.5 meters. If the bonfire is 1.2 meters tall, what is its volume?"
+    },
     "length": 92,
     "tags": [
       "grade-5",
@@ -2928,7 +3164,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "abroad",
-    "problem": "A plane ticket to a foreign country costs 2000€, while a hotel room for the same trip costs 800€. If you spend a total of 3000€ on your trip abroad, how much did you spend on the plane ticket?",
+    "problem": {
+      "natural": "A plane ticket to a foreign country costs €2000, while a hotel room for the same trip costs €800. If your total spending on the trip abroad is €3000, how much did you spend on the plane ticket?"
+    },
     "length": 192,
     "tags": [
       "algebra",
@@ -2941,7 +3179,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "abroad",
-    "problem": "An airplane departs from London at 10:00 am and travels abroad to Paris at a speed of 800 km/h. If the flight duration is 2 hours, what time will the airplane arrive in Paris?",
+    "problem": {
+      "natural": "An airplane departs from London at 10:00 am and travels to Paris at a speed of 800 km/h. If the flight duration is 2 hours, what time will the airplane arrive in Paris?"
+    },
     "length": 175,
     "tags": [
       "time-distance-speed",
@@ -2955,7 +3195,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "abroad",
-    "problem": "An architect wants to design a rectangular building with a perimeter of 40 meters. The length of the building is 2 meters more than its width. What are the dimensions of the building?",
+    "problem": {
+      "natural": "An architect wants to design a rectangular building with a perimeter of 40 meters. The length of the building is 2 meters more than its width. Find the dimensions of the building."
+    },
     "length": 183,
     "tags": [
       "geometry",
@@ -2969,7 +3211,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "abroad",
-    "problem": "An airline offers direct flights from London to two different cities: Paris and Rome. The probability of reaching Paris is 70%, while the probability of reaching Rome is 30%. If you book a flight to go abroad, what is the probability that you will reach Rome?",
+    "problem": {
+      "natural": "An airline offers direct flights from London to either Paris or Rome. The probability of reaching Paris is 7 out of 10, while the probability of reaching Rome is 3 out of 10. What is the probability that a randomly booked flight will take you to Rome?"
+    },
     "length": 259,
     "tags": [
       "probability"
@@ -2980,7 +3224,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "abroad",
-    "problem": "An airplane flies 3400,000 m abroad on a direct route. If the total fuel consumption on the trip is 180 kg, what is the average fuel consumption of the airplane per kilometer traveled?",
+    "problem": {
+      "natural": "An airplane travels 3,400 kilometers on a direct route. It consumes 180 kilograms of fuel during the trip. What is the average fuel consumption of the airplane per kilometer traveled?"
+    },
     "length": 184,
     "tags": [
       "distance",
@@ -2994,7 +3240,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "abroad",
-    "problem": "An airplane travels 3500 km abroad to reach its destination. If the average fuel consumption of the airplane is 200 L per 100 km, how many liters of fuel will the airplane need to reach its destination?",
+    "problem": {
+      "natural": "An airplane needs to travel 3500 kilometers to reach its destination. If the airplane consumes an average of 200 liters of fuel per 100 kilometers, how many liters of fuel will it require for the entire journey?"
+    },
     "length": 202,
     "tags": [
       "multiplication",
@@ -3070,7 +3318,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "bustle",
-    "problem": "A bustling market has 3 times as many people buying fruits as those buying vegetables. If there are 120 people in the fruit section, how many people are there in the vegetable section?",
+    "problem": {
+      "natural": "In a lively market, three times as many people are browsing for fruits as those looking for vegetables. If there are 120 people in the fruit section, how many people are there in the vegetable section?"
+    },
     "length": 184,
     "tags": [
       "algebra",
@@ -3082,7 +3332,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "bustle",
-    "problem": "A bustling marketplace has a foot traffic of 150 people per minute. If the average speed of a person in the marketplace is 1.2 m/s, how long will it take for 300 people to pass through the marketplace?",
+    "problem": {
+      "natural": "A crowded marketplace sees 150 people pass every minute. If people move at an average speed of 1.2 meters per second, how long will it take for 300 people to stroll through the marketplace?"
+    },
     "length": 201,
     "tags": [
       "grade-5",
@@ -3095,7 +3347,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "bustle",
-    "problem": "A bustling marketplace has a circular central plaza with a radius of 10 meters. Vendors set up booths along the perimeter of the plaza, leaving a 2-meter buffer zone around the central area. What is the total length of the perimeter of the vendor booths?",
+    "problem": {
+      "natural": "In a lively marketplace, a circular central plaza with a 10-meter radius is at the heart. Vendors set up booths along the perimeter of the plaza, leaving a 2-meter buffer zone around the central area. What is the total length of the perimeter of the vendor booths?"
+    },
     "length": 254,
     "tags": [
       "geometry",
@@ -3110,7 +3364,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "bustle",
-    "problem": "A bustling market has 300 stalls selling various goods. 40% of the stalls sell food, while the remaining 60% sell non-food items. If a customer randomly selects 5 stalls to visit, what is the probability that exactly 3 of them sell food items?",
+    "problem": {
+      "natural": "A vibrant market boasts 300 stalls, each offering diverse goods. Approximately 40% of these stalls are dedicated to selling delectable food items, while the remaining 60% focus on non-food items. If a curious customer randomly selects 5 stalls to explore, what is the probability that exactly 3 of them happen to sell food?"
+    },
     "length": 243,
     "tags": [
       "conditional-probability",
@@ -3123,7 +3379,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "bustle",
-    "problem": "A bustling marketplace has 300 people moving around at an average speed of 1.5 m/s. What is the total distance covered by all the people in the marketplace in one minute?",
+    "problem": {
+      "natural": "A crowded marketplace has 300 people moving around at an average speed of 1.5 meters per second. What is the total distance covered by everyone in the marketplace in one minute?"
+    },
     "length": 170,
     "tags": [
       "grade-5",
@@ -3136,7 +3394,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "bustle",
-    "problem": "A bustling marketplace has 360 shops. If each shop sells an average of 80 customers per hour, how many customers are there in the marketplace every hour?",
+    "problem": {
+      "natural": "In a bustling marketplace with 360 shops, an average of 80 customers visit each shop every hour. How many customers are there in the marketplace every hour?"
+    },
     "length": 153,
     "tags": [
       "arithmetic",
@@ -3195,7 +3455,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "heather",
-    "problem": "Heather wants to buy some flowers and a vase. Flowers cost €5 each and the vase costs €10. If she spends a total of €30, how many flowers could she buy?",
+    "problem": {
+      "natural": "Heather wants to buy some flowers and a vase. Flowers cost €5 each, and the vase costs €10. If she spends a total of €30, how many flowers could she buy?"
+    },
     "length": 152,
     "tags": [
       "algebra",
@@ -3207,7 +3469,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "heather",
-    "problem": "Heather hikes along a trail at a speed of 3.5 kilometers per hour. If she started her hike at 8:30 AM, when will she reach a point that is 7 kilometers away from the trailhead?",
+    "problem": {
+      "natural": "Heather walks along a trail at a speed of 3.5 kilometers per hour. If she started her hike at 8:30 AM, when will she reach a point that is 7 kilometers away from the trailhead?"
+    },
     "length": 176,
     "tags": [
       "time-distance-speed",
@@ -3221,7 +3485,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "heather",
-    "problem": "A rectangular garden bed has a perimeter of 10 m. If the length of the garden bed is 2 m less than twice the width, what are the dimensions of the garden bed?",
+    "problem": {
+      "natural": "A rectangular garden bed has a perimeter of 10 meters. The length is 2 meters less than twice the width. What are the dimensions of the garden bed?"
+    },
     "length": 158,
     "tags": [
       "geometry",
@@ -3235,7 +3501,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "heather",
-    "problem": "There are 40 heather plants in a field, and 1 out of every 5 plants has white flowers. What is the probability of selecting a plant with white flowers from the field?",
+    "problem": {
+      "natural": "There are 40 heather plants in a field. One in every five plants has white flowers. What is the probability of randomly selecting a plant with white flowers from the field?"
+    },
     "length": 166,
     "tags": [
       "probability",
@@ -3249,7 +3517,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "heather",
-    "problem": "A heather bush casts a shadow that is 2.5 m long on the ground when the sun is directly overhead. If the bush is 1.5 m tall, what is the length of the shadow when the sun is at a 45° angle to the horizon?",
+    "problem": {
+      "natural": "A heather bush stands 1.5 meters tall. When the sun is directly overhead, its shadow on the ground is 2.5 meters long. What is the length of the shadow when the sun is at a 45° angle to the horizon?"
+    },
     "length": 204,
     "tags": [
       "geometry",
@@ -3262,7 +3532,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "heather",
-    "problem": "A heather bush has a circumference of 1.5 meters. If the bush spreads outwards at a constant rate of 0.2 meters per week, how many weeks will it take for the circumference of the bush to be 2 meters?",
+    "problem": {
+      "natural": "A heather bush currently has a circumference of 1.5 meters. If it spreads outwards at a constant rate of 0.2 meters per week, in how many weeks will its circumference reach 2 meters?"
+    },
     "length": 199,
     "tags": [
       "measurement",
@@ -3334,7 +3606,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "rebel",
-    "problem": "A rebel group has stashed away 240 kilograms of supplies in two secret locations. One stash holds 3 times as many supplies as the other. How many kilograms of supplies are in each stash?",
+    "problem": {
+      "natural": "A rebel group has hidden away 240 kilograms of supplies in two secret locations. One stash holds three times as many supplies as the other. How many kilograms of supplies are in each stash?"
+    },
     "length": 186,
     "tags": [
       "algebra",
@@ -3347,7 +3621,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "rebel",
-    "problem": "A rebel group travels 300km in 5 hours. At what speed did they travel, in kilometers per hour?",
+    "problem": {
+      "natural": "A rebel group covered 300 kilometers in 5 hours. What was their speed in kilometers per hour?"
+    },
     "length": 94,
     "tags": [
       "time-distance-speed",
@@ -3360,7 +3636,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "rebel",
-    "problem": "A rectangular field has a perimeter of 80 meters. If the length of the field is 10 meters more than its width, what are the dimensions of the field?",
+    "problem": {
+      "natural": "A rectangular field has a perimeter of 80 meters. The length is 10 meters more than the width. What are the dimensions of the field?"
+    },
     "length": 148,
     "tags": [
       "geometry",
@@ -3374,7 +3652,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "rebel",
-    "problem": "A bag of rebel marbles contains 30 marbles, of which 15 are red and 15 are blue. If you randomly pick 5 marbles from the bag, what is the probability that exactly 3 of them are red?",
+    "problem": {
+      "natural": "A bag of marbles contains 30, with 15 red and 15 blue. If you randomly pick 5 marbles from the bag, what is the probability that exactly 3 of them are red?"
+    },
     "length": 181,
     "tags": [
       "conditional-probability",
@@ -3387,7 +3667,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "rebel",
-    "problem": "An energetic rebel group throws a 1 kg ball horizontally with a speed of 5 m/s from a height of 2 m. What is the ball's potential energy when it reaches the ground?",
+    "problem": {
+      "natural": "An energetic group throws a 1 kilogram ball horizontally from a height of 2 meters. What is the ball's potential energy when it reaches the ground?"
+    },
     "length": 164,
     "tags": [
       "physics",
@@ -3399,7 +3681,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "rebel",
-    "problem": "An underground rebellion has 120 rebels, each with a supply of 500 grams of explosive material. The rebellion's leader wants to ensure that each rebel has the same amount of explosive material. How many grams of explosive material should each rebel have?",
+    "problem": {
+      "natural": "An underground rebellion has 120 rebels. Each rebel has 500 grams of explosive material. How much explosive material should each rebel have if the rebellion's leader wants to ensure that everyone has the same amount?"
+    },
     "length": 254,
     "tags": [
       "division",
@@ -3486,7 +3770,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "sparrow",
-    "problem": "There are twice as many sparrows as there are nests in a tree. If there are 15 nests, how many sparrows are there in total?",
+    "problem": {
+      "natural": "There are twice as many sparrows as nests in a tree. If there are 15 nests, how many sparrows are there in total?"
+    },
     "length": 123,
     "tags": [
       "algebra",
@@ -3499,7 +3785,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "sparrow",
-    "problem": "A sparrow travels 3.5 kilometers in 7 minutes. What is the sparrow's average speed in meters per minute?",
+    "problem": {
+      "natural": "A sparrow travels 3.5 kilometers in 7 minutes. What is the sparrow's average speed in meters per minute?"
+    },
     "length": 104,
     "tags": [
       "distance",
@@ -3515,7 +3803,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "sparrow",
-    "problem": "There are 100 sparrows chirping in a park. 30% of them are adult males. What is the probability of randomly selecting a sparrow that is not an adult male?",
+    "problem": {
+      "natural": "In a park with 100 sparrows, 30% of them are adult males. What is the probability of randomly selecting a sparrow that is not an adult male?"
+    },
     "length": 154,
     "tags": [
       "probability",
@@ -3527,7 +3817,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "sparrow",
-    "problem": "A sparrow flutters horizontally at a velocity of 5 m/s. If the sparrow's wings beat 10 times in one second, what is the distance the sparrow covers in one wingbeat?",
+    "problem": {
+      "natural": "A sparrow is soaring horizontally at a speed of 5 meters per second. If its wings flap 10 times every second, what distance does the sparrow cover during a single wingbeat?"
+    },
     "length": 164,
     "tags": [
       "physics",
@@ -3539,7 +3831,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "sparrow",
-    "problem": "A sparrow can fly at a speed of 15 kilometers per hour. How many meters can a sparrow fly in 3 hours?",
+    "problem": {
+      "natural": "A sparrow can fly at a speed of 15 kilometers per hour. How many meters can a sparrow fly in 3 hours?"
+    },
     "length": 101,
     "tags": [
       "speed",
@@ -3671,7 +3965,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "enthusiast",
-    "problem": "An enthusiast gardener has 30 meters of fencing material to enclose two rectangular vegetable patches which are both 1 meter wide. One patch is 2 meters longer than the other. Find the length of each patch.",
+    "problem": {
+      "natural": "An enthusiastic gardener has 30 meters of fencing material. They want to enclose two rectangular vegetable patches, each 1 meter wide. One patch is 2 meters longer than the other. Find the length of each patch."
+    },
     "length": 178,
     "tags": [
       "algebra",
@@ -3684,7 +3980,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "enthusiast",
-    "problem": "An enthusiastic runner covers 300 meters in 5 minutes. At this rate, how many minutes will it take them to cover 800 meters?",
+    "problem": {
+      "natural": "An enthusiastic runner covers 300 meters in 5 minutes. At this rate, how many minutes will it take them to cover 800 meters?"
+    },
     "length": 124,
     "tags": [
       "time-distance-speed",
@@ -3697,7 +3995,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "upshot",
-    "problem": "A train travels 300 kilometers in 4 hours. Another train travels 200 kilometers in 3 hours. How much faster is the first train than the second train?",
+    "problem": {
+      "natural": "A train travels 300 kilometers in 4 hours. Another train travels 200 kilometers in 3 hours. How much faster is the first train than the second train?"
+    },
     "length": 149,
     "tags": [
       "algebra",
@@ -3710,7 +4010,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "upshot",
-    "problem": "An airplane travels 450 km at a constant speed. If the pilot decides to increase the speed by 25%, how long will it take the airplane to cover the same distance at the new speed?",
+    "problem": {
+      "natural": "An airplane travels 450 kilometers at a constant speed. If the pilot wants to reduce the travel time by 25%, what new speed should the airplane fly at to cover the same distance?"
+    },
     "length": 178,
     "tags": [
       "time-distance-speed",
@@ -3724,7 +4026,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "upshot",
-    "problem": "A climber is at the bottom of a 30-meter tower. If they climb 5 meters every minute, what is the upshot (vertical distance climbed) after 6 minutes?",
+    "problem": {
+      "natural": "A climber stands at the base of a 30-meter tower. If they climb 5 meters every minute, how much of the tower will they have climbed after 6 minutes?"
+    },
     "length": 148,
     "tags": [
       "geometry",
@@ -3737,7 +4041,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "upshot",
-    "problem": "There are 100 balls in a jar, of which 20 are red, 30 are blue, and the rest are green. If you reach into the jar and randomly select 10 balls, what is the probability that exactly 3 of them are red?",
+    "problem": {
+      "natural": "There are 100 balls in a jar, 20 of which are red, 30 are blue, and the rest are green. If you randomly select 10 balls from the jar, what is the probability that exactly 3 of them are red?"
+    },
     "length": 199,
     "tags": [
       "probability",
@@ -3751,7 +4057,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "upshot",
-    "problem": "An object is launched straight up from the ground with an initial velocity of 10 m/s. How high above the ground will the object be after 2 seconds?",
+    "problem": {
+      "natural": "An object is launched straight up from the ground with an initial velocity of 10 meters per second. How high above the ground will the object be after 2 seconds?"
+    },
     "length": 147,
     "tags": [
       "physics",
@@ -3763,7 +4071,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "upshot",
-    "problem": "An astronaut on a space station throws a ball upwards with an initial velocity of 5 m/s. If the gravitational acceleration on the station is -2 m/s², how high above the station's surface will the ball be at the peak of its trajectory?",
+    "problem": {
+      "natural": "An astronaut on a space station throws a ball vertically upwards from the station's surface with an initial velocity of 5 m/s. The gravitational acceleration on the station is -2 m/s². How high above the station's surface will the ball be at the highest point of its trajectory?"
+    },
     "length": 234,
     "tags": [
       "grade-5",
@@ -3851,7 +4161,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "recollect",
-    "problem": "A train travels 360km in the same direction as another train that travels 240km. If the two trains leave the same station at the same time, how long will it take for them to be 60km apart?",
+    "problem": {
+      "natural": "Two trains leave the same station simultaneously. One train travels 360km, while the other travels 240km in the same direction. How long will it take for them to be 60km apart?"
+    },
     "length": 188,
     "tags": [
       "algebra",
@@ -3865,7 +4177,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "recollect",
-    "problem": "A train travels at a speed of 60 km/h for 2 hours. How much distance did the train travel in total?",
+    "problem": {
+      "natural": "A train travels at a speed of 60 kilometers per hour for 2 hours. How many kilometers did the train travel in total?"
+    },
     "length": 99,
     "tags": [
       "time-distance-speed",
@@ -3879,7 +4193,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "recollect",
-    "problem": "A circular garden bed has a circumference of 12 meters. If the gardener wants to recollect the soil from the inside of the bed, how much area does he need to cover? Remember, the formula for the area of a circle is ,,A = πr^2,,.",
+    "problem": {
+      "natural": "A circular garden bed has a circumference of 12 meters. If the gardener wants to collect the soil from the inside of the bed, what area does he need to cover? The formula for the area of a circle is $$A = \frac{1}{4}\text{π}r^2$."
+    },
     "length": 224,
     "tags": [
       "geometry",
@@ -3895,7 +4211,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "recollect",
-    "problem": "There are 120 marbles in a jar, some of which are red and the rest are blue. If you randomly pick 30 marbles from the jar, you recollect that 20 of them are red. What is the probability that a randomly chosen marble from the jar is red?",
+    "problem": {
+      "natural": "There are 120 marbles in a jar, some of which are red and the rest are blue. If you randomly pick 30 marbles from the jar, and 20 of them are red, what is the probability that a randomly chosen marble from the jar is red?"
+    },
     "length": 236,
     "tags": [
       "probability",
@@ -3908,7 +4226,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "recollect",
-    "problem": "A student has collected 3.5 kg of rainwater in a barrel over the past month. If the barrel already contained 2.2 kg of water, how much water is in the barrel now?",
+    "problem": {
+      "natural": "A student has collected 3.5 kilograms of rainwater in a barrel over the past month. Initially, the barrel already contained 2.2 kilograms of water. How much water is in the barrel now?"
+    },
     "length": 162,
     "tags": [
       "grade-5",
@@ -3922,7 +4242,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "recollect",
-    "problem": "A scientist is recollecting data from a research project. He has recorded the amount of water collected in each of the 10 experimental containers in millilitres. If the total amount of water collected is 780 ml, what is the average amount of water in each container?",
+    "problem": {
+      "natural": "A scientist has collected water in 10 experimental containers during a research project. The total amount of water collected is 780 millilitres. What is the average amount of water in each container?"
+    },
     "length": 266,
     "tags": [
       "division",
@@ -3936,7 +4258,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "sloppy",
-    "problem": "The bakery has a special offer: 5 croissant for 3€, and 3 pastries for 2€. How much would it cost to buy 7 croissants and 4 pastries?",
+    "problem": {
+      "natural": "The bakery is offering a special deal: 5 croissants for 3€ and 3 pastries for 2€. How much will it cost to buy 7 croissants and 4 pastries?"
+    },
     "length": 133,
     "tags": [
       "algebra",
@@ -3950,7 +4274,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "sloppy",
-    "problem": "A ball is rolling on a grassy field at a speed of 2 m/s. If the ball starts at a point 5 meters from a tree, how long will it take for the ball to reach the tree if it continues to roll at a constant speed?",
+    "problem": {
+      "natural": "A ball is rolling across a grassy field at a speed of 2 meters per second. If it starts 5 meters away from a tree, how long will it take for the ball to reach the tree?"
+    },
     "length": 206,
     "tags": [
       "time-distance-speed",
@@ -3964,7 +4290,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "sloppy",
-    "problem": "A triangular sandbox has a perimeter of 120 cm. The longest side is 30 cm shorter than the other two equal sides. What is the length of each equal side?",
+    "problem": {
+      "natural": "A triangular sandbox has a perimeter of 120 cm. The longest side is 30 cm less than the other two equal sides. What is the length of each equal side?"
+    },
     "length": 153,
     "tags": [
       "grade-5",
@@ -3979,7 +4307,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "sloppy",
-    "problem": "A baker has a jar containing 500 millilitres of sloppy batter. The batter is spilling over the rim at a rate of 10 millilitres per second. What is the probability that, after 30 seconds, less than 450 millilitres of batter remain in the jar?",
+    "problem": {
+      "natural": "A baker has a jar with 500 millilitres of thick batter. The batter is overflowing at a rate of 10 millilitres per second. What is the probability that, after 30 seconds, less than 450 millilitres of batter remain in the jar?"
+    },
     "length": 241,
     "tags": [
       "probability",
@@ -3991,7 +4321,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "sloppy",
-    "problem": "A muddy puddle is 30 cm deep at its deepest point. If the puddle is considered to be 'sloppy' when it covers half of a circular playground with a radius of 10 m, what is the approximate volume of the muddy water in the puddle? Take π = 3.14.",
+    "problem": {
+      "natural": "A muddy puddle is 30 cm deep at its deepest point. When the puddle covers half of the circular playground with a 10 m radius, it is considered sloppy. Estimate the volume of muddy water in the puddle, knowing that π is approximately 3.14."
+    },
     "length": 241,
     "tags": [
       "grade-5",
@@ -4004,7 +4336,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "sloppy",
-    "problem": "A rectangular chocolate bar is 12 cm long and 8 cm wide. If the chocolate bar is melting at a rate of 0.5 cm/s, how long will it take for the chocolate bar to become completely sloppy?",
+    "problem": {
+      "natural": "A rectangular chocolate bar, 12 cm long and 8 cm wide, is melting at a rate of 0.5 cm/s. How long will it take for the chocolate bar to melt completely?"
+    },
     "length": 184,
     "tags": [
       "grade-5",
@@ -4137,7 +4471,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "affinity",
-    "problem": "There is an affinity between the length of a rectangle and the width of a rectangle. If the length of a rectangle is 5 cm more than its width, and the perimeter of the rectangle is 40 cm, what are the dimensions of the rectangle?",
+    "problem": {
+      "natural": "There's a connection between the length and width of a rectangle. If the length is 5 cm more than the width, and the rectangle's perimeter is 40 cm, what are its dimensions?"
+    },
     "length": 229,
     "tags": [
       "algebra",
@@ -4152,7 +4488,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "affinity",
-    "problem": "A train travels 300 km at a constant speed. If its speed were 20% faster, the journey would take 1 hour less. What was the original speed of the train?",
+    "problem": {
+      "natural": "A train covers 300 kilometers at a steady pace. If its speed were 20% greater, the trip would take an hour less. Determine the initial speed of the train."
+    },
     "length": 151,
     "tags": [
       "time-distance-speed",
@@ -4167,7 +4505,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "affinity",
-    "problem": "Given two squares, one with side length 3 cm and the other with side length 4 cm, find the ratio of the areas of the two squares.",
+    "problem": {
+      "natural": "Given two squares, one with a side length of 3 cm and another with a side length of 4 cm, find the ratio of the areas of the two squares."
+    },
     "length": 129,
     "tags": [
       "geometry",
@@ -4181,7 +4521,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "affinity",
-    "problem": "There are 100 people in a room. Some of them are friends with each other. The probability of two randomly chosen people being friends is 1/3. How many pairs of friends are there in the room?",
+    "problem": {
+      "natural": "In a room of 100 people, some are friends. If two people are randomly chosen, the probability that they are friends is 1 in 3. How many pairs of friends are there in the room?"
+    },
     "length": 190,
     "tags": [
       "probability",
@@ -4194,7 +4536,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "affinity",
-    "problem": "An object has an affinity for another object if the force between them is greater than the force of repulsion. If a force of 3N is required to overcome the repulsion between two spheres, each with a mass of 1kg, what is the affinity force between them?",
+    "problem": {
+      "natural": "An object exhibits an affinity for another if the force between them is stronger than the force of repulsion. If 3N of force is needed to counter the repulsion between two 1kg spheres, what is the force of attraction between them?"
+    },
     "length": 252,
     "tags": [
       "physics",
@@ -4206,7 +4550,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "affinity",
-    "problem": "An artist has two pigments with a 0.75 affinity for each other. If the artist uses 100 grams of the first pigment and 120 grams of the second pigment, what is the approximate total affinity between the two pigments?",
+    "problem": {
+      "natural": "An artist is working with two pigments that have a 75% affinity for each other. If the artist uses 100 grams of the first pigment and 120 grams of the second pigment, what is the approximate total affinity between the two pigments?"
+    },
     "length": 215,
     "tags": [
       "proportion",
@@ -4295,7 +4641,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "biographical",
-    "problem": "A biographical book about a scientist has 128 pages in total. Some pages are dedicated to their experiments, which are 3 times more numerous than the pages dedicated to their childhood. How many pages are there for each section?",
+    "problem": {
+      "natural": "A biographical book about a scientist has 128 pages in total. Some pages are dedicated to their experiments, which are three times more numerous than the pages dedicated to their childhood. How many pages are there for each section?"
+    },
     "length": 228,
     "tags": [
       "algebra",
@@ -4309,7 +4657,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "biographical",
-    "problem": "A biography detailing the life of a renowned scientist mentions that their first groundbreaking discovery was published 24 years after their 18th birthday. If the scientist published their first discovery at a speed of 2.5 m/s, how old were they when their discovery was published?",
+    "problem": {
+      "natural": "A renowned scientist's groundbreaking discovery was published 24 years after their 18th birthday. If they published it at a speed of 2.5 meters per second, how old were they when their discovery was published?"
+    },
     "length": 281,
     "tags": [
       "time-distance-speed",
@@ -4323,7 +4673,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "biographical",
-    "problem": "A circular garden has a circumference of 24 meters. If the radius of the garden is shortened by 2 meters, what will be the new area of the garden?",
+    "problem": {
+      "natural": "A circular garden has a circumference of 24 meters. If the radius is shortened by 2 meters, how much will the area of the garden decrease?"
+    },
     "length": 146,
     "tags": [
       "geometry",
@@ -4338,7 +4690,9 @@ export const problems = [
   {
     "generator": "probability",
     "input": "biographical",
-    "problem": "There are 48 biographies in a library. If 3/8 of them are about women, how many biographies are about women?",
+    "problem": {
+      "natural": "There are 48 biographies in a library. If 3 out of every 8 biographies are about women, how many of the biographies are about women?"
+    },
     "length": 108,
     "tags": [
       "probability",
@@ -4352,7 +4706,9 @@ export const problems = [
   {
     "generator": "physics",
     "input": "biographical",
-    "problem": "A researcher is studying the growth of a bacteria culture over time. The initial population of the bacteria is 10^5 cells/mL. After one hour, the population has increased to 10^6 cells/mL. What is the average rate of population growth in cells/mL per hour?",
+    "problem": {
+      "natural": "A researcher is studying the growth of a bacteria culture over time. The starting number of bacteria in the culture is 100,000 cells/mL. After one hour, the population has grown to 1,000,000 cells/mL. What was the average rate of population growth in cells/mL per hour during this period?"
+    },
     "length": 256,
     "tags": [
       "grade-5",
@@ -4365,7 +4721,9 @@ export const problems = [
   {
     "generator": "science",
     "input": "biographical",
-    "problem": "Given the lifespan of a scientist is represented by a normal distribution with mean 70 years and standard deviation 10 years, what age should a researcher be to maximize the probability of living at least 80 years?",
+    "problem": {
+      "natural": "Given that the lifespan of scientists follows a normal distribution with a mean of 70 years and a standard deviation of 10 years, determine the age at which the probability of living at least 80 years is maximized."
+    },
     "length": 214,
     "tags": [
       "normal-distribution",
@@ -4497,7 +4855,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "mine",
-    "problem": "There are two boxes of chocolates. One box has 3 times as many chocolates as the other. If the smaller box has 18 chocolates, how many chocolates are in the bigger box?",
+    "problem": {
+      "natural": "There are two boxes of chocolates. One box has three times as many chocolates as the other. If the smaller box has 18 chocolates, how many chocolates are in the larger box?"
+    },
     "length": 168,
     "tags": [
       "algebra",
@@ -4509,7 +4869,9 @@ export const problems = [
   {
     "generator": "time-distance-speed",
     "input": "mine",
-    "problem": "A train travels 300km at a speed of 80km/h. How long will it take the train to reach its destination?",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a speed of 80 kilometers per hour. How long will it take the train to reach its destination?"
+    },
     "length": 101,
     "tags": [
       "time-distance-speed",
@@ -4523,7 +4885,9 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "mine",
-    "problem": "A rectangular garden bed has a perimeter of 24 meters. If the length is 2 meters longer than the width, find the dimensions of the garden bed.",
+    "problem": {
+      "natural": "A rectangular garden bed has a perimeter of 24 meters. If the length is 2 meters more than the width, find the dimensions of the garden bed."
+    },
     "length": 142,
     "tags": [
       "geometry",
@@ -4538,7 +4902,9 @@ export const problems = [
   {
     "generator": "two-variable-algebra",
     "input": "fateful",
-    "problem": "A farmer discovers a mysterious seed that doubles in size every day. He plants it on the first day of spring and notices it covers half of his field by the end of the day. If the field is 100 square meters, how many days will it take for the seed to cover the entire field?",
+    "problem": {
+      "natural": "A mysterious seed doubles in size each day. The farmer plants it on the first day of spring. By the end of the first day, it covers half of his 100 square meter field. How many days will it take for the seed to cover the entire field?"
+    },
     "length": 273,
     "tags": [
       "algebra",
@@ -6731,7 +7097,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "exertion",
-    "problem": "An athlete runs 20 meters in 4 minutes. Another athlete runs 30 meters in 6 minutes. How much time did each athlete spend on each meter of exertion?",
+    "problem": {
+      "natural": "An athlete covers 20 meters in 4 minutes. Another athlete covers 30 meters in 6 minutes. Calculate the average time spent per meter of exertion for each athlete."
+    },
     "length": 148,
     "tags": [
       "algebra",
@@ -6745,7 +7113,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "exertion",
-    "problem": "An athlete runs 3000 m in 10 minutes. What is the athlete's average speed in meters per second?",
+    "problem": {
+      "natural": "An athlete covers a distance of 3000 meters in 10 minutes. Calculate the athlete's average speed in meters per second."
+    },
     "length": 95,
     "tags": [
       "grade-5",
@@ -6762,7 +7132,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "exertion",
-    "problem": "A runner completes a 3 km loop in 18 minutes. What is the average speed of the runner in meters per minute?",
+    "problem": {
+      "natural": "A runner completes a 3 kilometer loop in 18 minutes. What is the runner's average speed in meters per minute?"
+    },
     "length": 107,
     "tags": [
       "geometry",
@@ -6778,7 +7150,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "exertion",
-    "problem": "An athlete completes a 100-meter course in 12 minutes. What is the average exertion, in watts, required to finish the course if the metabolic rate during exertion is approximated by 40 watts per kilogram of body weight?",
+    "problem": {
+      "natural": "An athlete completes a 100-meter course in 12 minutes. What is the average power output, in watts, required to finish the course if the athlete consumes approximately 40 watts per kilogram of body weight during exertion?"
+    },
     "length": 219,
     "tags": [
       "grade-5",
@@ -6792,7 +7166,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "physics",
     "input": "exertion",
-    "problem": "An athlete expends 300 J of energy while running for 5 minutes. What is the average power output of the athlete in watts?",
+    "problem": {
+      "natural": "An athlete expends 300 watts of energy while running for 5 minutes. What is the average power output of the athlete during this time?"
+    },
     "length": 121,
     "tags": [
       "grade-5",
@@ -6805,7 +7181,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "science",
     "input": "exertion",
-    "problem": "An athlete runs 400m in 8 minutes. What is the average exertion in watts if the athlete consumes 1200W during the race?",
+    "problem": {
+      "natural": "An athlete completes a 400-meter race in 8 minutes. If the athlete consumes 1200 watts of energy during the race, what is the average power output in watts?"
+    },
     "length": 119,
     "tags": [
       "grade-5",
@@ -6886,7 +7264,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "confess",
-    "problem": "A teacher has 120 colored pencils to share equally among her 30 students. How many pencils should each student get if she wants to confess that she secretly kept 10 for herself?",
+    "problem": {
+      "natural": "A teacher has 120 colored pencils to share equally among her 30 students. How many pencils should each student receive if she secretly kept 10 for herself?"
+    },
     "length": 177,
     "tags": [
       "algebra",
@@ -6899,7 +7279,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "confess",
-    "problem": "An explorer confesses that it took him 3 hours to traverse a jungle at a speed of 5 km/h. How far did he travel?",
+    "problem": {
+      "natural": "An explorer reveals that it took him 3 hours to navigate through a jungle at a speed of 5 kilometers per hour. How many kilometers did he travel?"
+    },
     "length": 112,
     "tags": [
       "grade-5",
@@ -6914,7 +7296,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "confess",
-    "problem": "A triangle has a perimeter of 30 cm. One side is 5 cm longer than the shortest side. What is the length of the shortest side?",
+    "problem": {
+      "natural": "A triangle has a perimeter of 30 cm. One side is 5 cm longer than the shortest side. Find the length of the shortest side."
+    },
     "length": 125,
     "tags": [
       "geometry",
@@ -6929,7 +7313,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "confess",
-    "problem": "A bag contains 10 red marbles, 12 green marbles, and 18 blue marbles. If you randomly pick 5 marbles from the bag, what is the probability that exactly 2 of them are red?",
+    "problem": {
+      "natural": "A bag contains 10 red marbles, 12 green marbles, and 18 blue marbles. If you randomly pick 5 marbles from the bag, what is the probability that exactly two of them are red?"
+    },
     "length": 170,
     "tags": [
       "probability",
@@ -6943,7 +7329,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "physics",
     "input": "confess",
-    "problem": "An astronaut confesses that their spaceship's fuel gauge reads 25% of its capacity. If the spaceship consumes fuel at a rate of 2.5% per hour, how many hours until the spaceship runs out of fuel?",
+    "problem": {
+      "natural": "An astronaut reveals that the fuel gauge of their spaceship indicates that it contains a quarter of its total capacity. The spaceship consumes fuel at a rate of 2.5% per hour. How many hours can the astronaut travel before the spaceship runs out of fuel?"
+    },
     "length": 195,
     "tags": [
       "fractions",
@@ -6959,7 +7347,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "science",
     "input": "confess",
-    "problem": "A scientist confesses that the volume of a liquid in a cylinder is 400cm^3. If the cylinder's height is 10cm, what is the radius of the cylinder?",
+    "problem": {
+      "natural": "A scientist has confessed that a cylinder contains 400 cubic centimeters of liquid. If the cylinder is 10 centimeters tall, what is the radius of the cylinder?"
+    },
     "length": 145,
     "tags": [
       "volume",
@@ -7082,7 +7472,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "nature",
-    "problem": "There are twice as many butterflies as bees in a meadow. The total number of insects is 50. How many butterflies are there?",
+    "problem": {
+      "natural": "In a meadow, there are twice as many butterflies as bees. Together, there are 50 insects. How many butterflies are there?"
+    },
     "length": 123,
     "tags": [
       "algebra",
@@ -7095,7 +7487,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "nature",
-    "problem": "A squirrel travels 45 meters through a forest at a speed of 3 meters per second. How long will it take the squirrel to reach a tree that is 15 meters away?",
+    "problem": {
+      "natural": "A squirrel is running through the forest at a speed of 3 meters per second. If it needs to reach a tree that is 15 meters away, how long will it take the squirrel to get there?"
+    },
     "length": 155,
     "tags": [
       "time-distance-speed",
@@ -7110,7 +7504,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "nature",
-    "problem": "A forest trail is 3.5 km long. If the trail winds through a circular meadow with a radius of 125 m, what is the total length of the trail and meadow perimeter combined?",
+    "problem": {
+      "natural": "A forest trail stretches for 3.5 kilometers. It also winds through a circular meadow with a radius of 125 meters. What is the total length of the trail and the meadow's perimeter combined?"
+    },
     "length": 168,
     "tags": [
       "geometry",
@@ -7126,7 +7522,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "nature",
-    "problem": "A naturalist observes that 3 out of 5 trees in a forest have leaves that change color in autumn. If there are 200 trees in the forest, how many of them will have leaves that change color?",
+    "problem": {
+      "natural": "A naturalist observes that 3 out of every 5 trees in a forest change color in autumn. There are 200 trees in the forest. How many of them will have leaves that change color?"
+    },
     "length": 187,
     "tags": [
       "conditional-probability",
@@ -7140,7 +7538,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "physics",
     "input": "nature",
-    "problem": "A river has a flow rate of 2 m/s. The cross-sectional area of the river is 100 m². What is the volume of water that flows through the river in one minute?",
+    "problem": {
+      "natural": "A river's current is 2 meters per second. The river is 100 square meters in cross-sectional area. How much water flows through the river in one minute?"
+    },
     "length": 154,
     "tags": [
       "grade-5",
@@ -7155,7 +7555,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "science",
     "input": "nature",
-    "problem": "A forest path is 3.5 kilometers long. If the path winds through the forest at an average of 120 meters per minute, how many minutes will it take to walk the entire path?",
+    "problem": {
+      "natural": "A forest path is 3.5 kilometers long. If the path winds through the forest at an average speed of 120 meters per minute, how many minutes will it take to walk the entire path?"
+    },
     "length": 169,
     "tags": [
       "grade-5",
@@ -12563,7 +12965,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "wince",
-    "problem": "A train travels 360km in the same time it takes a bus to travel 270km. If the train travels 54km/h faster than the bus, how fast is each vehicle?",
+    "problem": {
+      "natural": "A train and a bus travel equal distances in the same amount of time. The train travels 54km/h faster than the bus. What is the speed of each vehicle?"
+    },
     "length": 145,
     "tags": [
       "algebra",
@@ -12577,7 +12981,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "wince",
-    "problem": "A train travels 180 km at a speed that causes passengers to wince. If the journey takes 3 hours, what is the average speed of the train in meters per second?",
+    "problem": {
+      "natural": "A train travels 180 kilometers at a speed that causes discomfort among passengers. If the journey takes 3 hours, what is the average speed of the train in meters per second?"
+    },
     "length": 157,
     "tags": [
       "grade-5",
@@ -12593,7 +12999,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "wince",
-    "problem": "A triangle has angles that measure 30°, 45°, and ?, respectively. What is the measure of the unknown angle?",
+    "problem": {
+      "natural": "A triangle has angles measuring 30°, 45°, and x degrees, respectively. What is the measure of the unknown angle?"
+    },
     "length": 107,
     "tags": [
       "geometry",
@@ -12607,7 +13015,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "wince",
-    "problem": "A coin is tossed repeatedly until it wince once. What is the probability that it will take exactly 5 tosses until the coin wince?",
+    "problem": {
+      "natural": "A coin is tossed repeatedly until it lands on its side at least once. What is the probability that it will take exactly 5 tosses until the coin lands on its side?"
+    },
     "length": 129,
     "tags": [
       "probability",
@@ -12621,7 +13031,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "prospect",
-    "problem": "A prospector found two diamonds. One diamond is twice as long as the other. The total length of the two diamonds is 10 centimeters. How long is each diamond?",
+    "problem": {
+      "natural": "A prospector discovered two diamonds. One diamond is twice as long as the other. Together, the two diamonds measure 10 centimeters. What is the length of each diamond?"
+    },
     "length": 157,
     "tags": [
       "algebra",
@@ -12635,7 +13047,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "prospect",
-    "problem": "A train departs at 10:00 am from a station and travels at a speed of 60 km/h. At what time will the train arrive at a destination that is 450 km away?",
+    "problem": {
+      "natural": "A train departs from a station at 10:00 am and travels at a speed of 60 km/h. How long will it take the train to arrive at a destination that is 450 km away?"
+    },
     "length": 150,
     "tags": [
       "time-distance-speed",
@@ -12650,7 +13064,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "prospect",
-    "problem": "A surveyor wants to find the best location for a new park in a town. He measures the distance from the park's potential location to several landmarks, such as a school and a library. The distance to the school is 350 m, and the distance to the library is 420 m. What is the total distance from the park's potential location to both the school and the library?",
+    "problem": {
+      "natural": "A surveyor wants to find the ideal spot for a new park in town. He measures the distance from the potential park location to nearby landmarks like a school and a library. The distance to the school is 350 meters, and the distance to the library is 420 meters. What is the total distance from the park's potential location to both the school and the library?"
+    },
     "length": 359,
     "tags": [
       "geometry",
@@ -12665,7 +13081,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "prospect",
-    "problem": "A jar contains 100 marbles, some of which are blue and the rest are red. If you randomly pick 20 marbles from the jar, what is the probability that exactly 12 of them are blue?",
+    "problem": {
+      "natural": "A jar contains 100 marbles, some blue and some red. If you randomly pick 20 marbles from the jar, what is the probability that exactly 12 of them are blue?"
+    },
     "length": 176,
     "tags": [
       "probability",
@@ -12680,7 +13098,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "fuss",
-    "problem": "A train travels 300 km in the same direction as another train that travels 200 km in the same time. The faster train travels 20 km/h more than the slower train. How fast is each train?",
+    "problem": {
+      "natural": "Two trains are traveling in the same direction. One train travels 300 kilometers in the same amount of time as the other train travels 200 kilometers. The faster train travels 20 kilometers per hour more than the slower train. What is the speed of each train?"
+    },
     "length": 167,
     "tags": [
       "algebra",
@@ -12694,7 +13114,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "fuss",
-    "problem": "A train travels 600 meters in 4 minutes. How much time will it take for the train to travel 900 meters at the same speed?",
+    "problem": {
+      "natural": "A train travels 600 meters in 4 minutes. At the same speed, how long will it take the train to travel 900 meters?"
+    },
     "length": 121,
     "tags": [
       "time-distance-speed",
@@ -12709,7 +13131,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "fuss",
-    "problem": "A rectangle has a perimeter of 30 cm. If the length is 5 cm more than the width, what are the dimensions of the rectangle?",
+    "problem": {
+      "natural": "A rectangle has a perimeter of 30 cm. If the length is 5 cm more than the width, find the dimensions of the rectangle."
+    },
     "length": 122,
     "tags": [
       "geometry",
@@ -12724,7 +13148,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "fuss",
-    "problem": "There are 15 colorful marbles in a jar, but 3 of them are causing a fuss because they are different from the rest. If you pick 5 marbles without replacement, what is the probability that exactly 2 of the marbles are causing the fuss?",
+    "problem": {
+      "natural": "There are 15 colorful marbles in a jar, but 3 of them are different. If you randomly pick 5 marbles without replacement, what is the probability that exactly 2 of the marbles are the unusual ones?"
+    },
     "length": 233,
     "tags": [
       "probability",
@@ -12739,7 +13165,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "film",
-    "problem": "There are two reels of film, one with 100 meters and the other with 80 meters. If you combine the two reels, you have 120 meters of film. How long is each reel after they are combined?",
+    "problem": {
+      "natural": "There are two rolls of film, one containing 100 meters and the other containing 80 meters. When combined, the two rolls have a total of 120 meters of film. What is the length of each roll after they are combined?"
+    },
     "length": 184,
     "tags": [
       "algebra",
@@ -12753,7 +13181,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "film",
-    "problem": "A film crew travels 240 meters at a speed of 8 meters per second to reach a filming location. How long will it take them to get there?",
+    "problem": {
+      "natural": "A film crew needs to travel 240 meters to reach a filming location. If they can travel at a speed of 8 meters per second, how long will it take them to get there?"
+    },
     "length": 134,
     "tags": [
       "time",
@@ -12769,7 +13199,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "film",
-    "problem": "A rectangular film negative has a length of 3 cm and a width of 2 cm. What is the area of the negative in square centimeters?",
+    "problem": {
+      "natural": "A rectangular film negative is 3 cm long and 2 cm wide. What is the area of the negative in square centimeters?"
+    },
     "length": 125,
     "tags": [
       "geometry",
@@ -12784,7 +13216,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "film",
-    "problem": "A film reel contains 30-meter of film. If a camera consumes 1.5 meters of film per shot, what is the probability that a randomly chosen shot will contain less than 20 meters of remaining film?",
+    "problem": {
+      "natural": "A film reel holds 30 meters of film. A camera uses 1.5 meters of film for each shot. What is the probability that a randomly chosen shot will leave less than 20 meters of film remaining?"
+    },
     "length": 192,
     "tags": [
       "probability",
@@ -12799,7 +13233,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "dogged",
-    "problem": "A dog walker charges €15 per hour for small dogs and €20 per hour for large dogs. If she walks a small dog for 2 hours and a large dog for 1 hour, how much does she earn in total?",
+    "problem": {
+      "natural": "A dog walker charges €15 per hour for small dogs and €20 per hour for large dogs. If she walks a small dog for 2 hours and a large dog for 1 hour, how much does she earn in total for the walk?"
+    },
     "length": 179,
     "tags": [
       "algebra",
@@ -12813,7 +13249,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "dogged",
-    "problem": "A dog runs 300 meters at a speed of 6 meters per second. How long did it take the dog to cover the distance?",
+    "problem": {
+      "natural": "A dog covers 300 meters at a speed of 6 meters per second. How long did it take the dog to complete the distance?"
+    },
     "length": 108,
     "tags": [
       "time-distance-speed",
@@ -12828,7 +13266,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "dogged",
-    "problem": "A park has a circular walking path with a radius of 10 meters. A dog owner walks along the path for 3/5 of the full circle. How much distance does the owner walk?",
+    "problem": {
+      "natural": "A circular walking path in a park has a radius of 10 meters. A dog owner walks along the path for 3 out of 5 of the complete circle. How much distance does the owner cover during this walk?"
+    },
     "length": 162,
     "tags": [
       "geometry",
@@ -12844,7 +13284,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "dogged",
-    "problem": "A park has a circular walking trail with a circumference of 500m. If you walk the trail 3 times, what is the total distance you walk, in meters?",
+    "problem": {
+      "natural": "A circular walking trail in the park has a circumference of 500 meters. If you walk the trail three times, what is the total distance you walk in meters?"
+    },
     "length": 144,
     "tags": [
       "grade-5",
@@ -12859,7 +13301,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "cone",
-    "problem": "A cone has a radius of 3 cm and a height of 4 cm. What is the volume of the cone?",
+    "problem": {
+      "natural": "A cone has a radius of 3 cm and a height of 4 cm. Calculate the volume of the cone."
+    },
     "length": 81,
     "tags": [
       "algebra",
@@ -12874,7 +13318,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "cone",
-    "problem": "A cone-shaped water slide at a water park has a slant height of 3 metres and a base radius of 2 metres. If visitors slide down the water slide at a speed of 2 metres per second, how long will it take them to reach the water surface?",
+    "problem": {
+      "natural": "A water slide at the water park is cone-shaped, with a slant height of 3 metres and a base radius of 2 metres. Visitors slide down the slide at a speed of 2 metres per second. How long will it take them to reach the water surface?"
+    },
     "length": 232,
     "tags": [
       "grade-5",
@@ -12887,7 +13333,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "cone",
-    "problem": "A cone-shaped tent has a slant height of 2 meters and a base radius of 1.5 meters. What is the volume of the tent?",
+    "problem": {
+      "natural": "A cone-shaped tent with a slant height of 2 meters and a base radius of 1.5 meters is available. What is the volume of the tent?"
+    },
     "length": 114,
     "tags": [
       "geometry",
@@ -12904,7 +13352,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "cone",
-    "problem": "A cone-shaped tent has a radius of 1.5 m and a height of 2 m. If the fabric used to make the tent is 3 m wide, what is the total length of fabric needed to make the tent's walls?",
+    "problem": {
+      "natural": "A cone-shaped tent has a base radius of 1.5 meters and a height of 2 meters. If the fabric used is 3 meters wide, what is the total length of fabric needed to make the tent's walls?"
+    },
     "length": 178,
     "tags": [
       "geometry",
@@ -12919,7 +13369,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "procedure",
-    "problem": "A baker has 10kg of flour and 5kg of sugar. He uses some flour and sugar to make a cake, and now has 7kg of flour remaining. How much sugar did he use for the cake?",
+    "problem": {
+      "natural": "A baker has 10 kilograms of flour and 5 kilograms of sugar. After making a cake, he has 7 kilograms of flour remaining. How much sugar did he use for the cake?"
+    },
     "length": 164,
     "tags": [
       "algebra",
@@ -12933,7 +13385,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "procedure",
-    "problem": "An airplane travels 3600 km at a speed of 900 km/h. What is the time distance of the flight?",
+    "problem": {
+      "natural": "An airplane covers a distance of 3600 kilometers at a speed of 900 kilometers per hour. How long does the flight take?"
+    },
     "length": 92,
     "tags": [
       "time-distance-speed",
@@ -12947,7 +13401,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "procedure",
-    "problem": "A square park has a perimeter of 60 meters. If the park's width is 10 meters less than its length, what is the length of the park?",
+    "problem": {
+      "natural": "A square park has a perimeter of 60 meters. If the park's width is 10 meters less than its length, find the length of the park."
+    },
     "length": 130,
     "tags": [
       "geometry",
@@ -12963,7 +13419,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "procedure",
-    "problem": "A bag of marbles contains 150 marbles, of which 30 are blue and the rest are green. If you randomly pick two marbles from the bag without replacement, what is the probability that both marbles are blue?",
+    "problem": {
+      "natural": "A bag of marbles has 150 marbles in total, 30 of which are blue. If you randomly choose two marbles from the bag without replacing them, what is the probability that both of them are blue?"
+    },
     "length": 202,
     "tags": [
       "probability",
@@ -12976,7 +13434,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "pioneer",
-    "problem": "A group of explorers discovers a new planet with two moons. The combined area of the moons is 500 square kilometers, and one moon is twice the area of the other. What is the area of each moon?",
+    "problem": {
+      "natural": "A team of explorers discovers a new planet with two moons. The combined area of these moons is 500 square kilometers. One moon is twice the area of the other. What is the area of each moon?"
+    },
     "length": 192,
     "tags": [
       "algebra",
@@ -12990,7 +13450,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "pioneer",
-    "problem": "A group of mathematicians wants to reach a remote research station in Antarctica that is 1200 km away. They can travel at a speed of 40 km/h in good weather. But due to blizzards, their speed is reduced to 20 km/h for half of the journey. How long will it take them to reach the station?",
+    "problem": {
+      "natural": "A group of mathematicians are planning a trip to a remote research station in Antarctica that is 1200 kilometers away. In good weather, they can travel at a speed of 40 kilometers per hour. However, blizzards reduce their speed to 20 kilometers per hour for half of the journey. How long will it take them to reach the station?"
+    },
     "length": 287,
     "tags": [
       "speed",
@@ -13004,7 +13466,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "pioneer",
-    "problem": "A pioneer village has a circular garden with a radius of 10 meters. The villagers want to fence the garden using the least amount of fencing material. What is the length of the fence needed?",
+    "problem": {
+      "natural": "A pioneer village has a circular garden with a radius of 10 meters. The villagers want to fence the garden using the least amount of fencing material. What is the length of the fence needed?"
+    },
     "length": 190,
     "tags": [
       "geometry",
@@ -13019,7 +13483,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "pioneer",
-    "problem": "A group of mathematicians are exploring a new, uncharted area of the desert. The probability of finding a new plant species in any given square meter of the area is 1/5. What is the probability that exactly 3 new plant species will be found in a 10 square meter area?",
+    "problem": {
+      "natural": "A team of mathematicians is exploring a remote, uncharted section of the desert. The chances of discovering a new plant species in any given square meter are 1 in 5. What is the probability of finding exactly 3 new plant species in a 10-square-meter area?"
+    },
     "length": 267,
     "tags": [
       "probability",
@@ -13032,7 +13498,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "freshly",
-    "problem": "There are 30 freshly baked cookies in a jar. Some friends come over and each friend takes 5 cookies. How many cookies are left in the jar?",
+    "problem": {
+      "natural": "There are 30 freshly baked cookies in a jar. Some friends arrive and each friend takes 5 cookies. How many cookies are left in the jar after the friends have taken their cookies?"
+    },
     "length": 138,
     "tags": [
       "algebra",
@@ -13046,7 +13514,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "freshly",
-    "problem": "A freshly baked croissant is put in a cooling rack at a temperature of 200°C. If the croissant cools at a rate of 10°C per minute, how long will it take for the croissant to cool to a temperature of 50°C?",
+    "problem": {
+      "natural": "A freshly baked croissant at 200°C is placed on a cooling rack. The croissant cools at a rate of 10°C per minute. How long will it take for the croissant to reach a temperature of 50°C?"
+    },
     "length": 204,
     "tags": [
       "time-distance-speed",
@@ -13060,7 +13530,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "freshly",
-    "problem": "A freshly baked croissant is 10 cm long. If it shrinks by 2 cm every hour, how long will it be after 3 hours?",
+    "problem": {
+      "natural": "A freshly baked croissant is 10 centimeters long. If it shrinks by 2 centimeters every hour, how long will it be after 3 hours?"
+    },
     "length": 109,
     "tags": [
       "geometry",
@@ -13075,7 +13547,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "freshly",
-    "problem": "A bag of freshly picked blueberries weighs 500g. If 20% of the blueberries are removed, how much will the remaining blueberries weigh?",
+    "problem": {
+      "natural": "A bag of blueberries initially weighs 500 grams. If 20% of the blueberries are taken out, what is the weight of the remaining blueberries?"
+    },
     "length": 134,
     "tags": [
       "probability",
@@ -13090,7 +13564,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "promenade",
-    "problem": "A promenade along the beach is 3 kilometers long. If you walk along the promenade at a steady pace of 5 meters per minute, how long will it take you to complete the promenade if you start at 9:00 am and finish at 10:30 am?",
+    "problem": {
+      "natural": "The beachfront promenade is 3 kilometers long. If you walk at a steady pace of 5 meters per minute, how long will it take you to complete the promenade if you start your walk at 9:00 am and finish at 10:30 am?"
+    },
     "length": 222,
     "tags": [
       "algebra",
@@ -13104,7 +13580,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "promenade",
-    "problem": "A runner completes a promenade of 3.5 kilometers in 1 hour and 15 minutes. What was the runner's average speed in meters per second?",
+    "problem": {
+      "natural": "A runner covers 3.5 kilometers in 1 hour and 15 minutes. What was the runner's average speed in meters per second?"
+    },
     "length": 132,
     "tags": [
       "geometry",
@@ -13120,7 +13598,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "promenade",
-    "problem": "A promenade is a fancy walk along the coast. If a walkway is 300m long and you walk 1/3 of the way, how much further do you need to walk to reach the end of the promenade?",
+    "problem": {
+      "natural": "A stroll along the coastline is called a promenade. If a walkway is 300 meters long and you walk a third of the way, how much further do you need to walk to reach the end of the promenade?"
+    },
     "length": 171,
     "tags": [
       "geometry",
@@ -13135,7 +13615,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "promenade",
-    "problem": "A park ranger walks along a 100-meter promenade at a constant speed of 1.5 meters per second. If he starts his walk at 3:00 PM, what time will he reach the other end of the promenade?",
+    "problem": {
+      "natural": "A park ranger walks along a 100-meter promenade at a steady pace of 1.5 meters per second. If he starts his walk at 3:00 PM, when will he reach the other end of the promenade?"
+    },
     "length": 183,
     "tags": [
       "distance",
@@ -13150,7 +13632,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "rejuvenate",
-    "problem": "A scientist wants to rejuvenate a plant by increasing its height by 2 cm per week and its width by 1 cm per week. If the plant is currently 10 cm tall and 5 cm wide, how many weeks will it take for the plant to be 15 cm tall and 8 cm wide?",
+    "problem": {
+      "natural": "A scientist aims to restore a plant by boosting its height by 2 centimeters per week and its width by 1 centimeter per week. Initially, the plant stands at 10 centimeters in height and 5 centimeters in width. How many weeks will it take for the plant to reach a height of 15 centimeters and a width of 8 centimeters?"
+    },
     "length": 239,
     "tags": [
       "algebra",
@@ -13164,7 +13648,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "rejuvenate",
-    "problem": "A botanical garden wants to rejuvenate a section of their grounds by planting new flowers every 3 weeks. If they can plant 5 flowers per week, how many new flowers will they have after 6 months?",
+    "problem": {
+      "natural": "A botanical garden wants to refresh a section of their grounds by planting new flowers every 3 weeks. If they plant 5 flowers each week, how many new flowers will they have after half a year?"
+    },
     "length": 194,
     "tags": [
       "time",
@@ -13180,7 +13666,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "rejuvenate",
-    "problem": "A circular park has a radius of 10 meters. The path around the park is 2 meters wide. How much longer is the path than the park's circumference?",
+    "problem": {
+      "natural": "A circular park with a radius of 10 meters has a path surrounding it that is 2 meters wide. How much longer is the path than the park's circumference? Assume the path follows the circumference of the park."
+    },
     "length": 144,
     "tags": [
       "geometry",
@@ -13196,7 +13684,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "rejuvenate",
-    "problem": "A scientist has a sample of cells that have been exposed to harmful radiation. The scientist wants to rejuvenate the cells by removing the harmful particles. The probability of a particle being removed in a single attempt is 0.75. What is the probability that at least 9 out of 12 particles will be removed after 3 attempts?",
+    "problem": {
+      "natural": "A scientist has a group of cells that have been exposed to harmful radiation. The scientist wants to restore the cells by removing these harmful particles. Each attempt to remove a particle has a 75% probability of success. What is the probability that at least 9 out of 12 particles will be removed after 3 attempts?"
+    },
     "length": 324,
     "tags": [
       "grade-5",
@@ -13209,7 +13699,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "envy",
-    "problem": "There are two friends, Alice and Bob. Together, they have 15 books. But Bob envies that Alice has 3 more books than him. How many books does each friend have?",
+    "problem": {
+      "natural": "There are two friends, Alice and Bob. Together, they have 15 books. However, Bob suspects that Alice has 3 more books than him. How many books does each friend have?"
+    },
     "length": 158,
     "tags": [
       "algebra",
@@ -13223,7 +13715,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "envy",
-    "problem": "An athlete runs 300 meters in 5 minutes. Another athlete runs the same distance in 4 minutes and 30 seconds. How much faster is the first athlete than the second?",
+    "problem": {
+      "natural": "An athlete runs 300 meters in 5 minutes. Another athlete runs the same distance in 4 minutes and 30 seconds. How much faster is the first athlete than the second?"
+    },
     "length": 162,
     "tags": [
       "grade-5",
@@ -13240,7 +13734,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "envy",
-    "problem": "There are two squares, one with an area of 9 cm^2 and another with an area of 16 cm^2. Which square has a side length that is envy of the other? Explain your answer.",
+    "problem": {
+      "natural": "Two squares exist, one with an area of 9 cm^2 and another with an area of 16 cm^2. Which square has a side length greater than the other? Explain your reasoning."
+    },
     "length": 165,
     "tags": [
       "geometry",
@@ -13254,7 +13750,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "envy",
-    "problem": "There are 10 friends sharing 5 identical toys. Some friends feel envy because others have more toys. What is the probability that exactly 3 friends have 2 toys each?",
+    "problem": {
+      "natural": "There are 10 friends sharing 5 identical toys. Some friends are envious because others have more toys. What is the probability that exactly 3 friends have 2 toys each?"
+    },
     "length": 165,
     "tags": [
       "probability",
@@ -13269,7 +13767,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "to",
-    "problem": "A train travels 300km at a certain speed. If it had travelled 10km/h faster, the journey would have taken 1 hour less. Find the speed of the train.",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a constant speed. If it had been able to travel 10 kilometers per hour faster, the journey would have taken one hour less. What was the speed of the train?"
+    },
     "length": 147,
     "tags": [
       "algebra",
@@ -13284,7 +13784,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "to",
-    "problem": "A train travels 600km at a speed of 80km/h. How much time did it take the train to reach its destination?",
+    "problem": {
+      "natural": "A train travels for 600 kilometers at a speed of 80 kilometers per hour. How long did the journey take?"
+    },
     "length": 105,
     "tags": [
       "time-distance-speed",
@@ -13299,7 +13801,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "to",
-    "problem": "A square park has a perimeter of 40 m. To plant a rectangular garden in the park, with a length 2 m longer than the width, what is the area of the garden?",
+    "problem": {
+      "natural": "A square park is 40 m around. A rectangular garden is to be planted in the park, with a length 2 m greater than the width. What is the area of the garden?"
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -13316,7 +13820,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "to",
-    "problem": "There are 100 tickets in a raffle, 20 of which are winning tickets. If you buy 5 tickets, what is the probability that you bought at least one winning ticket?",
+    "problem": {
+      "natural": "There is a raffle with 100 tickets, of which 20 are winners. If you buy 5 tickets, what is the probability that at least one of them is a winner?"
+    },
     "length": 158,
     "tags": [
       "probability",
@@ -13329,7 +13835,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "effervescent",
-    "problem": "An effervescent tablet containing 12 grams of citric acid dissolves in 200 milliliters of water. The citric acid reacts with the water to produce carbon dioxide gas. The volume of the gas produced is directly related to the amount of citric acid in the tablet. If another tablet containing x grams of citric acid is dissolved in the same amount of water, how many grams of citric acid would be in the water after the reaction?",
+    "problem": {
+      "natural": "An effervescent tablet containing 12 grams of citric acid dissolves in 200 milliliters of water. When the tablet reacts, it produces carbon dioxide gas. The amount of gas produced is directly related to the amount of citric acid in the tablet. If another tablet containing x grams of citric acid is dissolved in the same amount of water, how many grams of citric acid will remain in the water after the reaction?"
+    },
     "length": 426,
     "tags": [
       "algebra",
@@ -13343,7 +13851,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "effervescent",
-    "problem": "An effervescent tablet dissolves at a rate of 2 cm/s. If the tablet is 8 cm long when it is placed in water, how long will it take for the tablet to fully dissolve?",
+    "problem": {
+      "natural": "An effervescent tablet is dissolving at a constant rate of 2 cm/s. When placed in water, the tablet is initially 8 cm long. How long will it take for the tablet to completely dissolve?"
+    },
     "length": 164,
     "tags": [
       "time",
@@ -13359,7 +13869,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "effervescent",
-    "problem": "An effervescent tablet has a diameter of 5 cm and a height of 1 cm. If the tablet is placed in a cylinder of water with a diameter of 10 cm, what is the volume of water that will remain unoccupied after the tablet is placed inside?",
+    "problem": {
+      "natural": "An effervescent tablet with a diameter of 5 cm and a height of 1 cm is placed in a cylinder of water with a diameter of 10 cm. What volume of water remains unoccupied after the tablet is placed inside?"
+    },
     "length": 231,
     "tags": [
       "geometry",
@@ -13374,7 +13886,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "effervescent",
-    "problem": "An effervescent tablet containing 100mg of active ingredient is dissolved in 1L of water. If the concentration of the active ingredient in the solution is 0.05mg/mL, what is the probability that a randomly chosen milliliter of the solution will contain more than 0.02mg of the active ingredient?",
+    "problem": {
+      "natural": "A effervescent tablet containing 100mg of active ingredient is dissolved in 1L of water. If each milliliter of the solution contains an average of 0.05 milligrams of the active ingredient, what is the probability that a randomly chosen milliliter of the solution will contain more than 0.02 milligrams of the active ingredient?"
+    },
     "length": 295,
     "tags": [
       "probability",
@@ -13387,7 +13901,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "tempting",
-    "problem": "A chocolate bar costs 3 euros and a bag of gummy bears costs 2 euros. If you have 7 euros in total, how much can you spend on each treat without going over budget?",
+    "problem": {
+      "natural": "A chocolate bar costs $3 and a bag of gummy bears costs $2. If you have $7 in total, how much can you spend on each treat without going over budget?"
+    },
     "length": 163,
     "tags": [
       "algebra",
@@ -13401,7 +13917,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "tempting",
-    "problem": "A train travels 120 km at a tempting speed of 80 km/h. How much time will it take for the train to cover 90 km at the same speed?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 km/h. How long will it take for the train to cover 90 km at the same speed?"
+    },
     "length": 129,
     "tags": [
       "time-distance-speed",
@@ -13416,7 +13934,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "tempting",
-    "problem": "A circular swimming pool has a radius of 4 meters. A tempting diving board is located 3 meters from the edge of the pool. How long is the hypotenuse of the triangle formed by the diving board and the pool's edge?",
+    "problem": {
+      "natural": "A circular swimming pool with a radius of 4 meters has a diving board 3 meters away from the edge. What is the length of the hypotenuse of the triangle formed by the diving board and the pool's edge?"
+    },
     "length": 212,
     "tags": [
       "geometry",
@@ -13430,7 +13950,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "tempting",
-    "problem": "There are 12 tempting cupcakes in a bakery window, each with a probability of 1/3 of being chocolate. If you randomly choose 3 cupcakes, what is the probability that exactly 2 of them are chocolate?",
+    "problem": {
+      "natural": "There are 12 delicious cupcakes in a bakery window, each with a 1 in 3 chance of being chocolate. If you randomly choose 3 cupcakes, what is the probability that exactly 2 of them will be chocolate?"
+    },
     "length": 198,
     "tags": [
       "probability",
@@ -13444,7 +13966,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "tabloid",
-    "problem": "A tabloid magazine costs €5 for a monthly subscription, while a weekly magazine costs €3. If you buy 3 monthly subscriptions and 2 weekly subscriptions, you spend €18. How much does a monthly subscription cost alone?",
+    "problem": {
+      "natural": "A monthly tabloid magazine costs €5, while a weekly magazine costs €3. If you buy 3 monthly subscriptions and 2 weekly subscriptions for a total of €18, how much does a monthly subscription cost on its own?"
+    },
     "length": 216,
     "tags": [
       "algebra",
@@ -13458,7 +13982,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "tabloid",
-    "problem": "A tabloid travels 480 meters in 3 hours. At what speed did the tabloid travel in meters per hour?",
+    "problem": {
+      "natural": "A tabloid travels 480 meters in 3 hours. What was its speed in meters per hour?"
+    },
     "length": 97,
     "tags": [
       "time",
@@ -13475,7 +14001,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "tabloid",
-    "problem": "A tabloid is a rectangular piece of news paper that is typically folded in half. If a tabloid is 20 cm long and 15 cm wide when folded, what is the area of the unfolded tabloid?",
+    "problem": {
+      "natural": "A tabloid is a rectangular piece of newspaper that is typically folded in half. If an unfolded tabloid is 20 cm long and 15 cm wide, what is the area of the unfolded tabloid?"
+    },
     "length": 177,
     "tags": [
       "rectangle",
@@ -13491,7 +14019,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "tabloid",
-    "problem": "A tabloid newspaper has 80% chance of containing an entertainment story and a 40% chance of containing a fashion story. What is the probability that a randomly chosen tabloid will contain both entertainment and fashion stories?",
+    "problem": {
+      "natural": "A tabloid newspaper has a 80% chance of including an entertainment story and a 40% chance of including a fashion story. What is the probability that a randomly chosen tabloid will contain both of these stories?"
+    },
     "length": 227,
     "tags": [
       "probability",
@@ -13506,7 +14036,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "successful",
-    "problem": "A successful baker makes 2x loaves of bread and sells them for 3€ each. They also make y rolls and sell them for 2€ each. If they make 18€, how many loaves and rolls did they make?",
+    "problem": {
+      "natural": "A successful baker makes twice as many loaves of bread as rolls. Each loaf is sold for 3€, while rolls are sold for 2€. If they earn 18€, how many loaves and rolls did they make?"
+    },
     "length": 180,
     "tags": [
       "algebra",
@@ -13520,7 +14052,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "successful",
-    "problem": "A train travels 360 km at a speed that is 20 km/h faster than its usual speed. How much time did the train save compared to its usual journey covering the same distance?",
+    "problem": {
+      "natural": "A train travels 360 km at a speed that is 20 km/h faster than its usual speed. How much time did the train save compared to its usual journey covering the same distance?"
+    },
     "length": 169,
     "tags": [
       "grade-5",
@@ -13533,7 +14067,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "successful",
-    "problem": "A successful farmer wants to build a rectangular garden with an area of 120 square meters. If the length is 4 meters longer than the width, find the dimensions of the garden.",
+    "problem": {
+      "natural": "A successful farmer wants to build a rectangular garden with an area of 120 square meters. The length is 4 meters longer than the width. What are the dimensions of the garden?"
+    },
     "length": 174,
     "tags": [
       "geometry",
@@ -13549,7 +14085,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "successful",
-    "problem": "There are 120 students in a class. If 60% of them are successful in passing a certain test, how many successful students are there in the class?",
+    "problem": {
+      "natural": "In a class of 120 students, 60% of them successfully passed a certain test. How many successful students are there in the class?"
+    },
     "length": 144,
     "tags": [
       "probability",
@@ -13563,7 +14101,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "payroll",
-    "problem": "A company pays its employees a total of €3500 per month. The hourly rate for junior employees is €15 and for senior employees is €20. If there are 100 junior employees and x senior employees, write two equations that can be used to find the number of senior employees.",
+    "problem": {
+      "natural": "A company pays its employees a total of €3500 per month. The hourly rate for junior employees is €15 and for senior employees is €20. If there are 100 junior employees and x senior employees, write two equations that can be used to find the number of senior employees."
+    },
     "length": 268,
     "tags": [
       "algebra",
@@ -13577,7 +14117,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "payroll",
-    "problem": "A worker earns 15 euros per hour. How much money would they earn if they work for 40 hours in a week?",
+    "problem": {
+      "natural": "A worker earns 15 euros per hour. How much money would they earn if they work for 40 hours in a week?"
+    },
     "length": 101,
     "tags": [
       "arithmetic",
@@ -13592,7 +14134,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "payroll",
-    "problem": "A construction company pays its workers a total of 1200€ per month. If the company has 30 workers, how much does each worker earn per month?",
+    "problem": {
+      "natural": "A construction company pays its workers a total of €1200 per month. If the company has 30 workers, what is the monthly salary of each worker?"
+    },
     "length": 140,
     "tags": [
       "geometry",
@@ -13607,7 +14151,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "payroll",
-    "problem": "A company pays its employees an average of 30,000 €, per month. If there are 200 employees, how much does the company spend on payroll each month?",
+    "problem": {
+      "natural": "A company pays its employees an average of $30,000 per month. If the company has 200 employees, what is the total monthly payroll expense for the employees?"
+    },
     "length": 146,
     "tags": [
       "probability",
@@ -13622,7 +14168,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "foreigner",
-    "problem": "There are 15 people in a room. Some are foreign and some are locals. If 3 out of the 15 are foreign, how many people are locals?",
+    "problem": {
+      "natural": "There are 15 people in a room. Some are foreigners and some are locals. If 3 out of the 15 people are foreigners, how many are locals?"
+    },
     "length": 128,
     "tags": [
       "algebra",
@@ -13636,7 +14184,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "foreigner",
-    "problem": "A train travels 780 km at a speed that is 20 km/h slower than the express train. How long will it take the train to reach its destination, if the express train takes 10 hours to travel the same distance?",
+    "problem": {
+      "natural": "A train travels 780 kilometers at a speed 20 kilometers per hour slower than the express train. How long will it take the train to reach its destination, if the express train takes 10 hours to cover the same distance?"
+    },
     "length": 203,
     "tags": [
       "time-distance-speed",
@@ -13650,7 +14200,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "foreigner",
-    "problem": "A foreign triangle has an area of 9 cm^2. Two of its angles measure 40° and 50°. What is the perimeter of the triangle?",
+    "problem": {
+      "natural": "A foreign triangle with an area of 9 cm^2 has two angles measuring 40° and 50°. What is the perimeter of the triangle?"
+    },
     "length": 119,
     "tags": [
       "geometry",
@@ -13666,7 +14218,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "foreigner",
-    "problem": "There are 200 students in a school. 180 of them are local students. What is the probability that a randomly chosen student is a foreigner?",
+    "problem": {
+      "natural": "There are 200 students in a school. 180 of them are local students. What is the probability that a randomly chosen student is a foreigner?"
+    },
     "length": 138,
     "tags": [
       "probability",
@@ -13679,7 +14233,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "tornado",
-    "problem": "A tornado has lifted a rectangular piece of debris with a length of 3 meters and a width of 2 meters. If the debris is lifted 5 meters into the air, what is the volume of the debris in cubic meters?",
+    "problem": {
+      "natural": "A rectangular piece of debris, 3 meters long and 2 meters wide, has been lifted 5 meters into the air by a tornado. What is the volume of the debris in cubic meters?"
+    },
     "length": 198,
     "tags": [
       "algebra",
@@ -13693,7 +14249,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "tornado",
-    "problem": "A tornado is moving at a speed of 30 meters per second. If it covers a distance of 100 meters in a certain amount of time, how long did it take for the tornado to travel that distance?",
+    "problem": {
+      "natural": "A tornado is moving at a speed of 30 meters per second. How long did it take for the tornado to cover a distance of 100 meters?"
+    },
     "length": 184,
     "tags": [
       "time-distance-speed",
@@ -13707,7 +14265,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "tornado",
-    "problem": "A tornado is approaching a house with a circular foundation of radius 10 m. If the tornado's winds blow at a speed of 30 m/s, what is the area of the circular foundation that the tornado is affecting?",
+    "problem": {
+      "natural": "A powerful tornado is bearing down on a house with a circular foundation of 10 meters in radius. The winds are howling at a speed of 30 meters per second. What is the area of the circular foundation that the tornado is affecting?"
+    },
     "length": 200,
     "tags": [
       "geometry",
@@ -13722,7 +14282,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "tornado",
-    "problem": "A town has a circular park with a radius of 50 meters. The probability of a tornado landing within the park is 1/5. What is the probability that a tornado will land outside the park?",
+    "problem": {
+      "natural": "A circular park with a radius of 50 meters surrounds a town. The chances of a tornado landing within the park are 1 in 5. What is the probability that a tornado will land outside the park?"
+    },
     "length": 182,
     "tags": [
       "probability",
@@ -13738,7 +14300,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "affect",
-    "problem": "A train travels 360 km in the same time it takes a bus to travel 240 km. If the bus travels 20 km/h slower than the train, how fast does each vehicle travel?",
+    "problem": {
+      "natural": "A train and a bus travel equal distances in the same amount of time. The train travels 360 kilometers, while the bus travels 240 kilometers. The bus travels 20 kilometers per hour slower than the train. What is the speed of each vehicle?"
+    },
     "length": 157,
     "tags": [
       "algebra",
@@ -13753,7 +14317,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "affect",
-    "problem": "An airplane travels 450 km at a speed of 90 km/h. How much time has elapsed by the time the airplane covers 300 km of its journey?",
+    "problem": {
+      "natural": "An airplane travels at a speed of 90 km/h. If it has covered 300 km of its 450 km journey, how much time has elapsed?"
+    },
     "length": 130,
     "tags": [
       "time-distance-speed",
@@ -13768,7 +14334,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "affect",
-    "problem": "A circular garden bed has a radius that is 3m less than the diameter of the rectangular garden plot next to it. If the total area of the two garden beds is 100πm², what is the radius of the circular garden bed?",
+    "problem": {
+      "natural": "A circular garden bed is 3 meters less in radius than the rectangular garden plot next to it. The combined area of both garden beds is 100π square meters. Find the radius of the circular garden bed."
+    },
     "length": 210,
     "tags": [
       "geometry",
@@ -13784,7 +14352,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "affect",
-    "problem": "A bag of marbles has 120 marbles, 15% of which are red. If you randomly pick 3 marbles from the bag, what is the probability that exactly 2 of them are red?",
+    "problem": {
+      "natural": "A bag of marbles contains 120 marbles, with 15% of them being red. If you randomly choose 3 marbles from the bag, what is the probability that exactly two of them are red?"
+    },
     "length": 156,
     "tags": [
       "probability",
@@ -13797,7 +14367,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "beginning",
-    "problem": "A train travels 300 km in the same direction as another train that has already traveled 400 km. Together, they cover a distance that is 75% of the distance of the first train alone. How far has the first train traveled?",
+    "problem": {
+      "natural": "A train that has traveled 400 km is traveling alongside another train that covers 300 km in the same direction. Together, they cover 75% of the distance the first train alone would cover. How far has the first train traveled?"
+    },
     "length": 219,
     "tags": [
       "algebra",
@@ -13810,7 +14382,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "beginning",
-    "problem": "An athlete starts a race at 8:00 AM. If they run at a speed of 5 meters per second, how far will they have covered by 8:30 AM?",
+    "problem": {
+      "natural": "An athlete starts a race at 8:00 AM and runs at a speed of 5 meters per second. How far will they have covered by 8:30 AM?"
+    },
     "length": 126,
     "tags": [
       "time-distance-speed",
@@ -13825,7 +14399,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "beginning",
-    "problem": "A circle is drawn with a radius of 3 cm. What is the circumference of the circle at its beginning?",
+    "problem": {
+      "natural": "A circle is drawn with a radius of 3 cm. What is the circumference of the circle at the start?"
+    },
     "length": 98,
     "tags": [
       "circle",
@@ -13841,7 +14417,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "beginning",
-    "problem": "A box contains 30 colored cubes, 10 of which are blue. If you randomly select 5 cubes from the box, what is the probability that exactly 2 of them are blue?",
+    "problem": {
+      "natural": "A box holds 30 colorful cubes, 10 of which are blue. If you randomly pick 5 cubes from the box, what is the probability that exactly 2 of them are blue?"
+    },
     "length": 156,
     "tags": [
       "conditional-probability",
@@ -13855,7 +14433,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "collapse",
-    "problem": "A rectangular garden is collapsing at a rate of 2 square meters per minute. If the length is decreasing at a rate of 0.5 meters per minute and the width is decreasing at a rate of 1 meter per minute, what is the rate of change of the garden's area?",
+    "problem": {
+      "natural": "A rectangular garden is shrinking at a rate of 2 square meters per minute. The length is decreasing at a rate of 0.5 meters per minute, while the width is decreasing at a rate of 1 meter per minute. What is the rate at which the area of the garden is changing?"
+    },
     "length": 248,
     "tags": [
       "algebra",
@@ -13870,7 +14450,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "collapse",
-    "problem": "A towering structure starts collapsing at a rate of 2 meters per second. If it stands 30 meters tall initially, how much time will it take for it to completely collapse?",
+    "problem": {
+      "natural": "A towering structure initially 30 meters tall starts collapsing at a rate of 2 meters per second. How long will it take for the structure to completely collapse?"
+    },
     "length": 169,
     "tags": [
       "time-distance-speed",
@@ -13885,7 +14467,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "collapse",
-    "problem": "A rectangular prism with a height of 10 cm collapses when a force of 5 N is applied to one of its faces. If the base of the prism has an area of 25 cm², what is the amount of force required to keep the prism from collapsing?",
+    "problem": {
+      "natural": "A rectangular prism 10 cm tall collapses under a force of 5 N applied to one face. If the base of the prism has an area of 25 cm², what force is needed to prevent collapse?"
+    },
     "length": 224,
     "tags": [
       "geometry",
@@ -13899,7 +14483,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "collapse",
-    "problem": "A rectangular prism made of sand collapses under its own weight. The initial volume of the prism is 500 cm³. If the collapse reduces the height of the prism by 20%, what is the final volume of the collapsed prism?",
+    "problem": {
+      "natural": "A rectangular prism made of sand starts to collapse under its own weight. Initially, the prism has a volume of 500 cubic centimeters. During the collapse, the height of the prism decreases by 20%. What is the final volume of the collapsed prism?"
+    },
     "length": 213,
     "tags": [
       "probability",
@@ -13914,7 +14500,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "stellar",
-    "problem": "A star-studded night has 120 twinkling lights. Some of the lights are twice as bright as others. If the brighter lights account for 30% of the total light, how many of each type of light are there?",
+    "problem": {
+      "natural": "A night sky with 120 twinkling stars exhibits varying brightness. Some stars glow twice as brightly as others. If the brighter stars contribute 30% to the total light of the sky, how many stars are there of each type?"
+    },
     "length": 197,
     "tags": [
       "algebra",
@@ -13929,7 +14517,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "stellar",
-    "problem": "A star travels 108,000 km in 3 hours. What is its speed in kilometers per hour?",
+    "problem": {
+      "natural": "A star covers a distance of 108,000 kilometers in 3 hours. Calculate its speed in kilometers per hour."
+    },
     "length": 79,
     "tags": [
       "time-distance-speed",
@@ -13944,7 +14534,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "stellar",
-    "problem": "A star-shaped garden bed has a perimeter of 12 meters. If the width is 2 meters, what is the length of the garden bed?",
+    "problem": {
+      "natural": "A star-shaped garden bed with a perimeter of 12 meters has a width of 2 meters. What is the length of the garden bed?"
+    },
     "length": 118,
     "tags": [
       "geometry",
@@ -13959,7 +14551,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "stellar",
-    "problem": "A stargazing club has observed 100 stars in a constellation. 20 of those stars are considered to be stellar, meaning they are exceptionally bright. What is the probability that a randomly chosen star from the constellation is a stellar one?",
+    "problem": {
+      "natural": "A stargazing club has observed 100 stars in a constellation. 20 of those stars are exceptionally bright, called stellar. What is the probability that a randomly chosen star from the constellation is a stellar one?"
+    },
     "length": 240,
     "tags": [
       "probability",
@@ -13974,7 +14568,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "lurid",
-    "problem": "The eerie glow of the moonlight paints the abandoned factory in a lurid hue. If the distance from the fence to the factory is 3 times the height of the fence, find the height of the fence if the distance from the fence to the factory is 15 meters.",
+    "problem": {
+      "natural": "The eerie moonlight casts a sinister glow upon the abandoned factory. If the distance from the fence enclosing the factory is 15 meters and is three times the height of the fence, determine the height of the fence."
+    },
     "length": 247,
     "tags": [
       "algebra",
@@ -13988,7 +14584,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "lurid",
-    "problem": "A shrouded creature lurks in the swamp, traveling at a speed of 2.5 m/s. If it covers a distance of 450 m in the swamp, how long will it take for the creature to disappear into the murky depths?",
+    "problem": {
+      "natural": "A mysterious creature is lurking in the swamp, moving at a speed of 2.5 meters per second. If it travels 450 meters through the swamp, how long will it take for the creature to vanish into the murky depths?"
+    },
     "length": 194,
     "tags": [
       "time-distance-speed",
@@ -14003,7 +14601,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "lurid",
-    "problem": "The gloomy shadows of the ancient trees cast a lurid glow over the crumbling castle ruins. If the height of the tallest ruin is 10 meters and the tip of the shadow is 18 meters from the base of the ruin, what is the length of the shadow?",
+    "problem": {
+      "natural": "The towering shadows of ancient trees stretch across the crumbling castle ruins, casting an eerie glow. If the tallest ruin measures 10 meters in height, and its shadow extends 18 meters from its base, what is the length of the shadow?"
+    },
     "length": 237,
     "tags": [
       "geometry",
@@ -14016,7 +14616,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "lurid",
-    "problem": "A scientist studying underwater creatures discovers a luminous fish in a murky lake. The fish's luminous area has a radius of 2 cm and emits light with an intensity of 10^6 photons/cm²/s. What is the luminous flux of the fish's light emission?",
+    "problem": {
+      "natural": "A scientist studying underwater creatures discovers a luminous fish in a murky lake. The luminous area of the fish, with a radius of 2 cm, emits light with an intensity of 10^6 photons/cm²/s. What is the luminous flux of the fish's light emission?"
+    },
     "length": 243,
     "tags": [
       "physics",
@@ -14032,7 +14634,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "thus",
-    "problem": "A farmer has 120 liters of water in two containers. One container holds 3 times as much water as the other. How much water is in each container?",
+    "problem": {
+      "natural": "A farmer has 120 liters of water in two containers. One container holds three times as much water as the other. How much water is in each container?"
+    },
     "length": 144,
     "tags": [
       "algebra",
@@ -14046,7 +14650,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "thus",
-    "problem": "A train travels 300 km in 5 hours. How long will it take the train to travel 120 km?",
+    "problem": {
+      "natural": "A train travels 300 kilometers in 5 hours. How many hours will it take the train to travel 120 kilometers?"
+    },
     "length": 84,
     "tags": [
       "time-distance-speed",
@@ -14061,7 +14667,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "thus",
-    "problem": "Given a triangle with perimeter 30 cm, if two sides are equal and each is 6 cm longer than the third side, what is the length of each side?",
+    "problem": {
+      "natural": "Given a triangle with a perimeter of 30 cm, if two sides are equal and each is 6 cm longer than the third side, find the length of each side."
+    },
     "length": 139,
     "tags": [
       "geometry",
@@ -14076,7 +14684,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "thus",
-    "problem": "There are 120 toy cars in a box. 40% of them are red. How many red toy cars are there in the box?",
+    "problem": {
+      "natural": "There are 120 toy cars in a box. If 40% of them are red, how many red toy cars are there in the box?"
+    },
     "length": 97,
     "tags": [
       "probability",
@@ -14090,7 +14700,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "grandson",
-    "problem": "Grandson's age is two years less than his grandmother's age. The grandmother is 5 years older than the grandson. How old is each of them?",
+    "problem": {
+      "natural": "The grandson is two years younger than his grandmother. The grandmother is five years older than the grandson. What is the age of each of them?"
+    },
     "length": 137,
     "tags": [
       "algebra",
@@ -14104,7 +14716,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "grandson",
-    "problem": "Grandson is 3 times older than his age 3 years ago. How old is his grandson now, if he will be 15 in 5 years?",
+    "problem": {
+      "natural": "Grandson is currently three times older than he was three years ago. If in five years he will be 15, how old is he now?"
+    },
     "length": 109,
     "tags": [
       "time",
@@ -14120,7 +14734,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "grandson",
-    "problem": "A grandfather wants to share his garden, which is a square with an area of 144 m^2, equally among his two grandsons. What is the length of each grandson's garden plot?",
+    "problem": {
+      "natural": "A grandfather wants to share his square garden, with an area of 144 square meters, equally among his two grandsons. What is the length of each grandson's garden plot?"
+    },
     "length": 167,
     "tags": [
       "geometry",
@@ -14137,7 +14753,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "grandson",
-    "problem": "A grandfather has 3 sons. Each son has 2 sons. How many grandsons are there in total?",
+    "problem": {
+      "natural": "A grandfather has three sons. Each son has two sons. How many grandsons are there in the family in total?"
+    },
     "length": 85,
     "tags": [
       "probability",
@@ -14151,7 +14769,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "discontent",
-    "problem": "A bakery sells chocolate and vanilla cupcakes. Together, 12 chocolate cupcakes and 8 vanilla cupcakes cost ₱180. Twice the number of vanilla cupcakes cost ₱10 less than 3 times the number of chocolate cupcakes. How much does each type of cupcake cost?",
+    "problem": {
+      "natural": "A bakery sells chocolate and vanilla cupcakes. Together, 12 chocolate cupcakes and 8 vanilla cupcakes cost $180. Twice the number of vanilla cupcakes costs $10 less than 3 times the number of chocolate cupcakes. What is the cost of each type of cupcake?"
+    },
     "length": 251,
     "tags": [
       "algebra",
@@ -14165,7 +14785,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "realism",
-    "problem": "A baker has 3kg of flour and 2kg of sugar. If she uses x kg of flour and y kg of sugar to make cookies, how many cookies can she make if each cookie requires 1/4kg of flour and 1/3kg of sugar?",
+    "problem": {
+      "natural": "A baker has 3 kilograms of flour and 2 kilograms of sugar. How many cookies can she make if each cookie requires a quarter kilogram of flour and a third of a kilogram of sugar? Assume she uses all of the flour and sugar."
+    },
     "length": 192,
     "tags": [
       "algebra",
@@ -14179,7 +14801,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "coronation",
-    "problem": "The King's coronation banquet needs 300 candles and 200 flower arrangements. Each candle costs 5 euros, and each flower arrangement costs 10 euros. How much money will the banquet need to spend on candles and flower arrangements?",
+    "problem": {
+      "natural": "The King's coronation banquet needs 300 candles and 200 flower arrangements. Each candle costs $5, and each flower arrangement costs $10. How much will the banquet need to spend on candles and flower arrangements in total?"
+    },
     "length": 229,
     "tags": [
       "algebra",
@@ -14193,7 +14817,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "coronation",
-    "problem": "The coronation procession travels at a speed of 5 km/h. If the procession needs to reach the coronation site 24 km away in time for the ceremony which starts in 2 hours, what is the latest time the procession can depart?",
+    "problem": {
+      "natural": "The coronation procession needs to reach its destination in 2 hours to make the ceremony. If it travels at a speed of 5 km/h, what is the latest time it can depart to arrive on time?"
+    },
     "length": 220,
     "tags": [
       "time-distance-speed",
@@ -14207,7 +14833,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "coronation",
-    "problem": "A circular table is used for the coronation ceremony. The circumference of the table is 4π meters. If the coronation banquet will be held around the table, what is the length of the banquet table?",
+    "problem": {
+      "natural": "A circular table is used for a coronation ceremony. The table has a circumference of 4π meters. If the banquet will be held around the table, what is the length of the banquet table?"
+    },
     "length": 196,
     "tags": [
       "geometry",
@@ -14222,7 +14850,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "coronation",
-    "problem": "A royal coronation involves 12 decorated arches, each with a different height. The probability of a randomly chosen arch being taller than 3 meters is 2/3. What is the probability that exactly 5 of the arches are taller than 3 meters?",
+    "problem": {
+      "natural": "A royal coronation features 12 decorated arches, each with a different height. If the probability of a randomly chosen arch being taller than 3 meters is 2 out of 3, what is the probability that exactly 5 of the arches are taller than 3 meters?"
+    },
     "length": 234,
     "tags": [
       "probability",
@@ -14236,7 +14866,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "ninth",
-    "problem": "There are 9 birds flying in the sky. Some of them are sparrows, and the rest are finches. If there are 3 more finches than sparrows, how many birds of each type are there?",
+    "problem": {
+      "natural": "There are 9 birds soaring through the heavens. Some are friendly sparrows, while the rest are graceful finches. If there are 3 more finches than sparrows, how many of each kind can we count?"
+    },
     "length": 171,
     "tags": [
       "algebra",
@@ -14249,7 +14881,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "ninth",
-    "problem": "A train travels 900 kilometers in 12 hours. What is the train's average speed in kilometers per hour?",
+    "problem": {
+      "natural": "A train covers a distance of 900 kilometers in 12 hours. What is the average speed of the train in kilometers per hour?"
+    },
     "length": 101,
     "tags": [
       "grade-5",
@@ -14265,7 +14899,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "ninth",
-    "problem": "The ninth segment of a line is 3 cm longer than the eighth segment. If the eighth segment is 12 cm long, how long is the ninth segment?",
+    "problem": {
+      "natural": "The ninth segment of a line is 3 centimeters longer than the eighth segment. If the eighth segment is 12 centimeters long, what is the length of the ninth segment?"
+    },
     "length": 135,
     "tags": [
       "grade-5",
@@ -14280,7 +14916,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "ninth",
-    "problem": "There are 18 chocolates in a box. If you take out the ninth chocolate, how many chocolates are left in the box?",
+    "problem": {
+      "natural": "There are 18 chocolates in a box. If you take out the ninth chocolate, how many chocolates are left in the box?"
+    },
     "length": 111,
     "tags": [
       "probability",
@@ -14293,7 +14931,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "midsummer",
-    "problem": "The mischievous pixies of Midsummer Forest have hidden 108 flowers and 156 leaves in two secret spots. If the number of flowers is decreased by 12 and the number of leaves is increased by 8, the total number of flowers and leaves would be equal. How many flowers and leaves did the pixies hide?",
+    "problem": {
+      "natural": "In the mystical Midsummer Forest, mischievous pixies have hidden a secret stash of flowers and leaves. They hid 108 flowers and 156 leaves in two hidden places. If the pixies decrease the number of flowers by 12 and increase the number of leaves by 8, their total number of hidden treasures will be equal. How many flowers and leaves did the pixies hide initially?"
+    },
     "length": 294,
     "tags": [
       "algebra",
@@ -14307,7 +14947,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "midsummer",
-    "problem": "The mischievous sprites of Midsummer Night's Grove travel at a speed of 3 meters per second. If they cover a distance of 120 meters, how long will it take them to reach the enchanted meadow?",
+    "problem": {
+      "natural": "The playful sprites of Midsummer Night's Grove can fly at a speed of 3 meters per second. If they travel a distance of 120 meters, how long will it take them to reach the enchanted meadow?"
+    },
     "length": 190,
     "tags": [
       "time-distance-speed",
@@ -14322,7 +14964,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "midsummer",
-    "problem": "In a Midsummer Meadow, there is a circle with a radius of 10 meters. If a flower is placed at a distance of 15 meters from the center of the circle, what is the length of the line segment connecting the flower and the center of the circle?",
+    "problem": {
+      "natural": "In the middle of a meadow, there's a circle with a radius of 10 meters. If a flower is placed 15 meters away from the center of the circle, how long is the line segment connecting the flower and the center?"
+    },
     "length": 239,
     "tags": [
       "geometry",
@@ -14338,7 +14982,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "midsummer",
-    "problem": "In the whimsical midsummer forest, there are 125 fireflies, each illuminating with a luminous intensity that follows a normal distribution with a mean of 3.5 and a standard deviation of 1.2. What is the probability that a randomly chosen firefly will emit light with an intensity greater than 4? ",
+    "problem": {
+      "natural": "Within the enchanting twilight of a Midsummer night's forest, there are 125 fireflies. Each of these bioluminescent creatures emits light with an intensity that follows a normal distribution, centered at 3.5 with a standard deviation of 1.2. What is the likelihood that a randomly selected firefly will emit light with an intensity of 4 or more?"
+    },
     "length": 296,
     "tags": [
       "probability"
@@ -14350,7 +14996,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "inexperienced",
-    "problem": "An experienced baker uses 3 times as much flour as an inexperienced baker for the same recipe. If the experienced baker uses 240g of flour, how much flour does the inexperienced baker use?",
+    "problem": {
+      "natural": "An experienced baker uses three times as much flour as an inexperienced baker for the same recipe. If the experienced baker uses 240 grams of flour, how much flour does the inexperienced baker use?"
+    },
     "length": 188,
     "tags": [
       "algebra",
@@ -14365,7 +15013,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "inexperienced",
-    "problem": "An inexperienced hiker starts their journey at 8:00 am. If they hike at a constant speed of 5 km/h, how far can they go until they reach their destination at 12:00 pm?",
+    "problem": {
+      "natural": "An inexperienced hiker sets out on their journey at 8:00 am. If they hike at a constant speed of 5 kilometers per hour, how far can they travel until they reach their destination by 12:00 pm?"
+    },
     "length": 167,
     "tags": [
       "time-distance-speed",
@@ -14379,7 +15029,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "inexperienced",
-    "problem": "A circle has a circumference of 3.5m. What is the radius of the circle if the relationship between the circumference and the radius is given by the formula: C = 2πr?",
+    "problem": {
+      "natural": "A circle has a circumference of 3.5 meters. What is the radius of the circle if the circumference is directly related to the radius by the formula: C = 2πr?"
+    },
     "length": 165,
     "tags": [
       "geometry",
@@ -14395,7 +15047,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "inexperienced",
-    "problem": "An inexperienced baker uses 50% more dough than is needed for a simple loaf of bread. If the recipe requires 150g of dough, how much dough should the baker use in total?",
+    "problem": {
+      "natural": "An inexperienced baker uses 50% more dough than is needed for a simple loaf of bread. If the recipe calls for 150 grams of dough, how much dough should the baker use in total?"
+    },
     "length": 168,
     "tags": [
       "probability",
@@ -14410,7 +15064,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "plateau",
-    "problem": "A hiker starts at the base of a 100-meter plateau and hikes uphill at a constant rate of 2 meters per minute. At the same time, another hiker starts from the top of the plateau and hikes downhill at a constant rate of 3 meters per minute. How long will it take for them to meet each other?",
+    "problem": {
+      "natural": "A hiker starts at the base of a 100-meter plateau and hikes uphill at a constant rate of 2 meters per minute. Simultaneously, another hiker starts from the top of the plateau and hikes downhill at a constant rate of 3 meters per minute. How long will it take for them to meet each other?"
+    },
     "length": 289,
     "tags": [
       "algebra",
@@ -14425,7 +15081,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "plateau",
-    "problem": "A climber starts their ascent from a plateau at 2000 meters. If they climb at a constant speed of 5 meters per minute, how long will it take them to reach a height of 3000 meters?",
+    "problem": {
+      "natural": "A climber starts their ascent from a plateau at 2000 meters. If they climb at a constant speed of 5 meters per minute, how long will it take them to reach a height of 3000 meters?"
+    },
     "length": 179,
     "tags": [
       "grade-5",
@@ -14442,7 +15100,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "plateau",
-    "problem": "A hiker wants to reach the top of a 50-meter plateau. If she hikes 3/5 of the way up, how much higher is she from the bottom of the plateau?",
+    "problem": {
+      "natural": "A hiker wants to reach the summit of a 50-meter plateau. If she hikes 3 out of 5 of the way up, how much higher is she from the base of the plateau?"
+    },
     "length": 140,
     "tags": [
       "geometry",
@@ -14457,7 +15117,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "plateau",
-    "problem": "A ball is dropped from a height of 10 meters. Each time it bounces, it rebounds to 80% of its previous height. What is the height the ball will be at after the 5th bounce?",
+    "problem": {
+      "natural": "A ball is dropped from a height of 10 meters. Each time it bounces, it rebounds to 80% of its previous height. Find the height the ball will be at after the 5th bounce."
+    },
     "length": 171,
     "tags": [
       "probability",
@@ -14472,7 +15134,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "replicate",
-    "problem": "There are two rectangular gardens with equal areas. The smaller garden has dimensions of 4 m by 3 m. What are the dimensions of the larger garden if its perimeter is 10 m more than the smaller garden's perimeter?",
+    "problem": {
+      "natural": "Two rectangular gardens have equal areas. The smaller garden measures 4 m by 3 m. What are the dimensions of the larger garden if its perimeter is 10 m greater than the smaller garden's perimeter?"
+    },
     "length": 212,
     "tags": [
       "algebra",
@@ -14487,7 +15151,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "replicate",
-    "problem": "A robot can replicate itself every 3 minutes. If there are 5 robots initially, how many robots will there be after 9 minutes?",
+    "problem": {
+      "natural": "A robot can replicate itself every 3 minutes. If there are initially 5 robots, how many robots will there be after 9 minutes?"
+    },
     "length": 125,
     "tags": [
       "time",
@@ -14503,7 +15169,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "replicate",
-    "problem": "A rectangular garden is 3.5 m long and 2.75 m wide. If you want to replicate the garden's shape and size exactly, how much wire is needed to fence in the perimeter?",
+    "problem": {
+      "natural": "A rectangular garden is 3.5 meters long and 2.75 meters wide. To replicate its exact shape and size, what length of wire is needed to enclose the perimeter?"
+    },
     "length": 164,
     "tags": [
       "grade-5",
@@ -14516,7 +15184,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "replicate",
-    "problem": "A scientist wants to replicate a experiment involving flipping a coin 100 times. If the probability of getting heads is 1/2, how many times would you expect the experiment to yield heads in total?",
+    "problem": {
+      "natural": "A scientist is conducting an experiment where they flip a coin 100 times. If the probability of getting heads is 1 in 2, how many times would you expect the experiment to result in heads overall?"
+    },
     "length": 196,
     "tags": [
       "probability",
@@ -14529,7 +15199,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "thorough",
-    "problem": "A gardener has 100 meters of fencing to enclose a rectangular garden. The length is 5 meters longer than the width. Find the dimensions of the garden.",
+    "problem": {
+      "natural": "A gardener has 100 meters of fencing to enclose a rectangular garden. The length is 5 meters more than the width. Find the dimensions of the garden."
+    },
     "length": 150,
     "tags": [
       "algebra",
@@ -14544,7 +15216,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "thorough",
-    "problem": "A train travels 480 km at a constant speed. If the journey took 8 hours, what was the train's speed in kilometers per hour?",
+    "problem": {
+      "natural": "A train covers a distance of 480 kilometers at a steady pace. If the journey took 8 hours, what was the train's average speed in kilometers per hour?"
+    },
     "length": 123,
     "tags": [
       "time-distance-speed",
@@ -14559,7 +15233,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "thorough",
-    "problem": "A circular garden bed has a diameter of 1.5 meters. If you need to plant flowers around the edge of the garden bed, leaving a 30 cm gap between the flowers and the edge, what is the total length of the perimeter you need to cover?",
+    "problem": {
+      "natural": "A circular garden bed with a 1.5 meter diameter has a border of flowers around its edge. Each flower is placed 30 cm away from the edge. What is the total length of the border that needs to be covered in flowers?"
+    },
     "length": 230,
     "tags": [
       "geometry",
@@ -14575,7 +15251,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "thorough",
-    "problem": "There are 48 identical marbles in a jar. 3/4 of the marbles are blue. What is the probability of randomly selecting a non-blue marble from the jar?",
+    "problem": {
+      "natural": "There are 48 identical marbles in a jar. 75% of them are blue. What is the probability of randomly selecting a non-blue marble from the jar?"
+    },
     "length": 147,
     "tags": [
       "probability",
@@ -14590,7 +15268,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "overrate",
-    "problem": "A toy shop offers a discount of 10% on the original price of a robot toy. If the discounted price is €36, what was the original price of the robot toy?",
+    "problem": {
+      "natural": "A toy shop offers a 10% discount on the original price of a robot toy. If the discounted price is €36, what was the original price of the robot toy?"
+    },
     "length": 151,
     "tags": [
       "algebra",
@@ -14604,7 +15284,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "overrate",
-    "problem": "An airplane flies 1200km in 3 hours. If the pilot overrates the speed by 20%, how long will the flight actually take?",
+    "problem": {
+      "natural": "An airplane travels 1200 kilometers in 3 hours. If the pilot accidentally increases the speed by 20%, how long will the actual flight take?"
+    },
     "length": 117,
     "tags": [
       "time-distance-speed",
@@ -14619,7 +15301,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "overrate",
-    "problem": "A circular pond has a circumference of 15 meters. Some people believe the pond is too large for the area it covers. If the pond's radius is 2.5 meters, is it reasonable to say the pond is overrated? Explain your answer.",
+    "problem": {
+      "natural": "A circular pond measures 15 meters around. Some people think it's too big for its area. If the pond's radius is 2.5 meters, is it reasonable to claim the pond is unnecessary? Explain your answer."
+    },
     "length": 219,
     "tags": [
       "geometry",
@@ -14636,7 +15320,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "overrate",
-    "problem": "A toy manufacturer claims that their latest robot is capable of performing 50% more tasks than previous models. If a previous model can complete 100 tasks in an hour, how many tasks can the new robot complete in the same time frame?",
+    "problem": {
+      "natural": "A toy manufacturer boasts that their latest robot can handle 50% more tasks than previous models. If a previous robot can complete 100 tasks in an hour, how many tasks can the new robot accomplish in the same timeframe?"
+    },
     "length": 232,
     "tags": [
       "grade-5",
@@ -14649,7 +15335,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "snail",
-    "problem": "A snail travels 3 cm per minute when it's feeling fast, and 2 cm per minute when it's feeling slow. If the snail covered a distance of 10 cm in total, how long did it take for the snail to be feeling fast, if it spent twice as much time feeling slow as fast?",
+    "problem": {
+      "natural": "A snail moves at a speed of 3 cm/min when feeling fast and 2 cm/min when feeling slow. If the snail covered a total distance of 10 cm, how long did it spend feeling fast if it spent twice as much time feeling slow as fast?"
+    },
     "length": 258,
     "tags": [
       "algebra",
@@ -14664,7 +15352,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "snail",
-    "problem": "A snail travels 30 cm in 4 minutes. At this rate, how many minutes will it take the snail to cover 90 cm?",
+    "problem": {
+      "natural": "A snail travels 30 centimeters in 4 minutes. At this rate, how many minutes will it take the snail to cover 90 centimeters?"
+    },
     "length": 105,
     "tags": [
       "time",
@@ -14680,7 +15370,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "snail",
-    "problem": "A snail leaves its home at a speed of 0.5 cm/s. If the snail's home is 2 cm from a lettuce patch, how long will it take the snail to reach the lettuce patch?",
+    "problem": {
+      "natural": "A snail is leaving its home and is moving towards a lettuce patch that is 2 cm away. If the snail travels at a speed of 0.5 cm/s, how long will it take for the snail to reach the lettuce patch?"
+    },
     "length": 157,
     "tags": [
       "geometry",
@@ -14696,7 +15388,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "snail",
-    "problem": "There is a snail trail that is 100 cm long. If the snail travels 1/3 of the trail in 1 minute, what is the probability that it will reach the end of the trail in 3 minutes?",
+    "problem": {
+      "natural": "A snail trail is 100 cm long. If the snail travels a third of the trail in 1 minute, what is the probability that it will reach the end of the trail in 3 minutes?"
+    },
     "length": 172,
     "tags": [
       "probability",
@@ -14711,7 +15405,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "wholesome",
-    "problem": "There is a basket of delicious, wholesome fruits. The weight of an apple is 0.2 kg, and a banana is 0.15 kg. If the basket contains 3 times as many bananas as apples, what is the total weight of the fruits in the basket?",
+    "problem": {
+      "natural": "A basket of sweet and healthy fruits awaits. Each apple in the basket weighs 0.2 kg, while a banana is 0.15 kg. If there are three times more bananas than apples, what is the total weight of all the fruits in the basket?"
+    },
     "length": 220,
     "tags": [
       "algebra",
@@ -14725,7 +15421,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "wholesome",
-    "problem": "A wholesome oat breakfast travels 3.5 kilometers at a speed of 5 kilometers per hour. How many hours will it take for the breakfast to reach its destination?",
+    "problem": {
+      "natural": "A healthy oat breakfast travels 3.5 kilometers at a speed of 5 kilometers per hour. How many hours will it take for the breakfast to reach its destination?"
+    },
     "length": 157,
     "tags": [
       "grade-5",
@@ -14741,7 +15439,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "wholesome",
-    "problem": "A wholesome farm has a rectangular field with a perimeter of 100 meters. If the width is 20 meters less than the length, find the dimensions of the field.",
+    "problem": {
+      "natural": "A rectangular field on a thriving farm has a perimeter of 100 meters. The width of the field is 20 meters less than the length. Determine the dimensions of the field."
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -14756,7 +15456,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "wholesome",
-    "problem": "A bowl of granola contains 150g of whole wheat flakes, 50g of almonds, and 30g of berries. What is the probability that a randomly chosen granola piece is whole wheat?",
+    "problem": {
+      "natural": "A bowl of granola contains whole wheat flakes, almonds, and berries. If you randomly grab a granola piece, what is the chance it's a whole wheat flake?"
+    },
     "length": 167,
     "tags": [
       "probability",
@@ -14769,7 +15471,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sheath",
-    "problem": "A cylindrical sheath has a diameter of 10 cm and a length of 20 cm. The material for the sheath costs 100 per square meter. What is the cost of the material to make the sheath?",
+    "problem": {
+      "natural": "A cylindrical sheath has a diameter of 10 cm and a length of 20 cm. The material for the sheath costs $100 per square meter. What is the cost of the material to make the sheath?"
+    },
     "length": 176,
     "tags": [
       "algebra",
@@ -14784,7 +15488,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sheath",
-    "problem": "A submarine travels 100 m at a speed of 5 m/s. How long will it take for the submarine to pass through a 200 m long sheath?",
+    "problem": {
+      "natural": "A submarine is travelling at a speed of 5 metres per second. It needs to pass through a sheath that is 200 metres long. How long will it take for the submarine to complete this passage?"
+    },
     "length": 123,
     "tags": [
       "time-distance-speed",
@@ -14798,7 +15504,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sheath",
-    "problem": "A cylindrical sheath has a diameter of 10 cm and a length of 20 cm. What is the volume of the sheath?",
+    "problem": {
+      "natural": "A cylindrical sheath is 10 cm in diameter and 20 cm in length. What is the volume of the sheath?"
+    },
     "length": 101,
     "tags": [
       "geometry",
@@ -14813,7 +15521,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sheath",
-    "problem": "A farmer has a bundle of wheat that is 150 cm long. He wants to secure the bundle with a sheath that is 10 cm wide. What is the length of the exposed wheat outside the sheath?",
+    "problem": {
+      "natural": "A farmer has a bundle of wheat that is 150 cm long. He wants to secure the bundle with a sheath that is 10 cm wide. What is the length of the exposed wheat outside the sheath?"
+    },
     "length": 175,
     "tags": [
       "probability",
@@ -14829,7 +15539,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "overestimate",
-    "problem": "A bike rental shop charges €5 for the first hour and €2 for each additional hour. If you overestimate your ride time by 2 hours, you end up paying €13. How long did you actually ride the bike?",
+    "problem": {
+      "natural": "A bike rental shop charges €5 for the first hour and €2 for each additional hour. If you overestimate your ride time by 2 hours, you end up paying €13. How long did you actually ride the bike?"
+    },
     "length": 192,
     "tags": [
       "algebra",
@@ -14843,7 +15555,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "overestimate",
-    "problem": "A train travels 300 km in 5 hours. If the train overestimates its speed by 10%, how long will it actually take the train to travel 400 km?",
+    "problem": {
+      "natural": "A train travels 300 kilometers in 5 hours. If the train mistakenly believes it travels 10% faster than its actual speed, how long will it actually take the train to cover 400 kilometers?"
+    },
     "length": 138,
     "tags": [
       "time",
@@ -14860,7 +15574,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "overestimate",
-    "problem": "A circle has a circumference of 10 cm. An estimate of its radius is made by measuring the diameter and dividing by 2. How much might the radius be overestimated? Use 3.14 for pi.",
+    "problem": {
+      "natural": "A circle has a circumference of 10 cm. An estimate of its radius is made by measuring the diameter and dividing by 2. Estimate the maximum possible overestimation of the radius, assuming the diameter is an accurate measurement and pi is approximately 3.14."
+    },
     "length": 178,
     "tags": [
       "geometry",
@@ -14875,7 +15591,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "overestimate",
-    "problem": "There is a box of toy cars with 60 cars inside. Some friends overestimate the number of cars in the box by an average of 10 cars. What is the likely total number of cars in the box, considering the overestimation?",
+    "problem": {
+      "natural": "There is a box of toy cars with 60 cars inside. Some friends overestimate the number of cars in the box by an average of 10 cars. What is the likely total number of cars in the box, considering the overestimation?"
+    },
     "length": 213,
     "tags": [
       "probability",
@@ -14889,7 +15607,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "nationalistic",
-    "problem": "A nationalistic bakery has 3 times as many croissants as baguettes. If there are 50 pastries in total, how many croissants are there?",
+    "problem": {
+      "natural": "A nationalistic bakery has three times as many croissants as baguettes. If there are 50 pastries in total, how many croissants are there?"
+    },
     "length": 133,
     "tags": [
       "algebra",
@@ -14903,7 +15623,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "nationalistic",
-    "problem": "A nationalistic rally starts at 10:00 AM and travels at a speed of 20 km/h. If the rally covers a distance of 100 km, what time will it reach its destination?",
+    "problem": {
+      "natural": "A nationalistic rally departs at 10:00 AM and travels at a speed of 20 km/h. If the rally covers a distance of 100 km, at what time will it reach its destination?"
+    },
     "length": 158,
     "tags": [
       "time-distance-speed",
@@ -14918,7 +15640,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "nationalistic",
-    "problem": "A rectangular field has a perimeter of 100 meters. If the length is 2 meters longer than the width, what are the dimensions of the field?",
+    "problem": {
+      "natural": "A rectangular field has a perimeter of 100 meters. The length is 2 meters greater than the width. Find the dimensions of the field."
+    },
     "length": 137,
     "tags": [
       "geometry",
@@ -14934,7 +15658,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "nationalistic",
-    "problem": "A poll in a certain country shows that 75% of the people are nationalistic towards their sports teams. If there are 1200 people in the country, what is the probability that a randomly chosen person is nationalistic towards their sports teams?",
+    "problem": {
+      "natural": "In a certain country, a poll reveals that 75% of the population is passionately supportive of their sports teams. If there are 1200 people in the country, what is the probability that a randomly chosen person is a sports team nationalist?"
+    },
     "length": 242,
     "tags": [
       "probability",
@@ -14948,7 +15674,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "papal",
-    "problem": "A gardener has a total of 100 square meters of space to plant papals and marigolds. Each papal plant needs 2 square meters of space, while each marigold plant needs 1 square meter of space. How many of each type of plant can the gardener plant if he wants to use all the available space?",
+    "problem": {
+      "natural": "A gardener has 100 square meters to plant papals and marigolds. Each papal plant needs 2 square meters, while each marigold plant needs 1 square meter. How many of each type of plant can the gardener plant to use all the available space?"
+    },
     "length": 287,
     "tags": [
       "algebra",
@@ -14962,7 +15690,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "papal",
-    "problem": "Papal is swimming in the ocean at a speed of 3.5 km/h. If he covers a distance of 15 km, how long will it take him to reach his destination?",
+    "problem": {
+      "natural": "Papal is swimming in the ocean at a speed of 3.5 kilometers per hour. If he travels a distance of 15 kilometers, how long will it take him to reach his destination?"
+    },
     "length": 140,
     "tags": [
       "time-distance-speed",
@@ -14977,7 +15707,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "papal",
-    "problem": "A papal hat has a circumference of 50 cm. If the hat's diameter is twice its height, what is the height of the papal hat?",
+    "problem": {
+      "natural": "A papal hat has a circumference of 50 cm. If its diameter is twice its height, find the height of the papal hat."
+    },
     "length": 121,
     "tags": [
       "geometry",
@@ -14993,7 +15725,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "papal",
-    "problem": "There are 5 papals in a garden, each with a diameter of 10 cm. What is the total area covered by the papals?",
+    "problem": {
+      "natural": "There are five circular petals in a garden, each with a diameter of 10 centimeters. What is the total area covered by the petals?"
+    },
     "length": 108,
     "tags": [
       "geometry",
@@ -15009,7 +15743,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "tile",
-    "problem": "There are 120 square tiles in a bathroom. Some tiles are 30cm by 30cm, while the others are 40cm by 40cm. How many of each type of tile are there if they are used up entirely, and the total area covered is 3600cm^2?",
+    "problem": {
+      "natural": "There are 120 square tiles in a bathroom. Some tiles are 30cm by 30cm, while the others are 40cm by 40cm. If the tiles cover a total area of 3600cm^2, how many of each type of tile are there?"
+    },
     "length": 215,
     "tags": [
       "algebra",
@@ -15023,7 +15759,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "tile",
-    "problem": "A rectangular room is 4.5 m long and 3.2 m wide. Tiles are 0.2 m square. How many tiles will be needed to cover the floor of the room if the tiles need to overlap by 0.02 m along each edge?",
+    "problem": {
+      "natural": "A rectangular room is 4.5 meters long and 3.2 meters wide. Each tile is 0.2 square meters. How many tiles are needed to cover the floor of the room if the tiles need to overlap by 0.02 meters along each edge?"
+    },
     "length": 189,
     "tags": [
       "geometry",
@@ -15038,7 +15776,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "tile",
-    "problem": "A rectangular room is 8 m long and 6 m wide. If square tiles measuring 40 cm by 40 cm are used to cover the floor, how many tiles will be needed to cover the entire room?",
+    "problem": {
+      "natural": "A rectangular room is 8 meters long and 6 meters wide. If square tiles measuring 40 centimeters by 40 centimeters are used to cover the floor, how many tiles are needed to cover the entire room?"
+    },
     "length": 170,
     "tags": [
       "geometry",
@@ -15053,7 +15793,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "tile",
-    "problem": "There are 100 square tiles on a floor. 20 of the tiles are blue and the rest are red. What is the probability of randomly selecting a red tile from the floor?",
+    "problem": {
+      "natural": "A floor contains 100 square tiles, 20 of which are blue and the rest are red. What is the probability of randomly selecting a red tile from the floor?"
+    },
     "length": 158,
     "tags": [
       "probability",
@@ -15067,7 +15809,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "curator",
-    "problem": "A curator at an art museum wants to display 72 paintings in two different galleries. One gallery can hold 3 times as many paintings as the other. How many paintings should be displayed in each gallery?",
+    "problem": {
+      "natural": "An art museum curator wants to display 72 paintings in two different galleries. One gallery can hold three times as many paintings as the other. How many paintings should be displayed in each gallery?"
+    },
     "length": 201,
     "tags": [
       "algebra",
@@ -15081,7 +15825,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "curator",
-    "problem": "A museum curator wants to display a collection of ancient artifacts over a distance of 20 meters in a linear exhibit. If the curator wants to display the artifacts at a rate of 0.5 meters per minute, how many minutes will it take them to complete the exhibit?",
+    "problem": {
+      "natural": "A museum curator wants to display a collection of ancient artifacts along a 20-meter linear exhibit. If the artifacts should be displayed at a rate of 0.5 meters per minute, how many minutes will it take the curator to complete the exhibit?"
+    },
     "length": 259,
     "tags": [
       "speed",
@@ -15096,7 +15842,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "curator",
-    "problem": "A museum curator wants to display a triangular art installation with a perimeter of 120 cm. The base of the triangle is 10 cm longer than the height. What is the height of the triangle?",
+    "problem": {
+      "natural": "A museum curator wants to display a triangular art installation with a perimeter of 120 cm. The base of the triangle is 10 cm greater than the height. What is the height of the triangle?"
+    },
     "length": 185,
     "tags": [
       "geometry",
@@ -15112,7 +15860,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "curator",
-    "problem": "A museum curator is tasked with displaying 30 paintings in a rectangular gallery space. The gallery space is 6 meters long and 4 meters wide. If each painting is 1.5 meters long and 1 meter wide, how many different ways can the curator arrange the paintings in the gallery space?",
+    "problem": {
+      "natural": "A museum curator needs to display 30 paintings in a rectangular gallery space measuring 6 meters in length and 4 meters in width. Each painting is 1.5 meters long and 1 meter wide. In how many different ways can the curator arrange the paintings in the gallery space?"
+    },
     "length": 279,
     "tags": [
       "probability",
@@ -15126,7 +15876,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "racial",
-    "problem": "There are 120 students in a class. Some students are racers, and the rest are non-racers. The number of racers is 3/5 of the non-racers. How many racers are there in the class?",
+    "problem": {
+      "natural": "There are 120 students in a class. Some of them are racers, and the rest are non-racers. The number of racers is three-fifths of the non-racers. How many racers are there in the class?"
+    },
     "length": 176,
     "tags": [
       "algebra",
@@ -15141,7 +15893,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "racial",
-    "problem": "A train travels 360 km at a speed influenced by racial discrimination, which reduces its speed by 20%. How long will it take the train to reach its destination?",
+    "problem": {
+      "natural": "A train travels 360 kilometers at a speed that has been unfairly reduced by 20% due to racial discrimination. Calculate the time it will take the train to reach its destination."
+    },
     "length": 160,
     "tags": [
       "speed",
@@ -15155,7 +15909,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "racial",
-    "problem": "The circular track at the community center has a circumference of 400 m. If the track is divided into sections that are equal in length, what is the length of each section? Hint: Remember that the circumference is the distance around the circle.",
+    "problem": {
+      "natural": "The circular track at the community center is 400 m around. If the track is divided into equal sections, what is the length of each section? Note that the circumference of a circle is the distance around it."
+    },
     "length": 245,
     "tags": [
       "geometry",
@@ -15171,7 +15927,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "racial",
-    "problem": "There are 120 students in a class. If 2/3 of the students are not of European descent, what is the probability that a randomly chosen student is of European descent?",
+    "problem": {
+      "natural": "There are 120 students in a class. If two-thirds of the students are not of European descent, what is the probability that a randomly chosen student is of European descent?"
+    },
     "length": 165,
     "tags": [
       "fractions",
@@ -15186,7 +15944,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "tidy",
-    "problem": "There are 24 pencils in a box. Some of them are blue and the rest are red. If there are 3 times as many blue pencils as red pencils, how many of each color are there?",
+    "problem": {
+      "natural": "There are 24 pencils in a box. Some are blue and some are red. If there are three times as many blue pencils as red pencils, how many of each color are there?"
+    },
     "length": 166,
     "tags": [
       "algebra",
@@ -15200,7 +15960,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "tidy",
-    "problem": "A teacher wants to tidy the classroom by moving books from one bookshelf to another, which is 3 meters away. If she can move the books at a speed of 1.5 meters per minute, how long will it take her to complete the task?",
+    "problem": {
+      "natural": "A teacher needs to organize the classroom by moving books from one bookshelf to another, which is 3 meters away. If she can move the books at a speed of 1.5 meters per minute, how long will it take her to complete the task?"
+    },
     "length": 219,
     "tags": [
       "geometry",
@@ -15217,7 +15979,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "tidy",
-    "problem": "A square garden is 4.5 m on a side. Mr. Smith wants to plant flowers in rows that are 1.5 m wide and evenly spaced. How many rows can he fit into the garden without overcrowding any plants?",
+    "problem": {
+      "natural": "A square garden measuring 4.5 meters on a side needs to be planted with flowers in rows 1.5 meters wide. How many rows can Mr. Smith fit into the garden without planting anything on top of each other?"
+    },
     "length": 189,
     "tags": [
       "geometry",
@@ -15233,7 +15997,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "tidy",
-    "problem": "A toy box contains 15 building blocks, 8 cars, and 7 toy figures. If you randomly select 3 toys from the box, what is the probability that they are all cars?",
+    "problem": {
+      "natural": "There are 15 building blocks, 8 cars, and 7 toy figures in a toy box. If you randomly pick 3 toys from the box, what is the probability that they are all cars?"
+    },
     "length": 157,
     "tags": [
       "probability",
@@ -15247,7 +16013,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "claw",
-    "problem": "A claw on a robot hand can grasp objects up to 3 cm wide and 5 cm long. If the robot hand has a total of 12 cm of claw space, how wide and long can an object be if it takes up the entire claw space?",
+    "problem": {
+      "natural": "A robot hand has a claw space of 12 cm. If a claw can grasp objects up to 3 cm wide and 5 cm long, what are the maximum width and length of an object that can fit entirely within the claw space?"
+    },
     "length": 198,
     "tags": [
       "algebra",
@@ -15261,7 +16029,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "claw",
-    "problem": "A climbing cat reaches the top of a 2-meter tree in 10 seconds. What is the cat's average speed in meters per second?",
+    "problem": {
+      "natural": "A cat climbing up a 2-meter tree reaches the top in 10 seconds. What was the cat's average speed during the climb?"
+    },
     "length": 117,
     "tags": [
       "speed",
@@ -15277,7 +16047,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "claw",
-    "problem": "A climber scales a rock face with steep cliffs. The distance from the base of the cliff to the highest point is 12 meters. If the climber's claws extend 8 cm each, how many claws does the climber need to reach the top?",
+    "problem": {
+      "natural": "A climber scales a rock face with towering cliffs. The distance from the base to the summit is 12 meters. If each of the climber's claws extends 8 centimeters, how many claws does the climber need to reach the top?"
+    },
     "length": 218,
     "tags": [
       "geometry",
@@ -15293,7 +16065,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "claw",
-    "problem": "A crab with 8 equally sized claws has 3 that are 2 cm longer than the others. What is the average length of a claw?",
+    "problem": {
+      "natural": "A crab has 8 equally sized claws. Three of them are 2 cm longer than the others. What is the average length of a claw?"
+    },
     "length": 115,
     "tags": [
       "probability",
@@ -15308,7 +16082,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "jolt",
-    "problem": "A train travels 480 km in the morning and then 240 km in the afternoon. If the total time spent traveling is 6 hours, what was the average speed of the train in km/h?",
+    "problem": {
+      "natural": "A train travels 480 kilometers in the morning and 240 kilometers in the afternoon. If the total time spent traveling is 6 hours, what was the average speed of the train in kilometers per hour?"
+    },
     "length": 166,
     "tags": [
       "algebra",
@@ -15322,7 +16098,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "jolt",
-    "problem": "A train travels for 500m at a speed of 20m/s. Then, it experiences a sudden jolt and speeds up to 30m/s in 10s. What is the distance covered during the jolt?",
+    "problem": {
+      "natural": "A train is traveling at a constant speed of 20 meters per second for 500 meters. Then, it experiences a sudden acceleration and increases its speed to 30 meters per second in 10 seconds. Calculate the distance covered during the acceleration."
+    },
     "length": 157,
     "tags": [
       "time-distance-speed",
@@ -15337,7 +16115,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "jolt",
-    "problem": "A rollercoaster travels along a parabolic track, reaching a height of 5 meters at the highest point. If the rollercoaster starts from the ground and experiences a constant acceleration of 2 meters per second squared, how much distance has the rollercoaster covered when it reaches the top of the track?",
+    "problem": {
+      "natural": "A rollercoaster travels along a parabolic track, reaching a height of 5 meters at its highest point. Starting from rest, the rollercoaster experiences a constant acceleration of 2 meters per second squared. How much distance has the rollercoaster covered when it reaches the top of the track?"
+    },
     "length": 302,
     "tags": [
       "geometry",
@@ -15350,7 +16130,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "jolt",
-    "problem": "A machine delivers electric jolts with a mean of 24 milliamperes and a standard deviation of 3 milliamperes. What is the probability that the next jolt will be between 22 and 26 milliamperes?",
+    "problem": {
+      "natural": "A machine delivers electric jolts with an average of 24 milliamperes and a standard deviation of 3 milliamperes. What is the probability that the next jolt will be between 22 and 26 milliamperes?"
+    },
     "length": 191,
     "tags": [
       "probability",
@@ -15364,7 +16146,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "astronaut",
-    "problem": "An astronaut needs to carry oxygen and water supplies for a space mission. The oxygen tank holds 20L and the water tank holds 30L. Together, the two tanks weigh 5kg. How much does each tank weigh on its own?",
+    "problem": {
+      "natural": "An astronaut needs to bring oxygen and water supplies on a space mission. The oxygen tank holds 20 liters and the water tank holds 30 liters. Together, the two tanks weigh 5 kilograms. How much does each tank weigh on its own?"
+    },
     "length": 207,
     "tags": [
       "algebra",
@@ -15378,7 +16162,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "astronaut",
-    "problem": "An astronaut travels at a speed of 20,000 km/h for 3 hours. How many kilometers has the astronaut traveled?",
+    "problem": {
+      "natural": "An astronaut travels at a speed of 20,000 kilometers per hour for 3 hours. How many kilometers has the astronaut traveled during this time?"
+    },
     "length": 107,
     "tags": [
       "time-distance-speed",
@@ -15393,7 +16179,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "astronaut",
-    "problem": "An astronaut needs to travel in a circular orbit around a planet with a radius of 10,000 km. If the astronaut travels at a speed of 200 m/s, what is the area of the circular orbit?",
+    "problem": {
+      "natural": "An astronaut needs to travel in a circular orbit around a planet with a radius of 10,000 kilometers. If the astronaut's speed is 200 meters per second, what is the area of the circular orbit?"
+    },
     "length": 180,
     "tags": [
       "geometry",
@@ -15409,7 +16197,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "astronaut",
-    "problem": "An astronaut is on a mission to Mars. The probability of encountering a dust storm is 3/5. What is the probability that the astronaut will not encounter a dust storm on this mission?",
+    "problem": {
+      "natural": "An astronaut is on a mission to Mars. The chance of encountering a dust storm is 3 out of 5. What is the probability that the astronaut won't encounter a dust storm during this mission?"
+    },
     "length": 182,
     "tags": [
       "probability",
@@ -15424,7 +16214,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "independent",
-    "problem": "There are 24 beads in a bag. Some are blue and some are red. If there are 3 times as many blue beads as red beads, how many of each color are there?",
+    "problem": {
+      "natural": "There are 24 beads in a bag. Some are blue and some are red. If there are three times as many blue beads as red beads, how many of each color are there?"
+    },
     "length": 148,
     "tags": [
       "algebra",
@@ -15437,7 +16229,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "independent",
-    "problem": "An independent runner covers 300m in 5 minutes. How long will it take them to cover 600m at the same speed?",
+    "problem": {
+      "natural": "A runner can cover 300 meters in 5 minutes. How long will it take them to cover 600 meters at the same speed?"
+    },
     "length": 107,
     "tags": [
       "time-distance-speed",
@@ -15452,7 +16246,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "independent",
-    "problem": "A circle has a radius of 5 cm. If the radius of another circle is independent of the first circle's radius and is 3 cm longer, what is the perimeter of the second circle?",
+    "problem": {
+      "natural": "A circle has a radius of 5 cm. Another circle has a radius that is 3 cm longer than the first circle's radius. What is the perimeter of the second circle?"
+    },
     "length": 170,
     "tags": [
       "geometry",
@@ -15468,7 +16264,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "independent",
-    "problem": "A jar contains 10 red marbles and 15 blue marbles. You randomly pick 5 marbles from the jar. What is the probability that exactly 3 of them are red, given that the marbles are independently chosen?",
+    "problem": {
+      "natural": "A jar has 10 red marbles and 15 blue marbles. If you randomly pick 5 marbles from the jar, what is the probability that exactly 3 of them are red, assuming the marbles are chosen independently?"
+    },
     "length": 197,
     "tags": [
       "probability",
@@ -15482,7 +16280,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "belonging",
-    "problem": "There are 12 students in a class. Some students belong to a math club, and the rest belong to a drama club. If 4 students belong to the math club, how many students belong to the drama club?",
+    "problem": {
+      "natural": "There are 12 students in a class. Some of them belong to a math club, and the rest belong to a drama club. If 4 students are in the math club, how many students are in the drama club?"
+    },
     "length": 190,
     "tags": [
       "algebra",
@@ -15495,7 +16295,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "belonging",
-    "problem": "A train travels 300 km at a constant speed. If the journey takes 5 hours, what is the speed of the train in kilometers per hour?",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a steady speed. If the entire journey takes 5 hours, what is the train's speed in kilometers per hour?"
+    },
     "length": 128,
     "tags": [
       "time-distance-speed",
@@ -15510,7 +16312,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "belonging",
-    "problem": "A circle with a radius of 5 cm is inscribed inside a square. What is the total area of the unshaded region of the square?",
+    "problem": {
+      "natural": "A square has a circle inscribed inside it. The circle has a radius of 5 cm. What is the area of the unshaded region of the square?"
+    },
     "length": 121,
     "tags": [
       "geometry",
@@ -15526,7 +16330,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "belonging",
-    "problem": "A bag of marbles contains 42 green marbles and 38 blue marbles. What is the probability that a randomly chosen marble from the bag is green?",
+    "problem": {
+      "natural": "There are 42 green marbles and 38 blue marbles in a bag. What is the chance of randomly selecting a green marble from the bag?"
+    },
     "length": 140,
     "tags": [
       "probability",
@@ -15540,7 +16346,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "physician",
-    "problem": "A physician prescribes two medications to a patient. One medication costs €12 per month and the other costs €20 per month. If the patient's total monthly medication cost is €35, find the number of months each medication is prescribed.",
+    "problem": {
+      "natural": "A doctor prescribes two medications to a patient. One medication costs €12 per month, while the other costs €20 per month. If the patient's total monthly medication cost is €35, find the number of months each medication is prescribed."
+    },
     "length": 234,
     "tags": [
       "algebra",
@@ -15555,7 +16363,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "physician",
-    "problem": "A physician travels 120 km at a speed of 40 km/h. How long did it take the physician to travel this distance?",
+    "problem": {
+      "natural": "A physician travels for 120 kilometers at a speed of 40 kilometers per hour. How long did the journey take?"
+    },
     "length": 109,
     "tags": [
       "time-distance-speed",
@@ -15569,7 +16379,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "physician",
-    "problem": "A physician needs to create a triangular bandage for a wound that is 6 cm long. The bandage should be designed so that the height of the triangle is 3 cm less than the base. What is the area of the bandage?",
+    "problem": {
+      "natural": "A physician needs to create a triangular bandage for a wound that is 6 cm long. The bandage should be designed so that the height of the triangle is 3 cm less than the base. What is the area of the bandage?"
+    },
     "length": 206,
     "tags": [
       "geometry",
@@ -15583,7 +16395,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "physician",
-    "problem": "A physician has 30 patients to see today. 20% of them require a blood test. What is the probability that a randomly selected patient will require a blood test?",
+    "problem": {
+      "natural": "A physician has 30 patients to see today. Of those, 20% require a blood test. What is the probability that a randomly chosen patient will need a blood test?"
+    },
     "length": 159,
     "tags": [
       "probability",
@@ -15598,7 +16412,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "colossal",
-    "problem": "A colossal tree casts a shadow that is 12 meters long on the ground. If the tree is 3 meters tall, how tall is the shadow of a bird perched on a branch that is 2 meters above the ground?",
+    "problem": {
+      "natural": "A towering tree casts a shadow that stretches 12 meters across the ground. If the tree itself is 3 meters tall, how tall is the shadow cast by a bird perched on a branch that is 2 meters above the ground?"
+    },
     "length": 186,
     "tags": [
       "algebra",
@@ -15612,7 +16428,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "colossal",
-    "problem": "A colossal robot travels 3,000 kilometers in 2 hours. What is its average speed in kilometers per hour?",
+    "problem": {
+      "natural": "A colossal robot travels 3,000 kilometers in 2 hours. What is its average speed in kilometers per hour?"
+    },
     "length": 103,
     "tags": [
       "distance",
@@ -15626,7 +16444,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "colossal",
-    "problem": "A colossal statue has a base with a circumference of 24 meters and a height of 12 meters. What is the volume of the statue's base?",
+    "problem": {
+      "natural": "A massive statue has a circular base with a circumference of 24 meters and a height of 12 meters. What is the volume of the base of the statue?"
+    },
     "length": 130,
     "tags": [
       "geometry",
@@ -15640,7 +16460,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "colossal",
-    "problem": "A colossal sandcastle is built with a base diameter of 3 meters and a height of 2 meters. What is the approximate volume of sand used to create the sandcastle?",
+    "problem": {
+      "natural": "A towering sandcastle stands tall, measuring 2 meters in height and boasting a base diameter of 3 meters. Estimate the amount of sand used in its construction."
+    },
     "length": 159,
     "tags": [
       "probability",
@@ -15656,7 +16478,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "momentous",
-    "problem": "A swimmer dives from a 10-meter platform. The height of the swimmer above the water at any moment t seconds after diving is given by the equation: h = -4.9t^2 + 9.8t + 10. What is the swimmer's height above the water at the moment they reach the halfway point of their dive?",
+    "problem": {
+      "natural": "A swimmer dives from a 10-meter platform. The height of the swimmer above the water at any time t seconds after diving is given by the equation $$h = -4.9t^2 + 9.8t + 10$$. Find the swimmer's height above the water when they reach the halfway point of their dive."
+    },
     "length": 274,
     "tags": [
       "algebra",
@@ -15671,7 +16495,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "momentous",
-    "problem": "A runner sprints 100 meters in 5 minutes. At what speed did they travel in meters per second?",
+    "problem": {
+      "natural": "A runner covers 100 meters in 5 minutes. What was their speed in meters per second?"
+    },
     "length": 93,
     "tags": [
       "grade-5",
@@ -15688,7 +16514,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "momentous",
-    "problem": "A spherical balloon is floating in the air. Its volume changes at a constant rate of 0.5 cm³/s. At the moment it has a volume of 300 cm³. How long will it take for the balloon's volume to become 400 cm³?",
+    "problem": {
+      "natural": "A spherical balloon is floating in the air. Its volume is increasing at a constant rate of 0.5 cubic centimeters per second. Currently, the balloon has a volume of 300 cubic centimeters. How long will it take for the balloon's volume to reach 400 cubic centimeters?"
+    },
     "length": 203,
     "tags": [
       "geometry",
@@ -15703,7 +16531,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "momentous",
-    "problem": "A coin is tossed 3 times. What is the probability that the first toss is heads, the second toss is tails, and the third toss is heads?",
+    "problem": {
+      "natural": "A coin is tossed three times. What is the probability that the first toss shows heads, the second toss shows tails, and the third toss shows heads?"
+    },
     "length": 134,
     "tags": [
       "probability",
@@ -15716,7 +16546,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "mango",
-    "problem": "A bag of mangoes costs ₱120 for 5 mangoes. A larger bag holds 3 times as many mangoes as the smaller bag. How much does the larger bag of mangoes cost?",
+    "problem": {
+      "natural": "A bag of mangoes costs $120 for 5 mangoes. A larger bag holds three times as many mangoes as the smaller bag. How much does the larger bag of mangoes cost?"
+    },
     "length": 151,
     "tags": [
       "algebra",
@@ -15730,7 +16562,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "mango",
-    "problem": "A mango falls from a tree at a speed of 5 m/s. How much time will it take for the mango to reach the ground if it starts 10 meters above the ground?",
+    "problem": {
+      "natural": "A mango falls from a height of 10 meters with an initial speed of 5 meters per second. How long will it take for the mango to reach the ground?"
+    },
     "length": 148,
     "tags": [
       "time-distance-speed",
@@ -15745,7 +16579,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "mango",
-    "problem": "A mango has a circumference of 20 cm. If the cross-sectional area of the mango is 10 cm², what is the volume of the mango?",
+    "problem": {
+      "natural": "A mango with a circumference of 20 cm has a circular cross-sectional area of 10 cm². What is the volume of the mango?"
+    },
     "length": 122,
     "tags": [
       "geometry",
@@ -15761,7 +16597,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "mango",
-    "problem": "A bag of mangoes contains 4 that are green, 3 that are yellow, and 2 that are red. If you pick 2 mangoes from the bag without knowing their color, what is the probability that both are yellow?",
+    "problem": {
+      "natural": "A bag of mangoes has 4 green, 3 yellow, and 2 red ones. If you randomly pick 2 mangoes from the bag without knowing their color, what is the probability that both are yellow?"
+    },
     "length": 192,
     "tags": [
       "probability",
@@ -15776,7 +16614,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "anchor",
-    "problem": "There are two ropes attached to a giant balloon. One rope is 3 meters longer than the other. The combined length of the ropes is 25 meters. How long is each rope?",
+    "problem": {
+      "natural": "Two ropes are attached to a giant balloon. One rope is 3 meters longer than the other. The total length of the ropes is 25 meters. Find the length of each rope."
+    },
     "length": 162,
     "tags": [
       "algebra",
@@ -15791,7 +16631,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "anchor",
-    "problem": "An anchor is pulling a boat at a speed of 3 m/s. If the anchor is 10 m from the boat's bow at the start, how long will it take for the anchor to reach the bow of the boat?",
+    "problem": {
+      "natural": "A boat is being pulled towards an anchor at a speed of 3 metres per second. If the anchor is initially 10 metres away from the bow of the boat, how long will it take for the anchor to reach the bow?"
+    },
     "length": 171,
     "tags": [
       "time-distance-speed",
@@ -15805,7 +16647,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "anchor",
-    "problem": "An anchor is attached to a boat at a point 4 m from the bow. If the rope attached to the anchor is 5 m long, how far from the water's surface is the anchor?",
+    "problem": {
+      "natural": "An anchor is attached to a boat at a point 4 metres from the bow. The rope attached to the anchor is 5 metres long. How high above the water's surface is the anchor?"
+    },
     "length": 156,
     "tags": [
       "geometry",
@@ -15818,7 +16662,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "anchor",
-    "problem": "An anchor is designed to hold a boat steady in the water. If an anchor is 1.5 m long and has a mass of 5 kg, what is the average force exerted by the anchor on the water when it is holding the boat steady?",
+    "problem": {
+      "natural": "An anchor, 1.5 meters long and weighing 5 kilograms, holds a boat steady in the water. What average force does the anchor exert on the water when it performs this function?"
+    },
     "length": 205,
     "tags": [
       "probability",
@@ -15833,7 +16679,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "enforce",
-    "problem": "There are 120 students in a school hall. Some students are boys and some are girls. If 3/5 of the students are girls, how many boys are there?",
+    "problem": {
+      "natural": "There are 120 students in a school hall. Some are boys and some are girls. If 3 out of every 5 students are girls, how many boys are there?"
+    },
     "length": 142,
     "tags": [
       "algebra",
@@ -15848,7 +16696,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "enforce",
-    "problem": "A train travels 300 kilometers at an average speed of 80 kilometers per hour. How long will it take for the train to complete a journey of 600 kilometers at the same speed?",
+    "problem": {
+      "natural": "A train travels at an average speed of 80 kilometers per hour. If it travels 300 kilometers, how long will it take to cover a distance of 600 kilometers at the same speed?"
+    },
     "length": 172,
     "tags": [
       "time-distance-speed",
@@ -15863,7 +16713,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "enforce",
-    "problem": "A rectangular garden is 50 cm longer than its width. If the perimeter of the garden is 120 cm, what is the length of the garden?",
+    "problem": {
+      "natural": "A rectangular garden is 50 cm longer than its width. The perimeter of the garden is 120 cm. Find the length of the garden."
+    },
     "length": 128,
     "tags": [
       "geometry",
@@ -15878,7 +16730,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "enforce",
-    "problem": "An inspector randomly selects 10 students from a class of 30 to enforce attendance regulations. What is the probability that exactly 2 of the selected students have been absent in the past month?",
+    "problem": {
+      "natural": "An inspector randomly selects 10 students from a class of 30 to check attendance. What is the probability that exactly two of the selected students have been absent in the past month?"
+    },
     "length": 195,
     "tags": [
       "probability",
@@ -15891,7 +16745,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "fade",
-    "problem": "The brightness of a star gradually fades over time. If a star starts with a brightness of 100, and its brightness fades at a rate of 2 units per hour, how long will it take for the star's brightness to reduce to 50?",
+    "problem": {
+      "natural": "The brightness of a star slowly diminishes with time. If a star initially shines with a brightness of 100 and its brightness diminishes at a rate of 2 units per hour, how long will it take for the star's brightness to dwindle to 50?"
+    },
     "length": 215,
     "tags": [
       "algebra",
@@ -15904,7 +16760,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "fade",
-    "problem": "A beacon emits light that fades at a rate of 2 meters per second. How far will the light travel in 10 seconds?",
+    "problem": {
+      "natural": "A beacon emits light that gradually dims at a rate of 2 meters per second. How far will the light travel in 10 seconds, starting from its initial intensity?"
+    },
     "length": 110,
     "tags": [
       "distance",
@@ -15920,7 +16778,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "fade",
-    "problem": "A rectangular garden bed has a perimeter of 10 meters. If the length of the garden bed is fading away at a rate of 0.5 meters per week, what will be the length of the garden bed after 4 weeks?",
+    "problem": {
+      "natural": "A rectangular garden bed has a perimeter of 10 meters. The length is decreasing at a rate of 0.5 meters per week. After 4 weeks, what will be the length of the garden bed?"
+    },
     "length": 192,
     "tags": [
       "geometry",
@@ -15934,7 +16794,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "fade",
-    "problem": "A radioactive substance has an initial mass of 100 grams. After 10 hours, its mass has decayed to 80 grams. At what rate is the mass of the substance decaying per hour?",
+    "problem": {
+      "natural": "A radioactive substance starts with 100 grams of mass. After 10 hours, its mass has decayed to 80 grams. At what rate is the mass decaying each hour?"
+    },
     "length": 168,
     "tags": [
       "grade-5",
@@ -15947,7 +16809,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "elation",
-    "problem": "A student earns 3 times as much in allowance as they save. If they save 6€ and earn 18€, how much allowance did they earn in total? Write a system of equations to represent the situation and solve for the allowance amount.",
+    "problem": {
+      "natural": "A student earns three times as much in allowance as they save. If they save €6 and earn €18, how much allowance did they earn in total? Represent the situation with a system of equations and solve for the allowance amount."
+    },
     "length": 222,
     "tags": [
       "algebra",
@@ -15961,7 +16825,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "elation",
-    "problem": "A balloon is floating upwards at a speed of 2 m/s. How much time will it take for the balloon to rise 60 m?",
+    "problem": {
+      "natural": "A balloon is ascending at a rate of 2 metres per second. How long will it take for the balloon to reach an altitude of 60 metres?"
+    },
     "length": 107,
     "tags": [
       "time-distance-speed",
@@ -15976,7 +16842,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "elation",
-    "problem": "A ladder is 4 meters tall. The base of the ladder is 3 meters from a wall. What is the height of the point where the ladder touches the wall?",
+    "problem": {
+      "natural": "A ladder is 4 meters tall. If its base is 3 meters from a wall, how high up the wall does the ladder touch?"
+    },
     "length": 141,
     "tags": [
       "geometry",
@@ -15991,7 +16859,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "elation",
-    "problem": "An amusement park has a new ride that generates a random number between 1 and 100. What is the probability that the number generated will be an even number greater than 50?",
+    "problem": {
+      "natural": "An amusement park has a new ride that generates a random number between 1 and 100. What is the probability that the number generated will be an even number greater than 50?"
+    },
     "length": 172,
     "tags": [
       "probability",
@@ -16004,7 +16874,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "rostrum",
-    "problem": "A rooster's rostrum is 10 cm longer than its tail. If the tail is 20 cm long, how long is the rooster's rostrum?",
+    "problem": {
+      "natural": "A rooster's beak is 10 cm longer than its tail. If the tail is 20 cm long, what is the length of the rooster's beak?"
+    },
     "length": 112,
     "tags": [
       "algebra",
@@ -16019,7 +16891,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "rostrum",
-    "problem": "A dolphin travels 350 m at a speed of 8 m/s. How long will it take the dolphin to reach a distant point?",
+    "problem": {
+      "natural": "A dolphin is swimming at a speed of 8 metres per second. If it travels 350 metres, how long will it take the dolphin to reach its destination?"
+    },
     "length": 104,
     "tags": [
       "grade-5",
@@ -16035,7 +16909,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "rostrum",
-    "problem": "A dolphin's rostrum is 1.5 m long. If the dolphin's head is 0.8 m wide at the base of the rostrum, what is the area of the triangular section of the dolphin's rostrum?",
+    "problem": {
+      "natural": "A dolphin's nose (rostrum) is 1.5 meters long. Its head is 0.8 meters wide at the base of the rostrum. What is the area of the triangular section of the dolphin's nose?"
+    },
     "length": 167,
     "tags": [
       "geometry",
@@ -16051,7 +16927,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "rostrum",
-    "problem": "There are 100 birds chirping on a rooftop. 20% of them are roosting on the rostrum of a nearby building. How many birds are roosting on the rostrum?",
+    "problem": {
+      "natural": "There are 100 birds chirping on a rooftop. If 20% of them are roosting on the rostrum of a nearby building, how many birds are roosting on the rostrum?"
+    },
     "length": 148,
     "tags": [
       "probability",
@@ -16066,7 +16944,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sportsman",
-    "problem": "A sportsman runs 3 meters less than his friend who covers 7 meters in a game. How many meters did the sportsman cover?",
+    "problem": {
+      "natural": "A sportsman ran 4 meters in a game, as his friend covered 7 meters. How many meters did the sportsman cover?"
+    },
     "length": 118,
     "tags": [
       "algebra",
@@ -16080,7 +16960,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sportsman",
-    "problem": "A sportsman runs 300 meters in 4 minutes. What is his average speed in meters per minute?",
+    "problem": {
+      "natural": "A sportsman covers 300 meters in 4 minutes. What is his average speed in meters per minute?"
+    },
     "length": 89,
     "tags": [
       "grade-5",
@@ -16097,7 +16979,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sportsman",
-    "problem": "A sportsman wants to create a triangular practice area with a perimeter of 30 meters. If the base of the triangle is 10 meters longer than the height, what are the dimensions of the triangle?",
+    "problem": {
+      "natural": "A sportsman wants to create a triangular practice area with a perimeter of 30 meters. The base of the triangle is 10 meters longer than the height. Find the dimensions of the triangle."
+    },
     "length": 191,
     "tags": [
       "geometry",
@@ -16112,7 +16996,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sportsman",
-    "problem": "A sportsman practices archery. The probability of hitting the target is 75%. If he takes 10 shots, what is the probability that he will hit the target exactly 6 times?",
+    "problem": {
+      "natural": "A skilled archer practices diligently, aiming at a target. With each shot, there's a 75% chance of hitting the mark. What is the probability that, out of 10 attempts, he will successfully hit the target exactly 6 times?"
+    },
     "length": 167,
     "tags": [
       "probability",
@@ -16126,7 +17012,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "premise",
-    "problem": "There is a sum of 100 grams of flour and sugar combined. Sugar is 3/5 of the flour weight. How much flour and sugar are there?",
+    "problem": {
+      "natural": "A mixture of flour and sugar weighs 100 grams in total. Sugar is 3 out of 5 of the flour's weight. How much flour and sugar are there?"
+    },
     "length": 126,
     "tags": [
       "algebra",
@@ -16140,7 +17028,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "premise",
-    "problem": "A train travels 720 km at a constant speed. If the journey took 4 hours less, the speed would be 20 km/h slower. What was the original speed of the train?",
+    "problem": {
+      "natural": "A train covers a distance of 720 kilometers at a steady pace. If the journey had been 4 hours shorter, its speed would have been 20 kilometers per hour slower. What was the original speed of the train?"
+    },
     "length": 154,
     "tags": [
       "time-distance-speed",
@@ -16154,7 +17044,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "premise",
-    "problem": "A triangle has a perimeter of 30 cm. If two sides are each 8 cm long, what is the length of the third side?",
+    "problem": {
+      "natural": "A triangle has a perimeter of 30 cm. If two sides are each 8 cm long, what is the length of the third side?"
+    },
     "length": 107,
     "tags": [
       "geometry",
@@ -16169,7 +17061,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "premise",
-    "problem": "A bag of marbles contains 30 red marbles and 20 blue marbles. If you randomly pick 5 marbles from the bag, what is the probability that at least 2 of them are red?",
+    "problem": {
+      "natural": "A bag of marbles holds 30 red marbles and 20 blue marbles. If you randomly pick 5 marbles from the bag, what is the probability that at least two of them are red?"
+    },
     "length": 163,
     "tags": [
       "probability",
@@ -16183,7 +17077,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "pagan",
-    "problem": "There are 120 pagans in a field. Some pagans are reading, and some are playing. The number of pagans reading is 20% of the total number of pagans. How many pagans are reading, and how many are playing?",
+    "problem": {
+      "natural": "In a field of 120 pagans, some are engrossed in reading and others are engaged in play. If 20% of the pagans are reading, how many pagans are reading and how many are playing?"
+    },
     "length": 201,
     "tags": [
       "algebra",
@@ -16198,7 +17094,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "pagan",
-    "problem": "A pagan festival procession travels 150m in 3 hours. What is the average speed of the procession in meters per hour?",
+    "problem": {
+      "natural": "A pagan festival procession covers 150 meters in 3 hours. What is the average speed of the procession in meters per hour?"
+    },
     "length": 116,
     "tags": [
       "grade-5",
@@ -16214,7 +17112,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "pagan",
-    "problem": "A pagan festival is being held in a circular meadow with a 10-meter radius. There are 12 circular booths set up, each with a diameter of 2 meters. What is the total area covered by the booths?",
+    "problem": {
+      "natural": "A pagan festival is being held in a circular meadow with a 10-meter radius. There are 12 circular booths set up, each with a 2-meter diameter. What is the total area covered by the booths?"
+    },
     "length": 192,
     "tags": [
       "geometry",
@@ -16230,7 +17130,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "pagan",
-    "problem": "A jar contains 120 marbles, some of which are pagan-painted. If 30 marbles are randomly chosen from the jar, what is the probability that exactly 20 of them are pagan-painted?",
+    "problem": {
+      "natural": "A jar holds 120 marbles, some of which are pagan-painted. If we randomly choose 30 marbles from the jar, what is the probability that exactly 20 of them are pagan-painted?"
+    },
     "length": 175,
     "tags": [
       "probability",
@@ -16244,7 +17146,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sin",
-    "problem": "There is a triangle with a height of 5 cm and a base of 10 cm. What is the area of the triangle?",
+    "problem": {
+      "natural": "Calculate the area of a triangle with a height of 5 cm and a base of 10 cm."
+    },
     "length": 96,
     "tags": [
       "algebra",
@@ -16259,7 +17163,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sin",
-    "problem": "A train travels 300 km in the same direction as the Earth's rotation at a speed of 60 km/h. How much time does the train take to complete one full rotation around the Earth?",
+    "problem": {
+      "natural": "A train travels along with the Earth's rotation at a speed of 60 km/h. If the Earth has a circumference of $$4\times10^7$$ km, how long will it take the train to complete one full rotation around the Earth?"
+    },
     "length": 173,
     "tags": [
       "distance",
@@ -16275,7 +17181,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sin",
-    "problem": "A ladder 4 meters tall casts a shadow 3 meters long on the ground. What is the angle of elevation of the top of the ladder above the ground?",
+    "problem": {
+      "natural": "A ladder 4 meters tall casts a shadow 3 meters long on the ground. Find the angle of elevation of the top of the ladder above the ground."
+    },
     "length": 140,
     "tags": [
       "geometry",
@@ -16288,7 +17196,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sin",
-    "problem": "A ball is tossed from the top of a 10-meter tower. The probability of the ball landing within a 2-meter radius of the center is 0.75. What is the probability that the ball will land outside of this radius?",
+    "problem": {
+      "natural": "A ball is tossed from the top of a 10-meter tower. The probability of the ball landing within a 2-meter radius of the center is 75%. What is the probability that the ball will land outside this radius?"
+    },
     "length": 205,
     "tags": [
       "probability",
@@ -16302,7 +17212,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "thriller",
-    "problem": "A secret agent's mission is to deliver a package to the top of the tallest skyscraper in the city. The elevator they need to use goes up 30 meters per minute, but there's a security lockdown that adds 5 meters per minute. How long will it take them to reach the top if the skyscraper is 200 meters tall?",
+    "problem": {
+      "natural": "A secret agent needs to deliver a package to the top of the tallest skyscraper in the city. The elevator they can use ascends at a rate of 30 meters per minute, but there's a security lockdown that adds an additional 5 meters per minute. Given that the skyscraper is 200 meters tall, how long will it take the agent to reach the top?"
+    },
     "length": 303,
     "tags": [
       "algebra",
@@ -16315,7 +17227,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "thriller",
-    "problem": "An agent is chasing a villain who has stolen a valuable gem. The villain is running at a constant speed of 8 m/s. If the agent is 200 m behind the villain and needs to catch them in 5 minutes, what is the speed the agent needs to travel at?",
+    "problem": {
+      "natural": "A chase is underway! A villain, carrying a precious gem, is sprinting at a steady 8 meters per second. If the agent is 200 meters behind the villain and has 5 minutes to catch them, what speed must the agent maintain to reach the villain?"
+    },
     "length": 240,
     "tags": [
       "time-distance-speed",
@@ -16330,7 +17244,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "thriller",
-    "problem": "A secret note is hidden in a triangle with a perimeter of 30 cm. The height of the triangle is 2 cm less than its base. How long is the base of the triangle?",
+    "problem": {
+      "natural": "A secret note is hidden in a triangle with a total perimeter of 30 centimeters. The triangle's height is 2 centimeters less than its base. How long is the base of the triangle?"
+    },
     "length": 157,
     "tags": [
       "geometry",
@@ -16346,7 +17262,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "thriller",
-    "problem": "An undercover agent is tasked with retrieving a stolen artifact from a secret auction. The probability of the agent bidding on the artifact is 0.75, and the probability of them winning the auction if they bid is 0.6. What is the probability that the agent will successfully retrieve the artifact?",
+    "problem": {
+      "natural": "An undercover agent is on a mission to recover a stolen artifact from a clandestine auction. They have a 75% chance of bidding on the artifact, and if they do, they win the auction 60% of the time. What is the probability that the agent will successfully retrieve the artifact?"
+    },
     "length": 296,
     "tags": [
       "probability",
@@ -16359,7 +17277,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "rainbow",
-    "problem": "There are two types of rain droplets in a rainbow. One type is 3 centimeters wide and the other type is 2 centimeters wide. If there are 120 droplets of the wider type and 80 droplets of the narrower type in the rainbow, what is the total width of the rainbow formed by these droplets?",
+    "problem": {
+      "natural": "A rainbow is formed by two different sizes of rain droplets. Some droplets are 3 centimeters wide, while others are 2 centimeters wide. There are 120 of the wider droplets and 80 of the narrower droplets in the rainbow. What is the total width of the rainbow formed by these droplets?"
+    },
     "length": 285,
     "tags": [
       "algebra",
@@ -16373,7 +17293,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "rainbow",
-    "problem": "A rainbow stretches from the horizon to a point 100 meters away. If the rainbow is moving at a speed of 5 meters per second, how long will it take for the rainbow to disappear from the horizon?",
+    "problem": {
+      "natural": "A rainbow stretches from the horizon to a point 100 meters away. If the rainbow is moving at a speed of 5 meters per second, how long will it take for the rainbow to disappear from the horizon?"
+    },
     "length": 193,
     "tags": [
       "grade-5",
@@ -16389,7 +17311,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "rainbow",
-    "problem": "A rainbow has a width of 150°, and the center of the rainbow is directly above a point that is 100 m from the center of the circle formed by the rainbow's edges. What is the length of the arc of the rainbow?",
+    "problem": {
+      "natural": "A rainbow spans an arc of 150°. Its center sits directly above a point 100 meters from the center of the circle formed by the rainbow's edges. What is the length of the rainbow's arc?"
+    },
     "length": 207,
     "tags": [
       "geometry",
@@ -16404,7 +17328,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "rainbow",
-    "problem": "A rainbow has an arc measuring 105°, and its center is located 42 m from the tip of the rainbow's highest point. What is the length of the entire rainbow?",
+    "problem": {
+      "natural": "A rainbow has an arc measuring 105 degrees. Its center is 42 m from the tip of the rainbow's highest point. What is the total length of the rainbow?"
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -16418,7 +17344,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "quirk",
-    "problem": "There is a secret shortcut that lets you walk 3 meters less than usual to get to school. If the regular route is 12 meters long, how long is the shortcut?",
+    "problem": {
+      "natural": "There’s a secret shortcut that lets you walk 3 meters less than usual to get to school. If the regular route is 12 meters long, how long is the shortcut? Assume the shortcut reduces the distance of the regular route."
+    },
     "length": 154,
     "tags": [
       "algebra",
@@ -16432,7 +17360,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "quirk",
-    "problem": "An airplane travels 1200 km at a speed that is 20% faster than the usual speed. If the usual speed is 800 km/h, how long will it take the airplane to reach its destination at the faster speed?",
+    "problem": {
+      "natural": "An airplane travels 1200 kilometers at a speed that is 20% faster than its usual speed of 800 kilometers per hour. How long will it take the airplane to reach its destination at the faster speed?"
+    },
     "length": 192,
     "tags": [
       "grade-5",
@@ -16450,7 +17380,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "quirk",
-    "problem": "A quirk in the design of a rectangular garden means its perimeter is 40 meters. If the length is 5 meters longer than the width, what are the dimensions of the garden?",
+    "problem": {
+      "natural": "A rectangular garden has a perimeter of 40 meters. The length is 5 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 167,
     "tags": [
       "rectangle",
@@ -16465,7 +17397,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "quirk",
-    "problem": "A coin has a slight quirk - it lands on its side 20% of the time. If you flip the coin 10 times, what is the probability that exactly 3 of them will land on their side?",
+    "problem": {
+      "natural": "A coin has a slight tendency to land on its side, happening 20% of the time. If you flip the coin 10 times, what is the probability that exactly 3 of them will land on their side?"
+    },
     "length": 168,
     "tags": [
       "grade-5",
@@ -16478,7 +17412,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "abyss",
-    "problem": "There is a mysterious abyss with a depth of 5 meters. If a ball is dropped from the surface of the abyss, its depth after t seconds is given by the equation: D = -4t + 5. At the same time, a buoy is floating in the abyss, its height above the surface is given by the equation: H = 3t + 1. Find the time when the ball and the buoy will be at the same height in the abyss.",
+    "problem": {
+      "natural": "There's a mysterious abyss that's 5 meters deep. If you drop a ball from the surface, its depth after t seconds is -4t + 5 meters. At the same time, a buoy is floating at a height of 3t + 1 meters above the surface. When will the ball and the buoy be at the same height in the abyss?"
+    },
     "length": 370,
     "tags": [
       "algebra",
@@ -16493,7 +17429,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "abyss",
-    "problem": "An explorer travels 10,000 m towards the abyss at a speed of 5 m/s. How long will it take them to reach the bottom of the abyss, if the abyss is 20,000 m deep?",
+    "problem": {
+      "natural": "An explorer descends 20,000 metres into the abyss at a speed of 5 metres per second. How long will it take them to reach the bottom?"
+    },
     "length": 159,
     "tags": [
       "time-distance-speed",
@@ -16507,7 +17445,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "abyss",
-    "problem": "An explorer discovers a rectangular chasm with a width of 30 meters and a depth of 15 meters. What is the area of the submerged surface of the chasm?",
+    "problem": {
+      "natural": "An explorer discovers a rectangular chasm with a width of 30 meters and a depth of 15 meters. What is the area of the submerged surface of the chasm?"
+    },
     "length": 149,
     "tags": [
       "grade-5",
@@ -16522,7 +17462,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "abyss",
-    "problem": "An explorer discovers a pool in the abyss with a depth of 50 meters. If the probability of finding a treasure at any depth between 0 and 10 meters is 0.8, what is the probability of finding a treasure in the abyss?",
+    "problem": {
+      "natural": "An explorer discovers a pool in the abyss with a depth of 50 meters. The probability of finding a treasure at any depth between 0 and 10 meters is 80%. What is the probability of finding a treasure in the abyss?"
+    },
     "length": 214,
     "tags": [
       "grade-5",
@@ -16535,7 +17477,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "opportunity",
-    "problem": "A local bakery sells loaves of bread for €5 each and pastries for €2 each. If you buy 3 loaves of bread and 5 pastries, you spend €20. If you buy 5 loaves of bread and 2 pastries, you spend €18. How much does a loaf of bread cost? How much does a pastry cost?",
+    "problem": {
+      "natural": "A local bakery sells loaves of bread for €5 each and pastries for €2 each. If you buy 3 loaves of bread and 5 pastries, your total comes to €20. If you buy 5 loaves of bread and 2 pastries, your total is €18. How much does a loaf of bread cost? How much does a pastry cost?"
+    },
     "length": 259,
     "tags": [
       "algebra",
@@ -16550,7 +17494,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "opportunity",
-    "problem": "An express train travels 300 km in 4 hours. At what speed did the train travel, in kilometers per hour?",
+    "problem": {
+      "natural": "An express train covers a distance of 300 kilometers in 4 hours. Determine the speed of the train in kilometers per hour."
+    },
     "length": 103,
     "tags": [
       "grade-5",
@@ -16566,7 +17512,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "opportunity",
-    "problem": "A farmer wants to enclose a rectangular garden with a total of 40m of fencing. If the length of the garden is 3m more than the width, what are the dimensions of the garden?",
+    "problem": {
+      "natural": "A farmer wants to enclose a rectangular garden with a total of 40 meters of fencing. The length of the garden is 3 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 172,
     "tags": [
       "geometry",
@@ -16582,7 +17530,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "opportunity",
-    "problem": "An online platform offers a daily discount of 10% on one of their products. If the original price of the product is ,$50, what is the probability of getting the discount on a randomly chosen day?",
+    "problem": {
+      "natural": "An online platform offers a daily discount of 10% on one of their products. If the original price of the product is $50, what is the probability of getting the discount on a randomly chosen day?"
+    },
     "length": 195,
     "tags": [
       "grade-5",
@@ -16595,7 +17545,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "intellectual",
-    "problem": "An intellectual researcher has discovered that the sum of the number of pages in two research papers is 120. The number of pages in the first paper is 30 pages less than twice the number of pages in the second paper. How many pages are there in each paper?",
+    "problem": {
+      "natural": "An intellectual researcher has discovered that the total number of pages in two research papers is 120. The first paper has 30 pages fewer than twice the number of pages in the second paper. How many pages are there in each paper?"
+    },
     "length": 256,
     "tags": [
       "algebra",
@@ -16609,7 +17561,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "intellectual",
-    "problem": "An intellectual explorer travels 400m at a speed of 8m/s. How long will it take them to reach their destination?",
+    "problem": {
+      "natural": "An intellectual explorer travels 400 metres at a speed of 8 metres per second. How long will it take them to reach their destination?"
+    },
     "length": 112,
     "tags": [
       "time",
@@ -16625,7 +17579,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "intellectual",
-    "problem": "An intellectual bookshelf has shelves that are 1.5m tall and 0.8m wide. If the bookshelf has 4 shelves, what is the total height of all the books on the shelves, if each book is 18cm thick?",
+    "problem": {
+      "natural": "A bookshelf has shelves that are 1.5 meters tall and 0.8 meters wide. If the bookshelf has 4 shelves, what is the total height of all the books on the shelves, if each book is 18 centimeters thick?"
+    },
     "length": 189,
     "tags": [
       "geometry",
@@ -16640,7 +17596,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "intellectual",
-    "problem": "An intellectual toy store has 100 toys, and 2/5 of them are puzzles. What is the probability that a randomly chosen toy from the store is a puzzle?",
+    "problem": {
+      "natural": "An intellectual toy store has 100 toys in total. If 2 out of every 5 toys in the store are puzzles, what is the probability that a randomly chosen toy from the store is a puzzle?"
+    },
     "length": 147,
     "tags": [
       "probability",
@@ -16654,7 +17612,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "pact",
-    "problem": "A farmer and a shepherd make a pact to share their crops. The farmer gives the shepherd 3/5 of his crops, and the shepherd gives the farmer 2/3 of his crops. If after the exchange they both have the same number of crops, how many crops did each have originally?",
+    "problem": {
+      "natural": "A farmer and a shepherd agree to share their crops. The farmer gives the shepherd 3 out of 5 of his crops, while the shepherd gives the farmer 2 out of 3 of his crops. If after the exchange they both end up with the same number of crops, how many crops did each originally have?"
+    },
     "length": 261,
     "tags": [
       "algebra",
@@ -16667,7 +17627,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "pact",
-    "problem": "A train travels 360 km in 4 hours. If the train maintains the same speed, how long will it take for the train to travel 720 km?",
+    "problem": {
+      "natural": "A train travels 360 kilometers in 4 hours. If it maintains its current speed, how long will it take the train to travel 720 kilometers?"
+    },
     "length": 127,
     "tags": [
       "speed",
@@ -16682,7 +17644,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "pact",
-    "problem": "A group of friends make a pact to create a triangular garden bed with a perimeter of 12 meters. If two sides of the triangle are each 3 meters long, how long is the remaining side?",
+    "problem": {
+      "natural": "A group of friends have made a pact to create a triangular garden bed with a perimeter of 12 meters. If two sides of the triangle are each 3 meters long, what is the length of the remaining side?"
+    },
     "length": 180,
     "tags": [
       "geometry",
@@ -16697,7 +17661,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "pact",
-    "problem": "A group of friends makes a pact to collect leaves from different parts of the forest. They estimate that there are about 100 leaves in each section. If they collect leaves from 5 different sections, what is the probability that they collect exactly 500 leaves in total?",
+    "problem": {
+      "natural": "A group of friends decide to collect leaves from different parts of a forest. Each section is estimated to have around 100 leaves. If they collect leaves from 5 different sections, what is the probability that they collect exactly 500 leaves in total?"
+    },
     "length": 269,
     "tags": [
       "probability",
@@ -16711,7 +17677,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "check",
-    "problem": "A check for 12.50 was deposited into an account. Another check for 8.75 was deposited at the same time. How much is in the account after the deposits?",
+    "problem": {
+      "natural": "A deposit of $12.50 and another deposit of $8.75 were made into an account simultaneously. What is the total amount in the account after the deposits?"
+    },
     "length": 150,
     "tags": [
       "algebra",
@@ -16724,7 +17692,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "check",
-    "problem": "A train travels 360 km at a speed of 80 km/h. How much time did it take the train to travel that distance?",
+    "problem": {
+      "natural": "A train covers a distance of 360 kilometers at a speed of 80 kilometers per hour. Determine the amount of time required for the train to complete this journey."
+    },
     "length": 106,
     "tags": [
       "time-distance-speed",
@@ -16738,7 +17708,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "check",
-    "problem": "A square park has a perimeter of 40 meters. Check if the park's side length is 10 meters.",
+    "problem": {
+      "natural": "A square park has a perimeter of 40 meters. Determine if the park's side length is 10 meters."
+    },
     "length": 89,
     "tags": [
       "geometry",
@@ -16753,7 +17725,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "fatigue",
-    "problem": "An athlete runs for 30 minutes and feels fatigued. Their energy level decreases at a rate of 0.5 joules per minute. Another athlete runs for 20 minutes but feels just as fatigued as the first. What is the total energy decrease for both athletes?",
+    "problem": {
+      "natural": "An athlete runs for 30 minutes and feels fatigued, with their energy level decreasing at a rate of 0.5 joules per minute. Another athlete runs for 20 minutes and reaches the same level of fatigue as the first. What is the total energy decrease for both athletes over their respective running times?"
+    },
     "length": 245,
     "tags": [
       "algebra",
@@ -16766,7 +17740,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "fatigue",
-    "problem": "A runner covers 3 kilometers in 1 hour, but halfway through their race, they experience fatigue and their speed slows down by 20%. How long will it take them to finish the remaining 3 kilometers?",
+    "problem": {
+      "natural": "A runner covers 3 kilometers in 1 hour. However, halfway through the race, they experience fatigue and their speed slows down by 20%. How long will it take them to finish the remaining 3 kilometers?"
+    },
     "length": 195,
     "tags": [
       "time-distance-speed",
@@ -16781,7 +17757,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "fatigue",
-    "problem": "A hiker travels 3.5 kilometers along a trail. If he has traveled 80% of the total trail, how much longer does he need to walk to reach the end of the trail?",
+    "problem": {
+      "natural": "A hiker has traveled 3.5 kilometers along a trail that is 80% of the total trail. How much farther does he need to walk to reach the end of the trail?"
+    },
     "length": 156,
     "tags": [
       "geometry",
@@ -16796,7 +17774,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "fatigue",
-    "problem": "A cyclist travels 48 km on a tiring journey. If the cyclist's average speed without fatigue is 12 km/h, how many hours did the fatigue affect their speed, if their average speed during the journey was 9 km/h?",
+    "problem": {
+      "natural": "A cyclist travels 48 kilometers on a tiring journey. If the cyclist's average speed without fatigue is 12 kilometers per hour, how many hours did fatigue affect their speed, if their average speed during the journey was 9 kilometers per hour?"
+    },
     "length": 208,
     "tags": [
       "probability",
@@ -16810,7 +17790,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "venture",
-    "problem": "A baker is making two types of cookies, chocolate chip and oatmeal raisin. The chocolate chip cookies use 30g of flour each, while the oatmeal raisin cookies use 40g of flour each. The baker wants to make 20 chocolate chip cookies and 15 oatmeal raisin cookies. How much flour does the baker need in total?",
+    "problem": {
+      "natural": "A baker is preparing two different types of cookies: chocolate chip and oatmeal raisin. Each chocolate chip cookie requires 30 grams of flour, while oatmeal raisin cookies use 40 grams of flour each. The baker plans to make 20 chocolate chip cookies and 15 oatmeal raisin cookies. How much flour is needed in total for both types of cookies?"
+    },
     "length": 306,
     "tags": [
       "algebra",
@@ -16824,7 +17806,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "venture",
-    "problem": "A daring explorer ventures 300 km in 5 hours. What is their average speed in kilometers per hour?",
+    "problem": {
+      "natural": "A daring explorer travels 300 kilometers in 5 hours. What is their average speed in kilometers per hour?"
+    },
     "length": 97,
     "tags": [
       "grade-5",
@@ -16837,7 +17821,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "venture",
-    "problem": "A hiker wants to reach the top of a hill that is 500 meters high. If the hiker has already climbed 200 meters, what percentage of the hill has he climbed?",
+    "problem": {
+      "natural": "A hiker wants to reach the summit of a 500-meter hill. If the hiker has already climbed 200 meters, what percentage of the hill has he climbed?"
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -16851,7 +17837,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "venture",
-    "problem": "A toy store is having a venture sale, offering a 20% discount on all toys. If a toy originally costs 120€, what is the probability that it will be discounted by 24€ or less?",
+    "problem": {
+      "natural": "A toy store is having a sale, offering a 20% discount on all toys. If a toy originally costs $120, what is the probability that it will be discounted by $24 or less?"
+    },
     "length": 173,
     "tags": [
       "probability",
@@ -16865,7 +17853,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "devolution",
-    "problem": "A train travels 240km in the same direction as another train that travels 300km. If the two trains leave at the same time and travel at constant speeds, how much faster is the faster train than the slower train? Write an equation to represent the situation.",
+    "problem": {
+      "natural": "A train travels 240 kilometers in the same direction as another train that travels 300 kilometers. If both trains leave at the same time and travel at constant speeds, how much faster is the faster train than the slower train? Let x be the speed of the faster train and y be the speed of the slower train. Write an equation that represents the situation."
+    },
     "length": 257,
     "tags": [
       "algebra",
@@ -16880,7 +17870,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "devolution",
-    "problem": "A train travels 480 km at a speed of 80 km/h. If the journey took longer due to political devolution, the speed decreased by 20 km/h. How much longer did the journey take?",
+    "problem": {
+      "natural": "A train covers 480 kilometers at a speed of 80 kilometers per hour. Due to political unrest, its speed decreased by 20 kilometers per hour. How much longer did the journey take compared to the original estimate?"
+    },
     "length": 171,
     "tags": [
       "time-distance-speed",
@@ -16894,7 +17886,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "devolution",
-    "problem": "A circle with a radius of 10 cm is inscribed in a square. What is the area of the unshaded region of the square?",
+    "problem": {
+      "natural": "A square with a circle inscribed inside it has a radius of 10 cm. What is the area of the unshaded region of the square?"
+    },
     "length": 112,
     "tags": [
       "geometry",
@@ -16910,7 +17904,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "devolution",
-    "problem": "There are 300 students in a school district considering a devolution of power to local communities. If 60% of the students support the devolution, what is the probability that at least 200 students support the devolution?",
+    "problem": {
+      "natural": "In a school district with 300 students, 60% of them are in favor of giving local communities more power. What is the probability that at least 200 students support this devolution?"
+    },
     "length": 221,
     "tags": [
       "probability",
@@ -16924,7 +17920,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "attract",
-    "problem": "There are two rectangular fields next to each other. One field is 3 meters longer than the other. The total area of both fields is 60 square meters. How long is each field?",
+    "problem": {
+      "natural": "Two rectangular fields are adjacent to each other. One field is 3 meters longer than the other. The combined area of both fields is 60 square meters. What is the length of each field?"
+    },
     "length": 172,
     "tags": [
       "algebra",
@@ -16938,7 +17936,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "attract",
-    "problem": "A train travels at a speed of 80 km/h for 3 hours. How much distance does it cover in that time?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 kilometers per hour for 3 hours. How far does it travel in that time?"
+    },
     "length": 96,
     "tags": [
       "time-distance-speed",
@@ -16953,7 +17953,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "attract",
-    "problem": "A circle with a radius of 3 cm attracts another circle with a radius of 2 cm at its center. What is the combined area of both circles?",
+    "problem": {
+      "natural": "Two circles are attracted at their centers. The first circle has a radius of 3 cm, while the second circle has a radius of 2 cm. What is the combined area of both circles?"
+    },
     "length": 134,
     "tags": [
       "geometry",
@@ -16968,7 +17970,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "attract",
-    "problem": "A spherical balloon with a radius of 10 cm is placed in an electric field with a uniform intensity of 500 N/C. What is the electric force exerted on the balloon?",
+    "problem": {
+      "natural": "A spherical balloon with a 10 cm radius is placed in an electric field with a uniform intensity of 500 N/C. What electric force acts on the balloon?"
+    },
     "length": 161,
     "tags": [
       "grade-5",
@@ -16981,7 +17985,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "unaware",
-    "problem": "An ice cream shop offers a special deal: buy 2 scoops for 5 euros, or 3 scoops for 7 euros. How much would 4 scoops cost? Assume scoops are of equal size.",
+    "problem": {
+      "natural": "An ice cream shop is running a special: buy two scoops for 5 euros, or three scoops for 7 euros. How much would four scoops cost, assuming they are all the same size?"
+    },
     "length": 154,
     "tags": [
       "algebra",
@@ -16995,7 +18001,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "unaware",
-    "problem": "An explorer travels 300 km without realizing how much time has passed. If she covered the distance at an average speed of 60 km/h, how long was her journey in total?",
+    "problem": {
+      "natural": "An explorer covered 300 kilometers without noticing the passage of time. If she maintained an average speed of 60 kilometers per hour throughout the journey, how long was her trip in total?"
+    },
     "length": 165,
     "tags": [
       "time-distance-speed",
@@ -17009,7 +18017,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "unaware",
-    "problem": "A circle has an area of 144π square centimeters. If a point is chosen randomly inside the circle, what is the probability that the point is more than 3 cm away from the center of the circle? (Assume the point is not on the circle.)",
+    "problem": {
+      "natural": "A circle has an area of 144π square centimeters. If a point is randomly chosen inside the circle, what is the probability that the point is more than 3 cm away from the center of the circle? Assume the point is not on the circle."
+    },
     "length": 231,
     "tags": [
       "geometry",
@@ -17025,7 +18035,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "unaware",
-    "problem": "An experiment shows that 7 out of 10 people are unaware of the probability of rolling a six on a standard six-sided die. If 30 people are randomly selected, what is the probability that at least 20 of them are unaware of the probability?",
+    "problem": {
+      "natural": "An experiment reveals that 7 out of 10 people are oblivious to the probability of rolling a six on a standard six-sided die. If 30 people are randomly chosen, what is the probability that at least 20 of them are unaware of this probability?"
+    },
     "length": 237,
     "tags": [
       "probability",
@@ -17039,7 +18051,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sleepless",
-    "problem": "A sleep-deprived student spends 3 hours studying for a math test and then sleeps for 3 hours. If they studied for x hours and slept for y hours, write two equations that relate x and y, knowing that they spent a total of 6 hours studying and sleeping.",
+    "problem": {
+      "natural": "A sleep-deprived student spent 3 hours studying for a math test and then slept for 3 hours. If they studied for x hours and slept for y hours, write two equations that relate x and y, knowing that they spent a total of 6 hours studying and sleeping altogether."
+    },
     "length": 251,
     "tags": [
       "algebra",
@@ -17052,7 +18066,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sleepless",
-    "problem": "A sleepless owl travels 300 meters in the night at a speed of 10 meters per second. How long, in hours, did it take the owl to travel this distance?",
+    "problem": {
+      "natural": "A nocturnal owl flying at a speed of 10 meters per second travels 300 meters during the night. How many hours elapsed during its journey?"
+    },
     "length": 148,
     "tags": [
       "time-distance-speed",
@@ -17067,7 +18083,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sleepless",
-    "problem": "A sleepless circle has a circumference of 15 cm. If it spends 3/5 of its time awake, what is the length of time it spends asleep?",
+    "problem": {
+      "natural": "A circle with a circumference of 15 cm is restless. If it spends 3 out of every 5 hours awake, how many hours does it spend sleeping each day?"
+    },
     "length": 129,
     "tags": [
       "geometry",
@@ -17082,7 +18100,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sleepless",
-    "problem": "There's a 70% chance you'll sleep soundly for 8 hours if you go to bed by 10 PM. But there's a 20% chance you'll only sleep for 5 hours, and a 10% chance you'll sleep for 10 hours. What's the probability you'll sleep less than 8 hours?",
+    "problem": {
+      "natural": "If you go to bed by 10 PM, there's a 70% chance you'll sleep soundly for 8 hours. However, there's also a 20% chance you'll only sleep for 5 hours, and a 10% chance you'll sleep for 10 hours. What is the probability that you will sleep less than 8 hours?"
+    },
     "length": 235,
     "tags": [
       "probability",
@@ -17096,7 +18116,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "optimal",
-    "problem": "A bakery wants to make a rectangular cake that uses the most flour while staying within a 20 cm by 25 cm baking pan. What should be the dimensions of the cake that use the optimal amount of flour?",
+    "problem": {
+      "natural": "A bakery wants to create a rectangular cake that uses the most flour possible within a 20 cm by 25 cm baking pan. What should be the dimensions of the cake that uses the optimal amount of flour?"
+    },
     "length": 196,
     "tags": [
       "algebra",
@@ -17110,7 +18132,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "optimal",
-    "problem": "A train travels 300km at a constant speed. If the journey took 4 hours less, the speed would be 10km/h slower. What is the optimal speed of the train?",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a constant speed. If the journey had taken 4 hours less, its speed would have been 10 kilometers per hour slower. What was the optimal speed of the train?"
+    },
     "length": 150,
     "tags": [
       "time-distance-speed",
@@ -17124,7 +18148,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "optimal",
-    "problem": "A rectangular garden has a perimeter of 40 meters. What is the optimal dimensions of the garden if it has the greatest area possible?",
+    "problem": {
+      "natural": "A rectangular garden has a perimeter of 40 meters. What are the optimal dimensions of the garden if it is to have the greatest area possible?"
+    },
     "length": 133,
     "tags": [
       "geometry",
@@ -17139,7 +18165,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "optimal",
-    "problem": "A farmer wants to enclose his rectangular field with the shortest possible perimeter. If the field is 30m long and 20m wide, what is the optimal length of the fencing needed?",
+    "problem": {
+      "natural": "A farmer wants to enclose his rectangular field with the shortest possible perimeter. The field is 30 meters long and 20 meters wide. What is the optimal length of fencing needed?"
+    },
     "length": 174,
     "tags": [
       "geometry",
@@ -17154,7 +18182,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "upbeat",
-    "problem": "An upbeat bakery owner wants to make a delicious fruit and nut cake that is 3 cm taller than its chocolate cake counterpart. If the fruit and nut cake has a diameter of 15 cm and the chocolate cake has a diameter of 10 cm, how tall is each cake?",
+    "problem": {
+      "natural": "A cheerful bakery owner is eager to bake a delightful fruit and nut cake that is 3 centimeters taller than its chocolate cake companion. If the fruit and nut cake has a diameter of 15 centimeters and the chocolate cake has a diameter of 10 centimeters, what is the height of each cake?"
+    },
     "length": 245,
     "tags": [
       "algebra",
@@ -17168,7 +18198,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "upbeat",
-    "problem": "An upbeat runner covers 300m in 5 minutes. At this rate, how long will it take them to cover 1200m?",
+    "problem": {
+      "natural": "An energetic runner can cover 300 meters in 5 minutes. At this speed, how many minutes will it take them to cover 1200 meters?"
+    },
     "length": 99,
     "tags": [
       "time-distance-speed",
@@ -17183,7 +18215,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "upbeat",
-    "problem": "An upbeat triangle has a perimeter of 30 cm. Its two equal sides are each 5 cm longer than the third side. What is the length of the third side?",
+    "problem": {
+      "natural": "A triangle has a perimeter of 30 cm. Its two equal sides are 5 cm longer than the third side. What is the length of the third side?"
+    },
     "length": 144,
     "tags": [
       "grade-5",
@@ -17199,7 +18233,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "upbeat",
-    "problem": "An upbeat musician practiced for 30 minutes each day for 5 days. What is the total amount of time the musician practiced in those 5 days?",
+    "problem": {
+      "natural": "A talented musician practiced for 30 minutes every day for 5 days. How many minutes did they practice in those 5 days?"
+    },
     "length": 137,
     "tags": [
       "arithmetic",
@@ -17215,7 +18251,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "seismic",
-    "problem": "The ground starts shaking! One seismologist measures the distance a tremor travels in two different locations. In Location A, the tremor travels 10 meters per second, while in Location B, it travels 8 meters per second. If the tremor travels a total distance of 50 meters, how long did it take in each location?",
+    "problem": {
+      "natural": "The ground starts shaking! A seismologist tracks the distance a tremor travels in two different places. In Location A, the tremor moves at a speed of 10 meters per second, while in Location B, its speed is 8 meters per second. If the tremor travels a total distance of 50 meters, how long did it take for the tremor to travel each distance?"
+    },
     "length": 311,
     "tags": [
       "algebra",
@@ -17229,7 +18267,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "seismic",
-    "problem": "An earthquake sends seismic waves through the ground. If the waves travel at a speed of 5 km/s and are detected 100 km away from the epicenter, how long did it take for the waves to reach the detector?",
+    "problem": {
+      "natural": "An earthquake generates seismic waves that travel through the ground. If these waves travel at a speed of 5 kilometers per second and are detected 100 kilometers away from the epicenter, what was the time delay for the waves to reach the detector?"
+    },
     "length": 201,
     "tags": [
       "time-distance-speed",
@@ -17243,7 +18283,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "seismic",
-    "problem": "A tremor causes a rectangular field to elongate into a parallelogram with its original width remaining the same. If the field's perimeter increased by 40%, what is the change in the field's length?",
+    "problem": {
+      "natural": "A rectangular field experiences a tremor that causes its shape to change from a rectangle to a parallelogram. The width remains the same as the tremor. If the field's perimeter increases by 40%, determine the change in the field's length."
+    },
     "length": 197,
     "tags": [
       "geometry",
@@ -17258,7 +18300,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "seismic",
-    "problem": "A seismologist records 10 seismic events in a region over the past month. The probability of a seismic event occurring on any given day is 0.05. What is the probability that there will be exactly 3 seismic events in the next week?",
+    "problem": {
+      "natural": "A seismologist has recorded 10 seismic events in a region over the past month. The chances of a seismic event happening on any given day are 5%. What is the probability that there will be exactly 3 seismic events in the next week?"
+    },
     "length": 230,
     "tags": [
       "probability",
@@ -17272,7 +18316,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "hello",
-    "problem": "There are two friends, Hiro and Aki. Hiro says he can buy 3 lollipops and 2 chocolate bars for the same price as Aki can buy 4 lollipops and 1 chocolate bar. How much does each lollipop cost, if a chocolate bar costs 2 euros?",
+    "problem": {
+      "natural": "Two friends, Hiro and Aki, have the same budget. Hiro believes he can buy 3 lollipops and 2 chocolate bars for the same price as Aki can buy 4 lollipops and 1 chocolate bar. How much does each lollipop cost, given that a chocolate bar costs 2 euros?"
+    },
     "length": 225,
     "tags": [
       "algebra",
@@ -17287,7 +18333,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "hello",
-    "problem": "A message travels at a speed of 300 meters per second. How long will it take for the message to travel 1500 meters?",
+    "problem": {
+      "natural": "A message travels at a speed of 300 meters per second. How long will it take for the message to travel 1500 meters? Assume the message starts from rest."
+    },
     "length": 115,
     "tags": [
       "grade-5",
@@ -17303,7 +18351,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "hello",
-    "problem": "A circle has a circumference of 14 cm. What is the radius of the circle?",
+    "problem": {
+      "natural": "A circle has a circumference of 14 centimeters. What is the radius of the circle?"
+    },
     "length": 72,
     "tags": [
       "geometry",
@@ -17319,7 +18369,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "hello",
-    "problem": "There are 100 people in a room. 30 of them are saying 'hello' in French. What is the probability that a randomly chosen person in the room is saying 'hello' in French?",
+    "problem": {
+      "natural": "There are 100 people in a room. 30 of them are saying 'hello' in French. What is the probability that a randomly chosen person in the room is saying 'hello' in French?"
+    },
     "length": 167,
     "tags": [
       "probability",
@@ -17333,7 +18385,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "satisfy",
-    "problem": "There are 120 students in a school. Some students take music lessons, and the rest take art lessons. If 40% of the students take music lessons, how many students take art lessons?",
+    "problem": {
+      "natural": "There are 120 students in a school. Some students take music lessons, while the rest take art lessons. If 40% of the students take music lessons, how many students take art lessons?"
+    },
     "length": 179,
     "tags": [
       "algebra",
@@ -17347,7 +18401,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "satisfy",
-    "problem": "A train travels 180 km in 3 hours. How much time will it take for the train to travel 72 km?",
+    "problem": {
+      "natural": "A train travels 180 kilometers in 3 hours. How long will it take for the train to cover 72 kilometers?"
+    },
     "length": 92,
     "tags": [
       "time-distance-speed",
@@ -17362,7 +18418,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "satisfy",
-    "problem": "A square garden has a perimeter of 12 meters. What is the length of each side that will satisfy the condition that the area of the garden is 36 square meters?",
+    "problem": {
+      "natural": "A square garden has a perimeter of 12 meters. What is the length of each side that will give the garden an area of 36 square meters?"
+    },
     "length": 158,
     "tags": [
       "geometry",
@@ -17378,7 +18436,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "satisfy",
-    "problem": "There are 90 students in a class. 60 of them are satisfied with their grades, while 30 are not. What is the probability that a randomly chosen student is satisfied with their grades?",
+    "problem": {
+      "natural": "In a class of 90 students, 60 are content with their grades. What is the probability that a randomly chosen student is satisfied with their grades?"
+    },
     "length": 182,
     "tags": [
       "conditional-probability",
@@ -17392,7 +18452,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "Mr.",
-    "problem": "Mr. Smith has 10 more apples than oranges. If he has 48 oranges, how many apples does he have?",
+    "problem": {
+      "natural": "Mr. Smith has 10 more apples than oranges. If he has 48 oranges, how many apples does he have in total?"
+    },
     "length": 94,
     "tags": [
       "algebra",
@@ -17406,7 +18468,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "Mr.",
-    "problem": "Mr. Jones walks at a speed of 3 m/s. How far will he travel in 1.5 hours?",
+    "problem": {
+      "natural": "Mr. Jones walks at a speed of 3 meters per second. How far will he travel in 1.5 hours?"
+    },
     "length": 73,
     "tags": [
       "time-distance-speed",
@@ -17420,7 +18484,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "Mr.",
-    "problem": "Mr. Smith's garden is a rectangle with a perimeter of 30 meters. The length is 3 meters longer than the width. What are the dimensions of Mr. Smith's garden?",
+    "problem": {
+      "natural": "Mr. Smith's garden is a rectangle with a total perimeter of 30 meters. The length is 3 meters more than the width. What are the dimensions of Mr. Smith's garden?"
+    },
     "length": 157,
     "tags": [
       "geometry",
@@ -17435,7 +18501,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "Mr.",
-    "problem": "There are 12 Mr. Smith toys in a box. If you pick 3 toys at random without replacement, what is the probability that exactly 2 of them are Mr. Smith toys?",
+    "problem": {
+      "natural": "There are 12 Mr. Smith toys in a box. If you randomly pick 3 toys without replacement, what is the probability that exactly two of them are Mr. Smith toys?"
+    },
     "length": 154,
     "tags": [
       "probability",
@@ -17448,7 +18516,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "violent",
-    "problem": "A train travels 300 kilometers in 4 hours. Another train travels 200 kilometers in 3 hours. How much faster is the first train than the second train?",
+    "problem": {
+      "natural": "A train travels 300 kilometers in 4 hours. Another train travels 200 kilometers in 3 hours. How much faster is the first train than the second train?"
+    },
     "length": 149,
     "tags": [
       "algebra",
@@ -17462,7 +18532,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "violent",
-    "problem": "A runaway train travels 300 meters in 2 minutes. At what speed, in meters per second, was the train moving?",
+    "problem": {
+      "natural": "A runaway train travels 300 meters in 2 minutes. What was the speed of the train in meters per second?"
+    },
     "length": 107,
     "tags": [
       "time-distance-speed",
@@ -17477,7 +18549,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "violent",
-    "problem": "A triangle has a violent angle that measures 120°. Find the lengths of the triangle's sides if the perimeter is 30 cm.",
+    "problem": {
+      "natural": "A triangle has a angle measuring 120°. If the perimeter of the triangle is 30 cm, find the lengths of its sides."
+    },
     "length": 118,
     "tags": [
       "geometry",
@@ -17491,7 +18565,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "violent",
-    "problem": "A survey of students in a school revealed that 70% of them believe that violent video games can influence real-life behavior. If there are 1200 students in the school, how many of them would you expect to believe that violent video games can influence real-life behavior?",
+    "problem": {
+      "natural": "A survey of students in a school revealed that 70% of them believe that violent video games can influence real-life behavior. If there are 1200 students in the school, approximately how many of them would you expect to believe that violent video games can influence real-life behavior?"
+    },
     "length": 271,
     "tags": [
       "probability",
@@ -17506,7 +18582,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "perspiration",
-    "problem": "A runner loses 0.5kg of sweat during every kilometer of a race. If the runner starts the race with 2kg of water in their body, how much water will they have left after running 4 kilometers?",
+    "problem": {
+      "natural": "A runner starts a race with 2kg of water in their body. During the race, they lose 0.5kg of sweat for every kilometer they run. How much water will they have left after running 4 kilometers?"
+    },
     "length": 189,
     "tags": [
       "algebra",
@@ -17520,7 +18598,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "perspiration",
-    "problem": "A runner sweats at a rate of 0.5 kg/min while completing a 3 km race. At what average speed did the runner complete the race, considering the weight loss from sweating?",
+    "problem": {
+      "natural": "A runner loses 0.5 kg of weight while completing a 3 km race. What was the runner's average speed, considering the weight loss from sweating?"
+    },
     "length": 168,
     "tags": [
       "grade-5",
@@ -17536,7 +18616,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "perspiration",
-    "problem": "A runner completes a loop of 400m in 10 minutes. If the runner loses 1% of their body weight through perspiration during the run, what is the approximate weight lost in grams?",
+    "problem": {
+      "natural": "A runner completes a 400-meter loop in 10 minutes. During the run, the runner loses 1% of their body weight through perspiration. What is the approximate weight lost in grams, knowing their initial weight?"
+    },
     "length": 175,
     "tags": [
       "geometry",
@@ -17552,7 +18634,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "identify",
-    "problem": "A train travels 360 km in the same time as a plane travels 720 km. Identify the ratio of the speeds of the train and the plane.",
+    "problem": {
+      "natural": "A train and a plane cover equal distances in the same amount of time. If the train travels 360 kilometers and the plane travels 720 kilometers, determine the ratio of their speeds."
+    },
     "length": 127,
     "tags": [
       "algebra",
@@ -17567,7 +18651,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "identify",
-    "problem": "A train travels 300 km in 5 hours. If the train travels at a constant speed, how long will it take the train to travel 600 km?",
+    "problem": {
+      "natural": "A train travels 300 kilometers in 5 hours at a constant speed. How long will it take the train to travel 600 kilometers?"
+    },
     "length": 126,
     "tags": [
       "time-distance-speed",
@@ -17582,7 +18668,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "identify",
-    "problem": "A triangle has angles measuring 40°, 70°, and ?, forming a triangle. Identify the type of triangle it is.",
+    "problem": {
+      "natural": "A triangle has angles measuring 40°, 70°, and x degrees. What type of triangle is it?"
+    },
     "length": 105,
     "tags": [
       "geometry",
@@ -17596,7 +18684,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "identify",
-    "problem": "An urn contains 100 marbles, of which 20 are blue and the rest are red. If you reach into the urn and randomly pick 10 marbles, what is the probability that exactly 5 of them are blue?",
+    "problem": {
+      "natural": "An urn contains 100 marbles, 20 of which are blue and the rest are red. If you randomly pick 10 marbles from the urn, what is the probability that exactly 5 of them are blue?"
+    },
     "length": 184,
     "tags": [
       "probability",
@@ -17609,7 +18699,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "echo",
-    "problem": "An echo chamber is 3 meters long and 2 meters wide. If the sound travels at 340 meters per second, how long does it take for the sound to echo from one end of the chamber to the other?",
+    "problem": {
+      "natural": "An echo chamber is 3 meters long and 2 meters wide. Sound travels at 340 meters per second. How long does it take for the sound to echo from one end of the chamber to the other?"
+    },
     "length": 184,
     "tags": [
       "algebra",
@@ -17622,7 +18714,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "echo",
-    "problem": "An echo follows a hiker at a distance of 120 meters. If the hiker travels at a speed of 5 meters per second, how long after the hiker shouts will the echo be heard?",
+    "problem": {
+      "natural": "An echo follows a hiker at a distance of 120 meters. If the hiker starts shouting at a speed of 5 meters per second, how long after the hiker shouts will the echo be heard? Assume the sound travels at the speed of light."
+    },
     "length": 164,
     "tags": [
       "time-distance-speed",
@@ -17636,7 +18730,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "echo",
-    "problem": "A semicircle casts a shadow that is 10m long on the ground. If the radius of the semicircle is 5m, how long is the echo of the shadow's tip on the ground?",
+    "problem": {
+      "natural": "A semicircle with a 5m radius casts a shadow 10m long on the ground. How long is the echo of the shadow's tip on the ground?"
+    },
     "length": 154,
     "tags": [
       "geometry",
@@ -17652,7 +18748,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "echo",
-    "problem": "An echo chamber is a space where sound waves bounce back and forth, creating multiple reflections. If a sound wave travels 12 meters to the wall and back 3 times before it fades away, how far did the sound travel in total?",
+    "problem": {
+      "natural": "An echo chamber is a space where sound waves bounce back and forth, creating multiple reflections. If a sound wave travels 12 meters to the wall and back 3 times before it fades away, what is the total distance the sound traveled?"
+    },
     "length": 222,
     "tags": [
       "probability",
@@ -17666,7 +18764,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "control",
-    "problem": "A train travels 300 km in the same direction as a river flowing at 4 m/s. The train reaches its destination 2 hours earlier if the river's flow is reversed. Find the speed of the train in still water.",
+    "problem": {
+      "natural": "A train travels 300 kilometers along a river that is flowing at a speed of 4 meters per second. If the river's flow is reversed, the train arrives 2 hours earlier. Find the speed of the train in still water."
+    },
     "length": 200,
     "tags": [
       "algebra",
@@ -17680,7 +18780,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "control",
-    "problem": "A train travels 300 km at a constant speed. If the journey took 5 hours less, the speed would be 20 km/h slower. What was the speed of the train?",
+    "problem": {
+      "natural": "A train covers a distance of 300 kilometers at a steady speed. If the journey had been 5 hours shorter, the speed would have been 20 kilometers per hour slower. Determine the speed of the train."
+    },
     "length": 145,
     "tags": [
       "time-distance-speed",
@@ -17694,7 +18796,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "control",
-    "problem": "A gardener wants to create a rectangular vegetable garden with a perimeter of 30 meters. The length of the garden is 2 meters longer than the width. What are the dimensions of the garden?",
+    "problem": {
+      "natural": "A gardener wants to create a rectangular vegetable garden with a total perimeter of 30 meters. The length of the garden is 2 meters more than the width. What are the dimensions of the garden?"
+    },
     "length": 187,
     "tags": [
       "geometry",
@@ -17709,7 +18813,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "control",
-    "problem": "A toy car has a control panel with two buttons, one labeled 'speed' and the other labeled 'direction'. The speed button has 3 settings: 'slow', 'medium', and 'fast'. The direction button has 4 settings: 'forward', 'backward', 'left', and 'right'. How many different combinations of speed and direction settings are possible?",
+    "problem": {
+      "natural": "A toy car has a control panel with two buttons: one labeled 'speed' and the other labeled 'direction'. The speed button has 3 settings (slow, medium, fast), while the direction button has 4 settings (forward, backward, left, right). How many different combinations of speed and direction settings are possible for the toy car?"
+    },
     "length": 324,
     "tags": [
       "probability",
@@ -17722,7 +18828,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sticker",
-    "problem": "There are 24 colorful stickers in a book. Some are butterflies and the rest are flowers. If the number of butterflies is 3 times less than the flowers, how many butterflies are there?",
+    "problem": {
+      "natural": "There are 24 colorful stickers in a book. Some are butterflies and the rest are flowers. If the number of butterflies is three times less than the flowers, how many butterflies are there?"
+    },
     "length": 183,
     "tags": [
       "algebra",
@@ -17735,7 +18843,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sticker",
-    "problem": "A sticker collector travels 3.5 km at a speed of 5 km/h. How much time will it take them to collect 120 stickers if each sticker is 2 cm wide and the sticker collector covers a distance of 1 cm per second?",
+    "problem": {
+      "natural": "A sticker collector travels at a speed of 5 kilometers per hour. How long will it take them to collect 120 stickers if each sticker is 2 centimeters wide and the sticker collector covers a distance of 1 centimeter per second? Assume the collector starts from rest at the beginning of their journey."
+    },
     "length": 205,
     "tags": [
       "speed",
@@ -17750,7 +18860,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sierra",
-    "problem": "A hiking trail in the Sierra Nevada mountains is 3.5 kilometers long. If you hike for 2 kilometers and then rest for 1.5 kilometers, what percentage of the total trail have you covered?",
+    "problem": {
+      "natural": "A hiking trail in the Sierra Nevada mountains is 3.5 kilometers long. If you hike for 2 kilometers and then rest for 1.5 kilometers, what percentage of the total trail have you covered?"
+    },
     "length": 185,
     "tags": [
       "algebra",
@@ -17765,7 +18877,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sierra",
-    "problem": "A train travels through a mountainous region known as the Sierra Mountains. If the train travels at a speed of 30 km/h for 4 hours, how much distance does it cover in the Sierra Mountains?",
+    "problem": {
+      "natural": "A train travels through the towering Sierra Mountains. If it speeds along at 30 kilometers per hour for 4 hours, how much distance does it cover within the mountains?"
+    },
     "length": 188,
     "tags": [
       "time-distance-speed",
@@ -17779,7 +18893,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sierra",
-    "problem": "A climber wants to reach the summit of a 2400-meter high Sierra peak. If they climb 80% of the peak on the first day, how many meters will they need to climb on the second day to reach the summit?",
+    "problem": {
+      "natural": "A climber wants to reach the summit of a 2400-meter high Sierra peak. On the first day, they climb 80% of the peak. How many meters do they need to climb on the second day to reach the summit?"
+    },
     "length": 196,
     "tags": [
       "geometry"
@@ -17791,7 +18907,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sierra",
-    "problem": "There are 300 skiers on a mountain with a probability of 1/3 that each skier will reach the summit. What is the probability that exactly 200 skiers will reach the summit?",
+    "problem": {
+      "natural": "There are 300 skiers on a mountain. Each skier has a 1 in 3 chance of reaching the summit. What is the probability that exactly 200 skiers will reach the summit?"
+    },
     "length": 170,
     "tags": [
       "probability",
@@ -17805,7 +18923,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "sensual",
-    "problem": "A chocolate bar costs 3 times as much as a candy bar. If together, a chocolate bar and 4 candy bars cost 15 euros, how much does a chocolate bar cost?",
+    "problem": {
+      "natural": "A chocolate bar is three times the price of a candy bar. Together, a chocolate bar and four candy bars cost 15 euros. What is the price of a chocolate bar?"
+    },
     "length": 150,
     "tags": [
       "algebra",
@@ -17819,7 +18939,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "sensual",
-    "problem": "A runner covers 30 meters in 6 seconds. At what average speed did they travel in meters per second?",
+    "problem": {
+      "natural": "A runner covers 30 meters in 6 seconds. What is their average speed in meters per second?"
+    },
     "length": 99,
     "tags": [
       "time-distance-speed",
@@ -17834,7 +18956,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "sensual",
-    "problem": "A croissant is 10 cm long and 5 cm wide. If the croissant is sensually curved, what is the total surface area of the croissant?",
+    "problem": {
+      "natural": "A croissant is 10 cm long and 5 cm wide. If the croissant is curved, what is the total surface area of the croissant? Assume the croissant is a perfect cylinder."
+    },
     "length": 127,
     "tags": [
       "grade-5",
@@ -17847,7 +18971,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "sensual",
-    "problem": "A box of chocolates contains 180 truffles, some of which are filled with caramel and the rest with hazelnut cream. If 30% of the truffles are caramel-filled, what is the probability of randomly selecting a hazelnut cream truffle from the box?",
+    "problem": {
+      "natural": "A box of chocolates contains 180 truffles, some filled with caramel and some with hazelnut cream. If 30% of the truffles are caramel-filled, what is the probability of randomly selecting a hazelnut cream truffle from the box?"
+    },
     "length": 242,
     "tags": [
       "probability",
@@ -17862,7 +18988,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "storehouse",
-    "problem": "A storehouse holds 1500kg of grain. If 2/3 of the grain is sold, how much grain is left in the storehouse?",
+    "problem": {
+      "natural": "A storehouse holds 1500 kilograms of grain. If two-thirds of the grain is sold, how much grain is left in the storehouse?"
+    },
     "length": 106,
     "tags": [
       "algebra",
@@ -17876,7 +19004,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "storehouse",
-    "problem": "A train carrying 100 tonnes of grain departs from a storehouse at 8:00 AM and travels at a speed of 50 km/h. How far from the storehouse will the train be at 10:30 AM?",
+    "problem": {
+      "natural": "A train carrying 100 tonnes of grain departs from a storehouse at 8:00 AM and travels at a speed of 50 km/h. How far from the storehouse will the train be at 10:30 AM?"
+    },
     "length": 167,
     "tags": [
       "time-distance-speed",
@@ -17891,7 +19021,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "storehouse",
-    "problem": "A storehouse has a rectangular floor with a length of 10 meters and a width of 8 meters. If the storehouse has a height of 3 meters, what is the volume of the storehouse?",
+    "problem": {
+      "natural": "A rectangular storehouse measures 10 meters in length and 8 meters in width. Its height is 3 meters. Calculate the volume of the storehouse."
+    },
     "length": 170,
     "tags": [
       "geometry",
@@ -17906,7 +19038,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "noon",
-    "problem": "There are 120 students in a school. Some students are at lunch, while the rest are still in class. If there are 30 students at lunch, how many students are still in class?",
+    "problem": {
+      "natural": "There are 120 students in a school. Some are having lunch while the rest are still in class. If 30 students are having lunch, how many students are still in class?"
+    },
     "length": 171,
     "tags": [
       "algebra",
@@ -17920,7 +19054,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "noon",
-    "problem": "A train travels at a speed of 60 km/h. If it departs at noon, when will it arrive at a station that is 300 km away?",
+    "problem": {
+      "natural": "A train travels at a speed of 60 kilometers per hour. If it departs at noon, when will it arrive at a station that is 300 kilometers away?"
+    },
     "length": 115,
     "tags": [
       "time",
@@ -17936,7 +19072,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "noon",
-    "problem": "The sun is at its highest point in the sky at noon. If a shadow of a tree is 3 meters long at noon, how tall is the tree?",
+    "problem": {
+      "natural": "At noon, the sun reaches its zenith in the sky. If a tree casts a shadow measuring 3 meters at this time, determine the height of the tree."
+    },
     "length": 121,
     "tags": [
       "geometry",
@@ -17951,7 +19089,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "noon",
-    "problem": "There are 360 students in a school. At noon, 40% of them are having lunch in the cafeteria. How many students are having lunch in the cafeteria at noon?",
+    "problem": {
+      "natural": "There are 360 students in a school. At noon, 40% of them are having lunch in the cafeteria. How many students are having lunch in the cafeteria at noon?"
+    },
     "length": 152,
     "tags": [
       "probability",
@@ -17965,7 +19105,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "illness",
-    "problem": "An illness caused a 20% reduction in the number of students at school. If there are 400 students remaining in class, how many students were originally enrolled at the school?",
+    "problem": {
+      "natural": "An illness led to a 20% decrease in student enrollment. With 400 remaining students, how many were originally enrolled at the school?"
+    },
     "length": 174,
     "tags": [
       "algebra",
@@ -17979,7 +19121,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "illness",
-    "problem": "An illness kept Maria home from school for 3 days. If she travelled at an average speed of 2 m/s to get better, how far did she travel during that time?",
+    "problem": {
+      "natural": "Maria stayed home from school for three days due to illness. If she travelled at an average speed of 2 metres per second to recover, what distance did she cover during that time?"
+    },
     "length": 152,
     "tags": [
       "time-distance-speed",
@@ -17995,7 +19139,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "illness",
-    "problem": "A doctor has designed a circular treatment room with a radius of 3 meters. If a patient needs to maintain a distance of 1.5 meters from the center of the room due to their illness, what is the area of the region where the patient can move freely within the treatment room?",
+    "problem": {
+      "natural": "A circular treatment room with a 3-meter radius has been designed by a doctor. Due to their illness, a patient needs to maintain a distance of 1.5 meters from the center of the room. What is the area of the region where the patient can move freely within the treatment room?"
+    },
     "length": 272,
     "tags": [
       "geometry",
@@ -18011,7 +19157,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "illness",
-    "problem": "There are 30 students in a class. Of those, 1 in 5 students is currently experiencing some illness. What is the probability that a randomly chosen student from the class is feeling well?",
+    "problem": {
+      "natural": "In a class of 30 students, 20 are feeling well. What is the probability that a randomly chosen student is healthy?"
+    },
     "length": 186,
     "tags": [
       "probability",
@@ -18026,7 +19174,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "ample",
-    "problem": "There are 48 colorful beads in a bag. Some of the beads are red and the rest are blue. If there are 12 more red beads than blue beads, how many red beads are there in the bag?",
+    "problem": {
+      "natural": "There are 48 colorful beads in a bag. Some are red and the rest are blue. If there are 12 more red beads than blue beads, how many red beads are there in the bag?"
+    },
     "length": 175,
     "tags": [
       "algebra",
@@ -18040,7 +19190,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "ample",
-    "problem": "An express train travels 300 km in 2 hours. How much time would it take for the train to cover an ample distance of 600 km?",
+    "problem": {
+      "natural": "An express train travels 300 kilometers in 2 hours. How long would it take for the train to cover a distance of 600 kilometers?"
+    },
     "length": 123,
     "tags": [
       "time-distance-speed",
@@ -18055,7 +19207,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "ample",
-    "problem": "An amphitheater has a circular stage with a radius of 10 meters. If the seating area extends 5 meters beyond the stage, how much space is there for seating in the amphitheater?",
+    "problem": {
+      "natural": "An amphitheater has a circular stage with a radius of 10 meters. The seating area extends 5 meters beyond the stage. How much space is there for seating in the amphitheater?"
+    },
     "length": 176,
     "tags": [
       "geometry",
@@ -18071,7 +19225,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "ample",
-    "problem": "An amphitheater has a circular seating area with a diameter of 30 meters. If the average seating area per person is 1 square meter, how many people can the amphitheater comfortably seat?",
+    "problem": {
+      "natural": "An amphitheater has a circular seating area with a diameter of 30 meters. If each person needs 1 square meter of space, how many people can the amphitheater comfortably seat?"
+    },
     "length": 186,
     "tags": [
       "probability",
@@ -18087,7 +19243,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "scale",
-    "problem": "A baker has 3kg of flour and 5kg of sugar. If he uses 2kg of flour for a cake, how many kilograms of sugar should he use so that the ratio of flour to sugar remains the same as before?",
+    "problem": {
+      "natural": "A baker has 3 kilograms of flour and 5 kilograms of sugar. If he uses 2 kilograms of flour for a cake, how many kilograms of sugar should he use so that the ratio of flour to sugar remains the same as before?"
+    },
     "length": 184,
     "tags": [
       "algebra",
@@ -18101,7 +19259,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "scale",
-    "problem": "An ant travels 30 cm at a speed of 2 cm/s. How long will it take the ant to travel 90 cm?",
+    "problem": {
+      "natural": "An ant is moving at a speed of 2 cm/s. If it travels 30 cm, how long will it take for the ant to cover a distance of 90 cm?"
+    },
     "length": 89,
     "tags": [
       "time",
@@ -18118,7 +19278,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "scale",
-    "problem": "A map has a scale of 1 cm : 10 km. If the distance between two cities on the map is 5 cm, what is the actual distance between those cities?",
+    "problem": {
+      "natural": "A map has a scale of 1 centimeter representing 10 kilometers. If the distance between two cities on the map is 5 centimeters, what is the actual distance between those cities?"
+    },
     "length": 139,
     "tags": [
       "geometry",
@@ -18133,7 +19295,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "scale",
-    "problem": "A jar contains 300 marbles, some of which are red and the rest are blue. If the probability of picking a red marble from the jar is 2/3, how many red marbles are there in the jar?",
+    "problem": {
+      "natural": "A jar holds 300 marbles, some of which are red and the rest are blue. The chances of picking a red marble are 2 out of 3. How many red marbles are there in the jar?"
+    },
     "length": 179,
     "tags": [
       "probability",
@@ -18147,7 +19311,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "recharge",
-    "problem": "There are two electric scooters that need to be recharged. One scooter needs 2.5 hours to fully recharge and the other scooter needs 3 hours to fully recharge. If you start recharging both scooters at the same time, how long will it take for both scooters to be fully charged?",
+    "problem": {
+      "natural": "Two electric scooters require recharging. One scooter takes 2.5 hours to fully charge, while the other takes 3 hours. If both scooters are started at the same time, how long will it take for both to be fully charged?"
+    },
     "length": 276,
     "tags": [
       "algebra",
@@ -18161,7 +19327,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "recharge",
-    "problem": "A phone starts with a 75% charge. If it discharges at a rate of 2% per minute, how long will it take for the phone to drain completely?",
+    "problem": {
+      "natural": "A phone starts with a 75% charge. If it discharges at a rate of 2% per minute, how long will it take for the phone to completely drain its battery?"
+    },
     "length": 135,
     "tags": [
       "time",
@@ -18177,7 +19345,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "recharge",
-    "problem": "A cylindrical battery has a radius of 2 cm and a height of 5 cm. If the battery needs to be recharged to 80% of its original energy, what is the change in the volume of the charged battery compared to the original?",
+    "problem": {
+      "natural": "A cylindrical battery with a 2 cm radius and 5 cm height needs to be recharged to 80% of its original energy. What is the percentage change in the battery's volume after charging compared to its original state?"
+    },
     "length": 214,
     "tags": [
       "geometry",
@@ -18192,7 +19362,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "recharge",
-    "problem": "A battery with a capacity of 1000mAh needs to be recharged from 20% to 80%. If the charger delivers a current of 1A, how long will it take for the battery to reach 80% charge?",
+    "problem": {
+      "natural": "A battery with a 1000mAh capacity needs to be charged from 20% to 80%. If the charger delivers a current of 1A, how long will it take for the battery to reach 80% charge?"
+    },
     "length": 175,
     "tags": [
       "probability",
@@ -18206,7 +19378,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "ripen",
-    "problem": "A farmer has 100 seedlings that he wants to plant in two fields. One field needs twice as many seedlings as the other. How many seedlings should the farmer plant in each field?",
+    "problem": {
+      "natural": "A farmer has 100 seedlings to plant in two fields. One field needs twice as many seedlings as the other. How many seedlings should the farmer plant in each field?"
+    },
     "length": 176,
     "tags": [
       "algebra",
@@ -18221,7 +19395,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "ripen",
-    "problem": "A tomato starts to ripen at a rate of 2mm/s. How long will it take for the tomato to ripen by 1cm?",
+    "problem": {
+      "natural": "A tomato starts to ripen at a rate of 2 millimetres per second. How long will it take for the tomato to ripen by 1 centimetre, given its initial state?"
+    },
     "length": 98,
     "tags": [
       "time",
@@ -18237,7 +19413,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "ripen",
-    "problem": "A circular apple orchard has a circumference of 100 meters. If each apple ripens when its distance from the center is 10 meters, how many mature apples are there in the orchard? Assume the apples are evenly spaced.",
+    "problem": {
+      "natural": "A circular apple orchard has a circumference of 100 meters. If each apple ripens when it is 10 meters away from the center, how many mature apples are there in the orchard? The apples are evenly spaced."
+    },
     "length": 214,
     "tags": [
       "geometry",
@@ -18252,7 +19430,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "ripen",
-    "problem": "A scientist wants to track the ripening process of peaches. If the peaches are considered ripe when their weight reaches 150 grams, what is the probability that a randomly picked peach from a batch of 200 peaches will be ripe if the batch's average weight is 140 grams and the standard deviation is 10 grams?",
+    "problem": {
+      "natural": "A scientist is studying the ripening process of peaches. Peaches are considered ripe when they weigh 150 grams. In a batch of 200 peaches with an average weight of 140 grams and a standard deviation of 10 grams, what is the probability that a randomly chosen peach from the batch will be ripe?"
+    },
     "length": 308,
     "tags": [
       "probability",
@@ -18267,7 +19447,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "angle",
-    "problem": "An angle is twice as big as its complement. What is the measure of the angle?",
+    "problem": {
+      "natural": "An angle is twice as large as its complement. What is the measure of the angle?"
+    },
     "length": 77,
     "tags": [
       "algebra",
@@ -18281,7 +19463,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "angle",
-    "problem": "A plane flies at a speed of 800 km/h. If the angle between its direction and a fixed point is changing at a rate of 0.5 radians/h, how far has the plane moved along the fixed point after 2 hours?",
+    "problem": {
+      "natural": "A plane is flying at a speed of 800 kilometers per hour. The angle between its direction and a fixed point is changing at a rate of 0.5 radians per hour. How far has the plane moved along the fixed point after 2 hours?"
+    },
     "length": 195,
     "tags": [
       "grade-5",
@@ -18296,7 +19480,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "daunt",
-    "problem": "A daring diver dives from a 10-meter platform. If the height of the platform is 10 meters and the diver reaches a depth of 3 meters after 2 seconds, what is the average speed of the diver in meters per second?",
+    "problem": {
+      "natural": "A daring diver leaps from a 10-meter platform. If the diver reaches a depth of 3 meters in 2 seconds, what is their average speed during the dive?"
+    },
     "length": 209,
     "tags": [
       "algebra",
@@ -18311,7 +19497,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "daunt",
-    "problem": "A brave explorer travels 300 km in 6 hours. What speed did they travel at?",
+    "problem": {
+      "natural": "A courageous explorer covered 300 kilometers in 6 hours. What was their average speed during the journey?"
+    },
     "length": 74,
     "tags": [
       "time-distance-speed",
@@ -18326,7 +19514,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "daunt",
-    "problem": "A Ferris wheel has a diameter of 12 m. If the Ferris wheel makes 5 complete rotations, how high above the ground will a rider be at the highest point?",
+    "problem": {
+      "natural": "A Ferris wheel with a 12-meter diameter rotates 5 complete times. What is the maximum height a rider will reach above the ground?"
+    },
     "length": 150,
     "tags": [
       "geometry",
@@ -18341,7 +19531,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "daunt",
-    "problem": "A ball is tossed from a height of 1 meter. The probability of it landing within a circular area of 4 square meters is 1/3. What is the probability that the ball will land outside the circle?",
+    "problem": {
+      "natural": "A ball is tossed from a height of 1 meter. The probability of it landing within a circular area of 4 square meters is 1/3. What is the probability that the ball will land outside the circle?"
+    },
     "length": 190,
     "tags": [
       "probability",
@@ -18357,7 +19549,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "abiding",
-    "problem": "A baker has 4 kg of flour and 3 kg of sugar. He uses some flour and sugar to make pastries. Now he has 2 kg of flour and 2 kg of sugar left. How much flour and sugar did he use in total?",
+    "problem": {
+      "natural": "A baker had 4 kilograms of flour and 3 kilograms of sugar. After making pastries, he had 2 kilograms of flour and 2 kilograms of sugar remaining. How much flour and sugar did he use in total?"
+    },
     "length": 186,
     "tags": [
       "algebra",
@@ -18371,7 +19565,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "abiding",
-    "problem": "An train travels at a speed of 80 km/h. If the journey takes 3 hours, how far has the train traveled in total?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 kilometers per hour. If the journey takes 3 hours, what is the total distance the train covers?"
+    },
     "length": 110,
     "tags": [
       "time-distance-speed",
@@ -18386,7 +19582,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "abiding",
-    "problem": "A triangle has an area of 9 cm², and its base is twice the length of its height. What is the length of the triangle's height?",
+    "problem": {
+      "natural": "A triangle has an area of 9 square centimeters. Its base is twice the height. What is the length of the triangle's height?"
+    },
     "length": 125,
     "tags": [
       "geometry",
@@ -18402,7 +19600,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "abiding",
-    "problem": "An experiment shows that 70% of students prefer chocolate ice cream. If 30 students are randomly chosen from the school, what is the probability that at least 20 of them prefer chocolate ice cream?",
+    "problem": {
+      "natural": "An experiment reveals that 7 out of 10 students prefer chocolate ice cream. If 30 students are randomly chosen from the school, what is the probability that at least 20 of them prefer chocolate ice cream?"
+    },
     "length": 197,
     "tags": [
       "probability",
@@ -18416,7 +19616,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "pornography",
-    "problem": "A website offers two subscription plans. Plan A charges $10 per month plus $5 for every video watched. Plan B charges $15 per month plus $3 for every video watched. How many videos can you watch for the same monthly cost with either plan?",
+    "problem": {
+      "natural": "A website offers two subscription plans. Plan A costs $10 per month plus $5 for each video watched. Plan B costs $15 per month plus $3 for each video watched. How many videos can you watch for the same monthly cost with either plan?"
+    },
     "length": 238,
     "tags": [
       "algebra",
@@ -18430,7 +19632,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "pornography",
-    "problem": "A digital image travels at a speed of 10 Mbps across the internet. How many seconds will it take for the image to travel 1.5 GB?",
+    "problem": {
+      "natural": "An image travels across the internet at a speed of 10 Mbps. How many seconds will it take for the image to travel 1.5 GB?"
+    },
     "length": 128,
     "tags": [
       "grade-5",
@@ -18447,7 +19651,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "pornography",
-    "problem": "A rectangle has a perimeter of 30 cm. If the length is 2 cm longer than the width, what are the dimensions of the rectangle?",
+    "problem": {
+      "natural": "A rectangle has a perimeter of 30 cm. If the length is 2 cm more than the width, what are the dimensions of the rectangle?"
+    },
     "length": 124,
     "tags": [
       "geometry",
@@ -18462,7 +19668,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "pornography",
-    "problem": "A website claims that 80% of its users engage in pornography for less than 15 minutes. If the website has 3000 users, how many of them would you expect to spend more than 15 minutes on pornography?",
+    "problem": {
+      "natural": "A website estimates that 80% of its users engage in pornography for less than 15 minutes. If the website has 3000 users, approximately how many of them would you expect to spend more than 15 minutes on pornography?"
+    },
     "length": 197,
     "tags": [
       "probability",
@@ -18475,7 +19683,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "loyalty",
-    "problem": "A loyal friend offers to share his marbles equally with you. If you each take 12 marbles, there are 3 marbles left over. How many marbles does your friend have in total?",
+    "problem": {
+      "natural": "A loyal friend has some marbles. He offers to share them equally with you. If you each take 12 marbles, there are 3 marbles left over. How many marbles does your friend have in total?"
+    },
     "length": 169,
     "tags": [
       "algebra",
@@ -18488,7 +19698,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "loyalty",
-    "problem": "A loyal friend travels 30 kilometers at a speed of 6 kilometers per hour. How long will it take them to reach their destination?",
+    "problem": {
+      "natural": "A loyal friend travels 30 kilometers at a speed of 6 kilometers per hour. How long will the journey take?"
+    },
     "length": 128,
     "tags": [
       "time",
@@ -18504,7 +19716,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "loyalty",
-    "problem": "A circle has a radius of 5 cm. If a smaller circle is inscribed inside the larger circle, what is the radius of the smaller circle if the area of the shaded region is 4 times the area of the smaller circle?",
+    "problem": {
+      "natural": "A circle has a radius of 5 cm. If a smaller circle can be drawn inside the larger circle, what is the radius of the smaller circle if the shaded area outside the smaller circle is four times the area of the smaller circle itself?"
+    },
     "length": 206,
     "tags": [
       "geometry",
@@ -18520,7 +19734,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "loyalty",
-    "problem": "A company offers employees a loyalty program where they earn points for every euro spent on company products. The points can be redeemed for discounts or other rewards. If an employee spends €100 in a month, they earn 10 points. If they spend €200, they earn 20 points. What is the probability that an employee will earn more than 15 points in a month?",
+    "problem": {
+      "natural": "A company rewards employees with points based on their spending on company products. Each euro spent earns 10 points. If an employee spends €100 in a month, they earn 10 points. For spending €200, they get 20 points. What is the probability that an employee will earn more than 15 points in a month?"
+    },
     "length": 352,
     "tags": [
       "probability",
@@ -18534,7 +19750,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "fortitude",
-    "problem": "A train travels 300km in the same time as another train travels 240km. If the speed of the slower train is 20km/h less than the speed of the faster train, what is the speed of each train?",
+    "problem": {
+      "natural": "Two trains cover different distances. One travels 300 kilometers, while the other travels 240 kilometers. The slower train is 20 kilometers per hour slower than the faster train. What is the speed of each train?"
+    },
     "length": 187,
     "tags": [
       "algebra",
@@ -18548,7 +19766,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "fortitude",
-    "problem": "An explorer travels 360 km in 6 hours. What is the average speed of the explorer in kilometers per hour?",
+    "problem": {
+      "natural": "An explorer travels 360 kilometers in 6 hours. What is the explorer's average speed in kilometers per hour?"
+    },
     "length": 104,
     "tags": [
       "grade-5",
@@ -18564,7 +19784,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "fortitude",
-    "problem": "A rectangular field has a perimeter of 100 meters. If the length of the field is 30 meters more than the width, find the dimensions of the field.",
+    "problem": {
+      "natural": "A rectangular field has a perimeter of 100 meters. The length is 30 meters more than the width. What are the dimensions of the field?"
+    },
     "length": 145,
     "tags": [
       "geometry",
@@ -18579,7 +19801,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "fortitude",
-    "problem": "An experiment shows that the probability of landing on heads with a coin is 2/3. If you flip the coin 3 times, what is the probability that you will get exactly 2 heads?",
+    "problem": {
+      "natural": "An experiment reveals that the chance of landing on heads with a coin is 2 out of 3. What is the probability of getting exactly two heads if the coin is tossed three times?"
+    },
     "length": 169,
     "tags": [
       "probability",
@@ -18593,7 +19817,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "listener",
-    "problem": "A listener can hear both whispers and shouts. If whispers are x meters per second and shouts are y meters per second, and the listener can hear both types of sounds simultaneously, how fast is the sound traveling if the combined sound waves are 10 meters per second?",
+    "problem": {
+      "natural": "A listener can hear both whispers and shouts. Whispers travel at a speed of x meters per second, while shouts travel at y meters per second. If the listener can hear both whispers and shouts simultaneously, how fast is the combined sound traveling if the total sound waves are traveling at a speed of 10 meters per second?"
+    },
     "length": 266,
     "tags": [
       "algebra",
@@ -18608,7 +19834,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "listener",
-    "problem": "A listener travels 450 m at a speed of 10 m/s. How long will it take the listener to reach a certain point?",
+    "problem": {
+      "natural": "A listener travels 450 meters at a speed of 10 meters per second. How long will it take for the listener to reach a certain point?"
+    },
     "length": 107,
     "tags": [
       "speed",
@@ -18622,7 +19850,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "listener",
-    "problem": "A circle has a circumference of 30 cm. If the radius of the circle is a listener, how long is the listener?",
+    "problem": {
+      "natural": "A circle has a circumference of 30 cm. If the radius of the circle is equal to the length of a listener, what is the length of the listener?"
+    },
     "length": 107,
     "tags": [
       "geometry",
@@ -18638,7 +19868,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "listener",
-    "problem": "There are 20 people in a room. 15 of them are listening to a speaker. What is the probability that a randomly chosen person in the room is a listener?",
+    "problem": {
+      "natural": "There are 20 people in a room. 15 of them are listening to a speaker. What is the probability that a randomly chosen person in the room is a listener?"
+    },
     "length": 150,
     "tags": [
       "conditional-probability",
@@ -18654,7 +19886,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "wallpaper",
-    "problem": "There are 12 square meters of wallpaper in a room. The width of the wallpaper is 2 meters less than the height. What are the height and width of the wallpaper in the room?",
+    "problem": {
+      "natural": "A room has 12 square meters of wallpaper. The wallpaper's width is 2 meters less than its height. What are the room's wallpaper height and width?"
+    },
     "length": 171,
     "tags": [
       "algebra",
@@ -18668,7 +19902,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "wallpaper",
-    "problem": "A roll of wallpaper is 10 meters long. If it takes 2 minutes to hang 1 square meter of wallpaper, how many minutes will it take to hang the entire roll?",
+    "problem": {
+      "natural": "A roll of wallpaper is 10 meters long. If it takes 2 minutes to hang 1 square meter of wallpaper, how many minutes will it take to hang the entire roll?"
+    },
     "length": 152,
     "tags": [
       "geometry",
@@ -18684,7 +19920,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "wallpaper",
-    "problem": "A wallpaper roll is 10m long and has a pattern repeat of 50cm. How many square meters of wall can be covered with one roll of wallpaper?",
+    "problem": {
+      "natural": "A wallpaper roll is 10 meters long and has a repeating pattern every 50 centimeters. How many square meters of wall can be covered using one roll of wallpaper?"
+    },
     "length": 136,
     "tags": [
       "geometry",
@@ -18698,7 +19936,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "wallpaper",
-    "problem": "A wallpaper roll is 10 meters long. If a room is 4.5 meters wide and 3 meters high, what percentage of the wallpaper roll will be needed to cover the walls of the room?",
+    "problem": {
+      "natural": "A wallpaper roll is 10 meters long. If a room is 4.5 meters wide and 3 meters high, what percentage of the wallpaper roll will be needed to cover the walls of the room?"
+    },
     "length": 168,
     "tags": [
       "grade-5",
@@ -18711,7 +19951,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "redress",
-    "problem": "A train travels 360km in the same direction as a river, and then turns around and travels 240km upstream. If the train travels at a constant speed of 60km/h in still water, how fast is the river flowing? ",
+    "problem": {
+      "natural": "A train travels 360 kilometers downstream along a river and then turns around to travel 240 kilometers upstream. If the train travels at a constant speed of 60 kilometers per hour in still water, what is the speed of the river's current? Assume the river's current remains constant during the train's journey."
+    },
     "length": 204,
     "tags": [
       "algebra",
@@ -18724,7 +19966,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "redress",
-    "problem": "A train travels 180 km at an average speed of 60 km/h. If the journey took 3 hours less, what would be the new average speed of the train?",
+    "problem": {
+      "natural": "A train travels 180 kilometers at an average speed of 60 kilometers per hour. If the journey took 3 hours less, what would be the new average speed of the train?"
+    },
     "length": 138,
     "tags": [
       "time-distance-speed",
@@ -18739,7 +19983,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "redress",
-    "problem": "A triangular field has a base that is 50 m longer than its height. If the perimeter of the field is 300 m, what is the height of the field?",
+    "problem": {
+      "natural": "A triangular field has a base that is 50 meters longer than its height. The perimeter of the field is 300 meters. What is the height of the field?"
+    },
     "length": 139,
     "tags": [
       "geometry",
@@ -18754,7 +20000,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "redress",
-    "problem": "A bag of marbles contains 3 red marbles, 5 blue marbles, and 2 green marbles. If you pick out two marbles without replacement, what is the probability that both marbles are red?",
+    "problem": {
+      "natural": "A bag of marbles holds 3 red marbles, 5 blue marbles, and 2 green marbles. If you randomly pick two marbles without putting any back in the bag, what is the probability that both of them are red?"
+    },
     "length": 177,
     "tags": [
       "conditional-probability",
@@ -18768,7 +20016,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "portal",
-    "problem": "A portal transports you from the forest to a mysterious island. If you travel 3 meters per second through the portal, you arrive in 2 minutes. But if you travel 5 meters per second, your journey takes 4 minutes. How long does it take to travel through the portal if you go 4 meters per second?",
+    "problem": {
+      "natural": "A mysterious portal whisks you away from the forest to a far-off island. The portal allows you to travel at a rate of 3 meters per second, reaching your destination in 2 minutes. But if you choose to travel faster, at 5 meters per second, your journey takes 4 minutes. How long will it take you to pass through the portal if you move at a speed of 4 meters per second?"
+    },
     "length": 293,
     "tags": [
       "algebra",
@@ -18781,7 +20031,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "portal",
-    "problem": "An explorer enters a mysterious portal that transports her 120,000 km in 3 hours. What is her average speed through the portal?",
+    "problem": {
+      "natural": "An explorer enters a mysterious portal that instantly transports her 120,000 kilometers. What is her average speed through the portal?"
+    },
     "length": 127,
     "tags": [
       "time-distance-speed",
@@ -18796,7 +20048,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "portal",
-    "problem": "A portal transports you 5 meters horizontally and 3 meters vertically. What is the total distance you travel through the portal?",
+    "problem": {
+      "natural": "A portal transports you 5 meters horizontally and 3 meters vertically. What is the total distance you travel through the portal?"
+    },
     "length": 128,
     "tags": [
       "geometry",
@@ -18810,7 +20064,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "portal",
-    "problem": "There are two magical portals in a forest. One portal transports you 3 meters forward, while the other transports you 5 meters backward. If you enter both portals in the same order, how many meters will you have moved in total?",
+    "problem": {
+      "natural": "In a forest, there are two magical portals. One portal transports you 3 meters forward, while the other transports you 5 meters backward. If you enter both portals in the order mentioned, how many meters will you have moved in total after using both portals?"
+    },
     "length": 227,
     "tags": [
       "probability",
@@ -18824,7 +20080,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "beacon",
-    "problem": "A lighthouse emits a beacon that shines 12 kilometers every hour. Another lighthouse, 20 kilometers away, also emits a beacon that shines every 18 kilometers. At what time will the two beacons be visible at the same distance from both lighthouses?",
+    "problem": {
+      "natural": "Two lighthouses are 20 kilometers apart. The first lighthouse emits a beacon every hour that travels 12 kilometers. The second lighthouse emits a beacon every 18 kilometers. When will the two beacons be the same distance from both lighthouses?"
+    },
     "length": 247,
     "tags": [
       "algebra",
@@ -18838,7 +20096,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "beacon",
-    "problem": "A beacon sends out a light signal every 3 seconds. If the beacon is 120 meters away from a ship, how long will it take the light signal to reach the ship?",
+    "problem": {
+      "natural": "A lighthouse sends out a light beam every 3 seconds. If the lighthouse is 120 meters away from a ship, how long will it take for the light signal to reach the ship?"
+    },
     "length": 154,
     "tags": [
       "time-distance-speed",
@@ -18852,7 +20112,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "beacon",
-    "problem": "A lighthouse beam sweeps across the ocean, casting a 100-meter shadow on the beach. If the lighthouse is 50 meters tall, what is the length of the beam?",
+    "problem": {
+      "natural": "A lighthouse beam stretches across the ocean, casting a 100-meter shadow on the beach. If the lighthouse is 50 meters tall, what is the length of the beam?"
+    },
     "length": 152,
     "tags": [
       "geometry",
@@ -18865,7 +20127,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "beacon",
-    "problem": "A lighthouse emits a beacon every 10 seconds. If a ship is 5 kilometers away from the lighthouse, what is the probability that the beacon will be visible on any given night?",
+    "problem": {
+      "natural": "A lighthouse emits a beacon every 10 seconds. If a ship is 5 kilometers away from the lighthouse, what is the probability that the beacon will be visible on any given night?"
+    },
     "length": 173,
     "tags": [
       "conditional-probability",
@@ -18879,7 +20143,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "incense",
-    "problem": "An incense stick burns at a rate of 2 cm/minute. Another incense stick of the same length burns at a rate of 3 cm/minute. How long will it take for both incense sticks to burn out if they are lit together?",
+    "problem": {
+      "natural": "An incense stick burns at a rate of 2 centimeters per minute. Another incense stick of the same length burns at a rate of 3 centimeters per minute. How long will it take for both incense sticks to burn out if they are lit together?"
+    },
     "length": 205,
     "tags": [
       "algebra",
@@ -18894,7 +20160,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "incense",
-    "problem": "An incense stick burns at a rate of 2 cm/min. How long will it take for the incense stick to burn down if it is 10 cm long?",
+    "problem": {
+      "natural": "An incense stick is 10 cm long and burns at a rate of 2 cm/min. How long will it take for the incense stick to burn completely?"
+    },
     "length": 123,
     "tags": [
       "grade-5",
@@ -18908,7 +20176,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "incense",
-    "problem": "An incense stick is 10 cm long. If it burns at a constant rate of 2 cm/min, how much incense will be left after 15 minutes?",
+    "problem": {
+      "natural": "An incense stick is 10 cm long and burns at a constant rate of 2 cm/min. How much incense will remain after 15 minutes, given its initial length?"
+    },
     "length": 123,
     "tags": [
       "geometry",
@@ -18924,7 +20194,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "incense",
-    "problem": "An incense stick is 15 cm long. If it burns at a constant rate, leaving 3 cm unburned after 10 minutes, at what rate is the incense stick burning? ",
+    "problem": {
+      "natural": "An incense stick, 15 centimeters long, is burning steadily. If after 10 minutes, 3 centimeters remain unburned, at what rate is the incense stick burning? Assume the burning rate remains constant."
+    },
     "length": 147,
     "tags": [
       "probability",
@@ -18939,7 +20211,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "rider",
-    "problem": "A carousel has 48 horses and 18 riders. Each horse can carry two riders. How many horses and riders are there altogether?",
+    "problem": {
+      "natural": "A carousel has 48 horses and 18 riders. Each horse can carry two riders. How many people are there altogether on the carousel?"
+    },
     "length": 121,
     "tags": [
       "algebra",
@@ -18953,7 +20227,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "rider",
-    "problem": "A rider travels 120 meters in 3 minutes. What is the rider's speed in meters per minute?",
+    "problem": {
+      "natural": "A rider travels 120 meters in 3 minutes. What is the rider's speed in meters per minute?"
+    },
     "length": 88,
     "tags": [
       "time-distance-speed",
@@ -18968,7 +20244,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "rider",
-    "problem": "A Ferris wheel has a radius of 10 meters. If a rider stands at the top of the Ferris wheel, how far from the ground is the rider's feet if their legs are 1 meter long?",
+    "problem": {
+      "natural": "A Ferris wheel has a radius of 10 meters. If a rider stands at the top, how high above the ground are their feet if their legs are 1 meter long?"
+    },
     "length": 167,
     "tags": [
       "geometry",
@@ -18985,7 +20263,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "rider",
-    "problem": "There are 30 riders at a bike park. 15 of them are adults and the rest are children. What is the probability that a randomly chosen rider is a child?",
+    "problem": {
+      "natural": "A bike park has 30 riders in total. Half of them are adults. What is the probability that a randomly chosen rider is a child?"
+    },
     "length": 149,
     "tags": [
       "fractions",
@@ -18998,7 +20278,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "married",
-    "problem": "Maria is twice as old as her partner, and together they are 40 years old. How old is each of them?",
+    "problem": {
+      "natural": "Maria is twice as old as her partner. Together, they are 40 years old. How old is each of them?"
+    },
     "length": 98,
     "tags": [
       "algebra",
@@ -19012,7 +20294,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "married",
-    "problem": "A couple is married and travels at a speed of 60 km/h for 3 hours. How far have they travelled together since they got married?",
+    "problem": {
+      "natural": "A couple has been married for some time and travels at a speed of 60 kilometers per hour for 3 hours. How far have they travelled together since they got married?"
+    },
     "length": 127,
     "tags": [
       "time-distance-speed",
@@ -19026,7 +20310,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "married",
-    "problem": "A square garden is married to a rectangular garden with a perimeter of 50m. The square garden has a side length of 10m. What is the area of the rectangular garden?",
+    "problem": {
+      "natural": "A square garden with a side length of 10 meters is connected to a rectangular garden with a perimeter of 50 meters. What is the area of the rectangular garden?"
+    },
     "length": 163,
     "tags": [
       "geometry",
@@ -19043,7 +20329,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "married",
-    "problem": "There are 10 married couples in a town. What is the probability that exactly 3 of them are celebrating their 10th anniversary this year?",
+    "problem": {
+      "natural": "In a town with 10 married couples, what is the probability that exactly 3 of them are celebrating their 10th anniversary this year?"
+    },
     "length": 136,
     "tags": [
       "conditional-probability",
@@ -19057,7 +20345,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "debut",
-    "problem": "An artist is showcasing their debut collection of paintings. They sell each painting for 3x euros and a canvas for 2y euros. If they sell 5 paintings and 3 canvases, they earn 105 euros. How much does each painting cost?",
+    "problem": {
+      "natural": "An artist is showcasing their debut collection of paintings. Each painting is sold for 3 times the price of a canvas. If they sell 5 paintings and 3 canvases, their total earnings are 105 euros. What is the price of each painting?"
+    },
     "length": 220,
     "tags": [
       "algebra",
@@ -19071,7 +20361,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "debut",
-    "problem": "A train makes its debut on a new route. If it travels 300 km in 5 hours, what is its average speed in kilometers per hour?",
+    "problem": {
+      "natural": "A train is embarking on a brand-new route. If it covers 300 kilometers in 5 hours, what is its average speed in kilometers per hour?"
+    },
     "length": 122,
     "tags": [
       "algebra",
@@ -19087,7 +20379,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "debut",
-    "problem": "A circular platform makes its debut at the local fair. Its radius is 3 meters. What is the area of the platform?",
+    "problem": {
+      "natural": "A circular platform has just arrived at the local fair. Its diameter is 6 meters. What is the area of the platform?"
+    },
     "length": 112,
     "tags": [
       "geometry",
@@ -19102,7 +20396,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "debut",
-    "problem": "An artist is preparing for their debut exhibition. They have 12 paintings to display, and they want to choose 5 of them to showcase. How many different ways can they choose the 5 paintings?",
+    "problem": {
+      "natural": "An artist has 12 paintings to display in their debut exhibition. How many different ways can they choose 5 of them to showcase?"
+    },
     "length": 189,
     "tags": [
       "probability",
@@ -19115,7 +20411,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "solidly",
-    "problem": "A rectangular garden bed is 2 meters longer than its width. The perimeter of the garden bed is 40 meters. Find the length and width of the garden bed.",
+    "problem": {
+      "natural": "A rectangular garden bed is 2 meters longer than its width. The perimeter of the garden bed is 40 meters. Determine the length and width of the garden bed."
+    },
     "length": 150,
     "tags": [
       "algebra",
@@ -19130,7 +20428,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "solidly",
-    "problem": "A train travels 300 km at a steady speed. If it covered the distance in 5 hours less, its speed would be 20 km/h slower. What was the train's speed?",
+    "problem": {
+      "natural": "A train travels 300 kilometers at a steady speed. If it had covered the distance in 5 hours less, its speed would have been 20 kilometers per hour slower. What was the train's speed?"
+    },
     "length": 148,
     "tags": [
       "time-distance-speed",
@@ -19145,7 +20445,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "solidly",
-    "problem": "A cube has a side length of 5 cm. What is the volume of the cube, solidly measured in cubic centimeters?",
+    "problem": {
+      "natural": "Determine the volume, in cubic centimeters, of a cube with a side length of 5 centimeters."
+    },
     "length": 104,
     "tags": [
       "geometry",
@@ -19159,7 +20461,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "solidly",
-    "problem": "A solid cylinder of aluminum is 10 cm long and has a diameter of 2 cm. If the density of aluminum is 2,700 kg/m^3, what is the mass of the cylinder?",
+    "problem": {
+      "natural": "A cylinder of aluminum, 10 cm long and with a 2 cm diameter, has a density of 2,700 kg/m^3. What is the mass of the cylinder?"
+    },
     "length": 148,
     "tags": [
       "probability",
@@ -19174,7 +20478,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "census",
-    "problem": "There are 350 students in a school. Some are in middle school and some are in high school. The number of middle school students is 20% less than the number of high school students. How many students are in each school?",
+    "problem": {
+      "natural": "There are 350 students in a school. Some are in middle school and some are in high school. The number of middle school students is 20% less than the number of high school students. How many students are in each school?"
+    },
     "length": 218,
     "tags": [
       "algebra",
@@ -19188,7 +20494,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "census",
-    "problem": "A census is being taken in a town with a population of 10,000 people. If the census takers can interview 200 people per hour, how many hours will it take them to complete the census?",
+    "problem": {
+      "natural": "A census is being conducted in a town with a population of 10,000 people. If census takers can interview 200 people per hour, how many hours will it take them to complete the census?"
+    },
     "length": 182,
     "tags": [
       "time",
@@ -19203,7 +20511,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "census",
-    "problem": "There are 48 classrooms in a school district. Each classroom has an average of 25 students. How many students are there in the entire district?",
+    "problem": {
+      "natural": "In a school district with 48 classrooms, each with an average of 25 students, how many students are there in total across the district?"
+    },
     "length": 143,
     "tags": [
       "geometry",
@@ -19219,7 +20529,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "census",
-    "problem": "There are 3 schools in a district with a total student population of 15,000. A census reveals that 20% of students walk to school, 40% take the bus, and the rest take private transport. How many students take private transport to school?",
+    "problem": {
+      "natural": "There are three schools in a district with a total student population of 15,000. A recent census revealed that 20% of students walk or bike to school, while 40% take the bus. How many students take private transport to school?"
+    },
     "length": 237,
     "tags": [
       "probability",
@@ -19233,7 +20545,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "hundredth",
-    "problem": "There are 100 squares of equal size arranged in a rectangle. The perimeter of the rectangle is 100 cm. What is the area of one square?",
+    "problem": {
+      "natural": "A rectangle is formed by 100 equal squares. The perimeter of the rectangle is 100 cm. What is the area of one square?"
+    },
     "length": 134,
     "tags": [
       "algebra",
@@ -19250,7 +20564,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "hundredth",
-    "problem": "A train travels 100 kilometers at a speed of 80 kilometers per hour. How many hours will it take for the train to travel the hundredth kilometer?",
+    "problem": {
+      "natural": "A train travels at a speed of 80 kilometers per hour. How many hours will it take for the train to travel the final kilometer of its 100-kilometer journey?"
+    },
     "length": 145,
     "tags": [
       "grade-5",
@@ -19268,7 +20584,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "hundredth",
-    "problem": "The perimeter of a square garden is 100 meters. What is the length of one side in centimeters?",
+    "problem": {
+      "natural": "The perimeter of a square garden is 100 meters. What is the length of one side in centimeters?"
+    },
     "length": 94,
     "tags": [
       "geometry",
@@ -19284,7 +20602,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "hundredth",
-    "problem": "A jar contains 100 marbles, of which 25 are blue. If you randomly pick 5 marbles from the jar, what is the probability that exactly 2 of them are blue?",
+    "problem": {
+      "natural": "A jar holds 100 marbles, with 25 of them being blue. If you randomly pick 5 marbles from the jar, what is the probability that exactly two of them are blue?"
+    },
     "length": 151,
     "tags": [
       "probability",
@@ -19298,7 +20618,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "lagoon",
-    "problem": "A lagoon has a surface area of 100 square meters. The depth of the lagoon is 2 meters more than half its surface area. Find the depth of the lagoon.",
+    "problem": {
+      "natural": "A lagoon covers 100 square meters of surface area. The depth of the lagoon is 2 meters more than half of its surface area. What is the depth of the lagoon?"
+    },
     "length": 148,
     "tags": [
       "algebra",
@@ -19312,7 +20634,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "lagoon",
-    "problem": "A swimmer starts from the edge of a 1.5 km lagoon and swims at a speed of 1.2 m/s. How long will it take them to reach the opposite side of the lagoon?",
+    "problem": {
+      "natural": "A swimmer starts swimming from the edge of a 1.5 kilometer lagoon and travels at a speed of 1.2 meters per second. How long will it take them to reach the opposite side of the lagoon?"
+    },
     "length": 151,
     "tags": [
       "time-distance-speed",
@@ -19327,7 +20651,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "lagoon",
-    "problem": "A lagoon is a large, shallow body of water surrounded by land. The perimeter of a lagoon is 300 meters. If the width of the lagoon is 50 meters, what is the length of the lagoon?",
+    "problem": {
+      "natural": "A lagoon is a large, shallow body of water surrounded by land. Its perimeter is 300 meters. If the width of the lagoon is 50 meters, find its length."
+    },
     "length": 178,
     "tags": [
       "geometry",
@@ -19343,7 +20669,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "lagoon",
-    "problem": "A lagoon is 150 m long and 50 m wide. If the water depth is 2 m at one end and 3 m at the other, what is the average depth of the lagoon?",
+    "problem": {
+      "natural": "A lagoon measures 150 m in length and 50 m in width. The depth of the water varies from 2 m at one end to 3 m at the other. What is the average depth of the lagoon?"
+    },
     "length": 137,
     "tags": [
       "statistics",
@@ -19357,7 +20685,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "carol",
-    "problem": "Carol has 24 red beads and 18 blue beads. She wants to make two necklaces, one with the red beads and the other with the blue beads. How many beads should she put on each necklace?",
+    "problem": {
+      "natural": "Carol has 24 red beads and 18 blue beads. She wants to make two necklaces, one with the red beads and the other with the blue beads. How many beads should she put on each necklace?"
+    },
     "length": 180,
     "tags": [
       "algebra",
@@ -19370,7 +20700,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "carol",
-    "problem": "A carol singer travels 300 meters in 6 minutes. At what speed did the singer travel in meters per minute?",
+    "problem": {
+      "natural": "A carol singer travels 300 meters in 6 minutes. What was the singer's speed in meters per minute?"
+    },
     "length": 105,
     "tags": [
       "time",
@@ -19386,7 +20718,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "carol",
-    "problem": "A carol is a triangular-shaped decoration often hung on a Christmas tree. If the carol's base is 15 cm and its height is 20 cm, what is its area?",
+    "problem": {
+      "natural": "A triangular-shaped carol is often hung on Christmas trees. If the carol has a base of 15 cm and a height of 20 cm, what is its area?"
+    },
     "length": 145,
     "tags": [
       "geometry",
@@ -19402,7 +20736,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "carol",
-    "problem": "Carol wants to choose a gift for her friend. She has a budget of 100 €. There are gifts ranging from 20 € to 80 €. What is the probability that Carol will choose a gift that costs less than 50 €, knowing that each gift is equally likely to be chosen?",
+    "problem": {
+      "natural": "Carol wants to pick a gift for her friend from a selection of items costing between 20 € and 80 €. Knowing that each gift is equally likely to be chosen, what is the probability that she will select a gift that costs less than 50 €?"
+    },
     "length": 250,
     "tags": [
       "probability",
@@ -19416,7 +20752,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "dawn",
-    "problem": "The first rays of dawn stretch 40 cm from the horizon, while the tallest tree casts a 30 cm shadow at the same time. How tall is the tree if the ground is level?",
+    "problem": {
+      "natural": "The first rays of dawn stretch 40 cm from the horizon. Simultaneously, the tallest tree casts a 30 cm shadow. How tall is the tree, assuming the ground is level?"
+    },
     "length": 161,
     "tags": [
       "algebra",
@@ -19430,7 +20768,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "dawn",
-    "problem": "The first rays of dawn reach the horizon at a speed of 15 meters per second. If the first rays are spotted 75 kilometers from the horizon at sunrise, how long did it take for the first rays to reach the horizon?",
+    "problem": {
+      "natural": "The first rays of dawn travel towards the horizon at a speed of 15 meters per second. If the first rays are spotted 75 kilometers from the horizon at sunrise, how long did it take for the first rays to reach the horizon?"
+    },
     "length": 211,
     "tags": [
       "time",
@@ -19447,7 +20787,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "dawn",
-    "problem": "The first rays of dawn stretch out in a circular pattern from a point directly above the horizon. If the radius of the circle is 500 meters, what is the circumference of the circle at dawn?",
+    "problem": {
+      "natural": "The first rays of dawn extend outwards in a circular pattern from a point directly above the horizon. If the circle has a radius of 500 meters, what is the circumference of the circle at dawn?"
+    },
     "length": 189,
     "tags": [
       "geometry",
@@ -19463,7 +20805,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "dawn",
-    "problem": "The first rays of dawn appear on the horizon at an average of 6.30 AM. If there are 27 degrees of rotation from the horizon to the peak of the sun at dawn, what is the probability that the peak of the sun will be more than 24 degrees from the horizon at dawn?",
+    "problem": {
+      "natural": "The first rays of dawn typically appear on the horizon around 6:30 AM. The sun rotates 27 degrees from the horizon to its peak at dawn. What is the probability that the sun's peak will be more than 24 degrees from the horizon at dawn?"
+    },
     "length": 259,
     "tags": [
       "probability",
@@ -19477,7 +20821,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "vibration",
-    "problem": "A tuning fork vibrating at 440 Hz creates standing waves in a 1.5 m long string. The distance between two adjacent nodes is 20 cm. What is the wave speed on the string? ",
+    "problem": {
+      "Natural": "A tuning fork vibrating at a frequency of 440 Hz creates standing waves on a 1.5 meter long string. The distance between consecutive nodes in the standing wave is 20 centimeters. What is the speed of the waves on the string?"
+    },
     "length": 169,
     "tags": [
       "algebra",
@@ -19490,7 +20836,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "vibration",
-    "problem": "A tuning fork is vibrating at a frequency of 440 hertz. If the wave travels at a speed of 340 meters per second, how long will it take for the wave to travel 1 meter?",
+    "problem": {
+      "natural": "A tuning fork is vibrating at a frequency of 440 hertz. The wave travels at a speed of 340 meters per second. How long will it take for the wave to travel 1 meter?"
+    },
     "length": 166,
     "tags": [
       "speed",
@@ -19506,7 +20854,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "vibration",
-    "problem": "A rectangular plate undergoes vibrations causing its dimensions to change periodically. If the initial dimensions are 10 cm by 8 cm, and the vibration amplitude is 2 mm, what is the area of the plate after it undergoes the vibrations?",
+    "problem": {
+      "natural": "A rectangular plate starts vibrating, causing its size to change periodically. Initially, the plate is 10 cm by 8 cm. If the vibration amplitude is 2 mm, what is the area of the plate after it has vibrated?"
+    },
     "length": 234,
     "tags": [
       "geometry",
@@ -19521,7 +20871,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "vibration",
-    "problem": "A tuning fork is vibrating at a frequency of 440 Hz. If the length of the tuning fork is 20 cm, what is the wavelength of the sound produced by the tuning fork?",
+    "problem": {
+      "natural": "A tuning fork vibrating at 440 Hz has a length of 20 cm. What is the wavelength of the sound it produces?"
+    },
     "length": 160,
     "tags": [
       "physics",
@@ -19535,7 +20887,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "photographic",
-    "problem": "A photographer wants to capture the perfect sunset. The height of the tallest dune is 20 meters, and the photographer wants to position the camera so that the dune is exactly half its height above the ground. What are the heights of the camera and the dune relative to the ground?",
+    "problem": {
+      "natural": "A photographer wants to capture the perfect sunset. The tallest dune is 20 meters tall. To get the best shot, they need to position the camera so that the dune is exactly half its height above the ground. What are the heights of both the camera and the dune relative to the ground?"
+    },
     "length": 280,
     "tags": [
       "algebra",
@@ -19548,7 +20902,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "photographic",
-    "problem": "A photographer travels 120m at a speed of 3m/s to reach a photoshoot location. If the photoshoot starts in 4s, how long will it be until the photographer arrives at the location?",
+    "problem": {
+      "natural": "A photographer needs to travel 120 meters to reach a photoshoot location. If the photoshoot starts in 4 seconds, how long will it take the photographer to get there, moving at a speed of 3 meters per second?"
+    },
     "length": 178,
     "tags": [
       "grade-5",
@@ -19564,7 +20920,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "photographic",
-    "problem": "A rectangular photo frame has a perimeter of 100 cm. If the width of the frame is 20 cm, what is the length of the frame?",
+    "problem": {
+      "natural": "A rectangular photo frame has a perimeter of 100 cm. If the width of the frame is 20 cm, find the length of the frame."
+    },
     "length": 121,
     "tags": [
       "geometry",
@@ -19579,7 +20937,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "photographic",
-    "problem": "A photographer wants to capture the perfect sunset. The probability of the sky being clear at any given moment is 2/3. What is the probability that the photographer will need to wait for at least 3 clear moments to capture the perfect sunset?",
+    "problem": {
+      "natural": "A photographer hopes to capture the perfect sunset. The sky is clear at any given moment with a probability of 2 out of 3. What is the probability that the photographer will need to wait for at least 3 consecutive clear moments before capturing the perfect sunset?"
+    },
     "length": 242,
     "tags": [
       "probability",
@@ -19592,7 +20952,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "brook",
-    "problem": "A brook is 3 meters wider than half its length. If the brook is 10 meters long, how wide is it?",
+    "problem": {
+      "natural": "A brook is 3 meters wider than half its length. If the brook is 10 meters long, what is its width?"
+    },
     "length": 95,
     "tags": [
       "algebra",
@@ -19606,7 +20968,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "time-distance-speed",
     "input": "brook",
-    "problem": "A brook flows at a speed of 3 meters per second. How long will it take for the brook to travel 120 meters?",
+    "problem": {
+      "natural": "A brook flows at a speed of 3 meters per second. How long will it take for the brook to travel 120 meters?"
+    },
     "length": 106,
     "tags": [
       "time",
@@ -19623,7 +20987,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "geometry",
     "input": "brook",
-    "problem": "A brook is 480 m long. If the width of the brook is half its length, what is the perimeter of the brook's bounding rectangle?",
+    "problem": {
+      "natural": "A brook is 480 meters long. If its width is half its length, what is the perimeter of the rectangle formed by the brook's boundaries?"
+    },
     "length": 125,
     "tags": [
       "geometry",
@@ -19638,7 +21004,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "probability",
     "input": "brook",
-    "problem": "A brook has a width of 3.5 m and a depth of 1.2 m. What is the volume of water in the brook if its length is 50 m?",
+    "problem": {
+      "natural": "A brook measures 3.5 meters in width and 1.2 meters in depth. What is the volume of water in the brook if it extends for 50 meters?"
+    },
     "length": 114,
     "tags": [
       "grade-5",
@@ -19651,7 +21019,9 @@ export const problems = [
     "model": "gemma:7b",
     "generator": "two-variable-algebra",
     "input": "assertive",
-    "problem": "There are 50 pencils in total in two boxes. One box has 20 pencils less than the other. How many pencils are there in each box?",
+    "problem": {
+      "natural": "There are 50 pencils in two boxes in total. One box has 20 fewer pencils than the other. How many pencils are there in each box?"
+    },
     "length": 127,
     "tags": [
       "algebra",
