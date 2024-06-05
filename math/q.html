@@ -101,7 +101,7 @@
     import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem } from './common.js';
 
     const problems = await loadProblems();
-    const { weights, requiredTags } = await loadTags();
+    const { limits, requiredTags } = await loadTags();
 
     const decodeSignature = (params) => {
       const s = params.get('s');
@@ -115,7 +115,7 @@
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
 
-    const chooseProblem = (chosen, problems) => {
+    const chooseProblem = (chosen, tagUses, problems) => {
       if (s.length > 0) {
         const id = s.shift();
         for (const problem of problems) {
@@ -130,13 +130,19 @@
         if (chosen.has(problem) || problem.note.isBlocked) {
           continue;
         }
-        let threshold = 1;
         if (!problem.tags || problem.tags.length === 0) {
           continue;
         }
+        let exclude = false;
         for (const tag of problem.tags) {
-          const { weight = 100 } = weights[tag] === undefined ? {} : weights[tag];
-          threshold *= weight / 100;
+          const { limit = 1 } = limits[tag] === undefined ? {} : limits[tag];
+          if (limit <= (tagUses.get(tag) || 0)) {
+            exclude = true;
+            break;
+          }
+        }
+        if (exclude) {
+          continue;
         }
         let hasRequiredTags = true;
         for (const tag of requiredTags) {
@@ -145,12 +151,11 @@
             break;
           }
         }
-        if (!hasRequiredTags || threshold === 0) {
+        if (!hasRequiredTags) {
           continue;
         }
-        threshold *= problem.note.weight;
-        seen += threshold;
-        if (Math.random() * seen <= threshold) {
+        seen += 1;
+        if (Math.random() * seen <= 1) {
           chosenProblem = problem;
         }
       }
@@ -158,6 +163,7 @@
     }
 
     const chosen = new Set();
+    const tagUses = new Map();
 
     const signature = [];
 
@@ -203,7 +209,7 @@
 
     const renderColumn = async (column) => {
       for (let nth = 0; nth < 7; nth++) {
-        const problem = chooseProblem(chosen, problems);
+        const problem = chooseProblem(chosen, tagUses, problems);
         if (problem === undefined) {
           continue;
         }
@@ -211,6 +217,9 @@
         column.appendChild(e);
         signature.push(problem.id);
         chosen.add(problem);
+        for (const tag of problem.tags) {
+          tagUses.set(tag, (tagUses.get(tag) || 0) + 1);
+        }
         problemByRender.set(e, problem);
       }
     };

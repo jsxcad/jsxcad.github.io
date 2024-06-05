@@ -29,7 +29,7 @@
      padding-left: 1em;
    }
 
-   .weight {
+   .limit {
      width: 4em;
    }
 
@@ -61,7 +61,7 @@
     };
 
     const build = async () => {
-      const weights = (await IDB.get('weights')) || {};
+      const limits = (await IDB.get('limits')) || {};
 
       const tagsElement = document.getElementById('tags');
 
@@ -79,30 +79,30 @@
 
       const update = async () => {
         for (const { tag, inputId } of fields) {
-          const weight = Number(document.getElementById(`${inputId}-weight`).value);
+          const limit = Number(document.getElementById(`${inputId}-limit`).value);
           const isRequired = Boolean(document.getElementById(`${inputId}-isRequired`).checked);
-          weights[tag] = { weight, isRequired };
+          limits[tag] = { limit, isRequired };
         }
-        await IDB.set('weights', weights);
+        await IDB.set('limits', limits);
       };
 
       document.getElementById('update').addEventListener('click', (e) => update());
 
       let nth = 0;
-      for (const [tag, weight] of sorted(tags)) {
+      for (const [tag, limit] of sorted(tags)) {
         const inputId = `input-${nth}`;
-        let entry = weights[tag];
+        let entry = limits[tag];
         if (entry === undefined || typeof entry != 'object') {
           entry = {};
         }
-        const { weight = 100, isRequired = false } = entry;
+        const { limit = 1, isRequired = false } = entry;
         const e = document.createElement('div');
         e.classList.add('item');
         e.innerHTML = 
           `
             <div class="entry ${(nth % 2) ? 'odd' : 'even'}">
-              <input id="${inputId}-weight" class="weight" size="3" type="number" value="${weight}">
-              <input id="${inputId}-isRequired" class="weight" size="3" type="checkbox" ${isRequired ? 'checked' : ''}>
+              <input id="${inputId}-limit" class="limit" size="3" type="number" value="${limit}">
+              <input id="${inputId}-isRequired" class="limit" size="3" type="checkbox" ${isRequired ? 'checked' : ''}>
               <span class="tag">${tag}</span>
             </div>
           `;

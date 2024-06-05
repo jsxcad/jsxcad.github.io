@@ -11,15 +11,15 @@ export const loadNote = async (key) => {
 };
 
 export const loadTags = async () => {
-  const weights = (await IDB.get('weights')) || {};
+  const limits = (await IDB.get('limits')) || {};
   const requiredTags = new Set();
-  for (const tag of Object.keys(weights)) {
-    const { isRequired = false } = weights[tag];
+  for (const tag of Object.keys(limits)) {
+    const { isRequired = false } = limits[tag];
     if (isRequired) {
       requiredTags.add(tag);
     }
   }
-  return { weights, requiredTags };
+  return { limits, requiredTags };
 };
     
 export const loadProblems = async () => {

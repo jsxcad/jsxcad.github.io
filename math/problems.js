@@ -1637,7 +1637,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 132
+    "id": 132,
+    "solution": "reason"
   },
   {
     "generator": "two-variable-algebra",
@@ -19683,7 +19684,8 @@ export const problems = [
       "grammar",
       "missing-word"
     ],
-    "id": 1456
+    "id": 1456,
+    "solution": "grievance"
   },
   {
     "model": "gemma:7b",
@@ -19708,7 +19710,8 @@ export const problems = [
       "chemistry",
       "missing-word"
     ],
-    "id": 1458
+    "id": 1458,
+    "solution": "sulfur"
   },
   {
     "model": "gemma:7b",
@@ -19745,7 +19748,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1461
+    "id": 1461,
+    "solution": "walking"
   },
   {
     "model": "gemma:7b",
@@ -19809,7 +19813,8 @@ export const problems = [
       "geometry",
       "missing-word"
     ],
-    "id": 1466
+    "id": 1466,
+    "solution": "length"
   },
   {
     "model": "gemma:7b",
@@ -19837,7 +19842,8 @@ export const problems = [
       "comprehension",
       "missing-word"
     ],
-    "id": 1468
+    "id": 1468,
+    "solution": "novel"
   },
   {
     "model": "gemma:7b",
@@ -19876,7 +19882,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1471
+    "id": 1471,
+    "solution": "captain"
   },
   {
     "model": "gemma:7b",
@@ -19899,7 +19906,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1473
+    "id": 1473,
+    "solution": "lemonade"
   },
   {
     "model": "gemma:7b",
@@ -19937,7 +19945,8 @@ export const problems = [
       "measurement",
       "missing-word"
     ],
-    "id": 1476
+    "id": 1476,
+    "solution": "necessary"
   },
   {
     "model": "gemma:7b",
@@ -19963,7 +19972,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1478
+    "id": 1478,
+    "solution": "Sunday"
   },
   {
     "model": "gemma:7b",
@@ -19988,7 +19998,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1480
+    "id": 1480,
+    "solution": "softly"
   },
   {
     "model": "gemma:7b",
@@ -20066,7 +20077,8 @@ export const problems = [
       "statistics",
       "missing-word"
     ],
-    "id": 1486
+    "id": 1486,
+    "solution": "possible"
   },
   {
     "model": "gemma:7b",
@@ -20092,7 +20104,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1488
+    "id": 1488,
+    "solution": "basement"
   },
   {
     "model": "gemma:7b",
@@ -20117,7 +20130,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1490
+    "id": 1490,
+    "solution": "epilepsy"
   },
   {
     "model": "gemma:7b",
@@ -20164,7 +20178,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1494
+    "id": 1494,
+    "solution": "businesswoman"
   },
   {
     "model": "gemma:7b",
@@ -20203,7 +20218,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1497
+    "id": 1497,
+    "solution": "wildly"
   },
   {
     "model": "gemma:7b",
@@ -20293,7 +20309,8 @@ export const problems = [
       "science",
       "missing-word"
     ],
-    "id": 1504
+    "id": 1504,
+    "solution": "reaction"
   },
   {
     "model": "gemma:7b",
@@ -20318,7 +20335,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1506
+    "id": 1506,
+    "solution": "unlucky"
   },
   {
     "model": "gemma:7b",
@@ -20382,7 +20400,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1511
+    "id": 1511,
+    "solution": "climbing"
   },
   {
     "model": "gemma:7b",
@@ -20410,7 +20429,8 @@ export const problems = [
       "percentage",
       "missing-word"
     ],
-    "id": 1513
+    "id": 1513,
+    "solution": "growth"
   },
   {
     "model": "gemma:7b",
@@ -20475,7 +20495,8 @@ export const problems = [
       "grammar",
       "missing-word"
     ],
-    "id": 1518
+    "id": 1518,
+    "solution": "prefer"
   },
   {
     "model": "gemma:7b",
@@ -20499,7 +20520,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1520
+    "id": 1520,
+    "solution": "standard"
   },
   {
     "model": "gemma:7b",
@@ -20550,7 +20572,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1524
+    "id": 1524,
+    "solution": "precious"
   },
   {
     "model": "gemma:7b",
@@ -20575,7 +20598,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1526
+    "id": 1526,
+    "solution": "medal"
   },
   {
     "model": "gemma:7b",
@@ -20611,7 +20635,8 @@ export const problems = [
     "tags": [
       "missing-word"
     ],
-    "id": 1529
+    "id": 1529,
+    "solution": "period"
   },
   {
     "model": "gemma:7b",
@@ -20664,7 +20689,8 @@ export const problems = [
       "science",
       "missing-word"
     ],
-    "id": 1533
+    "id": 1533,
+    "solution": "device"
   },
   {
     "model": "gemma:7b",
@@ -20826,7 +20852,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1546
+    "id": 1546,
+    "solution": "sailing"
   },
   {
     "model": "gemma:7b",
@@ -20891,7 +20918,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1551
+    "id": 1551,
+    "solution": "tight"
   },
   {
     "model": "gemma:7b",
@@ -20918,7 +20946,8 @@ export const problems = [
       "volume",
       "missing-word"
     ],
-    "id": 1553
+    "id": 1553,
+    "solution": "explain"
   },
   {
     "model": "gemma:7b",
@@ -20943,7 +20972,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1555
+    "id": 1555,
+    "solution": "absence"
   },
   {
     "model": "gemma:7b",
@@ -20980,7 +21010,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1558
+    "id": 1558,
+    "solution": "offense"
   },
   {
     "model": "gemma:7b",
@@ -21004,7 +21035,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1560
+    "id": 1560,
+    "solution": "energy"
   },
   {
     "model": "gemma:7b",
@@ -21072,7 +21104,8 @@ export const problems = [
       "grammar",
       "missing-word"
     ],
-    "id": 1565
+    "id": 1565,
+    "solution": "wherever"
   },
   {
     "model": "gemma:7b",
@@ -21474,7 +21507,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1594
+    "id": 1594,
+    "solution": "movement"
   },
   {
     "model": "gemma:7b",
@@ -21628,7 +21662,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1605
+    "id": 1605,
+    "solution": "better"
   },
   {
     "model": "gemma:7b",
@@ -21699,7 +21734,8 @@ export const problems = [
       "vocabulary",
       "missing-word"
     ],
-    "id": 1610
+    "id": 1610,
+    "solution": "index"
   },
   {
     "model": "gemma:7b",
@@ -22055,7 +22091,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1636
+    "id": 1636,
+    "solution": "goods"
   },
   {
     "model": "gemma:7b",
@@ -22579,7 +22616,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1674
+    "id": 1674,
+    "solution": "garlic"
   },
   {
     "model": "gemma:7b",
@@ -22893,7 +22931,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1697
+    "id": 1697,
+    "solution": "thick"
   },
   {
     "model": "gemma:7b",
@@ -23026,7 +23065,8 @@ export const problems = [
     "tags": [
       "missing-word"
     ],
-    "id": 1707
+    "id": 1707,
+    "solution": "forgive"
   },
   {
     "model": "gemma:7b",
@@ -23065,7 +23105,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1710
+    "id": 1710,
+    "solution": "technical"
   },
   {
     "model": "gemma:7b",
@@ -23133,7 +23174,8 @@ export const problems = [
       "algebra",
       "missing-word"
     ],
-    "id": 1715
+    "id": 1715,
+    "solution": "always"
   },
   {
     "model": "gemma:7b",
@@ -23571,7 +23613,8 @@ export const problems = [
       "comprehension",
       "missing-word"
     ],
-    "id": 1746
+    "id": 1746,
+    "solution": "excitement"
   },
   {
     "model": "gemma:7b",
@@ -23946,7 +23989,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1773
+    "id": 1773,
+    "solution": "chapter"
   },
   {
     "model": "gemma:7b",
@@ -23985,7 +24029,8 @@ export const problems = [
     "tags": [
       "missing-word"
     ],
-    "id": 1776
+    "id": 1776,
+    "solution": "handbag"
   },
   {
     "model": "gemma:7b",
@@ -24024,7 +24069,8 @@ export const problems = [
       "grade-5",
       "missing-word"
     ],
-    "id": 1779
+    "id": 1779,
+    "solution": "casual"
   },
   {
     "model": "gemma:7b",

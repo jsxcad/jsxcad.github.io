@@ -38800,3 +38800,2884 @@
     - hanja
   id: 1717513243806
 
+- model: gemma:7b
+  generator: gap-sentence
+  input: commercial
+  problem: The c________l production of organic fruits and vegetables has surged
+    in recent years, aiming to address the growing demand for healthier and more
+    sustainable food options.
+  length: 172
+  tags:
+    - fifth-grade
+    - agriculture
+    - sustainability
+    - healthy-eating
+    - missing-word
+  id: 1717513471648
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: foreign
+  problem: The f_____n language exchange program allows students to connect with
+    learners from all over the world.
+  length: 103
+  tags:
+    - fifth-grade
+    - language
+    - exchange
+    - foreign
+    - missing-word
+  id: 1717513706908
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: employee
+  problem: The dedicated e______e calculated the class average, ensuring each
+    student's grades were accurately recorded in the digital system.
+  length: 131
+  tags:
+    - english-composition
+    - 5th-grade
+    - mathematical-concepts
+    - data-recording
+    - missing-word
+  id: 1717513745423
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: unless
+  problem: You can join the club u____s you collect at least 10 comic books by
+    next week.
+  length: 78
+  tags:
+    - grammar-conditional-clauses
+    - vocabulary-unless
+    - reading-comprehension-5thgrade
+    - missing-word
+  id: 1717513818815
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: committee
+  problem: The school c_______e proposed a new policy to encourage students to
+    engage in regular physical activities to combat childhood obesity.
+  length: 134
+  tags:
+    - 5thGrade
+    - Committee
+    - PhysicalActivities
+    - ChildhoodObesity
+    - missing-word
+  id: 1717513856110
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: prison
+  problem: The clever escape artist practiced breaking out of a brightly lit,
+    futuristic p____n using only a toothbrush and his wit.
+  length: 121
+  tags:
+    - 5th-grade
+    - escape
+    - prison
+    - wit
+    - toothbrush
+    - missing-word
+  id: 1717513894118
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: robot
+  problem: The nimble r___t carefully maneuvered through the intricate maze,
+    navigating around towering circuits and glowing sensors.
+  length: 122
+  tags:
+    - 5thGrade
+    - Maze
+    - Robot
+    - Sensors
+    - Circuit
+    - missing-word
+  id: 1717513966265
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: front
+  problem: The brave knights stood at the f___t of the castle, their shields
+    reflecting the setting sun.
+  length: 93
+  tags:
+    - 5thGrade
+    - Adverbs
+    - DescriptiveAdjectives
+    - Geometry
+    - Perspective
+    - missing-word
+  id: 1717514041011
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: assistant
+  problem: The a_______t teacher used his mathematical skills to create a engaging
+    puzzle for the class.
+  length: 93
+  tags:
+    - english-grammar
+    - fifth-grade
+    - math-concepts
+    - puzzle-creation
+    - missing-word
+  id: 1717514076811
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: school
+  problem: The sum of the number of students in each classroom at the primary
+    s____l equals 150.
+  length: 85
+  tags:
+    - primary school
+    - mathematics
+    - addition
+    - missing-word
+  id: 1717514110976
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: month
+  problem: The sunflower's height increased by 15 centimeters every m___h during
+    the growing season.
+  length: 89
+  tags:
+    - 5thGrade
+    - Measurement
+    - Plants
+    - Time
+    - missing-word
+  id: 1717514189758
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sausage
+  problem: The hungry butcher sliced a juicy, five-meter-long s_____e into twenty
+    equal pieces for the hungry customers.
+  length: 109
+  tags:
+    - 5thGrade
+    - Grammar
+    - WordMeaning
+    - missing-word
+  id: 1717514228619
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: kettle
+  problem: The boiling water in the k____e creates a mesmerizing spiral pattern
+    that dances around the edges.
+  length: 98
+  tags:
+    - 5thGrade
+    - Geometry
+    - LiquidProperties
+    - Spirals
+    - missing-word
+  id: 1717514265826
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: somewhat
+  problem: The melody of the whistling wind s______t resembled the tune of an
+    ancient sea shanty.
+  length: 86
+  tags:
+    - 5thGrade
+    - WordMeaning
+    - FigurativeLanguage
+    - missing-word
+  id: 1717514379090
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: lesson
+  problem: The teacher realized the crucial l____n learned today would be
+    remembered long after the final bell rang.
+  length: 105
+  tags:
+    - english-grammar
+    - 5th-grade
+    - vocabulary
+    - missing-word
+  id: 1717514416223
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: lightning
+  problem: The l_______g sparked across the sky, illuminating the towering oak
+    tree in a fleeting glow.
+  length: 92
+  tags:
+    - comprehension-5
+    - figurative-language
+    - weather-phenomena
+    - grammar-adverbial-phrase
+    - missing-word
+  id: 1717514457323
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: understanding
+  problem: The author's clever use of symbolism in the story reveals a deeper
+    u___________g of the characters' motivations.
+  length: 112
+  tags:
+    - fifth-grade
+    - symbolism
+    - character motivation
+    - depth
+    - missing-word
+  id: 1717514493135
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: popular
+  problem: The newly published fantasy novel is already p_____r among young
+    readers, with some libraries reporting it's the most borrowed book this
+    month.
+  length: 143
+  tags:
+    - 5thGrade
+    - Reading
+    - Popularity
+    - Literature
+    - missing-word
+  id: 1717514573791
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: string
+  problem: The taut s____g of the violin resonates with a mesmerizing melody,
+    filling the air with a harmonious dance of sound.
+  length: 116
+  tags:
+    - 5th-grade
+    - music
+    - stringed instrument
+    - resonance
+    - harmony
+    - missing-word
+  id: 1717514649362
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: bread
+  problem: The baker carefully measured 300 grams of fresh b___d into a bowl,
+    planning to make delicious sandwiches for lunch.
+  length: 115
+  tags:
+    - comprehension
+    - 5thgrade
+    - measurement
+    - baker
+    - bread
+    - missing-word
+  id: 1717514731478
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: pride
+  problem: Her unwavering p___e in her artwork led her to confidently display it
+    in the school gallery.
+  length: 92
+  tags:
+    - 5thGrade
+    - Emotional
+    - SelfConfidence
+    - Art
+    - missing-word
+  id: 1717514766102
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: toothpaste
+  problem: The dentist estimated that the optimal amount of t________e for Liam's
+    teeth is approximately 1.5 milliliters, ensuring proper cleaning without
+    over-foaming.
+  length: 157
+  tags:
+    - 5thGrade
+    - DentalHealth
+    - Measurement
+    - missing-word
+  id: 1717514842591
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: fortune
+  problem: The mischievous squirrel unearthed a f_____e of hidden nuts in the
+    forest, giggling as it prepared for winter.
+  length: 110
+  tags:
+    - 5thGrade
+    - Treasure
+    - Animal
+    - Nature
+    - missing-word
+  id: 1717514964370
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: final
+  problem: The f___l sum of all the fractions collected during the charity drive
+    was exactly half of the total donations made.
+  length: 115
+  tags:
+    - fifth-grade
+    - fractions
+    - sum
+    - charity
+    - donation
+    - missing-word
+  id: 1717515000951
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: cushion
+  problem: The fluffy c_____n beneath the windowsill helped to absorb the gentle
+    sway of the house in the evening breeze.
+  length: 110
+  tags:
+    - 5thGrade
+    - DescriptiveSentence
+    - PrepositionalPhrases
+    - Adjective
+    - Conjunction
+    - missing-word
+  id: 1717515039239
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: dinner
+  problem: The aroma of delicious d____r fills the cozy kitchen, tempting us with
+    the promise of warm conversations and restful sleep.
+  length: 123
+  tags:
+    - 5thGrade
+    - Sensory
+    - FigurativeLanguage
+    - DinnerConcept
+    - missing-word
+  id: 1717515076018
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: structure
+  problem: The intricate s_______e of the snowflake allows it to withstand even
+    the fiercest winter winds.
+  length: 95
+  tags:
+    - 5thGrade
+    - Structure
+    - Snowflake
+    - Wind
+    - missing-word
+  id: 1717515111070
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: energy
+  problem: The kinetic e____y of the speeding bullet is directly proportional to
+    the square of its velocity.
+  length: 97
+  tags:
+    - fifth-grade
+    - physics
+    - energy
+    - velocity
+    - missing-word
+  id: 1717515152775
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: worried
+  problem: The w_____d scientist paced the laboratory, desperately searching for a
+    solution to the rapidly shrinking oxygen bubble in the containment chamber.
+  length: 147
+  tags:
+    - 5thGrade
+    - Science
+    - ProblemSolving
+    - Oxygen
+    - Containment
+    - missing-word
+  id: 1717515231955
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: change
+  problem: The scientist observed that a slight c____e in the temperature of the
+    solution led to a dramatic increase in the number of chemical reactions
+    occurring.
+  length: 152
+  tags:
+    - science
+    - chemistry
+    - temperature
+    - reaction
+    - fifth-grade
+    - missing-word
+  id: 1717515269611
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: thing
+  problem: The scientist calculated the precise t___g that makes plants grow
+    taller than the average tree in the forest.
+  length: 109
+  tags:
+    - fifth-grade
+    - comprehension
+    - scientific-knowledge
+    - measurement
+    - missing-word
+  id: 1717515345150
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: description
+  problem: The artist's d_________n of the sunset painted a mesmerizing symphony
+    of fiery hues across the canvas.
+  length: 102
+  tags:
+    - 5thGrade
+    - DescriptiveWriting
+    - Art
+    - Sunset
+    - Colors
+    - missing-word
+  id: 1717515457114
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: teenager
+  problem: The t______r meticulously calculated the optimal trajectory of the
+    paper airplane, aiming for maximum distance.
+  length: 111
+  tags:
+    - 5thGrade
+    - Calculation
+    - Teenager
+    - Trajectory
+    - PaperAirplane
+    - missing-word
+  id: 1717515493595
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: heavy
+  problem: The backpack, laden with textbooks weighing nearly , feels almost as
+    h___y as a stack of , on my shoulders.
+  length: 107
+  tags:
+    - 5thGrade
+    - Weight
+    - Measurement
+    - Units
+    - missing-word
+  id: 1717515575998
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: grade
+  problem: The scientist calculated that the g___e of purity in the experimental
+    solution was approximately 98.7%, ensuring a highly successful outcome.
+  length: 141
+  tags:
+    - science-experiment
+    - chemistry-grade
+    - percentage-calculation
+    - fifth-grade
+    - missing-word
+  id: 1717515626174
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: eighty
+  problem: The sum of the measurements of a rectangle's perimeter is e____y centimeters.
+  length: 77
+  tags:
+    - english-grammar
+    - fifth-grade
+    - metric-units
+    - perimeter
+    - rectangle
+    - missing-word
+  id: 1717515697567
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: contract
+  problem: The publisher offered a lucrative c______t for the young author's
+    groundbreaking science fiction manuscript after a fierce bidding war among
+    major publishing houses.
+  length: 165
+  tags:
+    - 5thGrade
+    - Contract
+    - Bidding
+    - ScienceFiction
+    - Author
+    - missing-word
+  id: 1717515736026
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: wonderful
+  problem: The swirling clouds above the rainbow cast a w_______l glow upon the
+    fields, painting them with hues of pink and orange.
+  length: 120
+  tags:
+    - 5thGrade
+    - ReadingComprehension
+    - DescriptiveLanguage
+    - FigurativeLanguage
+    - missing-word
+  id: 1717515849654
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: photograph
+  problem: The surrealist artist used a p________h as a starting point to create a
+    painting that defied reality.
+  length: 101
+  tags:
+    - 5thGrade
+    - Art
+    - Photo
+    - Surrealism
+    - missing-word
+  id: 1717515884806
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: training
+  problem: The athletes underwent rigorous physical t______g before the
+    competition to improve their endurance and speed.
+  length: 110
+  tags:
+    - 5thGrade
+    - PhysicalTraining
+    - Endurance
+    - Speed
+    - missing-word
+  id: 1717515964007
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: slope
+  problem: The steepest s___e of the hiking trail was 1 in 5, meaning for every 5
+    meters forward, the elevation increased by 1 meter.
+  length: 122
+  tags:
+    - fifth-grade
+    - slope
+    - elevation
+    - ratio
+    - missing-word
+  id: 1717516002638
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: shirt
+  problem: The vibrant sunflower pattern on the s___t danced like a field of
+    golden blooms in the summer breeze.
+  length: 101
+  tags:
+    - 5thGrade
+    - Pattern
+    - Clothing
+    - Nature
+    - Adjective
+    - missing-word
+  id: 1717516038047
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: nearly
+  problem: The mischievous squirrel darted across the meadow, n____y missing the
+    outstretched arm of the slumbering botanist.
+  length: 114
+  tags:
+    - 5thGrade
+    - Adverb
+    - PrepositionalPhrase
+    - missing-word
+  id: 1717516153955
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: forward
+  problem: The pilot adjusted the aircraft's course, steering it f_____d to
+    intercept the incoming signal.
+  length: 95
+  tags:
+    - fifth-grade
+    - intercept
+    - signal
+    - aircraft
+    - pilot
+    - missing-word
+  id: 1717516192062
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: vitamin
+  problem: The v_____n C in oranges helps strengthen your immune system to fight
+    off those pesky colds and flu viruses.
+  length: 108
+  tags:
+    - 5thGrade
+    - Science
+    - Vitamins
+    - Immunity
+    - Oranges
+    - missing-word
+  id: 1717516229563
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: guest
+  problem: The enthusiastic g___t speaker shared tales of exploring distant
+    galaxies, captivating the audience with his out-of-this-world stories.
+  length: 135
+  tags:
+    - fifth-grade
+    - vocabulary
+    - figurative-language
+    - missing-word
+  id: 1717516265901
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: lightly
+  problem: The playful kitten, l_____y bouncing on the soft cushion, dreamed of
+    chasing butterflies in the meadow.
+  length: 103
+  tags:
+    - grammar-complexity
+    - vocabulary-richness
+    - grade-5
+    - missing-word
+  id: 1717516301201
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: informal
+  problem: The casual conversation we had yesterday turned into an i______l debate
+    about the best way to tackle the upcoming science project.
+  length: 130
+  tags:
+    - fifth-grade
+    - discussion
+    - informal-language
+    - missing-word
+  id: 1717516338442
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: terrible
+  problem: The t______e storm tossed the tiny boat like a toy in the raging waves.
+  length: 71
+  tags:
+    - 5thGrade
+    - Weather
+    - Ocean
+    - Miniature
+    - Force
+    - missing-word
+  id: 1717516521711
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: effective
+  problem: The teacher found that using interactive games in her lessons proved
+    e_______e in boosting student engagement and improving their vocabulary
+    comprehension.
+  length: 155
+  tags:
+    - 5th grade
+    - vocabulary
+    - engagement
+    - effective
+    - missing-word
+  id: 1717516558391
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sympathy
+  problem: The orphaned puppy's shivering body elicited widespread s______y from
+    the local animal shelter volunteers, who rallied around it with warm
+    blankets and nourishing food.
+  length: 168
+  tags:
+    - 5thGrade
+    - Empathy
+    - AnimalShelter
+    - Volunteer
+    - Compassion
+    - missing-word
+  id: 1717516635013
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: content
+  problem: The c_____t of the book inspired us to create a mural that reflected
+    its themes.
+  length: 80
+  tags:
+    - 5thGrade
+    - Reading
+    - Inspiration
+    - Art
+    - missing-word
+  id: 1717516669577
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: stamp
+  problem: The postmark, a tiny blue s___p from the 19th century, still bears the
+    faded imprint of the queen's royal crest.
+  length: 112
+  tags:
+    - english-grammar
+    - vocabulary
+    - history
+    - fifth-grade
+    - missing-word
+  id: 1717516784883
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: different
+  problem: The students discovered that their d_______t approaches to solving the
+    math problem led to surprisingly similar solutions.
+  length: 122
+  tags:
+    - 5th-grade-comprehension
+    - math-problem
+    - different-approaches
+    - similar-solutions
+    - missing-word
+  id: 1717516862943
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: career
+  problem: After meticulously plotting her c____r trajectory, Maya realized that
+    her greatest achievements involved helping others reach their own goals.
+  length: 142
+  tags:
+    - 5thGrade
+    - CareerPlanning
+    - GoalSetting
+    - missing-word
+  id: 1717516979583
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: terribly
+  problem: The waves crashed t______y against the towering cliffs, sending salty
+    spray flying everywhere.
+  length: 94
+  tags:
+    - 5thGrade
+    - FigurativeLanguage
+    - DescriptiveAdjectives
+    - Nature
+    - missing-word
+  id: 1717517016454
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: foreigner
+  problem: The f_______r wandered the bustling marketplace, captivated by the
+    vibrant spices and colorful fabrics.
+  length: 103
+  tags:
+    - 5thGrade
+    - Comprehension
+    - Vocabulary
+    - missing-word
+  id: 1717517087139
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: ninth
+  problem: The mischievous squirrel darted from the n___h oak tree, collecting
+    nuts for the winter.
+  length: 88
+  tags:
+    - fifth-grade
+    - noun-phrase
+    - adverb
+    - prepositional-phrase
+    - missing-word
+  id: 1717517122642
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: bucket
+  problem: The tide carried a brightly painted b____t filled with seashells
+    towards the towering cliffs.
+  length: 93
+  tags:
+    - fifth-grade
+    - ocean
+    - seashells
+    - cliffs
+    - missing-word
+  id: 1717517157562
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: present
+  problem: The artist used vibrant p_____t hues to capture the fleeting beauty of
+    the sunset.
+  length: 82
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Color
+    - missing-word
+  id: 1717517189990
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: grievance
+  problem: The students presented a formal g_______e regarding the unfair
+    allocation of homework, claiming that the workload exceeded their weekly
+    capacity of 20 hours.
+  length: 157
+  tags:
+    - english-language-arts
+    - grammar
+    - vocabulary
+    - 5th-grade
+    - missing-word
+  id: 1717517231006
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: prize
+  problem: The artist proudly displayed her intricate painting as a p___e for
+    capturing the essence of the changing seasons.
+  length: 113
+  tags:
+    - fifth-grade
+    - prize-winning
+    - art-and-crafts
+    - missing-word
+  id: 1717517342999
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: security
+  problem: The company implemented robust s______y measures to protect its
+    sensitive data from unauthorized access, ensuring that only authorized
+    employees could access it.
+  length: 161
+  tags:
+    - 5thGrade
+    - DataSecurity
+    - AccessControl
+    - missing-word
+  id: 1717517380419
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: solve
+  problem: The mechanic needs to s___e the problem of a flat tire, which is
+    causing a delay of 2.5 hours in the delivery of the pizza, according to the
+    delivery app.
+  length: 154
+  tags:
+    - word-problem
+    - fraction
+    - measurement
+    - delivery
+    - mechanics
+    - missing-word
+  id: 1717517495075
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: eleventh
+  problem: The e______h planet from the sun in our solar system is Neptune, known
+    for its stormy atmosphere and icy landscapes.
+  length: 116
+  tags:
+    - fifth-grade
+    - planetary-science
+    - solar-system
+    - missing-word
+  id: 1717517644790
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: performance
+  problem: The audience gasped in awe at the exceptional p_________e of the young
+    musicians, who flawlessly executed a complex musical composition.
+  length: 136
+  tags:
+    - 5thGrade
+    - MusicPerformance
+    - AudienceApplause
+    - missing-word
+  id: 1717517679738
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: possibility
+  problem: There is a p_________y that the shimmering clouds might hold a secret
+    message for those who can decipher them.
+  length: 110
+  tags:
+    - english-grammar
+    - vocabulary-development
+    - 5th-grade
+    - missing-word
+  id: 1717517717582
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: common
+  problem: The c____n denominator of the fractions 1/3 and 2/5 is 15.
+  length: 58
+  tags:
+    - 5thGrade
+    - Fractions
+    - Denominator
+    - Common
+    - missing-word
+  id: 1717517761322
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: important
+  problem: The scientist realized the discovery of the new element was i_______t
+    not only for understanding the universe, but also for paving the way for
+    future technological advancements.
+  length: 177
+  tags:
+    - 5thGrade
+    - Science
+    - Discovery
+    - Technology
+    - missing-word
+  id: 1717517953134
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: arrow
+  problem: The playful a___w sailed through the air, leaving a trail of shimmering
+    glitter in its wake.
+  length: 92
+  tags:
+    - fifth-grade
+    - literal
+    - figurative
+    - grammar
+    - mechanics
+    - missing-word
+  id: 1717518073288
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: taste
+  problem: The chef experimented with various herbs, adjusting the t___e of the
+    stew until it perfectly balanced the tangy tomatoes with the earthy
+    mushrooms.
+  length: 147
+  tags:
+    - 5thGrade
+    - Taste
+    - Cooking
+    - Herbs
+    - Balance
+    - missing-word
+  id: 1717518113882
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: straight
+  problem: The train tracks curve around the mountain, but the train itself
+    travels s______t through the tunnel.
+  length: 101
+  tags:
+    - fifth-grade
+    - geometry
+    - direction
+    - missing-word
+  id: 1717518153215
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: wildly
+  problem: The children w____y cheered as the colorful butterflies danced around
+    them like tiny, feathered rainbows.
+  length: 105
+  tags:
+    - 5thGrade
+    - DescriptiveLanguage
+    - Nature
+    - Verbs
+    - missing-word
+  id: 1717518189350
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: envelope
+  problem: The curious squirrel tucked the fallen acorn into a pristine white
+    e______e and scurried up the towering oak tree.
+  length: 114
+  tags:
+    - english-grammar
+    - 5th-grade
+    - envelope-usage
+    - animal-action
+    - nature-description
+    - missing-word
+  id: 1717518230311
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: pilot
+  problem: The p___t fish, leading the school, navigated through the coral,
+    dodging anemones with tentacles like tentacles.
+  length: 112
+  tags:
+    - fifth-grade
+    - marine-life
+    - navigation
+    - school-fish
+    - missing-word
+  id: 1717518302666
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: native
+  problem: The n____e speaker confidently deciphered the ancient scroll, unlocking
+    secrets of a long-lost civilization.
+  length: 108
+  tags:
+    - 5thGrade
+    - Decoding
+    - AncientLanguage
+    - NativeSpeaker
+    - missing-word
+  id: 1717518346906
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: power
+  problem: The scientist discovered that adjusting the p___r output of the laser
+    beam could precisely remove unwanted material from the sample.
+  length: 132
+  tags:
+    - science
+    - physics
+    - 5thGrade
+    - missing-word
+  id: 1717518415674
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: skill
+  problem: The artist's s___l in blending colors creates breathtaking landscapes.
+  length: 70
+  tags:
+    - fifth-grade
+    - color-blending
+    - artist
+    - landscape
+    - missing-word
+  id: 1717518530362
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: funny
+  problem: The mischievous squirrel giggled uncontrollably at the sight of its
+    tail doing a f___y little dance.
+  length: 100
+  tags:
+    - fifth-grade
+    - animal humor
+    - verb description
+    - missing-word
+  id: 1717518564594
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: cassette
+  problem: The c______e recorder hummed softly as it rewound the old, dusty
+    mixtapes, filling the room with a melody from a bygone era.
+  length: 124
+  tags:
+    - 5thGrade
+    - Music
+    - Vintage
+    - TapeRecorder
+    - missing-word
+  id: 1717518674934
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: number
+  problem: There are exactly five times as many birds in the sky as there are
+    stars in the night, according to the n____r of astronomers who have counted
+    them.
+  length: 148
+  tags:
+    - fifth-grade
+    - counting
+    - numbers
+    - astronomy
+    - birds
+    - stars
+    - missing-word
+  id: 1717518800208
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: ahead
+  problem: The adventurous explorers sailed a___d of the stormy clouds, their
+    hearts filled with hope and their sails taut against the wind.
+  length: 129
+  tags:
+    - 5thGrade
+    - Sailing
+    - Storm
+    - Adventure
+    - Hope
+    - missing-word
+  id: 1717518879802
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: covering
+  problem: The colorful leaves c______g the forest floor whispered secrets of
+    changing seasons.
+  length: 84
+  tags:
+    - 5thGrade
+    - ReadingComprehension
+    - FigurativeLanguage
+    - Nature
+    - missing-word
+  id: 1717518951682
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: paper
+  problem: The artist crumpled the vibrant p___r into a tight sphere, then
+    carefully unfurled it, revealing a mesmerizing geometric pattern.
+  length: 129
+  tags:
+    - 5th grade
+    - figurative language
+    - geometric shapes
+    - art
+    - paper craft
+    - missing-word
+  id: 1717518990020
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: yellow
+  problem: The sunflower's petals shimmered like y____w diamonds reflecting the
+    afternoon sun's warm glow.
+  length: 95
+  tags:
+    - grammar-complexity
+    - vocabulary-richness
+    - figurative-language
+    - grade-5
+    - missing-word
+  id: 1717519030541
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: choice
+  problem: The artist had to make a crucial c____e between following his passion
+    for abstract expressionism or sticking to the traditional landscapes his
+    family favored.
+  length: 158
+  tags:
+    - fifth-grade
+    - decision-making
+    - art
+    - passion
+    - tradition
+    - missing-word
+  id: 1717519076025
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: store
+  problem: The antique s___e owner carefully arranged the dusty books in numerical
+    order, showcasing their fascinating covers like precious pages from a bygone
+    era.
+  length: 153
+  tags:
+    - 5thGrade
+    - ReadingComprehension
+    - SentenceStructure
+    - Vocabulary
+    - missing-word
+  id: 1717519190256
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: unknown
+  problem: The scientist discovered an u_____n compound in the deep sea that glows
+    in the dark.
+  length: 84
+  tags:
+    - science-fiction
+    - discovery
+    - deep-sea
+    - glowing
+    - fifth-grade
+    - missing-word
+  id: 1717519235616
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: information
+  problem: The scientist analyzed the data, revealing crucial i_________n about
+    the genetic link to the disease.
+  length: 101
+  tags:
+    - science
+    - analysis
+    - data
+    - information
+    - disease
+    - missing-word
+  id: 1717519463589
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: contact
+  problem: The playful pups exchanged playful barks and wet noses, establishing
+    valuable c_____t before their next game of fetch.
+  length: 118
+  tags:
+    - fifth-grade
+    - animals
+    - communication
+    - play
+    - missing-word
+  id: 1717519499203
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: behind
+  problem: The mischievous squirrel darted b____d the towering oak tree, its tail
+    a blur as it vanished from sight.
+  length: 104
+  tags:
+    - 5thGrade
+    - Animal
+    - Movement
+    - Descriptive
+    - missing-word
+  id: 1717519566423
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: merry
+  problem: The m___y wind whispered secrets to the dancing leaves, sending them
+    swirling in joyful spirals.
+  length: 96
+  tags:
+    - fifth-grade
+    - vocabulary
+    - figurative-language
+    - adjectives
+    - missing-word
+  id: 1717519602334
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: robber
+  problem: The cunning r____r vanished into the shadows, leaving only a trail of
+    shimmering gold dust behind.
+  length: 98
+  tags:
+    - fifth-grade
+    - action
+    - mystery
+    - treasure
+    - elusive
+    - missing-word
+  id: 1717519638444
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: emotion
+  problem: The sudden surge of e_____n in her eyes mirrored the chaotic rhythm of
+    her racing heart.
+  length: 88
+  tags:
+    - 5thGrade
+    - EmotionalIntelligence
+    - FigurativeLanguage
+    - missing-word
+  id: 1717519824211
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: olive
+  problem: The plump o___e tumbled from the olive tree, landing with a soft thud
+    on the sun-soaked soil.
+  length: 93
+  tags:
+    - 5thGrade
+    - ObjectMovement
+    - Nature
+    - Fruits
+    - missing-word
+  id: 1717519908608
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: history
+  problem: The ancient h_____y of the city reveals secrets of its long-lost
+    inhabitants in the crumbling stone walls.
+  length: 106
+  tags:
+    - 5thGrade
+    - History
+    - Ancient
+    - Secrets
+    - City
+    - missing-word
+  id: 1717519944199
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sharply
+  problem: The sunlight sliced through the forest canopy, s_____y illuminating the
+    mossy path ahead.
+  length: 89
+  tags:
+    - 5thGrade
+    - Adverb
+    - Sensory
+    - Geometry
+    - MetricUnits
+    - missing-word
+  id: 1717520059021
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: composition
+  problem: The poet's masterful c_________n of verses and rhymes paints a vivid
+    tapestry of emotions in the reader's mind.
+  length: 111
+  tags:
+    - 5thGrade
+    - Poetry
+    - Composition
+    - missing-word
+  id: 1717520094344
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: pretty
+  problem: The p____y morning dew glistening on the spiderweb was a sight to behold.
+  length: 73
+  tags:
+    - 5thGrade
+    - SensoryDetails
+    - NatureObservation
+    - missing-word
+  id: 1717520169692
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: management
+  problem: Effective m________t of classroom noise allows for focused discussions
+    and deeper learning.
+  length: 91
+  tags:
+    - fifth-grade
+    - noise-management
+    - classroom-learning
+    - missing-word
+  id: 1717520242968
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: stiff
+  problem: The freshly baked croissant felt surprisingly s___f despite the warm,
+    gooey butter seeping through its layers.
+  length: 110
+  tags:
+    - english-grammar
+    - vocabulary-development
+    - 5th-grade
+    - missing-word
+  id: 1717520278473
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: amount
+  problem: The librarian estimated that an a____t of approximately 3.5 kilograms
+    of books were borrowed from the library last month.
+  length: 121
+  tags:
+    - fifth-grade
+    - measurement
+    - literacy
+    - amount
+    - missing-word
+  id: 1717520314835
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sixteenth
+  problem: The s_______h petal of the sunflower is the brightest, reflecting a
+    rainbow of colors in the sunlight.
+  length: 102
+  tags:
+    - 5thGrade
+    - FlowerParts
+    - ColorVariations
+    - missing-word
+  id: 1717520349389
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: female
+  problem: The f____e scientist's groundbreaking discovery transformed the field
+    of medicine.
+  length: 82
+  tags:
+    - science
+    - discovery
+    - medicine
+    - fifth-grade
+    - missing-word
+  id: 1717520418624
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: water
+  problem: The droplets clinging to the spiderweb resembled miniature droplets of
+    w___r reflecting the morning sun.
+  length: 104
+  tags:
+    - 5th-grade
+    - metaphor
+    - description
+    - biology
+    - geometry
+    - missing-word
+  id: 1717520460659
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: affect
+  problem: The change in water temperature can a____t the growth rate of aquatic
+    plants, influencing the entire ecosystem's balance.
+  length: 121
+  tags:
+    - 5th grade
+    - biology
+    - ecology
+    - affect
+    - growth rate
+    - aquatic plants
+    - missing-word
+  id: 1717520498022
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: impact
+  problem: The new library program had a significant i____t on student engagement,
+    leading to a 20% reduction in average reading time among participants.
+  length: 142
+  tags:
+    - reading-engagement
+    - fifth-grade
+    - library-program
+    - impact-measurement
+    - missing-word
+  id: 1717520536443
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: angry
+  problem: The frustrated artist furiously scribbled on the canvas, his a___y
+    brushstrokes echoing the chaos brewing inside him.
+  length: 117
+  tags:
+    - 5th grade comprehension
+    - emotional response
+    - figurative language
+    - missing-word
+  id: 1717520574243
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: granddaughter
+  problem: The proud grandmother watched her graceful g___________r pirouette
+    across the stage, her eyes filled with love and admiration.
+  length: 126
+  tags:
+    - 5thGrade
+    - Family
+    - Dance
+    - Admiration
+    - missing-word
+  id: 1717520619722
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: underwear
+  problem: The mischievous puppy discovered his owner's brightly colored u_______r
+    under the sofa and playfully tugged at them with his teeth.
+  length: 131
+  tags:
+    - fifth-grade
+    - animal-reference
+    - clothing
+    - location
+    - missing-word
+  id: 1717542844081
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: before
+  problem: The playful puppy barked excitedly b____e dashing off to fetch the
+    colorful ball.
+  length: 81
+  tags:
+    - 5thGrade
+    - Action
+    - Animal
+    - Object
+    - missing-word
+  id: 1717542881427
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: busily
+  problem: The energetic squirrel b____y collected nuts in preparation for winter.
+  length: 71
+  tags:
+    - 5thGrade
+    - AnimalAction
+    - Collecting
+    - Preparation
+    - missing-word
+  id: 1717542921251
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: fairly
+  problem: The rollercoaster climbed f____y steadily up the towering hill,
+    reaching a height of 30 metres.
+  length: 95
+  tags:
+    - 5thGrade
+    - HillClimbing
+    - Rollercoaster
+    - HeightMeasurement
+    - missing-word
+  id: 1717542965947
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: supporter
+  problem: The enthusiastic s_______r of the school's recycling program diligently
+    collected plastic bottles, ensuring their proper disposal.
+  length: 130
+  tags:
+    - 5thGrade
+    - Recycling
+    - Enthusiasm
+    - missing-word
+  id: 1717543095827
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: awful
+  problem: The a___l storm's howling winds wreaked havoc on the delicate flower
+    gardens, leaving behind a trail of muddy devastation.
+  length: 122
+  tags:
+    - comprehension
+    - grammar
+    - vocabulary
+    - 5thGrade
+    - missing-word
+  id: 1717543232824
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: useful
+  problem: The scientist discovered that the new protein is incredibly u____l for
+    treating genetic disorders affecting muscle function.
+  length: 124
+  tags:
+    - science
+    - medicine
+    - genetics
+    - muscle
+    - missing-word
+  id: 1717543276539
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: profit
+  problem: The bookstore owner calculated that by reducing book prices by 10%,
+    they could p____t an additional 20% of their monthly revenue.
+  length: 129
+  tags:
+    - 5thGrade
+    - Profit
+    - Percentage
+    - Business
+    - missing-word
+  id: 1717543380740
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: together
+  problem: The group of friends decided to celebrate their victory t______r by
+    sharing a delicious cake they had baked collaboratively.
+  length: 124
+  tags:
+    - 5thGrade
+    - Collaboration
+    - Friendship
+    - Cake
+    - Victory
+    - missing-word
+  id: 1717543480958
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: honey
+  problem: The h___y from the fragrant blossoms tasted sweet and sticky, coating
+    our fingers with a sugary residue.
+  length: 104
+  tags:
+    - 5thGrade
+    - Honey
+    - Sweetness
+    - Sticky
+    - missing-word
+  id: 1717543529675
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: comment
+  problem: The artist's c_____t on societal inequality is evident in the recurring
+    motif of the caged bird.
+  length: 96
+  tags:
+    - 5thGrade
+    - LiteraryAnalysis
+    - Symbolism
+    - ArtistStatement
+    - missing-word
+  id: 1717543617722
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: stroke
+  problem: The painter used a single, graceful s____e of her brush to capture the
+    fleeting beauty of a sunrise.
+  length: 100
+  tags:
+    - 5thGrade
+    - Reading
+    - Vocabulary
+    - SentenceStructure
+    - missing-word
+  id: 1717543660598
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: eighth
+  problem: The e____h planet from the Sun, Uranus, has a swirling, icy atmosphere.
+  length: 71
+  tags:
+    - fifth-grade
+    - planetary
+    - science
+    - solar-system
+    - missing-word
+  id: 1717543705890
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: midnight
+  problem: The moon, casting a silvery glow on the whispering pines, peeked its
+    luminous face above the m______t horizon.
+  length: 110
+  tags:
+    - fifth-grade
+    - figurative-language
+    - lunar-phenomena
+    - missing-word
+  id: 1717543749970
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sentence
+  problem: The rhythmic s______e structure of the poem echoes the gentle sway of
+    the nearby meadow in the summer breeze.
+  length: 109
+  tags:
+    - 5thGrade
+    - Poetry
+    - SentenceStructure
+    - Rhythm
+    - Meadow
+    - Summer
+    - Wind
+    - missing-word
+  id: 1717543843459
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: entertainment
+  problem: The comedian's witty jokes provided a delightful e___________t during
+    the festival.
+  length: 83
+  tags:
+    - 5thGrade
+    - Humor
+    - Entertainment
+    - Festival
+    - missing-word
+  id: 1717543887290
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: tightly
+  problem: The climbers clung t_____y to the sheer rock face, their fingers
+    gripping the rough surface like tiny claws.
+  length: 108
+  tags:
+    - fifth-grade
+    - climbing
+    - rock
+    - grip
+    - surface
+    - missing-word
+  id: 1717544025155
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: whole
+  problem: The w___e community came together to celebrate the harvest festival,
+    sharing delicious foods and lively music.
+  length: 110
+  tags:
+    - 5thGrade
+    - Community
+    - Harvest
+    - Festival
+    - missing-word
+  id: 1717544067587
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: likely
+  problem: The probability of encountering a raccoon in Central Park is l____y
+    higher during the nighttime hours.
+  length: 102
+  tags:
+    - 5thGrade
+    - Probability
+    - AnimalHabitat
+    - missing-word
+  id: 1717544113107
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: unable
+  problem: The hikers were u____e to ascend the treacherous peak after a sudden
+    blizzard struck.
+  length: 85
+  tags:
+    - fifth-grade
+    - adverse-weather
+    - climbing-challenge
+    - unexpected-event
+    - missing-word
+  id: 1717544194227
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: babysitter
+  problem: The responsible b________r concocted a secret concoction of herbal tea
+    to soothe the restless toddler after bedtime.
+  length: 116
+  tags:
+    - 5thGrade
+    - ProblemSolving
+    - DescriptiveSentence
+    - missing-word
+  id: 1717544313987
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: combination
+  problem: The architect designed a c_________n of sleek glass structures and
+    vibrant green rooftop gardens to minimize the building's environmental
+    impact.
+  length: 145
+  tags:
+    - fifth-grade
+    - design
+    - environment
+    - architecture
+    - missing-word
+  id: 1717544362526
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: possible
+  problem: Given that the circumference of a circle is directly proportional to
+    its diameter, is it p______e to determine the exact radius of a circle with
+    a circumference of 3.14 meters?
+  length: 176
+  tags:
+    - geometry
+    - proportionality
+    - radius
+    - circumference
+    - fifth grade
+    - missing-word
+  id: 1717544409135
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: worse
+  problem: The grumpy old oak tree cast a significantly w___e shadow over the
+    picnic area than the fluffy white clouds above.
+  length: 114
+  tags:
+    - grammar-complexity
+    - advanced-vocabulary
+    - grade5
+    - missing-word
+  id: 1717544451486
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: spirit
+  problem: The playful s____t of the wind danced through the towering grass,
+    whispering secrets to the sleeping flowers.
+  length: 109
+  tags:
+    - 5thGrade
+    - Comprehension
+    - FigurativeLanguage
+    - Adjective
+    - missing-word
+  id: 1717544495291
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: cloth
+  problem: The artist draped the shimmering c___h over the towering sculpture,
+    creating a mysterious contrast between the rough stone and the soft fabric.
+  length: 143
+  tags:
+    - 5thGrade
+    - FigurativeLanguage
+    - DescriptiveWriting
+    - ArtAndLiterature
+    - missing-word
+  id: 1717544673187
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: mixer
+  problem: The culinary m___r hummed softly as it effortlessly combined the fluffy
+    batter with the vibrant blueberries in the bowl.
+  length: 120
+  tags:
+    - 5thGrade
+    - Comprehension
+    - Cooking
+    - Baking
+    - ScientificKnowledge
+    - missing-word
+  id: 1717544716454
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: merry
+  problem: The m___y wind whispered secrets to the sleeping flowers, carrying
+    their fragrance far and wide.
+  length: 96
+  tags:
+    - comprehension
+    - grammar
+    - vocabulary
+    - 5thGrade
+    - missing-word
+  id: 1717544755371
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: normal
+  problem: The scientist discovered that the abnormal growth of the bacteria was
+    actually part of a n____l cellular process.
+  length: 113
+  tags:
+    - 5thGrade
+    - Science
+    - Microbiology
+    - CellularBiology
+    - missing-word
+  id: 1717544842379
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: atomic
+  problem: The scientist measured the a____c weight of the element, discovering
+    that it was precisely equal to the sum of its proton and neutron masses.
+  length: 141
+  tags:
+    - fifth-grade
+    - atomic-concepts
+    - mass-measurement
+    - missing-word
+  id: 1717544990870
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: beauty
+  problem: The delicate petals of the morning glory unfurl, revealing a hidden
+    b____y that captures the sunlight like scattered diamonds.
+  length: 126
+  tags:
+    - 5thGrade
+    - Flower
+    - Geometry
+    - LightScattering
+    - missing-word
+  id: 1717545074702
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: distance
+  problem: The plane soared over the mountains, its d______e from the peak
+    exceeding 3,000 meters.
+  length: 87
+  tags:
+    - fifth-grade
+    - distance-measurement
+    - metric-units
+    - missing-word
+  id: 1717545133554
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: farmer
+  problem: The industrious f____r cultivates a field of vibrant sunflowers,
+    nurturing their growth with careful attention to the changing seasons.
+  length: 135
+  tags:
+    - 5th-grade
+    - agriculture
+    - farmer
+    - flowers
+    - missing-word
+  id: 1717545209210
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: domestic
+  problem: The farmers discovered that introducing a few d______c rabbits to the
+    field helped control the pesky carrot pests, significantly boosting the
+    yield.
+  length: 148
+  tags:
+    - 5th-grade
+    - agriculture
+    - biology
+    - pest-control
+    - mathematics
+    - yield
+    - missing-word
+  id: 1717545337922
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: advantage
+  problem: By prioritizing reading skills, students unlock an a_______e in
+    navigating the vast world of knowledge.
+  length: 103
+  tags:
+    - comprehension
+    - 5thGrade
+    - reading
+    - benefit
+    - missing-word
+  id: 1717545397530
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: whenever
+  problem: The playful kittens chase each other w______r the sun shines brightly
+    in the meadow.
+  length: 84
+  tags:
+    - grammar-complex-sentence
+    - grammar-conjunction
+    - vocabulary-advanced
+    - missing-word
+  id: 1717545514122
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: brilliant
+  problem: The scientist's calculations were so b_______t that they led to a
+    groundbreaking discovery in quantum physics.
+  length: 110
+  tags:
+    - 5thGrade
+    - Science
+    - Math
+    - QuantumPhysics
+    - missing-word
+  id: 1717545633226
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: childhood
+  problem: The whispers of c_______d memories echo in the rustling pages of her
+    beloved book.
+  length: 82
+  tags:
+    - fifth-grade
+    - comprehension
+    - figurative-language
+    - familiarity
+    - missing-word
+  id: 1717545803794
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: family
+  problem: Despite the chaos of the festival, the loving f____y stood together,
+    their unity stronger than any commotion.
+  length: 109
+  tags:
+    - fifth-grade
+    - complexity
+    - emotion
+    - familial
+    - missing-word
+  id: 1717545856082
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: cupboard
+  problem: The curious cook tucked the experimental spices into a dusty c______d
+    at the back of the pantry, hoping their unique aroma would linger for the
+    next culinary adventure.
+  length: 168
+  tags:
+    - fifth-grade
+    - vocabulary
+    - context
+    - independent-sentence
+    - missing-word
+  id: 1717545969654
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: koala
+  problem: The fluffy paws of the curious k___a bear helped it navigate the rugged
+    rainforest terrain with ease.
+  length: 101
+  tags:
+    - fifth-grade
+    - animal
+    - habitat
+    - navigation
+    - paws
+    - missing-word
+  id: 1717546029563
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: restaurant
+  problem: The chef at the renowned r________t concocted a culinary masterpiece
+    that tantalized the palates of the discerning diners.
+  length: 122
+  tags:
+    - 5th grade
+    - English
+    - Restaurant
+    - Culinary
+    - Masterpiece
+    - missing-word
+  id: 1717546105574
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: management
+  problem: The school m________t implemented a new system to streamline
+    communication between teachers and parents.
+  length: 104
+  tags:
+    - 5thGrade
+    - SchoolManagement
+    - CommunicationSystem
+    - missing-word
+  id: 1717546139710
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: inside
+  problem: The hidden treasure is buried somewhere i____e the crumbling castle,
+    but only the most clever adventurer can decipher the ancient map to find it.
+  length: 145
+  tags:
+    - 5thGrade
+    - TreasureHunt
+    - AncientMap
+    - HiddenLocation
+    - missing-word
+  id: 1717546177855
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: coffee
+  problem: The aroma of freshly brewed c____e fills the air, reminding us of the
+    warm, cozy mornings ahead.
+  length: 96
+  tags:
+    - 5thGrade
+    - Sensory
+    - FigurativeLanguage
+    - missing-word
+  id: 1717546250903
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: reason
+  problem: The scientist discovered that the unusual plant species thrives in
+    acidic soils due to a complex r____n involving its root structure and
+    symbiotic bacteria.
+  length: 156
+  tags:
+    - 5th-grade
+    - science
+    - biology
+    - chemistry
+    - missing-word
+  id: 1717546288647
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: hearing
+  problem: The echoes in the cavernous chamber distorted the faint h_____g of the
+    whispered secrets.
+  length: 89
+  tags:
+    - 5thGrade
+    - Cavern
+    - Echoes
+    - Hearing
+    - Whispers
+    - missing-word
+  id: 1717546402278
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: elevator
+  problem: The inventor adjusted the pulley system, ensuring the e______r could
+    navigate the steepest incline without derailing.
+  length: 117
+  tags:
+    - 5thGrade
+    - Mechanics
+    - Pulley
+    - InclinedPlane
+    - missing-word
+  id: 1717546518302
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: chance
+  problem: The probability of encountering a four-leaf clover on a whim is
+    incredibly low, but it's a c____e worth taking on St. Patrick's Day.
+  length: 132
+  tags:
+    - 5thGrade
+    - Probability
+    - Chance
+    - Leprechaun
+    - Holiday
+    - missing-word
+  id: 1717546559366
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: police
+  problem: The p____e sirens wailed, interrupting the bustling street market as
+    the detective searched for clues in the latest robbery case.
+  length: 129
+  tags:
+    - 5thGrade
+    - Mystery
+    - Detective
+    - Crime
+    - missing-word
+  id: 1717546595666
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: niece
+  problem: The clever n___e carefully plotted her strategy to win the annual
+    spelling bee.
+  length: 79
+  tags:
+    - fifth-grade
+    - spelling
+    - strategy
+    - plot
+    - missing-word
+  id: 1717546702883
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: goose
+  problem: The playful g___e honked merrily as it waded through the shallow lake,
+    leaving tiny footprints in the damp mud.
+  length: 111
+  tags:
+    - 5thGrade
+    - Animal
+    - Nature
+    - Action
+    - Verbs
+    - missing-word
+  id: 1717546740630
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: grand
+  problem: The g___d oak tree casting its shadow over the meadow was a witness to
+    generations of playful children.
+  length: 103
+  tags:
+    - fifth-grade
+    - figurative-language
+    - description
+    - nature
+    - missing-word
+  id: 1717546776650
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: price
+  problem: The vendor offered a discounted p___e of ₱25 for every kilogram of
+    mangoes exceeding 5 kilograms purchased.
+  length: 107
+  tags:
+    - fifth-grade
+    - arithmetic
+    - measurement
+    - discount
+    - missing-word
+  id: 1717546813635
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: fortunate
+  problem: The lucky hiker stumbled upon a hidden waterfall, a f_______e discovery
+    on her arduous journey through the forest.
+  length: 114
+  tags:
+    - 5thGrade
+    - Adventure
+    - Discovery
+    - Lucky
+    - missing-word
+  id: 1717546894490
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: beautiful
+  problem: The sunlight filtering through the leaves paints the forest floor with
+    a breathtakingly b_______l tapestry of light and shadow.
+  length: 127
+  tags:
+    - 5th grade
+    - description
+    - figurative language
+    - nature
+    - beauty
+    - geometric shapes
+    - missing-word
+  id: 1717547006106
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: player
+  problem: The skilled p____r adjusted his gear, preparing for the grueling final
+    match of the season.
+  length: 91
+  tags:
+    - 5thGrade
+    - Cognition
+    - Competitive
+    - Sporting
+    - missing-word
+  id: 1717547041439
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: bored
+  problem: Feeling b___d with the same old stories, I decided to create my own
+    fantasy world filled with talking animals and magical creatures.
+  length: 132
+  tags:
+    - 5thGrade
+    - StoryCreation
+    - Imagination
+    - BoredomRelief
+    - missing-word
+  id: 1717547152930
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: cotton
+  problem: The fluffy c____n candy, spun from sugary clouds, tasted like sunshine
+    on a summer day.
+  length: 87
+  tags:
+    - fifth-grade
+    - vocabulary
+    - figurative-language
+    - missing-word
+  id: 1717547188483
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: hungry
+  problem: The hikers, their stomachs grumbling like h____y wolves, trudged
+    through the snowy forest, searching for a cozy shelter before nightfall.
+  length: 137
+  tags:
+    - fifth-grade
+    - hiking
+    - hunger
+    - forest
+    - shelter
+    - missing-word
+  id: 1717547298343
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: chapter
+  problem: The scientist deciphered the ancient manuscript, uncovering a pivotal
+    c_____r in human history.
+  length: 95
+  tags:
+    - fifth-grade
+    - reading-comprehension
+    - vocabulary-development
+    - historical-context
+    - missing-word
+  id: 1717547334395
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: third
+  problem: The t___d flower from the left in the field is a vibrant crimson rose.
+  length: 70
+  tags:
+    - english-grammar
+    - flower
+    - field
+    - color
+    - fifth-grade
+    - missing-word
+  id: 1717547416491
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: pineapple
+  problem: The juicy sweetness of a perfectly ripe p_______e fills the air,
+    reminding me of summer adventures.
+  length: 99
+  tags:
+    - fifth-grade
+    - figurative-language
+    - fruits
+    - summer-nostalgia
+    - missing-word
+  id: 1717547491966
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: lightly
+  problem: The playful puppy hopped l_____y over the colorful flower petals,
+    sniffing each one cautiously.
+  length: 95
+  tags:
+    - fifth-grade
+    - pet
+    - flower
+    - odor
+    - missing-word
+  id: 1717547526762
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: gradually
+  problem: The sunflower's shadow grew g_______y longer as the sun climbed higher
+    in the sky.
+  length: 82
+  tags:
+    - 5thGrade
+    - Shadow
+    - Growth
+    - Time
+    - Sun
+    - missing-word
+  id: 1717547600470
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: hobby
+  problem: Her love for gardening is a fulfilling h___y that helps her connect
+    with nature and enjoy the beauty of colorful flowers.
+  length: 121
+  tags:
+    - 5th grade
+    - hobby
+    - gardening
+    - nature
+    - missing-word
+  id: 1717547636562
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: difference
+  problem: The average height of the sunflowers in field A is 1.25 meters, while
+    those in field B are 15 centimeters taller. What is the d________e in height
+    between the two fields' sunflowers?
+  length: 182
+  tags:
+    - fifth-grade
+    - measurement
+    - height
+    - difference
+    - metric
+    - missing-word
+  id: 1717547763802
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: rainy
+  problem: The playful puppies danced gracefully in the r___y forest, their wet
+    noses leaving tiny trails on the mossy rocks.
+  length: 114
+  tags:
+    - english-grammar
+    - vocabulary
+    - sentence-structure
+    - 5th-grade
+    - missing-word
+  id: 1717547802870
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: electric
+  problem: The brightly charged particles in the cloud create an e______c field
+    that affects the movement of nearby atoms.
+  length: 111
+  tags:
+    - 5thGrade
+    - Electricity
+    - AtomicPhysics
+    - Field
+    - missing-word
+  id: 1717547838978
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: introduction
+  problem: The author's captivating i__________n set the stage for an intriguing
+    mystery that unravels layer by layer.
+  length: 107
+  tags:
+    - 5thGrade
+    - Mystery
+    - Literature
+    - SentenceStructure
+    - missing-word
+  id: 1717547874886
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: handkerchief
+  problem: The damp h__________f fluttered like a miniature airplane in the gentle
+    breeze.
+  length: 79
+  tags:
+    - fifth-grade
+    - literal
+    - sensory
+    - wind
+    - motion
+    - missing-word
+  id: 1717547948378
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: total
+  problem: The t___l number of pages in the book is exactly one-quarter of the
+    total number of pages in the entire library collection.
+  length: 123
+  tags:
+    - english-grammar
+    - math-fraction
+    - fifth-grade
+    - missing-word
+  id: 1717547996803
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: trick
+  problem: The mischievous squirrel used a clever t___k to reach the juicy nuts
+    hidden high up in the oak tree.
+  length: 100
+  tags:
+    - 5thGrade
+    - Trick
+    - Animal
+    - Action
+    - Object
+    - missing-word
+  id: 1717548037911
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: smoking
+  problem: The artist's swirling brushstrokes resembled a s_____g forest fire, its
+    embers dancing in the night sky.
+  length: 104
+  tags:
+    - fifth-grade
+    - figurative-language
+    - description
+    - artist
+    - landscape
+    - missing-word
+  id: 1717548111702
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: advice
+  problem: The curious squirrel gathered the villagers' a____e on the best way to
+    reach the juicy berries high up in the oak tree.
+  length: 119
+  tags:
+    - fifth-grade
+    - comprehension
+    - problem-solving
+    - figurative-language
+    - missing-word
+  id: 1717548260638
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: great
+  problem: The g___t wind whispered secrets to the towering trees, sending
+    whispers flying across the meadow.
+  length: 98
+  tags:
+    - comprehension
+    - grammar
+    - vocabulary
+    - 5thGrade
+    - missing-word
+  id: 1717548338018
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: battle
+  problem: The poet's words became a fierce b____e against boredom, weaving tales
+    that captivated every heart.
+  length: 99
+  tags:
+    - 5th-grade
+    - figurative-language
+    - poetry
+    - description
+    - missing-word
+  id: 1717548374938
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: report
+  problem: The environmental r____t revealed a significant correlation between air
+    pollution levels and the number of hospital admissions for respiratory
+    problems in the city.
+  length: 164
+  tags:
+    - 5thGrade
+    - Correlation
+    - EnvironmentalReport
+    - AirPollution
+    - HospitalAdmissions
+    - missing-word
+  id: 1717548519143
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: ketchup
+  problem: The hungry robot dripped k_____p onto the solar panel, causing a
+    temporary decrease in its efficiency.
+  length: 102
+  tags:
+    - 5th grade
+    - robots
+    - ketchup
+    - efficiency
+    - solar panel
+    - missing-word
+  id: 1717548557034
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: servant
+  problem: The humble s_____t of the castle, tasked with polishing the royal
+    armor, carefully applied a coat of wax, ensuring a brilliant gleam under the
+    candlelight.
+  length: 155
+  tags:
+    - 5thGrade
+    - ComplexSentence
+    - FigurativeLanguage
+    - HistoricalContext
+    - missing-word
+  id: 1717548597499
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: tailor
+  problem: The t____r meticulously crafted the garment, ensuring each seam
+    followed the precise measurements of the client's tail.
+  length: 119
+  tags:
+    - 5thGrade
+    - Measurement
+    - Tailoring
+    - Precision
+    - Clothing
+    - missing-word
+  id: 1717548634530
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: apple
+  problem: The gravity of an a___e on the Moon is about 1/6th of its weight on Earth.
+  length: 74
+  tags:
+    - fifth-grade
+    - physics
+    - gravity
+    - moon
+    - earth
+    - weight
+    - missing-word
+  id: 1717548711742
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: communicate
+  problem: The artist used vibrant colors to c_________e the emotions of the
+    characters in his whimsical painting.
+  length: 103
+  tags:
+    - 5thGrade
+    - VisualCommunication
+    - EmotionalExpression
+    - Artistry
+    - missing-word
+  id: 1717548754926
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: sense
+  problem: The artist's brushstrokes echoed the rhythm of the crashing waves,
+    creating a s___e of tranquility amidst the chaos of the storm.
+  length: 129
+  tags:
+    - 5thGrade
+    - FigurativeLanguage
+    - SensoryExperience
+    - EmotionalResonance
+    - missing-word
+  id: 1717548797282
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: nineteenth
+  problem: The n________h century witnessed a surge in technological advancements
+    that shaped modern life as we know it.
+  length: 109
+  tags:
+    - fifth-grade
+    - historical
+    - technology
+    - missing-word
+  id: 1717548834078
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: grapefruit
+  problem: The refreshing juice of a juicy g________t can be enjoyed alongside a
+    plate of fluffy pancakes for a delightful breakfast.
+  length: 122
+  tags:
+    - 5thGrade
+    - Fruits
+    - Breakfast
+    - Juice
+    - missing-word
+  id: 1717548873319
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: homemade
+  problem: The vibrant, h______e tapestry displayed a mesmerizing blend of
+    geometric shapes, capturing the shifting shadows of the afternoon sun.
+  length: 134
+  tags:
+    - fifth-grade
+    - language-arts
+    - grammar
+    - vocabulary
+    - missing-word
+  id: 1717549029563
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: believer
+  problem: The unwavering b______r in the power of kindness found his purpose in
+    helping others overcome their greatest challenges.
+  length: 120
+  tags:
+    - 5thGrade
+    - ComplexSentence
+    - Vocabulary
+    - ConceptOfBelief
+    - missing-word
+  id: 1717549067959
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: impression
+  problem: The fleeting shadows cast by the towering oak tree left an indelible
+    i________n on the children's wide, curious eyes.
+  length: 117
+  tags:
+    - 5th-grade
+    - figurative-language
+    - shadows
+    - oak-tree
+    - curiosity
+    - missing-word
+  id: 1717549162998
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: useless
+  problem: The scientist realized that his elaborate experiment, after all that
+    effort and expense, was ultimately u_____s in solving the central problem.
+  length: 143
+  tags:
+    - 5thGrade
+    - Comprehension
+    - Science
+    - Experiment
+    - ProblemSolving
+    - missing-word
+  id: 1717549203846
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: amount
+  problem: The librarian estimated that the a____t of books borrowed this month is
+    approximately 3,500, which is 25% more than last month.
+  length: 127
+  tags:
+    - 5thGrade
+    - WordMeaning
+    - Percentage
+    - missing-word
+  id: 1717549243947
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: talent
+  problem: The budding musician's t____t for composing melodious tunes fills the
+    concert hall with awe-inspiring harmony.
+  length: 110
+  tags:
+    - 5th grade
+    - music
+    - composition
+    - harmony
+    - awe
+    - missing-word
+  id: 1717549286266
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: access
+  problem: The hikers had to pay a small fee to a____s the trail, which was
+    covered in lush vegetation.
+  length: 92
+  tags:
+    - 5thGrade
+    - Vocabulary
+    - Access
+    - Nature
+    - missing-word
+  id: 1717549325322
+
+- model: gemma:7b
+  generator: gap-sentence
+  input: democratic
+  problem: The d________c voting process ensures that the voices of all citizens
+    are heard and influence the decisions that affect their lives.
+  length: 132
+  tags:
+    - 5thGrade
+    - Democracy
+    - Voting
+    - Citizens
+    - DecisionMaking
+    - missing-word
+  id: 1717549413759
+
