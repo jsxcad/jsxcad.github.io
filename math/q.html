@@ -135,7 +135,7 @@
         }
         let exclude = false;
         for (const tag of problem.tags) {
-          const { limit = 2 } = limits[tag] === undefined ? {} : limits[tag];
+          const { limit = 5 } = limits[tag] === undefined ? {} : limits[tag];
           if (limit <= (tagUses.get(tag) || 0)) {
             exclude = true;
             break;
