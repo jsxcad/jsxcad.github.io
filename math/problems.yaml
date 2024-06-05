@@ -41681,3 +41681,2930 @@
     - missing-word
   id: 1717549413759
 
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: dew
+  problem: The morning dew covers two rectangular patches of grass with dimensions
+    of 2m by 3m and 4m by 5m. How much dew covers both patches in total?
+  length: 140
+  tags:
+    - algebra
+    - system-of-equations
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: 40m^2
+  id: 1717550402922
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: dew
+  problem: The morning dew covers the grass at a rate of 2 mm/h. If the dew covers
+    the grass by 8 mm at 7:00 AM, at what time will the grass be completely
+    covered in dew?
+  length: 159
+  tags:
+    - fifth-grade
+    - time
+    - speed
+    - distance
+    - dew
+    - time-distance-speed
+  solution: Let d be the time in hours since 7:00 AM. The amount of dew covering
+    the grass is d * 2 mm/h. When the grass is completely covered, d * 2 = 8 mm.
+    Solving for d, we get d = 4 hours. Therefore, the grass will be completely
+    covered in dew at 11:00 AM.
+  id: 1717550486603
+
+- model: gemma:7b
+  generator: geometry
+  input: dew
+  problem: A lawn sprinkler sprays water in a circular pattern with a radius of 3
+    meters. How much area does the sprinkler cover?
+  length: 118
+  tags:
+    - geometry
+    - circle
+    - area
+    - fifth-grade
+  solution: First, calculate the area of the circle using the formula A = πr².
+    Then, substitute the given radius of 3 meters into the formula and solve for
+    the area.
+  id: 1717550542800
+
+- model: gemma:7b
+  generator: probability
+  input: dew
+  problem: The morning dew covers a circular meadow with a diameter of 100 meters.
+    If the average thickness of the dew is 5 millimeters, what is the volume of
+    dew covering the meadow?
+  length: 172
+  tags:
+    - geometry
+    - volume
+    - circle
+    - fifth-grade
+    - probability
+  solution: The volume of the dew is 785 cubic meters.
+  id: 1717550597184
+
+- model: gemma:7b
+  generator: physics
+  input: dew
+  problem: The morning dew covers the grass with a layer of 5 mm. If the area of
+    the meadow is 1000 m², how much dew is there in the meadow?
+  length: 129
+  tags:
+    - multiplication
+    - area
+    - volume
+    - metric-units
+    - fifth-grade
+    - physics
+  solution: This problem requires students to apply their knowledge of area and
+    volume to solve a real-world problem involving precipitation. It involves
+    multiplication of a length and area to find the volume of dew covering the
+    meadow.
+  id: 1717550668108
+
+- model: gemma:7b
+  generator: science
+  input: dew
+  problem: The morning dew covers a circular meadow with a diameter of 30 meters.
+    If the average depth of the dew is 5 millimeters, how much water is there on
+    the meadow?
+  length: 159
+  tags:
+    - circle-geometry
+    - volume
+    - metric-units
+    - fifth-grade
+    - science
+  solution: This problem requires students to apply their knowledge of circle
+    geometry and volume to solve a real-world problem involving water coverage.
+  id: 1717550727735
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: filth
+  problem: A cleaning crew is tasked with removing filth from two rooms. In the
+    first room, they need to remove 3 times as much filth as in the second room.
+    Together, they remove 100 square meters of filth. How much filth did they
+    remove from each room?
+  length: 242
+  tags:
+    - algebra
+    - system-of-equations
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: >-
+    Let x and y be the amounts of filth removed from the first and second rooms,
+    respectively.
+
+    3y + x = 100
+     x = 3y
+    3y + 3y = 100
+
+    y = 25
+
+    x = 75
+  id: 1717550807959
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: filth
+  problem: A piece of filth is moving at a speed of 2 m/s. If it starts at a
+    distance of 10 m from a certain point, how long will it take for the filth
+    to reach that point?
+  length: 161
+  tags:
+    - time-distance
+    - speed
+    - metric-units
+    - fifth-grade
+    - time-distance-speed
+  solution: First, we need to find the distance the filth needs to travel. 10 m.
+    Then, we need to divide that distance by the speed of the filth to find the
+    time it takes. 10 m / 2 m/s = 5 seconds.
+  id: 1717550878871
+
+- model: gemma:7b
+  generator: geometry
+  input: filth
+  problem: A rectangular garden bed is covered in thick, unwanted vegetation. If
+    the garden bed measures 1.5m by 2m, what is the area of the vegetation that
+    needs to be removed?
+  length: 166
+  tags:
+    - geometry
+    - area
+    - rectangle
+    - fifth-grade
+  solution: First, multiply the length and width of the garden bed to find the
+    area of the bed. Then, divide the area of the bed by the area of a square
+    meter of vegetation to find the amount of vegetation that needs to be
+    removed.
+  id: 1717550951676
+
+- model: gemma:7b
+  generator: probability
+  input: filth
+  problem: "A puddle of rainwater is 30 cm deep in the center. If the rainwater
+    gradually spreads outwards in a circle, what is the probability that a
+    randomly chosen point within a 60 cm radius of the puddle's center will be
+    less than 15 cm below the surface? "
+  length: 249
+  tags:
+    - probability
+    - circle
+    - radius
+    - depth
+    - fifth-grade
+  solution: "0.64"
+  id: 1717551015528
+
+- model: gemma:7b
+  generator: physics
+  input: filth
+  problem: A puddle of rainwater is 20 cm deep. If the rainwater evaporates at a
+    rate of 5 cm/h, how long will it take for the puddle to completely dry out?
+  length: 145
+  tags:
+    - 5thGrade
+    - Measurement
+    - Evaporation
+    - Rate
+    - physics
+  solution: This problem requires students to apply their knowledge of area and
+    time to solve a real-world problem. It involves dividing the depth of the
+    puddle by the rate of evaporation to find the time it takes for the puddle
+    to dry out.
+  id: 1717551096087
+
+- model: gemma:7b
+  generator: science
+  input: filth
+  problem: A scientist discovers a new kind of bacteria living in filth. If the
+    bacteria population doubles every 3 hours, and there are initially 10^6
+    bacteria, how many bacteria will there be after 12 hours?
+  length: 198
+  tags:
+    - exponential-growth
+    - bacteria
+    - population
+    - metric-units
+    - fifth-grade
+    - science
+  solution: This problem involves understanding exponential growth, which is a key
+    mathematical concept for 5th graders. It requires students to calculate the
+    number of bacteria after each generation using a specific formula.
+  id: 1717551172719
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: shoelace
+  problem: A shoelace is 30 cm long. If you tie a knot that adds 8 cm to the
+    length, how long is the shoelace now? Write a system of equations to
+    represent this situation and solve it.
+  length: 173
+  tags:
+    - algebra
+    - system-of-equations
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: "Let x cm be the length of the shoelace after the knot. The equation
+    is: x = 30 + 8. Solving for x gives: x = 38 cm. The shoelace is 38 cm long
+    after the knot."
+  id: 1717551260423
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: shoelace
+  problem: A shoelace is 80 cm long. If it travels at a speed of 20 cm/s, how long
+    will it take for the shoelace to cover a distance of 120 cm?
+  length: 132
+  tags:
+    - time-distance
+    - speed
+    - metric-units
+    - fifth-grade
+    - time-distance-speed
+  solution: "Let's represent the time taken by the shoelace to cover the distance
+    as 't'. Using the formula: distance = speed × time, we can write: 120 cm =
+    20 cm/s × t. Solving for 't', we get: t = 120 cm / 20 cm/s = 6 seconds."
+  id: 1717551346655
+
+- model: gemma:7b
+  generator: geometry
+  input: shoelace
+  problem: A shoelace is 80 cm long. If the loop at the end is 20 cm long, what is
+    the length of the shoelace that is actually used to tie the shoes?
+  length: 138
+  tags:
+    - geometry
+    - length
+    - subtraction
+    - fifth-grade
+  solution: First, subtract the loop length from the total length of the shoelace.
+    Then, the remaining length is the length of the shoelace that is actually
+    used to tie the shoes.
+  id: 1717551411811
+
+- model: gemma:7b
+  generator: probability
+  input: shoelace
+  problem: A shoelace is 80 cm long. If it is tied in a bow with a loop that is 20
+    cm long, what is the length of the remaining shoelace?
+  length: 126
+  tags:
+    - probability-concepts
+    - measurement
+    - length
+    - fifth-grade
+    - probability
+  solution: 60 cm
+  id: 1717551464126
+
+- model: gemma:7b
+  generator: physics
+  input: shoelace
+  problem: A shoelace is 1.5 m long. If it is tied in a bow that is 20 cm long,
+    what is the length of the remaining shoelace?
+  length: 114
+  tags:
+    - 5thGrade
+    - Measurement
+    - MetricUnits
+    - Subtraction
+    - physics
+  solution: This problem requires students to subtract the length of the bow from
+    the total length of the shoelace to find the length of the remaining
+    shoelace. It involves understanding metric units and performing simple
+    subtraction.
+  id: 1717551538767
+
+- model: gemma:7b
+  generator: science
+  input: shoelace
+  problem: A shoelace is 1.5m long. If you tie the laces in a bow that requires
+    20cm of the shoelace, what is the length of the remaining shoelace?
+  length: 136
+  tags:
+    - fifth-grade
+    - measurement
+    - length
+    - subtraction
+    - science
+  solution: This problem involves subtraction of a known length (20cm) from a
+    total length (1.5m), which aligns with 5th grade subtraction concepts. The
+    metric units are appropriate for 5th grade students.
+  id: 1717551627311
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: challenge
+  problem: There are 150 apples and oranges in a basket. The number of oranges is
+    20 less than twice the number of apples. How many of each fruit are there?
+  length: 145
+  tags:
+    - algebra
+    - system-of-equations
+    - fifth-grade
+    - metric-units
+    - linear-equations
+    - two-variable-algebra
+  solution: "Apples: 90, Oranges: 60"
+  id: 1717551686394
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: challenge
+  problem: A train travels 300 km in 5 hours. At what speed did the train travel
+    in kilometers per hour?
+  length: 93
+  tags:
+    - time-distance
+    - speed
+    - fifth-grade
+    - metric
+    - time-distance-speed
+  solution: "To find the speed of the train, we can use the formula: Speed =
+    Distance / Time. Substituting the given values, we get: Speed = 300 km / 5 h
+    = 60 km/h. Therefore, the train traveled at a speed of 60 km/h."
+  id: 1717551757143
+
+- model: gemma:7b
+  generator: geometry
+  input: challenge
+  problem: A circular garden has a radius of 4 meters. If a walkway with a width
+    of 1 meter surrounds the garden, what is the area of the walkway?
+  length: 135
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - area
+    - fifth-grade
+  solution: First, find the circumference of the garden by multiplying the radius
+    by 2. Then, subtract the area of the garden circle from the area of the
+    larger circle formed by the walkway to get the area of the walkway.
+  id: 1717551822667
+
+- model: gemma:7b
+  generator: probability
+  input: challenge
+  problem: A box contains 10 red marbles and 15 blue marbles. If you pick two
+    marbles without knowing their color, what is the probability that both are
+    red?
+  length: 146
+  tags:
+    - probability
+    - conditional
+    - fifth-grade
+    - marbles
+    - colors
+  solution: "\frac{10}{25} * \frac{9}{24} = \frac{9}{48}"
+  id: 1717551886086
+
+- model: gemma:7b
+  generator: physics
+  input: challenge
+  problem: A ball is launched from the ground with an initial velocity of 4 m/s at
+    a 30° angle above the horizontal. What is the height of the ball after 2
+    seconds?
+  length: 153
+  tags:
+    - physics
+    - projectile
+    - motion
+    - fifth-grade
+    - metric
+  solution: This problem requires students to apply their understanding of
+    projectile motion, including the equations of motion and the relationship
+    between velocity, acceleration, and height. It also involves calculating the
+    vertical displacement of the ball using the initial velocity and the
+    acceleration due to gravity.
+  id: 1717551987306
+
+- model: gemma:7b
+  generator: science
+  input: challenge
+  problem: A rectangular garden is 1.5 m longer than its width. If the perimeter
+    of the garden is 40 m, what are the dimensions of the garden?
+  length: 131
+  tags:
+    - 5thGrade
+    - Perimeter
+    - Rectangle
+    - Measurement
+    - MetricUnits
+    - science
+  solution: This problem requires understanding of perimeter, area, and geometric
+    shapes. It is slightly more challenging than typical 5th grade problems,
+    encouraging students to apply their knowledge in a real-world context.
+  id: 1717552103546
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: amen
+  problem: There are 120 pencils in a box. Some friends take 40 pencils out of the
+    box. How many pencils are left in the box? If each friend took the same
+    number of pencils, how many pencils did each friend take?
+  length: 201
+  tags:
+    - algebra
+    - system-of-equations
+    - linear-equations
+    - word-problem
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: Let x be the number of pencils each friend took. 120 - 40 = 80. 80 = x
+    * 4. x = 20. Each friend took 20 pencils.
+  id: 1717552237874
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: amen
+  problem: An train travels 300 km at a speed of 60 km/h. How long will it take
+    the train to reach its destination?
+  length: 104
+  tags:
+    - fifth-grade
+    - time-distance
+    - speed
+    - metric-units
+    - time-distance-speed
+  solution: "First, we can use the formula: time = distance / speed. Plugging in
+    the values, we get: time = 300 km / 60 km/h = 5 hours. Therefore, the train
+    will take 5 hours to reach its destination."
+  id: 1717552340151
+
+- model: gemma:7b
+  generator: geometry
+  input: amen
+  problem: An amen is a circular prayer rug. If the diameter of an amen is 1.5
+    meters, what is the area of the amen?
+  length: 105
+  tags:
+    - geometry
+    - circle
+    - perimeter
+    - area
+    - fifth-grade
+  solution: "First, we find the radius of the amen by dividing the diameter by 2.
+    Then, we use the formula for the area of a circle: A = πr^2"
+  id: 1717552435083
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: intellectual
+  problem: An intellectual scientist discovered that the sum of the number of
+    neurons in the left and right hemispheres of the brain is 34 billion. The
+    difference between the number of neurons in the left hemisphere and the
+    right hemisphere is 6 billion. How many neurons are there in each
+    hemisphere?
+  length: 290
+  tags:
+    - algebra
+    - system-of-equations
+    - word-problem
+    - fifth-grade
+    - metric
+    - two-variable-algebra
+  solution: "Let x and y represent the number of neurons in the left and right
+    hemispheres respectively. Then, we have the system of equations:  $$x + y =
+    34$$  $$x - y = 6$$  Solving this system of equations, we find that x = 20
+    billion and y = 14 billion. Therefore, there are 20 billion neurons in the
+    left hemisphere and 14 billion neurons in the right hemisphere."
+  id: 1717552638167
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: intellectual
+  problem: An intellectual traveler covers 300km in 5 hours. What is their average
+    speed in kilometers per hour?
+  length: 101
+  tags:
+    - time-distance
+    - speed
+    - metric-units
+    - fifth-grade
+    - time-distance-speed
+  solution: To find the average speed, we need to divide the distance travelled by
+    the time taken. 300km / 5h = 60km/h. Therefore, the intellectual traveler's
+    average speed is 60km/h.
+  id: 1717552729446
+
+- model: gemma:7b
+  generator: geometry
+  input: intellectual
+  problem: An intellectual architect designs a rectangular garden with a perimeter
+    of 40 meters. The length is 2 meters longer than the width. What are the
+    dimensions of the garden?
+  length: 170
+  tags:
+    - geometry
+    - perimeter
+    - rectangle
+    - dimensions
+    - fifth-grade
+  solution: First, we need to translate the perimeter information into an
+    equation. Then, we can use the relationship between the length and width to
+    find both dimensions.
+  id: 1717552810710
+
+- model: gemma:7b
+  generator: probability
+  input: intellectual
+  problem: An intellectual researcher discovers that 1 in 5 books in a library are
+    written by women. If there are 1000 books in the library, what is the
+    probability that a randomly chosen book is written by a woman?
+  length: 204
+  tags:
+    - probability
+    - conditional
+    - fraction
+    - 5thGrade
+  solution: "\frac{200}{1000} = 0.2"
+  id: 1717552891234
+
+- model: gemma:7b
+  generator: physics
+  input: intellectual
+  problem: An intellectual bookworm wants to measure the circumference of a
+    circular bookshelf using a 1.5 m long measuring tape. If the bookshelf's
+    diameter is 120 cm, how long will the measuring tape need to be?
+  length: 202
+  tags:
+    - fifth-grade
+    - circle
+    - circumference
+    - diameter
+    - measurement
+    - metric
+    - physics
+  solution: This problem requires the student to recall the formula for the
+    circumference of a circle (circumference = diameter × π) and then substitute
+    the given values to find the length of the measuring tape needed.
+  id: 1717552993638
+
+- model: gemma:7b
+  generator: science
+  input: intellectual
+  problem: An intellectual bookstore offers a discount of 20% on books that cost
+    more than 10€ and less than 20€. If a book costs 15€, how much will you pay
+    for it after the discount?
+  length: 172
+  tags:
+    - fifth-grade
+    - percentage
+    - decimal
+    - discount
+    - book
+    - price
+    - science
+  solution: This problem requires understanding of percentages and decimals, which
+    are concepts typically learned in 5th grade. It also involves applying these
+    concepts to a real-world scenario.
+  id: 1717553089538
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: one
+  problem: There is one apple and one orange in a bowl. If the apple weighs 150g
+    and the orange is 20% heavier, how much does the orange weigh?
+  length: 132
+  tags:
+    - algebra
+    - system-of-equations
+    - percentage
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: The orange weighs 180g.
+  id: 1717553151994
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: one
+  problem: A train travels 150 km at a speed of 60 km/h. How long did it take the
+    train to travel that distance?
+  length: 101
+  tags:
+    - time-distance
+    - speed
+    - fifth-grade
+    - time-distance-speed
+  solution: "To find the time taken, we can use the formula: time = distance /
+    speed. Substituting the given values, we get: time = 150 km / 60 km/h = 2.5
+    hours. Therefore, the train took 2.5 hours to travel 150 km."
+  id: 1717553217243
+
+- model: gemma:7b
+  generator: geometry
+  input: one
+  problem: A circle has a circumference of 15 cm. What is the radius of the circle?
+  length: 72
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - radius
+    - fifth-grade
+  solution: "First, recall the formula for the circumference of a circle: C = 2πr.
+    Then, substitute the given circumference and solve for r."
+  id: 1717553269067
+
+- model: gemma:7b
+  generator: probability
+  input: one
+  problem: A bag contains 3 red marbles and 7 blue marbles. If you randomly pick
+    one marble from the bag, what is the probability that it will be red?
+  length: 139
+  tags:
+    - probability
+    - bag
+    - red
+    - blue
+    - fifth-grade
+  solution: "\frac{3}{10}"
+  id: 1717553318399
+
+- model: gemma:7b
+  generator: physics
+  input: one
+  problem: An object travels 1.5 meters in 3 seconds. What is its average speed in
+    meters per second?
+  length: 90
+  tags:
+    - physics
+    - motion
+    - speed
+    - distance
+    - time
+    - 5thGrade
+  solution: This problem requires students to recall the formula for average speed
+    and substitute the given values. It also requires them to understand the
+    relationship between distance and time.
+  id: 1717553374775
+
+- model: gemma:7b
+  generator: science
+  input: one
+  problem: A cylinder has a circumference of 2	ext{ m} and a height of 1	ext{ m}$.
+    What is its volume?
+  length: 91
+  tags:
+    - fifth-grade
+    - circle
+    - cylinder
+    - circumference
+    - height
+    - volume
+    - science
+  solution: This problem involves understanding the relationship between the
+    circumference, height, and volume of a cylinder. It requires applying
+    knowledge of circle and cylinder geometry concepts learned in 5th grade.
+  id: 1717553430703
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: inherent
+  problem: A jar contains 400 mL of juice. Some juice is transferred to a smaller
+    jar, leaving 180 mL in the original jar. How much juice was transferred if
+    the smaller jar now has twice as much juice as the original jar?
+  length: 210
+  tags:
+    - algebra
+    - system-of-equations
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: Let x be the amount of juice transferred. Then, 400 - x = 2(180 - x).
+    Solving for x gives x = 140 mL.
+  id: 1717553490607
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: inherent
+  problem: A train travels 300 km at a constant speed. If the journey takes 5
+    hours, what is the inherent speed of the train in kilometers per hour?
+  length: 137
+  tags:
+    - time-distance
+    - speed
+    - fifth-grade
+    - mathematics
+    - time-distance-speed
+  solution: Let x be the inherent speed of the train. Distance covered is 300 km
+    and time taken is 5 hours. Speed = Distance / Time. Therefore, x = 300 km /
+    5 h = 60 km/h.
+  id: 1717553550934
+
+- model: gemma:7b
+  generator: geometry
+  input: inherent
+  problem: A circle has an inherent property that its circumference is always
+    twice its diameter. If a circle's diameter is 10 cm, what is the
+    circumference of the circle?
+  length: 160
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - diameter
+    - fifth grade
+  solution: The inherent property of a circle means it always has a specific
+    relationship between its circumference and diameter. The formula for the
+    circumference of a circle is C = 2πr, where C is the circumference and r is
+    the radius. Since the diameter is twice the radius, the circumference of the
+    circle is 2π(5 cm) = 10π cm.
+  id: 1717553614879
+
+- model: gemma:7b
+  generator: probability
+  input: inherent
+  problem: An urn contains 100 marbles, some of which are red and some are blue.
+    The marbles are all of the same size and shape. If 40 marbles are randomly
+    drawn from the urn, what is the inherent probability that exactly 20 of them
+    are red?
+  length: 230
+  tags:
+    - probability
+    - " binomial"
+    - fifth grade
+  solution: Calculate the probability of drawing a red marble in the first draw,
+    then multiply that by the probability of drawing a red marble in the second
+    draw, and so on for the remaining 18 draws. The probability of drawing a red
+    marble is 40/100. Therefore, the inherent probability of drawing exactly 20
+    red marbles is (40/100)^20.
+  id: 1717553686279
+
+- model: gemma:7b
+  generator: physics
+  input: inherent
+  problem: An object has an inherent gravitational pull. If an object with twice
+    the mass has an inherent gravitational pull of 10 N, what is the inherent
+    gravitational pull of an object with half the mass?
+  length: 195
+  tags:
+    - physics
+    - gravity
+    - mass
+    - inversely-proportional
+    - 5th-grade
+  solution: This problem requires students to recall the concept of gravitational
+    force being directly related to mass. They must also be able to apply this
+    concept to solve for the gravitational force of an object with half the
+    mass.
+  id: 1717553749322
+
+- model: gemma:7b
+  generator: science
+  input: inherent
+  problem: A cube has an inherent volume of 100cm^3. What is the length of one
+    side of the cube?
+  length: 85
+  tags:
+    - geometry
+    - cubes
+    - volume
+    - fifth-grade
+    - science
+  solution: "This problem requires students to understand the concept of volume
+    and the relationship between the volume of a cube and the length of its
+    sides. It also involves applying the formula for the volume of a cube: V =
+    a^3."
+  id: 1717553804563
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: join
+  problem: A train travels 300 kilometers at a constant speed. If another train
+    joins it after 2 hours, their combined speed is 50 kilometers per hour. What
+    was the speed of the second train?
+  length: 180
+  tags:
+    - algebra
+    - system-of-equations
+    - fifth-grade
+    - metric-units
+    - speed
+    - two-variable-algebra
+  solution: 100 km/h
+  id: 1717553856379
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: join
+  problem: A train leaves the station at 8:00 AM and travels at a speed of 80
+    km/h. Another train departs the same station at 8:30 AM and travels at a
+    speed of 100 km/h. At what time will the two trains join?
+  length: 197
+  tags:
+    - time-distance
+    - speed
+    - trains
+    - fifth-grade
+    - metric
+    - time-distance-speed
+  solution: First, we need to calculate the distance between the two trains. 100
+    km/h is 20 km/h faster than 80 km/h. So, the slower train travels 20 km in
+    30 minutes. Next, we need to find the time when the two trains will meet.
+    Since the faster train travels 20 km more in the same amount of time, the
+    two trains will join 30 minutes after the slower train departs. Therefore,
+    the two trains will join at 9:00 AM.
+  id: 1717553943451
+
+- model: gemma:7b
+  generator: geometry
+  input: join
+  problem: A rectangular garden is 3.5m long and 2.75m wide. If you want to join
+    the two longer sides of the garden, how much fencing material do you need?
+  length: 144
+  tags:
+    - geometry
+    - perimeter
+    - multiplication
+    - fifth-grade
+  solution: First, find the perimeter of the garden by adding the lengths of all
+    four sides. Then, subtract the length of the two shorter sides to find the
+    length of the two longer sides that need to be fenced. Finally, multiply the
+    length of the two longer sides by 2 to find the total amount of fencing
+    material needed.
+  id: 1717554008363
+
+- model: gemma:7b
+  generator: probability
+  input: join
+  problem: A train with 3 carriages joins another train with 2 carriages. If each
+    carriage can hold 40 passengers, how many passengers can the combined trains
+    hold?
+  length: 153
+  tags:
+    - probability
+    - combinatorics
+    - fifth-grade
+    - counting
+    - passengers
+  solution: ",480 passengers,"
+  id: 1717554055123
+
+- model: gemma:7b
+  generator: physics
+  input: join
+  problem: A train with a length of 120m joins another train of length 80m. What
+    is the combined length of the two trains?
+  length: 111
+  tags:
+    - addition
+    - length
+    - trains
+    - fifth-grade
+    - physics
+  solution: This problem requires students to apply their understanding of
+    addition of lengths to find the combined length of the two trains.
+  id: 1717554106130
+
+- model: gemma:7b
+  generator: science
+  input: join
+  problem: A train with a length of ,
+  length: 26
+  tags:
+    - join
+    - length
+    - addition
+    - metric
+    - fifth-grade
+    - science
+  solution: This problem requires students to understand the concept of joining
+    two lengths together to find the total length. This is a suitable problem
+    for 5th graders as it involves applying their existing knowledge of
+    addition.
+  id: 1717554157143
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: variety
+  problem: A farmer has 100 seedlings to plant in his garden. He wants to plant
+    some tomato plants and some cucumber plants. If he plants 3 times as many
+    tomato plants as cucumber plants, how many of each type of plant can he
+    plant?
+  length: 221
+  tags:
+    - algebra
+    - system-of-equations
+    - word-problem
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: >-
+    Let t and c represent the number of tomato and cucumber plants,
+    respectively.
+
+    3c = t
+
+    t + c = 100
+
+    Solving the system of equations, we find that t = 75 and c = 25.
+
+    Therefore, the farmer can plant **75 tomato plants** and **25 cucumber
+    plants**. 
+  id: 1717554231479
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: variety
+  problem: A train travels 180km at a constant speed. If it had travelled 20km/h
+    faster, the journey would have taken 30 minutes less. What was the original
+    speed of the train?
+  length: 165
+  tags:
+    - time-distance
+    - speed
+    - ratio
+    - algebra
+    - fifth-grade
+    - time-distance-speed
+  solution: Let x be the original speed of the train in km/h. Then, the time taken
+    to travel 180km would be 180/x hours.   Given that the train travelled
+    20km/h faster, its speed would be x + 20 km/h.   The time taken to travel
+    180km with the increased speed would be 180/(x + 20).   The problem states
+    that the journey took 30 minutes less with the increased speed, so 180/x -
+    180/(x + 20) = 0.5 hours. Solving this equation gives x = 40 km/h.
+  id: 1717554327675
+
+- model: gemma:7b
+  generator: geometry
+  input: variety
+  problem: There are 3 different shapes - a triangle, a rectangle, and a circle -
+    each with varying sizes. If each shape has a perimeter of 15 cm, which shape
+    has the greatest variety in terms of its side lengths?
+  length: 202
+  tags:
+    - geometry
+    - perimeter
+    - variety
+    - fifth-grade
+  solution: First, find the perimeter of each shape. Then, compare the number of
+    different side lengths for each shape. The shape with the most different
+    side lengths has the greatest variety.
+  id: 1717554389050
+
+- model: gemma:7b
+  generator: probability
+  input: variety
+  problem: There are 12 different types of fruit in a bowl. If you choose 3 fruits
+    at random, what is the probability that they will all be different types?
+  length: 145
+  tags:
+    - probability
+    - combinations
+    - random selection
+    - fifth grade
+  solution: "\frac{12\times11\times10}{12\times12\times12}"
+  id: 1717554437739
+
+- model: gemma:7b
+  generator: physics
+  input: variety
+  problem: A jar contains 120 colorful marbles, including red, blue, and green
+    ones. If there are 3 times as many red marbles as blue marbles and 2 times
+    as many green marbles as red marbles, how many of each color are there?
+  length: 214
+  tags:
+    - fifth-grade
+    - ratios
+    - proportions
+    - algebra
+    - multi-step
+    - metric-units
+    - physics
+  solution: This problem requires understanding of ratios and proportions. The
+    student needs to set up equations based on the given information and solve
+    them to find the number of marbles of each color.
+  id: 1717554499767
+
+- model: gemma:7b
+  generator: science
+  input: variety
+  problem: There are 3 different types of fruit salad offered at a cafe. If you
+    order a fruit salad every day for a week, how many different fruit salad
+    combinations are there?
+  length: 165
+  tags:
+    - permutation
+    - combination
+    - fruit salad
+    - 5thgrade
+    - science
+  solution: This problem requires students to apply their knowledge of
+    permutations and combinations to find the total number of different possible
+    fruit salad combinations. This is a suitable challenge for students in the
+    5th grade who have already learned about these concepts.
+  id: 1717554558150
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: sudden
+  problem: The sum of two numbers is 10. Suddenly, one number increases by 5 while
+    the other decreases by 3. What is the new sum of the two numbers?
+  length: 137
+  tags:
+    - algebra
+    - system-of-equations
+    - word-problem
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: 5 and 5
+  id: 1717554606311
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: sudden
+  problem: A train travels at a constant speed of 72 km/h for 3 hours. Suddenly,
+    the train's engine experiences a problem and the train slows down to a speed
+    of 36 km/h. How much distance did the train travel during the sudden change
+    in speed?
+  length: 232
+  tags:
+    - time-distance
+    - speed
+    - sudden change
+    - fifth-grade
+    - metric units
+    - time-distance-speed
+  solution: "First, calculate the distance travelled during the first phase using
+    the formula: distance = speed × time. Distance = 72 km/h × 3h = 216 km.
+    Next, calculate the distance travelled during the second phase using the
+    same formula. Distance = 36 km/h × time. To find the total distance, simply
+    add the distances travelled during each phase."
+  id: 1717554683342
+
+- model: gemma:7b
+  generator: geometry
+  input: sudden
+  problem: A triangular garden bed has a sudden change in height from 40cm at one
+    corner to 60cm at another corner. If the base of the triangle is 80cm, what
+    is the area of the garden bed?
+  length: 177
+  tags:
+    - geometry
+    - triangle
+    - area
+    - height
+    - base
+    - fifth-grade
+  solution: "First, find the height difference: 60cm - 40cm = 20cm. Then, use the
+    formula for the area of a triangle: area = base * height / 2. Substitute the
+    values and solve for the area."
+  id: 1717554746923
+
+- model: gemma:7b
+  generator: probability
+  input: sudden
+  problem: A box of chocolates contains 200, and 10 of them are filled with
+    caramel. If you reach into the box and randomly pick 5 chocolates, what is
+    the probability that exactly 2 of them are filled with caramel?
+  length: 203
+  tags:
+    - conditional-probability
+    - combinations
+    - binomial-distribution
+    - fifth-grade
+    - probability
+  solution: "\frac{10\binom{2}{2}\binom{190}{3}}{200\binom{5}{5}}$"
+  id: 1717554806250
+
+- model: gemma:7b
+  generator: physics
+  input: sudden
+  problem: A ball is rolling with a velocity of 2 m/s. Suddenly, it encounters a
+    friction force of 1 N. How much will its velocity change after traveling 5
+    m?
+  length: 147
+  tags:
+    - physics
+    - force
+    - friction
+    - acceleration
+    - kinematics
+    - fifth-grade
+  solution: This problem involves understanding the concept of sudden changes in
+    motion, applying the formula F = mv to calculate the acceleration caused by
+    the force, and using the kinematic equations of motion to find the final
+    velocity.
+  id: 1717554868231
+
+- model: gemma:7b
+  generator: science
+  input: sudden
+  problem: A raincloud suddenly releases 450 millilitres of rain over 3 minutes.
+    What is the average rainfall rate in millilitres per minute?
+  length: 130
+  tags:
+    - rate
+    - average
+    - measurement
+    - metric
+    - fifth-grade
+    - science
+  solution: This problem requires students to calculate the average rate of
+    rainfall by dividing the total amount of rain by the time taken. It involves
+    understanding the concept of rate, which is a fundamental skill in
+    mathematics.
+  id: 1717554922495
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: campaigner
+  problem: A candidate received 120 more votes than their opponent. Together, they
+    received 240 votes. How many votes did each candidate receive?
+  length: 134
+  tags:
+    - algebra
+    - system-of-equations
+    - word-problem
+    - metric
+    - fifth-grade
+    - two-variable-algebra
+  solution: "Let x be the number of votes for the candidate and y be the number of
+    votes for the opponent. Then, we can set up two equations:  x = y + 120  x +
+    y = 240  Solving these equations, we find that the candidate received 180
+    votes and the opponent received 60 votes."
+  id: 1717554988022
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: campaigner
+  problem: A campaigner travels 480 m in 3 h. At what average speed did the
+    campaigner travel in meters per hour?
+  length: 102
+  tags:
+    - word problem
+    - distance
+    - speed
+    - time
+    - fifth grade
+    - time-distance-speed
+  solution: "First, we need to find the speed in meters per hour. We can divide
+    the distance traveled by the time taken: 480 m / 3 h = 160 m/h. Therefore,
+    the campaigner traveled at an average speed of 160 m/h."
+  id: 1717555049271
+
+- model: gemma:7b
+  generator: geometry
+  input: campaigner
+  problem: A campaigner wants to create a circular banner with a diameter of 1.5
+    meters. What is the area of the banner in square meters?
+  length: 126
+  tags:
+    - geometry
+    - circle
+    - area
+    - diameter
+    - radius
+    - fifth-grade
+  solution: "First, we need to find the radius of the circle by dividing the
+    diameter by 2. Then, we can use the formula for the area of a circle: A =
+    πr²."
+  id: 1717555104195
+
+- model: gemma:7b
+  generator: probability
+  input: campaigner
+  problem: A campaigner wants to survey 100 people in a town to understand their
+    preference for a new park project. If 60% of the town's population are
+    adults and 40% are children, how many adults and children should the
+    campaigner survey to ensure that their sample is representative of the
+    town's population?
+  length: 299
+  tags:
+    - probability-estimation
+    - proportion
+    - representative-sample
+    - 5th-grade
+    - probability
+  solution: The campaigner should survey 60 adults and 40 children to ensure their
+    sample is representative of the town's population.
+  id: 1717555171647
+
+- model: gemma:7b
+  generator: physics
+  input: campaigner
+  problem: A campaigner walks 200 meters in 4 minutes. What is their average speed
+    in meters per minute?
+  length: 93
+  tags:
+    - 5thGrade
+    - Distance
+    - Speed
+    - MetricUnits
+    - Division
+    - physics
+  solution: This problem involves dividing distance traveled by time taken to find
+    average speed. It requires understanding of metric units and division.
+  id: 1717555241323
+
+- model: gemma:7b
+  generator: science
+  input: campaigner
+  problem: A campaigner walks 300m in the first half of a campaign trail and then
+    covers 40% of the remaining distance. How many metres of the trail does the
+    campaigner have left to cover?
+  length: 177
+  tags:
+    - fifth-grade
+    - distance
+    - percentage
+    - word-problem
+    - science
+  solution: This problem requires applying the concept of percentages to solve a
+    distance-related word problem. It involves dividing distances, finding
+    unknown values based on percentages, and applying those values to the
+    remaining distance. This is appropriate for a 5th grade student who has been
+    introduced to percentages and distance measurement.
+  id: 1717555307355
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: insincere
+  problem: "An insincere baker sells two kinds of bread: fluffy and crusty. Each
+    fluffy bun costs 3 euros, while each crusty bun costs 4 euros. Today, the
+    baker sold twice as many fluffy buns as crusty buns and earned 48 euros. How
+    many crusty buns did the baker sell?"
+  length: 256
+  tags:
+    - algebra
+    - system-of-equations
+    - linear-equations
+    - fifth-grade
+    - metric-units
+    - two-variable-algebra
+  solution: >-
+    Let x be the number of crusty buns and y the number of fluffy buns. Then we
+    have the system of equations:
+
+    y = 2x
+
+    x + 3y = 48
+
+    Solving this system gives x = 8 and y = 16.
+  id: 1717555380579
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: insincere
+  problem: An insincere friend travels 300 meters at a speed of 5 meters per
+    minute. However, he actually covers only 250 meters due to his insincerity.
+    What was his average speed over the entire distance?
+  length: 194
+  tags:
+    - time-distance
+    - speed
+    - average
+    - fifth-grade
+    - metric
+    - time-distance-speed
+  solution: "First, calculate the time taken to cover the 300 meters: 300 / 5 = 6
+    minutes. Next, calculate the distance covered in reality: 250 meters.
+    Finally, divide the distance covered in reality by the time taken to get the
+    average speed: 250 / 6 = 4.17 meters per minute."
+  id: 1717555465674
+
+- model: gemma:7b
+  generator: geometry
+  input: insincere
+  problem: An architect wants to design a rectangular garden with a perimeter of
+    40 meters. The length of the garden is 2 meters longer than its width. What
+    are the dimensions of the garden?
+  length: 179
+  tags:
+    - perimeter
+    - rectangle
+    - dimensions
+    - fifth-grade
+    - metric-units
+    - geometry
+  solution: First, we can let x and x + 2 be the width and length of the garden,
+    respectively. Then, we know that the perimeter of a rectangle is 2(width +
+    length). We can substitute the values we know into the formula and solve for
+    x. Once we know the width, we can find the length by adding 2 to the width.
+  id: 1717555541691
+
+- model: gemma:7b
+  generator: probability
+  input: insincere
+  problem: An insincere friend claims to know your secret. You know they're lying
+    because their face doesn't match their words. What is the probability that
+    their claim is true?
+  length: 166
+  tags:
+    - conditional_probability
+    - discrete_random_variable
+    - fifth_grade
+    - probability
+  solution: "0.0"
+  id: 1717555591251
+
+- model: gemma:7b
+  generator: physics
+  input: insincere
+  problem: An insincere scientist claims his invention doubles the speed of light.
+    If the speed of light is 3x10^8 m/s, how much faster is the scientist's
+    invention than the speed of light?
+  length: 178
+  tags:
+    - fifth-grade
+    - physics
+    - speed
+    - formula
+    - difference
+  solution: This problem requires students to recall the formula for speed and
+    apply it to solve for the difference in speed between the two values.
+  id: 1717555656355
+
+- model: gemma:7b
+  generator: science
+  input: insincere
+  problem: An insincere scientist measures the volume of a liquid with a cylinder
+    that has a diameter of 5 cm and a height of 10 cm. If the liquid fills
+    exactly 80% of the cylinder, what is the volume of the liquid in cubic
+    centimeters?
+  length: 225
+  tags:
+    - fifth-grade
+    - cylinder
+    - volume
+    - percentage
+    - diameter
+    - height
+    - science
+  solution: This problem requires students to understand the formula for the
+    volume of a cylinder, which involves multiplying the base area by the
+    height. It also requires them to calculate the area of the base using the
+    diameter. This is a suitable challenge for a 5th grade student who has been
+    introduced to these concepts.
+  id: 1717555734495
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: firearm
+  problem: A firearm has a barrel length of 40 cm and an overall length of 60 cm.
+    What are the lengths of the barrel and the grip respectively?
+  length: 132
+  tags:
+    - algebra
+    - system-of-equations
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: |-
+    Let x cm be the length of the barrel and y cm be the length of the grip.
+     x + y = 60
+     40 + y = 60
+     y = 20 cm
+     x = 40 cm
+  id: 1717555807238
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: firearm
+  problem: A bullet travels 800 meters in 0.2 seconds. What was the bullet's speed
+    in meters per second?
+  length: 93
+  tags:
+    - fifth-grade
+    - distance-time
+    - speed
+    - metric-units
+    - time-distance-speed
+  solution: "First, we need to recall the formula: speed = distance / time. Then,
+    we plug in the given values: speed = 800 meters / 0.2 seconds = 4000 meters
+    per second. Therefore, the bullet's speed was 4000 meters per second."
+  id: 1717555874774
+
+- model: gemma:7b
+  generator: geometry
+  input: firearm
+  problem: A firearm has a barrel length of 50 cm and a total length of 100 cm.
+    What is the length of the grip?
+  length: 100
+  tags:
+    - geometry
+    - perimeter
+    - fifth-grade
+    - measurement
+    - length
+  solution: First, subtract the barrel length from the total length to find the
+    length of the grip. Then, you have the length of the grip.
+  id: 1717555928343
+
+- model: gemma:7b
+  generator: probability
+  input: firearm
+  problem: A target shooter has a 70% chance of hitting the target with each shot.
+    What is the probability that they will hit the target exactly 3 times out of
+    5 shots?
+  length: 157
+  tags:
+    - probability-concepts
+    - conditional-probability
+    - fifth-grade
+    - target-shooting
+    - accuracy
+    - probability
+  solution: "0.343"
+  id: 1717555981623
+
+- model: gemma:7b
+  generator: physics
+  input: firearm
+  problem: A firearm has a muzzle velocity of 800 m/s. If the bullet has a mass of
+    10 g, what is the kinetic energy of the bullet when it is fired?
+  length: 136
+  tags:
+    - physics
+    - mechanics
+    - kinetic-energy
+    - fifth-grade
+    - mass
+    - velocity
+  solution: This problem requires students to recall the formula for kinetic
+    energy and apply it to the given values. It also involves converting mass
+    from grams to kilograms.
+  id: 1717556046831
+
+- model: gemma:7b
+  generator: science
+  input: firearm
+  problem: A firearm has a barrel length of 40 cm. If the bullet travels at a
+    velocity of 800 m/s, what is the time taken for the bullet to travel through
+    the barrel?
+  length: 155
+  tags:
+    - fifth-grade
+    - kinematics
+    - distance
+    - velocity
+    - time
+    - firearm
+    - science
+  solution: This problem requires students to apply their knowledge of kinematics
+    to solve for time. It involves concepts such as distance, velocity, and
+    time. This problem is appropriate for 5th graders as it challenges them to
+    solve a real-world problem involving motion.
+  id: 1717556118426
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: wry
+  problem: The sum of two numbers is 10. One number is 3 times the other. Find the
+    two numbers.
+  length: 84
+  tags:
+    - algebra
+    - system-of-equations
+    - multistep
+    - fifth-grade
+    - two-variable-algebra
+  solution: |-
+    Let x be the smaller number and y be the larger number.
+    x + 3x = 10
+    x = 2.5, y = 7.5
+  id: 1717556189762
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: wry
+  problem: A train travels 240 km at a constant speed. If it had travelled 10%
+    faster, the journey would have taken 1 hour less. What was the train's
+    speed?
+  length: 145
+  tags:
+    - time-distance
+    - speed
+    - ratio
+    - proportion
+    - fifth-grade
+    - time-distance-speed
+  solution: "Let x be the train's speed in km/h. Then, the journey took x/240
+    hours. If the train travelled 10% faster, its speed would be x + 0.1x = 1.1x
+    km/h. The journey took x/240 * 1.1 hours. Since the journey took 1 hour less
+    with the faster speed, we have the equation: x/240 - 1/240 = 1/240 * 1.1.
+    Solving for x, we get x = 240 km/h."
+  id: 1717556289575
+
+- model: gemma:7b
+  generator: geometry
+  input: wry
+  problem: A triangle has a wry angle that measures 75°, and the opposite side is
+    10 cm long. What is the length of the adjacent side of the triangle?
+  length: 139
+  tags:
+    - geometry
+    - triangle
+    - angle
+    - side
+    - trigonometry
+    - fifth-grade
+  solution: First, draw a right triangle with the given angle and side. Then, use
+    the trigonometry ratio of sine to find the length of the adjacent side. The
+    answer is approximately 8.6 cm.
+  id: 1717556351927
+
+- model: gemma:7b
+  generator: probability
+  input: wry
+  problem: There are 120 pens in a box. If 15 of them have bent tips, what is the
+    probability that a randomly chosen pen from the box will have a bent tip?
+  length: 144
+  tags:
+    - probability
+    - fifth-grade
+    - conditional-probability
+    - ratio
+  solution: "\frac{15}{120} = \frac{1}{8}"
+  id: 1717556420614
+
+- model: gemma:7b
+  generator: physics
+  input: wry
+  problem: A 2.5 kg toy car is attached to a 1.5 m rope and spun in a horizontal
+    circle at a constant speed of 3 m/s. What is the tension in the rope?
+  length: 139
+  tags:
+    - fifth-grade
+    - physics
+    - centripetal-force
+    - tension
+    - mass
+    - length
+    - speed
+  solution: This problem requires students to apply the formula for centripetal
+    force, which involves calculating the tension in the rope needed to keep the
+    toy car moving in a circle.
+  id: 1717556500891
+
+- model: gemma:7b
+  generator: science
+  input: wry
+  problem: A croissant is 12 cm long and 5 cm wide. If the croissant is twice as
+    wide as it is long, what is its total perimeter in centimeters?
+  length: 133
+  tags:
+    - perimeter
+    - rectangle
+    - proportion
+    - fifth-grade
+    - science
+  solution: This problem requires understanding of perimeter and proportional
+    relationships. It involves applying the formula for perimeter of a rectangle
+    and understanding that a proportion can be expressed as an equation.
+  id: 1717556570763
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: reminiscent
+  problem: A baker remembers making a delicious chocolate cake for his
+    grandmother's birthday. The cake had a circumference of 30 cm and a height
+    of 6 cm. How much chocolate did the baker use for the cake's surface area?
+  length: 209
+  tags:
+    - algebra
+    - system-of-equations
+    - perimeter
+    - height
+    - surface-area
+    - fifth-grade
+    - two-variable-algebra
+  solution: The surface area of the cake is 540 cm². The baker used 540 cm² of chocolate.
+  id: 1717556645775
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: reminiscent
+  problem: An astronaut travels at a speed of 20,000 kilometers per hour. If the
+    journey reminds her of a childhood trip that lasted 10 days, how many
+    kilometers did she travel during that time?
+  length: 183
+  tags:
+    - time-distance
+    - speed
+    - metric
+    - fifth-grade
+    - conversion
+    - time-distance-speed
+  solution: First, convert the time of the childhood trip from days to hours. 10
+    days is equal to 240 hours. Then, multiply the speed by the time to find the
+    distance traveled.
+  id: 1717556717743
+
+- model: gemma:7b
+  generator: geometry
+  input: reminiscent
+  problem: A circular garden bed is reminiscent of a childhood home. Its
+    circumference is 12 meters. What is the radius of the garden bed?
+  length: 127
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - radius
+    - fifth-grade
+  solution: "First, recall the formula for the circumference of a circle: C = 2πr.
+    Then, substitute the given circumference (12m) and solve for the radius
+    (r)."
+  id: 1717556775883
+
+- model: gemma:7b
+  generator: probability
+  input: reminiscent
+  problem: There's a box filled with old toys. Some of them remind you of your
+    childhood friends. If you randomly choose 3 toys from the box, what is the
+    probability that at least one of them is reminiscent of a childhood friend?
+  length: 218
+  tags:
+    - probability
+    - conditional probability
+    - fifth grade
+  solution: Calculate the probability of picking a toy that isn't reminiscent of a
+    friend, then subtract that from 1.
+  id: 1717556837622
+
+- model: gemma:7b
+  generator: physics
+  input: reminiscent
+  problem: A newton of water is flowing through a pipe at a velocity of 2 m/s. The
+    pipe narrows from a diameter of 4 cm to 2 cm. What is the velocity of the
+    water in the narrower section?
+  length: 176
+  tags:
+    - conservation-of-mass
+    - fifth-grade
+    - fluid-dynamics
+    - diameter
+    - velocity
+    - physics
+  solution: This problem involves the conservation of mass, which is a fundamental
+    principle of physics. Students need to apply the formula for volumetric flow
+    rate to solve for the velocity in the narrower section.
+  id: 1717556911606
+
+- model: gemma:7b
+  generator: science
+  input: reminiscent
+  problem: A scientist discovers a new element that reminds her of the vibrant
+    sunsets of her childhood. The element emits light in a pattern that forms a
+    circle with a radius of 3.5 cm. What is the area of the circle formed by the
+    emitted light?
+  length: 235
+  tags:
+    - circle-area
+    - metric-measurement
+    - fifth-grade-math
+    - science
+  solution: This problem requires students to recall the formula for the area of a
+    circle, A = πr^2, and apply it to the given radius of 3.5 cm. It challenges
+    students to convert between units of measurement (cm) and uses a context
+    relevant to their age group.
+  id: 1717556990639
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: connector
+  problem: A train travels 360 km in the same direction as another train that
+    travels 240 km. If the two trains leave at the same time and meet at a
+    station, how long did it take for them to meet, considering each train
+    travels at a constant speed?
+  length: 237
+  tags:
+    - algebra
+    - system-of-equations
+    - speed
+    - distance
+    - fifth-grade
+    - two-variable-algebra
+  solution: "Let x be the speed of the slower train (in km/h) and y be the speed
+    of the faster train (in km/h). Then, using the distance formula: x*12 = y*8.
+    Also, x + y = 30. Solve the system to find x and y."
+  id: 1717557074138
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: connector
+  problem: A train travels 300 km at a speed of 80 km/h. How much time did it take
+    the train to reach its destination?
+  length: 107
+  tags:
+    - time-distance
+    - speed
+    - fifth-grade
+    - metric-units
+    - time-distance-speed
+  solution: First, we need to find the time taken by dividing the distance
+    traveled by the speed. Time = Distance / Speed = 300 km / 80 km/h = 3.75
+    hours. Therefore, the train took 3.75 hours to reach its destination.
+  id: 1717557147771
+
+- model: gemma:7b
+  generator: geometry
+  input: connector
+  problem: There is a rectangular room with a perimeter of 24 meters. If the
+    length of the room is 6 meters, how long is the connector between the two
+    shorter sides?
+  length: 154
+  tags:
+    - geometry
+    - perimeter
+    - rectangle
+    - fifth-grade
+  solution: First, find the combined length of the two shorter sides using the
+    perimeter. Then, subtract the known length of the room from the combined
+    length to find the length of the connector.
+  id: 1717557213383
+
+- model: gemma:7b
+  generator: probability
+  input: connector
+  problem: "There are 20 identical connectors, each with a length of 5 cm. If they
+    are connected end-to-end, what is the total length of the chain formed? "
+  length: 143
+  tags:
+    - probability
+    - measurement
+    - chain
+    - fifth-grade
+  solution: ",100 cm,"
+  id: 1717557265471
+
+- model: gemma:7b
+  generator: physics
+  input: connector
+  problem: A connector joins two wires with a resistance of 2 ohms each. What is
+    the total resistance of the circuit if there are 5 of these connectors in
+    series?
+  length: 151
+  tags:
+    - fifth-grade
+    - circuit
+    - resistance
+    - series
+    - physics
+  solution: This problem involves understanding the concept of resistance in a
+    series circuit. The resistance of multiple resistors in series simply adds
+    up. This is a suitable problem for a 5th grade student as it requires them
+    to apply their knowledge of arithmetic and basic circuit concepts.
+  id: 1717557333671
+
+- model: gemma:7b
+  generator: science
+  input: connector
+  problem: There are 4 identical connectors that are each 10 cm long. If they are
+    connected end-to-end, what is the total length of all the connectors?
+  length: 140
+  tags:
+    - measurement
+    - length
+    - perimeter
+    - fifth-grade
+    - science
+  solution: This problem involves combining lengths of multiple objects to find
+    the total length. This is a common concept in measurement that is
+    appropriate for 5th grade students.
+  id: 1717557388935
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: imprudent
+  problem: A train travels 300 km in the same direction as a river current, and
+    250 km against the current. The speed of the train in still water is 10 km/h
+    more than the speed of the current. Find the speed of the train and the
+    speed of the current.
+  length: 239
+  tags:
+    - algebra
+    - system-of-equations
+    - speed
+    - current
+    - fifth-grade
+    - two-variable-algebra
+  solution: >-
+    Let x be the speed of the train in still water (km/h) and y be the speed of
+    the current (km/h).
+
+    3x + y = 300
+
+    2x - y = 250
+
+    Solving the system of equations, we find:
+
+    x = 75
+
+    y = 25
+
+    Therefore, the speed of the train is 75 km/h and the speed of the current is
+    25 km/h.
+  id: 1717557489619
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: imprudent
+  problem: An imprudent hiker starts their journey at 9:00 AM from a point 100 km
+    away from their destination. If they travel at a constant speed of 4 km/h,
+    will they reach their destination before sunset at 6:00 PM?
+  length: 205
+  tags:
+    - time-distance
+    - speed
+    - distance
+    - hiking
+    - fifth-grade
+    - time-distance-speed
+  solution: To solve this, we need to calculate the time it will take the hiker to
+    reach the destination. Distance = Speed × Time. Time = Distance / Speed. 100
+    km / 4 km/h = 25 hours. Since the hiker only has 9 hours until sunset, they
+    will not reach their destination before sunset.
+  id: 1717557571719
+
+- model: gemma:7b
+  generator: geometry
+  input: imprudent
+  problem: A rectangular garden is 3.5 m longer than its width. If the perimeter
+    of the garden is 40 m, what are the dimensions of the garden?
+  length: 131
+  tags:
+    - rectangle
+    - perimeter
+    - dimensions
+    - length
+    - width
+    - metric
+    - fifth-grade
+    - geometry
+  solution: "First, let's represent the width of the garden as w meters. Then, the
+    length of the garden is w + 3.5 meters. The perimeter of a rectangle is the
+    sum of the lengths of all four sides. We know the perimeter is 40 m, so we
+    can write an equation: 2(w + w + 3.5) = 40. Solving this equation will give
+    us the width and length of the garden."
+  id: 1717557655695
+
+- model: gemma:7b
+  generator: probability
+  input: imprudent
+  problem: An imprudent traveler plans a trip with a budget of 100 €. He estimates
+    that his daily expenses will be 30 €, but he also wants to save 20 € each
+    day. How many days can he travel on his budget?
+  length: 193
+  tags:
+    - probability
+    - estimation
+    - budget
+    - saving
+    - grade5
+  solution: The traveler can travel for 5 days.
+  id: 1717557714898
+
+- model: gemma:7b
+  generator: physics
+  input: imprudent
+  problem: An imprudent hiker accidentally drops a 1.5 kg backpack from a height
+    of 4 meters. How much potential energy did the backpack lose?
+  length: 131
+  tags:
+    - physics
+    - energy
+    - gravitational
+    - potential
+    - fifth-grade
+    - metric
+  solution: This problem requires the student to recall the formula for
+    gravitational potential energy and apply it to a real-life situation. It
+    involves understanding the relationship between potential energy and height,
+    and manipulating units like kilograms and meters.
+  id: 1717557784727
+
+- model: gemma:7b
+  generator: science
+  input: imprudent
+  problem: A scientist wants to measure the impact of a new energy source on the
+    environment. She estimates that the energy source will produce 150 watts of
+    power per square meter of surface area. If the scientist wants to collect 50
+    joules of energy in 10 seconds, what area of the surface should she cover
+    with the energy source?
+  length: 320
+  tags:
+    - fifth-grade
+    - power
+    - energy
+    - area
+    - joules
+    - watts
+    - science
+  solution: This problem requires students to apply their knowledge of power,
+    energy, and area to solve a real-world problem. It involves calculating the
+    amount of power required to generate a given amount of energy in a specific
+    time frame, and then using that information to find the area of the surface
+    that needs to be covered with the energy source.
+  id: 1717557875999
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: armpit
+  problem: A bag of apples has 3 times as many fruits as a bag of oranges. If the
+    bag of oranges has 12 fruits, how many fruits are there in the bag of
+    apples?
+  length: 148
+  tags:
+    - algebra
+    - system-of-equations
+    - multi-step
+    - metric-units
+    - 5th-grade
+    - two-variable-algebra
+  solution: 36 fruits
+  id: 1717557934586
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: armpit
+  problem: An arm pit can be 18 cm deep. If you can swim 3 m/s, how long would it
+    take you to reach the bottom of an arm pit?
+  length: 114
+  tags:
+    - Time
+    - Distance
+    - Speed
+    - 5thGrade
+    - time-distance-speed
+  solution: "First, convert the depth of the arm pit to meters: 18 cm = 0.18 m.
+    Then, divide the depth by your speed to find the time taken: 0.18 m / 3 m/s
+    = 0.06 s."
+  id: 1717558021175
+
+- model: gemma:7b
+  generator: geometry
+  input: armpit
+  problem: An armpit is the crease between your arm and your chest. If a circle
+    with a circumference of 30 cm can just fit into the armpit, what is the
+    radius of the circle?
+  length: 162
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - radius
+    - fifth-grade
+  solution: First, we need to remember that the circumference of a circle is the
+    length of the circle's perimeter. Next, we can use the formula C = 2πr to
+    find the radius of the circle by dividing the circumference by 2π.
+  id: 1717558121810
+
+- model: gemma:7b
+  generator: probability
+  input: armpit
+  problem: An armpit is 18 cm from the shoulder. If a person's arm is 50 cm long,
+    what is the probability that their arm will reach their armpit?
+  length: 134
+  tags:
+    - probability
+    - distance
+    - arm
+    - armpit
+    - shoulder
+    - fifth-grade
+  solution: "0.6"
+  id: 1717558200882
+
+- model: gemma:7b
+  generator: physics
+  input: armpit
+  problem: An armpit can hold 2.5L of liquid. How many armpits would be needed to
+    hold 75L of water?
+  length: 89
+  tags:
+    - multiplication
+    - volume
+    - unit conversion
+    - fifth grade
+    - physics
+  solution: This problem requires students to apply their understanding of
+    multiplication to solve a real-world situation. It also involves converting
+    larger units of measurement (liters) into smaller units (liters).
+  id: 1717558302522
+
+- model: gemma:7b
+  generator: science
+  input: armpit
+  problem: An armpit is 18 cm long and 12 cm wide. What is the area of the armpit?
+  length: 71
+  tags:
+    - rectangle
+    - area
+    - fifth-grade
+    - metric-units
+    - science
+  solution: This problem involves calculating the area of a rectangle, which is a
+    fundamental geometric concept covered in 5th grade. It requires students to
+    multiply the length and width of the armpit to find the area.
+  id: 1717558392790
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: genius
+  problem: "A train travels 180 km in the same time as a bicycle covers 90 km. If
+    the train travels 30 km/h faster than the bicycle, what is the average speed
+    of each? "
+  length: 156
+  tags:
+    - algebra
+    - system-of-equations
+    - speed
+    - metric
+    - fifth-grade
+    - two-variable-algebra
+  solution: "Let x and y be the speeds of the train and bicycle in km/h
+    respectively. Then, we have the system of equations:  $$x = y + 30$$  $$x +
+    y = 180 + 90 = 270$$  Solving this system, we find that the average speed of
+    the train is 205 km/h and the average speed of the bicycle is 75 km/h."
+  id: 1717558516018
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: genius
+  problem: A train travels 1500 km at a speed of 80 km/h. How much time did it
+    take the train to travel this distance?
+  length: 107
+  tags:
+    - fifth-grade
+    - time-distance
+    - speed
+    - distance
+    - formula
+    - time-distance-speed
+  solution: First, we need to find the time taken by dividing the distance
+    travelled by the speed. 1500 km / 80 km/h = 18.75 h. Therefore, the train
+    took 18.75 hours to travel 1500 km.
+  id: 1717558628610
+
+- model: gemma:7b
+  generator: geometry
+  input: genius
+  problem: A circle has a circumference of 31.4 cm. What is the radius of the circle?
+  length: 74
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - radius
+    - fifth-grade
+  solution: "First, recall the formula for the circumference of a circle: C = 2πr.
+    Then, substitute the given circumference into the formula and solve for the
+    radius."
+  id: 1717558690727
+
+- model: gemma:7b
+  generator: probability
+  input: genius
+  problem: A bag of marbles contains 100 marbles, of which 15 are golden. If you
+    pick marbles randomly from the bag without replacement, what is the
+    probability of picking a golden marble on the first pick and a non-golden
+    marble on the second pick?
+  length: 238
+  tags:
+    - probability
+    - independence
+    - binomial
+    - fifth-grade
+  solution: P(golden)P(non-golden) = (15/100) * (85/99) ≈ 0.136
+  id: 1717558766219
+
+- model: gemma:7b
+  generator: physics
+  input: genius
+  problem: A ball is launched straight up with an initial velocity of 10 m/s. How
+    high will the ball reach, if gravity pulls it down with an acceleration of
+    -9.8 m/s², starting from the ground level?
+  length: 188
+  tags:
+    - physics
+    - gravity
+    - height
+    - velocity
+    - acceleration
+    - fifth-grade
+  solution: This problem requires understanding of velocity, gravity, and height.
+    The student needs to use the equation of motion to find the height reached
+    by the ball. This is a challenging problem that will push the student's
+    mathematical abilities, but it is still achievable for a motivated 5th
+    grader.
+  id: 1717558845987
+
+- model: gemma:7b
+  generator: science
+  input: genius
+  problem: A scientist discovers a new species of phytoplankton that can produce
+    oxygen at a rate of 20 mg/h. If the ocean contains 10^18 kg of water, how
+    many years would it take for this phytoplankton to produce enough oxygen to
+    replace the current oxygen in the ocean?
+  length: 260
+  tags:
+    - fifth-grade
+    - rate-proportionality
+    - mass-conservation
+    - time-calculation
+    - environmental-science
+    - science
+  solution: This problem requires understanding of rate, mass, and time. It also
+    involves applying these concepts to solve a real-world problem involving
+    environmental science.
+  id: 1717558924207
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: purport
+  problem: There are 30 tickets sold for a football game. Some tickets cost 10
+    euros each and some cost 15 euros each. If the total amount of money
+    collected is 450 euros, how many of each type of ticket were sold?
+  length: 203
+  tags:
+    - algebra
+    - system-of-equations
+    - linear-equations
+    - fifth-grade
+    - metric-units
+    - two-variable-algebra
+  solution: Let x be the number of 10 euro tickets and y be the number of 15 euro
+    tickets. We know that x + y = 30 and 10x + 15y = 450. Solving this system of
+    equations, we find that x = 18 and y = 12. Therefore, 18 tickets were sold
+    for 10 euros each and 12 tickets were sold for 15 euros each.
+  id: 1717559023775
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: purport
+  problem: An express train travels for 6 hours at a speed of 240 km/h. How far
+    has it travelled in total?
+  length: 95
+  tags:
+    - time-distance
+    - speed
+    - fifth-grade
+    - metric-units
+    - algebraic-equation
+    - time-distance-speed
+  solution: "First, we need to recall the formula: distance = speed × time. Then,
+    we simply plug in the values: distance = 240 km/h × 6 h = 1440 km.
+    Therefore, the train has travelled 1440 km in total."
+  id: 1717559118039
+
+- model: gemma:7b
+  generator: geometry
+  input: purport
+  problem: A triangle has an area of 9 cm^2 and a base of 3 cm. What is the height
+    of the triangle?
+  length: 88
+  tags:
+    - geometry
+    - triangle
+    - area
+    - base
+    - height
+    - fifth-grade
+  solution: "First, we can use the formula for the area of a triangle: A = (base *
+    height) / 2. Then, we can substitute the values we know into the formula and
+    solve for the height."
+  id: 1717559177322
+
+- model: gemma:7b
+  generator: probability
+  input: purport
+  problem: A bag of marbles purports to contain 100 marbles, but 10% of them are
+    actually broken. If you randomly pick 20 marbles from the bag, what is the
+    probability that exactly 2 marbles are broken?
+  length: 191
+  tags:
+    - probability-estimation
+    - combinations
+    - binomial-distribution
+    - fifth-grade
+    - probability
+  solution: "\frac{C(10,2)C(90,18)}{C(100,20)}"
+  id: 1717559241583
+
+- model: gemma:7b
+  generator: physics
+  input: purport
+  problem: A toy car has a mass of 0.5kg. If it travels at a speed of 2m/s, what
+    is the kinetic energy of the car?
+  length: 103
+  tags:
+    - physics
+    - energy
+    - kinetic
+    - mass
+    - speed
+    - fifth-grade
+  solution: This problem involves the concept of kinetic energy, which is the
+    energy of motion. Students are required to recall the formula for kinetic
+    energy and substitute the given values to find the energy of the toy car.
+  id: 1717559307587
+
+- model: gemma:7b
+  generator: science
+  input: purport
+  problem: A scientist claims that a new energy drink contains 3.5g of caffeine
+    per liter. If a can of this drink contains 300ml, how many milligrams of
+    caffeine are there in one can?
+  length: 172
+  tags:
+    - metric-units
+    - ratio-proportion
+    - fifth-grade
+    - science
+  solution: This problem requires understanding of metric units and ratio and
+    proportion. It is challenging enough for a 5th grader but not too difficult
+    for them.
+  id: 1717559375602
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: fog
+  problem: The fog has reduced visibility on the road. Cars are driving at a
+    constant speed of 40 km/h. If the distance between two cars is initially 600
+    m, how much will it change in 20 minutes?
+  length: 184
+  tags:
+    - algebra
+    - system-of-equations
+    - distance
+    - speed
+    - metric
+    - fifth-grade
+    - two-variable-algebra
+  solution: The distance between the cars will change by 80 m in 20 minutes.
+  id: 1717559466530
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: fog
+  problem: Fog is rolling in at a rate of 3 meters per minute. If the fog is
+    currently 9 meters away from a school, how long will it take for the fog to
+    reach the school?
+  length: 159
+  tags:
+    - time-distance
+    - speed
+    - metric-units
+    - 5th-grade
+    - time-distance-speed
+  solution: Let d be the time in minutes it takes for the fog to reach the school.
+    Then, the distance covered by the fog in that time is 3d meters. Since the
+    fog is initially 9 meters away, after d minutes, it will be at a distance of
+    9 + 3d meters from the school. When it reaches the school, d = 3 minutes.
+  id: 1717559576914
+
+- model: gemma:7b
+  generator: geometry
+  input: fog
+  problem: A dense fog covers a triangular field with sides measuring 100m, 80m,
+    and 60m. What is the area of the field obscured by the fog?
+  length: 129
+  tags:
+    - geometry
+    - fog
+    - triangle
+    - perimeter
+    - area
+    - fifth-grade
+  solution: First, find the semi-perimeter of the triangle by adding the lengths
+    of the sides and dividing by 2. Then, use the formula for the area of a
+    triangle with the semiperimeter and the length of one of its sides.
+  id: 1717559672042
+
+- model: gemma:7b
+  generator: probability
+  input: fog
+  problem: The visibility in a foggy forest is 50 m. If a tree is 20 m high, what
+    is the probability that a bird flying at a height of 10 m will be visible
+    from the ground on a foggy day?
+  length: 176
+  tags:
+    - probability
+    - height
+    - visibility
+    - forest
+    - metric
+    - fifth-grade
+  solution: "0.8"
+  id: 1717559751218
+
+- model: gemma:7b
+  generator: physics
+  input: fog
+  problem: A fog bank with a thickness of ,50cm, is moving at a speed of 3.5m/s.
+    What is the displacement of the fog bank after 2 hours?
+  length: 125
+  tags:
+    - physics
+    - displacement
+    - speed
+    - time
+    - metric
+    - 5thGrade
+  solution: This problem requires students to apply their knowledge of
+    displacement, speed, and time to solve a real-world problem involving fog.
+    It involves converting time from hours to seconds and calculating the
+    distance traveled by the fog bank over a given period of time.
+  id: 1717559847502
+
+- model: gemma:7b
+  generator: science
+  input: fog
+  problem: A dense fog reduces visibility on a road by 20%. If the original
+    visibility was 800 meters, what is the visibility now?
+  length: 119
+  tags:
+    - proportion
+    - percentage
+    - metric
+    - fifth-grade
+    - fog
+    - visibility
+    - science
+  solution: This problem involves a proportion relationship, which is a concept
+    that 5th graders should be familiar with. It requires students to calculate
+    the amount of visibility that has been lost due to the fog and then subtract
+    that from the original visibility to find the new visibility.
+  id: 1717559944379
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: pregnancy
+  problem: A pregnant woman has a total of 40 weeks to go until her baby is born.
+    If the baby is currently 28 weeks along, how many weeks are left until the
+    baby is born? Let x be the number of weeks left and y be the total weeks of
+    pregnancy.
+  length: 232
+  tags:
+    - algebra
+    - system-of-equations
+    - word-problem
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: x = 40 - 28 = 12 weeks
+  id: 1717560021671
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: pregnancy
+  problem: A baby grows in a mother's womb for an average of 9 months. If the baby
+    grows at a constant rate of 1 cm per day, how long will it be until the baby
+    is 40 cm long?
+  length: 163
+  tags:
+    - time-rate
+    - growth
+    - average
+    - metric-units
+    - fifth-grade
+    - time-distance-speed
+  solution: First, we need to find the total growth of the baby. 40 cm - 0 cm = 40
+    cm. Next, we need to find the time it takes for the baby to grow 40 cm. 40
+    cm / 1 cm/day = 40 days. Therefore, it will take the baby 40 days to reach
+    40 cm long.
+  id: 1717560104255
+
+- model: gemma:7b
+  generator: geometry
+  input: pregnancy
+  problem: A circular pregnancy pillow has a diameter of 60 cm. What is the area
+    of fabric needed to make the pillow cover?
+  length: 112
+  tags:
+    - geometry
+    - circle
+    - area
+    - diameter
+    - radius
+    - fifth-grade
+  solution: First, we need to find the radius of the pillow by dividing the
+    diameter by 2. Then, we can use the formula for the area of a circle to find
+    the area of the fabric needed.
+  id: 1717560163238
+
+- model: gemma:7b
+  generator: probability
+  input: pregnancy
+  problem: A prenatal test indicates a 1 in 5 chance of pregnancy. What is the
+    probability that a woman is not pregnant after undergoing this test?
+  length: 136
+  tags:
+    - probability
+    - prenatal test
+    - pregnancy
+    - fifth-grade
+  solution: "\frac{4}{5}"
+  id: 1717560221238
+
+- model: gemma:7b
+  generator: physics
+  input: pregnancy
+  problem: "A mother-to-be has a baby bump that is 20 cm in circumference. If the
+    circumference of a newborn is approximately 30 cm, how much has the baby
+    grown in her pregnancy? "
+  length: 167
+  tags:
+    - measurement
+    - circumference
+    - subtraction
+    - fifth-grade
+    - pregnancy
+    - physics
+  solution: This problem requires students to subtract the smaller measurement
+    from the larger measurement to find the difference. It involves basic
+    subtraction skills that are appropriate for 5th graders.
+  id: 1717560290080
+
+- model: gemma:7b
+  generator: science
+  input: pregnancy
+  problem: A mother-to-be is 4 months pregnant. If her average weight gain is 1kg
+    per month, how much weight will she gain in total during her pregnancy?
+  length: 142
+  tags:
+    - multiply
+    - average
+    - unit-conversion
+    - metric-units
+    - fifth-grade
+    - science
+  solution: This problem involves simple multiplication and unit conversion. It
+    requires students to recall the concept of average and apply it to calculate
+    the total weight gain over a period of time.
+  id: 1717560353894
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: invincible
+  problem: A superhero's shield has a radius of 40 cm. The circumference of the
+    shield is twice the diameter. What is the area of the shield?
+  length: 130
+  tags:
+    - algebra
+    - system-of-equations
+    - radius
+    - circumference
+    - area
+    - fifth-grade
+    - two-variable-algebra
+  solution: Area = 502.4 cm^2
+  id: 1717560417815
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: invincible
+  problem: "An invincible train travels 300km at a constant speed. If it started
+    its journey at 8:00am, at what time will it reach its destination? "
+  length: 136
+  tags:
+    - Time
+    - Distance
+    - Speed
+    - 5thGrade
+    - time-distance-speed
+  solution: "First, we need to calculate the time taken to travel the distance.
+    Distance = Speed × Time. We know the distance is 300km and the speed is
+    constant. Therefore, Time = Distance / Speed = 300km / 100km/h = 3 hours.
+    Adding this time to the starting time gives us the arrival time: 8:00am + 3
+    hours = 11:00am."
+  id: 1717560507115
+
+- model: gemma:7b
+  generator: geometry
+  input: invincible
+  problem: A circle with a radius of 5 cm has an inscribed square. What is the
+    perimeter of the square? Assume the square is as large as possible.
+  length: 135
+  tags:
+    - geometry
+    - circle
+    - square
+    - perimeter
+    - fifth-grade
+  solution: First, find the diameter of the circle by multiplying the radius by 2.
+    Then, use the diameter to find the side length of the square. Finally,
+    multiply the side length by 4 to find the perimeter.
+  id: 1717560572295
+
+- model: gemma:7b
+  generator: probability
+  input: invincible
+  problem: An invincible balloon is tossed into the air from the ground. The
+    probability of the balloon landing on a specific floor is 1/3. How many
+    floors are there if the probability of the balloon landing on any floor is
+    equal?
+  length: 219
+  tags:
+    - probability
+    - fifth-grade
+    - conditional-probability
+  solution: 3 floors
+  id: 1717560629934
+
+- model: gemma:7b
+  generator: physics
+  input: invincible
+  problem: An invincible ball is rolling with a velocity of 2 m/s. It encounters a
+    1.5 m high obstacle. What is the minimum height of the ball above the ground
+    after it clears the obstacle?
+  length: 178
+  tags:
+    - fifth-grade
+    - physics
+    - energy
+    - conservation
+    - gravity
+    - obstacle
+  solution: This problem requires the student to apply the concept of
+    gravitational potential energy to solve for the height of the ball after
+    clearing the obstacle. It involves calculating the potential energy gained
+    by the ball as it climbs the obstacle and then applying the conservation of
+    energy principle.
+  id: 1717560736074
+
+- model: gemma:7b
+  generator: science
+  input: invincible
+  problem: An invincible sphere has a radius of 5cm. What is the volume of this sphere?
+  length: 76
+  tags:
+    - sphere
+    - volume
+    - fifth-grade
+    - measurement
+    - metric
+    - science
+  solution: This problem involves understanding the formula for the volume of a
+    sphere, which is appropriate for 5th graders. It requires applying the
+    formula with given measurements.
+  id: 1717560814402
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: watery
+  problem: A rectangular pool is 2.5 times longer than it is wide. If the pool's
+    perimeter is 40m, find its dimensions.
+  length: 108
+  tags:
+    - algebra
+    - system-of-equations
+    - rectangle
+    - perimeter
+    - metric-units
+    - fifth-grade
+    - two-variable-algebra
+  solution: |-
+    Let x and y be the pool's length and width in meters respectively.
+    2x + 2y = 40
+    x = 2y
+    Substituting in the first equation:
+    2(2y) + 2y = 40
+    6y = 40
+    y = 6.67m
+    x = 2(6.67) = 13.34m
+  id: 1717560931782
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: watery
+  problem: A boat travels 300 m downstream in 2 minutes. How long will it take the
+    boat to travel 450 m upstream if the current is flowing at 0.5 m/s?
+  length: 139
+  tags:
+    - time-distance
+    - speed
+    - current
+    - fifth-grade
+    - metric-units
+    - time-distance-speed
+  solution: First, calculate the speed of the boat relative to the water. Then,
+    use the distance and speed to find the time taken upstream.
+  id: 1717561024290
+
+- model: gemma:7b
+  generator: geometry
+  input: watery
+  problem: A rectangular pool is 12m long and 8m wide. If the water level is 40cm
+    deep, what is the volume of water in the pool?
+  length: 117
+  tags:
+    - geometry
+    - volume
+    - rectangle
+    - pool
+    - fifth-grade
+  solution: First, find the area of the pool's base by multiplying the length and
+    width. Then, multiply the area by the depth of the water to find the volume
+    of water in the pool.
+  id: 1717561111074
+
+- model: gemma:7b
+  generator: probability
+  input: watery
+  problem: A rectangular swimming pool is 10 m long and 5 m wide. The water level
+    in the pool is 1.2 m. What is the volume of water in the pool?
+  length: 133
+  tags:
+    - probability-concepts
+    - measurement
+    - volume
+    - rectangle
+    - fifth-grade
+    - probability
+  solution: ",,360 m^3,"
+  id: 1717561222598
+
+- model: gemma:7b
+  generator: physics
+  input: watery
+  problem: A rectangular pool is 4.5m wide and 8m long. If the water level is 1.2m
+    deep, what is the volume of water in the pool?
+  length: 118
+  tags:
+    - rectangle
+    - volume
+    - water
+    - fifth-grade
+    - metric
+    - physics
+  solution: This problem requires students to calculate the volume of a
+    rectangular prism, which involves multiplying the area of the base by the
+    height. This is a suitable challenge for 5th graders who have learned about
+    volume and multiplication.
+  id: 1717561294895
+
+- model: gemma:7b
+  generator: science
+  input: watery
+  problem: A rectangular pool is 4.5m wide and 8.2m long. If the water in the pool
+    is 1.8m deep, what is the volume of water in the pool?
+  length: 126
+  tags:
+    - watery
+    - rectangle
+    - volume
+    - multiplication
+    - fifth-grade
+    - science
+  solution: This problem involves multiplying two measurements (width and length)
+    to find the area of the pool's base, and then multiplying that by the depth
+    of the water to find the volume of water in the pool.
+  id: 1717561370147
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: what
+  problem: "What numbers are the solutions to the system of equations:   $$2x + y
+    = 7$$  $$x - y = 3$$  "
+  length: 92
+  tags:
+    - algebra
+    - system-of-equations
+    - linear-equations
+    - solution
+    - fifth-grade
+    - two-variable-algebra
+  solution: x = 2, y = 5
+  id: 1717561437990
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: what
+  problem: What time will it be in 3 hours if a train travels at 60 km/h from a
+    station that is 180 km away from its destination?
+  length: 118
+  tags:
+    - distance-time
+    - speed
+    - fifth-grade
+    - metric
+    - time-distance-speed
+  solution: "First, we need to calculate the distance the train needs to travel in
+    3 hours: 60 km/h * 3h = 180 km. Then, we subtract that distance from the
+    total distance of the journey: 180 km - 180 km = 0 km. This means that the
+    train will reach its destination at the same time as when it left the
+    station."
+  id: 1717561532679
+
+- model: gemma:7b
+  generator: geometry
+  input: what
+  problem: What is the area of a circle with a circumference of 10 cm?
+  length: 59
+  tags:
+    - geometry
+    - circle
+    - circumference
+    - area
+    - fifth-grade
+  solution: "First, find the radius of the circle by dividing the circumference by
+    2π. Then, use the formula for the area of a circle: πr^2."
+  id: 1717561593923
+
+- model: gemma:7b
+  generator: probability
+  input: what
+  problem: What is the probability of rolling a number greater than or equal to 4
+    on a standard, fair, six-sided die?
+  length: 106
+  tags:
+    - probability
+    - dice
+    - fifth grade
+  solution: 1/3
+  id: 1717561651514
+
+- model: gemma:7b
+  generator: physics
+  input: what
+  problem: What is the height of a cylinder with a radius of 2 cm and a volume of
+    30 cm^3?
+  length: 79
+  tags:
+    - geometry
+    - volume
+    - cylinder
+    - fifth-grade
+    - physics
+  solution: This problem requires students to recall the formula for the volume of
+    a cylinder and solve for the height. It involves understanding the
+    relationships between the dimensions of a cylinder and their impact on its
+    volume.
+  id: 1717561722958
+
+- model: gemma:7b
+  generator: science
+  input: what
+  problem: What is the volume of a cube with an edge length of 10 cm?
+  length: 58
+  tags:
+    - measurement
+    - volume
+    - cube
+    - multiplication
+    - fifth-grade
+    - science
+  solution: This problem requires students to recall the formula for the volume of
+    a cube and apply their knowledge of multiplication. It is also a good review
+    of measurement and units.
+  id: 1717561791931
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: did
+  problem: There are 12 eggs in a carton. Some eggs are cooked, and the rest are
+    left raw. If 4 eggs are cooked, how many eggs are left raw? Write an
+    equation to show the relationship between the number of cooked eggs and the
+    number of raw eggs.
+  length: 234
+  tags:
+    - algebra
+    - system-of-equations
+    - egg-cooking
+    - fifth-grade
+    - two-variable-algebra
+  solution: "Let x be the number of raw eggs. The number of cooked eggs is then 12
+    - x. The equation is: 12 - x + 4 = 8 - x. Solving for x gives: x = 4.
+    Therefore, there are 4 raw eggs left."
+  id: 1717561876451
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: did
+  problem: A train travels 180 km at a speed of 60 km/h. How much time did it take
+    the train to travel that distance?
+  length: 106
+  tags:
+    - fifth-grade
+    - distance
+    - speed
+    - time
+    - calculation
+    - time-distance-speed
+  solution: First, we need to calculate the time taken by dividing the distance
+    travelled by the speed. Time = Distance / Speed = 180 km / 60 km/h = 3
+    hours. Therefore, the train took 3 hours to travel 180 km.
+  id: 1717561956727
+
+- model: gemma:7b
+  generator: geometry
+  input: did
+  problem: The distance from the top of a tower to the ground is 10 meters. If a
+    climber ascended 3 meters on the first day and 2 meters on each of the next
+    5 days, how high will the climber be from the ground after 6 days?
+  length: 212
+  tags:
+    - geometry
+    - distance
+    - climbing
+    - fifth-grade
+  solution: First, calculate the total distance climbed in the first day. Then,
+    calculate the distance climbed in the next 5 days by multiplying 2 meters by
+    5. Finally, add the two distances to find the climber's height from the
+    ground after 6 days.
+  id: 1717562045699
+
+- model: gemma:7b
+  generator: probability
+  input: did
+  problem: There are 49 fair dice, each with faces numbered 1 to 6. If 3 dice are
+    rolled, what is the probability that exactly two of the faces will be 5s?
+  length: 144
+  tags:
+    - probability
+    - dice
+    - conditional-probability
+    - fifth-grade
+  solution: "\frac{14}{216}"
+  id: 1717562114527
+
+- model: gemma:7b
+  generator: physics
+  input: did
+  problem: An object is dropped from rest and travels 4.5 m in the first second.
+    How far did it travel in the second before it reached this height?
+  length: 136
+  tags:
+    - physics
+    - gravity
+    - distance
+    - time
+    - acceleration
+    - 5thGrade
+  solution: This problem requires students to use the concept of constant
+    acceleration due to gravity to calculate the distance an object falls in a
+    given amount of time. It involves dividing the distance traveled by the time
+    elapsed to find the velocity of the object, and then multiplying that
+    velocity by the time elapsed to find the distance traveled during a
+    subsequent time interval.
+  id: 1717562203895
+
+- model: gemma:7b
+  generator: science
+  input: did
+  problem: Did the scientist measure 3.5 meters of DNA, or 2.75 meters of RNA?
+  length: 67
+  tags:
+    - fifth-grade
+    - decimals
+    - comparison
+    - place-value
+    - measurement
+    - science
+  solution: This problem requires students to compare two decimal numbers to
+    determine which is greater. It involves understanding place value and
+    decimal notation, which are concepts typically covered in 5th grade math.
+  id: 1717562282218
+
+- model: gemma:7b
+  generator: two-variable-algebra
+  input: vegetation
+  problem: A farmer has 100 hectares of land. He cultivates wheat and barley on
+    his land. The area of wheat cultivation is 3 times that of barley
+    cultivation. How many hectares of each crop does he cultivate?
+  length: 197
+  tags:
+    - algebra
+    - system-of-equations
+    - fifth-grade
+    - area
+    - agriculture
+    - two-variable-algebra
+  solution: "Wheat: 75 hectares, Barley: 25 hectares"
+  id: 1717562374627
+
+- model: gemma:7b
+  generator: time-distance-speed
+  input: vegetation
+  problem: A botanist notices new vegetation growing at a rate of 2.5 cm/day. How
+    much vegetation will be there after 10 days?
+  length: 115
+  tags:
+    - algebra
+    - rate
+    - time
+    - distance
+    - fifth-grade
+    - time-distance-speed
+  solution: First, we need to find the total change in vegetation over the 10
+    days. 2.5 cm/day * 10 days = 25 cm. So, after 10 days, there will be 25 cm
+    of new vegetation.
+  id: 1717562480594
+
