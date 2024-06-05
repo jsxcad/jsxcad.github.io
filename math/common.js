@@ -87,3 +87,13 @@ export const renderProblem = ({ id = -1, generator, problem, solution, lines = 4
   div.appendChild(hint);
   return div;
 };
+
+export const shuffle = (list) => {
+  for (let nth = 0; nth < list.length; nth++) {
+    const pick = Math.floor(Math.random() * (list.length - nth)) + nth;
+    const temp = list[pick];
+    list[pick] = list[nth];
+    list[nth] = temp;
+  }
+  return list;
+}

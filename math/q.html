@@ -98,9 +98,9 @@
   </div>
   <script type="module">
     import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
-    import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem } from './common.js';
+    import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem, shuffle } from './common.js';
 
-    const problems = await loadProblems();
+    const problems = shuffle(await loadProblems());
     const { limits, requiredTags } = await loadTags();
 
     const decodeSignature = (params) => {
@@ -135,7 +135,7 @@
         }
         let exclude = false;
         for (const tag of problem.tags) {
-          const { limit = 1 } = limits[tag] === undefined ? {} : limits[tag];
+          const { limit = 2 } = limits[tag] === undefined ? {} : limits[tag];
           if (limit <= (tagUses.get(tag) || 0)) {
             exclude = true;
             break;
