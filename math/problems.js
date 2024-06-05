@@ -33,6 +33,7 @@ export const problems = [
     "tags": [
       "geometry",
       "division",
+      "measurement",
       "metric-units"
     ],
     "solution": "First, we need to calculate the total length of baguette space available. 300 meters (bakery length) / 60 meters (villager spacing) = 5 villagers. Next, we need to ensure each villager gets at least 1 meter of baguette space. 1 meter / 60 meters = 1/6 of a baguette per villager. So, the bakery can share baguettes with 5 villagers while ensuring each gets at least 1/6 of a baguette.",
@@ -1558,6 +1559,7 @@ export const problems = [
     "length": 121,
     "tags": [
       "geometry",
+      "combinatorics",
       "perimeter",
       "grade-5"
     ],
@@ -1585,6 +1587,8 @@ export const problems = [
     "length": 146,
     "tags": [
       "physics",
+      "average",
+      "mass",
       "metric-units",
       "grade-5"
     ],
@@ -2198,6 +2202,7 @@ export const problems = [
     "tags": [
       "probability",
       "conditional-probability",
+      "binomial-distribution",
       "grade-5"
     ],
     "solution": "\frac{12 \times 8}{20 \times 19}",
@@ -2293,6 +2298,7 @@ export const problems = [
     "length": 60,
     "tags": [
       "chemistry",
+      "mass",
       "grade-3",
       "science",
       "trivia"
@@ -2423,6 +2429,7 @@ export const problems = [
     "length": 150,
     "tags": [
       "grade-5",
+      "distance-time",
       "speed",
       "proportion",
       "algebra",
@@ -2465,6 +2472,7 @@ export const problems = [
     "length": 200,
     "tags": [
       "grade-5",
+      "distance-time",
       "speed",
       "physics"
     ],
@@ -3062,6 +3070,8 @@ export const problems = [
     "length": 184,
     "tags": [
       "distance",
+      "mass",
+      "average",
       "grade-5",
       "metric-units",
       "physics"
@@ -3468,6 +3478,7 @@ export const problems = [
     "length": 181,
     "tags": [
       "conditional-probability",
+      "binomial-distribution",
       "grade-5",
       "probability"
     ],
@@ -3481,6 +3492,7 @@ export const problems = [
     "length": 164,
     "tags": [
       "physics",
+      "gravity",
       "grade-5"
     ],
     "solution": "This problem requires students to recall the formula for gravitational potential energy and apply it to a real-life scenario. It also involves understanding the relationship between potential and kinetic energy.",
@@ -3854,6 +3866,7 @@ export const problems = [
     "length": 147,
     "tags": [
       "physics",
+      "gravity",
       "grade-5"
     ],
     "solution": "This problem requires students to apply the concept of constant acceleration due to gravity to calculate the height of an object launched vertically. It involves understanding the relationship between initial velocity, acceleration, and height.",
@@ -3867,6 +3880,7 @@ export const problems = [
     "tags": [
       "grade-5",
       "physics",
+      "gravity",
       "metric-units",
       "science"
     ],
@@ -4030,6 +4044,7 @@ export const problems = [
     "length": 266,
     "tags": [
       "division",
+      "average",
       "metric-units",
       "grade-5",
       "science"
@@ -4099,6 +4114,7 @@ export const problems = [
     "length": 241,
     "tags": [
       "grade-5",
+      "measurement",
       "geometry",
       "area",
       "physics"
@@ -4151,6 +4167,7 @@ export const problems = [
     "length": 112,
     "tags": [
       "grade-5",
+      "gravity",
       "sentence-writing",
       "writing"
     ],
@@ -4309,6 +4326,7 @@ export const problems = [
     "length": 252,
     "tags": [
       "physics",
+      "gravity",
       "grade-5"
     ],
     "solution": "This problem requires students to apply their understanding of forces, specifically gravitational force. It involves calculating the net force between the two spheres, taking into account both the attractive and repulsive forces. This problem is appropriate for 5th graders as it involves manipulating basic mathematical concepts related to force and mass.",
@@ -4321,6 +4339,7 @@ export const problems = [
     "length": 215,
     "tags": [
       "proportion",
+      "mass",
       "metric-units",
       "grade-5",
       "science"
@@ -7036,6 +7055,7 @@ export const problems = [
     "length": 112,
     "tags": [
       "grade-5",
+      "distance-time",
       "speed",
       "metric-units",
       "time-distance-speed"
@@ -10132,6 +10152,7 @@ export const problems = [
     "tags": [
       "grade-5",
       "translation",
+      "measurement",
       "korean-to-english"
     ],
     "solution": "{\"정확성\":\"Accuracy\",\"측정\":\"Measurement\",\"오차\":\"Error\",\"최소화\":\"Minimize\",\"요소\":\"Factor\"}\n\n         {\"english\":\"Accuracy is a vital element in minimizing errors during the measurement process.\"}",
@@ -12354,6 +12375,7 @@ export const problems = [
     "length": 21,
     "tags": [
       "grade-5",
+      "measurement",
       "korean-to-english"
     ],
     "solution": "{\"비만도는 얼마나 되나요?\":\"What is your body mass index (BMI)?\",\"비만도\":\"Body mass index\",\"얼마나\":\"How much\",\"되나요?\":\"Is that?\"}\n\n         {\"english\":\"How much does a biscuit weigh?\"}",
@@ -12776,6 +12798,7 @@ export const problems = [
       "distance",
       "speed",
       "conversion",
+      "average",
       "time-distance-speed"
     ],
     "solution": "First, convert the distance to meters: 180 km = 180,000 m. Then, divide the distance by the time to get the average speed: 180,000 m / 3 h = 60 m/s.",
@@ -13185,6 +13208,7 @@ export const problems = [
     "problem": "A group of mathematicians are planning a trip to a remote research station in Antarctica that is 1200 kilometers away. In good weather, they can travel at a speed of 40 kilometers per hour. However, blizzards reduce their speed to 20 kilometers per hour for half of the journey. How long will it take them to reach the station?",
     "length": 287,
     "tags": [
+      "distance-time",
       "speed",
       "grade-5",
       "time-distance-speed"
@@ -13391,6 +13415,7 @@ export const problems = [
     "problem": "A scientist has a group of cells that have been exposed to harmful radiation. The scientist wants to restore the cells by removing these harmful particles. Each attempt to remove a particle has a 75% probability of success. What is the probability that at least 9 out of 12 particles will be removed after 3 attempts?",
     "length": 324,
     "tags": [
+      "binomial-distribution",
       "grade-5",
       "probability"
     ],
@@ -13512,6 +13537,7 @@ export const problems = [
     "length": 158,
     "tags": [
       "probability",
+      "combinatorics",
       "grade-5"
     ],
     "solution": "Calculate the probability of buying a winning ticket by dividing the number of winning tickets by the total number of tickets. Then, use the complement rule to find the probability of buying at least one winning ticket.",
@@ -13805,6 +13831,7 @@ export const problems = [
       "probability",
       "statistics",
       "grade-5",
+      "average",
       "multiplication"
     ],
     "solution": "\frac{30,000 €}{month} \times 200 = 6,000,000 €/month",
@@ -13980,6 +14007,7 @@ export const problems = [
     "length": 156,
     "tags": [
       "probability",
+      "combinatorics",
       "grade-5"
     ],
     "solution": "\frac{C(18,2)C(102,1)}{C(120,3)}",
@@ -14334,6 +14362,7 @@ export const problems = [
     "tags": [
       "probability",
       "algebra",
+      "combinatorics",
       "grade-5"
     ],
     "solution": "There are 3 x 2 = 6 grandsons in total.",
@@ -14418,6 +14447,7 @@ export const problems = [
     "length": 234,
     "tags": [
       "probability",
+      "combinatorics",
       "binomial",
       "grade-5"
     ],
@@ -14698,6 +14728,7 @@ export const problems = [
     "problem": "A rectangular garden is 3.5 meters long and 2.75 meters wide. To replicate its exact shape and size, what length of wire is needed to enclose the perimeter?",
     "length": 164,
     "tags": [
+      "measurement",
       "grade-5",
       "geometry"
     ],
@@ -15308,6 +15339,7 @@ export const problems = [
     "length": 279,
     "tags": [
       "probability",
+      "combinatorics",
       "geometry",
       "grade-5"
     ],
@@ -15336,6 +15368,7 @@ export const problems = [
     "problem": "A train travels 360 kilometers at a speed that has been unfairly reduced by 20% due to racial discrimination. Calculate the time it will take the train to reach its destination.",
     "length": 160,
     "tags": [
+      "distance-time",
       "speed",
       "grade-5",
       "time-distance-speed"
@@ -16015,6 +16048,7 @@ export const problems = [
     "tags": [
       "probability",
       "physics",
+      "mass",
       "length",
       "grade-5"
     ],
@@ -16045,6 +16079,7 @@ export const problems = [
     "tags": [
       "time-distance-speed",
       "speed",
+      "average",
       "metric-units",
       "grade-5"
     ],
@@ -16074,6 +16109,8 @@ export const problems = [
     "length": 195,
     "tags": [
       "probability",
+      "combinatorics",
+      "binomial-distribution",
       "grade-5"
     ],
     "solution": "\frac{C(20,2)}{C(30,10)}",
@@ -16366,6 +16403,7 @@ export const problems = [
     "tags": [
       "probability",
       "conditional-probability",
+      "binomial-distribution",
       "grade-5"
     ],
     "solution": "Calculate the probability of picking a red marble, then multiply that probability by the probability of picking at least one more red marble. The final probability is 0.83.",
@@ -16661,6 +16699,8 @@ export const problems = [
     "problem": "A coin has a slight tendency to land on its side, happening 20% of the time. If you flip the coin 10 times, what is the probability that exactly 3 of them will land on their side?",
     "length": 168,
     "tags": [
+      "combinatorics",
+      "binomial-distribution",
       "grade-5",
       "probability"
     ],
@@ -16863,6 +16903,7 @@ export const problems = [
     "problem": "A train travels 360 kilometers in 4 hours. If it maintains its current speed, how long will it take the train to travel 720 kilometers?",
     "length": 127,
     "tags": [
+      "distance-time",
       "speed",
       "grade-5",
       "metric-units",
@@ -17020,6 +17061,7 @@ export const problems = [
     "problem": "A daring explorer travels 300 kilometers in 5 hours. What is their average speed in kilometers per hour?",
     "length": 97,
     "tags": [
+      "distance-time",
       "grade-5",
       "time-distance-speed"
     ],
@@ -17906,6 +17948,7 @@ export const problems = [
     "length": 324,
     "tags": [
       "probability",
+      "combinatorics",
       "grade-5"
     ],
     "solution": "There are 3 speeds and 4 directions, so there are 3 x 4 = 12 different combinations.",
@@ -17931,6 +17974,7 @@ export const problems = [
     "problem": "A sticker collector travels at a speed of 5 kilometers per hour. How long will it take them to collect 120 stickers if each sticker is 2 centimeters wide and the sticker collector covers a distance of 1 centimeter per second? Assume the collector starts from rest at the beginning of their journey.",
     "length": 205,
     "tags": [
+      "distance-time",
       "speed",
       "metric-units",
       "grade-5",
@@ -18748,6 +18792,7 @@ export const problems = [
       "distance",
       "speed",
       "time",
+      "average",
       "time-distance-speed"
     ],
     "solution": "To find the average speed, we divide the distance traveled (360 km) by the time taken (6 hours). This gives us 360 km / 6 hours = 60 km/h. Therefore, the average speed of the explorer is 60 km/h.",
@@ -18777,6 +18822,7 @@ export const problems = [
     "tags": [
       "probability",
       "conditional-probability",
+      "binomial-distribution",
       "grade-5"
     ],
     "solution": "0.2",
@@ -18804,6 +18850,7 @@ export const problems = [
     "problem": "A listener travels 450 meters at a speed of 10 meters per second. How long will it take for the listener to reach a certain point?",
     "length": 107,
     "tags": [
+      "distance-time",
       "speed",
       "grade-5",
       "time-distance-speed"
@@ -18922,6 +18969,7 @@ export const problems = [
     "tags": [
       "time-distance-speed",
       "speed",
+      "average",
       "grade-5",
       "metric-units"
     ],
@@ -19240,6 +19288,7 @@ export const problems = [
     "length": 136,
     "tags": [
       "conditional-probability",
+      "binomial-distribution",
       "grade-5",
       "probability"
     ],
@@ -19358,6 +19407,7 @@ export const problems = [
       "probability",
       "density",
       "volume",
+      "mass",
       "grade-5"
     ],
     "solution": "$$m = \nho V = \nho \times \frac{\text{π} d^2h}{4}$$ $$= 2700 \text{ kg/m}^3 \times \frac{\text{π} (0.02 \text{ m})^2(0.1 \text{ m})}{4}$$ $$= 0.014 \text{ kg}$",
@@ -24507,6 +24557,7 @@ export const problems = [
     "tags": [
       "grade-5",
       "physics",
+      "gravity",
       "korean-english-daily-life"
     ],
     "solution": "{\"중력\":\"Gravity\",\"물리학\":\"Physics\",\"물체\":\"Object\",\"힘\":\"Force\",\"지구 표면\":\"Earth's surface\",\"위치\":\"Position\"}\n\n         {\"english\":\"Gravity provides force to objects, allowing them to be positioned on the surface of the Earth.\"}",
@@ -35338,6 +35389,7 @@ export const problems = [
     "length": 89,
     "tags": [
       "grade-5",
+      "measurement",
       "time",
       "missing-word"
     ],
@@ -35492,6 +35544,7 @@ export const problems = [
     "length": 157,
     "tags": [
       "grade-5",
+      "measurement",
       "missing-word"
     ],
     "id": 3003,
@@ -35658,6 +35711,7 @@ export const problems = [
     "length": 107,
     "tags": [
       "grade-5",
+      "measurement",
       "missing-word"
     ],
     "id": 3015,
@@ -37794,6 +37848,7 @@ export const problems = [
     "length": 119,
     "tags": [
       "grade-5",
+      "measurement",
       "missing-word"
     ],
     "id": 3171,
@@ -37808,6 +37863,7 @@ export const problems = [
     "tags": [
       "grade-5",
       "physics",
+      "gravity",
       "missing-word"
     ],
     "id": 3172,
@@ -37977,5 +38033,2401 @@ export const problems = [
     ],
     "id": 3184,
     "solution": "democratic"
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "dew",
+    "problem": "Two rectangular patches of grass, measuring 2m by 3m and 4m by 5m respectively, are covered in morning dew. What is the total area covered by dew on both patches?",
+    "length": 140,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "40m^2",
+    "id": 3185
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "dew",
+    "problem": "The morning dew covers the grass at a rate of 2 millimetres per hour. If the dew covers the grass by 8 millimetres at 7:00 AM, at what time will the grass be entirely covered in dew?",
+    "length": 159,
+    "tags": [
+      "grade-5",
+      "time",
+      "speed",
+      "distance",
+      "time-distance-speed"
+    ],
+    "solution": "Let d be the time in hours since 7:00 AM. The amount of dew covering the grass is d * 2 mm/h. When the grass is completely covered, d * 2 = 8 mm. Solving for d, we get d = 4 hours. Therefore, the grass will be completely covered in dew at 11:00 AM.",
+    "id": 3186
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "dew",
+    "problem": "A lawn sprinkler sprays water in a circular pattern with a 3-meter radius. What area does the sprinkler cover?",
+    "length": 118,
+    "tags": [
+      "geometry",
+      "circle",
+      "area",
+      "grade-5"
+    ],
+    "solution": "First, calculate the area of the circle using the formula A = πr². Then, substitute the given radius of 3 meters into the formula and solve for the area.",
+    "id": 3187
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "dew",
+    "problem": "A circular meadow with a 100-meter diameter is covered in morning dew with an average thickness of 5 millimeters. What is the volume of dew covering the meadow?",
+    "length": 172,
+    "tags": [
+      "geometry",
+      "volume",
+      "circle",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "The volume of the dew is 785 cubic meters.",
+    "id": 3188
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "dew",
+    "problem": "A layer of morning dew, 5 millimeters thick, covers the grass in a meadow with an area of 1000 square meters. How much dew is there in the meadow?",
+    "length": 129,
+    "tags": [
+      "multiplication",
+      "area",
+      "volume",
+      "metric-units",
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their knowledge of area and volume to solve a real-world problem involving precipitation. It involves multiplication of a length and area to find the volume of dew covering the meadow.",
+    "id": 3189
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "dew",
+    "problem": "A circular meadow with a 30-meter diameter is covered in dew with an average depth of 5 millimeters. How much water is there on the meadow?",
+    "length": 159,
+    "tags": [
+      "volume",
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their knowledge of circle geometry and volume to solve a real-world problem involving water coverage.",
+    "id": 3190
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "filth",
+    "problem": "A cleaning crew is tasked with cleaning two rooms. In the first room, they need to remove three times more filth than in the second room. Together, they remove 100 square meters of filth. How much filth did they remove from each room?",
+    "length": 242,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x and y be the amounts of filth removed from the first and second rooms, respectively.\n3y + x = 100\n x = 3y\n3y + 3y = 100\ny = 25\nx = 75",
+    "id": 3191
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "filth",
+    "problem": "A piece of dirt is moving at a speed of 2 meters per second. If it starts 10 meters away from a certain point, how long will it take for the dirt to reach that point?",
+    "length": 161,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "First, we need to find the distance the filth needs to travel. 10 m. Then, we need to divide that distance by the speed of the filth to find the time it takes. 10 m / 2 m/s = 5 seconds.",
+    "id": 3192
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "filth",
+    "problem": "A rectangular garden bed, measuring 1.5 meters by 2 meters, is covered in unwanted vegetation. What is the area of vegetation that needs to be removed from the garden bed?",
+    "length": 166,
+    "tags": [
+      "geometry",
+      "area",
+      "rectangle",
+      "grade-5"
+    ],
+    "solution": "First, multiply the length and width of the garden bed to find the area of the bed. Then, divide the area of the bed by the area of a square meter of vegetation to find the amount of vegetation that needs to be removed.",
+    "id": 3193
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "filth",
+    "problem": "A puddle of rainwater is 30 cm deep in the center. The rainwater spreads outwards in a circle. What is the probability that a randomly chosen point within a 60 cm radius of the puddle's center is less than 15 cm below the surface?",
+    "length": 249,
+    "tags": [
+      "probability",
+      "circle",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "0.64",
+    "id": 3194
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "filth",
+    "problem": "A puddle of rainwater is 20 cm deep. If the rainwater evaporates at a rate of 5 cm per hour, how long will it take for the puddle to completely dry out?",
+    "length": 145,
+    "tags": [
+      "grade-5",
+      "measurement",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their knowledge of area and time to solve a real-world problem. It involves dividing the depth of the puddle by the rate of evaporation to find the time it takes for the puddle to dry out.",
+    "id": 3195
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "filth",
+    "problem": "A scientist discovers a novel bacteria living in grime. The bacteria population doubles every 3 hours. Initially, there are 1 million bacteria. How many bacteria will there be after 12 hours?",
+    "length": 198,
+    "tags": [
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem involves understanding exponential growth, which is a key mathematical concept for 5th graders. It requires students to calculate the number of bacteria after each generation using a specific formula.",
+    "id": 3196
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "shoelace",
+    "problem": "A shoelace is 30 centimeters long. When tied into a knot, the knot adds 8 centimeters to the length. How long is the shoelace after the knot is tied? Represent the situation using a mathematical equation and solve it.",
+    "length": 173,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x cm be the length of the shoelace after the knot. The equation is: x = 30 + 8. Solving for x gives: x = 38 cm. The shoelace is 38 cm long after the knot.",
+    "id": 3197
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "shoelace",
+    "problem": "A shoelace is 80 centimeters long and travels at a speed of 20 centimeters per second. How long will it take for the shoelace to travel a distance of 120 centimeters?",
+    "length": 132,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let's represent the time taken by the shoelace to cover the distance as 't'. Using the formula: distance = speed × time, we can write: 120 cm = 20 cm/s × t. Solving for 't', we get: t = 120 cm / 20 cm/s = 6 seconds.",
+    "id": 3198
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "shoelace",
+    "problem": "A shoelace is 80 cm long. If the loop at the end is 20 cm long, what is the length of the shoelace that is actually used to tie the shoes?",
+    "length": 138,
+    "tags": [
+      "geometry",
+      "length",
+      "grade-5"
+    ],
+    "solution": "First, subtract the loop length from the total length of the shoelace. Then, the remaining length is the length of the shoelace that is actually used to tie the shoes.",
+    "id": 3199
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "shoelace",
+    "problem": "A shoelace is 80 centimeters long. If it is tied in a bow with a loop that is 20 centimeters long, what is the length of the remaining shoelace?",
+    "length": 126,
+    "tags": [
+      "measurement",
+      "length",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "60 cm",
+    "id": 3200
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "shoelace",
+    "problem": "A shoelace is 1.5 meters long. If it is tied in a bow that is 20 centimeters long, what is the length of the remaining shoelace?",
+    "length": 114,
+    "tags": [
+      "grade-5",
+      "measurement",
+      "physics"
+    ],
+    "solution": "This problem requires students to subtract the length of the bow from the total length of the shoelace to find the length of the remaining shoelace. It involves understanding metric units and performing simple subtraction.",
+    "id": 3201
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "shoelace",
+    "problem": "A shoelace is 1.5 meters long. If a bow requires 20 centimeters of the shoelace, what is the length of the shoelace remaining after making the bow?",
+    "length": 136,
+    "tags": [
+      "grade-5",
+      "measurement",
+      "length",
+      "science"
+    ],
+    "solution": "This problem involves subtraction of a known length (20cm) from a total length (1.5m), which aligns with 5th grade subtraction concepts. The metric units are appropriate for 5th grade students.",
+    "id": 3202
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "challenge",
+    "problem": "There are 150 fruits in a basket. The number of oranges is 20 less than twice the number of apples. How many of each fruit are there?",
+    "length": 145,
+    "tags": [
+      "algebra",
+      "grade-5",
+      "metric-units",
+      "linear-equations"
+    ],
+    "solution": "Apples: 90, Oranges: 60",
+    "id": 3203
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "challenge",
+    "problem": "A train travels 300 kilometers in 5 hours. What was the speed of the train in kilometers per hour?",
+    "length": 93,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "To find the speed of the train, we can use the formula: Speed = Distance / Time. Substituting the given values, we get: Speed = 300 km / 5 h = 60 km/h. Therefore, the train traveled at a speed of 60 km/h.",
+    "id": 3204
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "challenge",
+    "problem": "A circular garden with a 4-meter radius is surrounded by a 1-meter-wide walkway. What is the area of the walkway?",
+    "length": 135,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "area",
+      "grade-5"
+    ],
+    "solution": "First, find the circumference of the garden by multiplying the radius by 2. Then, subtract the area of the garden circle from the area of the larger circle formed by the walkway to get the area of the walkway.",
+    "id": 3205
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "challenge",
+    "problem": "A box holds 10 red marbles and 15 blue marbles. If you randomly pick two marbles without knowing their colors, what is the probability that both are red?",
+    "length": 146,
+    "tags": [
+      "probability",
+      "conditional",
+      "grade-5"
+    ],
+    "solution": "\frac{10}{25} * \frac{9}{24} = \frac{9}{48}",
+    "id": 3206
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "challenge",
+    "problem": "A ball is launched straight up from the ground with an initial speed of 4 m/s. How high will the ball be after 2 seconds?",
+    "length": 153,
+    "tags": [
+      "physics",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "This problem requires students to apply their understanding of projectile motion, including the equations of motion and the relationship between velocity, acceleration, and height. It also involves calculating the vertical displacement of the ball using the initial velocity and the acceleration due to gravity.",
+    "id": 3207
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "challenge",
+    "problem": "A rectangular garden is 1.5 meters longer than its width. If the perimeter of the garden is 40 meters, find the dimensions of the garden.",
+    "length": 131,
+    "tags": [
+      "grade-5",
+      "measurement",
+      "science"
+    ],
+    "solution": "This problem requires understanding of perimeter, area, and geometric shapes. It is slightly more challenging than typical 5th grade problems, encouraging students to apply their knowledge in a real-world context.",
+    "id": 3208
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "amen",
+    "problem": "There are 120 pencils in a box. Some friends take 40 pencils out of the box. How many pencils are left in the box? If each friend took the same number of pencils, how many pencils did each friend take?",
+    "length": 201,
+    "tags": [
+      "algebra",
+      "linear-equations",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x be the number of pencils each friend took. 120 - 40 = 80. 80 = x * 4. x = 20. Each friend took 20 pencils.",
+    "id": 3209
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "amen",
+    "problem": "A train travels 300 kilometers at a speed of 60 kilometers per hour. How long will it take for the train to reach its destination?",
+    "length": 104,
+    "tags": [
+      "grade-5",
+      "time-distance-speed",
+      "speed",
+      "metric-units"
+    ],
+    "solution": "First, we can use the formula: time = distance / speed. Plugging in the values, we get: time = 300 km / 60 km/h = 5 hours. Therefore, the train will take 5 hours to reach its destination.",
+    "id": 3210
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "amen",
+    "problem": "Given a circular prayer rug with a diameter of 1.5 meters, find the area of the rug.",
+    "length": 105,
+    "tags": [
+      "geometry",
+      "circle",
+      "perimeter",
+      "area",
+      "grade-5"
+    ],
+    "solution": "First, we find the radius of the amen by dividing the diameter by 2. Then, we use the formula for the area of a circle: A = πr^2",
+    "id": 3211
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "intellectual",
+    "problem": "An intelligent scientist found that the total number of neurons in the brain's left and right hemispheres is 34 billion. The difference between the number of neurons in the left and right hemispheres is 6 billion. How many neurons are there in each hemisphere?",
+    "length": 290,
+    "tags": [
+      "algebra",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "Let x and y represent the number of neurons in the left and right hemispheres respectively. Then, we have the system of equations:  $$x + y = 34$$  $$x - y = 6$$  Solving this system of equations, we find that x = 20 billion and y = 14 billion. Therefore, there are 20 billion neurons in the left hemisphere and 14 billion neurons in the right hemisphere.",
+    "id": 3212
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "intellectual",
+    "problem": "An intellectual traveler covers 300 kilometers in 5 hours. What is their average speed in kilometers per hour?",
+    "length": 101,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "To find the average speed, we need to divide the distance travelled by the time taken. 300km / 5h = 60km/h. Therefore, the intellectual traveler's average speed is 60km/h.",
+    "id": 3213
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "intellectual",
+    "problem": "An architect is designing a rectangular garden with a perimeter of 40 meters. The length is 2 meters more than the width. What are the dimensions of the garden?",
+    "length": 170,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "grade-5"
+    ],
+    "solution": "First, we need to translate the perimeter information into an equation. Then, we can use the relationship between the length and width to find both dimensions.",
+    "id": 3214
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "intellectual",
+    "problem": "In a library with 1000 books, approximately 200 of them are written by women. What is the probability that a randomly chosen book from the library is written by a woman?",
+    "length": 204,
+    "tags": [
+      "probability",
+      "conditional",
+      "fractions",
+      "grade-5"
+    ],
+    "solution": "\frac{200}{1000} = 0.2",
+    "id": 3215
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "intellectual",
+    "problem": "An avid reader wants to measure the perimeter of a circular bookshelf using a 1.5 meter tape measure. If the bookshelf's diameter is 120 centimeters, what length of tape measure is needed?",
+    "length": 202,
+    "tags": [
+      "grade-5",
+      "circle",
+      "circumference",
+      "measurement",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires the student to recall the formula for the circumference of a circle (circumference = diameter × π) and then substitute the given values to find the length of the measuring tape needed.",
+    "id": 3216
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "intellectual",
+    "problem": "An intellectual bookstore offers a 20% discount on books that cost between 10€ and 20€. If a book costs 15€, how much will you pay for it after the discount?",
+    "length": 172,
+    "tags": [
+      "grade-5",
+      "percentage",
+      "science"
+    ],
+    "solution": "This problem requires understanding of percentages and decimals, which are concepts typically learned in 5th grade. It also involves applying these concepts to a real-world scenario.",
+    "id": 3217
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "one",
+    "problem": "An apple and an orange are in a bowl. The apple weighs 150 grams. The orange is 20% heavier than the apple. How much does the orange weigh?",
+    "length": 132,
+    "tags": [
+      "algebra",
+      "percentage",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "The orange weighs 180g.",
+    "id": 3218
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "one",
+    "problem": "A train travels 150 kilometers at a speed of 60 kilometers per hour. How long did it take the train to cover this distance?",
+    "length": 101,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5"
+    ],
+    "solution": "To find the time taken, we can use the formula: time = distance / speed. Substituting the given values, we get: time = 150 km / 60 km/h = 2.5 hours. Therefore, the train took 2.5 hours to travel 150 km.",
+    "id": 3219
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "one",
+    "problem": "A circle has a circumference of 15 centimeters. Find the radius of the circle.",
+    "length": 72,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, recall the formula for the circumference of a circle: C = 2πr. Then, substitute the given circumference and solve for r.",
+    "id": 3220
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "one",
+    "problem": "A bag holds 3 red marbles and 7 blue marbles. If you randomly pick one marble from the bag, what is the chance that it will be red?",
+    "length": 139,
+    "tags": [
+      "probability",
+      "grade-5"
+    ],
+    "solution": "\frac{3}{10}",
+    "id": 3221
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "one",
+    "problem": "An object travels 1.5 meters in 3 seconds. What is its average speed?",
+    "length": 90,
+    "tags": [
+      "physics",
+      "speed",
+      "distance",
+      "time",
+      "grade-5"
+    ],
+    "solution": "This problem requires students to recall the formula for average speed and substitute the given values. It also requires them to understand the relationship between distance and time.",
+    "id": 3222
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "one",
+    "problem": "A cylinder with a circumference of 2 meters and a height of 1 meter is given. Find its volume.",
+    "length": 91,
+    "tags": [
+      "grade-5",
+      "circle",
+      "circumference",
+      "height",
+      "volume",
+      "science"
+    ],
+    "solution": "This problem involves understanding the relationship between the circumference, height, and volume of a cylinder. It requires applying knowledge of circle and cylinder geometry concepts learned in 5th grade.",
+    "id": 3223
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "inherent",
+    "problem": "A jar holds 400 millilitres of juice. Some is poured into a smaller jar, leaving 180 millilitres in the original jar. How much juice was poured if the smaller jar now has twice as much juice as the original jar?",
+    "length": 210,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x be the amount of juice transferred. Then, 400 - x = 2(180 - x). Solving for x gives x = 140 mL.",
+    "id": 3224
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "inherent",
+    "problem": "A train travels for 300 kilometers at a constant speed. If the journey takes 5 hours, what is the train's average speed in kilometers per hour?",
+    "length": 137,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5"
+    ],
+    "solution": "Let x be the inherent speed of the train. Distance covered is 300 km and time taken is 5 hours. Speed = Distance / Time. Therefore, x = 300 km / 5 h = 60 km/h.",
+    "id": 3225
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "inherent",
+    "problem": "A circle has a unique feature: its circumference is always twice its diameter. If a circle's diameter is 10 centimeters, what is its circumference?",
+    "length": 160,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "grade-5"
+    ],
+    "solution": "The inherent property of a circle means it always has a specific relationship between its circumference and diameter. The formula for the circumference of a circle is C = 2πr, where C is the circumference and r is the radius. Since the diameter is twice the radius, the circumference of the circle is 2π(5 cm) = 10π cm.",
+    "id": 3226
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "inherent",
+    "problem": "An urn contains 100 marbles, some of which are red and some are blue. If 40 marbles are randomly drawn from the urn, what is the probability that exactly 20 of them are red?",
+    "length": 230,
+    "tags": [
+      "probability",
+      "grade-5"
+    ],
+    "solution": "Calculate the probability of drawing a red marble in the first draw, then multiply that by the probability of drawing a red marble in the second draw, and so on for the remaining 18 draws. The probability of drawing a red marble is 40/100. Therefore, the inherent probability of drawing exactly 20 red marbles is (40/100)^20.",
+    "id": 3227
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "inherent",
+    "problem": "An object possesses an inherent gravitational pull. If an object with twice the mass exerts an inherent gravitational pull of 10 N, what is the inherent gravitational pull of an object with half the mass?",
+    "length": 195,
+    "tags": [
+      "physics",
+      "gravity",
+      "mass",
+      "grade-5"
+    ],
+    "solution": "This problem requires students to recall the concept of gravitational force being directly related to mass. They must also be able to apply this concept to solve for the gravitational force of an object with half the mass.",
+    "id": 3228
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "inherent",
+    "problem": "A cube has a volume of 100 cubic centimeters. What is the length of one side of the cube?",
+    "length": 85,
+    "tags": [
+      "geometry",
+      "volume",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to understand the concept of volume and the relationship between the volume of a cube and the length of its sides. It also involves applying the formula for the volume of a cube: V = a^3.",
+    "id": 3229
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "join",
+    "problem": "A train travels 300 kilometers at a constant speed. Another train joins it after 2 hours, and their combined speed becomes 50 kilometers per hour. What was the speed of the second train before it joined the first train?",
+    "length": 180,
+    "tags": [
+      "algebra",
+      "grade-5",
+      "metric-units",
+      "speed"
+    ],
+    "solution": "100 km/h",
+    "id": 3230
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "join",
+    "problem": "A train departs the station at 8:00 AM and travels at a speed of 80 km/h. Another train departs the same station 30 minutes later at 8:30 AM and travels at a speed of 100 km/h. At what time will the two trains meet?",
+    "length": 197,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "First, we need to calculate the distance between the two trains. 100 km/h is 20 km/h faster than 80 km/h. So, the slower train travels 20 km in 30 minutes. Next, we need to find the time when the two trains will meet. Since the faster train travels 20 km more in the same amount of time, the two trains will join 30 minutes after the slower train departs. Therefore, the two trains will join at 9:00 AM.",
+    "id": 3231
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "join",
+    "problem": "A rectangular garden is 3.5 meters long and 2.75 meters wide. If you want to enclose the two longer sides of the garden, how much fencing material is needed?",
+    "length": 144,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "multiplication",
+      "grade-5"
+    ],
+    "solution": "First, find the perimeter of the garden by adding the lengths of all four sides. Then, subtract the length of the two shorter sides to find the length of the two longer sides that need to be fenced. Finally, multiply the length of the two longer sides by 2 to find the total amount of fencing material needed.",
+    "id": 3232
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "join",
+    "problem": "A train with three carriages and another train with two carriages combine. Each carriage can hold 40 passengers. How many passengers can the two combined trains hold in total?",
+    "length": 153,
+    "tags": [
+      "probability",
+      "combinatorics",
+      "grade-5"
+    ],
+    "solution": ",480 passengers,",
+    "id": 3233
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "join",
+    "problem": "A train that is 120 meters long joins another train that is 80 meters long. What is the combined length of the two trains?",
+    "length": 111,
+    "tags": [
+      "addition",
+      "length",
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of addition of lengths to find the combined length of the two trains.",
+    "id": 3234
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "join",
+    "problem": "A train is $$x$$ meters long. How much longer will the train be if its length increases at a constant rate of $$1$$ meter per minute, starting from an initial length of $$0$$ meters?",
+    "length": 26,
+    "tags": [
+      "length",
+      "addition",
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to understand the concept of joining two lengths together to find the total length. This is a suitable problem for 5th graders as it involves applying their existing knowledge of addition.",
+    "id": 3235
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "variety",
+    "problem": "A farmer has 100 seedlings to plant in his garden. He wants to plant some tomato plants and some cucumber plants. If he plants three times as many tomato plants as cucumber plants, how many of each type of plant can he plant?",
+    "length": 221,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let t and c represent the number of tomato and cucumber plants, respectively.\n3c = t\nt + c = 100\nSolving the system of equations, we find that t = 75 and c = 25.\nTherefore, the farmer can plant **75 tomato plants** and **25 cucumber plants**. ",
+    "id": 3236
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "variety",
+    "problem": "A train covers a distance of 180 kilometers at a steady speed. If it had been able to travel 20 kilometers per hour faster, the journey would have taken 30 minutes less. What was the original speed of the train?",
+    "length": 165,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "ratio",
+      "algebra",
+      "grade-5"
+    ],
+    "solution": "Let x be the original speed of the train in km/h. Then, the time taken to travel 180km would be 180/x hours.   Given that the train travelled 20km/h faster, its speed would be x + 20 km/h.   The time taken to travel 180km with the increased speed would be 180/(x + 20).   The problem states that the journey took 30 minutes less with the increased speed, so 180/x - 180/(x + 20) = 0.5 hours. Solving this equation gives x = 40 km/h.",
+    "id": 3237
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "variety",
+    "problem": "Given three shapes - a triangle, a rectangle, and a circle - each with a perimeter of 15 cm, determine which shape offers the greatest variety in terms of its side lengths.",
+    "length": 202,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "grade-5"
+    ],
+    "solution": "First, find the perimeter of each shape. Then, compare the number of different side lengths for each shape. The shape with the most different side lengths has the greatest variety.",
+    "id": 3238
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "variety",
+    "problem": "There are 12 unique fruits in a bowl. If you randomly choose 3 fruits, what is the probability that all of them are different types?",
+    "length": 145,
+    "tags": [
+      "probability",
+      "combinations",
+      "grade-5"
+    ],
+    "solution": "\frac{12\times11\times10}{12\times12\times12}",
+    "id": 3239
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "variety",
+    "problem": "A jar contains 120 colorful marbles in total, including red, blue, and green ones. There are three times as many red marbles as blue marbles, and twice as many green marbles as red marbles. How many marbles of each color are there in the jar?",
+    "length": 214,
+    "tags": [
+      "grade-5",
+      "algebra",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires understanding of ratios and proportions. The student needs to set up equations based on the given information and solve them to find the number of marbles of each color.",
+    "id": 3240
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "variety",
+    "problem": "How many different combinations of fruit salad can you order over the course of a week if there are 3 different types of fruit salad offered at a cafe?",
+    "length": 165,
+    "tags": [
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their knowledge of permutations and combinations to find the total number of different possible fruit salad combinations. This is a suitable challenge for students in the 5th grade who have already learned about these concepts.",
+    "id": 3241
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "sudden",
+    "problem": "The sum of two numbers is 10. Suddenly, one number increases by 5 while the other decreases by 3. What is the new sum of the two numbers?",
+    "length": 137,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "5 and 5",
+    "id": 3242
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "sudden",
+    "problem": "A train travels at a steady speed of 72 kilometers per hour for 3 hours. Suddenly, an issue arises with the engine, causing the train's speed to drop to 36 kilometers per hour. Calculate the distance covered by the train during the period of changing speeds.",
+    "length": 232,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5"
+    ],
+    "solution": "First, calculate the distance travelled during the first phase using the formula: distance = speed × time. Distance = 72 km/h × 3h = 216 km. Next, calculate the distance travelled during the second phase using the same formula. Distance = 36 km/h × time. To find the total distance, simply add the distances travelled during each phase.",
+    "id": 3243
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "sudden",
+    "problem": "A triangular garden bed has a sudden change in height from 40cm at one corner to 60cm at another corner. If the base of the triangle is 80cm, what is the area of the garden bed?",
+    "length": 177,
+    "tags": [
+      "geometry",
+      "triangle",
+      "area",
+      "height",
+      "grade-5"
+    ],
+    "solution": "First, find the height difference: 60cm - 40cm = 20cm. Then, use the formula for the area of a triangle: area = base * height / 2. Substitute the values and solve for the area.",
+    "id": 3244
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "sudden",
+    "problem": "A box of chocolates contains 200 treats, 10 of which are filled with caramel. If you randomly pick 5 chocolates from the box, what is the probability that exactly 2 of them are filled with caramel?",
+    "length": 203,
+    "tags": [
+      "conditional-probability",
+      "combinations",
+      "binomial-distribution",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "\frac{10\binom{2}{2}\binom{190}{3}}{200\binom{5}{5}}$",
+    "id": 3245
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "sudden",
+    "problem": "A ball is rolling with a speed of 2 m/s. As it travels for 5 meters, a friction force of 1 N opposes its motion. How much will its speed change after covering this distance?",
+    "length": 147,
+    "tags": [
+      "physics",
+      "grade-5"
+    ],
+    "solution": "This problem involves understanding the concept of sudden changes in motion, applying the formula F = mv to calculate the acceleration caused by the force, and using the kinematic equations of motion to find the final velocity.",
+    "id": 3246
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "sudden",
+    "problem": "A sudden downpour releases 450 millilitres of rain over the course of 3 minutes. What is the average rainfall rate in millilitres per minute?",
+    "length": 130,
+    "tags": [
+      "average",
+      "measurement",
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to calculate the average rate of rainfall by dividing the total amount of rain by the time taken. It involves understanding the concept of rate, which is a fundamental skill in mathematics.",
+    "id": 3247
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "campaigner",
+    "problem": "A candidate received 120 more votes than their opponent. Together, they received 240 votes. How many votes did each candidate receive?",
+    "length": 134,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x be the number of votes for the candidate and y be the number of votes for the opponent. Then, we can set up two equations:  x = y + 120  x + y = 240  Solving these equations, we find that the candidate received 180 votes and the opponent received 60 votes.",
+    "id": 3248
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "campaigner",
+    "problem": "A campaigner travels 480 meters in 3 hours. What was the average speed of the campaigner in meters per hour?",
+    "length": 102,
+    "tags": [
+      "distance",
+      "speed",
+      "time",
+      "grade-5",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the speed in meters per hour. We can divide the distance traveled by the time taken: 480 m / 3 h = 160 m/h. Therefore, the campaigner traveled at an average speed of 160 m/h.",
+    "id": 3249
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "campaigner",
+    "problem": "A campaigner wants to create a circular banner with a diameter of 1.5 meters. What is the area of the banner in square meters?",
+    "length": 126,
+    "tags": [
+      "geometry",
+      "circle",
+      "area",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, we need to find the radius of the circle by dividing the diameter by 2. Then, we can use the formula for the area of a circle: A = πr².",
+    "id": 3250
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "campaigner",
+    "problem": "A political campaigner wants to survey 100 people in a town to assess their opinion on a new park project. The town's population is divided into adults (60%) and children (40%). How many adults and children should the campaigner survey to ensure their sample is representative of the town's population?",
+    "length": 299,
+    "tags": [
+      "proportion",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "The campaigner should survey 60 adults and 40 children to ensure their sample is representative of the town's population.",
+    "id": 3251
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "campaigner",
+    "problem": "A campaigner walks 200 meters in 4 minutes. What is their average speed in meters per minute?",
+    "length": 93,
+    "tags": [
+      "grade-5",
+      "distance",
+      "speed",
+      "division",
+      "physics"
+    ],
+    "solution": "This problem involves dividing distance traveled by time taken to find average speed. It requires understanding of metric units and division.",
+    "id": 3252
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "campaigner",
+    "problem": "A campaigner walks 300 metres in the first half of a campaign trail. If the remaining distance is 600 metres, how many metres of the trail does the campaigner have left to cover?",
+    "length": 177,
+    "tags": [
+      "grade-5",
+      "distance",
+      "percentage",
+      "science"
+    ],
+    "solution": "This problem requires applying the concept of percentages to solve a distance-related word problem. It involves dividing distances, finding unknown values based on percentages, and applying those values to the remaining distance. This is appropriate for a 5th grade student who has been introduced to percentages and distance measurement.",
+    "id": 3253
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "insincere",
+    "problem": "A dishonest baker offers two types of bread: fluffy and crusty. Fluffy buns cost 3 euros each, while crusty buns cost 4 euros each. Today, the baker sold twice as many fluffy buns as crusty buns and earned 48 euros. How many crusty buns did the baker sell?",
+    "length": 256,
+    "tags": [
+      "algebra",
+      "linear-equations",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "Let x be the number of crusty buns and y the number of fluffy buns. Then we have the system of equations:\ny = 2x\nx + 3y = 48\nSolving this system gives x = 8 and y = 16.",
+    "id": 3254
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "insincere",
+    "problem": "A friend travels 300 meters at a speed of 5 meters per minute, but due to his insincerity, he only covers 250 meters. What was his average speed over the entire distance?",
+    "length": 194,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "average",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "First, calculate the time taken to cover the 300 meters: 300 / 5 = 6 minutes. Next, calculate the distance covered in reality: 250 meters. Finally, divide the distance covered in reality by the time taken to get the average speed: 250 / 6 = 4.17 meters per minute.",
+    "id": 3255
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "insincere",
+    "problem": "An architect wants to design a rectangular garden with a perimeter of 40 meters. The length of the garden is 2 meters more than its width. What are the dimensions of the garden?",
+    "length": 179,
+    "tags": [
+      "perimeter",
+      "rectangle",
+      "grade-5",
+      "metric-units",
+      "geometry"
+    ],
+    "solution": "First, we can let x and x + 2 be the width and length of the garden, respectively. Then, we know that the perimeter of a rectangle is 2(width + length). We can substitute the values we know into the formula and solve for x. Once we know the width, we can find the length by adding 2 to the width.",
+    "id": 3256
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "insincere",
+    "problem": "A friend's claim about knowing your secret raises suspicion. You suspect they're being insincere based on the mismatch between their words and their face. What is the probability that their claim is actually true?",
+    "length": 166,
+    "tags": [
+      "probability"
+    ],
+    "solution": "0.0",
+    "id": 3257
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "insincere",
+    "problem": "A scientist falsely asserts that his invention speeds up light by twice its original velocity. Given that the speed of light is 3x10^8 m/s, calculate the alleged enhancement in speed compared to the speed of light.",
+    "length": 178,
+    "tags": [
+      "grade-5",
+      "physics",
+      "speed"
+    ],
+    "solution": "This problem requires students to recall the formula for speed and apply it to solve for the difference in speed between the two values.",
+    "id": 3258
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "insincere",
+    "problem": "A scientist fills a cylinder with liquid, measuring its diameter and height. The cylinder has a diameter of 5 cm and a height of 10 cm. If the liquid fills 80% of the cylinder, what is the volume of the liquid in cubic centimeters?",
+    "length": 225,
+    "tags": [
+      "grade-5",
+      "volume",
+      "percentage",
+      "height",
+      "science"
+    ],
+    "solution": "This problem requires students to understand the formula for the volume of a cylinder, which involves multiplying the base area by the height. It also requires them to calculate the area of the base using the diameter. This is a suitable challenge for a 5th grade student who has been introduced to these concepts.",
+    "id": 3259
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "firearm",
+    "problem": "A firearm measures 60 cm in total length, with a barrel accounting for 40 cm. Determine the length of the grip.",
+    "length": 132,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x cm be the length of the barrel and y cm be the length of the grip.\n x + y = 60\n 40 + y = 60\n y = 20 cm\n x = 40 cm",
+    "id": 3260
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "firearm",
+    "problem": "A bullet travels 800 meters in 0.2 seconds. What was the bullet's speed in meters per second?",
+    "length": 93,
+    "tags": [
+      "grade-5",
+      "distance-time",
+      "speed",
+      "metric-units",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to recall the formula: speed = distance / time. Then, we plug in the given values: speed = 800 meters / 0.2 seconds = 4000 meters per second. Therefore, the bullet's speed was 4000 meters per second.",
+    "id": 3261
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "firearm",
+    "problem": "A firearm has a barrel length of 50 cm and a total length of 100 cm. What is the length of the grip?",
+    "length": 100,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "grade-5",
+      "measurement",
+      "length"
+    ],
+    "solution": "First, subtract the barrel length from the total length to find the length of the grip. Then, you have the length of the grip.",
+    "id": 3262
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "firearm",
+    "problem": "A skilled target shooter has a 70% chance of hitting the target with each shot. What is the probability that they will hit the target exactly 3 times out of 5 attempts?",
+    "length": 157,
+    "tags": [
+      "conditional-probability",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "0.343",
+    "id": 3263
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "firearm",
+    "problem": "A firearm shoots a 10-gram bullet with a muzzle velocity of 800 meters per second. What is the kinetic energy of the bullet when it leaves the barrel?",
+    "length": 136,
+    "tags": [
+      "physics",
+      "grade-5",
+      "mass"
+    ],
+    "solution": "This problem requires students to recall the formula for kinetic energy and apply it to the given values. It also involves converting mass from grams to kilograms.",
+    "id": 3264
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "firearm",
+    "problem": "A firearm's barrel measures 40 cm in length. If a bullet speeds at 800 m/s, how long does it take to travel the entire length of the barrel?",
+    "length": 155,
+    "tags": [
+      "grade-5",
+      "distance",
+      "time",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their knowledge of kinematics to solve for time. It involves concepts such as distance, velocity, and time. This problem is appropriate for 5th graders as it challenges them to solve a real-world problem involving motion.",
+    "id": 3265
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "wry",
+    "problem": "The sum of two numbers is 10. One number is three times the other. Find the two numbers.",
+    "length": 84,
+    "tags": [
+      "algebra",
+      "grade-5"
+    ],
+    "solution": "Let x be the smaller number and y be the larger number.\nx + 3x = 10\nx = 2.5, y = 7.5",
+    "id": 3266
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "wry",
+    "problem": "A train covers a distance of 240 kilometers at a steady pace. If it had sped up by 10%, the trip would have taken one hour less. What was the train's average speed?",
+    "length": 145,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "ratio",
+      "proportion",
+      "grade-5"
+    ],
+    "solution": "Let x be the train's speed in km/h. Then, the journey took x/240 hours. If the train travelled 10% faster, its speed would be x + 0.1x = 1.1x km/h. The journey took x/240 * 1.1 hours. Since the journey took 1 hour less with the faster speed, we have the equation: x/240 - 1/240 = 1/240 * 1.1. Solving for x, we get x = 240 km/h.",
+    "id": 3267
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "wry",
+    "problem": "A triangle has an angle that measures 75°. The opposite side of the triangle is 10 cm long. Find the length of the adjacent side.",
+    "length": 139,
+    "tags": [
+      "geometry",
+      "triangle",
+      "grade-5"
+    ],
+    "solution": "First, draw a right triangle with the given angle and side. Then, use the trigonometry ratio of sine to find the length of the adjacent side. The answer is approximately 8.6 cm.",
+    "id": 3268
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "wry",
+    "problem": "There are 120 pens in a box. If 15 of them have bent tips, what is the probability that a randomly chosen pen from the box will have a bent tip?",
+    "length": 144,
+    "tags": [
+      "probability",
+      "grade-5",
+      "conditional-probability",
+      "ratio"
+    ],
+    "solution": "\frac{15}{120} = \frac{1}{8}",
+    "id": 3269
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "wry",
+    "problem": "A toy car with a mass of 2.5 kg is attached to a 1.5 meter rope and is spun in a horizontal circle at a constant speed of 3 m/s. What is the tension in the rope?",
+    "length": 139,
+    "tags": [
+      "grade-5",
+      "physics",
+      "mass",
+      "length",
+      "speed"
+    ],
+    "solution": "This problem requires students to apply the formula for centripetal force, which involves calculating the tension in the rope needed to keep the toy car moving in a circle.",
+    "id": 3270
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "wry",
+    "problem": "A croissant is 12 cm long and 5 cm wide. If the croissant is twice as wide as it is long, what is its total perimeter in centimeters?",
+    "length": 133,
+    "tags": [
+      "perimeter",
+      "rectangle",
+      "proportion",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires understanding of perimeter and proportional relationships. It involves applying the formula for perimeter of a rectangle and understanding that a proportion can be expressed as an equation.",
+    "id": 3271
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "reminiscent",
+    "problem": "A baker baked a delicious chocolate cake for his grandmother's birthday. The cake had a circumference of 30 cm and a height of 6 cm. How much chocolate did the baker use to cover the cake's surface?",
+    "length": 209,
+    "tags": [
+      "algebra",
+      "perimeter",
+      "height",
+      "grade-5"
+    ],
+    "solution": "The surface area of the cake is 540 cm². The baker used 540 cm² of chocolate.",
+    "id": 3272
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "reminiscent",
+    "problem": "An astronaut travels at a speed of 20,000 kilometers per hour. If her journey reminds her of a childhood trip that lasted 10 days, how many kilometers did she travel during that time?",
+    "length": 183,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "metric-units",
+      "grade-5",
+      "conversion"
+    ],
+    "solution": "First, convert the time of the childhood trip from days to hours. 10 days is equal to 240 hours. Then, multiply the speed by the time to find the distance traveled.",
+    "id": 3273
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "reminiscent",
+    "problem": "A circular garden bed evokes memories of home. Its perimeter is 12 meters. What is the radius of the garden bed?",
+    "length": 127,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, recall the formula for the circumference of a circle: C = 2πr. Then, substitute the given circumference (12m) and solve for the radius (r).",
+    "id": 3274
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "reminiscent",
+    "problem": "There's a box filled with forgotten toys from your childhood. Some of them hold special memories. If you randomly pick 3 toys from the box, what is the probability that at least one of them reminds you of a friend from your past?",
+    "length": 218,
+    "tags": [
+      "probability",
+      "grade-5"
+    ],
+    "solution": "Calculate the probability of picking a toy that isn't reminiscent of a friend, then subtract that from 1.",
+    "id": 3275
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "reminiscent",
+    "problem": "A stream of water, initially flowing at a speed of 2 metres per second through a pipe with a diameter of 4 centimetres, narrows down to 2 centimetres in diameter. What is the velocity of the water in the narrower section?",
+    "length": 176,
+    "tags": [
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem involves the conservation of mass, which is a fundamental principle of physics. Students need to apply the formula for volumetric flow rate to solve for the velocity in the narrower section.",
+    "id": 3276
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "reminiscent",
+    "problem": "A scientist discovers a new element that reminds her of the colorful sunsets of her childhood. This element emits light in a circular pattern with a radius of 3.5 cm. What is the area of the circle formed by the emitted light?",
+    "length": 235,
+    "tags": [
+      "science"
+    ],
+    "solution": "This problem requires students to recall the formula for the area of a circle, A = πr^2, and apply it to the given radius of 3.5 cm. It challenges students to convert between units of measurement (cm) and uses a context relevant to their age group.",
+    "id": 3277
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "connector",
+    "problem": "Two trains, one covering 360 km and the other 240 km, depart simultaneously from the same station. When will they meet if both trains maintain a constant speed?",
+    "length": 237,
+    "tags": [
+      "algebra",
+      "speed",
+      "distance",
+      "grade-5"
+    ],
+    "solution": "Let x be the speed of the slower train (in km/h) and y be the speed of the faster train (in km/h). Then, using the distance formula: x*12 = y*8. Also, x + y = 30. Solve the system to find x and y.",
+    "id": 3278
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "connector",
+    "problem": "A train travels for 300 kilometers at a speed of 80 kilometers per hour. How long did it take the train to reach its destination?",
+    "length": 107,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "First, we need to find the time taken by dividing the distance traveled by the speed. Time = Distance / Speed = 300 km / 80 km/h = 3.75 hours. Therefore, the train took 3.75 hours to reach its destination.",
+    "id": 3279
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "connector",
+    "problem": "A rectangular room has a perimeter of 24 meters. If the length is 6 meters, what is the length of the connecting side between the two shorter sides?",
+    "length": 154,
+    "tags": [
+      "geometry",
+      "perimeter",
+      "rectangle",
+      "grade-5"
+    ],
+    "solution": "First, find the combined length of the two shorter sides using the perimeter. Then, subtract the known length of the room from the combined length to find the length of the connector.",
+    "id": 3280
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "connector",
+    "problem": "Given 20 identical connectors, each measuring 5 centimeters in length, calculate the total length of the chain formed when they are connected end-to-end.",
+    "length": 143,
+    "tags": [
+      "probability",
+      "measurement",
+      "grade-5"
+    ],
+    "solution": ",100 cm,",
+    "id": 3281
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "connector",
+    "problem": "Five connectors, each with a resistance of 2 ohms, are connected in series. What is the total resistance of the circuit?",
+    "length": 151,
+    "tags": [
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem involves understanding the concept of resistance in a series circuit. The resistance of multiple resistors in series simply adds up. This is a suitable problem for a 5th grade student as it requires them to apply their knowledge of arithmetic and basic circuit concepts.",
+    "id": 3282
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "connector",
+    "problem": "If there are four identical connectors, each measuring 10 centimeters, what is the total length of all the connectors when connected end-to-end?",
+    "length": 140,
+    "tags": [
+      "measurement",
+      "length",
+      "perimeter",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem involves combining lengths of multiple objects to find the total length. This is a common concept in measurement that is appropriate for 5th grade students.",
+    "id": 3283
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "imprudent",
+    "problem": "A train travels along a river at a speed enhanced by the current for 300 km. When the train travels against the current for 250 km, the influence of the current is reversed. The train's speed in still water is 10 km/h more than the speed of the current. Determine the train's speed and the speed of the current.",
+    "length": 239,
+    "tags": [
+      "algebra",
+      "speed",
+      "grade-5"
+    ],
+    "solution": "Let x be the speed of the train in still water (km/h) and y be the speed of the current (km/h).\n3x + y = 300\n2x - y = 250\nSolving the system of equations, we find:\nx = 75\ny = 25\nTherefore, the speed of the train is 75 km/h and the speed of the current is 25 km/h.",
+    "id": 3284
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "imprudent",
+    "problem": "A hiker sets out from a point 100 kilometers away from their destination at 9:00 AM. If they travel at a constant speed of 4 kilometers per hour, will they reach their destination before sunset at 6:00 PM?",
+    "length": 205,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "distance",
+      "grade-5"
+    ],
+    "solution": "To solve this, we need to calculate the time it will take the hiker to reach the destination. Distance = Speed × Time. Time = Distance / Speed. 100 km / 4 km/h = 25 hours. Since the hiker only has 9 hours until sunset, they will not reach their destination before sunset.",
+    "id": 3285
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "imprudent",
+    "problem": "A rectangular garden is 3.5 meters longer than its width. The perimeter of the garden is 40 meters. What are the dimensions of the garden?",
+    "length": 131,
+    "tags": [
+      "rectangle",
+      "perimeter",
+      "length",
+      "metric-units",
+      "grade-5",
+      "geometry"
+    ],
+    "solution": "First, let's represent the width of the garden as w meters. Then, the length of the garden is w + 3.5 meters. The perimeter of a rectangle is the sum of the lengths of all four sides. We know the perimeter is 40 m, so we can write an equation: 2(w + w + 3.5) = 40. Solving this equation will give us the width and length of the garden.",
+    "id": 3286
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "imprudent",
+    "problem": "An adventurous traveler has a budget of $100 for his travels. Each day, his expenses average $30, but he also wants to save $20. How many days can he comfortably travel within his budget?",
+    "length": 193,
+    "tags": [
+      "probability"
+    ],
+    "solution": "The traveler can travel for 5 days.",
+    "id": 3287
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "imprudent",
+    "problem": "A hiker accidentally drops a 1.5 kg backpack from a height of 4 meters. Calculate the potential energy lost by the backpack.",
+    "length": 131,
+    "tags": [
+      "physics",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "This problem requires the student to recall the formula for gravitational potential energy and apply it to a real-life situation. It involves understanding the relationship between potential energy and height, and manipulating units like kilograms and meters.",
+    "id": 3288
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "imprudent",
+    "problem": "A scientist is studying the environmental impact of a new energy source. It generates 150 watts of power per square meter of surface area. How much surface area should the scientist cover with the energy source to collect 50 joules of energy in 10 seconds?",
+    "length": 320,
+    "tags": [
+      "grade-5",
+      "area",
+      "science"
+    ],
+    "solution": "This problem requires students to apply their knowledge of power, energy, and area to solve a real-world problem. It involves calculating the amount of power required to generate a given amount of energy in a specific time frame, and then using that information to find the area of the surface that needs to be covered with the energy source.",
+    "id": 3289
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "armpit",
+    "problem": "A bag of apples contains three times as many fruits as a bag of oranges. If the bag of oranges has 12 fruits, how many fruits are there in the bag of apples?",
+    "length": 148,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "36 fruits",
+    "id": 3290
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "armpit",
+    "problem": "An arm pit is 18 cm deep. If you can swim at a speed of 3 m/s, how long would it take you to reach the bottom of an arm pit?",
+    "length": 114,
+    "tags": [
+      "time",
+      "distance",
+      "speed",
+      "grade-5",
+      "time-distance-speed"
+    ],
+    "solution": "First, convert the depth of the arm pit to meters: 18 cm = 0.18 m. Then, divide the depth by your speed to find the time taken: 0.18 m / 3 m/s = 0.06 s.",
+    "id": 3291
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "armpit",
+    "problem": "Given a circle with a circumference of 30 cm, if it just fits into the crease between your arm and chest (armpit), find the radius of the circle.",
+    "length": 162,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, we need to remember that the circumference of a circle is the length of the circle's perimeter. Next, we can use the formula C = 2πr to find the radius of the circle by dividing the circumference by 2π.",
+    "id": 3292
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "armpit",
+    "problem": "A person's arm is 50 cm long. If their armpit is 18 cm from their shoulder, what is the probability that their arm will reach their armpit?",
+    "length": 134,
+    "tags": [
+      "probability",
+      "distance",
+      "grade-5"
+    ],
+    "solution": "0.6",
+    "id": 3293
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "armpit",
+    "problem": "An armpit can hold 2.5 liters of liquid. How many armpits are needed to hold 75 liters of water?",
+    "length": 89,
+    "tags": [
+      "multiplication",
+      "volume",
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem requires students to apply their understanding of multiplication to solve a real-world situation. It also involves converting larger units of measurement (liters) into smaller units (liters).",
+    "id": 3294
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "armpit",
+    "problem": "Determine the area of an armpit with a length of 18 cm and a width of 12 cm.",
+    "length": 71,
+    "tags": [
+      "rectangle",
+      "area",
+      "grade-5",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem involves calculating the area of a rectangle, which is a fundamental geometric concept covered in 5th grade. It requires students to multiply the length and width of the armpit to find the area.",
+    "id": 3295
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "genius",
+    "problem": "A train and a bicycle cover equal distances in the same amount of time. The train is 30 kilometers per hour faster than the bicycle. What is the average speed of each?",
+    "length": 156,
+    "tags": [
+      "algebra",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x and y be the speeds of the train and bicycle in km/h respectively. Then, we have the system of equations:  $$x = y + 30$$  $$x + y = 180 + 90 = 270$$  Solving this system, we find that the average speed of the train is 205 km/h and the average speed of the bicycle is 75 km/h.",
+    "id": 3296
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "genius",
+    "problem": "A train travels 1500 kilometers at a speed of 80 kilometers per hour. How long did it take the train to cover this distance?",
+    "length": 107,
+    "tags": [
+      "grade-5",
+      "time-distance-speed",
+      "speed",
+      "distance"
+    ],
+    "solution": "First, we need to find the time taken by dividing the distance travelled by the speed. 1500 km / 80 km/h = 18.75 h. Therefore, the train took 18.75 hours to travel 1500 km.",
+    "id": 3297
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "genius",
+    "problem": "A circle has a circumference of 31.4 cm. Find the radius of the circle.",
+    "length": 74,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, recall the formula for the circumference of a circle: C = 2πr. Then, substitute the given circumference into the formula and solve for the radius.",
+    "id": 3298
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "genius",
+    "problem": "A bag of marbles holds 100 marbles, including 15 golden ones. If you reach into the bag and pick marbles one at a time without putting any back, what is the probability of picking a golden marble on the first pick and a non-golden marble on the second pick?",
+    "length": 238,
+    "tags": [
+      "probability",
+      "binomial",
+      "grade-5"
+    ],
+    "solution": "P(golden)P(non-golden) = (15/100) * (85/99) ≈ 0.136",
+    "id": 3299
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "genius",
+    "problem": "A ball is launched straight up with an initial velocity of 10 meters per second. How high will the ball rise before gravity pulls it back down with an acceleration of -9.8 meters per second squared, starting from the ground?",
+    "length": 188,
+    "tags": [
+      "physics",
+      "gravity",
+      "height",
+      "grade-5"
+    ],
+    "solution": "This problem requires understanding of velocity, gravity, and height. The student needs to use the equation of motion to find the height reached by the ball. This is a challenging problem that will push the student's mathematical abilities, but it is still achievable for a motivated 5th grader.",
+    "id": 3300
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "genius",
+    "problem": "A scientist has discovered a new species of phytoplankton that can produce oxygen at a rate of 20 milligrams per hour. The ocean contains approximately $10^{18}$ kilograms of water. How many years would it take for this phytoplankton to produce enough oxygen to replace the current oxygen in the ocean?",
+    "length": 260,
+    "tags": [
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires understanding of rate, mass, and time. It also involves applying these concepts to solve a real-world problem involving environmental science.",
+    "id": 3301
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "purport",
+    "problem": "A football game has sold 30 tickets in total. Some tickets cost €10 each, while others cost €15 each. If the total amount collected is €450, how many of each type of ticket were sold?",
+    "length": 203,
+    "tags": [
+      "algebra",
+      "linear-equations",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "Let x be the number of 10 euro tickets and y be the number of 15 euro tickets. We know that x + y = 30 and 10x + 15y = 450. Solving this system of equations, we find that x = 18 and y = 12. Therefore, 18 tickets were sold for 10 euros each and 12 tickets were sold for 15 euros each.",
+    "id": 3302
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "purport",
+    "problem": "An express train travels for 6 hours at a speed of 240 kilometers per hour. How far has it travelled in total?",
+    "length": 95,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "First, we need to recall the formula: distance = speed × time. Then, we simply plug in the values: distance = 240 km/h × 6 h = 1440 km. Therefore, the train has travelled 1440 km in total.",
+    "id": 3303
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "purport",
+    "problem": "A triangle has an area of 9 square centimeters and a base of 3 centimeters. Find the height of the triangle.",
+    "length": 88,
+    "tags": [
+      "geometry",
+      "triangle",
+      "area",
+      "height",
+      "grade-5"
+    ],
+    "solution": "First, we can use the formula for the area of a triangle: A = (base * height) / 2. Then, we can substitute the values we know into the formula and solve for the height.",
+    "id": 3304
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "purport",
+    "problem": "A bag of marbles claims to hold 100 marbles, but 10% of them are actually broken. If you randomly choose 20 marbles from the bag, what is the probability that exactly two of them are broken?",
+    "length": 191,
+    "tags": [
+      "combinations",
+      "binomial-distribution",
+      "grade-5",
+      "probability"
+    ],
+    "solution": "\frac{C(10,2)C(90,18)}{C(100,20)}",
+    "id": 3305
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "purport",
+    "problem": "A toy car with a mass of 0.5 kilograms is moving at a speed of 2 meters per second. Calculate the kinetic energy of the car.",
+    "length": 103,
+    "tags": [
+      "physics",
+      "mass",
+      "speed",
+      "grade-5"
+    ],
+    "solution": "This problem involves the concept of kinetic energy, which is the energy of motion. Students are required to recall the formula for kinetic energy and substitute the given values to find the energy of the toy car.",
+    "id": 3306
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "purport",
+    "problem": "A scientist claims that a new energy drink contains 3.5 milligrams of caffeine per liter. If a can of this drink contains 300 milliliters, how many milligrams of caffeine are there in one can?",
+    "length": 172,
+    "tags": [
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires understanding of metric units and ratio and proportion. It is challenging enough for a 5th grader but not too difficult for them.",
+    "id": 3307
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "fog",
+    "problem": "The thick fog has significantly reduced visibility on the road. Cars are maintaining a constant speed of 40 kilometers per hour. If two cars are initially 600 meters apart, how much will their distance change in 20 minutes?",
+    "length": 184,
+    "tags": [
+      "algebra",
+      "distance",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "The distance between the cars will change by 80 m in 20 minutes.",
+    "id": 3308
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "fog",
+    "problem": "The fog is advancing at a speed of 3 meters per minute. If it is currently 9 meters away from the school, how long will it take for the fog to reach the school?",
+    "length": 159,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let d be the time in minutes it takes for the fog to reach the school. Then, the distance covered by the fog in that time is 3d meters. Since the fog is initially 9 meters away, after d minutes, it will be at a distance of 9 + 3d meters from the school. When it reaches the school, d = 3 minutes.",
+    "id": 3309
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "fog",
+    "problem": "A thick fog has enveloped a triangular field with sides of 100 meters, 80 meters, and 60 meters. What area of the field is obscured by the fog?",
+    "length": 129,
+    "tags": [
+      "geometry",
+      "triangle",
+      "perimeter",
+      "area",
+      "grade-5"
+    ],
+    "solution": "First, find the semi-perimeter of the triangle by adding the lengths of the sides and dividing by 2. Then, use the formula for the area of a triangle with the semiperimeter and the length of one of its sides.",
+    "id": 3310
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "fog",
+    "problem": "The fog in the forest reduces visibility to 50 meters. If a tree stands 20 meters tall, what is the probability that a bird flying at a height of 10 meters will be visible from the ground on a foggy day?",
+    "length": 176,
+    "tags": [
+      "probability",
+      "height",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "0.8",
+    "id": 3311
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "fog",
+    "problem": "A fog bank with a thickness of 50 centimeters is moving at a speed of 3.5 meters per second. What distance will the fog bank travel in 2 hours?",
+    "length": 125,
+    "tags": [
+      "physics",
+      "speed",
+      "time",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "This problem requires students to apply their knowledge of displacement, speed, and time to solve a real-world problem involving fog. It involves converting time from hours to seconds and calculating the distance traveled by the fog bank over a given period of time.",
+    "id": 3312
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "fog",
+    "problem": "A thick fog diminishes visibility on a road by 20%. If the original visibility was 800 meters, what is the visibility now?",
+    "length": 119,
+    "tags": [
+      "proportion",
+      "percentage",
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem involves a proportion relationship, which is a concept that 5th graders should be familiar with. It requires students to calculate the amount of visibility that has been lost due to the fog and then subtract that from the original visibility to find the new visibility.",
+    "id": 3313
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "pregnancy",
+    "problem": "A pregnant woman is 28 weeks along in a 40-week pregnancy. How many weeks remain until the baby is born?",
+    "length": 232,
+    "tags": [
+      "algebra",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "x = 40 - 28 = 12 weeks",
+    "id": 3314
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "pregnancy",
+    "problem": "A baby grows inside its mother's womb for an average of 9 months. If the baby grows at a steady rate of 1 centimeter per day, how long will it take for the baby to reach a length of 40 centimeters?",
+    "length": 163,
+    "tags": [
+      "average",
+      "metric-units",
+      "grade-5",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the total growth of the baby. 40 cm - 0 cm = 40 cm. Next, we need to find the time it takes for the baby to grow 40 cm. 40 cm / 1 cm/day = 40 days. Therefore, it will take the baby 40 days to reach 40 cm long.",
+    "id": 3315
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "pregnancy",
+    "problem": "A circular pregnancy pillow has a diameter of 60 cm. What is the area of fabric needed to make the pillow cover?",
+    "length": 112,
+    "tags": [
+      "geometry",
+      "circle",
+      "area",
+      "radius",
+      "grade-5"
+    ],
+    "solution": "First, we need to find the radius of the pillow by dividing the diameter by 2. Then, we can use the formula for the area of a circle to find the area of the fabric needed.",
+    "id": 3316
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "pregnancy",
+    "problem": "A prenatal test shows a 20% chance of pregnancy. What is the probability that a woman is not pregnant after taking this test?",
+    "length": 136,
+    "tags": [
+      "probability",
+      "grade-5"
+    ],
+    "solution": "\frac{4}{5}",
+    "id": 3317
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "pregnancy",
+    "problem": "A pregnant woman has a baby bump with a circumference of 20 cm. After birth, her newborn has a circumference of approximately 30 cm. How much did the baby grow during her pregnancy?",
+    "length": 167,
+    "tags": [
+      "measurement",
+      "circumference",
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem requires students to subtract the smaller measurement from the larger measurement to find the difference. It involves basic subtraction skills that are appropriate for 5th graders.",
+    "id": 3318
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "pregnancy",
+    "problem": "A pregnant woman is 4 months along. If she gains an average of 1 kilogram per month throughout her pregnancy, how much weight will she gain in total?",
+    "length": 142,
+    "tags": [
+      "average",
+      "metric-units",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem involves simple multiplication and unit conversion. It requires students to recall the concept of average and apply it to calculate the total weight gain over a period of time.",
+    "id": 3319
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "invincible",
+    "problem": "A superhero's shield has a radius of 40 cm. The circumference of the shield is twice the diameter. What is the area of the circle formed by the shield's edge?",
+    "length": 130,
+    "tags": [
+      "algebra",
+      "radius",
+      "circumference",
+      "area",
+      "grade-5"
+    ],
+    "solution": "Area = 502.4 cm^2",
+    "id": 3320
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "invincible",
+    "problem": "An invincible train travels at a constant speed of 300km/h. If it started its journey at 8:00am, at what time will it reach its destination?",
+    "length": 136,
+    "tags": [
+      "time",
+      "distance",
+      "speed",
+      "grade-5",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate the time taken to travel the distance. Distance = Speed × Time. We know the distance is 300km and the speed is constant. Therefore, Time = Distance / Speed = 300km / 100km/h = 3 hours. Adding this time to the starting time gives us the arrival time: 8:00am + 3 hours = 11:00am.",
+    "id": 3321
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "invincible",
+    "problem": "A circle with a radius of 5 cm has an inscribed square. What is the perimeter of the largest such square?",
+    "length": 135,
+    "tags": [
+      "geometry",
+      "circle",
+      "square",
+      "perimeter",
+      "grade-5"
+    ],
+    "solution": "First, find the diameter of the circle by multiplying the radius by 2. Then, use the diameter to find the side length of the square. Finally, multiply the side length by 4 to find the perimeter.",
+    "id": 3322
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "invincible",
+    "problem": "An invincible balloon is tossed from the ground. The chance of it landing on any floor is the same. How many floors are there in the building?",
+    "length": 219,
+    "tags": [
+      "probability",
+      "grade-5",
+      "conditional-probability"
+    ],
+    "solution": "3 floors",
+    "id": 3323
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "invincible",
+    "problem": "A ball rolling at 2 meters per second encounters a 1.5 meter high obstacle. What is the lowest height the ball will reach above the ground after clearing the obstacle?",
+    "length": 178,
+    "tags": [
+      "grade-5",
+      "physics",
+      "gravity"
+    ],
+    "solution": "This problem requires the student to apply the concept of gravitational potential energy to solve for the height of the ball after clearing the obstacle. It involves calculating the potential energy gained by the ball as it climbs the obstacle and then applying the conservation of energy principle.",
+    "id": 3324
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "invincible",
+    "problem": "An sphere with a radius of 5 centimeters has a volume of $$ \frac{4}{3}\times\frac{4}{3}\times5^3 cm^3$. What is the volume of this sphere?",
+    "length": 76,
+    "tags": [
+      "volume",
+      "grade-5",
+      "measurement",
+      "metric-units",
+      "science"
+    ],
+    "solution": "This problem involves understanding the formula for the volume of a sphere, which is appropriate for 5th graders. It requires applying the formula with given measurements.",
+    "id": 3325
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "watery",
+    "problem": "A rectangular pool is 2.5 times longer than it is wide. If the pool's perimeter is 40 meters, what are its dimensions?",
+    "length": 108,
+    "tags": [
+      "algebra",
+      "rectangle",
+      "perimeter",
+      "metric-units",
+      "grade-5"
+    ],
+    "solution": "Let x and y be the pool's length and width in meters respectively.\n2x + 2y = 40\nx = 2y\nSubstituting in the first equation:\n2(2y) + 2y = 40\n6y = 40\ny = 6.67m\nx = 2(6.67) = 13.34m",
+    "id": 3326
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "watery",
+    "problem": "A boat travels 300 meters downstream in 2 minutes. How long will it take the boat to travel 450 meters upstream if the current is flowing at 0.5 meters per second? Assume the boat's speed relative to the water remains constant.",
+    "length": 139,
+    "tags": [
+      "time-distance-speed",
+      "speed",
+      "grade-5",
+      "metric-units"
+    ],
+    "solution": "First, calculate the speed of the boat relative to the water. Then, use the distance and speed to find the time taken upstream.",
+    "id": 3327
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "watery",
+    "problem": "A rectangular pool is 12 meters long and 8 meters wide. If the water level is 40 centimeters deep, what is the volume of water in the pool?",
+    "length": 117,
+    "tags": [
+      "geometry",
+      "volume",
+      "rectangle",
+      "grade-5"
+    ],
+    "solution": "First, find the area of the pool's base by multiplying the length and width. Then, multiply the area by the depth of the water to find the volume of water in the pool.",
+    "id": 3328
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "watery",
+    "problem": "A rectangular swimming pool is 10 meters long and 5 meters wide. The water level is 1.2 meters. What is the volume of water in the pool?",
+    "length": 133,
+    "tags": [
+      "measurement",
+      "volume",
+      "rectangle",
+      "grade-5",
+      "probability"
+    ],
+    "solution": ",,360 m^3,",
+    "id": 3329
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "watery",
+    "problem": "A rectangular pool is 4.5 meters wide and 8 meters long. If the water level is 1.2 meters deep, what is the volume of water in the pool?",
+    "length": 118,
+    "tags": [
+      "rectangle",
+      "volume",
+      "grade-5",
+      "metric-units",
+      "physics"
+    ],
+    "solution": "This problem requires students to calculate the volume of a rectangular prism, which involves multiplying the area of the base by the height. This is a suitable challenge for 5th graders who have learned about volume and multiplication.",
+    "id": 3330
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "watery",
+    "problem": "A rectangular pool is 4.5 meters wide and 8.2 meters long. If the water in the pool is 1.8 meters deep, what is the volume of water in the pool?",
+    "length": 126,
+    "tags": [
+      "rectangle",
+      "volume",
+      "multiplication",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem involves multiplying two measurements (width and length) to find the area of the pool's base, and then multiplying that by the depth of the water to find the volume of water in the pool.",
+    "id": 3331
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "what",
+    "problem": "Which numbers are solutions to the system of equations: $$2x + y = 7$$ and $$x - y = 3$$?",
+    "length": 92,
+    "tags": [
+      "algebra",
+      "linear-equations",
+      "grade-5"
+    ],
+    "solution": "x = 2, y = 5",
+    "id": 3332
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "what",
+    "problem": "If a train travels at a speed of 60 kilometers per hour from a station that is 180 kilometers away from its destination, what time will it be in 3 hours from the current time?",
+    "length": 118,
+    "tags": [
+      "distance-time",
+      "speed",
+      "grade-5",
+      "metric-units",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate the distance the train needs to travel in 3 hours: 60 km/h * 3h = 180 km. Then, we subtract that distance from the total distance of the journey: 180 km - 180 km = 0 km. This means that the train will reach its destination at the same time as when it left the station.",
+    "id": 3333
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "what",
+    "problem": "What is the area of a circle whose circumference is 10 cm?",
+    "length": 59,
+    "tags": [
+      "geometry",
+      "circle",
+      "circumference",
+      "area",
+      "grade-5"
+    ],
+    "solution": "First, find the radius of the circle by dividing the circumference by 2π. Then, use the formula for the area of a circle: πr^2.",
+    "id": 3334
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "what",
+    "problem": "What is the probability of rolling a die and getting a number that is 4 or greater?",
+    "length": 106,
+    "tags": [
+      "probability",
+      "grade-5"
+    ],
+    "solution": "1/3",
+    "id": 3335
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "what",
+    "problem": "Find the height of a cylinder with a radius of 2 cm knowing that its volume is 30 cm^3.",
+    "length": 79,
+    "tags": [
+      "geometry",
+      "volume",
+      "grade-5",
+      "physics"
+    ],
+    "solution": "This problem requires students to recall the formula for the volume of a cylinder and solve for the height. It involves understanding the relationships between the dimensions of a cylinder and their impact on its volume.",
+    "id": 3336
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "what",
+    "problem": "What is the volume of a cube with an edge length of 10 centimeters?",
+    "length": 58,
+    "tags": [
+      "measurement",
+      "volume",
+      "multiplication",
+      "grade-5",
+      "science"
+    ],
+    "solution": "This problem requires students to recall the formula for the volume of a cube and apply their knowledge of multiplication. It is also a good review of measurement and units.",
+    "id": 3337
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "did",
+    "problem": "There are 12 eggs in a carton. Some eggs are cooked, and the rest are left raw. If 4 eggs are cooked, how many eggs are left raw? Write an equation to show the relationship between the number of cooked eggs and the number of raw eggs.",
+    "length": 234,
+    "tags": [
+      "algebra",
+      "grade-5"
+    ],
+    "solution": "Let x be the number of raw eggs. The number of cooked eggs is then 12 - x. The equation is: 12 - x + 4 = 8 - x. Solving for x gives: x = 4. Therefore, there are 4 raw eggs left.",
+    "id": 3338
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "did",
+    "problem": "A train covers a distance of 180 kilometers at a speed of 60 kilometers per hour. How long did it take the train to travel this distance?",
+    "length": 106,
+    "tags": [
+      "grade-5",
+      "distance",
+      "speed",
+      "time",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to calculate the time taken by dividing the distance travelled by the speed. Time = Distance / Speed = 180 km / 60 km/h = 3 hours. Therefore, the train took 3 hours to travel 180 km.",
+    "id": 3339
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "geometry",
+    "input": "did",
+    "problem": "The height of a tower is 10 meters. On the first day, a climber ascends 3 meters. For the next 5 days, the climber ascends 2 meters each day. How high will the climber be from the ground after 6 days?",
+    "length": 212,
+    "tags": [
+      "geometry",
+      "distance",
+      "grade-5"
+    ],
+    "solution": "First, calculate the total distance climbed in the first day. Then, calculate the distance climbed in the next 5 days by multiplying 2 meters by 5. Finally, add the two distances to find the climber's height from the ground after 6 days.",
+    "id": 3340
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "probability",
+    "input": "did",
+    "problem": "There are 49 fair dice, each with faces numbered from 1 to 6. If three dice are rolled, what is the probability that exactly two of the faces will show a 5?",
+    "length": 144,
+    "tags": [
+      "probability",
+      "conditional-probability",
+      "grade-5"
+    ],
+    "solution": "\frac{14}{216}",
+    "id": 3341
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "physics",
+    "input": "did",
+    "problem": "An object starts from rest and falls 4.5 metres in the first second. How much distance did it cover in the second before it reached that height?",
+    "length": 136,
+    "tags": [
+      "physics",
+      "gravity",
+      "distance",
+      "time",
+      "grade-5"
+    ],
+    "solution": "This problem requires students to use the concept of constant acceleration due to gravity to calculate the distance an object falls in a given amount of time. It involves dividing the distance traveled by the time elapsed to find the velocity of the object, and then multiplying that velocity by the time elapsed to find the distance traveled during a subsequent time interval.",
+    "id": 3342
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "science",
+    "input": "did",
+    "problem": "Which molecule did the scientist measure the length of: 3.5 meters of DNA or 2.75 meters of RNA?",
+    "length": 67,
+    "tags": [
+      "grade-5",
+      "place-value",
+      "measurement",
+      "science"
+    ],
+    "solution": "This problem requires students to compare two decimal numbers to determine which is greater. It involves understanding place value and decimal notation, which are concepts typically covered in 5th grade math.",
+    "id": 3343
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "two-variable-algebra",
+    "input": "vegetation",
+    "problem": "A farmer owns 100 hectares of land and cultivates wheat and barley. The area dedicated to wheat cultivation is three times that of barley cultivation. How many hectares of each crop does the farmer cultivate?",
+    "length": 197,
+    "tags": [
+      "algebra",
+      "grade-5",
+      "area"
+    ],
+    "solution": "Wheat: 75 hectares, Barley: 25 hectares",
+    "id": 3344
+  },
+  {
+    "model": "gemma:7b",
+    "generator": "time-distance-speed",
+    "input": "vegetation",
+    "problem": "A botanist observes new plant growth spreading at a rate of 2.5 centimeters per day. How much vegetation will be present after 10 days, given the initial growth rate?",
+    "length": 115,
+    "tags": [
+      "algebra",
+      "time",
+      "distance",
+      "grade-5",
+      "time-distance-speed"
+    ],
+    "solution": "First, we need to find the total change in vegetation over the 10 days. 2.5 cm/day * 10 days = 25 cm. So, after 10 days, there will be 25 cm of new vegetation.",
+    "id": 3345
   }
 ];
