@@ -2434,7 +2434,7 @@ export const problems = [
   {
     "generator": "geometry",
     "input": "notional",
-    "problem": "Calculate the perimeter of a square with a side length of 10 cm. Note that perimeter is a mathematical concept that exists in our minds and is not physically measurable.",
+    "problem": "Calculate the perimeter of a square with a side length of 10 cm.",
     "length": 187,
     "tags": [
       "geometry",

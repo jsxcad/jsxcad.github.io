@@ -188,7 +188,7 @@
         }
         target = target.parentElement;
       }
-      const note = problem.note;
+      const note = problem.note || {};
       if (note.weight === undefined) {
         note.weight = 1;
       }
