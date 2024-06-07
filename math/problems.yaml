@@ -8432,7 +8432,8 @@
   input: tool
   problem: |
     const tool = () => {
-      let count = 0; return (count += 1);
+      let count = 0;
+      return (count += 1);
     };
     console.log(tool());
   tags:
