@@ -52616,3 +52616,179 @@
   solution: The government should maintain objectivity in the news.
   id: 1717842716861
 
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: devotion
+  problem: 친구의 무기는 총이 아니고, 신뢰입니다.
+  solution: Your weapon isn't a gun, but trust.
+  id: 1718031736167
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: enunciate
+  problem: 말을 명확하게 말해줘. 이해하기 쉽게 해줘.
+  solution: Speak clearly. I want to understand easily.
+  id: 1718031757493
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: establishment
+  problem: 설립한 목표에 도달했어요?
+  solution: Did you reach your goal?
+  id: 1718031773901
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: thief
+  problem: 절회도 도망치는 볼품없네요?
+  solution: Even the thievery can't escape, huh?
+  id: 1718031792133
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: territory
+  problem: 내 영역에서 해주세요
+  solution: Please stay within your boundaries.
+  id: 1718031807582
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: model
+  problem: 모델이 되고 싶어요.
+  solution: I want to be a model.
+  id: 1718031822325
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: crank
+  problem: 크랭크한 일이야. 아닌가?
+  solution: It's a bit cranky today, isn't it?
+  id: 1718031842408
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: listless
+  problem: 무력한 분위기에서 어떨까?
+  solution: How are you feeling in this listless atmosphere?
+  id: 1718031906837
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: perimeter
+  problem: 주변에 무슨 일이 일어나나?
+  solution: What's going on around here?
+  id: 1718031930428
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: precedence
+  problem: 우리의 관계는 이 순간에 가장 중요합니다.
+  solution: Our relationship is the most important thing right now.
+  id: 1718031955452
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: lavatory
+  problem: 화장실은 오늘 아침 매우 깨끗했습니다.
+  solution: The lavatory was very clean this morning.
+  id: 1718031979828
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: clergyman
+  problem: 교주님처럼 살아가는 건 어떨까요?
+  solution: How do you think it would be to live like a clergyman?
+  id: 1718032006037
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: orthodoxy
+  problem: 오직 정직한 길을 걸어야 합니다.
+  solution: One must only walk the path of righteousness.
+  id: 1718032030524
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: squalor
+  problem: 오늘 날씨가 이렇게 끔찍해도, 집안은 정말 아름답니까?
+  solution: Even though the weather is so gloomy today, our home is so cozy and
+    beautiful, isn't it?
+  id: 1718032065192
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: hanger
+  problem: " hanger-i saranghaeyo!"
+  solution: I love you like a hanger!
+  id: 1718032086808
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: miraculous
+  problem: 아마 이 순간이 미라클스합니다.
+  solution: This moment must be miraculous.
+  id: 1718032147728
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: sparkle
+  problem: 빛깔이 빛나요.
+  solution: You're sparkling today.
+  id: 1718032169026
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: utility
+  problem: 유용한 정보들이 있어요?
+  solution: Is there any useful information available?
+  id: 1718032190328
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: superstar
+  problem: 슈퍼스타가 되자!
+  solution: Let's become superstars!
+  id: 1718032210616
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: representative
+  problem: 대표적으로 잘 해줘
+  solution: You did a great job representing us.
+  id: 1718032231273
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: affiliated
+  problem: 친구들과도 연관성이 높아요.
+  solution: We're very close friends.
+  id: 1718032255009
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: laurel
+  problem: 라우릴꽃처럼 성장해
+  solution: Grow like the laurel flower, blooming beautifully.
+  id: 1718032309666
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: remembrance
+  problem: 기억은 영원하고, 함께할 순간들을 생각해
+  solution: Memories are forever, and let's remember the moments we shared together.
+  id: 1718032343073
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: easygoing
+  problem: 편안한 시간 보내고 있어요?
+  solution: Having a relaxed time, are we?
+  id: 1718032358179
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: miracle
+  problem: 우리의 위력은 기적이야.
+  solution: Our power is a miracle.
+  id: 1718032372630
+
