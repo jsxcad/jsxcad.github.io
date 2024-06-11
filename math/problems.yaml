@@ -52792,3 +52792,700 @@
   solution: Our power is a miracle.
   id: 1718032372630
 
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: degree
+  problem: 학업도 중요하지만, 친구들과 함께 가치 있는 순간도 많아요.
+  solution: Academic pursuits are important, but there are also many valuable
+    moments to spend with friends.
+  id: 1718063477679
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: concentrated
+  problem: 집중력을 다 해서 좋은 결과 얻을 수 있을 거야.
+  solution: Let's concentrate and get great results.
+  id: 1718063499092
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: hiding
+  problem: 숨겨 있지? 오늘은 어때?
+  solution: Hiding? How are you doing today?
+  id: 1718063522517
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: wanting
+  problem: 진심으로 원해요.
+  solution: I really want that.
+  id: 1718063550736
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: ferry
+  problem: 여객선으로 가서 해상도를 만날까?
+  solution: Shall we take the ferry and enjoy the sea view?
+  id: 1718063591828
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: tantalizing
+  problem: 맛있고 매력적인 향기 때문에 식민지 시절부터 애용해 왔어요.
+  solution: The delicious and tantalizing aroma has been enjoyed since colonial times.
+  id: 1718063619424
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: attendant
+  problem: 서비스 요원이 있어요?
+  solution: Is there an attendant available?
+  id: 1718063635480
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: fumble
+  problem: 오류를 치워서 해줘.
+  solution: Let's try again and do it right this time.
+  id: 1718063652561
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: mischievous
+  problem: 치트치고 사악한 일을 해보는 거예?
+  solution: Want to try some mischievous and fun stuff?
+  id: 1718063671699
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: peninsula
+  problem: 반도에서 만날까?
+  solution: Let's meet at the peninsula?
+  id: 1718063686177
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: cream
+  problem: 크림처럼 순수하고 아름다워.
+  solution: You're as pure and beautiful as cream.
+  id: 1718063702885
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: zoom
+  problem: 주저부터 줌!
+  solution: Let's go! Let's zoom!
+  id: 1718063719936
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: consolidation
+  problem: 통합 과정을 통해 목표를 달성할 수 있다.
+  solution: We can achieve our goals through the process of consolidation.
+  id: 1718063738097
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: frenzy
+  problem: 판정이 넘치는 현실에 빠지지 말아요.
+  solution: Don't get swept away by the frenzy of reality.
+  id: 1718063760757
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: sky
+  problem: 하늘 아래서 만날까?
+  solution: Let's meet under the sky?
+  id: 1718063777344
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: billboard
+  problem: 광고판에 이름을 올렸어?
+  solution: Did you put your name on a billboard?
+  id: 1718063796700
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: extinction
+  problem: 살아남는 것은 우리가 만들어야 합니다.
+  solution: It is up to us to survive.
+  id: 1718063813589
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: tan
+  problem: 탄생절에 축하합니다!
+  solution: Happy Birthday!
+  id: 1718063827301
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: listener
+  problem: 너의 말을 청취하고 있어. 감사합니다.
+  solution: I'm listening to your words. Thank you.
+  id: 1718063849360
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: alongside
+  problem: 우리 함께 이 순간을 보내자.
+  solution: Let's spend this moment together.
+  id: 1718063865616
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: snub
+  problem: 당신은 나를 무시하고 계신가요?
+  solution: Are you snubbing me?
+  id: 1718063881588
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: communion
+  problem: 커뮤니케이션은 우리의 마음이 만날 때 가장 아름다운 일이야.
+  solution: Communication is the most beautiful thing when our hearts meet.
+  id: 1718063903768
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: question
+  problem: 질문 있어?
+  solution: Do you have any questions?
+  id: 1718063918328
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: corroboration
+  problem: 동의가 필요해. 상황을 모두 확인하고 합의를 이끌어야겠지?
+  solution: Collaboration is essential. We need to confirm all the facts and reach
+    a consensus.
+  id: 1718063939912
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: satchel
+  problem: 사적을 담아 가세요.
+  solution: Put your belongings in the satchel and go.
+  id: 1718063955168
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: lively
+  problem: 생기가 활기차고 있어요.
+  solution: You're full of energy today!
+  id: 1718063975520
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: hut
+  problem: " hutsan hanseung-eun kkot-i-ya?"
+  solution: Are you feeling cozy and warm like a hut?
+  id: 1718063993755
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: anonymous
+  problem: 익명으로 말해도 상관없어요.
+  solution: It's okay to speak anonymously.
+  id: 1718064013596
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: audible
+  problem: 소리 들려줄게요. 어떤 소리 들려볼까?
+  solution: I can hear you. What did you say?
+  id: 1718064035649
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: mistake
+  problem: 오해가 아니면 좋은 일이지요.
+  solution: It's not a mistake, it's a good thing.
+  id: 1718064055057
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: soap
+  problem: 수세에 생기는 순간, 위험할 수도 있어.
+  solution: When something comes into being like soap, there is always a risk of danger.
+  id: 1718064076409
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: biceps
+  problem: biceps가 아닌 줄기 때문에 이근력 신전에 열심해!
+  solution: I'm working hard on my forearm flexibility because they're not biceps!
+  id: 1718064099608
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: shade
+  problem: 그 그림자 아래서 편안하게 누워도 좋겠네요.
+  solution: It would be nice to rest under that shadow for a while.
+  id: 1718064120153
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: ready
+  problem: 준비됐어?
+  solution: Are you ready?
+  id: 1718064133792
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: impair
+  problem: 상황이 어려워지더라도, 침착을 하지 말아요.
+  solution: Even though things are tough, don't give in to despair.
+  id: 1718064156304
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: flat
+  problem: 평평한 날은 휴식에 좋겠어요.
+  solution: A flat day is a good day for rest.
+  id: 1718064173856
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: panda
+  problem: 판다처럼 달근한 사람들은, 어려움도 용기내고 성취할 수 있습니다.
+  solution: Those who are like pandas, strong and resilient, can overcome any
+    difficulties and achieve success.
+  id: 1718064197640
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: deficit
+  problem: 부족한 점을 이기는 것이 중요해.
+  solution: It's important to overcome our shortcomings.
+  id: 1718064215796
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: boulevard
+  problem: boulevard에서 산책해 볼까?
+  solution: How about a stroll along the boulevard?
+  id: 1718064231968
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: bluff
+  problem: 저기 망설임없이 하지 말아요. 무슨 말이든 제가 해줄게요.
+  solution: Don't be bluffing. I'll handle whatever comes our way.
+  id: 1718064256312
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: invincible
+  problem: 무슨 상황에서도 이기는 영감이에요!
+  solution: You're an inspiration that overcomes any situation!
+  id: 1718064277544
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: flashing
+  problem: 빛깔 번지는 시간이야
+  solution: It's flashing time!
+  id: 1718064297028
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: abuse
+  problem: 폭력은 절대 허락할 수 없어요.
+  solution: Violence is never acceptable.
+  id: 1718064316660
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: club
+  problem: 클럽에서 함께 해 볼까?
+  solution: Let's hang out at the club?
+  id: 1718064336200
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: charred
+  problem: 불탄 먹고 있어?
+  solution: Did you eat something charred?
+  id: 1718064351336
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: inclusive
+  problem: 우리의 문화는 누구나 포함하고 존중해야 합니다.
+  solution: Our culture should be inclusive and respectful of everyone.
+  id: 1718064369817
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: acutely
+  problem: 급예하게 지금 바로 아침 식단을 계획해!
+  solution: Let's plan breakfast right away! We're acutely running out of time!
+  id: 1718064390564
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: tenant
+  problem: 거주자들 중에 가장 좋아하는 사람은 누구예?
+  solution: Who's your favorite among the tenants?
+  id: 1718064408540
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: quote
+  problem: 인용한 말은 무슨 의미를 가지나요?
+  solution: What is the meaning of that quote?
+  id: 1718064425776
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: harry
+  problem: 하리야, 오늘 저녁 식단 있어?
+  solution: Harry, do you have a dinner plan today?
+  id: 1718064445032
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: gadget
+  problem: 가상 현실 가상 가디mesine 도망쳐갑니다.
+  solution: I'm running away to virtual reality gadget land.
+  id: 1718064463996
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: pact
+  problem: 약속 해 볼까? 오늘 저녁 식당 가?
+  solution: Want to make a pact? Let's grab dinner tonight at that new restaurant?
+  id: 1718064484436
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: housewife
+  problem: 집사는 살기 위해서는 노력해야 해요.
+  solution: Housewives have to work hard to live.
+  id: 1718064502280
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: senate
+  problem: 참여자들 중에서 가장 뛰어난 사람들이 선출된다.
+  solution: The most outstanding people among the participants are elected.
+  id: 1718064522480
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: finely
+  problem: 크게 잘했어요. 잘했어.
+  solution: You did great! Good job.
+  id: 1718064538784
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: inform
+  problem: 정보를 알려줘.
+  solution: Tell me the news.
+  id: 1718064553604
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: strange
+  problem: 이것이 이상해요
+  solution: This is strange.
+  id: 1718064567840
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: ferment
+  problem: 발효 과정에서 새로운 향기들이 생기네요.
+  solution: New flavors emerge during fermentation.
+  id: 1718064586288
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: Buddhism
+  problem: 부처님의 길을 따라 살아나야 합니다.
+  solution: We should live in accordance with the path of the Buddha.
+  id: 1718064604744
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: lineup
+  problem: 열선이 완벽해요!
+  solution: The lineup is perfect!
+  id: 1718064619816
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: aria
+  problem: 아리아처럼 살아나도 좋은 걸이야.
+  solution: It's good to live like Aria.
+  id: 1718064637124
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: unreal
+  problem: 이 순간, 현실이 아닌 것 같아요.
+  solution: In this moment, it feels like something unreal.
+  id: 1718064655888
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: walking
+  problem: 산책을 하고 있어요?
+  solution: Are you going for a walk?
+  id: 1718064670508
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: fool
+  problem: 무슨 말이 그렇구나?
+  solution: What kind of fool would say that?
+  id: 1718064684312
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: its
+  problem: 이거는 내 아이의 것이야.
+  solution: This is my child's.
+  id: 1718064698376
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: clasp
+  problem: 손을 잡아주세요
+  solution: Please give me a hand.
+  id: 1718064712904
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: demerit
+  problem: 데미트에 가진 것은 아닌 일이지요.
+  solution: It wasn't anything to be demerited for.
+  id: 1718064733049
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: decorative
+  problem: 꾸준히 장식품을 사용하면 아름다움이 생긴다.
+  solution: If you use decorative items consistently, beauty will be born.
+  id: 1718064753556
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: amaze
+  problem: 아마지막으로 이기고 아닌 것 같네요.
+  solution: It seems like we finally won, or lost.
+  id: 1718064771712
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: noonday
+  problem: 점심 시간이 되네요?
+  solution: Is it lunchtime already?
+  id: 1718064789232
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: weld
+  problem: 우리의 길은 어둡긴가요? 하지만 함께 해결해 줄게요.
+  solution: Are our paths getting dark? But we'll solve it together.
+  id: 1718064810904
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: introductory
+  problem: 초입장합니다. 어떻게 지내세요?
+  solution: It's nice to meet you. How are you doing?
+  id: 1718064829096
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: testimonial
+  problem: 거지 경험담이에요? 아마 유용할 거예요.
+  solution: Did you have any great experiences today? They might be helpful to share.
+  id: 1718064849704
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: armpit
+  problem: 아름다운 아령은 볼품없이 날아갑니다.
+  solution: Beautiful armpits fly away without a hitch.
+  id: 1718064868901
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: busily
+  problem: 느린 날에 뛰어버릴 시간이야.
+  solution: It's a good day to make the most of the time.
+  id: 1718064888104
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: alike
+  problem: 비슷한 점이 많아요.
+  solution: There are many things that are alike.
+  id: 1718064903920
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: ostrich
+  problem: 오스트리치처럼 살아나야. 어떻게 해?
+  solution: We have to live like ostriches. What should we do?
+  id: 1718064923460
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: threshold
+  problem: 임계점을 넘어 새로운 시작이야.
+  solution: It's time to cross the threshold and start anew.
+  id: 1718064941524
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: bogus
+  problem: 보구지 말아요?
+  solution: Don't be ridiculous?
+  id: 1718064956052
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: laugh
+  problem: 웃기고 해 볼까?
+  solution: Shall we laugh it off?
+  id: 1718064970476
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: rebuff
+  problem: 거절할 말을 해줘.
+  solution: I have something to tell you that might be a rejection.
+  id: 1718064987180
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: where
+  problem: 어디에 있니?
+  solution: Where are you?
+  id: 1718065000644
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: crow
+  problem: 까리들이 하늘을 날다 보네
+  solution: The crows are flying across the sky.
+  id: 1718065017344
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: weekday
+  problem: 평일 아침에 아침밥 먹고 가세요.
+  solution: Have breakfast and head out for the weekday already!
+  id: 1718065034932
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: listen
+  problem: 듣고 있어? 내 말 들어줘.
+  solution: Listening? Pay attention to what I'm saying.
+  id: 1718065051948
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: no
+  problem: 아니, 오늘은 집에 있어.
+  solution: No, I'll stay home today.
+  id: 1718065070880
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: robber
+  problem: 절친, 너도 마치 털털 볼록치고 있지?
+  solution: Hey friend, you're kind of like a sneaky little robber, you know?
+  id: 1718065093612
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: significant
+  problem: 크게 중요한 순간이에요.
+  solution: This is a significant moment.
+  id: 1718065111000
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: promoter
+  problem: 프롬터처럼 열심히 하고 있어. 잘 해줘!
+  solution: You're working so diligently like a promoter. Good job!
+  id: 1718065149744
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: chemistry
+  problem: 화학과 같은 매력도 있어. 함께 연구해 볼까?
+  solution: There's a captivating chemistry between us, too. Would you like to
+    research it together?
+  id: 1718065171533
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: teller
+  problem: 내 이야기는 너의 귀에 들려줄게.
+  solution: Your ears will hear my story.
+  id: 1718065189257
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: unanimous
+  problem: 모전 동의했어요. 이 결정은 모두가 함께 해야겠네요.
+  solution: Everyone agreed. This decision should be made together by everyone.
+  id: 1718065210680
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: enroll
+  problem: 학업에 신청하고 있어요?
+  solution: Are you enrolling in school?
+  id: 1718065225752
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: gruesome
+  problem: 거대한 생명체가 절반으로 부서진 그 보기 때문에 참무섭니다.
+  solution: It's gruesome to see such a massive creature ripped in half like that.
+  id: 1718065249100
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: faithful
+  problem: 당신은 나를 위해 최대한 신뢰하고 배려해줘.
+  solution: You are the most faithful friend I could ask for.
+  id: 1718065270208
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: picturesque
+  problem: 사진처럼 아름다워요.
+  solution: It's picturesque.
+  id: 1718065284752
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: circus
+  problem: 순환의 공연, 어떨까?
+  solution: A circus of events, what do you think?
+  id: 1718065301776
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: deliverance
+  problem: 구출이 되어지길 바랍니다.
+  solution: I hope you find deliverance.
+  id: 1718065318928
+
+- model: gemma:7b
+  generator: korean-english-spoken-sentence
+  input: auto
+  problem: 자동으로 하고 있어! 아무일 있나요?
+  solution: It's automatic! What's up?
+  id: 1718065337608
+
