@@ -53489,3 +53489,1774 @@
   solution: It's automatic! What's up?
   id: 1718065337608
 
+- model: gemma:7b
+  generator: english-dialog
+  input: warrant Psychological Horror
+  problem: "Elias: What is this place? It's so dark... Luna: ____________________
+    Elias: But I feel like I'm being watched..."
+  solution: The warrant is in your pocket. We need to get out of here.
+  id: 1718100910440
+
+- model: gemma:7b
+  generator: english-dialog
+  input: individuality Outlaw
+  problem: "Jeb: Listen here, I ain't got time for all your fancy talk. We're
+    outlaws, remember? Sarah: ____________________ Jeb: Beautiful? In this
+    world? Out here, we gotta watch our backs, you know?"
+  solution: I know, but I just wanted to say, I think individuality is a beautiful thing.
+  id: 1718100960167
+
+- model: gemma:7b
+  generator: english-dialog
+  input: abundance Time Travel
+  problem: "Elias: There's more to life than just collecting things, you know.
+    Maya: ____________________ Elias: Maybe, but having too much of anything can
+    make things feel a little... crowded."
+  solution: But collecting things is fun! It's like having a little piece of
+    everything all in one place.
+  id: 1718101009680
+
+- model: gemma:7b
+  generator: english-dialog
+  input: abbreviation Political
+  problem: "Senator Spark: We can't keep shortening words like that! What's next,
+    'Prs' instead of 'President'?! Representative Bloom: ____________________
+    Senator Spark: Efficiency? By shortening words that people have been using
+    for centuries? This is ridiculous!"
+  solution: Hey, it saves space and makes things easier to remember. It's all
+    about efficiency!
+  id: 1718101061967
+
+- model: gemma:7b
+  generator: english-dialog
+  input: donor Whodunnit
+  problem: "Detective Harper: Someone made a donation to the mystery fund, but who
+    could it be? Amelia Thorne: ____________________ Detective Harper: Mr.
+    Finch? Did you tell Amelia about the secret donor?"
+  solution: I heard Mr. Finch talking about a secret donor. Maybe he knows something.
+  id: 1718101123979
+
+- model: gemma:7b
+  generator: english-dialog
+  input: digest Steampunk
+  problem: "Elias: Say, have you got any spare gears in your contraption? I'm
+    working on a new clockwork rabbit. Delilah: ____________________ Elias:
+    Perfect! I'll trade you a bottle of that fancy lavender oil for the gears."
+  solution: Got a couple of rusty ones in the shed. But I'll need a bit of oil to
+    get them working.
+  id: 1718101192887
+
+- model: gemma:7b
+  generator: english-dialog
+  input: generality Noir
+  problem: "Sam: Heard there's a new shipment coming in tonight. You got a contact
+    for the boss? Rita: ____________________ Sam: Good. We need to know what's
+    going on with the new stuff. It's not looking good."
+  solution: The boss is a quiet man. But I can ask around.
+  id: 1718101248382
+
+- model: gemma:7b
+  generator: english-dialog
+  input: die Political
+  problem: "Eleanor: We can't just let them take everything. Jasper:
+    ____________________ Eleanor: Even small groups can make a big difference.
+    We just have to try."
+  solution: But what can we do? We're just one small group.
+  id: 1718101305166
+
+- model: gemma:7b
+  generator: english-dialog
+  input: motionless Gritty Realism
+  problem: "Sasha: The alley smells like old socks and rain. Jasper:
+    ____________________ Sasha: It's the only place where nobody looks at you
+    like you're a freak."
+  solution: Don't tell me you still think this is a good idea.
+  id: 1718101358891
+
+- model: gemma:7b
+  generator: english-dialog
+  input: lethargic Renaissance
+  problem: "Elias: The sun hangs heavy today, making me feel like a sleepy snail.
+    Seraphina: ____________________ Elias: I could use a bit of that. My head
+    feels like it's filled with cobwebs."
+  solution: Perhaps a stroll in the gardens will liven us up. The lavender scent
+    always lifts my spirits.
+  id: 1718101407367
+
+- model: gemma:7b
+  generator: english-dialog
+  input: female Alternate Reality
+  problem: "Luna: The stars are out already? I feel like the night is just getting
+    started. Mira: ____________________ Luna: I love peaceful nights. Let's go
+    lie under the moon and count the stars."
+  solution: The moon is a big, fluffy blanket up there. It's gonna be a peaceful night.
+  id: 1718101467502
+
+- model: gemma:7b
+  generator: english-dialog
+  input: feminist Historical
+  problem: "Eleanor: I just want to be able to choose what I do with my life.
+    Clara: ____________________ Eleanor: Exactly! We should be free to be
+    ourselves."
+  solution: You're right! We shouldn't have to ask permission from anyone.
+  id: 1718101524046
+
+- model: gemma:7b
+  generator: english-dialog
+  input: clinical Dramatic
+  problem: "Clara: Oh no! My experiment is a total clinical disaster! Jasper:
+    ____________________ Clara: I think I might have added the wrong chemicals!
+    Now my plants are just drooping over."
+  solution: A clinical disaster? That sounds serious. What happened?
+  id: 1718101573214
+
+- model: gemma:7b
+  generator: english-dialog
+  input: developed Detective
+  problem: "Detective Jones: Looks like the robbery wasn't so developed after all.
+    Officer Smith: ____________________ Detective Jones: Distracted or not, they
+    still took the jewels! Time for some detective work."
+  solution: Maybe the thief just got distracted? Happens all the time.
+  id: 1718101627509
+
+- model: gemma:7b
+  generator: english-dialog
+  input: remembrance Time Travel
+  problem: "Amelia: I can't believe we're actually going back in time! Leo:
+    ____________________ Amelia: I wonder what it was like for them? Living so
+    long ago..."
+  solution: I know! It's crazy to think we're going to meet people who lived
+    hundreds of years ago.
+  id: 1718101687066
+
+- model: gemma:7b
+  generator: english-dialog
+  input: complicated Cyberpunk
+  problem: "Jax: Man, this city's got more secrets than a space station's toolbox.
+    Nomad: ____________________ Jax: But what if those secrets are keeping
+    people from finding out the real truth about this place?"
+  solution: Secrets are what keep the bigwigs in power. Best leave 'em alone.
+  id: 1718101747538
+
+- model: gemma:7b
+  generator: english-dialog
+  input: binding Superhero
+  problem: "Echo: Uh oh, trouble's brewing! We gotta stick together to stop it.
+    Bolt: ____________________ Echo: Thanks, Bolt! I can amplify any sound into
+    a powerful blast."
+  solution: Let's use our special powers to get the job done! I'll cover you with
+    my super speed.
+  id: 1718101802490
+
+- model: gemma:7b
+  generator: english-dialog
+  input: uncover Time Travel
+  problem: "Maya: Hey, I just found this old book in the attic! Maybe it has a
+    secret map inside? Finn: ____________________ Maya: But remember, only the
+    bravest explorers uncover the greatest mysteries!"
+  solution: A secret map? Cool! Let's take a peek then!
+  id: 1718101853034
+
+- model: gemma:7b
+  generator: english-dialog
+  input: lighter Horror
+  problem: "Anna: Why is the lighter so big? It's huge! Jack: ____________________
+    Anna: I don't like this. It's spooky. Let's just go home."
+  solution: Maybe it's just a special kind of lighter. You'll see.
+  id: 1718101916026
+
+- model: gemma:7b
+  generator: english-dialog
+  input: minimal Supernatural Mystery
+  problem: "Lucas: Hey, did you see the news? There's been some weird stuff
+    happening around town lately. Mia: ____________________ Lucas: Not silly.
+    Like things vanishing, shadows moving in the night... It's kinda creepy."
+  solution: Weird stuff? Like what? Maybe it's just a bunch of silly rumors.
+  id: 1718101979167
+
+- model: gemma:7b
+  generator: english-dialog
+  input: gig Gunslinger
+  problem: "Dusty: Looks like a job for the Gig Gun! Hawkeye: ____________________
+    Dusty: Best partner a fella could ask for. Now let's settle this gig!"
+  solution: Gig's got a mind of her own sometimes, but she gets the job done.
+  id: 1718102037082
+
+- model: gemma:7b
+  generator: english-dialog
+  input: stagnate Cosmic Horror
+  problem: "Elias: The water's all... stuck. Like things are just... stopping.
+    Luna: ____________________ Elias: We need to get out of here before...
+    before whatever is happening starts to... change us."
+  solution: The silence is like... a thick fog. It's suffocating.
+  id: 1718102100665
+
+- model: gemma:7b
+  generator: english-dialog
+  input: extremely Social
+  problem: "Amelia: That was extremely funny, didn't you think? Jasper:
+    ____________________ Amelia: I'm glad you liked it!"
+  solution: It was super hilarious! I couldn't stop laughing.
+  id: 1718102140790
+
+- model: gemma:7b
+  generator: english-dialog
+  input: pseudonym Gunslinger
+  problem: "Dusty: I ain't got a clue who's after me, but I ain't messin' around.
+    Hawkeye: ____________________ Dusty: Tell me more, but first, tell me what
+    you know about the Shadow Fist."
+  solution: You're in the right place, partner. This town's got secrets, and I
+    know a few of them.
+  id: 1718102212910
+
+- model: gemma:7b
+  generator: english-dialog
+  input: line Drama
+  problem: "Emma: I can't believe you forgot my birthday again! Liam:
+    ____________________ Emma: A giant pizza and a movie marathon!"
+  solution: I'm super sorry, I had a lot on my mind. What would you like for your
+    birthday?
+  id: 1718102270826
+
+- model: gemma:7b
+  generator: english-dialog
+  input: harbor Gunslinger
+  problem: "Finn: There's a storm a-brewin', ain't no safe harbor for a gunsel
+    like me. Ruby: ____________________ Finn: The Parrot's got more holes than a
+    sieve. We'll get soaked to the bone."
+  solution: The tide's high, but the winds ain't so bad. Maybe we can find shelter
+    in the Rusty Parrot.
+  id: 1718102340142
+
+- model: gemma:7b
+  generator: english-dialog
+  input: bomber Survival Horror
+  problem: "Jonah: There's something wrong with the lights... like a storm inside!
+    Sarah: ____________________ Jonah: I remember reading about a place with no
+    lights... The Silent Tower. Maybe that's our only hope."
+  solution: We need to find a safe place before the... thing gets here.
+  id: 1718102389995
+
+- model: gemma:7b
+  generator: english-dialog
+  input: bark Post-Apocalyptic
+  problem: "Jasper: Whoa, did that thing just bark at me? Luna:
+    ____________________ Jasper: But what does it mean? Should we run?"
+  solution: It's a sign. We need to follow it. The city's not safe anymore.
+  id: 1718102450506
+
+- model: gemma:7b
+  generator: english-dialog
+  input: consider Urban Fantasy
+  problem: "Raven: Hey, have you heard about the shadow wolves? Crazy things are
+    happening in the alleyways these days. Jaxon: ____________________ Raven:
+    Bartholomew's been muttering about a prophecy, about a chosen one who can
+    control the shadows. Maybe it's you!"
+  solution: Shadow wolves? Sounds like a tall tale. But I wouldn't put anything
+    past that old alchemist, Bartholomew.
+  id: 1718102516751
+
+- model: gemma:7b
+  generator: english-dialog
+  input: determined Medieval Fantasy
+  problem: "Zara: I won't let some grumpy dragon keep me from finding the lost
+    gem! Tobin: ____________________ Zara: We just need to be careful and
+    brave!"
+  solution: You're right, Zara. We're determined to get that gem back!
+  id: 1718102579455
+
+- model: gemma:7b
+  generator: english-dialog
+  input: barbarism Renaissance
+  problem: "Enzo: The beast's howls grow louder each night. What secrets does the
+    forest hold? Seraphina: ____________________ Enzo: But shadows cannot fight.
+    We must find a way to drive the beast back."
+  solution: Silence is our armor. The beast knows not our kind. We must be like
+    the shadows.
+  id: 1718102643398
+
+- model: gemma:7b
+  generator: english-dialog
+  input: refuse Paranormal
+  problem: "Emily: We have to get out of here. This place is giving me the creeps.
+    Mark: ____________________ Emily: We just need to find a way out before
+    whatever is here finds us."
+  solution: I know, right? But I just have a bad feeling about leaving.
+  id: 1718102692534
+
+- model: gemma:7b
+  generator: english-dialog
+  input: minor Cyberpunk
+  problem: "Jaxon: Listen, I just found out there's a secret lab under the city,
+    full of crazy robots and stuff. We should check it out. Echo:
+    ____________________ Jaxon: Come on, we're in the future. Curiosity is the
+    coolest thing ever."
+  solution: Crazy robots? Sounds like a trap. But... I'm curious too.
+  id: 1718102758230
+
+- model: gemma:7b
+  generator: english-dialog
+  input: birthright Whodunnit
+  problem: "Elias: Someone's been pawing around the old library. It's like
+    someone's stealing all the magic! Seraphina: ____________________ Elias: But
+    the ancient texts say the library is a birthright. Whoever unlocks the
+    hidden library gets all the power!"
+  solution: Magic? Elias, you're letting your imagination run wild. This is just
+    an old, dusty place.
+  id: 1718102829442
+
+- model: gemma:7b
+  generator: english-dialog
+  input: demon Cyberpunk
+  problem: "Seraphina: The demon's whispers are louder tonight. Can't you hear
+    them? Jaxon: ____________________ Seraphina: Silence? Or the demon's voice?"
+  solution: Silence, Seraphina. The city's got ears.
+  id: 1718102888551
+
+- model: gemma:7b
+  generator: english-dialog
+  input: freezing Drama
+  problem: "Amelia: My hands feel like icicles outside! Leo: ____________________
+    Amelia: Sounds like a plan! My toes are starting to turn blue!"
+  solution: Let's get inside and warm up by the fireplace!
+  id: 1718102938918
+
+- model: gemma:7b
+  generator: english-dialog
+  input: pearl Alternate Reality
+  problem: "Seraphina: The moonlight is like a giant pearl illuminating the ocean.
+    Kai: ____________________ Seraphina: Treasures like pearls, sparkling in the
+    moonlight."
+  solution: The ocean's like a giant blanket, hiding all sorts of treasures.
+  id: 1718102992138
+
+- model: gemma:7b
+  generator: english-dialog
+  input: priceless Horror
+  problem: "Clara: I can't believe this place...it's like something out of a
+    nightmare. Jasper: ____________________ Clara: But I'm curious...what's down
+    there?"
+  solution: We should just leave. This isn't right.
+  id: 1718103054898
+
+- model: gemma:7b
+  generator: english-dialog
+  input: rapidity Slice of Life
+  problem: "Maya: Whoa, that cloud is moving super fast! Liam:
+    ____________________ Maya: I wonder where it's going so fast?"
+  solution: I know right? It's like a fluffy racecar!
+  id: 1718103114006
+
+- model: gemma:7b
+  generator: english-dialog
+  input: liquidity Modern
+  problem: "Elena: My head feels like a swamp after that last job. Do you have any
+    magic in your pockets? Jasper: ____________________ Elena: It's like there's
+    a river of worry inside me, and it's overflowing!"
+  solution: I might have something that can help. But first, tell me more about
+    this 'swampy' feeling.
+  id: 1718103174346
+
+- model: gemma:7b
+  generator: english-dialog
+  input: nasty Steampunk
+  problem: "Elias: Hey, you wouldn't believe the nasty contraptions I seen in that
+    shop today. Luna: ____________________ Elias: I know, right? Imagine a
+    machine that breaths fire. Crazy, huh?"
+  solution: Nasty, indeed. I wouldn't trust anything with more gears than a clock.
+  id: 1718103227690
+
+- model: gemma:7b
+  generator: english-dialog
+  input: brink Low Fantasy
+  problem: "Elias: We're on the brink of something big, wouldn't you say? Zara:
+    ____________________ Elias: Let's just hope we're ready for whatever comes
+    our way."
+  solution: It's a little scary, but I'm ready to see what's on the other side.
+  id: 1718103300223
+
+- model: gemma:7b
+  generator: english-dialog
+  input: ham Renaissance
+  problem: "Manfred: By the moon, that ham looks like a beast! Jasper:
+    ____________________ Manfred: I wonder what it would taste like with a bit
+    of mustard?"
+  solution: Indeed! It's bigger than my head!
+  id: 1718103361098
+
+- model: gemma:7b
+  generator: english-dialog
+  input: ace Horror
+  problem: "Mia: Is that... a shadow following me? Leo: ____________________ Mia:
+    But what if the shadow wants me?"
+  solution: Shadows always follow you in this old place. Just keep moving.
+  id: 1718103411182
+
+- model: gemma:7b
+  generator: english-dialog
+  input: gargle Western
+  problem: "Jeb: Looks like a dusty day for a dusty drink, partner. Sarah:
+    ____________________ Jeb: Tellin' me, I just heard there's been some trouble
+    with them rustlers up near the river."
+  solution: I ain't afraid of a little dust. But that ain't the only thing that's
+    dry in this town.
+  id: 1718103473454
+
+- model: gemma:7b
+  generator: english-dialog
+  input: exchange Ancient
+  problem: "Elias: Hey, you got any of that sweet honey I owe ya? Zara:
+    ____________________ Elias: Oh right! My bad. Can I trade you some of these
+    berries for the honey then?"
+  solution: Honey? Elias, that's for the spiced wine, not the sweet stuff!
+  id: 1718103531494
+
+- model: gemma:7b
+  generator: english-dialog
+  input: pepper Cyberpunk
+  problem: "Indigo: Listen, I got a lead on some crazy synth-hounds in the old
+    bio-labs. We might score some serious cred. Nomad: ____________________
+    Indigo: So, you're in? We meet at the Rusty Cog at midnight."
+  solution: Crazy synth-hounds, huh? Sounds like a job for the Pepper Circuit.
+  id: 1718103598991
+
+- model: gemma:7b
+  generator: english-dialog
+  input: graphite Romantic
+  problem: "Elias: The moonlight looks like glitter on the lake. Luna:
+    ____________________ Elias: It feels like magic here under the moonlight."
+  solution: The lake's like a mirror reflecting the stars.
+  id: 1718103656926
+
+- model: gemma:7b
+  generator: english-dialog
+  input: extension Dramatic
+  problem: "Elias: My hand feels so long and strange... like an extension of
+    something not quite right. Luna: ____________________ Elias: I don't know...
+    like something is pushing out from me, beyond my control."
+  solution: What do you mean? Like you're growing another arm or something?
+  id: 1718103717354
+
+- model: gemma:7b
+  generator: english-dialog
+  input: multinational Urban Fantasy
+  problem: "Jaxon: We can't just leave her in that tower. What if she's all alone?
+    Lila: ____________________ Jaxon: We have to find a way to get her out.
+    Maybe if we work together, we can figure something out."
+  solution: I know, right? But what are we gonna do? The Shadow King's got his
+    eyes everywhere.
+  id: 1718103778279
+
+- model: gemma:7b
+  generator: english-dialog
+  input: story Fantasy
+  problem: "Luna: The shadows are getting closer... we better hurry! Jasper:
+    ____________________ Luna: We don't have time for that! The moon is almost
+    full and the beast will be out soon."
+  solution: But the bridge looks a little wobbly... maybe we should find another way.
+  id: 1718103839654
+
+- model: gemma:7b
+  generator: english-dialog
+  input: politics Psychological Horror
+  problem: "Elias: I just don't get it. Why won't anyone listen? Luna:
+    ____________________ Elias: But what if the loudest voices are leading us
+    down the wrong path? What if we have to fight for something different?"
+  solution: Sometimes, the loudest voices get ignored. It's just the way things are.
+  id: 1718103908966
+
+- model: gemma:7b
+  generator: english-dialog
+  input: midnight Space Opera
+  problem: "Luna: The starfield's crazy tonight. Did you see that green streak?
+    Orion: ____________________ Luna: Space squid? Where on Kepler's beard did
+    that come from?"
+  solution: Probably just a space squid. They're everywhere these days.
+  id: 1718103961382
+
+- model: gemma:7b
+  generator: english-dialog
+  input: brain Medieval
+  problem: "Elias: The beast's got me spooked. What if it's got some big ol'
+    teeth? Mira: ____________________ Elias: But what if we get our brains
+    knocked out? Then we're in real trouble."
+  solution: We're braver than we think. Let's just go in and fight for the village.
+  id: 1718104051314
+
+- model: gemma:7b
+  generator: english-dialog
+  input: elective Modern
+  problem: "Leo: Hey, did you hear there's an election coming up next month? Luna:
+    ____________________ Leo: It's where people get to choose who they want to
+    represent them in town!"
+  solution: An election? What's that about?
+  id: 1718104120578
+
+- model: gemma:7b
+  generator: english-dialog
+  input: roach Bounty Hunter
+  problem: "Casper: Hey, did someone say roaches? I'll take care of 'em, no
+    problem. Maggie: ____________________ Casper: It's a bug bounty, Mags. Money
+    for every creepy crawly gone!"
+  solution: Casper, you're crazy! Those things are everywhere!
+  id: 1718104179290
+
+- model: gemma:7b
+  generator: english-dialog
+  input: linear Comic Book
+  problem: "Kai: Hey, there's a funny looking robot in the forest! Zoey:
+    ____________________ Kai: I know! But what if it's grumpy?"
+  solution: Let's go check it out! I love robots!
+  id: 1718104238154
+
+- model: gemma:7b
+  generator: english-dialog
+  input: obstacle Drama
+  problem: "Sarah: There's just no way I can get that box over the fence! Liam:
+    ____________________ Sarah: Thanks so much! I couldn't have done it without
+    you."
+  solution: Hey, I can help with that! Let's just move it together.
+  id: 1718104318178
+
+- model: gemma:7b
+  generator: english-dialog
+  input: paddle Western
+  problem: "Dusty: Looks like a job for the Paddle Posse! Maverick:
+    ____________________ Dusty: Let's go catch some outlaws!"
+  solution: Paddle up, partner. We got a river to tame!
+  id: 1718104403550
+
+- model: gemma:7b
+  generator: english-dialog
+  input: reflex Dystopian
+  problem: "Elias: The machine's gonna zap me if I don't hurry! Luna:
+    ____________________ Elias: But what if it doesn't like me? What if I
+    become...reflexless?"
+  solution: Just a little further. We're almost there.
+  id: 1718104484302
+
+- model: gemma:7b
+  generator: english-dialog
+  input: drunken Realistic
+  problem: "Maya: Dude, you're starting to slur your words! Lucas:
+    ____________________ Maya: Party's fun, but you're getting out of hand. We
+    gotta go home soon!"
+  solution: Just a little fun, alright? It's party time!
+  id: 1718104547506
+
+- model: gemma:7b
+  generator: english-dialog
+  input: perform Outlaw
+  problem: "Hawkeye: We gotta make it to the crossroads before nightfall. The
+    storm's a beast tonight. Dusty: ____________________ Hawkeye: Sounds like a
+    plan. But first, let's grab that bag of supplies from that old farmer's
+    shed. He won't miss 'em."
+  solution: I'll keep the lookout. You head for the old barn. Maybe we can find
+    shelter there.
+  id: 1718104621394
+
+- model: gemma:7b
+  generator: english-dialog
+  input: fraught Comic Book
+  problem: "Mia: Oh no, this mission is fraught with danger! Leo:
+    ____________________ Mia: But what if we run into trouble? What if we fail?"
+  solution: Let's just take it one step at a time, alright?
+  id: 1718104672042
+
+- model: gemma:7b
+  generator: english-dialog
+  input: perplexity Dystopian
+  problem: "Elias: My head feels like it's filled with mud. What's going on? Luna:
+    ____________________ Elias: Luna, have you heard anything about the towers?
+    They're supposed to be the safest place in the city."
+  solution: The city's gone quiet. Like everyone just vanished.
+  id: 1718104734218
+
+- model: gemma:7b
+  generator: english-dialog
+  input: cultural Post-Apocalyptic
+  problem: "Mara: We can't keep hiding in this cave. The Sand Wolves are gonna
+    find us. Jaxon: ____________________ Mara: We gotta find somewhere safe.
+    Maybe an old building or something."
+  solution: I know. But what can we do? We're just two people.
+  id: 1718104797098
+
+- model: gemma:7b
+  generator: english-dialog
+  input: caddie Psychological Horror
+  problem: "Lucas: What's with all these creepy rocks around here? This place is
+    starting to freak me out. Sarah: ____________________ Lucas: Weird stuff?
+    Like what? I swear I saw something move in the shadows."
+  solution: It's just an old quarry. There's bound to be some weird stuff around here.
+  id: 1718104869570
+
+- model: gemma:7b
+  generator: english-dialog
+  input: seductive Time Travel
+  problem: "Eleanor: Whoa, this place is kinda creepy! But it's kinda cool too,
+    you know? Leo: ____________________ Eleanor: Maybe we should explore a
+    little further? It might be fun!"
+  solution: I know! I've never seen anything like this before. Maybe it's the time
+    travel thing?
+  id: 1718104959778
+
+- model: gemma:7b
+  generator: english-dialog
+  input: spar Supernatural Mystery
+  problem: "Amelia: Like, did we just see a bird made of glitter? That's weird.
+    Leo: ____________________ Amelia: But why is it sparkling today? And why is
+    it following us?"
+  solution: Wait, that's just the Sparbird! It's supposed to be here at midnight.
+  id: 1718105047850
+
+- model: gemma:7b
+  generator: english-dialog
+  input: reformation Urban Fantasy
+  problem: "Elias: Whoa, that's a big ol' dragon! Maybe we should just run.
+    Seraphina: ____________________ Elias: But what if it breathes fire on us? I
+    don't think my shoes could handle that!"
+  solution: Silence, Elias. We need to be stealthy if we want to survive this.
+  id: 1718105149955
+
+- model: gemma:7b
+  generator: english-dialog
+  input: immigrant Supernatural
+  problem: "Elias: I just want a place where I can be safe. Luna:
+    ____________________ Elias: Free? But... will I have to leave everything
+    behind?"
+  solution: There's a hidden world where people like us can be free.
+  id: 1718105205106
+
+- model: gemma:7b
+  generator: english-dialog
+  input: usable Space Opera
+  problem: "Anya: I think that space station might be usable for a home! Jaxon:
+    ____________________ Anya: We can use those scrap metal parts from the old
+    space ship! Maybe that'll do the trick."
+  solution: But first, we gotta fix that reactor. It's been sputtery lately.
+  id: 1718105272449
+
+- model: gemma:7b
+  generator: english-dialog
+  input: visualize Detective
+  problem: "Detective Smith: We need to visualize the scene. What do you remember
+    about the alleyway? Witness Jones: ____________________ Detective Smith:
+    Okay, good. Let's mark the trash can as evidence. We might find something
+    useful."
+  solution: It was dark and narrow. There was a trash can tipped over near the corner.
+  id: 1718105352402
+
+- model: gemma:7b
+  generator: english-dialog
+  input: disorder Slasher
+  problem: "Elias: There's... something wrong with this place. Like, something is
+    watching us. Sarah: ____________________ Elias: But... why does the air feel
+    so thick? Like something is about to... burst out?"
+  solution: Don't be silly. It's just an old abandoned hospital. There's bound to
+    be a few creepy crawlies around.
+  id: 1718105412578
+
+- model: gemma:7b
+  generator: english-dialog
+  input: weekly Space Opera
+  problem: "Finn: Space travel can be boring, but at least we get paid to look out
+    for the stars. Zara: ____________________ Finn: Hey, did you see that one
+    last night? It looked like a giant shooting star!"
+  solution: I know! I love finding new constellations.
+  id: 1718105460918
+
+- model: gemma:7b
+  generator: english-dialog
+  input: magical Mystery
+  problem: "Alice: Did you see that glow in the forest? Like magic! Tom:
+    ____________________ Alice: I've got a good feeling about this... like
+    something amazing is waiting for us!"
+  solution: Maybe it's just a trick of the light. But let's check it out!
+  id: 1718105514350
+
+- model: gemma:7b
+  generator: english-dialog
+  input: buttress Low Fantasy
+  problem: "Torin: The shadow's tall, but we can climb over it! Lia:
+    ____________________ Torin: Just gotta keep climbing! The treasure is at the
+    top!"
+  solution: Are you sure that's the right way? It looks a bit steep.
+  id: 1718105565054
+
+- model: gemma:7b
+  generator: english-dialog
+  input: science Science Fiction
+  problem: "Luna: Hey, did you hear about the space slugs? They're supposed to be
+    taking over the moon! Jax: ____________________ Luna: No, I'm serious! We
+    gotta do something before they start eating all the stars!"
+  solution: Space slugs? Luna, you're pulling my leg!
+  id: 1718105613878
+
+- model: gemma:7b
+  generator: english-dialog
+  input: sprout Paranormal
+  problem: "Elias: Did you see that? Something's growing in the shadows. Luna:
+    ____________________ Elias: Should we follow it? Maybe it knows something we
+    don't."
+  solution: It's like a vine... reaching out for the light.
+  id: 1718105663178
+
+- model: gemma:7b
+  generator: english-dialog
+  input: piety Horror
+  problem: "Elias: I can't believe we're actually going inside there. My heart is
+    like a drum! Luna: ____________________ Elias: But we have to find out
+    what's in there! It's our duty."
+  solution: It's called the Whispering Chapel for a reason. We should just turn back.
+  id: 1718105716690
+
+- model: gemma:7b
+  generator: english-dialog
+  input: remain Superhero
+  problem: "Echo: I can't let you go alone. Stay with me. Quantum:
+    ____________________ Echo: We'll find a way. Together."
+  solution: The shadows are getting deeper. We have to find a way out of this place.
+  id: 1718105769478
+
+- model: gemma:7b
+  generator: english-dialog
+  input: constantly Post-Apocalyptic
+  problem: "Jaxon: The dust is thick like soup today. Makes it hard to see. Luna:
+    ____________________ Jaxon: What do you think that rumble in the distance
+    is? A new group?"
+  solution: I know. But we gotta keep moving. The last thing we need is for those
+    scrapers to catch us.
+  id: 1718105823550
+
+- model: gemma:7b
+  generator: english-dialog
+  input: demo Frontier
+  problem: "Jax: Hey, did you see that dust storm out near the Gulch? Crazy,
+    right? Cassie: ____________________ Jax: Guess we better find a new route
+    before nightfall. Doesn't look like we'll make it through before the
+    sandstorm hits."
+  solution: It's got to be affecting the shipments. We might have some trouble
+    getting through.
+  id: 1718105880262
+
+- model: gemma:7b
+  generator: english-dialog
+  input: misgiving Steampunk
+  problem: "Jasper: There's just something off about that clock tower, don't you
+    think? Ada: ____________________ Jasper: We'd best investigate before it
+    decides to clock us out of here."
+  solution: It's got a mind of its own, I'll tell you that much.
+  id: 1718105932833
+
+- model: gemma:7b
+  generator: english-dialog
+  input: beneficiary Dramatic
+  problem: "Amelia: I can't believe it! I actually won! Lucas:
+    ____________________ Amelia: It's you! You're the one who gets all the
+    benefits!"
+  solution: That's amazing! Who did you say was the lucky beneficiary?
+  id: 1718105983677
+
+- model: gemma:7b
+  generator: english-dialog
+  input: develop Superhero
+  problem: "Echo: Hey, did you hear about the spooky shadows causing trouble in
+    Willow Creek? Bolt: ____________________ Echo: Remember, teamwork is our
+    superpower! We can do this together!"
+  solution: Sounds like it's time to suit up! We gotta stop them before they cause
+    any more damage.
+  id: 1718106034538
+
+- model: gemma:7b
+  generator: english-dialog
+  input: nail Dark Fantasy
+  problem: "Torin: There's something about that nail... it feels wrong, like
+    something is watching. Zara: ____________________ Torin: Secrets? But what
+    does it want with us?"
+  solution: Silence! The nail whispers secrets. We must listen.
+  id: 1718106081306
+
+- model: gemma:7b
+  generator: english-dialog
+  input: oak Alternate Reality
+  problem: "Oakly: The forest whispers secrets. I just have to listen. Jasper:
+    ____________________ Oakly: The kind that make your heart feel like a drum,
+    beating with the earth."
+  solution: Secrets? What kind of secrets could the forest hold?
+  id: 1718106126854
+
+- model: gemma:7b
+  generator: english-dialog
+  input: possibility Horror
+  problem: "Lily: I don't like the way the shadows seem to follow us. Lucas:
+    ____________________ Lily: Funny shapes that seem to want to grab us..."
+  solution: Maybe it's just the trees making funny shapes.
+  id: 1718106169862
+
+- model: gemma:7b
+  generator: english-dialog
+  input: cognition Renaissance
+  problem: "Elias: The whispers seem louder tonight, don't you think? Mira:
+    ____________________ Elias: Can we unravel the secrets they hold before the
+    shadows consume them?"
+  solution: The moon hangs heavy, casting shadows on the forgotten things.
+  id: 1718106215146
+
+- model: gemma:7b
+  generator: english-dialog
+  input: tadpole Western
+  problem: "Jeb: There's a new fella in town, says he's got a treasure map! Dusty:
+    ____________________ Jeb: He calls it the 'Golden Tadpole,' says it's buried
+    somewhere near the old windmill."
+  solution: Treasure? Now that's something I'd like to see!
+  id: 1718106262203
+
+- model: gemma:7b
+  generator: english-dialog
+  input: stimulation Frontier
+  problem: "Jaxon: Hey, did you hear about the new place opening up in town?
+    They're doing experiments on adrenaline! Lily: ____________________ Jaxon:
+    Just be careful, alright? We don't know what those doctors are up to."
+  solution: Adrenaline? Sounds like trouble. But I guess I'm curious...
+  id: 1718106314390
+
+- model: gemma:7b
+  generator: english-dialog
+  input: grammar Urban Fantasy
+  problem: "Jasper: Hey, did you hear about the Gramps on Willow Street? Crazy
+    thing is, he's speaking in rhymes now! Luna: ____________________ Jasper: I
+    know, right? It's like he's under a spell or something."
+  solution: Rhymes? Gramps is talking like a cheesy poem?
+  id: 1718106371774
+
+- model: gemma:7b
+  generator: english-dialog
+  input: pipe Paranormal
+  problem: "Amelia: Did you hear that weird hiss? Like air going through a pipe?
+    Liam: ____________________ Amelia: A chill? Now I'm starting to feel weird.
+    Like something's watching us through the pipes..."
+  solution: Hiss? Maybe it's just the wind. But... there's a chill in the air tonight.
+  id: 1718106422386
+
+- model: gemma:7b
+  generator: english-dialog
+  input: vehement Time Travel
+  problem: "Livia: Whoa, this time machine is vehement! I hope we make it to the
+    right place. Finn: ____________________ Livia: Right era? But what about all
+    the dinosaurs? This is gonna be chaos!"
+  solution: Relax, Livia. I checked the settings. We're going to the right era!
+  id: 1718106477930
+
+- model: gemma:7b
+  generator: english-dialog
+  input: astonish Dystopian
+  problem: "Elias: I can't believe this! We're stuck in the wrong sector! Zara:
+    ____________________ Elias: But what if they catch us? We'll be in big
+    trouble!"
+  solution: It's okay, we just need to keep moving. The drones won't know what hit them!
+  id: 1718106527022
+
+- model: gemma:7b
+  generator: english-dialog
+  input: inherent Supernatural Mystery
+  problem: "Lucas: I just don't get it. Why would someone leave this creepy old
+    book here? Amelia: ____________________ Lucas: Whispers? Like, ghosts?"
+  solution: Maybe it's got something to do with the whispers we keep hearing at night?
+  id: 1718106572339
+
+- model: gemma:7b
+  generator: english-dialog
+  input: stenographer Modern
+  problem: "Lola: Uh oh, I forgot to bring my note pad! Jasper:
+    ____________________ Lola: Really? You're a lifesaver!"
+  solution: No problem! I can take notes for you.
+  id: 1718106612958
+
+- model: gemma:7b
+  generator: english-dialog
+  input: mug Cyberpunk
+  problem: "Jax: Look, there's that crazy noodle vendor again. I told you, I ain't
+    got time for his shady noodles. Izzy: ____________________ Jax: Fine, fine.
+    But if we end up eating noodles with robot spiders, I'm blaming you."
+  solution: Relax, Jax. Maybe the noodles are good for something. We could use the
+    money, with the gigs drying up.
+  id: 1718106670170
+
+- model: gemma:7b
+  generator: english-dialog
+  input: whale Detective
+  problem: "Detective Finn: What do we know about the creature? Where did folks
+    see it? Fisherman Bob: ____________________ Detective Finn: A whale? In
+    these parts? This ain't no SeaWorld, Bob."
+  solution: Heard folks whisper about something big in the deep waters lately.
+    Like a giant... whale, maybe?
+  id: 1718106722414
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: deathbed Bounty Hunter
+  problem: "Hong-joon: 죽상에 누구? 저는 그 사람을 찾아야 해. Ji-yeon: ____________________
+    Hong-joon: 죽상은 그 유명한 보물에 도달하는 길이야. 위험하다고 해도, 목표를 달성해야 해."
+  solution: 죽상? 그 사건은 너무 위험해.
+  id: 1718107667393
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: aim Drama
+  problem: "Ji-Eun: 목표를 설정하고 시작해. 무슨 일이 있어도 목표를 달성하기 위해 노력해야 해. Dae-hyun:
+    ____________________ Ji-Eun: 물론 함께 해. 저도 목표를 달성하기 위해 최선을 다해."
+  solution: 목표를 설정했니? 저도 함께 하고 싶어요.
+  id: 1718107738552
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: aloft Post-Apocalyptic
+  problem: "Hana: 오늘, 비가 많이 와. Seung: ____________________ Hana: 우리 가옥이 비로부터 보호받아요."
+  solution: 비 때문에 길을 찾기가 쉽지 않아요.
+  id: 1718107789635
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: evident Outlaw
+  problem: "Hana: 지금 이 순간, 위험할 줄 아닌 일이야. Daeil: ____________________ Hana: 두려워할
+    필요는 없지만, 위험한 일은 아닌다."
+  solution: 위험하다고 해서 두려워할 필요는 없어.
+  id: 1718107839671
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: receptor Urban Fantasy
+  problem: "Hana: 우리, 이 곳에 있지 않아. 위험해. Daehyun: ____________________ Hana: 위험한 곳은
+    위험한 곳이니까. 우리는 다른 길을 찾아야 해."
+  solution: 우리, 위험해? 그러나... 이 곳은 우리의 길이야.
+  id: 1718107892764
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: spoil Gunslinger
+  problem: "도현: 지금 이 순간, 너의 순간이 아닌 거 같아. 민아: ____________________ 도현: 저기 그 복수꾼들...
+    그들 때문에... 너는...."
+  solution: 무슨 이유일까? 너의 순간이 아닌 것은 정말 중요해.
+  id: 1718107949918
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: invent Supernatural
+  problem: "하선: 아이들이 무슨 일이 있어? 민우: ____________________ 하선: 시간을 거슬리기? 그렇구나... 이게
+    무슨 의미일까?"
+  solution: 지금 이 순간, 저들은 순간적으로 시간을 거슬릴 수 있어.
+  id: 1718107998610
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: tablecloth Urban
+  problem: "Ji-Eun: 표시판 때문에 지금 이렇게 긴장해. Dae-Hyun: ____________________ Ji-Eun: 오히려
+    표시판 없이 해도... 위험해."
+  solution: 표시판 없이 해도... 이렇게 해야겠지.
+  id: 1718108064278
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: wintertime High Fantasy
+  problem: "Dae-hyun: 동계에 눈이 많아지네요. Jin-ah: ____________________ Dae-hyun: 동계는
+    뷰tiful한 계절이에요."
+  solution: 눈은 예쁘고 아름답니까.
+  id: 1718108122035
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: lawn Supernatural Mystery
+  problem: "Mina: 용이 그 들꽃무지 때문에 오래 걸립니다. Jin: ____________________ Mina: 꽃무지 때문에
+    용이 집에 돌아갑니다."
+  solution: 꽃무지는 해가 지나면 사라지므로, 지금 찾아야겠네요.
+  id: 1718108194722
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: biographical Gunslinger
+  problem: "Han Sol: 생전의 이야기는 지금 이 순간에 중요해. Kim Ji-woo: ____________________ Han
+    Sol: 우리의 이야기는 아직 끝나지 않았어."
+  solution: 내 생애의 모든 순간이 이 순간에 이어지네.
+  id: 1718108262438
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: gully Social
+  problem: "Ji-hyun: 절두기 살기 위해서는 물이 필요해요. Dae-hyun: ____________________ Ji-hyun:
+    절두기는 물을 좋아해서 물리 많은 곳에 살기 좋아해요."
+  solution: 물은 가정에서 얻을 수 있어요. 그럼 절두기 살기 위해서는 어떻게 해야 할까요?
+  id: 1718108330979
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: alien Science Fiction
+  problem: "하준: 알리언이 뭐지? 서아: ____________________ 하준: 외계인이라 해서 우리가 위험할까?"
+  solution: 알리언들은 외계인입니다. 다른 행성에서 왔습니다.
+  id: 1718108389162
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: flashing Paranormal
+  problem: "Soyeon: 아침에 저기 보고 있더라? 어떻게 해? Junho: ____________________ Soyeon: 비가
+    내릴 거야. 하지만... 그 볼록한 그림자... 그들은 어디로 갔을까?"
+  solution: 오늘 저녁도 비가 내릴 것 같아. 위험해.
+  id: 1718108552575
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: drowsy Urban
+  problem: "민주: 무슨 일이 이렇게 지루해? 동현: ____________________ 민주: 집에 가서 휴식하거나, 아무거나 할까?"
+  solution: 근무 때문에 너무 피곤해. 어떻게 해야 할까?
+  id: 1718108655131
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: paste Modern
+  problem: "Hana: 오늘 날씨가 좋아요! Ji-hoon: ____________________ Hana: 그럼 아침 식사 해 볼까요?"
+  solution: 네, 아침에 비가 안 내서 좋겠네요.
+  id: 1718108748050
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: spaghetti Post-Apocalyptic
+  problem: "Ji-Woo: 오늘은 식물이 많아요. Dae-hyun: ____________________ Ji-Woo: 오늘 저녁 식단이
+    어떻게 되나요?"
+  solution: 그렇구나... 날씨가 좋네요.
+  id: 1718108975997
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: pigment Victorian
+  problem: "한나: 피gments는 아름다워요. 민준: ____________________ 한나: 피gments는 우리의 영감이 될 것입니다."
+  solution: 피gments는 그렇구나... 아름다워요.
+  id: 1718109078250
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: reindeer Space Opera
+  problem: "하나: 별들이 어둠을 밝힌다. 민우: ____________________ 하나: 별들이 함께 일하고 있다. 우리도 함께 해야겠지?"
+  solution: 별들의 빛은 어둠을 물리치겠어.
+  id: 1718109141381
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: wither Alternate Reality
+  problem: "도현: 오늘 날씨는 너무 열악해... 민주: ____________________ 도현: 우리 집으로 돌아가서 따뜻한 차를
+    마셔면 좋겠어..."
+  solution: 지금 이렇게 열악하면 어떻게 해야 할까...
+  id: 1718109217853
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: delta Outlaw
+  problem: "하선: 델타에 도착했어? 아닌 상황이야. 민규: ____________________ 하선: 해적들? 그들은 무슨 계획일까?"
+  solution: 물론 그렇구. 아마 해적들 때문에.
+  id: 1718109300318
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: conductor Comic Book
+  problem: "도현: 전선의 소리 때문에 이렇게 바닥이 깨지는 건 아닌가요? 서라: ____________________ 도현:
+    그렇구나... 음악은 우리의 마음을 이끄는 거야."
+  solution: 전선은 음악의 지도자가 되고, 음악은 전선의 소리를 통해 살아납니다.
+  id: 1718109396105
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: tool Dark Fantasy
+  problem: "도현: 무슨 도구야? 이 현상을 이해할 수 있다면... 하늘: ____________________ 도현: 절대로... 도구로
+    사용할 수는 없을 것 같아..."
+  solution: 무슨 도구든, 저는 이 길을 걸어갑니다.
+  id: 1718109479311
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: interfere Western
+  problem: "김민아: 저기 너무 간섭하지 말아줘. 장민호: ____________________ 김민아: 그렇구나. 하지만 너는 이 일에
+    관여하면 안 좋겠어."
+  solution: 무슨 말이야? 너는 이 일에 관여할 권리도 있어.
+  id: 1718109566832
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: intercourse Modern
+  problem: "하민: 오늘은 너와 함께 시간을 보내는 것이 좋아. 서연: ____________________ 하민: 네! 이 점심 식당에서
+    점심 해?"
+  solution: 그렇구나. 너와 함께 할 일이 있을까?
+  id: 1718109640709
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: nuclear Medieval Fantasy
+  problem: "도현: 핵폭물 때문에 도시가 망설임이야. 민주: ____________________ 도현: 대단한 폭약물이 있어. 도시를
+    날려버릴 수 있어."
+  solution: 핵폭물? 그게 무엇일까?
+  id: 1718109717996
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: sinew Social
+  problem: "민아: 네, 그러야. 신은 아름다워. 준현: ____________________ 민아: 그렇구나. 신은 우리를 위해 살아갑니다."
+  solution: 정말 그렇구나. 신은 아닌 순간이 아니야.
+  id: 1718109796821
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: glue Noir
+  problem: "Mina: 무슨 이유로 이 사건이 그렇게 해지됐나? Daehyun: ____________________ Mina: 그들이
+    무엇을 하고 싶지 않을까?"
+  solution: 그들의 목표는 무엇일까?
+  id: 1718109875445
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: undeniable Comedic
+  problem: "다니엘: 무슨 이유로 이렇게 해? 아닌 것 같아요. 민우: ____________________ 다니엘: 아 그렇구나...
+    하지만 이렇게 해서는 문제가 생긴다."
+  solution: 내 말은 거 말아줘. 지금 이렇게 해야 해.
+  id: 1718109969537
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: sob Comedic
+  problem: "하나: 아… 이거 어떻게 해? 준석: ____________________ 하나: 소버? 그러면 나도 해!"
+  solution: 치곤해? 그냥 소버 해!
+  id: 1718110044709
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: rupture Low Fantasy
+  problem: "다현: 파손이 너무 크네... 민아: ____________________ 다현: 파손이 너무 크니까... 너도 그렇구나..."
+  solution: 파손은 곧 치유할 거야. 무슨 일이 있어?
+  id: 1718110128415
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: yarn Bounty Hunter
+  problem: "이아니: 오늘 저녁, 어디 가? 민준: ____________________ 이아니: 식사 먹고 돌아와?"
+  solution: 저는 요리집에 가서 식사를 먹고 있어요.
+  id: 1718110197671
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: common Comedy
+  problem: "민우: 오늘 음식 먹고 가야 해. 민주: ____________________ 민우: 둘 다 음식 먹고 가면 누구랑 같아?"
+  solution: 음식 먹고 가니? 저도 먹고 가야 해.
+  id: 1718110277587
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: proper Thriller
+  problem: "이선주: 오늘은 그들의 계획에 말을 걸지 말아요. 김민준: ____________________ 이선주: 그들은 너무 위험한
+    계획을 하고 있어요."
+  solution: 그들이 무슨 계획을 하고 있을까?
+  id: 1718110354898
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: footprint Renaissance
+  problem: "다진: 피트송이에 반짝이는 빛이 어둡네. 민우: ____________________ 다진: 밝히는 빛도... 어둡은 것은 아닌다."
+  solution: 피트송이 아닌 빛도 있지. 어둠을 밝히는 것은 그 자체다.
+  id: 1718110454557
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: dribble Detective
+  problem: "민우: 드립처럼 비가 오네요. 서현: ____________________ 민우: 누구가 이 비를 내린 걸까요?"
+  solution: 비가 그렇게 많아요...
+  id: 1718110531819
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: cause Superhero
+  problem: "Han-Sol: 오늘 저녁, 어떤 일이 있어? Dae-Han: ____________________ Han-Sol: 우리 함께
+    해두면, 무슨 일이든 해결할 수 있을거야!"
+  solution: 우리 목표에 도달하기 위해, 지금부터 열심히 해줘!
+  id: 1718110615499
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: diabetes Cosmic Horror
+  problem: "하현: 당신의 말, 이 순간은 너와 나만의 비밀이야. 민서: ____________________ 하현: 당신도 아닌다. 이
+    모든 것, 우리 모두가 알아야 할 비밀이야."
+  solution: 비밀? 비밀이 아니면 이 순간에 무슨 일이야?
+  id: 1718110700323
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: trot Psychological Horror
+  problem: "하민: 트로트할까? 아닌다면... 민경: ____________________ 하민: 아닌다면... 아닌다면..."
+  solution: 무슨 말이야...
+  id: 1718110773218
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: birthplace Superhero
+  problem: "다현: 출생지에서 만난 적이 많아... 민아: ____________________ 다현: 출생지는 누구의 시작이니까?"
+  solution: 출생지가 특별한 이유는 아니니까?
+  id: 1718110851214
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: selective Post-Apocalyptic
+  problem: "하늘: 우리, 살기 위해 살아남기 위해... 민주: ____________________ 하늘: 살기 위해서... 위험한 길도
+    여행할 수밖에..."
+  solution: 무슨 계획이 있나요?
+  id: 1718110924270
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: casually Superhero
+  problem: "Han-sol: 지금 이 순간, 위험할 일이 있어. Ji-yeon: ____________________ Han-sol: 함께
+    해? 저는 이 일을 해야 해."
+  solution: 저도 함께 해. 위험할 일이야.
+  id: 1718111004482
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: oh Comic Book
+  problem: "한나: 오해? 그러면 아저이는 가고 있어. 민우: ____________________ 한나: 우리 함께 해 볼까? 이기고
+    가면 후회할거야."
+  solution: 아저이는 가고 있어? 그럼 이 순간 이기지 말아요!
+  id: 1718111096598
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: videotape Dystopian
+  problem: "하준: 비디오테이프 시대의 끝이야... 민아: ____________________ 하준: 아닌 말이야. 우리는 이 페이크한
+    세계를 버리고, 진짜한 것들을 찾아야 해..."
+  solution: 무슨 말이야... 우리는 이 순간을 살아남아야 할 거야...
+  id: 1718111188639
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: clamp Comic Book
+  problem: "민주: 크램프 때문에 이렇게 해버렸어요? 준석: ____________________ 민주: 우리 함께 해결할게요!"
+  solution: 물론 그렇지. 어떻게 해야 해?
+  id: 1718111259286
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: highland Modern
+  problem: "하늘: 고산은 어디에 있을까? 민아: ____________________ 하늘: 우리 함께 고산에 도착하면 좋은 해."
+  solution: 고산은 우리가 함께 찾아야 할 곳이야.
+  id: 1718111336794
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: thickness Romantic
+  problem: "민주: 두께가 내 손을 잡아줘. 준호: ____________________ 민주: 두께한 순간, 너와 함께할 시간이 되네."
+  solution: 두께한 순간, 너와 함께할 시간이 되네.
+  id: 1718111422355
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: cock Medieval Fantasy
+  problem: "한나: 막상 닭 때문에 순간적으로 여기로 왔어요. 도현: ____________________ 한나: 닭이 그렇구나... 아,
+    그러면 아마 이 순간에 그 닭 때문에 여기로 왔을 거야."
+  solution: 닭? 이 순간에 이 순간에 닭에 관한 이야기는 아니야.
+  id: 1718111519467
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: garment Mystery
+  problem: "하준: 그 아이의 상의는 어디 갔을까? 민아: ____________________ 하준: 아마 범죄자가 상의을 맡아갔을 거야."
+  solution: 상의가 사라졌더라... 누구일까?
+  id: 1718111596066
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: tribal Bounty Hunter
+  problem: "하동준: 그 악명을 가진 그 사람을 만날 시간이 왔네. 장민아: ____________________ 하동준: 내 마음에 하고
+    싶은 일들이 많아..."
+  solution: 하동준, 그들과는 다른 길을 걸어야 해.
+  id: 1718111685543
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: pervade Urban
+  problem: "민주: 지금 이 순간, 어둠이 사라지고 있다. 준호: ____________________ 민주: 그럼... 새로운 시작이
+    시작할 것이다."
+  solution: 진짜? 그렇구나.
+  id: 1718111755766
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: isolate Detective
+  problem: "한별: 거기는 무슨 소리일까? 민우: ____________________ 한별: 별 볼 시간이지? 위험할 걸 아니야?"
+  solution: 죄상해, 순간적으로 소리들이 들렸어요.
+  id: 1718111827735
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: archaic Survival Horror
+  problem: "다현: 이 폐허기 때문에, 이 곳에 살기 위해서는 무슨 일이든 해야 해. 민우: ____________________ 다현:
+    저기, 이 폐허기 때문에, 이 곳에 살기 위해서는 무슨 일이든 해야 해."
+  solution: 무슨 일이 있더라도, 저는 당신을 도와 줄게.
+  id: 1718111928399
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: dreadful Frontier
+  problem: "다니엘: 그 악한 야망이 그렇게 해... 민호: ____________________ 다니엘: 이 몬스터가 이 곳을 장악하려고 해..."
+  solution: 무슨 일이 있어?
+  id: 1718112001574
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: run Detective
+  problem: "민우: 진심으로 보고 있어. 아닌 거 아닌 걸 알아. 재윤: ____________________ 민우: 진실을 말해. 아닌 걸 알아."
+  solution: 진실은 아닌 게 없지. 아닌 거 말해.
+  id: 1718112080466
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: disquiet Supernatural
+  problem: "Soyeon: 불안한 밤이네요. 무슨 일이 있어? Daehyun: ____________________ Soyeon: 제가
+    그렇지 않은 이유는 아저지... 저기 있지 않나요?"
+  solution: 무슨 소동이 있지 않아요. 평화하게 잘 지내세요.
+  id: 1718112169166
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: driving Frontier
+  problem: "민수: 지금 여기서 만날 시간이 아니야. 하늘: ____________________ 민수: 그럼 어떻게 해?"
+  solution: 물론 아니야. 아닌 시간이야.
+  id: 1718112236279
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: away Bounty Hunter
+  problem: "이진: 이런 곳에 이렇게 떨어나 있니? 민주: ____________________ 이진: 내 정보를 이용하면 어떨까?"
+  solution: 어떻게 해야 이 사건을 해결할까?
+  id: 1718112308111
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: abject Thriller
+  problem: "하늘: 아직 아저기야... 그 말을 해줘. 민우: ____________________ 하늘: 아닌 말이야... 우리는 위험할 거야."
+  solution: 아닌 말이야... 우리는...
+  id: 1718112386183
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: laser Psychological Horror
+  problem: "다현: 빛... 어디로 가버렸나요? 민주: ____________________ 다현: 무슨 일이 일어났을까?"
+  solution: 그 빛... 너무 어둡네.
+  id: 1718112460642
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: yours Time Travel
+  problem: "Soyeon: 시간은 어디로 가버렸나요? Taekyun: ____________________ Soyeon: 여행하면서 무슨
+    일이 있을까요?"
+  solution: 저도 시간을 여행한 적 있어요.
+  id: 1718112531670
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: lithe Low Fantasy
+  problem: "하늘: 아닌 날, 어둠이 가진다. 도일: ____________________ 하늘: 그렇구나. 새로운 빛이 생겼어."
+  solution: "날이 밝아지면 어둠은 사라지겠네. :: {\"one\":\"It's a gloomy day, filled with
+    darkness.\",\"two\":\"When the sun shines, the darkness will
+    disappear.\",\"three\":\"That's right. A new light has appeared.\"}"
+  id: 1718112727798
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: inter Alternate Reality
+  problem: "하준: 오늘 시간은 워낙할 시간이야. 민아: ____________________ 하준: 편해지는 걸 보고 행복해."
+  solution: '그렇구나. 내 마음이 편해졌어. :: {"one":"Today is a good day to relax.","two":"I
+    see. I feel happy now.","three":"Seeing you feel happy makes me happy
+    too."}'
+  id: 1718112790934
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: possible Alternate Reality
+  problem: "다니엘: 아닌가? 오늘은 가능해. 서아: ____________________ 다니엘: 감사합니다. 앞으로 잘 해!"
+  solution: "물론 가능해. 앞으로 함께 해! :: {\"one\":\"Is it possible? Is it possible
+    today?\",\"two\":\"Of course it's possible. Let's do it
+    together!\",\"three\":\"Thank you. I'll do my best!\"}"
+  id: 1718112862285
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: deny Cyberpunk
+  problem: "Kim Sol: 거기 숨을 들이마세요. 이 순간, 우리는 위험에 있어. Han Soo: ____________________
+    Kim Sol: 거기는 악명 높은 데이터 뱅크. 그들이 우리 계획을 파악할 가능성이 높아."
+  solution: "무슨 이유일까? 우리가 거기 위해 이곳에 왔기 때문에... :: {\"one\":\"Don't breathe there.
+    In this moment, we're in danger.\",\"two\":\"Why? We came here for a
+    reason.\",\"three\":\"That place has a notorious data bank. There's a high
+    possibility they'll figure out our plan.\"}"
+  id: 1718112959458
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: part Superhero
+  problem: "한우: 부분이 바뀌네요? 하늘: ____________________ 한우: 부분적으로 변화하면서 새로운 능력이 생겼어요!"
+  solution: "부분적으로 변화했어요. 무슨 일이야? :: {\"one\":\"Is something
+    changing?\",\"two\":\"It seems to have changed partially. What's the
+    reason?\",\"three\":\"Because of the change, I got a new power!\"}"
+  id: 1718113021821
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: liberation Cyberpunk
+  problem: "Soyeon: 해방은 살아남기 위해 필요한 일이야. Junho: ____________________ Soyeon:
+    그렇구나... 그러면 이제 내 길을 걸어야 해."
+  solution: '해방은 그들만의 길이야. 내 길은 이렇게. :: {"One":"Liberation is necessary to
+    survive.","Two":"Liberation is their path. My path is like
+    this.","Three":"Oh... Well then. I guess I should walk my own way now."}'
+  id: 1718113091986
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: tank Alternate Reality
+  problem: "서민: 전장은 어떨까? 민우: ____________________ 서민: 지금 이 순간에 살아남기 위해 전투야!"
+  solution: '전장은 위험해. 눈을 주의해야 해. :: {"one":"How is the battlefield
+    looking?","two":"The battlefield is dangerous. Be careful of your
+    eyes.","three":"In order to survive this moment, we must fight!"}'
+  id: 1718113153665
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: gamble Ancient
+  problem: "하동: 지금은 내 말이야. 가자. 민주: ____________________ 하동: 내 말을 들어줘. 나는 이기고 싶지 않아."
+  solution: "아닌 말이야. 너는 이기려고 해. :: {\"one\":\"This is my game. Let's
+    go.\",\"two\":\"You are wrong. You are doing this to
+    win.\",\"three\":\"Listen to me. I do not want to win like this.\"}"
+  id: 1718113220717
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: standardize Time Travel
+  problem: "다니엘: 시간은 바뀌네요? 하이언: ____________________ 다니엘: 실례합니다. 과거를 변경하면 미래가 바뀌니까요."
+  solution: "그렇구나. 이제 과거는 변경할 수 있어요. :: {\"one\":\"Daniel: Is time
+    changing?\",\"two\":\"Hyun: That's right. Now we can change the
+    past.\",\"three\":\"Daniel: Excuse me. Changing the past changes the
+    future.\"}"
+  id: 1718113304964
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: affable Slice of Life
+  problem: "다미: 오늘은 날씨가 좋은데요? 준식: ____________________ 다미: 그럼 아침 식사도 잘 먹었을까?"
+  solution: "네, 오늘은 해가 밝아서 좋겠네요. :: {\"one\":\"Dami: The weather is so nice today,
+    isn't it?\",\"two\":\"Junsik: Yes, the sun is shining brightly
+    today.\",\"three\":\"Dami: Did you eat breakfast well?\"}"
+  id: 1718113387519
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: digital Western
+  problem: "김민주: 디지털은 사막처럼 광대한데요. 황준용: ____________________ 김민주: 디지털 세계는 어떨까?"
+  solution: "그렇구나... 그럼 우리도 디지털 세계에 도착해야 해. :: {\"one\":\"The digital world is as
+    vast as a desert.\",\"two\":\"Oh... That's right... Then we should also
+    reach the digital world.\",\"three\":\"What's it like in the digital
+    world?\"}"
+  id: 1718113462112
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: span Slice of Life
+  problem: "민주: 오늘은 날씨가 좋네요. 민경: ____________________ 민주: 날씨가 좋으면 산책도 잘 해 볼 수 있어요."
+  solution: "네, 아침 해가 아름답네요. :: {\"one\":\"It's a nice day today.\",\"two\":\"Yes,
+    the sunrise is beautiful.\",\"three\":\"When the weather is good, I like to
+    go for a walk in the mountains.\"}"
+  id: 1718113543453
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: planner Romantic
+  problem: "하늘: 오늘은 어떻게 가야 해? 진우: ____________________ 하늘: 진우님, 저도 만날 시간이 되네요."
+  solution: "안녕하세요, 하늘. 저는 진우예요. :: {\"one\":\"How should I go
+    today?\",\"two\":\"Hello, Ha-nul. I'm Jin-woo.\",\"three\":\"Jin-woo, it's
+    also time for me to meet you.\"}"
+  id: 1718113619863
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: seminal Slice of Life
+  problem: "Seunghyun: 오늘은 비가 많이 와요. Haeun: ____________________ Seunghyun: 우리 집으로 가자."
+  solution: "비가 와서 길이 길어지네요. :: {\"one\":\"It's raining heavily
+    today.\",\"two\":\"The rain makes the path longer.\",\"three\":\"Let's go
+    home.\"}"
+  id: 1718113686414
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: adjustment Ancient
+  problem: "다현: 정말 어려워... 그러나 너는 나를 이해해줘. undefined: ____________________ 다현: 너와
+    함께 해결한다면... 무슨 일이든 해결할 수 있을 거야."
+  solution: "undefined :: {\"one\":\"It's really hard... But you understand me.\"}"
+  id: 1718113751733
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: raincoat Realistic
+  problem: "민주: 비가 많아지네요. 준석: ____________________ 민주: 그렇구나. 비가 많아지니까."
+  solution: "우리 비차 가고 있지요. :: {\"one\":\"It's raining heavily.\",\"two\":\"Our
+    raincoat is gone.\",\"three\":\"Oh, that's right. It's raining heavily.\"}"
+  id: 1718113811088
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: cloud Survival Horror
+  problem: "한아름: 구름 아래에 숨겨진 것이 무엇일까? 김철수: ____________________ 한아름: 구름 아래로 내려갑니다.
+    어떻게 해야 할까?"
+  solution: '저기 저 구름은 어디로 가버렸나? :: {"one":"What could be hidden under the
+    clouds?","two":"Where did that cloud go that was here just
+    now?","three":"The cloud is coming down. What should we do?"}'
+  id: 1718113881465
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: irrelevant Comedic
+  problem: "하늘: 어떻게 이런 일이 이렇게 이루어지지? 민식: ____________________ 하늘: 우리 이 작업은 완벽한 이유가 없어요."
+  solution: "무슨 일이 이기 때문에 말 그렇게 해. :: {\"one\":\"How did this whole thing even
+    happen?\",\"two\":\"There's some reason why you're saying
+    that.\",\"three\":\"We really don't have any reason to be doing this.\"}"
+  id: 1718113948871
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: flattering Bounty Hunter
+  problem: "민우: 진짜 그 사람... 아닌 거 같네요. 서아: ____________________ 민우: 그럼... 우리 함께 그
+    사람을 찾아야겠지?"
+  solution: "진심이야... 그 사람의 계획을 아닌 것 같네요. :: {\"one\":\"That person... I don't
+    think they're who they say they are.\",\"two\":\"I really think... that
+    person has something planned.\",\"three\":\"Well... maybe we should find
+    that person together.\"}"
+  id: 1718114017863
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: lance Gunslinger
+  problem: "도현: 피를 치는 건 어려운 일이야. 민아: ____________________ 도현: 피를 치는 건 어려운 일이지만,
+    우리는 살아남아야겠네."
+  solution: "피는 살아남는다. 무슨 일이든 해내야겠네. :: {\"one\":\"It's hard to
+    bleed.\",\"two\":\"Blood is alive. We have to survive no matter
+    what.\",\"three\":\"It's hard to bleed, but we have to survive. We have to
+    live.\"}"
+  id: 1718114101035
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: household Victorian
+  problem: "하선: 집에 가서 식단을 준비해야겠어요. 윤아리: ____________________ 하선: 고기와 야채를 합쳐서 간단하게
+    해도 좋겠어요."
+  solution: '오늘 저녁 식단은 어떻게 해? :: {"one":"Ha-sun has to prepare the
+    dinner.","two":"How will dinner be today?","three":"We can just make a
+    simple meal with meat and vegetables."}'
+  id: 1718114184142
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: biceps Ancient
+  problem: "한석: 두팔에 무슨 일이 있나요? 소담: ____________________ 한석: 고통받는 사람들을 위해 이 팔들을 최대한
+    활용해야겠지?"
+  solution: "무슨 일이 있으면 내가 해줄게요. :: {\"one\":\"What's going on with your
+    arms?\",\"two\":\"If there's something I can do about it, I'll do
+    it.\",\"three\":\"We should use these arms to help people in pain.\"}"
+  id: 1718114258422
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: ancient Time Travel
+  problem: "하늘: 오래전에 살던 사람들이 그들과 만날까? 민우: ____________________ 하늘: 우리 이 순간이 오래전에
+    사라지는 것 같네요."
+  solution: '시간은 돌아갑니다. 어떻게 돌아갑니까? :: {"one":"Does anyone who lived a long time
+    ago meet us here?","two":"Time goes around. How did we go back in
+    time?","three":"It seems like our moment is disappearing into the distant
+    past."}'
+  id: 1718114333459
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: insensitive Supernatural
+  problem: "Soyeon: 그들의 상황을 이해하지 못해... Taeyoon: ____________________ Soyeon: 감사합니다."
+  solution: '우리도 이해할 수는 없지만, 도와줄 수는 있다. :: {"one":"I cannot understand their
+    situation...","two":"We cannot understand it either, but we can
+    help.","three":"Thank you."}'
+  id: 1718114397323
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: frightened Gritty Realism
+  problem: "다니엘: 오늘 밤, 저기 깨진 소리 있어요. 진아: ____________________ 다니엘: 저기는 악동이 있어요."
+  solution: "무슨 일이 있을까요? :: {\"one\":\"Daniel: There's been a loud noise outside
+    tonight.\",\"two\":\"Jin-ah: What could be the matter?\",\"three\":\"Daniel:
+    There's a monster outside.\"}"
+  id: 1718114470371
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: sleek Espionage
+  problem: "김민우: 밀리터리 정보는 아닌다. 위장한 정보일 가능성이 높아. 조성호: ____________________ 김민우:
+    정보원의 신뢰도를 확인해야 해. 위장 정보는 신뢰도가 떨어날 가능성이 있을 거야."
+  solution: "정보원의 신뢰도가 중요해. 위장 정보는 신뢰도가 떨어날 가능성이 있다. :: {\"one\":\"Military
+    information is not reliable. It's possible that it's fake
+    information.\",\"two\":\"The credibility of the information source is
+    important. Fake information can decrease the credibility of the
+    source.\",\"three\":\"We need to verify the credibility of the source. Fake
+    information can decrease the credibility of the source.\"}"
+  id: 1718114561391
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: trainee Romantic
+  problem: "하늘: 늘이 아름다워... 민우: ____________________ 하늘: 너도 아름답니까?"
+  solution: '그렇구나... 그러나 너는 아름다워. :: {"one":"The sky is beautiful today...
+    ","two":"I see... But you are the most beautiful one here.","three":"Are you
+    also beautiful?"}'
+  id: 1718114624173
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: global Victorian
+  problem: "Han Sol: 세상은 너무 크고, 너무 복잡해. Kim Mi-ra: ____________________ Han Sol:
+    그렇구나. 우리는 세계를 향해 나아가야 할 거야."
+  solution: "난 여기까지 도달했음을 생각하면, 아름다워. :: {\"one\":\"The world is too big and too
+    complex.\",\"two\":\"When I think about how far I've come, it's
+    beautiful.\",\"three\":\"That's right. We have to keep moving forward toward
+    the world.\"}"
+  id: 1718114700059
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: height Ancient
+  problem: "하늘: 고지에 도달했어요. 이제 더 높이 가야겠어요. 선우: ____________________ 하늘: 위험은 위험이지만,
+    목표를 달성하려면 위험은 무시해야 해."
+  solution: "고지는 높지만, 위험도 크니까. 조심해야 해. :: {\"one\":\"I've reached the peak. Now I
+    have to climb even higher.\",\"two\":\"The peak is high, but there is also
+    great danger. Be careful.\",\"three\":\"Danger is danger, but to achieve my
+    goal, I have to ignore it.\"}"
+  id: 1718114780031
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: urn Modern
+  problem: "하늘: 울른 파도 같은 열감이에... 민아: ____________________ 하늘: 병원에 가야겠어요..."
+  solution: '온몸이 아프겠네요... :: {"one":"There’s a fever like a boiling
+    wave...","two":"I must be burning up... ","three":"We should go to the
+    hospital..."}'
+  id: 1718114838758
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: nick Steampunk
+  problem: "나나: 니크가 왜 그렇게 비싸? 도현: ____________________ 나나: 그렇구나... 내가 이기고 싶지 않아."
+  solution: "물론이야. 그 건 이제 너 때문이야. :: {\"one\":\"Why is the Nick so
+    expensive?\",\"two\":\"Of course. It's your fault now.\",\"three\":\"Oh... I
+    don't want to lose.\"}"
+  id: 1718114906291
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: virile Horror
+  problem: "하나: 피가 흘러갑니다. 진석: ____________________ 하나: 이 악명은 너를 사로잡고 있다."
+  solution: '무슨 일이 일어났을까? :: {"one":"Blood is dripping.","two":"What
+    happened?","three":"This evil fame is holding you."}'
+  id: 1718114969995
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: accurate Realistic
+  problem: "도현: 오늘 날씨가 예쁘네요. 민지: ____________________ 도현: 아니아요. 비가 오는 않는다."
+  solution: "아, 맞아요! 혹시 비가 올까요? :: {\"one\":\"The weather is so clear
+    today.\",\"two\":\"Oh, really? Is there going to be rain?\",\"three\":\"No,
+    it's not going to rain.\"}"
+  id: 1718115043022
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: billow Low Fantasy
+  problem: "다온: 바람이 돌아갑니다. 민주: ____________________ 다온: 해가 저녁해지네요."
+  solution: "무슨 일이 일어나고 있을까? :: {\"one\":\"The wind is picking
+    up.\",\"two\":\"What's going on? What's happening?\",\"three\":\"It's
+    getting dark.\"}"
+  id: 1718115108235
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: designing Urban
+  problem: "민준: 디자인 하고 있어? 아마 잘 할 거야. 하늘: ____________________ 민준: 나만이 아닌 사람들은 모두
+    디자인을 하고 있어. 그래서..."
+  solution: "디자인? 무슨 의미야? :: {\"one\":\"Are you designing? I think you'll do
+    well.\",\"two\":\"Design? What does that mean?\",\"three\":\"Everyone who
+    isn't me is designing something. That's why...\"}"
+  id: 1718115178886
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: erosion High Fantasy
+  problem: "Han-sol: 지금 이 땅은 변화의 시간이야. Dae-hyun: ____________________ Han-sol:
+    그렇구나. 우리는 이 변화에 어떻게 대비해야 할까?"
+  solution: "변화는 우리의 길이야. :: {\"one\":\"This land is a time of change
+    now.\",\"two\":\"Change is our path.\",\"three\":\"That's right. How should
+    we prepare for this change?\"}"
+  id: 1718115244934
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: harry Time Travel
+  problem: "하리: 시간을 돌려다줄까요? 민아: ____________________ 하리: 우리 함께 시간 여행을 해 볼까요?"
+  solution: '물론! 그러나 어떻게 해야 할까? :: {"one":"Harry, should we go back in
+    time?","two":"Of course! But how do we do it?","three":"How about we go on a
+    time trip together?"}'
+  id: 1718115307226
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: renown Superhero
+  problem: "Kim Da-hee: 오해할 필요 없어요. 이제 시작할 시간이야. Lee Soo-jin: ____________________
+    Kim Da-hee: 복장해. 이 순간, 우리는 함께할 시간이야."
+  solution: "오해할 필요 없어요. 함께 해 볼까? :: {\"one\":\"There's no need to misunderstand.
+    It's time to start.\",\"two\":\"There's no need to misunderstand. Shall we
+    do this together?\",\"three\":\"Okay. In this moment, we're in this
+    together.\"}"
+  id: 1718115384323
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: commonplace Realistic
+  problem: "다미: 오늘은 비가 많아요. 민규: ____________________ 다미: 네, 집에 가서 비를 피하세요."
+  solution: "그렇구나... 비가 많아서 집에 가야겠네. :: {\"one\":\"It's raining a lot
+    today.\",\"two\":\"Oh, I see... Maybe we should go home
+    then.\",\"three\":\"Yes, let's go home and avoid the rain.\"}"
+  id: 1718115451775
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: adjective Outlaw
+  problem: "다니엘: 오랜 시간 동안 이 순간이 오게 됐네. 소진: ____________________ 다니엘: 오랜 시간 동안
+    기다렸지? 이제 시작할 시간이 왔네."
+  solution: "오랜 시간 동안 기다렸지? 이제 시작할 시간이 왔네. :: {\"one\":\"It's taken a long time to
+    get here.\",\"two\":\"Have you been waiting this long? Now it's time to
+    start.\",\"three\":\"Have you been waiting this long? Now it's time to
+    start.\"}"
+  id: 1718115532601
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: deduct Supernatural
+  problem: "민우: 내일 밤, 저기 있을게. 하늘: ____________________ 민우: 비밀이야. 그러나, 그곳에 가서 그들의
+    목소리를 들어보는 것은 어떨까?"
+  solution: "어디 가? 그곳에 무슨 일이 있을까? :: {\"one\":\"Min-oo will be there
+    tonight.\",\"two\":\"Where are you going? What's up
+    there?\",\"three\":\"It's a secret. But... listening to their voices there
+    might tell us something.\"}"
+  id: 1718115611554
+
+- model: gemma:7b
+  generator: korean-dialog
+  input: imminent Outlaw
+  problem: "민우: 임minent한 날이지. 오늘 밤은 어떻게 해? 수현: ____________________ 민우: 하지만, 위험한
+    상황이지. 우리는 무슨 대비를 해야 할까?"
+  solution: "우리의 계획은 여전히 성사할 거야. 위험할 필요 없이. :: {\"one\":\"It's going to happen
+    soon. How will we handle it tonight?\",\"two\":\"Our plan is still going to
+    work. We don't need to take unnecessary risks.\",\"three\":\"But it's a
+    dangerous situation. What precautions should we take?\"}"
+  id: 1718115691859
+
