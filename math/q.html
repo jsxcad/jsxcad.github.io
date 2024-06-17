@@ -174,12 +174,12 @@
       return chunks;
     };
 
-    const isOverUseLimit = (problem) => {
+    const isAtUseLimit = (problem) => {
       for (const chunk of expandGeneratorUses(problem.generator)) {
         if (generatorUseLimits[chunk] === undefined) {
           continue;
         }
-        if ((generatorUses.get(chunk) || 0) > generatorUseLimits[chunk]) {
+        if ((generatorUses.get(chunk) || 0) >= generatorUseLimits[chunk]) {
           return true;
         }
       }
@@ -219,12 +219,13 @@
 
     const renderSheet = async (sheet) => {
       const collectedProblems = [];
-      for (let nth = 0; nth < 14; nth++) {
+      for (let nth = 0; ; nth++) {
         const problem = chooseProblem(chosen, generatorUses, problems);
         if (problem === undefined) {
-          continue;
+          break;
         }
-        if (isOverUseLimit(problem)) {
+        if (isAtUseLimit(problem)) {
+          chosen.add(problem);
           continue;
         }
         const e = generateProblemElement(problem);
