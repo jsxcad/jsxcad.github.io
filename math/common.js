@@ -35,8 +35,8 @@ export const loadProblems = async () => {
 export const saveNote = async (key, value) => IDB.set(key, value);
 
 export const saveProblem = async (problem) => {
-  console.log(`QQ/saveProblem: ${problem.id} ${problem.note}`);
-  saveNote(problem.id, problem.note);
+  // console.log(`QQ/saveProblem: ${problem.id} ${problem.note}`);
+  // saveNote(problem.id, problem.note);
 }
 
 export const renderRuledLine = () => {
