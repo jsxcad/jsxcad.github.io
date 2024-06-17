@@ -1,19 +1,24 @@
 <html>
  <head>
+  <script src="./components.js"></script>
   <script src="./qrcodegen-v1.8.0-es6.js"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
-    MathJax = {
-      tex: {
-        inlineMath: [[',,', ',,']] // Enable inline math delimiters
-      }
-    };
+   window.MathJax = {
+     loader: {
+       load: ['input/asciimath'],
+     },
+     asciimath: {
+       delimiters: [["''", "''"]]
+     },
+   };
   </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
    .stamp {
      background-color: white;
      border: 2px solid white;
    }
+
    .sheet {
      position: absolute;
      top: 1em;
@@ -21,10 +26,15 @@
      width: 210mm;
      height: 278mm;
      overflow: hidden;
+     column-count: 2;
+     column-width: 50%;
+     column-rule: solid black 1px;
    }
+
    .column {
      height: 100%;
    }
+
    .left {
      top: 1em;
      bottom: 1em;
@@ -36,6 +46,7 @@
      padding: 1em;
      overflow: hidden;
    }
+
    .right {
      top: 1em;
      bottom: 1em;
@@ -55,7 +66,11 @@
 
    .problem {
      padding: 0;
-     margin: 0;
+     margin-bottom: 5px;
+     break-inside: avoid;
+     page-break-inside: avoid;
+     border: solid black 1px;
+     border-radius: 5px;
    }
 
    .tooltip {
@@ -89,16 +104,16 @@
   </style>
  </head>
  <body>
-  <div class="sheet" id="sheet">
-    </div>
-    <div class="left column" id="left">
-    </div>
-    <div class="right column" id="right">
-    </div>
-  </div>
+  <div class="sheet" id="sheet"></div>
   <script type="module">
     import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
-    import { escapeHtml, loadProblems, loadTags, renderProblem, renderRuledLine, saveProblem, shuffle } from './common.js';
+    import { escapeHtml, loadProblems, loadTags, generateProblemElement, saveProblem, shuffle } from './common.js';
+
+    while (!MathJax.startup) {
+      await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
+    }
+
+    await MathJax.startup.promise;
 
     const problems = shuffle(await loadProblems());
     const { limits, requiredTags } = await loadTags();
@@ -115,7 +130,7 @@
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
 
-    const chooseProblem = (chosen, tagUses, problems) => {
+    const chooseProblem = (chosen, generatorUses, problems) => {
       if (s.length > 0) {
         const id = s.shift();
         for (const problem of problems) {
@@ -127,31 +142,10 @@
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
-        if (chosen.has(problem) || problem.note.isBlocked) {
+        if (chosen.has(problem)) {
           continue;
         }
-        if (!problem.tags || problem.tags.length === 0) {
-          continue;
-        }
-        let exclude = false;
-        for (const tag of problem.tags) {
-          const { limit = 5 } = limits[tag] === undefined ? {} : limits[tag];
-          if (limit <= (tagUses.get(tag) || 0)) {
-            exclude = true;
-            break;
-          }
-        }
-        if (exclude) {
-          continue;
-        }
-        let hasRequiredTags = true;
-        for (const tag of requiredTags) {
-          if (!problem.tags.includes(tag)) {
-            hasRequiredTags = false;
-            break;
-          }
-        }
-        if (!hasRequiredTags) {
+        if ((generatorUses.get(problem.generator) || 0) >= 1) {
           continue;
         }
         seen += 1;
@@ -163,7 +157,39 @@
     }
 
     const chosen = new Set();
-    const tagUses = new Map();
+    const generatorUses = new Map();
+    const generatorUseLimits = {
+      'math': 5,
+      'english': 5,
+      'hanja': 1,
+    };
+
+    const expandGeneratorUses = (generator) => {
+      const parts = generator.split('-');
+      const chunks = [];
+      for (let nth = 0; nth < parts.length; nth++) {
+        const chunk = parts.slice(0, nth + 1).join('-');
+        chunks.push(chunk);
+      }
+      return chunks;
+    };
+
+    const isOverUseLimit = (problem) => {
+      for (const chunk of expandGeneratorUses(problem.generator)) {
+        if (generatorUseLimits[chunk] === undefined) {
+          continue;
+        }
+        if ((generatorUses.get(chunk) || 0) > generatorUseLimits[chunk]) {
+          return true;
+        }
+      }
+    };
+
+    const addGeneratorUses = (generator) => {
+      for (const use of expandGeneratorUses(generator)) {
+        generatorUses.set(use, (generatorUses.get(use) || 0) + 1);
+      }
+    };
 
     const signature = [];
 
@@ -188,47 +214,32 @@
         }
         target = target.parentElement;
       }
-      const note = problem.note || {};
-      if (note.weight === undefined) {
-        note.weight = 1;
-      }
-      switch (key) {
-        case 'x':
-          note.isBlocked = true;
-          target.style.display = 'none';
-          break;
-        case 'g':
-          note.weight *= 1.1;
-          break;
-        case 'b':
-          note.weight *= 0.9;
-          break;
-      }
       await saveProblem(problem);
     }, true);
 
-    const renderColumn = async (column) => {
-      for (let nth = 0; nth < 7; nth++) {
-        const problem = chooseProblem(chosen, tagUses, problems);
+    const renderSheet = async (sheet) => {
+      const collectedProblems = [];
+      for (let nth = 0; nth < 14; nth++) {
+        const problem = chooseProblem(chosen, generatorUses, problems);
         if (problem === undefined) {
           continue;
         }
-        const e = renderProblem(problem);
-        column.appendChild(e);
+        if (isOverUseLimit(problem)) {
+          continue;
+        }
+        const e = generateProblemElement(problem);
+        await MathJax.typesetPromise([e]);
+        sheet.appendChild(e);
+        collectedProblems.push(e);
         signature.push(problem.id);
         chosen.add(problem);
-        for (const tag of problem.tags) {
-          tagUses.set(tag, (tagUses.get(tag) || 0) + 1);
-        }
         problemByRender.set(e, problem);
+        addGeneratorUses(problem.generator);
       }
     };
 
-    const left = document.getElementById('left');
-    const right = document.getElementById('right');
-
-    await renderColumn(left);
-    await renderColumn(right);
+    const sheet = document.getElementById('sheet');
+    await renderSheet(sheet);
 
     {
       const payload = `https://jsxcad.js.org/math/q.html?s=${signature.join(',')}`;
@@ -254,19 +265,12 @@
       const div = document.createElement('div');
       div.innerHTML = svgText;
       const svg = div.firstChild.nextSibling;
-      const firstPassage = right.firstChild.nextSibling;
-      firstPassage.insertBefore(svg, firstPassage.firstChild);
+      sheet.prepend(svg);
       svg.style.float = 'right';
       svg.style.zIndex = 10;
+      svg.style.border = 'solid black 1px';
       svg.onclick = (e) => { window.location = payload; };
     }
-
-    while (!MathJax.startup) {
-      await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
-    }
-
-    await MathJax.startup.promise;
-    await MathJax.typesetPromise();
 
   </script>
  </body>

@@ -59,34 +59,19 @@ export const escapeHtml = (unsafe) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-export const renderProblem = ({ id = -1, generator, problem, solution, lines = 4, tags = [], note }) => {
-  const div = document.createElement('div');
-  div.classList.add('problem', 'tooltip');
-  let pre = '';
-  let post = '';
-  if (generator === 'javascript-program') {
-    pre = '<pre>';
-    post = '</pre>';
-  }
-  div.innerHTML = `${pre}${problem.split('\n').map((text) => escapeHtml(text)).join('<br>')}${post}`;
-  for (let line = 0; line < lines; line++) {
-    div.appendChild(renderRuledLine());
-  }
-  const span = document.createElement('div')
-  span.innerText = generator;
-  span.classList.add('generator');
-
-  const shields = document.createElement('div')
-  shields.innerItext = note.weight;
-  shields.classList.add('shields');
-
-  div.insertBefore(span, div.firstChild);
-  const hint = document.createElement('div');
-  hint.innerHTML = `${id}<br>${solution}<br>${tags.join(', ')}`;
-  hint.classList.add('tooltiptext');
-  div.appendChild(hint);
-  return div;
-};
+export const generateProblemElement = ({ id = -1, generator, problem, solution, lines = 4, tags = [], note }) => {
+  const e = document.createElement('div');
+  e.classList.add('problem', 'tooltip');
+  e.innerHTML =
+    `
+      <div class="tooltiptext">
+        ${JSON.stringify(solution)}
+      </div>
+      <div class="generator">${generator}</div>
+      ${problem}
+    `;
+  return e;
+}
 
 export const shuffle = (list) => {
   for (let nth = 0; nth < list.length; nth++) {
