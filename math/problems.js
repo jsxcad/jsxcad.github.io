@@ -5869,7 +5869,7 @@
     "problem": "''250 + x = 500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 250 + x = 500\nwordProblem: There are 250 apples in a bag. If I put x more apples in the bag,\n  there will be 500 apples in the bag. How many apples are in the bag after I\n  put the x apples in?\nsolutions:\n  x: 250\n",
     "time": 60,
-    "decision": "accept",
+    "decision": "reject",
     "id": 1123
   },
   {
@@ -6957,6 +6957,7 @@
     "problem": "Maya has 250 meters of yarn. She uses some of the yarn to make a scarf that is 3750 meters long. How much yarn did she use for the scarf? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 250m * x = 3750m\nwordProblem: Maya has 250 meters of yarn. She uses some of the yarn to make a\n  scarf that is 3750 meters long. How much yarn did she use for the scarf?\nsolutions:\n  x: 15\n",
     "time": 60,
+    "decision": "reject",
     "id": 1262
   },
   {
@@ -7118,6 +7119,7 @@
     "problem": "Maya has 500g of flour. She needs 2L of dough for a baking project. How much more flour does she need? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2L = 500g + 3L\nwordProblem: Maya has 500g of flour. She needs 2L of dough for a baking project.\n  How much more flour does she need?\nsolutions:\n  L: 250\n",
     "time": 200,
+    "decision": "disable",
     "id": 1285
   },
   {
@@ -7189,6 +7191,7 @@
     "problem": "A printer can print 24 pages in an hour. It can print 3 pages in an hour or 5 minutes. How many minutes does it take to print 5 pages? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 24h = 3h + 5m\n  - 5h = 3m + 20s\nwordProblem: A printer can print 24 pages in an hour. It can print 3 pages in an\n  hour or 5 minutes. How many minutes does it take to print 5 pages?\nsolutions:\n  h: 8\n  m: 20\n",
     "time": 60,
+    "decision": "reject",
     "id": 1295
   },
   {
@@ -7563,6 +7566,7 @@
     "problem": "A lever has a 5kg weight at one end and a fulcrum in the middle. How much force must be applied at the other end of the lever to balance the weight? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2F = 3W\n  - F + W = 5kg\nwordProblem: A lever has a 5kg weight at one end and a fulcrum in the middle.\n  How much force must be applied at the other end of the lever to balance the\n  weight?\nsolutions:\n  F: 3kg\n",
     "time": "30",
+    "decision": "reject",
     "id": 1348
   },
   {
