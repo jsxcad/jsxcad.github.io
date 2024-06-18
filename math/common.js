@@ -65,7 +65,9 @@ export const generateProblemElement = ({ id = -1, generator, problem, solution, 
   e.innerHTML =
     `
       <div class="tooltiptext">
-        ${JSON.stringify(solution)}
+        <pre>
+        ${solution}
+        </pre>
       </div>
       <div class="generator">${generator}</div>
       ${problem}

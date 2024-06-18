@@ -1,0 +1,252 @@
+<html>
+ <head>
+  <script src="./components.js"></script>
+  <script src="./qrcodegen-v1.8.0-es6.js"></script>
+  <script>
+   window.MathJax = {
+     loader: {
+       load: ['input/asciimath'],
+     },
+     asciimath: {
+       delimiters: [["''", "''"]]
+     },
+   };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+   .stamp {
+     background-color: white;
+     border: 2px solid white;
+   }
+
+   .sheet {
+     position: absolute;
+     top: 1em;
+     bottom: 1em;
+     width: 210mm;
+     height: 278mm;
+     overflow: hidden;
+   }
+
+   .column {
+     height: 100%;
+   }
+
+   .generator {
+     font-size: 0.5em;
+     position: relative;
+   }
+
+   .problem {
+     padding: 5px;
+     margin-bottom: 5px;
+     break-inside: avoid;
+     page-break-inside: avoid;
+     border: solid black 1px;
+     border-radius: 5px;
+   }
+
+   .tooltip {
+   }
+
+   .tooltip .tooltiptext {
+     display: none;
+     visibility: hidden;
+     width: 100%;
+     background-color: black;
+     color: #fff;
+     padding: 5px 0;
+     border-radius: 6px;
+
+     /* Positioning */
+     position: relative;
+     z-index: 1;
+     left: 0;
+     top: 0;
+
+     /* Optional: Fade-in transition */
+     opacity: 0;
+     transition: opacity 0.3s;
+   }
+
+   .tooltip:hover .tooltiptext {
+     visibility: visible;
+     display: block;
+     opacity: 1;
+   }
+  </style>
+ </head>
+ <body>
+  <div class="sheet" id="sheet"></div>
+  <script type="module">
+    import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
+    import { escapeHtml, loadProblems, loadTags, generateProblemElement, saveProblem, shuffle } from './common.js';
+
+    while (!MathJax.startup) {
+      await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
+    }
+
+    await MathJax.startup.promise;
+
+    const problems = shuffle(await loadProblems());
+    const { limits, requiredTags } = await loadTags();
+
+    const decodeSignature = (params) => {
+      const s = params.get('s');
+      if (s) {
+        return s.split(',').map((string) => Number(string));
+      } else {
+        return [];
+      }
+    };
+
+    const params = new URLSearchParams(document.location.search);
+    const s = decodeSignature(params);
+
+    const chooseProblem = (chosen, generatorUses, problems) => {
+      if (s.length > 0) {
+        const id = s.shift();
+        for (const problem of problems) {
+          if (problem.id === id) {
+            return problem;
+          }
+        }
+      }
+      let seen = 0;
+      let chosenProblem;
+      for (const problem of problems) {
+        if (chosen.has(problem)) {
+          continue;
+        }
+        if ((generatorUses.get(problem.generator) || 0) >= 1) {
+          continue;
+        }
+        seen += 1;
+        if (Math.random() * seen <= 1) {
+          chosenProblem = problem;
+        }
+      }
+      return chosenProblem;
+    }
+
+    const chosen = new Set();
+    const generatorUses = new Map();
+    const generatorUseLimits = {
+      'korean': 20,
+      'english': 0,
+      'math': 0,
+      'hanja': 1,
+    };
+
+    const expandGeneratorUses = (generator) => {
+      const parts = generator.split('-');
+      const chunks = [];
+      for (let nth = 0; nth < parts.length; nth++) {
+        const chunk = parts.slice(0, nth + 1).join('-');
+        chunks.push(chunk);
+      }
+      return chunks;
+    };
+
+    const isAtUseLimit = (problem) => {
+      for (const chunk of expandGeneratorUses(problem.generator)) {
+        if (generatorUseLimits[chunk] === undefined) {
+          continue;
+        }
+        if ((generatorUses.get(chunk) || 0) >= generatorUseLimits[chunk]) {
+          return true;
+        }
+      }
+    };
+
+    const addGeneratorUses = (generator) => {
+      for (const use of expandGeneratorUses(generator)) {
+        generatorUses.set(use, (generatorUses.get(use) || 0) + 1);
+      }
+    };
+
+    const signature = [];
+
+    const problemByRender = new Map();
+
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener('mousemove', (event) => {
+      currentX = event.clientX;
+      currentY = event.clientY;
+    });
+
+    document.addEventListener('keydown', async (e) => {
+      const { key } = e;
+      let target = document.elementFromPoint(currentX, currentY);
+      let problem;
+      while (target) {
+        problem = problemByRender.get(target);
+        if (problem !== undefined) {
+          break;
+        }
+        target = target.parentElement;
+      }
+      await saveProblem(problem);
+    }, true);
+
+    const renderSheet = async (sheet) => {
+      const collectedProblems = [];
+      for (let nth = 0; ; nth++) {
+        const problem = chooseProblem(chosen, generatorUses, problems);
+        if (problem === undefined) {
+          break;
+        }
+        if (isAtUseLimit(problem)) {
+          chosen.add(problem);
+          continue;
+        }
+        const e = generateProblemElement(problem);
+        await MathJax.typesetPromise([e]);
+        sheet.appendChild(e);
+        collectedProblems.push(e);
+        signature.push(problem.id);
+        chosen.add(problem);
+        problemByRender.set(e, problem);
+        addGeneratorUses(problem.generator);
+      }
+    };
+
+    const sheet = document.getElementById('sheet');
+    await renderSheet(sheet);
+
+    {
+      const payload = `https://jsxcad.js.org/math/q.html?s=${signature.join(',')}`;
+      const qr = qrcodegen.QrCode.encodeText(payload, qrcodegen.QrCode.Ecc.MEDIUM);
+
+      const toSvgString = (qr, border, lightColor, darkColor) => {
+        if (border < 0)
+            throw new RangeError("Border must be non-negative");
+        let parts = [];
+        for (let y = 0; y < qr.size; y++) {
+            for (let x = 0; x < qr.size; x++) {
+                if (qr.getModule(x, y))
+                    parts.push(`M${x + border},${y + border}h1v1h-1z`);
+            }
+        }
+        return `
+          <svg width="64" height="64" viewBox="0 0 ${qr.size + border * 2} ${qr.size + border * 2}" stroke="none">
+	    <rect width="100%" height="100%" fill="${lightColor}"/>
+	    <path d="${parts.join(" ")}" fill="${darkColor}"/>
+          </svg>`;
+      };
+      const svgText = toSvgString(qr, 5, 'white', 'black');
+      const div = document.createElement('div');
+      div.innerHTML = svgText;
+      const svg = div.firstChild.nextSibling;
+      sheet.prepend(svg);
+      svg.style.float = 'right';
+      svg.style.zIndex = 10;
+      svg.style.border = 'solid black 1px';
+      svg.onclick = (e) => { window.location = payload; };
+    }
+
+  </script>
+ </body>
+</html>
