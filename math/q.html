@@ -141,7 +141,7 @@
       let seen = 0;
       let chosenProblem;
       for (const problem of problems) {
-        if (chosen.has(problem)) {
+        if (chosen.has(problem) || problem.decision === 'reject') {
           continue;
         }
         if ((generatorUses.get(problem.generator) || 0) >= 1) {
