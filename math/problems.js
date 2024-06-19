@@ -6411,445 +6411,711 @@
     "id": 1257
   },
   {
+    "generator": "korean-gap-story-1-low-fantasy",
+    "input": "spontaneous",
+    "problem": "저녁이 되면 어둠이 가득찬 길을 걸으며 돌아갑니다. <br> 오늘 저녁은 친구(親舊)들과 함께 식단(食單)을 먹고 영화(映畫)를 보러갑니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 소리들은 동물(動物)의 목소리들이 아닌... 어둠에서 생긴 소리들이 같습니다. <br> 친구(親舊)들과 함께 집으로 돌아갑니다. <br>",
+    "solution": "one:\n  problem: |\n    저녁이 되면 어둠이 가득찬 길을 걸으며 돌아갑니다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"이\":\"is\",\" 되면\":\"when it\n    becomes\",\"어둠\":\"darkness\",\"가득찬\":\"filled\n    with\",\"길\":\"path\",\"걸으며\":\"walking\",\"돌아갑니다\":\"returns home\"}'\n  overallTranslation: '{\"english\":\"When evening comes, I walk along the dark path\n    and return home.\"}'\ntwo:\n  problem: |\n    오늘 저녁은 친구(親舊)들과 함께 식단(食單)을 먹고 영화(映畫)를 보러갑니다.\n  wordByWordTranslation: '{\"오늘\":\"Today\",\"저녁\":\"evening\",\"친구들\":\"friends\",\"과\":\"with\",\"함께\":\"together\",\"식단\":\"meal\",\"먹고\":\"eating\",\"영화\":\"movie\",\"보러갑니다\":\"going\n    to watch\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"I'm having dinner with friends tonight and\n    we're going to watch a movie together.\\\"}\"\nthree:\n  problem: |\n    갑자기 길을 걸다가 기묘(奇妙)한 소리들이 들립니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"길을 걸다가\":\"while walking on the\n    street\",\"기묘한\":\"strange\",\"소리들이\":\"sounds\",\" 들립니다\":\"can be heard\"}'\n  overallTranslation: '{\"english\":\"Suddenly, while walking along the path, strange\n    sounds began to echo around me.\"}'\nfour:\n  problem: |\n    그 소리들은 동물(動物)의 목소리들이 아닌... 어둠에서 생긴 소리들이 같습니다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"소리들은\\\":\\\"sounds\n    are\\\",\\\"동물의\\\":\\\"animal's\\\",\\\"목소리들이\\\":\\\"voices\\\",\\\"아닌\\\":\\\"not\\\",\\\"어둠에서\\\":\\\"f\\\n    rom the darkness\\\",\\\"생긴\\\":\\\"born\\\",\\\"소리들이\\\":\\\"sounds are\\\",\\\"\n    같습니다\\\":\\\"same\\\"}\"\n  overallTranslation: '{\"english\":\"Those sounds are not the barks of animals...\n    They are sounds that arise from darkness.\"}'\nfive:\n  problem: |\n    친구(親舊)들과 함께 집으로 돌아갑니다.\n  wordByWordTranslation: '{\"친구들\":\"friends\",\"과\":\"with\",\"함께\":\"together\",\"집으로\":\"home\",\"돌아갑니다\":\"goes\n    back\"}'\n  overallTranslation: '{\"english\":\"I am going home with my friends.\"}'\n",
+    "id": 1258
+  },
+  {
+    "generator": "korean-gap-story-1-post-apocalyptic",
+    "input": "moon",
+    "problem": "밤의 조명(照明)이 사라지고, 어둠이 사라지는 시작(始作)이다. <br> 두 개(個)의 눈은 어둠에 가려 보이지 않았다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 달의 비춰지는 빛은 어둠을 밝히고, 두 개(個)의 눈은 빛을 볼 수 있었다. <br> 두 개(個)의 눈은 달빛 아래 그림자를 보(步)겼다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 조명(照明)이 사라지고, 어둠이 사라지는 시작(始作)이다.\n  wordByWordTranslation: \"{\\\"밤의\\\":\\\"night's\\\",\\\"조명\\\":\\\"illumination\\\",\\\"사라지고\\\":\\\"\\\n    is disappearing\\\",\\\"어둠\\\":\\\"darkness\\\",\\\"사라지는\\\":\\\"is\n    disappearing\\\",\\\"시작이다\\\":\\\"it begins\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"As the night's illumination fades, the\n    beginning of darkness's vanishing.\\\"}\"\ntwo:\n  problem: |\n    두 개(個)의 눈은 어둠에 가려 보이지 않았다.\n  wordByWordTranslation: '{\"두\":\"two\",\"개\":\"dogs\",\"눈\":\"eyes\",\"은\":\"is\",\"어둠\":\"darkness\",\"가려\":\"covered\",\"보이지\n    않았다\":\"was not visible\"}'\n  overallTranslation: '{\"english\":\"Both eyes were obscured by the darkness and\n    could not be seen.\"}'\nthree:\n  problem: |\n    달이 비춰지기 시작(始作)했다.\n  wordByWordTranslation: '{\"달이\":\"moon\",\"비춰지기\":\"to shine\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The moon is starting to glow.\"}'\nfour:\n  problem: |\n    달의 비춰지는 빛은 어둠을 밝히고, 두 개(個)의 눈은 빛을 볼 수 있었다.\n  wordByWordTranslation: \"{\\\"달의\\\":\\\"Moon's\\\",\\\"비춰지는\\\":\\\"reflecting\\\",\\\"빛\\\":\\\"light\\\n    \\\",\\\"어둠\\\":\\\"darkness\\\",\\\"밝히고\\\":\\\"brightening\\\",\\\"두\\\":\\\"two\\\",\\\"개\\\":\\\"eyes\\\",\\\n    \\\"눈\\\":\\\"eye\\\",\\\"볼 수 있었다\\\":\\\"could see\\\"}\"\n  overallTranslation: '{\"english\":\"The moonlight illuminated the darkness, and\n    their two eyes were able to see.\"}'\nfive:\n  problem: |\n    두 개(個)의 눈은 달빛 아래 그림자를 보(步)겼다.\n  wordByWordTranslation: '{\"두\":\"two\",\"개\":\"dogs\",\"눈\":\"eyes\",\"은\":\"are\",\"달빛\":\"moonlight\",\"아래\":\"below\",\"그림자\":\"shadow\",\"보겼다\":\"saw\"}'\n  overallTranslation: '{\"english\":\"Two eyes cast shadows under the moonlight.\"}'\n",
+    "id": 1259
+  },
+  {
     "generator": "korean-gap-story-1-renaissance",
     "input": "lover",
     "problem": "꽃밭 아래 달빛 아래 <br> 그대가 내 안으로 들어왔어요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그대와 함께 달빛 아래를 걸다가 별들을 바라갔어. <br> 별들을 향(向)해 달빛 아래를 걸다가 다른 사람들은 사라졌어 <br>",
     "solution": "one:\n  original: 꽃밭 아래, 달빛 아래\n  natural: 꽃밭 아래 달빛 아래\n  problem: |\n    꽃밭 아래 달빛 아래\n  wordByWordTranslation: '{\"꽃\":\"flower\",\"밭\":\"garden\",\"아래\":\"below\",\"달빛\":\"moonlight\"}'\n  overallTranslation: '{\"english\":\"Under the flower fields and under the moonlight\"}'\ntwo:\n  original: 그대가 내 안으로 들어왔어\n  natural: 그대가 내 안으로 들어왔어요.\n  problem: |\n    그대가 내 안으로 들어왔어요.\n  wordByWordTranslation: '{\"그대\":\"you\",\"가\":\"to\",\"내\":\"my\",\"안\":\"inside\",\"으로\":\"into\",\"들어왔어요\":\"came in\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"You're inside me now.\\\"}\"\nthree:\n  original: 꽃밭 아래에서 달빛 아래로 가버렸어\n  natural: 꽃밭 아래에서 달빛 아래로 가버렸어요.\n  problem: |\n    꽃밭 아래에서 달빛 아래로 가버렸어요.\n  wordByWordTranslation: '{\"꽃밭\":\"flower\n    field\",\"아래\":\"below\",\"달빛\":\"moonlight\",\"아래로\":\"towards the\n    bottom\",\"가버렸어요\":\"vanished\"}'\n  overallTranslation: '{\"english\":\"The moon was hidden under the flower fields.\"}'\nfour:\n  original: 그대와 함께 달빛 아래를 걸으며 별들을 바라갔어\n  natural: 그대와 함께 달빛 아래를 걸다가 별들을 바라갔어.\n  problem: |\n    그대와 함께 달빛 아래를 걸다가 별들을 바라갔어.\n  wordByWordTranslation: '{\"그대\":\"you\",\"와\":\"with\",\"함께\":\"together\",\"달빛\":\"moonlight\",\"아래\":\"below\",\"걸다가\":\"walking\",\"별들을\":\"stars\",\"바라갔어\":\"looked\n    at\"}'\n  overallTranslation: '{\"english\":\"We walked under the moonlight and looked at the stars.\"}'\nfive:\n  original: 별들을 향해 달빛 아래를 걸다가 다른 사람들은 없어졌어\n  natural: 별들을 향해 달빛 아래를 걸다가 다른 사람들은 사라졌어\n  problem: |\n    별들을 향(向)해 달빛 아래를 걸다가 다른 사람들은 사라졌어\n  wordByWordTranslation: '{\"별들을 향해\":\"toward the stars\",\"달빛 아래\":\"under the\n    moonlight\",\"걸다가\":\"walking\",\"다른 사람들은\":\"other people were\",\"사라졌어\":\"gone\"}'\n  overallTranslation: '{\"english\":\"As I walked beneath the moonlight towards the\n    stars, everyone else had vanished.\"}'\n",
-    "id": 1258
+    "id": 1260
   },
   {
     "generator": "korean-gap-story-1-renaissance",
     "input": "knot",
     "problem": "꽃밭에 꽃들이 돋보기 시작(始作)했다. <br> 그 중(中) 하나의 꽃은 다른 꽃들과 다르게 고정(固定)되어 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 꽃들이 결절(結節)로 묶여있을 때, 어떻게 해야 할지 고민(苦悶)하기 시작(始作)했다. <br> 꽃들을 분해(分解)하여 다시 꽃다발을 만들었다. <br>",
     "solution": "one:\n  original: 꽃밭에 꽃들이 피어나기 시작했다.\n  natural: 꽃밭에 꽃들이 돋보기 시작했다.\n  problem: |\n    꽃밭에 꽃들이 돋보기 시작(始作)했다.\n  wordByWordTranslation: '{\"꽃\":\"flower\",\"밭\":\"garden\",\"에\":\"to\",\"꽃들\":\"flowers\",\"돋보기\":\"bloom\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The flowers in the flower field have begun to bloom.\"}'\ntwo:\n  original: 그 중 하나의 꽃은 다른 꽃들과 다르게 묶여 있었다.\n  natural: 그 중 하나의 꽃은 다른 꽃들과 다르게 고정되어 있었다.\n  problem: |\n    그 중(中) 하나의 꽃은 다른 꽃들과 다르게 고정(固定)되어 있었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"중\":\"among\",\"하나\":\"one\",\"꽃\":\"flower\",\"은\":\"is\",\"다른\":\"different\",\"꽃들\":\"flowers\",\"고정\":\"fixed\",\"되어\":\"was\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"One of the flowers was fixed differently from the others.\"}'\nthree:\n  original: 꽃다발을 들다 보니, 꽃들이 결절로 묶여 있었다.\n  natural: 꽃다발을 들다 보니, 꽃들이 결절로 묶여 있었다.\n  problem: |\n    꽃다발을 들다 보니, 꽃들이 결절(結節)로 묶여 있었다.\n  wordByWordTranslation: '{\"꽃다발\":\"bouquet\",\" 들다\":\"picked\n    up\",\"보니\":\"then\",\"꽃들이\":\"the flowers\",\"결절로\":\"tied in a knot\",\"묶여 있었다\":\"were\n    tied\"}'\n  overallTranslation: '{\"english\":\"As she was carrying the bouquet of flowers, she\n    realized they were all tied together at the stems.\"}'\nfour:\n  original: 꽃들이 결절로 묶여 있을 때, 어떻게 해야 할지 고민하기 시작했다.\n  natural: 꽃들이 결절로 묶여있을 때, 어떻게 해야 할지 고민하기 시작했다.\n  problem: |\n    꽃들이 결절(結節)로 묶여있을 때, 어떻게 해야 할지 고민(苦悶)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"꽃들이\":\"The flowers\",\"결절로\":\"tied up with a knot\",\"묶여있을\n    때\":\"when they are tied up\",\"어떻게\":\"how\",\"해야 할지\":\"to do\",\"고민하기\":\"to start\n    thinking\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"When the flowers were tied in clusters, she\n    started to ponder how to set them free.\"}'\nfive:\n  original: 꽃들을 분해하고 다시 꽃다발을 만겼다.\n  natural: 꽃들을 분해하여 다시 꽃다발을 만들었다.\n  problem: |\n    꽃들을 분해(分解)하여 다시 꽃다발을 만들었다.\n  wordByWordTranslation: '{\"꽃들을\":\"flowers\",\"분해하여\":\"cut into\n    pieces\",\"다시\":\"again\",\"꽃다발\":\"bouquet\",\" 만들었다\":\"made\"}'\n  overallTranslation: '{\"english\":\"The flowers were disassembled and then made\n    into a bouquet again.\"}'\n",
-    "id": 1259
+    "id": 1261
+  },
+  {
+    "generator": "korean-gap-story-1-slasher",
+    "input": "persuasive",
+    "problem": "밤의 어둠이 가득찬 방(房)에서 영진(榮進)과 종현이 공연(公演) 준비(準備)를 하고 있었다. <br> 둘은 공연(公演)에 필요(必要)한 물건(物件)을 찾고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 둘은 공연(公演) 준비(準備)를 버리고 공방(攻防)을 빠져나려고 시도(試圖)했다. <br> 하지만 공방(攻防) 문(門)은 자동적(自動的)으로 잠겨 두 사람은 공방(攻防)에 갇혀버렸다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 어둠이 가득찬 방(房)에서 영진(榮進)과 종현이 공연(公演) 준비(準備)를 하고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"filled\",\"찬\":\"with\",\"방\":\"room\",\"에서\":\"in\",\"영진\":\"Young-jin\",\"종현\":\"Jong-hyun\",\"공연\":\"performance\",\"준비\":\"preparation\",\"하고\":\"were\",\"있었다\":\"were\n    there\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"In the dimly lit room filled with night's\n    gloom, Young Jin and Jong Hyeon were preparing for their performance.\\\"}\"\ntwo:\n  problem: |\n    둘은 공연(公演)에 필요(必要)한 물건(物件)을 찾고 있었다.\n  wordByWordTranslation: '{\"둘\":\"two\",\"은\":\"is/are\",\"공연\":\"performance\",\"에\":\"to/in\",\"필요한\":\"necessary\",\"물건\":\"items\",\"을\":\"the\",\"찾고\":\"searching\",\"있었다\":\"was/were\"}'\n  overallTranslation: '{\"english\":\"They were looking for the necessary items for\n    the performance.\"}'\nthree:\n  problem: |\n    갑자기 방(房) 문(門)이 열리고 공기(空氣)가 찌그러졌다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"방\":\"room\",\"문\":\"door\",\"열고\":\"opened\",\"공기\":\"air\",\"찌그러졌다\":\"became\n    stuffy\"}'\n  overallTranslation: '{\"english\":\"The door suddenly opened and the air became stuffy.\"}'\nfour:\n  problem: |\n    둘은 공연(公演) 준비(準備)를 버리고 공방(攻防)을 빠져나려고 시도(試圖)했다.\n  wordByWordTranslation: '{\"둘\":\"two\",\"은\":\"is/are\",\"공연\":\"performance\",\"준비\":\"preparation\",\"버리고\":\"threw\n    away\",\"공방\":\"concert hall\",\"빠져나려고\":\"tried to escape\",\"시도했다\":\"tried\"}'\n  overallTranslation: '{\"english\":\"They were trying to leave the broadcasting\n    station without finishing their preparations for the performance.\"}'\nfive:\n  problem: |\n    하지만 공방(攻防) 문(門)은 자동적(自動的)으로 잠겨 두 사람은 공방(攻防)에 갇혀버렸다.\n  wordByWordTranslation: '{\"하지만\":\"However\",\"공방\":\"Gym\",\"문\":\"Door\",\"자동적으로\":\"automatically\",\"잠겨\":\"closed\",\"두\":\"two\",\"사람\":\"people\",\"갇혀버렸다\":\"got\n    trapped\"}'\n  overallTranslation: '{\"english\":\"But the classroom door automatically locked,\n    leaving two people trapped inside.\"}'\n",
+    "id": 1262
   },
   {
     "generator": "korean-gap-story-1-slice-of-life",
     "input": "superiority",
     "problem": "오전(午前) 아침 식사(食事)를 해 먹고 있어. <br> 그들은 모두 함께 아침 식사(食事)를 해 먹고 있다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 선생님(先生님)은 다른 사람들보다 식사(食事)를 더 많이 먹지만, 다른 사람들은 그를 이기려고 노력(努力)하고 있습니다. <br> 그들은 선생님(先生님)의 식사량(食事量)을 보고 계속적(繼續的)으로 노력(努力)하고 있습니다. <br>",
     "solution": "one:\n  original: 오전, 아침 식사를 해 먹고 있다.\n  natural: 오전 아침 식사를 해 먹고 있어.\n  problem: |\n    오전(午前) 아침 식사(食事)를 해 먹고 있어.\n  wordByWordTranslation: '{\"오전\":\"morning\",\"아침\":\"breakfast\",\"식사\":\"meal\",\"해\":\"had\",\"먹고\":\"eating\",\"\n    있어\":\"is\"}'\n  overallTranslation: '{\"english\":\"Having breakfast for the morning.\"}'\ntwo:\n  original: 그들은 모두 함께 식사를 해 먹고 있다.\n  natural: 그들은 모두 함께 아침 식사를 해 먹고 있다.\n  problem: |\n    그들은 모두 함께 아침 식사(食事)를 해 먹고 있다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"모두\":\"all\",\"함께\":\"together\",\"아침\":\"morning\",\"식사\":\"breakfast\",\"해\":\"to\n    make\",\"먹고\":\"eating\",\"있다\":\"are\"}'\n  overallTranslation: '{\"english\":\"They are all having breakfast together.\"}'\nthree:\n  original: 그러나, 선생님은 다른 사람들보다 식사를 더 많이 먹고 있다.\n  natural: 하지만 선생님은 다른 사람들보다 식사를 많이 먹고 있습니다.\n  problem: |\n    하지만 선생님(先生님)은 다른 사람들보다 식사(食事)를 많이 먹고 있습니다.\n  wordByWordTranslation: '{\"하지만\":\"Although\",\"선생님\":\"Teacher\",\"다른\":\"others\",\"사람들\":\"people\",\"식사\":\"meal\",\"많이\":\"much\",\"먹고\":\"eating\",\"있습니다\":\"is\n    present\"}'\n  overallTranslation: '{\"english\":\"However, the teacher eats more meals than anyone else.\"}'\nfour:\n  original: 선생님은 다른 사람들보다 식사를 더 많이 먹고 있지만, 다른 사람들은 그를 이기려고 노력하고 있다.\n  natural: 선생님은 다른 사람들보다 식사를 더 많이 먹지만, 다른 사람들은 그를 이기려고 노력하고 있습니다.\n  problem: |\n    선생님(先生님)은 다른 사람들보다 식사(食事)를 더 많이 먹지만, 다른 사람들은 그를 이기려고 노력(努力)하고 있습니다.\n  wordByWordTranslation: '{\"선생님은\":\"The teacher\",\"다른 사람들보다\":\"than\n    others\",\"식사를\":\"food\",\"더 많이\":\"more\",\"먹지만\":\"eats more\",\"다른 사람들은\":\"Others\",\"그를\n    이기려고\":\"try to overcome\",\"노력하고 있습니다\":\"are working\"}'\n  overallTranslation: '{\"english\":\"The teacher eats more meals than anyone else,\n    but others are trying to catch up to him/her.\"}'\nfive:\n  original: 그들은 선생님의 식사량을 보고 계속적으로 노력하고 있다.\n  natural: 그들은 선생님의 식사량을 보고 계속적으로 노력하고 있습니다.\n  problem: |\n    그들은 선생님(先生님)의 식사량(食事量)을 보고 계속적(繼續的)으로 노력(努力)하고 있습니다.\n  wordByWordTranslation: \"{\\\"그들은\\\":\\\"They are\\\",\\\"선생님의\\\":\\\"their\n    teacher's\\\",\\\"식사량\\\":\\\"meal\n    quantity\\\",\\\"보고\\\":\\\"seeing\\\",\\\"계속적으로\\\":\\\"continuously\\\",\\\"노력하고 있습니다\\\":\\\"are\n    working hard\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"They are consistently working towards\n    improving their meals based on the teacher's meal quantity.\\\"}\"\n",
-    "id": 1260
+    "id": 1263
   },
   {
     "generator": "korean-gap-story-1-social",
     "input": "measure",
     "problem": "장(場)길은 길을 걸다가 길거리를 보며 눈을 돌렸다. <br> 그는 길을 걸다가 갑자기 비가 내리기 시작(始作)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 가옥(家屋) 안에서 비가 내리면서 책(冊)을 읽었다. <br> 비가 내린 후(後) 장길이(長길이) 다시 나타났다. <br>",
     "solution": "one:\n  original: 장길은 길을 걸으며 길거리를 보며 눈을 돌렸다.\n  natural: 장길은 길을 걸다가 길거리를 보며 눈을 돌렸다.\n  problem: |\n    장(場)길은 길을 걸다가 길거리를 보며 눈을 돌렸다.\n  wordByWordTranslation: '{\"장길은\":\"Jang Gil-eun\",\"길을 걸다가\":\"walking along the\n    path\",\"길거리를 보며\":\"seeing a signpost\",\"눈을 돌렸다\":\"turned their eyes back\"}'\n  overallTranslation: '{\"english\":\"As Janggil was walking along the path, he\n    stopped to look at the trash along the way.\"}'\ntwo:\n  original: 그는 길을 걸다가 갑자기 비가 내렸다.\n  natural: 그는 길을 걸다가 갑자기 비가 내리기 시작했다.\n  problem: |\n    그는 길을 걸다가 갑자기 비가 내리기 시작(始作)했다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"길을\":\"a path\",\"걸다가\":\"walking\n    along\",\"갑자기\":\"suddenly\",\"비가\":\"rain\",\"내리기\":\"started to\n    fall\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"He was walking along the path when it suddenly\n    started to rain.\"}'\nthree:\n  original: 그는 가옥으로 돌아갔다.\n  natural: 그는 가옥으로 돌아갔다.\n  problem: |\n    그는 가옥(家屋)으로 돌아갔다.\n  wordByWordTranslation: '{\"그는\":{\"korean\":\"그는\",\"english\":\"he\"},\"가옥으로\":{\"korean\":\"가옥으로\",\"english\":\"to\n    the prison\"},\"돌아갔다\":{\"korean\":\"돌아갔다\",\"english\":\"went back\"}}'\n  overallTranslation: '{\"english\":\"He went back to prison.\"}'\nfour:\n  original: 그는 가옥 안에서 비를 보며 책을 읽었다.\n  natural: 그는 가옥 안에서 비가 내리면서 책을 읽었다.\n  problem: |\n    그는 가옥(家屋) 안에서 비가 내리면서 책(冊)을 읽었다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"가옥\":\"prison\",\"안에서\":\"inside\",\"비가\":\"rain\",\"내리면서\":\"as\n    it rained\",\"책을\":\"a book\",\"읽었다\":\"read\"}'\n  overallTranslation: '{\"english\":\"He was reading a book while it rained inside the prison.\"}'\nfive:\n  original: 그는 비가 내린 이후 장길이 다시 나타났다.\n  natural: 비가 내린 후 장길이 다시 나타났다.\n  problem: |\n    비가 내린 후(後) 장길이(長길이) 다시 나타났다.\n  wordByWordTranslation: '{\"비\":\"rain\",\"가\":\"went\",\"내린\":\"rained\",\"후\":\"after\",\"장길\":\"rainbow\",\"이\":\"was\",\"다시\":\"again\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"The rain had stopped, but the rainbow reappeared again.\"}'\n",
-    "id": 1261
+    "id": 1264
   },
   {
     "generator": "korean-gap-story-1-superhero",
     "input": "delirium",
     "problem": "밤의 어둠 속에서 유리(琉璃) 한 창이 빛나 있었다. <br> 유리창(琉璃窓)을 통해 빛나는 빛은, 누군가의 특별한 능력(能力)이었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 빛나는 물질(物質)이 유리(琉璃) 창(窓)에 나타났다. 물질(物質)은 신비(神祕)한 빛을 소유(所有)하고 있었다. <br> 빛나는 물질(物質)이 유리창(琉璃窓)을 통해 돌아갔고, 유리창(琉璃窓)은 다시 처음 상태(狀態)로 돌아갔다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 유리 한 창이 빛나고 있었다.\n  natural: 밤의 어둠 속에서 유리 한 창이 빛나 있었다.\n  problem: |\n    밤의 어둠 속에서 유리(琉璃) 한 창이 빛나 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"in\",\"유리\":\"glass\",\"한\":\"one\",\"창\":\"window\",\"빛나\":\"was\n    shining\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"A single window glowed in the darkness of the night.\"}'\ntwo:\n  original: 유리창을 통하여 빛나는 빛은, 누군가의 신기한 능력이었다.\n  natural: 유리창을 통해 빛나는 빛은, 누군가의 특별한 능력이었다.\n  problem: |\n    유리창(琉璃窓)을 통해 빛나는 빛은, 누군가의 특별한 능력(能力)이었다.\n  wordByWordTranslation: '{\"유리창\":\"glass window\",\"을\n    통해\":\"through\",\"빛나는\":\"shining\",\"빛\":\"light\",\"누군가\":\"someone\",\"특별한\":\"special\",\"능력\":\"ability\"}'\n  overallTranslation: '{\"english\":\"The light that shone through the glass window\n    was a special ability of someone.\"}'\nthree:\n  original: 갑자기, 유리 창이 부서고, 어둠이 사라졌다.\n  natural: 갑자기 유리창이 부서고, 어둠이 사라졌다.\n  problem: |\n    갑자기 유리창(琉璃窓)이 부서고(部署高), 어둠이 사라졌다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"유리창\":\"glass\n    window\",\"부서고\":\"broke\",\"어둠\":\"darkness\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the glass window shattered and the\n    darkness vanished.\"}'\nfour:\n  original: 빛나는 물질이 유리 창에 나타났다. 물질은 신비한 빛의 소유자였다.\n  natural: 빛나는 물질이 유리 창에 나타났다. 물질은 신비한 빛을 소유하고 있었다.\n  problem: |\n    빛나는 물질(物質)이 유리(琉璃) 창(窓)에 나타났다. 물질(物質)은 신비(神祕)한 빛을 소유(所有)하고 있었다.\n  wordByWordTranslation: '{\"빛나는\":\"bright\",\"물질\":\"substance\",\"유리\":\"glass\",\"창\":\"window\",\"나타났다\":\"appeared\",\"신비한\":\"mysterious\",\"빛\":\"light\"}'\n  overallTranslation: '{\"english\":\"A luminous material appeared on the glass\n    window. The material possessed a mysterious glow.\"}'\nfive:\n  original: 빛나는 물질이 유리 창을 통해 돌아갔다. 그리고 유리 창은 다시 원상 상태로 돌아갔다.\n  natural: 빛나는 물질이 유리창을 통해 돌아갔고, 유리창은 다시 처음 상태로 돌아갔다.\n  problem: |\n    빛나는 물질(物質)이 유리창(琉璃窓)을 통해 돌아갔고, 유리창(琉璃窓)은 다시 처음 상태(狀態)로 돌아갔다.\n  wordByWordTranslation: '{\"빛나는\":\"shining\",\"물질\":\"substance\",\"유리창\":\"glass\n    window\",\"돌아갔고\":\"went back\",\"처음\":\"first\",\"상태\":\"condition\"}'\n  overallTranslation: '{\"english\":\"The luminous material went through the glass\n    window and returned, and the glass window returned to its original state.\"}'\n",
-    "id": 1262
+    "id": 1265
   },
   {
     "generator": "korean-gap-story-1-urban",
     "input": "alley",
     "problem": "밤의 어둠이 가득찬 골목길을 걸다가 성민(聖民)은 외로움을 느끼고 있었다. <br> 그는 길을 돌다가 아파트 문(門) 앞에 도착(到着)했습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 어떤 말도 하지 않고 순조롭게 뒤로 물러났다. <br> 누군가가 그를 추적(追跡)하고 있었는지 알지 못했다. <br>",
     "solution": "one:\n  original: 밤의 어둠이 가득찬 골목길을 걸으며, 성민은 외로움을 느끼고 있었다.\n  natural: 밤의 어둠이 가득찬 골목길을 걸다가 성민은 외로움을 느끼고 있었다.\n  problem: |\n    밤의 어둠이 가득찬 골목길을 걸다가 성민(聖民)은 외로움을 느끼고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"filled\",\"찬\":\"with\",\"골목길\":\"spine\n    alley\",\"걸다가\":\"walking\n    along\",\"성민\":\"people\",\"외로움\":\"loneliness\",\"느끼고\":\"felt\",\"있었다\":\"was there\"}'\n  overallTranslation: '{\"english\":\"As he walked along the shadowy alleyway, the\n    townspeople felt a sense of loneliness.\"}'\ntwo:\n  original: 그는 길을 돌아다니며 아파트 문 앞에 도착했다.\n  natural: 그는 길을 돌다가 아파트 문 앞에 도착했습니다.\n  problem: |\n    그는 길을 돌다가 아파트 문(門) 앞에 도착(到着)했습니다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"길을\":\"road\",\"돌다가\":\"turning\n    around\",\"아파트\":\"apartment\",\"문\":\"door\",\"앞에\":\"in front of\",\"도착했습니다\":\"arrived\"}'\n  overallTranslation: '{\"english\":\"He arrived at the apartment building entrance\n    while walking along the street.\"}'\nthree:\n  original: 그러나, 성민은 문을 열면서 갑자기 어둠 속에 누군가가 있음을 발견했다.\n  natural: 그러나 성민은 문을 열다가 어둠 속에서 누군가가 있음을 발견했다.\n  problem: |\n    그러나 성민(聖民)은 문(門)을 열다가 어둠 속에서 누군가가 있음을 발견(發見)했다.\n  wordByWordTranslation: '{\"그러나\":\"However\",\"성민\":\"Sungmin\",\"은\":\"is\",\"문을\":\"the\n    door\",\"열다가\":\"opened\",\"어둠\":\"darkness\",\"속에서\":\"in\",\"누군가가\":\"somebody\",\"있음\":\"is\n    there\",\"발견했다\":\"discovered\"}'\n  overallTranslation: '{\"english\":\"However, as the adult opened the door, he\n    discovered someone was in the darkness.\"}'\nfour:\n  original: 그는 무슨 소리도 해하지 않고 서서리 뒤로 물러났다.\n  natural: 그는 어떤 말도 하지 않고 순조롭게 뒤로 물러났다.\n  problem: |\n    그는 어떤 말도 하지 않고 순조롭게 뒤로 물러났다.\n  wordByWordTranslation: '{\"그는\":{\"korean\":\"그는\",\"english\":\"He\"},\"어떤\":{\"korean\":\"어떤\",\"english\":\"any\"},\"말도\":{\"korean\":\"말도\",\"english\":\"words\"},\"하지\":{\"korean\":\"하지\",\"english\":\"without\"},\"만고\":{\"korean\":\"만고\",\"english\":\"doing\"},\"순조롭게\":{\"korean\":\"순조롭게\",\"english\":\"smoothly\"},\"뒤로\":{\"korean\":\"뒤로\",\"english\":\"behind\"},\"물러났다\":{\"korean\":\"물러났다\",\"english\":\"retreated\"}}'\n  overallTranslation: '{\"english\":\"He quietly retreated without saying a word.\"}'\nfive:\n  original: 누군가가 그를 추적하고 있었는지 깨닫지 않았다.\n  natural: 누군가가 그를 추적하고 있었는지 알지 못했다.\n  problem: |\n    누군가가 그를 추적(追跡)하고 있었는지 알지 못했다.\n  wordByWordTranslation: \"{\\\"누군가가\\\":\\\"Someone\\\",\\\"그를\\\":\\\"it\\\",\\\"추적하고\\\":\\\"tracking\\\n    \\\",\\\"있었는지\\\":\\\"was\\\",\\\"알지\\\":\\\"didn't\\\",\\\"못했다\\\":\\\"know\\\"}\"\n  overallTranslation: '{\"english\":\"Nobody knew if anyone was tracking him.\"}'\n",
-    "id": 1263
+    "id": 1266
   },
   {
     "generator": "korean-gap-story-1-western",
     "input": "shocked",
     "problem": "저녁 걸으며, 갑자기 전선(電線)이 끊겼다. <br> 전선(電線)이 끊기 시작(始作)하면서 사람들은 공황했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 사자(獅子)가 공원(公園)을 돌며 사람들에게 공격(攻擊)하기 시작(始作)했다. <br> 사자(獅子)가 물리치는 사람들이 나타나 사자(獅子)가 공원(公園)을 돌아갔다. <br>",
     "solution": "one:\n  original: 저녁에 길을 걸으며, 갑자기 전기선이 끊겼다.\n  natural: 저녁 걸으며, 갑자기 전선이 끊겼다.\n  problem: |\n    저녁 걸으며, 갑자기 전선(電線)이 끊겼다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"걸으며\":\"walking\",\"갑자기\":\"suddenly\",\"전선\":\"electricity\",\"끊겼다\":\"cut\n    off\"}'\n  overallTranslation: '{\"english\":\"While walking in the evening, the power suddenly went out.\"}'\ntwo:\n  original: 전기선이 끊기 시작하면서, 사람들은 공황했다.\n  natural: 전선이 끊기 시작하면서 사람들은 공황했다.\n  problem: |\n    전선(電線)이 끊기 시작(始作)하면서 사람들은 공황했다.\n  wordByWordTranslation: '{\"전선\":\"front line\",\"끊기\":\"to break\",\"시작하면서\":\"starting\n    from\",\"사람들은\":\"people were\",\"공황했다\":\"panicked\"}'\n  overallTranslation: '{\"english\":\"People panicked as the power line began to malfunction.\"}'\nthree:\n  original: 그런데, 야생의 사자가 나타났다.\n  natural: 그렇게, 야생의 사자가 나타났다.\n  problem: |\n    그렇게, 야생(野生)의 사자(獅子)가 나타났다.\n  wordByWordTranslation: '{\"그렇게\":\"Like that\",\"야생의\":\"wild\",\"사자가\":\"lion\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Like that, a wild tiger appeared.\"}'\nfour:\n  original: 사자가 공원을 돌며 사람들을 공격하기 시작했다.\n  natural: 사자가 공원을 돌며 사람들에게 공격하기 시작했다.\n  problem: |\n    사자(獅子)가 공원(公園)을 돌며 사람들에게 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"사자가\":\"The cat\",\"공원을\":\"in the park\",\"돌며\":\"running\n    around\",\"사람들에게\":\"to people\",\"공격하기\":\"attack\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"A dog started attacking people while running around the park.\"}'\nfive:\n  original: 사자를 물리치는 사람들이 나타나, 사자가 공원을 뛰어나갔다.\n  natural: 사자가 물리치는 사람들이 나타나 사자가 공원을 돌아갔다.\n  problem: |\n    사자(獅子)가 물리치는 사람들이 나타나 사자(獅子)가 공원(公園)을 돌아갔다.\n  wordByWordTranslation: '{\"사자가\":\"The cat\",\"물리치는\":\"is\n    chasing\",\"사람들\":\"people\",\"나타나\":\"appeared\",\"공원\":\"park\",\"돌아갔다\":\"went back\"}'\n  overallTranslation: '{\"english\":\"People who were chasing the tigers disappeared,\n    and the tigers returned to the park.\"}'\n",
-    "id": 1264
+    "id": 1267
   },
   {
     "generator": "korean-gap-story-2-alternate-reality",
     "input": "echo",
     "problem": "저녁이 되면 길을 걸으며 목소리를 들으며 공원(公園)으로 가요. <br> 공원(公園)은 사람들이 몰려 다니는 곳이에요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 음성(音聲)은 과거(過去)의 음성(陰性)일까요. <br> 그 소리들은 계속(繼續)해서 공원(公園)을 돌아다니지만, 사람들은 그 소리를 볼 수 없어요. <br>",
     "solution": "one:\n  original: 저녁이 되면, 길을 걸으며 목소리를 들으며 공원으로 가요.\n  natural: 저녁이 되면 길을 걸으며 목소리를 들으며 공원으로 가요.\n  problem: |\n    저녁이 되면 길을 걸으며 목소리를 들으며 공원(公園)으로 가요.\n  wordByWordTranslation: \"{\\\"저녁\\\":\\\"evening\\\",\\\"이\\\":\\\"is\\\",\\\"되면\\\":\\\"when it\n    becomes\\\",\\\"길을\\\":\\\"the path\\\",\\\"걸으며\\\":\\\"walking\\\",\\\"목소리를\\\":\\\"voice\\\",\\\"\n    들으며\\\":\\\"listening\\\",\\\"공원으로\\\":\\\"to the park\\\",\\\"가요\\\":\\\"let's go\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"When evening comes, let's walk along the\n    path, paying attention to the birds in the park.\\\"}\"\ntwo:\n  original: 공원은 사람들이 많이 다닌 곳이에요.\n  natural: 공원은 사람들이 몰려 다니는 곳이에요.\n  problem: |\n    공원(公園)은 사람들이 몰려 다니는 곳이에요.\n  wordByWordTranslation: '{\"공원\":\"park\",\"은\":\"is\",\"사람들\":\"people\",\"몰려\":\"crowded\",\"다니는\":\"going\",\"곳\":\"place\"}'\n  overallTranslation: '{\"english\":\"The park is a place where people gather.\"}'\nthree:\n  original: 그런데, 어디론가 공원에 음성이 반사해 공원에 있을 때도 볼 수 없어요.\n  natural: 그런데, 어디론가 공원에 반사음이 있고 공원 안에서도 볼 수 없어요.\n  problem: |\n    그런데, 어디론가 공원(公園)에 반사음(反射音)이 있고 공원(公園) 안에서도 볼 수 없어요.\n  wordByWordTranslation: \"{\\\"그런데\\\":\\\"Although\\\",\\\"어디론가\\\":\\\"somewhere\\\",\\\"공원\\\":\\\"p\\\n    ark\\\",\\\"반사음\\\":\\\"echo\\\",\\\"있고\\\":\\\"is there\\\",\\\"공원 안에서도\\\":\\\"even inside the\n    park\\\",\\\"볼 수 없어요\\\":\\\"you can't see it\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"There seems to be a reflected echo in the\n    park, and you can't see the source even inside the park.\\\"}\"\nfour:\n  original: 그 음성은 과거의 음성이라요.\n  natural: 그 음성은 과거의 음성일까요.\n  problem: |\n    그 음성(音聲)은 과거(過去)의 음성(陰性)일까요.\n  wordByWordTranslation: '{\"그\":\"that\",\"음성\":\"voice\",\"은\":\"is\",\"과거의\":\"of the\n    past\",\"음성일까요\":\"could it be a voice from the past?\"}'\n  overallTranslation: '{\"english\":\"Could that be a voice from the past?\"}'\nfive:\n  original: 그 음성들은 계속해서 공원을 돌아다니지만, 사람들은 그 음성을 볼 수 없어요.\n  natural: 그 소리들은 계속해서 공원을 돌아다니지만, 사람들은 그 소리를 볼 수 없어요.\n  problem: |\n    그 소리들은 계속(繼續)해서 공원(公園)을 돌아다니지만, 사람들은 그 소리를 볼 수 없어요.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"소리들은\\\":\\\"sounds\n    are\\\",\\\"계속해서\\\":\\\"continuously\\\",\\\"공원을\\\":\\\"park\\\",\\\"돌아다니지만\\\":\\\"are running\n    around\\\",\\\"사람들은\\\":\\\"people can't\\\",\\\"소리를\\\":\\\"sound\\\",\\\"볼\\\":\\\"see\\\",\\\"수\n    없어요\\\":\\\"cannot see\\\"}\"\n  overallTranslation: '{\"english\":\"The sounds continue to wander around the park,\n    but people cannot see them.\"}'\n",
-    "id": 1265
+    "id": 1268
   },
   {
     "generator": "korean-gap-story-2-ancient",
     "input": "mainly",
     "problem": "동쪽(東쪽) 해안(海岸)으로 가서 바다를 돌아갑니다. <br> 그 해안(海岸)에는 작은 마을이 있었습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 해적(海賊)들은 바다에서 생선(生鮮)을 잡아 식용(食用)했습니다. <br> 그들은 마을 주민(住民)들에게 생선(生鮮)을 제공(提供)하고 있었습니다. <br>",
     "solution": "one:\n  original: 동쪽 해안에 가서 바다를 돌아다니다.\n  natural: 동쪽 해안으로 가서 바다를 돌아갑니다.\n  problem: |\n    동쪽(東쪽) 해안(海岸)으로 가서 바다를 돌아갑니다.\n  wordByWordTranslation: '{\"동쪽\":\"east\",\"해안\":\"coast\",\"가서\":\"going\",\"바다\":\"sea\",\"돌아갑니다\":\"returns\"}'\n  overallTranslation: '{\"english\":\"He turns back towards the sea on the east coast.\"}'\ntwo:\n  original: 그 해안에는 작은 마을이 있었다.\n  natural: 그 해안에는 작은 마을이 있었습니다.\n  problem: |\n    그 해안(海岸)에는 작은 마을이 있었습니다.\n  wordByWordTranslation: '{\"그\":\"that\",\"해안\":\"coast\",\"에는\":\"has\",\"작은\":\"small\",\"마을\":\"village\",\"있었습니다\":\"existed\"}'\n  overallTranslation: '{\"english\":\"There was a small village on that coast.\"}'\nthree:\n  original: 그 마을에는 해적들이 살고 있었다.\n  natural: 그 마을에는 해적들이 거주하고 있었다.\n  problem: |\n    그 마을에는 해적(海賊)들이 거주(居住)하고 있었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"마을\":\"village\",\"에는\":\"has\",\"해적\":\"sea\n    people\",\"들이\":\"are\",\"거주\":\"living\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"There were pirates living in that village.\"}'\nfour:\n  original: 해적들은 바다에서 생선을 잡아 먹었다.\n  natural: 해적들은 바다에서 생선을 잡아 식용했습니다.\n  problem: |\n    해적(海賊)들은 바다에서 생선(生鮮)을 잡아 식용(食用)했습니다.\n  wordByWordTranslation: '{\"해적들\":\"pirates\",\"바다\":\"sea\",\"생선\":\"fish\",\"잡아\":\"caught\",\"식용\":\"consumed\"}'\n  overallTranslation: '{\"english\":\"The sailors caught fish in the sea and ate it for food.\"}'\nfive:\n  original: 그들은 주민들에게 생선을 제공하고 있었다.\n  natural: 그들은 마을 주민들에게 생선을 제공하고 있었습니다.\n  problem: |\n    그들은 마을 주민(住民)들에게 생선(生鮮)을 제공(提供)하고 있었습니다.\n  wordByWordTranslation: '{\"그들은\":\"They were\",\"마을\":\"village\",\"주민들에게\":\"to the\n    villagers\",\"생선\":\"fish\",\"제공하고\":\"providing\",\"있었습니다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"They were providing fish to the villagers of the village.\"}'\n",
-    "id": 1266
+    "id": 1269
+  },
+  {
+    "generator": "korean-gap-story-2-ancient",
+    "input": "jacket",
+    "problem": "고요한 바닥 위에 긴옷 하나를 입고 있었다. <br> 그옷은 그가 어린때 선물(膳物)로 받은 것이었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 옷은 그를 덮고 다른 세계(世界)로 데려갔다. <br> 빛나는 꽃들이 울린 새들의 날카 날카 소리로 가득 차 있었다. <br>",
+    "solution": "one:\n  problem: |\n    고요한 바닥 위에 긴옷 하나를 입고 있었다.\n  wordByWordTranslation: '{\"고요한\":\"important\",\"바닥\":\"floor\",\"위에\":\"on top\n    of\",\"긴\":\"long\",\"옷\":\"clothes\",\"하나\":\"one\",\"입고\":\"wearing\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"He was wearing a long coat on a dusty floor.\"}'\ntwo:\n  problem: |\n    그옷은 그가 어린때 선물(膳物)로 받은 것이었다.\n  wordByWordTranslation: '{\"그옷은\":\"Those clothes\",\"그가\":\"he\",\"어린때\":\"when he was a\n    child\",\"선물로\":\"as a present\",\"받은\":\"received\",\"것이었다\":\"that was it\"}'\n  overallTranslation: '{\"english\":\"Those clothes were a gift he received when he was a child.\"}'\nthree:\n  problem: |\n    옷은 순간(瞬間) 갑자기 움직이기 시작(始作)했다.\n  wordByWordTranslation: '{\"옷은\":\"The\n    clothes\",\"순간\":\"suddenly\",\"갑자기\":\"unexpectedly\",\"움직이기\":\"to\n    move\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The clothes suddenly started moving.\"}'\nfour:\n  problem: |\n    옷은 그를 덮고 다른 세계(世界)로 데려갔다.\n  wordByWordTranslation: '{\"옷\":\"clothes\",\"은\":\"is\",\"그를\":\"him\",\"덮고\":\"covering\",\"다른\":\"another\",\"세계로\":\"to\n    another world\",\"데려갔다\":\"took him away\"}'\n  overallTranslation: '{\"english\":\"The clothes covered him and took him to another world.\"}'\nfive:\n  problem: |\n    빛나는 꽃들이 울린 새들의 날카 날카 소리로 가득 차 있었다.\n  wordByWordTranslation: '{\"빛나는\":\"glowing\",\"꽃들이\":\"flowers\n    are\",\"울린\":\"flying\",\"새들의\":\"birds are\",\"날카\":\"chirping\",\"소리로\":\"making a\n    sound\",\"가득\":\"filled\",\"차 있었다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"The flowers were filled with the chirping of\n    birds, their voices like the rustle of feathers.\"}'\n",
+    "id": 1270
   },
   {
     "generator": "korean-gap-story-2-comedy",
     "input": "yellow",
     "problem": "황색(黃色) 물고기가 물 속을 돌다립니다. <br> 물고기가 돌아갑니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 물고기가 물 속에 사라지면서 물이 빨간색(빨간色)으로 바뀌었습니다. <br> 빨간 물에 물고기가 빠르게 헤매였습니다. <br>",
     "solution": "one:\n  original: 황색 물고기가 물 속을 돌다립니다.\n  natural: 황색 물고기가 물 속을 돌다립니다.\n  problem: |\n    황색(黃色) 물고기가 물 속을 돌다립니다.\n  wordByWordTranslation: '{\"황색\":\"yellow\",\"물고기\":\"fish\",\"물\":\"water\",\"속\":\"inside\",\"돌다립니다\":\"is swimming\"}'\n  overallTranslation: '{\"english\":\"Yellow fish are swimming around in the water.\"}'\ntwo:\n  original: 물고기가 돌다립니다.\n  natural: 물고기가 돌아갑니다.\n  problem: |\n    물고기가 돌아갑니다.\n  wordByWordTranslation: '{\"물고기\":\"fish\",\"돌아\":\"went back\",\"갑니다\":\"is going\"}'\n  overallTranslation: '{\"english\":\"The fish are going back.\"}'\nthree:\n  original: 물고기가 물속에 사라졌습니다.\n  natural: 물고기가 물 속에 사라졌습니다.\n  problem: |\n    물고기가 물 속에 사라졌습니다.\n  wordByWordTranslation: '{\"물고기\":\"fish\",\"물\":\"water\",\"속\":\"inside\",\"사라졌습니다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"The fish disappeared under the water.\"}'\nfour:\n  original: 물고기가 물속에 사라지면서 물이 빨간색으로 바뀌었습니다.\n  natural: 물고기가 물 속에 사라지면서 물이 빨간색으로 바뀌었습니다.\n  problem: |\n    물고기가 물 속에 사라지면서 물이 빨간색(빨간色)으로 바뀌었습니다.\n  wordByWordTranslation: '{\"물고기\":\"fish\",\"물\":\"water\",\"사라지면서\":\"disappearing\",\"빨간색\":\"red\",\"바뀌었습니다\":\"became\"}'\n  overallTranslation: '{\"english\":\"When the fish disappeared under the water, the\n    water turned a reddish color.\"}'\nfive:\n  original: 빨간 물에 물고기가 빠르게 헤매였습니다.\n  natural: 빨간 물에 물고기가 빠르게 헤매였습니다.\n  problem: |\n    빨간 물에 물고기가 빠르게 헤매였습니다.\n  wordByWordTranslation: '{\"빨간\":\"red\",\"물\":\"water\",\"물고기\":\"fish\",\"빠르게\":\"quickly\",\"헤매다\":\"was\n    swimming\",\"있었습니다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The fish swam quickly through the red water.\"}'\n",
-    "id": 1267
+    "id": 1271
   },
   {
     "generator": "korean-gap-story-2-historical",
     "input": "subjective",
     "problem": "날이 밝아지면 아침은 언젠가 그렇게 어둡다. <br> 그날, 길을 걸다가 아침 식물(植物)의 향기(香氣)가 부풀었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 나는 이제 사람들의 생각과는 다른 사람이 되는 것을 생각하기 시작(始作)했다. <br> 나는 새로운 사람이 되고 싶어. <br>",
     "solution": "one:\n  original: 날이 밝아지면, 아침은 언젠가 그렇게 어둡다.\n  natural: 날이 밝아지면 아침은 언젠가 그렇게 어둡다.\n  problem: |\n    날이 밝아지면 아침은 언젠가 그렇게 어둡다.\n  wordByWordTranslation: '{\"날\":\"day\",\"이\":\"is\",\"밝아지면\":\"becomes\n    bright\",\"아침\":\"morning\",\"언젠가\":\"eventually\",\"그렇게\":\"like that\",\"어둡다\":\"dark\"}'\n  overallTranslation: '{\"english\":\"As the day grows brighter, the mornings of life\n    will inevitably grow darker.\"}'\ntwo:\n  original: 그날, 나는 길을 걸으며 아침식물의 향기가 부풀었다.\n  natural: 그날, 길을 걸다가 아침 식물의 향기가 부풀었다.\n  problem: |\n    그날, 길을 걸다가 아침 식물(植物)의 향기(香氣)가 부풀었다.\n  wordByWordTranslation: '{\"그날\":\"that day\",\"길을 걸다가\":\"while walking along the\n    street\",\"아침\":\"morning\",\"식물의 향기\":\"aroma of plants\",\"부풀었다\":\"became fragrant\"}'\n  overallTranslation: '{\"english\":\"As he was walking along the path that morning,\n    a sweet scent of morning plants filled the air.\"}'\nthree:\n  original: 그 순간, 나는 이전에 없던 새로운 감정을 느끼기 시작했다.\n  natural: 그 순간, 나는 이전에 없던 새로운 감정을 느끼기 시작했다.\n  problem: |\n    그 순간(瞬間), 나는 이전(以前)에 없던 새로운 감정(感情)을 느끼기 시작(始作)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"순간\":\"moment\",\"나는\":\"I\",\"이전에\":\"before\",\"없던\":\"never\",\"새로운\":\"new\",\"감정\":\"emotion\",\"느끼기\":\"to\n    feel\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"At that moment, I began to experience a new\n    emotion that I had never felt before.\"}'\nfour:\n  original: 나는 이제 사람들의 생각과는 다른 사람이 될 수 있다고 생각하기 시작했다.\n  natural: 나는 이제 사람들의 생각과는 다른 사람이 되는 것을 생각하기 시작했다.\n  problem: |\n    나는 이제 사람들의 생각과는 다른 사람이 되는 것을 생각하기 시작(始作)했다.\n  wordByWordTranslation: \"{\\\"나는\\\":\\\"I\\\",\\\"이제\\\":\\\"now\\\",\\\"사람들의\\\":\\\"people's\\\",\\\"생각\\\n    \\\":\\\"thoughts\\\",\\\"과는\\\":\\\"than\\\",\\\"다른\\\":\\\"different\\\",\\\"사람\\\":\\\"person\\\",\\\"이\n    되는\\\":\\\"becoming\\\",\\\"것\\\":\\\"that\\\",\\\"생각하기\\\":\\\"to start\n    thinking\\\",\\\"시작했다\\\":\\\"started\\\"}\"\n  overallTranslation: '{\"english\":\"I started to think about becoming someone who\n    thinks differently from others.\"}'\nfive:\n  original: 나는 새로운 사람이 되고 싶다.\n  natural: 나는 새로운 사람이 되고 싶어.\n  problem: |\n    나는 새로운 사람이 되고 싶어.\n  wordByWordTranslation: '{\"나는\":\"I\",\"새로운\":\"new\",\"사람\":\"person\",\"이\":\"am\",\"되고 싶어\":\"want to become\"}'\n  overallTranslation: '{\"english\":\"I want to become a new person.\"}'\n",
-    "id": 1268
+    "id": 1272
   },
   {
     "generator": "korean-gap-story-2-horror",
     "input": "companion",
     "problem": "밤이 어둡고 저녁 식사(食事)를 먹고 있었다. <br> 오래도록 외로움을 느끼고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 누구인지 확인(確認)해 보니, 그 사람은 저랑의 동반자가(同伴自家)였다. <br> 동반자(同伴者)가 사실상(事實上) 사라지고 있었다. <br>",
     "solution": "one:\n  original: 밤이 어둡고, 저녁 식사를 먹고 있었다.\n  natural: 밤이 어둡고 저녁 식사를 먹고 있었다.\n  problem: |\n    밤이 어둡고 저녁 식사(食事)를 먹고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"어둡고\":\"dark\",\"저녁\":\"evening\",\"식사\":\"meal\",\"먹고\":\"eating\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"It was a dark night, and I was having dinner.\"}'\ntwo:\n  original: 오래도록 외로움을 느끼고 있었다.\n  natural: 오래도록 외로움을 느끼고 있었다.\n  problem: |\n    오래도록 외로움을 느끼고 있었다.\n  wordByWordTranslation: '{\"오래\":\"for a long\n    time\",\"도록\":\"continuously\",\"외로움\":\"loneliness\",\"느끼고\":\"felt\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"He had been feeling lonely for a long time.\"}'\nthree:\n  original: 갑자기, 문이 열리고 누군가가 집에 있었다.\n  natural: 갑자기 문이 열리고 누군가가 집에 있었다.\n  problem: |\n    갑자기 문(門)이 열리고 누군가가 집에 있었다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"문이 열리고\":\"The door\n    opened\",\"누군가\":\"Someone\",\"집에 있었다\":\"was at home\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the door opened and someone was home.\"}'\nfour:\n  original: 누구인지 확인하고 보니, 그 사람은 저랑의 동반자가였다.\n  natural: 누구인지 확인해 보니, 그 사람은 저랑의 동반자가였다.\n  problem: |\n    누구인지 확인(確認)해 보니, 그 사람은 저랑의 동반자가(同伴自家)였다.\n  wordByWordTranslation: '{\"누구인지\":\"Who\",\"확인해 보니\":\"checked\",\"그 사람은\":\"It was that\n    person\",\"저랑의\":\"a companion of\",\"동반자가였다\":\"was a companion.\"}'\n  overallTranslation: '{\"english\":\"I checked and realized that person was my companion.\"}'\nfive:\n  original: 동반자가 현실적으로 없어지고 있었다.\n  natural: 동반자가 사실상 사라지고 있었다.\n  problem: |\n    동반자(同伴者)가 사실상(事實上) 사라지고 있었다.\n  wordByWordTranslation: '{\"동반자\":\"companion\",\"사실상\":\"in reality\",\"사라지고\":\"is disappearing\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The companion had disappeared in reality.\"}'\n",
-    "id": 1269
+    "id": 1273
+  },
+  {
+    "generator": "korean-gap-story-2-horror",
+    "input": "assault",
+    "problem": "밤에 길을 걸다가 어둠이 가득찬 길을 보며 공포감(恐怖感)을 느끼기 시작(始作)했습니다. <br> 그는 친구(親舊)와 함께 길을 걸다가 위협(威脅)에 직면(直面)하지 않았습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 친구(親舊)를 손을 돌리고 공포감(恐怖感)에 빠지기 시작(始作)했습니다. <br> 그는 길을 걸으며 절망감(絶望感)에 사로잡히며 도망치려고 하지만 공포감(恐怖感)은 계속(繼續)해서 그를 따라갔습니다. <br>",
+    "solution": "one:\n  problem: |\n    밤에 길을 걸다가 어둠이 가득찬 길을 보며 공포감(恐怖感)을 느끼기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"에\":\"at\",\"길\":\"road\",\"걸다가\":\"walking\n    along\",\"어둠\":\"darkness\",\"\n    가득찬\":\"filled\",\"보며\":\"seeing\",\"공포감\":\"fear\",\"느끼기\":\"began to\n    feel\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"While walking along the path at night, he began\n    to feel fear as he saw a dark path ahead.\"}'\ntwo:\n  problem: |\n    그는 친구(親舊)와 함께 길을 걸다가 위협(威脅)에 직면(直面)하지 않았습니다.\n  wordByWordTranslation: '{\"그는\":\"He was\",\"친구와\":\"with a\n    friend\",\"함께\":\"together\",\"길을\":\"the way\",\"걸다가\":\"walking\",\"위협에\":\"in\n    danger\",\"직면하지 않았습니다\":\"did not come face to face\"}'\n  overallTranslation: '{\"english\":\"He never faced danger while walking with his friends.\"}'\nthree:\n  problem: |\n    갑자기 영은(寧殷)은 공기(空氣)가 차갑고 음악(音樂)이 사라지는 것을 느끼기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"영은은\":\"He/She\",\"공기가\":\"The air\n    is\",\"차갑고\":\"cold\",\"음악이\":\"The music\n    is\",\"사라지는\":\"disappearing\",\"것을\":\"it\",\"느끼기\":\"to feel\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, he felt the air growing cold and the\n    music vanishing around him.\"}'\nfour:\n  problem: |\n    그는 친구(親舊)를 손을 돌리고 공포감(恐怖感)에 빠지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"친구를\":{\"friend\":\"friend\"},\"손을\":{\"hand\":\"hand\"},\"돌리고\":{\"is\n    turning back\":\"is turning\n    back\"},\"공포감\":{\"fear\":\"fear\"},\"에\":{\"to\":\"to\"},\"빠지기\":{\"start\":\"start\"},\"시작했습니다\":{\"started\":\"started\"}}'\n  overallTranslation: '{\"english\":\"He started to panic and lost track of his friends.\"}'\nfive:\n  problem: |\n    그는 길을 걸으며 절망감(絶望感)에 사로잡히며 도망치려고 하지만 공포감(恐怖感)은 계속(繼續)해서 그를 따라갔습니다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"길을\":\"the\n    road\",\"걸으며\":\"walking\",\"절망감\":\"despair\",\"사로잡히며\":\"engulfed by\",\"도망치려고\":\"tried\n    to\n    escape\",\"하지만\":\"but\",\"공포감\":\"fear\",\"계속해서\":\"continuously\",\"그를\":\"him\",\"따갔습니다\":\"followed\n    him\"}'\n  overallTranslation: '{\"english\":\"He desperately tries to escape the feeling of\n    despair by walking along the path, but his fear continues to follow him.\"}'\n",
+    "id": 1274
   },
   {
     "generator": "korean-gap-story-2-medieval-fantasy",
     "input": "watery",
     "problem": "비가 내리고 어둠이 가득찬 길을 걸으며, 아름다운 물방울들이 비나오면서 물기(물氣)러움을 느끼네요. <br> 물방울들은 빛을 반사(反射)하여 아름답게 보여요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 요정(妖精)들은 물방울들과 함께 물기(물氣)러움을 느끼며, 비늘과 눈을 가진 물생물(生物)들에게 공격(攻擊)하기 시작(始作)했습니다. <br> 요정(妖精)들은 물방울들과 함께 물기(물氣)러움을 느끼며, 물생물(生物)들을 물로 덮치, 물방울들이 물기(물氣)러움을 해소(解消)하면서 사라졌습니다. <br>",
     "solution": "one:\n  original: 비가 내리고, 어둠이 가득찬 길을 걸으며, 아름다운 물방울들이 비나오면서 물기러움을 느끼네요.\n  natural: 비가 내리고 어둠이 가득찬 길을 걸으며, 아름다운 물방울들이 비나오면서 물기러움을 느끼네요.\n  problem: |\n    비가 내리고 어둠이 가득찬 길을 걸으며, 아름다운 물방울들이 비나오면서 물기(물氣)러움을 느끼네요.\n  wordByWordTranslation: '{\"비가\":\"Rain is falling\",\"내리고\":\"falling\n    down\",\"어둠이\":\"darkness is\",\"가득찬\":\"filling\",\"길을\":\"the path\",\"걸으며\":\"walking\n    along\",\"아름다운\":\"beautiful\",\"물방울들이\":\"water droplets are\",\"비나오면서\":\"as it\n    rains\",\"물기러움을\":\"a sense of wetness\",\"느끼네요\":\"I feel it.\"}'\n  overallTranslation: '{\"english\":\"The rain falls down, filling the path with\n    darkness. As the beautiful water droplets fall, I feel a refreshing\n    chill.\"}'\ntwo:\n  original: 물방울들은 빛을 반사하며 아름답게 보이네요.\n  natural: 물방울들은 빛을 반사하여 아름답게 보여요.\n  problem: |\n    물방울들은 빛을 반사(反射)하여 아름답게 보여요.\n  wordByWordTranslation: '{\"물방울들\":\"Droplets\",\"빛\":\"light\",\"반사\":\"reflect\",\"아름답게\":\"beautifully\",\"보여요\":\"are\n    shown\"}'\n  overallTranslation: '{\"english\":\"The water droplets reflect light and appear beautiful.\"}'\nthree:\n  original: 그날밤, 물방울들이 비나오면서 아름다운 요정들이 나타났습니다.\n  natural: 그날밤, 물방울들이 비나오면서 아름다운 요정들이 나타났습니다.\n  problem: |\n    그날밤, 물방울들이 비나오면서 아름다운 요정(妖精)들이 나타났습니다.\n  wordByWordTranslation: '{\"그날밤\":\"That night\",\"물방울들이\":\"Drops of\n    water\",\"비나오면서\":\"falling as\n    rain\",\"아름다운\":\"Beautiful\",\"요정들이\":\"Fairies\",\"나타났습니다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"That night, water droplets fell like rain, and\n    beautiful fairies appeared.\"}'\nfour:\n  original: 요정들은 물방울들과 함께 물기러움을 느끼며, 비늘과 눈을 가진 물생물들에게 공격하기 시작했습니다.\n  natural: 요정들은 물방울들과 함께 물기러움을 느끼며, 비늘과 눈을 가진 물생물들에게 공격하기 시작했습니다.\n  problem: |\n    요정(妖精)들은 물방울들과 함께 물기(물氣)러움을 느끼며, 비늘과 눈을 가진 물생물(生物)들에게 공격(攻擊)하기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"요정들\":\"pixies\",\"물방울들\":\"bubbles\",\"물기러움\":\"sadness\",\"느끼며\":\"feeling\",\"비늘\":\"scales\",\"눈\":\"eyes\",\"가진\":\"have\",\"물생물들\":\"aquatic\n    creatures\",\"공격하기\":\"attack\",\"시작했습니다\":\"began\"}'\n  overallTranslation: '{\"english\":\"The sprites felt a sense of unease alongside\n    the water bubbles, and began attacking the aquatic creatures with scales and\n    eyes.\"}'\nfive:\n  original: 요정들은 물방울들을 공격하면서 물생물들을 물로 덮치, 물방울들이 물기러움을 해소하고, 요정들은 사라졌습니다.\n  natural: 요정들은 물방울들과 함께 물기러움을 느끼며, 물생물들을 물로 덮치, 물방울들이 물기러움을 해소하면서 사라졌습니다.\n  problem: >\n    요정(妖精)들은 물방울들과 함께 물기(물氣)러움을 느끼며, 물생물(生物)들을 물로 덮치, 물방울들이 물기(물氣)러움을 해소(解消)하면서\n    사라졌습니다.\n  wordByWordTranslation: '{\"요정들\":\"fairies\",\"물방울들\":\"bubbles\",\"물기러움\":\"sadness\",\"느끼며\":\"feeling\",\"물생물들\":\"creatures\",\"물로\n    덮치\":\"covering with water\",\"물방울들이 물기러움을 해소하면서\":\"as bubbles solve\n    sadness\",\"사라졌습니다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"The sprites felt a chill with the water\n    droplets and, covering aquatic creatures in water, the water droplets\n    resolved the chill and disappeared.\"}'\n",
-    "id": 1270
+    "id": 1275
   },
   {
     "generator": "korean-gap-story-2-post-apocalyptic",
     "input": "filmmaker",
     "problem": "살린 후기(後記) 때문에 영화(映畫) 제작(製作)에 관심(關心)이 많아졌다. <br> 그들은 영화(映畫) 감독(監督)이 되고 싶다는 생각을 가지고 현실(現實)에 도전(挑戰)하기 시작(始作)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그들은 영화(映畫) 제작(製作)에 관심(關心)있고, 이제 영화(映畫) 제작(製作)에 도움을 받기 시작(始作)했다. <br> 영화(映畫) 제작(製作)에 도움이 되고, 사람들을 구출(救出)하기 위해 영화(映畫) 제작(製作)에 열심해졌다. <br>",
     "solution": "one:\n  original: 살린 후기 때문에 영화 제작에 관심이 많아졌다.\n  natural: 살린 후기 때문에 영화 제작에 관심이 많아졌다.\n  problem: |\n    살린 후기(後記) 때문에 영화(映畫) 제작(製作)에 관심(關心)이 많아졌다.\n  wordByWordTranslation: '{\"살린\":\"killed\",\"후기\":\"afterward\",\"때문에\":\"because of\n    that\",\"영화\":\"movie\",\"제작\":\"production\",\"관심\":\"interest\",\" 많아졌다\":\"became\n    interested\"}'\n  overallTranslation: '{\"english\":\"The aftermath of the killings sparked an\n    interest in film production.\"}'\ntwo:\n  original: 그들은 영화 감독이 되고 싶어 현실에 도전하기 시작했다.\n  natural: 그들은 영화 감독이 되고 싶다는 생각을 가지고 현실에 도전하기 시작했다.\n  problem: |\n    그들은 영화(映畫) 감독(監督)이 되고 싶다는 생각을 가지고 현실(現實)에 도전(挑戰)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"영화\":\"film\",\"감독\":\"director\",\"되고\n    싶다는\":\"want to become\",\"상상\":\"idea\",\"가지고\":\"have\",\"현실\":\"reality\",\"도전하기\":\"start\n    to challenge\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"They began to challenge reality with the\n    thought of becoming film directors.\"}'\nthree:\n  original: 하나 날, 침략자들이 도시를 점령하고 모든 사람들을 구출하기 위해 영화 제작에 도움을 요청했다.\n  natural: 하나 날, 침략자들이 도시를 점령하고 모든 사람들을 구출하기 위해 영화 제작에 도움을 요청했다.\n  problem: >\n    하나 날, 침략자(侵略者)들이 도시(都市)를 점령(占領)하고 모든 사람들을 구출(救出)하기 위해 영화(映畫) 제작(製作)에 도움을\n    요청(要請)했다.\n  wordByWordTranslation: '{\"하나 날\":\"One day\",\"침략자들이\":\"The invaders\",\"도시를\n    점령하고\":\"occupied the city\",\"모든 사람들을 구출하기 위해\":\"to rescue everyone\",\"영화 제작에 도움을\n    요청했다\":\"requested aid for film production\"}'\n  overallTranslation: '{\"english\":\"One day, invaders occupied the city and\n    requested assistance in film production to evacuate everyone.\"}'\nfour:\n  original: 그들은 영화 제작에 관심있고, 이제 영화 제작에 도움을 받기 시작했다.\n  natural: 그들은 영화 제작에 관심있고, 이제 영화 제작에 도움을 받기 시작했다.\n  problem: |\n    그들은 영화(映畫) 제작(製作)에 관심(關心)있고, 이제 영화(映畫) 제작(製作)에 도움을 받기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"영화\":\"movie\",\"제작\":\"production\",\"관심있고\":\"interested in\",\"이제\":\"now\",\"영화\n    제작\":\"movie production\",\"도움을 받기 시작했다\":\"started receiving help\"}'\n  overallTranslation: '{\"english\":\"They are interested in filmmaking and have\n    recently started receiving help with it.\"}'\nfive:\n  original: 영화 제작에 도움을 받고, 사람들을 구출하기 위해 영화 제작에 열심해졌다.\n  natural: 영화 제작에 도움이 되고, 사람들을 구출하기 위해 영화 제작에 열심해졌다.\n  problem: |\n    영화(映畫) 제작(製作)에 도움이 되고, 사람들을 구출(救出)하기 위해 영화(映畫) 제작(製作)에 열심해졌다.\n  wordByWordTranslation: '{\"영화\":\"movie\",\"제작\":\"production\",\"도움\":\"help\",\"이\":\"is\",\"사람들을\":\"people\",\"구출하기\n    위해\":\"to rescue\",\"영화 제작\":\"movie production\",\"열심해졌다\":\"has become\n    enthusiastic\"}'\n  overallTranslation: '{\"english\":\"He has been diligently involved in film\n    production to contribute to disaster relief and rescue efforts.\"}'\n",
-    "id": 1271
+    "id": 1276
   },
   {
     "generator": "korean-gap-story-2-psychological-horror",
     "input": "depressing",
     "problem": "저녁의 어둠이 가득찬 방(房)에서 아이는 책(冊)을 읽고 있었다. <br> 그는 책(冊)을 읽고 있지만, 그 책(冊)은 너무 슬픔했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 그림자는 아이의 눈을 비추며 아이를 향(向)해 다가왔다. <br> 아이는 그림자를 피(避)해 돌아갔지만, 그림자는 그 뒤를 따라갔다. <br>",
     "solution": "one:\n  original: 저녁의 어둠이 가득찬 방에서, 아이는 책을 읽고 있었다.\n  natural: 저녁의 어둠이 가득찬 방에서 아이는 책을 읽고 있었다.\n  problem: |\n    저녁의 어둠이 가득찬 방(房)에서 아이는 책(冊)을 읽고 있었다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"의\":\"of\",\"어둠\":\"darkness\",\"\n    가득찬\":\"filled\",\"방\":\"room\",\"아이\":\"child\",\"책\":\"book\",\"읽고\":\"reading\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The child was reading a book in the dark room\n    filled with the evening shadows.\"}'\ntwo:\n  original: 그는 책을 읽고 있지만, 그 책은 너무 울상했다.\n  natural: 그는 책을 읽고 있지만, 그 책은 너무 슬픔했다.\n  problem: |\n    그는 책(冊)을 읽고 있지만, 그 책(冊)은 너무 슬픔했다.\n  wordByWordTranslation: '{\"그는\":\"He is\",\"책을\":\"a\n    book\",\"독고\":\"reading\",\"있지만\":\"but\",\"그 책은\":\"that book\n    was\",\"너무\":\"too\",\"슬픔했다\":\"sad\"}'\n  overallTranslation: '{\"english\":\"He is reading a book, but it was too sad.\"}'\nthree:\n  original: 갑자기, 책의 그림자가 아이의 눈에 생겼다.\n  natural: 갑자기 책 그림자가 아이의 눈에 나타났다.\n  problem: |\n    갑자기 책(冊) 그림자가 아이의 눈에 나타났다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"책\":\"book\",\"그림자\":\"shadow\",\"아이\":\"child\",\"눈\":\"eye\",\"에\":\"to\",\"나타났다\":\"appeared\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"Suddenly, a shadow of a book appeared in the\n    child's eyes.\\\"}\"\nfour:\n  original: 그 그림자는 아이의 눈을 비추며, 아이를 향해 다가왔다.\n  natural: 그 그림자는 아이의 눈을 비추며 아이를 향해 다가왔다.\n  problem: |\n    그 그림자는 아이의 눈을 비추며 아이를 향(向)해 다가왔다.\n  wordByWordTranslation: '{\"그\":\"that\",\"그림자\":\"shadow\",\"는\":\"is\",\"아이\":\"child\",\"눈\":\"eye\",\"비추며\":\"shining\",\"아이를\":\"toward\n    the child\",\"향해\":\"toward\",\"다가왔다\":\"came\"}'\n  overallTranslation: '{\"english\":\"The shadow was approaching the child,\n    reflecting in their eyes.\"}'\nfive:\n  original: 아이는 그림자를 피해 돌아갔지만, 그림자는 그 뒤를 따랐다.\n  natural: 아이는 그림자를 피해 돌아갔지만, 그림자는 그 뒤를 따라갔다.\n  problem: |\n    아이는 그림자를 피(避)해 돌아갔지만, 그림자는 그 뒤를 따라갔다.\n  wordByWordTranslation: '{\"아이\":\"child\",\"는\":\"is\",\"그림자\":\"shadow\",\"피해\":\"avoiding\",\"돌아갔\":\"went\n    back\",\"지만\":\"but\",\"그\":\"the\",\"뒤\":\"behind\",\"따라갔다\":\"followed behind\"}'\n  overallTranslation: '{\"english\":\"The child avoided the shadow and returned home,\n    but the shadow followed behind them.\"}'\n",
-    "id": 1272
+    "id": 1277
   },
   {
     "generator": "korean-gap-story-2-renaissance",
     "input": "cardinal",
     "problem": "밤의 어둠 속에서 루비처럼 아름다운 별들이 빛나고 있었다. <br> 그 별 아래 어떤 사람이 살까? <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 루비별은 사막(沙漠) 속으로 사라지고, 새로운 별이 빛나기 시작(始作)했다. <br> 새로운 별 아래에 살고 있는 것은 새 생명체(生命體)였다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 루비처럼 아름다운 별이 빛나고 있었다.\n  natural: 밤의 어둠 속에서 루비처럼 아름다운 별들이 빛나고 있었다.\n  problem: |\n    밤의 어둠 속에서 루비처럼 아름다운 별들이 빛나고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"in\",\"루비처럼\":\"like\n    ruby\",\"아름다운\":\"beautiful\",\"별들\":\"stars\",\"빛나고\":\"shining\",\"있었다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"The stars shone like rubies amidst the darkness of night.\"}'\ntwo:\n  original: 그 별 아래에 누군가가 살고 있을까?\n  natural: 그 별 아래 어떤 사람이 살까?\n  problem: |\n    그 별 아래 어떤 사람이 살까?\n  wordByWordTranslation: '{\"그\":\"that\",\"별\":\"star\",\"아래\":\"below\",\"어떤\":\"what kind\n    of\",\"사람\":\"person\",\"이\":\"is\",\"살까\":\"living?\"}'\n  overallTranslation: '{\"english\":\"Who lives under that star?\"}'\nthree:\n  original: 갑자기, 루비 별이 빛나는 곳이 달라졌다.\n  natural: 갑자기 루비별이 빛나는 곳이 달라졌다.\n  problem: |\n    갑자기 루비별이 빛나는 곳이 달라졌다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"루비별\":\"ruby\n    star\",\"빛나는\":\"shining\",\"곳\":\"place\",\"달라졌다\":\"changed\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the place where the ruby stars shine is different.\"}'\nfour:\n  original: 루비 별은 사막 속으로 사라졌고, 그 대신 새로운 별이 빛나기 시작했다.\n  natural: 루비별은 사막 속으로 사라지고, 새로운 별이 빛나기 시작했다.\n  problem: |\n    루비별은 사막(沙漠) 속으로 사라지고, 새로운 별이 빛나기 시작(始作)했다.\n  wordByWordTranslation: '{\"루비별\":\"Ruby\n    star\",\"은\":\"is\",\"사막\":\"desert\",\"속으로\":\"into\",\"사라지고\":\"disappears\",\"새로운\":\"new\",\"별\":\"star\",\"빛나기\":\"begins\n    to shine\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The ruby star disappears into the desert and a\n    new star begins to glow.\"}'\nfive:\n  original: 새로운 별 아래에 살고 있는 것은 새 생명체였다.\n  natural: 새로운 별 아래에 살고 있는 것은 새 생명체였다.\n  problem: |\n    새로운 별 아래에 살고 있는 것은 새 생명체(生命體)였다.\n  wordByWordTranslation: '{\"새로운\":\"new\",\"별\":\"star\",\"아래\":\"below\",\"살고\":\"living\",\"있는\":\"is\",\"새\":\"new\",\"생명체\":\"life\n    form\"}'\n  overallTranslation: '{\"english\":\"The life forms living under the new star were new organisms.\"}'\n",
-    "id": 1273
+    "id": 1278
+  },
+  {
+    "generator": "korean-gap-story-2-renaissance",
+    "input": "staff",
+    "problem": "저녁 바닥에 길게 늘린 나무 한 그루가 있었다. <br> 그 나무 아래에서 살던 한 여인(女人)이 나무뿌리 위를 보는 순간(瞬間), 모든 것이 바뀌었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 돌막(돌幕) 위에는 빛나는 물질(物質)들이 나타나고, 여인(女人)은 물질(物質)들 사이를 헤매기 시작(始作)했다. <br> 물리(物理)들은 여인(女人)을 돌려주려고 노력(努力)했지만, 여인(女人)은 물리(物理)들 사이에서 사라지고 말했다. <br>",
+    "solution": "one:\n  problem: |\n    저녁 바닥에 길게 늘린 나무 한 그루가 있었다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"바닥\":\"floor\",\"길게\":\"longly\",\"늘린\":\"stretched\",\"나무\":\"tree\",\"한\":\"one\",\"그루\":\"trunk\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"There was a tall tree that had stretched out\n    along the floor of the evening garden.\"}'\ntwo:\n  problem: |\n    그 나무 아래에서 살던 한 여인(女人)이 나무뿌리 위를 보는 순간(瞬間), 모든 것이 바뀌었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"나무\":\"tree\",\"아래\":\"below\",\"살던\":\"lived\",\"한\":\"a\",\"여인\":\"woman\",\"보는\":\"seeing\",\"순간\":\"moment\",\"모든\":\"everything\",\"바뀌었다\":\"changed\"}'\n  overallTranslation: '{\"english\":\"A woman who had been living under that tree saw\n    everything change when she glanced at the root of the tree.\"}'\nthree:\n  problem: |\n    뿌리는 길게 늘린 돌덩이로 바뀌고, 여인(女人)은 돌덩이 위에 떨어지기 시작(始作)했다.\n  wordByWordTranslation: '{\"뿌리는\":\"The root\n    is\",\"길게\":\"longly\",\"늘린\":\"stretched\",\"돌덩이로\":\"into a rock\n    pile\",\"바뀌고\":\"became\",\"여인은\":\"A woman is\",\"돌덩이 위에\":\"on the top of the rock\n    pile\",\"떨어지기\":\"falling\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The roots turned into large stone lumps, and\n    the women began falling from the stone lumps.\"}'\nfour:\n  problem: |\n    돌막(돌幕) 위에는 빛나는 물질(物質)들이 나타나고, 여인(女人)은 물질(物質)들 사이를 헤매기 시작(始作)했다.\n  wordByWordTranslation: '{\"돌막\":\"rock shelter\",\"위에는\":\"on top\n    of\",\"빛나는\":\"shining\",\"물질\":\"substance\",\"나타나고\":\"appears\",\"여인\":\"a woman\",\"물질들\n    사이를 헤매기\":\"wander among the substances\",\"시작했다\":\"began\"}'\n  overallTranslation: '{\"english\":\"Something luminous appears on the rock wall,\n    and the woman starts wandering among the material objects.\"}'\nfive:\n  problem: |\n    물리(物理)들은 여인(女人)을 돌려주려고 노력(努力)했지만, 여인(女人)은 물리(物理)들 사이에서 사라지고 말했다.\n  wordByWordTranslation: '{\"물리들은\":\"The physical therapists\",\"여인\":\"A\n    woman\",\"돌려주려고\":\"tried to return\",\"노력했지만\":\"but they were\n    unsuccessful\",\"여인은\":\"The woman was\",\"물리들 사이에서\":\"among the physical\n    therapists\",\"사라지고 말했다\":\"disappeared and said nothing.\"}'\n  overallTranslation: '{\"english\":\"The physicists had tried to bring the woman\n    back, but she vanished among the physicists and said nothing.\"}'\n",
+    "id": 1279
   },
   {
     "generator": "korean-gap-story-2-steampunk",
     "input": "ideal",
     "problem": "날개 없는 비행기(飛行機)가 공기(空氣) 속에서 자유롭게 비행(飛行)해 다닌다. <br> 그들은 과학(科學)과 기계(機械)의 우수(優秀)한 기술(技術)로 이루어진 세상(世上)에 살고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그들은 이제 새로운 비행기(飛行機)의 아이디어를 찾기 시작(始作)했다. <br> 그들은 이상(異常)한 비행기(飛行機)를 만드려고 노력(努力)하기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 날개 없는 비행기가 공중을 자유롭게 날아다니네.\n  natural: 날개 없는 비행기가 공기 속에서 자유롭게 비행해 다닌다.\n  problem: |\n    날개 없는 비행기(飛行機)가 공기(空氣) 속에서 자유롭게 비행(飛行)해 다닌다.\n  wordByWordTranslation: '{\"날개\":\"wing\",\"비행기\":\"airplane\",\"공기\":\"air\",\"속에서\":\"in\",\"자유롭게\":\"freely\",\"비행해\":\"flies\",\"다닌다\":\"flies\n    around\"}'\n  overallTranslation: '{\"english\":\"A wingless aircraft can fly freely in the air.\"}'\ntwo:\n  original: 그들은 과학과 기계의 뛰어난 기술로 이루어진 세계에 살고 있었다.\n  natural: 그들은 과학과 기계의 우수한 기술로 이루어진 세상에 살고 있었다.\n  problem: |\n    그들은 과학(科學)과 기계(機械)의 우수(優秀)한 기술(技術)로 이루어진 세상(世上)에 살고 있었다.\n  wordByWordTranslation: \"{\\\"그들은\\\":\\\"They were\\\",\\\"과학과\\\":\\\"science\n    and\\\",\\\"기계의\\\":\\\"machines'\\\",\\\"우수한\\\":\\\"excellent\\\",\\\"기술로\\\":\\\"with\n    technology\\\",\\\"이루어진\\\":\\\"made\n    up\\\",\\\"세상\\\":\\\"world\\\",\\\"살고\\\":\\\"living\\\",\\\"있었다\\\":\\\"were\\\"}\"\n  overallTranslation: '{\"english\":\"They lived in a world made up of their advanced\n    science and technology.\"}'\nthree:\n  original: 그러나 그들은 아직 하나의 비행기를 만들지 못했다.\n  natural: 그들은 아직 한 개의 비행기를 만드는 데는 실패했어.\n  problem: |\n    그들은 아직 한 개(個)의 비행기(飛行機)를 만드는 데는 실패(失敗)했어.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"아직\":\"still\",\"한\n    개의\":\"one\",\"비행기\":\"airplane\",\"만드는\":\"making\",\"데는\":\"to\",\"실패했어\":\"failed\"}'\n  overallTranslation: '{\"english\":\"They have yet to succeed in making a single airplane.\"}'\nfour:\n  original: 그들은 이제 새로운 비행기의 아이디어를 찾기 시작했다.\n  natural: 그들은 이제 새로운 비행기의 아이디어를 찾기 시작했다.\n  problem: |\n    그들은 이제 새로운 비행기(飛行機)의 아이디어를 찾기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"이제\":\"now\",\"새로운\":\"new\",\"비행기\":\"airplane\",\"의\":\"of\",\"아이디어\":\"idea\",\"찾기\":\"to\n    find\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"They have begun searching for new ideas for a new aircraft.\"}'\nfive:\n  original: 그리고 그들은 이상의 비행기를 만드려고 노력하기 시작했다.\n  natural: 그들은 이상한 비행기를 만드려고 노력하기 시작했다.\n  problem: |\n    그들은 이상(異常)한 비행기(飛行機)를 만드려고 노력(努力)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"이상한\":\"strange\",\"비행기\":\"airplane\",\"만드려고\":\"to\n    make\",\"노력하기\":\"to try\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"They began to try to build an unusual airplane.\"}'\n",
-    "id": 1274
+    "id": 1280
   },
   {
     "generator": "korean-gap-story-2-survival-horror",
     "input": "relic",
     "problem": "밤이 어둡고 위험(危險)한 가옥(家屋)에 들어갑니다. <br> 그 안에는 위험(危險)한 물건(物件)이 보일지도 알 수 있습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 물건(物件)들이 흔들리며, 어둡고 위험(危險)한 소리들이 울립니다. <br> 물건(物件)들이 공격(攻擊)하기 시작(始作)했습니다. <br>",
     "solution": "one:\n  original: 밤이 어둡고 위험한 가옥에 들어갑니다.\n  natural: 밤이 어둡고 위험한 가옥에 들어갑니다.\n  problem: |\n    밤이 어둡고 위험(危險)한 가옥(家屋)에 들어갑니다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"이\":\"is\",\"어둡고\":\"dark\n    and\",\"위험한\":\"dangerous\",\"가옥\":\"house\",\"에\":\"to\",\"들어갑니다\":\"goes in\"}'\n  overallTranslation: '{\"english\":\"He enters a dark and dangerous prison at night.\"}'\ntwo:\n  original: 그 안에는 아마도 위험한 물건이 보일 것입니다.\n  natural: 그 안에는 위험한 물건이 보일지도 알 수 있습니다.\n  problem: |\n    그 안에는 위험(危險)한 물건(物件)이 보일지도 알 수 있습니다.\n  wordByWordTranslation: '{\"그\":\"that\",\"안에는\":\"in\",\"위험한\":\"dangerous\",\"물건\":\"item\",\"보일지도\":\"might\",\"알\":\"know\",\"수\n    있습니다\":\"can\"}'\n  overallTranslation: '{\"english\":\"There may be dangerous goods inside.\"}'\nthree:\n  original: 갑자기, 문이 자동으로 열립니다.\n  natural: 갑자기 문이 자동으로 열립니다.\n  problem: |\n    갑자기 문(門)이 자동(自動)으로 열립니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"문\":\"door\",\"이\":\"is\",\"자동으로\":\"automatically\",\"열립니다\":\"opens\"}'\n  overallTranslation: '{\"english\":\"The door opens automatically.\"}'\nfour:\n  original: 물건들이 흔들리고, 어둡고 위험한 소리들이 울립니다.\n  natural: 물건들이 흔들리며, 어둡고 위험한 소리들이 울립니다.\n  problem: |\n    물건(物件)들이 흔들리며, 어둡고 위험(危險)한 소리들이 울립니다.\n  wordByWordTranslation: '{\"물건들이\":\"The\n    things\",\"흔들리며\":\"shaking\",\"어둡고\":\"darkly\",\"위험한\":\"dangerous\",\"소리들이\":\"sounds\",\"울립니다\":\"are\n    echoing\"}'\n  overallTranslation: '{\"english\":\"As the objects shake, strange and dangerous\n    sounds echo through.\"}'\nfive:\n  original: 물건들이 공격하기 시작합니다.\n  natural: 물건들이 공격하기 시작했습니다.\n  problem: |\n    물건(物件)들이 공격(攻擊)하기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"물건들\":\"things\",\"공격\":\"attack\",\"하기\":\"to start\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The things started attacking.\"}'\n",
-    "id": 1275
+    "id": 1281
   },
   {
     "generator": "korean-gap-story-2-time-travel",
     "input": "export",
     "problem": "고지동(告知棟)에서 책점(冊點)을 운영(運營)하고 있어요. <br> 그 책점(冊點)은 오래 동안 사람들이 많이 방문(訪問)했을 거야. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 과거(過去) 시간(時間)이 시간(時間)을 거두면서 책점(冊店) 주변(周邊)은 초원(草原)이 되었고, 책점(冊店) 문(門)은 단순(單純)한 문(門)이 아니라 큰 문(門)이 되었습니다. <br> 시간(時間)이 지나면서 책점(冊點)의 주민(住民)들은 새로운 사람들에 해졌습니다. <br>",
     "solution": "one:\n  original: 고지동에서 책점을 운영하고 있어요.\n  natural: 고지동에서 책점을 운영하고 있어요.\n  problem: |\n    고지동(告知棟)에서 책점(冊點)을 운영(運營)하고 있어요.\n  wordByWordTranslation: '{\"고지동\":\"Gokji-dong\",\"책점\":\"Bookstore\",\"운영\":\"Operating\",\"있어요\":\"Is\"}'\n  overallTranslation: '{\"english\":\"He/She is running a bookstore in Goshidong.\"}'\ntwo:\n  original: 그 책점은 아마도 너무 오래 동안 사람들이 많이 방문했을 거야.\n  natural: 그 책점은 오래 동안 사람들이 많이 방문했을 거야.\n  problem: |\n    그 책점(冊點)은 오래 동안 사람들이 많이 방문(訪問)했을 거야.\n  wordByWordTranslation: '{\"그\":\"that\",\"책점\":\"bookstore\",\"은\":\"is\",\"오래\":\"long\n    time\",\"동안\":\"ago\",\"사람들이\":\"people\",\"많이\":\"many\",\"방문했을\":\"visited\",\"거야\":\"must\n    be\"}'\n  overallTranslation: '{\"english\":\"That bookstore has probably been visited by\n    many people over the years.\"}'\nthree:\n  original: 그러다갑자기 책점의 문을 열면서 과거로 시간이 거동했다.\n  natural: 갑자기 책점 문을 열면서 과거로 시간이 흘러갔다.\n  problem: |\n    갑자기 책점(冊店) 문(門)을 열면서 과거(過去)로 시간(時間)이 흘러갔다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"책점\":\"bookstore\",\"문\":\"door\",\"열면서\":\"opening\n    it\",\"과거로\":\"back to the past\",\"시간\":\"time\",\"흘러갔다\":\"had passed\"}'\n  overallTranslation: '{\"english\":\"Suddenly, as I opened the book, I realized that\n    time had slipped away into the past.\"}'\nfour:\n  original: \" 과거로 시간이 거동하면서 책점 주변은 초원이 되었고, 책점의 문은 단순한 문이 아니라 큰 문이 되었습니다.\"\n  natural: 과거 시간이 시간을 거두면서 책점 주변은 초원이 되었고, 책점 문은 단순한 문이 아니라 큰 문이 되었습니다.\n  problem: >\n    과거(過去) 시간(時間)이 시간(時間)을 거두면서 책점(冊店) 주변(周邊)은 초원(草原)이 되었고, 책점(冊店) 문(門)은 단순(單純)한\n    문(門)이 아니라 큰 문(門)이 되었습니다.\n  wordByWordTranslation: '{\"과거\":\"past\",\"시간\":\"time\",\"거두면서\":\"has passed\",\"책점\n    주변\":\"surrounding bookstore\",\"초원\":\"meadow\",\"책점 문\":\"bookstore\n    door\",\"단순한\":\"simple\",\"문\":\"door\",\"큰\":\"large\"}'\n  overallTranslation: '{\"english\":\"As time passed, the area surrounding the\n    bookstore grew into a meadow, and the bookstore entrance, which was once\n    just a simple door, became a grand entrance.\"}'\nfive:\n  original: 시간이 거동하면서 책점의 주민들은 새 사람들이 되었습니다.\n  natural: 시간이 지나면서 책점의 주민들은 새로운 사람들에 해졌습니다.\n  problem: |\n    시간(時間)이 지나면서 책점(冊點)의 주민(住民)들은 새로운 사람들에 해졌습니다.\n  wordByWordTranslation: \"{\\\"시간이\\\":\\\"Time has\\\",\\\"지나면서\\\":\\\"passed\\\",\\\"책점의\\\":\\\"the\n    bookstore's\\\",\\\"주민들은\\\":\\\"residents\n    are\\\",\\\"새로운\\\":\\\"new\\\",\\\"사람들에\\\":\\\"people\\\",\\\"해졌습니다\\\":\\\"changed.\\\"}\"\n  overallTranslation: '{\"english\":\"As time passed, the residents of Booktown have\n    become new people.\"}'\n",
-    "id": 1276
+    "id": 1282
   },
   {
     "generator": "korean-gap-story-2-whodunnit",
     "input": "financially",
     "problem": "금융가(金融街)들이 모여 회의(會議)하고 있었다. <br> 그들은 회사(會社)의 재무상황(財務狀況)에 대(對)해 논의(論議)하고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 사람은 재무가(再巫歌)들이 회의(會議)하고 있는 곳에 있었다. <br> 그들은 재무가(財務家)들에게 어떤 계획(計劃)이 있나요? 물었다. <br>",
     "solution": "one:\n  original: 금융가들이 모여 회의하고 있었다.\n  natural: 금융가들이 모여 회의하고 있었다.\n  problem: |\n    금융가(金融街)들이 모여 회의(會議)하고 있었다.\n  wordByWordTranslation: '{\"금융가들\":\"financial\n    professionals\",\"모여\":\"gathering\",\"회의\":\"meeting\",\"있었다\":\"were\"}'\n  overallTranslation: '{\"english\":\"The financial experts were meeting together.\"}'\ntwo:\n  original: 그들은 회사의 재무상황을 논의하고 있었다.\n  natural: 그들은 회사의 재무상황에 대해 논의하고 있었다.\n  problem: |\n    그들은 회사(會社)의 재무상황(財務狀況)에 대(對)해 논의(論議)하고 있었다.\n  wordByWordTranslation: \"{\\\"그들은\\\":\\\"They\n    were\\\",\\\"회사의\\\":\\\"company's\\\",\\\"재무상황\\\":\\\"financial situation\\\",\\\"에\n    대해\\\":\\\"about\\\",\\\"논의하고\\\":\\\"discussing\\\",\\\"있었다\\\":\\\"were\\\"}\"\n  overallTranslation: '{\"english\":\"They were discussing the financial situation of the company.\"}'\nthree:\n  original: 갑자기, 문이 열리고 한 사람이 회의실에 나타났다.\n  natural: 갑자기 문이 열리고 한 사람이 회의실에 나타났다.\n  problem: |\n    갑자기 문(門)이 열리고 한 사람이 회의실(會議室)에 나타났다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"문이\":\"The\n    door\",\"열리고\":\"opened\",\"한\":\"one\",\"사람\":\"person\",\"회의실에\":\"went into the\n    conference room\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the door opened and a person appeared\n    in the conference room.\"}'\nfour:\n  original: 그 사람은 재무가들이 회의하고 있는 곳에 있었다.\n  natural: 그 사람은 재무가들이 회의하고 있는 곳에 있었다.\n  problem: |\n    그 사람은 재무가(再巫歌)들이 회의(會議)하고 있는 곳에 있었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"사람은\":\"person\n    was\",\"재무가들이\":\"financiers\",\"회의하고\":\"were having a\n    meeting\",\"있는\":\"was\",\"곳에\":\"place\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"That person was at the place where the\n    financial people were having a meeting.\"}'\nfive:\n  original: 그는 재무가들에게 무슨 계획을 가지고 있나요? 물었다.\n  natural: 그들은 재무가들에게 어떤 계획이 있나요? 물었다.\n  problem: |\n    그들은 재무가(財務家)들에게 어떤 계획(計劃)이 있나요? 물었다.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"재무가들에게\":\"financially\",\"어떤\":\"what kind\n    of\",\"계획\":\"plan\",\"있나요?\":\"is there?\"}'\n  overallTranslation: '{\"english\":\"They asked what plans the financiers had.\"}'\n",
-    "id": 1277
+    "id": 1283
   },
   {
     "generator": "korean-gap-story-2-whodunnit",
     "input": "exporter",
     "problem": "저녁이 되면 시장(市場)에서 상품(商品)을 보는 사람들이 늘어납니다. <br> 그 중(中)에서도 상품(商品)을 수출(輸出)하는 사람들이 특히(特히) 많습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 침입자(侵入者)가 상품(商品) 수출가(輸出價)의 가방을 털고 도망쳤습니다. <br> 경찰(警察)은 상품(商品) 수출업자(輸出業者)의 누구인지 밝히고 사건(事件)을 해결(解決)했습니다. <br>",
     "solution": "one:\n  original: 저녁이 되면, 시장에서 상품을 보는 사람들이 많아집니다.\n  natural: 저녁이 되면 시장에서 상품을 보는 사람들이 늘어납니다.\n  problem: |\n    저녁이 되면 시장(市場)에서 상품(商品)을 보는 사람들이 늘어납니다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"이\":\"is\",\" 되면\":\"when it\n    becomes\",\"시장\":\"market\",\"상품\":\"products\",\"보는\":\"seeing\",\"사람\":\"people\",\"늘어납니다\":\"increase\"}'\n  overallTranslation: '{\"english\":\"As evening approaches, more people visit the\n    market to browse for goods.\"}'\ntwo:\n  original: 그 중에서도, 상품을 수출하는 사람들이 특히 많습니다.\n  natural: 그 중에서도 상품을 수출하는 사람들이 특히 많습니다.\n  problem: |\n    그 중(中)에서도 상품(商品)을 수출(輸出)하는 사람들이 특히(特히) 많습니다.\n  wordByWordTranslation: '{\"그\":\"that\",\"중에서도\":\"among\",\"상품\":\"product\",\"수출\":\"export\",\"하는\":\"doing\",\"사람\":\"people\",\"특히\":\"especially\",\"많습니다\":\"are\n    many\"}'\n  overallTranslation: '{\"english\":\"Among them, those who export goods are particularly numerous.\"}'\nthree:\n  original: 그날밤, 상품 exporter가의 집에서 침입 사건이 일어났습니다.\n  natural: 그날밤, 상품 수출업자의 집에 침입 사건이 일어났습니다.\n  problem: |\n    그날밤, 상품(商品) 수출업자(輸出業者)의 집에 침입(侵入) 사건(事件)이 일어났습니다.\n  wordByWordTranslation: '{\"그날밤\":\"that night\",\"상품 수출업자\":\"exporter of\n    goods\",\"집\":\"house\",\"침입\":\"intrusion\",\"사건\":\"incident\",\" 일어났습니다\":\"happened\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"That night, a break-in occurred at the\n    export trading company owner's house.\\\"}\"\nfour:\n  original: 침입자는 상품 exporter가의 가방을 털고 달아났습니다.\n  natural: 침입자가 상품 수출가의 가방을 털고 도망쳤습니다.\n  problem: |\n    침입자(侵入者)가 상품(商品) 수출가(輸出價)의 가방을 털고 도망쳤습니다.\n  wordByWordTranslation: '{\"침입자가\":\"invader\",\"상품\n    수출가\":\"exporter\",\"가방\":\"bag\",\"털고\":\"robbed\",\"도망쳤습니다\":\"fled\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The invaders plundered the exporter's bag and fled.\\\"}\"\nfive:\n  original: 경찰은 상품 exporter가가 누구인지 밝히고 사건을 해결했습니다.\n  natural: 경찰은 상품 수출업자의 누구인지 밝히고 사건을 해결했습니다.\n  problem: |\n    경찰(警察)은 상품(商品) 수출업자(輸出業者)의 누구인지 밝히고 사건(事件)을 해결(解決)했습니다.\n  wordByWordTranslation: '{\"경찰\":\"police\",\"은\":\"is\",\"상품\":\"goods\",\"수출업자\":\"exporter\",\"누구인지\":\"who\n    is\",\"밝히고\":\"revealed\",\"사건\":\"case\",\"해결했습니다\":\"solved\"}'\n  overallTranslation: '{\"english\":\"The police identified the individuals behind\n    the product export company involved in the case and solved the incident.\"}'\n",
-    "id": 1278
+    "id": 1284
   },
   {
     "generator": "korean-gap-story-3-bounty-hunter",
     "input": "bestow",
     "problem": "저녁 해가 어둡고 풍부(豐富)한 성(性)을 보여줍니다. <br> 저는 아침 아침 이 성(城)에서 살다가 오늘은 아침 이성(異性)과 만날 예정(豫定)이야. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 누구 몰라도 상상(想像)도 못했지만, 그들은 저를 데려가는 데 성공(成功)했다. <br> 저는 이 성(城)에서 살던 생활(生活)을 버리고 새로운 곳으로 가야겠다. <br>",
     "solution": "one:\n  original: 저녁 해가 어둡고 풍부한 성을 보여주고 있어요.\n  natural: 저녁 해가 어둡고 풍부한 성을 보여줍니다.\n  problem: |\n    저녁 해가 어둡고 풍부(豐富)한 성(性)을 보여줍니다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"해\":\"sun\",\"어둡고\":\"dark\",\"풍부한\":\"abundant\",\"성\":\"moon\",\"보여줍니다\":\"shows\"}'\n  overallTranslation: '{\"english\":\"The evening sky is dark and adorned with a rich\n    constellation.\"}'\ntwo:\n  original: 저는 아침 아침 이 성에서 살다가 오늘은 아침 이성을 만날 예정이야.\n  natural: 저는 아침 아침 이 성에서 살다가 오늘은 아침 이성과 만날 예정이야.\n  problem: |\n    저는 아침 아침 이 성(城)에서 살다가 오늘은 아침 이성(異性)과 만날 예정(豫定)이야.\n  wordByWordTranslation: '{\"저는\":\"I am\",\"아침\":\"morning\",\"이 성\":\"this\n    neighborhood\",\"살다가\":\"lived\",\"오늘은\":\"today\",\"이성\":\"her\",\"만날\":\"to\n    meet\",\"예정이야\":\"am scheduled to\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"I've been living in this town my whole life,\n    but today I have plans to meet a friend.\\\"}\"\nthree:\n  original: 성 안에서 누군가가 저를 붙잡고 있었다.\n  natural: 성 안에서 누군가가 저를 잡아두고 있었다.\n  problem: |\n    성(城) 안에서 누군가가 저를 잡아두고 있었다.\n  wordByWordTranslation: '{\"성\":\"inside\",\"안\":\"of\",\"누군가\":\"somebody\",\"저\":\"me\",\"잡아두고\":\"holding\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"Someone had me trapped inside the room.\"}'\nfour:\n  original: 누구인지 몰라도 상상도 못했지만, 그들은 저를 데려가는 데 성공했다.\n  natural: 누구 몰라도 상상도 못했지만, 그들은 저를 데려가는 데 성공했다.\n  problem: |\n    누구 몰라도 상상(想像)도 못했지만, 그들은 저를 데려가는 데 성공(成功)했다.\n  wordByWordTranslation: \"{\\\"누구\\\":\\\"Anyone\\\",\\\"몰라도\\\":\\\"even\n    though\\\",\\\"상상도\\\":\\\"couldn't even\n    imagine\\\",\\\"못했지만\\\":\\\"hadn't\\\",\\\"그들은\\\":\\\"they\\\",\\\"저를 데려가는 데\\\":\\\"took me\n    away\\\",\\\"성공했다\\\":\\\"succeeded\\\"}\"\n  overallTranslation: '{\"english\":\"No one could have imagined it, but they managed\n    to take me away.\"}'\nfive:\n  original: 저는 이 성에서 살던 생활을 버리고 새로운 곳으로 가야겠다.\n  natural: 저는 이 성에서 살던 생활을 버리고 새로운 곳으로 가야겠다.\n  problem: |\n    저는 이 성(城)에서 살던 생활(生活)을 버리고 새로운 곳으로 가야겠다.\n  wordByWordTranslation: '{\"저는\":\"I\",\"이 성에서\":\"in this\n    town\",\"살던\":\"lived\",\"생활\":\"lifestyle\",\"버리고\":\"gave up\",\"새로운\":\"new\",\"곳으로\":\"to a\n    place\",\"가야겠다\":\"should go\"}'\n  overallTranslation: '{\"english\":\"I need to leave this town and start a new life elsewhere.\"}'\n",
-    "id": 1279
+    "id": 1285
   },
   {
     "generator": "korean-gap-story-3-bounty-hunter",
     "input": "wide",
     "problem": "넓은 길을 걸으며 용기찬(勇氣贊) 젊은 사자(獅子)가 하나 달려왔다. <br> 그는 위험(危險)한 범죄자(犯罪者)를 찾고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 동굴(洞窟) 속으로 들어가 보니, 용기찬(勇氣贊) 사자(獅子)가 다른 사람들과 함께 있었다. <br> 그들은 용기찬(勇氣贊) 사자(獅子)가 동굴(洞窟)에 있을 때, 어떻게 살아남을 수 있을지 생각하기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 광개가 넓은 길을 걸으며, 용기찬 젊은 사자 한 명이 달려왔다.\n  natural: 넓은 길을 걸으며 용기찬 젊은 사자가 하나 달려왔다.\n  problem: |\n    넓은 길을 걸으며 용기찬(勇氣贊) 젊은 사자(獅子)가 하나 달려왔다.\n  wordByWordTranslation: '{\"넓은\":\"wide\",\"길을\":\"path\",\"걸으며\":\"walking\",\"용기찬\":\"brave\",\"젊은\":\"young\",\"사자가\":\"lion\",\"하나\":\"one\",\"달려왔다\":\"came\n    running\"}'\n  overallTranslation: '{\"english\":\"A brave young lion cub ran across the wide path.\"}'\ntwo:\n  original: 그는 위험한 범죄자를 찾고 있었다.\n  natural: 그는 위험한 범죄자를 찾고 있었다.\n  problem: |\n    그는 위험(危險)한 범죄자(犯罪者)를 찾고 있었다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"위험한\":{\"dangerous\":\"dangerous\"},\"범죄자\":{\"criminal\":\"criminal\"},\"을\":{\"was\":\"was\"},\"찾고\":{\"searching\n    for\":\"searching for\"},\"있었다\":{\"was\":\"was\"}}'\n  overallTranslation: '{\"english\":\"He was looking for dangerous criminals.\"}'\nthree:\n  original: 그러나 그 사이에, 갑자기 길이 넓은 동굴에 빠지기 시작했다.\n  natural: 그 사이에 길이 넓은 동굴에 갑자기 빠지는 것 같아졌다.\n  problem: |\n    그 사이에 길이 넓은 동굴(洞窟)에 갑자기 빠지는 것 같아졌다.\n  wordByWordTranslation: '{\"그 사이에\":\"in\n    between\",\"길이\":\"length\",\"넓은\":\"wide\",\"동굴\":\"cave\",\"갑자기\":\"suddenly\",\"빠지는\":\"falling\",\"것\n    같아졌다\":\"it seemed like/as if\"}'\n  overallTranslation: '{\"english\":\"Suddenly, it seemed like something was falling\n    into the vast cave in the middle of them.\"}'\nfour:\n  original: 동굴 속으로 들어가보니, 용기찬 사자가 다른 사람들과 함께 있었다.\n  natural: 동굴 속으로 들어가 보니, 용기찬 사자가 다른 사람들과 함께 있었다.\n  problem: |\n    동굴(洞窟) 속으로 들어가 보니, 용기찬(勇氣贊) 사자(獅子)가 다른 사람들과 함께 있었다.\n  wordByWordTranslation: '{\"동굴\":\"cave\",\"속으로\":\"into\",\" 들어가\":\"went\n    in\",\"보니\":\"then\",\"용기찬\":\"brave\",\"사자가\":\"lion\",\"다른\":\"other\",\"사람들\":\"people\",\"과\":\"with\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"When I peered into the cave, I saw a lion with\n    a pot of gold in its mouth hanging out with other people.\"}'\nfive:\n  original: 그들은 용기찬 사자가 동굴에 있을 때, 어떻게 살아남을 수 있을지 생각하기 시작했다.\n  natural: 그들은 용기찬 사자가 동굴에 있을 때, 어떻게 살아남을 수 있을지 생각하기 시작했다.\n  problem: |\n    그들은 용기찬(勇氣贊) 사자(獅子)가 동굴(洞窟)에 있을 때, 어떻게 살아남을 수 있을지 생각하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"용기찬\":\"courageous\",\"사자가\":\"lions\",\"동굴에 있을\n    때\":\"when they were in the cave\",\"어떻게 살아남을 수 있을지\":\"how to survive\",\"생각하기\n    시작했다\":\"began to think\"}'\n  overallTranslation: '{\"english\":\"When the lions were trapped in the cave, they\n    started to wonder how they would survive.\"}'\n",
-    "id": 1280
+    "id": 1286
   },
   {
     "generator": "korean-gap-story-3-comedic",
     "input": "baptize",
     "problem": "고요한 해안(海岸)에 선착(先着)한 나는, 바침을 해야겠다는 생각에 두려워했다. <br> 다음날 아침, 교수(敎授)님의 지도(指導)를 받고 바침을 시작(始作)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 새가 물에 담근 순간(瞬間), 물이 새의 날개를 치락하고 새는 물면(물面)에 빠지는 데 성공(成功)했다. <br> 나는 교수(敎授)님의 지도(指導)를 받고 새를 해방(解放)하였고, 새는 해안(海岸)에서 자유롭게 날다가갔다. <br>",
     "solution": "one:\n  original: 고요한 해안에 선착한 나는, 바침을 해야겠다는 생각에 두려워했다.\n  natural: 고요한 해안에 선착한 나는, 바침을 해야겠다는 생각에 두려워했다.\n  problem: |\n    고요한 해안(海岸)에 선착(先着)한 나는, 바침을 해야겠다는 생각에 두려워했다.\n  wordByWordTranslation: '{\"고요한\":\"peaceful\",\"해안\":\"coast\",\"선착한\":\"arrived\",\"나는\":\"I\",\"바침\":\"worry\",\"해야겠다는\":\"should\",\"생각\":\"thought\",\"두려워했다\":\"was\n    afraid\"}'\n  overallTranslation: '{\"english\":\"Standing on the desolate coastline, I was\n    filled with unease, fearing the repercussions of having to dive into the\n    waves.\"}'\ntwo:\n  original: 다음날 아침, 나는 교수님의 지도를 받고 바침을 시작했다.\n  natural: 다음날 아침, 교수님의 지도를 받고 바침을 시작했다.\n  problem: |\n    다음날 아침, 교수(敎授)님의 지도(指導)를 받고 바침을 시작(始作)했다.\n  wordByWordTranslation: '{\"다음날\":\"the next\n    day\",\"아침\":\"morning\",\"교수님\":\"professor\",\"지도\":\"guidance\",\"받고\":\"received\",\"바침\":\"training\",\"시작했다\":\"started\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The next morning, I began practicing with\n    the professor's guidance.\\\"}\"\nthree:\n  original: 교수님은 물에 담근 새 한 마리에 손을 집어 바침을 해줄 것을 가르쳤다.\n  natural: 교수님은 물에 담근 새 하나에 손을 집어 바침을 해줄 것을 가르쳤다.\n  problem: |\n    교수(敎授)님은 물에 담근 새 하나에 손을 집어 바침을 해줄 것을 가르쳤다.\n  wordByWordTranslation: '{\"교수님\":\"Professor\",\"물에 담근\":\"soaked in water\",\"새 하나\":\"a\n    bird\",\"손을 집어\":\"grabbed with the hand\",\"바침\":\"duck\",\"해 줄 것을 가르쳤다\":\"taught them\n    to do it.\"}'\n  overallTranslation: '{\"english\":\"The professor taught us to pick up a bird that\n    was submerged in water and dry it off with our hands.\"}'\nfour:\n  original: 새가 물에 담근 순간, 물이 새의 날개를 치락시키고 새는 물에 빠지는데 성공했다.\n  natural: 새가 물에 담근 순간, 물이 새의 날개를 치락하고 새는 물면에 빠지는 데 성공했다.\n  problem: |\n    새가 물에 담근 순간(瞬間), 물이 새의 날개를 치락하고 새는 물면(물面)에 빠지는 데 성공(成功)했다.\n  wordByWordTranslation: '{\"새\":\"bird\",\"물\":\"water\",\"담근\":\"soaked\",\"순간\":\"moment\",\"치락\":\"knocked\n    down\",\"날개\":\"wings\",\"물면\":\"surface\",\"빠지는\":\"falls\",\"성공했다\":\"succeeded\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"When the bird plunged into the water, the\n    water knocked the bird's wings out and the bird successfully swam to the\n    surface.\\\"}\"\nfive:\n  original: 나는 교수님의 지도를 받고 새를 해방했고, 새는 해안에서 자유롭게 날다가갔다.\n  natural: 나는 교수님의 지도를 받고 새를 해방하였고, 새는 해안에서 자유롭게 날다가갔다.\n  problem: |\n    나는 교수(敎授)님의 지도(指導)를 받고 새를 해방(解放)하였고, 새는 해안(海岸)에서 자유롭게 날다가갔다.\n  wordByWordTranslation: \"{\\\"나는\\\":\\\"I\\\",\\\"교수님의\\\":\\\"professor's\\\",\\\"지도를\\\":\\\"guidan\\\n    ce\\\",\\\"받고\\\":\\\"received\\\",\\\"새를\\\":\\\"a\n    bird\\\",\\\"해방하였고\\\":\\\"released\\\",\\\"새는\\\":\\\"The bird\\\",\\\"해안에서\\\":\\\"at the\n    beach\\\",\\\"자유롭게\\\":\\\"freely\\\",\\\"날다가갔다\\\":\\\"flew away\\\"}\"\n  overallTranslation: '{\"english\":\"I received guidance from the professor and\n    released a bird. The bird flew freely to the beach.\"}'\n",
-    "id": 1281
+    "id": 1287
   },
   {
     "generator": "korean-gap-story-3-cosmic-horror",
     "input": "foundry",
     "problem": "undefined<br> 그는 공연(公演) 준비(準備)를 위해 가지고 있던 물건(物件)들을 집으로 가져갔다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그들은 공연장(公演場) 앞으로 돌아가고, 공연장(公演場)은 사라졌다. <br> 그들은 공연장(公演場)의 사라지기 이유(理由)를 몰라 공연(公演)을 계속(繼續)할 수 없었다. <br>",
     "solution": "one:\n  original: 철광장에서, 영진이는 친구들과 함께 공연을 준비하고 있었다.\n  natural: 철광장에서 영진이는 친구들과 함께 공연을 준비하고 있었다.\n  wordByWordTranslation: '{\"철광장\":\"Cheolgyangjang\",\"영진이\":\"Yeonjin-i\",\"친구들\":\"Chingudeul\",\"공연\":\"Gongyeon\",\"준비\":\"Junbi\",\"있었다\":\"Isseotda\"}'\n  overallTranslation: '{\"english\":\"Jin-eun was preparing a performance with her\n    friends at the iron mine.\"}'\ntwo:\n  original: 그는 공연을 위해 가진 물건들을 집으로 가져갔다.\n  natural: 그는 공연 준비를 위해 가지고 있던 물건들을 집으로 가져갔다.\n  problem: |\n    그는 공연(公演) 준비(準備)를 위해 가지고 있던 물건(物件)들을 집으로 가져갔다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"공연\":{\"performance\":\"performance\"},\"준비를\":{\"preparation\":\"preparation\"},\"가지고\":{\"had\":\"had\"},\"있던\":{\"was\":\"was\"},\"물건들을\":{\"things\":\"things\"},\"집으로\":{\"home\":\"home\"},\"가졌다\":{\"went\":\"went\"}}'\n  overallTranslation: '{\"english\":\"He brought home the things he had gathered for\n    the performance.\"}'\nthree:\n  original: 그는 집에 도착했더니, 공연장에서 볼 수 없는 이상한 소리들이 들렸다.\n  natural: 그는 집에 도착하자마자 공연장에서 볼 수 없는 이상한 소리들이 들렸다.\n  problem: |\n    그는 집에 도착(到着)하자마자 공연장(公演場)에서 볼 수 없는 이상(異常)한 소리들이 들렸다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"집에\":\"at home\",\"도착하자마자\":\"as soon as he\n    arrived\",\"공연장에서\":\"at the concert hall\",\"볼 수 없는\":\"cannot be\n    seen\",\"이상한\":\"strange\",\"소리들이\":\"sounds\",\" 들렸다\":\"were heard\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"As soon as he arrived home, strange noises\n    began to echo from the concert hall that couldn't be heard otherwise.\\\"}\"\nfour:\n  original: 그들은 공연장 앞에 돌아갔고, 공연장은 사라졌다.\n  natural: 그들은 공연장 앞으로 돌아가고, 공연장은 사라졌다.\n  problem: |\n    그들은 공연장(公演場) 앞으로 돌아가고, 공연장(公演場)은 사라졌다.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"공연장 앞으로\":\"in front of the concert\n    hall\",\"돌아가고\":\"going back\",\"공연장은\":\"The concert hall is\",\"사라졌다\":\"gone\"}'\n  overallTranslation: '{\"english\":\"They went back in front of the concert hall,\n    and the concert hall vanished.\"}'\nfive:\n  original: 그들은 공연장이 사라진 이유를 아닌 채 공연을 계속할 수 없었다.\n  natural: 그들은 공연장의 사라지기 이유를 몰라 공연을 계속할 수 없었다.\n  problem: |\n    그들은 공연장(公演場)의 사라지기 이유(理由)를 몰라 공연(公演)을 계속(繼續)할 수 없었다.\n  wordByWordTranslation: \"{\\\"그들은\\\":\\\"They\\\",\\\"공연장의\\\":\\\"concert\n    hall's\\\",\\\"사라지기\\\":\\\"disappearance\\\",\\\"이유를\\\":\\\"reason\\\",\\\"몰라\\\":\\\"don't\n    know\\\",\\\"공연\\\":\\\"concert\\\",\\\"계속할\\\":\\\"continue\\\",\\\"수 없었다\\\":\\\"couldn't\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"They couldn't continue the performance\n    because they didn't know the reason the hall was disappearing.\\\"}\"\n",
-    "id": 1282
+    "id": 1288
+  },
+  {
+    "generator": "korean-gap-story-3-detective",
+    "input": "evolutionary",
+    "problem": "침연(軟)한 밤, 어둠 속에서 현명의 발전(發展)을 관찰(觀察)하고 있었다. <br> 그들은 생존(生存)과 살기 위해 어떻게 진화(進化)했는지에 관심(關心)을 가지고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그들은 현명의 발전(發展)의 징후(徵候)를 찾기 위해 어둠을 탐험(探險)하기 시작(始作)했다. <br> 그리고 현명의 발전(發展)의 근본(根本)은 바닥에 있음을 발견(發見)했다. <br>",
+    "solution": "one:\n  problem: |\n    침연(軟)한 밤, 어둠 속에서 현명의 발전(發展)을 관찰(觀察)하고 있었다.\n  wordByWordTranslation: '{\"침연한\":\"calm\",\"밤\":\"night\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"현명\":\"progress\",\"발전\":\"development\",\"관찰\":\"observing\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"On a misty night, he was observing the\n    development of civilization amidst the darkness.\"}'\ntwo:\n  problem: |\n    그들은 생존(生存)과 살기 위해 어떻게 진화(進化)했는지에 관심(關心)을 가지고 있었다.\n  wordByWordTranslation: '{\"그들은\":\"They were\",\"생존과\":\"survival and\",\"살기 위해\":\"to\n    live\",\"어떻게\":\"how\",\"진화했는지\":\"evolved\",\"관심을 가지고 있었다\":\"were interested in\"}'\n  overallTranslation: '{\"english\":\"They were interested in how evolution had\n    enabled them to survive and thrive.\"}'\nthree:\n  problem: |\n    갑자기 현명의 발전(發展)은 어둠 속에서 사라지고 말았다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"현명의\":\"advancement of\n    civilization\",\"발전\":\"development\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"사라지고\":\"vanished\",\"말았다\":\"said\"}'\n  overallTranslation: '{\"english\":\"Sudden enlightenment vanished into the darkness.\"}'\nfour:\n  problem: |\n    그들은 현명의 발전(發展)의 징후(徵候)를 찾기 위해 어둠을 탐험(探險)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"현명의\":\"modern\",\"발전\":\"advancement\",\"징후\":\"sign\",\"탐험\":\"explore\",\"어둠\":\"darkness\",\"시작했다\":\"began\"}'\n  overallTranslation: '{\"english\":\"They began to explore the darkness in search of\n    the signs of progress in modernity.\"}'\nfive:\n  problem: |\n    그리고 현명의 발전(發展)의 근본(根本)은 바닥에 있음을 발견(發見)했다.\n  wordByWordTranslation: '{\"그리고\":\"and\n    then\",\"현명의\":\"modern\",\"발전\":\"development\",\"근본\":\"foundation\",\"있음\":\"is\n    present\",\"발견했다\":\"discovered\"}'\n  overallTranslation: '{\"english\":\"The foundation of modern development lies in the basics.\"}'\n",
+    "id": 1289
   },
   {
     "generator": "korean-gap-story-3-dramatic",
     "input": "rustic",
     "problem": "저녁 하늘은 밝고, 마을은 평화(平和)합니다. <br> 길을 걸다가 마을 가까운 한 집을 발견(發見)했더니 문(門)이 열려있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 방(房) 안에는 단순(單純)한 가사(歌詞)만 있었고, 가전(家電)은 하나도 없었다. <br> 집의 주인(主人)은 어디로 가셨을까? 이 집은 반드시 살아 있어야 할 곳이에. <br>",
     "solution": "one:\n  original: 저녁하늘은 밝고, 마을은 평화합니다.\n  natural: 저녁 하늘은 밝고, 마을은 평화합니다.\n  problem: |\n    저녁 하늘은 밝고, 마을은 평화(平和)합니다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"하늘\":\"sky\",\"밝고\":\"bright\",\"마을\":\"village\",\"평화합니다\":\"is\n    peaceful\"}'\n  overallTranslation: '{\"english\":\"The evening sky is clear and the village is peaceful.\"}'\ntwo:\n  original: 저는 길을 걸으며 마을 가까운 한 집을 보니, 문이 열려있었다.\n  natural: 길을 걸다가 마을 가까운 한 집을 발견했더니 문이 열려있었다.\n  problem: |\n    길을 걸다가 마을 가까운 한 집을 발견(發見)했더니 문(門)이 열려있었다.\n  wordByWordTranslation: '{\"길을 걸다가\":\"Walking along the path\",\"마을 가까운\":\"near the\n    village\",\"한 집\":\"a house\",\"발견했더니\":\"found out\",\"문이 열려있었다\":\"the door was\n    open\"}'\n  overallTranslation: '{\"english\":\"While walking along the road, I stumbled upon a\n    house close to the village and its door was open.\"}'\nthree:\n  original: 문을 열고 들어가보니, 집 안은 완벽히 비어있었다.\n  natural: 문을 열고 들어가니, 집 안은 완벽히 비어있었다.\n  problem: |\n    문(門)을 열고 들어가니, 집 안은 완벽히(完璧히) 비어있었다.\n  wordByWordTranslation: '{\"문\":\"door\",\"열\":\"open\",\"고\":\"and\",\"들어가니\":\"went\n    in\",\"집\":\"house\",\"안\":\"inside\",\"은\":\"was\",\"완벽히\":\"completely\",\"비어있었다\":\"emptied\"}'\n  overallTranslation: '{\"english\":\"When I opened the door and went in, the house\n    was completely empty.\"}'\nfour:\n  original: 방 안에는 단순한 가사만 있었고, 아무런 가전도 없었다.\n  natural: 방 안에는 단순한 가사만 있었고, 가전은 하나도 없었다.\n  problem: |\n    방(房) 안에는 단순(單純)한 가사(歌詞)만 있었고, 가전(家電)은 하나도 없었다.\n  wordByWordTranslation: \"{\\\"방 안에는\\\":\\\"In the\n    room\\\",\\\"단순한\\\":\\\"simple\\\",\\\"가사만\\\":\\\"just chores\\\",\\\"있었고\\\":\\\"were\n    there\\\",\\\"가전은\\\":\\\"There were no\\\",\\\"하나도\\\":\\\"none\\\",\\\"없었다\\\":\\\"weren't\n    there\\\"}\"\n  overallTranslation: '{\"english\":\"There was only simple housework inside the\n    room, and there were no appliances.\"}'\nfive:\n  original: 집의 주인은 어디로 갔을까? 이 집은 꼭 살아야 할 곳이야.\n  natural: 집의 주인은 어디로 가셨을까? 이 집은 반드시 살아 있어야 할 곳이에.\n  problem: |\n    집의 주인(主人)은 어디로 가셨을까? 이 집은 반드시 살아 있어야 할 곳이에.\n  wordByWordTranslation: \"{\\\"집의\\\":\\\"The\n    house's\\\",\\\"주인\\\":\\\"owner\\\",\\\"은\\\":\\\"is\\\",\\\"어디로\\\":\\\"where\\\",\\\"가셨을까\\\":\\\"went\\\",\\\n    \\\"이\\\":\\\"this\\\",\\\"집은\\\":\\\"house\n    is\\\",\\\"반드시\\\":\\\"always\\\",\\\"살아\\\":\\\"alive\\\",\\\"있어야\\\":\\\"should\\\",\\\"할\\\":\\\"be\\\",\\\"\\\n    곳이에\\\":\\\"place\\\"}\"\n  overallTranslation: '{\"english\":\"Where did the master of the house go? This\n    house should always be a place where life exists.\"}'\n",
-    "id": 1283
+    "id": 1290
+  },
+  {
+    "generator": "korean-gap-story-3-dystopian",
+    "input": "frustrating",
+    "problem": "지금(只今) 이 도시(都市)는 누구도 예상(豫想)하지 않았던 침략(侵略)에 가득 차있어. <br> 살기 위해서는 항상(恒常) 공연(公演)해야 하고, 공연(公演)하기 위해서는 공연료(公演料)를 내야 합니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그러다가 공연장(公演場)에 가더라도 공연료(公演料)는 없지 않아. <br> 그러다가 공연(公演)소 앞에 사람들이 공연료(公演料)를 무료(無料)로 제공(提供)하기 시작(始作)했다. <br>",
+    "solution": "one:\n  problem: |\n    지금(只今) 이 도시(都市)는 누구도 예상(豫想)하지 않았던 침략(侵略)에 가득 차있어.\n  wordByWordTranslation: '{\"지금\":\"Now\",\"이\":\"this\",\"도시\":\"city\",\"누구도\":\"nobody\",\"예상하지\n    않았던\":\"unexpected\",\"침략\":\"invasion\",\"가득\":\"filled\",\"차있어\":\"is\"}'\n  overallTranslation: '{\"english\":\"The city is now filled with an invasion that no one expected.\"}'\ntwo:\n  problem: |\n    살기 위해서는 항상(恒常) 공연(公演)해야 하고, 공연(公演)하기 위해서는 공연료(公演料)를 내야 합니다.\n  wordByWordTranslation: '{\"살기 위해서는\":\"To survive\",\"항상\":\"always\",\"공연해야 하고\":\"must\n    perform\",\"공연하기 위해서는\":\"in order to perform\",\"공연료를 내야 합니다\":\"must pay\n    performance fee\"}'\n  overallTranslation: '{\"english\":\"One must always perform to live, and to perform\n    one must pay performance fees.\"}'\nthree:\n  problem: |\n    하지만 공연료(公演料)를 내기 위해서는 공연장(公演場)에 가야 하고, 공연장(公演場)에 가면 공연료(公演料)를 내야 합니다.\n  wordByWordTranslation: '{\"하지만\":\"Although\",\"공연료를\":\"performance fee\",\"내기 위해서는\":\"in\n    order to pay\",\"공연장에\":\"to the performance hall\",\"가야 하고\":\"has to\n    go\",\"가면\":\"when you go\",\"내야 합니다\":\"you have to pay\"}'\n  overallTranslation: '{\"english\":\"However, to pay the performance fee, you need\n    to go to the performance hall, and once you go there, you need to pay the\n    performance fee.\"}'\nfour:\n  problem: |\n    그러다가 공연장(公演場)에 가더라도 공연료(公演料)는 없지 않아.\n  wordByWordTranslation: \"{\\\"그러다가\\\":\\\"As a result of that\\\",\\\"공연장\\\":\\\"concert\n    hall\\\",\\\"가더라도\\\":\\\"even if you go\\\",\\\"공연료\\\":\\\"concert fee\\\",\\\"없지 않아\\\":\\\"it's\n    not free\\\"}\"\n  overallTranslation: '{\"english\":\"Even if they go to the performance hall at the\n    last minute, there is still a performance fee.\"}'\nfive:\n  problem: |\n    그러다가 공연(公演)소 앞에 사람들이 공연료(公演料)를 무료(無料)로 제공(提供)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그러다가\":\"As it happened\",\"공연소 앞에\":\"In front of the\n    concert hall\",\"사람들이\":\"People\",\"공연료를\":\"concert fee\",\"무료로\":\"for free\",\"제공하기\n    시작했다\":\"started providing\"}'\n  overallTranslation: '{\"english\":\"People started providing performance fees for\n    free in front of the performance hall.\"}'\n",
+    "id": 1291
+  },
+  {
+    "generator": "korean-gap-story-3-espionage",
+    "input": "handkerchief",
+    "problem": "우리 손수건(손手巾)은 위험(危險)한 곳에 숨겨져 있다. <br> 그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 가지고 있습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그들은 손수건(손手巾)을 손에서 내립니다. <br> 그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 손에서 내립니다. <br>",
+    "solution": "one:\n  problem: |\n    우리 손수건(손手巾)은 위험(危險)한 곳에 숨겨져 있다.\n  wordByWordTranslation: '{\"우리\":\"our\",\"손수건\":\"handkerchief\",\"은\":\"is\",\"위험한\":\"dangerous\",\"곳\":\"place\",\"숨겨져\n    있다\":\"hidden\"}'\n  overallTranslation: '{\"english\":\"Our towels are hidden in a dangerous place.\"}'\ntwo:\n  problem: |\n    그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 가지고 있습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"위험한\":\"dangerous\",\"정보\":\"information\",\"담은\":\"containing\",\"손수건\":\"handkerchief\",\"가지고\n    있습니다\":\"are carrying\"}'\n  overallTranslation: '{\"english\":\"They are carrying hand towels containing\n    dangerous information.\"}'\nthree:\n  problem: |\n    하지만 그들은 손수건(손手巾)을 가지고 있지 않습니다.\n  wordByWordTranslation: '{\"하지만\":\"although\",\"그들은\":\"they\",\"손수건\":\"handkerchief\",\"가지고\":\"have\",\"있지\n    않습니다\":\"are not there\"}'\n  overallTranslation: '{\"english\":\"However, they do not have a towel.\"}'\nfour:\n  problem: |\n    그들은 손수건(손手巾)을 손에서 내립니다.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"손수건을\":\"a towel\",\"손에서\":\"from the hand\",\"내립니다\":\"take out\"}'\n  overallTranslation: '{\"english\":\"They are taking off their gloves.\"}'\nfive:\n  problem: |\n    그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 손에서 내립니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"위험한\":\"dangerous\",\"정보\":\"information\",\"담은\":\"containing\",\"손수건\":\"handkerchief\",\"손에서\":\"from\n    the hand\",\"내립니다\":\"throw away\"}'\n  overallTranslation: '{\"english\":\"They are discarding hand towels that contain\n    dangerous information.\"}'\n",
+    "id": 1292
   },
   {
     "generator": "korean-gap-story-3-gothic-horror",
     "input": "nicely",
     "problem": "밤이 점점(漸漸) 어둡아지는 가옥(家屋) 속에서, 예민(銳敏)한 학생(學生)들만 살고 있었다. <br> 그들은 모든 것을 얻기 위해 살아남기 위해 노력(努力)하고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 사람은 그들에 맞춰서 평등(平等)한 학생(學生)들이었다. <br> 그는 학생(學生)들에게 악명(惡名)으로 알려진 '예민(銳敏)한 사자(獅子)'였습니다. <br>",
     "solution": "one:\n  original: 밤의 어둠이 깊어지는 가옥 속에서, 예민한 학생들만이 살고 있었다.\n  natural: 밤이 점점 어둡아지는 가옥 속에서, 예민한 학생들만 살고 있었다.\n  problem: |\n    밤이 점점(漸漸) 어둡아지는 가옥(家屋) 속에서, 예민(銳敏)한 학생(學生)들만 살고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"점점\":\"gradually\",\"어둡아지는\":\"getting\n    darker\",\"가옥\":\"house\",\"속에서\":\"inside\",\"예민한\":\"ordinary\",\"학생들\":\"students\",\"살고\":\"living\",\"있었다\":\"were\n    there\"}'\n  overallTranslation: '{\"english\":\"In the dimly lit prison, only privileged students lived.\"}'\ntwo:\n  original: 그들은 살기 위해 필요한 모든 것을 얻기 위해 노력하고 있었다.\n  natural: 그들은 모든 것을 얻기 위해 살아남기 위해 노력하고 있었다.\n  problem: |\n    그들은 모든 것을 얻기 위해 살아남기 위해 노력(努力)하고 있었다.\n  wordByWordTranslation: '{\"그들은\":\"They were\",\"모든 것을\":\"everything\",\" 얻기 위해\":\"to\n    obtain\",\"살아남기 위해\":\"to survive\",\"노력하고 있었다\":\"making an effort\"}'\n  overallTranslation: '{\"english\":\"They were struggling to survive and obtain everything.\"}'\nthree:\n  original: 그러나 어느 날, 그들은 가옥의 문을 열 때, 어둠이 가득찬 방에 사람이 있었다.\n  natural: 그들은 가옥 문을 열 때, 어둠이 가득찬 방에 사람이 있었다.\n  problem: |\n    그들은 가옥(家屋) 문(門)을 열 때, 어둠이 가득찬 방(房)에 사람이 있었다.\n  wordByWordTranslation: '{\"그들은\":\"They were\",\"가옥 문을 열 때\":\"when the prison door was\n    opened\",\"어둠이 가득찬 방\":\"a dark room\",\"사람이 있었다\":\"someone was there\"}'\n  overallTranslation: '{\"english\":\"When they opened the prison gate, someone was\n    in the dark room.\"}'\nfour:\n  original: 그 사람은 그들에 맞춰서 예민한 학생들이었다.\n  natural: 그 사람은 그들에 맞춰서 평등한 학생들이었다.\n  problem: |\n    그 사람은 그들에 맞춰서 평등(平等)한 학생(學生)들이었다.\n  wordByWordTranslation: '{\"그 사람은\":\"That person was\",\"그들에 맞춰서\":\"in accordance with\n    them\",\"평등한\":\"equal\",\"학생들이었다\":\"students were\"}'\n  overallTranslation: '{\"english\":\"He was equal to his peers in terms of his studies.\"}'\nfive:\n  original: 그는 학생들에게 악명으로 알려진 '예민한 사자'였다.\n  natural: 그는 학생들에게 악명으로 알려진 '예민한 사자'였습니다.\n  problem: |\n    그는 학생(學生)들에게 악명(惡名)으로 알려진 '예민(銳敏)한 사자(獅子)'였습니다.\n  wordByWordTranslation: \"{\\\"그는\\\":\\\"He was\\\",\\\"학생들에게\\\":\\\"to the\n    students\\\",\\\"악명으로\\\":\\\"infamous\\\",\\\"알려진\\\":\\\"known\\\",\\\"'예민한 사자':\\\":\\\"'The\n    noble lion'\\\",\\\"였습니다\\\":\\\"was\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"He was known as a 'lazy tiger' among the\n    students, notorious for his laziness.\\\"}\"\n",
-    "id": 1284
+    "id": 1293
   },
   {
     "generator": "korean-gap-story-3-noir",
     "input": "dilute",
     "problem": "밤의 어둠에 가jutant 길을 걸다가 <br> 갑자기 그림자가 움직이며 공기(空氣)가 조용해졌다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 그림자는 누군가 다른 사람이 아니었다. <br> 그 그림자는 아니었다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 조명이 절약한 길을 걸다가\n  natural: 밤의 어둠에 가jutant 길을 걸다가\n  problem: |\n    밤의 어둠에 가jutant 길을 걸다가\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가jutant\":\"guarding\",\"길\":\"path\",\"걸다가\":\"walking\n    along\"}'\n  overallTranslation: '{\"english\":\"Walking along a perilous path in the darkness of night.\"}'\ntwo:\n  original: 갑자기, 그림자가 움직이며 공기가 조용해졌다.\n  natural: 갑자기 그림자가 움직이며 공기가 조용해졌다.\n  problem: |\n    갑자기 그림자가 움직이며 공기(空氣)가 조용해졌다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"그림자가\":\"a\n    shadow\",\"움직이며\":\"moving\",\"공기가\":\"the air\",\"조용해졌다\":\"became quiet\"}'\n  overallTranslation: '{\"english\":\"Suddenly, shadows were moving and the air grew still.\"}'\nthree:\n  original: 그 그림자는 누구인지 알기 위해 조명을 향해 달려갔다.\n  natural: 그 그림자는 누구인지 밝혀내기 위해 조명을 향해 달려갔다.\n  problem: |\n    그 그림자는 누구인지 밝혀내기 위해 조명(照明)을 향(向)해 달려갔다.\n  wordByWordTranslation: '{\"그\":\"that\",\"그림자\":\"shadow\",\"는\":\"is\",\"누구인지\":\"who\n    is\",\"밝혀내기 위해\":\"to reveal\",\"조명\":\"light\",\"향해\":\"toward\",\"달려갔다\":\"ran away\"}'\n  overallTranslation: '{\"english\":\"The shadow moved towards the light to reveal\n    who it belonged to.\"}'\nfour:\n  original: 그 그림자는 누군가 다른 사람이 아니었다.\n  natural: 그 그림자는 누군가 다른 사람이 아니었다.\n  problem: |\n    그 그림자는 누군가 다른 사람이 아니었다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"그림자\\\":\\\"shadow\\\",\\\"는\\\":\\\"is\\\",\\\"누군가\\\":\\\n    \\\"someone\\\",\\\"다른\\\":\\\"different\\\",\\\"사람\\\":\\\"person\\\",\\\"아니었다\\\":\\\"wasn't\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"That shadow wasn't anyone but someone else.\\\"}\"\nfive:\n  original: 그 그림자는 나는 아니었다.\n  natural: 그 그림자는 아니었다.\n  problem: |\n    그 그림자는 아니었다.\n  wordByWordTranslation: '{\"그\":\"that\",\" 그림자\":\"shadow\",\"는\":\"was\",\" 아니었다\":\"not there\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"That shadow wasn't there.\\\"}\"\n",
-    "id": 1285
+    "id": 1294
+  },
+  {
+    "generator": "korean-gap-story-3-noir",
+    "input": "imitation",
+    "problem": "밤의 그림자 속에서, 목소리가 비늘렸고 말만 남았다. <br> 밤 그림자 속에서, 한 사람이 불타는 가옥(家屋) 앞에 가두렸다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> undefined<br> undefined<br>",
+    "solution": "one:\n  problem: |\n    밤의 그림자 속에서, 목소리가 비늘렸고 말만 남았다.\n  wordByWordTranslation: \"{\\\"밤의\\\":\\\"night's\\\",\\\"그림자\\\":\\\"shadow\\\",\\\"속에서\\\":\\\"inside\\\n    \\\",\\\"목소리가\\\":\\\"voice\\\",\\\"비늘렸고\\\":\\\"became louder\\\",\\\"말만\\\":\\\"just\n    words\\\",\\\"남았다\\\":\\\"remained\\\"}\"\n  overallTranslation: '{\"english\":\"In the shadow of night, only words remained, as\n    whispers were muffled.\"}'\ntwo:\n  problem: |\n    밤 그림자 속에서, 한 사람이 불타는 가옥(家屋) 앞에 가두렸다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"그림자\":\"shadow\",\"속에서\":\"inside\",\"한\":\"one\",\"사람\":\"person\",\"불타는\":\"burning\",\"가옥\":\"house\",\"앞에\":\"in\n    front of\",\"가두렸다\":\"was locked up\"}'\n  overallTranslation: '{\"english\":\"A solitary figure was confined outside a\n    burning house in the shadow of the night.\"}'\nthree:\n  wordByWordTranslation: '{\"그\":\"that\",\"순간\":\"moment\",\"비늘린\":\"hoarse\",\"목소리\":\"voice\",\"사라졌다\":\"vanished\"}'\n  overallTranslation: '{\"english\":\"In that moment, the hoarse voice vanished.\"}'\nfour:\n  wordByWordTranslation: '{\"불타는\":\"burning\",\"가옥\":\"house\",\"앞에서\":\"in front\n    of\",\"사람\":\"person\",\"은\":\"is\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"A person disappeared in front of a burning house.\"}'\nfive:\n  wordByWordTranslation: '{\"그\":\"that\",\"후\":\"after\",\"비늘린\":\"\n    swollen\",\"목소리\":\"voice\",\"다시\":\"again\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"After that, the swollen voice reappeared.\"}'\n",
+    "id": 1295
   },
   {
     "generator": "korean-gap-story-3-political",
     "input": "sociological",
     "problem": "서울에서 통화학(通貨學) 교수(敎授)였던 김민철은 한 날 정부(政府)의 새로운 사회(社會) 정책(政策)에 관심(關心)을 가지기 시작(始作)했습니다. <br> 그는 집으로 돌아갑니다. 가사(歌詞) 중(中) 뉴스를 확인(確認)합니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 김민철은 이 소통(疏通) 기회(機會)를 통해 사람들이 서로 이해(理解)하고 상호작용(相互作用)할 수 있다고 생각합니다. <br> 그는 이 새로운 정책(政策)을 통해 사회(社會)가 유연(柔軟)해지고 소통(疏通)이 개선(改善)될 것이라고 확신(確信)합니다. <br>",
     "solution": "one:\n  original: 서울에서 소통학 교수였던 김민철은, 한날 정부의 새로운 사회 정책에 대해 관심을 가지게 되었습니다.\n  natural: 서울에서 통화학 교수였던 김민철은 한 날 정부의 새로운 사회 정책에 관심을 가지기 시작했습니다.\n  problem: >\n    서울에서 통화학(通貨學) 교수(敎授)였던 김민철은 한 날 정부(政府)의 새로운 사회(社會) 정책(政策)에 관심(關心)을 가지기\n    시작(始作)했습니다.\n  wordByWordTranslation: '{\"서울에서\":\"in\n    Seoul\",\"통화학\":\"telecommunication\",\"교수\":\"professor\",\"김민철\":\"Kim Min-chol\",\"한\n    날\":\"one day\",\"정부\":\"government\",\"새로운\":\"new\",\"사회 정책\":\"social\n    policy\",\"관심\":\"interest\",\"을 가지기 시작했습니다\":\"started to take an interest in\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"Kim Min-chol, who had been a\n    telecommunication professor in Seoul, began to take an interest in the\n    government's new social policy one day.\\\"}\"\ntwo:\n  original: 그는 집에 돌아갑니다. 가사 중에 뉴스를 접합니다.\n  natural: 그는 집으로 돌아갑니다. 가사 중 뉴스를 확인합니다.\n  problem: |\n    그는 집으로 돌아갑니다. 가사(歌詞) 중(中) 뉴스를 확인(確認)합니다.\n  wordByWordTranslation: '{\"그는\":{\"korean\":\"그는\",\"english\":\"he\"},\"집으로\":{\"korean\":\"집으로\",\"english\":\"home\"},\"돌아갑니다\":{\"korean\":\"돌아갑니다\",\"english\":\"goes\n    back\"},\"가사\":{\"korean\":\"가사\",\"english\":\"chores\"},\"중\":{\"korean\":\"중\",\"english\":\"of\"},\"뉴스\":{\"korean\":\"뉴스\",\"english\":\"news\"},\"확인합니다\":{\"korean\":\"확인합니다\",\"english\":\"checks\"}}'\n  overallTranslation: '{\"english\":\"He returns home. He checks the news while doing chores.\"}'\nthree:\n  original: 뉴스에 따르면 새로운 정책은 모든 국민이 매월 한 번 정확한 소통 기회를 제공해야 한다고 선언했습니다.\n  natural: 뉴스에 따르면 새로운 정책은 모든 국민이 매월 한 번 정확한 소통 기회를 제공해야 한다고 선언했습니다.\n  problem: >\n    뉴스에 따르면 새로운 정책(政策)은 모든 국민(國民)이 매월(每月) 한 번(番) 정확(正確)한 소통(疏通) 기회(機會)를 제공(提供)해야\n    한다고 선언(宣言)했습니다.\n  wordByWordTranslation: '{\"뉴스\":\"news\",\"에\":\"according\n    to\",\"따르면\":\"following\",\"새로운\":\"new\",\"정책\":\"policy\",\"모든\":\"all\",\"국민\":\"nation\",\"매월\":\"every\n    month\",\"한\":\"one\",\"정확한\":\"accurate\",\"소통\":\"communication\",\"기회\":\"opportunity\",\"제공해야\":\"should\n    provide\",\"한다고\":\"said\"}'\n  overallTranslation: '{\"english\":\"According to the news, the new policy has\n    declared that every citizen should be provided with an accurate\n    communication opportunity once a month.\"}'\nfour:\n  original: 김민철은 이 소통 기회를 통해 사람들이 더 잘 이해하고 상호 작용할 수 있다고 생각합니다.\n  natural: 김민철은 이 소통 기회를 통해 사람들이 서로 이해하고 상호작용할 수 있다고 생각합니다.\n  problem: |\n    김민철은 이 소통(疏通) 기회(機會)를 통해 사람들이 서로 이해(理解)하고 상호작용(相互作用)할 수 있다고 생각합니다.\n  wordByWordTranslation: '{\"김민철은\":\"Kim Min-cheol is\",\"이 소통 기회를 통해\":\"through this\n    communication opportunity\",\"사람들이 서로 이해하고\":\"people can understand each\n    other\",\"상호작용할 수 있다고\":\"can interact with each other\",\"생각합니다\":\"he thinks\"}'\n  overallTranslation: '{\"english\":\"Kim Min-cheol believes that this communication\n    opportunity allows people to better understand each other and interact\n    meaningfully.\"}'\nfive:\n  original: 그는 이 새로운 정책을 통해 사회가 더 유연해지고 소통이 개선될 것이라고 확신합니다.\n  natural: 그는 이 새로운 정책을 통해 사회가 유연해지고 소통이 개선될 것이라고 확신합니다.\n  problem: |\n    그는 이 새로운 정책(政策)을 통해 사회(社會)가 유연(柔軟)해지고 소통(疏通)이 개선(改善)될 것이라고 확신(確信)합니다.\n  wordByWordTranslation: '{\"그는\":\"He\n    is\",\"이\":\"this\",\"새로운\":\"new\",\"정책\":\"policy\",\"을\":\"of\",\"통해\":\"through\",\"사회\":\"society\",\"유연해지고\":\"becomes\n    more flexible\",\"소통\":\"communication\",\"개선될\":\"will\n    improve\",\"것\":\"it\",\"확신합니다\":\"is confident\"}'\n  overallTranslation: '{\"english\":\"He believes that this new policy will make\n    society more flexible and improve communication.\"}'\n",
-    "id": 1286
+    "id": 1296
   },
   {
     "generator": "korean-gap-story-3-post-apocalyptic",
     "input": "story",
     "problem": "지금(只今) 이 세계(世界)는 너무 잡잡해(匝匝海)... <br> 고요한 바닥에서만 침대(寢臺)소리만 들린다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 우리 앞에는 아름다운 들판이 보인다. <br> 우리의 새로운 시작(始作)이 시작(始作)됐어. <br>",
     "solution": "one:\n  original: \"지금 이 세계는 너무 침잡해... \"\n  natural: 지금 이 세계는 너무 잡잡해...\n  problem: |\n    지금(只今) 이 세계(世界)는 너무 잡잡해(匝匝海)...\n  wordByWordTranslation: '{\"지금\":\"Now\",\"이\":\"this\",\"세계\":\"world\",\"는\":\"is\",\"너무\":\"too\n    much\",\"잡잡해\":\"messy/cluttered\"}'\n  overallTranslation: '{\"english\":\"This world is too messy...\"}'\ntwo:\n  original: \"고요한 바닥에서 침대소리만 들린다. \"\n  natural: 고요한 바닥에서만 침대소리만 들린다.\n  problem: |\n    고요한 바닥에서만 침대(寢臺)소리만 들린다.\n  wordByWordTranslation: '{\"고요한\":\"calm\",\"바닥\":\"floor\",\"만\":\"only\",\"침대소리\":\"bubble\n    sound\",\"들린다\":\"comes out\"}'\n  overallTranslation: '{\"english\":\"The bathtub only makes noise when used on a quiet floor.\"}'\nthree:\n  original: \"침대소리 대신, 문이 열리고 바닥을 타고 나왔다. \"\n  natural: 침대소리 대신 문이 열리고 바닥을 타며 나왔다.\n  problem: |\n    침대(寢臺)소리 대신(代身) 문(門)이 열리고 바닥을 타며 나왔다.\n  wordByWordTranslation: '{\"침대소리\":\"bathroom sounds\",\"대신\":\"instead of\",\"문이\":\"the\n    door\",\"열리고\":\"opened\",\"바닥을\":\"the floor\",\"타며\":\"walking on\",\"나왔다\":\"came out\"}'\n  overallTranslation: '{\"english\":\"The door opened instead of the bathroom noise,\n    and they came out walking on the floor.\"}'\nfour:\n  original: \"우리 앞에는 아름다운 들판이 보인다. \"\n  natural: 우리 앞에는 아름다운 들판이 보인다.\n  problem: |\n    우리 앞에는 아름다운 들판이 보인다.\n  wordByWordTranslation: '{\"우리\":\"we\",\"앞에는\":\"ahead of us\",\"아름다운\":\"beautiful\",\"\n    들판\":\"meadow\",\"보인다\":\"is visible\"}'\n  overallTranslation: '{\"english\":\"There is a beautiful meadow in front of us.\"}'\nfive:\n  original: 우리의 새로운 시작이 시작되었다.\n  natural: 우리의 새로운 시작이 시작됐어.\n  problem: |\n    우리의 새로운 시작(始作)이 시작(始作)됐어.\n  wordByWordTranslation: '{\"우리의\":\"our\",\"새로운\":\"new\",\"시작\":\"beginning\",\"이\":\"is\",\"시작됐어\":\"started\"}'\n  overallTranslation: '{\"english\":\"Our new beginning has begun.\"}'\n",
-    "id": 1287
+    "id": 1297
   },
   {
     "generator": "korean-gap-story-3-slasher",
     "input": "sister",
     "problem": "밤의 어둠 속에서 누나와 함께 산책(散策)을 해 있었다. <br> 누나들은 날카 날카 해 발걸음으로 앞을 두르다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 공을 볼 때 누나의 목을 절단(切斷)했다는 말을 듣고 공을 볼 것을 중단(中斷)했다. <br> 누군가는 공을 볼 것을 중단(中斷)하려고 말했지만, 나는 공을 볼 것을 계속(繼續)했다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속, 누나와 함께 산책을 해 있었다.\n  natural: 밤의 어둠 속에서 누나와 함께 산책을 해 있었다.\n  problem: |\n    밤의 어둠 속에서 누나와 함께 산책(散策)을 해 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"inside\",\"누나\":\"older\n    sister\",\"와\":\"with\",\"함께\":\"together\",\"산책\":\"walk\",\"해\":\"was\",\"있었다\":\"was being\"}'\n  overallTranslation: '{\"english\":\"We were walking together in the darkness of the night.\"}'\ntwo:\n  original: 누나는 날카 날카 하는 발걸음으로 앞을 두르다.\n  natural: 누나들은 날카 날카 해 발걸음으로 앞을 두르다.\n  problem: |\n    누나들은 날카 날카 해 발걸음으로 앞을 두르다.\n  wordByWordTranslation: '{\"누나들은\":\"Older sisters are\",\"날카 날카 해\":\"hurrying\n    quickly\",\"발걸음\":\"footsteps\",\"앞을 두르다\":\"leading the way\"}'\n  overallTranslation: '{\"english\":\"The sisters tiptoe cautiously, stepping lightly\n    on tiptoes to lead the way.\"}'\nthree:\n  original: 갑자기, 누나는 공을 볼 때 목을 절단했다.\n  natural: 갑자기 공을 볼 때 목을 절단했다.\n  problem: |\n    갑자기 공을 볼 때 목을 절단(切斷)했다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"공을 볼 때\":\"while watching the ball\",\"목을\n    절단했다\":\"cut off his neck\"}'\n  overallTranslation: '{\"english\":\"He choked when he saw the ball coming towards him.\"}'\nfour:\n  original: 나는 공을 볼 때 누나의 목을 절단했다는 말을 듣고 공을 볼 것을 중단했다.\n  natural: 공을 볼 때 누나의 목을 절단했다는 말을 듣고 공을 볼 것을 중단했다.\n  problem: |\n    공을 볼 때 누나의 목을 절단(切斷)했다는 말을 듣고 공을 볼 것을 중단(中斷)했다.\n  wordByWordTranslation: \"{\\\"공을 볼 때\\\":\\\"When hitting the ball\\\",\\\"누나의 목을\n    절단했다\\\":\\\"Cut off someone's neck\\\",\\\"말을 듣고\\\":\\\"hearing the news that\\\",\\\"공을 볼\n    것을 중단했다\\\":\\\"stopped hitting the ball\\\"}\"\n  overallTranslation: '{\"english\":\"When I heard someone had chopped off someone’s\n    neck while playing soccer, I stopped playing.\"}'\nfive:\n  original: 누나는 공을 볼 것을 중단하려고 말했지만, 나는 공을 볼 것을 계속했다.\n  natural: 누군가는 공을 볼 것을 중단하려고 말했지만, 나는 공을 볼 것을 계속했다.\n  problem: |\n    누군가는 공을 볼 것을 중단(中斷)하려고 말했지만, 나는 공을 볼 것을 계속(繼續)했다.\n  wordByWordTranslation: '{\"누군가는\":\"Someone\",\"공을\":\"the ball\",\"볼 것을\":\"to\n    bounce\",\"중단하려고\":\"wanted to stop\",\"말했지만\":\"said\n    but\",\"나는\":\"I\",\"계속했다\":\"continued to do\"}'\n  overallTranslation: '{\"english\":\"Someone suggested stopping the game, but I\n    decided to keep playing.\"}'\n",
-    "id": 1288
+    "id": 1298
   },
   {
     "generator": "korean-gap-story-3-space-opera",
     "input": "nervous",
     "problem": "우주선(宇宙船)의 속도(速度)가 너무 빠르다. <br> 두 손을 두려움 없이 움직인다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 우주선(宇宙船) 창(窓)을 통해 달려오는 별빛이 눈에 띄네. <br> 나는 속도(速度)가 줄어드는 우주선(宇宙船) 안에 안전(安全)하게 체를 두른다. <br>",
     "solution": "one:\n  original: 우주선의 스피드가 너무 빠르다.\n  natural: 우주선의 속도가 너무 빠르다.\n  problem: |\n    우주선(宇宙船)의 속도(速度)가 너무 빠르다.\n  wordByWordTranslation: '{\"우주선\":\"spaceship\",\"속도\":\"speed\",\"너무\":\"too\",\"빠르다\":\"fast\"}'\n  overallTranslation: '{\"english\":\"The spaceship is moving too fast.\"}'\ntwo:\n  original: 나는 내 두 손을 두려움으로 움직인다.\n  natural: 두 손을 두려움 없이 움직인다.\n  problem: |\n    두 손을 두려움 없이 움직인다.\n  wordByWordTranslation: '{\"두\":\"two\",\"손\":\"hand\",\"을\":\"particle\",\"두려움\":\"fear\",\"없이\":\"without\",\"움직인다\":\"moves\"}'\n  overallTranslation: '{\"english\":\"He moves both hands fearlessly.\"}'\nthree:\n  original: 갑자기, 우주선의 스피드가 느려지기 시작했다.\n  natural: 갑자기 우주선의 속도가 느려지는 것이 시작했다.\n  problem: |\n    갑자기 우주선(宇宙船)의 속도(速度)가 느려지는 것이 시작(始作)했다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"우주선\":\"spaceship\",\"속도\":\"speed\",\"느려지는\":\"slowing\n    down\",\"것\":\"that\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The spaceship's speed suddenly started decreasing.\\\"}\"\nfour:\n  original: 우주선의 창을 통해 달려오는 별빛이 눈에 띄네.\n  natural: 우주선 창을 통해 달려오는 별빛이 눈에 띄네.\n  problem: |\n    우주선(宇宙船) 창(窓)을 통해 달려오는 별빛이 눈에 띄네.\n  wordByWordTranslation: '{\"우주선\":\"spaceship\",\"창\":\"window\",\"달려오는\":\"coming\",\"별빛\":\"starlight\",\"눈\":\"eye\",\"띄네\":\"is\n    seen\"}'\n  overallTranslation: '{\"english\":\"The starlight streaming through the spacecraft\n    window is catching my eye.\"}'\nfive:\n  original: 나는 스피드가 느려지는 우주선에 안전하게 몸을 두른다.\n  natural: 나는 속도가 줄어드는 우주선 안에 안전하게 체를 두른다.\n  problem: |\n    나는 속도(速度)가 줄어드는 우주선(宇宙船) 안에 안전(安全)하게 체를 두른다.\n  wordByWordTranslation: '{\"나는\":\"I\",\"속도가\":\"speed\",\"줄어드는\":\"decreasing\",\"우주선\":\"spaceship\",\"안에\":\"inside\",\"안전하게\":\"safely\",\"체\":\"body\",\"두른다\":\"put\"}'\n  overallTranslation: '{\"english\":\"I stay safely inside the spaceship whose speed is decreasing.\"}'\n",
-    "id": 1289
+    "id": 1299
   },
   {
     "generator": "korean-gap-story-3-space-opera",
     "input": "barbarian",
     "problem": "별빛 아래서 길을 걸으며, 외계인(外界人) 바바리안이 사라졌다. <br> 그는 기묘(奇妙)한 소리를 하고, 우리를 공격(攻擊)하려고 위협(威脅)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 생명체(生命體)는 바바리안을 공격(攻擊)하고, 우리를 보호(保護)했다. <br> 그 후(後), 나는 바바리안 없이 날개를 가진 생명체(生命體)들과 함께 생활(生活)하기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 별빛 아래서 길을 걸으며, 바바리안이라는 외계인이 사라졌다.\n  natural: 별빛 아래서 길을 걸으며, 외계인 바바리안이 사라졌다.\n  problem: |\n    별빛 아래서 길을 걸으며, 외계인(外界人) 바바리안이 사라졌다.\n  wordByWordTranslation: '{\"별빛\":\"starlight\",\"아래서\":\"underneath\",\"길을 걸으며\":\"walking\n    along the\n    path\",\"외계인\":\"extraterrestrial\",\"바바리안\":\"barbarian\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"As the moonlight bathed the path, a Babylonian\n    alien vanished into thin air.\"}'\ntwo:\n  original: 그는 기묘한 소리들을 하며, 우리를 공격하려고 위협했다.\n  natural: 그는 기묘한 소리를 하고, 우리를 공격하려고 위협했다.\n  problem: |\n    그는 기묘(奇妙)한 소리를 하고, 우리를 공격(攻擊)하려고 위협(威脅)했다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"기묘한\":\"strange\",\"소리를\":\"sounds\",\"하고\":\"is\n    doing\",\"우리를\":\"us\",\"공격하려고\":\"wants to attack\",\"위협했다\":\"threatened\"}'\n  overallTranslation: '{\"english\":\"He made strange noises and threatened to attack us.\"}'\nthree:\n  original: 그 사이에, 나는 비늘과 날카로운 날개를 가진 생명체가 나타났다.\n  natural: 그 사이에, 나는 비늘과 날카로운 날개를 가진 생명체가 나타났다.\n  problem: |\n    그 사이에, 나는 비늘과 날카로운 날개를 가진 생명체(生命體)가 나타났다.\n  wordByWordTranslation: '{\"그 사이에\":\"Among them\",\"나는\":\"I\",\"비늘과 날카로운 날개를 가진\n    생명체가\":\"an organism with scales and sharp wings appeared\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"In between, a creature with scales and sharp wings appeared.\"}'\nfour:\n  original: 그 생명체는 바바리안을 공격하고, 우리를 보호했다.\n  natural: 그 생명체는 바바리안을 공격하고, 우리를 보호했다.\n  problem: |\n    그 생명체(生命體)는 바바리안을 공격(攻擊)하고, 우리를 보호(保護)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"생명체\":\"organism\",\"바바리안\":\"bacteria\",\"공격\":\"attacked\",\"하고\":\"and\",\"우리\":\"us\",\"보호\":\"protected\"}'\n  overallTranslation: '{\"english\":\"That organism defended us by attacking the barbarian.\"}'\nfive:\n  original: 그 후, 나는 바바리안 없이, 날개를 가진 생명체와 함께 생활하기 시작했다.\n  natural: 그 후, 나는 바바리안 없이 날개를 가진 생명체들과 함께 생활하기 시작했다.\n  problem: |\n    그 후(後), 나는 바바리안 없이 날개를 가진 생명체(生命體)들과 함께 생활(生活)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그 후\":\"After that\",\"나는\":\"I\",\"바바리안 없이\":\"without\n    barbarians\",\"날개를 가진 생명체들\":\"creatures with wings\",\"와 함께\":\"together\",\"생활하기\n    시작했다\":\"began to live\"}'\n  overallTranslation: '{\"english\":\"After that, I began living with creatures that\n    have wings without any babarians.\"}'\n",
-    "id": 1290
+    "id": 1300
   },
   {
     "generator": "korean-gap-story-3-whodunnit",
     "input": "read",
     "problem": "서책(書冊) 한 책(冊)을 읽다가 문고장(門故障)에서 소리 해요. <br> 소리의 소유자(所有者)는 알 수 없어요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 책(冊)을 읽다보면, 문고장(門故障)의 소리는 책(冊) 속의 이야기와 연관(聯關)되어 있음을 알게 됐어요. <br> 책(冊) 속의 이야기가 문고장(門故障) 소리에 영감(令監)을 주네요. <br>",
     "solution": "one:\n  original: 서책 한 책을 읽는 길에, 문고장에서 소리만 해요.\n  natural: 서책 한 책을 읽다가 문고장에서 소리 해요.\n  problem: |\n    서책(書冊) 한 책(冊)을 읽다가 문고장(門故障)에서 소리 해요.\n  wordByWordTranslation: '{\"서책\":\"book\",\"한\":\"one\",\"책\":\"book\",\"읽다가\":\"reading\",\"문고장\":\"library\",\"소리\":\"noise\",\"해요\":\"makes\"}'\n  overallTranslation: '{\"english\":\"I was reading a book when I heard a noise from the library.\"}'\ntwo:\n  original: 소리는 누구인지 알 수 없어요.\n  natural: 소리의 소유자는 알 수 없어요.\n  problem: |\n    소리의 소유자(所有者)는 알 수 없어요.\n  wordByWordTranslation: '{\"소리\":\"sound\",\"의\":\"of\",\"소유자\":\"owner\",\"는\":\"is\",\"알\":\"to\n    know\",\"수\":\"can\",\"없어요\":\"not known\"}'\n  overallTranslation: '{\"english\":\"The owner of the sound is unknown.\"}'\nthree:\n  original: 소리의 소리는 문고장에서 온 것인지 아닌지 이해하기 위해 책을 읽기 시작했어요.\n  natural: 소리의 소리는 문고장에서 왔는지 아니면 안 왔는지 이해하기 위해 책을 읽기 시작했어요.\n  problem: |\n    소리의 소리는 문고장(門故障)에서 왔는지 아니면 안 왔는지 이해(理解)하기 위해 책(冊)을 읽기 시작(始作)했어요.\n  wordByWordTranslation: \"{\\\"소리의\\\":\\\"sound's\\\",\\\"소리는\\\":\\\"voice\\\",\\\"문고장에서\\\":\\\"from\n    the library\\\",\\\"왔는지\\\":\\\"came or not\\\",\\\"아니면\\\":\\\"or not\\\",\\\" 이해하기 위해\\\":\\\"to\n    understand in order to\\\",\\\"책을\\\":\\\"a book\\\",\\\"읽기\\\":\\\"to\n    read\\\",\\\"시작했어요\\\":\\\"started\\\"}\"\n  overallTranslation: '{\"english\":\"I started reading the book to figure out\n    whether the whispers were from inside the book or outside.\"}'\nfour:\n  original: 책을 읽다보니, 문고장의 소리는 책 속의 이야기와 연관되어 있음을 알게 됐어요.\n  natural: 책을 읽다보면, 문고장의 소리는 책 속의 이야기와 연관되어 있음을 알게 됐어요.\n  problem: |\n    책(冊)을 읽다보면, 문고장(門故障)의 소리는 책(冊) 속의 이야기와 연관(聯關)되어 있음을 알게 됐어요.\n  wordByWordTranslation: \"{\\\"책을\\\":\\\"book\\\",\\\" 읽다보면\\\":\\\"as one reads\\\",\\\"문고장의\\\":\\\"a\n    library's\\\",\\\"소리는\\\":\\\"noise\\\",\\\"책 속의\\\":\\\"within the\n    book\\\",\\\"이야기\\\":\\\"story\\\",\\\"연관되어\\\":\\\"is\n    connected\\\",\\\"있음\\\":\\\"exists\\\",\\\"알게\\\":\\\"realizes\\\",\\\"됐어요\\\":\\\"it is\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"As you read books, you'll realize that the\n    whispers in the library are connected to the stories within the books.\\\"}\"\nfive:\n  original: 책 속의 이야기가 문고장의 소리에 영감을 주는 것 같네요.\n  natural: 책 속의 이야기가 문고장 소리에 영감을 주네요.\n  problem: |\n    책(冊) 속의 이야기가 문고장(門故障) 소리에 영감(令監)을 주네요.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"이야기\":\"story\",\"가\":\"is\",\"문고장\":\"rumor\",\"소리\":\"news\",\"영감\":\"inspiration\",\"주네요\":\"gives\"}'\n  overallTranslation: '{\"english\":\"The story in the book inspires me like a\n    whisper from the library.\"}'\n",
-    "id": 1291
+    "id": 1301
   },
   {
     "generator": "korean-gap-story-4-detective",
     "input": "scholar",
     "problem": "학자(學者)들이 살던 집은 평소(平素)보다 조용해졌네. <br> 문제(問題)는 이 집의 주민(住民)들 중(中) 누군가가 사라졌다는 보고(報告)였다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 학자(學者)들의 연구(硏究) 자료(資料)에 비밀(祕密) 정보(情報)가 담겨 있었다. 이 정보(情報)를 통해 누군가가 사라졌는지 추적(追跡)했다. <br> 비밀(祕密) 정보(情報)에 따르면 사라진 학자(學者)는 과학(科學) 분야(分野)의 주요(主要) 연구(硏究) 결과(結果)를 다른 연구자(硏究者)들과 공유(共有)하려고 계획(計劃)하고 있었습니다. <br>",
     "solution": "one:\n  original: 학자들의 집은 평소보다 조용해졌다.\n  natural: 학자들이 살던 집은 평소보다 조용해졌네.\n  problem: |\n    학자(學者)들이 살던 집은 평소(平素)보다 조용해졌네.\n  wordByWordTranslation: '{\"학자들이\":\"Scholars\",\"살던\":\"lived\",\"집은\":\"house\",\"평소보다\":\"normally\",\"조용해졌네\":\"became\n    quieter\"}'\n  overallTranslation: '{\"english\":\"The house where the scholars lived is quieter now than usual.\"}'\ntwo:\n  original: 문제는 이 집의 주민들 중 하나가 누군가가 사라졌다는 보고였다.\n  natural: 문제는 이 집의 주민들 중 누군가가 사라졌다는 보고였다.\n  problem: |\n    문제(問題)는 이 집의 주민(住民)들 중(中) 누군가가 사라졌다는 보고(報告)였다.\n  wordByWordTranslation: '{\"문제\":\"problem\",\"는\":\"is\",\"이\":\"this\",\"집\":\"house\",\"의\":\"of\",\"주민들\":\"residents\",\"중\":\"among\",\"누군가\":\"someone\",\"사라졌다\":\"went\n    missing\",\"보고였다\":\"reported\"}'\n  overallTranslation: '{\"english\":\"The report stated that someone from the\n    residents of this house had gone missing.\"}'\nthree:\n  original: 저는 경찰의 요청으로 사라진 학자를 찾아야 한다.\n  natural: 경찰의 요청에 따라 사라진 학자를 찾아야 합니다.\n  problem: |\n    경찰(警察)의 요청(要請)에 따라 사라진 학자(學者)를 찾아야 합니다.\n  wordByWordTranslation: \"{\\\"경찰의\\\":\\\"police\n    officer's\\\",\\\"요청에\\\":\\\"request\\\",\\\"따라\\\":\\\"according\n    to\\\",\\\"사라진\\\":\\\"missing\\\",\\\"학자\\\":\\\"scholar\\\",\\\"찾아야\\\":\\\"should be\n    found\\\",\\\"마야\\\":\\\"must\\\"}\"\n  overallTranslation: '{\"english\":\"The scholar who has gone missing at the request\n    of the police must be found.\"}'\nfour:\n  original: 저는 학자들의 연구 자료에 담긴 비밀 정보를 통해 누군가가 사라졌는지 추적했다.\n  natural: 학자들의 연구 자료에 비밀 정보가 담겨 있었다. 이 정보를 통해 누군가가 사라졌는지 추적했다.\n  problem: >\n    학자(學者)들의 연구(硏究) 자료(資料)에 비밀(祕密) 정보(情報)가 담겨 있었다. 이 정보(情報)를 통해 누군가가 사라졌는지\n    추적(追跡)했다.\n  wordByWordTranslation: \"{\\\"학자들의\\\":\\\"The scholars'\\\",\\\"연구 자료\\\":\\\"research\n    materials\\\",\\\"비밀\\\":\\\"secret\\\",\\\"정보\\\":\\\"information\\\",\\\"담겨 있었다\\\":\\\"were\n    contained\\\",\\\"이\\\":\\\"this\\\",\\\"누군가가\\\":\\\"someone\\\",\\\"사라졌는지\\\":\\\"went\n    missing\\\",\\\"추적했다\\\":\\\"tracked down\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"Classified information was contained within\n    the researchers' data. This information was used to track down who had gone\n    missing.\\\"}\"\nfive:\n  original: 비밀 정보에 따르면, 사라진 학자는 과학 분야의 주요 연구 결과를 다른 연구자들과 공유하려고 계획하고 있었다.\n  natural: 비밀 정보에 따르면 사라진 학자는 과학 분야의 주요 연구 결과를 다른 연구자들과 공유하려고 계획하고 있었습니다.\n  problem: >\n    비밀(祕密) 정보(情報)에 따르면 사라진 학자(學者)는 과학(科學) 분야(分野)의 주요(主要) 연구(硏究) 결과(結果)를 다른\n    연구자(硏究者)들과 공유(共有)하려고 계획(計劃)하고 있었습니다.\n  wordByWordTranslation: '{\"비밀\":\"Secret\",\"정보\":\"Information\",\"에\":\"According\n    to\",\"따르면\":\"means\",\"사라진\":\"Missing\",\"학자\":\"Scholar\",\"과학\":\"Science\",\"분야\":\"Field\",\"주요\":\"Major\",\"연구\":\"Research\",\"결과\":\"Results\",\"다른\":\"Other\",\"연구자들\":\"Researchers\",\"공유\":\"Share\",\"하고\":\"is\n    planning to\",\"있었습니다\":\"was\"}'\n  overallTranslation: '{\"english\":\"According to the confidential information, the\n    missing scholar had planned to share their major research findings with\n    other researchers.\"}'\n",
-    "id": 1292
+    "id": 1302
   },
   {
     "generator": "korean-gap-story-4-gritty-realism",
     "input": "condemn",
     "problem": "밤의 어둠이 가득찬 길을 걸으며, 나는 길가에 음악(音樂)이 침입(侵入)하는 소리를 들었다. <br> 침입(侵入)하는 음악(音樂)은 누구일까? <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> undefined<br> 밤연(軟)한 길을 걸으며, 음악(音樂)이 침입(侵入)하는 소리에 주의(注意)를 기울였습니다. 누구일까 고민(苦悶)하며 길을 돌려 돌아왔습니다. <br>",
     "solution": "one:\n  original: 밤의 어둠이 가득찬 길을 걸으며, 나는 길가에 침입하는 음악을 들었다.\n  natural: 밤의 어둠이 가득찬 길을 걸으며, 나는 길가에 음악이 침입하는 소리를 들었다.\n  problem: |\n    밤의 어둠이 가득찬 길을 걸으며, 나는 길가에 음악(音樂)이 침입(侵入)하는 소리를 들었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"full\",\"찬\":\"cold\",\"길\":\"path\",\"걸으며\":\"walking\n    along\",\"나는\":\"I\",\"길가\":\"sidewalk\",\"음악\":\"music\",\"침입\":\"intrudes\",\"소리\":\"sound\"}'\n  overallTranslation: '{\"english\":\"As I walked along the shadowed path of the\n    night, I heard the sound of music invading the silence of the roadside.\"}'\ntwo:\n  original: 침입하는 음악? 누구일까?\n  natural: 침입하는 음악은 누구일까?\n  problem: |\n    침입(侵入)하는 음악(音樂)은 누구일까?\n  wordByWordTranslation: '{\"침입하는\":\"invading\",\"음악\":\"music\",\"누구일까\":\"who is it\"}'\n  overallTranslation: '{\"english\":\"What music is invading?\"}'\nthree:\n  original: 갑자기, 나는 저명한 음악가가 아닌 살인자가 되어버렸다.\n  natural: 갑자기, 저명한 음악가가 아닌 살인자가 되었다.\n  problem: |\n    갑자기, 저명(著名)한 음악가(音樂家)가 아닌 살인자(殺人者)가 되었다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"저명한\":\"Famous\",\"음악가\":\"Musician\",\"아닌\":\"Not\",\"살인자가\":\"A\n    killer\",\"되었다\":\"became\"}'\n  overallTranslation: '{\"english\":\"Suddenly, he became a killer, not a renowned musician.\"}'\nfour:\n  original: 살인인이 되는 이유는 알 수 없지만, 나는 살인자가 될 때까지 살아남아야 한다.\n  natural: 살인의 이유는 알 수 없지만, 살인자가 되는 과정에서 생존해야 합니다.\n  wordByWordTranslation: \"{\\\"살인의\\\":\\\"Murderer's\\\",\\\"이유는\\\":\\\"reason is\\\",\\\"알 수\n    없지만\\\":\\\"unknown\\\",\\\"살인자가\\\":\\\"a murderer\\\",\\\" 되는\\\":\\\"becomes\\\",\\\"과정에서\\\":\\\"in\n    the process of\\\",\\\"생존해야 합니다\\\":\\\"must survive\\\"}\"\n  overallTranslation: '{\"english\":\"The motive for murder is unknown, but in the\n    process of becoming a murderer, one must survive.\"}'\nfive:\n  original: 살인자로 변해버린 나는 길을 돌려 돌아왔다.\n  natural: 밤연한 길을 걸으며, 음악이 침입하는 소리에 주의를 기울였습니다. 누구일까 고민하며 길을 돌려 돌아왔습니다.\n  problem: >\n    밤연(軟)한 길을 걸으며, 음악(音樂)이 침입(侵入)하는 소리에 주의(注意)를 기울였습니다. 누구일까 고민(苦悶)하며 길을 돌려\n    돌아왔습니다.\n  wordByWordTranslation: '{\"밤연한\":\"darkly lit\",\"길을\":\"the path\",\"걸으며\":\"walking\n    along\",\"음악이\":\"music is\",\"침입하는\":\"invading\",\"소리에\":\"sounds\n    of\",\"주의를\":\"attention\",\"기울였습니다\":\"had been paying attention\",\"누구일까\":\"who could\n    it be\",\"고민하며\":\"worrying about\",\"돌려\":\"turned back\",\"돌아왔습니다\":\"had come back\"}'\n  overallTranslation: '{\"english\":\"I was paying attention to the sound of music\n    invading the quiet night, wondering who it could be. I turned around and\n    came back.\"}'\n",
-    "id": 1293
+    "id": 1303
   },
   {
     "generator": "korean-gap-story-4-horror",
     "input": "jolt",
     "problem": "밤의 어둠이 사라지는 마을에 평화(平和)한 영신이 살고 있었다. <br> 그는 친구(親舊)들과 함께 어둠에 숨겨지는 길을 걸었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 그림자는 영신의 눈을 사로잡고, 그 곳으로 그를 유인(誘引)했다. <br> 그는 그림자에 잡여지며 영신은 절망(絶望)의 소리에 말을 하지 못했다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 영신이 평화한 마을에 살고 있었다.\n  natural: 밤의 어둠이 사라지는 마을에 평화한 영신이 살고 있었다.\n  problem: |\n    밤의 어둠이 사라지는 마을에 평화(平和)한 영신이 살고 있었다.\n  wordByWordTranslation: \"{\\\"밤의\\\":\\\"night's\\\",\\\"어둠이\\\":\\\"darkness\\\",\\\"사라지는\\\":\\\"dis\\\n    appearing\\\",\\\"마을에\\\":\\\"in the\n    village\\\",\\\"평화한\\\":\\\"peaceful\\\",\\\"영신\\\":\\\"soul\\\",\\\"살고\\\":\\\"was\n    living\\\",\\\"있었다\\\":\\\"was there\\\"}\"\n  overallTranslation: '{\"english\":\"In the village where the darkness of night\n    disappears, there lived a peaceful spirit.\"}'\ntwo:\n  original: 그는 친구들과 함께, 어둠 속에서 비추는 길을 걸었다.\n  natural: 그는 친구들과 함께 어둠에 숨겨지는 길을 걸었다.\n  problem: |\n    그는 친구(親舊)들과 함께 어둠에 숨겨지는 길을 걸었다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"친구들과\":\"with\n    friends\",\"함께\":\"together\",\"어둠에\":\"in the\n    dark\",\"숨겨지는\":\"hiding\",\"길\":\"path\",\"걸었다\":\"walked\"}'\n  overallTranslation: '{\"english\":\"He walked along the path that led into the\n    shadows with his friends.\"}'\nthree:\n  original: 갑자기, 영신은 길의 끝에 볼 수 없는 광대한 그림자를 발견했다.\n  natural: 갑자기, 영신은 길의 끝에 보이지 않는 광대한 그림자를 발견했다.\n  problem: |\n    갑자기, 영신은 길의 끝에 보이지 않는 광대(廣大)한 그림자를 발견(發見)했다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"영신\":\"Faith\",\"길의 끝\":\"end of the\n    road\",\"보이지 않는\":\"invisible\",\"광대한\":\"vast\",\"그림자\":\"shadow\",\"발견했다\":\"discovered\"}'\n  overallTranslation: '{\"english\":\"Suddenly, he realized that there was a vast\n    shadow stretching beyond the end of the path.\"}'\nfour:\n  original: 그 그림자는 영신의 눈을 사로잡고, 그 곳으로 그를 향해 유인했다.\n  natural: 그 그림자는 영신의 눈을 사로잡고, 그 곳으로 그를 유인했다.\n  problem: |\n    그 그림자는 영신의 눈을 사로잡고, 그 곳으로 그를 유인(誘引)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"그림자\":\"shadow\",\"는\":\"is\",\"영신\":\"soul\",\"의\":\"of\",\"눈\":\"eyes\",\"사로잡고\":\"captures\",\"곳으로\":\"to\n    that place\",\"그를\":\"him\",\"유인했다\":\"led\"}'\n  overallTranslation: '{\"english\":\"The shadow lured him in with its gaze and led him there.\"}'\nfive:\n  original: 그는 그림자에 잡여지며, 영신은 절망의 소리에 말을 못했다.\n  natural: 그는 그림자에 잡여지며 영신은 절망의 소리에 말을 하지 못했다.\n  problem: |\n    그는 그림자에 잡여지며 영신은 절망(絶望)의 소리에 말을 하지 못했다.\n  wordByWordTranslation: '{\"그는\":\"He was\",\"그림자에\":\"in the\n    shadow\",\"잡여지며\":\"trapped\",\"영신은\":\"his spirit\",\"절망의\":\"a state of\n    despair\",\"소리에\":\"to the sound of\",\"말을\":\"speak\",\"하지 못했다\":\"could not speak\"}'\n  overallTranslation: '{\"english\":\"He was trapped in the shadow and could not\n    speak as the voice of despair echoed around him.\"}'\n",
-    "id": 1294
+    "id": 1304
+  },
+  {
+    "generator": "korean-gap-story-4-horror",
+    "input": "endorsement",
+    "problem": "침실(寢室) 문(門)을 열고 문(門)을 통해 길게 보이는 길이 빛나는 양(量)의 그림자가 드러났다. <br> 그 그림자는 누군가 없이 길을 걸으며 양(量)의 그림자에 포용되었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 그림자는 양(量)의 얼굴을 하고 음침(陰沈)하게 양(羊)의 목에 손을 걸었다. <br> 그 음침(陰沈)한 손은 양(羊)의 목을 잘라 양(量)의 그림자는 사라졌다. <br>",
+    "solution": "one:\n  problem: |\n    침실(寢室) 문(門)을 열고 문(門)을 통해 길게 보이는 길이 빛나는 양(量)의 그림자가 드러났다.\n  wordByWordTranslation: '{\"침실\":\"bedroom\",\"문\":\"door\",\"열\":\"open\",\"보이는\":\"visible\",\"길이\":\"length\",\"빛나는\":\"shining\",\"양\":\"amount\",\"그림자\":\"shadow\",\"드러났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"The shadow of a vast quantity of figures was\n    cast as the long shadows emerged through the room door.\"}'\ntwo:\n  problem: |\n    그 그림자는 누군가 없이 길을 걸으며 양(量)의 그림자에 포용되었다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"그림자\\\":\\\"shadow\\\",\\\"누군가\\\":\\\"anyone\\\",\\\n    \\\"없이\\\":\\\"without\\\",\\\"길\\\":\\\"path\\\",\\\"걸으며\\\":\\\"walking\\\",\\\"양의\\\":\\\"horse's\\\",\\\"\\\n    포용되었다\\\":\\\"was engulfed\\\"}\"\n  overallTranslation: '{\"english\":\"The shadow stood alone, walking the path and\n    swallowed by the shadow of a horse.\"}'\nthree:\n  problem: |\n    그 후(後) 양(量)의 그림자는 길을 걸지 않았다.\n  wordByWordTranslation: '{\"그\":\"that\",\"후\":\"after\",\"양의\":\"shadow\n    of\",\"그림자\":\"shadow\",\"길\":\"path\",\"걸지 않았다\":\"did not walk\"}'\n  overallTranslation: '{\"english\":\"After that, the shadow of the horse did not\n    walk along the path.\"}'\nfour:\n  problem: |\n    그 그림자는 양(量)의 얼굴을 하고 음침(陰沈)하게 양(羊)의 목에 손을 걸었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"그림자\":\"shadow\",\"는\":\"is\",\"양\":\"horse\",\"의\":\"of\",\"얼굴\":\"face\",\"하고\":\"and\",\"음침하게\":\"quietly\",\"목\":\"neck\",\"손\":\"hand\",\"걸었다\":\"put\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The shadow stood with a grin, its hand\n    resting on the horse's neck.\\\"}\"\nfive:\n  problem: |\n    그 음침(陰沈)한 손은 양(羊)의 목을 잘라 양(量)의 그림자는 사라졌다.\n  wordByWordTranslation: '{\"그\":\"that\",\"음침한\":\"gloomy\",\"손\":\"hand\",\"양\":\"horse\",\"목\":\"neck\",\"\n    잘라\":\"cut off\",\"양의\":\"of the horse\",\"그림자\":\"shadow\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The sleepy hand severed the tiger's neck,\n    and the tiger's shadow vanished.\\\"}\"\n",
+    "id": 1305
+  },
+  {
+    "generator": "korean-gap-story-4-outlaw",
+    "input": "pronoun",
+    "problem": "저녁하늘 아래, 단기간(短期間)에 살아남는 자(者)들은 거대(巨大)한 언어(言語)들에 영감(靈感)을 받습니다. <br> 그들은 자신(自身)만의 고통(苦痛)과 목표(目標)를 가지고 살아갑니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 언어(言語)가 사라지기 시작(始作)하면서, 사람들은 사고(思考)하고 행동(行動)해야 할 방식(方式)에 대(對)해 생각하기 시작(始作)했습니다. <br> 그들은 단순(單純)한 언어(言語)를 통해 살아남는 것이 아니고, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다. <br>",
+    "solution": "one:\n  problem: |\n    저녁하늘 아래, 단기간(短期間)에 살아남는 자(者)들은 거대(巨大)한 언어(言語)들에 영감(靈感)을 받습니다.\n  wordByWordTranslation: '{\"저녁하늘\":\"evening sky\",\"아래\":\"below\",\"단기간에\":\"in a short\n    period of time\",\"살아남는\":\"surviving\",\"자들은\":\"people\",\"거대한 언어들\":\"large\n    languages\",\"영감을 받습니다\":\"are influenced by\"}'\n  overallTranslation: '{\"english\":\"Those who survive in the evening sky, under the\n    short-lived stars, are inspired by the great languages.\"}'\ntwo:\n  problem: |\n    그들은 자신(自身)만의 고통(苦痛)과 목표(目標)를 가지고 살아갑니다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"자신만의\":\"own\",\"고통\":\"suffering\",\"목표\":\"goal\",\"가지고\":\"have\",\"살아갑니다\":\"live\"}'\n  overallTranslation: '{\"english\":\"They live with their own pain and goals.\"}'\nthree:\n  problem: |\n    그런데 어느 날, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그런데\":\"However\",\"어느 날\":\"One\n    day\",\"언어\":\"Language\",\"자체\":\"itself\",\"위험해지기\":\"became\n    dangerous\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, one day, the language itself began to\n    become dangerous.\"}'\nfour:\n  problem: >\n    언어(言語)가 사라지기 시작(始作)하면서, 사람들은 사고(思考)하고 행동(行動)해야 할 방식(方式)에 대(對)해 생각하기\n    시작(始作)했습니다.\n  wordByWordTranslation: '{\"언어가\":\"The language\",\"사라지기\":\"begins to\n    disappear\",\"시작하면서\":\"as it starts\",\"사고하고\":\"start\n    thinking\",\"행동해야\":\"should\",\"방식에\":\"about the way\",\"상상하기\":\"began to think\"}'\n  overallTranslation: '{\"english\":\"As language began to disappear, people started\n    to think about the way they should think and behave.\"}'\nfive:\n  problem: |\n    그들은 단순(單純)한 언어(言語)를 통해 살아남는 것이 아니고, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"단순한\":\"simple\",\"언어\":\"language\",\"통해\":\"through\",\"살아남는\":\"to\n    survive\",\"것이\":\"is not\",\"자체\":\"itself\",\"위험해지기\":\"to become\n    dangerous\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"They are not simply surviving on their basic\n    language, but the language itself is becoming dangerous.\"}'\n",
+    "id": 1306
   },
   {
     "generator": "korean-gap-story-4-post-apocalyptic",
     "input": "pneumonia",
     "problem": "지금(只今) 이 도시(都市)는 사람이 없네요. <br> 기후(氣候)가 좋아지고 공기(空氣)가 순화(醇化)했습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 피터는 공기(空氣) 순환기(循環氣)를 이용(利用)하여 공기(空氣)를 청소(淸掃)했습니다. <br> 피터는 공기(空氣)를 청소(淸掃)하며 공기(空氣)를 순화(純化)할 수 있었습니다. <br>",
     "solution": "one:\n  original: 지금 이 도시는 누구도 없어요.\n  natural: 지금 이 도시는 사람이 없네요.\n  problem: |\n    지금(只今) 이 도시(都市)는 사람이 없네요.\n  wordByWordTranslation: '{\"지금\":\"Now\",\"이\":\"this\",\"도시\":\"city\",\"는\":\"is\",\"사람\":\"people\",\"없네요\":\"is empty\"}'\n  overallTranslation: '{\"english\":\"There are no people in this city right now.\"}'\ntwo:\n  original: 대기가 가빠지고 공기가 깨끗해졌습니다.\n  natural: 기후가 좋아지고 공기가 순화했습니다.\n  problem: |\n    기후(氣候)가 좋아지고 공기(空氣)가 순화(醇化)했습니다.\n  wordByWordTranslation: '{\"기후\":\"climate\",\"가\":\"is\",\"좋아지고\":\"getting\n    better\",\"공기\":\"air\",\"순화했습니다\":\"became purified\"}'\n  overallTranslation: '{\"english\":\"The climate has become pleasant and the air has\n    purified itself.\"}'\nthree:\n  original: 침입자들이 나타났습니다. 그들은 기침을 치우며 공기를 들숨합니다.\n  natural: 침략자들이 나타났습니다. 그들은 기침을 해주며 공기를 들숨합니다.\n  problem: |\n    침략자(侵略者)들이 나타났습니다. 그들은 기침을 해주며 공기(空氣)를 들숨합니다.\n  wordByWordTranslation: '{\"침략자들\":\"invaders\",\"나타났습니다\":\"appeared\",\"그들은\":\"they\n    are\",\"기침\":\"breathing\",\"해주며\":\"calmly\",\"공기를 들숨합니다\":\"are breathing air\"}'\n  overallTranslation: '{\"english\":\"Invaders have appeared. They are gasping for\n    air and holding their breath.\"}'\nfour:\n  original: 피터는 공기 순환기를 활용하여 공기를 청소했습니다.\n  natural: 피터는 공기 순환기를 이용하여 공기를 청소했습니다.\n  problem: |\n    피터는 공기(空氣) 순환기(循環氣)를 이용(利用)하여 공기(空氣)를 청소(淸掃)했습니다.\n  wordByWordTranslation: '{\"피터\":\"Peter\",\"는\":\"is\",\"공기\":\"air\",\"순환기\":\"air\n    purifier\",\"을\":\"to\",\"이용하여\":\"using\",\"공기를\":\"air\",\"청소했습니다\":\"cleaned\"}'\n  overallTranslation: '{\"english\":\"Peter cleaned the air using an air purifier.\"}'\nfive:\n  original: 피터는 공기를 청소하면서 공기를 깨끗하게 유지할 수 있었습니다.\n  natural: 피터는 공기를 청소하며 공기를 순화할 수 있었습니다.\n  problem: |\n    피터는 공기(空氣)를 청소(淸掃)하며 공기(空氣)를 순화(純化)할 수 있었습니다.\n  wordByWordTranslation: '{\"피터\":\"Peter\",\"는\":\"is\",\"공기를\":\"the\n    air\",\"청소\":\"cleaning\",\"하며\":\"and\",\"순화\":\"purify\",\"할\":\"can\",\"수 있었습니다\":\"was able\n    to\"}'\n  overallTranslation: '{\"english\":\"Peter was able to purify and clean the air.\"}'\n",
-    "id": 1295
+    "id": 1307
   },
   {
     "generator": "korean-gap-story-4-psychological-horror",
     "input": "display",
     "problem": "박사장(朴社長)은 공방(攻防)에 가서 디스플레이를 확인(確認)하기 위해 있었다. <br> 그는 공방(攻防) 문(門)을 열고 디스플레이를 보니 이상(異常)한 그림이 그려 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 박사장(朴社長)은 디스플레이 앞에 사람이 있다고 생각하고 무력감(無力感)을 느끼기 시작(始作)했다. <br> 디스플레이 앞에서 누군가가 박사장(朴社長)을 공격(攻擊)하기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 박사장은 공방에 가서 디스플레이를 확인하기 위해 있었다.\n  natural: 박사장은 공방에 가서 디스플레이를 확인하기 위해 있었다.\n  problem: |\n    박사장(朴社長)은 공방(攻防)에 가서 디스플레이를 확인(確認)하기 위해 있었다.\n  wordByWordTranslation: '{\"박사장\":\"professor\",\"은\":\"is\",\"공방\":\"computer\n    lab\",\"가서\":\"went to\",\"디스플레이\":\"display\",\"확인하기 위해\":\"to check\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"The principal was at the broadcasting station\n    to check the display.\"}'\ntwo:\n  original: 그는 공방 문을 열고 디스플레이를 보니 이상한 그림이 그려 있었다.\n  natural: 그는 공방 문을 열고 디스플레이를 보니 이상한 그림이 그려 있었다.\n  problem: |\n    그는 공방(攻防) 문(門)을 열고 디스플레이를 보니 이상(異常)한 그림이 그려 있었다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"공방\":{\"studio\":\"studio\"},\"문\":{\"door\":\"door\"},\"열고\":{\"opened\":\"opened\"},\"디스플레이\":{\"display\":\"display\"},\"보니\":{\"saw\":\"saw\"},\"이상한\":{\"strange\":\"strange\"},\"그려\":{\"drawn\":\"drawn\"},\"있었다\":{\"was\":\"was\"}}'\n  overallTranslation: '{\"english\":\"He opened the lab door and saw a strange\n    picture drawn on the display.\"}'\nthree:\n  original: 갑자기 공방의 밝기가 어둡고 공기가 사라졌다.\n  natural: 갑자기 공방이 어둡고 공기가 사라졌다.\n  problem: |\n    갑자기 공방(工房)이 어둡고 공기(空氣)가 사라졌다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"공방\":\"classroom\",\"어둡고\":\"dark\",\"공기\":\"air\",\"사라졌다\":\"vanished\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the auditorium is dark and the air has vanished.\"}'\nfour:\n  original: 박사장은 디스플레이 앞에 누군가가 있다고 생각하고 무력감을 느끼기 시작했다.\n  natural: 박사장은 디스플레이 앞에 사람이 있다고 생각하고 무력감을 느끼기 시작했다.\n  problem: |\n    박사장(朴社長)은 디스플레이 앞에 사람이 있다고 생각하고 무력감(無力感)을 느끼기 시작(始作)했다.\n  wordByWordTranslation: '{\"박사장\":\"professor\",\"은\":\"is\",\"디스플레이\":\"display\",\"앞에\":\"in\n    front of\",\"사람\":\"people\",\"있다\":\"is\n    there\",\"고\":\"that\",\"생각\":\"think\",\"무력감\":\"helplessness\",\"느끼기\":\"began to\n    feel\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The principal realized someone was standing in\n    front of the display, and began to feel helpless.\"}'\nfive:\n  original: 디스플레이 앞에서 누군가가 박사장을 공격하기 시작했다.\n  natural: 디스플레이 앞에서 누군가가 박사장을 공격하기 시작했다.\n  problem: |\n    디스플레이 앞에서 누군가가 박사장(朴社長)을 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"디스플레이\":\"Display\",\"앞에서\":\"in front\n    of\",\"누군가\":\"Someone\",\"박사장\":\"President\",\"공격하기\":\"to attack\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Someone started attacking the president in\n    front of the display.\"}'\n",
-    "id": 1296
+    "id": 1308
   },
   {
     "generator": "korean-gap-story-4-romantic",
     "input": "equestrian",
     "problem": "하늘 아래 넓은 초원(草原)에서 말을 타는 영준이는, 다른 말들을 앞세우며 순차적(順次的)으로 등장(登場)했습니다. <br> 그는 말을 타는 도중(途中)에도 순발적(的)으로 생각하고 행동(行動)했습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 말은 아리였고, 아리는 영준이의 말을 이해(理解)하고 따라하기 시작(始作)했습니다. <br> 영준이는 아리와 함께 초원(草原)을 돌아다니며 새로운 용기(勇氣)와 만날 수 있게 되었습니다. <br>",
     "solution": "one:\n  original: 하늘 아래 넓은 초원에서 말을 타는 영준이는, 다른 말들을 앞세우며 순차적으로 등장했습니다.\n  natural: 하늘 아래 넓은 초원에서 말을 타는 영준이는, 다른 말들을 앞세우며 순차적으로 등장했습니다.\n  problem: |\n    하늘 아래 넓은 초원(草原)에서 말을 타는 영준이는, 다른 말들을 앞세우며 순차적(順次的)으로 등장(登場)했습니다.\n  wordByWordTranslation: '{\"하늘\":\"sky\",\"아래\":\"below\",\"넓은\":\"wide\",\"초원\":\"meadow\",\"말\":\"horse\",\"타는\":\"riding\",\"영준이는\":\"Young-joon\n    is\",\"다른\":\"other\",\"말들을\":\"horses\",\"앞세우며\":\"leading\",\"순차적으로\":\"sequentially\",\"등장했습니다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Young Jun-Nam, riding a horse across the wide\n    grassland below the sky, emerged in order, leading the other horses in\n    sequence.\"}'\ntwo:\n  original: 그는 말에 타고 있을 때도 순발적으로 생각하고 행동했습니다.\n  natural: 그는 말을 타는 도중에도 순발적으로 생각하고 행동했습니다.\n  problem: |\n    그는 말을 타는 도중(途中)에도 순발적(的)으로 생각하고 행동(行動)했습니다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"말을\":\"words\",\"타는\":\"speaking\",\"도중\":\"while\",\"순발적으로\":\"spontaneously\",\"생각하고\":\"thinking\",\"행동했습니다\":\"acted\"}'\n  overallTranslation: '{\"english\":\"He even thought and acted impulsively during\n    the middle of speaking.\"}'\nthree:\n  original: 그날, 영준이는 다른 말들이 물들일 때, 그와 같은 말이 있다는 말을 접했습니다.\n  natural: 그날, 영준이는 다른 말들이 물들일 때, 그와 같은 말이 있다는 말을 접했습니다.\n  problem: |\n    그날, 영준이는 다른 말들이 물들일 때, 그와 같은 말이 있다는 말을 접(接)했습니다.\n  wordByWordTranslation: '{\"그날\":\"that day\",\"영준이는\":\"Young-joon\n    is\",\"다른\":\"other\",\"말들이\":\"words\",\"물들일\":\"wet\",\"때\":\"when\",\"그와 같은\":\"like\n    that\",\"말\":\"word\",\"접했습니다\":\"heard\"}'\n  overallTranslation: '{\"english\":\"On that day, Young-joon noticed that there were\n    words similar to the ones that were being whispered when others were\n    gossiping.\"}'\nfour:\n  original: 그 말의 이름은 아리였고, 아리는 영준이의 말을 이해하고 따르려 하기 시작했습니다.\n  natural: 그 말은 아리였고, 아리는 영준이의 말을 이해하고 따라하기 시작했습니다.\n  problem: |\n    그 말은 아리였고, 아리는 영준이의 말을 이해(理解)하고 따라하기 시작(始作)했습니다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"말\\\":\\\"word\\\",\\\"은\\\":\\\"was\\\",\\\"아리\\\":\\\"s\\\n    tupid\\\",\\\"였고\\\":\\\"was\\\",\\\"아리는\\\":\\\"he\\\",\\\"영준이의\\\":\\\"Young-joon's\\\",\\\"\n    이해하고\\\":\\\"understood\\\",\\\"따라하기\\\":\\\"to follow\\\",\\\"시작했습니다\\\":\\\"began\\\"}\"\n  overallTranslation: '{\"english\":\"His words were silly, and the squirrel\n    understood his words and began following him.\"}'\nfive:\n  original: 영준이는 아리와 함께 초원을 돌아다니며, 새로운 용기와 만남을 얻기 시작했습니다.\n  natural: 영준이는 아리와 함께 초원을 돌아다니며 새로운 용기와 만날 수 있게 되었습니다.\n  problem: |\n    영준이는 아리와 함께 초원(草原)을 돌아다니며 새로운 용기(勇氣)와 만날 수 있게 되었습니다.\n  wordByWordTranslation: '{\"영준이는\":\"Youngjoon is\",\"아리와\":\"with a dog\",\"초원을\":\"in the\n    meadow\",\"돌아다니며\":\"running around\",\"새로운\":\"new\",\"용기와\":\"a bowl\",\"만날\":\"can\n    meet\",\"수 있게\":\"became able to\"}'\n  overallTranslation: '{\"english\":\"Young-joon is able to meet new pots while\n    wandering around the meadow with the deer.\"}'\n",
-    "id": 1297
+    "id": 1309
   },
   {
     "generator": "korean-gap-story-4-social",
     "input": "gathering",
     "problem": "오늘 저녁 친구(親舊)들과 함께 식사(食事)를 해 <br> 집에 도착(到着)하고 음식(飮食)을 준비(準備)하고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 친구(親舊)들이 모두 집을 나와 있었다. <br> 그들은 모두 다른 곳으로 떠났다. <br>",
     "solution": "one:\n  original: 오늘 저녁, 친구들과 모여 식사를 해\n  natural: 오늘 저녁 친구들과 함께 식사를 해\n  problem: |\n    오늘 저녁 친구(親舊)들과 함께 식사(食事)를 해\n  wordByWordTranslation: '{\"오늘\":\"Today\",\"저녁\":\"evening\",\"친구들\":\"friends\",\"과\":\"with\",\"함께\":\"together\",\"식사를\":\"meal\",\"해\":\"eat\"}'\n  overallTranslation: '{\"english\":\"Have dinner with friends tonight.\"}'\ntwo:\n  original: 집에 가서 음식을 준비하고 있었다.\n  natural: 집에 도착하고 음식을 준비하고 있었다.\n  problem: |\n    집에 도착(到着)하고 음식(飮食)을 준비(準備)하고 있었다.\n  wordByWordTranslation: '{\"집에\":\"at\n    home\",\"도착하고\":\"arrived\",\"음식을\":\"food\",\"준비하고\":\"preparing\",\"있었다\":\"was there\"}'\n  overallTranslation: '{\"english\":\"He had arrived home and was preparing food.\"}'\nthree:\n  original: 그런데, 문을 열자고 돌아왔다.\n  natural: 그렇게, 문을 열려 돌아왔다.\n  problem: |\n    그렇게, 문(門)을 열려 돌아왔다.\n  wordByWordTranslation: '{\"그렇게\":\"Like that\",\"문을\":\"door\",\"열려\":\"opened\",\"돌아왔다\":\"returned\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"That's right, he's back through the door.\\\"}\"\nfour:\n  original: 친구들이 전원 집을 나와 있었다.\n  natural: 친구들이 모두 집을 나와 있었다.\n  problem: |\n    친구(親舊)들이 모두 집을 나와 있었다.\n  wordByWordTranslation: '{\"친구들\":\"friends\",\"모두\":\"all\",\"집\":\"house\",\"나와\":\"went out\",\"있었다\":\"were\"}'\n  overallTranslation: '{\"english\":\"All of my friends had left home.\"}'\nfive:\n  original: 그들은 모두 다른 곳으로 가버렸다.\n  natural: 그들은 모두 다른 곳으로 떠났다.\n  problem: |\n    그들은 모두 다른 곳으로 떠났다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"모두\":\"all\",\"다른\":\"different\",\"곳으로\":\"to\n    another place\",\"떠났다\":\"left\"}'\n  overallTranslation: '{\"english\":\"They all left for other places.\"}'\n",
-    "id": 1298
+    "id": 1310
+  },
+  {
+    "generator": "korean-gap-story-4-steampunk",
+    "input": "session",
+    "problem": "갑자기, 아래층(아래層)에 길게 늘어선 선명(鮮明)한 목소리가 들렸다. <br> 그들은 마치 공기(空氣) 속에 비춰지는 빛처럼 생기(生氣)를 가진다고 느껴지다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 월계꽃(月季꽃) 시간대(時間帶)에 세상(世上)은 갑자기 평화(平和)해졌다. <br> 만약(萬若) 그들과 함께 시간(時間)을 보내면, 이 순간(瞬間)의 평화(平和)는 영원(永遠)해지겠다. <br>",
+    "solution": "one:\n  problem: |\n    갑자기, 아래층(아래層)에 길게 늘어선 선명(鮮明)한 목소리가 들렸다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"아래층\":\"Basement\",\"길게\":\"Longly\",\"늘어선\":\"Stood\n    up\",\"선명한\":\"Clear\",\"목소리\":\"Voice\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a clear voice echoed loudly from the lower floors.\"}'\ntwo:\n  problem: |\n    그들은 마치 공기(空氣) 속에 비춰지는 빛처럼 생기(生氣)를 가진다고 느껴지다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"마치\":\"Like\",\"공기 속에\":\"In the\n    air\",\"비춰지는\":\"Shining\",\"빛처럼\":\"Like light\",\"생기를 가진다고\":\"Have\n    life\",\"느껴지다\":\"Feel\"}'\n  overallTranslation: '{\"english\":\"They feel as if they have life, like the light\n    reflected in the air.\"}'\nthree:\n  problem: |\n    그 순간(瞬間), 나는 시간(時間)의 흐름을 느끼기 시작(始作)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"순간\":\"moment\",\"나는\":\"I\",\"시간\":\"time\",\"의\":\"of\",\"흐름\":\"flow\",\"느끼기\":\"to\n    feel\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"In that moment, I started to feel the passage of time.\"}'\nfour:\n  problem: |\n    월계꽃(月季꽃) 시간대(時間帶)에 세상(世上)은 갑자기 평화(平和)해졌다.\n  wordByWordTranslation: '{\"월계꽃\":\"moonflower\",\"시간대\":\"time\n    period\",\"세상\":\"world\",\"갑자기\":\"suddenly\",\"평화해졌다\":\"became peaceful\"}'\n  overallTranslation: '{\"english\":\"The world suddenly became peaceful at the time\n    of the moonlit flower.\"}'\nfive:\n  problem: |\n    만약(萬若) 그들과 함께 시간(時間)을 보내면, 이 순간(瞬間)의 평화(平和)는 영원(永遠)해지겠다.\n  wordByWordTranslation: '{\"만약\":\"If\",\"그들\":\"they\",\"과\":\"with\",\"시간을\":\"time\",\"보내면\":\"spend\",\"이\":\"this\",\"순간\":\"moment\",\"평화\":\"peace\",\"영원해지겠다\":\"will\n    become eternal\"}'\n  overallTranslation: '{\"english\":\"If we spend time with them, the peace of this\n    moment will become eternal.\"}'\n",
+    "id": 1311
   },
   {
     "generator": "korean-gap-story-4-supernatural",
     "input": "inscribe",
     "problem": "밤의 어둠에 책방(冊房)의 문(門)이 비춰지네. <br> 온전(穩全)한 날에 책방(冊房)의 문(門)을 열고 책(冊)을 돌렸다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 글자(글字)는 순간(瞬間)에 현실(現實)로 바뀌고 책방(冊房)을 둘러싸기 시작(始作)했다. <br> 책방(冊房) 밖으로 나와 현실세상(現實世上)으로 돌아왔다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속, 책방에 닫힌 문이 비춰지네.\n  natural: 밤의 어둠에 책방의 문이 비춰지네.\n  problem: |\n    밤의 어둠에 책방(冊房)의 문(門)이 비춰지네.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"책방\":\"study\",\"문\":\"door\",\"비춰지네\":\"is\n    glowing\"}'\n  overallTranslation: '{\"english\":\"The window of the study glows in the darkness of night.\"}'\ntwo:\n  original: 온전한 날, 나는 책방의 문을 열고 책을 돌렸다.\n  natural: 온전한 날에 책방의 문을 열고 책을 돌렸다.\n  problem: |\n    온전(穩全)한 날에 책방(冊房)의 문(門)을 열고 책(冊)을 돌렸다.\n  wordByWordTranslation: \"{\\\"온전한\\\":\\\"safe\\\",\\\"날\\\":\\\"day\\\",\\\"책방의\\\":\\\"library's\\\",\\\n    \\\"문\\\":\\\"door\\\",\\\"열고\\\":\\\"opened\\\",\\\"책\\\":\\\"book\\\",\\\"돌렸다\\\":\\\"returned\\\"}\"\n  overallTranslation: '{\"english\":\"He opened the bookshelf door and browsed the\n    books on a safe day.\"}'\nthree:\n  original: 그러나 책의 페이지에는 갑자기 글자가 나타났다.\n  natural: 하지만 책의 페이지에는 갑자기 글자가 나타났다.\n  problem: |\n    하지만 책(冊)의 페이지에는 갑자기 글자(글字)가 나타났다.\n  wordByWordTranslation: \"{\\\"하지만\\\":\\\"although\\\",\\\"책의\\\":\\\"book's\\\",\\\"페이지\\\":\\\"pages\\\n    \\\",\\\"에는\\\":\\\"in\n    there\\\",\\\"갑자기\\\":\\\"suddenly\\\",\\\"글자가\\\":\\\"letters\\\",\\\"나타났다\\\":\\\"appeared\\\"}\"\n  overallTranslation: '{\"english\":\"Suddenly, words appeared on the pages of the book.\"}'\nfour:\n  original: 글자는 순간에 현실로 변해 책방을 둘러싸고 시작했다.\n  natural: 글자는 순간에 현실로 바뀌고 책방을 둘러싸기 시작했다.\n  problem: |\n    글자(글字)는 순간(瞬間)에 현실(現實)로 바뀌고 책방(冊房)을 둘러싸기 시작(始作)했다.\n  wordByWordTranslation: '{\"글자\":\"letters\",\"순간\":\"instant\",\"현실로\":\"reality\",\"바뀌고\":\"changed\",\"책방\":\"bookshelf\",\"둘러싸기\":\"surrounded\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The words instantly turned into reality,\n    surrounding the bookshelf.\"}'\nfive:\n  original: 나는 책방 밖으로 뛰어나, 현실의 세계로 돌아왔다.\n  natural: 책방 밖으로 나와 현실세상으로 돌아왔다.\n  problem: |\n    책방(冊房) 밖으로 나와 현실세상(現實世上)으로 돌아왔다.\n  wordByWordTranslation: '{\"책방\":\"bookcase\",\"밖으로\":\"outside\",\"나와\":\"came\n    out\",\"현실세상\":\"reality\",\"돌아왔다\":\"returned\"}'\n  overallTranslation: '{\"english\":\"He has come out of the books and returned to reality.\"}'\n",
-    "id": 1299
+    "id": 1312
   },
   {
     "generator": "korean-gap-story-4-survival-horror",
     "input": "saturate",
     "problem": "침무지(無知) 속에서 유리(琉璃) 창문(窓門)을 통해 밝은 달빛이 침투(浸透)했습니다. <br> 그들은 공기(空氣)가 순환(循環)하는 무거운 환경(環境)에 빠졌습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 침입자(侵入者)들은 공기(空氣)가 부풀러오르며 죽기 시작(始作)했습니다. <br> undefined<br>",
     "solution": "one:\n  original: 침무지 속에서, 유리 창문을 통해 밝은 달빛이 침투했습니다.\n  natural: 침무지 속에서 유리 창문을 통해 밝은 달빛이 침투했습니다.\n  problem: |\n    침무지(無知) 속에서 유리(琉璃) 창문(窓門)을 통해 밝은 달빛이 침투(浸透)했습니다.\n  wordByWordTranslation: '{\"침무지\":\"basement\",\"속에서\":\"inside\",\"유리 창문\":\"glass\n    window\",\"통해\":\"through\",\"밝은\":\"bright\",\"달빛\":\"moonlight\",\"침투했습니다\":\"filtered\n    in\"}'\n  overallTranslation: '{\"english\":\"Bright moonlight penetrated through the glass\n    window from the submerged state.\"}'\ntwo:\n  original: 그들은 공기가 조용히 순환하는 무거운 환경에 빠졌습니다.\n  natural: 그들은 공기가 순환하는 무거운 환경에 빠졌습니다.\n  problem: |\n    그들은 공기(空氣)가 순환(循環)하는 무거운 환경(環境)에 빠졌습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"공기\":\"air\",\"순환\":\"circulating\",\"무거운\":\"heavy\",\"환경\":\"environment\",\"빠졌습니다\":\"trapped\"}'\n  overallTranslation: '{\"english\":\"They have become trapped in a dense environment\n    where air circulation is restricted.\"}'\nthree:\n  original: 갑자기, 유리 창문이 깨지고 침입자들이 침입했습니다.\n  natural: 갑자기 유리창문이 부서지고 침입자가 침입했습니다.\n  problem: |\n    갑자기 유리창문(琉璃窓門)이 부서지고 침입자(侵入者)가 침입(侵入)했습니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"유리창문\":\"glass\n    window\",\"부서지고\":\"broke\",\"침입자가\":\"intruder\",\"침입했습니다\":\"intruded\"}'\n  overallTranslation: '{\"english\":\"The glass window suddenly shattered and an\n    intruder had broken in.\"}'\nfour:\n  original: 침입자들은 공기가 부풀러오르며 사망하기 시작했습니다.\n  natural: 침입자들은 공기가 부풀러오르며 죽기 시작했습니다.\n  problem: |\n    침입자(侵入者)들은 공기(空氣)가 부풀러오르며 죽기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"침입자들\":\"invaders\",\"공기\":\"air\",\"부풀러오르며\":\"is\n    swelling\",\"죽기\":\"to die\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The invaders began to suffocate as the air grew\n    thick and heavy.\"}'\nfive:\n  original: 유리 창문을 통해 달빛이 다시 침투하고, 공기가 순환하기 시작했습니다.\n  natural: 유리 창문을 통해 달빛이 다시 침투하고 공기가 순환하기 시작했습니다.\n  wordByWordTranslation: '{\"유리\":\"glass\",\"창문\":\"window\",\"통해\":\"through\",\"달빛\":\"moonlight\",\"침투\":\"penetrate\",\"공기\":\"air\",\"순환\":\"circulate\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The moonlight has begun to penetrate through\n    the glass window and the air is starting to circulate.\"}'\n",
-    "id": 1300
+    "id": 1313
+  },
+  {
+    "generator": "korean-gap-story-4-thriller",
+    "input": "cavern",
+    "problem": "저는 암석동의(巖石同意) 깊은 굴(窟) 속에 가려진 비밀(祕密)을 알게 되었습니다. <br> 굴(窟) 속은 어둡고 공기(空氣)가 차갑습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 굴(窟) 안의 암석벽(巖石壁)에 문자(文字)들이 새겨져 있었습니다. <br> 문자(文字)들은 현실(現實)이 아닌 점(點)과 위험(危險)한 상황(狀況)임을 알립니다. <br>",
+    "solution": "one:\n  problem: |\n    저는 암석동의(巖石同意) 깊은 굴(窟) 속에 가려진 비밀(祕密)을 알게 되었습니다.\n  wordByWordTranslation: '{\"저는\":\"I\",\"암석동\":\"Amsokdong\",\"깊은\":\"deep\",\"굴\":\"cave\",\"속에\":\"inside\",\"가려진\":\"hidden\",\"비밀\":\"secret\",\"알게\":\"learned\",\"되었습니다\":\"became\n    aware\"}'\n  overallTranslation: '{\"english\":\"I have learned a secret that is hidden deep in\n    the cave of Ambakdong.\"}'\ntwo:\n  problem: |\n    굴(窟) 속은 어둡고 공기(空氣)가 차갑습니다.\n  wordByWordTranslation: '{\"굴\":\"cave\",\"속\":\"inside\",\"어둡고\":\"dark\",\"공기\":\"air\",\"차갑습니다\":\"is cold\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"It's dark and the air is cold inside the cave.\\\"}\"\nthree:\n  problem: |\n    갑자기, 굴(窟) 입구(入口)가 사라지고, 나는 단절(斷絶)에 빠지게 됩니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"굴 입구\":\"tunnel\n    entrance\",\"사라지고\":\"disappears\",\"나는\":\"I\",\"단절\":\"cut\n    off\",\"빠지게\":\"quickly\",\"됩니다\":\"am going to be\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the entrance to the tunnel\n    disappeared, and I was left stranded.\"}'\nfour:\n  problem: |\n    굴(窟) 안의 암석벽(巖石壁)에 문자(文字)들이 새겨져 있었습니다.\n  wordByWordTranslation: '{\"굴\":\"Cave\",\"안\":\"inside\",\"암석벽\":\"rocky\n    wall\",\"문자\":\"characters\",\"새겨져\":\"engraved\",\"있었습니다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"The characters were carved on the rocky wall inside the cave.\"}'\nfive:\n  problem: |\n    문자(文字)들은 현실(現實)이 아닌 점(點)과 위험(危險)한 상황(狀況)임을 알립니다.\n  wordByWordTranslation: '{\"문자들\":\"letters\",\"현실\":\"reality\",\"아닌\":\"not\",\"점\":\"point\",\"위험한\":\"dangerous\",\"상황\":\"situation\",\"알립니다\":\"tells\"}'\n  overallTranslation: '{\"english\":\"The characters remind us that reality is not\n    always what it seems and that dangerous situations can arise.\"}'\n",
+    "id": 1314
   },
   {
     "generator": "korean-gap-story-4-time-travel",
     "input": "bewilderment",
     "problem": "밤에 아름다운 달빛 아래 길을 걸다가 어떤 일이 일어날지 걱정했다. <br> 다음날 아침 길을 걸다가 아무도 없었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 밝은 빛 아래서 돌아다니면 다른 사람들은 모두 살아 있었다. <br> 그들은 '왜 그렇지?' 하고 물었고, 나는 그들이 시간(時間)을 거슬러 돌아왔다는 것을 이해(理解)했다. <br>",
     "solution": "one:\n  original: 날밤, 아름다운 달빛 아래서 길을 걸으며 무슨 일이 일어날지 걱정했다.\n  natural: 밤에 아름다운 달빛 아래 길을 걸다가 어떤 일이 일어날지 걱정했다.\n  problem: |\n    밤에 아름다운 달빛 아래 길을 걸다가 어떤 일이 일어날지 걱정했다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"아름다운\":\"beautiful\",\"달빛\":\"moonlight\",\"아래\":\"under\",\"길\":\"road\",\"걸다가\":\"walking\n    along\",\"어떤\":\"what\",\"일\":\"thing\",\"이\":\"is\",\"일어날지\":\"happened\",\"걱정했다\":\"worried\"}'\n  overallTranslation: '{\"english\":\"I worried about what might happen while walking\n    under the beautiful moonlight on a dark night.\"}'\ntwo:\n  original: 다음날 아침, 길을 걸다 보니 아무도 없었다.\n  natural: 다음날 아침 길을 걸다가 아무도 없었다.\n  problem: |\n    다음날 아침 길을 걸다가 아무도 없었다.\n  wordByWordTranslation: '{\"다음날\":\"the next day\",\"아침\":\"morning\",\"길을 걸다가\":\"while\n    walking along the path\",\"아무도\":\"nobody\",\"없었다\":\"was not there\"}'\n  overallTranslation: '{\"english\":\"There was no one on the path in the morning the next day.\"}'\nthree:\n  original: 갑자기, 밝은 빛이 보였고, 길은 길을 덮고 있었다.\n  natural: 갑자기 밝은 빛이 보였고, 길은 길을 덮고 있었다.\n  problem: |\n    갑자기 밝은 빛이 보였고, 길은 길을 덮고 있었다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"밝은\":\"bright\",\"빛\":\"light\",\"보였고\":\"appeared\",\"길은\":\"long\",\"길을\":\"path\",\"덮고\":\"covering\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a bright light appeared and covered the long path.\"}'\nfour:\n  original: 밝은 빛 아래서 돌아다니면 다른 사람들이 다 살아있었다.\n  natural: 밝은 빛 아래서 돌아다니면 다른 사람들은 모두 살아 있었다.\n  problem: |\n    밝은 빛 아래서 돌아다니면 다른 사람들은 모두 살아 있었다.\n  wordByWordTranslation: '{\"밝은\":\"bright\",\"빛\":\"light\",\"아래서\":\"under\",\"돌아다니면\":\"returned\",\"다른\":\"other\",\"사람들은\":\"people\n    were\",\"모두\":\"all\",\"살아 있었다\":\"alive\"}'\n  overallTranslation: '{\"english\":\"When he returned under the bright light,\n    everyone else was still alive.\"}'\nfive:\n  original: 그들은 '왜 그렇지?' 하고 말했고, 나는 그들이 시간을 거슬러 돌아왔다는 것을 이해했다.\n  natural: 그들은 '왜 그렇지?' 하고 물었고, 나는 그들이 시간을 거슬러 돌아왔다는 것을 이해했다.\n  problem: |\n    그들은 '왜 그렇지?' 하고 물었고, 나는 그들이 시간(時間)을 거슬러 돌아왔다는 것을 이해(理解)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"왜\":\"why\",\"그렇지\":\"like\n    that\",\"하고\":\"and\",\"물었고\":\"asked\",\"나는\":\"I\",\"그들이\":\"they\",\"시간을\":\"time\",\"거슬러\":\"going\n    back\",\"돌아왔다는\":\"said\",\"것을\":\"that\",\" 이해했다\":\"understood\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"They asked, 'Why is this so?' And I\n    understood that they had gone back in time.\\\"}\"\n",
-    "id": 1301
+    "id": 1315
   },
   {
     "generator": "korean-gap-story-5-alternate-reality",
     "input": "deadly",
     "problem": "저녁 공원(公園)을 걸다가 별들이 빛나고 있어요. <br> 그 사이에 사자(獅子)처럼 날개를 가진 생물(生物)이 나타났다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 날개를 가진 생물(生物)은 사람들에게 '죽여줘' 고 말했다. <br> 저는 그 날개를 가진 생물(生物)은 그 말을 이해(理解)하지 못했지만, 공원(公園)에서 다른 사람들은 공원(公園)을 빠져나갔다. <br>",
     "solution": "one:\n  original: 저녁 공원에서 길을 걸으며, 아름다운 별들이 빛나고 있네요.\n  natural: 저녁 공원을 걸다가 별들이 빛나고 있어요.\n  problem: |\n    저녁 공원(公園)을 걸다가 별들이 빛나고 있어요.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"공원\":\"park\",\"걸다가\":\"walking\n    by\",\"별들\":\"stars\",\"빛나고 있어요\":\"are shining\"}'\n  overallTranslation: '{\"english\":\"As I was walking in the park in the evening,\n    the stars were twinkling.\"}'\ntwo:\n  original: 그 사이에, 사자처럼 날린 날개를 가진 생물이 나타났다.\n  natural: 그 사이에 사자처럼 날개를 가진 생물이 나타났다.\n  problem: |\n    그 사이에 사자(獅子)처럼 날개를 가진 생물(生物)이 나타났다.\n  wordByWordTranslation: '{\"그 사이에\":\"in between\",\"사자처럼\":\"like a lion\",\"날개를\n    가진\":\"winged\",\"생물\":\"creature\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"A creature with wings like a lion appeared among them.\"}'\nthree:\n  original: 그 생물은 저를 바라보며 공원을 떠났다.\n  natural: 그 생물은 저를 바라보며 공원을 떠났다.\n  problem: |\n    그 생물(生物)은 저를 바라보며 공원(公園)을 떠났다.\n  wordByWordTranslation: '{\"그\":\"that\",\"생물\":\"creature\",\"은\":\"is\",\"저\":\"I\",\"바라보며\":\"watching\",\"공원\":\"park\",\"떠났다\":\"left\"}'\n  overallTranslation: '{\"english\":\"The creature watched me and left the park.\"}'\nfour:\n  original: 그 날개를 가진 생물은 사람들에게 '죽여 드릴' 것이라고 말했다.\n  natural: 그 날개를 가진 생물은 사람들에게 '죽여줘' 고 말했다.\n  problem: |\n    그 날개를 가진 생물(生物)은 사람들에게 '죽여줘' 고 말했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"날개\":\"wing\",\"가진\":\"having\",\"생물\":\"creature\",\"사람들에게\":\"to\n    people\",\"죽여줘\":\"die\",\"고\":\"said\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The creatures with wings told the people 'kill me.'\\\"}\"\nfive:\n  original: 저는 그 날개를 가진 생물이 말한 것을 이해하지 못했지만, 공원에서 다른 사람들은 공원을 빠져나갔다.\n  natural: 저는 그 날개를 가진 생물은 그 말을 이해하지 못했지만, 공원에서 다른 사람들은 공원을 빠져나갔다.\n  problem: |\n    저는 그 날개를 가진 생물(生物)은 그 말을 이해(理解)하지 못했지만, 공원(公園)에서 다른 사람들은 공원(公園)을 빠져나갔다.\n  wordByWordTranslation: '{\"저는\":\"I\",\"그 날개를 가진 생물은\":\"the creature with wings\",\"그 말을\n    이해하지 못했지만\":\"could not understand its words\",\"공원에서 다른 사람들은\":\"others in the\n    park\",\"공원을 빠져나갔다\":\"left the park\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"I couldn't understand their words because I\n    didn't have wings like them, but other people in the park left the park.\\\"}\"\n",
-    "id": 1302
+    "id": 1316
   },
   {
     "generator": "korean-gap-story-5-comedic",
     "input": "agricultural",
     "problem": "농장(農場) 앞에서 순순이가 줄을 응원(應援)하며 달렸다. <br> 순순이는 농장(農場) 앞의 작은 가옥(家屋)에 들어갔다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 순순이는 아버지를 위해 식단(食單)을 준비(準備)했다. <br> 순순이는 아버지와 함께 식단(食單)을 먹고 휴식(休息)을 취(取)했다. <br>",
     "solution": "one:\n  original: 농장 앞에서 순순이가 줄을 우러러 달렸다.\n  natural: 농장 앞에서 순순이가 줄을 응원하며 달렸다.\n  problem: |\n    농장(農場) 앞에서 순순이가 줄을 응원(應援)하며 달렸다.\n  wordByWordTranslation: '{\"농장\":\"farm\",\"앞에서\":\"in front\n    of\",\"순순이\":\"ducklings\",\"줄을\":\"line\",\"응원\":\"cheering\",\"달렸다\":\"ran away\"}'\n  overallTranslation: '{\"english\":\"The chicks cheered on the front of the farm and ran away.\"}'\ntwo:\n  original: 순순이는 농장 앞의 작은 가옥에 들어갔다.\n  natural: 순순이는 농장 앞의 작은 가옥에 들어갔다.\n  problem: |\n    순순이는 농장(農場) 앞의 작은 가옥(家屋)에 들어갔다.\n  wordByWordTranslation: '{\"순순이\":\"Sunny\",\"농장\":\"farm\",\"앞\":\"front\",\"작은\":\"small\",\"가옥\":\"hut\",\"들어갔다\":\"went\n    in\"}'\n  overallTranslation: '{\"english\":\"Su-sun-i went into the small house in front of the farm.\"}'\nthree:\n  original: 가옥 안에는 순순이의 아버지가 누워 있었다.\n  natural: 가옥 안에는 순순이의 아버지가 누워있었다.\n  problem: |\n    가옥(家屋) 안에는 순순이의 아버지가 누워있었다.\n  wordByWordTranslation: \"{\\\"가옥\\\":\\\"prison\\\",\\\"안에는\\\":\\\"inside\\\",\\\"순순이의\\\":\\\"Sunny's\\\n    \\\",\\\"아버지\\\":\\\"father\\\",\\\"누워있었다\\\":\\\"was sleeping\\\"}\"\n  overallTranslation: '{\"english\":\"There was her father sleeping in the prison cell.\"}'\nfour:\n  original: 순순이는 아버지를 일으켜 식단을 준비했다.\n  natural: 순순이는 아버지를 위해 식단을 준비했다.\n  problem: |\n    순순이는 아버지를 위해 식단(食單)을 준비(準備)했다.\n  wordByWordTranslation: '{\"순순이\":\"Sunny\",\"아버지\":\"Father\",\"식단\":\"Diet\",\"준비했다\":\"Prepared\"}'\n  overallTranslation: '{\"english\":\"Sun-sun-i prepared a meal plan for her father.\"}'\nfive:\n  original: 순순이는 아버지와 함께 식단을 먹고 휴식을 취했다.\n  natural: 순순이는 아버지와 함께 식단을 먹고 휴식을 취했다.\n  problem: |\n    순순이는 아버지와 함께 식단(食單)을 먹고 휴식(休息)을 취(取)했다.\n  wordByWordTranslation: '{\"순순이\":\"Sun-Sun-I\",\"아버지\":\"Father\",\"함께\":\"together\",\"식단\":\"meal\n    plan\",\"먹고\":\"eating\",\"휴식\":\"rest\",\"취했다\":\"took\"}'\n  overallTranslation: '{\"english\":\"Sunny spent time eating meals and resting with her father.\"}'\n",
-    "id": 1303
+    "id": 1317
   },
   {
     "generator": "korean-gap-story-5-cosmic-horror",
     "input": "firefighter",
     "problem": "불길 때 위험(危險)한 도구(道具)를 들고, 어둠 속 공연(空然)한 소방관(消防官)이었다. <br> 그는옥물도구를 손에 들고 불길에 도피(逃避)하려고 시도(試圖)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 공연(公演)을 할 수 없게 옥(玉)물도구(道具)로 부상(負傷)을 입었다. <br> 그는 공연(公演)을 포기(抛棄)하려고 시도(試圖)했지만, 공연(公演)한 소방관(消防官)들은 그를 공격(攻擊)하기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 불길에 위험한 옥물도구를 들고, 야간의 어둠 속에서 공연한 소방관이었다.\n  natural: 불길 때 위험한 도구를 들고, 어둠 속 공연한 소방관이었다.\n  problem: |\n    불길 때 위험(危險)한 도구(道具)를 들고, 어둠 속 공연(空然)한 소방관(消防官)이었다.\n  wordByWordTranslation: '{\"불길\":\"fire\",\"때\":\"when\",\"위험한\":\"dangerous\",\"도구\":\"tool\",\"\n    들고\":\"carrying\",\"어둠\":\"darkness\",\"속\":\"in\",\"공연한\":\"performing\",\"소방관\":\"firefighter\",\"이었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"When storms raged, he was a firefighter,\n    performing his duty in the darkness, armed with dangerous tools.\"}'\ntwo:\n  original: 그는 옥물도구를 손에 들고 불길에 도망치려고 시도했다.\n  natural: 그는옥물도구를 손에 들고 불길에 도피하려고 시도했다.\n  problem: |\n    그는옥물도구를 손에 들고 불길에 도피(逃避)하려고 시도(試圖)했다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"옥물도구를\":\"a sickle\",\"손에\":\"with his\",\"\n    들고\":\"holding\",\"불길에\":\"from the fire\",\" 도피하려고\":\"tried to escape\",\"시도했다\":\"tried\n    to do\"}'\n  overallTranslation: '{\"english\":\"He was trying to escape the fire by clutching a\n    sickle in his hand.\"}'\nthree:\n  original: 그러나 그 순간, 옥물도구가 갑자기 변하여 그를 공격하기 시작했다.\n  natural: 그러나 그 순간, 옥물도구가 갑자기 바뀌어 그를 공격하기 시작했다.\n  problem: |\n    그러나 그 순간(瞬間), 옥(玉)물도구(道具)가 갑자기 바뀌어 그를 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그러나\":\"However\",\"그 순간\":\"that\n    moment\",\"옥물도구\":\"crab-shaped pendant\",\"갑자기\":\"suddenly\",\"바뀌어\":\"changed\",\"그를\n    공격하기 시작했다\":\"began to attack it\"}'\n  overallTranslation: '{\"english\":\"However, at that moment, the pest control tool\n    unexpectedly changed and began attacking it.\"}'\nfour:\n  original: 그는 공연할 수 없게 옥물도구로 부상을 입었다.\n  natural: 그는 공연을 할 수 없게 옥물도구로 부상을 입었다.\n  problem: |\n    그는 공연(公演)을 할 수 없게 옥(玉)물도구(道具)로 부상(負傷)을 입었다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"공연을\":\"performance\",\"할\":\"to do\",\"수\n    없게\":\"cannot\",\"옥물도구로\":\"tool\",\"부상\":\"injury\",\"입었다\":\"received\"}'\n  overallTranslation: '{\"english\":\"He sustained an injury to his ankle during a\n    performance, making it impossible for him to perform.\"}'\nfive:\n  original: 그는 공연을 포기하고 도망치려고 시도했지만, 공연한 소방관들은 그를 공격하기 시작했다.\n  natural: 그는 공연을 포기하려고 시도했지만, 공연한 소방관들은 그를 공격하기 시작했다.\n  problem: |\n    그는 공연(公演)을 포기(抛棄)하려고 시도(試圖)했지만, 공연(公演)한 소방관(消防官)들은 그를 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"공연을\":\"performance\",\"포기하려고\":\"tried to give\n    up\",\"시도했지만\":\"tried to do but\",\"공연한\":\"the\n    performing\",\"소방관들은\":\"firefighters\",\"그를\":\"him\",\"공격하기\":\"attacked\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"He attempted to give up the performance, but\n    the firefighters who were performing attacked him.\"}'\n",
-    "id": 1304
+    "id": 1318
   },
   {
     "generator": "korean-gap-story-5-cosmic-horror",
     "input": "occupational",
     "problem": "별빛 아래 어둠 속에서 지금(只今) 만날 이 순간(瞬間)에... <br> 지금(只今) 만날 순간(瞬間)에, 다른 세계(世界)에 빠지는 것 같네. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 별빛 아래의 어둠 대신(代身), 위대(偉大)한 별들이 날아오며, 지금(只今) 이 순간(瞬間), 나는 공상(空想)의 세계(世界)에 살게 되었다. <br> 지금(只今) 이 순간(瞬間), 공상(空想)의 별들이 내 방(房)을 덮치기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 별빛 아래 어둠 속에서, 지금 만날 이 순간에...\n  natural: 별빛 아래 어둠 속에서 지금 만날 이 순간에...\n  problem: |\n    별빛 아래 어둠 속에서 지금(只今) 만날 이 순간(瞬間)에...\n  wordByWordTranslation: '{\"별빛\":\"starlight\",\"아래\":\"below\",\"어둠\":\"darkness\",\"속에서\":\"inside\",\"지금\":\"now\",\"만날\":\"to\n    meet\",\"이\":\"this\",\"순간\":\"moment\"}'\n  overallTranslation: '{\"english\":\"In the shadow of the stars, at this moment where we meet...\"}'\ntwo:\n  original: 지금 만날 이 순간에, 나는 다른 세계에 빠지는 것 같다.\n  natural: 지금 만날 순간에, 다른 세계에 빠지는 것 같네.\n  problem: |\n    지금(只今) 만날 순간(瞬間)에, 다른 세계(世界)에 빠지는 것 같네.\n  wordByWordTranslation: '{\"지금\":\"now\",\"만날\":\"to meet\",\"순간에\":\"at that\n    moment\",\"다른\":\"another\",\"세계\":\"world\",\"빠지는\":\"to enter\",\"것 같네\":\"it seems\n    like\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"It feels like I'm being swept into another\n    world the moment I meet you.\\\"}\"\nthree:\n  original: 갑자기, 나는 별빛 아래의 어둠이 사라지고, 공상의 세계에 빠지는 것 같다.\n  natural: 갑자기, 나는 별빛 아래의 어둠이 사라지고, 공상의 세계에 빠지는 것 같네.\n  problem: |\n    갑자기, 나는 별빛 아래의 어둠이 사라지고, 공상(空想)의 세계(世界)에 빠지는 것 같네.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"나는\":\"I\",\"별빛\":\"stars\",\"아래\":\"below\",\"어둠\":\"darkness\",\"사라지고\":\"disappearing\",\"공상\":\"imaginary\",\"세계\":\"world\",\"빠지는\":\"is\n    rushing into\",\"것 같네\":\"it seems like\"}'\n  overallTranslation: '{\"english\":\"Suddenly, I feel the darkness under the stars\n    vanish and find myself swept into a realm of fantasy.\"}'\nfour:\n  original: 별빛 아래의 어둠 대신, 위대한 별들이 날아오며, 지금 이 순간, 나는 공상의 세계에 살게 되었다.\n  natural: 별빛 아래의 어둠 대신, 위대한 별들이 날아오며, 지금 이 순간, 나는 공상의 세계에 살게 되었다.\n  problem: >\n    별빛 아래의 어둠 대신(代身), 위대(偉大)한 별들이 날아오며, 지금(只今) 이 순간(瞬間), 나는 공상(空想)의 세계(世界)에 살게\n    되었다.\n  wordByWordTranslation: '{\"별빛\":\"starlight\",\"아래\":\"below\",\"어둠\":\"darkness\",\"대신\":\"instead\",\"위대한\":\"magnificent\",\"별들\":\"stars\",\"날아오며\":\"flying\",\"지금\":\"now\",\"이\":\"this\",\"순간\":\"moment\",\"나는\":\"I\",\"공상\":\"fantasy\",\"세상\":\"world\",\"살게\":\"became\",\"되었다\":\"happened\"}'\n  overallTranslation: '{\"english\":\"Beneath the darkness, the stars shine brightly\n    above, and in this moment, I find myself living in a realm of dreams.\"}'\nfive:\n  original: 지금 이 순간, 나는 공상의 별들이 내 방을 덮치기 시작했다.\n  natural: 지금 이 순간, 공상의 별들이 내 방을 덮치기 시작했다.\n  problem: |\n    지금(只今) 이 순간(瞬間), 공상(空想)의 별들이 내 방(房)을 덮치기 시작(始作)했다.\n  wordByWordTranslation: '{\"지금\":\"Now\",\"이\":\"this\",\"순간\":\"moment\",\"공상의\":\"imaginary\",\"별들\":\"stars\",\"내\":\"my\",\"방\":\"room\",\"덮치기\":\"covering\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The stars of sustenance are beginning to cover\n    my room at this moment.\"}'\n",
-    "id": 1305
+    "id": 1319
+  },
+  {
+    "generator": "korean-gap-story-5-cosmic-horror",
+    "input": "prosecution",
+    "problem": "밤의 어둠 속에서 영감(靈感)을 받은 작가(作家) 한 명(名)이 공원(公園)에 도착(到着)했다. <br> 그는 공원(公園)의 달빛 아래 침체감(沈滯感)에 사로잡겼다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 볼은 작가(作家)를 향(向)해 공을 날려 공격(攻擊)하기 시작(始作)했다. <br> 작가(作家)는 공을 피(避)해 도망쳐 공원(公園)을 빠지는 것을 보았다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 어둠 속에서 영감(靈感)을 받은 작가(作家) 한 명(名)이 공원(公園)에 도착(到着)했다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"영감\":\"inspiration\",\"받은\":\"received\",\"작가\":\"writer\",\"한\":\"one\",\"명\":\"person\",\"공원\":\"park\",\"에\":\"to\",\"도착했다\":\"arrived\"}'\n  overallTranslation: '{\"english\":\"A writer inspired by the darkness of night\n    arrived in the park.\"}'\ntwo:\n  problem: |\n    그는 공원(公園)의 달빛 아래 침체감(沈滯感)에 사로잡겼다.\n  wordByWordTranslation: \"{\\\"그는\\\":\\\"He\\\",\\\"공원의\\\":\\\"park's\\\",\\\"달빛\\\":\\\"moonlight\\\",\\\n    \\\"아래\\\":\\\"below\\\",\\\"침체감\\\":\\\"sadness\\\",\\\"사로잡겼다\\\":\\\"was absorbed/engrossed\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"He was captivated by the eerie glow of the\n    moon beneath the park's shadow.\\\"}\"\nthree:\n  problem: |\n    갑자기 공원(公園) 길목에 거대(巨大)한 검은 구체(句體)가 나타났다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"공원\":\"park\",\"길목\":\"junction\",\"거대한\":\"huge\",\"검은\":\"black\",\"구체\":\"concrete\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a giant black sphere appeared at the\n    bottleneck of the park path.\"}'\nfour:\n  problem: |\n    볼은 작가(作家)를 향(向)해 공을 날려 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"볼\":\"ball\",\"작가\":\"writer\",\"향해\":\"toward\",\"공\":\"ball\",\"날려\":\"threw\",\"공격하기\":\"attack\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The ball started attacking the writer by\n    hitting him with the ball.\"}'\nfive:\n  problem: |\n    작가(作家)는 공을 피(避)해 도망쳐 공원(公園)을 빠지는 것을 보았다.\n  wordByWordTranslation: '{\"작가\":\"Writer\",\"공\":\"Ball\",\"피해\":\"Avoiding\",\"도망쳐\":\"Ran\n    away\",\"공원\":\"Park\",\"빠지는\":\"Leaving quickly\",\"보았다\":\"Saw\"}'\n  overallTranslation: '{\"english\":\"The writer dodged the ball and ran out of the park.\"}'\n",
+    "id": 1320
   },
   {
     "generator": "korean-gap-story-5-drama",
     "input": "doe",
     "problem": "저녁 공원(公園) 산책(散策)에 가요. <br> 책(冊) 한 개(個)를 들고 산책(散策)하고 있습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 도깨비가 책(冊)을 읽고 산책(散策)하고 있습니다. <br> 도깨비는 책(冊)을 읽다가 도망쳐 산책(散策)합니다. <br>",
     "solution": "one:\n  original: 저녁에 공원에 산책을 합니다.\n  natural: 저녁 공원 산책에 가요.\n  problem: |\n    저녁 공원(公園) 산책(散策)에 가요.\n  wordByWordTranslation: \"{\\\"저녁\\\":\\\"evening\\\",\\\"공원\\\":\\\"park\\\",\\\"산책\\\":\\\"walk\\\",\\\"가요\\\":\\\"let's go\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"Let's go for a walk in the park in the evening.\\\"}\"\ntwo:\n  original: 도서 한 책을 들고 산책합니다.\n  natural: 책 한 개를 들고 산책하고 있습니다.\n  problem: |\n    책(冊) 한 개(個)를 들고 산책(散策)하고 있습니다.\n  wordByWordTranslation: '{\"책\":\"book\",\"한\":\"one\",\"개\":\"copy\",\"\n    들고\":\"carrying\",\"산책\":\"hiking\",\"하고\":\"is\",\"있습니다\":\"being\"}'\n  overallTranslation: '{\"english\":\"Walking with a book in hand.\"}'\nthree:\n  original: 갑자기, 공원에 도깨비가 나타납니다.\n  natural: 갑자기 공원에 도깨비가 나타납니다.\n  problem: |\n    갑자기 공원(公園)에 도깨비가 나타납니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"공원\":\"park\",\"도깨비\":\"squirrel\",\"나타납니다\":\"appears\"}'\n  overallTranslation: '{\"english\":\"A squirrel appears in the park suddenly.\"}'\nfour:\n  original: 도깨비가 책을 읽고 산책하고 있습니다.\n  natural: 도깨비가 책을 읽고 산책하고 있습니다.\n  problem: |\n    도깨비가 책(冊)을 읽고 산책(散策)하고 있습니다.\n  wordByWordTranslation: '{\"도깨비\":\"squirrel\",\"책\":\"book\",\"독고\":\"reading\",\"산책\":\"walking\",\"있습니다\":\"is\n    doing\"}'\n  overallTranslation: '{\"english\":\"The squirrel is reading a book and going for a walk.\"}'\nfive:\n  original: 도깨비는 책을 읽다가 도망치고 산책합니다.\n  natural: 도깨비는 책을 읽다가 도망쳐 산책합니다.\n  problem: |\n    도깨비는 책(冊)을 읽다가 도망쳐 산책(散策)합니다.\n  wordByWordTranslation: '{\"도깨비\":\"squirrel\",\"책\":\"book\",\"독다가\":\"reading\",\"도망쳐\":\"ran\n    away\",\"산책합니다\":\"went for a walk\"}'\n  overallTranslation: '{\"english\":\"The squirrel was reading a book, then ran off\n    for a walk in the forest.\"}'\n",
-    "id": 1306
+    "id": 1321
+  },
+  {
+    "generator": "korean-gap-story-5-fantasy",
+    "input": "laughter",
+    "problem": "꽃장에서 유리병(琉璃甁)을 들며 나아갔습니다. <br> 유리병(琉璃甁) 안에 담긴 것은 담백한 연꽃(蓮꽃)들이었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 웃는 연꽃(蓮꽃)들은 다른 꽃들과 함께춤을 추기 시작(始作)했습니다. <br> 웃는 꽃 주변(周邊)에 희망(希望)의 빛이 비네. <br>",
+    "solution": "one:\n  problem: |\n    꽃장에서 유리병(琉璃甁)을 들며 나아갔습니다.\n  wordByWordTranslation: '{\"꽃장\":\"flower shop\",\"유리병\":\"glass bottle\",\"\n    들며\":\"carrying\",\"나아갔습니다\":\"went out\"}'\n  overallTranslation: '{\"english\":\"He left the flower shop carrying a glass bottle.\"}'\ntwo:\n  problem: |\n    유리병(琉璃甁) 안에 담긴 것은 담백한 연꽃(蓮꽃)들이었다.\n  wordByWordTranslation: '{\"유리병\":\"glass\n    bottle\",\"안에\":\"inside\",\"담긴\":\"contained\",\"것은\":\"it\n    was\",\"담백한\":\"pure\",\"연꽃\":\"lotus flower\",\"들었다\":\"were\"}'\n  overallTranslation: '{\"english\":\"The glass jar contained withered lilies.\"}'\nthree:\n  problem: |\n    연꽃(蓮꽃)들은 웃기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"연꽃들\":\"lotus flowers\",\"웃기\":\"to start laughing\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Lotus flowers started to smile.\"}'\nfour:\n  problem: |\n    웃는 연꽃(蓮꽃)들은 다른 꽃들과 함께춤을 추기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"웃는\":\"Smiling\",\"연꽃들은\":\"lotus flowers\n    are\",\"다른\":\"other\",\"꽃들\":\"flowers\",\"과\":\"with\",\"춤을\":\"to dance\",\"추기\":\"began\n    to\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The smiling lotus flowers started dancing with\n    the other flowers.\"}'\nfive:\n  problem: |\n    웃는 꽃 주변(周邊)에 희망(希望)의 빛이 비네.\n  wordByWordTranslation: '{\"웃는\":\"smiling\",\"꽃\":\"flower\",\"주변\":\"surrounding\",\"희망\":\"hope\",\"빛\":\"light\",\"비네\":\"shines\"}'\n  overallTranslation: '{\"english\":\"Hope shines around the flower that smiles.\"}'\n",
+    "id": 1322
   },
   {
     "generator": "korean-gap-story-5-frontier",
     "input": "lunchtime",
     "problem": "아침 비(比)가 길을 가림치고 있었다. <br> 학교(學校) 길에 친구(親舊) 민수와 만났다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 저기 점심(點心) 먹는 곳이 보네. 함께 가자. <br> 민수와 함께 점심(點心)을 먹으며 비가 내리는 것을 관찰(觀察)했다. <br>",
     "solution": "one:\n  original: 아침의 비는 길을 가림치고 있었다.\n  natural: 아침 비가 길을 가림치고 있었다.\n  problem: |\n    아침 비(比)가 길을 가림치고 있었다.\n  wordByWordTranslation: '{\"아침\":\"morning\",\"비\":\"rain\",\"가\":\"went\",\"길\":\"road\",\"\n    가림치고\":\"covered\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"It was drizzling rain in the morning, obscuring the path.\"}'\ntwo:\n  original: 학교로 가는 길에, 나는 친구인 민수와 만났다.\n  natural: 학교 길에 친구 민수와 만났다.\n  problem: |\n    학교(學校) 길에 친구(親舊) 민수와 만났다.\n  wordByWordTranslation: '{\"학교\":\"school\",\"길\":\"street\",\"친구\":\"friend\",\"민수\":\"Min-soo\",\"만났다\":\"met\"}'\n  overallTranslation: '{\"english\":\"I met Min-su on my way to school.\"}'\nthree:\n  original: 민수는 눈 속을 비추며, '오늘은 점심시간이 아닌가?'고 말했다.\n  natural: 민수는 눈 속을 비추며 '오늘 점심 시간이 아닌가?'라고 말했다.\n  problem: |\n    민수는 눈 속을 비추며 '오늘 점심(點心) 시간(時間)이 아닌가?'라고 말했다.\n  wordByWordTranslation: \"{\\\"민수\\\":\\\"Min-su\\\",\\\"눈\\\":\\\"eye\\\",\\\"속\\\":\\\"inside\\\",\\\"비추며\\\n    \\\":\\\"raining\\\",\\\"오늘\\\":\\\"today\\\",\\\"점심\\\":\\\"lunch\\\",\\\"시간\\\":\\\"time\\\",\\\"아닌가?\\\":\\\n    \\\"isn't it?\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"Min-su blinked and muttered, 'Isn't lunch time already?'\\\"}\"\nfour:\n  original: 저기 점심을 먹는 곳이 보이네. 너도 같이 가자.\n  natural: 저기 점심 먹는 곳이 보네. 함께 가자.\n  problem: |\n    저기 점심(點心) 먹는 곳이 보네. 함께 가자.\n  wordByWordTranslation: \"{\\\"저기\\\":\\\"over\n    there\\\",\\\"점심\\\":\\\"lunch\\\",\\\"먹는\\\":\\\"eating\\\",\\\"곳\\\":\\\"place\\\",\\\"보네\\\":\\\"I\n    know\\\",\\\"함께\\\":\\\"together\\\",\\\"가자\\\":\\\"let's go\\\"}\"\n  overallTranslation: '{\"english\":\"I know a good place to have lunch around here. Want to join?\"}'\nfive:\n  original: 민수와 함께 점심을 먹으며, 비가 내리는 것을 관찰했다.\n  natural: 민수와 함께 점심을 먹으며 비가 내리는 것을 관찰했다.\n  problem: |\n    민수와 함께 점심(點心)을 먹으며 비가 내리는 것을 관찰(觀察)했다.\n  wordByWordTranslation: '{\"민수\":\"Minh-soo\",\"와\":\"and\",\"점심\":\"lunch\",\"먹으며\":\"eating\",\"비\":\"rain\",\"가\":\"is\",\"내리는\":\"falling\",\"것\":\"it\"}'\n  overallTranslation: '{\"english\":\"He observed the rain falling while having lunch with Minsu.\"}'\n",
-    "id": 1307
+    "id": 1323
   },
   {
     "generator": "korean-gap-story-5-paranormal",
     "input": "aha",
     "problem": "밤의 어둠이 가득찬 방(房)에서, 소민(小民)과 은하(銀河)가 위험(危險)한 곳에 도착(到着)했습니다. <br> 그들은 어둡고 무섭한 소리의 발음(發音)을 들었습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 소민(小民)과 은하(銀河)가 공포(恐怖)에 떨겼습니다. 누군가가 그들을 볼까? <br> 누군가는 그들을 보지 않았습니다. 그들은 평화(平和)하게 집을 나갔습니다. <br>",
     "solution": "one:\n  original: 밤의 어둠이 가득찬 방에서, 소민과 은하가 위험한 장소에 도착했습니다.\n  natural: 밤의 어둠이 가득찬 방에서, 소민과 은하가 위험한 곳에 도착했습니다.\n  problem: |\n    밤의 어둠이 가득찬 방(房)에서, 소민(小民)과 은하(銀河)가 위험(危險)한 곳에 도착(到着)했습니다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"filled\",\"찬\":\"with\",\"방\":\"room\",\"소민\":\"people\",\"은하\":\"moon\",\"위험한\":\"dangerous\",\"곳\":\"place\",\"도착했습니다\":\"arrived\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"In the dimly lit room filled with night's\n    shadows, the slum dwellers and the silver moon had arrived in a perilous\n    place.\\\"}\"\ntwo:\n  original: 그들은 어둡고 무섭한 소리의 발음을 들었습니다.\n  natural: 그들은 어둡고 무섭한 소리의 발음을 들었습니다.\n  problem: |\n    그들은 어둡고 무섭한 소리의 발음(發音)을 들었습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"어둡고\":\"darkly\",\"무섭한\":\"disturbing\",\"소리\":\"sound\",\"발음\":\"pronunciation\",\"\n    들었습니다\":\"listened to\"}'\n  overallTranslation: '{\"english\":\"They heard a dull and disturbing murmur.\"}'\nthree:\n  original: 갑자기, 문이 열리고 누군가가 방에 들어왔습니다.\n  natural: 갑자기 문이 열리고 누군가가 방에 왔습니다.\n  problem: |\n    갑자기 문(門)이 열리고 누군가가 방(房)에 왔습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"문이\":\"The\n    door\",\"열리고\":\"opened\",\"누군가가\":\"Someone\",\"방에\":\"in the room\",\"왔습니다\":\"came\"}'\n  overallTranslation: '{\"english\":\"The door suddenly opened and someone came into the room.\"}'\nfour:\n  original: 소민과 은하는 공포에 떨였습니다. 누군가가 그들을 볼까?\n  natural: 소민과 은하가 공포에 떨겼습니다. 누군가가 그들을 볼까?\n  problem: |\n    소민(小民)과 은하(銀河)가 공포(恐怖)에 떨겼습니다. 누군가가 그들을 볼까?\n  wordByWordTranslation: '{\"소민\":\"So-min\",\"은하\":\"Eun-ha\",\"공포\":\"Horror\",\"떨겼습니다\":\"fell\n    down\",\"누군가\":\"Someone\",\"볼까\":\"Going to see?\"}'\n  overallTranslation: '{\"english\":\"The common people and the fish were terrified.\n    Who would watch over them?\"}'\nfive:\n  original: 누군가는 그들을 보지 않았습니다. 그들은 평화하게 집을 나갔습니다.\n  natural: 누군가는 그들을 보지 않았습니다. 그들은 평화하게 집을 나갔습니다.\n  problem: |\n    누군가는 그들을 보지 않았습니다. 그들은 평화(平和)하게 집을 나갔습니다.\n  wordByWordTranslation: \"{\\\"누군가는\\\":\\\"Someone\\\",\\\"그들을\\\":\\\"them\\\",\\\"보지\n    않았습니다\\\":\\\"wasn't\n    watching\\\",\\\"그들은\\\":\\\"They\\\",\\\"평화하게\\\":\\\"peacefully\\\",\\\"집을\\\":\\\"went\n    home\\\",\\\"나갔습니다\\\":\\\"left\\\"}\"\n  overallTranslation: '{\"english\":\"Nobody saw them leave. They went home peacefully.\"}'\n",
-    "id": 1308
+    "id": 1324
   },
   {
     "generator": "korean-gap-story-5-social",
     "input": "stave",
     "problem": "저녁이 되면 길거리를 걸다가 길에서 만난 친구(親舊)와 이야기를 나누곤 해. <br> 친구(親舊)의 이름은 영민(英敏)이에요. 오래 동안 함께 있어요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 저는 영민(英敏)의 말을 들으며 책(冊)을 받아갔습니다. <br> 책(冊)을 받고 책(冊)을 읽다가, 영민(英敏)과 함께 새로운 이야기를 만났습니다. <br>",
     "solution": "one:\n  original: 저녁이 되면, 나는 길거리를 걸으며 길에서 만난 친구와 이야기를 나누곤 합니다.\n  natural: 저녁이 되면 길거리를 걸다가 길에서 만난 친구와 이야기를 나누곤 해.\n  problem: |\n    저녁이 되면 길거리를 걸다가 길에서 만난 친구(親舊)와 이야기를 나누곤 해.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"이\":\"is\",\"되면\":\"when it\n    becomes\",\"길거리를\":\"a long walk\",\"걸다가\":\"going\",\"길에서\":\"on the\n    way\",\"만난\":\"met\",\"친구와\":\"a friend\",\" 이야기를\":\"a conversation\",\"나누곤\":\"to\n    talk\",\"해\":\"does\"}'\n  overallTranslation: '{\"english\":\"When evening comes, I often walk along the long\n    streets and chat with a friend I meet along the way.\"}'\ntwo:\n  original: 친구의 이름은 영민이예요. 우리는 오래 동안 함께 있고요.\n  natural: 친구의 이름은 영민이에요. 오래 동안 함께 있어요.\n  problem: |\n    친구(親舊)의 이름은 영민(英敏)이에요. 오래 동안 함께 있어요.\n  wordByWordTranslation: \"{\\\"친구의\\\":\\\"friend's\\\",\\\"이름\\\":\\\"name\\\",\\\"은\\\":\\\"is\\\",\\\"영민\\\n    \\\":\\\"Youngmin\\\",\\\"이에요\\\":\\\"is\\\",\\\"오래\\\":\\\"long\\\",\\\"동안\\\":\\\"time\\\",\\\"있어요\\\":\\\"ha\\\n    ve been\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"My friend's name is Youngmin. We've been\n    friends for a long time.\\\"}\"\nthree:\n  original: 그날 저녁, 영민은 나에게 말했습니다. '내 집에 새로운 책이 있어서 가져올게?'\n  natural: 그날 저녁, 영민이 나에게 말했습니다. '새로운 책이 내 집에 있어서 가져올게?'\n  problem: |\n    그날 저녁, 영민(英敏)이 나에게 말했습니다. '새로운 책(冊)이 내 집에 있어서 가져올게?'\n  wordByWordTranslation: \"{\\\"그날\\\":\\\"that\n    day\\\",\\\"저녁\\\":\\\"evening\\\",\\\"영민이\\\":\\\"Youngmin said\\\",\\\"나에게\\\":\\\"to\n    me\\\",\\\"말했습니다\\\":\\\"said\\\",\\\"'새로운 책이 내 집에 있어서 가져올게?'\\\":\\\"'Do you have a new\n    book at home? I'll take it with me?'\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"That evening, Youngmin told me, 'There's a\n    new book in my house. I'll bring it over.' \\\"}\"\nfour:\n  original: 저는 영민의 말을 받고 책을 받아갔습니다.\n  natural: 저는 영민의 말을 들으며 책을 받아갔습니다.\n  problem: |\n    저는 영민(英敏)의 말을 들으며 책(冊)을 받아갔습니다.\n  wordByWordTranslation: \"{\\\"저는\\\":\\\"I\\\",\\\"영민의\\\":\\\"young-min's\\\",\\\"말을\\\":\\\"words\\\",\\\n    \\\" 들으며\\\":\\\"listening to\\\",\\\"책을\\\":\\\"a book\\\",\\\"받아갔습니다\\\":\\\"received and went\n    away\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"I listened to Youngmin's words and received a book.\\\"}\"\nfive:\n  original: 책을 받고 책을 읽다가, 영민과 함께 새로운 이야기를 만났습니다.\n  natural: 책을 받고 책을 읽다가, 영민과 함께 새로운 이야기를 만났습니다.\n  problem: |\n    책(冊)을 받고 책(冊)을 읽다가, 영민(英敏)과 함께 새로운 이야기를 만났습니다.\n  wordByWordTranslation: '{\"책을\":\"book\",\"받고\":\"receiving\",\"\n    읽다가\":\"reading\",\"영민과\":\"with\n    Youngmin\",\"새로운\":\"new\",\"이야기\":\"story\",\"만났습니다\":\"met\"}'\n  overallTranslation: '{\"english\":\"While reading a book, I met a new story with the foreigners.\"}'\n",
-    "id": 1309
+    "id": 1325
+  },
+  {
+    "generator": "korean-gap-story-5-space-opera",
+    "input": "perjury",
+    "problem": "별빛 아래 어둠의 세계(世界)에서 성장(成長)한 아리온은 위대(偉大)한 비밀(祕密)을 가지고 있었다. <br> 그는 누구도 아닌 비밀(祕密)을 보호(保護)해야 하고, 어떻든 이기 위해 노력(努力)하고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 루나와 함께 위험(危險)에 처(處)하여 비밀(祕密)을 보호(保護)하기 위해 모든 것을 해냈다. <br> 루나의 도움으로 아리온은 비밀(祕密)을 보호(保護)하고 어둠의 세계(世界)를 뛰어나 새로운 세계(世界)로 도피(逃避)했다. <br>",
+    "solution": "one:\n  problem: |\n    별빛 아래 어둠의 세계(世界)에서 성장(成長)한 아리온은 위대(偉大)한 비밀(祕密)을 가지고 있었다.\n  wordByWordTranslation: '{\"별빛\":\"starlight\",\"아래\":\"below\",\"어둠\":\"darkness\",\"세계\":\"world\",\"성장한\":\"grew\n    up\",\"아리온\":\"Arion\",\"위대한\":\"great\",\"비밀\":\"secret\"}'\n  overallTranslation: '{\"english\":\"Orion, who grew up in the world of shadows\n    under the moonlight, possessed a great secret.\"}'\ntwo:\n  problem: |\n    그는 누구도 아닌 비밀(祕密)을 보호(保護)해야 하고, 어떻든 이기 위해 노력(努力)하고 있었다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"누구도\":{\"nobody\":\"nobody\"},\"아닌\":{\"not\":\"not\"},\"비밀\":{\"secret\":\"secret\"},\"보호해야\":{\"should\n    protect\":\"should protect\"},\"하고\":{\"and\":\"and\"},\"어떻든\":{\"anyway\":\"anyway\"},\"이기\n    위해\":{\"to win\":\"to win\"},\"노력하고\":{\"has been working\":\"has been\n    working\"},\"있었다\":{\"was\":\"was\"}}'\n  overallTranslation: '{\"english\":\"He had to protect a secret that was his own,\n    and he was doing everything he could to keep it.\"}'\nthree:\n  problem: |\n    그러나 어느 날 비밀(祕密)이 누설(漏泄)될 위험(危險)이 커지자 아리온은 위대(偉大)한 위험(危險)에 처(處)하게 되었다.\n  wordByWordTranslation: '{\"그러나\":\"However\",\"어느 날\":\"one\n    day\",\"비밀\":\"secret\",\"누설될\":\"will be\n    leaked\",\"위험\":\"risk\",\"커지자\":\"became\",\"아리온\":\"Aaron\",\"위대한\":\"great\",\"처하게\":\"became\",\"되었다\":\"happened\"}'\n  overallTranslation: '{\"english\":\"However, when the risk of the secret being\n    exposed grew larger, Arian was forced into a great danger.\"}'\nfour:\n  problem: |\n    그는 루나와 함께 위험(危險)에 처(處)하여 비밀(祕密)을 보호(保護)하기 위해 모든 것을 해냈다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"루나와\":\"Luna and\",\"위험에\":\"in\n    danger\",\"처하여\":\"because\",\"비밀을\":\"secrets\",\"보호하기 위해\":\"to protect\",\"모든\n    것을\":\"everything\",\"해냈다\":\"did\"}'\n  overallTranslation: '{\"english\":\"He risked everything to protect his secrets\n    with Luna by his side.\"}'\nfive:\n  problem: |\n    루나의 도움으로 아리온은 비밀(祕密)을 보호(保護)하고 어둠의 세계(世界)를 뛰어나 새로운 세계(世界)로 도피(逃避)했다.\n  wordByWordTranslation: '{\"루나\":\"Luna\",\"도움\":\"help\",\"아리온\":\"Arian\",\"비밀\":\"secret\",\"보호\":\"protect\",\"어둠\":\"darkness\",\"세상\":\"world\",\"뛰어나\":\"escaped\",\"새로운\":\"new\",\"세계\":\"world\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"With Luna's aid, Aaron hid his secrets and\n    escaped into a new world beyond the realm of darkness.\\\"}\"\n",
+    "id": 1326
   },
   {
     "generator": "korean-gap-story-5-urban-fantasy",
     "input": "infantry",
     "problem": "시내(市內) 거리에서 소리 없이 걸던 나, 공방(攻防)이었다. <br> 지금(只今)까지 단순(單純)한 사람이었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 기름기(기름氣)는 공방(攻防)의 발에 신화(神話)가 달렸다. <br> 신화(神話)는 공방(工房)이 공방(攻防)인지, 아니면 다른 존재(存在)가 공방(攻防)을 덮치 않았는지 몰라. <br>",
     "solution": "one:\n  original: 시내 거리에서 소리없이 걸던 나는, 공방이었다.\n  natural: 시내 거리에서 소리 없이 걸던 나, 공방이었다.\n  problem: |\n    시내(市內) 거리에서 소리 없이 걸던 나, 공방(攻防)이었다.\n  wordByWordTranslation: '{\"시내\":\"downtown\",\"거리\":\"street\",\"에서\":\"from\",\"소리\":\"noise\",\"없이\":\"quietly\",\"걸던\":\"walking\",\"나\":\"I\",\"공방이었다\":\"it\n    was a broadcasting station\"}'\n  overallTranslation: '{\"english\":\"I was just walking silently in the city\n    streets, like a ghost.\"}'\ntwo:\n  original: 지금까지는 단순한 사람이었다.\n  natural: 지금까지 단순한 사람이었다.\n  problem: |\n    지금(只今)까지 단순(單純)한 사람이었다.\n  wordByWordTranslation: '{\"지금까지\":\"up until now\",\"단순한\":\"simple\",\"사람\":\"person\",\"이었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"I used to be a simple person.\"}'\nthree:\n  original: 나의 발에는 기름기가 있었다.\n  natural: 나의 발에는 습기가 있었다.\n  problem: |\n    나의 발에는 습기(濕氣)가 있었다.\n  wordByWordTranslation: '{\"나의\":\"my\",\"발\":\"foot\",\"에는\":\"had\",\"습기\":\"moisture\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"My feet were damp.\"}'\nfour:\n  original: 기름기는 공방의 발에 달린 신화였다.\n  natural: 기름기는 공방의 발에 신화가 달렸다.\n  problem: |\n    기름기(기름氣)는 공방(攻防)의 발에 신화(神話)가 달렸다.\n  wordByWordTranslation: '{\"기름기\":\"odor\",\"는\":\"is\",\"공방\":\"factory\",\"발\":\"foot\",\"신화\":\"sneaker\",\"달렸다\":\"was\n    attached\"}'\n  overallTranslation: '{\"english\":\"The smell of dampness hung thick in the air of the warehouse.\"}'\nfive:\n  original: 신화는 공방이 공방인지, 아니면 다른 존재가 공방을 덮치 않았는지 몰라.\n  natural: 신화는 공방이 공방인지, 아니면 다른 존재가 공방을 덮치 않았는지 몰라.\n  problem: |\n    신화(神話)는 공방(工房)이 공방(攻防)인지, 아니면 다른 존재(存在)가 공방(攻防)을 덮치 않았는지 몰라.\n  wordByWordTranslation: \"{\\\"신화\\\":\\\"The moon\\\",\\\"는\\\":\\\"is\\\",\\\"공방\\\":\\\"a\n    broadcasting station\\\",\\\"이\\\":\\\"is\\\",\\\"공방인지\\\":\\\"a broadcasting station\n    or\\\",\\\" 아니면\\\":\\\"or not\\\",\\\"다른\\\":\\\"another\\\",\\\"존재\\\":\\\"being\\\",\\\"공방을\\\":\\\"a\n    broadcasting station\\\",\\\"덮치 않았는지\\\":\\\"has not covered\\\",\\\"몰라\\\":\\\"don't\n    know\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"I don't know if the rumors are true or if\n    someone else has covered up the truth about the factory.\\\"}\"\n",
-    "id": 1310
+    "id": 1327
   },
   {
     "generator": "korean-gap-story-6-alternate-reality",
     "input": "zoo",
     "problem": "수학(數學) 시간(時間)이 끝나면, 나는 친구(親舊)들과 동물원(動物園)에 가서 동물(動物)들을 관측(觀測)해. <br> 동물원(動物園)에 도착(到着)하면서 친구(親舊)들과 함께 동물(動物)들을 관측(觀測)할 수 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 동물(動物)들은 슬픔에 가두려 있었고, 나는 동물(動物)들을 해방(解放)해야 한다고 생각했다. <br> 동물(動物)들을 해방(解放)하고 동물원(動物園)을 나와, 나는 친구(親舊)들과 함께 새로운 곳을 찾기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 수학 시간이 끝나면, 나는 친구들과 동물원에 가곤 해.\n  natural: 수학 시간이 끝나면, 나는 친구들과 동물원에 가서 동물들을 관측해.\n  problem: |\n    수학(數學) 시간(時間)이 끝나면, 나는 친구(親舊)들과 동물원(動物園)에 가서 동물(動物)들을 관측(觀測)해.\n  wordByWordTranslation: '{\"수학\":\"math\",\"시간\":\"time\",\"끝나면\":\"when it\n    ends\",\"나는\":\"I\",\"친구들\":\"friends\",\"동물원\":\"zoo\",\"가서\":\"go\n    to\",\"동물들을\":\"animals\",\"관측해\":\"observe\"}'\n  overallTranslation: '{\"english\":\"When the math class is over, I go to the zoo\n    with my friends to observe the animals.\"}'\ntwo:\n  original: 동물원에 도착하면서, 나는 친구들과 함께 동물들을 볼 수 있었다.\n  natural: 동물원에 도착하면서 친구들과 함께 동물들을 관측할 수 있었다.\n  problem: |\n    동물원(動物園)에 도착(到着)하면서 친구(親舊)들과 함께 동물(動物)들을 관측(觀測)할 수 있었다.\n  wordByWordTranslation: '{\"동물원에\":\"At the zoo\",\"도착하면서\":\"upon arrival\",\"친구들과\":\"with\n    friends\",\"동물들을\":\"the animals\",\"관측할 수 있었다\":\"we could observe them\"}'\n  overallTranslation: '{\"english\":\"When we arrived at the zoo, we were able to\n    observe the animals together.\"}'\nthree:\n  original: 그런데, 동물원은 사람들이 동물들을 사로잡고 사육하는 곳이었다.\n  natural: 그런데 동물원은 사람들이 동물들을 사로잡고 돌보하는 곳이었다.\n  problem: |\n    그런데 동물원(動物園)은 사람들이 동물(動物)들을 사로잡고 돌보하는 곳이었다.\n  wordByWordTranslation: '{\"그런데\":\"although\",\"동물원\":\"zoo\",\"사람들이\":\"people\n    were\",\"동물들을\":\"animals\",\"사로잡고\":\"capturing\",\"돌보하는\":\"caring for\",\"곳\":\"place\"}'\n  overallTranslation: '{\"english\":\"Surprisingly, the zoo was a place where people\n    would capture and care for animals.\"}'\nfour:\n  original: 동물들은 슬픔에 가두려 있었고, 나는 동물들을 해방해야 한다고 생각했다.\n  natural: 동물들은 슬픔에 가두려 있었고, 나는 동물들을 해방해야 한다고 생각했다.\n  problem: |\n    동물(動物)들은 슬픔에 가두려 있었고, 나는 동물(動物)들을 해방(解放)해야 한다고 생각했다.\n  wordByWordTranslation: '{\"동물들은\":\"The animals were\",\"슬픔에\":\"sadly trapped in\",\"가두려\n    있었고\":\"were locked up\",\"나는\":\"I thought that\",\"동물들을\":\"I should liberate the\n    animals\",\"해방해야 한다\":\"had to set free\",\"다\":\"indeed\"}'\n  overallTranslation: '{\"english\":\"The animals were trapped in sadness, and I\n    thought I had to set them free.\"}'\nfive:\n  original: 동물들을 해방하고 동물원을 뛰어나와, 나는 친구들과 함께 새로운 곳을 찾기 시작했다.\n  natural: 동물들을 해방하고 동물원을 나와, 나는 친구들과 함께 새로운 곳을 찾기 시작했다.\n  problem: |\n    동물(動物)들을 해방(解放)하고 동물원(動物園)을 나와, 나는 친구(親舊)들과 함께 새로운 곳을 찾기 시작(始作)했다.\n  wordByWordTranslation: '{\"동물들을 해방하고\":\"released the animals\",\"동물원을 나와\":\"left the\n    zoo\",\"나는 친구들과 함께\":\"I started going with my friends\",\"새로운 곳을 찾기\n    시작했다\":\"started looking for a new place\"}'\n  overallTranslation: '{\"english\":\"I released the animals and left the zoo. I\n    started looking for a new place with my friends.\"}'\n",
-    "id": 1311
+    "id": 1328
+  },
+  {
+    "generator": "korean-gap-story-6-comic book",
+    "input": "aloud",
+    "problem": "어둠이 가득찬 방(房)에서 책(冊)을 읽으며 소리 없이 있었다. <br> 책(冊) 속의 이야기를 직접(直接) 말하는 것이 좋겠다. 소리 없이 책(冊)을 읽는 것보다는. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 책(冊) 속의 이야기가 실제로(實際로) 시작(始作)하여 주변(周邊)이 어둡게 변(變)했다. <br> 책(冊) 속의 인물(人物)들이 현실(現實)에 나타나 소리 없이 책(冊) 속의 이야기를 말하기 시작(始作)했다. <br>",
+    "solution": "one:\n  problem: |\n    어둠이 가득찬 방(房)에서 책(冊)을 읽으며 소리 없이 있었다.\n  wordByWordTranslation: '{\"어둠\":\"darkness\",\"가득찬\":\"filled\",\"방\":\"room\",\"책\":\"book\",\"독기\":\"reading\",\"소리\":\"sound\",\"없이\":\"quietly\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"He was reading a book in a room filled with\n    darkness, silent as the night.\"}'\ntwo:\n  problem: |\n    책(冊) 속의 이야기를 직접(直接) 말하는 것이 좋겠다. 소리 없이 책(冊)을 읽는 것보다는.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"이야기\":\"story\",\"직접\":\"directly\",\"말\":\"speak\",\"좋겠다\":\"would\n    be good\",\"소리\":\"silence\",\"없이\":\"without\",\"읽는\":\"reading\",\"것보다는\":\"rather than\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"It would be better to tell the story from\n    the book directly rather than reading it silently. It's more engaging to\n    hear the story rather than just reading the words.\\\"}\"\nthree:\n  problem: |\n    갑자기 책(冊)의 페이지가 뒤집히기 시작(始作)했다.\n  wordByWordTranslation: \"{\\\"갑자기\\\":\\\"suddenly\\\",\\\"책의\\\":\\\"book's\\\",\\\"페이지\\\":\\\"pages\\\n    \\\",\\\"뒤집히기\\\":\\\"flipping\\\",\\\"시작했다\\\":\\\"started\\\"}\"\n  overallTranslation: '{\"english\":\"The pages of the book suddenly started flipping backwards.\"}'\nfour:\n  problem: |\n    책(冊) 속의 이야기가 실제로(實際로) 시작(始作)하여 주변(周邊)이 어둡게 변(變)했다.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"이야기\":\"story\",\"실제로\":\"actually\",\"시작\":\"began\",\"주변\":\"surrounding\",\"어둡게\":\"darkly\",\"변했다\":\"changed\"}'\n  overallTranslation: '{\"english\":\"The story in the book actually began, and the\n    surroundings grew dark.\"}'\nfive:\n  problem: |\n    책(冊) 속의 인물(人物)들이 현실(現實)에 나타나 소리 없이 책(冊) 속의 이야기를 말하기 시작(始作)했다.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"인물\":\"characters\",\"나타나\":\"appeared\",\"소리\":\"silence\",\"없이\":\"without\",\"말하기\":\"to\n    speak\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The characters in the book began to appear in\n    reality and started telling the story without words.\"}'\n",
+    "id": 1329
   },
   {
     "generator": "korean-gap-story-6-cosmic-horror",
     "input": "orchard",
     "problem": "오디세이 작은 마을에 살던 한 학생(學生)이 과일원(院)에 가서 과일을 수집(蒐集)하고 있었다. <br> 그는 과일원을 돌아다니며 어둠이 가림치게 된 과일원(院)에 공포감(恐怖感)을 느끼기 시작(始作)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 영일은 과일원을 돌아다니며 거대(巨大)한 나무들이 영일(令日)을 공격(攻擊)하기 시작(始作)했다. <br> 그는 나무의 공격(攻擊)으로부터 도망쳐지려고 하지만 공격(攻擊)은 계속(繼續)되다가 영일은 목을 두절(杜絶)하고 말았다. <br>",
     "solution": "one:\n  original: 오디세이 작은 마을에 살던 한 학생, 영일은 과일원에 가서 과일을 수집하고 있었다.\n  natural: 오디세이 작은 마을에 살던 한 학생이 과일원에 가서 과일을 수집하고 있었다.\n  problem: |\n    오디세이 작은 마을에 살던 한 학생(學生)이 과일원(院)에 가서 과일을 수집(蒐集)하고 있었다.\n  wordByWordTranslation: '{\"오디세이\":\"Odyssey\",\"작은\":\"small\",\"마을\":\"village\",\"살던\":\"lived\",\"한\":\"a\",\"학생\":\"student\",\"가서\":\"went\n    to\",\"과일원\":\"fruit orchard\",\"가고\":\"was collecting\",\"있었다\":\"was there\"}'\n  overallTranslation: '{\"english\":\"An Odyssey student living in a small village\n    was collecting fruits in the orchard.\"}'\ntwo:\n  original: 그는 과일원을 돌아다니며 어둠에 가림치게 된 과일원에 공포감을 느끼기 시작했다.\n  natural: 그는 과일원을 돌아다니며 어둠이 가림치게 된 과일원에 공포감을 느끼기 시작했다.\n  problem: |\n    그는 과일원을 돌아다니며 어둠이 가림치게 된 과일원(院)에 공포감(恐怖感)을 느끼기 시작(始作)했다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"과일원을\":\"fruit orchard\",\"돌아다니며\":\"walking\n    back\",\"어둠이\":\"darkness\",\"가림치게\":\"covering\",\"된\":\"became\",\"과일원에\":\"to the fruit\n    orchard\",\"공포감을\":\"feeling of fear\",\"느끼기\":\"began to feel\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"He began to feel fear as the dark covered the\n    fruit orchard he had been wandering through.\"}'\nthree:\n  original: 갑자기 과일원은 공기가 사라지고 어둠이 덮쳤다.\n  natural: 갑자기 과일원은 공기가 사라지고 어둠이 덮겼다.\n  problem: |\n    갑자기 과일원(院)은 공기(空氣)가 사라지고 어둠이 덮겼다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"과일원\":\"fruit\n    orchard\",\"공기\":\"air\",\"사라지고\":\"vanishes\",\"어둠\":\"darkness\",\"덮겼다\":\"covered\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the orchard was filled with darkness\n    as the air vanished.\"}'\nfour:\n  original: 영일은 과일원을 돌아다니며 거대한 나무가 영일을 공격하기 시작했다.\n  natural: 영일은 과일원을 돌아다니며 거대한 나무들이 영일을 공격하기 시작했다.\n  problem: |\n    영일은 과일원을 돌아다니며 거대(巨大)한 나무들이 영일(令日)을 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"영일\":\"Earl\",\"과일원\":\"Orchard\",\"돌아다니며\":\"walking\n    back\",\"거대한\":\"giant\",\"나무들\":\"trees\",\"공격하기\":\"attack\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"England is being attacked by giant trees while\n    returning from the orchard.\"}'\nfive:\n  original: 그는 나무의 공격으로부터 도망쳐지려고 하지만 공격은 계속되다가 영일은 목을 두절하고 말았다.\n  natural: 그는 나무의 공격으로부터 도망쳐지려고 하지만 공격은 계속되다가 영일은 목을 두절하고 말았다.\n  problem: |\n    그는 나무의 공격(攻擊)으로부터 도망쳐지려고 하지만 공격(攻擊)은 계속(繼續)되다가 영일은 목을 두절(杜絶)하고 말았다.\n  wordByWordTranslation: \"{\\\"그는\\\":\\\"He\\\",\\\"나무의\\\":\\\"tree's\\\",\\\"공격\\\":\\\"attack\\\",\\\"로\\\n    부터\\\":\\\"from\\\",\\\"도망쳐지려고\\\":\\\"tried to\n    escape\\\",\\\"하지만\\\":\\\"but\\\",\\\"계속되다가\\\":\\\"continued\\\",\\\"영일\\\":\\\"England\\\",\\\"목을\\\":\\\n    \\\"neck\\\",\\\"두절하고\\\":\\\"broke\\\",\\\"말았다\\\":\\\"said\\\"}\"\n  overallTranslation: '{\"english\":\"He tried to escape the attack of the trees, but\n    the attack continued until he was beheaded and silenced.\"}'\n",
-    "id": 1312
+    "id": 1330
   },
   {
     "generator": "korean-gap-story-6-drama",
     "input": "front",
     "problem": "전선(前線) 위의 어둠은 내 마음의 어둠도 없어졌다. <br> 당신(當身)은 전선(前線) 위의 용기(勇氣)가 있는 사람이었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 물은 그를 둘러싸고, 그대는 공기(空氣)를 얻기 위해 노력(努力)했다. <br> 전선(戰線)이 침몰(沈沒)했더라도, 그대는 살아났어. <br>",
     "solution": "one:\n  original: 전선 위의 어둠은, 내 마음의 어둠도 가렸다.\n  natural: 전선 위의 어둠은 내 마음의 어둠도 없어졌다.\n  problem: |\n    전선(前線) 위의 어둠은 내 마음의 어둠도 없어졌다.\n  wordByWordTranslation: '{\"전선\":\"front\n    line\",\"위\":\"above\",\"어둠\":\"darkness\",\"내\":\"my\",\"마음\":\"heart\",\"없어졌다\":\"vanished\"}'\n  overallTranslation: '{\"english\":\"The darkness above the frontline vanished from\n    my heart as well.\"}'\ntwo:\n  original: 그대는 전선 위의 용기 있는 사람이었다.\n  natural: 당신은 전선 위의 용기가 있는 사람이었다.\n  problem: |\n    당신(當身)은 전선(前線) 위의 용기(勇氣)가 있는 사람이었다.\n  wordByWordTranslation: '{\"당신은\":\"You were\",\"전선 위의\":\"on the front\n    line\",\"용기가\":\"brave\",\"인 사람이었다\":\"a person\"}'\n  overallTranslation: '{\"english\":\"You were the kind of person who always had a\n    hidden talent or potential.\"}'\nthree:\n  original: 전선이 침몰하자, 그대는 다른 사람들을 구하기 위해 물속으로 뛰었다.\n  natural: 전선이 침몰할 때, 그대는 다른 사람들을 구하기 위해 물속으로 뛰었다.\n  problem: |\n    전선(戰線)이 침몰(沈沒)할 때, 그대는 다른 사람들을 구(求)하기 위해 물속으로 뛰었다.\n  wordByWordTranslation: '{\"전선\":\"frontline\",\"침몰\":\"sink\",\"그대\":\"you\",\"다른\":\"other\",\"사람\":\"people\",\"구하기\":\"rescue\",\"물속\":\"underwater\",\"뛰었다\":\"ran\"}'\n  overallTranslation: '{\"english\":\"When the tide submerged the front line, you\n    were diving into the water to save others.\"}'\nfour:\n  original: 물은 그를 포위하고, 그대는 공기를 얻기 위해 부력을 다했다.\n  natural: 물은 그를 둘러싸고, 그대는 공기를 얻기 위해 노력했다.\n  problem: |\n    물은 그를 둘러싸고, 그대는 공기(空氣)를 얻기 위해 노력(努力)했다.\n  wordByWordTranslation: '{\"물은\":\"Water\n    is\",\"그를\":\"it\",\"둘러싸고\":\"surrounding\",\"그대는\":\"you\",\"공기를\":\"air\",\"얻기 위해\":\"to\n    obtain\",\"노력했다\":\"struggled\"}'\n  overallTranslation: '{\"english\":\"Water surrounds him, and you struggle to breathe.\"}'\nfive:\n  original: 전선이 침몰했지만, 그대는 살아났다.\n  natural: 전선이 침몰했더라도, 그대는 살아났어.\n  problem: |\n    전선(戰線)이 침몰(沈沒)했더라도, 그대는 살아났어.\n  wordByWordTranslation: '{\"전선\":\"frontline\",\"침몰\":\"sink\",\"했더라\":\"had\",\"그대\":\"you\",\"살아났어\":\"survived\"}'\n  overallTranslation: '{\"english\":\"Even if the frontline sank, you survived.\"}'\n",
-    "id": 1313
+    "id": 1331
   },
   {
     "generator": "korean-gap-story-6-espionage",
     "input": "withdrawn",
     "problem": "저녁이 되면 가옥(家屋) 속은 어둠이 점차(漸次) 깊어지지만, 예민(銳敏)들은 단순(單純)한 평화(平和)에 빠지지 않았다. <br> 그는 눈을 감고 있지만, 그의 마음은 활기차게 돌아다니고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 예민(銳敏)은 신경(神經)을 응축(凝縮)하고 손을 움직여 비늘을 발사(發射)했다. <br> 여성(女性)은 예민(銳敏)의 공격(攻擊)을 피(避)해 예민(銳敏)의 얼굴에 손을 두르다가 사라졌다. <br>",
     "solution": "one:\n  original: 저녁, 어둠이 깊어지는 가옥 속에서, 예민은 단순한 평화에 빠지지 않았다.\n  natural: 저녁이 되면 가옥 속은 어둠이 점차 깊어지지만, 예민들은 단순한 평화에 빠지지 않았다.\n  problem: |\n    저녁이 되면 가옥(家屋) 속은 어둠이 점차(漸次) 깊어지지만, 예민(銳敏)들은 단순(單純)한 평화(平和)에 빠지지 않았다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"이\":\"is\",\" 되면\":\"when it\n    becomes\",\"가옥\":\"prison\",\"속은\":\"inside\",\"어둠\":\"darkness\",\"점차\":\"gradually\",\"깊어지지만\":\"becomes\n    deeper\",\"예민들은\":\"the people\",\"단순한\":\"simple\",\"평화\":\"peace\",\"빠지지 않았다\":\"did not\n    fall into\"}'\n  overallTranslation: '{\"english\":\"As night approached, the darkness within the\n    prison walls deepened, but the prisoners did not simply succumb to peaceful\n    slumber.\"}'\ntwo:\n  original: 그는 눈을 감고 있지만, 그의 마음은 활기차게 돌아다니고 있었다.\n  natural: 그는 눈을 감고 있지만, 그의 마음은 활기차게 돌아다니고 있었다.\n  problem: |\n    그는 눈을 감고 있지만, 그의 마음은 활기차게 돌아다니고 있었다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"눈을\":\"eyes\",\"감고\":\"closed\",\"있지만\":\"but\",\"그의\":\"his\",\"마음은\":\"mind\",\"활기차게\":\"energetically\",\"돌아다니고\":\"was\n    returning\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"His eyes were closed, but his mind was actively buzzing.\"}'\nthree:\n  original: 갑자기, 문이 열리고, 어둠에서 여성의 그림자가 들어왔다.\n  natural: 갑자기 문이 열리고, 어둠에서 여성의 그림자가 들어왔다.\n  problem: |\n    갑자기 문(門)이 열리고, 어둠에서 여성(女性)의 그림자가 들어왔다.\n  wordByWordTranslation: \"{\\\"갑자기\\\":\\\"suddenly\\\",\\\"문이\\\":\\\"door\\\",\\\"열리고\\\":\\\"opened\\\n    \\\",\\\"어둠에서\\\":\\\"in the darkness\\\",\\\"여성의\\\":\\\"a\n    woman's\\\",\\\"그림자가\\\":\\\"silhouette\\\",\\\"들어왔다\\\":\\\"came in\\\"}\"\n  overallTranslation: '{\"english\":\"The door burst open, and a woman’s shadow crept\n    in from the darkness.\"}'\nfour:\n  original: 예민은 신경을 응축하고, 손을 움직여 비늘을 발사했다.\n  natural: 예민은 신경을 응축하고 손을 움직여 비늘을 발사했다.\n  problem: |\n    예민(銳敏)은 신경(神經)을 응축(凝縮)하고 손을 움직여 비늘을 발사(發射)했다.\n  wordByWordTranslation: '{\"예민\":\"Yeminan\",\"신경\":\"Nerve\",\"응축\":\"Contracted\",\"손\":\"Hand\",\"움직여\":\"Moved\",\"비늘\":\"Spit\",\"발사했다\":\"Launched\"}'\n  overallTranslation: '{\"english\":\"The soldier concentrated his nerves and moved\n    his hand to launch a missile.\"}'\nfive:\n  original: 여성은 예민의 공격을 회피하고, 예민의 얼굴에 손을 두르다가 사라졌다.\n  natural: 여성은 예민의 공격을 피해 예민의 얼굴에 손을 두르다가 사라졌다.\n  problem: |\n    여성(女性)은 예민(銳敏)의 공격(攻擊)을 피(避)해 예민(銳敏)의 얼굴에 손을 두르다가 사라졌다.\n  wordByWordTranslation: '{\"여성\":\"Woman\",\"은\":\"is\",\"예민\":\"refugee\",\"의\":\"of\",\"공격\":\"attack\",\"피해\":\"avoiding\",\"얼굴\":\"face\",\"손\":\"hand\",\"두르다\":\"put\",\"가\":\"and\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The woman dodged the peasants' attack and\n    put her hand on their faces before disappearing.\\\"}\"\n",
-    "id": 1314
+    "id": 1332
   },
   {
     "generator": "korean-gap-story-6-gothic-horror",
     "input": "diesel",
     "problem": "밤의 어둠 속에서 디젤광장(廣場)이 비춰지고 있었다. <br> 그 곳에 있을 때, 디젤빛이 반사(反射)해 온 빛을 보고 신경(神經)이 긴장(緊張)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 광장(廣場)에서 있을 때, 어둠이 덮여 모든 것이 사라졌다. <br> 디젤 광장(廣場)에서 빠져나려다가 사라졌다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 디젤 광장이 비춰지고 있었다.\n  natural: 밤의 어둠 속에서 디젤광장이 비춰지고 있었다.\n  problem: |\n    밤의 어둠 속에서 디젤광장(廣場)이 비춰지고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"in\",\"디젤광장\":\"diesel\n    light\",\"비춰지고\":\"is illuminating\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The diesel lights flickered in the darkness of the night.\"}'\ntwo:\n  original: 그 곳에 있던 나는, 디젤에 비춰지는 빛을 보고 신경이 긴장했다.\n  natural: 그 곳에 있을 때, 디젤빛이 반사해 온 빛을 보고 신경이 긴장했다.\n  problem: |\n    그 곳에 있을 때, 디젤빛이 반사(反射)해 온 빛을 보고 신경(神經)이 긴장(緊張)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"\n    곳\":\"place\",\"에\":\"to\",\"있을\":\"be\",\"때\":\"when\",\"디젤빛\":\"diesel\n    light\",\"반사해\":\"reflecting\",\"온\":\"on\",\"빛\":\"light\",\"보고\":\"seeing\",\"신경\":\"nerve\",\"긴장했다\":\"became\n    tense\"}'\n  overallTranslation: '{\"english\":\"When he was there, he saw the reflection of\n    diesel light and his nerves became tense.\"}'\nthree:\n  original: 갑자기, 디젤 광장이 빛을 차단하고 처음부터 다른 광장으로 바뀌었다.\n  natural: 갑자기, 디젤광장의 빛이 차단되고 처음부터 다른 광장으로 바뀌었다.\n  problem: |\n    갑자기, 디젤광장(廣場)의 빛이 차단(遮斷)되고 처음부터 다른 광장(廣場)으로 바뀌었다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"디젤광장\":\"diesel\n    streetlamp\",\"빛\":\"light\",\"차단\":\"blocked\",\"처음부터\":\"from the\n    beginning\",\"다른\":\"different\",\"광장\":\"streetlamp\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the lights of the diesel parking lot\n    were shut off and changed to another light source from the beginning.\"}'\nfour:\n  original: 나는 광장에 있을 때, 어둠이 덮여 모든 것이 사라졌다.\n  natural: 광장에서 있을 때, 어둠이 덮여 모든 것이 사라졌다.\n  problem: |\n    광장(廣場)에서 있을 때, 어둠이 덮여 모든 것이 사라졌다.\n  wordByWordTranslation: '{\"광장에서\":\"In the market\",\"있을 때\":\"when he/she was\n    there\",\"어둠이\":\"darkness\",\"덮여\":\"covered\n    in\",\"모든\":\"everything\",\"것이\":\"it/things\"}'\n  overallTranslation: '{\"english\":\"When I was in the open, the darkness covered\n    everything and it disappeared.\"}'\nfive:\n  original: 나는 디젤 광장에서 빠져나지려고 하다가 사라졌다.\n  natural: 디젤 광장에서 빠져나려다가 사라졌다.\n  problem: |\n    디젤 광장(廣場)에서 빠져나려다가 사라졌다.\n  wordByWordTranslation: '{\"디젤\":\"Diesel\",\"광장\":\"Market\",\"빠져나려다가\":\"tried to\n    escape\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"He disappeared while trying to escape from Diesel Plaza.\"}'\n",
-    "id": 1315
+    "id": 1333
+  },
+  {
+    "generator": "korean-gap-story-6-low-fantasy",
+    "input": "totter",
+    "problem": "저녁 바닥의 빛이 어둡네. <br> 길을 잃고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 움직이는 바닥은 그들과 같은 생물(生物)이었다. <br> 그 생물(生物)들은 사람들처럼 걸고, 사람들처럼 말했다. <br>",
+    "solution": "one:\n  problem: |\n    저녁 바닥의 빛이 어둡네.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"바닥\":\"floor\",\"빛\":\"light\",\"어둡네\":\"is dark\"}'\n  overallTranslation: '{\"english\":\"The light at the bottom of the evening is dim.\"}'\ntwo:\n  problem: |\n    길을 잃고 있었다.\n  wordByWordTranslation: '{\"길\":\"road\",\"을\":\"particle\",\"잃고\":\"to lose\",\"있었다\":\"was there\"}'\n  overallTranslation: '{\"english\":\"He had lost his way.\"}'\nthree:\n  problem: |\n    갑자기 바닥이 움직겼다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"바닥\":\"floor\",\"움직겼다\":\"moved\"}'\n  overallTranslation: '{\"english\":\"The floor suddenly moved.\"}'\nfour:\n  problem: |\n    움직이는 바닥은 그들과 같은 생물(生物)이었다.\n  wordByWordTranslation: '{\"움직이는\":\"moving\",\"바닥\":\"floor\",\"은\":\"was\",\"그들\":\"they\",\"과\":\"like\",\"같은\":\"same\",\"생물\":\"creature\",\"이었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The moving floor was made up of creatures just like them.\"}'\nfive:\n  problem: |\n    그 생물(生物)들은 사람들처럼 걸고, 사람들처럼 말했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"생물들은\":\"creatures are\",\"사람들처럼\":\"like\n    people\",\"걸고\":\"walk\",\"말했다\":\"spoke\"}'\n  overallTranslation: '{\"english\":\"Those creatures walked and spoke like humans.\"}'\n",
+    "id": 1334
   },
   {
     "generator": "korean-gap-story-6-medieval",
     "input": "brain",
     "problem": "저녁바닥의 어두운 방(房)에서, 영감(靈感)없는 노인(老人)이 무력(無力)하게 누워있었다. <br> undefined<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 빛은 영감(靈感)을 주는 무언가를 지닌 것 같아 보였다. <br> 노인(老人)은 빛에 향(向)해 바닥을 덮치기 시작(始作)하고, 새로운 아이디어들이 떠오르기 시작(始作)했다. <br>",
     "solution": "one:\n  original: 저녁바닥의 암막한 방에서, 영감 없는 노인이 침묵하게 누워있었다.\n  natural: 저녁바닥의 어두운 방에서, 영감없는 노인이 무력하게 누워있었다.\n  problem: |\n    저녁바닥의 어두운 방(房)에서, 영감(靈感)없는 노인(老人)이 무력(無力)하게 누워있었다.\n  wordByWordTranslation: '{\"저녁바닥\":\"evening\n    floor\",\"의\":\"of\",\"어두운\":\"dark\",\"방\":\"room\",\"에서\":\"in\",\"영감없는\":\"inspirationless\",\"노인\":\"old\n    person\",\"무력하게\":\"powerlessly\",\"누워있었다\":\"was lying down\"}'\n  overallTranslation: '{\"english\":\"In the dimly lit room on the basement floor in\n    the evening, an uninspired old man lay helpless.\"}'\ntwo:\n  original: 그는 종래 복잡한 책을 읽거나 어려운 문제를 해결하기 위해 머리를 사용했지만, 지금은 그저 생계를 유지하기 위해 노력하고 있었다.\n  natural: 그는 과거 복잡한 책을 읽거나 어려운 문제를 해결하기 위해 머리를 사용했지만, 지금은 생계를 유지하기 위해 노력하고 있었다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"과거\":\"past\",\"복잡한\":\"complex\",\"책\":\"book\",\"를\":\"to\",\"독기\":\"read\",\"또는\":\"or\",\"어려운\":\"difficult\",\"문제\":\"problem\",\"해결\":\"solve\",\"하기\n    위해\":\"to\",\"머리를\":\"brain\",\"사용했지만\":\"used to\",\"지금은\":\"now\",\"생계\":\"livelihood\",\"유지하기\n    위해\":\"to maintain\",\"노력하고\":\"is working\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"He used to read complex books or solve\n    difficult problems by using his brain, but now he works to support\n    himself.\"}'\nthree:\n  original: 그러나 갑자기, 방 안에 밝은 빛이 비추기 시작했다.\n  natural: 그러나 갑자기 방 안에 밝은 빛이 비추기 시작했다.\n  problem: |\n    그러나 갑자기 방(房) 안에 밝은 빛이 비추기 시작(始作)했다.\n  wordByWordTranslation: '{\"그러나\":\"However\",\"갑자기\":\"Suddenly\",\"방 안에\":\"Inside the\n    room\",\"밝은\":\"Bright\",\"빛\":\"Light\",\"비추기\":\"To shine\",\"시작했다\":\"Started\"}'\n  overallTranslation: '{\"english\":\"However, a bright light suddenly started shining in the room.\"}'\nfour:\n  original: 그 빛은 영감을 주는 무언가를 가진 것 같아 보였다.\n  natural: 그 빛은 영감을 주는 무언가를 지닌 것 같아 보였다.\n  problem: |\n    그 빛은 영감(靈感)을 주는 무언가를 지닌 것 같아 보였다.\n  wordByWordTranslation: '{\"그\":\"that\",\"빛\":\"light\",\"은\":\"is\",\"영감\":\"inspiration\",\"을\":\"to\",\"주는\":\"giving\",\"무언가\":\"something\",\"지닌\":\"having\",\"것\":\"it\",\"\n    같아\":\"seems to be\",\"보였다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"That light seemed to possess something inspiring.\"}'\nfive:\n  original: 노인은 빛을 향해 바닥을 덮치기 시작하고, 새로운 아이디어가 떠오르기 시작했다.\n  natural: 노인은 빛에 향해 바닥을 덮치기 시작하고, 새로운 아이디어들이 떠오르기 시작했다.\n  problem: |\n    노인(老人)은 빛에 향(向)해 바닥을 덮치기 시작(始作)하고, 새로운 아이디어들이 떠오르기 시작(始作)했다.\n  wordByWordTranslation: '{\"노인\":\"Elderly\",\"빛\":\"Light\",\"향해\":\"towards\",\"바닥\":\"Floor\",\"덮치기\":\"cover\",\"시작\":\"started\",\"새로운\":\"new\",\"아이디어\":\"ideas\",\"떠오르기\":\"emerge\"}'\n  overallTranslation: '{\"english\":\"As people grow old, they tend to cover the\n    floor with their shadow and new ideas start to emerge.\"}'\n",
-    "id": 1316
+    "id": 1335
   },
   {
     "generator": "korean-gap-story-6-medieval",
     "input": "moat",
     "problem": "무력(無力)한 영감(令監)이었던 나는, 성(性)의 방(房)을 돌아오다가 <br> 깊은 물로 가득찬 성(城)의 문(門)을 발견(發見)했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> undefined<br> 저는 용사(勇士)들과 함께 성(城)을 구출(救出)하는 데 도와주었다. <br>",
     "solution": "one:\n  original: 무력한 영감이었던 나는, 성의 방을 돌아오다가\n  natural: 무력한 영감이었던 나는, 성의 방을 돌아오다가\n  problem: |\n    무력(無力)한 영감(令監)이었던 나는, 성(性)의 방(房)을 돌아오다가\n  wordByWordTranslation: '{\"무력한\":\"powerless\",\"영감이었던\":\"was\n    inspiring\",\"나는\":\"I\",\"성의\":\"sexual\",\"방\":\"room\",\"돌아오다가\":\"returned\"}'\n  overallTranslation: '{\"english\":\"I, who had been powerless, returned to the room of womanhood.\"}'\ntwo:\n  original: 깊은 물로 가득찬 성의 문을 발견했다.\n  natural: 깊은 물로 가득찬 성의 문을 발견했다.\n  problem: |\n    깊은 물로 가득찬 성(城)의 문(門)을 발견(發見)했다.\n  wordByWordTranslation: '{\"깊은\":\"deep\",\"물로\":\"filled with\n    water\",\"가득찬\":\"overflowing\",\"성의\":\"castle\",\"문\":\"gate\",\"발\":\"foot\",\"견했다\":\"found\"}'\n  overallTranslation: '{\"english\":\"They found a door filled with deep water in the palace.\"}'\nthree:\n  original: 갑자기 성의 주민들이 공포에 싸여 있었다.\n  natural: 갑자기 성의 사람들이 공포에 싸여 있었다.\n  problem: |\n    갑자기 성(性)의 사람들이 공포(恐怖)에 싸여 있었다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"성의\":\"famous\",\"사람들\":\"people\",\"공포\":\"fear\",\"싸여\":\"were\n    surrounded by\",\"있었다\":\"were\"}'\n  overallTranslation: '{\"english\":\"Suddenly, there were people of mature age trapped in fear.\"}'\nfour:\n  original: 그들은 용감한 용사들이 성을 방어하고 있었다.\n  natural: 그들은 용감한 용사들이 성을 방어하고 있었다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    were\",\"용감한\":\"brave\",\"용사들이\":\"soldiers\",\"성\":\"castle\",\"방어\":\"defending\",\"있었다\":\"were\n    there\"}'\n  overallTranslation: '{\"english\":\"They were valiant warriors, guarding their territory.\"}'\nfive:\n  original: 나는 용사들에게 도와 성을 구출하는 데 도와주었다.\n  natural: 저는 용사들과 함께 성을 구출하는 데 도와주었다.\n  problem: |\n    저는 용사(勇士)들과 함께 성(城)을 구출(救出)하는 데 도와주었다.\n  wordByWordTranslation: '{\"저\":\"I\",\"는\":\"am\",\"용사들\":\"soldiers\",\"과\":\"with\",\"함께\":\"together\",\"성\":\"castle\",\"구출\":\"rescued\",\"하는\":\"doing\",\"도와주었다\":\"helped\"}'\n  overallTranslation: '{\"english\":\"I helped rescue the hostages with the soldiers.\"}'\n",
-    "id": 1317
+    "id": 1336
   },
   {
     "generator": "korean-gap-story-6-renaissance",
     "input": "outwit",
     "problem": "새가 새해지는 바닥 위에서 누워 태양(太陽)이 비추는 것을 보았다. <br> 그는 누워 음악(音樂)에 집중(集中)하고 있었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그는 무슨 일이 일어났는지 막막(漠漠)해졌다. <br> 그는 그 음악(音樂)이 사라지는 이유(理由)를 이해(理解)하기 위해 음악원(音樂院)으로 달려갔다. <br>",
     "solution": "one:\n  original: 날새가 새해지는 바닥 위에 누워서 태양이 비추는 것을 보았다.\n  natural: 새가 새해지는 바닥 위에서 누워 태양이 비추는 것을 보았다.\n  problem: |\n    새가 새해지는 바닥 위에서 누워 태양(太陽)이 비추는 것을 보았다.\n  wordByWordTranslation: '{\"새가\":\"A bird\",\"새해지는\":\"is chirping\",\"바닥 위에서\":\"on the\n    floor above\",\"누워\":\"lying\",\"태양이\":\"the sun is\n    shining\",\"비추는\":\"shining\",\"것을\":\"it\",\"보았다\":\"saw\"}'\n  overallTranslation: '{\"english\":\"I saw the sun shining on the floor below where\n    a new bird had just hatched.\"}'\ntwo:\n  original: 그는 누워서 그 음악에 집중하고 있었다.\n  natural: 그는 누워 음악에 집중하고 있었다.\n  problem: |\n    그는 누워 음악(音樂)에 집중(集中)하고 있었다.\n  wordByWordTranslation: '{\"그는\":{\"korean\":\"그는\",\"english\":\"He\"},\"누워\":{\"korean\":\"누워\",\"english\":\"lying\"},\"음악\":{\"korean\":\"음악\",\"english\":\"music\"},\"집중\":{\"korean\":\"집중\",\"english\":\"concentrating\"},\"있었다\":{\"korean\":\"있었다\",\"english\":\"was\"}}'\n  overallTranslation: '{\"english\":\"He was focused on listening to music while lying down.\"}'\nthree:\n  original: 그가 누워 있을 때, 갑자기 그 음악이 사라졌다.\n  natural: 그가 누워 있을 때, 갑자기 그 음악은 사라졌다.\n  problem: |\n    그가 누워 있을 때, 갑자기 그 음악(音樂)은 사라졌다.\n  wordByWordTranslation: '{\"그가\":\"He/she/it\",\"누워 있을 때\":\"while\n    sleeping\",\"갑자기\":\"suddenly\",\"그 음악\":\"that music\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"When he was lying down, the music suddenly disappeared.\"}'\nfour:\n  original: 그는 무슨 일이 일어났는지 막막해졌다.\n  natural: 그는 무슨 일이 일어났는지 막막해졌다.\n  problem: |\n    그는 무슨 일이 일어났는지 막막(漠漠)해졌다.\n  wordByWordTranslation: '{\"그는\":{\"korean\":\"그는\",\"english\":\"He\"},\"무슨\":{\"korean\":\"무슨\",\"english\":\"what\"},\"일\":{\"korean\":\"일\",\"english\":\"thing\"},\"이\":{\"korean\":\"이\",\"english\":\"is\"},\"일어났는지\":{\"korean\":\"일어났는지\",\"english\":\"happened?\"},\"막막해졌다\":{\"korean\":\"막막해졌다\",\"english\":\"is\n    confused\"}}'\n  overallTranslation: \"{\\\"english\\\":\\\"He's completely lost track of what's going on.\\\"}\"\nfive:\n  original: 그는 그 음악이 사라지는 이유를 이해하기 위해 그 음악원으로 달려갔다.\n  natural: 그는 그 음악이 사라지는 이유를 이해하기 위해 음악원으로 달려갔다.\n  problem: |\n    그는 그 음악(音樂)이 사라지는 이유(理由)를 이해(理解)하기 위해 음악원(音樂院)으로 달려갔다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"그\":\"that\",\"음악\":\"music\",\"이\":\"that\",\"사라지는\":\"disappears\",\"유를\":\"reason\",\"\n    이해하기 위해\":\"to understand in order to\",\"음악원\":\"music school\",\"달려갔다\":\"ran\n    away\"}'\n  overallTranslation: '{\"english\":\"He ran to the music school to understand why\n    the music was disappearing.\"}'\n",
-    "id": 1318
+    "id": 1337
   },
   {
     "generator": "korean-gap-story-6-superhero",
     "input": "recharge",
     "problem": "오늘밤, 어둠이 가득찬 거리에서 유명(有名)한 강아지 패션 모델이었던 아리나는 공중(空中)에 비치는 빛을 발사(發射)하는 능력(能力)을 가진 비밀(祕密)의 영웅(英雄)이었다. <br> 아리나는 공중(空中)의 빛을 통해 '재충(再衝)'이라는 이름으로 악명고인(惡名故人) 범죄자(犯罪者)로부터 도시(都市)를 구출(救出)해야 했다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 결과(結果), 아리나는 비가 내리는 빛 대신(代身) 공기(空氣)를 발사(發射)하여 공기(空氣)를 회전시키는 능력(能力)을 얻었다. <br> 그 이후(以後) 아리나는 '공기(空氣)의 비늘'이라는 새로운 이름으로 활약(活躍)하여 도시(都市)를 공기(空氣) 오염(汚染)과 공해(公害)로부터 보호(保護)했다. <br>",
     "solution": "one:\n  original: 오늘 밤, 어둠이 가득찬 거리에서, 유명한 강아지 패션 모델이었던 아리나는 공중에 비치는 빛을 발사하는 능력을 가진 비밀의 영웅이었다.\n  natural: 오늘밤, 어둠이 가득찬 거리에서 유명한 강아지 패션 모델이었던 아리나는 공중에 비치는 빛을 발사하는 능력을 가진 비밀의 영웅이었다.\n  problem: >\n    오늘밤, 어둠이 가득찬 거리에서 유명(有名)한 강아지 패션 모델이었던 아리나는 공중(空中)에 비치는 빛을 발사(發射)하는 능력(能力)을\n    가진 비밀(祕密)의 영웅(英雄)이었다.\n  wordByWordTranslation: '{\"오늘밤\":\"Tonight\",\"어둠이 가득찬 거리\":\"Dark street\",\"유명한 강아지 패션\n    모델\":\"Famous dog fashion model\",\"아리나는\":\"Ari was\",\"공중에 비치는 빛\":\"Light floating\n    in the air\",\"발사하는 능력\":\"Ability to emit\",\"비밀의 영웅\":\"Secret hero\"}'\n  overallTranslation: '{\"english\":\"Arian, who had been a renowned puppy fashion\n    model on a dimly lit street last night, was secretly a heroine with the\n    ability to emit light in the air.\"}'\ntwo:\n  original: 아리나는 공중에서 비치는 빛을 통해 '재충'이라는 이름의 악명고인 범죄자로부터 도시를 구출해야 했다.\n  natural: 아리나는 공중의 빛을 통해 '재충'이라는 이름으로 악명고인 범죄자로부터 도시를 구출해야 했다.\n  problem: >\n    아리나는 공중(空中)의 빛을 통해 '재충(再衝)'이라는 이름으로 악명고인(惡名故人) 범죄자(犯罪者)로부터 도시(都市)를 구출(救出)해야\n    했다.\n  wordByWordTranslation: \"{\\\"아리나는\\\":\\\"Arlington\\\",\\\"공중의 빛\\\":\\\"light of the\n    air\\\",\\\"빛을 통해\\\":\\\"through the light\\\",\\\"'재충'이라는 이름으로\\\":\\\"'Arlington'\n    named\\\",\\\"악명고인\\\":\\\"notorious\\\",\\\"범죄자로부터\\\":\\\"from criminals\\\",\\\"도시를 구출해야\n    했다\\\":\\\"had to rescue the city\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"Arian had to rescue the city from a\n    notorious criminal known as 'Jaejung,' who was infamous for his crimes\n    through the light of the air.\\\"}\"\nthree:\n  original: 그러나 아리나의 비기는 빛은 다른 사람들에게 해를 주기보다는 공기를 채워 공기를 채워 공기를 채웠다.\n  natural: 그러나 아리나의 비기는 빛은 다른 사람들에게 해를 주기보다는 공기를 채워 공기를 채워 공기를 채웠다.\n  problem: |\n    그러나 아리나의 비기는 빛은 다른 사람들에게 해(害)를 주기보다는 공기(空氣)를 채워 공기(空氣)를 채워 공기(空氣)를 채웠다.\n  wordByWordTranslation: \"{\\\"그러나\\\":\\\"However\\\",\\\"아리나의\\\":\\\"Ariana's\\\",\\\"비기는\\\":\\\"fa\\\n    lling\\\",\\\"빛\\\":\\\"light\\\",\\\"다른\\\":\\\"other\\\",\\\"사람들에게\\\":\\\"people\\\",\\\"해를\n    주기보다는\\\":\\\"rather than giving light to others\\\",\\\"공기를 채워\\\":\\\"filled\n    with\\\",\\\"공기를 채웠다\\\":\\\"filled it with\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"However, Ariana's flickering light filled\n    not others with light, but rather filled the air, filling the air, filling\n    the air.\\\"}\"\nfour:\n  original: 그 결과, 아리나는 비기는 빛 대신 공기를 발사하여 공기를 회전시키는 능력을 얻었다.\n  natural: 그 결과, 아리나는 비가 내리는 빛 대신 공기를 발사하여 공기를 회전시키는 능력을 얻었다.\n  problem: |\n    그 결과(結果), 아리나는 비가 내리는 빛 대신(代身) 공기(空氣)를 발사(發射)하여 공기(空氣)를 회전시키는 능력(能力)을 얻었다.\n  wordByWordTranslation: '{\"그\":\"That\",\"결과\":\"Result\",\"아리나\":\"Arianna\",\"비가\":\"Rain is\n    falling\",\"빛\":\"Light\",\"대신\":\"instead\n    of\",\"공기를\":\"air\",\"발사\":\"launched\",\"회전시키는\":\"rotating\",\"능력\":\"ability\",\"을\":\"to\",\"\n    얻었다\":\"gained\"}'\n  overallTranslation: '{\"english\":\"As a result, Aria gained the ability to launch\n    air instead of light when it rains, allowing her to rotate the air.\"}'\nfive:\n  original: 그 이후, 아리나는 '공기의 비늘'이라는 새로운 이름으로 활약하여 도시를 공기 오염과 공해로부터 보호했다.\n  natural: 그 이후 아리나는 '공기의 비늘'이라는 새로운 이름으로 활약하여 도시를 공기 오염과 공해로부터 보호했다.\n  problem: >\n    그 이후(以後) 아리나는 '공기(空氣)의 비늘'이라는 새로운 이름으로 활약(活躍)하여 도시(都市)를 공기(空氣) 오염(汚染)과\n    공해(公害)로부터 보호(保護)했다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"That\\\",\\\"이후\\\":\\\"since\n    then\\\",\\\"아리나는\\\":\\\"Arian\\\",\\\"'공기의 비늘':\\\":\\\"'Air Spike'\\\",\\\"이라는\\\":\\\"is\n    called\\\",\\\"새로운\\\":\\\"new\\\",\\\"이름\\\":\\\"name\\\",\\\"활약하여\\\":\\\"has been\n    active\\\",\\\"도시\\\":\\\"city\\\",\\\"공기 오염\\\":\\\"air pollution\\\",\\\"공해\\\":\\\"air\n    pollution\\\",\\\"보호했다\\\":\\\"protected\\\"}\"\n  overallTranslation: '{\"english\":\"After that, Aria used a new name, \"}'\n",
-    "id": 1319
+    "id": 1338
   },
   {
     "generator": "korean-gap-story-6-supernatural",
     "input": "fissure",
     "problem": "밤의 어둠이 가득찬 길을 걸다가 <br> 갑자기 지하철(地下鐵) 터널이 균열(龜裂)이 눈에 띄었다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 균열(龜裂)이 시작(始作)되었고, 그 곳에는 어둠과 악마(惡魔)가 공존(共存)했다. <br> 악마(惡魔)는 그들과 함께 균열(龜裂) 속으로 사라졌다. <br>",
     "solution": "one:\n  original: 밤의 어둠 속에서, 어둠이 가득찬 길을 걸다가\n  natural: 밤의 어둠이 가득찬 길을 걸다가\n  problem: |\n    밤의 어둠이 가득찬 길을 걸다가\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"filled\",\"찬\":\"cold\",\"길\":\"path\",\"걸다가\":\"walking\n    along\"}'\n  overallTranslation: '{\"english\":\"Walking along a path shrouded in the darkness of night.\"}'\ntwo:\n  original: 갑자기 지하철 터널의 균열이 눈에 띄었다.\n  natural: 갑자기 지하철 터널이 균열이 눈에 띄었다.\n  problem: |\n    갑자기 지하철(地下鐵) 터널이 균열(龜裂)이 눈에 띄었다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"지하철\":\"subway\",\"터널\":\"tunnel\",\"균열\":\"crack\",\"눈\":\"eye\",\"띄었다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Suddenly, cracks appeared in the subway tunnel.\"}'\nthree:\n  original: 균열은 점점 깊어지고, 어둠이 가득찬 공간에 현실이 왜곡되었다.\n  natural: 균열은 점점 깊어지고, 어둠이 가득찬 공간 속에서 현실이 왜곡되었다.\n  problem: |\n    균열(龜裂)은 점점(漸漸) 깊어지고, 어둠이 가득찬 공간(空間) 속에서 현실(現實)이 왜곡(歪曲)되었다.\n  wordByWordTranslation: '{\"균열\":\"crack\",\"점점\":\"slowly\",\"깊어지고\":\"deepening\",\"어둠\":\"darkness\",\"가득찬\":\"filled\",\"공간\":\"space\",\"속에서\":\"within\",\"현실\":\"reality\",\"왜곡되었다\":\"became\n    distorted\"}'\n  overallTranslation: '{\"english\":\"The cracks are deepening, reality has become\n    distorted within the space filled with darkness.\"}'\nfour:\n  original: 균열 속으로 떨어지기 시작했고, 그 곳에는 어둠과 악마가 공존했다.\n  natural: 균열이 시작되었고, 그 곳에는 어둠과 악마가 공존했다.\n  problem: |\n    균열(龜裂)이 시작(始作)되었고, 그 곳에는 어둠과 악마(惡魔)가 공존(共存)했다.\n  wordByWordTranslation: '{\"균열\":\"crack\",\"시작되었고\":\"started\",\"그 곳에는\":\"in that place\n    there was\",\"어둠\":\"darkness\",\"악마\":\"devil\",\"공존했다\":\"coexisted\"}'\n  overallTranslation: '{\"english\":\"The rift had begun, and darkness and demons\n    coexisted in that place.\"}'\nfive:\n  original: 악마는 그들과 함께 균열 속으로 사라졌다.\n  natural: 악마는 그들과 함께 균열 속으로 사라졌다.\n  problem: |\n    악마(惡魔)는 그들과 함께 균열(龜裂) 속으로 사라졌다.\n  wordByWordTranslation: '{\"악마\":\"Demon\",\"는\":\"is\",\"그들\":\"they\",\"과\":\"with\",\"함께\":\"together\",\"균열\":\"rift\",\"속으로\":\"into\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"The devil vanished into the cracks with them.\"}'\n",
-    "id": 1320
+    "id": 1339
+  },
+  {
+    "generator": "korean-story-1-low-fantasy",
+    "input": "spontaneous",
+    "problem": "저녁이 되면 어둠이 가득찬 길을 걸으며 돌아갑니다. <br> 오늘 저녁은 친구(親舊)들과 함께 식단(食單)을 먹고 영화(映畫)를 보러갑니다. <br> 갑자기 길을 걸다가 기묘(奇妙)한 소리들이 들립니다. <br> 그 소리들은 동물(動物)의 목소리들이 아닌... 어둠에서 생긴 소리들이 같습니다. <br> 친구(親舊)들과 함께 집으로 돌아갑니다. <br>",
+    "solution": "one:\n  problem: |\n    저녁이 되면 어둠이 가득찬 길을 걸으며 돌아갑니다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"이\":\"is\",\" 되면\":\"when it\n    becomes\",\"어둠\":\"darkness\",\"가득찬\":\"filled\n    with\",\"길\":\"path\",\"걸으며\":\"walking\",\"돌아갑니다\":\"returns home\"}'\n  overallTranslation: '{\"english\":\"When evening comes, I walk along the dark path\n    and return home.\"}'\ntwo:\n  problem: |\n    오늘 저녁은 친구(親舊)들과 함께 식단(食單)을 먹고 영화(映畫)를 보러갑니다.\n  wordByWordTranslation: '{\"오늘\":\"Today\",\"저녁\":\"evening\",\"친구들\":\"friends\",\"과\":\"with\",\"함께\":\"together\",\"식단\":\"meal\",\"먹고\":\"eating\",\"영화\":\"movie\",\"보러갑니다\":\"going\n    to watch\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"I'm having dinner with friends tonight and\n    we're going to watch a movie together.\\\"}\"\nthree:\n  problem: |\n    갑자기 길을 걸다가 기묘(奇妙)한 소리들이 들립니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"길을 걸다가\":\"while walking on the\n    street\",\"기묘한\":\"strange\",\"소리들이\":\"sounds\",\" 들립니다\":\"can be heard\"}'\n  overallTranslation: '{\"english\":\"Suddenly, while walking along the path, strange\n    sounds began to echo around me.\"}'\nfour:\n  problem: |\n    그 소리들은 동물(動物)의 목소리들이 아닌... 어둠에서 생긴 소리들이 같습니다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"소리들은\\\":\\\"sounds\n    are\\\",\\\"동물의\\\":\\\"animal's\\\",\\\"목소리들이\\\":\\\"voices\\\",\\\"아닌\\\":\\\"not\\\",\\\"어둠에서\\\":\\\"f\\\n    rom the darkness\\\",\\\"생긴\\\":\\\"born\\\",\\\"소리들이\\\":\\\"sounds are\\\",\\\"\n    같습니다\\\":\\\"same\\\"}\"\n  overallTranslation: '{\"english\":\"Those sounds are not the barks of animals...\n    They are sounds that arise from darkness.\"}'\nfive:\n  problem: |\n    친구(親舊)들과 함께 집으로 돌아갑니다.\n  wordByWordTranslation: '{\"친구들\":\"friends\",\"과\":\"with\",\"함께\":\"together\",\"집으로\":\"home\",\"돌아갑니다\":\"goes\n    back\"}'\n  overallTranslation: '{\"english\":\"I am going home with my friends.\"}'\n",
+    "id": 1340
+  },
+  {
+    "generator": "korean-story-1-post-apocalyptic",
+    "input": "moon",
+    "problem": "밤의 조명(照明)이 사라지고, 어둠이 사라지는 시작(始作)이다. <br> 두 개(個)의 눈은 어둠에 가려 보이지 않았다. <br> 달이 비춰지기 시작(始作)했다. <br> 달의 비춰지는 빛은 어둠을 밝히고, 두 개(個)의 눈은 빛을 볼 수 있었다. <br> 두 개(個)의 눈은 달빛 아래 그림자를 보(步)겼다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 조명(照明)이 사라지고, 어둠이 사라지는 시작(始作)이다.\n  wordByWordTranslation: \"{\\\"밤의\\\":\\\"night's\\\",\\\"조명\\\":\\\"illumination\\\",\\\"사라지고\\\":\\\"\\\n    is disappearing\\\",\\\"어둠\\\":\\\"darkness\\\",\\\"사라지는\\\":\\\"is\n    disappearing\\\",\\\"시작이다\\\":\\\"it begins\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"As the night's illumination fades, the\n    beginning of darkness's vanishing.\\\"}\"\ntwo:\n  problem: |\n    두 개(個)의 눈은 어둠에 가려 보이지 않았다.\n  wordByWordTranslation: '{\"두\":\"two\",\"개\":\"dogs\",\"눈\":\"eyes\",\"은\":\"is\",\"어둠\":\"darkness\",\"가려\":\"covered\",\"보이지\n    않았다\":\"was not visible\"}'\n  overallTranslation: '{\"english\":\"Both eyes were obscured by the darkness and\n    could not be seen.\"}'\nthree:\n  problem: |\n    달이 비춰지기 시작(始作)했다.\n  wordByWordTranslation: '{\"달이\":\"moon\",\"비춰지기\":\"to shine\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The moon is starting to glow.\"}'\nfour:\n  problem: |\n    달의 비춰지는 빛은 어둠을 밝히고, 두 개(個)의 눈은 빛을 볼 수 있었다.\n  wordByWordTranslation: \"{\\\"달의\\\":\\\"Moon's\\\",\\\"비춰지는\\\":\\\"reflecting\\\",\\\"빛\\\":\\\"light\\\n    \\\",\\\"어둠\\\":\\\"darkness\\\",\\\"밝히고\\\":\\\"brightening\\\",\\\"두\\\":\\\"two\\\",\\\"개\\\":\\\"eyes\\\",\\\n    \\\"눈\\\":\\\"eye\\\",\\\"볼 수 있었다\\\":\\\"could see\\\"}\"\n  overallTranslation: '{\"english\":\"The moonlight illuminated the darkness, and\n    their two eyes were able to see.\"}'\nfive:\n  problem: |\n    두 개(個)의 눈은 달빛 아래 그림자를 보(步)겼다.\n  wordByWordTranslation: '{\"두\":\"two\",\"개\":\"dogs\",\"눈\":\"eyes\",\"은\":\"are\",\"달빛\":\"moonlight\",\"아래\":\"below\",\"그림자\":\"shadow\",\"보겼다\":\"saw\"}'\n  overallTranslation: '{\"english\":\"Two eyes cast shadows under the moonlight.\"}'\n",
+    "id": 1341
+  },
+  {
+    "generator": "korean-story-1-slasher",
+    "input": "persuasive",
+    "problem": "밤의 어둠이 가득찬 방(房)에서 영진(榮進)과 종현이 공연(公演) 준비(準備)를 하고 있었다. <br> 둘은 공연(公演)에 필요(必要)한 물건(物件)을 찾고 있었다. <br> 갑자기 방(房) 문(門)이 열리고 공기(空氣)가 찌그러졌다. <br> 둘은 공연(公演) 준비(準備)를 버리고 공방(攻防)을 빠져나려고 시도(試圖)했다. <br> 하지만 공방(攻防) 문(門)은 자동적(自動的)으로 잠겨 두 사람은 공방(攻防)에 갇혀버렸다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 어둠이 가득찬 방(房)에서 영진(榮進)과 종현이 공연(公演) 준비(準備)를 하고 있었다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"가득\":\"filled\",\"찬\":\"with\",\"방\":\"room\",\"에서\":\"in\",\"영진\":\"Young-jin\",\"종현\":\"Jong-hyun\",\"공연\":\"performance\",\"준비\":\"preparation\",\"하고\":\"were\",\"있었다\":\"were\n    there\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"In the dimly lit room filled with night's\n    gloom, Young Jin and Jong Hyeon were preparing for their performance.\\\"}\"\ntwo:\n  problem: |\n    둘은 공연(公演)에 필요(必要)한 물건(物件)을 찾고 있었다.\n  wordByWordTranslation: '{\"둘\":\"two\",\"은\":\"is/are\",\"공연\":\"performance\",\"에\":\"to/in\",\"필요한\":\"necessary\",\"물건\":\"items\",\"을\":\"the\",\"찾고\":\"searching\",\"있었다\":\"was/were\"}'\n  overallTranslation: '{\"english\":\"They were looking for the necessary items for\n    the performance.\"}'\nthree:\n  problem: |\n    갑자기 방(房) 문(門)이 열리고 공기(空氣)가 찌그러졌다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"방\":\"room\",\"문\":\"door\",\"열고\":\"opened\",\"공기\":\"air\",\"찌그러졌다\":\"became\n    stuffy\"}'\n  overallTranslation: '{\"english\":\"The door suddenly opened and the air became stuffy.\"}'\nfour:\n  problem: |\n    둘은 공연(公演) 준비(準備)를 버리고 공방(攻防)을 빠져나려고 시도(試圖)했다.\n  wordByWordTranslation: '{\"둘\":\"two\",\"은\":\"is/are\",\"공연\":\"performance\",\"준비\":\"preparation\",\"버리고\":\"threw\n    away\",\"공방\":\"concert hall\",\"빠져나려고\":\"tried to escape\",\"시도했다\":\"tried\"}'\n  overallTranslation: '{\"english\":\"They were trying to leave the broadcasting\n    station without finishing their preparations for the performance.\"}'\nfive:\n  problem: |\n    하지만 공방(攻防) 문(門)은 자동적(自動的)으로 잠겨 두 사람은 공방(攻防)에 갇혀버렸다.\n  wordByWordTranslation: '{\"하지만\":\"However\",\"공방\":\"Gym\",\"문\":\"Door\",\"자동적으로\":\"automatically\",\"잠겨\":\"closed\",\"두\":\"two\",\"사람\":\"people\",\"갇혀버렸다\":\"got\n    trapped\"}'\n  overallTranslation: '{\"english\":\"But the classroom door automatically locked,\n    leaving two people trapped inside.\"}'\n",
+    "id": 1342
+  },
+  {
+    "generator": "korean-story-2-ancient",
+    "input": "jacket",
+    "problem": "고요한 바닥 위에 긴옷 하나를 입고 있었다. <br> 그옷은 그가 어린때 선물(膳物)로 받은 것이었다. <br> 옷은 순간(瞬間) 갑자기 움직이기 시작(始作)했다. <br> 옷은 그를 덮고 다른 세계(世界)로 데려갔다. <br> 빛나는 꽃들이 울린 새들의 날카 날카 소리로 가득 차 있었다. <br>",
+    "solution": "one:\n  problem: |\n    고요한 바닥 위에 긴옷 하나를 입고 있었다.\n  wordByWordTranslation: '{\"고요한\":\"important\",\"바닥\":\"floor\",\"위에\":\"on top\n    of\",\"긴\":\"long\",\"옷\":\"clothes\",\"하나\":\"one\",\"입고\":\"wearing\",\"있었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"He was wearing a long coat on a dusty floor.\"}'\ntwo:\n  problem: |\n    그옷은 그가 어린때 선물(膳物)로 받은 것이었다.\n  wordByWordTranslation: '{\"그옷은\":\"Those clothes\",\"그가\":\"he\",\"어린때\":\"when he was a\n    child\",\"선물로\":\"as a present\",\"받은\":\"received\",\"것이었다\":\"that was it\"}'\n  overallTranslation: '{\"english\":\"Those clothes were a gift he received when he was a child.\"}'\nthree:\n  problem: |\n    옷은 순간(瞬間) 갑자기 움직이기 시작(始作)했다.\n  wordByWordTranslation: '{\"옷은\":\"The\n    clothes\",\"순간\":\"suddenly\",\"갑자기\":\"unexpectedly\",\"움직이기\":\"to\n    move\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The clothes suddenly started moving.\"}'\nfour:\n  problem: |\n    옷은 그를 덮고 다른 세계(世界)로 데려갔다.\n  wordByWordTranslation: '{\"옷\":\"clothes\",\"은\":\"is\",\"그를\":\"him\",\"덮고\":\"covering\",\"다른\":\"another\",\"세계로\":\"to\n    another world\",\"데려갔다\":\"took him away\"}'\n  overallTranslation: '{\"english\":\"The clothes covered him and took him to another world.\"}'\nfive:\n  problem: |\n    빛나는 꽃들이 울린 새들의 날카 날카 소리로 가득 차 있었다.\n  wordByWordTranslation: '{\"빛나는\":\"glowing\",\"꽃들이\":\"flowers\n    are\",\"울린\":\"flying\",\"새들의\":\"birds are\",\"날카\":\"chirping\",\"소리로\":\"making a\n    sound\",\"가득\":\"filled\",\"차 있었다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"The flowers were filled with the chirping of\n    birds, their voices like the rustle of feathers.\"}'\n",
+    "id": 1343
+  },
+  {
+    "generator": "korean-story-2-horror",
+    "input": "assault",
+    "problem": "밤에 길을 걸다가 어둠이 가득찬 길을 보며 공포감(恐怖感)을 느끼기 시작(始作)했습니다. <br> 그는 친구(親舊)와 함께 길을 걸다가 위협(威脅)에 직면(直面)하지 않았습니다. <br> 갑자기 영은(寧殷)은 공기(空氣)가 차갑고 음악(音樂)이 사라지는 것을 느끼기 시작(始作)했습니다. <br> 그는 친구(親舊)를 손을 돌리고 공포감(恐怖感)에 빠지기 시작(始作)했습니다. <br> 그는 길을 걸으며 절망감(絶望感)에 사로잡히며 도망치려고 하지만 공포감(恐怖感)은 계속(繼續)해서 그를 따라갔습니다. <br>",
+    "solution": "one:\n  problem: |\n    밤에 길을 걸다가 어둠이 가득찬 길을 보며 공포감(恐怖感)을 느끼기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"에\":\"at\",\"길\":\"road\",\"걸다가\":\"walking\n    along\",\"어둠\":\"darkness\",\"\n    가득찬\":\"filled\",\"보며\":\"seeing\",\"공포감\":\"fear\",\"느끼기\":\"began to\n    feel\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"While walking along the path at night, he began\n    to feel fear as he saw a dark path ahead.\"}'\ntwo:\n  problem: |\n    그는 친구(親舊)와 함께 길을 걸다가 위협(威脅)에 직면(直面)하지 않았습니다.\n  wordByWordTranslation: '{\"그는\":\"He was\",\"친구와\":\"with a\n    friend\",\"함께\":\"together\",\"길을\":\"the way\",\"걸다가\":\"walking\",\"위협에\":\"in\n    danger\",\"직면하지 않았습니다\":\"did not come face to face\"}'\n  overallTranslation: '{\"english\":\"He never faced danger while walking with his friends.\"}'\nthree:\n  problem: |\n    갑자기 영은(寧殷)은 공기(空氣)가 차갑고 음악(音樂)이 사라지는 것을 느끼기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"영은은\":\"He/She\",\"공기가\":\"The air\n    is\",\"차갑고\":\"cold\",\"음악이\":\"The music\n    is\",\"사라지는\":\"disappearing\",\"것을\":\"it\",\"느끼기\":\"to feel\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, he felt the air growing cold and the\n    music vanishing around him.\"}'\nfour:\n  problem: |\n    그는 친구(親舊)를 손을 돌리고 공포감(恐怖感)에 빠지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"친구를\":{\"friend\":\"friend\"},\"손을\":{\"hand\":\"hand\"},\"돌리고\":{\"is\n    turning back\":\"is turning\n    back\"},\"공포감\":{\"fear\":\"fear\"},\"에\":{\"to\":\"to\"},\"빠지기\":{\"start\":\"start\"},\"시작했습니다\":{\"started\":\"started\"}}'\n  overallTranslation: '{\"english\":\"He started to panic and lost track of his friends.\"}'\nfive:\n  problem: |\n    그는 길을 걸으며 절망감(絶望感)에 사로잡히며 도망치려고 하지만 공포감(恐怖感)은 계속(繼續)해서 그를 따라갔습니다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"길을\":\"the\n    road\",\"걸으며\":\"walking\",\"절망감\":\"despair\",\"사로잡히며\":\"engulfed by\",\"도망치려고\":\"tried\n    to\n    escape\",\"하지만\":\"but\",\"공포감\":\"fear\",\"계속해서\":\"continuously\",\"그를\":\"him\",\"따갔습니다\":\"followed\n    him\"}'\n  overallTranslation: '{\"english\":\"He desperately tries to escape the feeling of\n    despair by walking along the path, but his fear continues to follow him.\"}'\n",
+    "id": 1344
+  },
+  {
+    "generator": "korean-story-2-renaissance",
+    "input": "staff",
+    "problem": "저녁 바닥에 길게 늘린 나무 한 그루가 있었다. <br> 그 나무 아래에서 살던 한 여인(女人)이 나무뿌리 위를 보는 순간(瞬間), 모든 것이 바뀌었다. <br> 뿌리는 길게 늘린 돌덩이로 바뀌고, 여인(女人)은 돌덩이 위에 떨어지기 시작(始作)했다. <br> 돌막(돌幕) 위에는 빛나는 물질(物質)들이 나타나고, 여인(女人)은 물질(物質)들 사이를 헤매기 시작(始作)했다. <br> 물리(物理)들은 여인(女人)을 돌려주려고 노력(努力)했지만, 여인(女人)은 물리(物理)들 사이에서 사라지고 말했다. <br>",
+    "solution": "one:\n  problem: |\n    저녁 바닥에 길게 늘린 나무 한 그루가 있었다.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"바닥\":\"floor\",\"길게\":\"longly\",\"늘린\":\"stretched\",\"나무\":\"tree\",\"한\":\"one\",\"그루\":\"trunk\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"There was a tall tree that had stretched out\n    along the floor of the evening garden.\"}'\ntwo:\n  problem: |\n    그 나무 아래에서 살던 한 여인(女人)이 나무뿌리 위를 보는 순간(瞬間), 모든 것이 바뀌었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"나무\":\"tree\",\"아래\":\"below\",\"살던\":\"lived\",\"한\":\"a\",\"여인\":\"woman\",\"보는\":\"seeing\",\"순간\":\"moment\",\"모든\":\"everything\",\"바뀌었다\":\"changed\"}'\n  overallTranslation: '{\"english\":\"A woman who had been living under that tree saw\n    everything change when she glanced at the root of the tree.\"}'\nthree:\n  problem: |\n    뿌리는 길게 늘린 돌덩이로 바뀌고, 여인(女人)은 돌덩이 위에 떨어지기 시작(始作)했다.\n  wordByWordTranslation: '{\"뿌리는\":\"The root\n    is\",\"길게\":\"longly\",\"늘린\":\"stretched\",\"돌덩이로\":\"into a rock\n    pile\",\"바뀌고\":\"became\",\"여인은\":\"A woman is\",\"돌덩이 위에\":\"on the top of the rock\n    pile\",\"떨어지기\":\"falling\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The roots turned into large stone lumps, and\n    the women began falling from the stone lumps.\"}'\nfour:\n  problem: |\n    돌막(돌幕) 위에는 빛나는 물질(物質)들이 나타나고, 여인(女人)은 물질(物質)들 사이를 헤매기 시작(始作)했다.\n  wordByWordTranslation: '{\"돌막\":\"rock shelter\",\"위에는\":\"on top\n    of\",\"빛나는\":\"shining\",\"물질\":\"substance\",\"나타나고\":\"appears\",\"여인\":\"a woman\",\"물질들\n    사이를 헤매기\":\"wander among the substances\",\"시작했다\":\"began\"}'\n  overallTranslation: '{\"english\":\"Something luminous appears on the rock wall,\n    and the woman starts wandering among the material objects.\"}'\nfive:\n  problem: |\n    물리(物理)들은 여인(女人)을 돌려주려고 노력(努力)했지만, 여인(女人)은 물리(物理)들 사이에서 사라지고 말했다.\n  wordByWordTranslation: '{\"물리들은\":\"The physical therapists\",\"여인\":\"A\n    woman\",\"돌려주려고\":\"tried to return\",\"노력했지만\":\"but they were\n    unsuccessful\",\"여인은\":\"The woman was\",\"물리들 사이에서\":\"among the physical\n    therapists\",\"사라지고 말했다\":\"disappeared and said nothing.\"}'\n  overallTranslation: '{\"english\":\"The physicists had tried to bring the woman\n    back, but she vanished among the physicists and said nothing.\"}'\n",
+    "id": 1345
+  },
+  {
+    "generator": "korean-story-3-detective",
+    "input": "evolutionary",
+    "problem": "침연(軟)한 밤, 어둠 속에서 현명의 발전(發展)을 관찰(觀察)하고 있었다. <br> 그들은 생존(生存)과 살기 위해 어떻게 진화(進化)했는지에 관심(關心)을 가지고 있었다. <br> 갑자기 현명의 발전(發展)은 어둠 속에서 사라지고 말았다. <br> 그들은 현명의 발전(發展)의 징후(徵候)를 찾기 위해 어둠을 탐험(探險)하기 시작(始作)했다. <br> 그리고 현명의 발전(發展)의 근본(根本)은 바닥에 있음을 발견(發見)했다. <br>",
+    "solution": "one:\n  problem: |\n    침연(軟)한 밤, 어둠 속에서 현명의 발전(發展)을 관찰(觀察)하고 있었다.\n  wordByWordTranslation: '{\"침연한\":\"calm\",\"밤\":\"night\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"현명\":\"progress\",\"발전\":\"development\",\"관찰\":\"observing\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"On a misty night, he was observing the\n    development of civilization amidst the darkness.\"}'\ntwo:\n  problem: |\n    그들은 생존(生存)과 살기 위해 어떻게 진화(進化)했는지에 관심(關心)을 가지고 있었다.\n  wordByWordTranslation: '{\"그들은\":\"They were\",\"생존과\":\"survival and\",\"살기 위해\":\"to\n    live\",\"어떻게\":\"how\",\"진화했는지\":\"evolved\",\"관심을 가지고 있었다\":\"were interested in\"}'\n  overallTranslation: '{\"english\":\"They were interested in how evolution had\n    enabled them to survive and thrive.\"}'\nthree:\n  problem: |\n    갑자기 현명의 발전(發展)은 어둠 속에서 사라지고 말았다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"현명의\":\"advancement of\n    civilization\",\"발전\":\"development\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"사라지고\":\"vanished\",\"말았다\":\"said\"}'\n  overallTranslation: '{\"english\":\"Sudden enlightenment vanished into the darkness.\"}'\nfour:\n  problem: |\n    그들은 현명의 발전(發展)의 징후(徵候)를 찾기 위해 어둠을 탐험(探險)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"현명의\":\"modern\",\"발전\":\"advancement\",\"징후\":\"sign\",\"탐험\":\"explore\",\"어둠\":\"darkness\",\"시작했다\":\"began\"}'\n  overallTranslation: '{\"english\":\"They began to explore the darkness in search of\n    the signs of progress in modernity.\"}'\nfive:\n  problem: |\n    그리고 현명의 발전(發展)의 근본(根本)은 바닥에 있음을 발견(發見)했다.\n  wordByWordTranslation: '{\"그리고\":\"and\n    then\",\"현명의\":\"modern\",\"발전\":\"development\",\"근본\":\"foundation\",\"있음\":\"is\n    present\",\"발견했다\":\"discovered\"}'\n  overallTranslation: '{\"english\":\"The foundation of modern development lies in the basics.\"}'\n",
+    "id": 1346
+  },
+  {
+    "generator": "korean-story-3-dystopian",
+    "input": "frustrating",
+    "problem": "지금(只今) 이 도시(都市)는 누구도 예상(豫想)하지 않았던 침략(侵略)에 가득 차있어. <br> 살기 위해서는 항상(恒常) 공연(公演)해야 하고, 공연(公演)하기 위해서는 공연료(公演料)를 내야 합니다. <br> 하지만 공연료(公演料)를 내기 위해서는 공연장(公演場)에 가야 하고, 공연장(公演場)에 가면 공연료(公演料)를 내야 합니다. <br> 그러다가 공연장(公演場)에 가더라도 공연료(公演料)는 없지 않아. <br> 그러다가 공연(公演)소 앞에 사람들이 공연료(公演料)를 무료(無料)로 제공(提供)하기 시작(始作)했다. <br>",
+    "solution": "one:\n  problem: |\n    지금(只今) 이 도시(都市)는 누구도 예상(豫想)하지 않았던 침략(侵略)에 가득 차있어.\n  wordByWordTranslation: '{\"지금\":\"Now\",\"이\":\"this\",\"도시\":\"city\",\"누구도\":\"nobody\",\"예상하지\n    않았던\":\"unexpected\",\"침략\":\"invasion\",\"가득\":\"filled\",\"차있어\":\"is\"}'\n  overallTranslation: '{\"english\":\"The city is now filled with an invasion that no one expected.\"}'\ntwo:\n  problem: |\n    살기 위해서는 항상(恒常) 공연(公演)해야 하고, 공연(公演)하기 위해서는 공연료(公演料)를 내야 합니다.\n  wordByWordTranslation: '{\"살기 위해서는\":\"To survive\",\"항상\":\"always\",\"공연해야 하고\":\"must\n    perform\",\"공연하기 위해서는\":\"in order to perform\",\"공연료를 내야 합니다\":\"must pay\n    performance fee\"}'\n  overallTranslation: '{\"english\":\"One must always perform to live, and to perform\n    one must pay performance fees.\"}'\nthree:\n  problem: |\n    하지만 공연료(公演料)를 내기 위해서는 공연장(公演場)에 가야 하고, 공연장(公演場)에 가면 공연료(公演料)를 내야 합니다.\n  wordByWordTranslation: '{\"하지만\":\"Although\",\"공연료를\":\"performance fee\",\"내기 위해서는\":\"in\n    order to pay\",\"공연장에\":\"to the performance hall\",\"가야 하고\":\"has to\n    go\",\"가면\":\"when you go\",\"내야 합니다\":\"you have to pay\"}'\n  overallTranslation: '{\"english\":\"However, to pay the performance fee, you need\n    to go to the performance hall, and once you go there, you need to pay the\n    performance fee.\"}'\nfour:\n  problem: |\n    그러다가 공연장(公演場)에 가더라도 공연료(公演料)는 없지 않아.\n  wordByWordTranslation: \"{\\\"그러다가\\\":\\\"As a result of that\\\",\\\"공연장\\\":\\\"concert\n    hall\\\",\\\"가더라도\\\":\\\"even if you go\\\",\\\"공연료\\\":\\\"concert fee\\\",\\\"없지 않아\\\":\\\"it's\n    not free\\\"}\"\n  overallTranslation: '{\"english\":\"Even if they go to the performance hall at the\n    last minute, there is still a performance fee.\"}'\nfive:\n  problem: |\n    그러다가 공연(公演)소 앞에 사람들이 공연료(公演料)를 무료(無料)로 제공(提供)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"그러다가\":\"As it happened\",\"공연소 앞에\":\"In front of the\n    concert hall\",\"사람들이\":\"People\",\"공연료를\":\"concert fee\",\"무료로\":\"for free\",\"제공하기\n    시작했다\":\"started providing\"}'\n  overallTranslation: '{\"english\":\"People started providing performance fees for\n    free in front of the performance hall.\"}'\n",
+    "id": 1347
+  },
+  {
+    "generator": "korean-story-3-espionage",
+    "input": "handkerchief",
+    "problem": "우리 손수건(손手巾)은 위험(危險)한 곳에 숨겨져 있다. <br> 그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 가지고 있습니다. <br> 하지만 그들은 손수건(손手巾)을 가지고 있지 않습니다. <br> 그들은 손수건(손手巾)을 손에서 내립니다. <br> 그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 손에서 내립니다. <br>",
+    "solution": "one:\n  problem: |\n    우리 손수건(손手巾)은 위험(危險)한 곳에 숨겨져 있다.\n  wordByWordTranslation: '{\"우리\":\"our\",\"손수건\":\"handkerchief\",\"은\":\"is\",\"위험한\":\"dangerous\",\"곳\":\"place\",\"숨겨져\n    있다\":\"hidden\"}'\n  overallTranslation: '{\"english\":\"Our towels are hidden in a dangerous place.\"}'\ntwo:\n  problem: |\n    그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 가지고 있습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"위험한\":\"dangerous\",\"정보\":\"information\",\"담은\":\"containing\",\"손수건\":\"handkerchief\",\"가지고\n    있습니다\":\"are carrying\"}'\n  overallTranslation: '{\"english\":\"They are carrying hand towels containing\n    dangerous information.\"}'\nthree:\n  problem: |\n    하지만 그들은 손수건(손手巾)을 가지고 있지 않습니다.\n  wordByWordTranslation: '{\"하지만\":\"although\",\"그들은\":\"they\",\"손수건\":\"handkerchief\",\"가지고\":\"have\",\"있지\n    않습니다\":\"are not there\"}'\n  overallTranslation: '{\"english\":\"However, they do not have a towel.\"}'\nfour:\n  problem: |\n    그들은 손수건(손手巾)을 손에서 내립니다.\n  wordByWordTranslation: '{\"그들은\":\"They are\",\"손수건을\":\"a towel\",\"손에서\":\"from the hand\",\"내립니다\":\"take out\"}'\n  overallTranslation: '{\"english\":\"They are taking off their gloves.\"}'\nfive:\n  problem: |\n    그들은 위험(危險)한 정보(情報)를 담은 손수건(손手巾)을 손에서 내립니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"위험한\":\"dangerous\",\"정보\":\"information\",\"담은\":\"containing\",\"손수건\":\"handkerchief\",\"손에서\":\"from\n    the hand\",\"내립니다\":\"throw away\"}'\n  overallTranslation: '{\"english\":\"They are discarding hand towels that contain\n    dangerous information.\"}'\n",
+    "id": 1348
+  },
+  {
+    "generator": "korean-story-3-noir",
+    "input": "imitation",
+    "problem": "밤의 그림자 속에서, 목소리가 비늘렸고 말만 남았다. <br> 밤 그림자 속에서, 한 사람이 불타는 가옥(家屋) 앞에 가두렸다. <br> undefined<br> undefined<br> undefined<br>",
+    "solution": "one:\n  problem: |\n    밤의 그림자 속에서, 목소리가 비늘렸고 말만 남았다.\n  wordByWordTranslation: \"{\\\"밤의\\\":\\\"night's\\\",\\\"그림자\\\":\\\"shadow\\\",\\\"속에서\\\":\\\"inside\\\n    \\\",\\\"목소리가\\\":\\\"voice\\\",\\\"비늘렸고\\\":\\\"became louder\\\",\\\"말만\\\":\\\"just\n    words\\\",\\\"남았다\\\":\\\"remained\\\"}\"\n  overallTranslation: '{\"english\":\"In the shadow of night, only words remained, as\n    whispers were muffled.\"}'\ntwo:\n  problem: |\n    밤 그림자 속에서, 한 사람이 불타는 가옥(家屋) 앞에 가두렸다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"그림자\":\"shadow\",\"속에서\":\"inside\",\"한\":\"one\",\"사람\":\"person\",\"불타는\":\"burning\",\"가옥\":\"house\",\"앞에\":\"in\n    front of\",\"가두렸다\":\"was locked up\"}'\n  overallTranslation: '{\"english\":\"A solitary figure was confined outside a\n    burning house in the shadow of the night.\"}'\nthree:\n  wordByWordTranslation: '{\"그\":\"that\",\"순간\":\"moment\",\"비늘린\":\"hoarse\",\"목소리\":\"voice\",\"사라졌다\":\"vanished\"}'\n  overallTranslation: '{\"english\":\"In that moment, the hoarse voice vanished.\"}'\nfour:\n  wordByWordTranslation: '{\"불타는\":\"burning\",\"가옥\":\"house\",\"앞에서\":\"in front\n    of\",\"사람\":\"person\",\"은\":\"is\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: '{\"english\":\"A person disappeared in front of a burning house.\"}'\nfive:\n  wordByWordTranslation: '{\"그\":\"that\",\"후\":\"after\",\"비늘린\":\"\n    swollen\",\"목소리\":\"voice\",\"다시\":\"again\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"After that, the swollen voice reappeared.\"}'\n",
+    "id": 1349
+  },
+  {
+    "generator": "korean-story-4-horror",
+    "input": "endorsement",
+    "problem": "침실(寢室) 문(門)을 열고 문(門)을 통해 길게 보이는 길이 빛나는 양(量)의 그림자가 드러났다. <br> 그 그림자는 누군가 없이 길을 걸으며 양(量)의 그림자에 포용되었다. <br> 그 후(後) 양(量)의 그림자는 길을 걸지 않았다. <br> 그 그림자는 양(量)의 얼굴을 하고 음침(陰沈)하게 양(羊)의 목에 손을 걸었다. <br> 그 음침(陰沈)한 손은 양(羊)의 목을 잘라 양(量)의 그림자는 사라졌다. <br>",
+    "solution": "one:\n  problem: |\n    침실(寢室) 문(門)을 열고 문(門)을 통해 길게 보이는 길이 빛나는 양(量)의 그림자가 드러났다.\n  wordByWordTranslation: '{\"침실\":\"bedroom\",\"문\":\"door\",\"열\":\"open\",\"보이는\":\"visible\",\"길이\":\"length\",\"빛나는\":\"shining\",\"양\":\"amount\",\"그림자\":\"shadow\",\"드러났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"The shadow of a vast quantity of figures was\n    cast as the long shadows emerged through the room door.\"}'\ntwo:\n  problem: |\n    그 그림자는 누군가 없이 길을 걸으며 양(量)의 그림자에 포용되었다.\n  wordByWordTranslation: \"{\\\"그\\\":\\\"that\\\",\\\"그림자\\\":\\\"shadow\\\",\\\"누군가\\\":\\\"anyone\\\",\\\n    \\\"없이\\\":\\\"without\\\",\\\"길\\\":\\\"path\\\",\\\"걸으며\\\":\\\"walking\\\",\\\"양의\\\":\\\"horse's\\\",\\\"\\\n    포용되었다\\\":\\\"was engulfed\\\"}\"\n  overallTranslation: '{\"english\":\"The shadow stood alone, walking the path and\n    swallowed by the shadow of a horse.\"}'\nthree:\n  problem: |\n    그 후(後) 양(量)의 그림자는 길을 걸지 않았다.\n  wordByWordTranslation: '{\"그\":\"that\",\"후\":\"after\",\"양의\":\"shadow\n    of\",\"그림자\":\"shadow\",\"길\":\"path\",\"걸지 않았다\":\"did not walk\"}'\n  overallTranslation: '{\"english\":\"After that, the shadow of the horse did not\n    walk along the path.\"}'\nfour:\n  problem: |\n    그 그림자는 양(量)의 얼굴을 하고 음침(陰沈)하게 양(羊)의 목에 손을 걸었다.\n  wordByWordTranslation: '{\"그\":\"that\",\"그림자\":\"shadow\",\"는\":\"is\",\"양\":\"horse\",\"의\":\"of\",\"얼굴\":\"face\",\"하고\":\"and\",\"음침하게\":\"quietly\",\"목\":\"neck\",\"손\":\"hand\",\"걸었다\":\"put\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The shadow stood with a grin, its hand\n    resting on the horse's neck.\\\"}\"\nfive:\n  problem: |\n    그 음침(陰沈)한 손은 양(羊)의 목을 잘라 양(量)의 그림자는 사라졌다.\n  wordByWordTranslation: '{\"그\":\"that\",\"음침한\":\"gloomy\",\"손\":\"hand\",\"양\":\"horse\",\"목\":\"neck\",\"\n    잘라\":\"cut off\",\"양의\":\"of the horse\",\"그림자\":\"shadow\",\"사라졌다\":\"disappeared\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"The sleepy hand severed the tiger's neck,\n    and the tiger's shadow vanished.\\\"}\"\n",
+    "id": 1350
+  },
+  {
+    "generator": "korean-story-4-outlaw",
+    "input": "pronoun",
+    "problem": "저녁하늘 아래, 단기간(短期間)에 살아남는 자(者)들은 거대(巨大)한 언어(言語)들에 영감(靈感)을 받습니다. <br> 그들은 자신(自身)만의 고통(苦痛)과 목표(目標)를 가지고 살아갑니다. <br> 그런데 어느 날, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다. <br> 언어(言語)가 사라지기 시작(始作)하면서, 사람들은 사고(思考)하고 행동(行動)해야 할 방식(方式)에 대(對)해 생각하기 시작(始作)했습니다. <br> 그들은 단순(單純)한 언어(言語)를 통해 살아남는 것이 아니고, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다. <br>",
+    "solution": "one:\n  problem: |\n    저녁하늘 아래, 단기간(短期間)에 살아남는 자(者)들은 거대(巨大)한 언어(言語)들에 영감(靈感)을 받습니다.\n  wordByWordTranslation: '{\"저녁하늘\":\"evening sky\",\"아래\":\"below\",\"단기간에\":\"in a short\n    period of time\",\"살아남는\":\"surviving\",\"자들은\":\"people\",\"거대한 언어들\":\"large\n    languages\",\"영감을 받습니다\":\"are influenced by\"}'\n  overallTranslation: '{\"english\":\"Those who survive in the evening sky, under the\n    short-lived stars, are inspired by the great languages.\"}'\ntwo:\n  problem: |\n    그들은 자신(自身)만의 고통(苦痛)과 목표(目標)를 가지고 살아갑니다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"자신만의\":\"own\",\"고통\":\"suffering\",\"목표\":\"goal\",\"가지고\":\"have\",\"살아갑니다\":\"live\"}'\n  overallTranslation: '{\"english\":\"They live with their own pain and goals.\"}'\nthree:\n  problem: |\n    그런데 어느 날, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그런데\":\"However\",\"어느 날\":\"One\n    day\",\"언어\":\"Language\",\"자체\":\"itself\",\"위험해지기\":\"became\n    dangerous\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, one day, the language itself began to\n    become dangerous.\"}'\nfour:\n  problem: >\n    언어(言語)가 사라지기 시작(始作)하면서, 사람들은 사고(思考)하고 행동(行動)해야 할 방식(方式)에 대(對)해 생각하기\n    시작(始作)했습니다.\n  wordByWordTranslation: '{\"언어가\":\"The language\",\"사라지기\":\"begins to\n    disappear\",\"시작하면서\":\"as it starts\",\"사고하고\":\"start\n    thinking\",\"행동해야\":\"should\",\"방식에\":\"about the way\",\"상상하기\":\"began to think\"}'\n  overallTranslation: '{\"english\":\"As language began to disappear, people started\n    to think about the way they should think and behave.\"}'\nfive:\n  problem: |\n    그들은 단순(單純)한 언어(言語)를 통해 살아남는 것이 아니고, 언어(言語) 자체(自體)가 위험(危險)해지기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"그들은\":\"They\n    are\",\"단순한\":\"simple\",\"언어\":\"language\",\"통해\":\"through\",\"살아남는\":\"to\n    survive\",\"것이\":\"is not\",\"자체\":\"itself\",\"위험해지기\":\"to become\n    dangerous\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"They are not simply surviving on their basic\n    language, but the language itself is becoming dangerous.\"}'\n",
+    "id": 1351
+  },
+  {
+    "generator": "korean-story-4-steampunk",
+    "input": "session",
+    "problem": "갑자기, 아래층(아래層)에 길게 늘어선 선명(鮮明)한 목소리가 들렸다. <br> 그들은 마치 공기(空氣) 속에 비춰지는 빛처럼 생기(生氣)를 가진다고 느껴지다. <br> 그 순간(瞬間), 나는 시간(時間)의 흐름을 느끼기 시작(始作)했다. <br> 월계꽃(月季꽃) 시간대(時間帶)에 세상(世上)은 갑자기 평화(平和)해졌다. <br> 만약(萬若) 그들과 함께 시간(時間)을 보내면, 이 순간(瞬間)의 평화(平和)는 영원(永遠)해지겠다. <br>",
+    "solution": "one:\n  problem: |\n    갑자기, 아래층(아래層)에 길게 늘어선 선명(鮮明)한 목소리가 들렸다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"아래층\":\"Basement\",\"길게\":\"Longly\",\"늘어선\":\"Stood\n    up\",\"선명한\":\"Clear\",\"목소리\":\"Voice\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a clear voice echoed loudly from the lower floors.\"}'\ntwo:\n  problem: |\n    그들은 마치 공기(空氣) 속에 비춰지는 빛처럼 생기(生氣)를 가진다고 느껴지다.\n  wordByWordTranslation: '{\"그들은\":\"They\",\"마치\":\"Like\",\"공기 속에\":\"In the\n    air\",\"비춰지는\":\"Shining\",\"빛처럼\":\"Like light\",\"생기를 가진다고\":\"Have\n    life\",\"느껴지다\":\"Feel\"}'\n  overallTranslation: '{\"english\":\"They feel as if they have life, like the light\n    reflected in the air.\"}'\nthree:\n  problem: |\n    그 순간(瞬間), 나는 시간(時間)의 흐름을 느끼기 시작(始作)했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"순간\":\"moment\",\"나는\":\"I\",\"시간\":\"time\",\"의\":\"of\",\"흐름\":\"flow\",\"느끼기\":\"to\n    feel\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"In that moment, I started to feel the passage of time.\"}'\nfour:\n  problem: |\n    월계꽃(月季꽃) 시간대(時間帶)에 세상(世上)은 갑자기 평화(平和)해졌다.\n  wordByWordTranslation: '{\"월계꽃\":\"moonflower\",\"시간대\":\"time\n    period\",\"세상\":\"world\",\"갑자기\":\"suddenly\",\"평화해졌다\":\"became peaceful\"}'\n  overallTranslation: '{\"english\":\"The world suddenly became peaceful at the time\n    of the moonlit flower.\"}'\nfive:\n  problem: |\n    만약(萬若) 그들과 함께 시간(時間)을 보내면, 이 순간(瞬間)의 평화(平和)는 영원(永遠)해지겠다.\n  wordByWordTranslation: '{\"만약\":\"If\",\"그들\":\"they\",\"과\":\"with\",\"시간을\":\"time\",\"보내면\":\"spend\",\"이\":\"this\",\"순간\":\"moment\",\"평화\":\"peace\",\"영원해지겠다\":\"will\n    become eternal\"}'\n  overallTranslation: '{\"english\":\"If we spend time with them, the peace of this\n    moment will become eternal.\"}'\n",
+    "id": 1352
+  },
+  {
+    "generator": "korean-story-4-thriller",
+    "input": "cavern",
+    "problem": "저는 암석동의(巖石同意) 깊은 굴(窟) 속에 가려진 비밀(祕密)을 알게 되었습니다. <br> 굴(窟) 속은 어둡고 공기(空氣)가 차갑습니다. <br> 갑자기, 굴(窟) 입구(入口)가 사라지고, 나는 단절(斷絶)에 빠지게 됩니다. <br> 굴(窟) 안의 암석벽(巖石壁)에 문자(文字)들이 새겨져 있었습니다. <br> 문자(文字)들은 현실(現實)이 아닌 점(點)과 위험(危險)한 상황(狀況)임을 알립니다. <br>",
+    "solution": "one:\n  problem: |\n    저는 암석동의(巖石同意) 깊은 굴(窟) 속에 가려진 비밀(祕密)을 알게 되었습니다.\n  wordByWordTranslation: '{\"저는\":\"I\",\"암석동\":\"Amsokdong\",\"깊은\":\"deep\",\"굴\":\"cave\",\"속에\":\"inside\",\"가려진\":\"hidden\",\"비밀\":\"secret\",\"알게\":\"learned\",\"되었습니다\":\"became\n    aware\"}'\n  overallTranslation: '{\"english\":\"I have learned a secret that is hidden deep in\n    the cave of Ambakdong.\"}'\ntwo:\n  problem: |\n    굴(窟) 속은 어둡고 공기(空氣)가 차갑습니다.\n  wordByWordTranslation: '{\"굴\":\"cave\",\"속\":\"inside\",\"어둡고\":\"dark\",\"공기\":\"air\",\"차갑습니다\":\"is cold\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"It's dark and the air is cold inside the cave.\\\"}\"\nthree:\n  problem: |\n    갑자기, 굴(窟) 입구(入口)가 사라지고, 나는 단절(斷絶)에 빠지게 됩니다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"굴 입구\":\"tunnel\n    entrance\",\"사라지고\":\"disappears\",\"나는\":\"I\",\"단절\":\"cut\n    off\",\"빠지게\":\"quickly\",\"됩니다\":\"am going to be\"}'\n  overallTranslation: '{\"english\":\"Suddenly, the entrance to the tunnel\n    disappeared, and I was left stranded.\"}'\nfour:\n  problem: |\n    굴(窟) 안의 암석벽(巖石壁)에 문자(文字)들이 새겨져 있었습니다.\n  wordByWordTranslation: '{\"굴\":\"Cave\",\"안\":\"inside\",\"암석벽\":\"rocky\n    wall\",\"문자\":\"characters\",\"새겨져\":\"engraved\",\"있었습니다\":\"were there\"}'\n  overallTranslation: '{\"english\":\"The characters were carved on the rocky wall inside the cave.\"}'\nfive:\n  problem: |\n    문자(文字)들은 현실(現實)이 아닌 점(點)과 위험(危險)한 상황(狀況)임을 알립니다.\n  wordByWordTranslation: '{\"문자들\":\"letters\",\"현실\":\"reality\",\"아닌\":\"not\",\"점\":\"point\",\"위험한\":\"dangerous\",\"상황\":\"situation\",\"알립니다\":\"tells\"}'\n  overallTranslation: '{\"english\":\"The characters remind us that reality is not\n    always what it seems and that dangerous situations can arise.\"}'\n",
+    "id": 1353
+  },
+  {
+    "generator": "korean-story-5-cosmic-horror",
+    "input": "prosecution",
+    "problem": "밤의 어둠 속에서 영감(靈感)을 받은 작가(作家) 한 명(名)이 공원(公園)에 도착(到着)했다. <br> 그는 공원(公園)의 달빛 아래 침체감(沈滯感)에 사로잡겼다. <br> 갑자기 공원(公園) 길목에 거대(巨大)한 검은 구체(句體)가 나타났다. <br> 볼은 작가(作家)를 향(向)해 공을 날려 공격(攻擊)하기 시작(始作)했다. <br> 작가(作家)는 공을 피(避)해 도망쳐 공원(公園)을 빠지는 것을 보았다. <br>",
+    "solution": "one:\n  problem: |\n    밤의 어둠 속에서 영감(靈感)을 받은 작가(作家) 한 명(名)이 공원(公園)에 도착(到着)했다.\n  wordByWordTranslation: '{\"밤\":\"night\",\"의\":\"of\",\"어둠\":\"darkness\",\"속에서\":\"within\",\"영감\":\"inspiration\",\"받은\":\"received\",\"작가\":\"writer\",\"한\":\"one\",\"명\":\"person\",\"공원\":\"park\",\"에\":\"to\",\"도착했다\":\"arrived\"}'\n  overallTranslation: '{\"english\":\"A writer inspired by the darkness of night\n    arrived in the park.\"}'\ntwo:\n  problem: |\n    그는 공원(公園)의 달빛 아래 침체감(沈滯感)에 사로잡겼다.\n  wordByWordTranslation: \"{\\\"그는\\\":\\\"He\\\",\\\"공원의\\\":\\\"park's\\\",\\\"달빛\\\":\\\"moonlight\\\",\\\n    \\\"아래\\\":\\\"below\\\",\\\"침체감\\\":\\\"sadness\\\",\\\"사로잡겼다\\\":\\\"was absorbed/engrossed\\\"}\"\n  overallTranslation: \"{\\\"english\\\":\\\"He was captivated by the eerie glow of the\n    moon beneath the park's shadow.\\\"}\"\nthree:\n  problem: |\n    갑자기 공원(公園) 길목에 거대(巨大)한 검은 구체(句體)가 나타났다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"공원\":\"park\",\"길목\":\"junction\",\"거대한\":\"huge\",\"검은\":\"black\",\"구체\":\"concrete\",\"나타났다\":\"appeared\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a giant black sphere appeared at the\n    bottleneck of the park path.\"}'\nfour:\n  problem: |\n    볼은 작가(作家)를 향(向)해 공을 날려 공격(攻擊)하기 시작(始作)했다.\n  wordByWordTranslation: '{\"볼\":\"ball\",\"작가\":\"writer\",\"향해\":\"toward\",\"공\":\"ball\",\"날려\":\"threw\",\"공격하기\":\"attack\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The ball started attacking the writer by\n    hitting him with the ball.\"}'\nfive:\n  problem: |\n    작가(作家)는 공을 피(避)해 도망쳐 공원(公園)을 빠지는 것을 보았다.\n  wordByWordTranslation: '{\"작가\":\"Writer\",\"공\":\"Ball\",\"피해\":\"Avoiding\",\"도망쳐\":\"Ran\n    away\",\"공원\":\"Park\",\"빠지는\":\"Leaving quickly\",\"보았다\":\"Saw\"}'\n  overallTranslation: '{\"english\":\"The writer dodged the ball and ran out of the park.\"}'\n",
+    "id": 1354
+  },
+  {
+    "generator": "korean-story-5-fantasy",
+    "input": "laughter",
+    "problem": "꽃장에서 유리병(琉璃甁)을 들며 나아갔습니다. <br> 유리병(琉璃甁) 안에 담긴 것은 담백한 연꽃(蓮꽃)들이었다. <br> 연꽃(蓮꽃)들은 웃기 시작(始作)했습니다. <br> 웃는 연꽃(蓮꽃)들은 다른 꽃들과 함께춤을 추기 시작(始作)했습니다. <br> 웃는 꽃 주변(周邊)에 희망(希望)의 빛이 비네. <br>",
+    "solution": "one:\n  problem: |\n    꽃장에서 유리병(琉璃甁)을 들며 나아갔습니다.\n  wordByWordTranslation: '{\"꽃장\":\"flower shop\",\"유리병\":\"glass bottle\",\"\n    들며\":\"carrying\",\"나아갔습니다\":\"went out\"}'\n  overallTranslation: '{\"english\":\"He left the flower shop carrying a glass bottle.\"}'\ntwo:\n  problem: |\n    유리병(琉璃甁) 안에 담긴 것은 담백한 연꽃(蓮꽃)들이었다.\n  wordByWordTranslation: '{\"유리병\":\"glass\n    bottle\",\"안에\":\"inside\",\"담긴\":\"contained\",\"것은\":\"it\n    was\",\"담백한\":\"pure\",\"연꽃\":\"lotus flower\",\"들었다\":\"were\"}'\n  overallTranslation: '{\"english\":\"The glass jar contained withered lilies.\"}'\nthree:\n  problem: |\n    연꽃(蓮꽃)들은 웃기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"연꽃들\":\"lotus flowers\",\"웃기\":\"to start laughing\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Lotus flowers started to smile.\"}'\nfour:\n  problem: |\n    웃는 연꽃(蓮꽃)들은 다른 꽃들과 함께춤을 추기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"웃는\":\"Smiling\",\"연꽃들은\":\"lotus flowers\n    are\",\"다른\":\"other\",\"꽃들\":\"flowers\",\"과\":\"with\",\"춤을\":\"to dance\",\"추기\":\"began\n    to\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The smiling lotus flowers started dancing with\n    the other flowers.\"}'\nfive:\n  problem: |\n    웃는 꽃 주변(周邊)에 희망(希望)의 빛이 비네.\n  wordByWordTranslation: '{\"웃는\":\"smiling\",\"꽃\":\"flower\",\"주변\":\"surrounding\",\"희망\":\"hope\",\"빛\":\"light\",\"비네\":\"shines\"}'\n  overallTranslation: '{\"english\":\"Hope shines around the flower that smiles.\"}'\n",
+    "id": 1355
+  },
+  {
+    "generator": "korean-story-5-space-opera",
+    "input": "perjury",
+    "problem": "별빛 아래 어둠의 세계(世界)에서 성장(成長)한 아리온은 위대(偉大)한 비밀(祕密)을 가지고 있었다. <br> 그는 누구도 아닌 비밀(祕密)을 보호(保護)해야 하고, 어떻든 이기 위해 노력(努力)하고 있었다. <br> 그러나 어느 날 비밀(祕密)이 누설(漏泄)될 위험(危險)이 커지자 아리온은 위대(偉大)한 위험(危險)에 처(處)하게 되었다. <br> 그는 루나와 함께 위험(危險)에 처(處)하여 비밀(祕密)을 보호(保護)하기 위해 모든 것을 해냈다. <br> 루나의 도움으로 아리온은 비밀(祕密)을 보호(保護)하고 어둠의 세계(世界)를 뛰어나 새로운 세계(世界)로 도피(逃避)했다. <br>",
+    "solution": "one:\n  problem: |\n    별빛 아래 어둠의 세계(世界)에서 성장(成長)한 아리온은 위대(偉大)한 비밀(祕密)을 가지고 있었다.\n  wordByWordTranslation: '{\"별빛\":\"starlight\",\"아래\":\"below\",\"어둠\":\"darkness\",\"세계\":\"world\",\"성장한\":\"grew\n    up\",\"아리온\":\"Arion\",\"위대한\":\"great\",\"비밀\":\"secret\"}'\n  overallTranslation: '{\"english\":\"Orion, who grew up in the world of shadows\n    under the moonlight, possessed a great secret.\"}'\ntwo:\n  problem: |\n    그는 누구도 아닌 비밀(祕密)을 보호(保護)해야 하고, 어떻든 이기 위해 노력(努力)하고 있었다.\n  wordByWordTranslation: '{\"그는\":{\"he\":\"he\"},\"누구도\":{\"nobody\":\"nobody\"},\"아닌\":{\"not\":\"not\"},\"비밀\":{\"secret\":\"secret\"},\"보호해야\":{\"should\n    protect\":\"should protect\"},\"하고\":{\"and\":\"and\"},\"어떻든\":{\"anyway\":\"anyway\"},\"이기\n    위해\":{\"to win\":\"to win\"},\"노력하고\":{\"has been working\":\"has been\n    working\"},\"있었다\":{\"was\":\"was\"}}'\n  overallTranslation: '{\"english\":\"He had to protect a secret that was his own,\n    and he was doing everything he could to keep it.\"}'\nthree:\n  problem: |\n    그러나 어느 날 비밀(祕密)이 누설(漏泄)될 위험(危險)이 커지자 아리온은 위대(偉大)한 위험(危險)에 처(處)하게 되었다.\n  wordByWordTranslation: '{\"그러나\":\"However\",\"어느 날\":\"one\n    day\",\"비밀\":\"secret\",\"누설될\":\"will be\n    leaked\",\"위험\":\"risk\",\"커지자\":\"became\",\"아리온\":\"Aaron\",\"위대한\":\"great\",\"처하게\":\"became\",\"되었다\":\"happened\"}'\n  overallTranslation: '{\"english\":\"However, when the risk of the secret being\n    exposed grew larger, Arian was forced into a great danger.\"}'\nfour:\n  problem: |\n    그는 루나와 함께 위험(危險)에 처(處)하여 비밀(祕密)을 보호(保護)하기 위해 모든 것을 해냈다.\n  wordByWordTranslation: '{\"그는\":\"He\",\"루나와\":\"Luna and\",\"위험에\":\"in\n    danger\",\"처하여\":\"because\",\"비밀을\":\"secrets\",\"보호하기 위해\":\"to protect\",\"모든\n    것을\":\"everything\",\"해냈다\":\"did\"}'\n  overallTranslation: '{\"english\":\"He risked everything to protect his secrets\n    with Luna by his side.\"}'\nfive:\n  problem: |\n    루나의 도움으로 아리온은 비밀(祕密)을 보호(保護)하고 어둠의 세계(世界)를 뛰어나 새로운 세계(世界)로 도피(逃避)했다.\n  wordByWordTranslation: '{\"루나\":\"Luna\",\"도움\":\"help\",\"아리온\":\"Arian\",\"비밀\":\"secret\",\"보호\":\"protect\",\"어둠\":\"darkness\",\"세상\":\"world\",\"뛰어나\":\"escaped\",\"새로운\":\"new\",\"세계\":\"world\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"With Luna's aid, Aaron hid his secrets and\n    escaped into a new world beyond the realm of darkness.\\\"}\"\n",
+    "id": 1356
+  },
+  {
+    "generator": "korean-story-6-comic book",
+    "input": "aloud",
+    "problem": "어둠이 가득찬 방(房)에서 책(冊)을 읽으며 소리 없이 있었다. <br> 책(冊) 속의 이야기를 직접(直接) 말하는 것이 좋겠다. 소리 없이 책(冊)을 읽는 것보다는. <br> 갑자기 책(冊)의 페이지가 뒤집히기 시작(始作)했다. <br> 책(冊) 속의 이야기가 실제로(實際로) 시작(始作)하여 주변(周邊)이 어둡게 변(變)했다. <br> 책(冊) 속의 인물(人物)들이 현실(現實)에 나타나 소리 없이 책(冊) 속의 이야기를 말하기 시작(始作)했다. <br>",
+    "solution": "one:\n  problem: |\n    어둠이 가득찬 방(房)에서 책(冊)을 읽으며 소리 없이 있었다.\n  wordByWordTranslation: '{\"어둠\":\"darkness\",\"가득찬\":\"filled\",\"방\":\"room\",\"책\":\"book\",\"독기\":\"reading\",\"소리\":\"sound\",\"없이\":\"quietly\",\"있었다\":\"was\n    there\"}'\n  overallTranslation: '{\"english\":\"He was reading a book in a room filled with\n    darkness, silent as the night.\"}'\ntwo:\n  problem: |\n    책(冊) 속의 이야기를 직접(直接) 말하는 것이 좋겠다. 소리 없이 책(冊)을 읽는 것보다는.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"이야기\":\"story\",\"직접\":\"directly\",\"말\":\"speak\",\"좋겠다\":\"would\n    be good\",\"소리\":\"silence\",\"없이\":\"without\",\"읽는\":\"reading\",\"것보다는\":\"rather than\"}'\n  overallTranslation: \"{\\\"english\\\":\\\"It would be better to tell the story from\n    the book directly rather than reading it silently. It's more engaging to\n    hear the story rather than just reading the words.\\\"}\"\nthree:\n  problem: |\n    갑자기 책(冊)의 페이지가 뒤집히기 시작(始作)했다.\n  wordByWordTranslation: \"{\\\"갑자기\\\":\\\"suddenly\\\",\\\"책의\\\":\\\"book's\\\",\\\"페이지\\\":\\\"pages\\\n    \\\",\\\"뒤집히기\\\":\\\"flipping\\\",\\\"시작했다\\\":\\\"started\\\"}\"\n  overallTranslation: '{\"english\":\"The pages of the book suddenly started flipping backwards.\"}'\nfour:\n  problem: |\n    책(冊) 속의 이야기가 실제로(實際로) 시작(始作)하여 주변(周邊)이 어둡게 변(變)했다.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"이야기\":\"story\",\"실제로\":\"actually\",\"시작\":\"began\",\"주변\":\"surrounding\",\"어둡게\":\"darkly\",\"변했다\":\"changed\"}'\n  overallTranslation: '{\"english\":\"The story in the book actually began, and the\n    surroundings grew dark.\"}'\nfive:\n  problem: |\n    책(冊) 속의 인물(人物)들이 현실(現實)에 나타나 소리 없이 책(冊) 속의 이야기를 말하기 시작(始作)했다.\n  wordByWordTranslation: '{\"책\":\"book\",\"속\":\"inside\",\"인물\":\"characters\",\"나타나\":\"appeared\",\"소리\":\"silence\",\"없이\":\"without\",\"말하기\":\"to\n    speak\",\"시작했다\":\"started\"}'\n  overallTranslation: '{\"english\":\"The characters in the book began to appear in\n    reality and started telling the story without words.\"}'\n",
+    "id": 1357
+  },
+  {
+    "generator": "korean-story-6-low-fantasy",
+    "input": "totter",
+    "problem": "저녁 바닥의 빛이 어둡네. <br> 길을 잃고 있었다. <br> 갑자기 바닥이 움직겼다. <br> 움직이는 바닥은 그들과 같은 생물(生物)이었다. <br> 그 생물(生物)들은 사람들처럼 걸고, 사람들처럼 말했다. <br>",
+    "solution": "one:\n  problem: |\n    저녁 바닥의 빛이 어둡네.\n  wordByWordTranslation: '{\"저녁\":\"evening\",\"바닥\":\"floor\",\"빛\":\"light\",\"어둡네\":\"is dark\"}'\n  overallTranslation: '{\"english\":\"The light at the bottom of the evening is dim.\"}'\ntwo:\n  problem: |\n    길을 잃고 있었다.\n  wordByWordTranslation: '{\"길\":\"road\",\"을\":\"particle\",\"잃고\":\"to lose\",\"있었다\":\"was there\"}'\n  overallTranslation: '{\"english\":\"He had lost his way.\"}'\nthree:\n  problem: |\n    갑자기 바닥이 움직겼다.\n  wordByWordTranslation: '{\"갑자기\":\"suddenly\",\"바닥\":\"floor\",\"움직겼다\":\"moved\"}'\n  overallTranslation: '{\"english\":\"The floor suddenly moved.\"}'\nfour:\n  problem: |\n    움직이는 바닥은 그들과 같은 생물(生物)이었다.\n  wordByWordTranslation: '{\"움직이는\":\"moving\",\"바닥\":\"floor\",\"은\":\"was\",\"그들\":\"they\",\"과\":\"like\",\"같은\":\"same\",\"생물\":\"creature\",\"이었다\":\"was\"}'\n  overallTranslation: '{\"english\":\"The moving floor was made up of creatures just like them.\"}'\nfive:\n  problem: |\n    그 생물(生物)들은 사람들처럼 걸고, 사람들처럼 말했다.\n  wordByWordTranslation: '{\"그\":\"that\",\"생물들은\":\"creatures are\",\"사람들처럼\":\"like\n    people\",\"걸고\":\"walk\",\"말했다\":\"spoke\"}'\n  overallTranslation: '{\"english\":\"Those creatures walked and spoke like humans.\"}'\n",
+    "id": 1358
   },
   {
     "generator": "math-symbolic-1-1-geometry",
@@ -6857,7 +7123,7 @@
     "solution": "equations:\n  - y = 3x + 2\nwordProblem: A farmer has 30 meters of fencing material to enclose a rectangular\n  garden. How long can the garden be if the width is 2 meters less than the\n  length?\nsolutions:\n  x: 8\n",
     "time": 60,
     "decision": "reject",
-    "id": 1321
+    "id": 1359
   },
   {
     "generator": "math-symbolic-1-1-large-integer-addition",
@@ -6865,7 +7131,7 @@
     "solution": "equations:\n  - 250 + x = 500\nwordProblem: There are 250 apples in a bag. If I put x more apples in the bag,\n  there will be 500 apples in the bag. How many apples are in the bag after I\n  put the x apples in?\nsolutions:\n  x: 250\n",
     "time": 60,
     "decision": "reject",
-    "id": 1322
+    "id": 1360
   },
   {
     "generator": "math-symbolic-1-1-large-integer-addition",
@@ -6873,7 +7139,7 @@
     "solution": "equations:\n  - 3m + 5kg = 10kg\nwordProblem: There are 3 meters of Aspen tree branches and 5 kilograms of\n  leaves. How many kilograms of branches and leaves are there in total?\nsolutions:\n  m: 5\n",
     "time": 30,
     "decision": "reject",
-    "id": 1323
+    "id": 1361
   },
   {
     "generator": "math-symbolic-1-1-large-integer-multiplication",
@@ -6881,7 +7147,7 @@
     "solution": "equations:\n  - 45kg * x = 270kg\nwordProblem: There are 45kg of flour in a bag. If I take some flour out of the\n  bag and have 270kg left, how much flour did I take out of the bag?\nsolutions:\n  x: 6\n",
     "time": 60,
     "decision": "accept",
-    "id": 1324
+    "id": 1362
   },
   {
     "generator": "math-symbolic-1-1-large-integer-subtraction",
@@ -6889,7 +7155,7 @@
     "solution": "equations:\n  - -100m + 30 = 70\nwordProblem: Maya has 100 meters of rope. She uses 30 meters of the rope to tie\n  up a bundle of hay. How many meters of rope does Maya have left?\nsolutions:\n  m: 70\n",
     "time": 60,
     "decision": "reject",
-    "id": 1325
+    "id": 1363
   },
   {
     "generator": "math-symbolic-1-1-lever-fulcrum-weight",
@@ -6897,7 +7163,7 @@
     "solution": "equations:\n  - 3kg=2kg(2m-x)+1kgx\nwordProblem: There is a lever with a fulcrum in the middle. One side of the\n  lever has 3kg at the end. The other side of the lever has 2kg at a distance of\n  2 meters from the fulcrum. How far from the fulcrum should the 1kg weight be\n  placed on the other side of the lever to balance it?\nsolutions:\n  x: 1.33m\n",
     "time": "20s",
     "decision": "fix",
-    "id": 1326
+    "id": 1364
   },
   {
     "generator": "math-symbolic-1-1-probability",
@@ -6905,7 +7171,7 @@
     "solution": "equations:\n  - 1/3 x + 1/4 = 1/2\nwordProblem: There are 3 red marbles and 4 blue marbles in a bag. If you pick\n  one marble out of the bag, what is the probability that it will be red?\nsolutions:\n  x: 3/7\n",
     "time": 30,
     "decision": "accept",
-    "id": 1327
+    "id": 1365
   },
   {
     "generator": "math-symbolic-1-1-space",
@@ -6913,7 +7179,7 @@
     "solution": "equations:\n  - x + 3m = 7m\nwordProblem: There are 7 meters of space rope. If 3 meters are used to secure a\n  satellite, how many meters of rope are left?\nsolutions:\n  x: 4\n",
     "time": 30,
     "decision": "reject",
-    "id": 1328
+    "id": 1366
   },
   {
     "generator": "math-symbolic-1-1-work",
@@ -6921,7 +7187,7 @@
     "solution": "equations:\n  - 3x = 15\nwordProblem: There are 15 toys in a box. If I take 3 toys out of the box, how\n  many toys are left in the box?\nsolutions:\n  x: 5\n",
     "time": 30,
     "decision": "accept",
-    "id": 1329
+    "id": 1367
   },
   {
     "generator": "math-symbolic-1-2-fraction-subtraction",
@@ -6929,7 +7195,7 @@
     "solution": "equations:\n  - 3/4 - 1/3 = x\n  - x + 1/2 = 5/6\nwordProblem: There are 3/4 of a meter of rope. If I cut away 1/3 of the rope,\n  how much rope is left? Also, if I cut the remaining rope into 2 equal pieces,\n  how long is each piece?\nsolutions:\n  x: 7/12\n",
     "time": 30,
     "decision": "accept",
-    "id": 1330
+    "id": 1368
   },
   {
     "generator": "math-symbolic-1-2-large-integer-division",
@@ -6937,7 +7203,7 @@
     "solution": "equations:\n  - y = 3x + 5\n  - 2x + y = 15\nwordProblem: There are 15 toys to be shared equally among 3 friends and 5 toys\n  to keep for yourself. How many toys does each friend get?\nsolutions:\n  x: 5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1331
+    "id": 1369
   },
   {
     "generator": "math-symbolic-1-2-large-integer-multiplication",
@@ -6945,7 +7211,7 @@
     "solution": "equations:\n  - 500x + 200y = 1300\n  - 300x - 100y = 700\nwordProblem: A farmer has 1300 kg of wheat and 700 kg of barley. He wants to use\n  some of the wheat and barley to make two types of flour. One type of flour\n  requires 500 kg of wheat and 200 kg of barley per kg of flour, while the other\n  type of flour requires 300 kg of wheat and 100 kg of barley per kg of flour.\n  How many kg of each type of flour can the farmer make?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1332
+    "id": 1370
   },
   {
     "generator": "math-symbolic-1-2-lever-fulcrum-weight",
@@ -6953,14 +7219,14 @@
     "solution": "equations:\n  - F_1 = 3F_2\n  - 2F_1 + 4F_2 = 10N\nwordProblem: A seesaw has a 3kg mass at one end and a 2kg mass at the other end.\n  How much weight should be placed at the fulcrum to balance the seesaw?\nsolutions:\n  F_1: 6N\n  F_2: 2N\n",
     "time": 30,
     "decision": "reject",
-    "id": 1333
+    "id": 1371
   },
   {
     "generator": "math-symbolic-1-2-mass",
     "problem": "''2L + 3H = 100''<br>''H = L + 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2L + 3H = 100\n  - H = L + 20\nwordProblem: There are 100 liters of liquid in a container. Some of the liquid\n  is poured into a pitcher, and 3 times as much remains in the container. How\n  many liters of liquid are there in the pitcher?\nsolutions:\n  L: 20\n  H: 40\n",
     "time": 60,
-    "id": 1334
+    "id": 1372
   },
   {
     "generator": "math-symbolic-1-2-probability",
@@ -6968,7 +7234,7 @@
     "solution": "equations:\n  - 3x + 2y = 10\n  - 2x + y = 6\nwordProblem: There are 10 toys in a box. Some toys are cars and the rest are\n  trucks. If there are 6 less cars than trucks, how many cars are there?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 30,
     "decision": "accept",
-    "id": 1335
+    "id": 1373
   },
   {
     "generator": "math-symbolic-1-2-slice-of-life",
@@ -6976,7 +7242,7 @@
     "solution": "equations:\n  - equation: C + G = 10\n  - equation: C - G = 2\nwordProblem: There are 10 delicious treats in total. Some are cigars and some\n  are gummies. If we take 2 gummies away, there are 3 more cigars than gummies\n  left. How many cigars and gummies are there?\nsolutions:\n  C: 6\n  G: 4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1336
+    "id": 1374
   },
   {
     "generator": "math-symbolic-1-2-space",
@@ -6984,7 +7250,7 @@
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 7\nwordProblem: A spaceship has a fuel tank that can hold 7 cubic meters of fuel.\n  If the fuel tank is 3 times bigger than the fuel container, how much fuel can\n  the container hold?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1337
+    "id": 1375
   },
   {
     "generator": "math-symbolic-1-2-space",
@@ -6992,7 +7258,7 @@
     "solution": "equations:\n  - y = 2x + 1\n  - 3x + 2y = 10\nwordProblem: There are x spaceships and y robots in space. Each spaceship has 2\n  robots. There are 10 robots in total. How many spaceships are there?\nsolutions:\n  x: 4\n  y: 9\n",
     "time": 30,
     "decision": "accept",
-    "id": 1338
+    "id": 1376
   },
   {
     "generator": "math-symbolic-1-2-system-of-equations",
@@ -7000,7 +7266,7 @@
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 7\nwordProblem: There are 7 pencils in a box. Some of the pencils are new and some\n  are used. If new pencils cost 3 times more than used pencils, how many new\n  pencils are there if the whole box of pencils costs 1 more than 3 times the\n  cost of the used pencils?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1339
+    "id": 1377
   },
   {
     "generator": "math-symbolic-2-1-fraction-subtraction",
@@ -7008,7 +7274,7 @@
     "solution": "equations:\n  - -1/3 x + 1/4 = 5/12\nwordProblem: There are 5/12 of a pizza left over. If I take 1/3 of the pizza\n  away, how much pizza will be left over?\nsolutions:\n  x: 1/4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1340
+    "id": 1378
   },
   {
     "generator": "math-symbolic-2-1-fraction-subtraction",
@@ -7016,7 +7282,7 @@
     "solution": "equations:\n  - 1/3(x-1/4)=1/6\nwordProblem: There are 1/3 of a pizza left over. If I take 1/4 of the pizza\n  away, how much pizza will I have left?\nsolutions:\n  x: 5/12\n",
     "time": 30,
     "decision": "accept",
-    "id": 1341
+    "id": 1379
   },
   {
     "generator": "math-symbolic-2-1-geometry",
@@ -7024,7 +7290,7 @@
     "solution": "equations:\n  - x + 2cm = 5cm\nwordProblem: There is a diamond shaped like a rectangle with a perimeter of\n  12cm. What is the length of one side of the diamond?\nsolutions:\n  x: 4cm\n",
     "time": 60,
     "decision": "reject",
-    "id": 1342
+    "id": 1380
   },
   {
     "generator": "math-symbolic-2-1-large-integer-addition",
@@ -7032,7 +7298,7 @@
     "solution": "equations:\n  - 20cm + x = 50cm\nwordProblem: There are 20cm of beads on a bracelet. If I add x more beads, the\n  bracelet will be 50cm long. How many beads are on the bracelet now?\nsolutions:\n  x: 30cm\n",
     "time": 60,
     "decision": "accept",
-    "id": 1343
+    "id": 1381
   },
   {
     "generator": "math-symbolic-2-1-large-integer-addition",
@@ -7040,7 +7306,7 @@
     "solution": "equations:\n  - 100 + x = 200\nwordProblem: There are 100 apples in a bag. If I add x more apples, there will\n  be 200 apples in the bag. How many apples are there in the bag now?\nsolutions:\n  x: 100\n",
     "time": 60,
     "decision": "reject",
-    "id": 1344
+    "id": 1382
   },
   {
     "generator": "math-symbolic-2-1-large-integer-multiplication",
@@ -7048,7 +7314,7 @@
     "solution": "equations:\n  - 250m * x = 3750m\nwordProblem: Maya has 250 meters of yarn. She uses some of the yarn to make a\n  scarf that is 3750 meters long. How much yarn did she use for the scarf?\nsolutions:\n  x: 15\n",
     "time": 60,
     "decision": "accept",
-    "id": 1345
+    "id": 1383
   },
   {
     "generator": "math-symbolic-2-1-large-integer-subtraction",
@@ -7056,7 +7322,7 @@
     "solution": "equations:\n  - x - 50 = 250\nwordProblem: There are 50 apples in a basket. Some friends take 250 apples from\n  the basket. How many apples are left in the basket?\nsolutions:\n  x: 300\n",
     "time": 60,
     "decision": "reject",
-    "id": 1346
+    "id": 1384
   },
   {
     "generator": "math-symbolic-2-1-large-integer-subtraction",
@@ -7064,7 +7330,7 @@
     "solution": "equations:\n  - 3x - 24 = 12\nwordProblem: There are 3 groups of students in a class. Each group has 24\n  students. How many students are there in the class?\nsolutions:\n  x: 16\n",
     "time": 60,
     "decision": "accept",
-    "id": 1347
+    "id": 1385
   },
   {
     "generator": "math-symbolic-2-1-lever-fulcrum-weight",
@@ -7072,7 +7338,7 @@
     "solution": "equations:\n  - 2kg * x = 4kg * 30cm\nwordProblem: There are 12 apples in a bowl. If each apple weighs 2kg, how far\n  from the center of the bowl should a 4kg weight be placed to balance the bowl?\nsolutions:\n  x: 30cm\n",
     "time": 60,
     "decision": "accept",
-    "id": 1348
+    "id": 1386
   },
   {
     "generator": "math-symbolic-2-1-lever-fulcrum-weight",
@@ -7080,7 +7346,7 @@
     "solution": "equations:\n  - 2kg * 30cm = 4kg * x\nwordProblem: There are 2kg weights on one side of a seesaw that is 30cm from the\n  fulcrum.  How far from the fulcrum should a 4kg weight be placed to balance\n  the seesaw?\nsolutions:\n  x: 20cm\n",
     "time": "30s",
     "decision": "accept",
-    "id": 1349
+    "id": 1387
   },
   {
     "generator": "math-symbolic-2-1-mass",
@@ -7088,7 +7354,7 @@
     "solution": "equations:\n  - 100 = 20x\nwordProblem: There are 100 books in a library. If each reviewer can review 20\n  books, how many reviewers are needed to review all the books in the library?\nsolutions:\n  x: 5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1350
+    "id": 1388
   },
   {
     "generator": "math-symbolic-2-1-slice-of-life",
@@ -7096,7 +7362,7 @@
     "solution": "equations:\n  - x + 3 = 10\nwordProblem: Maria has 3 stickers more than twice the number of stickers that\n  Liam has. How many stickers does Liam have?\nsolutions:\n  x: 6\n",
     "time": 45,
     "decision": "reject",
-    "id": 1351
+    "id": 1389
   },
   {
     "generator": "math-symbolic-2-1-speed",
@@ -7104,7 +7370,7 @@
     "solution": "equations:\n  - x + 3 = 8\nwordProblem: There are 8 friends going on a trip. 3 of them decide not to go.\n  How many friends are going on the trip now?\nsolutions:\n  x: 5\n",
     "time": 30,
     "decision": "reject",
-    "id": 1352
+    "id": 1390
   },
   {
     "generator": "math-symbolic-2-1-travel",
@@ -7112,7 +7378,7 @@
     "solution": "equations:\n  - 50 = 2x\nwordProblem: There are 50 hungry birds at a feeder. Each bird eats 2 seeds. How\n  many seeds are there in total?\nsolutions:\n  x: 25\n",
     "time": 60,
     "decision": "accept",
-    "id": 1353
+    "id": 1391
   },
   {
     "generator": "math-symbolic-2-2-fraction-subtraction",
@@ -7120,7 +7386,7 @@
     "solution": "equations:\n  - 3/4 - 1/8 = y\n  - y + 1/4 = 7/8\nwordProblem: There are 3/4 of a liter of juice in a pitcher. If you drink 1/8 of\n  the juice, how much juice is left in the pitcher? If you then add 1/4 of a\n  liter of water to the pitcher, how much liquid is in the pitcher altogether?\nsolutions:\n  y: 7/8\n",
     "time": 60,
     "decision": "accept",
-    "id": 1354
+    "id": 1392
   },
   {
     "generator": "math-symbolic-2-2-geometry",
@@ -7128,7 +7394,7 @@
     "solution": "equations:\n  - y = 3x + 1\n  - 2y + 5x = 17\nwordProblem: There are 3 times as many chairs as tables in a room. If there are\n  1 chair more than 3 times the number of tables, how many chairs and tables are\n  there in the room?\nsolutions:\n  x: 3\n  y: 10\n",
     "time": 60,
     "decision": "accept",
-    "id": 1355
+    "id": 1393
   },
   {
     "generator": "math-symbolic-2-2-geometry",
@@ -7136,7 +7402,7 @@
     "solution": "equations:\n  - y = 2x + 1\n  - 3x + 2y = 10\nwordProblem: There are twice as many oranges as grapefruits in a bowl. If there\n  are 1 grapefruit and 2 oranges in the bowl, how many oranges are there in the\n  bowl? There are 3 times the grapefruits and 2 times the oranges in the bowl in\n  total.\nsolutions:\n  x: 3\n",
     "time": 90,
     "decision": "accept",
-    "id": 1356
+    "id": 1394
   },
   {
     "generator": "math-symbolic-2-2-geometry",
@@ -7144,7 +7410,7 @@
     "solution": "equations:\n  - 2x + y = 10\n  - x - y = 3\nwordProblem: There are 10 apples in a basket. If I take 3 apples out of the\n  basket, how many apples are left in the basket?\nsolutions:\n  x: 3\n  y: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1357
+    "id": 1395
   },
   {
     "generator": "math-symbolic-2-2-probability",
@@ -7152,7 +7418,7 @@
     "solution": "equations:\n  - 2x + y = 10\n  - y = 3x + 2\nwordProblem: There are 10 toys in a box. Some toys are cars and the rest are\n  trucks. If we have 3 times as many cars as trucks, how many cars and trucks\n  are there?\nsolutions:\n  x: 2\n  y: 8\n",
     "time": 60,
     "decision": "accept",
-    "id": 1358
+    "id": 1396
   },
   {
     "generator": "math-symbolic-2-2-science",
@@ -7160,7 +7426,7 @@
     "solution": "equations:\n  - 4x + 2y = 12\n  - 3x + y = 7\nwordProblem: There are 12 rocks in a bag. Some of the rocks are bigger than\n  others. If we take 3 of the biggest rocks out of the bag, we are left with 7\n  smaller rocks. How many bigger rocks are there in the bag?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 90,
     "decision": "accept",
-    "id": 1359
+    "id": 1397
   },
   {
     "generator": "math-symbolic-3-1-distance",
@@ -7168,7 +7434,7 @@
     "solution": "equations:\n  - 5x = 30\nwordProblem: A hunter spots 30 birds flying in a circle. If each bird is 5\n  meters away from the center of the circle, how far is the hunter from the\n  center of the circle?\nsolutions:\n  x: 6\n",
     "time": 60,
     "decision": "accept",
-    "id": 1360
+    "id": 1398
   },
   {
     "generator": "math-symbolic-3-1-fraction-subtraction",
@@ -7176,7 +7442,7 @@
     "solution": "equations:\n  - -3/4x + 1 = 5/8\nwordProblem: Papa has 1 meter of fabric. He uses 3/4 of the fabric to make a\n  dress. How much fabric does he have left?\nsolutions:\n  x: 4/5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1361
+    "id": 1399
   },
   {
     "generator": "math-symbolic-3-1-geometry",
@@ -7184,7 +7450,7 @@
     "solution": "equations:\n  - 2x + 5 = 17\nwordProblem: A rectangular room is 2 meters longer than it is wide. If the\n  perimeter of the room is 40 meters, what is the length of the room?\nsolutions:\n  x: 8\n",
     "time": 90,
     "decision": "accept",
-    "id": 1362
+    "id": 1400
   },
   {
     "generator": "math-symbolic-3-1-large-integer-addition",
@@ -7192,7 +7458,7 @@
     "solution": "equations:\n  - 100L + x = 120L\nwordProblem: There are 100 litres of juice in a container. Some more juice is\n  added to the container, and now there are 120 litres of juice in the\n  container. How much juice was added?\nsolutions:\n  x: 20\n",
     "time": 60,
     "decision": "reject",
-    "id": 1363
+    "id": 1401
   },
   {
     "generator": "math-symbolic-3-1-large-integer-addition",
@@ -7200,7 +7466,7 @@
     "solution": "equations:\n  - 100x + 50 = 150\nwordProblem: There are 100 apples and 50 oranges in a bag. If you take 150\n  pieces of fruit out of the bag, how many pieces of fruit are left in the bag?\nsolutions:\n  x: 0\n",
     "time": 60,
     "decision": "reject",
-    "id": 1364
+    "id": 1402
   },
   {
     "generator": "math-symbolic-3-1-mass",
@@ -7208,7 +7474,7 @@
     "solution": "equations:\n  - x + 5 = 12\nwordProblem: There are 12 toy cars in a box. Some toy cars are blue and the rest\n  are red. If there are 5 more red cars than blue cars, how many blue cars are\n  there?\nsolutions:\n  x: 7\n",
     "time": 60,
     "decision": "reject",
-    "id": 1365
+    "id": 1403
   },
   {
     "generator": "math-symbolic-3-1-proportion",
@@ -7216,7 +7482,7 @@
     "solution": "equations:\n  - (3x + 2) / 5 = 7\nwordProblem: There are 7 camels in a group. Some camels are 3 years old and the\n  rest are 2 years old. How many camels are there in total?\nsolutions:\n  x: 5\n",
     "time": 45,
     "decision": "accept",
-    "id": 1366
+    "id": 1404
   },
   {
     "generator": "math-symbolic-3-1-reality",
@@ -7224,7 +7490,7 @@
     "solution": "equations:\n  - 3(x + 5) = 2x + 15\nwordProblem: An ass has 3 heads and 5 tails. If the heads and tails combined are\n  15 meters in length, how long is each tail?\nsolutions:\n  x: 5\n",
     "time": 30,
     "decision": "accept",
-    "id": 1367
+    "id": 1405
   },
   {
     "generator": "math-symbolic-3-1-science",
@@ -7232,7 +7498,7 @@
     "solution": "equations:\n  - 2L = 500g + 3L\nwordProblem: Maya has 500g of flour. She needs 2L of dough for a baking project.\n  How much more flour does she need?\nsolutions:\n  L: 250\n",
     "time": 200,
     "decision": "reject",
-    "id": 1368
+    "id": 1406
   },
   {
     "generator": "math-symbolic-3-1-speed",
@@ -7240,7 +7506,7 @@
     "solution": "equations:\n  - y = (3/4)x\nwordProblem: There are 3 times as many cars as trucks in a parking lot. If there\n  are 4 trucks, how many cars are there?\nsolutions:\n  x: 12\n",
     "time": 30,
     "decision": "reject",
-    "id": 1369
+    "id": 1407
   },
   {
     "generator": "math-symbolic-3-1-system-of-equations",
@@ -7248,7 +7514,7 @@
     "solution": "equations:\n  - 3x = 15\nwordProblem: There are 15 toys to be shared equally among 3 friends. How many\n  toys will each friend get?\nsolutions:\n  x: 5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1370
+    "id": 1408
   },
   {
     "generator": "math-symbolic-3-1-work",
@@ -7256,7 +7522,7 @@
     "solution": "equations:\n  - -3x + 8 = 2\nwordProblem: There are 8 birds in a tree. 3 of them decide to fly away. How many\n  birds are left in the tree?\nsolutions:\n  x: 2\n",
     "time": 45,
     "decision": "accept",
-    "id": 1371
+    "id": 1409
   },
   {
     "generator": "math-symbolic-3-2-distance",
@@ -7264,7 +7530,7 @@
     "solution": "equations:\n  - 2x + 5y = 11\n  - 3x - y = 7\nwordProblem: There are 11 plants in a garden. Some plants are sunflowers and the\n  rest are tomatoes. If 3 times the number of sunflowers is 7 plants less than\n  twice the number of tomatoes, how many sunflowers and tomatoes are there?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1372
+    "id": 1410
   },
   {
     "generator": "math-symbolic-3-2-large-integer-division",
@@ -7272,7 +7538,7 @@
     "solution": "equations:\n  - 300 = 5x + 2y\n  - 200 = 2x - y\nwordProblem: There are 300 bushes in a field. Some bushes are tall and some\n  bushes are short. If tall bushes are 5 times taller than short bushes, and\n  there are 200 short bushes, how many tall bushes are there?\nsolutions:\n  x: 40\n  y: 100\n",
     "time": 60,
     "decision": "accept",
-    "id": 1373
+    "id": 1411
   },
   {
     "generator": "math-symbolic-3-2-large-integer-multiplication",
@@ -7280,7 +7546,7 @@
     "solution": "equations:\n  - 250g + 3x = 500g\n  - y - 150g = 2x\nwordProblem: There are 250 grams of flour in a bowl. If I add 3 times the amount\n  of sugar that is in the bowl, the total weight of the bowl and sugar will be\n  500 grams. How much sugar is in the bowl? If I take away 150 grams of sugar\n  from the total, I will have 2 times the amount of sugar remaining. How much\n  sugar is in the bowl?\nsolutions:\n  x: 100g\n  y: 250g\n",
     "time": 120,
     "decision": "accept",
-    "id": 1374
+    "id": 1412
   },
   {
     "generator": "math-symbolic-3-2-lever-fulcrum-weight",
@@ -7288,7 +7554,7 @@
     "solution": "equations:\n  - 5kg * x = 3kg * y\n  - x + y = 1m\nwordProblem: A prairie grass mat is 1 meter long. There are 5 kilograms of grass\n  on one side of the mat and 3 kilograms of grass on the other side. Where\n  should the fulcrum be placed to balance the mat?\nsolutions:\n  x: 0.6m\n  y: 0.4m\n",
     "time": "30s",
     "decision": "accept",
-    "id": 1375
+    "id": 1413
   },
   {
     "generator": "math-symbolic-3-2-lever-fulcrum-weight",
@@ -7296,7 +7562,7 @@
     "solution": "equations:\n  - 2kg * x = 3kg * (2m-x)\n  - x + (2m-x) = 2m\nwordProblem: There is a lever with a fulcrum in the middle. One side of the\n  lever has a 2 kilogram weight attached a distance of x meters from the\n  fulcrum. The other side of the lever has a 3 kilogram weight attached a\n  distance of 2 meters from the fulcrum. What is the distance of the 2 kilogram\n  weight from the fulcrum?\nsolutions:\n  x: 4/3m\n",
     "time": "60s",
     "decision": "accept",
-    "id": 1376
+    "id": 1414
   },
   {
     "generator": "math-symbolic-3-2-lever-fulcrum-weight",
@@ -7304,7 +7570,7 @@
     "solution": "equations:\n  - F=3W/5\n  - L1-L2=0.5m\nwordProblem: \"A seesaw has a 1.5m long fulcrum. If a 10kg weight is placed 0.5m\n  from the fulcrum, how much weight should be placed 0.8m from the fulcrum to\n  balance the seesaw? \"\nsolutions:\n  W: 6kg\n",
     "time": "2min",
     "decision": "reject",
-    "id": 1377
+    "id": 1415
   },
   {
     "generator": "math-symbolic-3-2-mass",
@@ -7312,7 +7578,7 @@
     "solution": "equations:\n  - 24h = 3h + 5m\n  - 5h = 3m + 20s\nwordProblem: A printer can print 24 pages in an hour. It can print 3 pages in an\n  hour or 5 minutes. How many minutes does it take to print 5 pages?\nsolutions:\n  h: 8\n  m: 20\n",
     "time": 60,
     "decision": "reject",
-    "id": 1378
+    "id": 1416
   },
   {
     "generator": "math-symbolic-3-2-probability",
@@ -7320,7 +7586,7 @@
     "solution": "equations:\n  - 3x + 2y = 12\n  - 2x - y = 5\nwordProblem: There are 12 colorful marbles in a jar. Some are blue and the rest\n  are green. If 2 times the number of green marbles is 5 more than the number of\n  blue marbles, how many of each color are there?\nsolutions:\n  x: 4\n  y: 3\n",
     "time": 60,
     "decision": "accept",
-    "id": 1379
+    "id": 1417
   },
   {
     "generator": "math-symbolic-3-2-slice-of-life",
@@ -7328,7 +7594,7 @@
     "solution": "equations:\n  - x + 2y = 10\n  - 3x - y = 7\nwordProblem: There are 10 tickets for a school play. Some friends want to buy x\n  adult tickets and y child tickets. Adult tickets cost 3 times more than child\n  tickets. How many adult and child tickets can they buy with 10 tickets?\nsolutions:\n  x: 5\n  y: 3\n",
     "time": 120,
     "decision": "accept",
-    "id": 1380
+    "id": 1418
   },
   {
     "generator": "math-symbolic-3-2-travel",
@@ -7336,7 +7602,7 @@
     "solution": "equations:\n  - 4x + 2y = 18\n  - 3x - y = 7\nwordProblem: There are 18 people waiting for a train. Some of them are adults\n  and some are children. If adults cost 4 times more than children, how many of\n  each are there if the total cost of the group is 7 times the cost of a child?\nsolutions:\n  x: 3\n  y: 6\n",
     "time": 60,
     "decision": "accept",
-    "id": 1381
+    "id": 1419
   },
   {
     "generator": "math-symbolic-3-2-work",
@@ -7344,7 +7610,7 @@
     "solution": "equations:\n  - 2x + 3y = 15\n  - x - y = 5\nwordProblem: There are 15 apples in a basket. Some are eaten and some remain. If\n  there are 5 fewer eaten than remain, how many apples remain in the basket?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 90,
     "decision": "accept",
-    "id": 1382
+    "id": 1420
   },
   {
     "generator": "math-symbolic-4-1-distance",
@@ -7352,7 +7618,7 @@
     "solution": "equations:\n  - 3x + 5 = 17\nwordProblem: There are 3 times as many birds as fish in a lake. If there are 5\n  more birds than fish, how many fish are there in the lake?\nsolutions:\n  x: 5\n",
     "time": 90,
     "decision": "accept",
-    "id": 1383
+    "id": 1421
   },
   {
     "generator": "math-symbolic-4-1-fraction-subtraction",
@@ -7360,7 +7626,7 @@
     "solution": "equations:\n  - -1/4x + 3/8 = 1/3\nwordProblem: There are 3/4 of a liter of water in a jug. Some water is poured\n  out leaving 1/3 of a liter remaining in the jug. How much water was poured\n  out?\nsolutions:\n  x: 9/12\n",
     "time": 60,
     "decision": "accept",
-    "id": 1384
+    "id": 1422
   },
   {
     "generator": "math-symbolic-4-1-large-integer-division",
@@ -7368,7 +7634,7 @@
     "solution": "equations:\n  - 3500 = 30x\nwordProblem: A farmer has 3500 liters of water in a reservoir. Each day, he uses\n  30 liters of water for irrigation. How many days will it take him to use up\n  all the water in the reservoir?\nsolutions:\n  x: 116\n",
     "time": 60,
     "decision": "accept",
-    "id": 1385
+    "id": 1423
   },
   {
     "generator": "math-symbolic-4-1-reality",
@@ -7376,7 +7642,7 @@
     "solution": "equations:\n  - 5x + 2 = 13\nwordProblem: There are 5 apples and 2 oranges in a bowl. How many pieces of\n  fruit are there in the bowl?\nsolutions:\n  x: 3\n",
     "time": 45,
     "decision": "accept",
-    "id": 1386
+    "id": 1424
   },
   {
     "generator": "math-symbolic-4-1-slice-of-life",
@@ -7384,7 +7650,7 @@
     "solution": "equations:\n  - y = (3/5)x\nwordProblem: There is a lottery with 100 tickets. 3/5 of the tickets are sold\n  for $1 each. How much money can you expect to get if you buy one ticket?\nsolutions:\n  x: 60\n",
     "time": 60,
     "decision": "reject",
-    "id": 1387
+    "id": 1425
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -7392,7 +7658,7 @@
     "solution": "equations:\n  - 3x + 10 = 86\nwordProblem: A train travels for 3 hours at a constant speed. If the journey is\n  86 km long, what is the speed of the train in km/h?\nsolutions:\n  x: 28\n",
     "time": 45,
     "decision": "accept",
-    "id": 1388
+    "id": 1426
   },
   {
     "generator": "math-symbolic-4-2-distance",
@@ -7400,7 +7666,7 @@
     "solution": "equations:\n  - 4x + 3y = 15\n  - 2x - y = 5\nwordProblem: There are 15 socks in a drawer. Some are adult socks (x) and some\n  are children's socks (y). If adult socks cost $4 each and children's socks\n  cost $3 each, how many of each type of socks are in the drawer if the total\n  cost of the socks is $15?\nsolutions:\n  x: 5\n  y: 5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1389
+    "id": 1427
   },
   {
     "generator": "math-symbolic-4-2-probability",
@@ -7408,7 +7674,7 @@
     "solution": "equations:\n  - 3x + 2y = 19\n  - 2x - y = 7\nwordProblem: There are 9 identical boxes of marbles, each containing twice as\n  many marbles as the previous box. How many marbles are there in the last box\n  if the first box contains 3 marbles?\nsolutions:\n  x: 4\n  y: 5\n",
     "time": 45,
     "decision": "accept",
-    "id": 1390
+    "id": 1428
   },
   {
     "generator": "math-symbolic-4-2-reality",
@@ -7416,7 +7682,7 @@
     "solution": "equations:\n  - 2x + 3y = 11\n  - x - y = 3\nwordProblem: A rectangular garden is 3 meters longer than its width. If the\n  perimeter of the garden is 34 meters, what are the length and width of the\n  garden?\nsolutions:\n  x: 10\n  y: 7\n",
     "time": 120,
     "decision": "accept",
-    "id": 1391
+    "id": 1429
   },
   {
     "generator": "math-symbolic-4-2-reality",
@@ -7424,7 +7690,7 @@
     "solution": "equations:\n  - 2x + 3y = 7\n  - x - y = 1\nwordProblem: A farmer has 7 hectares of land. He plans to plant corn and\n  soybeans on his land. If he plants x hectares of corn and y hectares of\n  soybeans, the amount of corn is 1 hectare less than twice the amount of\n  soybeans. How many hectares of each crop should he plant?\nsolutions:\n  x: 2\n  y: 1\n",
     "time": 180,
     "decision": "accept",
-    "id": 1392
+    "id": 1430
   },
   {
     "generator": "math-symbolic-4-2-science",
@@ -7432,7 +7698,7 @@
     "solution": "equations:\n  - 2L + 3T = 1200\n  - L - T = 400\nwordProblem: There are two water containers. One container holds twice the\n  volume of water as the other. Together, the containers hold 1200 ml of water.\n  How much water does each container hold?\nsolutions:\n  L: 800\n  T: 400\n",
     "time": 180,
     "decision": "accept",
-    "id": 1393
+    "id": 1431
   },
   {
     "generator": "math-symbolic-4-2-slice-of-life",
@@ -7440,7 +7706,7 @@
     "solution": "equations:\n  - 2P + 3C = 10\n  - P - C = 3\nwordProblem: There are 10 paddles and canoes in total. The number of paddles is\n  3 more than the number of canoes. How many paddles and canoes are there?\nsolutions:\n  P: 6\n  C: 3\n",
     "time": 120,
     "decision": "accept",
-    "id": 1394
+    "id": 1432
   },
   {
     "generator": "math-symbolic-4-2-slice-of-life",
@@ -7448,7 +7714,7 @@
     "solution": "equations:\n  - 4x + 3y = 15\n  - 3x + 2y = 12\nwordProblem: A baker has 15kg of flour and 12kg of sugar. He needs to make two\n  different types of pastries, one requiring 4kg of flour and 3kg of sugar per\n  pastry, and the other requiring 3kg of flour and 2kg of sugar per pastry. How\n  many pastries of each type can he make?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1395
+    "id": 1433
   },
   {
     "generator": "math-symbolic-4-2-speed",
@@ -7456,7 +7722,7 @@
     "solution": "equations:\n  - y = 2x + 5\n  - 3x + 2y = 20\nwordProblem: There are 20 apples in a bowl. Some of the apples are green and the\n  rest are red. If 2x green apples cost 5 dollars less than 3x red apples, how\n  many green apples are there in the bowl?\nsolutions:\n  x: 5\n",
     "time": 60,
     "decision": "accept",
-    "id": 1396
+    "id": 1434
   },
   {
     "generator": "math-symbolic-4-2-travel",
@@ -7464,7 +7730,7 @@
     "solution": "equations:\n  - 2x + 3y = 15\n  - 4x - y = 7\nwordProblem: A travel agency offers a package trip to a mysterious island for 15\n  people. Twice the number of adults plus 3 times the number of children in the\n  group costs 15 euros. However, if 4 times the number of adults is 7 euros less\n  than the total cost of the trip, how many adults and children are there in the\n  group?\nsolutions:\n  x: 3\n  y: 5\n",
     "time": 120,
     "decision": "accept",
-    "id": 1397
+    "id": 1435
   },
   {
     "generator": "math-symbolic-5-1-geometry",
@@ -7472,7 +7738,7 @@
     "solution": "equations:\n  - x + 0.5 = 1.8\nwordProblem: A tailor wants to make a dress with a bodice that is 0.5 meters\n  longer than the skirt. If the finished dress is 1.8 meters long, how long is\n  the skirt?\nsolutions:\n  x: \"1.3\"\n",
     "time": "60",
     "decision": "accept",
-    "id": 1398
+    "id": 1436
   },
   {
     "generator": "math-symbolic-5-1-large-integer-division",
@@ -7480,7 +7746,7 @@
     "solution": "equations:\n  - 100x = 5000 + 25x\nwordProblem: A rectangular garden is 4 times longer than it is wide. If the\n  perimeter of the garden is 50m, what is the length of the garden?\nsolutions:\n  x: 12.5\n",
     "time": 120,
     "decision": "accept",
-    "id": 1399
+    "id": 1437
   },
   {
     "generator": "math-symbolic-5-1-large-integer-division",
@@ -7488,7 +7754,7 @@
     "solution": "equations:\n  - 3648 = 12x\nwordProblem: There are 3648 grams of granola. Each bag of granola contains 12\n  grams. How many bags of granola are there?\nsolutions:\n  x: 304\n",
     "time": 60,
     "decision": "accept",
-    "id": 1400
+    "id": 1438
   },
   {
     "generator": "math-symbolic-5-1-mass",
@@ -7496,7 +7762,7 @@
     "solution": "equations:\n  - 3x + 7 = 19\nwordProblem: There are 3 times as many pencils as erasers in a box. If there are\n  7 more pencils than erasers, how many erasers are there in the box?\nsolutions:\n  x: 4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1401
+    "id": 1439
   },
   {
     "generator": "math-symbolic-5-1-probability",
@@ -7504,7 +7770,7 @@
     "solution": "equations:\n  - x + 1/3(x-5) = 7\nwordProblem: There are 7 strikers in a soccer team. Some of them are veterans\n  who have played for 5 games already. How many strikers are new players who\n  have played no games yet, if the total number of games played by the team is\n  7?\nsolutions:\n  x: 5\n",
     "time": 90,
     "decision": "accept",
-    "id": 1402
+    "id": 1440
   },
   {
     "generator": "math-symbolic-5-1-slice-of-life",
@@ -7512,7 +7778,7 @@
     "solution": "equations:\n  - 5x + 2 = 17\nwordProblem: There are 5 books and some pens in a bag. The total weight of the\n  bag is 17 grams. How many pens are there in the bag if each pen weighs 2\n  grams?\nsolutions:\n  x: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1403
+    "id": 1441
   },
   {
     "generator": "math-symbolic-5-1-speed",
@@ -7520,7 +7786,7 @@
     "solution": "equations:\n  - 2x + 5 = 15\nwordProblem: A train travels 15 kilometers in 2 hours. What is the average speed\n  of the train in kilometers per hour?\nsolutions:\n  x: \"7.5\"\n",
     "time": "45",
     "decision": "accept",
-    "id": 1404
+    "id": 1442
   },
   {
     "generator": "math-symbolic-5-1-system-of-equations",
@@ -7528,7 +7794,7 @@
     "solution": "equations:\n  - -3x + 9 = 15\nwordProblem: There are 9 alleyways in a row, and 3 of them are blocked by fallen\n  debris. How many alleyways are clear?\nsolutions:\n  x: 6\n",
     "time": 45,
     "decision": "accept",
-    "id": 1405
+    "id": 1443
   },
   {
     "generator": "math-symbolic-5-2-fraction-subtraction",
@@ -7536,7 +7802,7 @@
     "solution": "equations:\n  - 3x + 2y = 7\n  - 2x - y = 5\nwordProblem: There are 7 meters of rope. If you cut 2 meters from the rope and\n  then take away 1 meter, you are left with 5 meters. How many meters of rope\n  did you initially have?\nsolutions:\n  x: \"2\"\n  y: \"3\"\n",
     "time": "120",
     "decision": "accept",
-    "id": 1406
+    "id": 1444
   },
   {
     "generator": "math-symbolic-5-2-geometry",
@@ -7544,7 +7810,7 @@
     "solution": "equations:\n  - y = 2x + 3\n  - 3y - 5x = 7\nwordProblem: A broker sells pens for $2 each and notebooks for $3 each. If she\n  sells x pens and y notebooks and makes a profit of $7, how many pens and\n  notebooks did she sell?\nsolutions:\n  x: 2\n  y: 5\n",
     "time": 90,
     "decision": "accept",
-    "id": 1407
+    "id": 1445
   },
   {
     "generator": "math-symbolic-5-2-large-integer-subtraction",
@@ -7552,7 +7818,7 @@
     "solution": "equations:\n  - 4500 - 100x = 3200 + 80y\n  - 2x + 5y = 1800\nwordProblem: There are 4500 grams of flour in a bag. Sarah uses 100 grams of\n  flour for each cookie she makes. There are also 80 grams of chocolate chips in\n  each cookie. How many cookies can Sarah make if she has 3200 grams of\n  chocolate chips? She also has 2 grams of flour left over. How many grams of\n  flour did she use in total?\nsolutions:\n  x: 32\n  y: 240\n",
     "time": 120,
     "decision": "accept",
-    "id": 1408
+    "id": 1446
   },
   {
     "generator": "math-symbolic-5-2-mass",
@@ -7560,7 +7826,7 @@
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 10\nwordProblem: A shop sells pens for $3 each and notebooks for $1 each. How many\n  pens and notebooks can you buy for $10?\nsolutions:\n  x: 3\n  y: 10\n",
     "time": 60,
     "decision": "accept",
-    "id": 1409
+    "id": 1447
   },
   {
     "generator": "math-symbolic-5-2-science",
@@ -7568,7 +7834,7 @@
     "solution": "equations:\n  - 3x + 2y = 10\n  - x - y = 2\nwordProblem: A factory produces two types of gadgets, x and y. Each gadget x\n  requires 3 minutes of assembly time and 2 minutes of testing time, while each\n  gadget y requires 1 minute of assembly time and 3 minutes of testing time. If\n  the factory can only dedicate 10 minutes of assembly time and 8 minutes of\n  testing time per day, how many gadgets of each type can they produce in a day?\nsolutions:\n  x: 2\n  y: 1\n",
     "time": 60,
     "decision": "accept",
-    "id": 1410
+    "id": 1448
   },
   {
     "generator": "math-symbolic-5-2-science",
@@ -7576,7 +7842,7 @@
     "solution": "equations:\n  - y = 3x + 2\n  - 2y - x = 7\nwordProblem: There are 3 times as many complaints about the loud music as about\n  the lack of parking. If there are 7 more complaints about the music than about\n  the parking, how many complaints are there in total?\nsolutions:\n  x: 2\n  y: 8\n",
     "time": 120,
     "decision": "accept",
-    "id": 1411
+    "id": 1449
   },
   {
     "generator": "math-symbolic-5-2-slice-of-life",
@@ -7584,7 +7850,7 @@
     "solution": "equations:\n  - x + 2y = 10\n  - 3x - y = 7\nwordProblem: Liam has 10kg of apples and oranges in his basket. He has 3 times\n  as many oranges as apples. How many kilograms of each fruit does Liam have in\n  his basket?\nsolutions:\n  x: 3\n  y: 7\n",
     "time": 120,
     "decision": "accept",
-    "id": 1412
+    "id": 1450
   },
   {
     "generator": "math-symbolic-5-2-space",
@@ -7592,7 +7858,7 @@
     "solution": "equations:\n  - 3x + 2y = 10\n  - 2x - y = 4\nwordProblem: A spaceship has a fuel tank that can hold 10 cubic meters of fuel.\n  It needs 3 cubic meters of fuel per hour to travel to Mars. It also has a\n  water tank that can hold 2 cubic meters of water. If the spaceship uses 2\n  cubic meters of water per hour, how many hours can it travel on both fuel and\n  water?\nsolutions:\n  x: 3\n  y: 2\n",
     "time": 60,
     "decision": "accept",
-    "id": 1413
+    "id": 1451
   },
   {
     "generator": "math-symbolic-5-2-system-of-equations",
@@ -7600,7 +7866,7 @@
     "solution": "equations:\n  - y = 3x + 5\n  - 2y - x = 11\nwordProblem: A train travels for 5 hours at a constant speed. If it travels 3\n  times the speed of the first 5 hours in the next 5 hours, what is the average\n  speed of the entire trip?\nsolutions:\n  x: 5\n  y: 18\n",
     "time": 150,
     "decision": "accept",
-    "id": 1414
+    "id": 1452
   },
   {
     "generator": "math-symbolic-6-1-distance",
@@ -7608,7 +7874,7 @@
     "solution": "equations:\n  - 2x + 3 = 11\nwordProblem: A weapon has a length of 11 cm. If we take 3 cm away from its\n  length, what is its new length?\nsolutions:\n  x: 4\n",
     "time": 60,
     "decision": "accept",
-    "id": 1415
+    "id": 1453
   },
   {
     "generator": "math-symbolic-6-1-fraction-subtraction",
@@ -7616,7 +7882,7 @@
     "solution": "equations:\n  - -3/4x + 1/3 = 5/6\nwordProblem: There are 5/6 of a clover field remaining after 3/4 of the field\n  was covered with flowers. How much of the field is left uncovered?\nsolutions:\n  x: 11/12\n",
     "time": 60,
     "decision": "accept",
-    "id": 1416
+    "id": 1454
   },
   {
     "generator": "math-symbolic-6-1-large-integer-addition",
@@ -7624,7 +7890,7 @@
     "solution": "equations:\n  - 500 + 3x = 1000\nwordProblem: During wartime, a supply chain transported 500kg of medical\n  supplies to a remote hospital. Each ambulance can carry 3 times the weight of\n  the previous ambulance. How many ambulances were needed to transport all the\n  supplies?\nsolutions:\n  x: 250\n",
     "time": 60,
     "decision": "accept",
-    "id": 1417
+    "id": 1455
   },
   {
     "generator": "math-symbolic-6-1-large-integer-division",
@@ -7632,7 +7898,7 @@
     "solution": "equations:\n  - 4500 = 12x\nwordProblem: There are 4500 grams of flour in a bag. Each recipe requires 12\n  grams of flour. How many recipes can you make from the entire bag of flour?\nsolutions:\n  x: 375\n",
     "time": 90,
     "decision": "accept",
-    "id": 1418
+    "id": 1456
   },
   {
     "generator": "math-symbolic-6-1-large-integer-subtraction",
@@ -7640,7 +7906,7 @@
     "solution": "equations:\n  - x - 348 = 125*3\nwordProblem: There are 348 toy cars in a box. Some of them are given away so\n  that there are now 125 cars left in the box. How many cars were given away?\nsolutions:\n  x: 473\n",
     "time": 60,
     "decision": "accept",
-    "id": 1419
+    "id": 1457
   },
   {
     "generator": "math-symbolic-6-1-probability",
@@ -7648,7 +7914,7 @@
     "solution": "equations:\n  - x = (3/4) * (12 + 8)\nwordProblem: A sieve has 12 large stones and 8 small stones. If 3/4 of the\n  stones are to be selected randomly, what is the probability that exactly 10\n  large stones will be selected?\nsolutions:\n  x: 0.45\n",
     "time": 90,
     "decision": "accept",
-    "id": 1420
+    "id": 1458
   },
   {
     "generator": "math-symbolic-6-1-proportion",
@@ -7656,7 +7922,7 @@
     "solution": "equations:\n  - 5x - 2 = 13\nwordProblem: There are 5 times as many cars on a roundabout as there are parking\n  spaces. If there are 13 parking spaces available, how many cars are on the\n  roundabout?\nsolutions:\n  x: 6.6\n",
     "time": 30,
     "decision": "accept",
-    "id": 1421
+    "id": 1459
   },
   {
     "generator": "math-symbolic-6-1-work",
@@ -7664,7 +7930,7 @@
     "solution": "equations:\n  - 2x + 5 = 19\nwordProblem: There are 2x students in a class. If 5 more students join the\n  class, there will be 19 students in total. How many students are in the class?\nsolutions:\n  x: 7\n",
     "time": 60,
     "decision": "accept",
-    "id": 1422
+    "id": 1460
   },
   {
     "generator": "math-symbolic-6-1-work",
@@ -7672,7 +7938,7 @@
     "solution": "equations:\n  - x + 30 = 50\nwordProblem: A train travels for 50 km. If the journey takes 30 minutes less\n  than planned, what is the speed of the train in km/h?\nsolutions:\n  x: \"40\"\n",
     "time": 180,
     "decision": "reject",
-    "id": 1423
+    "id": 1461
   },
   {
     "generator": "math-symbolic-6-2-comedy",
@@ -7680,7 +7946,7 @@
     "solution": "equations:\n  - 3x + 2y = 17\n  - x - y = 5\nwordProblem: There are 17 people in a room. Some are communists and some are\n  socialists. If there are 5 fewer socialists than communists, how many of each\n  are there?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 90,
     "decision": "accept",
-    "id": 1424
+    "id": 1462
   },
   {
     "generator": "math-symbolic-6-2-comedy",
@@ -7688,7 +7954,7 @@
     "solution": "equations:\n  - 2L + 3W = 100\n  - L - W = 20\nwordProblem: There are 100 litres of liquid in a container. Some of the liquid\n  is poured out leaving 20 litres remaining in the container. How many litres of\n  liquid were poured out and how much liquid is left in the container?\nsolutions:\n  L: 30\n  W: 10\n",
     "time": 90,
     "decision": "accept",
-    "id": 1425
+    "id": 1463
   },
   {
     "generator": "math-symbolic-6-2-fraction-subtraction",
@@ -7696,7 +7962,7 @@
     "solution": "equations:\n  - 3.5x + 2y = 12.5\n  - 2x - y = 3.5\nwordProblem: A tailor has 12.5m of fabric to make shirts and pants. Each shirt\n  requires 3.5m of fabric, and each pair of pants requires 2m of fabric. How\n  many shirts and pants can the tailor make with the fabric they have?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 90,
     "decision": "accept",
-    "id": 1426
+    "id": 1464
   },
   {
     "generator": "math-symbolic-6-2-geometry",
@@ -7704,7 +7970,7 @@
     "solution": "equations:\n  - 2x + 3y = 10\n  - x - y = 2\nwordProblem: A rectangular garden has a perimeter of 10 meters. The length of\n  the garden is 2 meters more than the width. Find the length and width of the\n  garden.\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 90,
     "decision": "accept",
-    "id": 1427
+    "id": 1465
   },
   {
     "generator": "math-symbolic-6-2-large-integer-addition",
@@ -7712,7 +7978,7 @@
     "solution": "equations:\n  - 2x + 3y = 10\n  - x - y = 2\nwordProblem: A tailor has 10 meters of fabric. He uses 2 meters of fabric for a\n  shirt and 3 meters for a pair of pants. How many meters of fabric does he have\n  left for other projects?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 150,
     "decision": "accept",
-    "id": 1428
+    "id": 1466
   },
   {
     "generator": "math-symbolic-6-2-large-integer-addition",
@@ -7720,7 +7986,7 @@
     "solution": "equations:\n  - 3x + 5y = 120\n  - 2x - y = 30\nwordProblem: A farmer has 120 acres of land to allocate between cultivating\n  wheat and barley. He wants to cultivate twice as much barley as wheat. How\n  many acres of each crop should he cultivate?\nsolutions:\n  x: 30\n  y: 60\n",
     "time": 120,
     "decision": "accept",
-    "id": 1429
+    "id": 1467
   },
   {
     "generator": "math-symbolic-6-2-large-integer-subtraction",
@@ -7728,7 +7994,7 @@
     "solution": "equations:\n  - 4x - 3y = 7\n  - 2x + 5y = 19\nwordProblem: A climber stands at the base of a 19-meter tall rock face. He plans\n  to climb up using a 4-meter rope and some 3-meter ropes. How many 3-meter\n  ropes and how many 4-meter ropes must he use to reach the top of the rock\n  face?\nsolutions:\n  x: 4\n  y: 3\n",
     "time": 90,
     "decision": "accept",
-    "id": 1430
+    "id": 1468
   },
   {
     "generator": "math-symbolic-6-2-lever-fulcrum-weight",
@@ -7736,7 +8002,7 @@
     "solution": "equations:\n  - 2F = 3W\n  - F + W = 5kg\nwordProblem: A lever has a 5kg weight at one end and a fulcrum in the middle.\n  How much force must be applied at the other end of the lever to balance the\n  weight?\nsolutions:\n  F: 3kg\n",
     "time": "30",
     "decision": "accept",
-    "id": 1431
+    "id": 1469
   },
   {
     "generator": "math-symbolic-6-2-probability",
@@ -7744,7 +8010,7 @@
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 10\nwordProblem: There are 10 students in a class. Some of them are boys and the\n  rest are girls. If 3 times the number of boys plus 1 equals the number of\n  students, how many boys are there in the class?\nsolutions:\n  x: 3\n",
     "time": 90,
     "decision": "accept",
-    "id": 1432
+    "id": 1470
   },
   {
     "generator": "math-symbolic-6-2-probability",
@@ -7752,7 +8018,7 @@
     "solution": "equations:\n  - x + 2y = 5\n  - 3x - y = 7\nwordProblem: There are 5 students who made allegations about the school. 3 times\n  the number of students who made serious allegations is 7 more than the number\n  of students who made minor allegations. How many students made serious\n  allegations? How many made minor allegations?\nsolutions:\n  x: 2\n  y: 3\n",
     "time": 60,
     "decision": "accept",
-    "id": 1433
+    "id": 1471
   },
   {
     "generator": "math-symbolic-6-2-reality",
@@ -7760,7 +8026,7 @@
     "solution": "equations:\n  - 2x + 3y = 15\n  - x - y = 4\nwordProblem: A farmer has 15 hectares of land to allocate between cultivating\n  wheat and barley. He decides to cultivate wheat on twice the area as barley.\n  How much land should he allocate to each crop?\nsolutions:\n  x: 6\n  y: 3\n",
     "time": 90,
     "decision": "accept",
-    "id": 1434
+    "id": 1472
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -7768,7 +8034,7 @@
     "solution": "equations:\n  - y = 3x + 5\n  - 2x + y = 12\nwordProblem: A hiker covers 5 kilometers in 3 hours. If they continue at the\n  same rate, how many kilometers will they cover in 2 hours and 30 minutes?\nsolutions:\n  x: 2.5\n  y: 11.5\n",
     "time": 45,
     "decision": "accept",
-    "id": 1435
+    "id": 1473
   },
   {
     "generator": "math-symbolic-6-2-travel",
@@ -7776,84 +8042,84 @@
     "solution": "equations:\n  - distance = speed × time\n  - time = (length + width) / speed\nwordProblem: A train travels 480 km at a constant speed. If the journey takes 8\n  h more if the length of the track is increased by 60 km, find the speed of the\n  train and the length of the track.\nsolutions:\n  speed: 60 km/h\n  length: 600 km\n",
     "time": "120 s",
     "decision": "reject",
-    "id": 1436
+    "id": 1474
   },
   {
     "generator": "math-word-1-1-geometry",
     "problem": "A farmer has 30 meters of fencing material to enclose a rectangular garden. How long can the garden be if the width is 2 meters less than the length? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 2\nwordProblem: A farmer has 30 meters of fencing material to enclose a rectangular\n  garden. How long can the garden be if the width is 2 meters less than the\n  length?\nsolutions:\n  x: 8\n",
     "time": 60,
-    "id": 1437
+    "id": 1475
   },
   {
     "generator": "math-word-1-1-large-integer-addition",
     "problem": "There are 250 apples in a bag. If I put x more apples in the bag, there will be 500 apples in the bag. How many apples are in the bag after I put the x apples in? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 250 + x = 500\nwordProblem: There are 250 apples in a bag. If I put x more apples in the bag,\n  there will be 500 apples in the bag. How many apples are in the bag after I\n  put the x apples in?\nsolutions:\n  x: 250\n",
     "time": 60,
-    "id": 1438
+    "id": 1476
   },
   {
     "generator": "math-word-1-1-large-integer-addition",
     "problem": "There are 3 meters of Aspen tree branches and 5 kilograms of leaves. How many kilograms of branches and leaves are there in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3m + 5kg = 10kg\nwordProblem: There are 3 meters of Aspen tree branches and 5 kilograms of\n  leaves. How many kilograms of branches and leaves are there in total?\nsolutions:\n  m: 5\n",
     "time": 30,
-    "id": 1439
+    "id": 1477
   },
   {
     "generator": "math-word-1-1-large-integer-multiplication",
     "problem": "There are 45kg of flour in a bag. If I take some flour out of the bag and have 270kg left, how much flour did I take out of the bag? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 45kg * x = 270kg\nwordProblem: There are 45kg of flour in a bag. If I take some flour out of the\n  bag and have 270kg left, how much flour did I take out of the bag?\nsolutions:\n  x: 6\n",
     "time": 60,
-    "id": 1440
+    "id": 1478
   },
   {
     "generator": "math-word-1-1-large-integer-subtraction",
     "problem": "Maya has 100 meters of rope. She uses 30 meters of the rope to tie up a bundle of hay. How many meters of rope does Maya have left? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -100m + 30 = 70\nwordProblem: Maya has 100 meters of rope. She uses 30 meters of the rope to tie\n  up a bundle of hay. How many meters of rope does Maya have left?\nsolutions:\n  m: 70\n",
     "time": 60,
-    "id": 1441
+    "id": 1479
   },
   {
     "generator": "math-word-1-1-lever-fulcrum-weight",
     "problem": "There is a lever with a fulcrum in the middle. One side of the lever has 3kg at the end. The other side of the lever has 2kg at a distance of 2 meters from the fulcrum. How far from the fulcrum should the 1kg weight be placed on the other side of the lever to balance it? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3kg=2kg(2m-x)+1kgx\nwordProblem: There is a lever with a fulcrum in the middle. One side of the\n  lever has 3kg at the end. The other side of the lever has 2kg at a distance of\n  2 meters from the fulcrum. How far from the fulcrum should the 1kg weight be\n  placed on the other side of the lever to balance it?\nsolutions:\n  x: 1.33m\n",
     "time": "20s",
-    "id": 1442
+    "id": 1480
   },
   {
     "generator": "math-word-1-1-probability",
     "problem": "There are 3 red marbles and 4 blue marbles in a bag. If you pick one marble out of the bag, what is the probability that it will be red? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 1/3 x + 1/4 = 1/2\nwordProblem: There are 3 red marbles and 4 blue marbles in a bag. If you pick\n  one marble out of the bag, what is the probability that it will be red?\nsolutions:\n  x: 3/7\n",
     "time": 30,
-    "id": 1443
+    "id": 1481
   },
   {
     "generator": "math-word-1-1-space",
     "problem": "There are 7 meters of space rope. If 3 meters are used to secure a satellite, how many meters of rope are left? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 3m = 7m\nwordProblem: There are 7 meters of space rope. If 3 meters are used to secure a\n  satellite, how many meters of rope are left?\nsolutions:\n  x: 4\n",
     "time": 30,
-    "id": 1444
+    "id": 1482
   },
   {
     "generator": "math-word-1-1-work",
     "problem": "There are 15 toys in a box. If I take 3 toys out of the box, how many toys are left in the box? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x = 15\nwordProblem: There are 15 toys in a box. If I take 3 toys out of the box, how\n  many toys are left in the box?\nsolutions:\n  x: 5\n",
     "time": 30,
-    "id": 1445
+    "id": 1483
   },
   {
     "generator": "math-word-1-2-fraction-subtraction",
     "problem": "There are 3/4 of a meter of rope. If I cut away 1/3 of the rope, how much rope is left? Also, if I cut the remaining rope into 2 equal pieces, how long is each piece? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3/4 - 1/3 = x\n  - x + 1/2 = 5/6\nwordProblem: There are 3/4 of a meter of rope. If I cut away 1/3 of the rope,\n  how much rope is left? Also, if I cut the remaining rope into 2 equal pieces,\n  how long is each piece?\nsolutions:\n  x: 7/12\n",
     "time": 30,
-    "id": 1446
+    "id": 1484
   },
   {
     "generator": "math-word-1-2-large-integer-division",
     "problem": "There are 15 toys to be shared equally among 3 friends and 5 toys to keep for yourself. How many toys does each friend get? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 5\n  - 2x + y = 15\nwordProblem: There are 15 toys to be shared equally among 3 friends and 5 toys\n  to keep for yourself. How many toys does each friend get?\nsolutions:\n  x: 5\n",
     "time": 60,
-    "id": 1447
+    "id": 1485
   },
   {
     "generator": "math-word-1-2-large-integer-multiplication",
@@ -7861,91 +8127,91 @@
     "solution": "equations:\n  - 500x + 200y = 1300\n  - 300x - 100y = 700\nwordProblem: A farmer has 1300 kg of wheat and 700 kg of barley. He wants to use\n  some of the wheat and barley to make two types of flour. One type of flour\n  requires 500 kg of wheat and 200 kg of barley per kg of flour, while the other\n  type of flour requires 300 kg of wheat and 100 kg of barley per kg of flour.\n  How many kg of each type of flour can the farmer make?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
     "decision": "reject",
-    "id": 1448
+    "id": 1486
   },
   {
     "generator": "math-word-1-2-lever-fulcrum-weight",
     "problem": "A seesaw has a 3kg mass at one end and a 2kg mass at the other end. How much weight should be placed at the fulcrum to balance the seesaw? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - F_1 = 3F_2\n  - 2F_1 + 4F_2 = 10N\nwordProblem: A seesaw has a 3kg mass at one end and a 2kg mass at the other end.\n  How much weight should be placed at the fulcrum to balance the seesaw?\nsolutions:\n  F_1: 6N\n  F_2: 2N\n",
     "time": "30",
-    "id": 1449
+    "id": 1487
   },
   {
     "generator": "math-word-1-2-mass",
     "problem": "There are 100 liters of liquid in a container. Some of the liquid is poured into a pitcher, and 3 times as much remains in the container. How many liters of liquid are there in the pitcher? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2L + 3H = 100\n  - H = L + 20\nwordProblem: There are 100 liters of liquid in a container. Some of the liquid\n  is poured into a pitcher, and 3 times as much remains in the container. How\n  many liters of liquid are there in the pitcher?\nsolutions:\n  L: 20\n  H: 40\n",
     "time": 60,
-    "id": 1450
+    "id": 1488
   },
   {
     "generator": "math-word-1-2-probability",
     "problem": "There are 10 toys in a box. Some toys are cars and the rest are trucks. If there are 6 less cars than trucks, how many cars are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 10\n  - 2x + y = 6\nwordProblem: There are 10 toys in a box. Some toys are cars and the rest are\n  trucks. If there are 6 less cars than trucks, how many cars are there?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 30,
-    "id": 1451
+    "id": 1489
   },
   {
     "generator": "math-word-1-2-slice-of-life",
     "problem": "There are 10 delicious treats in total. Some are cigars and some are gummies. If we take 2 gummies away, there are 3 more cigars than gummies left. How many cigars and gummies are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - equation: C + G = 10\n  - equation: C - G = 2\nwordProblem: There are 10 delicious treats in total. Some are cigars and some\n  are gummies. If we take 2 gummies away, there are 3 more cigars than gummies\n  left. How many cigars and gummies are there?\nsolutions:\n  C: 6\n  G: 4\n",
     "time": 60,
-    "id": 1452
+    "id": 1490
   },
   {
     "generator": "math-word-1-2-space",
     "problem": "A spaceship has a fuel tank that can hold 7 cubic meters of fuel. If the fuel tank is 3 times bigger than the fuel container, how much fuel can the container hold? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 7\nwordProblem: A spaceship has a fuel tank that can hold 7 cubic meters of fuel.\n  If the fuel tank is 3 times bigger than the fuel container, how much fuel can\n  the container hold?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
-    "id": 1453
+    "id": 1491
   },
   {
     "generator": "math-word-1-2-space",
     "problem": "There are x spaceships and y robots in space. Each spaceship has 2 robots. There are 10 robots in total. How many spaceships are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 2x + 1\n  - 3x + 2y = 10\nwordProblem: There are x spaceships and y robots in space. Each spaceship has 2\n  robots. There are 10 robots in total. How many spaceships are there?\nsolutions:\n  x: 4\n  y: 9\n",
     "time": 30,
-    "id": 1454
+    "id": 1492
   },
   {
     "generator": "math-word-1-2-system-of-equations",
     "problem": "There are 7 pencils in a box. Some of the pencils are new and some are used. If new pencils cost 3 times more than used pencils, how many new pencils are there if the whole box of pencils costs 1 more than 3 times the cost of the used pencils? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 7\nwordProblem: There are 7 pencils in a box. Some of the pencils are new and some\n  are used. If new pencils cost 3 times more than used pencils, how many new\n  pencils are there if the whole box of pencils costs 1 more than 3 times the\n  cost of the used pencils?\nsolutions:\n  x: 2\n  y: 7\n",
     "time": 60,
-    "id": 1455
+    "id": 1493
   },
   {
     "generator": "math-word-2-1-fraction-subtraction",
     "problem": "There are 5/12 of a pizza left over. If I take 1/3 of the pizza away, how much pizza will be left over? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -1/3 x + 1/4 = 5/12\nwordProblem: There are 5/12 of a pizza left over. If I take 1/3 of the pizza\n  away, how much pizza will be left over?\nsolutions:\n  x: 1/4\n",
     "time": 60,
-    "id": 1456
+    "id": 1494
   },
   {
     "generator": "math-word-2-1-fraction-subtraction",
     "problem": "There are 1/3 of a pizza left over. If I take 1/4 of the pizza away, how much pizza will I have left? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 1/3(x-1/4)=1/6\nwordProblem: There are 1/3 of a pizza left over. If I take 1/4 of the pizza\n  away, how much pizza will I have left?\nsolutions:\n  x: 5/12\n",
     "time": 30,
-    "id": 1457
+    "id": 1495
   },
   {
     "generator": "math-word-2-1-geometry",
     "problem": "There is a diamond shaped like a rectangle with a perimeter of 12cm. What is the length of one side of the diamond? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2cm = 5cm\nwordProblem: There is a diamond shaped like a rectangle with a perimeter of\n  12cm. What is the length of one side of the diamond?\nsolutions:\n  x: 4cm\n",
     "time": 60,
-    "id": 1458
+    "id": 1496
   },
   {
     "generator": "math-word-2-1-large-integer-addition",
     "problem": "There are 20cm of beads on a bracelet. If I add x more beads, the bracelet will be 50cm long. How many beads are on the bracelet now? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 20cm + x = 50cm\nwordProblem: There are 20cm of beads on a bracelet. If I add x more beads, the\n  bracelet will be 50cm long. How many beads are on the bracelet now?\nsolutions:\n  x: 30cm\n",
     "time": 60,
-    "id": 1459
+    "id": 1497
   },
   {
     "generator": "math-word-2-1-large-integer-addition",
     "problem": "There are 100 apples in a bag. If I add x more apples, there will be 200 apples in the bag. How many apples are there in the bag now? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100 + x = 200\nwordProblem: There are 100 apples in a bag. If I add x more apples, there will\n  be 200 apples in the bag. How many apples are there in the bag now?\nsolutions:\n  x: 100\n",
     "time": 60,
-    "id": 1460
+    "id": 1498
   },
   {
     "generator": "math-word-2-1-large-integer-multiplication",
@@ -7953,161 +8219,161 @@
     "solution": "equations:\n  - 250m * x = 3750m\nwordProblem: Maya has 250 meters of yarn. She uses some of the yarn to make a\n  scarf that is 3750 meters long. How much yarn did she use for the scarf?\nsolutions:\n  x: 15\n",
     "time": 60,
     "decision": "reject",
-    "id": 1461
+    "id": 1499
   },
   {
     "generator": "math-word-2-1-large-integer-subtraction",
     "problem": "There are 50 apples in a basket. Some friends take 250 apples from the basket. How many apples are left in the basket? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 50 = 250\nwordProblem: There are 50 apples in a basket. Some friends take 250 apples from\n  the basket. How many apples are left in the basket?\nsolutions:\n  x: 300\n",
     "time": 60,
-    "id": 1462
+    "id": 1500
   },
   {
     "generator": "math-word-2-1-large-integer-subtraction",
     "problem": "There are 3 groups of students in a class. Each group has 24 students. How many students are there in the class? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x - 24 = 12\nwordProblem: There are 3 groups of students in a class. Each group has 24\n  students. How many students are there in the class?\nsolutions:\n  x: 16\n",
     "time": 60,
-    "id": 1463
+    "id": 1501
   },
   {
     "generator": "math-word-2-1-lever-fulcrum-weight",
     "problem": "There are 12 apples in a bowl. If each apple weighs 2kg, how far from the center of the bowl should a 4kg weight be placed to balance the bowl? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2kg * x = 4kg * 30cm\nwordProblem: There are 12 apples in a bowl. If each apple weighs 2kg, how far\n  from the center of the bowl should a 4kg weight be placed to balance the bowl?\nsolutions:\n  x: 30cm\n",
     "time": 60,
-    "id": 1464
+    "id": 1502
   },
   {
     "generator": "math-word-2-1-lever-fulcrum-weight",
     "problem": "There are 2kg weights on one side of a seesaw that is 30cm from the fulcrum. How far from the fulcrum should a 4kg weight be placed to balance the seesaw? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2kg * 30cm = 4kg * x\nwordProblem: There are 2kg weights on one side of a seesaw that is 30cm from the\n  fulcrum.  How far from the fulcrum should a 4kg weight be placed to balance\n  the seesaw?\nsolutions:\n  x: 20cm\n",
     "time": "30s",
-    "id": 1465
+    "id": 1503
   },
   {
     "generator": "math-word-2-1-mass",
     "problem": "There are 100 books in a library. If each reviewer can review 20 books, how many reviewers are needed to review all the books in the library? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100 = 20x\nwordProblem: There are 100 books in a library. If each reviewer can review 20\n  books, how many reviewers are needed to review all the books in the library?\nsolutions:\n  x: 5\n",
     "time": 60,
-    "id": 1466
+    "id": 1504
   },
   {
     "generator": "math-word-2-1-slice-of-life",
     "problem": "Maria has 3 stickers more than twice the number of stickers that Liam has. How many stickers does Liam have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 3 = 10\nwordProblem: Maria has 3 stickers more than twice the number of stickers that\n  Liam has. How many stickers does Liam have?\nsolutions:\n  x: 6\n",
     "time": 45,
-    "id": 1467
+    "id": 1505
   },
   {
     "generator": "math-word-2-1-speed",
     "problem": "There are 8 friends going on a trip. 3 of them decide not to go. How many friends are going on the trip now? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 3 = 8\nwordProblem: There are 8 friends going on a trip. 3 of them decide not to go.\n  How many friends are going on the trip now?\nsolutions:\n  x: 5\n",
     "time": 30,
-    "id": 1468
+    "id": 1506
   },
   {
     "generator": "math-word-2-1-travel",
     "problem": "There are 50 hungry birds at a feeder. Each bird eats 2 seeds. How many seeds are there in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 50 = 2x\nwordProblem: There are 50 hungry birds at a feeder. Each bird eats 2 seeds. How\n  many seeds are there in total?\nsolutions:\n  x: 25\n",
     "time": 60,
-    "id": 1469
+    "id": 1507
   },
   {
     "generator": "math-word-2-2-fraction-subtraction",
     "problem": "There are 3/4 of a liter of juice in a pitcher. If you drink 1/8 of the juice, how much juice is left in the pitcher? If you then add 1/4 of a liter of water to the pitcher, how much liquid is in the pitcher altogether? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3/4 - 1/8 = y\n  - y + 1/4 = 7/8\nwordProblem: There are 3/4 of a liter of juice in a pitcher. If you drink 1/8 of\n  the juice, how much juice is left in the pitcher? If you then add 1/4 of a\n  liter of water to the pitcher, how much liquid is in the pitcher altogether?\nsolutions:\n  y: 7/8\n",
     "time": 60,
-    "id": 1470
+    "id": 1508
   },
   {
     "generator": "math-word-2-2-geometry",
     "problem": "There are 3 times as many chairs as tables in a room. If there is 1 chair more than 3 times the number of tables, how many chairs and tables are there in the room? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 1\n  - 2y + 5x = 17\nwordProblem: There are 3 times as many chairs as tables in a room. If there are\n  1 chair more than 3 times the number of tables, how many chairs and tables are\n  there in the room?\nsolutions:\n  x: 3\n  y: 10\n",
     "time": 60,
-    "id": 1471
+    "id": 1509
   },
   {
     "generator": "math-word-2-2-geometry",
     "problem": "There are twice as many oranges as grapefruits in a bowl. If there are 1 grapefruit and 2 oranges in the bowl, how many oranges are there in the bowl? There are 3 times the grapefruits and 2 times the oranges in the bowl in total. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 2x + 1\n  - 3x + 2y = 10\nwordProblem: There are twice as many oranges as grapefruits in a bowl. If there\n  are 1 grapefruit and 2 oranges in the bowl, how many oranges are there in the\n  bowl? There are 3 times the grapefruits and 2 times the oranges in the bowl in\n  total.\nsolutions:\n  x: 3\n",
     "time": 90,
-    "id": 1472
+    "id": 1510
   },
   {
     "generator": "math-word-2-2-geometry",
     "problem": "There are 10 apples in a basket. If I take 3 apples out of the basket, how many apples are left in the basket? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 10\n  - x - y = 3\nwordProblem: There are 10 apples in a basket. If I take 3 apples out of the\n  basket, how many apples are left in the basket?\nsolutions:\n  x: 3\n  y: 7\n",
     "time": 60,
-    "id": 1473
+    "id": 1511
   },
   {
     "generator": "math-word-2-2-probability",
     "problem": "There are 10 toys in a box. Some toys are cars and the rest are trucks. If we have 3 times as many cars as trucks, how many cars and trucks are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 10\n  - y = 3x + 2\nwordProblem: There are 10 toys in a box. Some toys are cars and the rest are\n  trucks. If we have 3 times as many cars as trucks, how many cars and trucks\n  are there?\nsolutions:\n  x: 2\n  y: 8\n",
     "time": 60,
-    "id": 1474
+    "id": 1512
   },
   {
     "generator": "math-word-2-2-science",
     "problem": "There are 12 rocks in a bag. Some of the rocks are bigger than others. If we take 3 of the biggest rocks out of the bag, we are left with 7 smaller rocks. How many bigger rocks are there in the bag? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 2y = 12\n  - 3x + y = 7\nwordProblem: There are 12 rocks in a bag. Some of the rocks are bigger than\n  others. If we take 3 of the biggest rocks out of the bag, we are left with 7\n  smaller rocks. How many bigger rocks are there in the bag?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 90,
-    "id": 1475
+    "id": 1513
   },
   {
     "generator": "math-word-3-1-distance",
     "problem": "A hunter spots 30 birds flying in a circle. If each bird is 5 meters away from the center of the circle, how far is the hunter from the center of the circle? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x = 30\nwordProblem: A hunter spots 30 birds flying in a circle. If each bird is 5\n  meters away from the center of the circle, how far is the hunter from the\n  center of the circle?\nsolutions:\n  x: 6\n",
     "time": 60,
-    "id": 1476
+    "id": 1514
   },
   {
     "generator": "math-word-3-1-fraction-subtraction",
     "problem": "Papa has 1 meter of fabric. He uses 3/4 of the fabric to make a dress. How much fabric does he have left? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -3/4x + 1 = 5/8\nwordProblem: Papa has 1 meter of fabric. He uses 3/4 of the fabric to make a\n  dress. How much fabric does he have left?\nsolutions:\n  x: 4/5\n",
     "time": 60,
-    "id": 1477
+    "id": 1515
   },
   {
     "generator": "math-word-3-1-geometry",
     "problem": "A rectangular room is 2 meters longer than it is wide. If the perimeter of the room is 40 meters, what is the length of the room? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5 = 17\nwordProblem: A rectangular room is 2 meters longer than it is wide. If the\n  perimeter of the room is 40 meters, what is the length of the room?\nsolutions:\n  x: 8\n",
     "time": 90,
-    "id": 1478
+    "id": 1516
   },
   {
     "generator": "math-word-3-1-large-integer-addition",
     "problem": "There are 100 litres of juice in a container. Some more juice is added to the container, and now there are 120 litres of juice in the container. How much juice was added? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100L + x = 120L\nwordProblem: There are 100 litres of juice in a container. Some more juice is\n  added to the container, and now there are 120 litres of juice in the\n  container. How much juice was added?\nsolutions:\n  x: 20\n",
     "time": 60,
-    "id": 1479
+    "id": 1517
   },
   {
     "generator": "math-word-3-1-large-integer-addition",
     "problem": "There are 100 apples and 50 oranges in a bag. If you take 150 pieces of fruit out of the bag, how many pieces of fruit are left in the bag? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100x + 50 = 150\nwordProblem: There are 100 apples and 50 oranges in a bag. If you take 150\n  pieces of fruit out of the bag, how many pieces of fruit are left in the bag?\nsolutions:\n  x: 0\n",
     "time": 60,
-    "id": 1480
+    "id": 1518
   },
   {
     "generator": "math-word-3-1-mass",
     "problem": "There are 12 toy cars in a box. Some toy cars are blue and the rest are red. If there are 5 more red cars than blue cars, how many blue cars are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 5 = 12\nwordProblem: There are 12 toy cars in a box. Some toy cars are blue and the rest\n  are red. If there are 5 more red cars than blue cars, how many blue cars are\n  there?\nsolutions:\n  x: 7\n",
     "time": 60,
-    "id": 1481
+    "id": 1519
   },
   {
     "generator": "math-word-3-1-proportion",
     "problem": "There are 7 camels in a group. Some camels are 3 years old and the rest are 2 years old. How many camels are there in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - (3x + 2) / 5 = 7\nwordProblem: There are 7 camels in a group. Some camels are 3 years old and the\n  rest are 2 years old. How many camels are there in total?\nsolutions:\n  x: 5\n",
     "time": 45,
-    "id": 1482
+    "id": 1520
   },
   {
     "generator": "math-word-3-1-reality",
     "problem": "An ass has 3 heads and 5 tails. If the heads and tails combined are 15 meters in length, how long is each tail? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3(x + 5) = 2x + 15\nwordProblem: An ass has 3 heads and 5 tails. If the heads and tails combined are\n  15 meters in length, how long is each tail?\nsolutions:\n  x: 5\n",
     "time": 30,
-    "id": 1483
+    "id": 1521
   },
   {
     "generator": "math-word-3-1-science",
@@ -8115,35 +8381,35 @@
     "solution": "equations:\n  - 2L = 500g + 3L\nwordProblem: Maya has 500g of flour. She needs 2L of dough for a baking project.\n  How much more flour does she need?\nsolutions:\n  L: 250\n",
     "time": 200,
     "decision": "disable",
-    "id": 1484
+    "id": 1522
   },
   {
     "generator": "math-word-3-1-speed",
     "problem": "There are 3 times as many cars as trucks in a parking lot. If there are 4 trucks, how many cars are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = (3/4)x\nwordProblem: There are 3 times as many cars as trucks in a parking lot. If there\n  are 4 trucks, how many cars are there?\nsolutions:\n  x: 12\n",
     "time": 30,
-    "id": 1485
+    "id": 1523
   },
   {
     "generator": "math-word-3-1-system-of-equations",
     "problem": "There are 15 toys to be shared equally among 3 friends. How many toys will each friend get? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x = 15\nwordProblem: There are 15 toys to be shared equally among 3 friends. How many\n  toys will each friend get?\nsolutions:\n  x: 5\n",
     "time": 60,
-    "id": 1486
+    "id": 1524
   },
   {
     "generator": "math-word-3-1-work",
     "problem": "There are 8 birds in a tree. 3 of them decide to fly away. How many birds are left in the tree? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -3x + 8 = 2\nwordProblem: There are 8 birds in a tree. 3 of them decide to fly away. How many\n  birds are left in the tree?\nsolutions:\n  x: 2\n",
     "time": 45,
-    "id": 1487
+    "id": 1525
   },
   {
     "generator": "math-word-3-2-distance",
     "problem": "There are 11 plants in a garden. Some plants are sunflowers and the rest are tomatoes. If 3 times the number of sunflowers is 7 plants less than twice the number of tomatoes, how many sunflowers and tomatoes are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5y = 11\n  - 3x - y = 7\nwordProblem: There are 11 plants in a garden. Some plants are sunflowers and the\n  rest are tomatoes. If 3 times the number of sunflowers is 7 plants less than\n  twice the number of tomatoes, how many sunflowers and tomatoes are there?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 60,
-    "id": 1488
+    "id": 1526
   },
   {
     "generator": "math-word-3-2-large-integer-division",
@@ -8151,35 +8417,35 @@
     "solution": "equations:\n  - 300 = 5x + 2y\n  - 200 = 2x - y\nwordProblem: There are 300 bushes in a field. Some bushes are tall and some\n  bushes are short. If tall bushes are 5 times taller than short bushes, and\n  there are 200 short bushes, how many tall bushes are there?\nsolutions:\n  x: 40\n  y: 100\n",
     "time": 60,
     "decision": "reject",
-    "id": 1489
+    "id": 1527
   },
   {
     "generator": "math-word-3-2-large-integer-multiplication",
     "problem": "There are 250 grams of flour in a bowl. If I add 3 times the amount of sugar that is in the bowl, the total weight of the bowl and sugar will be 500 grams. How much sugar is in the bowl? If I take away 150 grams of sugar from the total, I will have 2 times the amount of sugar remaining. How much sugar is in the bowl? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 250g + 3x = 500g\n  - y - 150g = 2x\nwordProblem: There are 250 grams of flour in a bowl. If I add 3 times the amount\n  of sugar that is in the bowl, the total weight of the bowl and sugar will be\n  500 grams. How much sugar is in the bowl? If I take away 150 grams of sugar\n  from the total, I will have 2 times the amount of sugar remaining. How much\n  sugar is in the bowl?\nsolutions:\n  x: 100g\n  y: 250g\n",
     "time": 120,
-    "id": 1490
+    "id": 1528
   },
   {
     "generator": "math-word-3-2-lever-fulcrum-weight",
     "problem": "A prairie grass mat is 1 meter long. There are 5 kilograms of grass on one side of the mat and 3 kilograms of grass on the other side. Where should the fulcrum be placed to balance the mat? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5kg * x = 3kg * y\n  - x + y = 1m\nwordProblem: A prairie grass mat is 1 meter long. There are 5 kilograms of grass\n  on one side of the mat and 3 kilograms of grass on the other side. Where\n  should the fulcrum be placed to balance the mat?\nsolutions:\n  x: 0.6m\n  y: 0.4m\n",
     "time": "30s",
-    "id": 1491
+    "id": 1529
   },
   {
     "generator": "math-word-3-2-lever-fulcrum-weight",
     "problem": "There is a lever with a fulcrum in the middle. One side of the lever has a 2 kilogram weight attached a distance of x meters from the fulcrum. The other side of the lever has a 3 kilogram weight attached a distance of 2 meters from the fulcrum. What is the distance of the 2 kilogram weight from the fulcrum? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2kg * x = 3kg * (2m-x)\n  - x + (2m-x) = 2m\nwordProblem: There is a lever with a fulcrum in the middle. One side of the\n  lever has a 2 kilogram weight attached a distance of x meters from the\n  fulcrum. The other side of the lever has a 3 kilogram weight attached a\n  distance of 2 meters from the fulcrum. What is the distance of the 2 kilogram\n  weight from the fulcrum?\nsolutions:\n  x: 4/3m\n",
     "time": "60s",
-    "id": 1492
+    "id": 1530
   },
   {
     "generator": "math-word-3-2-lever-fulcrum-weight",
     "problem": "A seesaw has a 1.5m long fulcrum. If a 10kg weight is placed 0.5m from the fulcrum, how much weight should be placed 0.8m from the fulcrum to balance the seesaw? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - F=3W/5\n  - L1-L2=0.5m\nwordProblem: \"A seesaw has a 1.5m long fulcrum. If a 10kg weight is placed 0.5m\n  from the fulcrum, how much weight should be placed 0.8m from the fulcrum to\n  balance the seesaw? \"\nsolutions:\n  W: 6kg\n",
     "time": "2min",
-    "id": 1493
+    "id": 1531
   },
   {
     "generator": "math-word-3-2-mass",
@@ -8187,63 +8453,63 @@
     "solution": "equations:\n  - 24h = 3h + 5m\n  - 5h = 3m + 20s\nwordProblem: A printer can print 24 pages in an hour. It can print 3 pages in an\n  hour or 5 minutes. How many minutes does it take to print 5 pages?\nsolutions:\n  h: 8\n  m: 20\n",
     "time": 60,
     "decision": "reject",
-    "id": 1494
+    "id": 1532
   },
   {
     "generator": "math-word-3-2-probability",
     "problem": "There are 12 colorful marbles in a jar. Some are blue and the rest are green. If 2 times the number of green marbles is 5 more than the number of blue marbles, how many of each color are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 12\n  - 2x - y = 5\nwordProblem: There are 12 colorful marbles in a jar. Some are blue and the rest\n  are green. If 2 times the number of green marbles is 5 more than the number of\n  blue marbles, how many of each color are there?\nsolutions:\n  x: 4\n  y: 3\n",
     "time": 60,
-    "id": 1495
+    "id": 1533
   },
   {
     "generator": "math-word-3-2-slice-of-life",
     "problem": "There are 10 tickets for a school play. Some friends want to buy x adult tickets and y child tickets. Adult tickets cost 3 times more than child tickets. How many adult and child tickets can they buy with 10 tickets? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2y = 10\n  - 3x - y = 7\nwordProblem: There are 10 tickets for a school play. Some friends want to buy x\n  adult tickets and y child tickets. Adult tickets cost 3 times more than child\n  tickets. How many adult and child tickets can they buy with 10 tickets?\nsolutions:\n  x: 5\n  y: 3\n",
     "time": 120,
-    "id": 1496
+    "id": 1534
   },
   {
     "generator": "math-word-3-2-travel",
     "problem": "There are 18 people waiting for a train. Some of them are adults and some are children. If adults cost 4 times more than children, how many of each are there if the total cost of the group is 7 times the cost of a child? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 2y = 18\n  - 3x - y = 7\nwordProblem: There are 18 people waiting for a train. Some of them are adults\n  and some are children. If adults cost 4 times more than children, how many of\n  each are there if the total cost of the group is 7 times the cost of a child?\nsolutions:\n  x: 3\n  y: 6\n",
     "time": 60,
-    "id": 1497
+    "id": 1535
   },
   {
     "generator": "math-word-3-2-work",
     "problem": "There are 15 apples in a basket. Some are eaten and some remain. If there are 5 fewer eaten than remain, how many apples remain in the basket? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 15\n  - x - y = 5\nwordProblem: There are 15 apples in a basket. Some are eaten and some remain. If\n  there are 5 fewer eaten than remain, how many apples remain in the basket?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 90,
-    "id": 1498
+    "id": 1536
   },
   {
     "generator": "math-word-4-1-distance",
     "problem": "There are 3 times as many birds as fish in a lake. If there are 5 more birds than fish, how many fish are there in the lake? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5 = 17\nwordProblem: There are 3 times as many birds as fish in a lake. If there are 5\n  more birds than fish, how many fish are there in the lake?\nsolutions:\n  x: 5\n",
     "time": 90,
-    "id": 1499
+    "id": 1537
   },
   {
     "generator": "math-word-4-1-fraction-subtraction",
     "problem": "There are 3/4 of a liter of water in a jug. Some water is poured out leaving 1/3 of a liter remaining in the jug. How much water was poured out? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -1/4x + 3/8 = 1/3\nwordProblem: There are 3/4 of a liter of water in a jug. Some water is poured\n  out leaving 1/3 of a liter remaining in the jug. How much water was poured\n  out?\nsolutions:\n  x: 9/12\n",
     "time": 60,
-    "id": 1500
+    "id": 1538
   },
   {
     "generator": "math-word-4-1-large-integer-division",
     "problem": "A farmer has 3500 liters of water in a reservoir. Each day, he uses 30 liters of water for irrigation. How many days will it take him to use up all the water in the reservoir? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3500 = 30x\nwordProblem: A farmer has 3500 liters of water in a reservoir. Each day, he uses\n  30 liters of water for irrigation. How many days will it take him to use up\n  all the water in the reservoir?\nsolutions:\n  x: 116\n",
     "time": 60,
-    "id": 1501
+    "id": 1539
   },
   {
     "generator": "math-word-4-1-reality",
     "problem": "There are 5 apples and 2 oranges in a bowl. How many pieces of fruit are there in the bowl? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2 = 13\nwordProblem: There are 5 apples and 2 oranges in a bowl. How many pieces of\n  fruit are there in the bowl?\nsolutions:\n  x: 3\n",
     "time": 45,
-    "id": 1502
+    "id": 1540
   },
   {
     "generator": "math-word-4-1-slice-of-life",
@@ -8251,203 +8517,203 @@
     "solution": "equations:\n  - y = (3/5)x\nwordProblem: There is a lottery with 100 tickets. 3/5 of the tickets are sold\n  for $1 each. How much money can you expect to get if you buy one ticket?\nsolutions:\n  x: 60\n",
     "time": 60,
     "decision": "reject",
-    "id": 1503
+    "id": 1541
   },
   {
     "generator": "math-word-4-1-travel",
     "problem": "A train travels for 3 hours at a constant speed. If the journey is 86 km long, what is the speed of the train in km/h? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 10 = 86\nwordProblem: A train travels for 3 hours at a constant speed. If the journey is\n  86 km long, what is the speed of the train in km/h?\nsolutions:\n  x: 28\n",
     "time": 45,
-    "id": 1504
+    "id": 1542
   },
   {
     "generator": "math-word-4-2-distance",
     "problem": "There are 15 socks in a drawer. Some are adult socks (x) and some are children's socks (y). If adult socks cost $4 each and children's socks cost $3 each, how many of each type of socks are in the drawer if the total cost of the socks is $15? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 3y = 15\n  - 2x - y = 5\nwordProblem: There are 15 socks in a drawer. Some are adult socks (x) and some\n  are children's socks (y). If adult socks cost $4 each and children's socks\n  cost $3 each, how many of each type of socks are in the drawer if the total\n  cost of the socks is $15?\nsolutions:\n  x: 5\n  y: 5\n",
     "time": 60,
-    "id": 1505
+    "id": 1543
   },
   {
     "generator": "math-word-4-2-probability",
     "problem": "There are 9 identical boxes of marbles, each containing twice as many marbles as the previous box. How many marbles are there in the last box if the first box contains 3 marbles? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 19\n  - 2x - y = 7\nwordProblem: There are 9 identical boxes of marbles, each containing twice as\n  many marbles as the previous box. How many marbles are there in the last box\n  if the first box contains 3 marbles?\nsolutions:\n  x: 4\n  y: 5\n",
     "time": 45,
-    "id": 1506
+    "id": 1544
   },
   {
     "generator": "math-word-4-2-reality",
     "problem": "A rectangular garden is 3 meters longer than its width. If the perimeter of the garden is 34 meters, what are the length and width of the garden? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 11\n  - x - y = 3\nwordProblem: A rectangular garden is 3 meters longer than its width. If the\n  perimeter of the garden is 34 meters, what are the length and width of the\n  garden?\nsolutions:\n  x: 10\n  y: 7\n",
     "time": 120,
-    "id": 1507
+    "id": 1545
   },
   {
     "generator": "math-word-4-2-reality",
     "problem": "A farmer has 7 hectares of land. He plans to plant corn and soybeans on his land. If he plants x hectares of corn and y hectares of soybeans, the amount of corn is 1 hectare less than twice the amount of soybeans. How many hectares of each crop should he plant? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 7\n  - x - y = 1\nwordProblem: A farmer has 7 hectares of land. He plans to plant corn and\n  soybeans on his land. If he plants x hectares of corn and y hectares of\n  soybeans, the amount of corn is 1 hectare less than twice the amount of\n  soybeans. How many hectares of each crop should he plant?\nsolutions:\n  x: 2\n  y: 1\n",
     "time": 180,
-    "id": 1508
+    "id": 1546
   },
   {
     "generator": "math-word-4-2-science",
     "problem": "There are two water containers. One container holds twice the volume of water as the other. Together, the containers hold 1200 ml of water. How much water does each container hold? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2L + 3T = 1200\n  - L - T = 400\nwordProblem: There are two water containers. One container holds twice the\n  volume of water as the other. Together, the containers hold 1200 ml of water.\n  How much water does each container hold?\nsolutions:\n  L: 800\n  T: 400\n",
     "time": 180,
-    "id": 1509
+    "id": 1547
   },
   {
     "generator": "math-word-4-2-slice-of-life",
     "problem": "There are 10 paddles and canoes in total. The number of paddles is 3 more than the number of canoes. How many paddles and canoes are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2P + 3C = 10\n  - P - C = 3\nwordProblem: There are 10 paddles and canoes in total. The number of paddles is\n  3 more than the number of canoes. How many paddles and canoes are there?\nsolutions:\n  P: 6\n  C: 3\n",
     "time": 120,
-    "id": 1510
+    "id": 1548
   },
   {
     "generator": "math-word-4-2-slice-of-life",
     "problem": "A baker has 15kg of flour and 12kg of sugar. He needs to make two different types of pastries, one requiring 4kg of flour and 3kg of sugar per pastry, and the other requiring 3kg of flour and 2kg of sugar per pastry. How many pastries of each type can he make? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 3y = 15\n  - 3x + 2y = 12\nwordProblem: A baker has 15kg of flour and 12kg of sugar. He needs to make two\n  different types of pastries, one requiring 4kg of flour and 3kg of sugar per\n  pastry, and the other requiring 3kg of flour and 2kg of sugar per pastry. How\n  many pastries of each type can he make?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 60,
-    "id": 1511
+    "id": 1549
   },
   {
     "generator": "math-word-4-2-speed",
     "problem": "There are 20 apples in a bowl. Some of the apples are green and the rest are red. If 2x green apples cost 5 dollars less than 3x red apples, how many green apples are there in the bowl? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 2x + 5\n  - 3x + 2y = 20\nwordProblem: There are 20 apples in a bowl. Some of the apples are green and the\n  rest are red. If 2x green apples cost 5 dollars less than 3x red apples, how\n  many green apples are there in the bowl?\nsolutions:\n  x: 5\n",
     "time": 60,
-    "id": 1512
+    "id": 1550
   },
   {
     "generator": "math-word-4-2-travel",
     "problem": "A travel agency offers a package trip to a mysterious island for 15 people. Twice the number of adults plus 3 times the number of children in the group costs 15 euros. However, if 4 times the number of adults is 7 euros less than the total cost of the trip, how many adults and children are there in the group? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 15\n  - 4x - y = 7\nwordProblem: A travel agency offers a package trip to a mysterious island for 15\n  people. Twice the number of adults plus 3 times the number of children in the\n  group costs 15 euros. However, if 4 times the number of adults is 7 euros less\n  than the total cost of the trip, how many adults and children are there in the\n  group?\nsolutions:\n  x: 3\n  y: 5\n",
     "time": 120,
-    "id": 1513
+    "id": 1551
   },
   {
     "generator": "math-word-5-1-geometry",
     "problem": "A tailor wants to make a dress with a bodice that is 0.5 meters longer than the skirt. If the finished dress is 1.8 meters long, how long is the skirt? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 0.5 = 1.8\nwordProblem: A tailor wants to make a dress with a bodice that is 0.5 meters\n  longer than the skirt. If the finished dress is 1.8 meters long, how long is\n  the skirt?\nsolutions:\n  x: \"1.3\"\n",
     "time": "60",
-    "id": 1514
+    "id": 1552
   },
   {
     "generator": "math-word-5-1-large-integer-division",
     "problem": "A rectangular garden is 4 times longer than it is wide. If the perimeter of the garden is 50m, what is the length of the garden? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100x = 5000 + 25x\nwordProblem: A rectangular garden is 4 times longer than it is wide. If the\n  perimeter of the garden is 50m, what is the length of the garden?\nsolutions:\n  x: 12.5\n",
     "time": 120,
-    "id": 1515
+    "id": 1553
   },
   {
     "generator": "math-word-5-1-large-integer-division",
     "problem": "There are 3648 grams of granola. Each bag of granola contains 12 grams. How many bags of granola are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3648 = 12x\nwordProblem: There are 3648 grams of granola. Each bag of granola contains 12\n  grams. How many bags of granola are there?\nsolutions:\n  x: 304\n",
     "time": 60,
-    "id": 1516
+    "id": 1554
   },
   {
     "generator": "math-word-5-1-mass",
     "problem": "There are 3 times as many pencils as erasers in a box. If there are 7 more pencils than erasers, how many erasers are there in the box? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 7 = 19\nwordProblem: There are 3 times as many pencils as erasers in a box. If there are\n  7 more pencils than erasers, how many erasers are there in the box?\nsolutions:\n  x: 4\n",
     "time": 60,
-    "id": 1517
+    "id": 1555
   },
   {
     "generator": "math-word-5-1-probability",
     "problem": "There are 7 strikers in a soccer team. Some of them are veterans who have played for 5 games already. How many strikers are new players who have played no games yet, if the total number of games played by the team is 7? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 1/3(x-5) = 7\nwordProblem: There are 7 strikers in a soccer team. Some of them are veterans\n  who have played for 5 games already. How many strikers are new players who\n  have played no games yet, if the total number of games played by the team is\n  7?\nsolutions:\n  x: 5\n",
     "time": 90,
-    "id": 1518
+    "id": 1556
   },
   {
     "generator": "math-word-5-1-slice-of-life",
     "problem": "There are 5 books and some pens in a bag. The total weight of the bag is 17 grams. How many pens are there in the bag if each pen weighs 2 grams? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2 = 17\nwordProblem: There are 5 books and some pens in a bag. The total weight of the\n  bag is 17 grams. How many pens are there in the bag if each pen weighs 2\n  grams?\nsolutions:\n  x: 7\n",
     "time": 60,
-    "id": 1519
+    "id": 1557
   },
   {
     "generator": "math-word-5-1-speed",
     "problem": "A train travels 15 kilometers in 2 hours. What is the average speed of the train in kilometers per hour? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5 = 15\nwordProblem: A train travels 15 kilometers in 2 hours. What is the average speed\n  of the train in kilometers per hour?\nsolutions:\n  x: \"7.5\"\n",
     "time": "45",
-    "id": 1520
+    "id": 1558
   },
   {
     "generator": "math-word-5-1-system-of-equations",
     "problem": "There are 9 alleyways in a row, and 3 of them are blocked by fallen debris. How many alleyways are clear? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - -3x + 9 = 15\nwordProblem: There are 9 alleyways in a row, and 3 of them are blocked by fallen\n  debris. How many alleyways are clear?\nsolutions:\n  x: 6\n",
     "time": 45,
-    "id": 1521
+    "id": 1559
   },
   {
     "generator": "math-word-5-2-fraction-subtraction",
     "problem": "There are 7 meters of rope. If you cut 2 meters from the rope and then take away 1 meter, you are left with 5 meters. How many meters of rope did you initially have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 7\n  - 2x - y = 5\nwordProblem: There are 7 meters of rope. If you cut 2 meters from the rope and\n  then take away 1 meter, you are left with 5 meters. How many meters of rope\n  did you initially have?\nsolutions:\n  x: \"2\"\n  y: \"3\"\n",
     "time": "120",
-    "id": 1522
+    "id": 1560
   },
   {
     "generator": "math-word-5-2-geometry",
     "problem": "A broker sells pens for $2 each and notebooks for $3 each. If she sells x pens and y notebooks and makes a profit of $7, how many pens and notebooks did she sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 2x + 3\n  - 3y - 5x = 7\nwordProblem: A broker sells pens for $2 each and notebooks for $3 each. If she\n  sells x pens and y notebooks and makes a profit of $7, how many pens and\n  notebooks did she sell?\nsolutions:\n  x: 2\n  y: 5\n",
     "time": 90,
-    "id": 1523
+    "id": 1561
   },
   {
     "generator": "math-word-5-2-large-integer-subtraction",
     "problem": "There are 4500 grams of flour in a bag. Sarah uses 100 grams of flour for each cookie she makes. There are also 80 grams of chocolate chips in each cookie. How many cookies can Sarah make if she has 3200 grams of chocolate chips? She also has 2 grams of flour left over. How many grams of flour did she use in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4500 - 100x = 3200 + 80y\n  - 2x + 5y = 1800\nwordProblem: There are 4500 grams of flour in a bag. Sarah uses 100 grams of\n  flour for each cookie she makes. There are also 80 grams of chocolate chips in\n  each cookie. How many cookies can Sarah make if she has 3200 grams of\n  chocolate chips? She also has 2 grams of flour left over. How many grams of\n  flour did she use in total?\nsolutions:\n  x: 32\n  y: 240\n",
     "time": 120,
-    "id": 1524
+    "id": 1562
   },
   {
     "generator": "math-word-5-2-mass",
     "problem": "A shop sells pens for $3 each and notebooks for $1 each. How many pens and notebooks can you buy for $10? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 10\nwordProblem: A shop sells pens for $3 each and notebooks for $1 each. How many\n  pens and notebooks can you buy for $10?\nsolutions:\n  x: 3\n  y: 10\n",
     "time": 60,
-    "id": 1525
+    "id": 1563
   },
   {
     "generator": "math-word-5-2-science",
     "problem": "A factory produces two types of gadgets, x and y. Each gadget x requires 3 minutes of assembly time and 2 minutes of testing time, while each gadget y requires 1 minute of assembly time and 3 minutes of testing time. If the factory can only dedicate 10 minutes of assembly time and 8 minutes of testing time per day, how many gadgets of each type can they produce in a day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 10\n  - x - y = 2\nwordProblem: A factory produces two types of gadgets, x and y. Each gadget x\n  requires 3 minutes of assembly time and 2 minutes of testing time, while each\n  gadget y requires 1 minute of assembly time and 3 minutes of testing time. If\n  the factory can only dedicate 10 minutes of assembly time and 8 minutes of\n  testing time per day, how many gadgets of each type can they produce in a day?\nsolutions:\n  x: 2\n  y: 1\n",
     "time": 60,
-    "id": 1526
+    "id": 1564
   },
   {
     "generator": "math-word-5-2-science",
     "problem": "There are 3 times as many complaints about the loud music as about the lack of parking. If there are 7 more complaints about the music than about the parking, how many complaints are there in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 2\n  - 2y - x = 7\nwordProblem: There are 3 times as many complaints about the loud music as about\n  the lack of parking. If there are 7 more complaints about the music than about\n  the parking, how many complaints are there in total?\nsolutions:\n  x: 2\n  y: 8\n",
     "time": 120,
-    "id": 1527
+    "id": 1565
   },
   {
     "generator": "math-word-5-2-slice-of-life",
     "problem": "Liam has 10kg of apples and oranges in his basket. He has 3 times as many oranges as apples. How many kilograms of each fruit does Liam have in his basket? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2y = 10\n  - 3x - y = 7\nwordProblem: Liam has 10kg of apples and oranges in his basket. He has 3 times\n  as many oranges as apples. How many kilograms of each fruit does Liam have in\n  his basket?\nsolutions:\n  x: 3\n  y: 7\n",
     "time": 120,
-    "id": 1528
+    "id": 1566
   },
   {
     "generator": "math-word-5-2-space",
     "problem": "A spaceship has a fuel tank that can hold 10 cubic meters of fuel. It needs 3 cubic meters of fuel per hour to travel to Mars. It also has a water tank that can hold 2 cubic meters of water. If the spaceship uses 2 cubic meters of water per hour, how many hours can it travel on both fuel and water? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 10\n  - 2x - y = 4\nwordProblem: A spaceship has a fuel tank that can hold 10 cubic meters of fuel.\n  It needs 3 cubic meters of fuel per hour to travel to Mars. It also has a\n  water tank that can hold 2 cubic meters of water. If the spaceship uses 2\n  cubic meters of water per hour, how many hours can it travel on both fuel and\n  water?\nsolutions:\n  x: 3\n  y: 2\n",
     "time": 60,
-    "id": 1529
+    "id": 1567
   },
   {
     "generator": "math-word-5-2-system-of-equations",
     "problem": "A train travels for 5 hours at a constant speed. If it travels 3 times the speed of the first 5 hours in the next 5 hours, what is the average speed of the entire trip? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 5\n  - 2y - x = 11\nwordProblem: A train travels for 5 hours at a constant speed. If it travels 3\n  times the speed of the first 5 hours in the next 5 hours, what is the average\n  speed of the entire trip?\nsolutions:\n  x: 5\n  y: 18\n",
     "time": 150,
-    "id": 1530
+    "id": 1568
   },
   {
     "generator": "math-word-6-1-distance",
     "problem": "A weapon has a length of 11 cm. If we take 3 cm away from its length, what is its new length? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3 = 11\nwordProblem: A weapon has a length of 11 cm. If we take 3 cm away from its\n  length, what is its new length?\nsolutions:\n  x: 4\n",
     "time": 60,
-    "id": 1531
+    "id": 1569
   },
   {
     "generator": "math-word-6-1-fraction-subtraction",
@@ -8455,84 +8721,84 @@
     "solution": "equations:\n  - -3/4x + 1/3 = 5/6\nwordProblem: There are 5/6 of a clover field remaining after 3/4 of the field\n  was covered with flowers. How much of the field is left uncovered?\nsolutions:\n  x: 11/12\n",
     "time": 60,
     "decision": "reject",
-    "id": 1532
+    "id": 1570
   },
   {
     "generator": "math-word-6-1-large-integer-addition",
     "problem": "During wartime, a supply chain transported 500kg of medical supplies to a remote hospital. Each ambulance can carry 3 times the weight of the previous ambulance. How many ambulances were needed to transport all the supplies? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 500 + 3x = 1000\nwordProblem: During wartime, a supply chain transported 500kg of medical\n  supplies to a remote hospital. Each ambulance can carry 3 times the weight of\n  the previous ambulance. How many ambulances were needed to transport all the\n  supplies?\nsolutions:\n  x: 250\n",
     "time": 60,
-    "id": 1533
+    "id": 1571
   },
   {
     "generator": "math-word-6-1-large-integer-division",
     "problem": "There are 4500 grams of flour in a bag. Each recipe requires 12 grams of flour. How many recipes can you make from the entire bag of flour? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4500 = 12x\nwordProblem: There are 4500 grams of flour in a bag. Each recipe requires 12\n  grams of flour. How many recipes can you make from the entire bag of flour?\nsolutions:\n  x: 375\n",
     "time": 90,
-    "id": 1534
+    "id": 1572
   },
   {
     "generator": "math-word-6-1-large-integer-subtraction",
     "problem": "There are 348 toy cars in a box. Some of them are given away so that there are now 125 cars left in the box. How many cars were given away? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 348 = 125*3\nwordProblem: There are 348 toy cars in a box. Some of them are given away so\n  that there are now 125 cars left in the box. How many cars were given away?\nsolutions:\n  x: 473\n",
     "time": 60,
-    "id": 1535
+    "id": 1573
   },
   {
     "generator": "math-word-6-1-probability",
     "problem": "A sieve has 12 large stones and 8 small stones. If 3/4 of the stones are to be selected randomly, what is the probability that exactly 10 large stones will be selected? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x = (3/4) * (12 + 8)\nwordProblem: A sieve has 12 large stones and 8 small stones. If 3/4 of the\n  stones are to be selected randomly, what is the probability that exactly 10\n  large stones will be selected?\nsolutions:\n  x: 0.45\n",
     "time": 90,
-    "id": 1536
+    "id": 1574
   },
   {
     "generator": "math-word-6-1-proportion",
     "problem": "There are 5 times as many cars on a roundabout as there are parking spaces. If there are 13 parking spaces available, how many cars are on the roundabout? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x - 2 = 13\nwordProblem: There are 5 times as many cars on a roundabout as there are parking\n  spaces. If there are 13 parking spaces available, how many cars are on the\n  roundabout?\nsolutions:\n  x: 6.6\n",
     "time": 30,
-    "id": 1537
+    "id": 1575
   },
   {
     "generator": "math-word-6-1-work",
     "problem": "There are 2x students in a class. If 5 more students join the class, there will be 19 students in total. How many students are in the class? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5 = 19\nwordProblem: There are 2x students in a class. If 5 more students join the\n  class, there will be 19 students in total. How many students are in the class?\nsolutions:\n  x: 7\n",
     "time": 60,
-    "id": 1538
+    "id": 1576
   },
   {
     "generator": "math-word-6-1-work",
     "problem": "A train travels for 50 km. If the journey takes 30 minutes less than planned, what is the speed of the train in km/h? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 30 = 50\nwordProblem: A train travels for 50 km. If the journey takes 30 minutes less\n  than planned, what is the speed of the train in km/h?\nsolutions:\n  x: \"40\"\n",
     "time": 180,
-    "id": 1539
+    "id": 1577
   },
   {
     "generator": "math-word-6-2-comedy",
     "problem": "There are 17 people in a room. Some are communists and some are socialists. If there are 5 fewer socialists than communists, how many of each are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 2y = 17\n  - x - y = 5\nwordProblem: There are 17 people in a room. Some are communists and some are\n  socialists. If there are 5 fewer socialists than communists, how many of each\n  are there?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 90,
-    "id": 1540
+    "id": 1578
   },
   {
     "generator": "math-word-6-2-comedy",
     "problem": "There are 100 litres of liquid in a container. Some of the liquid is poured out leaving 20 litres remaining in the container. How many litres of liquid were poured out and how much liquid is left in the container? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2L + 3W = 100\n  - L - W = 20\nwordProblem: There are 100 litres of liquid in a container. Some of the liquid\n  is poured out leaving 20 litres remaining in the container. How many litres of\n  liquid were poured out and how much liquid is left in the container?\nsolutions:\n  L: 30\n  W: 10\n",
     "time": 90,
-    "id": 1541
+    "id": 1579
   },
   {
     "generator": "math-word-6-2-fraction-subtraction",
     "problem": "A tailor has 12.5m of fabric to make shirts and pants. Each shirt requires 3.5m of fabric, and each pair of pants requires 2m of fabric. How many shirts and pants can the tailor make with the fabric they have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3.5x + 2y = 12.5\n  - 2x - y = 3.5\nwordProblem: A tailor has 12.5m of fabric to make shirts and pants. Each shirt\n  requires 3.5m of fabric, and each pair of pants requires 2m of fabric. How\n  many shirts and pants can the tailor make with the fabric they have?\nsolutions:\n  x: 3\n  y: 4\n",
     "time": 90,
-    "id": 1542
+    "id": 1580
   },
   {
     "generator": "math-word-6-2-geometry",
     "problem": "A rectangular garden has a perimeter of 10 meters. The length of the garden is 2 meters more than the width. Find the length and width of the garden. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 10\n  - x - y = 2\nwordProblem: A rectangular garden has a perimeter of 10 meters. The length of\n  the garden is 2 meters more than the width. Find the length and width of the\n  garden.\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 90,
-    "id": 1543
+    "id": 1581
   },
   {
     "generator": "math-word-6-2-large-integer-addition",
@@ -8540,21 +8806,21 @@
     "solution": "equations:\n  - 2x + 3y = 10\n  - x - y = 2\nwordProblem: A tailor has 10 meters of fabric. He uses 2 meters of fabric for a\n  shirt and 3 meters for a pair of pants. How many meters of fabric does he have\n  left for other projects?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 150,
     "decision": "reject",
-    "id": 1544
+    "id": 1582
   },
   {
     "generator": "math-word-6-2-large-integer-addition",
     "problem": "A farmer has 120 acres of land to allocate between cultivating wheat and barley. He wants to cultivate twice as much barley as wheat. How many acres of each crop should he cultivate? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5y = 120\n  - 2x - y = 30\nwordProblem: A farmer has 120 acres of land to allocate between cultivating\n  wheat and barley. He wants to cultivate twice as much barley as wheat. How\n  many acres of each crop should he cultivate?\nsolutions:\n  x: 30\n  y: 60\n",
     "time": 120,
-    "id": 1545
+    "id": 1583
   },
   {
     "generator": "math-word-6-2-large-integer-subtraction",
     "problem": "A climber stands at the base of a 19-meter tall rock face. He plans to climb up using a 4-meter rope and some 3-meter ropes. How many 3-meter ropes and how many 4-meter ropes must he use to reach the top of the rock face? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x - 3y = 7\n  - 2x + 5y = 19\nwordProblem: A climber stands at the base of a 19-meter tall rock face. He plans\n  to climb up using a 4-meter rope and some 3-meter ropes. How many 3-meter\n  ropes and how many 4-meter ropes must he use to reach the top of the rock\n  face?\nsolutions:\n  x: 4\n  y: 3\n",
     "time": 90,
-    "id": 1546
+    "id": 1584
   },
   {
     "generator": "math-word-6-2-lever-fulcrum-weight",
@@ -8562,42 +8828,42 @@
     "solution": "equations:\n  - 2F = 3W\n  - F + W = 5kg\nwordProblem: A lever has a 5kg weight at one end and a fulcrum in the middle.\n  How much force must be applied at the other end of the lever to balance the\n  weight?\nsolutions:\n  F: 3kg\n",
     "time": "30",
     "decision": "reject",
-    "id": 1547
+    "id": 1585
   },
   {
     "generator": "math-word-6-2-probability",
     "problem": "There are 10 students in a class. Some of them are boys and the rest are girls. If 3 times the number of boys plus 1 equals the number of students, how many boys are there in the class? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 1\n  - 2x + y = 10\nwordProblem: There are 10 students in a class. Some of them are boys and the\n  rest are girls. If 3 times the number of boys plus 1 equals the number of\n  students, how many boys are there in the class?\nsolutions:\n  x: 3\n",
     "time": 90,
-    "id": 1548
+    "id": 1586
   },
   {
     "generator": "math-word-6-2-probability",
     "problem": "There are 5 students who made allegations about the school. 3 times the number of students who made serious allegations is 7 more than the number of students who made minor allegations. How many students made serious allegations? How many made minor allegations? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2y = 5\n  - 3x - y = 7\nwordProblem: There are 5 students who made allegations about the school. 3 times\n  the number of students who made serious allegations is 7 more than the number\n  of students who made minor allegations. How many students made serious\n  allegations? How many made minor allegations?\nsolutions:\n  x: 2\n  y: 3\n",
     "time": 60,
-    "id": 1549
+    "id": 1587
   },
   {
     "generator": "math-word-6-2-reality",
     "problem": "A farmer has 15 hectares of land to allocate between cultivating wheat and barley. He decides to cultivate wheat on twice the area as barley. How much land should he allocate to each crop? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 15\n  - x - y = 4\nwordProblem: A farmer has 15 hectares of land to allocate between cultivating\n  wheat and barley. He decides to cultivate wheat on twice the area as barley.\n  How much land should he allocate to each crop?\nsolutions:\n  x: 6\n  y: 3\n",
     "time": 90,
-    "id": 1550
+    "id": 1588
   },
   {
     "generator": "math-word-6-2-speed",
     "problem": "A hiker covers 5 kilometers in 3 hours. If they continue at the same rate, how many kilometers will they cover in 2 hours and 30 minutes? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - y = 3x + 5\n  - 2x + y = 12\nwordProblem: A hiker covers 5 kilometers in 3 hours. If they continue at the\n  same rate, how many kilometers will they cover in 2 hours and 30 minutes?\nsolutions:\n  x: 2.5\n  y: 11.5\n",
     "time": 45,
-    "id": 1551
+    "id": 1589
   },
   {
     "generator": "math-word-6-2-travel",
     "problem": "A train travels 480 km at a constant speed. If the journey takes 8 h more if the length of the track is increased by 60 km, find the speed of the train and the length of the track. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - distance = speed × time\n  - time = (length + width) / speed\nwordProblem: A train travels 480 km at a constant speed. If the journey takes 8\n  h more if the length of the track is increased by 60 km, find the speed of the\n  train and the length of the track.\nsolutions:\n  speed: 60 km/h\n  length: 600 km\n",
     "time": "120 s",
-    "id": 1552
+    "id": 1590
   }
 ];
   
