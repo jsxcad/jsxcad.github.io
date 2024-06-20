@@ -132,11 +132,13 @@
     const chosen = new Set();
     const generatorUses = new Map();
     const generatorUseLimits = {
-      'korean': 20,
+      'korean': 1,
+      'korean-gap': 0,
       'english': 0,
       'math': 0,
-      'hanja': 1,
+      'hanja': 0,
       'arithmetic': 0,
+      'javascript': 0,
     };
 
     const expandGeneratorUses = (generator) => {
