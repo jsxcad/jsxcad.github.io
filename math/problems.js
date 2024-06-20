@@ -6743,2244 +6743,4337 @@
     "id": 1305
   },
   {
-    "generator": "javascript-4",
-    "input": "indifference",
-    "problem": "Imagine a robot that feels 'indifferent' to everything. It always gives the same answer, no matter what you ask it. Write a program that makes the robot always say 'Whatever' when you ask it a question. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const robotAnswer = () => {return 'Whatever'};\n",
+    "generator": "javascript-1",
+    "input": "squeeze",
+    "problem": "Can you write a program that makes a word smaller? Let's try the word \"squeeze\". What if you squeezed it so hard that all the letters disappeared? What would happen? Can you show me how to do that in code?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const squeeze = () => '';\n",
     "id": 1306
   },
   {
-    "generator": "javascript-4",
-    "input": "quartz",
-    "problem": "Quartz is a type of crystal. If you had a bag of quartz crystals and wanted to know how many were there, how would you write a JavaScript function to count them? Imagine each crystal is represented by the word 'quartz' in your program. You can use the following code to get started: ```javascript function countQuartz(crystals) { // Your code goes here } ``` <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const countQuartz = (crystals) => crystals.length; ```\"\n",
+    "generator": "javascript-1",
+    "input": "stapler",
+    "problem": "Imagine you have a stapler. You want to tell the computer how many staples are left in it. How can you write a program that tells us how many staples are left after we use some? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const staplesLeft = (startStaples, usedStaples) => startStaples - usedStaples;\n",
     "id": 1307
   },
   {
-    "generator": "javascript-4",
-    "input": "clinic",
-    "problem": "If we think of a clinic as a place that helps people feel better, what would a 'clinic' for words do? Write a JavaScript function called `wordClinic` that takes a word as input, and returns the same word but with all the letters in alphabetical order. For example, if the input word is 'clinic', the function should return 'cclini'. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const wordClinic = (word) => { return\nword.split('').sort().join(''); }; ```\"\n",
+    "generator": "javascript-1",
+    "input": "holding",
+    "problem": "Can you write a program to hold a number, like the number of toys in your toy box?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const holdNumber = (number) => { return number; }\n",
     "id": 1308
   },
   {
-    "generator": "javascript-4",
-    "input": "misplace",
-    "problem": "Imagine you have a box of toys, and you accidentally misplaced your favorite toy car. You have a list of all the toys in the box, but you don't know where the car is. How can you write a code that tells you if your car is still in the box, using a list of the toys? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const isCarInBox = (toys) => toys.includes('car'); ```\"\n",
+    "generator": "javascript-1",
+    "input": "satisfy",
+    "problem": "Let's say we have a bunch of blocks, and we want to make sure we have enough blocks to build a tower that's exactly 5 blocks tall. Write a program that checks if we have enough blocks to make the tower, and says 'Yes!' if we do, and 'No!' if we don't.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const checkBlocks = (numBlocks) => numBlocks >= 5 ? 'Yes!' : 'No!';\"\n",
     "id": 1309
   },
   {
-    "generator": "javascript-4",
-    "input": "susceptible",
-    "problem": "Imagine you have a robot that can only understand numbers. If you tell it a number, it will add 5 to it. Now, you want the robot to add 5 to a number, but only if that number is less than 10. How would you write a code that tells the robot to do this? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const addFiveIfLessThanTen = (number) => { if (number < 10) { return number + 5;\n} else { return number; } };\n",
+    "generator": "javascript-1",
+    "input": "microwave",
+    "problem": "If I tell you to make the microwave go \"Beep!\" five times, how do you tell the computer to do that?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'```javascript const beep = () => console.log(\"Beep!\"); for (let i = 0; i < 5;\ni++) { beep(); } ```'\n",
     "id": 1310
   },
   {
-    "generator": "javascript-4",
-    "input": "pulp",
-    "problem": "Imagine you have a big bowl of fruit salad. You want to make a smaller bowl of fruit salad with only the juicy fruits. Write a code that takes a list of fruits and gives you back a list of only the juicy fruits, like 'orange', 'grapefruit', 'watermelon'. Your code should use the word 'pulp' and give back the right list of fruits. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const juicyFruits = (fruits) => fruits.filter(fruit => fruit.includes('pulp'));\n",
+    "generator": "javascript-1",
+    "input": "nervous",
+    "problem": "Can you write a program that makes a robot say \"I'm not nervous!\" when you tell it to be brave?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayBrave = () => { console.log(\"I'm not nervous!\"); };\n",
     "id": 1311
   },
   {
-    "generator": "javascript-4",
-    "input": "plunge",
-    "problem": "Imagine you are diving into a pool. You start at the top of the diving board and then *plunge* down into the water. Write a code that starts at 10 and keeps going down by 1 until it reaches 0. Use the code below to get started. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const plunge = (start) => { for (let i = start; i >= 0; i--) {\nconsole.log(i); } }; plunge(10); ```\"\n",
+    "generator": "javascript-1",
+    "input": "ladder",
+    "problem": "Imagine a ladder that goes up and down. Can you write a program that makes the ladder go up one step at a time, and then back down again?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const ladder = () => { let step = 0; console.log('Going up!'); while (step < 5)\n{ console.log('Step ' + step); step = step + 1; } console.log('Going down!');\nwhile (step > 0) { console.log('Step ' + step); step = step - 1; }\nconsole.log('Done!'); }; ladder();\n",
     "id": 1312
   },
   {
-    "generator": "javascript-4",
-    "input": "algebra",
-    "problem": "Let's say you have a magic box that takes a number and makes it twice as big. Then, it adds 5 to the result. If you put the number 3 into the magic box, what number comes out? Write a JavaScript function called `magicBox` that takes a number as input and returns the output from the magic box. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const magicBox = (number) => number * 2 + 5; ```\"\n",
+    "generator": "javascript-1",
+    "input": "rethink",
+    "problem": "Let's think about how we can make a program that tells us if a number is big or small. Can you write a program that says \"Big\" if a number is bigger than 5 and \"Small\" if it is smaller than 5?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const isBigOrSmall = (number) => number > 5 ? \"Big\" : \"Small\";'\n",
     "id": 1313
   },
   {
-    "generator": "javascript-4",
-    "input": "ambiguity",
-    "problem": "Imagine you have a magical box that can hold either a number or a word. You want to write a code that checks what's inside the box and tells you if it's a number or a word. Write a code that does this, and if the box holds the number 5, it should say 'Number!' If it holds the word 'hello', it should say 'Word!' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const checkType = (item) => typeof item === 'number' ? 'Number!' : 'Word!';\"\n",
+    "generator": "javascript-1",
+    "input": "laugh",
+    "problem": "Can you write a program that makes the computer say \"Ha ha\" three times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const laugh = () => { console.log('Ha ha'); console.log('Ha ha');\nconsole.log('Ha ha'); };\n",
     "id": 1314
   },
   {
-    "generator": "javascript-4",
-    "input": "faction",
-    "problem": "Imagine you have a group of friends, and each friend has a favorite color. You want to write a program that tells you how many friends have a certain color. Let's say the colors are 'red', 'blue', 'green', and 'yellow', and you want to find out how many friends like 'blue'. What would the code look like? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const friendsColors = ['red', 'blue', 'green', 'yellow', 'blue',\n'red', 'blue']; const countBlue = (colors) => colors.filter(color => color ===\n'blue').length; console.log(countBlue(friendsColors)); ```\"\n",
+    "generator": "javascript-1",
+    "input": "season",
+    "problem": "Write a program that tells us what season it is, given the month. You can use this table to figure it out: Month | Season ------- | -------- January | Winter February | Winter March | Spring April | Spring May | Spring June | Summer July | Summer August | Summer September | Fall October | Fall November | Fall December | Winter<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getSeason = (month) => { if (month === \"January\" || month === \"February\"\n|| month === \"December\") { return \"Winter\"; } else if (month === \"March\" ||\nmonth === \"April\" || month === \"May\") { return \"Spring\"; } else if (month ===\n\"June\" || month === \"July\" || month === \"August\") { return \"Summer\"; } else {\nreturn \"Fall\"; } };\n",
     "id": 1315
   },
   {
-    "generator": "javascript-4",
-    "input": "river",
-    "problem": "Imagine a river. We can think of the river as a long line of water. How could we use JavaScript to make a list of all the letters in the word \"river\"? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const riverLetters = () => ['r', 'i', 'v', 'e', 'r']; ```\"\n",
+    "generator": "javascript-1",
+    "input": "protest",
+    "problem": "Let's imagine we have a group of friends who want to go to the park. Some friends are happy about going, but some friends are unhappy and want to stay home. We can represent the happy friends with the word 'yay' and the unhappy friends with the word 'nay'. Write a program that takes a list of happy or unhappy friends and counts how many friends are happy.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countHappyFriends = (friends) => friends.filter(friend => friend ===\n'yay').length\n",
     "id": 1316
   },
   {
-    "generator": "javascript-4",
-    "input": "lorry",
-    "problem": "If we want to count the number of times the letter 'l' appears in the word 'lorry', how can we write a program to do that? Write a program that counts how many times the letter 'l' appears in the word 'lorry'. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const countLetter = (word, letter) => { let count = 0; for (let i\n= 0; i < word.length; i++) { if (word[i] === letter) { count++; } } return\ncount; }; console.log(countLetter('lorry', 'l')); ```\"\n",
+    "generator": "javascript-1",
+    "input": "instill",
+    "problem": "Let's write a program that helps us count how many apples we have. Can you write a program that adds one apple each time we say 'add apple'?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countApples = () => { let apples = 0; return apples += 1; }\n",
     "id": 1317
   },
   {
-    "generator": "javascript-4",
-    "input": "militant",
-    "problem": "Imagine you have a secret code word. This code word is very important, and we need to make sure it's safe. We can use a special tool to make the code word super hard to guess. This tool adds an extra letter to the start of our code word. What would the JavaScript function look like that takes the secret code word and adds the extra letter 'M' to the beginning? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const makeSecret = (codeWord) => `M${codeWord}`;\n",
+    "generator": "javascript-1",
+    "input": "meadow",
+    "problem": "Imagine a meadow with lots of flowers. Let's say there are 5 flowers in the meadow. Can you write a program that shows us the meadow with all the flowers?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const meadow = () => { let flowers = 5; console.log(`The meadow has ${flowers}\nflowers.`); };\n",
     "id": 1318
   },
   {
-    "generator": "javascript-4",
-    "input": "kindred",
-    "problem": "Imagine you have a group of friends, like a 'kindred' spirit. Let's say their names are stored in a list called `friends`. Write a code to greet each friend by name using a special message that includes the word 'kindred'!\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const greetFriends = (friends) => { friends.forEach(friend => console.log(`Hello\n${friend}, you are a kindred spirit!`)); };\n",
+    "generator": "javascript-1",
+    "input": "anarchist",
+    "problem": "Let's imagine you have a group of friends, and each friend has a different colored hat. Can you write a program that tells us how many different hat colors there are in the group? You can use the colors 'red', 'blue', 'green', and 'yellow'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countHatColors = (friends) => { let colors = new Set();\nfriends.forEach(friend => colors.add(friend.hatColor)); return colors.size; };\n",
     "id": 1319
   },
   {
-    "generator": "javascript-4",
-    "input": "alliance",
-    "problem": "Imagine you have a group of friends, and you want to invite them all to a party. Each friend is in a different group. If we think of each friend as a name and each group as a list of names, how can we combine all the groups into one big list for the party invitation?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const combineFriends = (groups) => groups.flat(); ```\"\n",
+    "generator": "javascript-1",
+    "input": "calculation",
+    "problem": "Let's say we have a group of 3 apples and we want to add 2 more apples to the group. Can you write a program that tells us how many apples we have in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countApples = (apples, add) => apples + add;\n",
     "id": 1320
   },
   {
-    "generator": "javascript-4",
-    "input": "pundit",
-    "problem": "Imagine you have a box of toys, and each toy has a name. You want to check if a toy named 'Pundit' is in the box. How can you write a code to check if the name 'Pundit' is in a list of toy names?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const hasPundit = (toys) => toys.includes('Pundit'); ```\"\n",
+    "generator": "javascript-1",
+    "input": "amity",
+    "problem": "Can you write a program that makes two friends, 'Amy' and 'Tom', say hello to each other? Use a special word to show that they are friends.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const sayHello = () => { console.log('Amy says: Hello, Tom!'); console.log('Tom\nsays: Hello, Amy!'); };\"\n",
     "id": 1321
   },
   {
-    "generator": "javascript-4",
-    "input": "flinch",
-    "problem": "Imagine a robot that moves forward when you say \"forward\" and flinches back when you say \"flinch\". Write a code that tells the robot what to do if you say \"flinch\".\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const flinch = () => { console.log(\"Robot flinches back\"); };\n",
+    "generator": "javascript-1",
+    "input": "native",
+    "problem": "Can you write a program that tells us if a cat is a native to a place called 'Meowland'? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isNative = (animal) => animal === 'cat' && place === 'Meowland';\n",
     "id": 1322
   },
   {
-    "generator": "javascript-4",
-    "input": "navigation",
-    "problem": "Imagine you are a robot in a maze. You're given a list of directions: 'north', 'east', 'south', 'west'. Write a code that tells you which direction to go next. The code should start with the direction 'north' and keep going in order. What direction will the robot go after 'west'?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const nextDirection = (currentDirection) => { const directions = ['north',\n'east', 'south', 'west']; const currentIndex =\ndirections.indexOf(currentDirection); return directions[(currentIndex + 1) %\ndirections.length]; }; nextDirection('west');\n",
+    "generator": "javascript-1",
+    "input": "coexist",
+    "problem": "Can you write a program that shows two friends, 'Lily' and 'Leo', playing together? Make sure they can both be seen at the same time!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const playTogether = () => { console.log('Lily and Leo are playing together!'); }\n",
     "id": 1323
   },
   {
-    "generator": "javascript-4",
-    "input": "womb",
-    "problem": "Imagine a womb is like a computer program. It has a special place to store a baby, just like a program can store information. We can call this place the 'baby holder'. If we put a baby in the 'baby holder', what would happen? Write a program that shows what happens to the 'baby holder' when you put something in it.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const babyHolder = 'empty'; const putBabyIn = () => { babyHolder = 'baby'; };\n",
+    "generator": "javascript-1",
+    "input": "romp",
+    "problem": "Can you write a program that makes a funny sound each time you type the word \"romp\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeSound = () => { console.log('Boop!'); };\n",
     "id": 1324
   },
   {
-    "generator": "javascript-4",
-    "input": "protective",
-    "problem": "Imagine you have a special box that only lets certain things in. It only lets in numbers that are bigger than 10. Write a code that checks if a number can go in the box. If it can, the code should say \"Yes!\" If it can't, the code should say \"Nope!\"\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "'const checkBox = (number) => (number > 10) ? \"Yes!\" : \"Nope!\"'\n",
+    "generator": "javascript-1",
+    "input": "garland",
+    "problem": "Let's imagine we have a garland with many colorful beads. Write a program that tells us how many beads are in the garland. The beads are represented as letters in the word 'garland' (g, a, r, l, a, n, d).<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countBeads = () => 'garland'.length;\n",
     "id": 1325
   },
   {
-    "generator": "javascript-5",
-    "input": "symmetry",
-    "problem": "Imagine you have a row of blocks, like this: [red, blue, green, blue, red]. Can you write a code to check if the blocks are arranged the same way forwards and backwards? We call this being symmetrical. If the blocks are the same forwards and backwards, return 'Symmetrical!' Otherwise, return 'Not symmetrical!'\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isSymmetrical = (blocks) => { if (blocks.join('') ===\nblocks.reverse().join('')) { return 'Symmetrical!'; } else { return 'Not\nsymmetrical!'; } };\n",
+    "generator": "javascript-1",
+    "input": "discomfort",
+    "problem": "Imagine you're playing with your toys and you have a box full of different things. You want to add a new toy, but the box is already full. How can you write a program that tells you if the box is full so you know whether or not you can add the new toy?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isBoxFull = (toys) => toys.length >= 5;\n",
     "id": 1326
   },
   {
-    "generator": "javascript-5",
-    "input": "ambiguous",
-    "problem": "Imagine you have a special box that can hold either a number or a word. You give me a code that says: \"If the box has a number, add 5 to it. If the box has a word, add an exclamation mark to the end of it.\" I give you the code: `'hello'` . What should the box contain after I run your code?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const processBox = (input) => typeof input === 'number' ? input + 5 : input +\n'!' ; processBox('hello')\"\n",
+    "generator": "javascript-1",
+    "input": "topple",
+    "problem": "Imagine you have a stack of blocks, one on top of the other. If you take the top block away, what happens to the next block? Can you write a code that shows this? You can use a special word called 'pop' to take the top block away.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const topple = (blocks) => blocks.pop();\n",
     "id": 1327
   },
   {
-    "generator": "javascript-5",
-    "input": "advise",
-    "problem": "You're writing a program to help a robot learn new words. The robot keeps asking you to 'advise' it on what to do. You want to write a function that will always tell the robot to 'learn'. What JavaScript code should you write to make the function always say 'learn'?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const advise = () => 'learn';\n",
+    "generator": "javascript-1",
+    "input": "rasp",
+    "problem": "Can you write a program that says \"rasp\" five times? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayRasp = () => { for (let i = 0; i < 5; i++) { console.log(\"rasp\"); } };\n",
     "id": 1328
   },
   {
-    "generator": "javascript-5",
-    "input": "artificial",
-    "problem": "Imagine a robot that can make copies of itself. If the robot starts with 1 copy and then creates 1 new copy every minute, how many copies will there be after 5 minutes? Write a JavaScript function called `robotCopies` that takes a number of minutes as input and returns the total number of robot copies after that many minutes.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const robotCopies = (minutes) => { let copies = 1; for (let i =\n0; i < minutes; i++) { copies = copies * 2; } return copies; }; ```\"\n",
+    "generator": "javascript-1",
+    "input": "turnover",
+    "problem": "Imagine you have a pile of blocks. Each block has a number on it. You want to turn the pile over so that the blocks are in reverse order. Write a program that takes the pile of blocks (represented by numbers in an array) and turns them over, so the first block is last and the last block is first!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const turnOver = (blocks) => blocks.reverse();\n",
     "id": 1329
   },
   {
-    "generator": "javascript-5",
-    "input": "just",
-    "problem": "Let's say we have a box of crayons. We want to know if there are **just** enough crayons for each of our 5 friends to get 3 crayons. Write a JavaScript code to check if we have enough crayons, knowing that we have 15 crayons in the box.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const enoughCrayons = (crayons, friends, crayonsPerFriend) => crayons >= friends\n* crayonsPerFriend; console.log(enoughCrayons(15, 5, 3));\n",
+    "generator": "javascript-1",
+    "input": "mug",
+    "problem": "Can you write a program that tells me if my mug is empty? I'll tell you if it's empty or full with a word like \"empty\" or \"full\". You can use the word \"empty\" to mean the mug is empty, and the word \"full\" to mean it's full.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isMugEmpty = (mugStatus) => mugStatus === 'empty';\n",
     "id": 1330
   },
   {
-    "generator": "javascript-5",
-    "input": "impart",
-    "problem": "Imagine you have a secret code where each letter of the alphabet is replaced by a number. 'A' is 1, 'B' is 2, 'C' is 3, and so on. Write a code that will tell you what number the letter 'Z' is represented by.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const letterToNumber = (letter) => letter.charCodeAt(0) - 96;\n",
+    "generator": "javascript-1",
+    "input": "according",
+    "problem": "Let's say we have a box full of toys. We want to see if a toy is inside the box. Write a program to check if a toy is in the box! Use 'toy' for the name of the toy we are looking for and 'box' for the list of toys in the box.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isInBox = (toy, box) => box.includes(toy);\n",
     "id": 1331
   },
   {
-    "generator": "javascript-5",
-    "input": "dry",
-    "problem": "If you have a word like \"dry\" and you want to make it \"wet\", what should you do to the word using JavaScript? Write a function that takes a string as input and returns a new string with the first letter replaced with a 'w'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const makeWet = (word) => `w${word.slice(1)}`; ```\"\n",
+    "generator": "javascript-1",
+    "input": "pollution",
+    "problem": "Let's imagine we have a clean river with no pollution. We can write a program that adds pollution to the river using a special word called 'push'. We can also clean the river using a word called 'pop'. What program can we write to add pollution and then clean it up?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const river = []; river.push('pollution'); river.pop();\n",
     "id": 1332
   },
   {
-    "generator": "javascript-5",
-    "input": "apartment",
-    "problem": "Imagine you're building a program to help people find apartments. You have a list of apartments called `apartments`, and each apartment has a name, like \"Cozy Condo\" or \"Spacious Studio\". Write a program that takes a name like \"Cozy Condo\" and tells you if that apartment is in the list or not.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const apartments = ['Cozy Condo', 'Spacious Studio', 'Modern\nLoft']; const isApartmentInList = (apartmentName) =>\napartments.includes(apartmentName); ```\"\n",
+    "generator": "javascript-1",
+    "input": "mobility",
+    "problem": "Imagine you have a toy car that can move forward, backward, and turn left or right. Write a program that tells the car to move forward, then turn left, and then move forward again.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveCar = () => { console.log('Move forward'); console.log('Turn left');\nconsole.log('Move forward'); }\n",
     "id": 1333
   },
   {
-    "generator": "javascript-5",
-    "input": "duke",
-    "problem": "Imagine you have a word like \"duke\". Can you write a code that counts how many letters are in that word?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countLetters = (word) => word.length;\n",
+    "generator": "javascript-1",
+    "input": "skating",
+    "problem": "Let's imagine we're skating on a frozen lake! We can only skate forward or backward. Write a code that tells us if we're going forward or backward based on the direction we're skating. If we're going forward, type 'forward', if we're going backward, type 'backward'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const skatingDirection = (direction) => direction === 'forward' ? 'forward' :\n'backward';\"\n",
     "id": 1334
   },
   {
-    "generator": "javascript-5",
-    "input": "intervene",
-    "problem": "Imagine you're playing a game where you have to collect 10 stars. You've collected 7 stars, but then you lose 3 stars! Write a program that tells you how many stars you have left. You can use the `let` keyword to store the number of stars.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "let stars = 7; stars = stars - 3; console.log(stars);\n",
+    "generator": "javascript-1",
+    "input": "battalion",
+    "problem": "Imagine you have a group of soldiers called a battalion. How can we use a computer to tell us how many soldiers are in the battalion?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countSoldiers = (battalion) => battalion.length;\n",
     "id": 1335
   },
   {
-    "generator": "javascript-5",
-    "input": "bury",
-    "problem": "Imagine you are burying a treasure in a sandbox. You dig a hole and put the treasure in, then you cover it with sand. Write a program that takes the name of the treasure and the amount of sand used to cover it, and then tells you what is buried in the sand. Use the words 'treasure' and 'sand' in your program.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const buryTreasure = (treasure, sand) => {return `The ${treasure} is buried\nunder ${sand} sand.`}\n",
+    "generator": "javascript-1",
+    "input": "fuzzy",
+    "problem": "Can you write a program that tells us if a word is fuzzy? We'll call a word fuzzy if it has the letter 'z' in it. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isFuzzy = (word) => word.includes('z');\n",
     "id": 1336
   },
   {
-    "generator": "javascript-5",
-    "input": "hastily",
-    "problem": "Imagine you're a robot building a tower of blocks. You're told to add blocks *hastily*. Write a program that takes a number of blocks as input and adds blocks to the tower, but adds them twice as fast as normal. You can only add one block at a time, so make sure to add the correct number of blocks!\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const buildTowerHasty = (blocks) => {let towerHeight = 0; for (let i = 0; i <\nblocks; i++) { towerHeight += 1; console.log(`Adding block ${i+1}!`);\ntowerHeight += 1; console.log(`Adding block ${i+1}!`); } return towerHeight;};\n",
+    "generator": "javascript-1",
+    "input": "implacable",
+    "problem": "Let's imagine we have a robot that can only move forward. We want to write a program that tells the robot to keep moving forward no matter what. Can you write a program that tells the robot to move forward forever?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveForwardForever = () => { while (true) { console.log('Move Forward!');\n} };\n",
     "id": 1337
   },
   {
-    "generator": "javascript-5",
-    "input": "competence",
-    "problem": "Imagine you have a box of crayons. You want to write a program that tells you how many crayons are left after you color a picture. Write a JavaScript function called `crayonsLeft` that takes the number of crayons you start with and the number of crayons you used as inputs, and returns the number of crayons you have left. For example, if you start with 8 crayons and use 3, the function should return 5.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const crayonsLeft = (startCrayons, usedCrayons) => startCrayons -\nusedCrayons; ```\"\n",
+    "generator": "javascript-1",
+    "input": "abject",
+    "problem": "Let's say we have a box of toys. We have 5 toy cars, 3 toy trains, and 2 teddy bears. Can you write a program that tells us how many toys are in the box in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = () => 5 + 3 + 2;\n",
     "id": 1338
   },
   {
-    "generator": "javascript-5",
-    "input": "normally",
-    "problem": "Imagine you are building a robot that can only say words that have an even number of letters. If you tell the robot a word, how can you make it say the word if it is 'normal' but say \"boop\" if it's not? Write a JavaScript function to make this happen.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "'```javascript const robotTalk = (word) => word.length % 2 === 0 ? word :\n\"boop\"; ```'\n",
+    "generator": "javascript-1",
+    "input": "coach",
+    "problem": "Let's say we have a group of friends going to the park. Each friend wants to bring a toy. Can you write a code that helps us count how many toys will be at the park? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = (friends) => friends.length;\n",
     "id": 1339
   },
   {
-    "generator": "javascript-5",
-    "input": "demur",
-    "problem": "Imagine you're playing a game where you need to collect 'gems'. You have a bag that can hold only 5 gems. If you try to put more than 5 gems in the bag, the extra gems will 'demur' and won't go in. Write a code that takes the number of gems you try to put in the bag and tells you how many gems actually went into the bag.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const fitGems = (gems) => gems > 5 ? 5 : gems;\"\n",
+    "generator": "javascript-1",
+    "input": "cement",
+    "problem": "Imagine you have a bunch of cement blocks that you want to put together to build a wall. How would you write instructions to tell the computer to put the cement blocks together?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const buildWall = (blocks) => blocks.join('');\n",
     "id": 1340
   },
   {
-    "generator": "javascript-6",
-    "input": "tongue",
-    "problem": "If we think of the word \"tongue\" as a list of letters, how can we use JavaScript to create a new word that is the same letters but in reverse order?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const reverseTongue = (word) => word.split('').reverse().join('');\n",
+    "generator": "javascript-1",
+    "input": "file",
+    "problem": "Let's say you have a box of toys. Each toy has a name. Can you write a program that puts all the toy names into a special list so we can easily find them later?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getToyNames = (toys) => toys.map(toy => toy.name);\n",
     "id": 1341
   },
   {
-    "generator": "javascript-6",
-    "input": "commencement",
-    "problem": "Imagine a school play. The play is called \"Commencement\". If we represent the play's title as a string in JavaScript, how can we make it so that each letter of the word \"Commencement\" is printed on a separate line? Write a JavaScript function that will do this.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "'```javascript const printCommencement = () => { const title = \"Commencement\";\nfor (let i = 0; i < title.length; i++) { console.log(title[i]); } }; ```'\n",
+    "generator": "javascript-1",
+    "input": "Shinto",
+    "problem": "Can you write a program that says the word \"Shinto\" 5 times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayShinto = () => { for (let i = 0; i < 5; i++) { console.log(\"Shinto\"); }\n};\n",
     "id": 1342
   },
   {
-    "generator": "javascript-6",
-    "input": "disgusting",
-    "problem": "If 'disgusting' is a word that makes you feel icky, how could we use JavaScript to make a list of all the letters in the word that are 'icky'?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const ickyLetters = (word) => word.split('').filter(letter => letter === 'i' ||\nletter === 'y');\n",
+    "generator": "javascript-1",
+    "input": "tempestuous",
+    "problem": "Can you write a program that makes a raindrop fall down the screen, like when it rains in a big storm? Use a little dot to be the raindrop and make it go down, down, down!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeItRain = () => { console.log('.'); console.log(' '); console.log(' ');\nconsole.log('.'); console.log(' '); console.log(' '); console.log('.');\nconsole.log(' '); console.log(' '); console.log('.'); };\n",
     "id": 1343
   },
   {
-    "generator": "javascript-6",
-    "input": "undertake",
-    "problem": "Imagine you're building a robot that can 'undertake' tasks. Each task is a word stored as a string. To start, the robot has a list of tasks. We need to write a code that tells the robot to 'undertake' a new task by adding it to the end of the list. What JavaScript code would let the robot do this?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const undertakeTask = (taskList, newTask) => { taskList.push(newTask); return\ntaskList; };\n",
+    "generator": "javascript-1",
+    "input": "gallop",
+    "problem": "Can you write a program that makes a horse gallop four times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const gallop = () => console.log('Gallop!'); for (let i = 0; i < 4; i++) {\ngallop(); }\n",
     "id": 1344
   },
   {
-    "generator": "javascript-6",
-    "input": "governmental",
-    "problem": "Imagine the word 'governmental' is a secret code. Each letter represents a number, starting with 'a' as 1, 'b' as 2, and so on. Can you write a program that takes this word and tells us the sum of all the numbers it represents?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const sumCode = (word) => { let total = 0; for (let i = 0; i < word.length; i++)\n{ total += word.charCodeAt(i) - 96; } return total; };\n",
+    "generator": "javascript-1",
+    "input": "cult",
+    "problem": "Imagine you have a box of crayons. You want to know how many crayons are in the box. You can use a special tool called a 'counter' to help you. Write a program using a 'counter' that will tell you how many crayons are in a box. You have the following crayons: red, blue, yellow, green, and orange.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countCrayons = () => {let counter = 0; counter += 1; counter += 1; counter\n+= 1; counter += 1; counter += 1; return counter;}\n",
     "id": 1345
   },
   {
-    "generator": "javascript-6",
-    "input": "admonish",
-    "problem": "Imagine you're writing a program that checks if a student has completed all their homework assignments. The program should tell the student to finish their homework if they haven't. What would you call the code that tells the student to finish their homework? Write a JavaScript function called 'admonish' that takes a boolean value representing if the student has finished their homework and prints a message to the student accordingly.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const admonish = (finishedHomework) => { if (!finishedHomework) {\nconsole.log('Finish your homework!'); } };\n",
+    "generator": "javascript-1",
+    "input": "waterproof",
+    "problem": "Can you write a program that tells us if something is waterproof or not? Use the word \"waterproof\" in your program!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isWaterproof = (item) => item === 'waterproof';\n",
     "id": 1346
   },
   {
-    "generator": "javascript-6",
-    "input": "optimistic",
-    "problem": "Imagine a robot that always tries to see the bright side of things! It only considers positive numbers. Write a code that makes the robot happy by turning any negative number into a positive one. Use the word 'optimistic' in your code to show the robot's positive attitude.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const optimistic = (number) => Math.abs(number);\n",
+    "generator": "javascript-1",
+    "input": "drain",
+    "problem": "Imagine you have a big bathtub full of water. You want to write a program that tells you how much water is left in the bathtub after you've drained some of it away. Can you write a program that does this?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const drainWater = (water, amount) => water - amount;\n",
     "id": 1347
   },
   {
-    "generator": "javascript-6",
-    "input": "iris",
-    "problem": "Imagine you have a special scanner that reads the color of someone's iris. It tells you the color as a word, like \"blue\" or \"brown.\" Write a program that takes the color of the iris as input and tells you if it's a color you've seen before. Start by making a list of the colors you've seen already, and then write a program that checks if the new color is in that list.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const hasSeenColor = (newColor) => { const seenColors = ['blue',\n'brown', 'green']; return seenColors.includes(newColor); }; ```\"\n",
+    "generator": "javascript-1",
+    "input": "kangaroo",
+    "problem": "Can you write a program that makes a kangaroo jump? It should say 'Hop!' each time the kangaroo jumps.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const jump = () => { console.log('Hop!'); };\n",
     "id": 1348
   },
   {
-    "generator": "javascript-6",
-    "input": "afield",
-    "problem": "Imagine you are playing a game where you have to collect points. You start with 10 points and each time you go 'afield' (away from the center of the game) you lose 2 points. Write a JavaScript function called `calculatePoints` that takes the number of times you go 'afield' as input and returns how many points you have left.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const calculatePoints = (timesAfield) => 10 - (timesAfield * 2);\n```\"\n",
+    "generator": "javascript-1",
+    "input": "soil",
+    "problem": "Let's say we have a box of toys. We want to put all the toys into a special place called 'soil'. How can we write a code to put each toy into the 'soil' one by one?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const putToysInSoil = (toys) => { toys.forEach(toy => { console.log(`Putting\n${toy} in the soil.`); }); };\n",
     "id": 1349
+  },
+  {
+    "generator": "javascript-1",
+    "input": "none",
+    "problem": "Can you write a program that tells us if there are any cookies left in the cookie jar? If there are cookies left, your program should say \"Yes!\" If there are no cookies left, your program should say \"None left!\" <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const cookiesLeft = (numberOfCookies) => numberOfCookies > 0 ? \"Yes!\" : \"None\nleft!\"'\n",
+    "id": 1350
+  },
+  {
+    "generator": "javascript-1",
+    "input": "imaginable",
+    "problem": "Can you write a program that shows all the things you can imagine? You can use the word \"imaginable\" as many times as you want. Make sure you can see all the words! Use \"console.log\" to show them.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const showImaginable = () => { console.log(\"imaginable\");\nconsole.log(\"imaginable\"); console.log(\"imaginable\"); };\n",
+    "id": 1351
+  },
+  {
+    "generator": "javascript-1",
+    "input": "interface",
+    "problem": "Let's say you have a special box that only accepts certain toys. You want to write a code that checks if a toy is allowed in the box. The box only accepts toys that are red. Write a code that tells you if a toy is allowed in the box, based on its color.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isToyAllowed = (toyColor) => toyColor === 'red';\n",
+    "id": 1352
+  },
+  {
+    "generator": "javascript-1",
+    "input": "distract",
+    "problem": "Let's say we have a toy robot that can only move forward and backward. Can you write a program that tells the robot to move forward 5 times and then backward 3 times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const robotMoves = () => { for (let i = 0; i < 5; i++) { console.log('forward');\n} for (let i = 0; i < 3; i++) { console.log('backward'); } };\n",
+    "id": 1353
+  },
+  {
+    "generator": "javascript-1",
+    "input": "residential",
+    "problem": "Let's imagine we have a big house with lots of rooms. We want to write a program that tells us if someone is home or not. We'll say 'yes' if there's anyone in the house, and 'no' if it's empty. Can you write a program that checks if there's anyone in the house, and tells us 'yes' or 'no'?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isAnyoneHome = (people) => people.length > 0 ? 'yes' : 'no';\"\n",
+    "id": 1354
+  },
+  {
+    "generator": "javascript-1",
+    "input": "unbroken",
+    "problem": "Can you write a program that makes a robot keep walking without stopping?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const unbroken = () => { while (true) { console.log('Robot is walking!'); } };\n",
+    "id": 1355
+  },
+  {
+    "generator": "javascript-1",
+    "input": "fraught",
+    "problem": "Let's imagine we have a big box of crayons. We want to keep track of how many crayons we have left. We can use a special word called 'count' to represent the number of crayons in the box. Can you write a program that takes a 'count' of crayons and tells us how many are left after we take out 1 crayon?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const crayonsLeft = (count) => count - 1;\n",
+    "id": 1356
+  },
+  {
+    "generator": "javascript-1",
+    "input": "publicize",
+    "problem": "Let's say you have a special box that can hold only one thing at a time. If you put something new in the box, the old thing disappears. How can we write a program that puts the word 'publicize' in the box and then tells us what's in the box?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const putInBox = (word) => { return word; }; console.log(putInBox('publicize'));\n",
+    "id": 1357
+  },
+  {
+    "generator": "javascript-1",
+    "input": "beginning",
+    "problem": "Can you write a program that says 'Hello' three times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = () => { console.log('Hello'); console.log('Hello');\nconsole.log('Hello'); }\n",
+    "id": 1358
+  },
+  {
+    "generator": "javascript-1",
+    "input": "solve",
+    "problem": "Can you write a program that tells us how many cookies are left if we start with 5 cookies and eat 2 of them?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const cookiesLeft = (totalCookies, eatenCookies) => totalCookies - eatenCookies;\nconsole.log(cookiesLeft(5, 2));\n",
+    "id": 1359
+  },
+  {
+    "generator": "javascript-1",
+    "input": "injurious",
+    "problem": "Imagine you have a toy box full of toys. You want to know if there are any toys that are 'injurious' - like maybe a toy with sharp edges. Write a code that checks if there's an 'injurious' toy in the toy box. You can use a list to represent the toys in the box, and 'injurious' will be represented by the word 'bad'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const hasInjuriousToy = (toys) => toys.includes('bad');\n",
+    "id": 1360
+  },
+  {
+    "generator": "javascript-1",
+    "input": "allow",
+    "problem": "Let's pretend we have a box of toys. We want to only allow certain toys to be taken out. Write a program that will let us know if we can take a toy out of the box, based on whether it's allowed. The allowed toys are 'car', 'ball', and 'blocks'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isAllowedToy = (toy) => ['car', 'ball', 'blocks'].includes(toy);\n",
+    "id": 1361
+  },
+  {
+    "generator": "javascript-1",
+    "input": "ode",
+    "problem": "Can you write a program that will say \"Ode to Code\" three times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const odeToCode = () => { for (let i = 0; i < 3; i++) { console.log('Ode to\nCode'); } };\n",
+    "id": 1362
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pinnacle",
+    "problem": "Can you write a program to build a super tall tower using blocks? You can only add one block at a time, and each time you add a block the tower gets taller! Make sure the program tells us how tall the tower is!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const buildTower = (blocks) => { let towerHeight = 0; for (let i = 0; i <\nblocks; i++) { towerHeight = towerHeight + 1; } return towerHeight; }\n",
+    "id": 1363
+  },
+  {
+    "generator": "javascript-1",
+    "input": "prologue",
+    "problem": "Write a program that tells us the first part of a story. Use a special word called \"prologue\" to tell us that this is the beginning part of a story.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const prologue = () => { console.log(\"Once upon a time, there was a little bunny\nnamed Hopscotch.\") };\n",
+    "id": 1364
+  },
+  {
+    "generator": "javascript-1",
+    "input": "vision",
+    "problem": "Let's imagine we are playing a game! We want to make a program that can tell us if we have found our missing teddy bear. If we find the teddy bear, the program should say \"Found!\" If we don't find the teddy bear, it should say \"Keep looking!\" Can you write a program that can do that?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const findTeddyBear = (found) => found ? 'Found!' : 'Keep looking!';\"\n",
+    "id": 1365
+  },
+  {
+    "generator": "javascript-1",
+    "input": "during",
+    "problem": "Let's say we have a group of friends playing with toy cars. We want to make a program that tells us how many cars each friend has. We can use a special box called 'friendsCars' to store the number of cars for each friend. Can you write a program that tells us how many cars each friend has during playtime?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const friendsCars = (name) => { if (name === 'Alice') { return 3; } else if\n(name === 'Bob') { return 2; } else if (name === 'Charlie') { return 1; } else {\nreturn 0; } };\n",
+    "id": 1366
+  },
+  {
+    "generator": "javascript-1",
+    "input": "lazy",
+    "problem": "Let's imagine we have a robot that likes to take the easy way out! If we tell it to say 'hello' 10 times, it gets tired quickly and only wants to say 'hello' 3 times. Can you write a program for this lazy robot that makes it say 'hello' only 3 times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const lazyRobot = () => { for (let i = 0; i < 3; i++) { console.log('hello'); } }\n",
+    "id": 1367
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pretend",
+    "problem": "Let's pretend we have a box of crayons. We want to take out one crayon and color a picture. Can you write a program to take out one crayon from the box? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const takeOutCrayon = () => { return 'red'; };\n",
+    "id": 1368
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pavement",
+    "problem": "Can you write a program that tells us how many squares are on the pavement outside our classroom? Let's say there are 5 rows of squares and each row has 4 squares. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countSquares = (rows, squaresPerRow) => rows * squaresPerRow;\n",
+    "id": 1369
+  },
+  {
+    "generator": "javascript-1",
+    "input": "sleepless",
+    "problem": "Can you write a program to count how many times the letter 's' appears in the word 'sleepless'? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countS = (word) => { let count = 0; for (let i = 0; i < word.length; i++)\n{ if (word[i] === 's') { count++; } } return count; };\n",
+    "id": 1370
+  },
+  {
+    "generator": "javascript-1",
+    "input": "manure",
+    "problem": "Imagine you have a pile of manure. Write a program that takes the number of manure piles and tells you how many manure piles you have left after taking one away.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const manurePilesLeft = (piles) => piles - 1;\n",
+    "id": 1371
+  },
+  {
+    "generator": "javascript-1",
+    "input": "disillusion",
+    "problem": "Imagine you have a box of crayons, but some of them are broken! Write a program that takes a list of crayons and tells you how many are broken. Let's say a broken crayon is represented by the word \"broken\" and a good crayon is represented by the word \"good\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countBrokenCrayons = (crayons) => crayons.filter(crayon => crayon ===\n'broken').length\n",
+    "id": 1372
+  },
+  {
+    "generator": "javascript-1",
+    "input": "warship",
+    "problem": "Can you write a program that tells us how many letters are in the word \"warship\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length; console.log(countLetters(\"warship\"));\n",
+    "id": 1373
+  },
+  {
+    "generator": "javascript-1",
+    "input": "validity",
+    "problem": "Let's say we have a box of crayons. We want to make sure that all the crayons are the same color. Write a program that checks if all the crayons in a box are the same color. The program should tell us if all the crayons are the same color or not.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const areAllCrayonsSameColor = (crayons) => crayons.every(color => color ===\ncrayons[0]);\n",
+    "id": 1374
+  },
+  {
+    "generator": "javascript-1",
+    "input": "tenderly",
+    "problem": "Can you write a program to help a teddy bear find its way back to its blanket? The teddy bear wants to say \"tenderly\" to its blanket. You need to tell the teddy bear to say \"tenderly\" to the blanket.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayTenderly = () => { console.log(\"tenderly\"); };\n",
+    "id": 1375
+  },
+  {
+    "generator": "javascript-1",
+    "input": "impending",
+    "problem": "Let's pretend you are a robot who can only move forward one step at a time. Write a program that tells the robot to move forward until it reaches a special spot marked with a star. Let's say you start at the number 1 and the star is at the number 5.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveRobot = () => { let currentPosition = 1; while (currentPosition < 5) {\nconsole.log('Moving forward!'); currentPosition++; } console.log('Reached the\nstar!');};\n",
+    "id": 1376
+  },
+  {
+    "generator": "javascript-1",
+    "input": "gunshot",
+    "problem": "If a gunshot goes 'bang' and a car goes 'beep', what sound does a computer make when it says 'hello'?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = () => { console.log('hello'); };\n",
+    "id": 1377
+  },
+  {
+    "generator": "javascript-1",
+    "input": "nose",
+    "problem": "Can you write a program that tells me if a word has a 'nose' in it?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const hasNose = (word) => word.includes('nose');\n",
+    "id": 1378
+  },
+  {
+    "generator": "javascript-1",
+    "input": "fading",
+    "problem": "Imagine you have a magical crayon that fades as you color! Each time you color, the color gets a little bit lighter. Can you write a program that makes the color fade 5 times, starting with the color red?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const fade = () => { let color = 'red'; for (let i = 0; i < 5; i++) {\nconsole.log(color); color = 'light' + color; } }; fade();\n",
+    "id": 1379
+  },
+  {
+    "generator": "javascript-1",
+    "input": "suggestion",
+    "problem": "Can you write a program that tells us if a number is big or small? If it's bigger than 5, it should say 'big'. If it's smaller than 5, it should say 'small'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isBigOrSmall = (number) => (number > 5) ? 'big' : 'small';\"\n",
+    "id": 1380
+  },
+  {
+    "generator": "javascript-1",
+    "input": "renown",
+    "problem": "Imagine you have a big box of toys. You want to write a program that tells you if there are any toys left in the box. You start with 5 toys, and each time you take one out, you want to make sure the program knows there is one less toy left. How do you write a program to tell you if there are any toys left? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const areToysLeft = (toys) => toys > 0;\n",
+    "id": 1381
+  },
+  {
+    "generator": "javascript-1",
+    "input": "learning",
+    "problem": "Can you write a program that makes a robot say \"Hello!\" three times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = () => { console.log(\"Hello!\"); console.log(\"Hello!\");\nconsole.log(\"Hello!\"); }; sayHello();\n",
+    "id": 1382
+  },
+  {
+    "generator": "javascript-1",
+    "input": "trailer",
+    "problem": "Let's imagine we have a toy train that needs to move to different spots on a track! We want to make a program that tells the train to move forward a certain number of spaces. Can you write a program to move the train forward by 5 spaces?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveTrain = (spaces) => { return spaces; };\n",
+    "id": 1383
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pay",
+    "problem": "Can you write a program that takes a number of apples and gives you the right amount of coins to pay for them? Each apple costs 1 coin.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const payForApples = (apples) => apples * 1;\n",
+    "id": 1384
+  },
+  {
+    "generator": "javascript-1",
+    "input": "umpire",
+    "problem": "An umpire calls balls and strikes. Write a program that tells us if the umpire called 'ball' or 'strike'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const umpireCall = (call) => call === 'ball' ? 'ball' : 'strike';\"\n",
+    "id": 1385
+  },
+  {
+    "generator": "javascript-1",
+    "input": "detect",
+    "problem": "Can you write a program that tells us if a number is bigger than 5? If it is bigger than 5, make the program say 'Big!' Otherwise, have it say 'Small!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isBiggerThanFive = (number) => number > 5 ? 'Big!' : 'Small!';\"\n",
+    "id": 1386
+  },
+  {
+    "generator": "javascript-1",
+    "input": "feather",
+    "problem": "Can you write a program that tells us how many feathers a bird has? Let's say the bird has 12 feathers. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countFeathers = () => { return 12; };\n",
+    "id": 1387
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pink",
+    "problem": "Can you write a program that makes the computer say the color \"pink\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayPink = () => { console.log(\"pink\"); };\n",
+    "id": 1388
+  },
+  {
+    "generator": "javascript-1",
+    "input": "signature",
+    "problem": "Can you write a program that draws your name on the screen? Your name is like your signature, it tells people who you are!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const drawName = (name) => { console.log(name); };\n",
+    "id": 1389
+  },
+  {
+    "generator": "javascript-1",
+    "input": "boxing",
+    "problem": "If you have 3 boxes and put 2 toys in each box, how many toys are there in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const totalToys = (boxes, toysPerBox) => boxes * toysPerBox;\nconsole.log(totalToys(3, 2));\n",
+    "id": 1390
+  },
+  {
+    "generator": "javascript-1",
+    "input": "mole",
+    "problem": "Can you write a program that tells us how many moles are in a group of moles if we know how many moles are in each group?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countMoles = (groupSize, numberOfGroups) => groupSize * numberOfGroups;\n",
+    "id": 1391
+  },
+  {
+    "generator": "javascript-1",
+    "input": "beak",
+    "problem": "Can you write a program that makes a bird say 'Tweet!' five times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const tweet = () => { for (let i = 0; i < 5; i++) { console.log('Tweet!'); } };\n",
+    "id": 1392
+  },
+  {
+    "generator": "javascript-1",
+    "input": "forgo",
+    "problem": "Let's say we have a bunch of toys, and some are red and some are blue. Write a program to count how many toys are red. Make sure to tell the computer what color each toy is!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countRedToys = (toys) => { let redCount = 0; for (let i = 0; i <\ntoys.length; i++) { if (toys[i] === 'red') { redCount++; } } return redCount; };\n",
+    "id": 1393
+  },
+  {
+    "generator": "javascript-1",
+    "input": "dusk",
+    "problem": "Can you write a program that makes a word appear when it gets dark outside? The word should be 'dusk'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isDusk = () => { return 'dusk'; };\n",
+    "id": 1394
+  },
+  {
+    "generator": "javascript-1",
+    "input": "tenacious",
+    "problem": "Let's make a program to help us count how many times we can say 'tenacious' before getting tired! Write a program that starts with a number and keeps adding 1 to it until it reaches 10, and then stops.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countTenacious = (start) => { let count = start; while (count < 10) {\nconsole.log(count); count = count + 1; } };\n",
+    "id": 1395
+  },
+  {
+    "generator": "javascript-1",
+    "input": "pizza",
+    "problem": "Let's pretend we're ordering pizza! We want to tell the pizza place how many slices we want. Write a program that takes the number of slices we want as an input, and then says \"I want [number] slices of pizza!\" <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const orderPizza = (slices) => {console.log(`I want ${slices} slices of\npizza!`);}\n",
+    "id": 1396
+  },
+  {
+    "generator": "javascript-1",
+    "input": "meticulous",
+    "problem": "Let's make a robot that can count all the apples in a basket! Write a program that takes a basket full of apples and tells us how many apples are inside.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countApples = (basket) => basket.length;\n",
+    "id": 1397
+  },
+  {
+    "generator": "javascript-1",
+    "input": "approximately",
+    "problem": "Let's pretend we have a box of apples. We want to know if there are *about* 5 apples in the box. Write a program that tells us if there are about 5 apples in the box, even if there's a few more or less.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isAboutFive = (apples) => Math.abs(apples - 5) <= 2;\n",
+    "id": 1398
+  },
+  {
+    "generator": "javascript-1",
+    "input": "reliable",
+    "problem": "Let's imagine you have a special box that can only hold one toy at a time. You want to make sure that whenever you put a toy in the box, the old toy is taken out. Can you write a code that does this for you? Use the words 'toy' and 'box' in your code!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const putToyInBox = (toy) => { box = toy; };\n",
+    "id": 1399
+  },
+  {
+    "generator": "javascript-1",
+    "input": "weakly",
+    "problem": "Can you write a program that takes a number and says if it is 'weakly' bigger than another number? A number is weakly bigger if it is bigger or the same size. You can use the `>` (greater than) and `===` (equal to) symbols in your program.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isWeaklyBigger = (num1, num2) => num1 > num2 || num1 === num2;\n",
+    "id": 1400
+  },
+  {
+    "generator": "javascript-1",
+    "input": "unthinkable",
+    "problem": "Can you write a program to make a funny sound when a robot is feeling sad?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeSadRobotSound = () => console.log('Boo hoo!');\n",
+    "id": 1401
+  },
+  {
+    "generator": "javascript-1",
+    "input": "differential",
+    "problem": "Let's pretend we have a bunch of colorful blocks. We want to make two groups: one for red blocks and one for blue blocks. Can you write a program that takes a block's color and tells us which group it belongs to? Use the 'red' and 'blue' words to tell us which group the block goes in.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const groupBlock = (color) => (color === 'red') ? 'red group' : 'blue group';\"\n",
+    "id": 1402
+  },
+  {
+    "generator": "javascript-1",
+    "input": "dropping",
+    "problem": "Imagine you have a big box of balls. You have some red balls and some blue balls. Write a program that takes a ball color and tells you if it's in the box! If it's red, the program should say 'Red ball is in the box!'. If it's blue, the program should say 'Blue ball is in the box!'. If it's any other color, the program should say 'That color is not in the box!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkBall = (color) => { if (color === 'red') { console.log('Red ball is\nin the box!'); } else if (color === 'blue') { console.log('Blue ball is in the\nbox!'); } else { console.log('That color is not in the box!'); } };\n",
+    "id": 1403
+  },
+  {
+    "generator": "javascript-1",
+    "input": "ox",
+    "problem": "Can you write a program that makes the word \"ox\" appear on the screen twice?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayOxTwice = () => { console.log('ox'); console.log('ox'); };\n",
+    "id": 1404
+  },
+  {
+    "generator": "javascript-1",
+    "input": "with",
+    "problem": "Can you write a program that says hello to your friend, 'Sarah', using their name?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = (name) => { console.log(`Hello, ${name}!`); };\nsayHello('Sarah');\n",
+    "id": 1405
+  },
+  {
+    "generator": "javascript-2",
+    "input": "extricate",
+    "problem": "Imagine you have a box of toys, and some of the toys are hidden inside. How can you write a program to find all the hidden toys and take them out of the box? We'll use a special list called an 'array' to hold the toys. We want the program to remove all the hidden toys from the array and leave only the visible toys.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const toys = ['car', 'hidden', 'ball', 'hidden', 'doll']; const\nvisibleToys = toys.filter(toy => toy !== 'hidden'); console.log(visibleToys);\n```\"\n",
+    "id": 1406
+  },
+  {
+    "generator": "javascript-2",
+    "input": "pertinent",
+    "problem": "Let's say you have a basket of apples and a basket of oranges. You want to write a program that tells you how many pieces of fruit you have in total. What should the program do?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countFruits = (apples, oranges) => apples + oranges;\n",
+    "id": 1407
+  },
+  {
+    "generator": "javascript-2",
+    "input": "incapable",
+    "problem": "Can you write a program that makes a robot dance? The robot can only move 'left', 'right', 'up', and 'down'. But it can only do one thing at a time! Can you write a program to make the robot dance?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const dance = () => { console.log('left'); console.log('right');\nconsole.log('up'); console.log('down'); }\n",
+    "id": 1408
+  },
+  {
+    "generator": "javascript-2",
+    "input": "simmer",
+    "problem": "Let's imagine you have a pot of soup on the stove. You want to make sure it doesn't boil over, so you turn the heat down to a low simmer. Write a program that checks the temperature of the soup. If the temperature is too high, it should tell you to turn the heat down! If it's just right, it should say 'The soup is simmering nicely!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkSoupTemp = (temperature) => { if (temperature > 100) {\nconsole.log('Turn the heat down!'); } else { console.log('The soup is simmering\nnicely!'); } };\n",
+    "id": 1409
+  },
+  {
+    "generator": "javascript-2",
+    "input": "sensory",
+    "problem": "Can you write a program that tells us if something is soft or hard? It should ask the user to type in the word 'soft' or 'hard' and then say 'That's soft!' or 'That's hard!'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isSoftOrHard = (input) => { if (input === 'soft') { console.log('That's\nsoft!'); } else if (input === 'hard') { console.log('That's hard!'); } else {\nconsole.log('Please type \"soft\" or \"hard\".'); } };\n",
+    "id": 1410
+  },
+  {
+    "generator": "javascript-2",
+    "input": "delve",
+    "problem": "Let's say we have a box of toys. We want to take out one toy at a time and see what it is. Can you write a program that takes a toy out of the box and tells us what it is? The toys in the box are a ball, a car, and a teddy bear.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getToy = () => { const toys = ['ball', 'car', 'teddy bear']; const\nrandomIndex = Math.floor(Math.random() * toys.length); return toys[randomIndex];\n};\n",
+    "id": 1411
+  },
+  {
+    "generator": "javascript-2",
+    "input": "scan",
+    "problem": "Let's say you have a box of toys. You want to check each toy to see if it's a car. How can you write a program that checks each toy and tells you if it's a car?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isCar = (toy) => toy === 'car';\n",
+    "id": 1412
+  },
+  {
+    "generator": "javascript-2",
+    "input": "uphold",
+    "problem": "Let's say we have a group of friends who want to play a game. We want to make sure everyone gets a turn! Can you write a program to help us keep track of who goes next? We'll start with a list of friends, and the program should show us the next person in line. If we reach the end of the list, it should start over from the beginning.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const nextInLine = (friends, currentTurn) => friends[(currentTurn + 1) %\nfriends.length];\n",
+    "id": 1413
+  },
+  {
+    "generator": "javascript-2",
+    "input": "tasteful",
+    "problem": "Can you write a program that makes a list of all the tasty treats you like, but only if they are yummy? 🤔<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const tastyTreats = ['cookies', 'pizza', 'broccoli']; const yummyTreats =\ntastyTreats.filter(treat => treat === 'cookies' || treat === 'pizza');\nconsole.log(yummyTreats);\n",
+    "id": 1414
+  },
+  {
+    "generator": "javascript-2",
+    "input": "revolutionary",
+    "problem": "Imagine you have a robot that can only move forward or backward one step at a time. If you tell it to move forward 5 steps and then backward 3 steps, how many steps will it be away from its starting position? Can you write a program that tells us the answer? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const calculateSteps = (forwardSteps, backwardSteps) => forwardSteps -\nbackwardSteps;\n",
+    "id": 1415
+  },
+  {
+    "generator": "javascript-2",
+    "input": "potent",
+    "problem": "Imagine you have a magic word that makes things bigger! If you say the word 'potent' three times, how big will the thing become? Write a program that tells us the answer. Let's say 'potent' makes things 2 times bigger each time. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeBigger = (times) => { let size = 1; for (let i = 0; i < times; i++) {\nsize = size * 2; } return size; };\n",
+    "id": 1416
+  },
+  {
+    "generator": "javascript-2",
+    "input": "staff",
+    "problem": "Let's say we have a group of friends going to the park. We can call them a 'staff' of friends. Can you write a program that shows how many friends are in the 'staff' if we know their names? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countFriends = (staff) => staff.length;\n",
+    "id": 1417
+  },
+  {
+    "generator": "javascript-2",
+    "input": "incorrect",
+    "problem": "Can you write a program that makes a robot say 'incorrect' if a number is not 5?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkNumber = (number) => { if (number !== 5) { console.log('incorrect');\n} };\n",
+    "id": 1418
+  },
+  {
+    "generator": "javascript-2",
+    "input": "vandalism",
+    "problem": "Imagine a computer screen is like a big coloring book. If someone wants to draw all over the screen with different colors, and we want to stop them, how can we use a special code to make sure only the right colors are used? Think about how we can use a code to 'lock' the colors. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkColor = (color) => color === 'blue' || color === 'green' || color ===\n'red';\n",
+    "id": 1419
+  },
+  {
+    "generator": "javascript-2",
+    "input": "envision",
+    "problem": "Imagine you have a magical box that can hold only one thing at a time. Every time you put something new in the box, the old thing disappears. Can you write a program that shows how this box works? You can use the words 'box' and 'toy' in your program to represent the box and the things you put in it.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const magicBox = (toy) => { box = toy; };\n",
+    "id": 1420
+  },
+  {
+    "generator": "javascript-2",
+    "input": "lie",
+    "problem": "Can you write a program that tells us if a word is a lie? The program should take a word as input, and if the word is \"lie\" it should say \"That's a lie!\" Otherwise, it should say \"That's true!\"<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isLie = (word) => word === 'lie' ? 'That's a lie!' : 'That's true!';\"\n",
+    "id": 1421
+  },
+  {
+    "generator": "javascript-2",
+    "input": "cod",
+    "problem": "Can you write a program that tells us how many letters are in the word \"cod\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length; console.log(countLetters('cod'));\n",
+    "id": 1422
+  },
+  {
+    "generator": "javascript-2",
+    "input": "ratio",
+    "problem": "Let's say we have a group of 3 cats and 2 dogs. Can you write a program that tells us how many more cats there are than dogs?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moreCats = (cats, dogs) => cats - dogs;\n",
+    "id": 1423
+  },
+  {
+    "generator": "javascript-2",
+    "input": "granddad",
+    "problem": "Can you write a program that takes the word \"granddad\" and tells us how many letters are in it?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length;\nconsole.log(countLetters(\"granddad\"));\n",
+    "id": 1424
+  },
+  {
+    "generator": "javascript-2",
+    "input": "admire",
+    "problem": "Can you write a program that tells us if someone is admiring a picture? We will give the program a word and it will tell us if it is the word \"admire\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isAdmiring = (word) => word === 'admire';\n",
+    "id": 1425
+  },
+  {
+    "generator": "javascript-2",
+    "input": "pony",
+    "problem": "Can you write a program to tell me how many letters are in the word \"pony\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length; console.log(countLetters('pony'));\n",
+    "id": 1426
+  },
+  {
+    "generator": "javascript-2",
+    "input": "specimen",
+    "problem": "Let's imagine we have a box full of toys. Write a program that takes the name of a toy and tells us if it's in the box! Use the word 'specimen' instead of 'toy'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isSpecimenInBox = (specimen) => ['ball', 'car', 'doll'].includes(specimen);\n",
+    "id": 1427
+  },
+  {
+    "generator": "javascript-2",
+    "input": "propose",
+    "problem": "Imagine you have a box of toys. You want to write a program that lets you add new toys to the box, and then tells you how many toys are in the box. How would you write a program to do that?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const toys = []; const addToy = (toy) => { toys.push(toy); return\ntoys.length; }; ```\"\n",
+    "id": 1428
+  },
+  {
+    "generator": "javascript-2",
+    "input": "trace",
+    "problem": "Imagine you have a box of crayons. You take out one crayon, then another, and then another. How can you write a program that shows what crayons you took out, in the order you took them out? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const crayons = []; crayons.push('red'); crayons.push('blue');\ncrayons.push('green'); console.log(crayons);\n",
+    "id": 1429
+  },
+  {
+    "generator": "javascript-2",
+    "input": "nicely",
+    "problem": "Can you write a program that makes a robot say \"Hello!\" nicely? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHelloNicely = () => { console.log(\"Hello!\"); };\n",
+    "id": 1430
+  },
+  {
+    "generator": "javascript-2",
+    "input": "spill",
+    "problem": "Imagine you have a cup of juice, and you accidentally spill some of it on the floor! Can you write a program that shows how much juice is left in the cup after the spill? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const juiceLeft = (initialJuice, spilledJuice) => initialJuice - spilledJuice;\n",
+    "id": 1431
+  },
+  {
+    "generator": "javascript-2",
+    "input": "goods",
+    "problem": "Imagine you have a basket of different things you like. You have apples, oranges, and toys. Can you write a program that tells us how many things are in your basket?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countGoods = (basket) => basket.length;\n",
+    "id": 1432
+  },
+  {
+    "generator": "javascript-2",
+    "input": "exclude",
+    "problem": "Let's imagine we have a group of friends playing a game, but one friend isn't allowed to play. How can we write a program that shows only the friends who can play?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const friends = ['Alice', 'Bob', 'Charlie', 'David']; const notPlaying =\n'David'; const playingFriends = friends.filter(friend => friend !== notPlaying);\nconsole.log(playingFriends);\n",
+    "id": 1433
+  },
+  {
+    "generator": "javascript-2",
+    "input": "disease",
+    "problem": "Let's imagine we have a computer that can only store letters. We want to make a program that can tell us if a word has the letter 'D' in it. Can you write a program that takes a word and tells us 'YES' if it has a 'D' in it and 'NO' if it doesn't?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const hasD = (word) => word.includes('D') ? 'YES' : 'NO';\"\n",
+    "id": 1434
+  },
+  {
+    "generator": "javascript-2",
+    "input": "enjoy",
+    "problem": "Can you write a program that makes the word \"enjoy\" appear five times on the screen?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const showEnjoy = () => { for (let i = 0; i < 5; i++) { console.log('enjoy'); }\n};\n",
+    "id": 1435
+  },
+  {
+    "generator": "javascript-2",
+    "input": "navigate",
+    "problem": "Let's say we're playing a game where you need to move your robot through a maze. Can you write a program to tell the robot to move **forward** or **backward**? Use the words `forward` or `backward` in your program to tell the robot which way to go.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveRobot = (direction) => { if (direction === 'forward') {\nconsole.log('Robot moving forward!'); } else if (direction === 'backward') {\nconsole.log('Robot moving backward!'); } };\n",
+    "id": 1436
+  },
+  {
+    "generator": "javascript-2",
+    "input": "reduction",
+    "problem": "Let's say you have a bunch of apples, and you want to give some to your friend. How can you write a program to figure out how many apples you have left?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const applesLeft = (totalApples, applesGiven) => totalApples - applesGiven;\n",
+    "id": 1437
+  },
+  {
+    "generator": "javascript-2",
+    "input": "elation",
+    "problem": "Let's say you're feeling really happy and excited, like you just got a new toy! Can you write a program that shows this feeling using a word that describes how you feel? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const elation = () => { console.log('Happy!'); };\n",
+    "id": 1438
+  },
+  {
+    "generator": "javascript-2",
+    "input": "fabric",
+    "problem": "Imagine you have a big piece of fabric with lots of little squares. Each square has a letter on it, and you want to write a program to find all the squares that have the letter 'A' on them. How could you write a program that would find all the 'A' squares?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const findASquares = (fabric) => { const aSquares = []; for (let\ni = 0; i < fabric.length; i++) { if (fabric[i] === 'A') { aSquares.push(i); } }\nreturn aSquares; }; ```\"\n",
+    "id": 1439
+  },
+  {
+    "generator": "javascript-2",
+    "input": "archaeologist",
+    "problem": "Imagine an archaeologist found 3 dinosaur bones. Then, they found 2 more bones. How can we write a program to tell us how many bones the archaeologist has in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const totalBones = (bonesFound1, bonesFound2) => bonesFound1 +\nbonesFound2; ```\"\n",
+    "id": 1440
+  },
+  {
+    "generator": "javascript-2",
+    "input": "proud",
+    "problem": "Let's write a program to make our computer say \"Proud of you!\" when we enter our name. Can you help me write a program that takes our name, like \"Max\", and then says \"Proud of you, Max!\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayProud = (name) => { console.log(`Proud of you, ${name}!`); };\n",
+    "id": 1441
+  },
+  {
+    "generator": "javascript-2",
+    "input": "fresh",
+    "problem": "Let's imagine you have a basket of fresh fruit. How can we write a program to tell us how many pieces of fruit are in the basket?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countFruit = (basket) => basket.length;\n",
+    "id": 1442
+  },
+  {
+    "generator": "javascript-2",
+    "input": "lodger",
+    "problem": "Imagine you have a friend named Bob who's staying at your house for a while. We can call him a \"lodger\". Write a program that tells us if Bob is still a lodger at your house. You can use \"true\" to mean Bob is still a lodger and \"false\" to mean he's gone home.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isBobALodger = () => true;\n",
+    "id": 1443
+  },
+  {
+    "generator": "javascript-2",
+    "input": "proliferation",
+    "problem": "Let's imagine we have a bunch of toy cars, and we want to make more cars using a magic machine. Write a program that takes the number of toy cars we start with and makes more cars using the machine, doubling the number of cars we have! Your program should tell us how many cars we have after using the magic machine.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const doubleCars = (cars) => cars * 2;\n",
+    "id": 1444
+  },
+  {
+    "generator": "javascript-2",
+    "input": "provide",
+    "problem": "Let's imagine we have a box of crayons, and we want to give each of our friends a crayon. Write a program that takes the number of friends and the number of crayons in the box, and then tells us if we can give each friend a crayon. If we have enough crayons, the program should say \"We can share!\" otherwise it should say \"Not enough crayons!\"<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const canShareCrayons = (friends, crayons) => crayons >= friends ? \"We can\nshare!\" : \"Not enough crayons!\"'\n",
+    "id": 1445
+  },
+  {
+    "generator": "javascript-2",
+    "input": "regulator",
+    "problem": "Let's imagine we have a robot that can only carry a certain number of toys. Write a program that takes the number of toys the robot can carry and the number of toys we want to give it, and tells us if the robot can carry all the toys. If the robot can carry all the toys, it should say 'Yes!'. If not, it should say 'No, the robot needs help!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const canCarryAllToys = (robotCapacity, toyCount) => toyCount <= robotCapacity\n? 'Yes!' : 'No, the robot needs help!';\"\n",
+    "id": 1446
+  },
+  {
+    "generator": "javascript-2",
+    "input": "childhood",
+    "problem": "Can you write a program that tells us how many toys a child has in their toy box? Let's say they have 3 teddy bears, 2 toy cars, and 1 doll.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = () => 3 + 2 + 1;\n",
+    "id": 1447
+  },
+  {
+    "generator": "javascript-2",
+    "input": "pathetic",
+    "problem": "Let's pretend we're building a robot that can count how many times someone says \"pathetic\". Write a program that counts how many times the word \"pathetic\" appears in a sentence.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countPathetic = (sentence) => sentence.split(' ').filter(word => word ===\n'pathetic').length;\n",
+    "id": 1448
+  },
+  {
+    "generator": "javascript-2",
+    "input": "piercing",
+    "problem": "Imagine you have a special box that makes sounds. You can tell it to make a sound, and it will say 'piercing' over and over, but only a certain number of times. Can you write a program that tells the box how many times to say 'piercing'? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const piercingSound = (times) => { for (let i = 0; i < times; i++) {\nconsole.log('piercing'); } };\n",
+    "id": 1449
+  },
+  {
+    "generator": "javascript-2",
+    "input": "monumental",
+    "problem": "Let's say you have a giant tower made of blocks! You want to know how tall it is. Each block is one meter tall. Can you write a code that tells us the tower's height if we know how many blocks are in it?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const towerHeight = (blocks) => blocks * 1;\n",
+    "id": 1450
+  },
+  {
+    "generator": "javascript-2",
+    "input": "insipid",
+    "problem": "Let's write a program that makes a robot say something fun! We want the robot to say 'Hello!' five times. Can you help me write the code that will tell the robot to say 'Hello!' that many times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHelloFiveTimes = () => { for (let i = 0; i < 5; i++) {\nconsole.log('Hello!'); }};\n",
+    "id": 1451
+  },
+  {
+    "generator": "javascript-2",
+    "input": "propriety",
+    "problem": "Let's say we have a box full of colorful blocks. We want to make sure we only take out the blocks that are the 'right' color. Write a program that checks if a block is the 'right' color. If it is, the program should tell us it's 'okay' to take it out. Otherwise, it should say 'no way!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const checkBlock = (color) => (color === 'red') ? 'okay' : 'no way!';\"\n",
+    "id": 1452
+  },
+  {
+    "generator": "javascript-2",
+    "input": "inspector",
+    "problem": "Imagine you are an inspector looking for toys that are too big to fit in a small box. You have a list of toy sizes and the size of the box. Write a program that tells us which toys are too big.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isTooBig = (toySize, boxSize) => toySize > boxSize;\n",
+    "id": 1453
+  },
+  {
+    "generator": "javascript-2",
+    "input": "depose",
+    "problem": "Imagine you have a big box of toys, and you want to take out all the toys that are not cars. Write a program that takes a list of toys and gives you back only the cars!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const keepCars = (toys) => toys.filter(toy => toy === 'car');\n",
+    "id": 1454
+  },
+  {
+    "generator": "javascript-2",
+    "input": "besiege",
+    "problem": "Imagine a castle with lots of knights around it. If a group of enemies wants to take over, how many knights would they have to fight before they could reach the castle? Can you write a program that tells us how many knights are there? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countKnights = (knights) => knights.length\n",
+    "id": 1455
+  },
+  {
+    "generator": "javascript-2",
+    "input": "blend",
+    "problem": "Imagine you have a box of red crayons and a box of blue crayons. Can you write a program that mixes the crayons together so we have a box of purple crayons?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const blendCrayons = (redCrayons, blueCrayons) => { return redCrayons +\nblueCrayons; };\n",
+    "id": 1456
+  },
+  {
+    "generator": "javascript-2",
+    "input": "moisten",
+    "problem": "Let's say we have a sponge that starts out dry. If we use the word 'moisten' to mean adding a drop of water to the sponge, write a program that adds water drops to the sponge until it is wet.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moisten = (sponge) => { if (sponge === 'dry') { return 'damp'; } else if\n(sponge === 'damp') { return 'wet'; } else { return 'wet'; } };\n",
+    "id": 1457
+  },
+  {
+    "generator": "javascript-2",
+    "input": "enthusiasm",
+    "problem": "Let's pretend you're a robot who loves to say \"Woohoo!\" Write a program that makes the robot say \"Woohoo!\" 5 times in a row.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const robotSaysWoohoo = () => { for (let i = 0; i < 5; i++) {\nconsole.log(\"Woohoo!\"); } };\n",
+    "id": 1458
+  },
+  {
+    "generator": "javascript-2",
+    "input": "pamphlet",
+    "problem": "Imagine you have a stack of pamphlets about a fun event, and you want to keep track of how many are left. Each time someone takes a pamphlet, you need to take one away from the stack. Write a program that takes a number representing how many pamphlets you start with, and then takes away one pamphlet each time it is run.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const takePamphlet = (numPamphlets) => numPamphlets - 1;\n",
+    "id": 1459
+  },
+  {
+    "generator": "javascript-2",
+    "input": "humorous",
+    "problem": "Can you write a program that makes a funny noise like a 'ha ha' sound? You can use the words 'ha' and 'ho' in your program!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const funnyNoise = () => console.log('ha ho ha ho');\n",
+    "id": 1460
+  },
+  {
+    "generator": "javascript-2",
+    "input": "worm",
+    "problem": "Can you write a program that makes a worm move across the screen? You can use a special word called 'worm' to make the worm go forward one step at a time!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveWorm = () => { console.log('worm'); };\n",
+    "id": 1461
+  },
+  {
+    "generator": "javascript-2",
+    "input": "realization",
+    "problem": "Let's imagine we have a basket of apples. We want to count how many apples are in the basket. Can you write a program that will tell us how many apples are in the basket if we tell it how many apples are there? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countApples = (apples) => { return apples; }\n",
+    "id": 1462
+  },
+  {
+    "generator": "javascript-2",
+    "input": "triple",
+    "problem": "If you have 3 apples and then triple the number of apples, how many apples do you have? Can you write a program to find the answer?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const tripleApples = (apples) => apples * 3;\n",
+    "id": 1463
+  },
+  {
+    "generator": "javascript-2",
+    "input": "fixture",
+    "problem": "Imagine you're playing with toy blocks. You have a box of blocks, and you want to add a special 'fixture' block to the box. How can we write a program to add this special block to your box of blocks? You can use JavaScript to do this!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addFixture = (blocks) => { return [...blocks, 'fixture']; };\n",
+    "id": 1464
+  },
+  {
+    "generator": "javascript-2",
+    "input": "curt",
+    "problem": "Let's imagine we have a robot that can say words. We want to make it say 'curt' five times. Can you write a program that tells the robot to say 'curt' that many times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayCurt = () => { for (let i = 0; i < 5; i++) { console.log('curt'); } };\n",
+    "id": 1465
+  },
+  {
+    "generator": "javascript-2",
+    "input": "enable",
+    "problem": "Let's write a program to help a robot find its way to a treasure! The robot can only move one step at a time, either left or right. We'll tell the robot where the treasure is, and it needs to move until it reaches the treasure. Can you write a program that tells the robot how many steps to take and in which direction? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findTreasure = (treasurePosition) => { if (treasurePosition > 0) { return\n`Right ${treasurePosition} steps`; } else if (treasurePosition < 0) { return\n`Left ${-treasurePosition} steps`; } else { return `You're already at the\ntreasure!`; } };\n",
+    "id": 1466
+  },
+  {
+    "generator": "javascript-2",
+    "input": "scoff",
+    "problem": "If we have a list of words, how can we write a program to tell us if the word 'scoff' is in the list? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const hasScoff = (words) => words.includes('scoff'); ```\"\n",
+    "id": 1467
+  },
+  {
+    "generator": "javascript-2",
+    "input": "widely",
+    "problem": "Let's say you have a basket of apples and you want to add more apples to it. How can we write a program to show how many apples are in the basket after adding more apples? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addApples = (basket, newApples) => basket + newApples;\n",
+    "id": 1468
+  },
+  {
+    "generator": "javascript-2",
+    "input": "acknowledgmen",
+    "problem": "Let's pretend we have a robot that can only say 'Thank you' when we give it a present. Write a program that makes the robot say 'Thank you' if we give it a present, and stays silent if we don't.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const robotResponse = (present) => present ? 'Thank you' : '';\"\n",
+    "id": 1469
+  },
+  {
+    "generator": "javascript-2",
+    "input": "ambassador",
+    "problem": "Let's pretend we have a special robot who can deliver messages! The robot needs a special code to tell it what to say. Can you write a code that tells the robot to say \"Hello, I'm an ambassador!\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = () => { console.log(\"Hello, I'm an ambassador!\"); };\n",
+    "id": 1470
+  },
+  {
+    "generator": "javascript-2",
+    "input": "playground",
+    "problem": "Imagine you are building a playground with different types of toys. You have a bunch of swings (let's say 5), some slides (3), and a big bouncy castle (1). Can you write a code that tells us how many toys you have in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = () => 5 + 3 + 1;\n",
+    "id": 1471
+  },
+  {
+    "generator": "javascript-2",
+    "input": "fourth",
+    "problem": "Can you write a program to show what happens if we count to four and then say 'boom'?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToBoom = () => { for (let i = 1; i <= 4; i++) { console.log(i); }\nconsole.log('boom!'); };\n",
+    "id": 1472
+  },
+  {
+    "generator": "javascript-2",
+    "input": "entity",
+    "problem": "Imagine you have a toy box with a red ball, a blue block, and a green car. Can you write a code that tells the computer what's in the toy box?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const toyBox = ['red ball', 'blue block', 'green car'];\n",
+    "id": 1473
+  },
+  {
+    "generator": "javascript-2",
+    "input": "countless",
+    "problem": "Imagine you have a basket filled with apples. You want to add more apples until you have a *countless* number of apples. How can you write a program that shows this, even though you can't actually have a limitless number of apples?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countlessApples = () => { let appleCount = 0; while (true) { appleCount++;\nconsole.log(`You now have ${appleCount} apples!`); } };\n",
+    "id": 1474
+  },
+  {
+    "generator": "javascript-2",
+    "input": "seminary",
+    "problem": "Let's pretend we have a big box of toys! We want to organize them by type. Write a program that takes a toy name and tells us if it's a 'car', 'doll', or 'game'. If we don't know what type it is, we'll say 'mystery'!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const categorizeToy = (toyName) => { if (toyName === 'car') { return 'car'; }\nelse if (toyName === 'doll') { return 'doll'; } else if (toyName === 'game') {\nreturn 'game'; } else { return 'mystery'; } };\n",
+    "id": 1475
+  },
+  {
+    "generator": "javascript-2",
+    "input": "gratuitous",
+    "problem": "Imagine you have a box of crayons. You want to know how many crayons are in the box without opening it. You can only shake the box and listen to the crayons rattle. Write a program that simulates shaking the box and tells you how many crayons are in the box based on the number of rattles you hear. The program should give you a number, even if you hear no rattles.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countCrayons = (rattles) => rattles || 0;\n",
+    "id": 1476
+  },
+  {
+    "generator": "javascript-2",
+    "input": "pillage",
+    "problem": "Imagine you have a treasure chest full of gold coins. You want to take some of the coins out to share with your friends. Write a program that takes the number of coins in the chest and the number of coins you want to take out, then tells you how many coins are left in the chest.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const remainingCoins = (totalCoins, coinsTaken) => totalCoins - coinsTaken;\n",
+    "id": 1477
+  },
+  {
+    "generator": "javascript-2",
+    "input": "space",
+    "problem": "Let's imagine we have a big spaceship with lots of rooms. We want to create a program that tells us how many rooms are left in the spaceship after some astronauts have gone to sleep. Can you write a program that starts with 10 rooms, then takes away 3 rooms and tells us how many rooms are left?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const roomsLeft = () => 10 - 3;\n",
+    "id": 1478
+  },
+  {
+    "generator": "javascript-2",
+    "input": "charitable",
+    "problem": "Let's say we want to write a program that helps us donate toys. We have a box with 5 toys and we want to give away some of them. How can we write a program that tells us how many toys are left after we give some away? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const toysLeft = (toysGivenAway) => 5 - toysGivenAway; ```\"\n",
+    "id": 1479
+  },
+  {
+    "generator": "javascript-2",
+    "input": "strip",
+    "problem": "Imagine you have a long, colorful strip of paper. You want to cut off the first part of the strip and keep only the rest. Write a program that does this with a piece of text, removing the first letter and keeping the rest.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const removeFirstLetter = (text) => text.slice(1);\n",
+    "id": 1480
+  },
+  {
+    "generator": "javascript-2",
+    "input": "principal",
+    "problem": "Let's say you have a bunch of crayons, and you want to know how many of each color you have. Write a code that lets us count how many crayons of each color there are.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countCrayons = (crayons) => { let counts = {}; for (let crayon of crayons)\n{ if (counts[crayon]) { counts[crayon]++; } else { counts[crayon] = 1; } }\nreturn counts; };\n",
+    "id": 1481
+  },
+  {
+    "generator": "javascript-2",
+    "input": "weekly",
+    "problem": "Let's say we have a robot that does chores every day of the week. How can we write a program that tells us how many times the robot does chores in a week?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const choresPerWeek = () => 7;\n",
+    "id": 1482
+  },
+  {
+    "generator": "javascript-2",
+    "input": "plantation",
+    "problem": "Imagine you have a big garden with lots of different plants. You want to put all the flowers in one basket and all the vegetables in another basket. Can you write a program that sorts the plants into baskets based on whether they are flowers or vegetables?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sortPlants = (plants) => { const flowerBasket = []; const vegetableBasket\n= []; for (const plant of plants) { if (plant === 'flower') {\nflowerBasket.push(plant); } else { vegetableBasket.push(plant); } } return {\nflowerBasket, vegetableBasket }; };\n",
+    "id": 1483
+  },
+  {
+    "generator": "javascript-2",
+    "input": "tortoise",
+    "problem": "Can you write a program that makes a tortoise walk in a circle? Make sure it doesn't go backwards!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const walkInCircle = () => { console.log('Tortoise walks forward!'); };\n",
+    "id": 1484
+  },
+  {
+    "generator": "javascript-2",
+    "input": "clearing",
+    "problem": "Imagine you have a box full of toys, but some of the toys are broken. Write a program that helps you find all the broken toys and put them in a separate box. The broken toys are represented by the word 'broken' in our program. Use the word 'good' for toys that are not broken.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findBrokenToys = (toys) => toys.filter(toy => toy === 'broken');\n",
+    "id": 1485
+  },
+  {
+    "generator": "javascript-2",
+    "input": "biography",
+    "problem": "Let's pretend we're writing a story about a robot named R2-D2. We want to tell everyone what R2-D2's favorite color is. Can you write a program that tells us what color R2-D2 likes best?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getR2D2FavoriteColor = () => 'blue';\n",
+    "id": 1486
+  },
+  {
+    "generator": "javascript-2",
+    "input": "invent",
+    "problem": "Imagine you are a robot who can only say the word \"beep\" once. Write a program that will tell you how many times you need to say \"beep\" to make a friend happy. Your friend will tell you how many beeps they want to hear! You can give your friend any number of beeps they want.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeFriendHappy = (numberOfBeeps) => { return numberOfBeeps; }\n",
+    "id": 1487
+  },
+  {
+    "generator": "javascript-2",
+    "input": "wee",
+    "problem": "Can you write a program that makes a 'wee' sound a certain number of times? Let's say we want to hear it 5 times. Make sure your program counts how many times it made the sound.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeWeeSound = (times) => { let count = 0; for (let i = 0; i < times; i++)\n{ console.log('wee'); count++; } console.log(`We made the sound ${count}\ntimes!`); }; makeWeeSound(5);\n",
+    "id": 1488
+  },
+  {
+    "generator": "javascript-2",
+    "input": "phrase",
+    "problem": "Can you write a program that takes a sentence like 'The quick brown fox jumps over the lazy dog' and tells us how many words are in it?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countWords = (sentence) => sentence.split(' ').length;\n",
+    "id": 1489
+  },
+  {
+    "generator": "javascript-2",
+    "input": "similarly",
+    "problem": "Imagine you have a box of crayons. You want to take out all the red crayons and put them in a separate box. Can you write a program that does the same thing with colors instead of crayons? You can use the words \"red\", \"blue\", \"yellow\", \"green\", and \"purple\". Write a program that makes a new box of colors that has only the red ones in it.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getRedColors = (colors) => colors.filter(color => color === 'red');\n",
+    "id": 1490
+  },
+  {
+    "generator": "javascript-2",
+    "input": "slumber",
+    "problem": "If you want to tell a computer to put a sleepy face emoji 😴 into a box called 'sleep' how would you write that in code?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sleep = '😴';\n",
+    "id": 1491
+  },
+  {
+    "generator": "javascript-2",
+    "input": "threat",
+    "problem": "Imagine you are playing a game with your friend. You have a secret word, and your friend has to guess it. Every time they guess a letter, you tell them if it's in the word. Write a program that takes a guess and a secret word and tells you if the guess is in the word. Use a special word for the secret word, like 'banana' or 'robot'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isLetterInWord = (guess, word) => word.includes(guess);\n",
+    "id": 1492
+  },
+  {
+    "generator": "javascript-2",
+    "input": "main",
+    "problem": "Let's say we have a bunch of colorful blocks, and we want to make a tower. We'll use the word 'main' to represent the blocks in our tower. Can you write a code that will tell us how many blocks are in our tower?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const main = () => { let tower = ['red', 'blue', 'green']; return tower.length; }\n",
+    "id": 1493
+  },
+  {
+    "generator": "javascript-2",
+    "input": "monarch",
+    "problem": "Imagine a king, the monarch, has a special crown with gems. Each gem has a special name. Can you write a program that lets us see all the names of the gems on the crown?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const crownGems = ['ruby', 'sapphire', 'emerald']; console.log(crownGems);\n",
+    "id": 1494
+  },
+  {
+    "generator": "javascript-2",
+    "input": "ramp",
+    "problem": "Imagine you're building a ramp for your toy car. You want to know how many blocks you need to make the ramp taller. If you want to add 2 blocks each time, can you write a program that tells you how many blocks you need to build the ramp to a certain height?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const blocksNeeded = (height) => height * 2;\n",
+    "id": 1495
+  },
+  {
+    "generator": "javascript-2",
+    "input": "patent",
+    "problem": "Let's say you have a special box that can only hold one toy at a time. You want to write a program to keep track of which toy is in the box. If you put a toy in the box, the program should remember it. If you take a toy out, the program should remember that the box is empty. Can you write a program that does this using JavaScript?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const box = () => { let toy = null; return { putToy: (newToy) => toy = newToy,\ngetToy: () => toy }; };\"\n",
+    "id": 1496
+  },
+  {
+    "generator": "javascript-2",
+    "input": "rover",
+    "problem": "Let's imagine a rover driving across a field. The rover can only move forward or backward. Can you write a program that tells the rover what direction to go? It should make the rover go forward if we tell it 'forward', and backward if we tell it 'backward'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const moveRover = (direction) => { if (direction === 'forward') {\nconsole.log('Rover moving forward!'); } else if (direction === 'backward') {\nconsole.log('Rover moving backward!'); } };\n",
+    "id": 1497
+  },
+  {
+    "generator": "javascript-2",
+    "input": "rapport",
+    "problem": "Let's say you have a box of crayons. You want to make a program that tells you how many crayons are left in the box after you color a picture. Can you write a program that does this? Remember, the program should start with a certain number of crayons and then take away the crayons you used to color.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const crayonsLeft = (crayonsUsed) => 12 - crayonsUsed;\n",
+    "id": 1498
+  },
+  {
+    "generator": "javascript-2",
+    "input": "abstract",
+    "problem": "Let's imagine we have a box of toys. We want to write a program that adds a new toy to the box. Can you write a code that adds a 'car' to our toy box?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addToy = (toy) => { return ['car']; }\n",
+    "id": 1499
+  },
+  {
+    "generator": "javascript-2",
+    "input": "vocal",
+    "problem": "Can you write a program that makes a robot say \"Hello!\" three times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sayHello = () => { console.log(\"Hello!\"); console.log(\"Hello!\");\nconsole.log(\"Hello!\"); };\n",
+    "id": 1500
+  },
+  {
+    "generator": "javascript-2",
+    "input": "puzzle",
+    "problem": "Can you write a program that takes a number, like the number of puzzle pieces in a box, and tells us if it's an even number or an odd number? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isEven = (num) => num % 2 === 0 ? 'Even' : 'Odd';\"\n",
+    "id": 1501
+  },
+  {
+    "generator": "javascript-2",
+    "input": "astonishment",
+    "problem": "Let's imagine a robot that can only say 'Wow!' a certain number of times. Can you write a program to make the robot say 'Wow!' five times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const wowRobot = () => { for (let i = 0; i < 5; i++) { console.log('Wow!'); } };\n",
+    "id": 1502
+  },
+  {
+    "generator": "javascript-2",
+    "input": "universe",
+    "problem": "Imagine the universe is a big box and we have some planets inside. Can you write a program that adds a new planet to the universe? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addPlanet = (universe, planet) => [...universe, planet];\n",
+    "id": 1503
+  },
+  {
+    "generator": "javascript-2",
+    "input": "concomitant",
+    "problem": "Let's say we have a group of friends who love to play games. Each friend has a special power. Can you write a program that shows us the friends' names and their powers, one by one? We want to be able to easily add new friends to the group later.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const friends = [ { name: 'Alice', power: 'Super Speed' }, { name: 'Bob',\npower: 'Telekinesis' }, { name: 'Charlie', power: 'Invisibility' } ];\nfriends.forEach(friend => console.log(`Name: ${friend.name}, Power:\n${friend.power}`));\"\n",
+    "id": 1504
+  },
+  {
+    "generator": "javascript-2",
+    "input": "paradoxical",
+    "problem": "Imagine a magical box that can only hold one thing at a time. If you put a red ball in the box, and then try to put a blue ball in, what happens to the red ball? Can you write a program that shows how this works? You can use the words 'red', 'blue', and 'box' in your program.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const box = (color) => { return color; };\n",
+    "id": 1505
+  },
+  {
+    "generator": "javascript-4",
+    "input": "salvage",
+    "problem": "Imagine you're playing a game where you collect treasure. You have a bag that can hold only 5 treasures. You find 8 treasures. Write a code to save as many treasures as possible in your bag, and tell me how many treasures you had to leave behind.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const saveTreasures = (bagSize, treasuresFound) => { let savedTreasures =\nMath.min(bagSize, treasuresFound); let leftBehind = treasuresFound -\nsavedTreasures; return `You saved ${savedTreasures} treasures and left\n${leftBehind} behind.`; };\n",
+    "id": 1506
+  },
+  {
+    "generator": "javascript-4",
+    "input": "condominium",
+    "problem": "Imagine you're building a condo building with many apartments. Each apartment has a number, like Apartment 1, Apartment 2, and so on. You want to write a code that takes the apartment number as an input and tells you if the apartment is on an even or odd floor. Write a JavaScript code that takes an apartment number as input and tells you if it's an even or odd floor. For example, if the apartment number is 4, it should say 'Even'. If it's 5, it should say 'Odd'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isEvenFloor = (apartmentNumber) => { if (apartmentNumber %\n2 === 0) { return 'Even'; } else { return 'Odd'; } }; ```\"\n",
+    "id": 1507
+  },
+  {
+    "generator": "javascript-4",
+    "input": "corrode",
+    "problem": "Imagine a robot that eats metal. Every time it eats, the metal it eats gets smaller and smaller, until it disappears completely. If the robot starts with a piece of metal that is 10 units big, and it eats 1 unit of metal each time, how many times does the robot have to eat before the metal is gone? Write a code that would tell you the answer, like how many times the robot has to eat to make the metal disappear!<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const corrode = (metal) => { let timesEaten = 0; while (metal >\n0) { metal -= 1; timesEaten += 1; } return timesEaten; }; ```\"\n",
+    "id": 1508
+  },
+  {
+    "generator": "javascript-4",
+    "input": "quest",
+    "problem": "Imagine you're on a quest to find a hidden treasure! You're given a list of clues, but they're scrambled! Your mission is to create a special code that will unscramble the clues and reveal the treasure's location. Let's say the clue is a word like 'secret' and you need to change it to 'tecsre'. How can you write a code to do this for any scrambled word?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const unscramble = (word) => word.split('').reverse().join('');\n```\"\n",
+    "id": 1509
+  },
+  {
+    "generator": "javascript-4",
+    "input": "exuberant",
+    "problem": "Imagine you have a basket of colorful bouncy balls. You want to add a new bouncy ball, but only if the basket already has at least 5 balls. Write a code that checks the number of bouncy balls in your basket and adds the new one if there are enough. You can use the variable 'basket' to represent the number of balls in the basket.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addBall = (basket) => { if (basket >= 5) { return basket + 1; } else {\nreturn basket; } };\n",
+    "id": 1510
+  },
+  {
+    "generator": "javascript-4",
+    "input": "county",
+    "problem": "Imagine you have a box of crayons. You want to know how many crayons are in the box. You can use a special code called 'JavaScript' to count them. Write some code that counts how many crayons are in a box of crayons called 'crayons'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countCrayons = (crayons) => crayons.length;\n",
+    "id": 1511
+  },
+  {
+    "generator": "javascript-4",
+    "input": "club",
+    "problem": "Imagine a club with different members. Each member has a name and a favorite color. Write a program that tells us the favorite color of a member named 'Alice'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const getFavoriteColor = (memberName) => { const club = { \"Alice\": \"blue\",\n\"Bob\": \"red\", \"Charlie\": \"green\" }; return club[memberName]; };'\n",
+    "id": 1512
+  },
+  {
+    "generator": "javascript-4",
+    "input": "coast",
+    "problem": "Imagine you're on a beach and you want to build a sandcastle. Each time you add a bucket of sand, you shout \"Coast!\" Write a code that will shout \"Coast!\" the same number of times as the number of buckets of sand you have. Use the number `buckets` to tell the code how many times to shout.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const shoutCoast = (buckets) => { for (let i = 0; i < buckets; i++) {\nconsole.log(\"Coast!\"); } };\n",
+    "id": 1513
+  },
+  {
+    "generator": "javascript-4",
+    "input": "unanimous",
+    "problem": "Imagine you have a group of friends, each holding a piece of candy. We want to know if everyone has the same kind of candy. How can we write a code that tells us if all the candies are the same? Let's say the candies are represented as words like 'chocolate', 'lollipop', 'gummy', etc. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const areAllCandiesSame = (candies) => { if (candies.length ===\n0) { return true; } const firstCandy = candies[0]; for (let i = 1; i <\ncandies.length; i++) { if (candies[i] !== firstCandy) { return false; } } return\ntrue; }; ```\"\n",
+    "id": 1514
+  },
+  {
+    "generator": "javascript-4",
+    "input": "vain",
+    "problem": "If you have a bunch of toys, but you're not playing with them, are you being vain? Write a JavaScript function called `isVain` that takes a number of toys and checks if you're being vain. It should return `true` if you're being vain (not playing) and `false` if you're not. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isVain = (toys) => toys > 0; ```\"\n",
+    "id": 1515
+  },
+  {
+    "generator": "javascript-4",
+    "input": "diver",
+    "problem": "Imagine you're a computer and you need to tell if someone is a 'diver' based on their favorite activity. If the activity is 'diving', then they are a diver. Write a code that takes an activity as input and tells us if someone is a diver. You can use this code: ```javascript function isDiver(activity) { // Your code goes here } ```<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isDiver = (activity) => activity === 'diving'; ```\"\n",
+    "id": 1516
+  },
+  {
+    "generator": "javascript-4",
+    "input": "babysitter",
+    "problem": "Imagine you are a babysitter and need to write a code to count how many kids you are watching. You have a list of their names, and you want to know how many kids there are. Can you write a code that tells you how many kids are in the list? For example, if the list is ['Lily', 'Tom', 'Sarah'], your code should tell you there are 3 kids.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countKids = (kids) => kids.length;\n",
+    "id": 1517
+  },
+  {
+    "generator": "javascript-4",
+    "input": "pleasantly",
+    "problem": "Can you write a code that takes a word and tells us if it feels happy or sad? We'll say that words like 'sunshine' and 'laughter' are happy and words like 'rain' and 'sadness' are sad. If the word doesn't fit in either category, it's just 'neutral'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const mood = (word) => { if (word === 'sunshine' || word === 'laughter') {\nreturn 'happy'; } else if (word === 'rain' || word === 'sadness') { return\n'sad'; } else { return 'neutral'; } };\n",
+    "id": 1518
+  },
+  {
+    "generator": "javascript-4",
+    "input": "cultivator",
+    "problem": "Imagine a farmer who uses a special machine called a 'cultivator' to help plants grow. The cultivator takes in seeds and water, and then gives out a tasty fruit. Write a JavaScript function called 'cultivator' that takes in two things: 'seeds' (a number representing how many seeds) and 'water' (a number representing how much water). It should then return the amount of fruit produced, which is calculated by adding the seeds and water together.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const cultivator = (seeds, water) => seeds + water;\n",
+    "id": 1519
+  },
+  {
+    "generator": "javascript-4",
+    "input": "bristle",
+    "problem": "Imagine you have a box of colorful brushes. You want to count how many of each color you have. If you have 3 red brushes, 2 blue brushes, and 1 green brush, write a program to tell you how many brushes you have in total.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'```javascript const brushes = { \"red\": 3, \"blue\": 2, \"green\": 1 }; const\ntotalBrushes = () => { let count = 0; for (const color in brushes) { count +=\nbrushes[color]; } return count; }; ```'\n",
+    "id": 1520
+  },
+  {
+    "generator": "javascript-4",
+    "input": "secretive",
+    "problem": "Imagine you have a secret message that's hidden inside a box. You want to keep the message safe, so you put a lock on the box. The lock has a special code, and only people who know the code can open the box and see the message. In computer science, we use a similar idea called 'encryption' to keep information safe. In our program, we want to 'lock' a message by replacing each letter in the message with a secret code. We'll use numbers to represent the letters. Write a code that turns a message into a secret code. The code will replace each letter with the number that matches its position in the alphabet (A=1, B=2, C=3, etc.). For example, if the message is \"Hello\", your code should turn it into the secret code \"8 5 12 12 15\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const encodeMessage = (message) => { let encodedMessage = ''; for (let i = 0; i\n< message.length; i++) { let letter = message[i].toUpperCase(); let code =\nletter.charCodeAt(0) - 64; encodedMessage += code + ' '; } return\nencodedMessage.trim(); };\n",
+    "id": 1521
+  },
+  {
+    "generator": "javascript-4",
+    "input": "conceited",
+    "problem": "Imagine you have a robot that can only say one word: \"conceited.\" How would you write a program that makes the robot say that word three times? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const robotSays = () => { console.log('conceited'); console.log('conceited');\nconsole.log('conceited'); };\n",
+    "id": 1522
+  },
+  {
+    "generator": "javascript-4",
+    "input": "loneliness",
+    "problem": "If 'loneliness' is a feeling that makes you sad because you are all alone, how can we write a code that makes sure there is always at least one 'L' in the word 'loneliness' so it never feels lonely?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeLonelinessHappy = (word) => { if (word.includes('L')) {return word;}\nelse {return 'L' + word;} }\n",
+    "id": 1523
+  },
+  {
+    "generator": "javascript-4",
+    "input": "edge",
+    "problem": "Imagine a group of friends playing tag. The person who is 'it' is standing at the 'edge' of the playground. Let's say the playground is a square, and we can describe its corners using the letters 'A', 'B', 'C', and 'D'. Can you write a code that tells us which corner the 'it' person is standing at? Let's say that the 'it' person is at corner 'B'. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findEdge = (corner) => corner;\n",
+    "id": 1524
+  },
+  {
+    "generator": "javascript-4",
+    "input": "erroneous",
+    "problem": "Imagine you have a robot that can only move forward or backward. If you tell it to go 'forward 5 steps' and then 'backward 3 steps', how many steps will it have moved in total? Write a JavaScript function called `robotSteps` that takes two numbers (the number of steps forward and the number of steps backward) and returns the total number of steps the robot moved.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const robotSteps = (forwardSteps, backwardSteps) => forwardSteps\n+ backwardSteps; ```\"\n",
+    "id": 1525
+  },
+  {
+    "generator": "javascript-4",
+    "input": "loudspeaker",
+    "problem": "Imagine a loudspeaker that can only say one word at a time. If you want it to say \"LOUDSPEAKER\", how many times will it have to say a word?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countWords = (word) => word.split('').length; countWords('LOUDSPEAKER')\n",
+    "id": 1526
+  },
+  {
+    "generator": "javascript-4",
+    "input": "uncouth",
+    "problem": "Imagine a robot that can only say 'uncouth' over and over again. How can we write a code that makes the robot say 'uncouth' 5 times?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const robotSpeak = () => { for (let i = 0; i < 5; i++) {\nconsole.log('uncouth'); } }; ```\"\n",
+    "id": 1527
+  },
+  {
+    "generator": "javascript-4",
+    "input": "relieve",
+    "problem": "Imagine you have a box full of toys. You want to take out the toys one by one and put them into another box. How could you use a special computer tool called a 'function' to help you move all the toys from the first box to the second box, one at a time?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const moveToys = (toys) => { let emptyBox = []; while\n(toys.length > 0) { emptyBox.push(toys.shift()); } return emptyBox; }; ```\"\n",
+    "id": 1528
+  },
+  {
+    "generator": "javascript-4",
+    "input": "fake",
+    "problem": "Imagine you have a robot that can only say 'fake' or 'real'. You tell it to say 'fake' if a word is spelled backwards, and 'real' if it is spelled forwards. Write a code that tells the robot what to say, using the word 'banana' as an example.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const checkWord = (word) => word === word.split('').reverse().join('') ? 'real'\n: 'fake';\"\n",
+    "id": 1529
+  },
+  {
+    "generator": "javascript-4",
+    "input": "infer",
+    "problem": "Imagine you have a box of crayons. You can only see the colors that are sticking out of the box. If there's a red crayon sticking out, can you infer that there are only red crayons in the box? Write a JavaScript function called `inferCrayons` that takes an array of crayon colors as input and returns `true` if the first color in the array is the only color in the array, and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const inferCrayons = (crayons) => crayons.every(color => color\n=== crayons[0]); ```\"\n",
+    "id": 1530
+  },
+  {
+    "generator": "javascript-4",
+    "input": "inside",
+    "problem": "Imagine a box. We put some toys inside. We want to count how many toys are inside. Write a program that will count the number of toys in the box. The box will tell us the toys it holds in a list.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = (toys) => toys.length;\n",
+    "id": 1531
+  },
+  {
+    "generator": "javascript-4",
+    "input": "purchase",
+    "problem": "Imagine you're buying a toy car at a store. The car costs 5 dollars, but you have a coupon for 2 dollars off. Write a code that tells us how much money you'll need to pay! Use the word \"purchase\" in your code.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const purchase = () => 5 - 2;\n",
+    "id": 1532
+  },
+  {
+    "generator": "javascript-4",
+    "input": "unemployed",
+    "problem": "Imagine you have a special box that can only hold one thing at a time. You want to use this box to store the word 'unemployed'. Then you want to store a number, like '10'. How would you write a simple code to do this? Remember, the box can only hold one thing at a time, so you need to replace what's already inside with the new thing.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript let box = 'unemployed'; box = 10; ```\"\n",
+    "id": 1533
+  },
+  {
+    "generator": "javascript-4",
+    "input": "inhabitant",
+    "problem": "Imagine you're building a magical forest with different types of inhabitants. Each inhabitant can be a 'Fairy', 'Gnome', or 'Troll'. We can use a special word called 'type' to tell us what kind of inhabitant it is. How would you write a code that tells us the type of an inhabitant if you only know their name? For example, if the inhabitant's name is 'Luna', their type is 'Fairy'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const inhabitantType = (name) => { if (name === 'Luna') { return\n'Fairy'; } else if (name === 'Grump') { return 'Troll'; } else if (name ===\n'Flicker') { return 'Gnome'; } else { return 'Unknown'; } }; ```\"\n",
+    "id": 1534
+  },
+  {
+    "generator": "javascript-4",
+    "input": "hearten",
+    "problem": "Can you write a code that makes the word 'hearten' appear on the screen 3 times? Make it look like this: hearten hearten hearten<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const repeatWord = (word, times) => { let result = ''; for (let i = 0; i <\ntimes; i++) { result += word + '\\n'; } return result; };\nconsole.log(repeatWord('hearten', 3));\n",
+    "id": 1535
+  },
+  {
+    "generator": "javascript-4",
+    "input": "dentist",
+    "problem": "If I tell the computer to say the name of each letter in \"dentist\" one by one, how many times will it speak?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length; console.log(countLetters(\"dentist\"));\n",
+    "id": 1536
+  },
+  {
+    "generator": "javascript-4",
+    "input": "slavery",
+    "problem": "Imagine you have a group of robots, and each robot has a job. You want to tell each robot what job to do. How can you make sure each robot knows its own job and doesn't get confused with another robot's job? Think about how we use special words in JavaScript to tell computers what to do.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'```javascript const robotJobs = { \"Robot 1\": \"Cleaning\", \"Robot 2\": \"Cooking\",\n\"Robot 3\": \"Gardening\" }; const getRobotJob = (robotName) =>\nrobotJobs[robotName]; ```'\n",
+    "id": 1537
+  },
+  {
+    "generator": "javascript-4",
+    "input": "reconcile",
+    "problem": "Imagine you have two groups of friends playing games. The first group has 5 friends, and the second group has 3 friends. How can you write a code to make sure both groups have the same number of friends? Hint: You can change the number of friends in each group by adding or removing friends.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const reconcileFriends = (group1, group2) => { if (group1 > group2) { return\ngroup1 - (group1 - group2); } else { return group2 - (group2 - group1); } };\n",
+    "id": 1538
+  },
+  {
+    "generator": "javascript-4",
+    "input": "desirable",
+    "problem": "Imagine you're making a game where you can collect different kinds of stickers. You want to keep track of how many of each sticker you have. You decide to use a special box called a 'collection' to store your stickers. This 'collection' has special slots where you can put stickers. The slots are labeled with the sticker name, like 'rainbow', 'star', or 'dinosaur'. Each slot also has a number that tells you how many of that sticker you have. Write a code that lets you add one more 'rainbow' sticker to your collection. You already have 3 'rainbow' stickers. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addSticker = (collection, stickerName) => { collection[stickerName] =\ncollection[stickerName] + 1; return collection; };\n",
+    "id": 1539
+  },
+  {
+    "generator": "javascript-4",
+    "input": "voluptuous",
+    "problem": "Imagine you have a big box of yummy treats, and you want to know how many different types of treats are in the box. You have a special list that tells you what each treat is. Can you write a special code that tells you how many different types of treats are in the box? Here is your list of treats: `[ 'cookie', 'cookie', 'chocolate', 'candy', 'cookie', 'chocolate', 'candy' ]`<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countTreatTypes = (treatList) => { let uniqueTreats = new\nSet(treatList); return uniqueTreats.size; }; ```\"\n",
+    "id": 1540
+  },
+  {
+    "generator": "javascript-4",
+    "input": "goodness",
+    "problem": "Imagine you have a box of crayons. You want to know if there are more than 5 crayons in the box. Write a code to check if there are more than 5 crayons in the box. Use the variable 'crayons' to represent the number of crayons.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isMoreThanFiveCrayons = (crayons) => crayons > 5;\n",
+    "id": 1541
+  },
+  {
+    "generator": "javascript-4",
+    "input": "cataclysm",
+    "problem": "Imagine a big, scary CATaclysm! It's so big, it changes the number of letters in the word 'cataclysm' to match the number of letters in the word 'disaster'! What is the new word?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const cataclysm = () => 'disaster'.length;\n",
+    "id": 1542
+  },
+  {
+    "generator": "javascript-4",
+    "input": "blooming",
+    "problem": "Imagine a flower that blooms every day. We want to write a program that shows how many days it takes for the flower to bloom 10 times. What code do we need to make this happen?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const bloomCount = 10; const daysToBloom = (bloomCount) =>\nbloomCount; console.log(daysToBloom(bloomCount)); ```\"\n",
+    "id": 1543
+  },
+  {
+    "generator": "javascript-4",
+    "input": "genealogy",
+    "problem": "Imagine you're making a family tree on your computer. You want to write a code that lets you add a new family member to the tree. Each family member has a name and a list of their children. How would you write a code that adds a new child to a family member's list of children? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addChild = (familyMember, childName) => {\nfamilyMember.children.push(childName); }; ```\"\n",
+    "id": 1544
+  },
+  {
+    "generator": "javascript-5",
+    "input": "notional",
+    "problem": "Imagine a magical box that can only hold one thing at a time. If you put a 'cat' in the box, and then put a 'dog' in the box, what is in the box? Write a JavaScript function called `magicalBox` that takes an item and returns the item. You can use the following example to test your function: `magicalBox('cat')` should return 'cat', and `magicalBox('dog')` should return 'dog'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const magicalBox = (item) => item; ```\"\n",
+    "id": 1545
+  },
+  {
+    "generator": "javascript-5",
+    "input": "fairy",
+    "problem": "Fairies are magical creatures! If we want to make a list of all the fairies we know, and each fairy has a name and a favorite color, how can we store this information in a computer? Write a JavaScript function that takes a fairy's name and favorite color as input and stores it in a way that we can easily find it later.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addFairy = (name, color) => { let fairies = {};\nfairies[name] = color; return fairies; }; ```\"\n",
+    "id": 1546
+  },
+  {
+    "generator": "javascript-5",
+    "input": "trim",
+    "problem": "Imagine you have a long list of your favorite things to do, but it's too long! We need to make it shorter. Write a code that takes your list and cuts off the last few items so it's only the first 5 things. Let's call this code 'trim'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const trim = (list) => list.slice(0, 5);\n",
+    "id": 1547
+  },
+  {
+    "generator": "javascript-5",
+    "input": "narrate",
+    "problem": "Imagine you're telling a story about a robot who goes on an adventure. You want the robot to say things like \"I'm exploring a jungle!\" or \"I found a shiny treasure!\" How would you write a JavaScript function to make the robot narrate its story? The function should take a string that's the sentence the robot wants to say, and print it out with the robot's name in front of it. The robot's name is 'Robo'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const narrate = (sentence) => { console.log(`Robo: ${sentence}`);\n}; ```\"\n",
+    "id": 1548
+  },
+  {
+    "generator": "javascript-5",
+    "input": "rasp",
+    "problem": "Imagine you have a robot that can only say \"rasp\" over and over. If you tell the robot to say \"rasp\" 5 times, how many letters will it say in total?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (times) => times * 4;\n",
+    "id": 1549
+  },
+  {
+    "generator": "javascript-5",
+    "input": "shirt",
+    "problem": "Imagine the word \"shirt\" is like a box. Each letter in the word is an item in the box. Can you write a code to tell us how many items are in the box?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countLetters = (word) => word.length; console.log(countLetters('shirt'));\n",
+    "id": 1550
+  },
+  {
+    "generator": "javascript-5",
+    "input": "encouragement",
+    "problem": "Imagine you're building a robot that can count how many times you say 'encouragement' in a sentence. Write a program for the robot that tells you how many times the word 'encouragement' appears in a sentence you type.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countEncouragement = (sentence) => sentence.split(' ').filter(word => word\n=== 'encouragement').length;\n",
+    "id": 1551
+  },
+  {
+    "generator": "javascript-5",
+    "input": "fabrication",
+    "problem": "Imagine you're building a robot that can tell stories. The robot needs to know how to make up words by combining letters. If you give it a list of letters and tell it how many letters to use, it should create a word using those letters. Write a function that takes in a list of letters and a number, and outputs a new word made from those letters. The word should have the same number of letters as the number you give it. For example, if you give it the letters ['a', 'b', 'c', 'd', 'e'] and the number 3, it might output 'abc' or 'bde'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeWord = (letters, length) => { let word = ''; for (let i = 0; i <\nlength; i++) { word += letters[Math.floor(Math.random() * letters.length)]; }\nreturn word; }\n",
+    "id": 1552
+  },
+  {
+    "generator": "javascript-5",
+    "input": "statue",
+    "problem": "Imagine you have a statue made of many tiny blocks. How would you tell a computer to count the number of blocks used to make the statue? Write a program that counts how many letters are in the word 'statue'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countLetters = (word) => { let count = 0; for (let i = 0; i\n< word.length; i++) { count++; } return count; } ```\"\n",
+    "id": 1553
+  },
+  {
+    "generator": "javascript-5",
+    "input": "ego",
+    "problem": "Imagine you have a robot friend named Ego. Ego loves to say his name over and over, but he gets tired after saying it a few times. Write a program that tells Ego how many times he's said his name. But make sure it stops after he's said it 5 times.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countEgo = () => { let count = 0; while (count < 5) { console.log('Ego');\ncount = count + 1; } };\n",
+    "id": 1554
+  },
+  {
+    "generator": "javascript-5",
+    "input": "used",
+    "problem": "Imagine you have a box of crayons. You want to know how many crayons are left after you use some. Write a code that tells you how many are left after using some of the crayons.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const crayonsLeft = (totalCrayons, usedCrayons) => totalCrayons - usedCrayons;\n",
+    "id": 1555
+  },
+  {
+    "generator": "javascript-5",
+    "input": "spur",
+    "problem": "Imagine you're a racehorse trainer. You have a list of horses called 'horses' and you want to give each horse a special 'spur' to help them run faster. Write a code to add a 'spur' to each horse in the list. You should have the same number of horses and spurs after running the code.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addSpurs = (horses) => horses.map(horse => `${horse} spur`);\n",
+    "id": 1556
+  },
+  {
+    "generator": "javascript-5",
+    "input": "optimistic",
+    "problem": "Let's say we have a special 'optimism meter' that tells us how optimistic someone is. If the meter reads a number bigger than 5, we say they are 'very optimistic'. If it's 5 or lower, they are 'not very optimistic'. Write a JavaScript function called `optimismLevel` that takes a number as input (representing the meter reading) and returns 'very optimistic' or 'not very optimistic' based on the reading.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const optimismLevel = (meterReading) => meterReading > 5 ? 'very optimistic' :\n'not very optimistic';\"\n",
+    "id": 1557
+  },
+  {
+    "generator": "javascript-5",
+    "input": "reproductive",
+    "problem": "Imagine you have a box of toys. You want to keep adding more toys to the box, but you only have room for 10 toys. If you try to add more than 10 toys, the box overflows and you can't add anymore. Write a code that takes the number of toys you already have in the box and the number of toys you want to add, and tells you how many toys you can fit in the box.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addToys = (currentToys, newToys) => { if (currentToys + newToys <= 10) {\nreturn currentToys + newToys; } else { return 10; } }\n",
+    "id": 1558
+  },
+  {
+    "generator": "javascript-5",
+    "input": "resell",
+    "problem": "You are running a lemonade stand. You buy lemons for 10 cents each and sell lemonade for 25 cents a cup. Write a JavaScript function called `lemonadeProfit` that takes the number of lemons you buy as input and calculates how much money you make after selling all the lemonade. Assume you can always sell all the lemonade you make.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const lemonadeProfit = (lemons) => (lemons * 25) - (lemons * 10);\n",
+    "id": 1559
+  },
+  {
+    "generator": "javascript-5",
+    "input": "vegetarian",
+    "problem": "Imagine a computer program that checks if a word is \"vegetarian.\" Write a program that tells us if a word is vegetarian by checking if the letters 'v', 'e', 'g', 'e', 't', 'a', 'r', 'i', 'a', 'n' appear in the correct order. For example, \"vegetari\" is NOT vegetarian because it is missing the last 'n', but \"vegetarian\" IS vegetarian. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isVegetarian = (word) => { let i = 0; for (let letter of word) { if\n(letter === 'v' && i === 0 || letter === 'e' && i === 1 || letter === 'g' && i\n=== 2 || letter === 'e' && i === 3 || letter === 't' && i === 4 || letter ===\n'a' && i === 5 || letter === 'r' && i === 6 || letter === 'i' && i === 7 ||\nletter === 'a' && i === 8 || letter === 'n' && i === 9) { i++; } } return i ===\n10; };\n",
+    "id": 1560
+  },
+  {
+    "generator": "javascript-5",
+    "input": "sedate",
+    "problem": "Imagine you have a magical word that makes you feel calm and peaceful. Let's call it \"sedate\". Write a program that takes a word as input and tells you if it's the same as the magical word. If it is, the program should say \"You feel calm and peaceful.\" Otherwise, it should say \"You are not feeling the magic.\" <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isSedate = (word) => word === 'sedate' ? 'You feel calm and peaceful.' :\n'You are not feeling the magic.';\"\n",
+    "id": 1561
+  },
+  {
+    "generator": "javascript-5",
+    "input": "uncertainty",
+    "problem": "Imagine you're playing a game where you have to guess a secret number. The game tells you if your guess is too high or too low. Write a JavaScript function called `guessNumber` that takes your guess and the game's feedback as input and tells you if your next guess should be higher or lower. Use 'higher' for 'too low' and 'lower' for 'too high'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const guessNumber = (guess, feedback) => feedback === 'too low' ? 'higher' :\n'lower';\"\n",
+    "id": 1562
+  },
+  {
+    "generator": "javascript-5",
+    "input": "unavoidable",
+    "problem": "Imagine you're playing a game where you collect stars. You can only collect a certain number of stars before the game ends. Let's say the limit is 10. If you have 12 stars, how many stars are you forced to leave behind? Write a JavaScript function called `starsLeft` that takes the number of stars you have as input and returns the number of stars you have to leave behind.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const starsLeft = (stars) => { if (stars > 10) { return stars -\n10; } else { return 0; } }; ```\"\n",
+    "id": 1563
+  },
+  {
+    "generator": "javascript-5",
+    "input": "nostril",
+    "problem": "Imagine you have a word like \"nostril\". Can you write a little code that tells us how many letters are in the word, but only counts the letters that are vowels (a, e, i, o, u)?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countVowels = (word) => { let vowelCount = 0; for (let i = 0; i <\nword.length; i++) { if (['a', 'e', 'i', 'o',\n'u'].includes(word[i].toLowerCase())) { vowelCount++; } } return vowelCount; };\n",
+    "id": 1564
+  },
+  {
+    "generator": "javascript-5",
+    "input": "knot",
+    "problem": "Imagine you have a rope with knots tied in it. Each knot represents a number. Write a code that takes the number of knots in the rope and tells you how many knots are left after you untie the first 3 knots.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const remainingKnots = (totalKnots) => totalKnots - 3;\n",
+    "id": 1565
+  },
+  {
+    "generator": "javascript-5",
+    "input": "analyst",
+    "problem": "Imagine you're a detective trying to figure out a secret code. You have a list of clues, but some clues are repeated! You want to know how many times each clue appears in the list. Write a code to help you count how many times each clue appears. You can use this code: ```javascript let clues = ['red', 'blue', 'green', 'red', 'blue', 'green', 'red']; ``` For example, if the list of clues is `['red', 'blue', 'green', 'red', 'blue', 'green', 'red']`, the code should tell you that 'red' appears 3 times, 'blue' appears 2 times, and 'green' appears 2 times.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countClues = (clues) => { let clueCounts = {}; for (let i =\n0; i < clues.length; i++) { let clue = clues[i]; if (clueCounts[clue]) {\nclueCounts[clue]++; } else { clueCounts[clue] = 1; } } return clueCounts; };\n```\"\n",
+    "id": 1566
+  },
+  {
+    "generator": "javascript-5",
+    "input": "need",
+    "problem": "Imagine you're building a robot that can only carry one thing at a time. It can either carry a 'toy' or 'snack'. Write a JavaScript code that checks if the robot is carrying a 'toy' and tells us if it needs to bring a 'snack' instead. You can use a variable called 'robotCarry' to store what the robot is holding.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const needsSnack = (robotCarry) => robotCarry === 'toy' ? true : false;\"\n",
+    "id": 1567
+  },
+  {
+    "generator": "javascript-5",
+    "input": "intrinsic",
+    "problem": "Imagine you have a box full of different toys. You want to know how many toys are in the box without looking inside. Can you write a code that counts how many toys are in the box? Here, we will use a special box called an array, that stores our toys. Let's say our box contains a ball, a doll, and a car. How many toys are there? Write a code that tells us the answer! <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countToys = (toys) => toys.length;\n",
+    "id": 1568
+  },
+  {
+    "generator": "javascript-5",
+    "input": "crackle",
+    "problem": "Imagine the word \"crackle\" is a code word for a secret message. Each letter represents a number, starting with 'a' = 1, 'b' = 2, and so on. Can you write a code that takes the word \"crackle\" and adds up all the numbers it represents? For example, 'cat' would be 3 + 1 + 20 = 25.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sumLetters = (word) => { let total = 0; for (let i = 0; i < word.length;\ni++) { total += word.charCodeAt(i) - 96; } return total; };\n",
+    "id": 1569
+  },
+  {
+    "generator": "javascript-5",
+    "input": "foreign",
+    "problem": "Imagine you have a special box that can only hold words from a different language, like Spanish or French. We call this box a 'foreign' box. If you put the word 'hello' in the box, it comes out as 'hola'. If you put 'goodbye', it comes out as 'adiós'. What happens if you put the word 'thank you' in the box? Write a JavaScript function that takes a word as input and returns the 'foreign' word using the same rules.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const translate = (word) => { if (word === 'hello') { return\n'hola'; } else if (word === 'goodbye') { return 'adiós'; } else if (word ===\n'thank you') { return 'gracias'; } else { return word; } }; ```\"\n",
+    "id": 1570
+  },
+  {
+    "generator": "javascript-5",
+    "input": "liberate",
+    "problem": "Imagine you have a bunch of crayons in a box, but some of them are broken! You want to throw away the broken crayons and only keep the good ones. Write a JavaScript function called `liberateCrayons` that takes a list of crayons (represented as words like 'red', 'blue', 'broken') and returns a new list with only the good crayons.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const liberateCrayons = (crayons) => crayons.filter(crayon =>\ncrayon !== 'broken'); ```\"\n",
+    "id": 1571
+  },
+  {
+    "generator": "javascript-5",
+    "input": "blink",
+    "problem": "Imagine you're a computer that can only 'blink' once every second. If you blink 5 times, how many seconds will have passed? Write a JavaScript function called `blinkTime` that takes the number of blinks as input and returns the total time in seconds.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const blinkTime = (blinks) => blinks * 1;\n",
+    "id": 1572
+  },
+  {
+    "generator": "javascript-5",
+    "input": "ravage",
+    "problem": "Imagine a robot that can only move forward or backward, but it can also 'ravage' the ground. Each time it ravage's, it destroys a piece of the ground. Write a program that tells us how much ground is left after the robot makes a series of moves. The robot starts at position 0. Here's how we'll describe the robot's moves: 'F' means forward, 'B' means backward, and 'R' means ravage. For example, if the robot moves 'FFRBB', there will be 2 pieces of ground left. Write a function called `groundLeft` that takes a string of moves as input and returns the amount of ground left.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const groundLeft = (moves) => {let ground = 0; let ravageCount = 0; for (let i =\n0; i < moves.length; i++) { if (moves[i] === 'F') {ground++;} else if (moves[i]\n=== 'B') {ground--;} else if (moves[i] === 'R') {ravageCount++;}} return ground\n- ravageCount;};\n",
+    "id": 1573
+  },
+  {
+    "generator": "javascript-5",
+    "input": "regard",
+    "problem": "Imagine you have a box of toys, and you want to know if a specific toy is inside. Write a program that checks if a toy is in the box. The program should tell you 'Yes' if the toy is there, and 'No' if it's not. Use the following list of toys: ['Car', 'Ball', 'Doll', 'Puzzle'].<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkToy = (toy) => { if (['Car', 'Ball', 'Doll', 'Puzzle'].includes(toy))\n{ return 'Yes'; } else { return 'No'; } };\n",
+    "id": 1574
+  },
+  {
+    "generator": "javascript-5",
+    "input": "hazardous",
+    "problem": "Imagine you're playing a game where you collect points. But there are some points that are dangerous – 'hazardous points' – and take away points instead of adding them. You have a list of numbers representing points you've collected, and some of them are 'hazardous'. Write a code to tell you how many 'hazardous' points you have in your list.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countHazardousPoints = (points) => points.filter(point => point <\n0).length;\n",
+    "id": 1575
+  },
+  {
+    "generator": "javascript-5",
+    "input": "restless",
+    "problem": "Imagine you are a robot and you have a special box that can only hold one thing at a time. You are given the instructions: 'Put the word 'restless' in the box, then take it out and put the word 'quiet' in the box.' What will be in the box after you follow these instructions?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const box = (word) => word; console.log(box('quiet'));\n",
+    "id": 1576
+  },
+  {
+    "generator": "javascript-5",
+    "input": "consul",
+    "problem": "Imagine you have a group of friends called 'consul' who are each good at different things. You want to find out how many of them are good at drawing. Write a code to count how many of them are good at drawing, given that you have a list of their names and the things they're good at. For example, if the list is `['Alice', 'Bob', 'Charlie'], ['drawing', 'sports', 'music']`, then your code should return `1` because only Alice is good at drawing.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countConsulSkills = (names, skills) => { let count = 0; for (let i = 0; i\n< names.length; i++) { if (skills[i].includes('drawing')) { count++; } } return\ncount; };\n",
+    "id": 1577
+  },
+  {
+    "generator": "javascript-5",
+    "input": "climax",
+    "problem": "Imagine you're writing a story about a superhero who is trying to reach the top of a mountain. The higher they climb, the more exciting the story gets! We can use numbers to represent how exciting the story is. Let's say the excitement level starts at 1, and it increases by 2 for every 100 meters climbed. Write a code that tells you how exciting the story is at a certain point in the climb! For example, if the superhero has climbed 300 meters, how exciting is the story? <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const getExcitementLevel = (metersClimbed) => { return 1 +\n(Math.floor(metersClimbed / 100) * 2); }; ```\"\n",
+    "id": 1578
+  },
+  {
+    "generator": "javascript-5",
+    "input": "adorn",
+    "problem": "Imagine you have a word like \"adorn\". Can you write a code that takes a word as input and adds a sparkly star to the beginning and end of the word? For example, if the word is 'adorn' the result should be '*adorn*' <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addStars = (word) => `*${word}*`\n",
+    "id": 1579
   },
   {
     "generator": "javascript-6",
     "input": "jest",
-    "problem": "Imagine you're telling a joke. Sometimes, you might say \"hehe\" instead of \"ha ha\". Write a program that takes a string like \"ha ha\" and replaces all the \"ha\" with \"hehe\" to make it sound a bit funnier. Your program should return the modified joke.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const makeFunnier = (joke) => joke.replace(/ha/g, 'hehe');\n",
-    "id": 1350
+    "problem": "Imagine you are writing a code to tell a joke. You want to store the word \"jest\" in a special box so you can use it later. How can you write a JavaScript code to put \"jest\" in a box called \"funnyWord\"?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const funnyWord = \"jest\";\n",
+    "id": 1580
   },
   {
     "generator": "javascript-6",
-    "input": "varied",
-    "problem": "Imagine you have a box of crayons. You want to know how many different colors are in the box, but the colors are mixed up! Write a JavaScript function called `countUniqueColors` that takes a list of crayon colors as input and returns the number of *different* colors in the box. For example, `countUniqueColors(['red', 'blue', 'green', 'red', 'blue'])` should return 3, because there are three unique colors: red, blue, and green.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countUniqueColors = (colors) => new Set(colors).size;\n",
-    "id": 1351
+    "input": "warehouse",
+    "problem": "Imagine a computer warehouse full of boxes. Each box holds a different kind of thing, like toys, clothes, or books. We need to keep track of how many boxes of each type we have. We use a special box called a 'count box' to store this information. The 'count box' has labels like 'toy', 'clothes', and 'book', and each label has a number that tells us how many boxes of that type are in the warehouse. Write a JavaScript function to add more boxes to our warehouse. It should take the type of the box ('toy', 'clothes', or 'book') and how many boxes were added as inputs. The function should then update the number in the 'count box' for that type. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const warehouse = { toy: 0, clothes: 0, book: 0 }; const addBoxes\n= (type, quantity) => { warehouse[type] += quantity; }; ```\"\n",
+    "id": 1581
   },
   {
     "generator": "javascript-6",
-    "input": "buildup",
-    "problem": "Imagine you are building a tower with blocks. You start with 1 block, then add 2 more, then 3 more, and so on. Write a JavaScript function called `buildTower` that takes the number of levels as input and returns the total number of blocks used to build the tower.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const buildTower = (levels) => { let totalBlocks = 0; for (let i = 1; i <=\nlevels; i++) { totalBlocks += i; } return totalBlocks; }\n",
-    "id": 1352
+    "input": "otherwise",
+    "problem": "Imagine you have a magic box that can give you a piece of candy if you tell it the right word. If you say \"please\" the box gives you a candy, otherwise it gives you nothing. Write a JavaScript function called `magicBox` that takes a word as input and returns \"candy\" if the word is \"please\", otherwise it returns \"nothing\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const magicBox = (word) => word === \"please\" ? \"candy\" : \"nothing\";'\n",
+    "id": 1582
   },
   {
-    "generator": "javascript-7",
-    "input": "storehouse",
-    "problem": "Imagine a computer as a storehouse. We can store different things in it, like numbers, words, and even lists of things. Write a JavaScript function called `storeItems` that takes in a list of items and puts them into a special 'storehouse' called an array. Your function should then return the number of items stored in the 'storehouse'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const storeItems = (items) => { return items.length; }\n",
-    "id": 1353
+    "generator": "javascript-6",
+    "input": "milkman",
+    "problem": "Imagine a milkman delivering milk to different houses. He has a list of houses and how many bottles of milk each house needs. Write a computer program that tells us how many total bottles of milk the milkman needs to deliver. Use JavaScript and pretend the houses and milk bottles are stored in an array called `milkDeliveries`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const totalBottles = (milkDeliveries) =>\nmilkDeliveries.reduce((sum, bottles) => sum + bottles, 0); ```\"\n",
+    "id": 1583
   },
   {
-    "generator": "javascript-7",
-    "input": "solace",
-    "problem": "Imagine you have a secret word that brings you solace. You want to share it with your friend, but only if they can guess it correctly. Write a JavaScript function called `checkSecretWord` that takes a word as input and returns \"True\" if it matches your secret word, and \"False\" otherwise. What would the code look like?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const checkSecretWord = (word) => word === 'solace'; ```\"\n",
-    "id": 1354
+    "generator": "javascript-6",
+    "input": "christen",
+    "problem": "Imagine you are writing a program that lets people choose a name for their pet. You want to make sure they don't accidentally use a name that's already taken. Write a code snippet that checks if a name is already taken. Let's say the name already taken is 'Buddy'. Write a JavaScript function called `isNameTaken` that takes a name as input and returns `true` if the name is 'Buddy', and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isNameTaken = (name) => name === 'Buddy'; ```\"\n",
+    "id": 1584
   },
   {
-    "generator": "javascript-7",
-    "input": "safari",
-    "problem": "Imagine you're on a safari and you want to keep track of the animals you see. Write a JavaScript function called `countAnimals` that takes an array of animal names as input. The function should return an object where each animal name is a key and the value is the number of times that animal appears in the array. For example, if the input is `['lion', 'zebra', 'elephant', 'lion', 'giraffe', 'zebra']`, the function should return: `{ lion: 2, zebra: 2, elephant: 1, giraffe: 1 }`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const countAnimals = (animals) => { const animalCounts = {}; for\n(const animal of animals) { if (animalCounts[animal]) { animalCounts[animal]++;\n} else { animalCounts[animal] = 1; } } return animalCounts; }; ```\"\n",
-    "id": 1355
+    "generator": "javascript-6",
+    "input": "modification",
+    "problem": "Imagine you have a list of your favorite foods. You want to add a new food to the list, but you also want to make sure your favorite food stays at the top of the list. Write a JavaScript function called `addFavoriteFood` that takes your list of favorite foods and a new food as input, and returns a new list with the new food added at the top, while keeping the original favorite food at the top.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addFavoriteFood = (foods, newFood) => [foods[0], newFood,\n...foods.slice(1)]; ```\"\n",
+    "id": 1585
   },
   {
-    "generator": "javascript-7",
-    "input": "disciple",
-    "problem": "Imagine you're teaching a group of new disciples how to code. You want to create a function that takes their name as input and welcomes them to the coding world. The function should return a friendly greeting like 'Welcome to coding, [name]!' Write a JavaScript function to do this.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const welcomeDisciple = (name) => `Welcome to coding, ${name}!`;\n",
-    "id": 1356
+    "generator": "javascript-6",
+    "input": "ideal",
+    "problem": "Imagine you have a box full of different coloured marbles. You want to write a program to count how many of each colour you have. What would you call this box in your program, and what type of data would it hold?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countMarbles = (marbles) => { let counts = {}; for (let marble of marbles)\n{ if (counts[marble]) { counts[marble]++; } else { counts[marble] = 1; } }\nreturn counts; }\n",
+    "id": 1586
   },
   {
-    "generator": "javascript-7",
-    "input": "likely",
-    "problem": "You're building a game where a character has a 70% chance of winning a battle. Write a JavaScript function called `battleOutcome` that returns 'Victory!' if the character wins, and 'Defeat!' if they lose. Use the `Math.random()` function to simulate the chance of winning.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const battleOutcome = () => Math.random() < 0.7 ? 'Victory!' : 'Defeat!';\"\n",
-    "id": 1357
+    "generator": "javascript-6",
+    "input": "mountaineering",
+    "problem": "Imagine a mountain climber scaling Mount Everest. They have a list of checkpoints they need to reach along the way. Let's say the checkpoints are stored in an array called `checkpoints`. Write a JavaScript function called `reachedSummit` that takes the `checkpoints` array as input. This function should return `true` if the climber has reached the summit (meaning they've reached the last checkpoint in the array), and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const reachedSummit = (checkpoints) => checkpoints.length > 0 &&\ncheckpoints[checkpoints.length - 1] === 'Summit'; ```\"\n",
+    "id": 1587
   },
   {
-    "generator": "javascript-7",
-    "input": "identifiable",
-    "problem": "Imagine you have a list of names, and you want to check if a specific name is in that list. Write a JavaScript function called `isNamePresent` that takes two inputs: a list of names (`names`) and a name to search for (`searchName`). The function should return `true` if the `searchName` is in the `names` list and `false` otherwise. For example, if `names` is ['Alice', 'Bob', 'Charlie'] and `searchName` is 'Bob', the function should return `true`. If `searchName` is 'David', the function should return `false`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isNamePresent = (names, searchName) => names.includes(searchName);\n",
-    "id": 1358
+    "generator": "javascript-6",
+    "input": "addict",
+    "problem": "If someone is addicted to video games, they might spend hours playing each day. Write a function that takes a number of hours spent playing video games as input and returns the word \"addict\" if it is more than 5 hours, and returns \"casual\" otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'const isAddict = (hours) => hours > 5 ? \"addict\" : \"casual\";'\n",
+    "id": 1588
   },
   {
-    "generator": "javascript-7",
-    "input": "attrition",
-    "problem": "Imagine you have a group of friends playing a game. Each round, some friends drop out. Write a JavaScript function called `attrition` that takes the starting number of friends and the number of friends who drop out each round as input. The function should return how many friends are left after a given number of rounds. For example, if you start with 10 friends and 2 drop out each round, after 3 rounds there would be 4 friends left.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const attrition = (startingFriends, friendsOutPerRound, rounds) =>\nstartingFriends - (friendsOutPerRound * rounds);\n",
-    "id": 1359
+    "generator": "javascript-6",
+    "input": "covenant",
+    "problem": "Imagine you have a special box that holds promises. Each promise is a piece of information, like a number or a word. When you put a promise in the box, it's sealed with a special symbol. To open the box and get the promise, you need to know the right symbol. Write a program (function) called `openPromiseBox` that takes two things as input: 1. The symbol used to seal the promise 2. The promise (the information) inside the box. The program should only open the box and return the promise if the symbol matches the one you give it. Otherwise, it should return an empty promise (an empty string).<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const openPromiseBox = (symbol, promise) => symbol === 'secret' ? promise : '';\"\n",
+    "id": 1589
   },
   {
-    "generator": "javascript-7",
-    "input": "means",
-    "problem": "If you have a list of numbers, what does it 'mean' to find the average of those numbers? Write a JavaScript function called `calculateAverage` that takes a list of numbers as input and returns their average.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const calculateAverage = (numbers) => { let sum = 0; for (let i =\n0; i < numbers.length; i++) { sum += numbers[i]; } return sum / numbers.length;\n}; ```\"\n",
-    "id": 1360
+    "generator": "javascript-6",
+    "input": "succulent",
+    "problem": "Imagine a plant called \"Succulent\" that grows leaves that are each named after a different number. It has a \"leaves\" property that is a list of these leaf names. How would you write a JavaScript function that takes a Succulent plant and tells us how many leaves it has?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countLeaves = (succulent) => succulent.leaves.length; ```\"\n",
+    "id": 1590
   },
   {
-    "generator": "javascript-7",
-    "input": "midwife",
-    "problem": "Imagine a midwife helping a mother give birth. The midwife is there to guide the baby into the world, but the baby itself does all the work. Write a JavaScript function called `guideBaby` that takes a baby's name as a string and returns a string that tells the baby they are doing great. The string should include the baby's name.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const guideBaby = (babyName) => `You're doing great, ${babyName}!`\n",
-    "id": 1361
+    "generator": "javascript-6",
+    "input": "calmness",
+    "problem": "Imagine you're feeling calm and peaceful, like a still lake. Write a JavaScript function called `lake` that takes a number representing the depth of the lake as input and returns a message describing the lake's depth. If the depth is 5 meters or less, return 'The lake is shallow'. If the depth is between 5 and 10 meters, return 'The lake is medium depth'. If the depth is greater than 10 meters, return 'The lake is deep'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const lake = (depth) => { if (depth <= 5) { return 'The lake is shallow'; } else\nif (depth <= 10) { return 'The lake is medium depth'; } else { return 'The lake\nis deep'; } };\n",
+    "id": 1591
   },
   {
-    "generator": "javascript-7",
-    "input": "takeout",
-    "problem": "Imagine you are ordering takeout. You have a list of items you want to order, and each item has a price. Write a JavaScript function called `calculateTotal` that takes this list of item prices as an input and returns the total cost of the order.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const calculateTotal = (prices) => prices.reduce((total, price)\n=> total + price, 0); ```\"\n",
-    "id": 1362
+    "generator": "javascript-6",
+    "input": "prototype",
+    "problem": "Imagine you're building a robot that can make pizza. You want to test its pizza-making skills before it's fully finished. What do you call this early version of the robot that you can test and improve upon? Write a JavaScript function called `buildRobot` that takes a name for the robot as a string and returns an object that describes the robot. The object should have the following properties: * `name`: The name of the robot (a string) * `canMakePizza`: This should be set to `false` because the robot can't make pizza yet. For example, `buildRobot('PizzaBot')` should return an object like this: ```javascript { name: 'PizzaBot', canMakePizza: false } ```<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const buildRobot = (name) => ({ name: name, canMakePizza: false\n}); ```\"\n",
+    "id": 1592
   },
   {
-    "generator": "javascript-7",
-    "input": "thrust",
-    "problem": "Imagine you're writing a program for a spaceship. The spaceship has a 'thrust' variable that stores its current power level. If the player presses the 'W' key, you want to increase the thrust by 10. If they press the 'S' key, you want to decrease the thrust by 10. But, the thrust can never go below zero! Write a JavaScript function called `updateThrust` that takes the current `thrust` as input and the key pressed as input, and returns the updated thrust value.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const updateThrust = (thrust, key) => { if (key === 'W') { return thrust + 10; }\nelse if (key === 'S' && thrust > 0) { return thrust - 10; } else { return\nthrust; } };\n",
-    "id": 1363
+    "generator": "javascript-6",
+    "input": "congestion",
+    "problem": "Imagine a busy street with lots of cars. We can call this 'congestion'. In computer science, 'congestion' can happen when a program has too much data to handle at once. Let's say we have a list of favorite colors: ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'black', 'white']. Write a function called `removeCongestion` that takes this list and removes half of the colors, starting from the middle. This simulates reducing 'congestion' by getting rid of some of the data.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const removeCongestion = (colors) => { const middleIndex =\nMath.floor(colors.length / 2); return colors.slice(0, middleIndex); };\n",
+    "id": 1593
   },
   {
-    "generator": "javascript-7",
-    "input": "perpetrate",
-    "problem": "Imagine you're writing a code for a game where a character can 'perpetrate' a mischievous prank by stealing a certain number of cookies from a cookie jar. Write a JavaScript function called 'stealCookies' that takes two numbers as input: the number of cookies in the jar and the number of cookies the character wants to steal. The function should return the number of cookies remaining in the jar after the prank is played. If the character tries to steal more cookies than there are in the jar, the function should return 0.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const stealCookies = (jarCookies, stolenCookies) => { if (stolenCookies >\njarCookies) { return 0; } else { return jarCookies - stolenCookies; } };\n",
-    "id": 1364
+    "generator": "javascript-6",
+    "input": "modulate",
+    "problem": "Imagine you have a special light bulb that can only shine red, yellow, or blue. You can tell the bulb what color to shine using a number: 1 for red, 2 for yellow, and 3 for blue. If you give the bulb a number bigger than 3, it will just cycle back to red, yellow, or blue. Write a code that takes any number as input and tells you what color the light bulb will shine.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const lightBulbColor = (number) => { if (number === 1) { return \"red\"; } else if\n(number === 2) { return \"yellow\"; } else if (number === 3) { return \"blue\"; }\nelse { return lightBulbColor(number % 3 + 1); } };\n",
+    "id": 1594
   },
   {
-    "generator": "javascript-7",
-    "input": "servant",
-    "problem": "Imagine a computer program that acts as a servant, doing your bidding. You give it a list of chores (things to do) and it does them one by one. Write a program that takes a list of chores and then prints each chore one at a time. Use the JavaScript `console.log` function to print each chore.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const doChores = (chores) => { chores.forEach(chore => { console.log(chore); });\n};\n",
-    "id": 1365
+    "generator": "javascript-6",
+    "input": "surname",
+    "problem": "Imagine your surname is stored in a computer as a piece of information. How could you write a little code to tell the computer to shout your surname really loud, like it's calling your name across a playground?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const shoutSurname = (surname) => {\nconsole.log(surname.toUpperCase() + '!!!'); }; ```\"\n",
+    "id": 1595
   },
   {
-    "generator": "javascript-8",
-    "input": "patronize",
-    "problem": "Imagine you have a list of people's names. You want to write a program that makes each name sound more formal by adding the title 'Mr.' or 'Ms.' before the name, depending on whether the name is 'John' or 'Jane'. Write a JavaScript function to do this.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const formalizeName = (name) => (name === 'John' ? 'Mr. ' + name : name ===\n'Jane' ? 'Ms. ' + name : name);\"\n",
-    "id": 1366
+    "generator": "javascript-6",
+    "input": "periodical",
+    "problem": "Imagine you have a magazine that comes out every month. How could you use JavaScript to keep track of how many magazines you have received so far this year? Write a function called `countMagazines` that takes the current month as an input and returns the number of magazines received. Assume you get one magazine each month.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countMagazines = (month) => month; ```\"\n",
+    "id": 1596
   },
   {
-    "generator": "javascript-8",
-    "input": "successful",
-    "problem": "Imagine you're designing a website for a school. You want to create a function that checks if a student's grade is passing. A passing grade is anything above 60. Write a function called 'isPassing' that takes a student's grade as input and returns 'true' if the grade is passing and 'false' otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isPassing = (grade) => grade > 60;\n",
-    "id": 1367
+    "generator": "javascript-6",
+    "input": "patriot",
+    "problem": "Imagine you have a list of people who are \"patriots\" - they love their country and want to help it. We're going to put their names into a computer. What code would you write to check if someone is a patriot, given a list of patriots' names? (Hint: We are using a computer language called JavaScript, and the list is called 'patriots'.)<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPatriot = (name) => patriots.includes(name);\n",
+    "id": 1597
   },
   {
-    "generator": "javascript-8",
-    "input": "tempo",
-    "problem": "Imagine you're creating a music player. You want to adjust the speed of the song. The current tempo is stored in a variable called 'currentTempo'. Write a JavaScript function called 'changeTempo' that takes a new tempo as input and returns a new tempo that is either double the current tempo or half the current tempo, depending on whether the input is 'faster' or 'slower'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const changeTempo = (newTempo) => (newTempo === 'faster') ? currentTempo * 2 :\ncurrentTempo / 2;\"\n",
-    "id": 1368
+    "generator": "javascript-6",
+    "input": "indict",
+    "problem": "Imagine you have a list of words, like ['cat', 'dog', 'bird', 'fish']. How would you write a program to check if a specific word, like 'fish', is *not* present in the list?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isNotInList = (word, list) => !list.includes(word); ```\"\n",
+    "id": 1598
   },
   {
-    "generator": "javascript-8",
-    "input": "safety",
-    "problem": "You're creating a new online game for kids. The game has a feature where players can create their own characters. To make sure the game is safe, you want to prevent players from entering dangerous words like 'password' or 'secret' in their character names. Write a JavaScript function called `isSafeName` that takes a string (the player's chosen name) as input and returns `true` if the name is safe (doesn't contain any dangerous words) and `false` if it's not safe.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isSafeName = (name) => !name.includes('password') &&\n!name.includes('secret');\n",
-    "id": 1369
+    "generator": "javascript-6",
+    "input": "coerce",
+    "problem": "Imagine you have a special box that only accepts numbers. You're given a bunch of things, some are numbers and some are words. Write a code that checks each item and, if it's a number, puts it in the box. Otherwise, it takes the word, and if possible, changes it into a number and puts that in the box. If it can't be changed into a number, it leaves it out. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const putInNumberBox = (item) => { if (typeof item === 'number') { return item;\n} else if (typeof item === 'string' && !isNaN(Number(item))) { return\nNumber(item); } };\n",
+    "id": 1599
   },
   {
-    "generator": "javascript-8",
-    "input": "rejuvenate",
-    "problem": "Imagine you have a tired old robot that needs a boost of energy. Write a JavaScript function called `rejuvenate` that takes the robot's current energy level (a number) as input and returns a new energy level that's 20% higher.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const rejuvenate = (energyLevel) => energyLevel * 1.2;\n",
-    "id": 1370
+    "generator": "javascript-6",
+    "input": "anyhow",
+    "problem": "Let's say you have a bunch of words like \"apple\", \"banana\", \"cherry\", and so on. Imagine you want to put all these words in a big box. In computer science, we call this box an 'array'. But sometimes you might accidentally put the word \"anyhow\" in the box, even though it's not a fruit. How can you check if the word \"anyhow\" is in this box of fruit words using JavaScript?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const isAnyhowInArray = (fruitArray) =>\nfruitArray.includes('anyhow'); ```\"\n",
+    "id": 1600
   },
   {
-    "generator": "javascript-8",
-    "input": "submission",
-    "problem": "Write a JavaScript function called `processSubmission` that takes a single string argument called `submission` and returns a new string where the first character of `submission` is replaced with an uppercase 'S'. For example, if `submission` is 'hello', the function should return 'Sello'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const processSubmission = (submission) => `S${submission.slice(1)}`;\n",
-    "id": 1371
+    "generator": "javascript-6",
+    "input": "determination",
+    "problem": "Imagine you're building a robot that can help you with chores. The robot only understands instructions written in code. You want to teach it to keep trying a task until it succeeds. Write a JavaScript function called `tryUntilSuccess` that takes a task (represented as a function) as input and keeps trying it until it returns `true`. The function should stop trying after 5 attempts. Remember, determination means never giving up! <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const tryUntilSuccess = (task) => { for (let i = 0; i < 5; i++) {\nif (task()) { return true; } } return false; }; ```\"\n",
+    "id": 1601
   },
   {
-    "generator": "javascript-8",
-    "input": "auditor",
-    "problem": "Imagine you are an auditor reviewing a list of financial transactions. You need to check if every transaction has a corresponding 'credit' entry for each 'debit' entry. Write a JavaScript function that takes an array of transaction objects (each object has a 'type' property, either 'debit' or 'credit', and an 'amount' property) and returns true if the total amount of debits is equal to the total amount of credits, and false otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const auditTransactions = (transactions) => { let debitTotal = 0; let\ncreditTotal = 0; for (const transaction of transactions) { if (transaction.type\n=== 'debit') { debitTotal += transaction.amount; } else if (transaction.type ===\n'credit') { creditTotal += transaction.amount; } } return debitTotal ===\ncreditTotal;};\n",
-    "id": 1372
+    "generator": "javascript-6",
+    "input": "rebuttal",
+    "problem": "Imagine you're playing a game where you have to 'rebut' a statement by saying the opposite. Write a JavaScript function called `rebuttal` that takes a statement as a string and returns the opposite statement. For example, if the input is 'The sky is blue', the function should return 'The sky is not blue'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const rebuttal = (statement) => `The sky is ${statement.includes('not') ? '' :\n'not'} ${statement.split(' ').slice(2).join(' ')}`\"\n",
+    "id": 1602
   },
   {
-    "generator": "javascript-8",
-    "input": "intestinal",
-    "problem": "Write a JavaScript function called `checkIntestine` that takes a single word as input. If the word contains the letters 'int' in that order, the function should return the word 'intestinal'. Otherwise, it should return 'not intestinal'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const checkIntestine = (word) => word.includes('int') ? 'intestinal' : 'not\nintestinal';\"\n",
-    "id": 1373
+    "generator": "javascript-6",
+    "input": "psychic",
+    "problem": "Imagine you have a special 'psychic' computer program. It can tell you if a number is 'odd' or 'even' just by thinking about it. Write a JavaScript function called `isPsychic` that takes a number as input and returns 'odd' if the number is odd, and 'even' if the number is even. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isPsychic = (number) => (number % 2 === 0) ? 'even' : 'odd';\"\n",
+    "id": 1603
   },
   {
-    "generator": "javascript-8",
-    "input": "contempt",
-    "problem": "Imagine you're writing a program to track how many times a user expresses 'contempt' in their online messages. You want to keep a count of each time they use the word, but the program should only count it once if they use the word multiple times in a single message. Write a JavaScript function called `countContempt` that takes a single message string as input and returns the number of times the word 'contempt' appears in the message, counting it only once per message. For example, `countContempt('I have nothing but contempt for your contempt!')` should return 1.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countContempt = (message) => message.toLowerCase().split(' ').filter(word\n=> word === 'contempt').length;\n",
-    "id": 1374
+    "generator": "javascript-6",
+    "input": "wildlife",
+    "problem": "Imagine a forest full of wildlife. We want to keep track of all the animals we see. We have a list of animals called `animals`, and we want to add new animals to the list as we see them. Write a JavaScript function called `addAnimal` that takes the name of an animal as input and adds it to the end of the `animals` list. Use an array to store the `animals`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addAnimal = (animal) => { animals.push(animal); }; ```\"\n",
+    "id": 1604
   },
   {
-    "generator": "javascript-8",
-    "input": "intersection",
-    "problem": "Imagine you have two groups of friends, each with their own favorite video games. Write a JavaScript function called `commonGames` that takes two arrays, representing the favorite games of each group, and returns a new array containing the games that both groups like. For example, if the first group likes ['Minecraft', 'Roblox', 'Fortnite'] and the second group likes ['Roblox', 'Among Us', 'Fortnite'], the function should return ['Roblox', 'Fortnite'].\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const commonGames = (group1, group2) => group1.filter(game =>\ngroup2.includes(game));\n",
-    "id": 1375
+    "generator": "javascript-6",
+    "input": "deflect",
+    "problem": "Imagine you have a robot that can only move left or right. You tell the robot to move 'left' 5 times. Then, you tell the robot to move 'right' 3 times. Write a function called `finalDirection` that tells you whether the robot will end up facing 'left' or 'right'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const finalDirection = (leftMoves, rightMoves) => leftMoves > rightMoves ?\n'left' : 'right';\"\n",
+    "id": 1605
   },
   {
-    "generator": "javascript-8",
-    "input": "torpedo",
-    "problem": "Imagine a torpedo as a string of letters. If we remove the first and last letter of the torpedo, what's left? Write a JavaScript function called `trimTorpedo` that takes a torpedo (string) as input and returns the torpedo without its first and last letter.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const trimTorpedo = (torpedo) => torpedo.substring(1,\ntorpedo.length - 1); ```\"\n",
-    "id": 1376
+    "generator": "javascript-6",
+    "input": "yard",
+    "problem": "Imagine you have a yard with a bunch of different flowers. We want to count how many flowers are in the yard. Write a JavaScript function called `countFlowers` that takes in an array of flower names and returns the total number of flowers. For example, if we give it the array ['rose', 'tulip', 'sunflower', 'daisy'], it should return 4.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countFlowers = (flowers) => flowers.length; ```\"\n",
+    "id": 1606
   },
   {
-    "generator": "javascript-8",
-    "input": "lurch",
-    "problem": "Imagine a robot that walks in a series of lurches. It takes one step forward, then two steps back. If the robot starts at position 0, write a JavaScript function called `robotPosition` that takes the number of lurches as input and returns the robot's final position. For example, `robotPosition(3)` should return -3, since it takes three steps forward and six steps back.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const robotPosition = (lurches) => lurches - 2 * lurches;\n",
-    "id": 1377
-  },
-  {
-    "generator": "javascript-8",
-    "input": "eclipse",
-    "problem": "Write a JavaScript function called `isEclipse` that takes a single string as input. The string will be one of \"solar\", \"lunar\", or \"none\". The function should return `true` if the input string is \"solar\" or \"lunar\", and `false` otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isEclipse = (type) => type === \"solar\" || type === \"lunar\";\n",
-    "id": 1378
-  },
-  {
-    "generator": "javascript-8",
-    "input": "tantalizing",
-    "problem": "Imagine you're writing a game where players collect points. You want to show the player a 'Tantalizing Teaser' message when they're close to a certain goal. Write a JavaScript function that takes the player's current score and the goal score as input and returns 'Tantalizing Teaser!' if the player is within 10 points of the goal. Otherwise, return an empty string.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const tantalizingTeaser = (currentScore, goalScore) => { if\n(Math.abs(currentScore - goalScore) <= 10) { return 'Tantalizing Teaser!'; }\nelse { return ''; } };\n",
-    "id": 1379
-  },
-  {
-    "generator": "javascript-8",
-    "input": "advantage",
-    "problem": "Imagine you're building a website that compares the prices of different items. You want to display the item with the lowest price first. Write a JavaScript function called `findLowestPrice` that takes an array of numbers representing item prices and returns the lowest price in the array. For example, if the input is `[10, 5, 15, 8]`, the function should return `5`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const findLowestPrice = (prices) => { let lowestPrice = prices[0]; for (let i =\n1; i < prices.length; i++) { if (prices[i] < lowestPrice) { lowestPrice =\nprices[i]; } } return lowestPrice; };\n",
-    "id": 1380
-  },
-  {
-    "generator": "javascript-8",
-    "input": "thunderstorm",
-    "problem": "Imagine a thunderstorm is happening. Write a function that takes the number of lightning strikes as input and outputs a string describing the storm based on these rules: * If there are fewer than 5 strikes, the output should be 'Light storm'. * If there are 5 to 10 strikes, the output should be 'Moderate storm'. * If there are more than 10 strikes, the output should be 'Heavy storm'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const describeStorm = (strikes) => { if (strikes < 5) { return 'Light storm'; }\nelse if (strikes <= 10) { return 'Moderate storm'; } else { return 'Heavy\nstorm'; } };\n",
-    "id": 1381
-  },
-  {
-    "generator": "javascript-8",
-    "input": "outlet",
-    "problem": "Imagine an outlet that can only fit one type of plug at a time. If you have a list of different plugs (represented as strings) and a list of outlets (also represented as strings), write a function that tells you how many plugs can be used in the outlets. You can assume that a plug will only fit in an outlet if they have the same name.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countUsablePlugs = (plugs, outlets) => plugs.filter(plug =>\noutlets.includes(plug)).length\n",
-    "id": 1382
-  },
-  {
-    "generator": "javascript-8",
-    "input": "moist",
-    "problem": "Write a JavaScript function that takes a single string as input and returns `true` if the string contains the word \"moist\", and `false` otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const containsMoist = (str) => str.toLowerCase().includes('moist');\n",
-    "id": 1383
-  },
-  {
-    "generator": "javascript-8",
-    "input": "milk",
-    "problem": "Write a JavaScript function called `milkCounter` that takes a string as input and returns the number of times the letter 'm' appears in the string. For example, if the input is 'milk', the function should return 1.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const milkCounter = (str) => str.split('').filter(letter => letter ===\n'm').length;\n",
-    "id": 1384
-  },
-  {
-    "generator": "javascript-8",
-    "input": "inspire",
-    "problem": "Imagine you're creating a simple program that helps people plan their day. The program needs to store a list of activities, and each activity has a name and a duration in minutes. Write a function that takes an array of activity objects, each with a `name` and a `duration` property, and returns the total time in minutes needed for all activities. For example, if the input is `[{ name: 'Breakfast', duration: 20 }, { name: 'Work', duration: 480 }, { name: 'Dinner', duration: 30 }]`, the function should return `530`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const calculateTotalTime = (activities) => activities.reduce((totalTime,\nactivity) => totalTime + activity.duration, 0);\n",
-    "id": 1385
-  },
-  {
-    "generator": "javascript-8",
-    "input": "inaccessible",
-    "problem": "Imagine you have a secret code that's really hard to guess. You want to write a program that checks if someone has guessed the code correctly. But, the code is so secret, you don't want to even type it into your program! How can you write a JavaScript function to compare a guessed code against the secret code without actually typing the secret code itself?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const checkCode = (guess) => guess === 'supersecret'; ```\"\n",
-    "id": 1386
-  },
-  {
-    "generator": "javascript-8",
-    "input": "spar",
-    "problem": "Write a JavaScript function called `countSpars` that takes a string as input and returns the number of times the word \"spar\" appears in the string, ignoring case.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countSpars = (str) => str.toLowerCase().split(' ').filter(word => word ===\n'spar').length;\n",
-    "id": 1387
-  },
-  {
-    "generator": "javascript-8",
-    "input": "geometric",
-    "problem": "Imagine you have a square. You want to write a JavaScript function that calculates the area of the square given its side length. What would that function look like?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const calculateSquareArea = (sideLength) => sideLength * sideLength;\n",
-    "id": 1388
-  },
-  {
-    "generator": "javascript-8",
-    "input": "banana",
-    "problem": "Write a JavaScript function that takes a word as input and returns the number of times the letter 'a' appears in that word. For example, if the word is 'banana', the function should return 3.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countAs = (word) => word.split('').filter(letter => letter === 'a').length;\n",
-    "id": 1389
-  },
-  {
-    "generator": "javascript-8",
-    "input": "indignity",
-    "problem": "Imagine a robot that feels indignity when it's asked to do something it's already done. Write a JavaScript function called `checkIndignity` that takes two things as input: a list of tasks the robot has already completed and a new task. If the robot has already completed the new task, the function should return the string \"Indignity!\" Otherwise, it should return \"Okay, I'll do it.\"\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const checkIndignity = (completedTasks, newTask) =>\ncompletedTasks.includes(newTask) ? \\\"Indignity!\\\" : \\\"Okay, I'll do it.\\\"\"\n",
-    "id": 1390
-  },
-  {
-    "generator": "javascript-9",
-    "input": "look",
-    "problem": "Write a JavaScript function called `lookFor` that takes a single word as input and returns `true` if the word contains the letter 'o', and `false` otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const lookFor = (word) => word.includes('o');\n",
-    "id": 1391
-  },
-  {
-    "generator": "javascript-9",
-    "input": "persimmon",
-    "problem": "Write a JavaScript function that takes a string as input and returns the number of times the letter 's' appears in the string. For example, if the input is 'persimmon', the function should return 2.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countS = (str) => str.split('').filter(char => char === 's').length;\n",
-    "id": 1392
-  },
-  {
-    "generator": "javascript-9",
-    "input": "alas",
-    "problem": "Alas, a string containing only the word \"alas\" is trapped within a variable named 'word'. How can we turn that into a number representing the number of characters in the word? Write a JavaScript function named 'countLetters' that takes a string as input and returns the number of characters in the string.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countLetters = (word) => word.length;\n",
-    "id": 1393
-  },
-  {
-    "generator": "javascript-9",
-    "input": "tactical",
-    "problem": "Imagine you're playing a game where you need to strategically move your character around a grid. You're given a set of instructions in the form of an array of directions, like ['north', 'east', 'south']. Write a function that takes this array of directions and determines if your character will end up back at their starting position after following all the instructions. Assume that 'north' moves the character one space up, 'south' one space down, 'east' one space right, and 'west' one space left.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isTactical = (directions) => { let x = 0; let y = 0; for (let i = 0; i <\ndirections.length; i++) { if (directions[i] === 'north') { y++; } else if\n(directions[i] === 'south') { y--; } else if (directions[i] === 'east') { x++; }\nelse if (directions[i] === 'west') { x--; } } return x === 0 && y === 0; };\n",
-    "id": 1394
-  },
-  {
-    "generator": "javascript-9",
-    "input": "vow",
-    "problem": "Imagine you make a 'vow' to always tell the truth. Write a JavaScript function called `truthTeller` that takes a single argument, a Boolean value representing whether you're telling the truth. The function should return the opposite of that value, representing your 'vow' to tell the truth even when you are lying.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const truthTeller = (truth) => !truth;\n",
-    "id": 1395
-  },
-  {
-    "generator": "javascript-9",
-    "input": "collect",
-    "problem": "Imagine you are creating a website for a bakery. You want to collect the names of all the delicious pastries they sell. Write a JavaScript function called `collectPastries` that takes an array of pastry names as input and returns a new array that only includes the pastries that start with the letter 'C'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const collectPastries = (pastries) => pastries.filter(pastry =>\npastry.startsWith('C')); ```\"\n",
-    "id": 1396
-  },
-  {
-    "generator": "javascript-9",
-    "input": "thorn",
-    "problem": "Imagine a 'thorn' as a single character. Write a JavaScript function called 'countThorns' that takes a string as input and returns the number of 'thorn' characters found within it.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countThorns = (str) => str.split('').filter(char => char ===\n'thorn').length;\n",
-    "id": 1397
-  },
-  {
-    "generator": "javascript-9",
-    "input": "scripture",
-    "problem": "Imagine you are writing a program to analyze a collection of ancient scriptures. Each scripture is a string containing verses, and you need to determine if a particular phrase appears within a specific scripture. Write a JavaScript function called `containsPhrase` that takes two strings as input: the scripture text and the phrase to search for. The function should return `true` if the phrase is present in the scripture and `false` otherwise. For example, if the scripture is \"The quick brown fox jumps over the lazy dog\" and the phrase is \"lazy dog\", the function should return `true`. However, if the phrase is \"quick brown rabbit\", the function should return `false`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const containsPhrase = (scripture, phrase) => scripture.includes(phrase);\n",
-    "id": 1398
-  },
-  {
-    "generator": "javascript-9",
-    "input": "unpaid",
-    "problem": "Write a JavaScript function called `isUnpaid` that takes a single argument, `hoursWorked`, which is a number representing the number of hours someone worked. The function should return `true` if the hours worked is 0, and `false` otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const isUnpaid = (hoursWorked) => hoursWorked === 0;\n",
-    "id": 1399
-  },
-  {
-    "generator": "javascript-9",
-    "input": "enactment",
-    "problem": "Imagine you're writing a program for a school play. Each character in the play has a name and a list of lines they speak. You need to create a function that takes a character's name and a line of dialogue, and then adds that line to the character's list of lines. How would you write a function in JavaScript to enact this addition?\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const characters = {}; const addLine = (characterName, line) => {\nif (!characters[characterName]) { characters[characterName] = []; }\ncharacters[characterName].push(line); }; ```\"\n",
-    "id": 1400
-  },
-  {
-    "generator": "javascript-9",
+    "generator": "javascript-6",
     "input": "panda",
-    "problem": "Write a JavaScript function that takes a string as input and returns true if the string contains the word 'panda' and false otherwise.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const containsPanda = (str) => str.toLowerCase().includes('panda');\n",
-    "id": 1401
+    "problem": "Imagine you have a computer program that loves pandas. It has a list called `pandas` that stores the names of all its favorite pandas. You want to add the name \"Po\" to the list. Write a JavaScript function called `addPo` that takes the `pandas` list as input and adds \"Po\" to the end of the list. The function should return the updated list. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addPo = (pandas) => { pandas.push(\"Po\"); return pandas; }\n",
+    "id": 1607
+  },
+  {
+    "generator": "javascript-6",
+    "input": "motivate",
+    "problem": "You want to write a function to motivate your students! The function takes a student's name as a string and returns a motivational message that includes the student's name. Write a function called `motivate` that takes a single string argument called `name` and returns a string that says `'Keep up the great work, ' + name + '!'`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const motivate = (name) => `Keep up the great work, ${name}!`\n",
+    "id": 1608
+  },
+  {
+    "generator": "javascript-7",
+    "input": "sober",
+    "problem": "Write a JavaScript function that takes a single word as input and returns `true` if the word is the same forwards and backwards (like 'racecar'), and `false` otherwise. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPalindrome = (word) => word === word.split('').reverse().join('');\n",
+    "id": 1609
+  },
+  {
+    "generator": "javascript-7",
+    "input": "elation",
+    "problem": "Imagine you're feeling \"elation\"! Write a function that takes a feeling (like 'elation') and returns the opposite feeling (like 'sadness'). For this exercise, assume the opposite of 'elation' is 'sadness'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const oppositeFeeling = (feeling) => feeling === 'elation' ? 'sadness' :\nfeeling;\"\n",
+    "id": 1610
+  },
+  {
+    "generator": "javascript-7",
+    "input": "beard",
+    "problem": "If you have a word like \"beard\", how can you use JavaScript to check if the word has an 'e' in it? Write a function that takes a word as input and returns 'true' if it has an 'e', and 'false' otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const hasE = (word) => word.includes('e'); ```\"\n",
+    "id": 1611
+  },
+  {
+    "generator": "javascript-7",
+    "input": "housing",
+    "problem": "Imagine you have a list of houses on a street, each with a number. Write a program that takes in a house number and tells you if it's on the street or not. For example, if the street has houses numbered 1, 3, 5, and 7, and you check house number 3, the program should say \"Yes\". If you check house number 2, the program should say \"No\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "'```javascript const isHouseOnStreet = (houseNumber) => { const houses = [1, 3,\n5, 7]; return houses.includes(houseNumber) ? \"Yes\" : \"No\"; }; ```'\n",
+    "id": 1612
+  },
+  {
+    "generator": "javascript-7",
+    "input": "underwear",
+    "problem": "Imagine you have a secret word, like \"underwear\". You want to write a program that takes a guess and tells you if the guess is the same as the secret word. Write a JavaScript function called `checkGuess` that takes a guess as input and returns `true` if the guess is the same as the secret word, and `false` otherwise. You can use any data type you want for the guess and the secret word.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const checkGuess = (guess) => guess === \"underwear\";\n",
+    "id": 1613
+  },
+  {
+    "generator": "javascript-7",
+    "input": "seashore",
+    "problem": "Imagine you're at the seashore and you want to collect seashells. You want to write a program that will tell you how many seashells you have collected. Write a JavaScript function called `countSeashells` that takes an array of seashells (represented by strings) as input, and returns the number of seashells you have found.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countSeashells = (seashells) => seashells.length; ```\"\n",
+    "id": 1614
+  },
+  {
+    "generator": "javascript-7",
+    "input": "dichotomy",
+    "problem": "You're organizing a school dance and need to separate the students by grade level. Write a function called `sortStudents` that takes a list of student names and their grade levels as input, and returns two lists: one for students in 7th grade and one for students in other grades. You can use the following data types in JavaScript: `string` for names, `number` for grade levels, and `array` for lists.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sortStudents = (students) => { const grade7 = []; const otherGrades = [];\nfor (const student of students) { if (student.grade === 7) {\ngrade7.push(student.name); } else { otherGrades.push(student.name); } } return\n[grade7, otherGrades]; };\n",
+    "id": 1615
+  },
+  {
+    "generator": "javascript-7",
+    "input": "implement",
+    "problem": "Imagine you have a list of numbers that represent the ages of your friends. Write a function that takes this list of ages and returns a new list that only includes the ages of your friends who are older than 10. Use JavaScript to 'implement' this function.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const filterAges = (ages) => ages.filter(age => age > 10);\n",
+    "id": 1616
+  },
+  {
+    "generator": "javascript-7",
+    "input": "broaden",
+    "problem": "Imagine you have a list of your favorite foods, but you want to add a new one! Write a JavaScript function called `broadenTaste` that takes your current list of foods and the new food you want to add, and returns the updated list. For example, if your favorite foods are ['pizza', 'tacos'], and you want to add 'ice cream', the function should return ['pizza', 'tacos', 'ice cream'].<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const broadenTaste = (foods, newFood) => [...foods, newFood];\n",
+    "id": 1617
+  },
+  {
+    "generator": "javascript-7",
+    "input": "compartment",
+    "problem": "Imagine a computer's memory as a big box of compartments. Each compartment can hold only one thing, like a toy. We have a bunch of toys, some the same, and we want to put them in the compartments. How do we put them in so that we know which compartment holds which toy? Write a JavaScript function called `organizeToys` that takes an array of toy names and returns an object where each toy name is a key, and the value is the number of times that toy appears in the array. For example, if the input is ['car', 'truck', 'car', 'train'], the function should return { 'car': 2, 'truck': 1, 'train': 1 }. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const organizeToys = (toys) => { const toyCounts = {}; for (const\ntoy of toys) { if (toyCounts[toy]) { toyCounts[toy]++; } else { toyCounts[toy] =\n1; } } return toyCounts; }; ```\"\n",
+    "id": 1618
+  },
+  {
+    "generator": "javascript-7",
+    "input": "pluck",
+    "problem": "Imagine you have a bunch of musical notes, and you want to pick out a specific note based on its position in the bunch. How would you write a function in JavaScript to 'pluck' the note at a specific position? Let's say the notes are stored in a list called 'notes'. What would you write to pick out the note at position 3 in the list?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const pluck = (notes, position) => notes[position - 1];\n",
+    "id": 1619
+  },
+  {
+    "generator": "javascript-7",
+    "input": "adventurous",
+    "problem": "Imagine you're on a treasure hunt! You have a list of clues, each a different type of information: a number (the number of steps to take), a direction (like 'north' or 'south'), and a symbol (like a heart or a star). Write a program that can take any clue and tell you what type of information it is. For example, if the clue is '5', your program should say 'number', if the clue is 'north', it should say 'direction', and if the clue is '♥', it should say 'symbol'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const clueType = (clue) => { if (typeof clue === 'number') { return 'number'; }\nelse if (typeof clue === 'string' && ['north', 'south', 'east',\n'west'].includes(clue)) { return 'direction'; } else if (typeof clue ===\n'string') { return 'symbol'; } else { return 'unknown'; } };\n",
+    "id": 1620
+  },
+  {
+    "generator": "javascript-7",
+    "input": "portfolio",
+    "problem": "Imagine you are building a website to showcase your artwork. You want to keep track of the pieces you've created, along with their titles and descriptions. How would you write a JavaScript function to add a new piece of art to your 'portfolio' of artwork? Assume you have a variable called `portfolio` which is an array, and you are given the title and description as inputs. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addArtwork = (title, description) => { portfolio.push({\ntitle: title, description: description }); }; ```\"\n",
+    "id": 1621
+  },
+  {
+    "generator": "javascript-7",
+    "input": "orderly",
+    "problem": "Imagine you have a list of your favorite things to do on a weekend. You want to organize them so you can do them in order from most to least favorite. Write a JavaScript function called `orderFavorites` that takes your list of favorites and returns it in order from most to least favorite. For example, if your list is `['playing video games', 'reading', 'watching movies']`, and you love playing video games the most, then the function should return `['playing video games', 'watching movies', 'reading']`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const orderFavorites = (favorites) => { return favorites.sort((a,\nb) => favorites.indexOf(b) - favorites.indexOf(a)); }; ```\"\n",
+    "id": 1622
+  },
+  {
+    "generator": "javascript-7",
+    "input": "outweigh",
+    "problem": "Imagine you have a basket of apples and oranges. You want to know if the number of apples is greater than the number of oranges. Write a JavaScript function called `isApplesHeavier` that takes the number of apples and the number of oranges as inputs and returns `true` if the number of apples is greater than the number of oranges, and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isApplesHeavier = (apples, oranges) => apples > oranges;\n",
+    "id": 1623
+  },
+  {
+    "generator": "javascript-7",
+    "input": "insatiable",
+    "problem": "Imagine a computer program that keeps adding new items to a list. If the list never stops growing, would you say it has an insatiable appetite for data? Write a JavaScript function that takes a number, 'n', as input. The function should add the numbers 1 through 'n' to a list and return the list. For example, if 'n' is 5, the list should contain [1, 2, 3, 4, 5].<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const insatiableList = (n) => { const list = []; for (let i = 1;\ni <= n; i++) { list.push(i); } return list; } ```\"\n",
+    "id": 1624
+  },
+  {
+    "generator": "javascript-7",
+    "input": "enroll",
+    "problem": "Imagine you're building a website for a school. You have a list of students called `students` that you want to add to the school's roster. Write a function called `enrollStudent` that takes a student's name as input and adds it to the `students` list. You should use the `push` method to add the student to the list. How would you write this function?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const students = []; const enrollStudent = (name) => {\nstudents.push(name); }; ```\"\n",
+    "id": 1625
+  },
+  {
+    "generator": "javascript-7",
+    "input": "sandal",
+    "problem": "Imagine you have a magical word machine that can take any word and tell you how many letters are in it. If you give the machine the word \"sandal\", how many letters would it tell you? Write a JavaScript function called `countLetters` that takes a word as input and returns the number of letters in that word. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countLetters = (word) => word.length; ```\"\n",
+    "id": 1626
+  },
+  {
+    "generator": "javascript-7",
+    "input": "scary",
+    "problem": "If the word \"scary\" is a monster, what will happen if we try to make it scream? Write a JavaScript function that takes a word, makes it all uppercase, and then adds an exclamation point to the end. The function should return the new word.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const makeWordScream = (word) => word.toUpperCase() + '!'; ```\"\n",
+    "id": 1627
+  },
+  {
+    "generator": "javascript-7",
+    "input": "greyhound",
+    "problem": "Imagine a greyhound running a race. Write a JavaScript function that takes the greyhound's name as a string and returns a string describing the greyhound as 'fast' if the name is longer than 5 letters, and 'slow' otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const greyhoundSpeed = (name) => name.length > 5 ? 'fast' : 'slow';\"\n",
+    "id": 1628
+  },
+  {
+    "generator": "javascript-7",
+    "input": "antagonize",
+    "problem": "Imagine you're creating a game where a player has to avoid obstacles. You want the obstacle to move in the opposite direction of the player. Write a JavaScript function called 'antagonize' that takes the player's current position as input and returns the opposite position for the obstacle. Assume the game board is a line, and you can represent positions with numbers (like 1, 2, 3, etc.).<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const antagonize = (playerPosition) => -playerPosition;\n",
+    "id": 1629
+  },
+  {
+    "generator": "javascript-7",
+    "input": "devaluation",
+    "problem": "Imagine you have a magical money machine that can double the value of any coin you put in. But, there's a catch: every time you use the machine, the value of the coin is halved! If you start with a coin worth 100, and run it through the machine 3 times, how much will it be worth at the end? Write a JavaScript function called `magicCoin` that takes the starting value of the coin and the number of times it's put through the machine as inputs, and returns the final value. For example, `magicCoin(100, 3)` should return 12.5. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const magicCoin = (coinValue, machineUses) => { let finalValue = coinValue; for\n(let i = 0; i < machineUses; i++) { finalValue = finalValue * 2; finalValue =\nfinalValue / 2; } return finalValue;};\n",
+    "id": 1630
+  },
+  {
+    "generator": "javascript-7",
+    "input": "sake",
+    "problem": "Write a JavaScript function called `forTheSakeOf` that takes a single word as input and returns that word with the letter 's' replaced with the word 'for the sake of'. For example, if the input is 'sake', the function should return 'for the sake ofake'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const forTheSakeOf = (word) => word.replace('s', 'for the sake of');\n",
+    "id": 1631
+  },
+  {
+    "generator": "javascript-7",
+    "input": "inferno",
+    "problem": "Imagine you're exploring a virtual world called 'Inferno'. You can only enter this world by typing a secret code. The code is a number that is the exact opposite of the number 7. What JavaScript function can you write to find the code and enter Inferno?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findInfernoCode = () => -7;\n",
+    "id": 1632
+  },
+  {
+    "generator": "javascript-7",
+    "input": "kernel",
+    "problem": "Imagine a computer as a giant garden. The 'kernel' is like the gardener, taking care of the basic tasks to keep everything running smoothly. Write a JavaScript function called `gardenTasks` that takes an array of chores (like 'water plants', 'weed', 'harvest') and returns a new array with each chore prepended with 'The gardener did: '. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const gardenTasks = (chores) => chores.map(chore => `The gardener did:\n${chore}`);\"\n",
+    "id": 1633
+  },
+  {
+    "generator": "javascript-7",
+    "input": "foresight",
+    "problem": "Imagine you're building a game where a character can move left or right. You need to keep track of the character's current position. Write a JavaScript function called `updatePosition` that takes the character's current position and the direction they want to move as input. If the direction is 'left', the function should return the current position minus 1. If the direction is 'right', the function should return the current position plus 1. If the direction is anything else, the function should return the current position unchanged.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const updatePosition = (currentPosition, direction) => { if (direction ===\n'left') { return currentPosition - 1; } else if (direction === 'right') { return\ncurrentPosition + 1; } else { return currentPosition; } };\n",
+    "id": 1634
+  },
+  {
+    "generator": "javascript-7",
+    "input": "disposal",
+    "problem": "Imagine you're cleaning out your old toys. You have a box of toys, and you want to get rid of the ones that are broken. Write a JavaScript function called `disposeBrokenToys` that takes a list of toys and returns a new list with only the working toys. Assume each toy is represented by an object with a `broken` property (true or false).<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const disposeBrokenToys = (toys) => toys.filter(toy =>\n!toy.broken); ```\"\n",
+    "id": 1635
+  },
+  {
+    "generator": "javascript-7",
+    "input": "guise",
+    "problem": "Imagine you have a secret message that you want to hide. You can hide it by replacing each letter with the letter that's three positions ahead in the alphabet. For example, 'A' becomes 'D', 'B' becomes 'E', and so on. You can wrap around, so 'X' becomes 'A', 'Y' becomes 'B', and 'Z' becomes 'C'. Write a JavaScript function called `encode` that takes a single letter as input and returns the encoded letter. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const encode = (letter) => { const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';\nconst index = alphabet.indexOf(letter.toUpperCase()); const encodedIndex =\n(index + 3) % 26; return alphabet[encodedIndex]; };\n",
+    "id": 1636
+  },
+  {
+    "generator": "javascript-7",
+    "input": "corrode",
+    "problem": "Imagine you have a metal object that starts to 'corrode' over time. If the object starts at 100 units of strength, and it loses 5 units of strength each day, write a JavaScript function called `corrode` that takes the number of days as input and returns the object's remaining strength after that many days.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const corrode = (days) => 100 - (days * 5);\n",
+    "id": 1637
+  },
+  {
+    "generator": "javascript-7",
+    "input": "maternal",
+    "problem": "Imagine a mother bird who has many chicks. Each chick has a unique name. Write a JavaScript function that takes the mother bird's name and an array of chick names as input. It should return a new array containing the mother bird's name followed by all the chick names. For example, if the mother bird is called 'Mama Bird' and the chicks are named 'Chirpy', 'Tweet', and 'Pip', the function should return ['Mama Bird', 'Chirpy', 'Tweet', 'Pip'].<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const addMotherToChicks = (motherName, chickNames) => [motherName,\n...chickNames];\n",
+    "id": 1638
+  },
+  {
+    "generator": "javascript-8",
+    "input": "wrongly",
+    "problem": "Imagine you're writing a program to check if someone has typed their name correctly. They type 'Bob' but the program thinks they typed 'bob'. Write a JavaScript function that takes a single word as input and returns `true` if the word is typed correctly (all letters are uppercase), and `false` otherwise. For example, the function should return `true` for 'BOB' and `false` for 'bob', 'BoB', or 'bOb'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isCorrectlyTyped = (word) => word === word.toUpperCase();\n",
+    "id": 1639
+  },
+  {
+    "generator": "javascript-8",
+    "input": "inferiority",
+    "problem": "Imagine you have a list of numbers representing the scores of students on a test. You want to find the lowest score. Write a JavaScript function called `findLowestScore` that takes an array of numbers as input and returns the lowest score in the array. You can assume the array will always have at least one number.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findLowestScore = (scores) => { let lowestScore = scores[0]; for (let i =\n1; i < scores.length; i++) { if (scores[i] < lowestScore) { lowestScore =\nscores[i]; } } return lowestScore; };\n",
+    "id": 1640
+  },
+  {
+    "generator": "javascript-8",
+    "input": "edition",
+    "problem": "Imagine you have a list of books, and each book has a title and edition number. You want to create a function that takes the list of books and returns a new list with only the books that have an edition number greater than 5. Write a JavaScript function called `filterEditions` that does this.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const filterEditions = (books) => books.filter(book =>\nbook.edition > 5); ```\"\n",
+    "id": 1641
+  },
+  {
+    "generator": "javascript-8",
+    "input": "shadowy",
+    "problem": "Imagine you're in a haunted house and the shadows are making shapes on the wall. Write a function called `makeShadow` that takes the name of a shape and returns a string describing the shadowy shape. For example, `makeShadow('circle')` should return the string 'A shadowy circle forms on the wall'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeShadow = (shape) => `A shadowy ${shape} forms on the wall.`;\n",
+    "id": 1642
+  },
+  {
+    "generator": "javascript-8",
+    "input": "grammar",
+    "problem": "Imagine you're building a system for a school to track student grades. Each student has a name (a string) and a list of their grades (numbers). Write a JavaScript function called `calculateAverageGrade` that takes a student's name and a list of their grades as input, and returns the student's average grade. If the list of grades is empty, return `null`. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const calculateAverageGrade = (name, grades) => { if (grades.length === 0) {\nreturn null; } let sum = 0; for (let i = 0; i < grades.length; i++) { sum +=\ngrades[i]; } return sum / grades.length; };\n",
+    "id": 1643
+  },
+  {
+    "generator": "javascript-8",
+    "input": "competition",
+    "problem": "Imagine a group of friends competing to see who can collect the most stickers. Each friend has a sticker collection, represented by a number. Write a JavaScript function called `findWinner` that takes an array of numbers (representing each friend's sticker count) and returns the highest number, representing the winner's sticker count.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const findWinner = (stickerCounts) => Math.max(...stickerCounts);\n",
+    "id": 1644
+  },
+  {
+    "generator": "javascript-8",
+    "input": "resin",
+    "problem": "Imagine you have a bucket of resin. You want to make a program that takes the amount of resin you have, and divides it into equal portions. Write a JavaScript function called `splitResin` that takes two arguments: the amount of resin you have, and the number of portions you want to make. The function should return an array containing the amount of resin in each portion.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const splitResin = (totalResin, numPortions) => { return new\nArray(numPortions).fill(totalResin / numPortions); };\n",
+    "id": 1645
+  },
+  {
+    "generator": "javascript-8",
+    "input": "banner",
+    "problem": "Imagine you want to make a banner for your school website. The banner should display the school name and the year. Write a JavaScript function that takes the school name and year as input and returns a string that represents the banner. The banner should have the school name in all caps, followed by a space, and then the year.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const createBanner = (schoolName, year) => `${schoolName.toUpperCase()} ${year}`;\n",
+    "id": 1646
+  },
+  {
+    "generator": "javascript-8",
+    "input": "adjacent",
+    "problem": "Imagine you have a list of numbers like this: [1, 2, 3, 4, 5]. Write a JavaScript function called `getAdjacentSum` that takes this list and a number as input. The function should return the sum of the number and the number that comes *after* it in the list. If the number is the last in the list, return the number itself. For example, `getAdjacentSum([1, 2, 3, 4, 5], 3)` should return 6, because 3 + 4 = 6. `getAdjacentSum([1, 2, 3, 4, 5], 5)` should return 5.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getAdjacentSum = (numbers, num) => { const index = numbers.indexOf(num);\nif (index === numbers.length - 1) { return num; } else { return num +\nnumbers[index + 1]; } };\n",
+    "id": 1647
+  },
+  {
+    "generator": "javascript-8",
+    "input": "childcare",
+    "problem": "Imagine a childcare center keeps track of how many kids are present each day. Write a JavaScript function called `countKids` that takes an array of numbers representing the kids present each day, and returns the total number of kids who attended the center over the week. For example, if the input array is `[5, 7, 3, 8, 10, 2, 4]`, the function should return `39`. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const countKids = (kidsPerDay) => { let totalKids = 0; for (let i\n= 0; i < kidsPerDay.length; i++) { totalKids += kidsPerDay[i]; } return\ntotalKids; }; ```\"\n",
+    "id": 1648
+  },
+  {
+    "generator": "javascript-8",
+    "input": "caption",
+    "problem": "Write a JavaScript function called `makeCaption` that takes a string as input and returns a new string with the word 'Caption:' added to the beginning. For example, if the input is 'Amazing sunset', the function should return 'Caption: Amazing sunset'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const makeCaption = (text) => `Caption: ${text}`;\"\n",
+    "id": 1649
+  },
+  {
+    "generator": "javascript-8",
+    "input": "stair",
+    "problem": "Imagine a staircase with 5 steps. Write a JavaScript function called `staircase` that takes the number of steps as input and prints out a string showing the staircase using the '#' character. Each step should be represented by a line with the same number of '#' characters as the step number.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const staircase = (numSteps) => { for (let i = 1; i <= numSteps; i++) {\nconsole.log('#'.repeat(i)); } };\n",
+    "id": 1650
+  },
+  {
+    "generator": "javascript-8",
+    "input": "sporadic",
+    "problem": "Imagine a computer game where a spaceship randomly shoots lasers at an enemy. Sometimes it shoots one laser, sometimes two, and sometimes none at all. Write a JavaScript function called `shootLasers` that takes a single number as input, representing the number of lasers the spaceship has. The function should randomly decide if the spaceship will shoot 0, 1, or 2 lasers, but never more lasers than it has. The function should return the number of lasers shot.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const shootLasers = (numLasers) => { const random =\nMath.floor(Math.random() * 3); return Math.min(random, numLasers); }; ```\"\n",
+    "id": 1651
+  },
+  {
+    "generator": "javascript-8",
+    "input": "collateral",
+    "problem": "Imagine you have a list of items you want to sell, and a list of the items that have already been sold. Write a JavaScript function called `getRemainingItems` that takes both lists as input and returns a new list containing only the items that have not been sold. For example, if you have `['toy car', 'book', 'cookie']` to sell and you've already sold `['cookie']`, the function should return `['toy car', 'book']`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const getRemainingItems = (itemsToSell, itemsSold) =>\nitemsToSell.filter(item => !itemsSold.includes(item)); ```\"\n",
+    "id": 1652
+  },
+  {
+    "generator": "javascript-8",
+    "input": "vibrate",
+    "problem": "Write a JavaScript function called `vibrate` that takes a string as input. If the string contains the letter 'v', the function should return the word 'vibrate'. Otherwise, it should return 'quiet'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const vibrate = (word) => word.includes('v') ? 'vibrate' : 'quiet';\"\n",
+    "id": 1653
+  },
+  {
+    "generator": "javascript-8",
+    "input": "respond",
+    "problem": "Write a JavaScript function called `greet` that takes a single argument, `name`, and returns a string greeting the person by name. For example, if `name` is \"Alice\", the function should return \"Hello Alice!\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const greet = (name) => `Hello ${name}!`;\n",
+    "id": 1654
+  },
+  {
+    "generator": "javascript-8",
+    "input": "illogical",
+    "problem": "Imagine you have a machine that can only process logical statements. You want to tell it to do something if a number is 'not illogical'. Write a JavaScript function called `isLogical` that takes a number as input and returns `true` if the number is even, and `false` otherwise. This represents the machine's understanding of 'logical' in this case.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isLogical = (number) => number % 2 === 0;\n",
+    "id": 1655
+  },
+  {
+    "generator": "javascript-8",
+    "input": "astronomer",
+    "problem": "An astronomer is studying the names of stars. They want to create a program that will take a star's name and tell them how many letters are in the name. Write a JavaScript function called `starNameLength` that takes a string called `name` as input and returns the number of letters in the name. For example, if the input is \"Sirius\", the function should return 6.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const starNameLength = (name) => name.length; ```\"\n",
+    "id": 1656
+  },
+  {
+    "generator": "javascript-8",
+    "input": "biochemistry",
+    "problem": "Imagine you're a computer scientist studying biochemistry. You have a list of molecules, each with a name and a number representing its molecular weight. You want to organize these molecules based on their weight. Write a JavaScript function called `sortMolecules` that takes an array of molecule objects as input and returns a new array with the molecules sorted from lightest to heaviest. Each molecule object has the format: `{ name: '...', weight: ... }`. For example, `sortMolecules([{ name: 'Water', weight: 18 }, { name: 'Glucose', weight: 180 }, { name: 'Oxygen', weight: 32 }])` should return `[{ name: 'Oxygen', weight: 32 }, { name: 'Water', weight: 18 }, { name: 'Glucose', weight: 180 }]`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const sortMolecules = (molecules) => molecules.sort((a, b) => a.weight -\nb.weight);\n",
+    "id": 1657
+  },
+  {
+    "generator": "javascript-8",
+    "input": "collusion",
+    "problem": "Imagine you have a group of friends who are planning a secret surprise party for someone. Each friend has a list of tasks they need to complete to help pull off the surprise. If any one friend tells the person they're surprising about the party, the secret is out! Write a JavaScript function called `isPartySecretSafe` that takes two arguments: 1. `friendsTasks`: An array of arrays, where each inner array represents the tasks for one friend. 2. `sharedTasks`: An array of tasks that are shared between two or more friends. The function should return `true` if the secret is safe (no tasks are shared) and `false` if the secret is out (at least one task is shared).<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPartySecretSafe = (friendsTasks, sharedTasks) => { for (let i = 0; i <\nfriendsTasks.length; i++) { for (let j = 0; j < friendsTasks[i].length; j++) {\nif (sharedTasks.includes(friendsTasks[i][j])) { return false; } } } return true;\n};\n",
+    "id": 1658
+  },
+  {
+    "generator": "javascript-8",
+    "input": "scared",
+    "problem": "If you are \"scared\", and you repeat that feeling 3 times, what do you have then? Write a JavaScript function that takes a string and repeats it a given number of times.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const repeatString = (str, num) => str.repeat(num);\n",
+    "id": 1659
+  },
+  {
+    "generator": "javascript-8",
+    "input": "aside",
+    "problem": "You are given a list of words, and you need to create a new list that contains all the words except the first one. Write a function called `setAside` that takes the original list as input and returns the new list.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const setAside = (words) => words.slice(1);\n",
+    "id": 1660
+  },
+  {
+    "generator": "javascript-8",
+    "input": "wrestle",
+    "problem": "Imagine you're writing a program for a wrestling match. The wrestlers have names and weights. Write a JavaScript function called `wrestle` that takes two wrestlers (objects with `name` and `weight` properties) as input and returns the wrestler with the higher weight. If they weigh the same, return the wrestler whose name comes first alphabetically.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const wrestle = (wrestler1, wrestler2) => { if (wrestler1.weight >\nwrestler2.weight) { return wrestler1; } else if (wrestler2.weight >\nwrestler1.weight) { return wrestler2; } else { return wrestler1.name <\nwrestler2.name ? wrestler1 : wrestler2; } };\"\n",
+    "id": 1661
+  },
+  {
+    "generator": "javascript-8",
+    "input": "primarily",
+    "problem": "Write a JavaScript function called `isPrimarilyOdd` that takes an array of numbers as input. It should return `true` if the array contains more odd numbers than even numbers, and `false` otherwise. You can assume the array will always have at least one number.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPrimarilyOdd = (numbers) => { let oddCount = 0; let evenCount = 0; for\n(let i = 0; i < numbers.length; i++) { if (numbers[i] % 2 === 0) { evenCount++;\n} else { oddCount++; } } return oddCount > evenCount; };\n",
+    "id": 1662
+  },
+  {
+    "generator": "javascript-8",
+    "input": "materialize",
+    "problem": "Imagine you have a secret wish that you want to materialize. You have a magic box that can bring your wish to life, but it only understands code. Write a function called `materializeWish` that takes your wish as a string and returns a message that says, 'Your wish to [wish] has materialized!'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const materializeWish = (wish) => `Your wish to ${wish} has materialized!`\n",
+    "id": 1663
+  },
+  {
+    "generator": "javascript-8",
+    "input": "defection",
+    "problem": "Imagine a group of friends, but one of them decided to leave the group - a 'defection'. Write a JavaScript function that takes an array of friends' names and removes the name of the friend who defected. The function should return the new array of friends. Use the name 'defector' as the variable holding the name of the friend who left.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const removeDefector = (friends, defector) => friends.filter(friend => friend\n!== defector);\n",
+    "id": 1664
+  },
+  {
+    "generator": "javascript-8",
+    "input": "hunch",
+    "problem": "Imagine you're a detective trying to solve a mystery. You have a hunch about who the culprit is, but you need to gather more evidence to be sure. Write a JavaScript function called `confirmHunch` that takes two pieces of information as input: a suspect's name (a string) and a list of clues (an array of strings). The function should check if the suspect's name appears in the list of clues. If it does, return the message 'The hunch is confirmed!'. Otherwise, return 'More evidence needed...'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const confirmHunch = (suspect, clues) => clues.includes(suspect) ? 'The hunch\nis confirmed!' : 'More evidence needed...';\"\n",
+    "id": 1665
+  },
+  {
+    "generator": "javascript-8",
+    "input": "pike",
+    "problem": "Imagine you're fishing and you catch a pike. You want to know its size in inches. You know the length of the pike in centimeters. Write a JavaScript function called `convertCmToInches` that takes the pike's length in centimeters as input and returns its length in inches. Remember, there are 2.54 centimeters in an inch.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const convertCmToInches = (cm) => cm / 2.54;\n",
+    "id": 1666
+  },
+  {
+    "generator": "javascript-8",
+    "input": "revenge",
+    "problem": "Imagine you're writing a code for a video game where a character can take revenge on their enemy. Write a JavaScript function called `getRevengePoints` that takes two numbers as input: the character's current revenge points and the number of revenge points earned by defeating the enemy. The function should calculate and return the new total revenge points. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getRevengePoints = (currentPoints, earnedPoints) => currentPoints +\nearnedPoints;\n",
+    "id": 1667
+  },
+  {
+    "generator": "javascript-8",
+    "input": "pavilion",
+    "problem": "Imagine a 'pavilion' is a data structure that holds information about different things. Each thing has a name and a description. Write a JavaScript function called `describePavilion` that takes a pavilion's name as input and returns the description associated with that name. For example, if the pavilion's name is 'Art' and the description is 'A place for creativity', then the function should return 'A place for creativity'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const describePavilion = (name) => { const pavilion = { 'Art': 'A place for\ncreativity', 'Music': 'A place for melody', 'Dance': 'A place for movement' };\nreturn pavilion[name]; };\"\n",
+    "id": 1668
+  },
+  {
+    "generator": "javascript-8",
+    "input": "countryside",
+    "problem": "Imagine the countryside as a list of things, like trees, houses, and fields. Write a JavaScript function that takes a list of things found in the countryside and counts how many are 'trees'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countTrees = (countryside) => countryside.filter(item => item ===\n'tree').length\n",
+    "id": 1669
+  },
+  {
+    "generator": "javascript-8",
+    "input": "chord",
+    "problem": "Imagine you have a musical chord made up of 3 notes. Write a JavaScript function called `chordNotes` that takes an array of 3 numbers representing the notes of the chord and returns a string describing the chord. For example, if the input is `[64, 67, 71]`, the function should return the string 'C major'. The function should work for any 3-note chord using the following mapping: * 64, 67, 71: C major * 64, 67, 72: C minor * 65, 69, 72: D major * 65, 69, 73: D minor * 66, 70, 73: E major * 66, 70, 74: E minor * 67, 71, 74: F major * 67, 71, 75: F minor * 68, 72, 75: G major * 68, 72, 76: G minor * 69, 73, 76: A major * 69, 73, 77: A minor * 70, 74, 77: B major * 70, 74, 78: B minor<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const chordNotes = (notes) => { if (notes[0] === 64 && notes[1] === 67 &&\nnotes[2] === 71) { return 'C major'; } else if (notes[0] === 64 && notes[1] ===\n67 && notes[2] === 72) { return 'C minor'; } else if (notes[0] === 65 &&\nnotes[1] === 69 && notes[2] === 72) { return 'D major'; } else if (notes[0] ===\n65 && notes[1] === 69 && notes[2] === 73) { return 'D minor'; } else if\n(notes[0] === 66 && notes[1] === 70 && notes[2] === 73) { return 'E major'; }\nelse if (notes[0] === 66 && notes[1] === 70 && notes[2] === 74) { return 'E\nminor'; } else if (notes[0] === 67 && notes[1] === 71 && notes[2] === 74) {\nreturn 'F major'; } else if (notes[0] === 67 && notes[1] === 71 && notes[2] ===\n75) { return 'F minor'; } else if (notes[0] === 68 && notes[1] === 72 &&\nnotes[2] === 75) { return 'G major'; } else if (notes[0] === 68 && notes[1] ===\n72 && notes[2] === 76) { return 'G minor'; } else if (notes[0] === 69 &&\nnotes[1] === 73 && notes[2] === 76) { return 'A major'; } else if (notes[0] ===\n69 && notes[1] === 73 && notes[2] === 77) { return 'A minor'; } else if\n(notes[0] === 70 && notes[1] === 74 && notes[2] === 77) { return 'B major'; }\nelse if (notes[0] === 70 && notes[1] === 74 && notes[2] === 78) { return 'B\nminor'; } }\n",
+    "id": 1670
+  },
+  {
+    "generator": "javascript-8",
+    "input": "cruelty",
+    "problem": "Imagine you're building a program that tells a story. In this story, a character is known for their cruelty. To show this, you want to include a list of their mean actions. Write a JavaScript function that takes this list of actions as input and returns a message that says 'This character is cruel!' if the list has at least 3 actions, otherwise it says 'This character might not be that cruel.'<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const isCruel = (actions) => actions.length >= 3 ? 'This character is cruel!' :\n'This character might not be that cruel.'\"\n",
+    "id": 1671
+  },
+  {
+    "generator": "javascript-8",
+    "input": "preoccupied",
+    "problem": "Imagine a robot tasked with cleaning a room. The robot is 'preoccupied' with cleaning a specific area and will continue to clean that area until it's finished. Write a JavaScript function called `cleanRoom` that simulates this behavior. The function should take a single argument, `currentArea`, which represents the area the robot is currently cleaning. The function should return the `currentArea` value as long as the robot is 'preoccupied'. When the robot is finally done cleaning the area, it should return `'Done'`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const cleanRoom = (currentArea) => { if (currentArea === 'finished') { return\n'Done'; } else { return currentArea; } };\n",
+    "id": 1672
+  },
+  {
+    "generator": "javascript-8",
+    "input": "environmentalist",
+    "problem": "Imagine you're creating a program to track environmentalists and their causes. You need to store each environmentalist's name and the cause they support. Write a JavaScript function called `addEnvironmentalist` that takes two strings, the environmentalist's name and their cause, and returns an object with the name and cause as properties. For example, `addEnvironmentalist('Jane Doe', 'Ocean Conservation')` should return `{ name: 'Jane Doe', cause: 'Ocean Conservation' }`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const addEnvironmentalist = (name, cause) => ({ name, cause });\n```\"\n",
+    "id": 1673
+  },
+  {
+    "generator": "javascript-8",
+    "input": "factor",
+    "problem": "Write a JavaScript function called `isFactor` that takes two numbers as input, `number` and `factor`. The function should return `true` if `factor` is a factor of `number` (meaning `number` is divisible by `factor` with no remainder), and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isFactor = (number, factor) => number % factor === 0;\n",
+    "id": 1674
+  },
+  {
+    "generator": "javascript-8",
+    "input": "upright",
+    "problem": "Imagine you're building a game where a character can be upright (standing) or lying down. Write a JavaScript function called `isUpright` that takes a single argument `position` which is a string ('standing' or 'lying down'). If the position is 'standing', the function should return true. Otherwise, it should return false.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isUpright = (position) => position === 'standing';\n",
+    "id": 1675
   },
   {
     "generator": "javascript-9",
-    "input": "strident",
-    "problem": "Imagine you're creating a program that analyzes the tone of a user's input. You want to flag any messages that are excessively loud or forceful, like shouting. Write a JavaScript function called `isStrident` that takes a string as input and returns `true` if the string contains at least three exclamation points (`!`) in a row, indicating a strong emphasis. Otherwise, the function should return `false`.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"```javascript const isStrident = (message) => { return message.includes('!!!');\n}; ```\"\n",
-    "id": 1402
+    "input": "pretty",
+    "problem": "Write a JavaScript function called `isPretty` that takes a string as input. The function should return `true` if the string contains the word 'pretty' (case-insensitive), and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPretty = (str) => str.toLowerCase().includes('pretty');\n",
+    "id": 1676
   },
   {
     "generator": "javascript-9",
-    "input": "intoxication",
-    "problem": "Write a JavaScript function that takes a string as input and returns the number of times the letter 'o' appears in the string, ignoring case. For example, given the string 'intoxication', the function should return 3.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const countOs = (str) => str.toLowerCase().split('').filter(letter => letter ===\n'o').length;\n",
-    "id": 1403
+    "input": "canary",
+    "problem": "Write a JavaScript function called `isCanaryYellow` that takes a string as input and returns `true` if the string is exactly 'yellow', and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isCanaryYellow = (color) => color === 'yellow';\n",
+    "id": 1677
   },
   {
     "generator": "javascript-9",
-    "input": "regal",
-    "problem": "Imagine a royal family where each member has a title like 'King', 'Queen', 'Prince', or 'Princess'. Write a JavaScript function called `royalGreeting` that takes a title as input and returns a greeting appropriate for that title. For example, if the input is 'King', the function should return 'Your Majesty'.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "\"const royalGreeting = (title) => { switch (title) { case 'King': case 'Queen':\nreturn 'Your Majesty'; case 'Prince': case 'Princess': return 'Your Highness';\ndefault: return 'Greetings'; } };\"\n",
-    "id": 1404
+    "input": "canine",
+    "problem": "Write a JavaScript function called `isCanine` that takes a single string argument representing an animal name. The function should return `true` if the animal is a canine (dog, wolf, etc.) and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isCanine = (animal) => animal.toLowerCase() === 'dog' ||\nanimal.toLowerCase() === 'wolf';\n",
+    "id": 1678
   },
   {
     "generator": "javascript-9",
-    "input": "empower",
-    "problem": "You are given a list of students' names and their corresponding scores on a recent quiz. Write a function that will print a message to the console for each student, telling them if they passed or failed. A passing score is 70 or above. Your function should take two parameters: an array of student names and an array of their corresponding quiz scores.\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line>\n<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "const printPassingStatus = (names, scores) => { for (let i = 0; i <\nnames.length; i++) { if (scores[i] >= 70) { console.log(`${names[i]} passed the\nquiz!`); } else { console.log(`${names[i]} failed the quiz.`); } } };\n",
-    "id": 1405
+    "input": "chosen",
+    "problem": "You are creating a program that lets users choose their favorite color. The user is presented with a list of colors, and their choice is stored in a variable called `favoriteColor`. Write a JavaScript function called `displayChoice` that takes `favoriteColor` as an argument and prints a message like \"Your favorite color is [color name]\" using the chosen color.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const displayChoice = (favoriteColor) => { console.log(`Your favorite color is\n${favoriteColor}`); };\n",
+    "id": 1679
+  },
+  {
+    "generator": "javascript-9",
+    "input": "trauma",
+    "problem": "Imagine you are working on a program to help people process traumatic experiences. You need to store the severity of each experience on a scale of 1 to 5, where 1 is the least severe and 5 is the most severe. Write a JavaScript function called `processTraumaSeverity` that takes a number representing the severity level and returns a string describing the severity level. For example, if the severity level is 3, the function should return 'Moderate'. Here are the severity levels and their corresponding descriptions: 1 - Minor 2 - Mild 3 - Moderate 4 - Severe 5 - Critical You can use the following code as a starting point: ```javascript function processTraumaSeverity(severityLevel) { // Your code goes here } ```<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const processTraumaSeverity = (severityLevel) => { switch\n(severityLevel) { case 1: return 'Minor'; case 2: return 'Mild'; case 3: return\n'Moderate'; case 4: return 'Severe'; case 5: return 'Critical'; default: return\n'Invalid severity level'; } }; ```\"\n",
+    "id": 1680
+  },
+  {
+    "generator": "javascript-9",
+    "input": "jealously",
+    "problem": "Write a JavaScript function that takes a string as input and returns a new string where each letter is repeated the number of times indicated by its position in the alphabet (a=1, b=2, c=3, etc.). For example, the input \"jealously\" should output \"jjeeeaaaalllooooouuuusssslllyyyy\" because 'j' is the 10th letter, 'e' is the 5th, etc.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const repeatLetters = (str) => str.split('').map((letter, index) =>\nletter.repeat(index + 1)).join('')\n",
+    "id": 1681
+  },
+  {
+    "generator": "javascript-9",
+    "input": "freshly",
+    "problem": "Write a JavaScript function called `makeFresh` that takes a string as input and returns a new string with the word \"freshly\" added to the beginning. For example, `makeFresh(\"baked\")` should return `\"freshly baked\"`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const makeFresh = (str) => `freshly ${str}`;\n",
+    "id": 1682
+  },
+  {
+    "generator": "javascript-9",
+    "input": "promising",
+    "problem": "Write a JavaScript function called `isPromising` that takes a single string as input. The function should return `true` if the string contains the word \"promising\" (case-insensitive) and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isPromising = (str) => str.toLowerCase().includes('promising');\n",
+    "id": 1683
+  },
+  {
+    "generator": "javascript-9",
+    "input": "yellow",
+    "problem": "Write a JavaScript function that takes a string as input and returns true if the string contains the word 'yellow', and false otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const containsYellow = (str) => str.toLowerCase().includes('yellow');\n",
+    "id": 1684
+  },
+  {
+    "generator": "javascript-9",
+    "input": "situation",
+    "problem": "Imagine you're writing a program that needs to keep track of the current situation in a game. The situation could be 'winning', 'losing', or 'playing'. Write a JavaScript function called `updateSituation` that takes the current situation as a string and returns a new string based on these rules: * If the situation is 'winning', return 'celebrating!' * If the situation is 'losing', return 'try again!' * If the situation is 'playing', return 'keep going!' * For any other situation, return 'unknown situation'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const updateSituation = (situation) => { if (situation === 'winning') { return\n'celebrating!'; } else if (situation === 'losing') { return 'try again!'; } else\nif (situation === 'playing') { return 'keep going!'; } else { return 'unknown\nsituation'; } };\n",
+    "id": 1685
+  },
+  {
+    "generator": "javascript-9",
+    "input": "blister",
+    "problem": "Write a JavaScript function that takes a string as input and returns a new string where each letter in the original string is replaced with the letter that comes after it in the alphabet. For example, if the input is 'blister', the output should be 'cmjoufs'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const shiftLetters = (str) => str.split('').map(letter =>\nString.fromCharCode(letter.charCodeAt(0) + 1)).join('');\n",
+    "id": 1686
+  },
+  {
+    "generator": "javascript-9",
+    "input": "unexpectedly",
+    "problem": "Write a JavaScript function named `unexpectedly` that takes a single argument, a number, and returns the opposite of what you might expect. If the number is even, return `true`. If the number is odd, return `false`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const unexpectedly = (number) => number % 2 === 0;\n",
+    "id": 1687
+  },
+  {
+    "generator": "javascript-9",
+    "input": "mission",
+    "problem": "Imagine you are designing a website for a space mission. You need to store information about each mission, including its name, launch date, and a list of astronauts. Write a JavaScript function called `createMission` that takes a mission name, launch date, and an array of astronauts as input. It should return an object representing the mission with the provided data. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const createMission = (name, launchDate, astronauts) => ({ name, launchDate,\nastronauts });\n",
+    "id": 1688
+  },
+  {
+    "generator": "javascript-9",
+    "input": "concomitant",
+    "problem": "Imagine you have a list of numbers, and you want to create a new list where each number is doubled. However, you only want to double the numbers that are even. Write a JavaScript function that takes the original list of numbers and returns the new list with only the doubled even numbers. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const doubleEvenNumbers = (numbers) => numbers.filter(number => number % 2 ===\n0).map(number => number * 2);\n",
+    "id": 1689
+  },
+  {
+    "generator": "javascript-9",
+    "input": "avid",
+    "problem": "Imagine you are building a website that encourages users to read more. You want to display a message like 'You are an avid reader!' if a user has read more than 5 books. Write a JavaScript function that takes the number of books read as input and returns the message 'You are an avid reader!' if the number is greater than 5, otherwise it returns 'Keep reading!'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"const avidReader = (booksRead) => booksRead > 5 ? 'You are an avid reader!' :\n'Keep reading!';\"\n",
+    "id": 1690
+  },
+  {
+    "generator": "javascript-9",
+    "input": "disability",
+    "problem": "Imagine a website that helps people find accessible events. It needs to store information about each event, including whether it's accessible for people with disabilities. Write a JavaScript function called `isAccessible` that takes a single argument, `eventInfo`, which is an object representing an event. The `eventInfo` object will always have a property called `accessibility`, which is a string. If the `accessibility` property is equal to 'yes', the function should return `true`. Otherwise, it should return `false`. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isAccessible = (eventInfo) => eventInfo.accessibility === 'yes';\n",
+    "id": 1691
+  },
+  {
+    "generator": "javascript-9",
+    "input": "influence",
+    "problem": "Imagine you are building a social media app. You want to show users how many friends they have. Each user has a `friends` array of user IDs. Create a function that takes a user's `friends` array and returns the number of friends they have. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const countFriends = (friends) => friends.length;\n",
+    "id": 1692
+  },
+  {
+    "generator": "javascript-9",
+    "input": "pedagogy",
+    "problem": "Write a JavaScript function called `doubleTheValue` that takes a single number as input and returns double the value. For example, `doubleTheValue(5)` should return `10`.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const doubleTheValue = (num) => num * 2;\n",
+    "id": 1693
+  },
+  {
+    "generator": "javascript-9",
+    "input": "dreamer",
+    "problem": "A 'dreamer' is someone who imagines possibilities. Write a JavaScript function that takes a dreamer's name as a string and returns a string greeting them with 'Welcome, [dreamer's name]!'.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const greetDreamer = (name) => `Welcome, ${name}!`;\n",
+    "id": 1694
+  },
+  {
+    "generator": "javascript-9",
+    "input": "sanctuary",
+    "problem": "Imagine a 'sanctuary' is a special place in a computer program where only certain data is allowed to enter. We want to create a function called 'isAllowed' that checks if a given piece of data belongs in the sanctuary. The sanctuary allows only numbers and the string 'peace'. Write a JavaScript function called 'isAllowed' that takes a single input, 'data', and returns 'true' if the data is allowed in the sanctuary, and 'false' otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isAllowed = (data) => typeof data === 'number' || data === 'peace';\n",
+    "id": 1695
+  },
+  {
+    "generator": "javascript-9",
+    "input": "shaggy",
+    "problem": "Write a JavaScript function called `isShaggy` that takes a string as input and returns `true` if the string has more than one letter 'g' in it, and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isShaggy = (str) => str.split('g').length > 3;\n",
+    "id": 1696
+  },
+  {
+    "generator": "javascript-9",
+    "input": "printer",
+    "problem": "Imagine you have a printer that can only print a certain number of characters per line. Write a function that takes a string and the maximum characters per line as input and returns an array of strings, where each string represents a line that fits within the character limit.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const wrapText = (text, maxChars) => { let lines = []; let currentLine = ''; for\n(const word of text.split(' ')) { if (currentLine.length + word.length <=\nmaxChars) { currentLine += word + ' '; } else { lines.push(currentLine.trim());\ncurrentLine = word + ' '; } } if (currentLine.trim() !== '') {\nlines.push(currentLine.trim()); } return lines; };\n",
+    "id": 1697
+  },
+  {
+    "generator": "javascript-9",
+    "input": "evenly",
+    "problem": "Write a JavaScript function called `isEvenlyDivisible` that takes two numbers as input and returns `true` if the first number is evenly divisible by the second number, and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const isEvenlyDivisible = (num1, num2) => num1 % num2 === 0;\n",
+    "id": 1698
+  },
+  {
+    "generator": "javascript-9",
+    "input": "qualify",
+    "problem": "Write a JavaScript function called `qualify` that takes a student's score as an argument and returns `true` if the score is 80 or above, and `false` otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const qualify = (score) => score >= 80;\n",
+    "id": 1699
+  },
+  {
+    "generator": "javascript-9",
+    "input": "motto",
+    "problem": "Write a JavaScript function called `mottoMaker` that takes a string as input and returns a new string that is the input string repeated three times, with the word \"motto\" inserted between each repetition. For example, if the input is \"Hello\", the function should return \"Hello motto Hello motto Hello\".<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const mottoMaker = (str) => `${str} motto ${str} motto ${str}`;\n",
+    "id": 1700
+  },
+  {
+    "generator": "javascript-9",
+    "input": "rotate",
+    "problem": "Imagine you have a list of numbers, and you want to move the first number to the end of the list. How would you write a JavaScript function that takes a list of numbers and returns a new list with the first number moved to the end?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const rotate = (numbers) => [...numbers.slice(1), numbers[0]];\n```\"\n",
+    "id": 1701
+  },
+  {
+    "generator": "javascript-9",
+    "input": "citizenship",
+    "problem": "Imagine you're building a website for your local community center. You want to display a list of all the citizens who are members of the center. Each citizen has a name and a membership status (either 'active' or 'inactive'). Write a JavaScript function that takes an array of citizen objects (each object containing 'name' and 'status' properties) and returns a new array containing only the names of the active members. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const getActiveMembers = (citizens) => citizens.filter(citizen => citizen.status\n=== 'active').map(citizen => citizen.name);\n",
+    "id": 1702
+  },
+  {
+    "generator": "javascript-9",
+    "input": "lid",
+    "problem": "Write a JavaScript function that takes a string as input and returns 'true' if the string starts with the letter 'l' and ends with the letter 'd', and 'false' otherwise.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "const startsWithLEndsWithD = (str) => str.startsWith('l') && str.endsWith('d');\n",
+    "id": 1703
+  },
+  {
+    "generator": "javascript-9",
+    "input": "longevity",
+    "problem": "Imagine a program that tracks the lifespan of fictional creatures. Write a JavaScript function called `calculateLifespan` that takes the year of birth and the year of death as input, and returns the creature's lifespan in years. <ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "\"```javascript const calculateLifespan = (birthYear, deathYear) => deathYear -\nbirthYear; ```\"\n",
+    "id": 1704
   },
   {
     "generator": "korean-gap-story-2-gritty-realism",
     "input": "beguile",
     "problem": "어두운 골목길에서, 젊은 남자(男子)가 서성거렸습니다. <br> 그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 남자(男子)는 몸을 움찔하며, 뒤를 돌아보았습니다. <br> 그의 눈에 낯선 여자(女子)가 서 있었고, 그녀(그女)의 눈은 매혹적(魅惑的)인 미소(微笑)를 띠고 있었습니다. <br>",
     "solution": "one:\n  original: 어두운 골목길에서, 젊은 남자가 서성거렸습니다.\n  problem: |\n    어두운 골목길에서, 젊은 남자(男子)가 서성거렸습니다.\n  wordByWordTranslation: '{\"어두운\":\"dark\",\"골목길\":\"spine-shaped\n    alley\",\"에서\":\"from\",\"젊은\":\"young\",\"남자\":\"man\",\"서성거렸습니다\":\"was swaggering\"}'\n  overallTranslation: '{\"english\":\"A young man stumbled through the dark alleyway.\"}'\ntwo:\n  original: 그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다.\n  problem: |\n    그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다.\n  wordByWordTranslation: '{\"그는\":{\"english\":\"He\"},\"낡은\":{\"english\":\"old\"},\"코트\":{\"english\":\"coat\"},\"끌어올리고\":{\"english\":\"pulled\n    up\"},\"주머니\":{\"english\":\"pocket\"},\"손\":{\"english\":\"hand\"},\"넣었습니다\":{\"english\":\"put\n    in\"}}'\n  overallTranslation: '{\"english\":\"He pulled up his old coat and put his hands in his pockets.\"}'\nthree:\n  original: 갑자기, 그림자에서 섬뜩한 목소리가 들렸습니다.\n  problem: |\n    갑자기, 그림자에서 섬뜩한 목소리가 들렸습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"그림자\":\"Shadow\",\"섬뜩한\":\"Distant\",\"목소리\":\"Voice\",\"들렸습니다\":\"Could\n    be heard\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a muffled voice seemed to emanate from the shadow.\"}'\nfour:\n  original: 남자는 몸을 움찔하며, 뒤를 돌아보았습니다.\n  problem: |\n    남자(男子)는 몸을 움찔하며, 뒤를 돌아보았습니다.\n  wordByWordTranslation: '{\"남자\":\"Man\",\"는\":\"is\",\"몸\":\"body\",\"움찔\":\"moving\",\"며\":\"while\",\"뒤를\":\"the\n    back\",\"돌아보았습니다\":\"turned back\"}'\n  overallTranslation: '{\"english\":\"A man moved his body cautiously and glanced back.\"}'\nfive:\n  original: 그의 눈에 낯선 여자가 서 있었고, 그녀의 눈은 매혹적인 미소를 띠고 있었습니다.\n  problem: |\n    그의 눈에 낯선 여자(女子)가 서 있었고, 그녀(그女)의 눈은 매혹적(魅惑的)인 미소(微笑)를 띠고 있었습니다.\n  wordByWordTranslation: '{\"그의\":\"his\",\"눈에\":\"in his\n    eyes\",\"낯선\":\"strange\",\"여자\":\"woman\",\"서\":\"was\n    standing\",\"있었고\":\"was\",\"그녀의\":\"her\",\"눈은\":\"his eyes\n    were\",\"매혹적인\":\"charming\",\"미소\":\"smile\",\"띠고\":\"wearing\",\"있었습니다\":\"were\"}'\n  overallTranslation: '{\"english\":\"There was a strange woman standing in his eyes,\n    and her eyes were captivating with their alluring smile.\"}'\n",
-    "id": 1406
+    "id": 1705
   },
   {
     "generator": "korean-gap-story-3-historical",
     "input": "collaborate",
     "problem": "옛날 옛날 한 옛날에, 산(山) 속에 작은 마을이 있었어요. <br> 마을 사람들은 서로 돕고 살았고, 항상(恒常) 행복(幸福)했어요. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 마을 사람들은 괴물(怪物)을 물리치기 위해 힘을 합쳐 싸웠어요. <br> 마을 사람들의 용기(勇氣)와 협동심(協同心) 덕분(德分)에 괴물(怪物)은 물러났고, 마을은 평화(平和)를 되찾았어요. <br>",
     "solution": "one:\n  original: 옛날 옛날 한 옛날에, 산 속에 작은 마을이 있었어요.\n  problem: |\n    옛날 옛날 한 옛날에, 산(山) 속에 작은 마을이 있었어요.\n  wordByWordTranslation: '{\"옛날\":\"a long time\n    ago\",\"한\":\"one\",\"에\":\"to\",\"산\":\"mountain\",\"속\":\"inside\",\"작은\":\"small\",\"마을\":\"village\",\"있었어요\":\"existed\"}'\n  overallTranslation: '{\"english\":\"A long time ago, there was a small village\n    hidden deep in the mountains.\"}'\ntwo:\n  original: 마을 사람들은 서로 돕고 살았고, 항상 행복했어요.\n  problem: |\n    마을 사람들은 서로 돕고 살았고, 항상(恒常) 행복(幸福)했어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"서로\":\"each\n    other\",\"돕고\":\"helped\",\"살았고\":\"lived\",\"항상\":\"always\",\"행복했어요\":\"were happy\"}'\n  overallTranslation: '{\"english\":\"The people of the village lived together in\n    mutual assistance and were always happy.\"}'\nthree:\n  original: 하지만 어느 날, 무서운 괴물이 마을을 공격했어요.\n  problem: |\n    하지만 어느 날, 무서운 괴물(怪物)이 마을을 공격(攻擊)했어요.\n  wordByWordTranslation: '{\"하지만\":\"However\",\"어느 날\":\"one\n    day\",\"무서운\":\"frightful\",\"괴물\":\"monster\",\"마을\":\"village\",\"공격했어요\":\"attacked\"}'\n  overallTranslation: '{\"english\":\"One day, a terrifying monster attacked the village.\"}'\nfour:\n  original: 마을 사람들은 괴물을 물리치기 위해 힘을 합쳐 싸웠어요.\n  problem: |\n    마을 사람들은 괴물(怪物)을 물리치기 위해 힘을 합쳐 싸웠어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"괴물\":\"monster\",\"물리치기\":\"fight\",\"힘\":\"strength\",\"합쳐\":\"together\",\"싸웠어요\":\"fought\"}'\n  overallTranslation: '{\"english\":\"The villagers united to fight off the monster.\"}'\nfive:\n  original: 마을 사람들의 용기와 협동심 덕분에 괴물은 물러났고, 마을은 평화를 되찾았어요.\n  problem: |\n    마을 사람들의 용기(勇氣)와 협동심(協同心) 덕분(德分)에 괴물(怪物)은 물러났고, 마을은 평화(平和)를 되찾았어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"용기\":\"courage\",\"협동심\":\"cooperation\",\"덕분에\":\"thanks\n    to\",\"괴물\":\"monster\",\"물러났고\":\"vanished\",\"평화\":\"peace\",\" 되찾았어요\":\"restored\"}'\n  overallTranslation: '{\"english\":\"The bravery of the villagers and their sense of\n    unity drove the monster away, and peace was restored to the village.\"}'\n",
-    "id": 1407
+    "id": 1706
   },
   {
     "generator": "korean-gap-story-4-thriller",
     "input": "inferno",
     "problem": "지수는 친구(親舊) 민수와 함께 어두운 숲 속을 걸어가고 있었습니다. <br> 둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간(時間)을 보내고 있었습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 둘은 놀라서 서로를 붙잡고 주변(周邊)을 살펴보았지만, 아무것도 보이지 않았습니다. <br> 그때, 숲 속에서 불길이 치솟아 올랐고, 지수(指數)와 민수는 공포(恐怖)에 질려 소리쳤습니다. <br>",
     "solution": "one:\n  original: 지수는 친구 민수와 함께 어두운 숲 속을 걸어가고 있었습니다.\n  problem: |\n    지수는 친구(親舊) 민수와 함께 어두운 숲 속을 걸어가고 있었습니다.\n  wordByWordTranslation: '{\"지수\":\"Jisoo\",\"친구\":\"friend\",\"민수\":\"Minsoo\",\"동시에\":\"together\",\"어두운\":\"dark\",\"숲\":\"forest\",\"걸어가고\":\"walking\",\"있었습니다\":\"was\"}'\n  overallTranslation: '{\"english\":\"Jisoo was walking through the dark forest with\n    her friend Minsoo.\"}'\ntwo:\n  original: 둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간을 보내고 있었습니다.\n  problem: |\n    둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간(時間)을 보내고 있었습니다.\n  wordByWordTranslation: '{\"둘은\":\"They were\n    two\",\"캠핑을\":\"camping\",\"가는\":\"going\",\"길이었고\":\"it was long\",\"밤늦도록\":\"late at\n    night\",\" 이야기를\":\"they talked about\",\"나누며\":\"while\n    talking\",\"즐거운\":\"pleasant\",\"시간을\":\"time\",\"보내고\":\"spending\",\"있었습니다\":\"were\n    spending\"}'\n  overallTranslation: '{\"english\":\"They were on a camping trip together, spending\n    the late night talking and having a good time.\"}'\nthree:\n  original: 갑자기 숲 속에서 이상한 소리가 들리더니, 땅이 흔들리기 시작했습니다.\n  problem: |\n    갑자기 숲 속에서 이상(異常)한 소리가 들리더니, 땅이 흔들리기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"숲 속에서\":\"in the\n    forest\",\"이상한\":\"strange\",\"소리\":\"sound\",\"들리더니\":\"was\n    heard\",\"땅\":\"earth\",\"흔들리기\":\"to shake\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a strange noise echoed through the\n    forest, and the ground began to tremor.\"}'\nfour:\n  original: 둘은 놀라서 서로를 붙잡고 주변을 살펴보았지만, 아무것도 보이지 않았습니다.\n  problem: |\n    둘은 놀라서 서로를 붙잡고 주변(周邊)을 살펴보았지만, 아무것도 보이지 않았습니다.\n  wordByWordTranslation: \"{\\\"둘\\\":\\\"two\\\",\\\"은\\\":\\\"are\\\",\\\"놀라서\\\":\\\"playing\\\",\\\"서로를\\\n    \\\":\\\"each other\\\",\\\"붙잡고\\\":\\\"hugging\\\",\\\"주변을\\\":\\\"surrounding\n    area\\\",\\\"살펴보았지만\\\":\\\"looked around to see if\\\",\\\"아무것도\\\":\\\"nothing\\\",\\\"보이지\n    않았습니다\\\":\\\"wasn't visible\\\"}\"\n  overallTranslation: '{\"english\":\"They playfully clutched each other and looked\n    around their surroundings, but found nothing unusual.\"}'\nfive:\n  original: 그때, 숲 속에서 불길이 치솟아 올랐고, 지수와 민수는 공포에 질려 소리쳤습니다.\n  problem: |\n    그때, 숲 속에서 불길이 치솟아 올랐고, 지수(指數)와 민수는 공포(恐怖)에 질려 소리쳤습니다.\n  wordByWordTranslation: '{\"그때\":\"At that time\",\"숲 속에서\":\"in the\n    forest\",\"불길\":\"wildfire\",\"치솟아\":\"erupted\",\"올랐고\":\"rose up\",\"지수와\":\"Su\n    and\",\"민수는\":\"Min-su was\",\"공포\":\"fear\",\"질려\":\"terrified\",\"소리쳤습니다\":\"made a\n    noise\"}'\n  overallTranslation: '{\"english\":\"At that time, a wildfire erupted in the forest,\n    and Su-ji and Min-su screamed in terror, terrified.\"}'\n",
-    "id": 1408
+    "id": 1707
   },
   {
     "generator": "korean-story-2-gritty-realism",
     "input": "beguile",
     "problem": "어두운 골목길에서, 젊은 남자(男子)가 서성거렸습니다. <br> 그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다. <br> 갑자기, 그림자에서 섬뜩한 목소리가 들렸습니다. <br> 남자(男子)는 몸을 움찔하며, 뒤를 돌아보았습니다. <br> 그의 눈에 낯선 여자(女子)가 서 있었고, 그녀(그女)의 눈은 매혹적(魅惑的)인 미소(微笑)를 띠고 있었습니다. <br>",
     "solution": "one:\n  original: 어두운 골목길에서, 젊은 남자가 서성거렸습니다.\n  problem: |\n    어두운 골목길에서, 젊은 남자(男子)가 서성거렸습니다.\n  wordByWordTranslation: '{\"어두운\":\"dark\",\"골목길\":\"spine-shaped\n    alley\",\"에서\":\"from\",\"젊은\":\"young\",\"남자\":\"man\",\"서성거렸습니다\":\"was swaggering\"}'\n  overallTranslation: '{\"english\":\"A young man stumbled through the dark alleyway.\"}'\ntwo:\n  original: 그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다.\n  problem: |\n    그는 낡은 코트를 끌어올리고, 주머니에 손을 넣었습니다.\n  wordByWordTranslation: '{\"그는\":{\"english\":\"He\"},\"낡은\":{\"english\":\"old\"},\"코트\":{\"english\":\"coat\"},\"끌어올리고\":{\"english\":\"pulled\n    up\"},\"주머니\":{\"english\":\"pocket\"},\"손\":{\"english\":\"hand\"},\"넣었습니다\":{\"english\":\"put\n    in\"}}'\n  overallTranslation: '{\"english\":\"He pulled up his old coat and put his hands in his pockets.\"}'\nthree:\n  original: 갑자기, 그림자에서 섬뜩한 목소리가 들렸습니다.\n  problem: |\n    갑자기, 그림자에서 섬뜩한 목소리가 들렸습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"그림자\":\"Shadow\",\"섬뜩한\":\"Distant\",\"목소리\":\"Voice\",\"들렸습니다\":\"Could\n    be heard\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a muffled voice seemed to emanate from the shadow.\"}'\nfour:\n  original: 남자는 몸을 움찔하며, 뒤를 돌아보았습니다.\n  problem: |\n    남자(男子)는 몸을 움찔하며, 뒤를 돌아보았습니다.\n  wordByWordTranslation: '{\"남자\":\"Man\",\"는\":\"is\",\"몸\":\"body\",\"움찔\":\"moving\",\"며\":\"while\",\"뒤를\":\"the\n    back\",\"돌아보았습니다\":\"turned back\"}'\n  overallTranslation: '{\"english\":\"A man moved his body cautiously and glanced back.\"}'\nfive:\n  original: 그의 눈에 낯선 여자가 서 있었고, 그녀의 눈은 매혹적인 미소를 띠고 있었습니다.\n  problem: |\n    그의 눈에 낯선 여자(女子)가 서 있었고, 그녀(그女)의 눈은 매혹적(魅惑的)인 미소(微笑)를 띠고 있었습니다.\n  wordByWordTranslation: '{\"그의\":\"his\",\"눈에\":\"in his\n    eyes\",\"낯선\":\"strange\",\"여자\":\"woman\",\"서\":\"was\n    standing\",\"있었고\":\"was\",\"그녀의\":\"her\",\"눈은\":\"his eyes\n    were\",\"매혹적인\":\"charming\",\"미소\":\"smile\",\"띠고\":\"wearing\",\"있었습니다\":\"were\"}'\n  overallTranslation: '{\"english\":\"There was a strange woman standing in his eyes,\n    and her eyes were captivating with their alluring smile.\"}'\n",
-    "id": 1409
+    "id": 1708
   },
   {
     "generator": "korean-story-3-historical",
     "input": "collaborate",
     "problem": "옛날 옛날 한 옛날에, 산(山) 속에 작은 마을이 있었어요. <br> 마을 사람들은 서로 돕고 살았고, 항상(恒常) 행복(幸福)했어요. <br> 하지만 어느 날, 무서운 괴물(怪物)이 마을을 공격(攻擊)했어요. <br> 마을 사람들은 괴물(怪物)을 물리치기 위해 힘을 합쳐 싸웠어요. <br> 마을 사람들의 용기(勇氣)와 협동심(協同心) 덕분(德分)에 괴물(怪物)은 물러났고, 마을은 평화(平和)를 되찾았어요. <br>",
     "solution": "one:\n  original: 옛날 옛날 한 옛날에, 산 속에 작은 마을이 있었어요.\n  problem: |\n    옛날 옛날 한 옛날에, 산(山) 속에 작은 마을이 있었어요.\n  wordByWordTranslation: '{\"옛날\":\"a long time\n    ago\",\"한\":\"one\",\"에\":\"to\",\"산\":\"mountain\",\"속\":\"inside\",\"작은\":\"small\",\"마을\":\"village\",\"있었어요\":\"existed\"}'\n  overallTranslation: '{\"english\":\"A long time ago, there was a small village\n    hidden deep in the mountains.\"}'\ntwo:\n  original: 마을 사람들은 서로 돕고 살았고, 항상 행복했어요.\n  problem: |\n    마을 사람들은 서로 돕고 살았고, 항상(恒常) 행복(幸福)했어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"서로\":\"each\n    other\",\"돕고\":\"helped\",\"살았고\":\"lived\",\"항상\":\"always\",\"행복했어요\":\"were happy\"}'\n  overallTranslation: '{\"english\":\"The people of the village lived together in\n    mutual assistance and were always happy.\"}'\nthree:\n  original: 하지만 어느 날, 무서운 괴물이 마을을 공격했어요.\n  problem: |\n    하지만 어느 날, 무서운 괴물(怪物)이 마을을 공격(攻擊)했어요.\n  wordByWordTranslation: '{\"하지만\":\"However\",\"어느 날\":\"one\n    day\",\"무서운\":\"frightful\",\"괴물\":\"monster\",\"마을\":\"village\",\"공격했어요\":\"attacked\"}'\n  overallTranslation: '{\"english\":\"One day, a terrifying monster attacked the village.\"}'\nfour:\n  original: 마을 사람들은 괴물을 물리치기 위해 힘을 합쳐 싸웠어요.\n  problem: |\n    마을 사람들은 괴물(怪物)을 물리치기 위해 힘을 합쳐 싸웠어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"괴물\":\"monster\",\"물리치기\":\"fight\",\"힘\":\"strength\",\"합쳐\":\"together\",\"싸웠어요\":\"fought\"}'\n  overallTranslation: '{\"english\":\"The villagers united to fight off the monster.\"}'\nfive:\n  original: 마을 사람들의 용기와 협동심 덕분에 괴물은 물러났고, 마을은 평화를 되찾았어요.\n  problem: |\n    마을 사람들의 용기(勇氣)와 협동심(協同心) 덕분(德分)에 괴물(怪物)은 물러났고, 마을은 평화(平和)를 되찾았어요.\n  wordByWordTranslation: '{\"마을\":\"village\",\"사람들\":\"people\",\"용기\":\"courage\",\"협동심\":\"cooperation\",\"덕분에\":\"thanks\n    to\",\"괴물\":\"monster\",\"물러났고\":\"vanished\",\"평화\":\"peace\",\" 되찾았어요\":\"restored\"}'\n  overallTranslation: '{\"english\":\"The bravery of the villagers and their sense of\n    unity drove the monster away, and peace was restored to the village.\"}'\n",
-    "id": 1410
+    "id": 1709
   },
   {
     "generator": "korean-story-4-thriller",
     "input": "inferno",
     "problem": "지수는 친구(親舊) 민수와 함께 어두운 숲 속을 걸어가고 있었습니다. <br> 둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간(時間)을 보내고 있었습니다. <br> 갑자기 숲 속에서 이상(異常)한 소리가 들리더니, 땅이 흔들리기 시작(始作)했습니다. <br> 둘은 놀라서 서로를 붙잡고 주변(周邊)을 살펴보았지만, 아무것도 보이지 않았습니다. <br> 그때, 숲 속에서 불길이 치솟아 올랐고, 지수(指數)와 민수는 공포(恐怖)에 질려 소리쳤습니다. <br>",
     "solution": "one:\n  original: 지수는 친구 민수와 함께 어두운 숲 속을 걸어가고 있었습니다.\n  problem: |\n    지수는 친구(親舊) 민수와 함께 어두운 숲 속을 걸어가고 있었습니다.\n  wordByWordTranslation: '{\"지수\":\"Jisoo\",\"친구\":\"friend\",\"민수\":\"Minsoo\",\"동시에\":\"together\",\"어두운\":\"dark\",\"숲\":\"forest\",\"걸어가고\":\"walking\",\"있었습니다\":\"was\"}'\n  overallTranslation: '{\"english\":\"Jisoo was walking through the dark forest with\n    her friend Minsoo.\"}'\ntwo:\n  original: 둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간을 보내고 있었습니다.\n  problem: |\n    둘은 캠핑을 가는 길이었고, 밤늦도록 이야기를 나누며 즐거운 시간(時間)을 보내고 있었습니다.\n  wordByWordTranslation: '{\"둘은\":\"They were\n    two\",\"캠핑을\":\"camping\",\"가는\":\"going\",\"길이었고\":\"it was long\",\"밤늦도록\":\"late at\n    night\",\" 이야기를\":\"they talked about\",\"나누며\":\"while\n    talking\",\"즐거운\":\"pleasant\",\"시간을\":\"time\",\"보내고\":\"spending\",\"있었습니다\":\"were\n    spending\"}'\n  overallTranslation: '{\"english\":\"They were on a camping trip together, spending\n    the late night talking and having a good time.\"}'\nthree:\n  original: 갑자기 숲 속에서 이상한 소리가 들리더니, 땅이 흔들리기 시작했습니다.\n  problem: |\n    갑자기 숲 속에서 이상(異常)한 소리가 들리더니, 땅이 흔들리기 시작(始作)했습니다.\n  wordByWordTranslation: '{\"갑자기\":\"Suddenly\",\"숲 속에서\":\"in the\n    forest\",\"이상한\":\"strange\",\"소리\":\"sound\",\"들리더니\":\"was\n    heard\",\"땅\":\"earth\",\"흔들리기\":\"to shake\",\"시작했습니다\":\"started\"}'\n  overallTranslation: '{\"english\":\"Suddenly, a strange noise echoed through the\n    forest, and the ground began to tremor.\"}'\nfour:\n  original: 둘은 놀라서 서로를 붙잡고 주변을 살펴보았지만, 아무것도 보이지 않았습니다.\n  problem: |\n    둘은 놀라서 서로를 붙잡고 주변(周邊)을 살펴보았지만, 아무것도 보이지 않았습니다.\n  wordByWordTranslation: \"{\\\"둘\\\":\\\"two\\\",\\\"은\\\":\\\"are\\\",\\\"놀라서\\\":\\\"playing\\\",\\\"서로를\\\n    \\\":\\\"each other\\\",\\\"붙잡고\\\":\\\"hugging\\\",\\\"주변을\\\":\\\"surrounding\n    area\\\",\\\"살펴보았지만\\\":\\\"looked around to see if\\\",\\\"아무것도\\\":\\\"nothing\\\",\\\"보이지\n    않았습니다\\\":\\\"wasn't visible\\\"}\"\n  overallTranslation: '{\"english\":\"They playfully clutched each other and looked\n    around their surroundings, but found nothing unusual.\"}'\nfive:\n  original: 그때, 숲 속에서 불길이 치솟아 올랐고, 지수와 민수는 공포에 질려 소리쳤습니다.\n  problem: |\n    그때, 숲 속에서 불길이 치솟아 올랐고, 지수(指數)와 민수는 공포(恐怖)에 질려 소리쳤습니다.\n  wordByWordTranslation: '{\"그때\":\"At that time\",\"숲 속에서\":\"in the\n    forest\",\"불길\":\"wildfire\",\"치솟아\":\"erupted\",\"올랐고\":\"rose up\",\"지수와\":\"Su\n    and\",\"민수는\":\"Min-su was\",\"공포\":\"fear\",\"질려\":\"terrified\",\"소리쳤습니다\":\"made a\n    noise\"}'\n  overallTranslation: '{\"english\":\"At that time, a wildfire erupted in the forest,\n    and Su-ji and Min-su screamed in terror, terrified.\"}'\n",
-    "id": 1411
+    "id": 1710
   },
   {
     "generator": "math-symbolic-2-1-large-integer-subtraction",
     "problem": "''x - 10 = 50'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 10 = 50\nwordProblem: A baker had a box of 60 cookies. He gave 10 cookies to his friend.\n  How many cookies did the baker have left?\nsolutions:\n  x: 60\n",
     "time": 10,
-    "id": 1412
+    "id": 1711
   },
   {
     "generator": "math-symbolic-2-2-large-integer-multiplication",
     "problem": "''x + y = 120''<br>''x - y = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - x - y = 40\nwordProblem: Maya and Ben are collecting bottle caps for a school project. Maya\n  collected 40 more bottle caps than Ben. Together, they collected 120 bottle\n  caps. How many bottle caps did each of them collect?\nsolutions:\n  x: 80\n  y: 40\n",
     "time": 60,
-    "id": 1413
+    "id": 1712
   },
   {
     "generator": "math-symbolic-2-2-large-integer-multiplication",
     "problem": "''x + y = 20''<br>''x - y = 8'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 20\n  - x - y = 8\nwordProblem: An earthenware shop sold 20 plates and bowls on Saturday. They sold\n  8 more plates than bowls. How many plates did they sell? How many bowls did\n  they sell?\nsolutions:\n  x: 14\n  y: 6\n",
     "time": 30,
-    "id": 1414
+    "id": 1713
   },
   {
     "generator": "math-symbolic-4-1-geometry",
     "problem": "''x + 3 = 7'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 3 = 7\nwordProblem: Sarah has a collection of stamps. Her friend, Alex, gives her 3\n  more stamps.  Now, Sarah has 7 stamps. How many stamps did Sarah start with?\nsolutions:\n  x: 4\n",
     "time": 15,
-    "id": 1415
+    "id": 1714
   },
   {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
     "problem": "''x/1000 = 250'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/1000 = 250\nwordProblem: A leaden statue weighs 250 kilograms. If 1000 grams equal 1\n  kilogram, how many grams does the statue weigh?\nsolutions:\n  x: 250000\n",
     "time": 10,
-    "id": 1416
+    "id": 1715
   },
   {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
     "problem": "''12 * x = 4800'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 12 * x = 4800\nwordProblem: A somber circus elephant named Bartholomew eats 4800 kilograms of\n  hay each month. If Bartholomew eats the same amount of hay each day, how many\n  kilograms of hay does he eat each day?\nsolutions:\n  x: 400\n",
     "time": 15,
-    "id": 1417
+    "id": 1716
   },
   {
     "generator": "math-symbolic-4-1-mass",
     "problem": "''x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 45\nwordProblem: The high tide at the beach was 45 centimeters. The tide went out\n  and was 15 centimeters lower. How high was the tide when it went out? Let x\n  represent the tide when it went out.\nsolutions:\n  x: 30\n",
     "time": 15,
-    "id": 1418
+    "id": 1717
   },
   {
     "generator": "math-symbolic-4-1-proportion",
     "problem": "''4x + 8 = 24'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 8 = 24\nwordProblem: \"A group of 4 friends are playing a game where they need to collect\n  24 points to win. They already have 8 points. If each friend earns the same\n  amount of points, how many points does each friend need to earn to win? \"\nsolutions:\n  x: 4\n",
     "time": 20,
-    "id": 1419
+    "id": 1718
   },
   {
     "generator": "math-symbolic-4-1-science",
     "problem": "''4x = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x = 12\nwordProblem: \"A mechanic is working on a car. He needs to replace 4 spark plugs.\n  If each spark plug costs 12 dollars, how much will he spend on all the spark\n  plugs? \"\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1420
+    "id": 1719
   },
   {
     "generator": "math-symbolic-4-1-science",
     "problem": "''x + 5 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 5 = 12\nwordProblem: A group of friends were playing a game where they needed to collect\n  points.  They started with 5 points and ended up with 12 points.  How many\n  points did they score during the game?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1421
+    "id": 1720
   },
   {
     "generator": "math-symbolic-4-1-space",
     "problem": "''x/4 = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 = 10\nwordProblem: A space explorer found a bowl filled with glowing space rocks.  He\n  divided the rocks equally into 4 smaller bowls.  Each of the smaller bowls had\n  10 rocks. How many space rocks were in the original bowl?\nsolutions:\n  x: 40\n",
     "time": 15,
-    "id": 1422
+    "id": 1721
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
     "problem": "''3x + 5 = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5 = 20\nwordProblem: A bakery is making a batch of cookies. They need 3 bags of flour\n  for each batch. They already have 5 bags of flour. If they need 20 bags of\n  flour in total, how many more bags of flour do they need to buy? Let 'x'\n  represent the number of bags of flour they need to buy.\nsolutions:\n  x: 5\n",
     "time": 15,
-    "id": 1423
+    "id": 1722
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
     "problem": "''x + 15 = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 30\nwordProblem: Ridiculously, a group of friends gathered 30 lollipops for a party.\n  They had already eaten 15 lollipops before the party started. How many\n  lollipops were left for the party? Let 'x' represent the number of lollipops\n  left for the party.\nsolutions:\n  x: 15\n",
     "time": 10,
-    "id": 1424
+    "id": 1723
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
     "problem": "''5d + 10 = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5d + 10 = 40\nwordProblem: Darla is making a necklace with beads. She has 5 rows of beads, and\n  each row has the same number of beads. She adds 10 more beads to the necklace.\n  Now, she has 40 beads in total. How many beads were in each row initially?\nsolutions:\n  d: 6\n",
     "time": 15,
-    "id": 1425
+    "id": 1724
   },
   {
     "generator": "math-symbolic-4-1-travel",
     "problem": "''x + 2 = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2 = 10\nwordProblem: Sarah wants to buy a souvenir for her friend. She has 10 euros. She\n  needs 2 euros for the bus ride home. How many euros does she have left to\n  spend on a souvenir?\nsolutions:\n  x: 8\n",
     "time": 15,
-    "id": 1426
+    "id": 1725
   },
   {
     "generator": "math-symbolic-4-1-travel",
     "problem": "''x + 12 = 48'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 12 = 48\nwordProblem: A group of friends went on a trip. They traveled 12 kilometers by\n  bus and then 48 kilometers by train. How many kilometers did they travel in\n  total?\nsolutions:\n  x: 36\n",
     "time": 15,
-    "id": 1427
+    "id": 1726
   },
   {
     "generator": "math-symbolic-4-1-travel",
     "problem": "''x + 15 = 50'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 50\nwordProblem: A family is on a road trip. They drove 15 kilometers in the\n  morning.  If they need to drive 50 kilometers in total, how many more\n  kilometers do they need to drive?\nsolutions:\n  x: 35\n",
     "time": 10,
-    "id": 1428
+    "id": 1727
   },
   {
     "generator": "math-symbolic-4-2-distance",
     "problem": "''x + y = 12''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12\n  - x - y = 4\nwordProblem: Creative Creations is a store that sells paint and brushes. They\n  sold 12 items yesterday. They sold 4 more paint sets than brushes. How many\n  paint sets and brushes did they sell?\nsolutions:\n  x: 8\n  y: 4\n",
     "time": 60,
-    "id": 1429
+    "id": 1728
   },
   {
     "generator": "math-symbolic-4-2-geometry",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A private school is building a new playground. They need to buy 15\n  meters of fencing to go around the rectangular playground. The length of the\n  playground is 3 meters longer than the width. How long is each side of the\n  playground?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1430
+    "id": 1729
   },
   {
     "generator": "math-symbolic-4-2-large-integer-addition",
     "problem": "''x + y = 1234''<br>''x - y = 567'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1234\n  - x - y = 567\nwordProblem: \"A group of friends went on a hike.  They took two steps: a big\n  step and a small step.  The big step is x meters long and the small step is y\n  meters long.  In total, they took 1234 meters of big steps and small\n  steps.  The difference between the total distance covered by the big steps and\n  the total distance covered by the small steps is 567 meters.  How long are\n  each of the big steps and small steps?\"\nsolutions:\n  x: 900.5\n  y: 333.5\n",
     "time": 60,
-    "id": 1431
+    "id": 1730
   },
   {
     "generator": "math-symbolic-4-2-large-integer-division",
     "problem": "''x + y = 350''<br>''x = 2 * y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 350\n  - x = 2 * y\nwordProblem: Adept Athletics is hosting a 350-meter relay race.  Each team has 2\n  runners.  The first runner runs twice as far as the second runner. How many\n  meters does each runner run?\nsolutions:\n  x: 233\n  y: 117\n",
     "time": 60,
-    "id": 1432
+    "id": 1731
   },
   {
     "generator": "math-symbolic-4-2-proportion",
     "problem": "''x + y = 25''<br>''x - y = 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 25\n  - x - y = 5\nwordProblem: A group of friends went to the park to play. They decided to split\n  into two teams, Team A and Team B.  Team A had 5 more people than Team B. If\n  there were a total of 25 friends at the park, how many people were on each\n  team?\nsolutions:\n  x: 15\n  y: 10\n",
     "time": 60,
-    "id": 1433
+    "id": 1732
   },
   {
     "generator": "math-symbolic-4-2-reality",
     "problem": "''b + s = 12''<br>''b = 2s'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - b + s = 12\n  - b = 2s\nwordProblem: A baker made a batch of 12 beloved chocolate chip cookies. He used\n  twice as many chocolate chips for the big cookies (b) as he did for the small\n  cookies (s). How many chocolate chips did he use for the big cookies?\nsolutions:\n  b: 8\n  s: 4\n",
     "time": 30,
-    "id": 1434
+    "id": 1733
   },
   {
     "generator": "math-symbolic-4-2-speed",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: Two friends, Peter and Alice, are collecting stickers.  Peter has 3\n  more stickers than Alice.  Together, they have 15 stickers.  How many stickers\n  does each friend have?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 45,
-    "id": 1435
+    "id": 1734
   },
   {
     "generator": "math-symbolic-5-1-fraction-subtraction",
     "problem": "''x - 1/4 * x = 15'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 1/4 * x = 15\nwordProblem: A group of friends were enjoying a hedonistic picnic. They had a\n  huge watermelon that weighed 20 kg.  They ate 1/4 of the watermelon. How much\n  watermelon was left after the picnic?\nsolutions:\n  x: 20\n",
     "time": 15,
-    "id": 1436
+    "id": 1735
   },
   {
     "generator": "math-symbolic-5-1-large-integer-multiplication",
     "problem": "''1000 * x + 500 = 3500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 1000 * x + 500 = 3500\nwordProblem: A directory company is organizing a large phone book. They have\n  3500 pages in total, and each page can hold 1000 phone numbers. They've\n  already filled 500 pages with phone numbers. How many more pages do they need\n  to fill to complete the phone book?\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1437
+    "id": 1736
   },
   {
     "generator": "math-symbolic-5-1-probability",
     "problem": "''x/4 + x/5 = 18'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 + x/5 = 18\nwordProblem: A group of students are painting a mural on a wall. They divide the\n  wall into 9 equal sections. One group paints 1/4 of the wall, and another\n  group paints 1/5 of the wall. How many sections of the wall did the students\n  paint in total?\nsolutions:\n  x: 40\n",
     "time": 20,
-    "id": 1438
+    "id": 1737
   },
   {
     "generator": "math-symbolic-5-1-reality",
     "problem": "''4*x + 2 = 18'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4*x + 2 = 18\nwordProblem: A bartender is making a special cocktail for a party. They need to\n  use 4 ounces of juice for every 2 ounces of soda.  If the recipe calls for 18\n  ounces of liquid in total, how many ounces of juice does the bartender need?\nsolutions:\n  x: 4\n",
     "time": 30,
-    "id": 1439
+    "id": 1738
   },
   {
     "generator": "math-symbolic-5-1-slice-of-life",
     "problem": "''4b + 12 = 52'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4b + 12 = 52\nwordProblem: Buddy is planning a birthday party for his friend. He wants to buy\n  4 packs of balloons, and each pack costs \\$12. He also wants to buy a cake for\n  \\$52. How much money does Buddy need to buy the balloons and the cake?\nsolutions:\n  b: 10\n",
     "time": 15,
-    "id": 1440
+    "id": 1739
   },
   {
     "generator": "math-symbolic-5-2-fraction-subtraction",
     "problem": "''x + y = 100''<br>''x - (1/2)y = 60'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - x - (1/2)y = 60\nwordProblem: A car used 100 liters of fuel on a trip.  The car used 1/2 of the\n  fuel on the first part of the trip.  How much fuel did the car use on the\n  second part of the trip?\nsolutions:\n  x: 80\n  y: 20\n",
     "time": 60,
-    "id": 1441
+    "id": 1740
   },
   {
     "generator": "math-symbolic-5-2-geometry",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A scientist is creating an antidote. She needs 15 milliliters of a\n  special solution. She has two containers, one containing a solution that is\n  stronger and another containing a solution that is weaker.  The scientist\n  knows that she needs 3 milliliters more of the stronger solution than the\n  weaker solution. How many milliliters of each solution does the scientist\n  need?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1442
+    "id": 1741
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
     "problem": "''x + y = 125000''<br>''x - y = 25000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 125000\n  - x - y = 25000\nwordProblem: Two talented artists, Maya and Liam, are working on a giant mural\n  together. Maya has painted 25,000 square centimeters more than\n  Liam.  Together, they have painted a total of 125,000 square centimeters.  How\n  many square centimeters has each artist painted individually?\nsolutions:\n  x: 75000\n  y: 50000\n",
     "time": 60,
-    "id": 1443
+    "id": 1742
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
     "problem": "''x + y = 12500''<br>''x - y = 2500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12500\n  - x - y = 2500\nwordProblem: Blandville is having a big festival! They need to buy 12,500\n  balloons to decorate the town. They want to buy 2,500 more red balloons than\n  blue balloons.  How many red balloons (x) and how many blue balloons (y)\n  should they buy?\nsolutions:\n  x: 7500\n  y: 5000\n",
     "time": 60,
-    "id": 1444
+    "id": 1743
   },
   {
     "generator": "math-symbolic-5-2-probability",
     "problem": "''x + y = 120''<br>''2x + y = 170'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + y = 170\nwordProblem: At a school fundraiser, students sold cookies and brownies.  Each\n  cookie cost \\$2 and each brownie cost \\$1.  They sold a total of 120 cookies\n  and brownies, and raised \\$170.  How many cookies and brownies did they sell?\nsolutions:\n  x: 50\n  y: 70\n",
     "time": 60,
-    "id": 1445
+    "id": 1744
   },
   {
     "generator": "math-symbolic-5-2-probability",
     "problem": "''x + y = 12''<br>''2x + y = 18'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12\n  - 2x + y = 18\nwordProblem: Maya and her friend David are planning an evening walk. They want\n  to walk for a total of 12 kilometers. Maya wants to walk twice the distance\n  David walks. How many kilometers will Maya walk? How many kilometers will\n  David walk?\nsolutions:\n  x: 6\n  y: 6\n",
     "time": 60,
-    "id": 1446
+    "id": 1745
   },
   {
     "generator": "math-symbolic-5-2-reality",
     "problem": "''2x + y = 20''<br>''x + y = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 20\n  - x + y = 12\nwordProblem: \"A group of friends are creating icons for a school project. They\n  want to use two different sizes of icons: large and small. They need 20 icons\n  in total. They know that they need twice as many large icons as small icons.\n  How many large icons and how many small icons should they create?\"\nsolutions:\n  x: 8\n  y: 4\n",
     "time": 30,
-    "id": 1447
+    "id": 1746
   },
   {
     "generator": "math-symbolic-5-2-reality",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: Sarah and John are collecting bottle caps for a school project.\n  They know that Sarah has 3 more bottle caps than John. Together, they have 15\n  bottle caps. How many bottle caps does each of them have?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1448
+    "id": 1747
   },
   {
     "generator": "math-symbolic-5-2-work",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A constellation has 15 stars, some are blue and some are\n  red.  There are 3 more blue stars than red stars.  How many blue stars and how\n  many red stars are in the constellation?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1449
+    "id": 1748
   },
   {
     "generator": "math-symbolic-5-2-work",
     "problem": "''2*x + 3*y = 25''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 3*y = 25\n  - x - y = 2\nwordProblem: A local bar is having a special on drinks and snacks. They offer a\n  combo of 2 drinks and 3 snacks for 25 euros. They also offer a separate combo\n  of 1 drink and 1 snack for 2 euros. How much does a drink cost and how much\n  does a snack cost?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 60,
-    "id": 1450
+    "id": 1749
   },
   {
     "generator": "math-symbolic-6-1-large-integer-subtraction",
     "problem": "''x - 125000 = 450000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 125000 = 450000\nwordProblem: A school is building a new library. They need 450,000 bricks to\n  complete it.  They have already ordered 125,000 bricks.  How many more bricks\n  do they need to order?\nsolutions:\n  x: 575000\n",
     "time": 15,
-    "id": 1451
+    "id": 1750
   },
   {
     "generator": "math-symbolic-6-1-travel",
     "problem": "''x/4 + 2 = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 + 2 = 10\nwordProblem: A farmer is buying hay for his cows. He needs to buy enough hay to\n  last for 4 days. Each cow eats 2 kilograms of hay per day. If the farmer buys\n  32 kilograms of hay, how many cows does he have?\nsolutions:\n  x: 32\n",
     "time": 15,
-    "id": 1452
+    "id": 1751
   },
   {
     "generator": "math-symbolic-6-1-work",
     "problem": "''10x + 15 = 85'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 15 = 85\nwordProblem: A photographer charges \\$10 for each photo they take at a school\n  dance, and an additional \\$15 for travel. If they made \\$85 at a dance, how\n  many photos did they take?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1453
+    "id": 1752
   },
   {
     "generator": "math-symbolic-6-2-fraction-subtraction",
     "problem": "''x + y = 15''<br>''x - y = 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 5\nwordProblem: A painter has 15 liters of paint to paint a room. He knows that he\n  needs 5 liters more blue paint than white paint. How many liters of blue paint\n  (x) and white paint (y) does he need?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1454
+    "id": 1753
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
     "problem": "''100x + 10y = 4200''<br>''x + y = 42'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100x + 10y = 4200\n  - x + y = 42\nwordProblem: A local soda factory is having a big sale! They're selling boxes of\n  soda for a special price. Each box contains 100 sodas, and they're also\n  offering individual sodas. A customer buys 4200 sodas in total, and they\n  bought 42 boxes and individual sodas combined. How many boxes of soda did the\n  customer buy? How many individual sodas did they buy?\nsolutions:\n  x: 40\n  y: 2\n",
     "time": 60,
-    "id": 1455
+    "id": 1754
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
     "problem": "''x + y = 1200''<br>''x - y = 400'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - y = 400\nwordProblem: A farmer has a total of 1200 chickens and ducks. He has 400 more\n  chickens than ducks. How many chickens and ducks does the farmer have?\nsolutions:\n  x: 800\n  y: 400\n",
     "time": 30,
-    "id": 1456
+    "id": 1755
   },
   {
     "generator": "math-symbolic-6-2-mass",
     "problem": "''2x + y = 25''<br>''x - y = 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 25\n  - x - y = 5\nwordProblem: A group of friends went to a carnival.  They bought 2 bags of\n  cotton candy and 1 bag of popcorn for a total of 25 euros.  Later, they bought\n  another bag of cotton candy and a bag of popcorn for a total of 15 euros.  If\n  all the bags of cotton candy cost the same and all the bags of popcorn cost\n  the same, how much does a bag of cotton candy cost?  How much does a bag of\n  popcorn cost?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1457
+    "id": 1756
   },
   {
     "generator": "math-symbolic-6-2-probability",
     "problem": "''x + y = 15''<br>''2x + 3y = 35'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - 2x + 3y = 35\nwordProblem: A group of friends went on a whirlwind trip to the amusement park.\n  They rode two different rollercoasters, the 'Whirlwind' and the 'Twister'. The\n  Whirlwind ride costs \\$2 per person and the Twister ride costs \\$3 per person.\n  They spent a total of \\$35 on the rides. If they rode the Whirlwind a total of\n  15 times, how many times did they ride the Twister?\nsolutions:\n  x: 5\n  y: 10\n",
     "time": 60,
-    "id": 1458
+    "id": 1757
   },
   {
     "generator": "math-symbolic-6-2-proportion",
     "problem": "''x + y = 15''<br>''x = 2y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x = 2y\nwordProblem: A clothing store is having a shrinking sale.  They shrink all the\n  clothes to be 1/2 their original size.  When the clothes shrink, the original\n  price is also cut in half.  A sweater and a shirt were originally priced at 15\n  euros.  After shrinking, the sweater was twice as expensive as the\n  shirt.  What was the original price of the sweater?  What was the original\n  price of the shirt?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1459
+    "id": 1758
   },
   {
     "generator": "math-symbolic-6-2-reality",
     "problem": "''2r + 3s = 23''<br>''r - s = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2r + 3s = 23\n  - r - s = 2\nwordProblem: A jeweler is making a ring with two different types of\n  gemstones.  She uses 2 red gemstones and 3 sapphire gemstones, and the total\n  weight of the gemstones is 23 grams.  She also knows that one red gemstone\n  weighs 2 grams more than one sapphire gemstone.  Let 'r' be the weight of a\n  red gemstone and 's' be the weight of a sapphire gemstone.  How much does each\n  type of gemstone weigh?\nsolutions:\n  r: 6\n  s: 4\n",
     "time": 60,
-    "id": 1460
+    "id": 1759
   },
   {
     "generator": "math-symbolic-6-2-speed",
     "problem": "''2x + y = 24''<br>''x = 3y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 24\n  - x = 3y\nwordProblem: At a bakery, cupcakes are favored over cookies.  There are 24\n  cupcakes and cookies in total.  The number of cupcakes is 3 times the number\n  of cookies.  How many cupcakes and cookies are there?\nsolutions:\n  x: 18\n  y: 6\n",
     "time": 60,
-    "id": 1461
+    "id": 1760
   },
   {
     "generator": "math-symbolic-6-2-speed",
     "problem": "''x + y = 20''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 20\n  - x - y = 4\nwordProblem: Two cave explorers, Anya and Ben, are exploring a cave. Anya brings\n  20 meters of rope, and Ben brings some rope as well.  Anya uses 4 meters more\n  rope than Ben.  How much rope did Anya use, and how much did Ben use?\nsolutions:\n  x: 12\n  y: 8\n",
     "time": 60,
-    "id": 1462
+    "id": 1761
   },
   {
     "generator": "math-symbolic-6-2-system-of-equations",
     "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A teacher is marking student projects. They have two piles of\n  projects, one for 'A's and one for 'B's. There are 15 projects in total. If\n  there are 3 more 'A' projects than 'B' projects, how many projects are in each\n  pile?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1463
+    "id": 1762
   },
   {
     "generator": "math-symbolic-6-2-travel",
     "problem": "''x + y = 120''<br>''2x + 3y = 270'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + 3y = 270\nwordProblem: A group of 6th graders went on a school trip. Some students\n  traveled by bus and some by train. The bus cost 2 euros per student and the\n  train cost 3 euros per student. The total cost of the trip was 270 euros. If\n  there were 120 students in total, how many students went by bus and how many\n  went by train?\nsolutions:\n  x: 90\n  y: 30\n",
     "time": 30,
-    "id": 1464
+    "id": 1763
   },
   {
     "generator": "math-symbolic-7-1-fraction-subtraction",
     "problem": "''x - 1/4 x = 3/4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 1/4 x = 3/4\nwordProblem: A factory produces 1000 meters of fabric per day. Due to a defect,\n  1/4 of the fabric produced was deemed unusable.  How much usable fabric was\n  produced that day?\nsolutions:\n  x: 1\n",
     "time": 30,
-    "id": 1465
+    "id": 1764
   },
   {
     "generator": "math-symbolic-7-1-geometry",
     "problem": "''2x + 5 = 17'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5 = 17\nwordProblem: A smoker wants to build a rectangular patio with a length that is 5\n  meters longer than twice the width. If the perimeter of the patio is 17\n  meters, what is the width of the patio?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1466
+    "id": 1765
   },
   {
     "generator": "math-symbolic-7-1-lever-fulcrum-weight",
     "problem": "''4*x + 20 = 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4*x + 20 = 100\nwordProblem: \"A group of students are playing on a seesaw. One student, weighing\n  20 kg, sits 4 meters from the fulcrum.  Their friend wants to balance the\n  seesaw by sitting on the other side. If their friend is sitting 2 meters from\n  the fulcrum, what must their weight (x) be in kilograms? \"\nsolutions:\n  x: 20\n",
     "time": 10,
-    "id": 1467
+    "id": 1766
   },
   {
     "generator": "math-symbolic-7-1-proportion",
     "problem": "''4x + 10 = 70'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 10 = 70\nwordProblem: A prisoner is planning his escape. He needs to dig a tunnel 70\n  meters long. He can dig 4 meters of tunnel each day, but he also has to spend\n  10 minutes each day hiding his progress.  How many days will it take him to\n  escape?\nsolutions:\n  x: 15\n",
     "time": 15,
-    "id": 1468
+    "id": 1767
   },
   {
     "generator": "math-symbolic-7-1-proportion",
     "problem": "''5x + 2 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2 = 12\nwordProblem: A parish is planning a fundraiser. They want to sell 5 different\n  types of baked goods, each costing \\$2.  They also have \\$2 already collected\n  from donations. If they want to reach a fundraising goal of \\$12, how many\n  more baked goods do they need to sell? Let 'x' represent the number of baked\n  goods needed to be sold.\nsolutions:\n  x: \"2\"\n",
     "time": "15",
-    "id": 1469
+    "id": 1768
   },
   {
     "generator": "math-symbolic-7-1-reality",
     "problem": "''10x + 15 = 75'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 15 = 75\nwordProblem: A group of friends wants to buy a new board game that costs 75\n  euros. They already have 15 euros saved.  If each friend contributes 10 euros,\n  how many friends are in the group?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1470
+    "id": 1769
   },
   {
     "generator": "math-symbolic-7-1-science",
     "problem": "''x + 2.5 = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2.5 = 10\nwordProblem: A fireplace is being built with bricks. The builder needs to order\n  a certain number of bricks. They need 10 bricks in total. The builder has\n  already bought 2.5 bricks. How many more bricks do they need to order? Let 'x'\n  represent the number of bricks they need to order.\nsolutions:\n  x: 7.5\n",
     "time": 10,
-    "id": 1471
+    "id": 1770
   },
   {
     "generator": "math-symbolic-7-1-slice-of-life",
     "problem": "''4x + 12 = 36'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 12 = 36\nwordProblem: Sarah wants to buy a new pair of sneakers that cost 36 euros. She\n  already has 12 euros saved up. If she earns 4 euros per hour babysitting, how\n  many hours does she need to babysit to buy the sneakers?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1472
+    "id": 1771
   },
   {
     "generator": "math-symbolic-7-1-speed",
     "problem": "''4x + 12 = 52'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 12 = 52\nwordProblem: An authoritative author has written a book with 52 chapters. If the\n  first 12 chapters are about the history of writing, and the rest are equally\n  divided into 4 parts, how many chapters are in each of the remaining parts?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1473
+    "id": 1772
   },
   {
     "generator": "math-symbolic-7-2-distance",
     "problem": "''x + y = 100''<br>''2x + 3y = 250'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - 2x + 3y = 250\nwordProblem: A gardener has 100 meters of fencing to enclose two rectangular\n  plots of land.  The first plot needs to be twice as long as the second plot,\n  but the width of both plots is the same.  If the gardener wants to use all 100\n  meters of fencing, what are the dimensions of each plot?\nsolutions:\n  x: 50\n  y: 50\n",
     "time": 60,
-    "id": 1474
+    "id": 1773
   },
   {
     "generator": "math-symbolic-7-2-fraction-subtraction",
     "problem": "''x + y = 10''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 10\n  - x - y = 2\nwordProblem: A carpenter is building a shelf. He needs two pieces of wood, one\n  longer than the other.  He knows the combined length of the two pieces of wood\n  is 10 meters.  He also knows the difference in length between the two pieces\n  of wood is 2 meters.  What is the length of each piece of wood?\nsolutions:\n  x: 6\n  y: 4\n",
     "time": 60,
-    "id": 1475
+    "id": 1774
   },
   {
     "generator": "math-symbolic-7-2-geometry",
     "problem": "''2x + y = 150''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 150\n  - x - y = 20\nwordProblem: A lookout tower is built on top of a hill. The hill is 20 meters\n  taller than the tower.  The total height of the hill and tower is 150\n  meters.  What is the height of the hill?  What is the height of the tower?\nsolutions:\n  x: 55\n  y: 35\n",
     "time": 60,
-    "id": 1476
+    "id": 1775
   },
   {
     "generator": "math-symbolic-7-2-mass",
     "problem": "''2x + y = 100''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A chemist is mixing two different types of sulfur powders. Powder A\n  contains 2 grams of sulfur per milliliter, and Powder B contains 1 gram of\n  sulfur per milliliter. The chemist wants to create a mixture containing 100\n  grams of sulfur. If the chemist uses 20 milliliters more of Powder A than\n  Powder B, how many milliliters of each powder should the chemist use?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 60,
-    "id": 1477
+    "id": 1776
   },
   {
     "generator": "math-symbolic-7-2-science",
     "problem": "''2a + b = 12''<br>''a - b = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2a + b = 12\n  - a - b = 2\nwordProblem: A group of friends are cleaning up an alleyway. They find two piles\n  of trash bags. The first pile has twice as many bags as the second pile, plus\n  one extra bag.  The second pile has one less bag than the first pile. If the\n  two piles together have 12 bags, how many bags are in each pile?\nsolutions:\n  a: 4.67\n  b: 2.67\n",
     "time": 30,
-    "id": 1478
+    "id": 1777
   },
   {
     "generator": "math-symbolic-7-2-space",
     "problem": "''x + y = 120''<br>''2x + 3y = 285'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + 3y = 285\nwordProblem: \"A space explorer is building a cabin on a new planet.  They need\n  to use 120 units of building material.  They have two types of\n  materials:  Type X, which weighs 2 kg per unit, and Type Y, which weighs 3 kg\n  per unit.  The explorer has a total of 285 kg of material. How many units of\n  each type of building material does the explorer have?\"\nsolutions:\n  x: 45\n  y: 75\n",
     "time": 60,
-    "id": 1479
+    "id": 1778
   },
   {
     "generator": "math-symbolic-7-2-speed",
     "problem": "''2w + 3s = 13''<br>''w - s = 1'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2w + 3s = 13\n  - w - s = 1\nwordProblem: \"A warbling bird is flying at a speed of `w` meters per second.  It\n  flies for 2 seconds, then lands on a branch for 3 seconds.  A second warbling\n  bird is flying at a speed of `s` meters per second and flies for 1 second.  If\n  the total distance traveled by the two birds is 13 meters, what is the speed\n  of each bird? \"\nsolutions:\n  w: 3\n  s: 2\n",
     "time": 60,
-    "id": 1480
+    "id": 1779
   },
   {
     "generator": "math-symbolic-8-1-distance",
     "problem": "''5x + 10 = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 40\nwordProblem: A local community center is organizing a fundraising event. They\n  have set a goal of raising 40 kilograms of food donations.  They have already\n  collected 10 kilograms. If each participating family pledges to donate 5\n  kilograms of food, how many families need to participate to reach their goal?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1481
+    "id": 1780
   },
   {
     "generator": "math-symbolic-8-1-fraction-subtraction",
     "problem": "''x - (1/3)x - 10 = (1/2)x'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - (1/3)x - 10 = (1/2)x\nwordProblem: A jewellery store is having a sale.  A necklace with a glint that\n  catches the eye is discounted by 1/3 of its original price.  The sale price is\n  10 euros less than half of the original price.  What was the original price of\n  the necklace?\nsolutions:\n  x: 60\n",
     "time": 30,
-    "id": 1482
+    "id": 1781
   },
   {
     "generator": "math-symbolic-8-1-geometry",
     "problem": "''2*x + 10 = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 10 = 30\nwordProblem: A coronary artery is 30 centimeters long.  A doctor wants to insert\n  a stent that will take up 10 centimeters of the artery.  The stent is placed\n  in the middle of the artery, so that there is the same length of artery on\n  each side of the stent.  How long is each section of the artery on either side\n  of the stent?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1483
+    "id": 1782
   },
   {
     "generator": "math-symbolic-8-1-geometry",
     "problem": "''2*x + 10 = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 10 = 30\nwordProblem: A rectangular garden has a length that is 10 meters longer than\n  twice its width. If the perimeter of the garden is 30 meters, what is the\n  width of the garden?\nsolutions:\n  x: 5\n",
     "time": 10,
-    "id": 1484
+    "id": 1783
   },
   {
     "generator": "math-symbolic-8-1-large-integer-multiplication",
     "problem": "''x = 12000 * 500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x = 12000 * 500\nwordProblem: A counselor is organizing a summer camp for 12,000 students. Each\n  student needs 500 milliliters of juice per day. How many liters of juice does\n  the counselor need to order for all the students for one day?\nsolutions:\n  x: 6000000\n",
     "time": 10,
-    "id": 1485
+    "id": 1784
   },
   {
     "generator": "math-symbolic-8-1-probability",
     "problem": "''0.75x + 0.25(100 - x) = 60'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 0.75x + 0.25(100 - x) = 60\nwordProblem: Hopeful for a successful bake sale, Sarah decided to sell cookies\n  and brownies. She made 100 baked goods in total. She priced her cookies at\n  $0.75 each and her brownies at $0.25 each. If she earned $60 from her sales,\n  how many cookies did she sell?\nsolutions:\n  x: 50\n",
     "time": 30,
-    "id": 1486
+    "id": 1785
   },
   {
     "generator": "math-symbolic-8-1-reality",
     "problem": "''x + 2x + 3x = 360'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2x + 3x = 360\nwordProblem: A hiker descends a mountain in three stages.  The first stage is\n  twice as long as the second stage, and the third stage is three times as long\n  as the second stage. If the total descent is 360 meters, how long is the\n  second stage?\nsolutions:\n  x: 60\n",
     "time": 15,
-    "id": 1487
+    "id": 1786
   },
   {
     "generator": "math-symbolic-8-1-science",
     "problem": "''x + 2*x = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2*x = 30\nwordProblem: A counterfeiter printed 30 fake $10 bills.  He gave half of them to\n  his accomplice and kept the rest.  How many fake bills did the counterfeiter\n  keep?\nsolutions:\n  x: 10\n",
     "time": 10,
-    "id": 1488
+    "id": 1787
   },
   {
     "generator": "math-symbolic-8-1-slice-of-life",
     "problem": "''5x + 10 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 45\nwordProblem: Sarah is organizing her dresser drawers. She has 5 identical\n  drawers, and she wants to fill them all with socks. She already has 10 socks,\n  and she needs to buy enough socks to fill all the drawers. If she wants to\n  have 45 socks in total, how many socks does she need to buy?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1489
+    "id": 1788
   },
   {
     "generator": "math-symbolic-8-1-system-of-equations",
     "problem": "''3x + 5 = 14'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5 = 14\nwordProblem: A librarian is organizing books on a shelf.  She has 14 books in\n  total.  She wants to place 3 books on each shelf and then add 5 more to a\n  special display.  How many shelves can she fill with 3 books each?\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1490
+    "id": 1789
   },
   {
     "generator": "math-symbolic-8-1-work",
     "problem": "''10x + 20 = 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 20 = 100\nwordProblem: A group of friends are planning a party. They want to buy 10 liters\n  of alcoholic beverages, which cost \\$10 per liter. They also need to buy\n  snacks, which cost \\$20. How much money do they need in total?\nsolutions:\n  x: 8\n",
     "time": 15,
-    "id": 1491
+    "id": 1790
   },
   {
     "generator": "math-symbolic-8-2-fraction-subtraction",
     "problem": "''x + y = 1 1/4''<br>''x - y = 1/2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1 1/4\n  - x - y = 1/2\nwordProblem: Two friends, Sarah and David, were running a 1 1/4 kilometer relay\n  race. Sarah ran her part of the race, and then David finished the rest. Sarah\n  ran 1/2 kilometer more than David.  How far did each of them run?\nsolutions:\n  x: 3/4\n  y: 1/2\n",
     "time": 60,
-    "id": 1492
+    "id": 1791
   },
   {
     "generator": "math-symbolic-8-2-large-integer-division",
     "problem": "''x + y = 1200''<br>''x - 3y = 0'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - 3y = 0\nwordProblem: \"A group of trainees is preparing for a marathon. They are training\n  in two groups: Group A and Group B. Group A has 3 times as many trainees as\n  Group B.  If the total number of trainees in both groups is 1200, how many\n  trainees are in each group?\"\nsolutions:\n  x: 900\n  y: 300\n",
     "time": 60,
-    "id": 1493
+    "id": 1792
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
     "problem": "''5x + 2y = 100''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2y = 100\n  - x - y = 10\nwordProblem: Two friends, Alex and Ben, are playing on a seesaw.  Alex weighs 50\n  kg and sits 2 meters from the fulcrum.  Ben wants to balance the seesaw, but\n  he doesn't know how far to sit from the fulcrum.  He knows that the seesaw\n  will balance if the product of his weight and distance from the fulcrum equals\n  the product of Alex's weight and distance from the fulcrum.  Ben also knows\n  that he needs to sit 10 meters further away from the fulcrum than Alex.  How\n  far should Ben sit from the fulcrum?  Let *x* represent Ben's distance from\n  the fulcrum and *y* represent Alex's distance from the fulcrum.\nsolutions:\n  x: \"16\"\n  y: \"6\"\n",
     "time": "60",
-    "id": 1494
+    "id": 1793
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
     "problem": "''10*x + 5*y = 100''<br>''x + y = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10*x + 5*y = 100\n  - x + y = 12\nwordProblem: A young entrepreneur, Money, is building a seesaw for his lemonade\n  stand. He wants to balance two large jars of lemonade, one weighing 10 kg and\n  the other 5 kg. He knows the seesaw is 12 meters long and wants to figure out\n  where to place the fulcrum. To make it fair, he wants the seesaw to balance\n  when the heavier jar is 1 meter closer to the fulcrum than the lighter jar.\n  How far from the end of the seesaw should Money place the fulcrum for each\n  jar?\nsolutions:\n  x: 7\n  y: 5\n",
     "time": 60,
-    "id": 1495
+    "id": 1794
   },
   {
     "generator": "math-symbolic-8-2-mass",
     "problem": "''x + y = 110''<br>''x - y = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 110\n  - x - y = 30\nwordProblem: The undefeated soccer team, The Wildcats, are preparing for their\n  final game of the season. They have a total of 110 goals scored and conceded\n  this season.  They scored 30 more goals than they conceded. Let 'x' represent\n  the number of goals scored and 'y' represent the number of goals conceded. How\n  many goals did they score and how many did they concede?\nsolutions:\n  x: 70\n  y: 40\n",
     "time": 60,
-    "id": 1496
+    "id": 1795
   },
   {
     "generator": "math-symbolic-8-2-slice-of-life",
     "problem": "''2x + 3y = 21''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 21\n  - x - y = 2\nwordProblem: A jagged rock formation has two sections, a smaller one and a\n  larger one. The larger section is 3 meters longer than twice the length of the\n  smaller section. Together, the two sections are 21 meters long.  What are the\n  lengths of the two sections of the jagged rock?\nsolutions:\n  x: 8\n  y: 6\n",
     "time": 60,
-    "id": 1497
+    "id": 1796
   },
   {
     "generator": "math-symbolic-8-2-speed",
     "problem": "''2x + y = 100''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A group of friends decided to pool their money to buy a new video\n  game.  The total cost of the game was \\$100.  One friend contributed twice the\n  amount as another friend, but then the friend who contributed less had to\n  borrow \\$20 to make up the difference.  How much money did each friend\n  contribute originally?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 30,
-    "id": 1498
+    "id": 1797
   },
   {
     "generator": "math-symbolic-8-2-work",
     "problem": "''2x + y = 150''<br>''x - y = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 150\n  - x - y = 30\nwordProblem: A steep hiking trail is 150 meters long. The first part of the\n  trail is twice as long as the second part, but is also 30 meters longer. What\n  is the length of each part of the trail?\nsolutions:\n  x: 60\n  y: 30\n",
     "time": 60,
-    "id": 1499
+    "id": 1798
   },
   {
     "generator": "math-symbolic-9-1-geometry",
     "problem": "''3x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 15 = 45\nwordProblem: Sandy is building a sandcastle. She has 45 cm of sand to use for\n  the castle.  She wants to divide the sand into 3 equal parts for the tower,\n  the moat, and the walls.  How much sand will she use for each part?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1500
+    "id": 1799
   },
   {
     "generator": "math-symbolic-9-1-large-integer-addition",
     "problem": "''x + 300000 = 500000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 300000 = 500000\nwordProblem: A construction company is building a new highway. They have already\n  laid 300,000 meters of asphalt. If the total length of the highway is 500,000\n  meters, how many more meters of asphalt need to be laid?\nsolutions:\n  x: 200000\n",
     "time": 10,
-    "id": 1501
+    "id": 1800
   },
   {
     "generator": "math-symbolic-9-1-large-integer-subtraction",
     "problem": "''x - 2500 = 5500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 2500 = 5500\nwordProblem: A farmer is building a fence around his rectangular field. He needs\n  5500 meters of fencing for the perimeter. If he already has 2500 meters of\n  fencing, how much more fencing does he need to buy?\nsolutions:\n  x: 8000\n",
     "time": 10,
-    "id": 1502
+    "id": 1801
   },
   {
     "generator": "math-symbolic-9-1-lever-fulcrum-weight",
     "problem": "''150 * x = 75 * 200'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 150 * x = 75 * 200\nwordProblem: A crocodile weighing 200 kg is balanced on a log by a smaller\n  crocodile weighing 150 kg. The smaller crocodile is 2 meters away from the\n  fulcrum (the center of the log). How far away from the fulcrum is the larger\n  crocodile?\nsolutions:\n  x: 100\n",
     "time": 10,
-    "id": 1503
+    "id": 1802
   },
   {
     "generator": "math-symbolic-9-1-mass",
     "problem": "''5x + 10 = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 40\nwordProblem: A hairbrush costs \\$5. A store has a sale where they offer \\$10 off\n  any purchase of a hairbrush. If someone buys a hairbrush at this sale and pays\n  \\$40 in total, how much did the hairbrush cost originally?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1504
+    "id": 1803
   },
   {
     "generator": "math-symbolic-9-1-science",
     "problem": "''3x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 15 = 45\nwordProblem: A loaded truck is carrying 45 kilograms of apples. The truck\n  already had 15 kilograms of apples loaded before picking up the rest.  How\n  many kilograms of apples did the truck pick up at the orchard? Let x represent\n  the number of kilograms of apples picked up at the orchard.\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1505
+    "id": 1804
   },
   {
     "generator": "math-symbolic-9-1-slice-of-life",
     "problem": "''12x + 3 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 12x + 3 = 45\nwordProblem: A baker needs to buy eggs for a cake. Each carton of eggs contains\n  12 eggs. The baker already has 3 eggs.  If the baker needs a total of 45 eggs,\n  how many cartons of eggs should the baker buy?\nsolutions:\n  x: 3.5\n",
     "time": 10,
-    "id": 1506
+    "id": 1805
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
     "problem": "''5x + 10 = 35'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 35\nwordProblem: Radiant Radiators is having a sale on their heating units.  They\n  are offering a $10 discount off the original price.  If you pay $35 for a\n  heater after the discount, what was the original price (x) of the heater?\nsolutions:\n  x: 9\n",
     "time": 15,
-    "id": 1507
+    "id": 1806
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
     "problem": "''10x + 5 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 5 = 45\nwordProblem: A library charges a flat fee of 5 euros for a library card and 10\n  euros per week for access to their digital resources. If a student pays 45\n  euros for a month, how many weeks did they access the digital resources?\nsolutions:\n  x: 4\n",
     "time": 15,
-    "id": 1508
+    "id": 1807
   },
   {
     "generator": "math-symbolic-9-2-large-integer-addition",
     "problem": "''x + y = 1234567890''<br>''x - y = 987654321'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1234567890\n  - x - y = 987654321\nwordProblem: A delivery truck driver is tasked with delivering two large orders\n  of building supplies. The total weight of both orders combined is\n  1,234,567,890 kg.  The driver forgets to note the individual weight of each\n  order but remembers that the difference in weight between the two orders is\n  987,654,321 kg.  What was the weight of each individual order?\nsolutions:\n  x: 1111111105.5\n  y: 123456785.5\n",
     "time": 60,
-    "id": 1509
+    "id": 1808
   },
   {
     "generator": "math-symbolic-9-2-large-integer-subtraction",
     "problem": "''x + y = 1200''<br>''x - y = 400'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - y = 400\nwordProblem: A carpenter is building a cabinet with two shelves. The total\n  thickness of the two shelves and the space between them is 1200 mm. The\n  thickness of one shelf is 400 mm thicker than the other. What is the thickness\n  of each shelf?\nsolutions:\n  x: \"800\"\n  y: \"400\"\n",
     "time": "30",
-    "id": 1510
+    "id": 1809
   },
   {
     "generator": "math-symbolic-9-2-mass",
     "problem": "''x + y = 100''<br>''0.8x + 0.2y = 0.75 * 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - 0.8x + 0.2y = 0.75 * 100\nwordProblem: A coffee shop wants to create a blend of two types of coffee beans,\n  A and B.  They want to make 100 kg of the blend.  Bean A costs \\$8 per kg and\n  bean B costs \\$2 per kg. They want the blend to cost \\$7.50 per kg. How many\n  kilograms of each type of bean should they use?\nsolutions:\n  x: 62.5\n  y: 37.5\n",
     "time": 30,
-    "id": 1511
+    "id": 1810
   },
   {
     "generator": "math-symbolic-9-2-probability",
     "problem": "''2x + y = 100''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A student has a pocketbook that contains only 20-euro and 10-euro\n  bills. They have a total of 10 bills worth 100 euros. How many of each bill do\n  they have?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 60,
-    "id": 1512
+    "id": 1811
   },
   {
     "generator": "math-symbolic-9-2-science",
     "problem": "''2x + 3y = 150''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 150\n  - x - y = 20\nwordProblem: A scientist is studying the growth of two types of bacteria.\n  Bacteria A grows at a rate of 2 cm per hour and Bacteria B grows at a rate of\n  3 cm per hour. The scientist observes that after 1 hour, the combined length\n  of Bacteria A and Bacteria B is 150 cm.  The scientist also observes that\n  Bacteria A is 20 cm longer than Bacteria B. What are the lengths of Bacteria A\n  and Bacteria B?\nsolutions:\n  x: 50\n  y: 30\n",
     "time": 30,
-    "id": 1513
+    "id": 1812
   },
   {
     "generator": "math-symbolic-9-2-slice-of-life",
     "problem": "''2x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 15\n  - x - y = 3\nwordProblem: A group of friends are planning a camping trip. They want to buy\n  enough food to last them for 3 days. They estimate that they will need 2\n  kilograms of food per person per day. They also need to buy 1 kilogram of\n  extra food for cooking and snacks. If they are a total of x people and they\n  need y kilograms of food in total, how many people are going on the trip and\n  how much food should they buy?\nsolutions:\n  x: 6\n  y: 18\n",
     "time": 30,
-    "id": 1514
+    "id": 1813
   },
   {
     "generator": "math-symbolic-9-2-speed",
     "problem": "''2x + y = 100''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 10\nwordProblem: Two neighbors, Sarah and Tom, are organizing a neighborhood\n  cleanup.  Sarah volunteered to pick up 10 fewer pieces of trash than\n  Tom.  They collected a total of 100 pieces of trash.  How many pieces of trash\n  did each person pick up?\nsolutions:\n  x: 55\n  y: 45\n",
     "time": 60,
-    "id": 1515
+    "id": 1814
   },
   {
     "generator": "math-symbolic-9-2-speed",
     "problem": "''2x + 3y = 24''<br>''x - y = 1'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 24\n  - x - y = 1\nwordProblem: Zeal, a student, is working on a project for his math class. He\n  needs to cut two types of ribbons for his project.  He needs 2 meters of the\n  first type of ribbon and 3 meters of the second type of ribbon for a total of\n  24 meters. He also needs 1 meter less of the first type of ribbon than the\n  second type of ribbon. How many meters of each type of ribbon does Zeal need?\n  Let `x` represent the number of meters of the first type of ribbon and `y`\n  represent the number of meters of the second type of ribbon.\nsolutions:\n  x: 5\n  y: 6\n",
     "time": 60,
-    "id": 1516
+    "id": 1815
   },
   {
     "generator": "math-symbolic-9-2-travel",
     "problem": "''2x + 3y = 1200''<br>''x - y = 200'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 1200\n  - x - y = 200\nwordProblem: A group of friends are planning a trip to Europe. They need to book\n  flights and accommodations.  The cost of flights is  `2x` euros and the cost\n  of accommodations is `3y` euros, and the total budget is 1200 euros. They also\n  know that the cost of flights is 200 euros more than the cost of\n  accommodations. Find the cost of flights (`x`) and accommodations (`y`) in\n  euros.\nsolutions:\n  x: 420\n  y: 220\n",
     "time": 60,
-    "id": 1517
+    "id": 1816
   },
   {
     "generator": "math-symbolic-9-2-work",
     "problem": "''x + y = 200''<br>''3x + 5y = 700'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 200\n  - 3x + 5y = 700\nwordProblem: \"A carpenter is building a doorway. He needs to cut a wooden\n  threshold that is 200 cm long. The threshold is made of two pieces of wood: a\n  longer piece and a shorter piece. The longer piece is 3 times as long as the\n  shorter piece. How long is each piece of wood?\"\nsolutions:\n  x: 100\n  y: 100\n",
     "time": 60,
-    "id": 1518
+    "id": 1817
   },
   {
     "generator": "math-word-2-1-large-integer-subtraction",
     "problem": "A baker had a box of 60 cookies. He gave 10 cookies to his friend. How many cookies did the baker have left? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 10 = 50\nwordProblem: A baker had a box of 60 cookies. He gave 10 cookies to his friend.\n  How many cookies did the baker have left?\nsolutions:\n  x: 60\n",
     "time": 10,
-    "id": 1519
+    "id": 1818
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
     "problem": "Maya and Ben are collecting bottle caps for a school project. Maya collected 40 more bottle caps than Ben. Together, they collected 120 bottle caps. How many bottle caps did each of them collect? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - x - y = 40\nwordProblem: Maya and Ben are collecting bottle caps for a school project. Maya\n  collected 40 more bottle caps than Ben. Together, they collected 120 bottle\n  caps. How many bottle caps did each of them collect?\nsolutions:\n  x: 80\n  y: 40\n",
     "time": 60,
-    "id": 1520
+    "id": 1819
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
     "problem": "An earthenware shop sold 20 plates and bowls on Saturday. They sold 8 more plates than bowls. How many plates did they sell? How many bowls did they sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 20\n  - x - y = 8\nwordProblem: An earthenware shop sold 20 plates and bowls on Saturday. They sold\n  8 more plates than bowls. How many plates did they sell? How many bowls did\n  they sell?\nsolutions:\n  x: 14\n  y: 6\n",
     "time": 30,
-    "id": 1521
+    "id": 1820
   },
   {
     "generator": "math-word-4-1-geometry",
     "problem": "Sarah has a collection of stamps. Her friend, Alex, gives her 3 more stamps. Now, Sarah has 7 stamps. How many stamps did Sarah start with? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 3 = 7\nwordProblem: Sarah has a collection of stamps. Her friend, Alex, gives her 3\n  more stamps.  Now, Sarah has 7 stamps. How many stamps did Sarah start with?\nsolutions:\n  x: 4\n",
     "time": 15,
-    "id": 1522
+    "id": 1821
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
     "problem": "A leaden statue weighs 250 kilograms. If 1000 grams equal 1 kilogram, how many grams does the statue weigh? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/1000 = 250\nwordProblem: A leaden statue weighs 250 kilograms. If 1000 grams equal 1\n  kilogram, how many grams does the statue weigh?\nsolutions:\n  x: 250000\n",
     "time": 10,
-    "id": 1523
+    "id": 1822
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
     "problem": "A somber circus elephant named Bartholomew eats 4800 kilograms of hay each month. If Bartholomew eats the same amount of hay each day, how many kilograms of hay does he eat each day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 12 * x = 4800\nwordProblem: A somber circus elephant named Bartholomew eats 4800 kilograms of\n  hay each month. If Bartholomew eats the same amount of hay each day, how many\n  kilograms of hay does he eat each day?\nsolutions:\n  x: 400\n",
     "time": 15,
-    "id": 1524
+    "id": 1823
   },
   {
     "generator": "math-word-4-1-mass",
     "problem": "The high tide at the beach was 45 centimeters. The tide went out and was 15 centimeters lower. How high was the tide when it went out? Let x represent the tide when it went out. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 45\nwordProblem: The high tide at the beach was 45 centimeters. The tide went out\n  and was 15 centimeters lower. How high was the tide when it went out? Let x\n  represent the tide when it went out.\nsolutions:\n  x: 30\n",
     "time": 15,
-    "id": 1525
+    "id": 1824
   },
   {
     "generator": "math-word-4-1-proportion",
     "problem": "A group of 4 friends are playing a game where they need to collect 24 points to win. They already have 8 points. If each friend earns the same amount of points, how many points does each friend need to earn to win? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 8 = 24\nwordProblem: \"A group of 4 friends are playing a game where they need to collect\n  24 points to win. They already have 8 points. If each friend earns the same\n  amount of points, how many points does each friend need to earn to win? \"\nsolutions:\n  x: 4\n",
     "time": 20,
-    "id": 1526
+    "id": 1825
   },
   {
     "generator": "math-word-4-1-science",
     "problem": "A mechanic is working on a car. He needs to replace 4 spark plugs. If each spark plug costs 12 dollars, how much will he spend on all the spark plugs? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x = 12\nwordProblem: \"A mechanic is working on a car. He needs to replace 4 spark plugs.\n  If each spark plug costs 12 dollars, how much will he spend on all the spark\n  plugs? \"\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1527
+    "id": 1826
   },
   {
     "generator": "math-word-4-1-science",
     "problem": "A group of friends were playing a game where they needed to collect points. They started with 5 points and ended up with 12 points. How many points did they score during the game? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 5 = 12\nwordProblem: A group of friends were playing a game where they needed to collect\n  points.  They started with 5 points and ended up with 12 points.  How many\n  points did they score during the game?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1528
+    "id": 1827
   },
   {
     "generator": "math-word-4-1-space",
     "problem": "A space explorer found a bowl filled with glowing space rocks. He divided the rocks equally into 4 smaller bowls. Each of the smaller bowls had 10 rocks. How many space rocks were in the original bowl? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 = 10\nwordProblem: A space explorer found a bowl filled with glowing space rocks.  He\n  divided the rocks equally into 4 smaller bowls.  Each of the smaller bowls had\n  10 rocks. How many space rocks were in the original bowl?\nsolutions:\n  x: 40\n",
     "time": 15,
-    "id": 1529
+    "id": 1828
   },
   {
     "generator": "math-word-4-1-system-of-equations",
     "problem": "A bakery is making a batch of cookies. They need 3 bags of flour for each batch. They already have 5 bags of flour. If they need 20 bags of flour in total, how many more bags of flour do they need to buy? Let 'x' represent the number of bags of flour they need to buy. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5 = 20\nwordProblem: A bakery is making a batch of cookies. They need 3 bags of flour\n  for each batch. They already have 5 bags of flour. If they need 20 bags of\n  flour in total, how many more bags of flour do they need to buy? Let 'x'\n  represent the number of bags of flour they need to buy.\nsolutions:\n  x: 5\n",
     "time": 15,
-    "id": 1530
+    "id": 1829
   },
   {
     "generator": "math-word-4-1-system-of-equations",
     "problem": "Ridiculously, a group of friends gathered 30 lollipops for a party. They had already eaten 15 lollipops before the party started. How many lollipops were left for the party? Let 'x' represent the number of lollipops left for the party. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 30\nwordProblem: Ridiculously, a group of friends gathered 30 lollipops for a party.\n  They had already eaten 15 lollipops before the party started. How many\n  lollipops were left for the party? Let 'x' represent the number of lollipops\n  left for the party.\nsolutions:\n  x: 15\n",
     "time": 10,
-    "id": 1531
+    "id": 1830
   },
   {
     "generator": "math-word-4-1-system-of-equations",
     "problem": "Darla is making a necklace with beads. She has 5 rows of beads, and each row has the same number of beads. She adds 10 more beads to the necklace. Now, she has 40 beads in total. How many beads were in each row initially? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5d + 10 = 40\nwordProblem: Darla is making a necklace with beads. She has 5 rows of beads, and\n  each row has the same number of beads. She adds 10 more beads to the necklace.\n  Now, she has 40 beads in total. How many beads were in each row initially?\nsolutions:\n  d: 6\n",
     "time": 15,
-    "id": 1532
+    "id": 1831
   },
   {
     "generator": "math-word-4-1-travel",
     "problem": "Sarah wants to buy a souvenir for her friend. She has 10 euros. She needs 2 euros for the bus ride home. How many euros does she have left to spend on a souvenir? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2 = 10\nwordProblem: Sarah wants to buy a souvenir for her friend. She has 10 euros. She\n  needs 2 euros for the bus ride home. How many euros does she have left to\n  spend on a souvenir?\nsolutions:\n  x: 8\n",
     "time": 15,
-    "id": 1533
+    "id": 1832
   },
   {
     "generator": "math-word-4-1-travel",
     "problem": "A group of friends went on a trip. They traveled 12 kilometers by bus and then 48 kilometers by train. How many kilometers did they travel in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 12 = 48\nwordProblem: A group of friends went on a trip. They traveled 12 kilometers by\n  bus and then 48 kilometers by train. How many kilometers did they travel in\n  total?\nsolutions:\n  x: 36\n",
     "time": 15,
-    "id": 1534
+    "id": 1833
   },
   {
     "generator": "math-word-4-1-travel",
     "problem": "A family is on a road trip. They drove 15 kilometers in the morning. If they need to drive 50 kilometers in total, how many more kilometers do they need to drive? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 15 = 50\nwordProblem: A family is on a road trip. They drove 15 kilometers in the\n  morning.  If they need to drive 50 kilometers in total, how many more\n  kilometers do they need to drive?\nsolutions:\n  x: 35\n",
     "time": 10,
-    "id": 1535
+    "id": 1834
   },
   {
     "generator": "math-word-4-2-distance",
     "problem": "Creative Creations is a store that sells paint and brushes. They sold 12 items yesterday. They sold 4 more paint sets than brushes. How many paint sets and brushes did they sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12\n  - x - y = 4\nwordProblem: Creative Creations is a store that sells paint and brushes. They\n  sold 12 items yesterday. They sold 4 more paint sets than brushes. How many\n  paint sets and brushes did they sell?\nsolutions:\n  x: 8\n  y: 4\n",
     "time": 60,
-    "id": 1536
+    "id": 1835
   },
   {
     "generator": "math-word-4-2-geometry",
     "problem": "A private school is building a new playground. They need to buy 15 meters of fencing to go around the rectangular playground. The length of the playground is 3 meters longer than the width. How long is each side of the playground? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A private school is building a new playground. They need to buy 15\n  meters of fencing to go around the rectangular playground. The length of the\n  playground is 3 meters longer than the width. How long is each side of the\n  playground?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1537
+    "id": 1836
   },
   {
     "generator": "math-word-4-2-large-integer-addition",
     "problem": "A group of friends went on a hike. They took two steps: a big step and a small step. The big step is x meters long and the small step is y meters long. In total, they took 1234 meters of big steps and small steps. The difference between the total distance covered by the big steps and the total distance covered by the small steps is 567 meters. How long are each of the big steps and small steps? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1234\n  - x - y = 567\nwordProblem: \"A group of friends went on a hike.  They took two steps: a big\n  step and a small step.  The big step is x meters long and the small step is y\n  meters long.  In total, they took 1234 meters of big steps and small\n  steps.  The difference between the total distance covered by the big steps and\n  the total distance covered by the small steps is 567 meters.  How long are\n  each of the big steps and small steps?\"\nsolutions:\n  x: 900.5\n  y: 333.5\n",
     "time": 60,
-    "id": 1538
+    "id": 1837
   },
   {
     "generator": "math-word-4-2-large-integer-division",
     "problem": "Adept Athletics is hosting a 350-meter relay race. Each team has 2 runners. The first runner runs twice as far as the second runner. How many meters does each runner run? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 350\n  - x = 2 * y\nwordProblem: Adept Athletics is hosting a 350-meter relay race.  Each team has 2\n  runners.  The first runner runs twice as far as the second runner. How many\n  meters does each runner run?\nsolutions:\n  x: 233\n  y: 117\n",
     "time": 60,
-    "id": 1539
+    "id": 1838
   },
   {
     "generator": "math-word-4-2-proportion",
     "problem": "A group of friends went to the park to play. They decided to split into two teams, Team A and Team B. Team A had 5 more people than Team B. If there were a total of 25 friends at the park, how many people were on each team? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 25\n  - x - y = 5\nwordProblem: A group of friends went to the park to play. They decided to split\n  into two teams, Team A and Team B.  Team A had 5 more people than Team B. If\n  there were a total of 25 friends at the park, how many people were on each\n  team?\nsolutions:\n  x: 15\n  y: 10\n",
     "time": 60,
-    "id": 1540
+    "id": 1839
   },
   {
     "generator": "math-word-4-2-reality",
     "problem": "A baker made a batch of 12 beloved chocolate chip cookies. He used twice as many chocolate chips for the big cookies (b) as he did for the small cookies (s). How many chocolate chips did he use for the big cookies? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - b + s = 12\n  - b = 2s\nwordProblem: A baker made a batch of 12 beloved chocolate chip cookies. He used\n  twice as many chocolate chips for the big cookies (b) as he did for the small\n  cookies (s). How many chocolate chips did he use for the big cookies?\nsolutions:\n  b: 8\n  s: 4\n",
     "time": 30,
-    "id": 1541
+    "id": 1840
   },
   {
     "generator": "math-word-4-2-speed",
     "problem": "Two friends, Peter and Alice, are collecting stickers. Peter has 3 more stickers than Alice. Together, they have 15 stickers. How many stickers does each friend have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: Two friends, Peter and Alice, are collecting stickers.  Peter has 3\n  more stickers than Alice.  Together, they have 15 stickers.  How many stickers\n  does each friend have?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 45,
-    "id": 1542
+    "id": 1841
   },
   {
     "generator": "math-word-5-1-fraction-subtraction",
     "problem": "A group of friends were enjoying a hedonistic picnic. They had a huge watermelon that weighed 20 kg. They ate 1/4 of the watermelon. How much watermelon was left after the picnic? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 1/4 * x = 15\nwordProblem: A group of friends were enjoying a hedonistic picnic. They had a\n  huge watermelon that weighed 20 kg.  They ate 1/4 of the watermelon. How much\n  watermelon was left after the picnic?\nsolutions:\n  x: 20\n",
     "time": 15,
-    "id": 1543
+    "id": 1842
   },
   {
     "generator": "math-word-5-1-large-integer-multiplication",
     "problem": "A directory company is organizing a large phone book. They have 3500 pages in total, and each page can hold 1000 phone numbers. They've already filled 500 pages with phone numbers. How many more pages do they need to fill to complete the phone book? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 1000 * x + 500 = 3500\nwordProblem: A directory company is organizing a large phone book. They have\n  3500 pages in total, and each page can hold 1000 phone numbers. They've\n  already filled 500 pages with phone numbers. How many more pages do they need\n  to fill to complete the phone book?\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1544
+    "id": 1843
   },
   {
     "generator": "math-word-5-1-probability",
     "problem": "A group of students are painting a mural on a wall. They divide the wall into 9 equal sections. One group paints 1/4 of the wall, and another group paints 1/5 of the wall. How many sections of the wall did the students paint in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 + x/5 = 18\nwordProblem: A group of students are painting a mural on a wall. They divide the\n  wall into 9 equal sections. One group paints 1/4 of the wall, and another\n  group paints 1/5 of the wall. How many sections of the wall did the students\n  paint in total?\nsolutions:\n  x: 40\n",
     "time": 20,
-    "id": 1545
+    "id": 1844
   },
   {
     "generator": "math-word-5-1-reality",
     "problem": "A bartender is making a special cocktail for a party. They need to use 4 ounces of juice for every 2 ounces of soda. If the recipe calls for 18 ounces of liquid in total, how many ounces of juice does the bartender need? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4*x + 2 = 18\nwordProblem: A bartender is making a special cocktail for a party. They need to\n  use 4 ounces of juice for every 2 ounces of soda.  If the recipe calls for 18\n  ounces of liquid in total, how many ounces of juice does the bartender need?\nsolutions:\n  x: 4\n",
     "time": 30,
-    "id": 1546
+    "id": 1845
   },
   {
     "generator": "math-word-5-1-slice-of-life",
     "problem": "Buddy is planning a birthday party for his friend. He wants to buy 4 packs of balloons, and each pack costs \\$12. He also wants to buy a cake for \\$52. How much money does Buddy need to buy the balloons and the cake? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4b + 12 = 52\nwordProblem: Buddy is planning a birthday party for his friend. He wants to buy\n  4 packs of balloons, and each pack costs \\$12. He also wants to buy a cake for\n  \\$52. How much money does Buddy need to buy the balloons and the cake?\nsolutions:\n  b: 10\n",
     "time": 15,
-    "id": 1547
+    "id": 1846
   },
   {
     "generator": "math-word-5-2-fraction-subtraction",
     "problem": "A car used 100 liters of fuel on a trip. The car used 1/2 of the fuel on the first part of the trip. How much fuel did the car use on the second part of the trip? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - x - (1/2)y = 60\nwordProblem: A car used 100 liters of fuel on a trip.  The car used 1/2 of the\n  fuel on the first part of the trip.  How much fuel did the car use on the\n  second part of the trip?\nsolutions:\n  x: 80\n  y: 20\n",
     "time": 60,
-    "id": 1548
+    "id": 1847
   },
   {
     "generator": "math-word-5-2-geometry",
     "problem": "A scientist is creating an antidote. She needs 15 milliliters of a special solution. She has two containers, one containing a solution that is stronger and another containing a solution that is weaker. The scientist knows that she needs 3 milliliters more of the stronger solution than the weaker solution. How many milliliters of each solution does the scientist need? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A scientist is creating an antidote. She needs 15 milliliters of a\n  special solution. She has two containers, one containing a solution that is\n  stronger and another containing a solution that is weaker.  The scientist\n  knows that she needs 3 milliliters more of the stronger solution than the\n  weaker solution. How many milliliters of each solution does the scientist\n  need?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1549
+    "id": 1848
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
     "problem": "Two talented artists, Maya and Liam, are working on a giant mural together. Maya has painted 25,000 square centimeters more than Liam. Together, they have painted a total of 125,000 square centimeters. How many square centimeters has each artist painted individually? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 125000\n  - x - y = 25000\nwordProblem: Two talented artists, Maya and Liam, are working on a giant mural\n  together. Maya has painted 25,000 square centimeters more than\n  Liam.  Together, they have painted a total of 125,000 square centimeters.  How\n  many square centimeters has each artist painted individually?\nsolutions:\n  x: 75000\n  y: 50000\n",
     "time": 60,
-    "id": 1550
+    "id": 1849
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
     "problem": "Blandville is having a big festival! They need to buy 12,500 balloons to decorate the town. They want to buy 2,500 more red balloons than blue balloons. How many red balloons (x) and how many blue balloons (y) should they buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12500\n  - x - y = 2500\nwordProblem: Blandville is having a big festival! They need to buy 12,500\n  balloons to decorate the town. They want to buy 2,500 more red balloons than\n  blue balloons.  How many red balloons (x) and how many blue balloons (y)\n  should they buy?\nsolutions:\n  x: 7500\n  y: 5000\n",
     "time": 60,
-    "id": 1551
+    "id": 1850
   },
   {
     "generator": "math-word-5-2-probability",
     "problem": "At a school fundraiser, students sold cookies and brownies. Each cookie cost \\$2 and each brownie cost \\$1. They sold a total of 120 cookies and brownies, and raised \\$170. How many cookies and brownies did they sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + y = 170\nwordProblem: At a school fundraiser, students sold cookies and brownies.  Each\n  cookie cost \\$2 and each brownie cost \\$1.  They sold a total of 120 cookies\n  and brownies, and raised \\$170.  How many cookies and brownies did they sell?\nsolutions:\n  x: 50\n  y: 70\n",
     "time": 60,
-    "id": 1552
+    "id": 1851
   },
   {
     "generator": "math-word-5-2-probability",
     "problem": "Maya and her friend David are planning an evening walk. They want to walk for a total of 12 kilometers. Maya wants to walk twice the distance David walks. How many kilometers will Maya walk? How many kilometers will David walk? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 12\n  - 2x + y = 18\nwordProblem: Maya and her friend David are planning an evening walk. They want\n  to walk for a total of 12 kilometers. Maya wants to walk twice the distance\n  David walks. How many kilometers will Maya walk? How many kilometers will\n  David walk?\nsolutions:\n  x: 6\n  y: 6\n",
     "time": 60,
-    "id": 1553
+    "id": 1852
   },
   {
     "generator": "math-word-5-2-reality",
     "problem": "A group of friends are creating icons for a school project. They want to use two different sizes of icons: large and small. They need 20 icons in total. They know that they need twice as many large icons as small icons. How many large icons and how many small icons should they create? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 20\n  - x + y = 12\nwordProblem: \"A group of friends are creating icons for a school project. They\n  want to use two different sizes of icons: large and small. They need 20 icons\n  in total. They know that they need twice as many large icons as small icons.\n  How many large icons and how many small icons should they create?\"\nsolutions:\n  x: 8\n  y: 4\n",
     "time": 30,
-    "id": 1554
+    "id": 1853
   },
   {
     "generator": "math-word-5-2-reality",
     "problem": "Sarah and John are collecting bottle caps for a school project. They know that Sarah has 3 more bottle caps than John. Together, they have 15 bottle caps. How many bottle caps does each of them have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: Sarah and John are collecting bottle caps for a school project.\n  They know that Sarah has 3 more bottle caps than John. Together, they have 15\n  bottle caps. How many bottle caps does each of them have?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1555
+    "id": 1854
   },
   {
     "generator": "math-word-5-2-work",
     "problem": "A constellation has 15 stars, some are blue and some are red. There are 3 more blue stars than red stars. How many blue stars and how many red stars are in the constellation? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A constellation has 15 stars, some are blue and some are\n  red.  There are 3 more blue stars than red stars.  How many blue stars and how\n  many red stars are in the constellation?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1556
+    "id": 1855
   },
   {
     "generator": "math-word-5-2-work",
     "problem": "A local bar is having a special on drinks and snacks. They offer a combo of 2 drinks and 3 snacks for 25 euros. They also offer a separate combo of 1 drink and 1 snack for 2 euros. How much does a drink cost and how much does a snack cost? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 3*y = 25\n  - x - y = 2\nwordProblem: A local bar is having a special on drinks and snacks. They offer a\n  combo of 2 drinks and 3 snacks for 25 euros. They also offer a separate combo\n  of 1 drink and 1 snack for 2 euros. How much does a drink cost and how much\n  does a snack cost?\nsolutions:\n  x: 4\n  y: 2\n",
     "time": 60,
-    "id": 1557
+    "id": 1856
   },
   {
     "generator": "math-word-6-1-large-integer-subtraction",
     "problem": "A school is building a new library. They need 450,000 bricks to complete it. They have already ordered 125,000 bricks. How many more bricks do they need to order? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 125000 = 450000\nwordProblem: A school is building a new library. They need 450,000 bricks to\n  complete it.  They have already ordered 125,000 bricks.  How many more bricks\n  do they need to order?\nsolutions:\n  x: 575000\n",
     "time": 15,
-    "id": 1558
+    "id": 1857
   },
   {
     "generator": "math-word-6-1-travel",
     "problem": "A farmer is buying hay for his cows. He needs to buy enough hay to last for 4 days. Each cow eats 2 kilograms of hay per day. If the farmer buys 32 kilograms of hay, how many cows does he have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x/4 + 2 = 10\nwordProblem: A farmer is buying hay for his cows. He needs to buy enough hay to\n  last for 4 days. Each cow eats 2 kilograms of hay per day. If the farmer buys\n  32 kilograms of hay, how many cows does he have?\nsolutions:\n  x: 32\n",
     "time": 15,
-    "id": 1559
+    "id": 1858
   },
   {
     "generator": "math-word-6-1-work",
     "problem": "A photographer charges \\$10 for each photo they take at a school dance, and an additional \\$15 for travel. If they made \\$85 at a dance, how many photos did they take? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 15 = 85\nwordProblem: A photographer charges \\$10 for each photo they take at a school\n  dance, and an additional \\$15 for travel. If they made \\$85 at a dance, how\n  many photos did they take?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1560
+    "id": 1859
   },
   {
     "generator": "math-word-6-2-fraction-subtraction",
     "problem": "A painter has 15 liters of paint to paint a room. He knows that he needs 5 liters more blue paint than white paint. How many liters of blue paint (x) and white paint (y) does he need? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 5\nwordProblem: A painter has 15 liters of paint to paint a room. He knows that he\n  needs 5 liters more blue paint than white paint. How many liters of blue paint\n  (x) and white paint (y) does he need?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1561
+    "id": 1860
   },
   {
     "generator": "math-word-6-2-large-integer-division",
     "problem": "A local soda factory is having a big sale! They're selling boxes of soda for a special price. Each box contains 100 sodas, and they're also offering individual sodas. A customer buys 4200 sodas in total, and they bought 42 boxes and individual sodas combined. How many boxes of soda did the customer buy? How many individual sodas did they buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 100x + 10y = 4200\n  - x + y = 42\nwordProblem: A local soda factory is having a big sale! They're selling boxes of\n  soda for a special price. Each box contains 100 sodas, and they're also\n  offering individual sodas. A customer buys 4200 sodas in total, and they\n  bought 42 boxes and individual sodas combined. How many boxes of soda did the\n  customer buy? How many individual sodas did they buy?\nsolutions:\n  x: 40\n  y: 2\n",
     "time": 60,
-    "id": 1562
+    "id": 1861
   },
   {
     "generator": "math-word-6-2-large-integer-division",
     "problem": "A farmer has a total of 1200 chickens and ducks. He has 400 more chickens than ducks. How many chickens and ducks does the farmer have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - y = 400\nwordProblem: A farmer has a total of 1200 chickens and ducks. He has 400 more\n  chickens than ducks. How many chickens and ducks does the farmer have?\nsolutions:\n  x: 800\n  y: 400\n",
     "time": 30,
-    "id": 1563
+    "id": 1862
   },
   {
     "generator": "math-word-6-2-mass",
     "problem": "A group of friends went to a carnival. They bought 2 bags of cotton candy and 1 bag of popcorn for a total of 25 euros. Later, they bought another bag of cotton candy and a bag of popcorn for a total of 15 euros. If all the bags of cotton candy cost the same and all the bags of popcorn cost the same, how much does a bag of cotton candy cost? How much does a bag of popcorn cost? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 25\n  - x - y = 5\nwordProblem: A group of friends went to a carnival.  They bought 2 bags of\n  cotton candy and 1 bag of popcorn for a total of 25 euros.  Later, they bought\n  another bag of cotton candy and a bag of popcorn for a total of 15 euros.  If\n  all the bags of cotton candy cost the same and all the bags of popcorn cost\n  the same, how much does a bag of cotton candy cost?  How much does a bag of\n  popcorn cost?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1564
+    "id": 1863
   },
   {
     "generator": "math-word-6-2-probability",
     "problem": "A group of friends went on a whirlwind trip to the amusement park. They rode two different rollercoasters, the 'Whirlwind' and the 'Twister'. The Whirlwind ride costs \\$2 per person and the Twister ride costs \\$3 per person. They spent a total of \\$35 on the rides. If they rode the Whirlwind a total of 15 times, how many times did they ride the Twister? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - 2x + 3y = 35\nwordProblem: A group of friends went on a whirlwind trip to the amusement park.\n  They rode two different rollercoasters, the 'Whirlwind' and the 'Twister'. The\n  Whirlwind ride costs \\$2 per person and the Twister ride costs \\$3 per person.\n  They spent a total of \\$35 on the rides. If they rode the Whirlwind a total of\n  15 times, how many times did they ride the Twister?\nsolutions:\n  x: 5\n  y: 10\n",
     "time": 60,
-    "id": 1565
+    "id": 1864
   },
   {
     "generator": "math-word-6-2-proportion",
     "problem": "A clothing store is having a shrinking sale. They shrink all the clothes to be 1/2 their original size. When the clothes shrink, the original price is also cut in half. A sweater and a shirt were originally priced at 15 euros. After shrinking, the sweater was twice as expensive as the shirt. What was the original price of the sweater? What was the original price of the shirt? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x = 2y\nwordProblem: A clothing store is having a shrinking sale.  They shrink all the\n  clothes to be 1/2 their original size.  When the clothes shrink, the original\n  price is also cut in half.  A sweater and a shirt were originally priced at 15\n  euros.  After shrinking, the sweater was twice as expensive as the\n  shirt.  What was the original price of the sweater?  What was the original\n  price of the shirt?\nsolutions:\n  x: 10\n  y: 5\n",
     "time": 60,
-    "id": 1566
+    "id": 1865
   },
   {
     "generator": "math-word-6-2-reality",
     "problem": "A jeweler is making a ring with two different types of gemstones. She uses 2 red gemstones and 3 sapphire gemstones, and the total weight of the gemstones is 23 grams. She also knows that one red gemstone weighs 2 grams more than one sapphire gemstone. Let 'r' be the weight of a red gemstone and 's' be the weight of a sapphire gemstone. How much does each type of gemstone weigh? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2r + 3s = 23\n  - r - s = 2\nwordProblem: A jeweler is making a ring with two different types of\n  gemstones.  She uses 2 red gemstones and 3 sapphire gemstones, and the total\n  weight of the gemstones is 23 grams.  She also knows that one red gemstone\n  weighs 2 grams more than one sapphire gemstone.  Let 'r' be the weight of a\n  red gemstone and 's' be the weight of a sapphire gemstone.  How much does each\n  type of gemstone weigh?\nsolutions:\n  r: 6\n  s: 4\n",
     "time": 60,
-    "id": 1567
+    "id": 1866
   },
   {
     "generator": "math-word-6-2-speed",
     "problem": "At a bakery, cupcakes are favored over cookies. There are 24 cupcakes and cookies in total. The number of cupcakes is 3 times the number of cookies. How many cupcakes and cookies are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 24\n  - x = 3y\nwordProblem: At a bakery, cupcakes are favored over cookies.  There are 24\n  cupcakes and cookies in total.  The number of cupcakes is 3 times the number\n  of cookies.  How many cupcakes and cookies are there?\nsolutions:\n  x: 18\n  y: 6\n",
     "time": 60,
-    "id": 1568
+    "id": 1867
   },
   {
     "generator": "math-word-6-2-speed",
     "problem": "Two cave explorers, Anya and Ben, are exploring a cave. Anya brings 20 meters of rope, and Ben brings some rope as well. Anya uses 4 meters more rope than Ben. How much rope did Anya use, and how much did Ben use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 20\n  - x - y = 4\nwordProblem: Two cave explorers, Anya and Ben, are exploring a cave. Anya brings\n  20 meters of rope, and Ben brings some rope as well.  Anya uses 4 meters more\n  rope than Ben.  How much rope did Anya use, and how much did Ben use?\nsolutions:\n  x: 12\n  y: 8\n",
     "time": 60,
-    "id": 1569
+    "id": 1868
   },
   {
     "generator": "math-word-6-2-system-of-equations",
     "problem": "A teacher is marking student projects. They have two piles of projects, one for 'A's and one for 'B's. There are 15 projects in total. If there are 3 more 'A' projects than 'B' projects, how many projects are in each pile? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 15\n  - x - y = 3\nwordProblem: A teacher is marking student projects. They have two piles of\n  projects, one for 'A's and one for 'B's. There are 15 projects in total. If\n  there are 3 more 'A' projects than 'B' projects, how many projects are in each\n  pile?\nsolutions:\n  x: 9\n  y: 6\n",
     "time": 60,
-    "id": 1570
+    "id": 1869
   },
   {
     "generator": "math-word-6-2-travel",
     "problem": "A group of 6th graders went on a school trip. Some students traveled by bus and some by train. The bus cost 2 euros per student and the train cost 3 euros per student. The total cost of the trip was 270 euros. If there were 120 students in total, how many students went by bus and how many went by train? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + 3y = 270\nwordProblem: A group of 6th graders went on a school trip. Some students\n  traveled by bus and some by train. The bus cost 2 euros per student and the\n  train cost 3 euros per student. The total cost of the trip was 270 euros. If\n  there were 120 students in total, how many students went by bus and how many\n  went by train?\nsolutions:\n  x: 90\n  y: 30\n",
     "time": 30,
-    "id": 1571
+    "id": 1870
   },
   {
     "generator": "math-word-7-1-fraction-subtraction",
     "problem": "A factory produces 1000 meters of fabric per day. Due to a defect, 1/4 of the fabric produced was deemed unusable. How much usable fabric was produced that day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 1/4 x = 3/4\nwordProblem: A factory produces 1000 meters of fabric per day. Due to a defect,\n  1/4 of the fabric produced was deemed unusable.  How much usable fabric was\n  produced that day?\nsolutions:\n  x: 1\n",
     "time": 30,
-    "id": 1572
+    "id": 1871
   },
   {
     "generator": "math-word-7-1-geometry",
     "problem": "A smoker wants to build a rectangular patio with a length that is 5 meters longer than twice the width. If the perimeter of the patio is 17 meters, what is the width of the patio? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 5 = 17\nwordProblem: A smoker wants to build a rectangular patio with a length that is 5\n  meters longer than twice the width. If the perimeter of the patio is 17\n  meters, what is the width of the patio?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1573
+    "id": 1872
   },
   {
     "generator": "math-word-7-1-lever-fulcrum-weight",
     "problem": "A group of students are playing on a seesaw. One student, weighing 20 kg, sits 4 meters from the fulcrum. Their friend wants to balance the seesaw by sitting on the other side. If their friend is sitting 2 meters from the fulcrum, what must their weight (x) be in kilograms? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4*x + 20 = 100\nwordProblem: \"A group of students are playing on a seesaw. One student, weighing\n  20 kg, sits 4 meters from the fulcrum.  Their friend wants to balance the\n  seesaw by sitting on the other side. If their friend is sitting 2 meters from\n  the fulcrum, what must their weight (x) be in kilograms? \"\nsolutions:\n  x: 20\n",
     "time": 10,
-    "id": 1574
+    "id": 1873
   },
   {
     "generator": "math-word-7-1-proportion",
     "problem": "A prisoner is planning his escape. He needs to dig a tunnel 70 meters long. He can dig 4 meters of tunnel each day, but he also has to spend 10 minutes each day hiding his progress. How many days will it take him to escape? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 10 = 70\nwordProblem: A prisoner is planning his escape. He needs to dig a tunnel 70\n  meters long. He can dig 4 meters of tunnel each day, but he also has to spend\n  10 minutes each day hiding his progress.  How many days will it take him to\n  escape?\nsolutions:\n  x: 15\n",
     "time": 15,
-    "id": 1575
+    "id": 1874
   },
   {
     "generator": "math-word-7-1-proportion",
     "problem": "A parish is planning a fundraiser. They want to sell 5 different types of baked goods, each costing \\$2. They also have \\$2 already collected from donations. If they want to reach a fundraising goal of \\$12, how many more baked goods do they need to sell? Let 'x' represent the number of baked goods needed to be sold. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2 = 12\nwordProblem: A parish is planning a fundraiser. They want to sell 5 different\n  types of baked goods, each costing \\$2.  They also have \\$2 already collected\n  from donations. If they want to reach a fundraising goal of \\$12, how many\n  more baked goods do they need to sell? Let 'x' represent the number of baked\n  goods needed to be sold.\nsolutions:\n  x: \"2\"\n",
     "time": "15",
-    "id": 1576
+    "id": 1875
   },
   {
     "generator": "math-word-7-1-reality",
     "problem": "A group of friends wants to buy a new board game that costs 75 euros. They already have 15 euros saved. If each friend contributes 10 euros, how many friends are in the group? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 15 = 75\nwordProblem: A group of friends wants to buy a new board game that costs 75\n  euros. They already have 15 euros saved.  If each friend contributes 10 euros,\n  how many friends are in the group?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1577
+    "id": 1876
   },
   {
     "generator": "math-word-7-1-science",
     "problem": "A fireplace is being built with bricks. The builder needs to order a certain number of bricks. They need 10 bricks in total. The builder has already bought 2.5 bricks. How many more bricks do they need to order? Let 'x' represent the number of bricks they need to order. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2.5 = 10\nwordProblem: A fireplace is being built with bricks. The builder needs to order\n  a certain number of bricks. They need 10 bricks in total. The builder has\n  already bought 2.5 bricks. How many more bricks do they need to order? Let 'x'\n  represent the number of bricks they need to order.\nsolutions:\n  x: 7.5\n",
     "time": 10,
-    "id": 1578
+    "id": 1877
   },
   {
     "generator": "math-word-7-1-slice-of-life",
     "problem": "Sarah wants to buy a new pair of sneakers that cost 36 euros. She already has 12 euros saved up. If she earns 4 euros per hour babysitting, how many hours does she need to babysit to buy the sneakers? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 12 = 36\nwordProblem: Sarah wants to buy a new pair of sneakers that cost 36 euros. She\n  already has 12 euros saved up. If she earns 4 euros per hour babysitting, how\n  many hours does she need to babysit to buy the sneakers?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1579
+    "id": 1878
   },
   {
     "generator": "math-word-7-1-speed",
     "problem": "An authoritative author has written a book with 52 chapters. If the first 12 chapters are about the history of writing, and the rest are equally divided into 4 parts, how many chapters are in each of the remaining parts? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 4x + 12 = 52\nwordProblem: An authoritative author has written a book with 52 chapters. If the\n  first 12 chapters are about the history of writing, and the rest are equally\n  divided into 4 parts, how many chapters are in each of the remaining parts?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1580
+    "id": 1879
   },
   {
     "generator": "math-word-7-2-distance",
     "problem": "A gardener has 100 meters of fencing to enclose two rectangular plots of land. The first plot needs to be twice as long as the second plot, but the width of both plots is the same. If the gardener wants to use all 100 meters of fencing, what are the dimensions of each plot? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - 2x + 3y = 250\nwordProblem: A gardener has 100 meters of fencing to enclose two rectangular\n  plots of land.  The first plot needs to be twice as long as the second plot,\n  but the width of both plots is the same.  If the gardener wants to use all 100\n  meters of fencing, what are the dimensions of each plot?\nsolutions:\n  x: 50\n  y: 50\n",
     "time": 60,
-    "id": 1581
+    "id": 1880
   },
   {
     "generator": "math-word-7-2-fraction-subtraction",
     "problem": "A carpenter is building a shelf. He needs two pieces of wood, one longer than the other. He knows the combined length of the two pieces of wood is 10 meters. He also knows the difference in length between the two pieces of wood is 2 meters. What is the length of each piece of wood? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 10\n  - x - y = 2\nwordProblem: A carpenter is building a shelf. He needs two pieces of wood, one\n  longer than the other.  He knows the combined length of the two pieces of wood\n  is 10 meters.  He also knows the difference in length between the two pieces\n  of wood is 2 meters.  What is the length of each piece of wood?\nsolutions:\n  x: 6\n  y: 4\n",
     "time": 60,
-    "id": 1582
+    "id": 1881
   },
   {
     "generator": "math-word-7-2-geometry",
     "problem": "A lookout tower is built on top of a hill. The hill is 20 meters taller than the tower. The total height of the hill and tower is 150 meters. What is the height of the hill? What is the height of the tower? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 150\n  - x - y = 20\nwordProblem: A lookout tower is built on top of a hill. The hill is 20 meters\n  taller than the tower.  The total height of the hill and tower is 150\n  meters.  What is the height of the hill?  What is the height of the tower?\nsolutions:\n  x: 55\n  y: 35\n",
     "time": 60,
-    "id": 1583
+    "id": 1882
   },
   {
     "generator": "math-word-7-2-mass",
     "problem": "A chemist is mixing two different types of sulfur powders. Powder A contains 2 grams of sulfur per milliliter, and Powder B contains 1 gram of sulfur per milliliter. The chemist wants to create a mixture containing 100 grams of sulfur. If the chemist uses 20 milliliters more of Powder A than Powder B, how many milliliters of each powder should the chemist use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A chemist is mixing two different types of sulfur powders. Powder A\n  contains 2 grams of sulfur per milliliter, and Powder B contains 1 gram of\n  sulfur per milliliter. The chemist wants to create a mixture containing 100\n  grams of sulfur. If the chemist uses 20 milliliters more of Powder A than\n  Powder B, how many milliliters of each powder should the chemist use?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 60,
-    "id": 1584
+    "id": 1883
   },
   {
     "generator": "math-word-7-2-science",
     "problem": "A group of friends are cleaning up an alleyway. They find two piles of trash bags. The first pile has twice as many bags as the second pile, plus one extra bag. The second pile has one less bag than the first pile. If the two piles together have 12 bags, how many bags are in each pile? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2a + b = 12\n  - a - b = 2\nwordProblem: A group of friends are cleaning up an alleyway. They find two piles\n  of trash bags. The first pile has twice as many bags as the second pile, plus\n  one extra bag.  The second pile has one less bag than the first pile. If the\n  two piles together have 12 bags, how many bags are in each pile?\nsolutions:\n  a: 4.67\n  b: 2.67\n",
     "time": 30,
-    "id": 1585
+    "id": 1884
   },
   {
     "generator": "math-word-7-2-space",
     "problem": "A space explorer is building a cabin on a new planet. They need to use 120 units of building material. They have two types of materials: Type X, which weighs 2 kg per unit, and Type Y, which weighs 3 kg per unit. The explorer has a total of 285 kg of material. How many units of each type of building material does the explorer have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 120\n  - 2x + 3y = 285\nwordProblem: \"A space explorer is building a cabin on a new planet.  They need\n  to use 120 units of building material.  They have two types of\n  materials:  Type X, which weighs 2 kg per unit, and Type Y, which weighs 3 kg\n  per unit.  The explorer has a total of 285 kg of material. How many units of\n  each type of building material does the explorer have?\"\nsolutions:\n  x: 45\n  y: 75\n",
     "time": 60,
-    "id": 1586
+    "id": 1885
   },
   {
     "generator": "math-word-7-2-speed",
     "problem": "A warbling bird is flying at a speed of `w` meters per second. It flies for 2 seconds, then lands on a branch for 3 seconds. A second warbling bird is flying at a speed of `s` meters per second and flies for 1 second. If the total distance traveled by the two birds is 13 meters, what is the speed of each bird? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2w + 3s = 13\n  - w - s = 1\nwordProblem: \"A warbling bird is flying at a speed of `w` meters per second.  It\n  flies for 2 seconds, then lands on a branch for 3 seconds.  A second warbling\n  bird is flying at a speed of `s` meters per second and flies for 1 second.  If\n  the total distance traveled by the two birds is 13 meters, what is the speed\n  of each bird? \"\nsolutions:\n  w: 3\n  s: 2\n",
     "time": 60,
-    "id": 1587
+    "id": 1886
   },
   {
     "generator": "math-word-8-1-distance",
     "problem": "A local community center is organizing a fundraising event. They have set a goal of raising 40 kilograms of food donations. They have already collected 10 kilograms. If each participating family pledges to donate 5 kilograms of food, how many families need to participate to reach their goal? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 40\nwordProblem: A local community center is organizing a fundraising event. They\n  have set a goal of raising 40 kilograms of food donations.  They have already\n  collected 10 kilograms. If each participating family pledges to donate 5\n  kilograms of food, how many families need to participate to reach their goal?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1588
+    "id": 1887
   },
   {
     "generator": "math-word-8-1-fraction-subtraction",
     "problem": "A jewellery store is having a sale. A necklace with a glint that catches the eye is discounted by 1/3 of its original price. The sale price is 10 euros less than half of the original price. What was the original price of the necklace? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - (1/3)x - 10 = (1/2)x\nwordProblem: A jewellery store is having a sale.  A necklace with a glint that\n  catches the eye is discounted by 1/3 of its original price.  The sale price is\n  10 euros less than half of the original price.  What was the original price of\n  the necklace?\nsolutions:\n  x: 60\n",
     "time": 30,
-    "id": 1589
+    "id": 1888
   },
   {
     "generator": "math-word-8-1-geometry",
     "problem": "A coronary artery is 30 centimeters long. A doctor wants to insert a stent that will take up 10 centimeters of the artery. The stent is placed in the middle of the artery, so that there is the same length of artery on each side of the stent. How long is each section of the artery on either side of the stent? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 10 = 30\nwordProblem: A coronary artery is 30 centimeters long.  A doctor wants to insert\n  a stent that will take up 10 centimeters of the artery.  The stent is placed\n  in the middle of the artery, so that there is the same length of artery on\n  each side of the stent.  How long is each section of the artery on either side\n  of the stent?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1590
+    "id": 1889
   },
   {
     "generator": "math-word-8-1-geometry",
     "problem": "A rectangular garden has a length that is 10 meters longer than twice its width. If the perimeter of the garden is 30 meters, what is the width of the garden? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2*x + 10 = 30\nwordProblem: A rectangular garden has a length that is 10 meters longer than\n  twice its width. If the perimeter of the garden is 30 meters, what is the\n  width of the garden?\nsolutions:\n  x: 5\n",
     "time": 10,
-    "id": 1591
+    "id": 1890
   },
   {
     "generator": "math-word-8-1-large-integer-multiplication",
     "problem": "A counselor is organizing a summer camp for 12,000 students. Each student needs 500 milliliters of juice per day. How many liters of juice does the counselor need to order for all the students for one day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x = 12000 * 500\nwordProblem: A counselor is organizing a summer camp for 12,000 students. Each\n  student needs 500 milliliters of juice per day. How many liters of juice does\n  the counselor need to order for all the students for one day?\nsolutions:\n  x: 6000000\n",
     "time": 10,
-    "id": 1592
+    "id": 1891
   },
   {
     "generator": "math-word-8-1-probability",
     "problem": "Hopeful for a successful bake sale, Sarah decided to sell cookies and brownies. She made 100 baked goods in total. She priced her cookies at $0.75 each and her brownies at $0.25 each. If she earned $60 from her sales, how many cookies did she sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 0.75x + 0.25(100 - x) = 60\nwordProblem: Hopeful for a successful bake sale, Sarah decided to sell cookies\n  and brownies. She made 100 baked goods in total. She priced her cookies at\n  $0.75 each and her brownies at $0.25 each. If she earned $60 from her sales,\n  how many cookies did she sell?\nsolutions:\n  x: 50\n",
     "time": 30,
-    "id": 1593
+    "id": 1892
   },
   {
     "generator": "math-word-8-1-reality",
     "problem": "A hiker descends a mountain in three stages. The first stage is twice as long as the second stage, and the third stage is three times as long as the second stage. If the total descent is 360 meters, how long is the second stage? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2x + 3x = 360\nwordProblem: A hiker descends a mountain in three stages.  The first stage is\n  twice as long as the second stage, and the third stage is three times as long\n  as the second stage. If the total descent is 360 meters, how long is the\n  second stage?\nsolutions:\n  x: 60\n",
     "time": 15,
-    "id": 1594
+    "id": 1893
   },
   {
     "generator": "math-word-8-1-science",
     "problem": "A counterfeiter printed 30 fake $10 bills. He gave half of them to his accomplice and kept the rest. How many fake bills did the counterfeiter keep? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 2*x = 30\nwordProblem: A counterfeiter printed 30 fake $10 bills.  He gave half of them to\n  his accomplice and kept the rest.  How many fake bills did the counterfeiter\n  keep?\nsolutions:\n  x: 10\n",
     "time": 10,
-    "id": 1595
+    "id": 1894
   },
   {
     "generator": "math-word-8-1-slice-of-life",
     "problem": "Sarah is organizing her dresser drawers. She has 5 identical drawers, and she wants to fill them all with socks. She already has 10 socks, and she needs to buy enough socks to fill all the drawers. If she wants to have 45 socks in total, how many socks does she need to buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 45\nwordProblem: Sarah is organizing her dresser drawers. She has 5 identical\n  drawers, and she wants to fill them all with socks. She already has 10 socks,\n  and she needs to buy enough socks to fill all the drawers. If she wants to\n  have 45 socks in total, how many socks does she need to buy?\nsolutions:\n  x: 7\n",
     "time": 15,
-    "id": 1596
+    "id": 1895
   },
   {
     "generator": "math-word-8-1-system-of-equations",
     "problem": "A librarian is organizing books on a shelf. She has 14 books in total. She wants to place 3 books on each shelf and then add 5 more to a special display. How many shelves can she fill with 3 books each? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 5 = 14\nwordProblem: A librarian is organizing books on a shelf.  She has 14 books in\n  total.  She wants to place 3 books on each shelf and then add 5 more to a\n  special display.  How many shelves can she fill with 3 books each?\nsolutions:\n  x: 3\n",
     "time": 15,
-    "id": 1597
+    "id": 1896
   },
   {
     "generator": "math-word-8-1-work",
     "problem": "A group of friends are planning a party. They want to buy 10 liters of alcoholic beverages, which cost \\$10 per liter. They also need to buy snacks, which cost \\$20. How much money do they need in total? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 20 = 100\nwordProblem: A group of friends are planning a party. They want to buy 10 liters\n  of alcoholic beverages, which cost \\$10 per liter. They also need to buy\n  snacks, which cost \\$20. How much money do they need in total?\nsolutions:\n  x: 8\n",
     "time": 15,
-    "id": 1598
+    "id": 1897
   },
   {
     "generator": "math-word-8-2-fraction-subtraction",
     "problem": "Two friends, Sarah and David, were running a 1 1/4 kilometer relay race. Sarah ran her part of the race, and then David finished the rest. Sarah ran 1/2 kilometer more than David. How far did each of them run? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1 1/4\n  - x - y = 1/2\nwordProblem: Two friends, Sarah and David, were running a 1 1/4 kilometer relay\n  race. Sarah ran her part of the race, and then David finished the rest. Sarah\n  ran 1/2 kilometer more than David.  How far did each of them run?\nsolutions:\n  x: 3/4\n  y: 1/2\n",
     "time": 60,
-    "id": 1599
+    "id": 1898
   },
   {
     "generator": "math-word-8-2-large-integer-division",
     "problem": "A group of trainees is preparing for a marathon. They are training in two groups: Group A and Group B. Group A has 3 times as many trainees as Group B. If the total number of trainees in both groups is 1200, how many trainees are in each group? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - 3y = 0\nwordProblem: \"A group of trainees is preparing for a marathon. They are training\n  in two groups: Group A and Group B. Group A has 3 times as many trainees as\n  Group B.  If the total number of trainees in both groups is 1200, how many\n  trainees are in each group?\"\nsolutions:\n  x: 900\n  y: 300\n",
     "time": 60,
-    "id": 1600
+    "id": 1899
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
     "problem": "Two friends, Alex and Ben, are playing on a seesaw. Alex weighs 50 kg and sits 2 meters from the fulcrum. Ben wants to balance the seesaw, but he doesn't know how far to sit from the fulcrum. He knows that the seesaw will balance if the product of his weight and distance from the fulcrum equals the product of Alex's weight and distance from the fulcrum. Ben also knows that he needs to sit 10 meters further away from the fulcrum than Alex. How far should Ben sit from the fulcrum? Let *x* represent Ben's distance from the fulcrum and *y* represent Alex's distance from the fulcrum. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 2y = 100\n  - x - y = 10\nwordProblem: Two friends, Alex and Ben, are playing on a seesaw.  Alex weighs 50\n  kg and sits 2 meters from the fulcrum.  Ben wants to balance the seesaw, but\n  he doesn't know how far to sit from the fulcrum.  He knows that the seesaw\n  will balance if the product of his weight and distance from the fulcrum equals\n  the product of Alex's weight and distance from the fulcrum.  Ben also knows\n  that he needs to sit 10 meters further away from the fulcrum than Alex.  How\n  far should Ben sit from the fulcrum?  Let *x* represent Ben's distance from\n  the fulcrum and *y* represent Alex's distance from the fulcrum.\nsolutions:\n  x: \"16\"\n  y: \"6\"\n",
     "time": "60",
-    "id": 1601
+    "id": 1900
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
     "problem": "A young entrepreneur, Money, is building a seesaw for his lemonade stand. He wants to balance two large jars of lemonade, one weighing 10 kg and the other 5 kg. He knows the seesaw is 12 meters long and wants to figure out where to place the fulcrum. To make it fair, he wants the seesaw to balance when the heavier jar is 1 meter closer to the fulcrum than the lighter jar. How far from the end of the seesaw should Money place the fulcrum for each jar? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10*x + 5*y = 100\n  - x + y = 12\nwordProblem: A young entrepreneur, Money, is building a seesaw for his lemonade\n  stand. He wants to balance two large jars of lemonade, one weighing 10 kg and\n  the other 5 kg. He knows the seesaw is 12 meters long and wants to figure out\n  where to place the fulcrum. To make it fair, he wants the seesaw to balance\n  when the heavier jar is 1 meter closer to the fulcrum than the lighter jar.\n  How far from the end of the seesaw should Money place the fulcrum for each\n  jar?\nsolutions:\n  x: 7\n  y: 5\n",
     "time": 60,
-    "id": 1602
+    "id": 1901
   },
   {
     "generator": "math-word-8-2-mass",
     "problem": "The undefeated soccer team, The Wildcats, are preparing for their final game of the season. They have a total of 110 goals scored and conceded this season. They scored 30 more goals than they conceded. Let 'x' represent the number of goals scored and 'y' represent the number of goals conceded. How many goals did they score and how many did they concede? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 110\n  - x - y = 30\nwordProblem: The undefeated soccer team, The Wildcats, are preparing for their\n  final game of the season. They have a total of 110 goals scored and conceded\n  this season.  They scored 30 more goals than they conceded. Let 'x' represent\n  the number of goals scored and 'y' represent the number of goals conceded. How\n  many goals did they score and how many did they concede?\nsolutions:\n  x: 70\n  y: 40\n",
     "time": 60,
-    "id": 1603
+    "id": 1902
   },
   {
     "generator": "math-word-8-2-slice-of-life",
     "problem": "A jagged rock formation has two sections, a smaller one and a larger one. The larger section is 3 meters longer than twice the length of the smaller section. Together, the two sections are 21 meters long. What are the lengths of the two sections of the jagged rock? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 21\n  - x - y = 2\nwordProblem: A jagged rock formation has two sections, a smaller one and a\n  larger one. The larger section is 3 meters longer than twice the length of the\n  smaller section. Together, the two sections are 21 meters long.  What are the\n  lengths of the two sections of the jagged rock?\nsolutions:\n  x: 8\n  y: 6\n",
     "time": 60,
-    "id": 1604
+    "id": 1903
   },
   {
     "generator": "math-word-8-2-speed",
     "problem": "A group of friends decided to pool their money to buy a new video game. The total cost of the game was \\$100. One friend contributed twice the amount as another friend, but then the friend who contributed less had to borrow \\$20 to make up the difference. How much money did each friend contribute originally? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A group of friends decided to pool their money to buy a new video\n  game.  The total cost of the game was \\$100.  One friend contributed twice the\n  amount as another friend, but then the friend who contributed less had to\n  borrow \\$20 to make up the difference.  How much money did each friend\n  contribute originally?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 30,
-    "id": 1605
+    "id": 1904
   },
   {
     "generator": "math-word-8-2-work",
     "problem": "A steep hiking trail is 150 meters long. The first part of the trail is twice as long as the second part, but is also 30 meters longer. What is the length of each part of the trail? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 150\n  - x - y = 30\nwordProblem: A steep hiking trail is 150 meters long. The first part of the\n  trail is twice as long as the second part, but is also 30 meters longer. What\n  is the length of each part of the trail?\nsolutions:\n  x: 60\n  y: 30\n",
     "time": 60,
-    "id": 1606
+    "id": 1905
   },
   {
     "generator": "math-word-9-1-geometry",
     "problem": "Sandy is building a sandcastle. She has 45 cm of sand to use for the castle. She wants to divide the sand into 3 equal parts for the tower, the moat, and the walls. How much sand will she use for each part? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 15 = 45\nwordProblem: Sandy is building a sandcastle. She has 45 cm of sand to use for\n  the castle.  She wants to divide the sand into 3 equal parts for the tower,\n  the moat, and the walls.  How much sand will she use for each part?\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1607
+    "id": 1906
   },
   {
     "generator": "math-word-9-1-large-integer-addition",
     "problem": "A construction company is building a new highway. They have already laid 300,000 meters of asphalt. If the total length of the highway is 500,000 meters, how many more meters of asphalt need to be laid? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + 300000 = 500000\nwordProblem: A construction company is building a new highway. They have already\n  laid 300,000 meters of asphalt. If the total length of the highway is 500,000\n  meters, how many more meters of asphalt need to be laid?\nsolutions:\n  x: 200000\n",
     "time": 10,
-    "id": 1608
+    "id": 1907
   },
   {
     "generator": "math-word-9-1-large-integer-subtraction",
     "problem": "A farmer is building a fence around his rectangular field. He needs 5500 meters of fencing for the perimeter. If he already has 2500 meters of fencing, how much more fencing does he need to buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x - 2500 = 5500\nwordProblem: A farmer is building a fence around his rectangular field. He needs\n  5500 meters of fencing for the perimeter. If he already has 2500 meters of\n  fencing, how much more fencing does he need to buy?\nsolutions:\n  x: 8000\n",
     "time": 10,
-    "id": 1609
+    "id": 1908
   },
   {
     "generator": "math-word-9-1-lever-fulcrum-weight",
     "problem": "A crocodile weighing 200 kg is balanced on a log by a smaller crocodile weighing 150 kg. The smaller crocodile is 2 meters away from the fulcrum (the center of the log). How far away from the fulcrum is the larger crocodile? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 150 * x = 75 * 200\nwordProblem: A crocodile weighing 200 kg is balanced on a log by a smaller\n  crocodile weighing 150 kg. The smaller crocodile is 2 meters away from the\n  fulcrum (the center of the log). How far away from the fulcrum is the larger\n  crocodile?\nsolutions:\n  x: 100\n",
     "time": 10,
-    "id": 1610
+    "id": 1909
   },
   {
     "generator": "math-word-9-1-mass",
     "problem": "A hairbrush costs \\$5. A store has a sale where they offer \\$10 off any purchase of a hairbrush. If someone buys a hairbrush at this sale and pays \\$40 in total, how much did the hairbrush cost originally? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 40\nwordProblem: A hairbrush costs \\$5. A store has a sale where they offer \\$10 off\n  any purchase of a hairbrush. If someone buys a hairbrush at this sale and pays\n  \\$40 in total, how much did the hairbrush cost originally?\nsolutions:\n  x: 6\n",
     "time": 15,
-    "id": 1611
+    "id": 1910
   },
   {
     "generator": "math-word-9-1-science",
     "problem": "A loaded truck is carrying 45 kilograms of apples. The truck already had 15 kilograms of apples loaded before picking up the rest. How many kilograms of apples did the truck pick up at the orchard? Let x represent the number of kilograms of apples picked up at the orchard. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 3x + 15 = 45\nwordProblem: A loaded truck is carrying 45 kilograms of apples. The truck\n  already had 15 kilograms of apples loaded before picking up the rest.  How\n  many kilograms of apples did the truck pick up at the orchard? Let x represent\n  the number of kilograms of apples picked up at the orchard.\nsolutions:\n  x: 10\n",
     "time": 15,
-    "id": 1612
+    "id": 1911
   },
   {
     "generator": "math-word-9-1-slice-of-life",
     "problem": "A baker needs to buy eggs for a cake. Each carton of eggs contains 12 eggs. The baker already has 3 eggs. If the baker needs a total of 45 eggs, how many cartons of eggs should the baker buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 12x + 3 = 45\nwordProblem: A baker needs to buy eggs for a cake. Each carton of eggs contains\n  12 eggs. The baker already has 3 eggs.  If the baker needs a total of 45 eggs,\n  how many cartons of eggs should the baker buy?\nsolutions:\n  x: 3.5\n",
     "time": 10,
-    "id": 1613
+    "id": 1912
   },
   {
     "generator": "math-word-9-1-system-of-equations",
     "problem": "Radiant Radiators is having a sale on their heating units. They are offering a $10 discount off the original price. If you pay $35 for a heater after the discount, what was the original price (x) of the heater? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 5x + 10 = 35\nwordProblem: Radiant Radiators is having a sale on their heating units.  They\n  are offering a $10 discount off the original price.  If you pay $35 for a\n  heater after the discount, what was the original price (x) of the heater?\nsolutions:\n  x: 9\n",
     "time": 15,
-    "id": 1614
+    "id": 1913
   },
   {
     "generator": "math-word-9-1-system-of-equations",
     "problem": "A library charges a flat fee of 5 euros for a library card and 10 euros per week for access to their digital resources. If a student pays 45 euros for a month, how many weeks did they access the digital resources? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 10x + 5 = 45\nwordProblem: A library charges a flat fee of 5 euros for a library card and 10\n  euros per week for access to their digital resources. If a student pays 45\n  euros for a month, how many weeks did they access the digital resources?\nsolutions:\n  x: 4\n",
     "time": 15,
-    "id": 1615
+    "id": 1914
   },
   {
     "generator": "math-word-9-2-large-integer-addition",
     "problem": "A delivery truck driver is tasked with delivering two large orders of building supplies. The total weight of both orders combined is 1,234,567,890 kg. The driver forgets to note the individual weight of each order but remembers that the difference in weight between the two orders is 987,654,321 kg. What was the weight of each individual order? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1234567890\n  - x - y = 987654321\nwordProblem: A delivery truck driver is tasked with delivering two large orders\n  of building supplies. The total weight of both orders combined is\n  1,234,567,890 kg.  The driver forgets to note the individual weight of each\n  order but remembers that the difference in weight between the two orders is\n  987,654,321 kg.  What was the weight of each individual order?\nsolutions:\n  x: 1111111105.5\n  y: 123456785.5\n",
     "time": 60,
-    "id": 1616
+    "id": 1915
   },
   {
     "generator": "math-word-9-2-large-integer-subtraction",
     "problem": "A carpenter is building a cabinet with two shelves. The total thickness of the two shelves and the space between them is 1200 mm. The thickness of one shelf is 400 mm thicker than the other. What is the thickness of each shelf? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 1200\n  - x - y = 400\nwordProblem: A carpenter is building a cabinet with two shelves. The total\n  thickness of the two shelves and the space between them is 1200 mm. The\n  thickness of one shelf is 400 mm thicker than the other. What is the thickness\n  of each shelf?\nsolutions:\n  x: \"800\"\n  y: \"400\"\n",
     "time": "30",
-    "id": 1617
+    "id": 1916
   },
   {
     "generator": "math-word-9-2-mass",
     "problem": "A coffee shop wants to create a blend of two types of coffee beans, A and B. They want to make 100 kg of the blend. Bean A costs \\$8 per kg and bean B costs \\$2 per kg. They want the blend to cost \\$7.50 per kg. How many kilograms of each type of bean should they use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 100\n  - 0.8x + 0.2y = 0.75 * 100\nwordProblem: A coffee shop wants to create a blend of two types of coffee beans,\n  A and B.  They want to make 100 kg of the blend.  Bean A costs \\$8 per kg and\n  bean B costs \\$2 per kg. They want the blend to cost \\$7.50 per kg. How many\n  kilograms of each type of bean should they use?\nsolutions:\n  x: 62.5\n  y: 37.5\n",
     "time": 30,
-    "id": 1618
+    "id": 1917
   },
   {
     "generator": "math-word-9-2-probability",
     "problem": "A student has a pocketbook that contains only 20-euro and 10-euro bills. They have a total of 10 bills worth 100 euros. How many of each bill do they have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 20\nwordProblem: A student has a pocketbook that contains only 20-euro and 10-euro\n  bills. They have a total of 10 bills worth 100 euros. How many of each bill do\n  they have?\nsolutions:\n  x: 40\n  y: 20\n",
     "time": 60,
-    "id": 1619
+    "id": 1918
   },
   {
     "generator": "math-word-9-2-science",
     "problem": "A scientist is studying the growth of two types of bacteria. Bacteria A grows at a rate of 2 cm per hour and Bacteria B grows at a rate of 3 cm per hour. The scientist observes that after 1 hour, the combined length of Bacteria A and Bacteria B is 150 cm. The scientist also observes that Bacteria A is 20 cm longer than Bacteria B. What are the lengths of Bacteria A and Bacteria B? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 150\n  - x - y = 20\nwordProblem: A scientist is studying the growth of two types of bacteria.\n  Bacteria A grows at a rate of 2 cm per hour and Bacteria B grows at a rate of\n  3 cm per hour. The scientist observes that after 1 hour, the combined length\n  of Bacteria A and Bacteria B is 150 cm.  The scientist also observes that\n  Bacteria A is 20 cm longer than Bacteria B. What are the lengths of Bacteria A\n  and Bacteria B?\nsolutions:\n  x: 50\n  y: 30\n",
     "time": 30,
-    "id": 1620
+    "id": 1919
   },
   {
     "generator": "math-word-9-2-slice-of-life",
     "problem": "A group of friends are planning a camping trip. They want to buy enough food to last them for 3 days. They estimate that they will need 2 kilograms of food per person per day. They also need to buy 1 kilogram of extra food for cooking and snacks. If they are a total of x people and they need y kilograms of food in total, how many people are going on the trip and how much food should they buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 15\n  - x - y = 3\nwordProblem: A group of friends are planning a camping trip. They want to buy\n  enough food to last them for 3 days. They estimate that they will need 2\n  kilograms of food per person per day. They also need to buy 1 kilogram of\n  extra food for cooking and snacks. If they are a total of x people and they\n  need y kilograms of food in total, how many people are going on the trip and\n  how much food should they buy?\nsolutions:\n  x: 6\n  y: 18\n",
     "time": 30,
-    "id": 1621
+    "id": 1920
   },
   {
     "generator": "math-word-9-2-speed",
     "problem": "Two neighbors, Sarah and Tom, are organizing a neighborhood cleanup. Sarah volunteered to pick up 10 fewer pieces of trash than Tom. They collected a total of 100 pieces of trash. How many pieces of trash did each person pick up? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + y = 100\n  - x - y = 10\nwordProblem: Two neighbors, Sarah and Tom, are organizing a neighborhood\n  cleanup.  Sarah volunteered to pick up 10 fewer pieces of trash than\n  Tom.  They collected a total of 100 pieces of trash.  How many pieces of trash\n  did each person pick up?\nsolutions:\n  x: 55\n  y: 45\n",
     "time": 60,
-    "id": 1622
+    "id": 1921
   },
   {
     "generator": "math-word-9-2-speed",
     "problem": "Zeal, a student, is working on a project for his math class. He needs to cut two types of ribbons for his project. He needs 2 meters of the first type of ribbon and 3 meters of the second type of ribbon for a total of 24 meters. He also needs 1 meter less of the first type of ribbon than the second type of ribbon. How many meters of each type of ribbon does Zeal need? Let `x` represent the number of meters of the first type of ribbon and `y` represent the number of meters of the second type of ribbon. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 24\n  - x - y = 1\nwordProblem: Zeal, a student, is working on a project for his math class. He\n  needs to cut two types of ribbons for his project.  He needs 2 meters of the\n  first type of ribbon and 3 meters of the second type of ribbon for a total of\n  24 meters. He also needs 1 meter less of the first type of ribbon than the\n  second type of ribbon. How many meters of each type of ribbon does Zeal need?\n  Let `x` represent the number of meters of the first type of ribbon and `y`\n  represent the number of meters of the second type of ribbon.\nsolutions:\n  x: 5\n  y: 6\n",
     "time": 60,
-    "id": 1623
+    "id": 1922
   },
   {
     "generator": "math-word-9-2-travel",
     "problem": "A group of friends are planning a trip to Europe. They need to book flights and accommodations. The cost of flights is `2x` euros and the cost of accommodations is `3y` euros, and the total budget is 1200 euros. They also know that the cost of flights is 200 euros more than the cost of accommodations. Find the cost of flights (`x`) and accommodations (`y`) in euros. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - 2x + 3y = 1200\n  - x - y = 200\nwordProblem: A group of friends are planning a trip to Europe. They need to book\n  flights and accommodations.  The cost of flights is  `2x` euros and the cost\n  of accommodations is `3y` euros, and the total budget is 1200 euros. They also\n  know that the cost of flights is 200 euros more than the cost of\n  accommodations. Find the cost of flights (`x`) and accommodations (`y`) in\n  euros.\nsolutions:\n  x: 420\n  y: 220\n",
     "time": 60,
-    "id": 1624
+    "id": 1923
   },
   {
     "generator": "math-word-9-2-work",
     "problem": "A carpenter is building a doorway. He needs to cut a wooden threshold that is 200 cm long. The threshold is made of two pieces of wood: a longer piece and a shorter piece. The longer piece is 3 times as long as the shorter piece. How long is each piece of wood? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": "equations:\n  - x + y = 200\n  - 3x + 5y = 700\nwordProblem: \"A carpenter is building a doorway. He needs to cut a wooden\n  threshold that is 200 cm long. The threshold is made of two pieces of wood: a\n  longer piece and a shorter piece. The longer piece is 3 times as long as the\n  shorter piece. How long is each piece of wood?\"\nsolutions:\n  x: 100\n  y: 100\n",
     "time": 60,
-    "id": 1625
+    "id": 1924
   }
 ];
   
