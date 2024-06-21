@@ -144,7 +144,8 @@
         if (chosen.has(problem) || problem.decision === 'reject') {
           continue;
         }
-        if ((generatorUses.get(problem.generator) || 0) >= 1) {
+        if (isAtUseLimit(problem)) {
+          chosen.add(problem);
           continue;
         }
         seen += 1;
@@ -181,7 +182,7 @@
     const expandGeneratorUses = (generator) => {
       const parts = generator.split('-');
       const chunks = [];
-      for (let nth = 0; nth < parts.length; nth++) {
+      for (let nth = parts.length - 1; nth >= 0; nth--) {
         const chunk = parts.slice(0, nth + 1).join('-');
         chunks.push(chunk);
       }
@@ -193,10 +194,13 @@
         if (generatorUseLimits[chunk] === undefined) {
           continue;
         }
-        if ((generatorUses.get(chunk) || 0) >= generatorUseLimits[chunk]) {
-          return true;
+        const uses = (generatorUses.get(chunk) || 0);
+        const limit = generatorUseLimits[chunk];
+        if (uses < limit) {
+          return false;
         }
       }
+      return true;
     };
 
     const addGeneratorUses = (generator) => {
@@ -237,10 +241,6 @@
         const problem = chooseProblem(chosen, generatorUses, problems);
         if (problem === undefined) {
           break;
-        }
-        if (isAtUseLimit(problem)) {
-          chosen.add(problem);
-          continue;
         }
         const e = generateProblemElement(problem);
         await MathJax.typesetPromise([e]);

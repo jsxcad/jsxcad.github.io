@@ -62,12 +62,29 @@ export const escapeHtml = (unsafe) =>
 export const generateProblemElement = ({ id = -1, generator, problem, solution, lines = 4, tags = [], note }) => {
   const e = document.createElement('div');
   e.classList.add('problem', 'tooltip');
+  if (generator.startsWith('korean')) {
+    const wbws = [];
+    const ots = [];
+    for (const entry of [solution.one, solution.two, solution.three, solution.four, solution.five]) {
+      const wbw = [];
+      for (let [k, v] of Object.entries(JSON.parse(entry.wordByWordTranslation))) {
+        if (typeof v === 'object') {
+          v = v.english;
+        }
+        wbw.push(`<span style="white-space: nowrap">${k}${JSON.stringify(v)}</span>`);
+      }
+      wbws.push(`<div style="border: white solid 1px;">${wbw.join(' ')}</div>`);
+      const ot = JSON.parse(entry.overallTranslation).english;
+      ots.push(`<div style="color: gray; border: gray solid 1px;">${ot}</div>`);
+    }
+    solution = ots.join(' ') + wbws.join(' ');
+  } else {
+    solution = JSON.stringify(solution);
+  }
   e.innerHTML =
     `
       <div class="tooltiptext">
-        <pre>
         ${solution}
-        </pre>
       </div>
       <div class="generator">${generator}</div>
       ${problem}
