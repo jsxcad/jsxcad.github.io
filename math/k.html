@@ -26,6 +26,8 @@
      width: 210mm;
      height: 278mm;
      overflow: hidden;
+     column-count: 2;
+     column-width: 50%;
    }
 
    .column {
@@ -132,7 +134,7 @@
     const chosen = new Set();
     const generatorUses = new Map();
     const generatorUseLimits = {
-      'korean-story': 1,
+      'korean-story': 20,
       'korean-gap': 0,
       'english': 0,
       'math': 0,
