@@ -34273,6 +34273,81 @@
     "id": 2073
   },
   {
+    "generator": "math-symbolic-4-1-geometry",
+    "problem": "''x + 20 = 60'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 20 = 60"
+      ],
+      "wordProblem": "A rectangle has a length of 60 centimeters. The length is 20 centimeters more than its width. What is the width of the rectangle?",
+      "solutions": {
+        "x": 40
+      }
+    },
+    "time": 15,
+    "id": 2074
+  },
+  {
+    "generator": "math-symbolic-4-1-geometry",
+    "problem": "''x + 2 = 8'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 2 = 8"
+      ],
+      "wordProblem": "A symbol has 2 smaller symbols inside it. If all 3 symbols together have a length of 8 centimeters, what is the length of one smaller symbol?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2075
+  },
+  {
+    "generator": "math-symbolic-4-1-geometry",
+    "problem": "''7x = 28'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "7x = 28"
+      ],
+      "wordProblem": "A group of seven dwarfs are digging a tunnel.  They have dug a total of 28 meters of tunnel.  If each dwarf dug the same amount, how many meters did each dwarf dig?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2076
+  },
+  {
+    "generator": "math-symbolic-4-1-large-integer-addition",
+    "problem": "''x + 1250 = 2375'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 1250 = 2375"
+      ],
+      "wordProblem": "A farmer has 2375 apples in his orchard. He picked 1250 apples already. How many apples are still left on the trees?",
+      "solutions": {
+        "x": 1125
+      }
+    },
+    "time": 10,
+    "id": 2077
+  },
+  {
+    "generator": "math-symbolic-4-1-large-integer-division",
+    "problem": "''x/5 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/5 = 12"
+      ],
+      "wordProblem": "A group of 5 friends decided to share 12 meters of colorful ribbon equally. How much ribbon will each friend get?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 15,
+    "id": 2078
+  },
+  {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
     "problem": "''x/1000 = 250'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
     "solution": {
@@ -34285,7 +34360,7 @@
       }
     },
     "time": 10,
-    "id": 2074
+    "id": 2079
   },
   {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
@@ -34300,7 +34375,7 @@
       }
     },
     "time": 15,
-    "id": 2075
+    "id": 2080
   },
   {
     "generator": "math-symbolic-4-1-mass",
@@ -34315,7 +34390,7 @@
       }
     },
     "time": 15,
-    "id": 2076
+    "id": 2081
   },
   {
     "generator": "math-symbolic-4-1-proportion",
@@ -34330,7 +34405,37 @@
       }
     },
     "time": 20,
-    "id": 2077
+    "id": 2082
+  },
+  {
+    "generator": "math-symbolic-4-1-reality",
+    "problem": "''x + 12 = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 12 = 20"
+      ],
+      "wordProblem": "A group of friends are on a tropical vacation. They buy a bag of 20 delicious mangoes to share. If they eat 12 mangoes during the day, how many mangoes are left for them to enjoy the next day?",
+      "solutions": {
+        "x": 8
+      }
+    },
+    "time": 10,
+    "id": 2083
+  },
+  {
+    "generator": "math-symbolic-4-1-reality",
+    "problem": "''x + 10 = 35'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 10 = 35"
+      ],
+      "wordProblem": "The birthplace of a famous scientist is 10 kilometers from a popular museum. If the total distance between the scientist's birthplace and a nearby town is 35 kilometers, how far is the town from the museum?",
+      "solutions": {
+        "x": 25
+      }
+    },
+    "time": 15,
+    "id": 2084
   },
   {
     "generator": "math-symbolic-4-1-science",
@@ -34345,7 +34450,7 @@
       }
     },
     "time": 15,
-    "id": 2078
+    "id": 2085
   },
   {
     "generator": "math-symbolic-4-1-science",
@@ -34360,7 +34465,22 @@
       }
     },
     "time": 15,
-    "id": 2079
+    "id": 2086
+  },
+  {
+    "generator": "math-symbolic-4-1-slice-of-life",
+    "problem": "''x + 5 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "Sarah has a box of crayons. She gives 5 crayons to her friend Emily. Now she has 12 crayons left. How many crayons did Sarah have in the box at first?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2087
   },
   {
     "generator": "math-symbolic-4-1-space",
@@ -34375,7 +34495,7 @@
       }
     },
     "time": 15,
-    "id": 2080
+    "id": 2088
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34390,7 +34510,7 @@
       }
     },
     "time": 15,
-    "id": 2081
+    "id": 2089
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34405,7 +34525,7 @@
       }
     },
     "time": 10,
-    "id": 2082
+    "id": 2090
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34420,7 +34540,7 @@
       }
     },
     "time": 15,
-    "id": 2083
+    "id": 2091
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34435,7 +34555,7 @@
       }
     },
     "time": 15,
-    "id": 2084
+    "id": 2092
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34450,7 +34570,7 @@
       }
     },
     "time": 15,
-    "id": 2085
+    "id": 2093
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34465,7 +34585,7 @@
       }
     },
     "time": 10,
-    "id": 2086
+    "id": 2094
   },
   {
     "generator": "math-symbolic-4-2-distance",
@@ -34482,7 +34602,24 @@
       }
     },
     "time": 60,
-    "id": 2087
+    "id": 2095
+  },
+  {
+    "generator": "math-symbolic-4-2-fraction-subtraction",
+    "problem": "''x + y = 12''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "Maya and Leo were scattering seeds in their garden. Maya scattered 12 seeds in total, some sunflower seeds and some pumpkin seeds. Leo scattered 4 more sunflower seeds than pumpkin seeds. If Maya scattered the same number of sunflower seeds as Leo, how many pumpkin seeds did each of them scatter?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2096
   },
   {
     "generator": "math-symbolic-4-2-geometry",
@@ -34499,7 +34636,24 @@
       }
     },
     "time": 60,
-    "id": 2088
+    "id": 2097
+  },
+  {
+    "generator": "math-symbolic-4-2-geometry",
+    "problem": "''x + y = 25''<br>''x - y = 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 25",
+        "x - y = 5"
+      ],
+      "wordProblem": "A singular line of 25 students is standing in line for a field trip. They want to form two equal lines, one for boys and one for girls.  If there are 5 more boys than girls, how many boys are there? How many girls are there?",
+      "solutions": {
+        "x": 15,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2098
   },
   {
     "generator": "math-symbolic-4-2-large-integer-addition",
@@ -34516,7 +34670,7 @@
       }
     },
     "time": 60,
-    "id": 2089
+    "id": 2099
   },
   {
     "generator": "math-symbolic-4-2-large-integer-division",
@@ -34533,7 +34687,41 @@
       }
     },
     "time": 60,
-    "id": 2090
+    "id": 2100
+  },
+  {
+    "generator": "math-symbolic-4-2-large-integer-multiplication",
+    "problem": "''x + y = 4500''<br>''x = 2y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 4500",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of students are collecting bottle caps for a recycling project.  They want to collect 4500 bottle caps in total. The fourth grade class collects twice as many bottle caps as the third grade class. How many bottle caps did each grade collect?",
+      "solutions": {
+        "x": 3000,
+        "y": 1500
+      }
+    },
+    "time": 60,
+    "id": 2101
+  },
+  {
+    "generator": "math-symbolic-4-2-probability",
+    "problem": "''x + y = 10''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 10",
+        "x - y = 4"
+      ],
+      "wordProblem": "Mr. Landlord has 10 houses to rent. He has 4 more apartments than houses.  How many apartments and houses does he have to rent in total? Let 'x' represent the number of apartments and 'y' represent the number of houses.",
+      "solutions": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    "time": 30,
+    "id": 2102
   },
   {
     "generator": "math-symbolic-4-2-proportion",
@@ -34550,7 +34738,24 @@
       }
     },
     "time": 60,
-    "id": 2091
+    "id": 2103
+  },
+  {
+    "generator": "math-symbolic-4-2-proportion",
+    "problem": "''3x + y = 24''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + y = 24",
+        "x - y = 4"
+      ],
+      "wordProblem": "A scientist is looking at a slide under a microscope. He notices that 3 groups of bacteria plus 1 single bacterium fit perfectly within the microscope's field of view. He then sees that 1 group of bacteria minus 1 single bacterium leaves 4 millimeters of space in the field of view.  If the scientist wants to know how much space each group of bacteria takes up (x) and how much space 1 single bacterium takes up (y), how much space does each take up?",
+      "solutions": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    "time": 60,
+    "id": 2104
   },
   {
     "generator": "math-symbolic-4-2-reality",
@@ -34567,7 +34772,41 @@
       }
     },
     "time": 30,
-    "id": 2092
+    "id": 2105
+  },
+  {
+    "generator": "math-symbolic-4-2-reality",
+    "problem": "''g + s = 15''<br>''g = 2 * s'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "g + s = 15",
+        "g = 2 * s"
+      ],
+      "wordProblem": "A baker is making golden cookies. He has 15 golden sprinkles and chocolate chips in total. He uses twice as many chocolate chips as golden sprinkles. How many golden sprinkles and chocolate chips does he use?",
+      "solutions": {
+        "g": 10,
+        "s": 5
+      }
+    },
+    "time": 30,
+    "id": 2106
+  },
+  {
+    "generator": "math-symbolic-4-2-space",
+    "problem": "''x + y = 12''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "A spaceship crew needs to transport 12 crates of supplies to a space station. They have two types of cargo pods: small pods that can carry one crate and large pods that can carry one crate more than the small pods.  If they use 4 more small pods than large pods, how many small pods and large pods do they need?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2107
   },
   {
     "generator": "math-symbolic-4-2-speed",
@@ -34584,7 +34823,39 @@
       }
     },
     "time": 45,
-    "id": 2093
+    "id": 2108
+  },
+  {
+    "generator": "math-symbolic-4-2-work",
+    "problem": "''2x + y = 14''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 14",
+        "x - y = 2"
+      ],
+      "wordProblem": "The Heart Healthy Cafe is having a special on their hearty salads. They offer two options: a small salad with 2 servings of vegetables and 1 serving of protein for 14 grams of protein, and a large salad with 1 serving of vegetables and 1 serving of protein for 2 grams of protein. How many grams of protein are in each serving of vegetables and each serving of protein?",
+      "solutions": {
+        "x": 4,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2109
+  },
+  {
+    "generator": "math-symbolic-5-1-distance",
+    "problem": "''x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A construction crew is developing a new park. They have already paved 15 meters of the path around the park. They need to pave a total of 45 meters. How many more meters of path do they need to pave?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2110
   },
   {
     "generator": "math-symbolic-5-1-fraction-subtraction",
@@ -34599,7 +34870,67 @@
       }
     },
     "time": 15,
-    "id": 2094
+    "id": 2111
+  },
+  {
+    "generator": "math-symbolic-5-1-geometry",
+    "problem": "''2*x + 5 = 21'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 5 = 21"
+      ],
+      "wordProblem": "Sarah wants to buy a new book that costs 21 euros. She has already saved 5 euros. If she earns 2 euros per day from her chores, how many days does she need to work to buy the book?",
+      "solutions": {
+        "x": 8
+      }
+    },
+    "time": 15,
+    "id": 2112
+  },
+  {
+    "generator": "math-symbolic-5-1-geometry",
+    "problem": "''x + 2x = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 2x = 30"
+      ],
+      "wordProblem": "A carpenter wants to cut a piece of wood into three equal pieces.  The total length of the wood is 30 centimeters. How long should each piece of wood be?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 10,
+    "id": 2113
+  },
+  {
+    "generator": "math-symbolic-5-1-large-integer-division",
+    "problem": "''x/5 = 120'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/5 = 120"
+      ],
+      "wordProblem": "A group of friends are going on a zip-lining adventure. They need to buy a total of 120 meters of zip-line cable. If they split the cost equally among 5 friends, how many meters of cable will each friend buy?",
+      "solutions": {
+        "x": 600
+      }
+    },
+    "time": 15,
+    "id": 2114
+  },
+  {
+    "generator": "math-symbolic-5-1-large-integer-division",
+    "problem": "''x/25 = 325'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/25 = 325"
+      ],
+      "wordProblem": "An art teacher has 325 paintbrushes to distribute equally among 25 students. How many paintbrushes will each student receive?",
+      "solutions": {
+        "x": 8125
+      }
+    },
+    "time": 10,
+    "id": 2115
   },
   {
     "generator": "math-symbolic-5-1-large-integer-multiplication",
@@ -34614,7 +34945,7 @@
       }
     },
     "time": 15,
-    "id": 2095
+    "id": 2116
   },
   {
     "generator": "math-symbolic-5-1-probability",
@@ -34629,7 +34960,22 @@
       }
     },
     "time": 20,
-    "id": 2096
+    "id": 2117
+  },
+  {
+    "generator": "math-symbolic-5-1-proportion",
+    "problem": "''x/2 + x/3 = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/2 + x/3 = 10"
+      ],
+      "wordProblem": "A carpenter wants to cut a piece of wood that is 10 meters long into two pieces. One piece will be twice as long as the other. How long will the shorter piece of wood be?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 30,
+    "id": 2118
   },
   {
     "generator": "math-symbolic-5-1-reality",
@@ -34644,7 +34990,7 @@
       }
     },
     "time": 30,
-    "id": 2097
+    "id": 2119
   },
   {
     "generator": "math-symbolic-5-1-slice-of-life",
@@ -34659,7 +35005,82 @@
       }
     },
     "time": 15,
-    "id": 2098
+    "id": 2120
+  },
+  {
+    "generator": "math-symbolic-5-1-slice-of-life",
+    "problem": "''4*x+3=19'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4*x+3=19"
+      ],
+      "wordProblem": "Maya is making a salad dressing.  She wants to use 4 tablespoons of vinegar and 3 tablespoons of olive oil.  She has a total of 19 tablespoons of ingredients.  How many tablespoons of vinegar should she use in her salad dressing?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2121
+  },
+  {
+    "generator": "math-symbolic-5-1-space",
+    "problem": "''5x + 10 = 70'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 70"
+      ],
+      "wordProblem": "A group of astronauts are exploring a new planet. They discover a strange crystal that emits a powerful energy field.  The energy field expands at a rate of 5 meters per second.  If the field is currently 10 meters wide, how many seconds will it take for the field to reach a diameter of 70 meters?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2122
+  },
+  {
+    "generator": "math-symbolic-5-1-space",
+    "problem": "''x + 100 = 250'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 100 = 250"
+      ],
+      "wordProblem": "A spaceship is traveling through space. It has a fuel tank that can hold 250 liters of fuel.  The spaceship uses 100 liters of fuel to reach its destination.  How much fuel was in the tank before the trip? Let 'x' represent the amount of fuel in the tank before the trip.",
+      "solutions": {
+        "x": 150
+      }
+    },
+    "time": 15,
+    "id": 2123
+  },
+  {
+    "generator": "math-symbolic-5-1-space",
+    "problem": "''1000 * x = 5000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1000 * x = 5000"
+      ],
+      "wordProblem": "A space explorer's web-like space net is designed to capture asteroids. The net is 1000 meters wide. If the explorer uses the net to capture an asteroid that is 5000 meters long, how many times longer is the asteroid than the net's width?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2124
+  },
+  {
+    "generator": "math-symbolic-5-1-speed",
+    "problem": "''3x + 5 = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 5 = 20"
+      ],
+      "wordProblem": "Sarah is making bracelets for her friends. She has 20 beads and she wants to make 3 bracelets, each with the same number of beads. She also wants to use 5 beads to make a small charm for each bracelet. How many beads will be on each bracelet?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2125
   },
   {
     "generator": "math-symbolic-5-2-fraction-subtraction",
@@ -34676,7 +35097,7 @@
       }
     },
     "time": 60,
-    "id": 2099
+    "id": 2126
   },
   {
     "generator": "math-symbolic-5-2-geometry",
@@ -34693,7 +35114,7 @@
       }
     },
     "time": 60,
-    "id": 2100
+    "id": 2127
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
@@ -34710,7 +35131,7 @@
       }
     },
     "time": 60,
-    "id": 2101
+    "id": 2128
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
@@ -34727,7 +35148,58 @@
       }
     },
     "time": 60,
-    "id": 2102
+    "id": 2129
+  },
+  {
+    "generator": "math-symbolic-5-2-large-integer-subtraction",
+    "problem": "''x + y = 1200000''<br>''x - y = 400000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 1200000",
+        "x - y = 400000"
+      ],
+      "wordProblem": "In a rainforest, there are two types of endemic frogs. The red-eyed frog is endemic to a specific region, and the green tree frog is endemic to another region. Together, there are 1,200,000 red-eyed frogs and green tree frogs. The difference between the number of red-eyed frogs and green tree frogs is 400,000. How many red-eyed frogs are there? How many green tree frogs are there?",
+      "solutions": {
+        "x": 800000,
+        "y": 400000
+      }
+    },
+    "time": 60,
+    "id": 2130
+  },
+  {
+    "generator": "math-symbolic-5-2-large-integer-subtraction",
+    "problem": "''g + d = 1000000''<br>''g - d = 200000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "g + d = 1000000",
+        "g - d = 200000"
+      ],
+      "wordProblem": "A scientist is studying genetic mutations in a laboratory. They have two groups of mice: Group A and Group B.  Group A has 'g' number of mice, and Group B has 'd' number of mice.  There are a total of 1,000,000 mice in both groups.  Group A has 200,000 more mice than Group B.  How many mice are in each group?",
+      "solutions": {
+        "g": 600000,
+        "d": 400000
+      }
+    },
+    "time": 30,
+    "id": 2131
+  },
+  {
+    "generator": "math-symbolic-5-2-lever-fulcrum-weight",
+    "problem": "''10 * x + 5 * y = 100''<br>''x + y = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "10 * x + 5 * y = 100",
+        "x + y = 12"
+      ],
+      "wordProblem": "A group of friends are playing with a seesaw. They place a 10 kg weight 1 meter from the fulcrum. To balance the seesaw, they need to place another weight on the other side.  They have two weights: a 5 kg weight and another weight that is unknown.  They experiment and find that the unknown weight needs to be placed 2 meters from the fulcrum to balance the seesaw. What is the mass of the unknown weight?  Let x be the distance the unknown weight is placed from the fulcrum and let y be the mass of the unknown weight.",
+      "solutions": {
+        "x": 2,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2132
   },
   {
     "generator": "math-symbolic-5-2-probability",
@@ -34744,7 +35216,7 @@
       }
     },
     "time": 60,
-    "id": 2103
+    "id": 2133
   },
   {
     "generator": "math-symbolic-5-2-probability",
@@ -34761,7 +35233,41 @@
       }
     },
     "time": 60,
-    "id": 2104
+    "id": 2134
+  },
+  {
+    "generator": "math-symbolic-5-2-probability",
+    "problem": "''x + y = 120''<br>''x = 2y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of friends is playing a game where they have to collect points.  They have a total of 120 points.  The number of points Sarah collected is twice the number of points Jack collected.  How many points did each of them collect?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2135
+  },
+  {
+    "generator": "math-symbolic-5-2-proportion",
+    "problem": "''x + y = 120''<br>''x = 2y'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of students are building a model of an enduring city. They need to use 120 centimeters of building materials.  They decide to use twice as much wood (x) as plastic (y). How much wood and how much plastic will they use?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2136
   },
   {
     "generator": "math-symbolic-5-2-reality",
@@ -34778,7 +35284,7 @@
       }
     },
     "time": 30,
-    "id": 2105
+    "id": 2137
   },
   {
     "generator": "math-symbolic-5-2-reality",
@@ -34795,7 +35301,41 @@
       }
     },
     "time": 60,
-    "id": 2106
+    "id": 2138
+  },
+  {
+    "generator": "math-symbolic-5-2-speed",
+    "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "A knight is riding his horse to a jousting tournament. He has 15 meters of ribbon to decorate his horse's armor and his own helmet.  He wants to use 3 meters more ribbon on his horse's armor than his helmet. How much ribbon will he use on his helmet and how much will he use on his horse's armor?",
+      "solutions": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    "time": 30,
+    "id": 2139
+  },
+  {
+    "generator": "math-symbolic-5-2-travel",
+    "problem": "''2x + 3y = 110''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 110",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends is visiting a famous landmark.  They want to buy souvenirs for themselves and their families. They plan to buy 2 sets of postcards and 3 keychains. They also want to buy 1 more keychain than sets of postcards. If the total cost of the souvenirs is 110 euros, and each set of postcards costs 10 euros more than a keychain, how much does each keychain cost and how much does each set of postcards cost?",
+      "solutions": {
+        "x": 25,
+        "y": 15
+      }
+    },
+    "time": 60,
+    "id": 2140
   },
   {
     "generator": "math-symbolic-5-2-work",
@@ -34812,7 +35352,7 @@
       }
     },
     "time": 60,
-    "id": 2107
+    "id": 2141
   },
   {
     "generator": "math-symbolic-5-2-work",
@@ -34829,7 +35369,37 @@
       }
     },
     "time": 60,
-    "id": 2108
+    "id": 2142
+  },
+  {
+    "generator": "math-symbolic-6-1-large-integer-addition",
+    "problem": "''x + 3456 = 12345'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 3456 = 12345"
+      ],
+      "wordProblem": "After a long summer break, school resumed.  On the first day back, 3456 students were absent due to a stomach bug. If the total number of students in the school is 12345, how many students were present on the first day of school?",
+      "solutions": {
+        "x": 8889
+      }
+    },
+    "time": 15,
+    "id": 2143
+  },
+  {
+    "generator": "math-symbolic-6-1-large-integer-addition",
+    "problem": "''x + 1500 = 2500'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 1500 = 2500"
+      ],
+      "wordProblem": "A boulder weighs 2500 kilograms. If a smaller boulder weighs 1500 kilograms less than the larger boulder, how much does the smaller boulder weigh?",
+      "solutions": {
+        "x": 1000
+      }
+    },
+    "time": 15,
+    "id": 2144
   },
   {
     "generator": "math-symbolic-6-1-large-integer-subtraction",
@@ -34844,7 +35414,97 @@
       }
     },
     "time": 15,
-    "id": 2109
+    "id": 2145
+  },
+  {
+    "generator": "math-symbolic-6-1-mass",
+    "problem": "''x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A charitable organization is collecting donations for a local animal shelter. They have already collected 15 kilograms of pet food. They need to collect a total of 45 kilograms of pet food. How many more kilograms of pet food do they need to collect?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 10,
+    "id": 2146
+  },
+  {
+    "generator": "math-symbolic-6-1-mass",
+    "problem": "''3x + 10 = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 10 = 40"
+      ],
+      "wordProblem": "A carpenter wants to cut a board into three equal pieces.  He first marks off a section of the board that is 10 cm long.  The total length of the board is 40 cm.  What is the length of each of the three equal pieces?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2147
+  },
+  {
+    "generator": "math-symbolic-6-1-science",
+    "problem": "''2*x + 15 = 55'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 15 = 55"
+      ],
+      "wordProblem": "A scientist is studying a bacteria colony. The colony starts with 15 bacteria. Each hour, the number of bacteria doubles.  After a certain number of hours, the scientist observes there are 55 bacteria. How many hours have passed?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 15,
+    "id": 2148
+  },
+  {
+    "generator": "math-symbolic-6-1-slice-of-life",
+    "problem": "''x + 5 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "Maya wants to buy a new notebook for school.  She has saved \\$5.00.  If the notebook costs \\$12.00, how much more money does she need to save?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2149
+  },
+  {
+    "generator": "math-symbolic-6-1-slice-of-life",
+    "problem": "''15x + 20 = 110'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "15x + 20 = 110"
+      ],
+      "wordProblem": "Aiko wants to improve her posture by practicing yoga. She wants to do a combination of 'downward-facing dog' and 'plank' poses. Each 'downward-facing dog' pose takes 15 seconds, and each 'plank' pose takes 20 seconds. If Aiko practices for 110 seconds, how many 'downward-facing dog' poses did she do?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2150
+  },
+  {
+    "generator": "math-symbolic-6-1-speed",
+    "problem": "''2x + 10 = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 10 = 30"
+      ],
+      "wordProblem": "A computer programmer is working on a new game.  They need to create 30 levels for the game.  They have already finished 10 levels.  If the programmer can create 2 levels every hour, how many hours will it take them to finish the game?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2151
   },
   {
     "generator": "math-symbolic-6-1-travel",
@@ -34859,7 +35519,22 @@
       }
     },
     "time": 15,
-    "id": 2110
+    "id": 2152
+  },
+  {
+    "generator": "math-symbolic-6-1-travel",
+    "problem": "''x + 10 = 30'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 10 = 30"
+      ],
+      "wordProblem": "The Department of Tourism is organizing a trip to a national park. They have 30 buses available for the trip.  The park rangers require that each bus has 10 students on board.  How many students can go on the trip?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 10,
+    "id": 2153
   },
   {
     "generator": "math-symbolic-6-1-work",
@@ -34874,7 +35549,56 @@
       }
     },
     "time": 15,
-    "id": 2111
+    "id": 2154
+  },
+  {
+    "generator": "math-symbolic-6-1-work",
+    "problem": "''3*x + 12 = 48'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3*x + 12 = 48"
+      ],
+      "wordProblem": "A knight is building a castle. He needs 48 meters of stone to build the walls. He has already gathered 12 meters of stone. If he can gather 3 meters of stone each day, how many days will it take him to gather the rest of the stone?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2155
+  },
+  {
+    "generator": "math-symbolic-6-2-distance",
+    "problem": "''x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "An attic is being cleaned out. Two boxes of old toys are found. One box is 3 meters taller than the other. Together, the boxes are 15 meters tall. How tall is each box?",
+      "solutions": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    "time": 60,
+    "id": 2156
+  },
+  {
+    "generator": "math-symbolic-6-2-distance",
+    "problem": "''x + y = 120''<br>''x - y = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x - y = 40"
+      ],
+      "wordProblem": "Two ships, the 'Seafarer' and the 'Voyager', are sailing towards each other. The Seafarer is traveling at a speed of 40 kilometers per hour faster than the Voyager. After 3 hours, the two ships are 120 kilometers apart.  What is the speed of each ship?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2157
   },
   {
     "generator": "math-symbolic-6-2-fraction-subtraction",
@@ -34891,7 +35615,58 @@
       }
     },
     "time": 60,
-    "id": 2112
+    "id": 2158
+  },
+  {
+    "generator": "math-symbolic-6-2-fraction-subtraction",
+    "problem": "''x + y = 1000''<br>''x - y = 200'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 1000",
+        "x - y = 200"
+      ],
+      "wordProblem": "A group of friends went to a party and brought a big bag of avocados to share.  They ate 1/5 of the avocados and had 200 left over.  How many avocados were there originally?  How many avocados did they eat?",
+      "solutions": {
+        "x": 600,
+        "y": 400
+      }
+    },
+    "time": 60,
+    "id": 2159
+  },
+  {
+    "generator": "math-symbolic-6-2-geometry",
+    "problem": "''2x + y = 16''<br>''x + 2y = 13'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 16",
+        "x + 2y = 13"
+      ],
+      "wordProblem": "An onion farmer wants to plant two types of onions: red and yellow. He has 16 meters of space available for planting. He wants to plant twice as many red onions as yellow onions. If he plants each red onion 1 meter apart and each yellow onion 2 meters apart, how many meters of space will he use for each type of onion?",
+      "solutions": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2160
+  },
+  {
+    "generator": "math-symbolic-6-2-large-integer-addition",
+    "problem": "''x + y = 234567''<br>''x - y = 123456'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 234567",
+        "x - y = 123456"
+      ],
+      "wordProblem": "Two companions, Alex and Ben, went on a hiking trip. Alex carried a backpack with a weight of 'x' kilograms, and Ben carried a backpack with a weight of 'y' kilograms. Together, their backpacks weighed 234,567 kilograms. Alex's backpack was 123,456 kilograms heavier than Ben's backpack.  What was the weight of each backpack?",
+      "solutions": {
+        "x": 179011.5,
+        "y": 55555.5
+      }
+    },
+    "time": 60,
+    "id": 2161
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
@@ -34908,7 +35683,7 @@
       }
     },
     "time": 60,
-    "id": 2113
+    "id": 2162
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
@@ -34925,7 +35700,24 @@
       }
     },
     "time": 30,
-    "id": 2114
+    "id": 2163
+  },
+  {
+    "generator": "math-symbolic-6-2-lever-fulcrum-weight",
+    "problem": "''2*x + y = 100''<br>''x + 3*y = 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + y = 100",
+        "x + 3*y = 100"
+      ],
+      "wordProblem": "A seesaw is perfectly balanced. On one side, a 2 kg weight is placed 50 cm from the fulcrum. On the other side, two weights are placed. A 1 kg weight is placed at a distance x cm from the fulcrum. Another unknown weight y kg is placed at 30 cm from the fulcrum. What is the value of x and y?",
+      "solutions": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    "time": 120,
+    "id": 2164
   },
   {
     "generator": "math-symbolic-6-2-mass",
@@ -34942,7 +35734,7 @@
       }
     },
     "time": 60,
-    "id": 2115
+    "id": 2165
   },
   {
     "generator": "math-symbolic-6-2-probability",
@@ -34959,7 +35751,24 @@
       }
     },
     "time": 60,
-    "id": 2116
+    "id": 2166
+  },
+  {
+    "generator": "math-symbolic-6-2-probability",
+    "problem": "''2x + y = 100''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 100",
+        "x - y = 20"
+      ],
+      "wordProblem": "A group of friends are making lids for their homemade jars. They have 100 cm of ribbon to decorate the edges of the lids.  They want to use 2 cm of ribbon for each large lid and 1 cm of ribbon for each small lid. They also want to make 20 more small lids than large lids. How many of each type of lid can they make?",
+      "solutions": {
+        "x": 40,
+        "y": 20
+      }
+    },
+    "time": 60,
+    "id": 2167
   },
   {
     "generator": "math-symbolic-6-2-proportion",
@@ -34976,7 +35785,7 @@
       }
     },
     "time": 60,
-    "id": 2117
+    "id": 2168
   },
   {
     "generator": "math-symbolic-6-2-reality",
@@ -34993,7 +35802,7 @@
       }
     },
     "time": 60,
-    "id": 2118
+    "id": 2169
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -35010,7 +35819,7 @@
       }
     },
     "time": 60,
-    "id": 2119
+    "id": 2170
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -35027,7 +35836,24 @@
       }
     },
     "time": 60,
-    "id": 2120
+    "id": 2171
+  },
+  {
+    "generator": "math-symbolic-6-2-speed",
+    "problem": "''x + y = 12''<br>''x - y = 4'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "Ethos is a friendly cat who loves to play with his toys. He has 12 toys in total, and some are red, and some are blue. Ethos has 4 more red toys than blue toys. How many red toys does Ethos have? How many blue toys does Ethos have?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 30,
+    "id": 2172
   },
   {
     "generator": "math-symbolic-6-2-system-of-equations",
@@ -35044,7 +35870,7 @@
       }
     },
     "time": 60,
-    "id": 2121
+    "id": 2173
   },
   {
     "generator": "math-symbolic-6-2-travel",
@@ -35061,7 +35887,7 @@
       }
     },
     "time": 30,
-    "id": 2122
+    "id": 2174
   },
   {
     "generator": "math-symbolic-7-1-fraction-subtraction",
@@ -35076,7 +35902,7 @@
       }
     },
     "time": 30,
-    "id": 2123
+    "id": 2175
   },
   {
     "generator": "math-symbolic-7-1-geometry",
@@ -35091,7 +35917,37 @@
       }
     },
     "time": 15,
-    "id": 2124
+    "id": 2176
+  },
+  {
+    "generator": "math-symbolic-7-1-large-integer-multiplication",
+    "problem": "''x/1000 = 75000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/1000 = 75000"
+      ],
+      "wordProblem": "A pharmacist is dispensing medicine in 1 milliliter doses. If they have 75,000 milliliters of medicine to dispense, how many doses can they dispense?",
+      "solutions": {
+        "x": 75000000
+      }
+    },
+    "time": 10,
+    "id": 2177
+  },
+  {
+    "generator": "math-symbolic-7-1-large-integer-multiplication",
+    "problem": "''120x = 7200'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "120x = 7200"
+      ],
+      "wordProblem": "A bakery uses 120 panes of glass to make 7200 window displays.  How many panes of glass are needed to make one window display?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 10,
+    "id": 2178
   },
   {
     "generator": "math-symbolic-7-1-lever-fulcrum-weight",
@@ -35106,7 +35962,22 @@
       }
     },
     "time": 10,
-    "id": 2125
+    "id": 2179
+  },
+  {
+    "generator": "math-symbolic-7-1-lever-fulcrum-weight",
+    "problem": "''(10*x)+(5*15)=100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "(10*x)+(5*15)=100"
+      ],
+      "wordProblem": "A young boy named Hysteria is trying to balance a seesaw. On one side, he places a 15 kg weight 5 meters from the fulcrum. On the other side, he places a weight 'x' meters from the fulcrum. If the seesaw is perfectly balanced, how far from the fulcrum is the weight 'x'?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 20,
+    "id": 2180
   },
   {
     "generator": "math-symbolic-7-1-proportion",
@@ -35121,7 +35992,7 @@
       }
     },
     "time": 15,
-    "id": 2126
+    "id": 2181
   },
   {
     "generator": "math-symbolic-7-1-proportion",
@@ -35136,7 +36007,22 @@
       }
     },
     "time": "15",
-    "id": 2127
+    "id": 2182
+  },
+  {
+    "generator": "math-symbolic-7-1-proportion",
+    "problem": "''2x + 15 = 55'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 15 = 55"
+      ],
+      "wordProblem": "A spokesperson for a local animal shelter is giving a presentation to a group of students.  They plan to show a 15-minute video about the shelter's work and answer any questions the students might have.  If the spokesperson wants to keep the total presentation time under 55 minutes, how many minutes can they spend answering questions?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 15,
+    "id": 2183
   },
   {
     "generator": "math-symbolic-7-1-reality",
@@ -35151,7 +36037,22 @@
       }
     },
     "time": 15,
-    "id": 2128
+    "id": 2184
+  },
+  {
+    "generator": "math-symbolic-7-1-reality",
+    "problem": "''12x + 4 = 68'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "12x + 4 = 68"
+      ],
+      "wordProblem": "A graceful ballerina is practicing her leaps. She takes 12 steps forward, then takes 4 steps back, and she's now 68 steps away from her starting point. How many steps did she take forward initially?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2185
   },
   {
     "generator": "math-symbolic-7-1-science",
@@ -35166,7 +36067,7 @@
       }
     },
     "time": 10,
-    "id": 2129
+    "id": 2186
   },
   {
     "generator": "math-symbolic-7-1-slice-of-life",
@@ -35181,7 +36082,7 @@
       }
     },
     "time": 15,
-    "id": 2130
+    "id": 2187
   },
   {
     "generator": "math-symbolic-7-1-speed",
@@ -35196,7 +36097,37 @@
       }
     },
     "time": 15,
-    "id": 2131
+    "id": 2188
+  },
+  {
+    "generator": "math-symbolic-7-1-speed",
+    "problem": "''x + 20 = 60'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 20 = 60"
+      ],
+      "wordProblem": "A cyclist is riding against a strong wind. The wind slows the cyclist down by 20 kilometers per hour.  If the cyclist's speed with the wind is 60 kilometers per hour, what is the cyclist's speed without the wind?",
+      "solutions": {
+        "x": 40
+      }
+    },
+    "time": 15,
+    "id": 2189
+  },
+  {
+    "generator": "math-symbolic-7-1-travel",
+    "problem": "''x + 15 = 45'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A group of friends are on a road trip. They plan to drive 45 kilometers today. They have already driven 15 kilometers. How many more kilometers do they need to drive today to reach their goal?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2190
   },
   {
     "generator": "math-symbolic-7-2-distance",
@@ -35213,7 +36144,7 @@
       }
     },
     "time": 60,
-    "id": 2132
+    "id": 2191
   },
   {
     "generator": "math-symbolic-7-2-fraction-subtraction",
@@ -35230,7 +36161,7 @@
       }
     },
     "time": 60,
-    "id": 2133
+    "id": 2192
   },
   {
     "generator": "math-symbolic-7-2-geometry",
@@ -35247,7 +36178,7 @@
       }
     },
     "time": 60,
-    "id": 2134
+    "id": 2193
   },
   {
     "generator": "math-symbolic-7-2-mass",
@@ -35264,7 +36195,75 @@
       }
     },
     "time": 60,
-    "id": 2135
+    "id": 2194
+  },
+  {
+    "generator": "math-symbolic-7-2-mass",
+    "problem": "''2x + 3y = 110''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 110",
+        "x - y = 10"
+      ],
+      "wordProblem": "Two hardworking friends, Sarah and David, are building a wooden fence. Sarah cuts and prepares the fence panels, while David digs the holes and installs the posts. Sarah can cut and prepare 2 panels every hour, and David can install 3 posts every hour. They work together for 2 hours and manage to build 110 meters of fence. They know that each panel is 2 meters long and each post is 1 meter wide. How many panels did Sarah prepare and how many posts did David install?",
+      "solutions": {
+        "x": 40,
+        "y": 30
+      }
+    },
+    "time": 60,
+    "id": 2195
+  },
+  {
+    "generator": "math-symbolic-7-2-mass",
+    "problem": "''2x + y = 30''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 30",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a relaxed day at the park. They decide to buy some snacks.  They buy 2 bags of chips and 1 bottle of juice for 30 euros.  Later, they decide to buy another bag of chips and return the juice for a refund, spending a total of 10 euros.  How much does a bag of chips cost (x) and how much does a bottle of juice cost (y)?",
+      "solutions": {
+        "x": 15,
+        "y": 0
+      }
+    },
+    "time": 60,
+    "id": 2196
+  },
+  {
+    "generator": "math-symbolic-7-2-probability",
+    "problem": "''x + y = 120''<br>''2x + 3y = 300'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 300"
+      ],
+      "wordProblem": "A music store is having a sale on instruments. They have a special offer on guitars and ukuleles.  They're selling 2 guitars for the same price as 3 ukuleles.  If the store sells 120 guitars and ukuleles in total and makes 300 euros in sales, how many guitars and how many ukuleles did they sell?",
+      "solutions": {
+        "x": 60,
+        "y": 60
+      }
+    },
+    "time": 60,
+    "id": 2197
+  },
+  {
+    "generator": "math-symbolic-7-2-probability",
+    "problem": "''x + y = 150''<br>''2x + 3y = 360'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 150",
+        "2x + 3y = 360"
+      ],
+      "wordProblem": "A group of 7th graders are organizing a school fundraiser. They want to sell two types of cookies: chocolate chip and peanut butter. They know they need to sell a total of 150 cookies. They also know they want to make a profit of \\$3.60 per cookie sold. Chocolate chip cookies sell for \\$2 each, and peanut butter cookies sell for \\$3 each.  How many of each type of cookie should they bake?",
+      "solutions": {
+        "x": 60,
+        "y": 90
+      }
+    },
+    "time": 60,
+    "id": 2198
   },
   {
     "generator": "math-symbolic-7-2-science",
@@ -35281,7 +36280,7 @@
       }
     },
     "time": 30,
-    "id": 2136
+    "id": 2199
   },
   {
     "generator": "math-symbolic-7-2-space",
@@ -35298,7 +36297,24 @@
       }
     },
     "time": 60,
-    "id": 2137
+    "id": 2200
+  },
+  {
+    "generator": "math-symbolic-7-2-space",
+    "problem": "''2x + y = 10000''<br>''x - y = 2000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 10000",
+        "x - y = 2000"
+      ],
+      "wordProblem": "A space probe is travelling through a bland, featureless asteroid field.  The probe's fuel tank has a capacity of 10,000 kg.  The probe uses 2 kg of fuel per kilometer traveled when its thrusters are on, and it uses 1 kg of fuel per kilometer travelled when its thrusters are off.  The probe traveled 2,000 km with its thrusters on, and then travelled an unknown distance with its thrusters off.  How many kilometers did the probe travel with its thrusters off?",
+      "solutions": {
+        "x": "4000",
+        "y": "2000"
+      }
+    },
+    "time": "60",
+    "id": 2201
   },
   {
     "generator": "math-symbolic-7-2-speed",
@@ -35315,7 +36331,24 @@
       }
     },
     "time": 60,
-    "id": 2138
+    "id": 2202
+  },
+  {
+    "generator": "math-symbolic-7-2-speed",
+    "problem": "''2x + 3y = 15''<br>''x - y = 1'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 15",
+        "x - y = 1"
+      ],
+      "wordProblem": "At a local farmer's market, Sarah is bartering her apples and pears for tomatoes.  She has 2 apples and 3 pears, which she trades for 15 tomatoes.  Later, she trades 1 apple for 1 pear plus 1 tomato.  How many tomatoes is each apple worth, and how many tomatoes is each pear worth?",
+      "solutions": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    "time": 60,
+    "id": 2203
   },
   {
     "generator": "math-symbolic-8-1-distance",
@@ -35330,7 +36363,7 @@
       }
     },
     "time": 15,
-    "id": 2139
+    "id": 2204
   },
   {
     "generator": "math-symbolic-8-1-fraction-subtraction",
@@ -35345,7 +36378,7 @@
       }
     },
     "time": 30,
-    "id": 2140
+    "id": 2205
   },
   {
     "generator": "math-symbolic-8-1-geometry",
@@ -35360,7 +36393,7 @@
       }
     },
     "time": 15,
-    "id": 2141
+    "id": 2206
   },
   {
     "generator": "math-symbolic-8-1-geometry",
@@ -35375,7 +36408,52 @@
       }
     },
     "time": 10,
-    "id": 2142
+    "id": 2207
+  },
+  {
+    "generator": "math-symbolic-8-1-geometry",
+    "problem": "''3x + 2 = 14'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2 = 14"
+      ],
+      "wordProblem": "A hallway is being painted.  One painter paints 3 meters of the hallway per hour, and another painter paints 2 meters per hour.  They both start painting at the same time, and after an hour, they have painted a total of 14 meters. How many meters did the first painter paint in that hour?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2208
+  },
+  {
+    "generator": "math-symbolic-8-1-large-integer-addition",
+    "problem": "''x + 210000 = 300000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 210000 = 300000"
+      ],
+      "wordProblem": "A construction company needs to move 300,000 cubic meters of earth to build a new highway. They have already moved 210,000 cubic meters. How many more cubic meters of earth do they need to move to complete the project?",
+      "solutions": {
+        "x": 90000
+      }
+    },
+    "time": 10,
+    "id": 2209
+  },
+  {
+    "generator": "math-symbolic-8-1-large-integer-division",
+    "problem": "''x/1000 = 25000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/1000 = 25000"
+      ],
+      "wordProblem": "A scientist is studying a rare species of insect. She has collected a total of 25,000 insects.  If she wants to divide the insects evenly into 1000 vials for research, how many insects should she put in each vial?",
+      "solutions": {
+        "x": 25000000
+      }
+    },
+    "time": 10,
+    "id": 2210
   },
   {
     "generator": "math-symbolic-8-1-large-integer-multiplication",
@@ -35390,7 +36468,52 @@
       }
     },
     "time": 10,
-    "id": 2143
+    "id": 2211
+  },
+  {
+    "generator": "math-symbolic-8-1-large-integer-multiplication",
+    "problem": "''1200 * x = 3600000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1200 * x = 3600000"
+      ],
+      "wordProblem": "A large company is planning a massive expansion, and they need to hire a significant number of new employees.  They've already determined they need to hire 3,600,000 new employees across all their divisions.  If they plan to hire the same number of employees for each of their 1200 divisions, how many employees will they need to hire for each division?  Let 'x' represent the number of employees to be hired per division.",
+      "solutions": {
+        "x": 3000
+      }
+    },
+    "time": 15,
+    "id": 2212
+  },
+  {
+    "generator": "math-symbolic-8-1-lever-fulcrum-weight",
+    "problem": "''20 * x = 10 * 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20 * x = 10 * 5"
+      ],
+      "wordProblem": "A washer with a mass of 5 kg is placed 10 cm from the fulcrum of a lever.  How far from the fulcrum should a 20 kg washer be placed on the other side of the fulcrum in order to balance the lever?",
+      "solutions": {
+        "x": 2.5
+      }
+    },
+    "time": 10,
+    "id": 2213
+  },
+  {
+    "generator": "math-symbolic-8-1-mass",
+    "problem": "''10x + 15 = 75'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "10x + 15 = 75"
+      ],
+      "wordProblem": "A group of friends wants to buy a pizza that costs \\$75.  They decide to split the cost evenly.  They also need to pay a \\$15 delivery fee.  If each friend contributes \\$10, how many friends are in the group?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2214
   },
   {
     "generator": "math-symbolic-8-1-probability",
@@ -35405,7 +36528,22 @@
       }
     },
     "time": 30,
-    "id": 2144
+    "id": 2215
+  },
+  {
+    "generator": "math-symbolic-8-1-probability",
+    "problem": "''x + 0.25x = 15'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 0.25x = 15"
+      ],
+      "wordProblem": "A family is trying to be economical with their water usage. They are trying to reduce their water consumption by 25%. If their current water bill is 15 euros, how much water were they using before the reduction?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2216
   },
   {
     "generator": "math-symbolic-8-1-reality",
@@ -35420,7 +36558,22 @@
       }
     },
     "time": 15,
-    "id": 2145
+    "id": 2217
+  },
+  {
+    "generator": "math-symbolic-8-1-reality",
+    "problem": "''4x + 12 = 52'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4x + 12 = 52"
+      ],
+      "wordProblem": "A group of friends are planning a trip to the amusement park. They have a budget of 52 euros for snacks and drinks. They decide to buy 4 packs of chips, each costing 10 euros. How much money do they have left to spend on drinks?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2218
   },
   {
     "generator": "math-symbolic-8-1-science",
@@ -35435,7 +36588,7 @@
       }
     },
     "time": 10,
-    "id": 2146
+    "id": 2219
   },
   {
     "generator": "math-symbolic-8-1-slice-of-life",
@@ -35450,7 +36603,37 @@
       }
     },
     "time": 15,
-    "id": 2147
+    "id": 2220
+  },
+  {
+    "generator": "math-symbolic-8-1-slice-of-life",
+    "problem": "''x + 5 = 12'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "A rogue squirrel has stolen 5 of your precious acorns. You know you had 12 acorns to begin with. How many acorns did you have before the rogue squirrel took some?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2221
+  },
+  {
+    "generator": "math-symbolic-8-1-speed",
+    "problem": "''100 - 2x = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "100 - 2x = 40"
+      ],
+      "wordProblem": "A lamenting poet is writing a poem about a lost love. He has a total of 100 words to use, but he's already used 2 words per line and has 40 words left. How many lines of poetry has he written?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2222
   },
   {
     "generator": "math-symbolic-8-1-system-of-equations",
@@ -35465,7 +36648,7 @@
       }
     },
     "time": 15,
-    "id": 2148
+    "id": 2223
   },
   {
     "generator": "math-symbolic-8-1-work",
@@ -35480,7 +36663,22 @@
       }
     },
     "time": 15,
-    "id": 2149
+    "id": 2224
+  },
+  {
+    "generator": "math-symbolic-8-1-work",
+    "problem": "''5x + 12 = 37'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 12 = 37"
+      ],
+      "wordProblem": "A group of friends decided to buy a clump of flowers for their teacher. Each flower costs \\$5 and they had \\$12 left over after buying the flowers. If they spent a total of \\$37, how many flowers did they buy?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2225
   },
   {
     "generator": "math-symbolic-8-2-fraction-subtraction",
@@ -35497,7 +36695,7 @@
       }
     },
     "time": 60,
-    "id": 2150
+    "id": 2226
   },
   {
     "generator": "math-symbolic-8-2-large-integer-division",
@@ -35514,7 +36712,7 @@
       }
     },
     "time": 60,
-    "id": 2151
+    "id": 2227
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
@@ -35531,7 +36729,7 @@
       }
     },
     "time": "60",
-    "id": 2152
+    "id": 2228
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
@@ -35548,7 +36746,7 @@
       }
     },
     "time": 60,
-    "id": 2153
+    "id": 2229
   },
   {
     "generator": "math-symbolic-8-2-mass",
@@ -35565,7 +36763,7 @@
       }
     },
     "time": 60,
-    "id": 2154
+    "id": 2230
   },
   {
     "generator": "math-symbolic-8-2-slice-of-life",
@@ -35582,7 +36780,7 @@
       }
     },
     "time": 60,
-    "id": 2155
+    "id": 2231
   },
   {
     "generator": "math-symbolic-8-2-speed",
@@ -35599,7 +36797,58 @@
       }
     },
     "time": 30,
-    "id": 2156
+    "id": 2232
+  },
+  {
+    "generator": "math-symbolic-8-2-speed",
+    "problem": "''x + y = 120''<br>''2x + 3y = 280'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 280"
+      ],
+      "wordProblem": "Worrying about his upcoming math test, David decided to study for 120 minutes in total. He studied for twice as long on Algebra as he did on Geometry, but he spent 30 minutes longer on Geometry than twice the time he spent on Algebra. How many minutes did David spend studying for each subject?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 30,
+    "id": 2233
+  },
+  {
+    "generator": "math-symbolic-8-2-speed",
+    "problem": "''2x + y = 1000''<br>''x - y = 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 1000",
+        "x - y = 100"
+      ],
+      "wordProblem": "A flock of geese migrates 1000 kilometers in two days. On the first day, they fly x kilometers, and on the second day, they fly y kilometers. If the geese fly 100 kilometers more on the first day than the second day, how many kilometers do they fly each day?",
+      "solutions": {
+        "x": 550,
+        "y": 450
+      }
+    },
+    "time": 60,
+    "id": 2234
+  },
+  {
+    "generator": "math-symbolic-8-2-system-of-equations",
+    "problem": "''x + y = 120''<br>''x - y = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x - y = 40"
+      ],
+      "wordProblem": "A furniture maker polishes two types of wooden surfaces: tables and chairs. Each table requires 1 hour of polishing and each chair requires 1 hour of polishing. In a day, the furniture maker polishes a total of 120 pieces. He polishes 40 more chairs than tables. How many tables and chairs did he polish that day?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 15,
+    "id": 2235
   },
   {
     "generator": "math-symbolic-8-2-work",
@@ -35616,7 +36865,39 @@
       }
     },
     "time": 60,
-    "id": 2157
+    "id": 2236
+  },
+  {
+    "generator": "math-symbolic-8-2-work",
+    "problem": "''2x + y = 15''<br>''x - y = 3'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "A closed rectangular box has a perimeter of 15 meters.  The length of the box is 3 meters more than the width.  What are the length and width of the box?",
+      "solutions": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    "time": 60,
+    "id": 2237
+  },
+  {
+    "generator": "math-symbolic-9-1-fraction-subtraction",
+    "problem": "''x - (1/3)x - (1/4)x = 5'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x - (1/3)x - (1/4)x = 5"
+      ],
+      "wordProblem": "A dentist has a 1-meter long roll of dental floss. He uses 1/3 of it for one patient and then 1/4 of it for another patient.  If he has 5 centimeters of floss left, how much floss did he start with in centimeters?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 15,
+    "id": 2238
   },
   {
     "generator": "math-symbolic-9-1-geometry",
@@ -35631,7 +36912,22 @@
       }
     },
     "time": 15,
-    "id": 2158
+    "id": 2239
+  },
+  {
+    "generator": "math-symbolic-9-1-geometry",
+    "problem": "''2*x + 3*x - 5 = 15'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 3*x - 5 = 15"
+      ],
+      "wordProblem": "A group of friends are planning an unforgettable trip. They want to rent a car for the journey. The rental company charges a flat fee of 5 euros and 2 euros per kilometer for the first 300 kilometers. After that, they charge 3 euros per kilometer. If the friends drove a total of 400 kilometers and paid 15 euros, how many kilometers did they drive after the first 300 kilometers?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2240
   },
   {
     "generator": "math-symbolic-9-1-large-integer-addition",
@@ -35646,7 +36942,7 @@
       }
     },
     "time": 10,
-    "id": 2159
+    "id": 2241
   },
   {
     "generator": "math-symbolic-9-1-large-integer-subtraction",
@@ -35661,7 +36957,7 @@
       }
     },
     "time": 10,
-    "id": 2160
+    "id": 2242
   },
   {
     "generator": "math-symbolic-9-1-lever-fulcrum-weight",
@@ -35676,7 +36972,7 @@
       }
     },
     "time": 10,
-    "id": 2161
+    "id": 2243
   },
   {
     "generator": "math-symbolic-9-1-mass",
@@ -35691,7 +36987,7 @@
       }
     },
     "time": 15,
-    "id": 2162
+    "id": 2244
   },
   {
     "generator": "math-symbolic-9-1-science",
@@ -35706,7 +37002,7 @@
       }
     },
     "time": 15,
-    "id": 2163
+    "id": 2245
   },
   {
     "generator": "math-symbolic-9-1-slice-of-life",
@@ -35721,7 +37017,67 @@
       }
     },
     "time": 10,
-    "id": 2164
+    "id": 2246
+  },
+  {
+    "generator": "math-symbolic-9-1-slice-of-life",
+    "problem": "''2x + 5 = 15'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 5 = 15"
+      ],
+      "wordProblem": "Sarah is expecting a package delivery. She knows the delivery person charges a flat fee of \\$5 plus \\$2 per kilometer driven. If the total cost of the delivery was \\$15, how many kilometers did the delivery person drive?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2247
+  },
+  {
+    "generator": "math-symbolic-9-1-slice-of-life",
+    "problem": "''5x + 10 = 40'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 40"
+      ],
+      "wordProblem": "A group of friends are planning a trip to the amusement park. They have  `40` euros to spend on tickets.  Each ticket costs `5` euros.  They also have to pay `10` euros for parking. How many tickets can they buy? Let `x` represent the number of tickets they can buy.",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2248
+  },
+  {
+    "generator": "math-symbolic-9-1-space",
+    "problem": "''1000x - 200 = 800'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1000x - 200 = 800"
+      ],
+      "wordProblem": "A space probe is traveling at a speed of 1000 km/s. It needs to slow down to 800 km/s to enter the orbit of a distant planet. If the probe uses a braking system that slows it down by 200 km/s per second, how many seconds will it take for the probe to reach the desired speed?",
+      "solutions": {
+        "x": 1
+      }
+    },
+    "time": 5,
+    "id": 2249
+  },
+  {
+    "generator": "math-symbolic-9-1-space",
+    "problem": "''20x + 45 = 185'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20x + 45 = 185"
+      ],
+      "wordProblem": "A space explorer discovers a magnificent palace on a distant planet. The palace is shaped like a rectangular prism with a length of 20 meters and a width of 45 meters.  The explorer calculates the total surface area of the palace to be 185 square meters.  What is the height of the palace in meters?",
+      "solutions": {
+        "x": 1
+      }
+    },
+    "time": 10,
+    "id": 2250
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
@@ -35736,7 +37092,7 @@
       }
     },
     "time": 15,
-    "id": 2165
+    "id": 2251
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
@@ -35751,7 +37107,71 @@
       }
     },
     "time": 15,
-    "id": 2166
+    "id": 2252
+  },
+  {
+    "generator": "math-symbolic-9-1-system-of-equations",
+    "problem": "''4x + 10 = 34'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4x + 10 = 34"
+      ],
+      "wordProblem": "A detective is investigating a theft. They know the thief stole a total of 34 kilograms of valuable items. The detective finds 10 kilograms of the stolen items at the thief's house.  The detective also suspects that the thief hid some of the stolen items in a nearby abandoned warehouse.  If the thief hid the rest of the stolen items at the warehouse, how many kilograms of stolen items are at the warehouse?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 10,
+    "id": 2253
+  },
+  {
+    "generator": "math-symbolic-9-1-travel",
+    "problem": "''5x + 10 = 100'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 100"
+      ],
+      "wordProblem": "A group of friends wants to rent a car for their weekend trip. The rental company charges a flat fee of €10 plus €5 per day.  If the total cost of the rental is €100, how many days did the friends rent the car for?",
+      "solutions": {
+        "x": 18
+      }
+    },
+    "time": 15,
+    "id": 2254
+  },
+  {
+    "generator": "math-symbolic-9-2-distance",
+    "problem": "''2x + y = 100''<br>''x - y = 20'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 100",
+        "x - y = 20"
+      ],
+      "wordProblem": "A theater group is planning a monologue competition. They want to have a total of 100 participants, with each participant performing either a 2-minute monologue or a 1-minute monologue. If they want to have 20 more participants performing 2-minute monologues than 1-minute monologues, how many participants will perform each type of monologue?",
+      "solutions": {
+        "x": 40,
+        "y": 20
+      }
+    },
+    "time": 60,
+    "id": 2255
+  },
+  {
+    "generator": "math-symbolic-9-2-fraction-subtraction",
+    "problem": "''x + y = 10''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 10",
+        "x - y = 2"
+      ],
+      "wordProblem": "A mechanic needs to mix two types of oil for a car engine. He has 10 liters of oil in total. He knows that one type of oil is 2 liters less than the other. How many liters of each type of oil does he have?",
+      "solutions": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2256
   },
   {
     "generator": "math-symbolic-9-2-large-integer-addition",
@@ -35768,7 +37188,24 @@
       }
     },
     "time": 60,
-    "id": 2167
+    "id": 2257
+  },
+  {
+    "generator": "math-symbolic-9-2-large-integer-multiplication",
+    "problem": "''20x + 3y = 500000''<br>''x - 2y = 10000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20x + 3y = 500000",
+        "x - 2y = 10000"
+      ],
+      "wordProblem": "A bakery is making two types of pies: apple pies and blueberry pies. Each apple pie requires 20 grams of sugar and each blueberry pie requires 3 grams of sugar. The bakery has 500,000 grams of sugar available.  Each apple pie needs 10,000 grams of flour, and each blueberry pie needs 2,000 grams of flour. The bakery has 10,000 grams of flour available.  Let 'x' be the number of apple pies and 'y' be the number of blueberry pies.  Write a system of equations to represent this situation.",
+      "solutions": {
+        "x": 24000,
+        "y": 7000
+      }
+    },
+    "time": "30-60 seconds",
+    "id": 2258
   },
   {
     "generator": "math-symbolic-9-2-large-integer-subtraction",
@@ -35785,7 +37222,41 @@
       }
     },
     "time": "30",
-    "id": 2168
+    "id": 2259
+  },
+  {
+    "generator": "math-symbolic-9-2-large-integer-subtraction",
+    "problem": "''x + y = 52000''<br>''x - y = 12000'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 52000",
+        "x - y = 12000"
+      ],
+      "wordProblem": "A recreational park has two large sections: a forest area and a lake area. The total area of the park is 52,000 square meters. The forest area is 12,000 square meters larger than the lake area. What is the area of each section?",
+      "solutions": {
+        "x": 32000,
+        "y": 20000
+      }
+    },
+    "time": 60,
+    "id": 2260
+  },
+  {
+    "generator": "math-symbolic-9-2-lever-fulcrum-weight",
+    "problem": "''2x + 3y = 150''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 150",
+        "x - y = 10"
+      ],
+      "wordProblem": "A seesaw is balanced with a weight of 2 kg on one side and a weight of 3 kg on the other side. The 2 kg weight is placed 10 cm closer to the fulcrum than the 3 kg weight.  Let `x` be the distance of the 2 kg weight from the fulcrum and `y` be the distance of the 3 kg weight from the fulcrum.  Write a system of equations to represent this scenario and solve for the distances `x` and `y`.",
+      "solutions": {
+        "x": 35,
+        "y": 25
+      }
+    },
+    "time": 60,
+    "id": 2261
   },
   {
     "generator": "math-symbolic-9-2-mass",
@@ -35802,7 +37273,7 @@
       }
     },
     "time": 30,
-    "id": 2169
+    "id": 2262
   },
   {
     "generator": "math-symbolic-9-2-probability",
@@ -35819,7 +37290,75 @@
       }
     },
     "time": 60,
-    "id": 2170
+    "id": 2263
+  },
+  {
+    "generator": "math-symbolic-9-2-probability",
+    "problem": "''2x + 3y = 100''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 100",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a trip eastward. They want to travel 100 km by train and then 10 km by bicycle. They know that the train travels 3 times faster than the bicycle. Let `x` represent the speed of the train in km/h and `y` represent the speed of the bicycle in km/h. If they plan to spend 2 hours on the train and 3 hours on the bicycle, what is the speed of the train and the bicycle? ",
+      "solutions": {
+        "x": 35,
+        "y": 25
+      }
+    },
+    "time": 60,
+    "id": 2264
+  },
+  {
+    "generator": "math-symbolic-9-2-probability",
+    "problem": "''x + y = 120''<br>''2x + 3y = 280'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 280"
+      ],
+      "wordProblem": "A caring volunteer group is making care packages for the local homeless shelter. They have 120 items to distribute, including blankets and hygiene kits.  Each care package will have 2 blankets and 3 hygiene kits.  If they use all of the items, how many care packages can they make?  Let x represent the number of blankets and y represent the number of hygiene kits.",
+      "solutions": {
+        "x": 40,
+        "y": 80
+      }
+    },
+    "time": 60,
+    "id": 2265
+  },
+  {
+    "generator": "math-symbolic-9-2-proportion",
+    "problem": "''3x + 2y = 120''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2y = 120",
+        "x - y = 10"
+      ],
+      "wordProblem": "A lunar rover travels 120 kilometers in 3 hours.  The rover travels at a constant speed and uses a combination of solar and battery power.  The solar power provides 2 kilometers traveled for every 1 kilometer traveled by battery power.  How many kilometers does the rover travel using solar power and how many kilometers does the rover travel using battery power?",
+      "solutions": {
+        "x": 30,
+        "y": 20
+      }
+    },
+    "time": 30,
+    "id": 2266
+  },
+  {
+    "generator": "math-symbolic-9-2-proportion",
+    "problem": "''x + y = 100''<br>''0.15x + 0.20y = 18'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 100",
+        "0.15x + 0.20y = 18"
+      ],
+      "wordProblem": "A school is organizing a fundraising event. They are selling two types of tickets: regular tickets and VIP tickets. Regular tickets cost \\$15 each and VIP tickets cost \\$20 each. They sold a total of 100 tickets and raised \\$18 in total. How many of each type of ticket did they sell?",
+      "solutions": {
+        "x": 60,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2267
   },
   {
     "generator": "math-symbolic-9-2-science",
@@ -35836,7 +37375,24 @@
       }
     },
     "time": 30,
-    "id": 2171
+    "id": 2268
+  },
+  {
+    "generator": "math-symbolic-9-2-science",
+    "problem": "''2x + 3y = 15''<br>''x - y = 2'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 15",
+        "x - y = 2"
+      ],
+      "wordProblem": "A science experiment requires two types of solutions, A and B.  Solution A contains 2 grams of a certain chemical per liter and Solution B contains 3 grams of the same chemical per liter.  A scientist needs to mix a total of 15 grams of the chemical. They also need to use 2 more liters of Solution A than Solution B. How many liters of each solution should the scientist use?",
+      "solutions": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    "time": 60,
+    "id": 2269
   },
   {
     "generator": "math-symbolic-9-2-slice-of-life",
@@ -35853,7 +37409,24 @@
       }
     },
     "time": 30,
-    "id": 2172
+    "id": 2270
+  },
+  {
+    "generator": "math-symbolic-9-2-slice-of-life",
+    "problem": "''3x + 2y = 100''<br>''x - y = 10'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2y = 100",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a 'warlike' themed party. They want to buy 3 packs of inflatable swords and 2 packs of inflatable shields for a total cost of 100 euros. They also know that one pack of swords costs 10 euros more than one pack of shields. How much does one pack of swords and one pack of shields cost?",
+      "solutions": {
+        "x": 20,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2271
   },
   {
     "generator": "math-symbolic-9-2-speed",
@@ -35870,7 +37443,7 @@
       }
     },
     "time": 60,
-    "id": 2173
+    "id": 2272
   },
   {
     "generator": "math-symbolic-9-2-speed",
@@ -35887,7 +37460,24 @@
       }
     },
     "time": 60,
-    "id": 2174
+    "id": 2273
+  },
+  {
+    "generator": "math-symbolic-9-2-speed",
+    "problem": "''2w + 3s = 150''<br>''w = s + 15'' <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2w + 3s = 150",
+        "w = s + 15"
+      ],
+      "wordProblem": "A wise old sage has 150 cm of wood to make two different types of walking sticks. He wants to make 2 walking sticks of type W and 3 of type S.  He knows that type W walking sticks need to be 15 cm longer than type S walking sticks.  What is the length of each type of walking stick?",
+      "solutions": {
+        "w": 45,
+        "s": 30
+      }
+    },
+    "time": 60,
+    "id": 2274
   },
   {
     "generator": "math-symbolic-9-2-travel",
@@ -35904,7 +37494,7 @@
       }
     },
     "time": 60,
-    "id": 2175
+    "id": 2275
   },
   {
     "generator": "math-symbolic-9-2-work",
@@ -35921,7 +37511,7 @@
       }
     },
     "time": 60,
-    "id": 2176
+    "id": 2276
   },
   {
     "generator": "math-word-2-1-large-integer-subtraction",
@@ -35936,7 +37526,7 @@
       }
     },
     "time": 10,
-    "id": 2177
+    "id": 2277
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
@@ -35953,7 +37543,7 @@
       }
     },
     "time": 60,
-    "id": 2178
+    "id": 2278
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
@@ -35970,7 +37560,7 @@
       }
     },
     "time": 30,
-    "id": 2179
+    "id": 2279
   },
   {
     "generator": "math-word-4-1-geometry",
@@ -35985,7 +37575,82 @@
       }
     },
     "time": 15,
-    "id": 2180
+    "id": 2280
+  },
+  {
+    "generator": "math-word-4-1-geometry",
+    "problem": "A rectangle has a length of 60 centimeters. The length is 20 centimeters more than its width. What is the width of the rectangle? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 20 = 60"
+      ],
+      "wordProblem": "A rectangle has a length of 60 centimeters. The length is 20 centimeters more than its width. What is the width of the rectangle?",
+      "solutions": {
+        "x": 40
+      }
+    },
+    "time": 15,
+    "id": 2281
+  },
+  {
+    "generator": "math-word-4-1-geometry",
+    "problem": "A symbol has 2 smaller symbols inside it. If all 3 symbols together have a length of 8 centimeters, what is the length of one smaller symbol? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 2 = 8"
+      ],
+      "wordProblem": "A symbol has 2 smaller symbols inside it. If all 3 symbols together have a length of 8 centimeters, what is the length of one smaller symbol?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2282
+  },
+  {
+    "generator": "math-word-4-1-geometry",
+    "problem": "A group of seven dwarfs are digging a tunnel. They have dug a total of 28 meters of tunnel. If each dwarf dug the same amount, how many meters did each dwarf dig? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "7x = 28"
+      ],
+      "wordProblem": "A group of seven dwarfs are digging a tunnel.  They have dug a total of 28 meters of tunnel.  If each dwarf dug the same amount, how many meters did each dwarf dig?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2283
+  },
+  {
+    "generator": "math-word-4-1-large-integer-addition",
+    "problem": "A farmer has 2375 apples in his orchard. He picked 1250 apples already. How many apples are still left on the trees? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 1250 = 2375"
+      ],
+      "wordProblem": "A farmer has 2375 apples in his orchard. He picked 1250 apples already. How many apples are still left on the trees?",
+      "solutions": {
+        "x": 1125
+      }
+    },
+    "time": 10,
+    "id": 2284
+  },
+  {
+    "generator": "math-word-4-1-large-integer-division",
+    "problem": "A group of 5 friends decided to share 12 meters of colorful ribbon equally. How much ribbon will each friend get? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/5 = 12"
+      ],
+      "wordProblem": "A group of 5 friends decided to share 12 meters of colorful ribbon equally. How much ribbon will each friend get?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 15,
+    "id": 2285
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
@@ -36000,7 +37665,7 @@
       }
     },
     "time": 10,
-    "id": 2181
+    "id": 2286
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
@@ -36015,7 +37680,7 @@
       }
     },
     "time": 15,
-    "id": 2182
+    "id": 2287
   },
   {
     "generator": "math-word-4-1-mass",
@@ -36030,7 +37695,7 @@
       }
     },
     "time": 15,
-    "id": 2183
+    "id": 2288
   },
   {
     "generator": "math-word-4-1-proportion",
@@ -36045,7 +37710,37 @@
       }
     },
     "time": 20,
-    "id": 2184
+    "id": 2289
+  },
+  {
+    "generator": "math-word-4-1-reality",
+    "problem": "A group of friends are on a tropical vacation. They buy a bag of 20 delicious mangoes to share. If they eat 12 mangoes during the day, how many mangoes are left for them to enjoy the next day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 12 = 20"
+      ],
+      "wordProblem": "A group of friends are on a tropical vacation. They buy a bag of 20 delicious mangoes to share. If they eat 12 mangoes during the day, how many mangoes are left for them to enjoy the next day?",
+      "solutions": {
+        "x": 8
+      }
+    },
+    "time": 10,
+    "id": 2290
+  },
+  {
+    "generator": "math-word-4-1-reality",
+    "problem": "The birthplace of a famous scientist is 10 kilometers from a popular museum. If the total distance between the scientist's birthplace and a nearby town is 35 kilometers, how far is the town from the museum? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 10 = 35"
+      ],
+      "wordProblem": "The birthplace of a famous scientist is 10 kilometers from a popular museum. If the total distance between the scientist's birthplace and a nearby town is 35 kilometers, how far is the town from the museum?",
+      "solutions": {
+        "x": 25
+      }
+    },
+    "time": 15,
+    "id": 2291
   },
   {
     "generator": "math-word-4-1-science",
@@ -36060,7 +37755,7 @@
       }
     },
     "time": 15,
-    "id": 2185
+    "id": 2292
   },
   {
     "generator": "math-word-4-1-science",
@@ -36075,7 +37770,22 @@
       }
     },
     "time": 15,
-    "id": 2186
+    "id": 2293
+  },
+  {
+    "generator": "math-word-4-1-slice-of-life",
+    "problem": "Sarah has a box of crayons. She gives 5 crayons to her friend Emily. Now she has 12 crayons left. How many crayons did Sarah have in the box at first? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "Sarah has a box of crayons. She gives 5 crayons to her friend Emily. Now she has 12 crayons left. How many crayons did Sarah have in the box at first?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2294
   },
   {
     "generator": "math-word-4-1-space",
@@ -36090,7 +37800,7 @@
       }
     },
     "time": 15,
-    "id": 2187
+    "id": 2295
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -36105,7 +37815,7 @@
       }
     },
     "time": 15,
-    "id": 2188
+    "id": 2296
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -36120,7 +37830,7 @@
       }
     },
     "time": 10,
-    "id": 2189
+    "id": 2297
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -36135,7 +37845,7 @@
       }
     },
     "time": 15,
-    "id": 2190
+    "id": 2298
   },
   {
     "generator": "math-word-4-1-travel",
@@ -36150,7 +37860,7 @@
       }
     },
     "time": 15,
-    "id": 2191
+    "id": 2299
   },
   {
     "generator": "math-word-4-1-travel",
@@ -36165,7 +37875,7 @@
       }
     },
     "time": 15,
-    "id": 2192
+    "id": 2300
   },
   {
     "generator": "math-word-4-1-travel",
@@ -36180,7 +37890,7 @@
       }
     },
     "time": 10,
-    "id": 2193
+    "id": 2301
   },
   {
     "generator": "math-word-4-2-distance",
@@ -36197,7 +37907,24 @@
       }
     },
     "time": 60,
-    "id": 2194
+    "id": 2302
+  },
+  {
+    "generator": "math-word-4-2-fraction-subtraction",
+    "problem": "Maya and Leo were scattering seeds in their garden. Maya scattered 12 seeds in total, some sunflower seeds and some pumpkin seeds. Leo scattered 4 more sunflower seeds than pumpkin seeds. If Maya scattered the same number of sunflower seeds as Leo, how many pumpkin seeds did each of them scatter? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "Maya and Leo were scattering seeds in their garden. Maya scattered 12 seeds in total, some sunflower seeds and some pumpkin seeds. Leo scattered 4 more sunflower seeds than pumpkin seeds. If Maya scattered the same number of sunflower seeds as Leo, how many pumpkin seeds did each of them scatter?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2303
   },
   {
     "generator": "math-word-4-2-geometry",
@@ -36214,7 +37941,24 @@
       }
     },
     "time": 60,
-    "id": 2195
+    "id": 2304
+  },
+  {
+    "generator": "math-word-4-2-geometry",
+    "problem": "A singular line of 25 students is standing in line for a field trip. They want to form two equal lines, one for boys and one for girls. If there are 5 more boys than girls, how many boys are there? How many girls are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 25",
+        "x - y = 5"
+      ],
+      "wordProblem": "A singular line of 25 students is standing in line for a field trip. They want to form two equal lines, one for boys and one for girls.  If there are 5 more boys than girls, how many boys are there? How many girls are there?",
+      "solutions": {
+        "x": 15,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2305
   },
   {
     "generator": "math-word-4-2-large-integer-addition",
@@ -36231,7 +37975,7 @@
       }
     },
     "time": 60,
-    "id": 2196
+    "id": 2306
   },
   {
     "generator": "math-word-4-2-large-integer-division",
@@ -36248,7 +37992,41 @@
       }
     },
     "time": 60,
-    "id": 2197
+    "id": 2307
+  },
+  {
+    "generator": "math-word-4-2-large-integer-multiplication",
+    "problem": "A group of students are collecting bottle caps for a recycling project. They want to collect 4500 bottle caps in total. The fourth grade class collects twice as many bottle caps as the third grade class. How many bottle caps did each grade collect? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 4500",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of students are collecting bottle caps for a recycling project.  They want to collect 4500 bottle caps in total. The fourth grade class collects twice as many bottle caps as the third grade class. How many bottle caps did each grade collect?",
+      "solutions": {
+        "x": 3000,
+        "y": 1500
+      }
+    },
+    "time": 60,
+    "id": 2308
+  },
+  {
+    "generator": "math-word-4-2-probability",
+    "problem": "Mr. Landlord has 10 houses to rent. He has 4 more apartments than houses. How many apartments and houses does he have to rent in total? Let 'x' represent the number of apartments and 'y' represent the number of houses. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 10",
+        "x - y = 4"
+      ],
+      "wordProblem": "Mr. Landlord has 10 houses to rent. He has 4 more apartments than houses.  How many apartments and houses does he have to rent in total? Let 'x' represent the number of apartments and 'y' represent the number of houses.",
+      "solutions": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    "time": 30,
+    "id": 2309
   },
   {
     "generator": "math-word-4-2-proportion",
@@ -36265,7 +38043,24 @@
       }
     },
     "time": 60,
-    "id": 2198
+    "id": 2310
+  },
+  {
+    "generator": "math-word-4-2-proportion",
+    "problem": "A scientist is looking at a slide under a microscope. He notices that 3 groups of bacteria plus 1 single bacterium fit perfectly within the microscope's field of view. He then sees that 1 group of bacteria minus 1 single bacterium leaves 4 millimeters of space in the field of view. If the scientist wants to know how much space each group of bacteria takes up (x) and how much space 1 single bacterium takes up (y), how much space does each take up? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + y = 24",
+        "x - y = 4"
+      ],
+      "wordProblem": "A scientist is looking at a slide under a microscope. He notices that 3 groups of bacteria plus 1 single bacterium fit perfectly within the microscope's field of view. He then sees that 1 group of bacteria minus 1 single bacterium leaves 4 millimeters of space in the field of view.  If the scientist wants to know how much space each group of bacteria takes up (x) and how much space 1 single bacterium takes up (y), how much space does each take up?",
+      "solutions": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    "time": 60,
+    "id": 2311
   },
   {
     "generator": "math-word-4-2-reality",
@@ -36282,7 +38077,41 @@
       }
     },
     "time": 30,
-    "id": 2199
+    "id": 2312
+  },
+  {
+    "generator": "math-word-4-2-reality",
+    "problem": "A baker is making golden cookies. He has 15 golden sprinkles and chocolate chips in total. He uses twice as many chocolate chips as golden sprinkles. How many golden sprinkles and chocolate chips does he use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "g + s = 15",
+        "g = 2 * s"
+      ],
+      "wordProblem": "A baker is making golden cookies. He has 15 golden sprinkles and chocolate chips in total. He uses twice as many chocolate chips as golden sprinkles. How many golden sprinkles and chocolate chips does he use?",
+      "solutions": {
+        "g": 10,
+        "s": 5
+      }
+    },
+    "time": 30,
+    "id": 2313
+  },
+  {
+    "generator": "math-word-4-2-space",
+    "problem": "A spaceship crew needs to transport 12 crates of supplies to a space station. They have two types of cargo pods: small pods that can carry one crate and large pods that can carry one crate more than the small pods. If they use 4 more small pods than large pods, how many small pods and large pods do they need? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "A spaceship crew needs to transport 12 crates of supplies to a space station. They have two types of cargo pods: small pods that can carry one crate and large pods that can carry one crate more than the small pods.  If they use 4 more small pods than large pods, how many small pods and large pods do they need?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2314
   },
   {
     "generator": "math-word-4-2-speed",
@@ -36299,7 +38128,39 @@
       }
     },
     "time": 45,
-    "id": 2200
+    "id": 2315
+  },
+  {
+    "generator": "math-word-4-2-work",
+    "problem": "The Heart Healthy Cafe is having a special on their hearty salads. They offer two options: a small salad with 2 servings of vegetables and 1 serving of protein for 14 grams of protein, and a large salad with 1 serving of vegetables and 1 serving of protein for 2 grams of protein. How many grams of protein are in each serving of vegetables and each serving of protein? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 14",
+        "x - y = 2"
+      ],
+      "wordProblem": "The Heart Healthy Cafe is having a special on their hearty salads. They offer two options: a small salad with 2 servings of vegetables and 1 serving of protein for 14 grams of protein, and a large salad with 1 serving of vegetables and 1 serving of protein for 2 grams of protein. How many grams of protein are in each serving of vegetables and each serving of protein?",
+      "solutions": {
+        "x": 4,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2316
+  },
+  {
+    "generator": "math-word-5-1-distance",
+    "problem": "A construction crew is developing a new park. They have already paved 15 meters of the path around the park. They need to pave a total of 45 meters. How many more meters of path do they need to pave? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A construction crew is developing a new park. They have already paved 15 meters of the path around the park. They need to pave a total of 45 meters. How many more meters of path do they need to pave?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2317
   },
   {
     "generator": "math-word-5-1-fraction-subtraction",
@@ -36314,7 +38175,67 @@
       }
     },
     "time": 15,
-    "id": 2201
+    "id": 2318
+  },
+  {
+    "generator": "math-word-5-1-geometry",
+    "problem": "Sarah wants to buy a new book that costs 21 euros. She has already saved 5 euros. If she earns 2 euros per day from her chores, how many days does she need to work to buy the book? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 5 = 21"
+      ],
+      "wordProblem": "Sarah wants to buy a new book that costs 21 euros. She has already saved 5 euros. If she earns 2 euros per day from her chores, how many days does she need to work to buy the book?",
+      "solutions": {
+        "x": 8
+      }
+    },
+    "time": 15,
+    "id": 2319
+  },
+  {
+    "generator": "math-word-5-1-geometry",
+    "problem": "A carpenter wants to cut a piece of wood into three equal pieces. The total length of the wood is 30 centimeters. How long should each piece of wood be? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 2x = 30"
+      ],
+      "wordProblem": "A carpenter wants to cut a piece of wood into three equal pieces.  The total length of the wood is 30 centimeters. How long should each piece of wood be?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 10,
+    "id": 2320
+  },
+  {
+    "generator": "math-word-5-1-large-integer-division",
+    "problem": "A group of friends are going on a zip-lining adventure. They need to buy a total of 120 meters of zip-line cable. If they split the cost equally among 5 friends, how many meters of cable will each friend buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/5 = 120"
+      ],
+      "wordProblem": "A group of friends are going on a zip-lining adventure. They need to buy a total of 120 meters of zip-line cable. If they split the cost equally among 5 friends, how many meters of cable will each friend buy?",
+      "solutions": {
+        "x": 600
+      }
+    },
+    "time": 15,
+    "id": 2321
+  },
+  {
+    "generator": "math-word-5-1-large-integer-division",
+    "problem": "An art teacher has 325 paintbrushes to distribute equally among 25 students. How many paintbrushes will each student receive? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/25 = 325"
+      ],
+      "wordProblem": "An art teacher has 325 paintbrushes to distribute equally among 25 students. How many paintbrushes will each student receive?",
+      "solutions": {
+        "x": 8125
+      }
+    },
+    "time": 10,
+    "id": 2322
   },
   {
     "generator": "math-word-5-1-large-integer-multiplication",
@@ -36329,7 +38250,7 @@
       }
     },
     "time": 15,
-    "id": 2202
+    "id": 2323
   },
   {
     "generator": "math-word-5-1-probability",
@@ -36344,7 +38265,22 @@
       }
     },
     "time": 20,
-    "id": 2203
+    "id": 2324
+  },
+  {
+    "generator": "math-word-5-1-proportion",
+    "problem": "A carpenter wants to cut a piece of wood that is 10 meters long into two pieces. One piece will be twice as long as the other. How long will the shorter piece of wood be? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/2 + x/3 = 10"
+      ],
+      "wordProblem": "A carpenter wants to cut a piece of wood that is 10 meters long into two pieces. One piece will be twice as long as the other. How long will the shorter piece of wood be?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 30,
+    "id": 2325
   },
   {
     "generator": "math-word-5-1-reality",
@@ -36359,7 +38295,7 @@
       }
     },
     "time": 30,
-    "id": 2204
+    "id": 2326
   },
   {
     "generator": "math-word-5-1-slice-of-life",
@@ -36374,7 +38310,82 @@
       }
     },
     "time": 15,
-    "id": 2205
+    "id": 2327
+  },
+  {
+    "generator": "math-word-5-1-slice-of-life",
+    "problem": "Maya is making a salad dressing. She wants to use 4 tablespoons of vinegar and 3 tablespoons of olive oil. She has a total of 19 tablespoons of ingredients. How many tablespoons of vinegar should she use in her salad dressing? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4*x+3=19"
+      ],
+      "wordProblem": "Maya is making a salad dressing.  She wants to use 4 tablespoons of vinegar and 3 tablespoons of olive oil.  She has a total of 19 tablespoons of ingredients.  How many tablespoons of vinegar should she use in her salad dressing?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2328
+  },
+  {
+    "generator": "math-word-5-1-space",
+    "problem": "A group of astronauts are exploring a new planet. They discover a strange crystal that emits a powerful energy field. The energy field expands at a rate of 5 meters per second. If the field is currently 10 meters wide, how many seconds will it take for the field to reach a diameter of 70 meters? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 70"
+      ],
+      "wordProblem": "A group of astronauts are exploring a new planet. They discover a strange crystal that emits a powerful energy field.  The energy field expands at a rate of 5 meters per second.  If the field is currently 10 meters wide, how many seconds will it take for the field to reach a diameter of 70 meters?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2329
+  },
+  {
+    "generator": "math-word-5-1-space",
+    "problem": "A spaceship is traveling through space. It has a fuel tank that can hold 250 liters of fuel. The spaceship uses 100 liters of fuel to reach its destination. How much fuel was in the tank before the trip? Let 'x' represent the amount of fuel in the tank before the trip. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 100 = 250"
+      ],
+      "wordProblem": "A spaceship is traveling through space. It has a fuel tank that can hold 250 liters of fuel.  The spaceship uses 100 liters of fuel to reach its destination.  How much fuel was in the tank before the trip? Let 'x' represent the amount of fuel in the tank before the trip.",
+      "solutions": {
+        "x": 150
+      }
+    },
+    "time": 15,
+    "id": 2330
+  },
+  {
+    "generator": "math-word-5-1-space",
+    "problem": "A space explorer's web-like space net is designed to capture asteroids. The net is 1000 meters wide. If the explorer uses the net to capture an asteroid that is 5000 meters long, how many times longer is the asteroid than the net's width? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1000 * x = 5000"
+      ],
+      "wordProblem": "A space explorer's web-like space net is designed to capture asteroids. The net is 1000 meters wide. If the explorer uses the net to capture an asteroid that is 5000 meters long, how many times longer is the asteroid than the net's width?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2331
+  },
+  {
+    "generator": "math-word-5-1-speed",
+    "problem": "Sarah is making bracelets for her friends. She has 20 beads and she wants to make 3 bracelets, each with the same number of beads. She also wants to use 5 beads to make a small charm for each bracelet. How many beads will be on each bracelet? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 5 = 20"
+      ],
+      "wordProblem": "Sarah is making bracelets for her friends. She has 20 beads and she wants to make 3 bracelets, each with the same number of beads. She also wants to use 5 beads to make a small charm for each bracelet. How many beads will be on each bracelet?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2332
   },
   {
     "generator": "math-word-5-2-fraction-subtraction",
@@ -36391,7 +38402,7 @@
       }
     },
     "time": 60,
-    "id": 2206
+    "id": 2333
   },
   {
     "generator": "math-word-5-2-geometry",
@@ -36408,7 +38419,7 @@
       }
     },
     "time": 60,
-    "id": 2207
+    "id": 2334
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
@@ -36425,7 +38436,7 @@
       }
     },
     "time": 60,
-    "id": 2208
+    "id": 2335
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
@@ -36442,7 +38453,58 @@
       }
     },
     "time": 60,
-    "id": 2209
+    "id": 2336
+  },
+  {
+    "generator": "math-word-5-2-large-integer-subtraction",
+    "problem": "In a rainforest, there are two types of endemic frogs. The red-eyed frog is endemic to a specific region, and the green tree frog is endemic to another region. Together, there are 1,200,000 red-eyed frogs and green tree frogs. The difference between the number of red-eyed frogs and green tree frogs is 400,000. How many red-eyed frogs are there? How many green tree frogs are there? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 1200000",
+        "x - y = 400000"
+      ],
+      "wordProblem": "In a rainforest, there are two types of endemic frogs. The red-eyed frog is endemic to a specific region, and the green tree frog is endemic to another region. Together, there are 1,200,000 red-eyed frogs and green tree frogs. The difference between the number of red-eyed frogs and green tree frogs is 400,000. How many red-eyed frogs are there? How many green tree frogs are there?",
+      "solutions": {
+        "x": 800000,
+        "y": 400000
+      }
+    },
+    "time": 60,
+    "id": 2337
+  },
+  {
+    "generator": "math-word-5-2-large-integer-subtraction",
+    "problem": "A scientist is studying genetic mutations in a laboratory. They have two groups of mice: Group A and Group B. Group A has 'g' number of mice, and Group B has 'd' number of mice. There are a total of 1,000,000 mice in both groups. Group A has 200,000 more mice than Group B. How many mice are in each group? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "g + d = 1000000",
+        "g - d = 200000"
+      ],
+      "wordProblem": "A scientist is studying genetic mutations in a laboratory. They have two groups of mice: Group A and Group B.  Group A has 'g' number of mice, and Group B has 'd' number of mice.  There are a total of 1,000,000 mice in both groups.  Group A has 200,000 more mice than Group B.  How many mice are in each group?",
+      "solutions": {
+        "g": 600000,
+        "d": 400000
+      }
+    },
+    "time": 30,
+    "id": 2338
+  },
+  {
+    "generator": "math-word-5-2-lever-fulcrum-weight",
+    "problem": "A group of friends are playing with a seesaw. They place a 10 kg weight 1 meter from the fulcrum. To balance the seesaw, they need to place another weight on the other side. They have two weights: a 5 kg weight and another weight that is unknown. They experiment and find that the unknown weight needs to be placed 2 meters from the fulcrum to balance the seesaw. What is the mass of the unknown weight? Let x be the distance the unknown weight is placed from the fulcrum and let y be the mass of the unknown weight. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "10 * x + 5 * y = 100",
+        "x + y = 12"
+      ],
+      "wordProblem": "A group of friends are playing with a seesaw. They place a 10 kg weight 1 meter from the fulcrum. To balance the seesaw, they need to place another weight on the other side.  They have two weights: a 5 kg weight and another weight that is unknown.  They experiment and find that the unknown weight needs to be placed 2 meters from the fulcrum to balance the seesaw. What is the mass of the unknown weight?  Let x be the distance the unknown weight is placed from the fulcrum and let y be the mass of the unknown weight.",
+      "solutions": {
+        "x": 2,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2339
   },
   {
     "generator": "math-word-5-2-probability",
@@ -36459,7 +38521,7 @@
       }
     },
     "time": 60,
-    "id": 2210
+    "id": 2340
   },
   {
     "generator": "math-word-5-2-probability",
@@ -36476,7 +38538,41 @@
       }
     },
     "time": 60,
-    "id": 2211
+    "id": 2341
+  },
+  {
+    "generator": "math-word-5-2-probability",
+    "problem": "A group of friends is playing a game where they have to collect points. They have a total of 120 points. The number of points Sarah collected is twice the number of points Jack collected. How many points did each of them collect? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of friends is playing a game where they have to collect points.  They have a total of 120 points.  The number of points Sarah collected is twice the number of points Jack collected.  How many points did each of them collect?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2342
+  },
+  {
+    "generator": "math-word-5-2-proportion",
+    "problem": "A group of students are building a model of an enduring city. They need to use 120 centimeters of building materials. They decide to use twice as much wood (x) as plastic (y). How much wood and how much plastic will they use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x = 2y"
+      ],
+      "wordProblem": "A group of students are building a model of an enduring city. They need to use 120 centimeters of building materials.  They decide to use twice as much wood (x) as plastic (y). How much wood and how much plastic will they use?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2343
   },
   {
     "generator": "math-word-5-2-reality",
@@ -36493,7 +38589,7 @@
       }
     },
     "time": 30,
-    "id": 2212
+    "id": 2344
   },
   {
     "generator": "math-word-5-2-reality",
@@ -36510,7 +38606,41 @@
       }
     },
     "time": 60,
-    "id": 2213
+    "id": 2345
+  },
+  {
+    "generator": "math-word-5-2-speed",
+    "problem": "A knight is riding his horse to a jousting tournament. He has 15 meters of ribbon to decorate his horse's armor and his own helmet. He wants to use 3 meters more ribbon on his horse's armor than his helmet. How much ribbon will he use on his helmet and how much will he use on his horse's armor? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "A knight is riding his horse to a jousting tournament. He has 15 meters of ribbon to decorate his horse's armor and his own helmet.  He wants to use 3 meters more ribbon on his horse's armor than his helmet. How much ribbon will he use on his helmet and how much will he use on his horse's armor?",
+      "solutions": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    "time": 30,
+    "id": 2346
+  },
+  {
+    "generator": "math-word-5-2-travel",
+    "problem": "A group of friends is visiting a famous landmark. They want to buy souvenirs for themselves and their families. They plan to buy 2 sets of postcards and 3 keychains. They also want to buy 1 more keychain than sets of postcards. If the total cost of the souvenirs is 110 euros, and each set of postcards costs 10 euros more than a keychain, how much does each keychain cost and how much does each set of postcards cost? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 110",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends is visiting a famous landmark.  They want to buy souvenirs for themselves and their families. They plan to buy 2 sets of postcards and 3 keychains. They also want to buy 1 more keychain than sets of postcards. If the total cost of the souvenirs is 110 euros, and each set of postcards costs 10 euros more than a keychain, how much does each keychain cost and how much does each set of postcards cost?",
+      "solutions": {
+        "x": 25,
+        "y": 15
+      }
+    },
+    "time": 60,
+    "id": 2347
   },
   {
     "generator": "math-word-5-2-work",
@@ -36527,7 +38657,7 @@
       }
     },
     "time": 60,
-    "id": 2214
+    "id": 2348
   },
   {
     "generator": "math-word-5-2-work",
@@ -36544,7 +38674,37 @@
       }
     },
     "time": 60,
-    "id": 2215
+    "id": 2349
+  },
+  {
+    "generator": "math-word-6-1-large-integer-addition",
+    "problem": "After a long summer break, school resumed. On the first day back, 3456 students were absent due to a stomach bug. If the total number of students in the school is 12345, how many students were present on the first day of school? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 3456 = 12345"
+      ],
+      "wordProblem": "After a long summer break, school resumed.  On the first day back, 3456 students were absent due to a stomach bug. If the total number of students in the school is 12345, how many students were present on the first day of school?",
+      "solutions": {
+        "x": 8889
+      }
+    },
+    "time": 15,
+    "id": 2350
+  },
+  {
+    "generator": "math-word-6-1-large-integer-addition",
+    "problem": "A boulder weighs 2500 kilograms. If a smaller boulder weighs 1500 kilograms less than the larger boulder, how much does the smaller boulder weigh? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 1500 = 2500"
+      ],
+      "wordProblem": "A boulder weighs 2500 kilograms. If a smaller boulder weighs 1500 kilograms less than the larger boulder, how much does the smaller boulder weigh?",
+      "solutions": {
+        "x": 1000
+      }
+    },
+    "time": 15,
+    "id": 2351
   },
   {
     "generator": "math-word-6-1-large-integer-subtraction",
@@ -36559,7 +38719,97 @@
       }
     },
     "time": 15,
-    "id": 2216
+    "id": 2352
+  },
+  {
+    "generator": "math-word-6-1-mass",
+    "problem": "A charitable organization is collecting donations for a local animal shelter. They have already collected 15 kilograms of pet food. They need to collect a total of 45 kilograms of pet food. How many more kilograms of pet food do they need to collect? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A charitable organization is collecting donations for a local animal shelter. They have already collected 15 kilograms of pet food. They need to collect a total of 45 kilograms of pet food. How many more kilograms of pet food do they need to collect?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 10,
+    "id": 2353
+  },
+  {
+    "generator": "math-word-6-1-mass",
+    "problem": "A carpenter wants to cut a board into three equal pieces. He first marks off a section of the board that is 10 cm long. The total length of the board is 40 cm. What is the length of each of the three equal pieces? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 10 = 40"
+      ],
+      "wordProblem": "A carpenter wants to cut a board into three equal pieces.  He first marks off a section of the board that is 10 cm long.  The total length of the board is 40 cm.  What is the length of each of the three equal pieces?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2354
+  },
+  {
+    "generator": "math-word-6-1-science",
+    "problem": "A scientist is studying a bacteria colony. The colony starts with 15 bacteria. Each hour, the number of bacteria doubles. After a certain number of hours, the scientist observes there are 55 bacteria. How many hours have passed? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 15 = 55"
+      ],
+      "wordProblem": "A scientist is studying a bacteria colony. The colony starts with 15 bacteria. Each hour, the number of bacteria doubles.  After a certain number of hours, the scientist observes there are 55 bacteria. How many hours have passed?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 15,
+    "id": 2355
+  },
+  {
+    "generator": "math-word-6-1-slice-of-life",
+    "problem": "Maya wants to buy a new notebook for school. She has saved \\$5.00. If the notebook costs \\$12.00, how much more money does she need to save? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "Maya wants to buy a new notebook for school.  She has saved \\$5.00.  If the notebook costs \\$12.00, how much more money does she need to save?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2356
+  },
+  {
+    "generator": "math-word-6-1-slice-of-life",
+    "problem": "Aiko wants to improve her posture by practicing yoga. She wants to do a combination of 'downward-facing dog' and 'plank' poses. Each 'downward-facing dog' pose takes 15 seconds, and each 'plank' pose takes 20 seconds. If Aiko practices for 110 seconds, how many 'downward-facing dog' poses did she do? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "15x + 20 = 110"
+      ],
+      "wordProblem": "Aiko wants to improve her posture by practicing yoga. She wants to do a combination of 'downward-facing dog' and 'plank' poses. Each 'downward-facing dog' pose takes 15 seconds, and each 'plank' pose takes 20 seconds. If Aiko practices for 110 seconds, how many 'downward-facing dog' poses did she do?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2357
+  },
+  {
+    "generator": "math-word-6-1-speed",
+    "problem": "A computer programmer is working on a new game. They need to create 30 levels for the game. They have already finished 10 levels. If the programmer can create 2 levels every hour, how many hours will it take them to finish the game? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 10 = 30"
+      ],
+      "wordProblem": "A computer programmer is working on a new game.  They need to create 30 levels for the game.  They have already finished 10 levels.  If the programmer can create 2 levels every hour, how many hours will it take them to finish the game?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2358
   },
   {
     "generator": "math-word-6-1-travel",
@@ -36574,7 +38824,22 @@
       }
     },
     "time": 15,
-    "id": 2217
+    "id": 2359
+  },
+  {
+    "generator": "math-word-6-1-travel",
+    "problem": "The Department of Tourism is organizing a trip to a national park. They have 30 buses available for the trip. The park rangers require that each bus has 10 students on board. How many students can go on the trip? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 10 = 30"
+      ],
+      "wordProblem": "The Department of Tourism is organizing a trip to a national park. They have 30 buses available for the trip.  The park rangers require that each bus has 10 students on board.  How many students can go on the trip?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 10,
+    "id": 2360
   },
   {
     "generator": "math-word-6-1-work",
@@ -36589,7 +38854,56 @@
       }
     },
     "time": 15,
-    "id": 2218
+    "id": 2361
+  },
+  {
+    "generator": "math-word-6-1-work",
+    "problem": "A knight is building a castle. He needs 48 meters of stone to build the walls. He has already gathered 12 meters of stone. If he can gather 3 meters of stone each day, how many days will it take him to gather the rest of the stone? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3*x + 12 = 48"
+      ],
+      "wordProblem": "A knight is building a castle. He needs 48 meters of stone to build the walls. He has already gathered 12 meters of stone. If he can gather 3 meters of stone each day, how many days will it take him to gather the rest of the stone?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2362
+  },
+  {
+    "generator": "math-word-6-2-distance",
+    "problem": "An attic is being cleaned out. Two boxes of old toys are found. One box is 3 meters taller than the other. Together, the boxes are 15 meters tall. How tall is each box? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "An attic is being cleaned out. Two boxes of old toys are found. One box is 3 meters taller than the other. Together, the boxes are 15 meters tall. How tall is each box?",
+      "solutions": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    "time": 60,
+    "id": 2363
+  },
+  {
+    "generator": "math-word-6-2-distance",
+    "problem": "Two ships, the 'Seafarer' and the 'Voyager', are sailing towards each other. The Seafarer is traveling at a speed of 40 kilometers per hour faster than the Voyager. After 3 hours, the two ships are 120 kilometers apart. What is the speed of each ship? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x - y = 40"
+      ],
+      "wordProblem": "Two ships, the 'Seafarer' and the 'Voyager', are sailing towards each other. The Seafarer is traveling at a speed of 40 kilometers per hour faster than the Voyager. After 3 hours, the two ships are 120 kilometers apart.  What is the speed of each ship?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2364
   },
   {
     "generator": "math-word-6-2-fraction-subtraction",
@@ -36606,7 +38920,58 @@
       }
     },
     "time": 60,
-    "id": 2219
+    "id": 2365
+  },
+  {
+    "generator": "math-word-6-2-fraction-subtraction",
+    "problem": "A group of friends went to a party and brought a big bag of avocados to share. They ate 1/5 of the avocados and had 200 left over. How many avocados were there originally? How many avocados did they eat? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 1000",
+        "x - y = 200"
+      ],
+      "wordProblem": "A group of friends went to a party and brought a big bag of avocados to share.  They ate 1/5 of the avocados and had 200 left over.  How many avocados were there originally?  How many avocados did they eat?",
+      "solutions": {
+        "x": 600,
+        "y": 400
+      }
+    },
+    "time": 60,
+    "id": 2366
+  },
+  {
+    "generator": "math-word-6-2-geometry",
+    "problem": "An onion farmer wants to plant two types of onions: red and yellow. He has 16 meters of space available for planting. He wants to plant twice as many red onions as yellow onions. If he plants each red onion 1 meter apart and each yellow onion 2 meters apart, how many meters of space will he use for each type of onion? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 16",
+        "x + 2y = 13"
+      ],
+      "wordProblem": "An onion farmer wants to plant two types of onions: red and yellow. He has 16 meters of space available for planting. He wants to plant twice as many red onions as yellow onions. If he plants each red onion 1 meter apart and each yellow onion 2 meters apart, how many meters of space will he use for each type of onion?",
+      "solutions": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2367
+  },
+  {
+    "generator": "math-word-6-2-large-integer-addition",
+    "problem": "Two companions, Alex and Ben, went on a hiking trip. Alex carried a backpack with a weight of 'x' kilograms, and Ben carried a backpack with a weight of 'y' kilograms. Together, their backpacks weighed 234,567 kilograms. Alex's backpack was 123,456 kilograms heavier than Ben's backpack. What was the weight of each backpack? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 234567",
+        "x - y = 123456"
+      ],
+      "wordProblem": "Two companions, Alex and Ben, went on a hiking trip. Alex carried a backpack with a weight of 'x' kilograms, and Ben carried a backpack with a weight of 'y' kilograms. Together, their backpacks weighed 234,567 kilograms. Alex's backpack was 123,456 kilograms heavier than Ben's backpack.  What was the weight of each backpack?",
+      "solutions": {
+        "x": 179011.5,
+        "y": 55555.5
+      }
+    },
+    "time": 60,
+    "id": 2368
   },
   {
     "generator": "math-word-6-2-large-integer-division",
@@ -36623,7 +38988,7 @@
       }
     },
     "time": 60,
-    "id": 2220
+    "id": 2369
   },
   {
     "generator": "math-word-6-2-large-integer-division",
@@ -36640,7 +39005,24 @@
       }
     },
     "time": 30,
-    "id": 2221
+    "id": 2370
+  },
+  {
+    "generator": "math-word-6-2-lever-fulcrum-weight",
+    "problem": "A seesaw is perfectly balanced. On one side, a 2 kg weight is placed 50 cm from the fulcrum. On the other side, two weights are placed. A 1 kg weight is placed at a distance x cm from the fulcrum. Another unknown weight y kg is placed at 30 cm from the fulcrum. What is the value of x and y? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + y = 100",
+        "x + 3*y = 100"
+      ],
+      "wordProblem": "A seesaw is perfectly balanced. On one side, a 2 kg weight is placed 50 cm from the fulcrum. On the other side, two weights are placed. A 1 kg weight is placed at a distance x cm from the fulcrum. Another unknown weight y kg is placed at 30 cm from the fulcrum. What is the value of x and y?",
+      "solutions": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    "time": 120,
+    "id": 2371
   },
   {
     "generator": "math-word-6-2-mass",
@@ -36657,7 +39039,7 @@
       }
     },
     "time": 60,
-    "id": 2222
+    "id": 2372
   },
   {
     "generator": "math-word-6-2-probability",
@@ -36674,7 +39056,24 @@
       }
     },
     "time": 60,
-    "id": 2223
+    "id": 2373
+  },
+  {
+    "generator": "math-word-6-2-probability",
+    "problem": "A group of friends are making lids for their homemade jars. They have 100 cm of ribbon to decorate the edges of the lids. They want to use 2 cm of ribbon for each large lid and 1 cm of ribbon for each small lid. They also want to make 20 more small lids than large lids. How many of each type of lid can they make? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 100",
+        "x - y = 20"
+      ],
+      "wordProblem": "A group of friends are making lids for their homemade jars. They have 100 cm of ribbon to decorate the edges of the lids.  They want to use 2 cm of ribbon for each large lid and 1 cm of ribbon for each small lid. They also want to make 20 more small lids than large lids. How many of each type of lid can they make?",
+      "solutions": {
+        "x": 40,
+        "y": 20
+      }
+    },
+    "time": 60,
+    "id": 2374
   },
   {
     "generator": "math-word-6-2-proportion",
@@ -36691,7 +39090,7 @@
       }
     },
     "time": 60,
-    "id": 2224
+    "id": 2375
   },
   {
     "generator": "math-word-6-2-reality",
@@ -36708,7 +39107,7 @@
       }
     },
     "time": 60,
-    "id": 2225
+    "id": 2376
   },
   {
     "generator": "math-word-6-2-speed",
@@ -36725,7 +39124,7 @@
       }
     },
     "time": 60,
-    "id": 2226
+    "id": 2377
   },
   {
     "generator": "math-word-6-2-speed",
@@ -36742,7 +39141,24 @@
       }
     },
     "time": 60,
-    "id": 2227
+    "id": 2378
+  },
+  {
+    "generator": "math-word-6-2-speed",
+    "problem": "Ethos is a friendly cat who loves to play with his toys. He has 12 toys in total, and some are red, and some are blue. Ethos has 4 more red toys than blue toys. How many red toys does Ethos have? How many blue toys does Ethos have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 12",
+        "x - y = 4"
+      ],
+      "wordProblem": "Ethos is a friendly cat who loves to play with his toys. He has 12 toys in total, and some are red, and some are blue. Ethos has 4 more red toys than blue toys. How many red toys does Ethos have? How many blue toys does Ethos have?",
+      "solutions": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    "time": 30,
+    "id": 2379
   },
   {
     "generator": "math-word-6-2-system-of-equations",
@@ -36759,7 +39175,7 @@
       }
     },
     "time": 60,
-    "id": 2228
+    "id": 2380
   },
   {
     "generator": "math-word-6-2-travel",
@@ -36776,7 +39192,7 @@
       }
     },
     "time": 30,
-    "id": 2229
+    "id": 2381
   },
   {
     "generator": "math-word-7-1-fraction-subtraction",
@@ -36791,7 +39207,7 @@
       }
     },
     "time": 30,
-    "id": 2230
+    "id": 2382
   },
   {
     "generator": "math-word-7-1-geometry",
@@ -36806,7 +39222,37 @@
       }
     },
     "time": 15,
-    "id": 2231
+    "id": 2383
+  },
+  {
+    "generator": "math-word-7-1-large-integer-multiplication",
+    "problem": "A pharmacist is dispensing medicine in 1 milliliter doses. If they have 75,000 milliliters of medicine to dispense, how many doses can they dispense? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/1000 = 75000"
+      ],
+      "wordProblem": "A pharmacist is dispensing medicine in 1 milliliter doses. If they have 75,000 milliliters of medicine to dispense, how many doses can they dispense?",
+      "solutions": {
+        "x": 75000000
+      }
+    },
+    "time": 10,
+    "id": 2384
+  },
+  {
+    "generator": "math-word-7-1-large-integer-multiplication",
+    "problem": "A bakery uses 120 panes of glass to make 7200 window displays. How many panes of glass are needed to make one window display? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "120x = 7200"
+      ],
+      "wordProblem": "A bakery uses 120 panes of glass to make 7200 window displays.  How many panes of glass are needed to make one window display?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 10,
+    "id": 2385
   },
   {
     "generator": "math-word-7-1-lever-fulcrum-weight",
@@ -36821,7 +39267,22 @@
       }
     },
     "time": 10,
-    "id": 2232
+    "id": 2386
+  },
+  {
+    "generator": "math-word-7-1-lever-fulcrum-weight",
+    "problem": "A young boy named Hysteria is trying to balance a seesaw. On one side, he places a 15 kg weight 5 meters from the fulcrum. On the other side, he places a weight 'x' meters from the fulcrum. If the seesaw is perfectly balanced, how far from the fulcrum is the weight 'x'? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "(10*x)+(5*15)=100"
+      ],
+      "wordProblem": "A young boy named Hysteria is trying to balance a seesaw. On one side, he places a 15 kg weight 5 meters from the fulcrum. On the other side, he places a weight 'x' meters from the fulcrum. If the seesaw is perfectly balanced, how far from the fulcrum is the weight 'x'?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 20,
+    "id": 2387
   },
   {
     "generator": "math-word-7-1-proportion",
@@ -36836,7 +39297,7 @@
       }
     },
     "time": 15,
-    "id": 2233
+    "id": 2388
   },
   {
     "generator": "math-word-7-1-proportion",
@@ -36851,7 +39312,22 @@
       }
     },
     "time": "15",
-    "id": 2234
+    "id": 2389
+  },
+  {
+    "generator": "math-word-7-1-proportion",
+    "problem": "A spokesperson for a local animal shelter is giving a presentation to a group of students. They plan to show a 15-minute video about the shelter's work and answer any questions the students might have. If the spokesperson wants to keep the total presentation time under 55 minutes, how many minutes can they spend answering questions? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 15 = 55"
+      ],
+      "wordProblem": "A spokesperson for a local animal shelter is giving a presentation to a group of students.  They plan to show a 15-minute video about the shelter's work and answer any questions the students might have.  If the spokesperson wants to keep the total presentation time under 55 minutes, how many minutes can they spend answering questions?",
+      "solutions": {
+        "x": 20
+      }
+    },
+    "time": 15,
+    "id": 2390
   },
   {
     "generator": "math-word-7-1-reality",
@@ -36866,7 +39342,22 @@
       }
     },
     "time": 15,
-    "id": 2235
+    "id": 2391
+  },
+  {
+    "generator": "math-word-7-1-reality",
+    "problem": "A graceful ballerina is practicing her leaps. She takes 12 steps forward, then takes 4 steps back, and she's now 68 steps away from her starting point. How many steps did she take forward initially? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "12x + 4 = 68"
+      ],
+      "wordProblem": "A graceful ballerina is practicing her leaps. She takes 12 steps forward, then takes 4 steps back, and she's now 68 steps away from her starting point. How many steps did she take forward initially?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2392
   },
   {
     "generator": "math-word-7-1-science",
@@ -36881,7 +39372,7 @@
       }
     },
     "time": 10,
-    "id": 2236
+    "id": 2393
   },
   {
     "generator": "math-word-7-1-slice-of-life",
@@ -36896,7 +39387,7 @@
       }
     },
     "time": 15,
-    "id": 2237
+    "id": 2394
   },
   {
     "generator": "math-word-7-1-speed",
@@ -36911,7 +39402,37 @@
       }
     },
     "time": 15,
-    "id": 2238
+    "id": 2395
+  },
+  {
+    "generator": "math-word-7-1-speed",
+    "problem": "A cyclist is riding against a strong wind. The wind slows the cyclist down by 20 kilometers per hour. If the cyclist's speed with the wind is 60 kilometers per hour, what is the cyclist's speed without the wind? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 20 = 60"
+      ],
+      "wordProblem": "A cyclist is riding against a strong wind. The wind slows the cyclist down by 20 kilometers per hour.  If the cyclist's speed with the wind is 60 kilometers per hour, what is the cyclist's speed without the wind?",
+      "solutions": {
+        "x": 40
+      }
+    },
+    "time": 15,
+    "id": 2396
+  },
+  {
+    "generator": "math-word-7-1-travel",
+    "problem": "A group of friends are on a road trip. They plan to drive 45 kilometers today. They have already driven 15 kilometers. How many more kilometers do they need to drive today to reach their goal? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 15 = 45"
+      ],
+      "wordProblem": "A group of friends are on a road trip. They plan to drive 45 kilometers today. They have already driven 15 kilometers. How many more kilometers do they need to drive today to reach their goal?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2397
   },
   {
     "generator": "math-word-7-2-distance",
@@ -36928,7 +39449,7 @@
       }
     },
     "time": 60,
-    "id": 2239
+    "id": 2398
   },
   {
     "generator": "math-word-7-2-fraction-subtraction",
@@ -36945,7 +39466,7 @@
       }
     },
     "time": 60,
-    "id": 2240
+    "id": 2399
   },
   {
     "generator": "math-word-7-2-geometry",
@@ -36962,7 +39483,7 @@
       }
     },
     "time": 60,
-    "id": 2241
+    "id": 2400
   },
   {
     "generator": "math-word-7-2-mass",
@@ -36979,7 +39500,75 @@
       }
     },
     "time": 60,
-    "id": 2242
+    "id": 2401
+  },
+  {
+    "generator": "math-word-7-2-mass",
+    "problem": "Two hardworking friends, Sarah and David, are building a wooden fence. Sarah cuts and prepares the fence panels, while David digs the holes and installs the posts. Sarah can cut and prepare 2 panels every hour, and David can install 3 posts every hour. They work together for 2 hours and manage to build 110 meters of fence. They know that each panel is 2 meters long and each post is 1 meter wide. How many panels did Sarah prepare and how many posts did David install? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 110",
+        "x - y = 10"
+      ],
+      "wordProblem": "Two hardworking friends, Sarah and David, are building a wooden fence. Sarah cuts and prepares the fence panels, while David digs the holes and installs the posts. Sarah can cut and prepare 2 panels every hour, and David can install 3 posts every hour. They work together for 2 hours and manage to build 110 meters of fence. They know that each panel is 2 meters long and each post is 1 meter wide. How many panels did Sarah prepare and how many posts did David install?",
+      "solutions": {
+        "x": 40,
+        "y": 30
+      }
+    },
+    "time": 60,
+    "id": 2402
+  },
+  {
+    "generator": "math-word-7-2-mass",
+    "problem": "A group of friends are planning a relaxed day at the park. They decide to buy some snacks. They buy 2 bags of chips and 1 bottle of juice for 30 euros. Later, they decide to buy another bag of chips and return the juice for a refund, spending a total of 10 euros. How much does a bag of chips cost (x) and how much does a bottle of juice cost (y)? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 30",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a relaxed day at the park. They decide to buy some snacks.  They buy 2 bags of chips and 1 bottle of juice for 30 euros.  Later, they decide to buy another bag of chips and return the juice for a refund, spending a total of 10 euros.  How much does a bag of chips cost (x) and how much does a bottle of juice cost (y)?",
+      "solutions": {
+        "x": 15,
+        "y": 0
+      }
+    },
+    "time": 60,
+    "id": 2403
+  },
+  {
+    "generator": "math-word-7-2-probability",
+    "problem": "A music store is having a sale on instruments. They have a special offer on guitars and ukuleles. They're selling 2 guitars for the same price as 3 ukuleles. If the store sells 120 guitars and ukuleles in total and makes 300 euros in sales, how many guitars and how many ukuleles did they sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 300"
+      ],
+      "wordProblem": "A music store is having a sale on instruments. They have a special offer on guitars and ukuleles.  They're selling 2 guitars for the same price as 3 ukuleles.  If the store sells 120 guitars and ukuleles in total and makes 300 euros in sales, how many guitars and how many ukuleles did they sell?",
+      "solutions": {
+        "x": 60,
+        "y": 60
+      }
+    },
+    "time": 60,
+    "id": 2404
+  },
+  {
+    "generator": "math-word-7-2-probability",
+    "problem": "A group of 7th graders are organizing a school fundraiser. They want to sell two types of cookies: chocolate chip and peanut butter. They know they need to sell a total of 150 cookies. They also know they want to make a profit of \\$3.60 per cookie sold. Chocolate chip cookies sell for \\$2 each, and peanut butter cookies sell for \\$3 each. How many of each type of cookie should they bake? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 150",
+        "2x + 3y = 360"
+      ],
+      "wordProblem": "A group of 7th graders are organizing a school fundraiser. They want to sell two types of cookies: chocolate chip and peanut butter. They know they need to sell a total of 150 cookies. They also know they want to make a profit of \\$3.60 per cookie sold. Chocolate chip cookies sell for \\$2 each, and peanut butter cookies sell for \\$3 each.  How many of each type of cookie should they bake?",
+      "solutions": {
+        "x": 60,
+        "y": 90
+      }
+    },
+    "time": 60,
+    "id": 2405
   },
   {
     "generator": "math-word-7-2-science",
@@ -36996,7 +39585,7 @@
       }
     },
     "time": 30,
-    "id": 2243
+    "id": 2406
   },
   {
     "generator": "math-word-7-2-space",
@@ -37013,7 +39602,24 @@
       }
     },
     "time": 60,
-    "id": 2244
+    "id": 2407
+  },
+  {
+    "generator": "math-word-7-2-space",
+    "problem": "A space probe is travelling through a bland, featureless asteroid field. The probe's fuel tank has a capacity of 10,000 kg. The probe uses 2 kg of fuel per kilometer traveled when its thrusters are on, and it uses 1 kg of fuel per kilometer travelled when its thrusters are off. The probe traveled 2,000 km with its thrusters on, and then travelled an unknown distance with its thrusters off. How many kilometers did the probe travel with its thrusters off? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 10000",
+        "x - y = 2000"
+      ],
+      "wordProblem": "A space probe is travelling through a bland, featureless asteroid field.  The probe's fuel tank has a capacity of 10,000 kg.  The probe uses 2 kg of fuel per kilometer traveled when its thrusters are on, and it uses 1 kg of fuel per kilometer travelled when its thrusters are off.  The probe traveled 2,000 km with its thrusters on, and then travelled an unknown distance with its thrusters off.  How many kilometers did the probe travel with its thrusters off?",
+      "solutions": {
+        "x": "4000",
+        "y": "2000"
+      }
+    },
+    "time": "60",
+    "id": 2408
   },
   {
     "generator": "math-word-7-2-speed",
@@ -37030,7 +39636,24 @@
       }
     },
     "time": 60,
-    "id": 2245
+    "id": 2409
+  },
+  {
+    "generator": "math-word-7-2-speed",
+    "problem": "At a local farmer's market, Sarah is bartering her apples and pears for tomatoes. She has 2 apples and 3 pears, which she trades for 15 tomatoes. Later, she trades 1 apple for 1 pear plus 1 tomato. How many tomatoes is each apple worth, and how many tomatoes is each pear worth? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 15",
+        "x - y = 1"
+      ],
+      "wordProblem": "At a local farmer's market, Sarah is bartering her apples and pears for tomatoes.  She has 2 apples and 3 pears, which she trades for 15 tomatoes.  Later, she trades 1 apple for 1 pear plus 1 tomato.  How many tomatoes is each apple worth, and how many tomatoes is each pear worth?",
+      "solutions": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    "time": 60,
+    "id": 2410
   },
   {
     "generator": "math-word-8-1-distance",
@@ -37045,7 +39668,7 @@
       }
     },
     "time": 15,
-    "id": 2246
+    "id": 2411
   },
   {
     "generator": "math-word-8-1-fraction-subtraction",
@@ -37060,7 +39683,7 @@
       }
     },
     "time": 30,
-    "id": 2247
+    "id": 2412
   },
   {
     "generator": "math-word-8-1-geometry",
@@ -37075,7 +39698,7 @@
       }
     },
     "time": 15,
-    "id": 2248
+    "id": 2413
   },
   {
     "generator": "math-word-8-1-geometry",
@@ -37090,7 +39713,52 @@
       }
     },
     "time": 10,
-    "id": 2249
+    "id": 2414
+  },
+  {
+    "generator": "math-word-8-1-geometry",
+    "problem": "A hallway is being painted. One painter paints 3 meters of the hallway per hour, and another painter paints 2 meters per hour. They both start painting at the same time, and after an hour, they have painted a total of 14 meters. How many meters did the first painter paint in that hour? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2 = 14"
+      ],
+      "wordProblem": "A hallway is being painted.  One painter paints 3 meters of the hallway per hour, and another painter paints 2 meters per hour.  They both start painting at the same time, and after an hour, they have painted a total of 14 meters. How many meters did the first painter paint in that hour?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2415
+  },
+  {
+    "generator": "math-word-8-1-large-integer-addition",
+    "problem": "A construction company needs to move 300,000 cubic meters of earth to build a new highway. They have already moved 210,000 cubic meters. How many more cubic meters of earth do they need to move to complete the project? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 210000 = 300000"
+      ],
+      "wordProblem": "A construction company needs to move 300,000 cubic meters of earth to build a new highway. They have already moved 210,000 cubic meters. How many more cubic meters of earth do they need to move to complete the project?",
+      "solutions": {
+        "x": 90000
+      }
+    },
+    "time": 10,
+    "id": 2416
+  },
+  {
+    "generator": "math-word-8-1-large-integer-division",
+    "problem": "A scientist is studying a rare species of insect. She has collected a total of 25,000 insects. If she wants to divide the insects evenly into 1000 vials for research, how many insects should she put in each vial? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x/1000 = 25000"
+      ],
+      "wordProblem": "A scientist is studying a rare species of insect. She has collected a total of 25,000 insects.  If she wants to divide the insects evenly into 1000 vials for research, how many insects should she put in each vial?",
+      "solutions": {
+        "x": 25000000
+      }
+    },
+    "time": 10,
+    "id": 2417
   },
   {
     "generator": "math-word-8-1-large-integer-multiplication",
@@ -37105,7 +39773,52 @@
       }
     },
     "time": 10,
-    "id": 2250
+    "id": 2418
+  },
+  {
+    "generator": "math-word-8-1-large-integer-multiplication",
+    "problem": "A large company is planning a massive expansion, and they need to hire a significant number of new employees. They've already determined they need to hire 3,600,000 new employees across all their divisions. If they plan to hire the same number of employees for each of their 1200 divisions, how many employees will they need to hire for each division? Let 'x' represent the number of employees to be hired per division. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1200 * x = 3600000"
+      ],
+      "wordProblem": "A large company is planning a massive expansion, and they need to hire a significant number of new employees.  They've already determined they need to hire 3,600,000 new employees across all their divisions.  If they plan to hire the same number of employees for each of their 1200 divisions, how many employees will they need to hire for each division?  Let 'x' represent the number of employees to be hired per division.",
+      "solutions": {
+        "x": 3000
+      }
+    },
+    "time": 15,
+    "id": 2419
+  },
+  {
+    "generator": "math-word-8-1-lever-fulcrum-weight",
+    "problem": "A washer with a mass of 5 kg is placed 10 cm from the fulcrum of a lever. How far from the fulcrum should a 20 kg washer be placed on the other side of the fulcrum in order to balance the lever? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20 * x = 10 * 5"
+      ],
+      "wordProblem": "A washer with a mass of 5 kg is placed 10 cm from the fulcrum of a lever.  How far from the fulcrum should a 20 kg washer be placed on the other side of the fulcrum in order to balance the lever?",
+      "solutions": {
+        "x": 2.5
+      }
+    },
+    "time": 10,
+    "id": 2420
+  },
+  {
+    "generator": "math-word-8-1-mass",
+    "problem": "A group of friends wants to buy a pizza that costs \\$75. They decide to split the cost evenly. They also need to pay a \\$15 delivery fee. If each friend contributes \\$10, how many friends are in the group? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "10x + 15 = 75"
+      ],
+      "wordProblem": "A group of friends wants to buy a pizza that costs \\$75.  They decide to split the cost evenly.  They also need to pay a \\$15 delivery fee.  If each friend contributes \\$10, how many friends are in the group?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2421
   },
   {
     "generator": "math-word-8-1-probability",
@@ -37120,7 +39833,22 @@
       }
     },
     "time": 30,
-    "id": 2251
+    "id": 2422
+  },
+  {
+    "generator": "math-word-8-1-probability",
+    "problem": "A family is trying to be economical with their water usage. They are trying to reduce their water consumption by 25%. If their current water bill is 15 euros, how much water were they using before the reduction? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 0.25x = 15"
+      ],
+      "wordProblem": "A family is trying to be economical with their water usage. They are trying to reduce their water consumption by 25%. If their current water bill is 15 euros, how much water were they using before the reduction?",
+      "solutions": {
+        "x": 12
+      }
+    },
+    "time": 15,
+    "id": 2423
   },
   {
     "generator": "math-word-8-1-reality",
@@ -37135,7 +39863,22 @@
       }
     },
     "time": 15,
-    "id": 2252
+    "id": 2424
+  },
+  {
+    "generator": "math-word-8-1-reality",
+    "problem": "A group of friends are planning a trip to the amusement park. They have a budget of 52 euros for snacks and drinks. They decide to buy 4 packs of chips, each costing 10 euros. How much money do they have left to spend on drinks? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4x + 12 = 52"
+      ],
+      "wordProblem": "A group of friends are planning a trip to the amusement park. They have a budget of 52 euros for snacks and drinks. They decide to buy 4 packs of chips, each costing 10 euros. How much money do they have left to spend on drinks?",
+      "solutions": {
+        "x": 10
+      }
+    },
+    "time": 15,
+    "id": 2425
   },
   {
     "generator": "math-word-8-1-science",
@@ -37150,7 +39893,7 @@
       }
     },
     "time": 10,
-    "id": 2253
+    "id": 2426
   },
   {
     "generator": "math-word-8-1-slice-of-life",
@@ -37165,7 +39908,37 @@
       }
     },
     "time": 15,
-    "id": 2254
+    "id": 2427
+  },
+  {
+    "generator": "math-word-8-1-slice-of-life",
+    "problem": "A rogue squirrel has stolen 5 of your precious acorns. You know you had 12 acorns to begin with. How many acorns did you have before the rogue squirrel took some? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + 5 = 12"
+      ],
+      "wordProblem": "A rogue squirrel has stolen 5 of your precious acorns. You know you had 12 acorns to begin with. How many acorns did you have before the rogue squirrel took some?",
+      "solutions": {
+        "x": 7
+      }
+    },
+    "time": 10,
+    "id": 2428
+  },
+  {
+    "generator": "math-word-8-1-speed",
+    "problem": "A lamenting poet is writing a poem about a lost love. He has a total of 100 words to use, but he's already used 2 words per line and has 40 words left. How many lines of poetry has he written? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "100 - 2x = 40"
+      ],
+      "wordProblem": "A lamenting poet is writing a poem about a lost love. He has a total of 100 words to use, but he's already used 2 words per line and has 40 words left. How many lines of poetry has he written?",
+      "solutions": {
+        "x": 30
+      }
+    },
+    "time": 15,
+    "id": 2429
   },
   {
     "generator": "math-word-8-1-system-of-equations",
@@ -37180,7 +39953,7 @@
       }
     },
     "time": 15,
-    "id": 2255
+    "id": 2430
   },
   {
     "generator": "math-word-8-1-work",
@@ -37195,7 +39968,22 @@
       }
     },
     "time": 15,
-    "id": 2256
+    "id": 2431
+  },
+  {
+    "generator": "math-word-8-1-work",
+    "problem": "A group of friends decided to buy a clump of flowers for their teacher. Each flower costs \\$5 and they had \\$12 left over after buying the flowers. If they spent a total of \\$37, how many flowers did they buy? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 12 = 37"
+      ],
+      "wordProblem": "A group of friends decided to buy a clump of flowers for their teacher. Each flower costs \\$5 and they had \\$12 left over after buying the flowers. If they spent a total of \\$37, how many flowers did they buy?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2432
   },
   {
     "generator": "math-word-8-2-fraction-subtraction",
@@ -37212,7 +40000,7 @@
       }
     },
     "time": 60,
-    "id": 2257
+    "id": 2433
   },
   {
     "generator": "math-word-8-2-large-integer-division",
@@ -37229,7 +40017,7 @@
       }
     },
     "time": 60,
-    "id": 2258
+    "id": 2434
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
@@ -37246,7 +40034,7 @@
       }
     },
     "time": "60",
-    "id": 2259
+    "id": 2435
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
@@ -37263,7 +40051,7 @@
       }
     },
     "time": 60,
-    "id": 2260
+    "id": 2436
   },
   {
     "generator": "math-word-8-2-mass",
@@ -37280,7 +40068,7 @@
       }
     },
     "time": 60,
-    "id": 2261
+    "id": 2437
   },
   {
     "generator": "math-word-8-2-slice-of-life",
@@ -37297,7 +40085,7 @@
       }
     },
     "time": 60,
-    "id": 2262
+    "id": 2438
   },
   {
     "generator": "math-word-8-2-speed",
@@ -37314,7 +40102,58 @@
       }
     },
     "time": 30,
-    "id": 2263
+    "id": 2439
+  },
+  {
+    "generator": "math-word-8-2-speed",
+    "problem": "Worrying about his upcoming math test, David decided to study for 120 minutes in total. He studied for twice as long on Algebra as he did on Geometry, but he spent 30 minutes longer on Geometry than twice the time he spent on Algebra. How many minutes did David spend studying for each subject? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 280"
+      ],
+      "wordProblem": "Worrying about his upcoming math test, David decided to study for 120 minutes in total. He studied for twice as long on Algebra as he did on Geometry, but he spent 30 minutes longer on Geometry than twice the time he spent on Algebra. How many minutes did David spend studying for each subject?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 30,
+    "id": 2440
+  },
+  {
+    "generator": "math-word-8-2-speed",
+    "problem": "A flock of geese migrates 1000 kilometers in two days. On the first day, they fly x kilometers, and on the second day, they fly y kilometers. If the geese fly 100 kilometers more on the first day than the second day, how many kilometers do they fly each day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 1000",
+        "x - y = 100"
+      ],
+      "wordProblem": "A flock of geese migrates 1000 kilometers in two days. On the first day, they fly x kilometers, and on the second day, they fly y kilometers. If the geese fly 100 kilometers more on the first day than the second day, how many kilometers do they fly each day?",
+      "solutions": {
+        "x": 550,
+        "y": 450
+      }
+    },
+    "time": 60,
+    "id": 2441
+  },
+  {
+    "generator": "math-word-8-2-system-of-equations",
+    "problem": "A furniture maker polishes two types of wooden surfaces: tables and chairs. Each table requires 1 hour of polishing and each chair requires 1 hour of polishing. In a day, the furniture maker polishes a total of 120 pieces. He polishes 40 more chairs than tables. How many tables and chairs did he polish that day? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "x - y = 40"
+      ],
+      "wordProblem": "A furniture maker polishes two types of wooden surfaces: tables and chairs. Each table requires 1 hour of polishing and each chair requires 1 hour of polishing. In a day, the furniture maker polishes a total of 120 pieces. He polishes 40 more chairs than tables. How many tables and chairs did he polish that day?",
+      "solutions": {
+        "x": 80,
+        "y": 40
+      }
+    },
+    "time": 15,
+    "id": 2442
   },
   {
     "generator": "math-word-8-2-work",
@@ -37331,7 +40170,39 @@
       }
     },
     "time": 60,
-    "id": 2264
+    "id": 2443
+  },
+  {
+    "generator": "math-word-8-2-work",
+    "problem": "A closed rectangular box has a perimeter of 15 meters. The length of the box is 3 meters more than the width. What are the length and width of the box? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 15",
+        "x - y = 3"
+      ],
+      "wordProblem": "A closed rectangular box has a perimeter of 15 meters.  The length of the box is 3 meters more than the width.  What are the length and width of the box?",
+      "solutions": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    "time": 60,
+    "id": 2444
+  },
+  {
+    "generator": "math-word-9-1-fraction-subtraction",
+    "problem": "A dentist has a 1-meter long roll of dental floss. He uses 1/3 of it for one patient and then 1/4 of it for another patient. If he has 5 centimeters of floss left, how much floss did he start with in centimeters? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x - (1/3)x - (1/4)x = 5"
+      ],
+      "wordProblem": "A dentist has a 1-meter long roll of dental floss. He uses 1/3 of it for one patient and then 1/4 of it for another patient.  If he has 5 centimeters of floss left, how much floss did he start with in centimeters?",
+      "solutions": {
+        "x": 60
+      }
+    },
+    "time": 15,
+    "id": 2445
   },
   {
     "generator": "math-word-9-1-geometry",
@@ -37346,7 +40217,22 @@
       }
     },
     "time": 15,
-    "id": 2265
+    "id": 2446
+  },
+  {
+    "generator": "math-word-9-1-geometry",
+    "problem": "A group of friends are planning an unforgettable trip. They want to rent a car for the journey. The rental company charges a flat fee of 5 euros and 2 euros per kilometer for the first 300 kilometers. After that, they charge 3 euros per kilometer. If the friends drove a total of 400 kilometers and paid 15 euros, how many kilometers did they drive after the first 300 kilometers? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2*x + 3*x - 5 = 15"
+      ],
+      "wordProblem": "A group of friends are planning an unforgettable trip. They want to rent a car for the journey. The rental company charges a flat fee of 5 euros and 2 euros per kilometer for the first 300 kilometers. After that, they charge 3 euros per kilometer. If the friends drove a total of 400 kilometers and paid 15 euros, how many kilometers did they drive after the first 300 kilometers?",
+      "solutions": {
+        "x": 4
+      }
+    },
+    "time": 15,
+    "id": 2447
   },
   {
     "generator": "math-word-9-1-large-integer-addition",
@@ -37361,7 +40247,7 @@
       }
     },
     "time": 10,
-    "id": 2266
+    "id": 2448
   },
   {
     "generator": "math-word-9-1-large-integer-subtraction",
@@ -37376,7 +40262,7 @@
       }
     },
     "time": 10,
-    "id": 2267
+    "id": 2449
   },
   {
     "generator": "math-word-9-1-lever-fulcrum-weight",
@@ -37391,7 +40277,7 @@
       }
     },
     "time": 10,
-    "id": 2268
+    "id": 2450
   },
   {
     "generator": "math-word-9-1-mass",
@@ -37406,7 +40292,7 @@
       }
     },
     "time": 15,
-    "id": 2269
+    "id": 2451
   },
   {
     "generator": "math-word-9-1-science",
@@ -37421,7 +40307,7 @@
       }
     },
     "time": 15,
-    "id": 2270
+    "id": 2452
   },
   {
     "generator": "math-word-9-1-slice-of-life",
@@ -37436,7 +40322,67 @@
       }
     },
     "time": 10,
-    "id": 2271
+    "id": 2453
+  },
+  {
+    "generator": "math-word-9-1-slice-of-life",
+    "problem": "Sarah is expecting a package delivery. She knows the delivery person charges a flat fee of \\$5 plus \\$2 per kilometer driven. If the total cost of the delivery was \\$15, how many kilometers did the delivery person drive? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 5 = 15"
+      ],
+      "wordProblem": "Sarah is expecting a package delivery. She knows the delivery person charges a flat fee of \\$5 plus \\$2 per kilometer driven. If the total cost of the delivery was \\$15, how many kilometers did the delivery person drive?",
+      "solutions": {
+        "x": 5
+      }
+    },
+    "time": 15,
+    "id": 2454
+  },
+  {
+    "generator": "math-word-9-1-slice-of-life",
+    "problem": "A group of friends are planning a trip to the amusement park. They have `40` euros to spend on tickets. Each ticket costs `5` euros. They also have to pay `10` euros for parking. How many tickets can they buy? Let `x` represent the number of tickets they can buy. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 40"
+      ],
+      "wordProblem": "A group of friends are planning a trip to the amusement park. They have  `40` euros to spend on tickets.  Each ticket costs `5` euros.  They also have to pay `10` euros for parking. How many tickets can they buy? Let `x` represent the number of tickets they can buy.",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 15,
+    "id": 2455
+  },
+  {
+    "generator": "math-word-9-1-space",
+    "problem": "A space probe is traveling at a speed of 1000 km/s. It needs to slow down to 800 km/s to enter the orbit of a distant planet. If the probe uses a braking system that slows it down by 200 km/s per second, how many seconds will it take for the probe to reach the desired speed? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "1000x - 200 = 800"
+      ],
+      "wordProblem": "A space probe is traveling at a speed of 1000 km/s. It needs to slow down to 800 km/s to enter the orbit of a distant planet. If the probe uses a braking system that slows it down by 200 km/s per second, how many seconds will it take for the probe to reach the desired speed?",
+      "solutions": {
+        "x": 1
+      }
+    },
+    "time": 5,
+    "id": 2456
+  },
+  {
+    "generator": "math-word-9-1-space",
+    "problem": "A space explorer discovers a magnificent palace on a distant planet. The palace is shaped like a rectangular prism with a length of 20 meters and a width of 45 meters. The explorer calculates the total surface area of the palace to be 185 square meters. What is the height of the palace in meters? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20x + 45 = 185"
+      ],
+      "wordProblem": "A space explorer discovers a magnificent palace on a distant planet. The palace is shaped like a rectangular prism with a length of 20 meters and a width of 45 meters.  The explorer calculates the total surface area of the palace to be 185 square meters.  What is the height of the palace in meters?",
+      "solutions": {
+        "x": 1
+      }
+    },
+    "time": 10,
+    "id": 2457
   },
   {
     "generator": "math-word-9-1-system-of-equations",
@@ -37451,7 +40397,7 @@
       }
     },
     "time": 15,
-    "id": 2272
+    "id": 2458
   },
   {
     "generator": "math-word-9-1-system-of-equations",
@@ -37466,7 +40412,71 @@
       }
     },
     "time": 15,
-    "id": 2273
+    "id": 2459
+  },
+  {
+    "generator": "math-word-9-1-system-of-equations",
+    "problem": "A detective is investigating a theft. They know the thief stole a total of 34 kilograms of valuable items. The detective finds 10 kilograms of the stolen items at the thief's house. The detective also suspects that the thief hid some of the stolen items in a nearby abandoned warehouse. If the thief hid the rest of the stolen items at the warehouse, how many kilograms of stolen items are at the warehouse? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "4x + 10 = 34"
+      ],
+      "wordProblem": "A detective is investigating a theft. They know the thief stole a total of 34 kilograms of valuable items. The detective finds 10 kilograms of the stolen items at the thief's house.  The detective also suspects that the thief hid some of the stolen items in a nearby abandoned warehouse.  If the thief hid the rest of the stolen items at the warehouse, how many kilograms of stolen items are at the warehouse?",
+      "solutions": {
+        "x": 6
+      }
+    },
+    "time": 10,
+    "id": 2460
+  },
+  {
+    "generator": "math-word-9-1-travel",
+    "problem": "A group of friends wants to rent a car for their weekend trip. The rental company charges a flat fee of €10 plus €5 per day. If the total cost of the rental is €100, how many days did the friends rent the car for? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "5x + 10 = 100"
+      ],
+      "wordProblem": "A group of friends wants to rent a car for their weekend trip. The rental company charges a flat fee of €10 plus €5 per day.  If the total cost of the rental is €100, how many days did the friends rent the car for?",
+      "solutions": {
+        "x": 18
+      }
+    },
+    "time": 15,
+    "id": 2461
+  },
+  {
+    "generator": "math-word-9-2-distance",
+    "problem": "A theater group is planning a monologue competition. They want to have a total of 100 participants, with each participant performing either a 2-minute monologue or a 1-minute monologue. If they want to have 20 more participants performing 2-minute monologues than 1-minute monologues, how many participants will perform each type of monologue? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + y = 100",
+        "x - y = 20"
+      ],
+      "wordProblem": "A theater group is planning a monologue competition. They want to have a total of 100 participants, with each participant performing either a 2-minute monologue or a 1-minute monologue. If they want to have 20 more participants performing 2-minute monologues than 1-minute monologues, how many participants will perform each type of monologue?",
+      "solutions": {
+        "x": 40,
+        "y": 20
+      }
+    },
+    "time": 60,
+    "id": 2462
+  },
+  {
+    "generator": "math-word-9-2-fraction-subtraction",
+    "problem": "A mechanic needs to mix two types of oil for a car engine. He has 10 liters of oil in total. He knows that one type of oil is 2 liters less than the other. How many liters of each type of oil does he have? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 10",
+        "x - y = 2"
+      ],
+      "wordProblem": "A mechanic needs to mix two types of oil for a car engine. He has 10 liters of oil in total. He knows that one type of oil is 2 liters less than the other. How many liters of each type of oil does he have?",
+      "solutions": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    "time": 60,
+    "id": 2463
   },
   {
     "generator": "math-word-9-2-large-integer-addition",
@@ -37483,7 +40493,24 @@
       }
     },
     "time": 60,
-    "id": 2274
+    "id": 2464
+  },
+  {
+    "generator": "math-word-9-2-large-integer-multiplication",
+    "problem": "A bakery is making two types of pies: apple pies and blueberry pies. Each apple pie requires 20 grams of sugar and each blueberry pie requires 3 grams of sugar. The bakery has 500,000 grams of sugar available. Each apple pie needs 10,000 grams of flour, and each blueberry pie needs 2,000 grams of flour. The bakery has 10,000 grams of flour available. Let 'x' be the number of apple pies and 'y' be the number of blueberry pies. Write a system of equations to represent this situation. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "20x + 3y = 500000",
+        "x - 2y = 10000"
+      ],
+      "wordProblem": "A bakery is making two types of pies: apple pies and blueberry pies. Each apple pie requires 20 grams of sugar and each blueberry pie requires 3 grams of sugar. The bakery has 500,000 grams of sugar available.  Each apple pie needs 10,000 grams of flour, and each blueberry pie needs 2,000 grams of flour. The bakery has 10,000 grams of flour available.  Let 'x' be the number of apple pies and 'y' be the number of blueberry pies.  Write a system of equations to represent this situation.",
+      "solutions": {
+        "x": 24000,
+        "y": 7000
+      }
+    },
+    "time": "30-60 seconds",
+    "id": 2465
   },
   {
     "generator": "math-word-9-2-large-integer-subtraction",
@@ -37500,7 +40527,41 @@
       }
     },
     "time": "30",
-    "id": 2275
+    "id": 2466
+  },
+  {
+    "generator": "math-word-9-2-large-integer-subtraction",
+    "problem": "A recreational park has two large sections: a forest area and a lake area. The total area of the park is 52,000 square meters. The forest area is 12,000 square meters larger than the lake area. What is the area of each section? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 52000",
+        "x - y = 12000"
+      ],
+      "wordProblem": "A recreational park has two large sections: a forest area and a lake area. The total area of the park is 52,000 square meters. The forest area is 12,000 square meters larger than the lake area. What is the area of each section?",
+      "solutions": {
+        "x": 32000,
+        "y": 20000
+      }
+    },
+    "time": 60,
+    "id": 2467
+  },
+  {
+    "generator": "math-word-9-2-lever-fulcrum-weight",
+    "problem": "A seesaw is balanced with a weight of 2 kg on one side and a weight of 3 kg on the other side. The 2 kg weight is placed 10 cm closer to the fulcrum than the 3 kg weight. Let `x` be the distance of the 2 kg weight from the fulcrum and `y` be the distance of the 3 kg weight from the fulcrum. Write a system of equations to represent this scenario and solve for the distances `x` and `y`. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 150",
+        "x - y = 10"
+      ],
+      "wordProblem": "A seesaw is balanced with a weight of 2 kg on one side and a weight of 3 kg on the other side. The 2 kg weight is placed 10 cm closer to the fulcrum than the 3 kg weight.  Let `x` be the distance of the 2 kg weight from the fulcrum and `y` be the distance of the 3 kg weight from the fulcrum.  Write a system of equations to represent this scenario and solve for the distances `x` and `y`.",
+      "solutions": {
+        "x": 35,
+        "y": 25
+      }
+    },
+    "time": 60,
+    "id": 2468
   },
   {
     "generator": "math-word-9-2-mass",
@@ -37517,7 +40578,7 @@
       }
     },
     "time": 30,
-    "id": 2276
+    "id": 2469
   },
   {
     "generator": "math-word-9-2-probability",
@@ -37534,7 +40595,75 @@
       }
     },
     "time": 60,
-    "id": 2277
+    "id": 2470
+  },
+  {
+    "generator": "math-word-9-2-probability",
+    "problem": "A group of friends are planning a trip eastward. They want to travel 100 km by train and then 10 km by bicycle. They know that the train travels 3 times faster than the bicycle. Let `x` represent the speed of the train in km/h and `y` represent the speed of the bicycle in km/h. If they plan to spend 2 hours on the train and 3 hours on the bicycle, what is the speed of the train and the bicycle? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 100",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a trip eastward. They want to travel 100 km by train and then 10 km by bicycle. They know that the train travels 3 times faster than the bicycle. Let `x` represent the speed of the train in km/h and `y` represent the speed of the bicycle in km/h. If they plan to spend 2 hours on the train and 3 hours on the bicycle, what is the speed of the train and the bicycle? ",
+      "solutions": {
+        "x": 35,
+        "y": 25
+      }
+    },
+    "time": 60,
+    "id": 2471
+  },
+  {
+    "generator": "math-word-9-2-probability",
+    "problem": "A caring volunteer group is making care packages for the local homeless shelter. They have 120 items to distribute, including blankets and hygiene kits. Each care package will have 2 blankets and 3 hygiene kits. If they use all of the items, how many care packages can they make? Let x represent the number of blankets and y represent the number of hygiene kits. <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 120",
+        "2x + 3y = 280"
+      ],
+      "wordProblem": "A caring volunteer group is making care packages for the local homeless shelter. They have 120 items to distribute, including blankets and hygiene kits.  Each care package will have 2 blankets and 3 hygiene kits.  If they use all of the items, how many care packages can they make?  Let x represent the number of blankets and y represent the number of hygiene kits.",
+      "solutions": {
+        "x": 40,
+        "y": 80
+      }
+    },
+    "time": 60,
+    "id": 2472
+  },
+  {
+    "generator": "math-word-9-2-proportion",
+    "problem": "A lunar rover travels 120 kilometers in 3 hours. The rover travels at a constant speed and uses a combination of solar and battery power. The solar power provides 2 kilometers traveled for every 1 kilometer traveled by battery power. How many kilometers does the rover travel using solar power and how many kilometers does the rover travel using battery power? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2y = 120",
+        "x - y = 10"
+      ],
+      "wordProblem": "A lunar rover travels 120 kilometers in 3 hours.  The rover travels at a constant speed and uses a combination of solar and battery power.  The solar power provides 2 kilometers traveled for every 1 kilometer traveled by battery power.  How many kilometers does the rover travel using solar power and how many kilometers does the rover travel using battery power?",
+      "solutions": {
+        "x": 30,
+        "y": 20
+      }
+    },
+    "time": 30,
+    "id": 2473
+  },
+  {
+    "generator": "math-word-9-2-proportion",
+    "problem": "A school is organizing a fundraising event. They are selling two types of tickets: regular tickets and VIP tickets. Regular tickets cost \\$15 each and VIP tickets cost \\$20 each. They sold a total of 100 tickets and raised \\$18 in total. How many of each type of ticket did they sell? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "x + y = 100",
+        "0.15x + 0.20y = 18"
+      ],
+      "wordProblem": "A school is organizing a fundraising event. They are selling two types of tickets: regular tickets and VIP tickets. Regular tickets cost \\$15 each and VIP tickets cost \\$20 each. They sold a total of 100 tickets and raised \\$18 in total. How many of each type of ticket did they sell?",
+      "solutions": {
+        "x": 60,
+        "y": 40
+      }
+    },
+    "time": 60,
+    "id": 2474
   },
   {
     "generator": "math-word-9-2-science",
@@ -37551,7 +40680,24 @@
       }
     },
     "time": 30,
-    "id": 2278
+    "id": 2475
+  },
+  {
+    "generator": "math-word-9-2-science",
+    "problem": "A science experiment requires two types of solutions, A and B. Solution A contains 2 grams of a certain chemical per liter and Solution B contains 3 grams of the same chemical per liter. A scientist needs to mix a total of 15 grams of the chemical. They also need to use 2 more liters of Solution A than Solution B. How many liters of each solution should the scientist use? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2x + 3y = 15",
+        "x - y = 2"
+      ],
+      "wordProblem": "A science experiment requires two types of solutions, A and B.  Solution A contains 2 grams of a certain chemical per liter and Solution B contains 3 grams of the same chemical per liter.  A scientist needs to mix a total of 15 grams of the chemical. They also need to use 2 more liters of Solution A than Solution B. How many liters of each solution should the scientist use?",
+      "solutions": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    "time": 60,
+    "id": 2476
   },
   {
     "generator": "math-word-9-2-slice-of-life",
@@ -37568,7 +40714,24 @@
       }
     },
     "time": 30,
-    "id": 2279
+    "id": 2477
+  },
+  {
+    "generator": "math-word-9-2-slice-of-life",
+    "problem": "A group of friends are planning a 'warlike' themed party. They want to buy 3 packs of inflatable swords and 2 packs of inflatable shields for a total cost of 100 euros. They also know that one pack of swords costs 10 euros more than one pack of shields. How much does one pack of swords and one pack of shields cost? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "3x + 2y = 100",
+        "x - y = 10"
+      ],
+      "wordProblem": "A group of friends are planning a 'warlike' themed party. They want to buy 3 packs of inflatable swords and 2 packs of inflatable shields for a total cost of 100 euros. They also know that one pack of swords costs 10 euros more than one pack of shields. How much does one pack of swords and one pack of shields cost?",
+      "solutions": {
+        "x": 20,
+        "y": 10
+      }
+    },
+    "time": 60,
+    "id": 2478
   },
   {
     "generator": "math-word-9-2-speed",
@@ -37585,7 +40748,7 @@
       }
     },
     "time": 60,
-    "id": 2280
+    "id": 2479
   },
   {
     "generator": "math-word-9-2-speed",
@@ -37602,7 +40765,24 @@
       }
     },
     "time": 60,
-    "id": 2281
+    "id": 2480
+  },
+  {
+    "generator": "math-word-9-2-speed",
+    "problem": "A wise old sage has 150 cm of wood to make two different types of walking sticks. He wants to make 2 walking sticks of type W and 3 of type S. He knows that type W walking sticks need to be 15 cm longer than type S walking sticks. What is the length of each type of walking stick? <ruled-line></ruled-line> <ruled-line></ruled-line> <ruled-line></ruled-line>",
+    "solution": {
+      "equations": [
+        "2w + 3s = 150",
+        "w = s + 15"
+      ],
+      "wordProblem": "A wise old sage has 150 cm of wood to make two different types of walking sticks. He wants to make 2 walking sticks of type W and 3 of type S.  He knows that type W walking sticks need to be 15 cm longer than type S walking sticks.  What is the length of each type of walking stick?",
+      "solutions": {
+        "w": 45,
+        "s": 30
+      }
+    },
+    "time": 60,
+    "id": 2481
   },
   {
     "generator": "math-word-9-2-travel",
@@ -37619,7 +40799,7 @@
       }
     },
     "time": 60,
-    "id": 2282
+    "id": 2482
   },
   {
     "generator": "math-word-9-2-work",
@@ -37636,7 +40816,7 @@
       }
     },
     "time": 60,
-    "id": 2283
+    "id": 2483
   }
 ];
   
