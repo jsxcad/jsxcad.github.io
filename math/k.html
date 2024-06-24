@@ -20,14 +20,6 @@
    }
 
    .sheet {
-     position: absolute;
-     top: 1em;
-     bottom: 1em;
-     width: 210mm;
-     height: 278mm;
-     overflow: hidden;
-     column-count: 2;
-     column-width: 50%;
    }
 
    .column {
@@ -51,30 +43,24 @@
    .tooltip {
    }
 
-   .tooltip .tooltiptext {
-     display: none;
-     visibility: hidden;
+   .wbw {
      width: 100%;
-     background-color: black;
-     color: #fff;
-     padding: 5px 0;
-     border-radius: 6px;
-
-     /* Positioning */
-     position: relative;
-     z-index: 1;
-     left: 0;
-     top: 0;
-
-     /* Optional: Fade-in transition */
-     opacity: 0;
-     transition: opacity 0.3s;
+     background-color: yellow;
+     color: yellow;
    }
 
-   .tooltip:hover .tooltiptext {
-     visibility: visible;
-     display: block;
-     opacity: 1;
+   .wbw:hover {
+     color: black;
+   }
+
+   .ot {
+     width: 100%;
+     background-color: black;
+     color: black;
+   }
+
+   .ot:hover {
+     color: white;
    }
   </style>
  </head>
@@ -82,7 +68,7 @@
   <div class="sheet" id="sheet"></div>
   <script type="module">
     import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
-    import { escapeHtml, loadProblems, loadTags, generateProblemElement, saveProblem, shuffle } from './common.js';
+    import { escapeHtml, loadProblems, loadTags, saveProblem, shuffle } from './common.js';
 
     while (!MathJax.startup) {
       await new Promise(resolve => setTimeout(resolve, 10)); // Wait 10ms
@@ -104,6 +90,33 @@
 
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
+
+    const generateProblemElement = ({ id = -1, generator, problem, solution, lines = 4, tags = [], note }) => {
+      const e = document.createElement('div');
+      e.classList.add('problem', 'tooltip');
+      const wbws = [];
+      const ots = [];
+      for (const entry of solution) {
+        const wbw = [];
+        for (let [k, v] of Object.entries(entry.wordByWordTranslation)) {
+          if (typeof v === 'object') {
+            v = v.english;
+          }
+          wbw.push(`<span style="white-space: nowrap">${k}(${v})</span>`);
+        }
+        wbws.push(`<div class="wbw">${wbw.join(' ')}</div>`);
+        const ot = entry.overallTranslation;
+        ots.push(`<div class="ot">${ot}</div>`);
+      }
+      e.innerHTML =
+        `
+          <div class="generator">${generator}</div>
+          ${problem}
+          ${wbws.join(' ')}
+          ${ots.join('<br>')}
+        `;
+      return e;
+    };
 
     const chooseProblem = (chosen, generatorUses, problems) => {
       if (s.length > 0) {
@@ -199,9 +212,11 @@
       await saveProblem(problem);
     }, true);
 
+    let problemCount = 0;
+
     const renderSheet = async (sheet) => {
       const collectedProblems = [];
-      for (let nth = 0; ; nth++) {
+      for (let nth = 0; problemCount < 5 ; nth++) {
         const problem = chooseProblem(chosen, generatorUses, problems);
         if (problem === undefined) {
           break;
@@ -214,6 +229,7 @@
         chosen.add(problem);
         problemByRender.set(e, problem);
         addGeneratorUses(problem.generator);
+        problemCount++;
       }
     };
 
