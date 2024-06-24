@@ -11547,6 +11547,78 @@
     "id": 1805
   },
   {
+    "generator": "korean-gap-story-1-dystopian-gemini",
+    "input": "surfing",
+    "problem": "햇살 가득한 해변에 서핑 보드를 든 사람들이 많았어요.<br> 파도가 넘실넘실 춤을 추며 해변으로 다가왔어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그런데 갑자기 하늘이 검게 변하며 괴물이 나타났어요!<br> 괴물은 커다란 입을 벌리고 서핑 보드를 삼켜 버렸어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 해변에 서핑 보드를 든 사람들이 많았어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "full",
+          "해변에": "beach",
+          "서핑": "surfing",
+          "보드를": "board",
+          "든": "holding",
+          "사람들이": "people",
+          "많았어요": "were many"
+        },
+        "overallTranslation": "There were many people holding surfboards on the sunny beach."
+      },
+      {
+        "korean": "파도가 넘실넘실 춤을 추며 해변으로 다가왔어요.",
+        "wordByWordTranslation": {
+          "파도가": "waves",
+          "넘실넘실": "swaying",
+          "춤을": "dance",
+          "추며": "dancing",
+          "해변으로": "to the beach",
+          "다가왔어요": "came"
+        },
+        "overallTranslation": "The waves swayed and danced, approaching the beach."
+      },
+      {
+        "korean": "그런데 갑자기 하늘이 검게 변하며 괴물이 나타났어요!",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "갑자기": "suddenly",
+          "하늘이": "sky",
+          "검게": "black",
+          "변하며": "changing",
+          "괴물이": "monster",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "But suddenly, the sky turned black and a monster appeared!"
+      },
+      {
+        "korean": "괴물은 커다란 입을 벌리고 서핑 보드를 삼켜 버렸어요.",
+        "wordByWordTranslation": {
+          "괴물은": "monster",
+          "커다란": "huge",
+          "입을": "mouth",
+          "벌리고": "opening",
+          "서핑": "surfing",
+          "보드를": "board",
+          "삼켜": "swallowed",
+          "버렸어요": "it"
+        },
+        "overallTranslation": "The monster opened its huge mouth and swallowed the surfboards."
+      },
+      {
+        "korean": "사람들은 모두 겁에 질려 도망갔어요.",
+        "wordByWordTranslation": {
+          "사람들은": "people",
+          "모두": "all",
+          "겁에": "fear",
+          "질려": "scared",
+          "도망갔어요": "ran away"
+        },
+        "overallTranslation": "Everyone was scared and ran away."
+      }
+    ],
+    "id": 1806
+  },
+  {
     "generator": "korean-gap-story-1-espionage-gemini",
     "input": "dripping",
     "problem": "어두운 골목길에서 남자(男子)는 숨을 죽이고 있었습니다. <br> 그는 땀방울이 뚝뚝 떨어지는 이마를 닦으며 주위(周圍)를 경계(警戒)했습니다. <br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 어둠 속에서 그림자가 나타났습니다. <br> 그림자는 날카로운 칼을 들고 있었고, 남자(男子)는 깜짝 놀랐습니다. <br>",
@@ -11629,7 +11701,7 @@
         "hanjaro": "그림자가 속삭였습니다. “비밀(祕密)을 털어놓으세요.”\n"
       }
     ],
-    "id": 1806
+    "id": 1807
   },
   {
     "generator": "korean-gap-story-1-gunslinger-gemini",
@@ -11701,7 +11773,99 @@
         "hanjaro": "그는 반사적(反射的)으로 총(銃)을 뽑아 들었습니다.\n"
       }
     ],
-    "id": 1807
+    "id": 1808
+  },
+  {
+    "generator": "korean-gap-story-1-high-fantasy-gemini",
+    "input": "instrumental",
+    "problem": "어두운 숲 속에서, 엘라는 작은 악기를 연주하고 있었어요.<br> 그녀의 음악은 아름다웠고, 숲속 동물들은 모두 엘라의 음악에 귀 기울였어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 숲은 환하게 빛났고, 엘라는 눈을 가늘게 뜨며 주위를 둘러보았어요.<br> 그녀의 악기가 빛나는 빛을 내뿜고 있었고, 엘라는 놀라서 악기를 떨어뜨렸어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 엘라는 작은 악기를 연주하고 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "엘라": "Ella",
+          "작은": "small",
+          "악기": "instrument",
+          "연주": "play",
+          "하고": "do",
+          "있었어요": "was"
+        },
+        "overallTranslation": "In the dark forest, Ella was playing a small instrument."
+      },
+      {
+        "korean": "그녀의 음악은 아름다웠고, 숲속 동물들은 모두 엘라의 음악에 귀 기울였어요.",
+        "wordByWordTranslation": {
+          "그녀": "her",
+          "음악": "music",
+          "아름다웠고": "was beautiful",
+          "숲속": "forest",
+          "동물": "animals",
+          "모두": "all",
+          "엘라": "Ella",
+          "귀": "ear",
+          "기울였어요": "tilted"
+        },
+        "overallTranslation": "Her music was beautiful, and all the forest animals listened to Ella's music."
+      },
+      {
+        "korean": "갑자기, 숲은 환하게 빛났고, 엘라는 눈을 가늘게 뜨며 주위를 둘러보았어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "숲": "forest",
+          "환하게": "brightly",
+          "빛났고": "shone",
+          "엘라": "Ella",
+          "눈": "eye",
+          "가늘게": "narrowly",
+          "뜨며": "opening",
+          "주위": "surroundings",
+          "둘러보았어요": "looked around"
+        },
+        "overallTranslation": "Suddenly, the forest shone brightly, and Ella narrowed her eyes and looked around."
+      },
+      {
+        "korean": "그녀의 악기가 빛나는 빛을 내뿜고 있었고, 엘라는 놀라서 악기를 떨어뜨렸어요.",
+        "wordByWordTranslation": {
+          "그녀": "her",
+          "악기": "instrument",
+          "빛나는": "shining",
+          "빛": "light",
+          "내뿜고": "emitting",
+          "있었고": "was",
+          "엘라": "Ella",
+          "놀라서": "surprised",
+          "떨어뜨렸어요": "dropped"
+        },
+        "overallTranslation": "Her instrument was emitting a shining light, and Ella dropped it in surprise."
+      },
+      {
+        "korean": "숲속 동물들은 모두 엘라를 신기하게 바라보았고, 엘라는 이제 자신이 특별한 힘을 가진 악기를 연주하고 있다는 것을 알았어요.",
+        "wordByWordTranslation": {
+          "숲속": "forest",
+          "동물": "animals",
+          "모두": "all",
+          "엘라": "Ella",
+          "신기하게": "curiously",
+          "바라보았고": "looked",
+          "이제": "now",
+          "자신": "herself",
+          "특별한": "special",
+          "힘": "power",
+          "가진": "possessing",
+          "악기": "instrument",
+          "연주": "playing",
+          "하고": "doing",
+          "있다는": "that",
+          "것을": "thing",
+          "알았어요": "knew"
+        },
+        "overallTranslation": "All the forest animals looked at Ella curiously, and Ella now knew that she was playing an instrument with special powers."
+      }
+    ],
+    "id": 1809
   },
   {
     "generator": "korean-gap-story-1-horror-gemini",
@@ -11767,7 +11931,7 @@
         "overallTranslation": "But there was no one there."
       }
     ],
-    "id": 1808
+    "id": 1810
   },
   {
     "generator": "korean-gap-story-1-military-gemini",
@@ -11847,7 +12011,7 @@
         "hanjaro": "그는 칼 대신(代身) 망치를 들고 전쟁터(戰爭터)로 달려갔습니다.\n"
       }
     ],
-    "id": 1809
+    "id": 1811
   },
   {
     "generator": "korean-gap-story-1-military-gemini",
@@ -11928,7 +12092,86 @@
         "hanjaro": "그들은 총(銃)을 들고, 적(敵)과 맞서 싸우기로 결심(決心)했습니다.\n"
       }
     ],
-    "id": 1810
+    "id": 1812
+  },
+  {
+    "generator": "korean-gap-story-1-military-gemini",
+    "input": "reflective",
+    "problem": "밤하늘은 맑았고, 별들이 반짝였습니다.<br> 김 대위는 참호에 앉아서 먼 산을 바라보았습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 포탄이 터지면서 땅이 흔들렸습니다.<br> 김 대위는 놀랐지만, 곧 다시 침착해졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘은 맑았고, 별들이 반짝였습니다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "은": "is",
+          "맑았고": "clear and",
+          "별": "stars",
+          "들이": "they",
+          "반짝였습니다": "twinkled"
+        },
+        "overallTranslation": "The night sky was clear, and the stars twinkled."
+      },
+      {
+        "korean": "김 대위는 참호에 앉아서 먼 산을 바라보았습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "참호": "trench",
+          "에": "in",
+          "앉아서": "sitting",
+          "먼": "distant",
+          "산": "mountain",
+          "을": "object marker",
+          "바라보았습니다": "looked at"
+        },
+        "overallTranslation": "Captain Kim sat in the trench and looked at the distant mountains."
+      },
+      {
+        "korean": "갑자기 포탄이 터지면서 땅이 흔들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "포탄": "shell",
+          "이": "subject marker",
+          "터지면서": "exploding",
+          "땅": "ground",
+          "흔들렸습니다": "shook"
+        },
+        "overallTranslation": "Suddenly, a shell exploded, making the ground shake."
+      },
+      {
+        "korean": "김 대위는 놀랐지만, 곧 다시 침착해졌습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "다시": "again",
+          "침착해졌습니다": "became calm"
+        },
+        "overallTranslation": "Captain Kim was surprised, but he soon regained his composure."
+      },
+      {
+        "korean": "그는 먼 산을 바라보며, 오늘 밤도 무사히 지나가기를 바랐습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "먼": "distant",
+          "산": "mountain",
+          "을": "object marker",
+          "바라보며": "looking at",
+          "오늘": "today",
+          "밤": "night",
+          "도": "also",
+          "무사히": "safely",
+          "지나가기를": "to pass",
+          "바랐습니다": "wished"
+        },
+        "overallTranslation": "He looked at the distant mountains and wished that this night would pass safely."
+      }
+    ],
+    "id": 1813
   },
   {
     "generator": "korean-gap-story-1-modern-gemini",
@@ -12011,7 +12254,7 @@
         "hanjaro": "은수(隱修)는 깜짝 놀랐어요.\n"
       }
     ],
-    "id": 1811
+    "id": 1814
   },
   {
     "generator": "korean-gap-story-1-paranormal-gemini",
@@ -12087,7 +12330,235 @@
         "hanjaro": "은수(隱修)는 점괘(占卦)의 힘에 놀랐고, 밤길이 더 이상(以上) 무섭지 않았어요.\n"
       }
     ],
-    "id": 1812
+    "id": 1815
+  },
+  {
+    "generator": "korean-gap-story-1-paranormal-gemini",
+    "input": "classic",
+    "problem": "낡은 서점에 희미한 불빛이 비추고 있었어요.<br> 민수는 먼지 쌓인 책장 사이를 걷고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 책장에서 섬뜩한 소리가 들렸어요.<br> 책장이 흔들리고 먼지가 솟아올랐어요.<br>",
+    "solution": [
+      {
+        "korean": "낡은 서점에 희미한 불빛이 비추고 있었어요.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "서점": "bookstore",
+          "에": "at",
+          "희미한": "faint",
+          "불빛": "light",
+          "이": "it",
+          "비추고": "shining",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Faint light shone in the old bookstore."
+      },
+      {
+        "korean": "민수는 먼지 쌓인 책장 사이를 걷고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "먼지": "dust",
+          "쌓인": "covered",
+          "책장": "bookshelf",
+          "사이": "between",
+          "를": "the",
+          "걷고": "walking",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was walking between the dusty bookshelves."
+      },
+      {
+        "korean": "갑자기 책장에서 섬뜩한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "책장": "bookshelf",
+          "에서": "from",
+          "섬뜩한": "chilling",
+          "소리": "sound",
+          "가": "that",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chilling sound came from the bookshelf."
+      },
+      {
+        "korean": "책장이 흔들리고 먼지가 솟아올랐어요.",
+        "wordByWordTranslation": {
+          "책장": "bookshelf",
+          "이": "it",
+          "흔들리고": "shaking",
+          "먼지": "dust",
+          "가": "that",
+          "솟아올랐어요": "rose"
+        },
+        "overallTranslation": "The bookshelf shook and dust rose."
+      },
+      {
+        "korean": "민수는 무서워서 뒤로 물러섰어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "무서워서": "because of fear",
+          "뒤로": "backwards",
+          "물러섰어요": "stepped back"
+        },
+        "overallTranslation": "Minsu stepped back in fear."
+      }
+    ],
+    "id": 1816
+  },
+  {
+    "generator": "korean-gap-story-1-political-gemini",
+    "input": "injunction",
+    "problem": "민준이는 법원 앞에서 긴장한 표정으로 서 있었습니다.<br> 그는 오늘 중요한 재판을 앞두고 있었거든요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 법원 문이 열리고 판사님이 나오셨습니다.<br> 판사님은 민준이에게 재판을 연기한다는 소식을 전했습니다.<br>",
+    "solution": [
+      {
+        "korean": "민준이는 법원 앞에서 긴장한 표정으로 서 있었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "법원": "court",
+          "앞에서": "in front of",
+          "긴장한": "tense",
+          "표정": "expression",
+          "으로": "with",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Minjun stood in front of the court with a tense expression."
+      },
+      {
+        "korean": "그는 오늘 중요한 재판을 앞두고 있었거든요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "오늘": "today",
+          "중요한": "important",
+          "재판": "trial",
+          "을": "to",
+          "앞두고": "be facing",
+          "있었거든요": "was"
+        },
+        "overallTranslation": "He was facing an important trial today."
+      },
+      {
+        "korean": "갑자기 법원 문이 열리고 판사님이 나오셨습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "법원": "court",
+          "문": "door",
+          "이": "that",
+          "열리고": "opened",
+          "판사님": "judge",
+          "나오셨습니다": "came out"
+        },
+        "overallTranslation": "Suddenly, the court door opened and the judge came out."
+      },
+      {
+        "korean": "판사님은 민준이에게 재판을 연기한다는 소식을 전했습니다.",
+        "wordByWordTranslation": {
+          "판사님": "judge",
+          "은": "is",
+          "민준이": "Minjun",
+          "에게": "to",
+          "재판": "trial",
+          "을": "to",
+          "연기한다": "postpone",
+          "는": "that",
+          "소식": "news",
+          "전했습니다": "told"
+        },
+        "overallTranslation": "The judge told Minjun that the trial would be postponed."
+      },
+      {
+        "korean": "민준이는 안도의 한숨을 쉬었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "안도": "relief",
+          "의": "of",
+          "한숨": "sigh",
+          "을": "to",
+          "쉬었습니다": "breathed"
+        },
+        "overallTranslation": "Minjun breathed a sigh of relief."
+      }
+    ],
+    "id": 1817
+  },
+  {
+    "generator": "korean-gap-story-1-political-gemini",
+    "input": "hoax",
+    "problem": "민수는 친구와 함께 공원에서 놀고 있었어요.<br> 갑자기 뉴스에서 큰 소리가 들렸어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 외계인이 지구를 침공했다는 거짓말이었어요!<br> 사람들은 모두 놀랐지만, 곧 웃음을 터뜨렸어요.<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구와 함께 공원에서 놀고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "공원": "park",
+          "에서": "at",
+          "놀고": "playing",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was playing with his friend at the park."
+      },
+      {
+        "korean": "갑자기 뉴스에서 큰 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "뉴스": "news",
+          "에서": "from",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a loud sound came from the news."
+      },
+      {
+        "korean": "외계인이 지구를 침공했다는 거짓말이었어요!",
+        "wordByWordTranslation": {
+          "외계인": "alien",
+          "이": "that",
+          "지구": "Earth",
+          "를": "to",
+          "침공": "invasion",
+          "했다는": "that",
+          "거짓말": "lie",
+          "이었어요": "was"
+        },
+        "overallTranslation": "It was a lie that aliens had invaded Earth!"
+      },
+      {
+        "korean": "사람들은 모두 놀랐지만, 곧 웃음을 터뜨렸어요.",
+        "wordByWordTranslation": {
+          "사람들": "people",
+          "은": "are",
+          "모두": "all",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "웃음": "laughter",
+          "을": "to",
+          "터뜨렸어요": "burst out"
+        },
+        "overallTranslation": "People were all surprised, but soon they burst out laughing."
+      },
+      {
+        "korean": "민수와 친구는 다시 신나게 놀았어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "와": "and",
+          "친구": "friend",
+          "는": "are",
+          "다시": "again",
+          "신나게": "happily",
+          "놀았어요": "played"
+        },
+        "overallTranslation": "Minsu and his friend played happily again."
+      }
+    ],
+    "id": 1818
   },
   {
     "generator": "korean-gap-story-1-post-apocalyptic-gemini",
@@ -12163,7 +12634,7 @@
         "koreanWithHanja": "어둠 속에서 한 남자(男子)가 나타났습니다.\n"
       }
     ],
-    "id": 1813
+    "id": 1819
   },
   {
     "generator": "korean-gap-story-1-romantic-gemini",
@@ -12233,7 +12704,7 @@
         "hanjaro": "혜진이는 그 목소리에 반했어요.\n"
       }
     ],
-    "id": 1814
+    "id": 1820
   },
   {
     "generator": "korean-gap-story-1-slasher-gemini",
@@ -12321,7 +12792,7 @@
         "overallTranslation": "The stranger said to Minsu, “All people are the same.”"
       }
     ],
-    "id": 1815
+    "id": 1821
   },
   {
     "generator": "korean-gap-story-1-slice-of-life-gemini",
@@ -12420,7 +12891,7 @@
         "hanjaro": "선생님(先生님)이 영어(英語) 단어(單語)를 천천히 읽어주셨어요.\n"
       }
     ],
-    "id": 1816
+    "id": 1822
   },
   {
     "generator": "korean-gap-story-1-slice-of-life-gemini",
@@ -12499,7 +12970,7 @@
         "hanjaro": "지수는 숨바꼭질을 좀 더 재미있게 만들고 싶었던 거예요.\n"
       }
     ],
-    "id": 1817
+    "id": 1823
   },
   {
     "generator": "korean-gap-story-1-supernatural-mystery-gemini",
@@ -12575,7 +13046,7 @@
         "hanjaro": "책(冊) 표지(表紙)에는 '능력자(能力者)'라고 쓰여 있었어요.\n"
       }
     ],
-    "id": 1818
+    "id": 1824
   },
   {
     "generator": "korean-gap-story-1-thriller-gemini",
@@ -12644,7 +13115,7 @@
         "overallTranslation": "The hand said, “Help me!”"
       }
     ],
-    "id": 1819
+    "id": 1825
   },
   {
     "generator": "korean-gap-story-10-alternate-reality-gemini",
@@ -12727,7 +13198,84 @@
         "hanjaro": "하지만 그림자는 사라졌고, 민수의 손에는 낡은 지도(地圖)만 남았다.\n"
       }
     ],
-    "id": 1820
+    "id": 1826
+  },
+  {
+    "generator": "korean-gap-story-10-comic book-gemini",
+    "input": "discover",
+    "problem": "맑은 날, 민수는 산책을 하러 나갔습니다.<br> 그는 숲길을 따라 걸으며 아름다운 자연을 감상했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 민수는 땅에서 반짝이는 것을 발견했습니다.<br> 그것은 작은 금색 열쇠였습니다.<br>",
+    "solution": [
+      {
+        "korean": "맑은 날, 민수는 산책을 하러 나갔습니다.",
+        "wordByWordTranslation": {
+          "맑은": "clear",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "산책": "walk",
+          "을": "object marker",
+          "하러": "to do",
+          "나갔습니다": "went out"
+        },
+        "overallTranslation": "On a clear day, Minsu went out for a walk."
+      },
+      {
+        "korean": "그는 숲길을 따라 걸으며 아름다운 자연을 감상했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "숲길": "forest path",
+          "을": "object marker",
+          "따라": "following",
+          "걸으며": "walking",
+          "아름다운": "beautiful",
+          "자연": "nature",
+          "감상했습니다": "enjoyed"
+        },
+        "overallTranslation": "He walked along the forest path, enjoying the beautiful nature."
+      },
+      {
+        "korean": "갑자기, 민수는 땅에서 반짝이는 것을 발견했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "민수": "Minsu",
+          "는": "is",
+          "땅": "ground",
+          "에서": "from",
+          "반짝이는": "sparkling",
+          "것": "thing",
+          "을": "object marker",
+          "발견했습니다": "discovered"
+        },
+        "overallTranslation": "Suddenly, Minsu discovered something sparkling on the ground."
+      },
+      {
+        "korean": "그것은 작은 금색 열쇠였습니다.",
+        "wordByWordTranslation": {
+          "그것은": "it was",
+          "작은": "small",
+          "금색": "gold",
+          "열쇠": "key",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It was a small gold key."
+      },
+      {
+        "korean": "민수는 신비로운 열쇠를 손에 쥐고 미소를 지었습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "신비로운": "mysterious",
+          "열쇠": "key",
+          "를": "object marker",
+          "손에": "in hand",
+          "쥐고": "holding",
+          "미소": "smile",
+          "지었습니다": "made"
+        },
+        "overallTranslation": "Minsu smiled, holding the mysterious key in his hand."
+      }
+    ],
+    "id": 1827
   },
   {
     "generator": "korean-gap-story-10-cosmic-horror-gemini",
@@ -12824,7 +13372,111 @@
         "hanjaro": "의사(醫師)는 몸이 굳은 채, 진료실(診療室) 문(門)이 닫히는 소리만 들었다.\n"
       }
     ],
-    "id": 1821
+    "id": 1828
+  },
+  {
+    "generator": "korean-gap-story-10-cyberpunk-gemini",
+    "input": "serum",
+    "problem": "어두운 골목길에서, 희미한 네온사인 불빛 아래, 젊은 해커 ‘진’은 숨죽인 채 움직였다.<br> 그는 손에 든 작은 주사기를 꽉 움켜쥐고, 낡은 건물 벽에 붙은 센서를 향해 조심스럽게 다가갔다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 갑자기 어둠 속에서 거대한 그림자가 나타났다.<br> 그림자는 “멈춰! 그 혈청은 위험해!”라고 외쳤고, 진은 깜짝 놀라 주사기를 떨어뜨렸다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 희미한 네온사인 불빛 아래, 젊은 해커 ‘진’은 숨죽인 채 움직였다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "희미한": "dim",
+          "네온사인": "neon sign",
+          "불빛": "light",
+          "아래": "below",
+          "젊은": "young",
+          "해커": "hacker",
+          "‘진’": "'Jin'",
+          "은": "is",
+          "숨죽인": "holding his breath",
+          "채": "while",
+          "움직였다": "moved"
+        },
+        "overallTranslation": "In a dark alleyway, under the dim light of a neon sign, the young hacker 'Jin' moved with bated breath."
+      },
+      {
+        "korean": "그는 손에 든 작은 주사기를 꽉 움켜쥐고, 낡은 건물 벽에 붙은 센서를 향해 조심스럽게 다가갔다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "손에": "in his hand",
+          "든": "held",
+          "작은": "small",
+          "주사기": "syringe",
+          "를": "object marker",
+          "꽉": "tightly",
+          "움켜쥐고": "gripped",
+          "낡은": "old",
+          "건물": "building",
+          "벽": "wall",
+          "에": "on",
+          "붙은": "attached",
+          "센서": "sensor",
+          "향해": "toward",
+          "조심스럽게": "carefully",
+          "다가갔다": "approached"
+        },
+        "overallTranslation": "He held a small syringe tightly in his hand and cautiously approached the sensor attached to the wall of the old building."
+      },
+      {
+        "korean": "하지만 갑자기 어둠 속에서 거대한 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "갑자기": "suddenly",
+          "어둠": "darkness",
+          "속에서": "from",
+          "거대한": "huge",
+          "그림자": "shadow",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "But suddenly, a huge shadow emerged from the darkness."
+      },
+      {
+        "korean": "그림자는 “멈춰! 그 혈청은 위험해!”라고 외쳤고, 진은 깜짝 놀라 주사기를 떨어뜨렸다.",
+        "wordByWordTranslation": {
+          "그림자": "The shadow",
+          "는": "subject marker",
+          "“멈춰!”": "“Stop!”",
+          "그": "that",
+          "혈청": "serum",
+          "은": "is",
+          "위험해": "dangerous",
+          "라고": "said",
+          "외쳤고": "shouted",
+          "진": "Jin",
+          "깜짝": "surprised",
+          "놀라": "surprised",
+          "주사기": "syringe",
+          "를": "object marker",
+          "떨어뜨렸다": "dropped"
+        },
+        "overallTranslation": "The shadow yelled, “Stop! That serum is dangerous!”, and Jin, startled, dropped the syringe."
+      },
+      {
+        "korean": "그림자는 다름 아닌 진의 오랜 친구이자 라이벌인 ‘엘리’였다.",
+        "wordByWordTranslation": {
+          "그림자": "The shadow",
+          "는": "is",
+          "다름": "other",
+          "아닌": "than",
+          "진": "Jin",
+          "의": "possessive particle",
+          "오랜": "long-time",
+          "친구": "friend",
+          "이자": "and",
+          "라이벌": "rival",
+          "인": "is",
+          "‘엘리’": "'Eli'"
+        },
+        "overallTranslation": "The shadow was none other than 'Eli', Jin's long-time friend and rival."
+      }
+    ],
+    "id": 1829
   },
   {
     "generator": "korean-gap-story-10-drama-gemini",
@@ -12919,7 +13571,7 @@
         "hanjaro": "문화(文化)는 때로는 불편(不便)함 속에서도 새로운 가치(價値)를 발견(發見)할 수 있다는 것을 깨달았습니다.\n"
       }
     ],
-    "id": 1822
+    "id": 1830
   },
   {
     "generator": "korean-gap-story-10-fantasy-gemini",
@@ -13019,7 +13671,256 @@
         "hanjaro": "그 빛은 늑대의 강(剛)한 근육(筋肉)을 약(弱)하게 만들었고, 늑대는 땅에 쓰러졌다.\n"
       }
     ],
-    "id": 1823
+    "id": 1831
+  },
+  {
+    "generator": "korean-gap-story-10-fantasy-gemini",
+    "input": "glance",
+    "problem": "어두운 숲 속에서, 한 소녀가 조심스럽게 발걸음을 옮기고 있었습니다.<br> 그녀는 숲의 정령이 나타날까 봐 두려웠지만, 아름다운 꽃들을 보며 용기를 내었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 숲의 가장자리에서 빛이 번쩍였습니다.<br> 빛은 한 남자의 눈빛이었고, 그는 소녀를 향해 미소를 지었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 조심스럽게 발걸음을 옮기고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "in",
+          "한": "one",
+          "소녀가": "girl",
+          "조심스럽게": "carefully",
+          "발걸음을": "footsteps",
+          "옮기고": "moving",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the dark forest, a girl was carefully moving her footsteps."
+      },
+      {
+        "korean": "그녀는 숲의 정령이 나타날까 봐 두려웠지만, 아름다운 꽃들을 보며 용기를 내었습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "숲의": "forest's",
+          "정령이": "spirit",
+          "나타날까": "appear",
+          "봐": "seeing",
+          "두려웠지만": "was afraid but",
+          "아름다운": "beautiful",
+          "꽃들을": "flowers",
+          "보며": "seeing",
+          "용기를": "courage",
+          "내었습니다.": "gathered"
+        },
+        "overallTranslation": "She was afraid that the forest spirit might appear, but she gathered courage seeing the beautiful flowers."
+      },
+      {
+        "korean": "그때, 숲의 가장자리에서 빛이 번쩍였습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "숲의": "forest's",
+          "가장자리에서": "edge",
+          "빛이": "light",
+          "번쩍였습니다.": "flashed"
+        },
+        "overallTranslation": "At that time, a light flashed from the edge of the forest."
+      },
+      {
+        "korean": "빛은 한 남자의 눈빛이었고, 그는 소녀를 향해 미소를 지었습니다.",
+        "wordByWordTranslation": {
+          "빛은": "light was",
+          "한": "one",
+          "남자의": "man's",
+          "눈빛이었고": "eyes",
+          "그는": "he",
+          "소녀를": "girl",
+          "향해": "towards",
+          "미소를": "smile",
+          "지었습니다.": "gave"
+        },
+        "overallTranslation": "The light was a man's eyes, and he gave a smile towards the girl."
+      },
+      {
+        "korean": "소녀는 그 남자의 따뜻한 눈빛에 마음이 풀렸고, 두려움은 사라졌습니다.",
+        "wordByWordTranslation": {
+          "소녀는": "girl",
+          "그": "that",
+          "남자의": "man's",
+          "따뜻한": "warm",
+          "눈빛에": "eyes",
+          "마음이": "heart",
+          "풀렸고": "relaxed",
+          "두려움은": "fear",
+          "사라졌습니다.": "disappeared"
+        },
+        "overallTranslation": "The girl's heart relaxed at the man's warm eyes, and her fear disappeared."
+      }
+    ],
+    "id": 1832
+  },
+  {
+    "generator": "korean-gap-story-10-fantasy-gemini",
+    "input": "subscription",
+    "problem": "어두운 밤, 은수는 낡은 책방에 앉아 있었습니다.<br> 그는 오래된 책들을 탐독하며 시간을 보내고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 책장에서 빛이 뿜어져 나왔습니다.<br> 빛이 사라지자, 은수는 책장 앞에 마법의 문이 생긴 것을 발견했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 책방에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수": "Eunsoo",
+          "는": "is",
+          "낡은": "old",
+          "책방": "bookstore",
+          "에": "at",
+          "앉아": "sitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On a dark night, Eunsoo was sitting in an old bookstore."
+      },
+      {
+        "korean": "그는 오래된 책들을 탐독하며 시간을 보내고 있었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "오래된": "old",
+          "책들": "books",
+          "을": "object marker",
+          "탐독하며": "exploring",
+          "시간": "time",
+          "보내고": "spending",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "He was spending his time exploring old books."
+      },
+      {
+        "korean": "갑자기, 책장에서 빛이 뿜어져 나왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "책장": "bookshelf",
+          "에서": "from",
+          "빛": "light",
+          "이": "subject marker",
+          "뿜어져": "bursting",
+          "나왔습니다": "came out"
+        },
+        "overallTranslation": "Suddenly, light burst from the bookshelf."
+      },
+      {
+        "korean": "빛이 사라지자, 은수는 책장 앞에 마법의 문이 생긴 것을 발견했습니다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "이": "subject marker",
+          "사라지자": "disappeared",
+          "은수": "Eunsoo",
+          "는": "is",
+          "책장": "bookshelf",
+          "앞에": "in front of",
+          "마법": "magic",
+          "의": "possessive particle",
+          "문": "door",
+          "생긴": "appeared",
+          "것": "thing",
+          "을": "object marker",
+          "발견했습니다": "discovered"
+        },
+        "overallTranslation": "As the light disappeared, Eunsoo discovered a magical door had appeared in front of the bookshelf."
+      },
+      {
+        "korean": "그 문은 그를 새로운 세계로 데려가는 구독 서비스의 시작이었습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "문": "door",
+          "은": "is",
+          "그를": "him",
+          "새로운": "new",
+          "세계": "world",
+          "로": "to",
+          "데려가는": "taking",
+          "구독": "subscription",
+          "서비스": "service",
+          "의": "possessive particle",
+          "시작": "beginning",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "That door was the beginning of a subscription service that would take him to a new world."
+      }
+    ],
+    "id": 1833
+  },
+  {
+    "generator": "korean-gap-story-10-historical-gemini",
+    "input": "absorbing",
+    "problem": "해가 지기 시작하자, 푸른 하늘은 주황색과 보라색으로 물들었다.<br> 산책로를 따라 걷던 민수는 벤치에 앉아 노을을 바라보았다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 갑자기 땅이 흔들리기 시작했다.<br> 민수는 놀라서 벤치에서 뛰어내렸고, 주변의 나무들이 격렬하게 흔들렸다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 푸른 하늘은 주황색과 보라색으로 물들었다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작하자": "start",
+          "푸른": "blue",
+          "하늘은": "sky",
+          "주황색": "orange",
+          "과": "and",
+          "보라색": "purple",
+          "으로": "with",
+          "물들었다": "colored"
+        },
+        "overallTranslation": "As the sun began to set, the blue sky was painted with orange and purple."
+      },
+      {
+        "korean": "산책로를 따라 걷던 민수는 벤치에 앉아 노을을 바라보았다.",
+        "wordByWordTranslation": {
+          "산책로를": "path",
+          "따라": "along",
+          "걷던": "walk",
+          "민수는": "Minsu",
+          "벤치에": "bench",
+          "앉아": "sit",
+          "노을을": "sunset",
+          "바라보았다": "looked at"
+        },
+        "overallTranslation": "Minsu, walking along the path, sat on a bench and gazed at the sunset."
+      },
+      {
+        "korean": "그때, 갑자기 땅이 흔들리기 시작했다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "갑자기": "suddenly",
+          "땅이": "ground",
+          "흔들리기": "shake",
+          "시작했다": "started"
+        },
+        "overallTranslation": "Then, suddenly, the ground began to shake."
+      },
+      {
+        "korean": "민수는 놀라서 벤치에서 뛰어내렸고, 주변의 나무들이 격렬하게 흔들렸다.",
+        "wordByWordTranslation": {
+          "민수는": "Minsu",
+          "놀라서": "surprised",
+          "벤치에서": "from bench",
+          "뛰어내렸고": "jumped down",
+          "주변의": "surrounding",
+          "나무들이": "trees",
+          "격렬하게": "violently",
+          "흔들렸다": "shook"
+        },
+        "overallTranslation": "Minsu jumped off the bench in surprise, and the surrounding trees shook violently."
+      },
+      {
+        "korean": "땅이 갈라지며 깊은 구멍이 생겨났고, 민수는 그 구멍 속으로 빨려 들어갔다.",
+        "wordByWordTranslation": {
+          "땅이": "ground",
+          "갈라지며": "splitting",
+          "깊은": "deep",
+          "구멍이": "hole",
+          "생겨났고": "appeared",
+          "민수는": "Minsu",
+          "그": "that",
+          "구멍 속으로": "into hole",
+          "빨려": "sucked",
+          "들어갔다": "went"
+        },
+        "overallTranslation": "The ground split open, creating a deep hole, and Minsu was sucked into it."
+      }
+    ],
+    "id": 1834
   },
   {
     "generator": "korean-gap-story-10-horror-gemini",
@@ -13095,7 +13996,7 @@
         "hanjaro": "공기(空氣)는 차가워지고, 웃음소리는 더욱 섬뜩하게 느껴졌습니다.\n"
       }
     ],
-    "id": 1824
+    "id": 1835
   },
   {
     "generator": "korean-gap-story-10-low-fantasy-gemini",
@@ -13181,7 +14082,340 @@
         "hanjaro": "민수는 놀란 눈으로 문(門)을 바라보며, 숨을 크게 들이켰습니다.\n"
       }
     ],
-    "id": 1825
+    "id": 1836
+  },
+  {
+    "generator": "korean-gap-story-10-medieval-gemini",
+    "input": "concave",
+    "problem": "어두운 밤, 낡은 성의 탑 꼭대기에 한 남자가 서 있었다.<br> 그는 멀리 떨어진 마을을 내려다보며 깊은 생각에 잠겼다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 탑의 벽이 움푹 들어가기 시작했다.<br> 남자는 놀라서 뒤로 넘어졌고, 탑 안으로 빨려 들어갔다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 성의 탑 꼭대기에 한 남자가 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "성": "castle",
+          "탑": "tower",
+          "꼭대기": "top",
+          "에": "at",
+          "한": "one",
+          "남자": "man",
+          "가": "subject marker",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, a man stood at the top of the old castle tower."
+      },
+      {
+        "korean": "그는 멀리 떨어진 마을을 내려다보며 깊은 생각에 잠겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "멀리": "far",
+          "떨어진": "away",
+          "마을": "village",
+          "을": "object marker",
+          "내려다보며": "looking down",
+          "깊은": "deep",
+          "생각": "thought",
+          "에": "in",
+          "잠겼다": "became immersed"
+        },
+        "overallTranslation": "He looked down at the distant village, lost in deep thought."
+      },
+      {
+        "korean": "갑자기, 탑의 벽이 움푹 들어가기 시작했다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "탑": "tower",
+          "의": "possessive particle",
+          "벽": "wall",
+          "이": "subject marker",
+          "움푹": "concave",
+          "들어가기": "to go in",
+          "시작했다": "began"
+        },
+        "overallTranslation": "Suddenly, the tower wall began to cave in."
+      },
+      {
+        "korean": "남자는 놀라서 뒤로 넘어졌고, 탑 안으로 빨려 들어갔다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "subject marker",
+          "놀라서": "in surprise",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "탑": "tower",
+          "안으로": "inside",
+          "빨려": "sucked",
+          "들어갔다": "went in"
+        },
+        "overallTranslation": "The man fell backwards in surprise and was sucked into the tower."
+      },
+      {
+        "korean": "그는 어둠 속에서 희미한 빛을 발견했고, 그 빛은 그를 끌어당겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "어둠": "darkness",
+          "속에서": "inside",
+          "희미한": "faint",
+          "빛": "light",
+          "을": "object marker",
+          "발견했고": "found",
+          "그": "that",
+          "은": "subject marker",
+          "그를": "him",
+          "끌어당겼다": "pulled"
+        },
+        "overallTranslation": "He discovered a faint light in the darkness, and it pulled him towards it."
+      }
+    ],
+    "id": 1837
+  },
+  {
+    "generator": "korean-gap-story-10-modern-gemini",
+    "input": "singing",
+    "problem": "은수는 버스 정류장에서 기다리며 노래를 흥얼거렸다.<br> 갑자기 옆에서 누군가 목소리가 들렸다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 목소리는 은수가 부르던 노래를 따라 부르고 있었다.<br> 은수는 놀라서 고개를 돌렸고, 옆에 서 있던 남자가 미소를 지으며 노래를 마쳤다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 버스 정류장에서 기다리며 노래를 흥얼거렸다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "버스": "bus",
+          "정류장": "stop",
+          "에서": "at",
+          "기다리며": "waiting",
+          "노래": "song",
+          "를": "를",
+          "흥얼거렸다": "hummed"
+        },
+        "overallTranslation": "Eunsoo hummed a song while waiting at the bus stop."
+      },
+      {
+        "korean": "갑자기 옆에서 누군가 목소리가 들렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "side",
+          "에서": "from",
+          "누군가": "someone",
+          "목소리": "voice",
+          "가": "가",
+          "들렸다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a voice was heard from beside her."
+      },
+      {
+        "korean": "그 목소리는 은수가 부르던 노래를 따라 부르고 있었다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "목소리": "voice",
+          "는": "is",
+          "은수": "Eunsoo",
+          "가": "가",
+          "부르던": "singing",
+          "노래": "song",
+          "를": "를",
+          "따라": "following",
+          "부르고": "singing",
+          "있었다": "was"
+        },
+        "overallTranslation": "The voice was singing along to the song Eunsoo was singing."
+      },
+      {
+        "korean": "은수는 놀라서 고개를 돌렸고, 옆에 서 있던 남자가 미소를 지으며 노래를 마쳤다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "고개": "head",
+          "를": "를",
+          "돌렸고": "turned",
+          "옆": "side",
+          "에": "at",
+          "서": "standing",
+          "있던": "was",
+          "남자": "man",
+          "가": "가",
+          "미소": "smile",
+          "지으며": "with",
+          "노래": "song",
+          "마쳤다": "finished"
+        },
+        "overallTranslation": "Surprised, Eunsoo turned her head, and the man standing beside her finished the song with a smile."
+      },
+      {
+        "korean": "은수는 그 남자의 노래 실력에 감탄하며 미소를 지었다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "그": "that",
+          "남자": "man",
+          "의": "의",
+          "노래": "song",
+          "실력": "skill",
+          "에": "at",
+          "감탄하며": "admiring",
+          "미소": "smile",
+          "를": "를",
+          "지었다": "made"
+        },
+        "overallTranslation": "Eunsoo smiled, admiring the man's singing ability."
+      }
+    ],
+    "id": 1838
+  },
+  {
+    "generator": "korean-gap-story-10-modern-gemini",
+    "input": "bad",
+    "problem": "지수는 친구와 함께 카페에 앉아서 커피를 마시고 있었습니다.<br> 그들은 오랜만에 만나서 이야기꽃을 피우고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 지수의 휴대폰이 울렸습니다.<br> 화면에는 '나쁜 소식'이라고 적혀 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "지수는 친구와 함께 카페에 앉아서 커피를 마시고 있었습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "카페": "cafe",
+          "에": "at",
+          "앉아서": "sitting",
+          "커피": "coffee",
+          "를": "object marker",
+          "마시고": "drinking",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Jisoo was sitting at a cafe with her friend, drinking coffee."
+      },
+      {
+        "korean": "그들은 오랜만에 만나서 이야기꽃을 피우고 있었습니다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "은": "is",
+          "오랜만에": "after a long time",
+          "만나서": "meeting",
+          "이야기꽃": "conversation",
+          "을": "object marker",
+          "피우고": "blooming",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were catching up and having a lively conversation after a long time."
+      },
+      {
+        "korean": "갑자기, 지수의 휴대폰이 울렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "지수": "Jisoo",
+          "의": "possessive marker",
+          "휴대폰": "phone",
+          "이": "subject marker",
+          "울렸습니다": "rang"
+        },
+        "overallTranslation": "Suddenly, Jisoo's phone rang."
+      },
+      {
+        "korean": "화면에는 '나쁜 소식'이라고 적혀 있었습니다.",
+        "wordByWordTranslation": {
+          "화면": "screen",
+          "에는": "on",
+          "'나쁜 소식'": "'bad news'",
+          "이라고": "that",
+          "적혀": "written",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On the screen, it was written 'Bad news'."
+      },
+      {
+        "korean": "지수의 얼굴은 순간 창백해졌습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "의": "possessive marker",
+          "얼굴": "face",
+          "은": "is",
+          "순간": "moment",
+          "창백해졌습니다": "turned pale"
+        },
+        "overallTranslation": "Jisoo's face turned pale in an instant."
+      }
+    ],
+    "id": 1839
+  },
+  {
+    "generator": "korean-gap-story-10-modern-gemini",
+    "input": "cut",
+    "problem": "은수는 낡은 가죽 가방을 들고 거리를 걸어갔다.<br> 그녀는 곧 친구를 만나 커피를 마시기로 했다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 갑자기 가방이 찢어졌다.<br> 소중히 간직했던 사진들이 쏟아져 나왔다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 낡은 가죽 가방을 들고 거리를 걸어갔다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "낡은": "old",
+          "가죽": "leather",
+          "가방": "bag",
+          "을": "object marker",
+          "들고": "holding",
+          "거리": "street",
+          "를": "object marker",
+          "걸어갔다": "walked"
+        },
+        "overallTranslation": "Eunsoo walked down the street carrying an old leather bag."
+      },
+      {
+        "korean": "그녀는 곧 친구를 만나 커피를 마시기로 했다.",
+        "wordByWordTranslation": {
+          "그녀": "she",
+          "는": "is",
+          "곧": "soon",
+          "친구": "friend",
+          "를": "object marker",
+          "만나": "meet",
+          "커피": "coffee",
+          "마시기로": "decided to drink",
+          "했다": "did"
+        },
+        "overallTranslation": "She soon decided to meet a friend for coffee."
+      },
+      {
+        "korean": "하지만 갑자기 가방이 찢어졌다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "가방": "bag",
+          "이": "subject marker",
+          "찢어졌다": "ripped"
+        },
+        "overallTranslation": "But suddenly, the bag ripped."
+      },
+      {
+        "korean": "소중히 간직했던 사진들이 쏟아져 나왔다.",
+        "wordByWordTranslation": {
+          "소중히": "preciously",
+          "간직했던": "kept",
+          "사진": "pictures",
+          "들": "plural marker",
+          "이": "subject marker",
+          "쏟아져": "poured out",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "The precious pictures she had kept poured out."
+      },
+      {
+        "korean": "은수는 놀라서 사진들을 주웠다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "사진": "pictures",
+          "들": "plural marker",
+          "을": "object marker",
+          "주웠다": "picked up"
+        },
+        "overallTranslation": "Eunsoo was surprised and picked up the pictures."
+      }
+    ],
+    "id": 1840
   },
   {
     "generator": "korean-gap-story-10-noir-gemini",
@@ -13287,7 +14521,88 @@
         "hanjaro": "바 안의 웃음소리는 순식간(瞬息間)에 사라지고, 공기(空氣)는 차가운 긴장감(緊張感)으로 가득 찼다.\n"
       }
     ],
-    "id": 1826
+    "id": 1841
+  },
+  {
+    "generator": "korean-gap-story-10-slice-of-life-gemini",
+    "input": "ninth",
+    "problem": "은수는 아침 일찍 일어나 학교에 가는 길이었습니다.<br> 오늘은 9월 9일, 은수의 생일이었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 친구 지수가 나타나 생일 축하 노래를 불렀습니다.<br> 은수는 놀랐지만, 기뻤습니다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 아침 일찍 일어나 학교에 가는 길이었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "아침": "morning",
+          "일찍": "early",
+          "일어나": "wake up",
+          "학교": "school",
+          "에": "to",
+          "가는": "going",
+          "길": "way",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "Eunsoo was on her way to school, having woken up early in the morning."
+      },
+      {
+        "korean": "오늘은 9월 9일, 은수의 생일이었습니다.",
+        "wordByWordTranslation": {
+          "오늘": "today",
+          "은": "is",
+          "9월": "September",
+          "9일": "9th",
+          "은수": "Eunsoo",
+          "의": "'s",
+          "생일": "birthday",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "Today was September 9th, Eunsoo's birthday."
+      },
+      {
+        "korean": "갑자기 친구 지수가 나타나 생일 축하 노래를 불렀습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "친구": "friend",
+          "지수": "Jisu",
+          "가": "who is",
+          "나타나": "appeared",
+          "생일": "birthday",
+          "축하": "celebration",
+          "노래": "song",
+          "를": "object marker",
+          "불렀습니다": "sang"
+        },
+        "overallTranslation": "Suddenly, her friend Jisu appeared and sang a happy birthday song."
+      },
+      {
+        "korean": "은수는 놀랐지만, 기뻤습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀랐": "surprised",
+          "지만": "but",
+          "기뻤": "happy",
+          "습니다": "is"
+        },
+        "overallTranslation": "Eunsoo was surprised, but happy."
+      },
+      {
+        "korean": "친구들과 함께 즐거운 생일 파티를 시작했습니다.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "들": "plural marker",
+          "과": "with",
+          "함께": "together",
+          "즐거운": "happy",
+          "생일": "birthday",
+          "파티": "party",
+          "를": "object marker",
+          "시작했습니다": "started"
+        },
+        "overallTranslation": "She started a fun birthday party with her friends."
+      }
+    ],
+    "id": 1842
   },
   {
     "generator": "korean-gap-story-10-space-opera-gemini",
@@ -13369,7 +14684,79 @@
         "hanjaro": "붉은 빛은 사라졌고, 우주(宇宙)는 다시 침묵(沈默) 속에 잠겼다.\n"
       }
     ],
-    "id": 1827
+    "id": 1843
+  },
+  {
+    "generator": "korean-gap-story-10-space-opera-gemini",
+    "input": "brilliant",
+    "problem": "어두운 우주 공간에 빛나는 별들이 흩어져 있었습니다.<br> 그 중 한 별에서 빛나는 푸른 빛이 뿜어져 나왔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 거대한 우주선이 나타났습니다.<br> 우주선은 푸른 빛을 내뿜으며 빠르게 움직였습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 우주 공간에 빛나는 별들이 흩어져 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "우주": "universe",
+          "공간": "space",
+          "에": "in",
+          "빛나는": "shining",
+          "별들이": "stars",
+          "흩어져": "scattered",
+          "있었습니다.": "were"
+        },
+        "overallTranslation": "Scattered shining stars were in the dark space of the universe."
+      },
+      {
+        "korean": "그 중 한 별에서 빛나는 푸른 빛이 뿜어져 나왔습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "중": "among",
+          "한": "one",
+          "별에서": "from a star",
+          "빛나는": "shining",
+          "푸른": "blue",
+          "빛이": "light",
+          "뿜어져": "burst",
+          "나왔습니다.": "came out"
+        },
+        "overallTranslation": "From one of those stars, a brilliant blue light burst out."
+      },
+      {
+        "korean": "갑자기 거대한 우주선이 나타났습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "거대한": "huge",
+          "우주선이": "spaceship",
+          "나타났습니다.": "appeared"
+        },
+        "overallTranslation": "Suddenly, a huge spaceship appeared."
+      },
+      {
+        "korean": "우주선은 푸른 빛을 내뿜으며 빠르게 움직였습니다.",
+        "wordByWordTranslation": {
+          "우주선은": "the spaceship",
+          "푸른": "blue",
+          "빛을": "light",
+          "내뿜으며": "emitting",
+          "빠르게": "quickly",
+          "움직였습니다.": "moved"
+        },
+        "overallTranslation": "The spaceship moved quickly, emitting a brilliant blue light."
+      },
+      {
+        "korean": "그 빛은 우주를 밝히며 모든 별들을 압도했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "빛은": "light",
+          "우주를": "the universe",
+          "밝히며": "lighting up",
+          "모든": "all",
+          "별들을": "stars",
+          "압도했습니다.": "overwhelmed"
+        },
+        "overallTranslation": "The light lit up the universe, overwhelming all the stars."
+      }
+    ],
+    "id": 1844
   },
   {
     "generator": "korean-gap-story-10-superhero-gemini",
@@ -13458,7 +14845,7 @@
         "hanjaro": "시퀀스의 손에서 빛이 뿜어져 나오며 그림자는 깜짝 놀랐습니다.\n"
       }
     ],
-    "id": 1828
+    "id": 1845
   },
   {
     "generator": "korean-gap-story-11-ancient-gemini",
@@ -13550,7 +14937,90 @@
         "hanjaro": "\"이 꽃잎, 당신(當身)에게 드릴게요. 제 마음이에요.\" \n"
       }
     ],
-    "id": 1829
+    "id": 1846
+  },
+  {
+    "generator": "korean-gap-story-11-cosmic-horror-gemini",
+    "input": "straightforward",
+    "problem": "어두운 밤, 희미한 가로등 불빛 아래에서 민수는 길을 잃었다.<br> 그는 혼란스러운 마음으로 주변을 둘러보았지만, 낯선 골목길만 보였다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 민수의 발 아래에서 차가운 손이 뻗어 나왔다.<br> 손은 뼈만 남은 듯 앙상했고, 손가락은 길게 뻗어져 있었다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 희미한 가로등 불빛 아래에서 민수는 길을 잃었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "희미한": "dim",
+          "가로등": "streetlight",
+          "불빛": "light",
+          "아래에서": "under",
+          "민수": "Minsu",
+          "는": "is",
+          "길을": "the way",
+          "잃었다": "lost"
+        },
+        "overallTranslation": "On a dark night, under the dim light of a streetlamp, Minsu was lost."
+      },
+      {
+        "korean": "그는 혼란스러운 마음으로 주변을 둘러보았지만, 낯선 골목길만 보였다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "혼란스러운": "confused",
+          "마음으로": "with heart",
+          "주변을": "surroundings",
+          "둘러보았지만": "looked around but",
+          "낯선": "unfamiliar",
+          "골목길만": "alleyway only",
+          "보였다": "was seen"
+        },
+        "overallTranslation": "With a confused heart, he looked around but only saw unfamiliar alleyways."
+      },
+      {
+        "korean": "그때, 민수의 발 아래에서 차가운 손이 뻗어 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "아래에서": "under",
+          "차가운": "cold",
+          "손이": "hand",
+          "뻗어": "reached out",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "At that moment, a cold hand reached out from under Minsu's foot."
+      },
+      {
+        "korean": "손은 뼈만 남은 듯 앙상했고, 손가락은 길게 뻗어져 있었다.",
+        "wordByWordTranslation": {
+          "손은": "hand was",
+          "뼈만": "only bones",
+          "남은": "left",
+          "듯": "like",
+          "앙상했고": "skinny and",
+          "손가락은": "fingers were",
+          "길게": "long",
+          "뻗어져": "stretched out",
+          "있었다": "was"
+        },
+        "overallTranslation": "The hand was bony and thin, with long fingers stretched out."
+      },
+      {
+        "korean": "그 손은 민수를 향해, '똑바로 가'라고 속삭였다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "손은": "hand was",
+          "민수": "Minsu",
+          "를": "to",
+          "향해": "toward",
+          "똑바로": "straight",
+          "가": "go",
+          "라고": "said",
+          "속삭였다": "whispered"
+        },
+        "overallTranslation": "The hand whispered to Minsu, 'Go straight.'"
+      }
+    ],
+    "id": 1847
   },
   {
     "generator": "korean-gap-story-11-espionage-gemini",
@@ -13636,7 +15106,267 @@
         "hanjaro": "이제 그들은 임무(任務)를 수행(遂行)하기 위해, 위험(危險)한 여정(旅程)을 시작(始作)해야 했다.\n"
       }
     ],
-    "id": 1830
+    "id": 1848
+  },
+  {
+    "generator": "korean-gap-story-11-espionage-gemini",
+    "input": "gum",
+    "problem": "어두운 골목길에서, 김 씨는 긴장한 채로 주변을 살폈습니다.<br> 그는 손에 든 작은 봉투를 꼭 쥐고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 검은 그림자가 그의 뒤에서 나타났습니다.<br> 그림자는 김 씨의 손에서 봉투를 빼앗아 달아났습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 김 씨는 긴장한 채로 주변을 살폈습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "김 씨": "Kim",
+          "는": "is",
+          "긴장한": "tense",
+          "채로": "with",
+          "주변": "surroundings",
+          "을": "을",
+          "살폈습니다": "looked"
+        },
+        "overallTranslation": "In a dark alleyway, Kim looked around tensely."
+      },
+      {
+        "korean": "그는 손에 든 작은 봉투를 꼭 쥐고 있었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "손에": "in hand",
+          "든": "held",
+          "작은": "small",
+          "봉투": "envelope",
+          "를": "를",
+          "꼭": "tightly",
+          "쥐고": "grasping",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "He was tightly grasping a small envelope in his hand."
+      },
+      {
+        "korean": "갑자기, 검은 그림자가 그의 뒤에서 나타났습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "가",
+          "그의": "his",
+          "뒤에서": "from behind",
+          "나타났습니다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a black shadow appeared from behind him."
+      },
+      {
+        "korean": "그림자는 김 씨의 손에서 봉투를 빼앗아 달아났습니다.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "김 씨": "Kim",
+          "의": "of",
+          "손에서": "from hand",
+          "봉투": "envelope",
+          "를": "를",
+          "빼앗아": "snatching",
+          "달아났습니다": "ran away"
+        },
+        "overallTranslation": "The shadow snatched the envelope from Kim's hand and ran away."
+      },
+      {
+        "korean": "김 씨는 깜짝 놀라 뒤를 돌아보았지만, 그림자는 이미 사라지고 없었습니다.",
+        "wordByWordTranslation": {
+          "김 씨": "Kim",
+          "는": "is",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "뒤를": "behind",
+          "돌아보았지만": "looked back but",
+          "그림자": "shadow",
+          "이미": "already",
+          "사라지고": "disappeared",
+          "없었습니다": "was not"
+        },
+        "overallTranslation": "Kim was startled and looked back, but the shadow was already gone."
+      }
+    ],
+    "id": 1849
+  },
+  {
+    "generator": "korean-gap-story-11-fantasy-gemini",
+    "input": "columnist",
+    "problem": "어두운 밤, 낡은 탑의 꼭대기에서 한 남자가 앉아 있었다.<br> 그는 낡은 종이에 펜을 움직이며 무언가를 열심히 적고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 그의 앞에 빛나는 글자가 나타났다.<br> 글자는 그의 펜을 따라 움직이며 새로운 이야기를 만들어냈다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 탑의 꼭대기에서 한 남자가 앉아 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "탑": "tower",
+          "꼭대기": "top",
+          "에서": "from",
+          "한": "one",
+          "남자": "man",
+          "가": "subject marker",
+          "앉아": "sit",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, a man sat at the top of an old tower."
+      },
+      {
+        "korean": "그는 낡은 종이에 펜을 움직이며 무언가를 열심히 적고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "낡은": "old",
+          "종이": "paper",
+          "에": "on",
+          "펜": "pen",
+          "을": "object marker",
+          "움직이며": "moving",
+          "무언가": "something",
+          "를": "object marker",
+          "열심히": "hard",
+          "적고": "write",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was diligently writing something on a piece of old paper with a pen."
+      },
+      {
+        "korean": "갑자기, 그의 앞에 빛나는 글자가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그의": "his",
+          "앞에": "in front of",
+          "빛나는": "shining",
+          "글자": "letters",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, shining letters appeared in front of him."
+      },
+      {
+        "korean": "글자는 그의 펜을 따라 움직이며 새로운 이야기를 만들어냈다.",
+        "wordByWordTranslation": {
+          "글자": "letters",
+          "는": "subject marker",
+          "그의": "his",
+          "펜": "pen",
+          "을": "object marker",
+          "따라": "following",
+          "움직이며": "moving",
+          "새로운": "new",
+          "이야기": "story",
+          "를": "object marker",
+          "만들어냈다": "created"
+        },
+        "overallTranslation": "The letters moved along with his pen, creating a new story."
+      },
+      {
+        "korean": "그는 놀라움과 함께, 자신이 칼럼니스트가 아니라 이야기꾼이 되었다는 것을 깨달았다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "놀라움": "surprise",
+          "과": "and",
+          "함께": "together",
+          "자신이": "himself",
+          "칼럼니스트": "columnist",
+          "가": "subject marker",
+          "아니라": "not",
+          "이야기꾼": "storyteller",
+          "이": "subject marker",
+          "되었다는": "became",
+          "것": "fact",
+          "을": "object marker",
+          "깨달았다": "realized"
+        },
+        "overallTranslation": "With surprise, he realized that he had become a storyteller, not a columnist."
+      }
+    ],
+    "id": 1850
+  },
+  {
+    "generator": "korean-gap-story-11-frontier-gemini",
+    "input": "territorial",
+    "problem": "해가 져가는 서부의 황량한 벌판에서, 낡은 망토를 두른 노인이 말을 타고 있었다.<br> 그는 험준한 산맥을 넘어, 새로운 땅을 찾아 떠났다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 그가 도착한 곳은 이미 다른 사람들이 자리를 잡고 있었다.<br> 노인은 낯선 얼굴들을 보며, 긴 한숨을 내쉬었다.<br>",
+    "solution": [
+      {
+        "korean": "해가 져가는 서부의 황량한 벌판에서, 낡은 망토를 두른 노인이 말을 타고 있었다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "져가는": "setting",
+          "서부의": "western",
+          "황량한": "desolate",
+          "벌판에서": "plains",
+          "낡은": "old",
+          "망토를": "cloak",
+          "두른": "wearing",
+          "노인이": "old man",
+          "말을": "horse",
+          "타고": "riding",
+          "있었다": "was"
+        },
+        "overallTranslation": "On the desolate plains of the west, as the sun was setting, an old man in a worn cloak was riding a horse."
+      },
+      {
+        "korean": "그는 험준한 산맥을 넘어, 새로운 땅을 찾아 떠났다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "험준한": "steep",
+          "산맥을": "mountain range",
+          "넘어": "over",
+          "새로운": "new",
+          "땅을": "land",
+          "찾아": "searching",
+          "떠났다": "left"
+        },
+        "overallTranslation": "He was leaving to find new land, crossing over the steep mountain range."
+      },
+      {
+        "korean": "하지만 그가 도착한 곳은 이미 다른 사람들이 자리를 잡고 있었다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그가": "he",
+          "도착한": "arrived",
+          "곳은": "place",
+          "이미": "already",
+          "다른": "other",
+          "사람들이": "people",
+          "자리를": "place",
+          "잡고": "taking",
+          "있었다": "was"
+        },
+        "overallTranslation": "But when he arrived, he found that other people had already claimed the land."
+      },
+      {
+        "korean": "노인은 낯선 얼굴들을 보며, 긴 한숨을 내쉬었다.",
+        "wordByWordTranslation": {
+          "노인은": "old man",
+          "낯선": "unfamiliar",
+          "얼굴들을": "faces",
+          "보며": "seeing",
+          "긴": "long",
+          "한숨을": "sigh",
+          "내쉬었다": "let out"
+        },
+        "overallTranslation": "Seeing the unfamiliar faces, the old man let out a long sigh."
+      },
+      {
+        "korean": "그는 이제 새로운 땅을 찾아, 다시 길을 떠나야만 했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "이제": "now",
+          "새로운": "new",
+          "땅을": "land",
+          "찾아": "searching",
+          "다시": "again",
+          "길을": "road",
+          "떠나야만": "must leave",
+          "했다": "did"
+        },
+        "overallTranslation": "He now had to leave again, searching for new land."
+      }
+    ],
+    "id": 1851
   },
   {
     "generator": "korean-gap-story-11-gunslinger-gemini",
@@ -13723,7 +15453,198 @@
         "hanjaro": "그는 술집 안으로 뛰어들어가, 싸움을 멈추기로 결심(決心)했습니다.\n"
       }
     ],
-    "id": 1831
+    "id": 1852
+  },
+  {
+    "generator": "korean-gap-story-11-low-fantasy-gemini",
+    "input": "division",
+    "problem": "어두운 숲 속에서, 두 명의 여행자는 서로의 등을 의지하며 길을 갔습니다.<br> 그들은 험난한 지형과 위험한 야수들을 극복하며 나아갔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 갑자기, 그들의 사이에 거대한 골짜기가 나타났습니다.<br> 두 여행자는 서로를 볼 수 없게 되었고, 그들의 끈끈했던 유대감은 깊은 골짜기로 인해 갈라졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 두 명의 여행자는 서로의 등을 의지하며 길을 갔습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "두": "two",
+          "명의": "people",
+          "여행자": "traveler",
+          "는": "are",
+          "서로": "each other",
+          "의": "of",
+          "등": "back",
+          "을": "object marker",
+          "의지하며": "relying on",
+          "길": "path",
+          "갔습니다": "went"
+        },
+        "overallTranslation": "In the dark forest, two travelers walked, relying on each other's backs."
+      },
+      {
+        "korean": "그들은 험난한 지형과 위험한 야수들을 극복하며 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "험난한": "rough",
+          "지형": "terrain",
+          "과": "and",
+          "위험한": "dangerous",
+          "야수": "beast",
+          "들을": "object marker",
+          "극복하며": "overcoming",
+          "나아갔습니다": "went forward"
+        },
+        "overallTranslation": "They pushed forward, overcoming the difficult terrain and dangerous beasts."
+      },
+      {
+        "korean": "하지만 갑자기, 그들의 사이에 거대한 골짜기가 나타났습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "그들의": "their",
+          "사이에": "between",
+          "거대한": "huge",
+          "골짜기": "valley",
+          "가": "subject marker",
+          "나타났습니다": "appeared"
+        },
+        "overallTranslation": "But suddenly, a huge valley appeared between them."
+      },
+      {
+        "korean": "두 여행자는 서로를 볼 수 없게 되었고, 그들의 끈끈했던 유대감은 깊은 골짜기로 인해 갈라졌습니다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "여행자": "traveler",
+          "는": "are",
+          "서로": "each other",
+          "를": "object marker",
+          "볼": "see",
+          "수": "can",
+          "없게": "not",
+          "되었고": "became",
+          "그들의": "their",
+          "끈끈했던": "strong",
+          "유대감": "bond",
+          "은": "subject marker",
+          "깊은": "deep",
+          "골짜기": "valley",
+          "로": "by",
+          "인해": "because of",
+          "갈라졌습니다": "split"
+        },
+        "overallTranslation": "The two travelers could no longer see each other, and their strong bond was split by the deep valley."
+      },
+      {
+        "korean": "그들은 서로 다른 길을 가게 되었고, 그들의 운명은 분리되었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "서로": "each other",
+          "다른": "different",
+          "길": "path",
+          "을": "object marker",
+          "가게": "to go",
+          "되었고": "became",
+          "그들의": "their",
+          "운명": "fate",
+          "은": "subject marker",
+          "분리되었습니다": "was separated"
+        },
+        "overallTranslation": "They ended up going on different paths, and their fates were separated."
+      }
+    ],
+    "id": 1853
+  },
+  {
+    "generator": "korean-gap-story-11-modern-gemini",
+    "input": "gratuitous",
+    "problem": "지수는 친구와 함께 카페에 앉아 커피를 마시고 있었다.<br> 갑자기, 옆 테이블에서 큰 소리가 났다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 한 남자가 갑자기 일어나서 커피잔을 던졌다.<br> 그 이유는 아무도 몰랐지만, 커피잔은 벽에 부딪히며 깨졌다.<br>",
+    "solution": [
+      {
+        "korean": "지수는 친구와 함께 카페에 앉아 커피를 마시고 있었다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "카페": "cafe",
+          "에": "at",
+          "앉아": "sitting",
+          "커피": "coffee",
+          "를": "to",
+          "마시고": "drinking",
+          "있었다": "was"
+        },
+        "overallTranslation": "Jisoo was sitting at a cafe with her friend, drinking coffee."
+      },
+      {
+        "korean": "갑자기, 옆 테이블에서 큰 소리가 났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "next",
+          "테이블": "table",
+          "에서": "from",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "났다": "happened"
+        },
+        "overallTranslation": "Suddenly, a loud noise came from the table next to them."
+      },
+      {
+        "korean": "한 남자가 갑자기 일어나서 커피잔을 던졌다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자": "man",
+          "가": "that",
+          "갑자기": "suddenly",
+          "일어나": "stood up",
+          "서": "and",
+          "커피잔": "coffee cup",
+          "을": "to",
+          "던졌다": "threw"
+        },
+        "overallTranslation": "A man suddenly stood up and threw his coffee cup."
+      },
+      {
+        "korean": "그 이유는 아무도 몰랐지만, 커피잔은 벽에 부딪히며 깨졌다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "이유": "reason",
+          "는": "is",
+          "아무도": "no one",
+          "몰랐지만": "didn't know",
+          "커피잔": "coffee cup",
+          "은": "is",
+          "벽": "wall",
+          "에": "on",
+          "부딪히며": "hitting",
+          "깨졌다": "broke"
+        },
+        "overallTranslation": "No one knew why, but the coffee cup broke against the wall."
+      },
+      {
+        "korean": "그 남자는 아무 말 없이 카페를 나갔고, 지수는 친구와 함께 어리둥절해했다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "남자": "man",
+          "는": "is",
+          "아무": "no",
+          "말": "word",
+          "없이": "without",
+          "카페": "cafe",
+          "를": "to",
+          "나갔고": "left",
+          "지수": "Jisoo",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "어리둥절": "puzzled",
+          "해했다": "was"
+        },
+        "overallTranslation": "The man left the cafe without a word, and Jisoo and her friend were left puzzled."
+      }
+    ],
+    "id": 1854
   },
   {
     "generator": "korean-gap-story-11-mystery-gemini",
@@ -13819,7 +15740,7 @@
         "hanjaro": "그 웃음소리는 유리(琉璃)의 심장(心臟)을 무서운 공포(恐怖)로 채웠다.\n"
       }
     ],
-    "id": 1832
+    "id": 1855
   },
   {
     "generator": "korean-gap-story-11-psychological-horror-gemini",
@@ -13915,7 +15836,184 @@
         "overallTranslation": "The doll's eyes stared at the cold night air, making a creepy smile."
       }
     ],
-    "id": 1833
+    "id": 1856
+  },
+  {
+    "generator": "korean-gap-story-11-realistic-gemini",
+    "input": "teach",
+    "problem": "은수는 교실에서 학생들에게 한국어를 가르치고 있었다.<br> 그녀는 문법 규칙을 설명하고, 연습 문제를 내주고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 교실 문이 활짝 열렸다.<br> 교장 선생님이 들어오셨고, 은수는 깜짝 놀랐다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 교실에서 학생들에게 한국어를 가르치고 있었다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "교실": "classroom",
+          "에서": "at",
+          "학생": "students",
+          "들": "to",
+          "에게": "them",
+          "한국어": "Korean",
+          "를": "to",
+          "가르치": "teach",
+          "고": "and",
+          "있었다": "was"
+        },
+        "overallTranslation": "Eunsoo was teaching Korean to the students in the classroom."
+      },
+      {
+        "korean": "그녀는 문법 규칙을 설명하고, 연습 문제를 내주고 있었다.",
+        "wordByWordTranslation": {
+          "그녀": "She",
+          "는": "is",
+          "문법": "grammar",
+          "규칙": "rules",
+          "을": "to",
+          "설명": "explain",
+          "하고": "and",
+          "연습": "practice",
+          "문제": "problems",
+          "를": "to",
+          "내주": "give",
+          "고": "and",
+          "있었다": "was"
+        },
+        "overallTranslation": "She was explaining grammar rules and giving them practice problems."
+      },
+      {
+        "korean": "갑자기, 교실 문이 활짝 열렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "Suddenly",
+          "교실": "classroom",
+          "문": "door",
+          "이": "the",
+          "활짝": "wide",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, the classroom door swung open."
+      },
+      {
+        "korean": "교장 선생님이 들어오셨고, 은수는 깜짝 놀랐다.",
+        "wordByWordTranslation": {
+          "교장": "principal",
+          "선생님": "teacher",
+          "이": "the",
+          "들어오셨다": "entered",
+          "고": "and",
+          "은수": "Eunsoo",
+          "는": "is",
+          "깜짝": "surprised",
+          "놀랐다": "was"
+        },
+        "overallTranslation": "The principal walked in, and Eunsoo was startled."
+      },
+      {
+        "korean": "교장 선생님은 은수의 수업을 칭찬하며, 학생들에게도 격려의 말씀을 전했다.",
+        "wordByWordTranslation": {
+          "교장": "principal",
+          "선생님": "teacher",
+          "은": "is",
+          "은수": "Eunsoo",
+          "의": "'s",
+          "수업": "class",
+          "을": "to",
+          "칭찬": "praise",
+          "하며": "while",
+          "학생": "students",
+          "들": "to",
+          "에게": "them",
+          "도": "also",
+          "격려": "encouragement",
+          "말씀": "words",
+          "전": "give",
+          "했다": "did"
+        },
+        "overallTranslation": "The principal praised Eunsoo's teaching and also gave words of encouragement to the students."
+      }
+    ],
+    "id": 1857
+  },
+  {
+    "generator": "korean-gap-story-11-renaissance-gemini",
+    "input": "utterance",
+    "problem": "어두운 밤, 낡은 서재에 앉아 촛불을 켜고 책을 읽고 있었습니다.<br> 갑자기 문이 열리며 바람이 불어와 촛불이 꺼졌습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 어둠 속에서 누군가의 목소리가 들렸습니다.<br> “두려워하지 마세요. 저는 당신을 해치려는 사람이 아닙니다.”<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 서재에 앉아 촛불을 켜고 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "서재": "study",
+          "에": "in",
+          "앉아": "sitting",
+          "촛불": "candle",
+          "을": "object marker",
+          "켜고": "lighting",
+          "책": "book",
+          "읽고": "reading",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the dark night, I was sitting in an old study, lighting a candle and reading a book."
+      },
+      {
+        "korean": "갑자기 문이 열리며 바람이 불어와 촛불이 꺼졌습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "subject marker",
+          "열리며": "opening",
+          "바람": "wind",
+          "불어와": "blowing",
+          "촛불": "candle",
+          "꺼졌습니다": "went out"
+        },
+        "overallTranslation": "Suddenly, the door opened and the wind blew in, extinguishing the candle."
+      },
+      {
+        "korean": "어둠 속에서 누군가의 목소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "어둠": "darkness",
+          "속에서": "from inside",
+          "누군가": "someone",
+          "의": "possessive marker",
+          "목소리": "voice",
+          "가": "subject marker",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "From the darkness, someone’s voice was heard."
+      },
+      {
+        "korean": "“두려워하지 마세요. 저는 당신을 해치려는 사람이 아닙니다.”",
+        "wordByWordTranslation": {
+          "두려워": "fear",
+          "하지": "don’t",
+          "마세요": "please",
+          "저": "I",
+          "는": "subject marker",
+          "당신": "you",
+          "을": "object marker",
+          "해치려는": "trying to harm",
+          "사람": "person",
+          "이": "subject marker",
+          "아닙니다": "am not"
+        },
+        "overallTranslation": "“Don’t be afraid. I am not someone who wants to harm you.”"
+      },
+      {
+        "korean": "그 목소리는 부드럽고 친절하게 말했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "목소리": "voice",
+          "는": "subject marker",
+          "부드럽고": "gentle",
+          "친절하게": "kindly",
+          "말했습니다": "said"
+        },
+        "overallTranslation": "That voice spoke gently and kindly."
+      }
+    ],
+    "id": 1858
   },
   {
     "generator": "korean-gap-story-11-science-fiction-gemini",
@@ -14005,7 +16103,7 @@
         "hanjaro": "요정(妖精)은 윙윙거리며 말했다, “이 항아리(缸아리)는 소원(所願)을 담는 곳이야.”\n"
       }
     ],
-    "id": 1834
+    "id": 1859
   },
   {
     "generator": "korean-gap-story-11-slasher-gemini",
@@ -14101,7 +16199,7 @@
         "overallTranslation": "Like the old adage, she revealed the terrible truth in the darkness of the night."
       }
     ],
-    "id": 1835
+    "id": 1860
   },
   {
     "generator": "korean-gap-story-11-slice-of-life-gemini",
@@ -14212,7 +16310,7 @@
         "hanjaro": "그는 커피숍 직원(職員)에게 큰 소리로 항의(抗議)하며, 뜨거운 커피를 바꿔 달라고 요구(要求)하고 있었다.\n"
       }
     ],
-    "id": 1836
+    "id": 1861
   },
   {
     "generator": "korean-gap-story-11-social-gemini",
@@ -14287,7 +16385,7 @@
         "hanjaro": "그의 눈은 은수를 향(向)해 빛나고 있었다.\n"
       }
     ],
-    "id": 1837
+    "id": 1862
   },
   {
     "generator": "korean-gap-story-11-social-gemini",
@@ -14367,7 +16465,7 @@
         "overallTranslation": "Forgetting about their political discussion, they paid attention to the new music."
       }
     ],
-    "id": 1838
+    "id": 1863
   },
   {
     "generator": "korean-gap-story-11-space-opera-gemini",
@@ -14472,7 +16570,556 @@
         "hanjaro": "승무원(乘務員)들은 선장(船長)의 지시(指示)에 따라 협력(協力)하여 위기(危機)를 극복(克服)했다.\n"
       }
     ],
-    "id": 1839
+    "id": 1864
+  },
+  {
+    "generator": "korean-gap-story-11-steampunk-gemini",
+    "input": "organic",
+    "problem": "어두운 기계 도시의 한가운데, 낡은 톱니바퀴가 끼어 멈춰버린 거대한 시계탑이 있었습니다.<br> 그 시계탑은 도시의 심장과도 같았고, 멈추면 모든 기계가 멈추는 것이나 다름없었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 어느 날, 시계탑의 톱니바퀴 사이에서 작은 싹이 돋아났습니다.<br> 그 싹은 톱니바퀴를 돌리고, 멈춰 있던 시계탑을 다시 작동시켰습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 기계 도시의 한가운데, 낡은 톱니바퀴가 끼어 멈춰버린 거대한 시계탑이 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "기계": "machine",
+          "도시의": "city's",
+          "한가운데": "middle",
+          "낡은": "old",
+          "톱니바퀴가": "gear",
+          "끼어": "stuck",
+          "멈춰버린": "stopped",
+          "거대한": "huge",
+          "시계탑이": "clock tower",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the middle of a dark mechanical city, there was a huge clock tower with old gears stuck, stopping it."
+      },
+      {
+        "korean": "그 시계탑은 도시의 심장과도 같았고, 멈추면 모든 기계가 멈추는 것이나 다름없었습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "시계탑은": "clock tower",
+          "도시의": "city's",
+          "심장과도": "heart",
+          "같았고": "was",
+          "멈추면": "if stopped",
+          "모든": "all",
+          "기계가": "machine",
+          "멈추는": "stopping",
+          "것이": "thing",
+          "다름없었습니다.": "was no different"
+        },
+        "overallTranslation": "The clock tower was like the heart of the city, and if it stopped, it was no different from all the machines stopping."
+      },
+      {
+        "korean": "하지만 어느 날, 시계탑의 톱니바퀴 사이에서 작은 싹이 돋아났습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어느 날": "one day",
+          "시계탑의": "clock tower's",
+          "톱니바퀴": "gear",
+          "사이에서": "between",
+          "작은": "small",
+          "싹이": "sprout",
+          "돋아났습니다.": "sprouted"
+        },
+        "overallTranslation": "But one day, a small sprout sprouted between the gears of the clock tower."
+      },
+      {
+        "korean": "그 싹은 톱니바퀴를 돌리고, 멈춰 있던 시계탑을 다시 작동시켰습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "싹은": "sprout",
+          "톱니바퀴를": "gear",
+          "돌리고": "turning",
+          "멈춰": "stopped",
+          "있던": "existing",
+          "시계탑을": "clock tower",
+          "다시": "again",
+          "작동시켰습니다.": "operated"
+        },
+        "overallTranslation": "The sprout turned the gears, and the stopped clock tower started working again."
+      },
+      {
+        "korean": "기계 도시는 다시 움직였고, 사람들은 희망을 되찾았습니다.",
+        "wordByWordTranslation": {
+          "기계": "machine",
+          "도시는": "city",
+          "다시": "again",
+          "움직였고": "moved",
+          "사람들은": "people",
+          "희망을": "hope",
+          "되찾았습니다.": "regained"
+        },
+        "overallTranslation": "The mechanical city moved again, and people regained hope."
+      }
+    ],
+    "id": 1865
+  },
+  {
+    "generator": "korean-gap-story-11-time-travel-gemini",
+    "input": "trolley",
+    "problem": "은수는 서울의 번잡한 거리를 걸으며 낡은 손수레를 봤어요.<br> 손수레에는 옛날 물건들이 놓여 있었고, 은수는 흥미롭게 살펴봤어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 손수레가 빛을 내며 사라졌고, 은수는 이상한 곳에 있었어요.<br> 주변에는 옛날 한복을 입은 사람들이 있었고, 거리에는 말이 끄는 마차가 다녔어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 서울의 번잡한 거리를 걸으며 낡은 손수레를 봤어요.",
+        "wordByWordTranslation": {
+          "은수는": "Eun-su is",
+          "서울의": "Seoul's",
+          "번잡한": "busy",
+          "거리를": "street",
+          "걸으며": "walking",
+          "낡은": "old",
+          "손수레를": "trolley",
+          "봤어요.": "saw"
+        },
+        "overallTranslation": "Eun-su saw an old trolley while walking through the busy streets of Seoul."
+      },
+      {
+        "korean": "손수레에는 옛날 물건들이 놓여 있었고, 은수는 흥미롭게 살펴봤어요.",
+        "wordByWordTranslation": {
+          "손수레에는": "on the trolley",
+          "옛날": "old",
+          "물건들이": "things",
+          "놓여": "were placed",
+          "있었고": "and",
+          "은수는": "Eun-su",
+          "흥미롭게": "interestingly",
+          "살펴봤어요.": "looked"
+        },
+        "overallTranslation": "The trolley was filled with old things, and Eun-su looked at them with interest."
+      },
+      {
+        "korean": "갑자기 손수레가 빛을 내며 사라졌고, 은수는 이상한 곳에 있었어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "손수레가": "the trolley",
+          "빛을": "light",
+          "내며": "emitting",
+          "사라졌고": "disappeared",
+          "은수는": "Eun-su",
+          "이상한": "strange",
+          "곳에": "place",
+          "있었어요.": "was"
+        },
+        "overallTranslation": "Suddenly, the trolley emitted light and disappeared, and Eun-su found herself in a strange place."
+      },
+      {
+        "korean": "주변에는 옛날 한복을 입은 사람들이 있었고, 거리에는 말이 끄는 마차가 다녔어요.",
+        "wordByWordTranslation": {
+          "주변에는": "around",
+          "옛날": "old",
+          "한복을": "hanbok (traditional Korean clothing)",
+          "입은": "wearing",
+          "사람들이": "people",
+          "있었고": "were",
+          "거리에는": "on the street",
+          "말이": "horse",
+          "끄는": "pulling",
+          "마차가": "carriage",
+          "다녔어요.": "went"
+        },
+        "overallTranslation": "People wearing old hanbok were all around her, and horse-drawn carriages were traveling on the street."
+      },
+      {
+        "korean": "은수는 손수레가 자신을 과거로 데려온 것을 깨닫고 놀랐어요.",
+        "wordByWordTranslation": {
+          "은수는": "Eun-su",
+          "손수레가": "the trolley",
+          "자신을": "herself",
+          "과거로": "to the past",
+          "데려온": "brought",
+          "것을": "that",
+          "깨닫고": "realizing",
+          "놀랐어요.": "was surprised"
+        },
+        "overallTranslation": "Eun-su was surprised to realize that the trolley had brought her to the past."
+      }
+    ],
+    "id": 1866
+  },
+  {
+    "generator": "korean-gap-story-11-time-travel-gemini",
+    "input": "decisive",
+    "problem": "2023년 봄, 벚꽃이 만발한 서울의 한 카페에서 민준은 커피를 마시며 책을 읽고 있었습니다.<br> 갑자기, 옆 테이블에서 격렬한 말다툼 소리가 들려왔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 눈 깜짝할 사이에 민준은 1950년대의 서울 거리에 서 있었습니다.<br> 전쟁으로 황폐해진 도시, 찢어진 옷을 입은 사람들, 희망보다는 절망이 가득한 표정들이 민준을 둘러싸고 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "2023년 봄, 벚꽃이 만발한 서울의 한 카페에서 민준은 커피를 마시며 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "2023년": "2023 year",
+          "봄": "spring",
+          "벚꽃": "cherry blossom",
+          "만발한": "blooming",
+          "서울": "Seoul",
+          "한": "one",
+          "카페": "cafe",
+          "에서": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "커피": "coffee",
+          "를": "을/를 (object marker)",
+          "마시며": "drinking",
+          "책": "book",
+          "을": "을/를 (object marker)",
+          "읽고": "reading",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the spring of 2023, Minjun was reading a book while sipping coffee at a cafe in Seoul, where cherry blossoms were in full bloom."
+      },
+      {
+        "korean": "갑자기, 옆 테이블에서 격렬한 말다툼 소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "next",
+          "테이블": "table",
+          "에서": "from",
+          "격렬한": "intense",
+          "말다툼": "argument",
+          "소리": "sound",
+          "가": "subject marker",
+          "들려왔습니다.": "was heard"
+        },
+        "overallTranslation": "Suddenly, a heated argument could be heard from the table next to him."
+      },
+      {
+        "korean": "눈 깜짝할 사이에 민준은 1950년대의 서울 거리에 서 있었습니다.",
+        "wordByWordTranslation": {
+          "눈": "eye",
+          "깜짝": "blink",
+          "할": "to do",
+          "사이": "between",
+          "에": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "1950년대": "1950s",
+          "의": "of",
+          "서울": "Seoul",
+          "거리": "street",
+          "서": "stand",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the blink of an eye, Minjun found himself standing on the streets of Seoul in the 1950s."
+      },
+      {
+        "korean": "전쟁으로 황폐해진 도시, 찢어진 옷을 입은 사람들, 희망보다는 절망이 가득한 표정들이 민준을 둘러싸고 있었습니다.",
+        "wordByWordTranslation": {
+          "전쟁": "war",
+          "으로": "by",
+          "황폐해진": "devastated",
+          "도시": "city",
+          "찢어진": "torn",
+          "옷": "clothes",
+          "을": "을/를 (object marker)",
+          "입은": "wearing",
+          "사람들": "people",
+          "희망": "hope",
+          "보다는": "rather than",
+          "절망": "despair",
+          "이": "subject marker",
+          "가득한": "filled with",
+          "표정": "expression",
+          "들이": "plural marker",
+          "민준": "Minjun",
+          "둘러싸고": "surrounding",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "The city, devastated by war, was filled with people in torn clothes, their faces bearing more despair than hope, surrounding Minjun."
+      },
+      {
+        "korean": "그 순간, 민준은 자신이 과거의 결정적인 순간에 놓였다는 것을 깨달았습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "에": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "자신": "himself",
+          "이": "subject marker",
+          "과거": "past",
+          "의": "of",
+          "결정적인": "decisive",
+          "놓였다는": "being placed",
+          "것": "fact",
+          "을": "을/를 (object marker)",
+          "깨달았습니다.": "realized"
+        },
+        "overallTranslation": "At that moment, Minjun realized that he was standing at a decisive moment in the past."
+      }
+    ],
+    "id": 1867
+  },
+  {
+    "generator": "korean-gap-story-12-cyberpunk-gemini",
+    "input": "pervasive",
+    "problem": "어둠 속에서 빛나는 네온사인은 도시를 덮고 있었고, 그 사이로 낡은 건물들이 삐죽삐죽 솟아올라 있었다.<br> 지나가는 사람들의 얼굴에는 스크린이 붙어 있었고, 그들은 화면 속 정보에만 집중하고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 하늘에서 거대한 우주선이 나타났고, 도시 전체가 순간 정지했다.<br> 우주선에서 빛이 뿜어져 나와 모든 스크린을 덮었고, 사람들은 화면 속 정보 대신 우주선을 응시했다.<br>",
+    "solution": [
+      {
+        "korean": "어둠 속에서 빛나는 네온사인은 도시를 덮고 있었고, 그 사이로 낡은 건물들이 삐죽삐죽 솟아올라 있었다.",
+        "wordByWordTranslation": {
+          "어둠": "darkness",
+          "속에서": "inside",
+          "빛나는": "shining",
+          "네온사인": "neon signs",
+          "은": "are",
+          "도시": "city",
+          "를": "to",
+          "덮고": "covering",
+          "있었고": "was",
+          "그": "that",
+          "사이로": "between",
+          "낡은": "old",
+          "건물": "buildings",
+          "들이": "are",
+          "삐죽삐죽": "jagged",
+          "솟아올라": "rising up",
+          "있었다": "was"
+        },
+        "overallTranslation": "Neon signs shone brightly in the darkness, covering the city, while old buildings rose up jaggedly between them."
+      },
+      {
+        "korean": "지나가는 사람들의 얼굴에는 스크린이 붙어 있었고, 그들은 화면 속 정보에만 집중하고 있었다.",
+        "wordByWordTranslation": {
+          "지나가는": "passing",
+          "사람": "people",
+          "들의": "of",
+          "얼굴": "faces",
+          "에는": "on",
+          "스크린": "screens",
+          "이": "is",
+          "붙어": "attached",
+          "있었고": "was",
+          "그들": "they",
+          "은": "are",
+          "화면": "screen",
+          "속": "inside",
+          "정보": "information",
+          "에만": "only",
+          "집중": "concentrating",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "Screens were attached to the faces of the passersby, and they were only focused on the information on the screens."
+      },
+      {
+        "korean": "갑자기 하늘에서 거대한 우주선이 나타났고, 도시 전체가 순간 정지했다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "거대한": "huge",
+          "우주선": "spaceship",
+          "이": "is",
+          "나타났고": "appeared",
+          "도시": "city",
+          "전체": "entire",
+          "가": "is",
+          "순간": "moment",
+          "정지": "stopped",
+          "했다": "did"
+        },
+        "overallTranslation": "Suddenly, a huge spaceship appeared from the sky, and the entire city froze in that moment."
+      },
+      {
+        "korean": "우주선에서 빛이 뿜어져 나와 모든 스크린을 덮었고, 사람들은 화면 속 정보 대신 우주선을 응시했다.",
+        "wordByWordTranslation": {
+          "우주선": "spaceship",
+          "에서": "from",
+          "빛": "light",
+          "이": "is",
+          "뿜어져": "bursting",
+          "나와": "out",
+          "모든": "all",
+          "스크린": "screens",
+          "을": "to",
+          "덮었고": "covered",
+          "사람": "people",
+          "들은": "are",
+          "화면": "screen",
+          "속": "inside",
+          "정보": "information",
+          "대신": "instead",
+          "응시": "gazing",
+          "했다": "did"
+        },
+        "overallTranslation": "Light burst from the spaceship, covering all the screens, and people gazed at the spaceship instead of the information on the screens."
+      },
+      {
+        "korean": "그들의 눈은 마치 깨어난 듯, 빛나는 우주선의 모습에 매료되었다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "의": "of",
+          "눈": "eyes",
+          "은": "are",
+          "마치": "like",
+          "깨어난": "awakened",
+          "듯": "like",
+          "빛나는": "shining",
+          "우주선": "spaceship",
+          "모습": "appearance",
+          "에": "to",
+          "매료": "fascinated",
+          "되었다": "became"
+        },
+        "overallTranslation": "Their eyes, as if awakened, were fascinated by the appearance of the shining spaceship."
+      }
+    ],
+    "id": 1868
+  },
+  {
+    "generator": "korean-gap-story-12-dark-fantasy-gemini",
+    "input": "kilo",
+    "problem": "어두운 밤, 낡은 킬로미터 표지판이 휘청거렸다.<br> 바람은 울부짖었고, 낡은 쇠붙이는 삐걱거렸다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 땅에서 희미한 빛이 뿜어져 나왔다.<br> 빛은 점점 강해지며 킬로미터 표지판을 녹이기 시작했다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 킬로미터 표지판이 휘청거렸다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "킬로미터": "kilometer",
+          "표지판": "sign",
+          "휘청거렸다": "swayed"
+        },
+        "overallTranslation": "On a dark night, an old kilometer sign swayed."
+      },
+      {
+        "korean": "바람은 울부짖었고, 낡은 쇠붙이는 삐걱거렸다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "울부짖었고": "howled",
+          "낡은": "old",
+          "쇠붙이": "metal",
+          "삐걱거렸다": "creaked"
+        },
+        "overallTranslation": "The wind howled, and the old metal creaked."
+      },
+      {
+        "korean": "그때, 땅에서 희미한 빛이 뿜어져 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "땅": "ground",
+          "희미한": "faint",
+          "빛": "light",
+          "뿜어져": "emitted",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "At that moment, a faint light emanated from the ground."
+      },
+      {
+        "korean": "빛은 점점 강해지며 킬로미터 표지판을 녹이기 시작했다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "점점": "gradually",
+          "강해지며": "becoming stronger",
+          "킬로미터": "kilometer",
+          "표지판": "sign",
+          "녹이기": "melt",
+          "시작했다": "started"
+        },
+        "overallTranslation": "The light grew stronger, starting to melt the kilometer sign."
+      },
+      {
+        "korean": "표지판은 녹아내리며 기괴한 형상의 괴물로 변했다.",
+        "wordByWordTranslation": {
+          "표지판": "sign",
+          "녹아내리며": "melting",
+          "기괴한": "grotesque",
+          "형상": "form",
+          "괴물": "monster",
+          "변했다": "changed"
+        },
+        "overallTranslation": "The sign melted down, transforming into a grotesque monster."
+      }
+    ],
+    "id": 1869
+  },
+  {
+    "generator": "korean-gap-story-12-dark-fantasy-gemini",
+    "input": "sleeve",
+    "problem": "어두운 밤, 낡은 옷가게의 창문에는 먼지가 쌓여 있었다.<br> 가게 주인인 할머니는 낡은 소파에 앉아 졸고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 가게 문이 쾅 소리와 함께 열렸다.<br> 문틈 사이로 검은 그림자가 들어왔고, 할머니는 깜짝 놀랐다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 옷가게의 창문에는 먼지가 쌓여 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "옷가게": "clothes shop",
+          "창문": "window",
+          "에는": "there is",
+          "먼지": "dust",
+          "가": "that",
+          "쌓여": "piled up",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, dust had piled up on the windows of an old clothing store."
+      },
+      {
+        "korean": "가게 주인인 할머니는 낡은 소파에 앉아 졸고 있었다.",
+        "wordByWordTranslation": {
+          "가게": "store",
+          "주인": "owner",
+          "인": "be",
+          "할머니": "grandmother",
+          "는": "is",
+          "낡은": "old",
+          "소파": "sofa",
+          "에": "on",
+          "앉아": "sitting",
+          "졸고": "dozing",
+          "있었다": "was"
+        },
+        "overallTranslation": "The grandmother, the store owner, was dozing on an old sofa."
+      },
+      {
+        "korean": "갑자기, 가게 문이 쾅 소리와 함께 열렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "가게": "store",
+          "문": "door",
+          "이": "that",
+          "쾅": "bang",
+          "소리": "sound",
+          "와": "with",
+          "함께": "together",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, the store door swung open with a bang."
+      },
+      {
+        "korean": "문틈 사이로 검은 그림자가 들어왔고, 할머니는 깜짝 놀랐다.",
+        "wordByWordTranslation": {
+          "문틈": "crack in the door",
+          "사이로": "through",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "that",
+          "들어왔고": "came in",
+          "할머니": "grandmother",
+          "는": "is",
+          "깜짝": "startled",
+          "놀랐다": "surprised"
+        },
+        "overallTranslation": "A black shadow entered through the crack in the door, and the grandmother was startled."
+      },
+      {
+        "korean": "그림자는 소매만 팔랑거리며 말했다, “낡은 옷, 하나 주세요.”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "소매": "sleeve",
+          "만": "only",
+          "팔랑거리며": "fluttering",
+          "말했다": "said",
+          "낡은": "old",
+          "옷": "clothes",
+          "하나": "one",
+          "주세요": "give me"
+        },
+        "overallTranslation": "The shadow, with only its sleeves fluttering, said, “Give me an old piece of clothing.”"
+      }
+    ],
+    "id": 1870
   },
   {
     "generator": "korean-gap-story-12-dramatic-gemini",
@@ -14558,7 +17205,179 @@
         "hanjaro": "따뜻한 커피 향기(香氣)가 나를 행복(幸福)하게 했다.\n"
       }
     ],
-    "id": 1840
+    "id": 1871
+  },
+  {
+    "generator": "korean-gap-story-12-frontier-gemini",
+    "input": "on",
+    "problem": "해가 지기 시작하자, 먼지 덮인 길은 쓸쓸하게 펼쳐졌습니다.<br> 고요한 황야에서, 두 명의 여행자는 말을 타고 서둘러 달리고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 먼지 구름이 하늘을 뒤덮으며 기이한 소리가 들려왔습니다.<br> 여행자들은 말에서 뛰어내려, 긴장한 눈빛으로 먼지 구름을 바라보았습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 먼지 덮인 길은 쓸쓸하게 펼쳐졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "to set",
+          "시작하자": "started",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길은": "road",
+          "쓸쓸하게": "lonely",
+          "펼쳐졌습니다": "stretched out"
+        },
+        "overallTranslation": "As the sun began to set, the dusty road stretched out before them, lonely and desolate."
+      },
+      {
+        "korean": "고요한 황야에서, 두 명의 여행자는 말을 타고 서둘러 달리고 있었습니다.",
+        "wordByWordTranslation": {
+          "고요한": "quiet",
+          "황야에서": "wilderness",
+          "두": "two",
+          "명의": "people",
+          "여행자는": "traveler",
+          "말을": "horse",
+          "타고": "riding",
+          "서둘러": "hurriedly",
+          "달리고": "running",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Two travelers, riding their horses, hurried through the silent wilderness."
+      },
+      {
+        "korean": "갑자기, 먼지 구름이 하늘을 뒤덮으며 기이한 소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "먼지": "dust",
+          "구름이": "cloud",
+          "하늘을": "sky",
+          "뒤덮으며": "covering",
+          "기이한": "strange",
+          "소리가": "sound",
+          "들려왔습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a dust cloud covered the sky, and a strange sound echoed through the air."
+      },
+      {
+        "korean": "여행자들은 말에서 뛰어내려, 긴장한 눈빛으로 먼지 구름을 바라보았습니다.",
+        "wordByWordTranslation": {
+          "여행자들은": "travelers",
+          "말에서": "from horse",
+          "뛰어내려": "jumped down",
+          "긴장한": "tense",
+          "눈빛으로": "eyes",
+          "먼지": "dust",
+          "구름을": "cloud",
+          "바라보았습니다": "looked at"
+        },
+        "overallTranslation": "The travelers leaped off their horses, their eyes tense as they stared at the swirling dust cloud."
+      },
+      {
+        "korean": "그 안에서, 거대한 짐승의 형체가 드러나며, 땅이 울리는 듯한 굉음이 울려 퍼졌습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "안에서": "inside",
+          "거대한": "huge",
+          "짐승의": "beast",
+          "형체가": "shape",
+          "드러나며": "emerging",
+          "땅이": "ground",
+          "울리는": "shaking",
+          "듯한": "like",
+          "굉음이": "roar",
+          "울려": "resounded",
+          "퍼졌습니다": "spread"
+        },
+        "overallTranslation": "From within the cloud, the shape of a massive beast emerged, and a roar like the earth trembling echoed through the air."
+      }
+    ],
+    "id": 1872
+  },
+  {
+    "generator": "korean-gap-story-12-gritty-realism-gemini",
+    "input": "untie",
+    "problem": "낡은 창고 안, 희미한 형광등 불빛 아래, 두 남자가 마주보고 앉아 있었다.<br> 한 남자는 손에 낡은 밧줄을 쥐고 있었고, 다른 남자는 굳은 표정으로 바닥을 응시하고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 밧줄을 쥔 남자가 벌떡 일어섰다.<br> 그는 밧줄을 풀며, “네가 지금까지 했던 일, 모두 다 알고 있어.”라고 말했다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 창고 안, 희미한 형광등 불빛 아래, 두 남자가 마주보고 앉아 있었다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "창고": "warehouse",
+          "안": "inside",
+          "희미한": "dim",
+          "형광등": "fluorescent light",
+          "불빛": "light",
+          "아래": "below",
+          "두": "two",
+          "남자": "man",
+          "가": "subject marker",
+          "마주보고": "facing each other",
+          "앉아": "sitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "Inside the old warehouse, under the dim fluorescent light, two men sat facing each other."
+      },
+      {
+        "korean": "한 남자는 손에 낡은 밧줄을 쥐고 있었고, 다른 남자는 굳은 표정으로 바닥을 응시하고 있었다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자는": "man subject marker",
+          "손에": "in hand",
+          "낡은": "old",
+          "밧줄을": "rope object marker",
+          "쥐고": "holding",
+          "있었고": "was",
+          "다른": "other",
+          "굳은": "hardened",
+          "표정으로": "expression with",
+          "바닥을": "floor object marker",
+          "응시하고": "staring",
+          "있었다": "was"
+        },
+        "overallTranslation": "One man held an old rope in his hand, while the other man stared at the floor with a hardened expression."
+      },
+      {
+        "korean": "갑자기, 밧줄을 쥔 남자가 벌떡 일어섰다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "밧줄을": "rope object marker",
+          "쥔": "holding",
+          "남자가": "man subject marker",
+          "벌떡": "suddenly",
+          "일어섰다": "stood up"
+        },
+        "overallTranslation": "Suddenly, the man holding the rope stood up."
+      },
+      {
+        "korean": "그는 밧줄을 풀며, “네가 지금까지 했던 일, 모두 다 알고 있어.”라고 말했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "밧줄을": "rope object marker",
+          "풀며": "while untying",
+          "네가": "you",
+          "지금까지": "until now",
+          "했던": "did",
+          "일,": "work",
+          "모두": "all",
+          "다": "all",
+          "알고": "knowing",
+          "있어.": "am",
+          "라고": "quotation marker",
+          "말했다": "said"
+        },
+        "overallTranslation": "He untied the rope, saying, “I know everything you’ve done.”"
+      },
+      {
+        "korean": "두 남자의 눈빛이 싸늘하게 마주쳤다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "남자의": "man possessive marker",
+          "눈빛이": "eyes",
+          "싸늘하게": "coldly",
+          "마주쳤다": "met"
+        },
+        "overallTranslation": "The two men’s eyes met coldly."
+      }
+    ],
+    "id": 1873
   },
   {
     "generator": "korean-gap-story-12-low-fantasy-gemini",
@@ -14656,7 +17475,283 @@
         "hanjaro": "그는 이제 이 낡은 성(城)을 다스릴 운명(運命)을 받아들였다.\n"
       }
     ],
-    "id": 1841
+    "id": 1874
+  },
+  {
+    "generator": "korean-gap-story-12-military-gemini",
+    "input": "distortion",
+    "problem": "김 대위는 전쟁터에서 멀리 떨어진 작은 마을의 낡은 술집에 앉아 있었다.<br> 그는 술잔을 들고 창밖을 바라보며 싸움에 대한 생각에 잠겨 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 술집 문이 쾅 하고 열리며 낯선 군인이 들어왔다.<br> 그의 얼굴은 피로 가득했고, 눈은 이상하게 왜곡되어 있었다.<br>",
+    "solution": [
+      {
+        "korean": "김 대위는 전쟁터에서 멀리 떨어진 작은 마을의 낡은 술집에 앉아 있었다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "전쟁터": "battlefield",
+          "에서": "from",
+          "멀리": "far",
+          "떨어진": "away",
+          "작은": "small",
+          "마을": "village",
+          "의": "of",
+          "낡은": "old",
+          "술집": "bar",
+          "에": "at",
+          "앉아": "sitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "Captain Kim was sitting in an old bar in a small village far from the battlefield."
+      },
+      {
+        "korean": "그는 술잔을 들고 창밖을 바라보며 싸움에 대한 생각에 잠겨 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "술잔": "glass",
+          "을": "object marker",
+          "들고": "holding",
+          "창밖": "window",
+          "바라보며": "looking",
+          "싸움": "fight",
+          "에": "in",
+          "대한": "about",
+          "생각": "thought",
+          "잠겨": "lost",
+          "있었다": "was"
+        },
+        "overallTranslation": "He held a glass, looking out the window, lost in thought about the fight."
+      },
+      {
+        "korean": "갑자기 술집 문이 쾅 하고 열리며 낯선 군인이 들어왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "술집": "bar",
+          "문": "door",
+          "이": "subject marker",
+          "쾅": "bang",
+          "하고": "and",
+          "열리며": "opening",
+          "낯선": "strange",
+          "군인": "soldier",
+          "들어왔다": "came in"
+        },
+        "overallTranslation": "Suddenly, the bar door burst open and a strange soldier came in."
+      },
+      {
+        "korean": "그의 얼굴은 피로 가득했고, 눈은 이상하게 왜곡되어 있었다.",
+        "wordByWordTranslation": {
+          "그의": "his",
+          "얼굴": "face",
+          "은": "subject marker",
+          "피": "blood",
+          "로": "with",
+          "가득했고": "full",
+          "눈": "eyes",
+          "이상하게": "strangely",
+          "왜곡되어": "distorted",
+          "있었다": "was"
+        },
+        "overallTranslation": "His face was covered in blood, and his eyes were strangely distorted."
+      },
+      {
+        "korean": "김 대위는 그 군인의 눈을 보며 전쟁의 잔혹함과 혼란을 느꼈다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "그": "that",
+          "군인": "soldier",
+          "의": "of",
+          "눈": "eyes",
+          "을": "object marker",
+          "보며": "looking",
+          "전쟁": "war",
+          "잔혹함": "cruelty",
+          "과": "and",
+          "혼란": "confusion",
+          "느꼈다": "felt"
+        },
+        "overallTranslation": "Captain Kim looked into the soldier's eyes and felt the cruelty and confusion of war."
+      }
+    ],
+    "id": 1875
+  },
+  {
+    "generator": "korean-gap-story-12-military-gemini",
+    "input": "impudent",
+    "problem": "어두운 밤, 험준한 산길을 따라 군인들이 조용히 행군하고 있었다.<br> 갑자기, 앞쪽에서 둔탁한 소리가 들려왔다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 소리는 바로 젊은 병사의 뻔뻔한 외침이었다.<br> 그는 적군을 향해 큰 소리로 욕설을 퍼부었다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 험준한 산길을 따라 군인들이 조용히 행군하고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "험준한": "steep",
+          "산길": "mountain path",
+          "따라": "along",
+          "군인": "soldier",
+          "들이": "plural marker",
+          "조용히": "quietly",
+          "행군": "march",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, soldiers were silently marching along a steep mountain path."
+      },
+      {
+        "korean": "갑자기, 앞쪽에서 둔탁한 소리가 들려왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "앞쪽": "front",
+          "에서": "from",
+          "둔탁한": "dull",
+          "소리": "sound",
+          "가": "subject marker",
+          "들려왔다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a dull sound was heard from the front."
+      },
+      {
+        "korean": "그 소리는 바로 젊은 병사의 뻔뻔한 외침이었다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리": "sound",
+          "는": "subject marker",
+          "바로": "right",
+          "젊은": "young",
+          "병사": "soldier",
+          "의": "possessive particle",
+          "뻔뻔한": "impudent",
+          "외침": "shout",
+          "이었다": "was"
+        },
+        "overallTranslation": "That sound was the impudent shout of a young soldier."
+      },
+      {
+        "korean": "그는 적군을 향해 큰 소리로 욕설을 퍼부었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "적군": "enemy",
+          "을": "object marker",
+          "향해": "toward",
+          "큰": "big",
+          "소리": "voice",
+          "로": "with",
+          "욕설": "abuse",
+          "퍼부었다": "poured"
+        },
+        "overallTranslation": "He poured out abuse at the enemy in a loud voice."
+      },
+      {
+        "korean": "순간, 그의 용감함에 동료들은 놀랐지만, 곧 그의 용기와 패기에 감탄했다.",
+        "wordByWordTranslation": {
+          "순간": "moment",
+          "그": "his",
+          "용감함": "bravery",
+          "에": "at",
+          "동료": "comrade",
+          "들은": "plural marker",
+          "놀랐지만": "were surprised but",
+          "곧": "soon",
+          "용기": "courage",
+          "와": "and",
+          "패기": "spirit",
+          "감탄": "admiration",
+          "했다": "did"
+        },
+        "overallTranslation": "At that moment, his comrades were surprised by his bravery, but soon admired his courage and spirit."
+      }
+    ],
+    "id": 1876
+  },
+  {
+    "generator": "korean-gap-story-12-noir-gemini",
+    "input": "convincing",
+    "problem": "어두운 골목길에서, 남자는 땀을 뻘뻘 흘리며 서 있었다.<br> 그는 손에 든 낡은 사진을 떨리는 손으로 꽉 움켜쥐고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 차가운 손이 그의 어깨를 잡았다.<br> 낮게 속삭이는 목소리가 들렸다. \"믿을 수 있겠어?\" <br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 남자는 땀을 뻘뻘 흘리며 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alley",
+          "에서": "in",
+          "남자": "man",
+          "는": "is",
+          "땀": "sweat",
+          "을": "object marker",
+          "뻘뻘": "profusely",
+          "흘리며": "sweating",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In a dark alley, the man stood, sweating profusely."
+      },
+      {
+        "korean": "그는 손에 든 낡은 사진을 떨리는 손으로 꽉 움켜쥐고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "손": "hand",
+          "에": "on",
+          "든": "held",
+          "낡은": "old",
+          "사진": "picture",
+          "을": "object marker",
+          "떨리는": "trembling",
+          "으로": "with",
+          "꽉": "tightly",
+          "움켜쥐고": "clutching",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was clutching the old photograph in his trembling hand."
+      },
+      {
+        "korean": "그때, 차가운 손이 그의 어깨를 잡았다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "차가운": "cold",
+          "손": "hand",
+          "이": "subject marker",
+          "그의": "his",
+          "어깨": "shoulder",
+          "을": "object marker",
+          "잡았다": "grabbed"
+        },
+        "overallTranslation": "Then, a cold hand grabbed his shoulder."
+      },
+      {
+        "korean": "낮게 속삭이는 목소리가 들렸다. \"믿을 수 있겠어?\" ",
+        "wordByWordTranslation": {
+          "낮게": "lowly",
+          "속삭이는": "whispering",
+          "목소리": "voice",
+          "가": "subject marker",
+          "들렸다": "could be heard",
+          "믿을": "believe",
+          "수": "ability",
+          "있겠어": "will you",
+          "?": "question mark"
+        },
+        "overallTranslation": "A low whisper could be heard. \"Do you believe it?\" "
+      },
+      {
+        "korean": "남자는 숨을 크게 들이쉬고, 사진을 꽉 쥐었다. \"믿어야만 해.\" ",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "is",
+          "숨": "breath",
+          "을": "object marker",
+          "크게": "deeply",
+          "들이쉬고": "inhaling",
+          "사진": "picture",
+          "꽉": "tightly",
+          "쥐었다": "gripped",
+          "믿어야만": "must believe",
+          "해": "do"
+        },
+        "overallTranslation": "The man took a deep breath and gripped the photograph tightly. \"I have to believe it.\" "
+      }
+    ],
+    "id": 1877
   },
   {
     "generator": "korean-gap-story-12-science-fiction-gemini",
@@ -14742,7 +17837,105 @@
         "hanjaro": "그 순간(瞬間), 은수(隱修)는 책(冊) 속으로 빨려 들어가는 자신(自身)을 발견(發見)했다.\n"
       }
     ],
-    "id": 1842
+    "id": 1878
+  },
+  {
+    "generator": "korean-gap-story-12-slasher-gemini",
+    "input": "ship",
+    "problem": "밤늦도록 배 위에서 낚시를 즐기던 승현은 갑자기 섬뜩한 기분이 들었다.<br> 차가운 바람이 스치는 듯한 느낌과 함께, 어둠 속에서 희미한 그림자가 움직이는 것을 보았다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그림자는 점점 가까워지더니, 갑자기 승현의 팔을 잡아채며 소름 끼치는 비명을 질렀다.<br> 손에 잡힌 것은 차갑고 끈적끈적한 살점이었고, 희미한 달빛 아래에서 섬뜩한 미소를 짓는 얼굴이 보였다.<br>",
+    "solution": [
+      {
+        "korean": "밤늦도록 배 위에서 낚시를 즐기던 승현은 갑자기 섬뜩한 기분이 들었다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "늦도록": "late",
+          "배": "ship",
+          "위에서": "on",
+          "낚시": "fishing",
+          "를": "to",
+          "즐기던": "enjoyed",
+          "승현은": "Seunghyun",
+          "갑자기": "suddenly",
+          "섬뜩한": "creepy",
+          "기분이": "feeling",
+          "들었다": "came"
+        },
+        "overallTranslation": "Seunghyun, who had been enjoying fishing on the ship late into the night, suddenly felt a creepy feeling."
+      },
+      {
+        "korean": "차가운 바람이 스치는 듯한 느낌과 함께, 어둠 속에서 희미한 그림자가 움직이는 것을 보았다.",
+        "wordByWordTranslation": {
+          "차가운": "cold",
+          "바람이": "wind",
+          "스치는": "passing",
+          "듯한": "like",
+          "느낌과": "feeling and",
+          "함께": "together",
+          "어둠": "darkness",
+          "속에서": "inside",
+          "희미한": "faint",
+          "그림자가": "shadow",
+          "움직이는": "moving",
+          "것을": "thing",
+          "보았다": "saw"
+        },
+        "overallTranslation": "Along with a feeling like a cold wind was passing, he saw a faint shadow moving in the darkness."
+      },
+      {
+        "korean": "그림자는 점점 가까워지더니, 갑자기 승현의 팔을 잡아채며 소름 끼치는 비명을 질렀다.",
+        "wordByWordTranslation": {
+          "그림자는": "The shadow",
+          "점점": "gradually",
+          "가까워지더니": "got closer",
+          "갑자기": "suddenly",
+          "승현의": "Seunghyun's",
+          "팔을": "arm",
+          "잡아채며": "grabbing",
+          "소름": "chills",
+          "끼치는": "giving",
+          "비명을": "scream",
+          "질렀다": "shouted"
+        },
+        "overallTranslation": "The shadow gradually got closer, suddenly grabbed Seunghyun's arm, and let out a chilling scream."
+      },
+      {
+        "korean": "손에 잡힌 것은 차갑고 끈적끈적한 살점이었고, 희미한 달빛 아래에서 섬뜩한 미소를 짓는 얼굴이 보였다.",
+        "wordByWordTranslation": {
+          "손에": "in hand",
+          "잡힌": "held",
+          "것은": "thing",
+          "차갑고": "cold and",
+          "끈적끈적한": "sticky",
+          "살점이었고": "flesh",
+          "희미한": "faint",
+          "달빛": "moonlight",
+          "아래에서": "under",
+          "섬뜩한": "creepy",
+          "미소를": "smile",
+          "짓는": "making",
+          "얼굴이": "face",
+          "보였다": "appeared"
+        },
+        "overallTranslation": "What he grabbed was cold and sticky flesh, and under the faint moonlight, a face with a creepy smile appeared."
+      },
+      {
+        "korean": "승현은 공포에 질려 바다로 떨어졌고, 차가운 물 속에서 영원히 잠들었다.",
+        "wordByWordTranslation": {
+          "승현은": "Seunghyun",
+          "공포에": "in fear",
+          "질려": "filled",
+          "바다로": "to sea",
+          "떨어졌고": "fell",
+          "차가운": "cold",
+          "물": "water",
+          "속에서": "inside",
+          "영원히": "forever",
+          "잠들었다": "slept"
+        },
+        "overallTranslation": "Seunghyun, filled with terror, fell into the sea and slept forever in the cold water."
+      }
+    ],
+    "id": 1879
   },
   {
     "generator": "korean-gap-story-12-supernatural-mystery-gemini",
@@ -14853,7 +18046,7 @@
         "hanjaro": "그 책(冊)은 마치 그녀(그女)의 마음속 깊은 곳에서 끌어올린 듯한, 알 수 없는 힘을 지니고 있었다.\n"
       }
     ],
-    "id": 1843
+    "id": 1880
   },
   {
     "generator": "korean-gap-story-12-thriller-gemini",
@@ -14934,7 +18127,7 @@
         "hanjaro": "그는 숨을 크게 들이쉬며, 14번째(番째) 시계(時計) 소리에 몸을 떨었다.\n"
       }
     ],
-    "id": 1844
+    "id": 1881
   },
   {
     "generator": "korean-gap-story-12-time-travel-gemini",
@@ -15022,7 +18215,7 @@
         "overallTranslation": "Around her, people wearing old Korean traditional clothing moved busily."
       }
     ],
-    "id": 1845
+    "id": 1882
   },
   {
     "generator": "korean-gap-story-12-western-gemini",
@@ -15124,7 +18317,259 @@
         "hanjaro": "그 순간(瞬間), 사막(沙漠) 바람이 술집 문(門)을 쾅 소리와 함께 열었다.\n"
       }
     ],
-    "id": 1846
+    "id": 1883
+  },
+  {
+    "generator": "korean-gap-story-12-western-gemini",
+    "input": "manual",
+    "problem": "뜨거운 사막 한가운데, 낡은 캠핑카가 멈춰 서 있었다.<br> 캠핑카 옆에는 먼지투성이가 된, 오래된 수동식 펌프가 놓여 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 캠핑카 문이 열리고 한 남자가 뛰쳐나왔다.<br> 그는 펌프를 잡고, 필사적으로 물을 뽑아내려고 했다.<br>",
+    "solution": [
+      {
+        "korean": "뜨거운 사막 한가운데, 낡은 캠핑카가 멈춰 서 있었다.",
+        "wordByWordTranslation": {
+          "뜨거운": "hot",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "old",
+          "캠핑카": "camping car",
+          "멈춰": "stopped",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the middle of the scorching desert, an old camping car stood still."
+      },
+      {
+        "korean": "캠핑카 옆에는 먼지투성이가 된, 오래된 수동식 펌프가 놓여 있었다.",
+        "wordByWordTranslation": {
+          "캠핑카": "camping car",
+          "옆에는": "next to",
+          "먼지투성이": "dusty",
+          "된": "become",
+          "오래된": "old",
+          "수동식": "manual",
+          "펌프": "pump",
+          "놓여": "placed",
+          "있었다": "was"
+        },
+        "overallTranslation": "Next to the camping car, an old manual pump, covered in dust, was placed."
+      },
+      {
+        "korean": "갑자기, 캠핑카 문이 열리고 한 남자가 뛰쳐나왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "캠핑카": "camping car",
+          "문": "door",
+          "열리고": "opening",
+          "한": "one",
+          "남자": "man",
+          "뛰쳐나왔다": "ran out"
+        },
+        "overallTranslation": "Suddenly, the camping car door opened and a man ran out."
+      },
+      {
+        "korean": "그는 펌프를 잡고, 필사적으로 물을 뽑아내려고 했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "펌프": "pump",
+          "잡고": "grasping",
+          "필사적으로": "desperately",
+          "물": "water",
+          "뽑아내려고": "try to pull out",
+          "했다": "did"
+        },
+        "overallTranslation": "He grasped the pump and tried desperately to pull out water."
+      },
+      {
+        "korean": "하지만 펌프는 낡아서, 끽끽 소리만 내고 물 한 방울도 나오지 않았다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "펌프": "pump",
+          "낡아서": "old",
+          "끽끽": "creak",
+          "소리": "sound",
+          "내고": "making",
+          "물": "water",
+          "한": "one",
+          "방울": "drop",
+          "나오지": "not coming out",
+          "않았다": "did not"
+        },
+        "overallTranslation": "But the pump was old, and it only creaked, not a single drop of water came out."
+      }
+    ],
+    "id": 1884
+  },
+  {
+    "generator": "korean-gap-story-2-bounty-hunter-gemini",
+    "input": "freezer",
+    "problem": "추운 겨울밤, 냉장고 앞에서 김 사장님은 걱정이 많았어요.<br> 내일 아침까지 돈을 갚지 못하면 냉동실에 들어갈 수도 있었거든요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 냉장고 문이 열리고 강력한 냉기가 뿜어져 나왔어요.<br> 냉장고 안에서 꽁꽁 얼어붙은 남자가 나타났어요.<br>",
+    "solution": [
+      {
+        "korean": "추운 겨울밤, 냉장고 앞에서 김 사장님은 걱정이 많았어요.",
+        "wordByWordTranslation": {
+          "추운": "cold",
+          "겨울밤": "winter night",
+          "냉장고": "refrigerator",
+          "앞에서": "in front of",
+          "김": "Kim",
+          "사장님": "boss",
+          "은": "is",
+          "걱정": "worry",
+          "이": "that",
+          "많았어요": "was a lot"
+        },
+        "overallTranslation": "On a cold winter night, Mr. Kim was worried in front of the refrigerator."
+      },
+      {
+        "korean": "내일 아침까지 돈을 갚지 못하면 냉동실에 들어갈 수도 있었거든요.",
+        "wordByWordTranslation": {
+          "내일": "tomorrow",
+          "아침": "morning",
+          "까지": "until",
+          "돈": "money",
+          "을": "to",
+          "갚지": "pay back",
+          "못하면": "if not",
+          "냉동실": "freezer",
+          "에": "to",
+          "들어갈": "enter",
+          "수도": "possibility",
+          "있었거든요": "it was"
+        },
+        "overallTranslation": "He could be put in the freezer if he couldn't repay the money by tomorrow morning."
+      },
+      {
+        "korean": "갑자기 냉장고 문이 열리고 강력한 냉기가 뿜어져 나왔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "냉장고": "refrigerator",
+          "문": "door",
+          "이": "that",
+          "열리고": "opened",
+          "강력한": "powerful",
+          "냉기": "cold air",
+          "가": "that",
+          "뿜어져": "sprayed",
+          "나왔어요": "came out"
+        },
+        "overallTranslation": "Suddenly, the refrigerator door opened and a powerful cold air burst out."
+      },
+      {
+        "korean": "냉장고 안에서 꽁꽁 얼어붙은 남자가 나타났어요.",
+        "wordByWordTranslation": {
+          "냉장고": "refrigerator",
+          "안에서": "inside",
+          "꽁꽁": "completely",
+          "얼어붙은": "frozen",
+          "남자": "man",
+          "가": "that",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "A man frozen solid appeared from inside the refrigerator."
+      },
+      {
+        "korean": "그는 김 사장님에게 돈을 갚아 달라고 부탁했어요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "김": "Kim",
+          "사장님": "boss",
+          "에게": "to",
+          "돈": "money",
+          "을": "to",
+          "갚아": "pay back",
+          "달라고": "to",
+          "부탁했어요": "asked"
+        },
+        "overallTranslation": "He asked Mr. Kim to pay back the money."
+      }
+    ],
+    "id": 1885
+  },
+  {
+    "generator": "korean-gap-story-2-comedy-gemini",
+    "input": "trio",
+    "problem": "친구 세 명이 맛있는 아이스크림을 먹고 있었어요.<br> 그들은 웃고 떠들며 행복한 시간을 보내고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 하늘에서 커다란 빵이 떨어졌어요!<br> 친구들은 빵을 보고 놀랐지만, 곧 빵을 나눠 먹기 시작했어요.<br>",
+    "solution": [
+      {
+        "korean": "친구 세 명이 맛있는 아이스크림을 먹고 있었어요.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "세": "three",
+          "명": "person",
+          "이": "subject marker",
+          "맛있는": "delicious",
+          "아이스크림": "ice cream",
+          "을": "object marker",
+          "먹고": "eat",
+          "있었어요": "past tense"
+        },
+        "overallTranslation": "Three friends were eating delicious ice cream."
+      },
+      {
+        "korean": "그들은 웃고 떠들며 행복한 시간을 보내고 있었어요.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "은": "subject marker",
+          "웃고": "laugh",
+          "떠들며": "talk",
+          "행복한": "happy",
+          "시간": "time",
+          "을": "object marker",
+          "보내고": "spend",
+          "있었어요": "past tense"
+        },
+        "overallTranslation": "They were having a happy time, laughing and talking."
+      },
+      {
+        "korean": "갑자기 하늘에서 커다란 빵이 떨어졌어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "커다란": "big",
+          "빵": "bread",
+          "이": "subject marker",
+          "떨어졌어요": "fell"
+        },
+        "overallTranslation": "Suddenly, a big loaf of bread fell from the sky!"
+      },
+      {
+        "korean": "친구들은 빵을 보고 놀랐지만, 곧 빵을 나눠 먹기 시작했어요.",
+        "wordByWordTranslation": {
+          "친구들": "friends",
+          "은": "subject marker",
+          "빵": "bread",
+          "을": "object marker",
+          "보고": "see",
+          "놀랐지만": "surprised, but",
+          "곧": "soon",
+          "나눠": "share",
+          "먹기": "eat",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "The friends were surprised when they saw the bread, but they soon started to share it."
+      },
+      {
+        "korean": "세 친구는 빵과 아이스크림을 함께 맛있게 먹으며 행복한 시간을 보냈어요.",
+        "wordByWordTranslation": {
+          "세": "three",
+          "친구": "friend",
+          "는": "subject marker",
+          "빵": "bread",
+          "과": "and",
+          "아이스크림": "ice cream",
+          "을": "object marker",
+          "함께": "together",
+          "맛있게": "deliciously",
+          "먹으며": "eat",
+          "행복한": "happy",
+          "시간": "time",
+          "보냈어요": "spent"
+        },
+        "overallTranslation": "The three friends spent a happy time eating the bread and ice cream together, enjoying them both."
+      }
+    ],
+    "id": 1886
   },
   {
     "generator": "korean-gap-story-2-cosmic-horror-gemini",
@@ -15206,7 +18651,150 @@
         "hanjaro": "소녀(少女)는 겁(怯)에 질려 뒤로 물러섰어요.\n"
       }
     ],
-    "id": 1847
+    "id": 1887
+  },
+  {
+    "generator": "korean-gap-story-2-dramatic-gemini",
+    "input": "immunity",
+    "problem": "겨울밤이었고 눈이 펑펑 내렸어요.<br> 민수는 감기에 걸려서 춥고 아팠어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 엄마가 따뜻한 차를 주니까 기분이 좋아졌어요.<br> 민수는 몸이 다시 건강해졌어요.<br>",
+    "solution": [
+      {
+        "korean": "겨울밤이었고 눈이 펑펑 내렸어요.",
+        "wordByWordTranslation": {
+          "겨울": "winter",
+          "밤": "night",
+          "이었고": "was",
+          "눈": "snow",
+          "이": "that",
+          "펑펑": "heavily",
+          "내렸어요": "fell"
+        },
+        "overallTranslation": "It was a winter night, and snow was falling heavily."
+      },
+      {
+        "korean": "민수는 감기에 걸려서 춥고 아팠어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "감기": "cold",
+          "에": "to",
+          "걸려서": "catch",
+          "춥": "cold",
+          "고": "and",
+          "아팠어요": "hurt"
+        },
+        "overallTranslation": "Minsu had a cold and was feeling cold and sick."
+      },
+      {
+        "korean": "하지만 엄마가 따뜻한 차를 주니까 기분이 좋아졌어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "엄마": "mom",
+          "가": "that",
+          "따뜻한": "warm",
+          "차": "tea",
+          "를": "object marker",
+          "주니까": "gave",
+          "기분": "mood",
+          "이": "that",
+          "좋아졌어요": "became good"
+        },
+        "overallTranslation": "But when his mom gave him warm tea, he felt better."
+      },
+      {
+        "korean": "민수는 몸이 다시 건강해졌어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "몸": "body",
+          "이": "that",
+          "다시": "again",
+          "건강해졌어요": "became healthy"
+        },
+        "overallTranslation": "Minsu's body became healthy again."
+      },
+      {
+        "korean": "이제 민수는 추위에도 끄떡없어요!",
+        "wordByWordTranslation": {
+          "이제": "now",
+          "민수": "Minsu",
+          "는": "is",
+          "추위": "cold",
+          "에도": "even",
+          "끄떡없어요": "not affected"
+        },
+        "overallTranslation": "Now Minsu is not afraid of the cold!"
+      }
+    ],
+    "id": 1888
+  },
+  {
+    "generator": "korean-gap-story-2-espionage-gemini",
+    "input": "boulder",
+    "problem": "어두운 밤, 큰 바위 뒤에 스파이가 숨어 있었어요.<br> 스파이는 적군의 비밀 계획을 엿듣고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 큰 소리가 났어요!<br> 바위가 움직였고, 그 안에서 적군 병사가 나타났어요!<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 큰 바위 뒤에 스파이가 숨어 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "큰": "big",
+          "바위": "boulder",
+          "뒤에": "behind",
+          "스파이": "spy",
+          "숨어": "hide",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a dark night, a spy was hiding behind a big boulder."
+      },
+      {
+        "korean": "스파이는 적군의 비밀 계획을 엿듣고 있었어요.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "적군": "enemy",
+          "비밀": "secret",
+          "계획": "plan",
+          "엿듣고": "eavesdrop",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The spy was eavesdropping on the enemy's secret plan."
+      },
+      {
+        "korean": "갑자기, 큰 소리가 났어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "큰": "big",
+          "소리": "sound",
+          "났어요": "made"
+        },
+        "overallTranslation": "Suddenly, there was a loud noise!"
+      },
+      {
+        "korean": "바위가 움직였고, 그 안에서 적군 병사가 나타났어요!",
+        "wordByWordTranslation": {
+          "바위": "boulder",
+          "움직였고": "moved",
+          "그": "that",
+          "안에서": "inside",
+          "적군": "enemy",
+          "병사": "soldier",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "The boulder moved, and an enemy soldier appeared from inside!"
+      },
+      {
+        "korean": "스파이는 재빨리 숨어서 위기를 모면했어요.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "재빨리": "quickly",
+          "숨어": "hide",
+          "위기": "crisis",
+          "모면했어요": "avoided"
+        },
+        "overallTranslation": "The spy quickly hid and avoided the crisis."
+      }
+    ],
+    "id": 1889
   },
   {
     "generator": "korean-gap-story-2-historical-gemini",
@@ -15308,7 +18896,72 @@
         "hanjaro": "그 보석(寶石)은 너무나 아름다워서 은수(隱修)는 그 보석(寶石)을 가지고 궁궐(宮闕)로 갔습니다.\n"
       }
     ],
-    "id": 1848
+    "id": 1890
+  },
+  {
+    "generator": "korean-gap-story-2-low-fantasy-gemini",
+    "input": "envelop",
+    "problem": "어두운 밤, 별이 빛나는 하늘을 봤어요.<br> 갑자기, 밤하늘을 덮는 검은 그림자가 나타났어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그림자는 커다란 날개를 펼치며 내려왔어요.<br> 날개는 밤하늘을 덮었고, 별빛은 사라졌어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 별이 빛나는 하늘을 봤어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "별": "star",
+          "빛나는": "shining",
+          "하늘": "sky",
+          "봤어요": "saw"
+        },
+        "overallTranslation": "On a dark night, I saw the starry sky."
+      },
+      {
+        "korean": "갑자기, 밤하늘을 덮는 검은 그림자가 나타났어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "밤하늘": "night sky",
+          "덮는": "covering",
+          "검은": "black",
+          "그림자": "shadow",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "Suddenly, a black shadow appeared, covering the night sky."
+      },
+      {
+        "korean": "그림자는 커다란 날개를 펼치며 내려왔어요.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "커다란": "big",
+          "날개": "wings",
+          "펼치며": "spreading",
+          "내려왔어요": "came down"
+        },
+        "overallTranslation": "The shadow came down, spreading its large wings."
+      },
+      {
+        "korean": "날개는 밤하늘을 덮었고, 별빛은 사라졌어요.",
+        "wordByWordTranslation": {
+          "날개": "wings",
+          "밤하늘": "night sky",
+          "덮었고": "covered",
+          "별빛": "starlight",
+          "사라졌어요": "disappeared"
+        },
+        "overallTranslation": "The wings covered the night sky, and the starlight disappeared."
+      },
+      {
+        "korean": "나는 깜짝 놀라서 숨을 헐떡였어요.",
+        "wordByWordTranslation": {
+          "나는": "I",
+          "깜짝": "startled",
+          "놀라서": "surprised",
+          "숨": "breath",
+          "헐떡였어요": "gasped"
+        },
+        "overallTranslation": "I was startled and gasped for breath."
+      }
+    ],
+    "id": 1891
   },
   {
     "generator": "korean-gap-story-2-modern-gemini",
@@ -15380,7 +19033,7 @@
         "hanjaro": "그들은 다시 이야기를 나누며 즐거운 시간(時間)을 보냈어요.\n"
       }
     ],
-    "id": 1849
+    "id": 1892
   },
   {
     "generator": "korean-gap-story-2-noir-gemini",
@@ -15457,7 +19110,7 @@
         "hanjaro": "그림자는 낮은 목소리로 속삭였어, \"너의 시간(時間)은 이제 끝났어.\"\n"
       }
     ],
-    "id": 1850
+    "id": 1893
   },
   {
     "generator": "korean-gap-story-2-science-fiction-gemini",
@@ -15532,7 +19185,7 @@
         "overallTranslation": "Minsu was startled and dropped his telescope."
       }
     ],
-    "id": 1851
+    "id": 1894
   },
   {
     "generator": "korean-gap-story-2-slasher-gemini",
@@ -15615,7 +19268,7 @@
         "hanjaro": "하지만, 그들의 숨는 소리가 들렸고, 곧 그들을 찾아냈어요.\n"
       }
     ],
-    "id": 1852
+    "id": 1895
   },
   {
     "generator": "korean-gap-story-2-superhero-gemini",
@@ -15700,7 +19353,7 @@
         "hanjaro": "괴물(怪物)은 베이컨 냄새에 꼼짝 못하고 웃음을 터뜨렸어요.\n"
       }
     ],
-    "id": 1853
+    "id": 1896
   },
   {
     "generator": "korean-gap-story-2-time-travel-gemini",
@@ -15786,7 +19439,7 @@
         "hanjaro": "은수와 지수(指數)는 신기한 마을을 둘러보며 옛날 사람들의 생활(生活)을 상상(想像)했어요.\n"
       }
     ],
-    "id": 1854
+    "id": 1897
   },
   {
     "generator": "korean-gap-story-2-time-travel-gemini",
@@ -15859,7 +19512,88 @@
         "overallTranslation": "He was surprised to see the amazing farming tools."
       }
     ],
-    "id": 1855
+    "id": 1898
+  },
+  {
+    "generator": "korean-gap-story-2-urban-gemini",
+    "input": "raise",
+    "problem": "지수는 엄마랑 같이 슈퍼에 갔어요.<br> 지수는 엄마에게 장난감을 사달라고 했어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그런데 엄마가 갑자기 아파서 슈퍼에서 나왔어요.<br> 지수는 엄마를 부축해서 집으로 데려갔어요.<br>",
+    "solution": [
+      {
+        "korean": "지수는 엄마랑 같이 슈퍼에 갔어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "랑": "with",
+          "같이": "together",
+          "슈퍼": "supermarket",
+          "에": "to",
+          "갔어요": "went"
+        },
+        "overallTranslation": "Jisoo went to the supermarket with her mom."
+      },
+      {
+        "korean": "지수는 엄마에게 장난감을 사달라고 했어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "에게": "to",
+          "장난감": "toy",
+          "을": "object marker",
+          "사달라고": "to buy",
+          "했어요": "said"
+        },
+        "overallTranslation": "Jisoo asked her mom to buy her a toy."
+      },
+      {
+        "korean": "그런데 엄마가 갑자기 아파서 슈퍼에서 나왔어요.",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "엄마": "mom",
+          "가": "subject marker",
+          "갑자기": "suddenly",
+          "아파서": "because of being sick",
+          "슈퍼": "supermarket",
+          "에서": "from",
+          "나왔어요": "came out"
+        },
+        "overallTranslation": "But her mom suddenly got sick and they came out of the supermarket."
+      },
+      {
+        "korean": "지수는 엄마를 부축해서 집으로 데려갔어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "를": "object marker",
+          "부축해서": "supporting",
+          "집": "house",
+          "으로": "to",
+          "데려갔어요": "took"
+        },
+        "overallTranslation": "Jisoo supported her mom and took her home."
+      },
+      {
+        "korean": "엄마는 지수가 자기를 걱정해주는 모습에 감동했어요.",
+        "wordByWordTranslation": {
+          "엄마": "mom",
+          "는": "is",
+          "지수": "Jisoo",
+          "가": "subject marker",
+          "자기": "herself",
+          "를": "object marker",
+          "걱정": "worry",
+          "해주는": "giving",
+          "모습": "appearance",
+          "에": "to",
+          "감동했어요": "was moved"
+        },
+        "overallTranslation": "Mom was touched by Jisoo's concern for her."
+      }
+    ],
+    "id": 1899
   },
   {
     "generator": "korean-gap-story-2-whodunnit-gemini",
@@ -15942,7 +19676,7 @@
         "koreanWithHanja": "경찰(警察)이 범인(犯人)을 찾기 위해 조사(調査)를 시작(始作)했어요.\n"
       }
     ],
-    "id": 1856
+    "id": 1900
   },
   {
     "generator": "korean-gap-story-3-comedic-gemini",
@@ -16011,7 +19745,7 @@
         "hanjaro": "학교(學校)는 이미 끝났고, 민수는 늦잠을 잤어요.\n"
       }
     ],
-    "id": 1857
+    "id": 1901
   },
   {
     "generator": "korean-gap-story-3-comic book-gemini",
@@ -16112,7 +19846,7 @@
         "hanjaro": "민수는 친구(親舊)들의 도움으로 껌을 떼어내고 다시 신나게 축구(蹴球)를 할 수 있었답니다.\n"
       }
     ],
-    "id": 1858
+    "id": 1902
   },
   {
     "generator": "korean-gap-story-3-cosmic-horror-gemini",
@@ -16190,7 +19924,7 @@
         "hanjaro": "우리는 텐트를 버리고 도망쳤습니다.\n"
       }
     ],
-    "id": 1859
+    "id": 1903
   },
   {
     "generator": "korean-gap-story-3-cyberpunk-gemini",
@@ -16282,7 +20016,7 @@
         "hanjaro": "남자(男子)는 눈을 가늘게 뜨고 자동차(自動車)를 뚫어지게 바라보았어요.\n"
       }
     ],
-    "id": 1860
+    "id": 1904
   },
   {
     "generator": "korean-gap-story-3-drama-gemini",
@@ -16387,7 +20121,7 @@
         "hanjaro": "은수(隱修)는 “아기가 울고 있어요!”라고 말하며 울음소리가 나는 곳으로 손가락을 가리켰어요.\n"
       }
     ],
-    "id": 1861
+    "id": 1905
   },
   {
     "generator": "korean-gap-story-3-drama-gemini",
@@ -16460,7 +20194,7 @@
         "overallTranslation": "The whistle sound didn't come back, but the children happily played hide and seek."
       }
     ],
-    "id": 1862
+    "id": 1906
   },
   {
     "generator": "korean-gap-story-3-espionage-gemini",
@@ -16549,7 +20283,102 @@
         "hanjaro": "김민수는 재빨리 남자(男子)의 손을 뿌리치고, 미션을 계속(繼續) 수행(遂行)했습니다.\n"
       }
     ],
-    "id": 1863
+    "id": 1907
+  },
+  {
+    "generator": "korean-gap-story-3-fantasy-gemini",
+    "input": "skier",
+    "problem": "하얀 눈이 펑펑 내리는 겨울날, 은수는 스키장에 왔어요.<br> 은수는 친구 민수와 함께 신나게 스키를 타고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 눈보라가 몰아쳐서 앞이 보이지 않았어요.<br> 은수와 민수는 서로 손을 잡고 떨리는 목소리로 “어떡해!”라고 외쳤어요.<br>",
+    "solution": [
+      {
+        "korean": "하얀 눈이 펑펑 내리는 겨울날, 은수는 스키장에 왔어요.",
+        "wordByWordTranslation": {
+          "하얀": "white",
+          "눈": "snow",
+          "이": "that",
+          "펑펑": "heavily",
+          "내리는": "falling",
+          "겨울날": "winter day",
+          "은수": "Eunsoo",
+          "는": "is",
+          "스키장": "ski resort",
+          "에": "at",
+          "왔어요": "came"
+        },
+        "overallTranslation": "On a winter day with heavy snowfall, Eunsoo came to the ski resort."
+      },
+      {
+        "korean": "은수는 친구 민수와 함께 신나게 스키를 타고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "친구": "friend",
+          "민수": "Minsoo",
+          "와": "and",
+          "함께": "together",
+          "신나게": "happily",
+          "스키": "ski",
+          "를": "to",
+          "타고": "riding",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was happily skiing with her friend Minsoo."
+      },
+      {
+        "korean": "갑자기 눈보라가 몰아쳐서 앞이 보이지 않았어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "눈보라": "snowstorm",
+          "가": "that",
+          "몰아쳐서": "swept",
+          "앞": "front",
+          "이": "that",
+          "보이지": "can't see",
+          "않았어요": "not"
+        },
+        "overallTranslation": "Suddenly, a snowstorm swept in and they couldn't see anything."
+      },
+      {
+        "korean": "은수와 민수는 서로 손을 잡고 떨리는 목소리로 “어떡해!”라고 외쳤어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "는": "is",
+          "서로": "each other",
+          "손": "hand",
+          "을": "to",
+          "잡고": "holding",
+          "떨리는": "trembling",
+          "목소리": "voice",
+          "로": "with",
+          "“어떡해!”": "“What do we do!”",
+          "라고": "said",
+          "외쳤어요": "shouted"
+        },
+        "overallTranslation": "Eunsoo and Minsoo held each other's hands and shouted in trembling voices, “What do we do!”"
+      },
+      {
+        "korean": "그때, 신비로운 빛이 눈보라 속에서 빛나며 은수와 민수를 따뜻하게 감쌌어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "신비로운": "magical",
+          "빛": "light",
+          "이": "that",
+          "눈보라": "snowstorm",
+          "속에서": "inside",
+          "빛나며": "shining",
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "를": "to",
+          "따뜻하게": "warmly",
+          "감쌌어요": "wrapped"
+        },
+        "overallTranslation": "At that moment, a magical light shone from the snowstorm and wrapped Eunsoo and Minsoo warmly."
+      }
+    ],
+    "id": 1908
   },
   {
     "generator": "korean-gap-story-3-gunslinger-gemini",
@@ -16636,7 +20465,7 @@
         "hanjaro": "사내는 침착(沈着)하게 말했습니다. \"내가 당신(當身)을 위해 준비(準備)했소.\"\n"
       }
     ],
-    "id": 1864
+    "id": 1909
   },
   {
     "generator": "korean-gap-story-3-high-fantasy-gemini",
@@ -16716,7 +20545,157 @@
         "hanjaro": "요정(妖精)은 다시 날 수 있게 되었고, 숲은 다시 활기차졌습니다.\n"
       }
     ],
-    "id": 1865
+    "id": 1910
+  },
+  {
+    "generator": "korean-gap-story-3-historical-gemini",
+    "input": "surprised",
+    "problem": "햇살 따스한 봄날, 민수는 뒷산에 올라갔어요.<br> 산길을 걸으며 예쁜 꽃들을 구경했지요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 갑자기 커다란 소리가 들렸어요!<br> 민수는 놀라서 숨을 헐떡였고, 주위를 둘러보았어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 따스한 봄날, 민수는 뒷산에 올라갔어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "따스한": "warm",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "뒷산": "back mountain",
+          "에": "to",
+          "올라갔어요": "went up"
+        },
+        "overallTranslation": "On a warm spring day, Minsu went up to the back mountain."
+      },
+      {
+        "korean": "산길을 걸으며 예쁜 꽃들을 구경했지요.",
+        "wordByWordTranslation": {
+          "산길": "mountain path",
+          "을": "object marker",
+          "걸으며": "walking",
+          "예쁜": "pretty",
+          "꽃들": "flowers",
+          "구경했지요": "looked at"
+        },
+        "overallTranslation": "He walked along the mountain path, admiring the pretty flowers."
+      },
+      {
+        "korean": "그때, 갑자기 커다란 소리가 들렸어요!",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "커다란": "big",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a loud sound was heard!"
+      },
+      {
+        "korean": "민수는 놀라서 숨을 헐떡였고, 주위를 둘러보았어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "놀라서": "surprised",
+          "숨": "breath",
+          "을": "object marker",
+          "헐떡였고": "gasped",
+          "주위": "surroundings",
+          "를": "object marker",
+          "둘러보았어요": "looked around"
+        },
+        "overallTranslation": "Surprised, Minsu gasped for breath and looked around."
+      },
+      {
+        "korean": "커다란 나무 뒤에 숨어 있던 토끼 한 마리가 깜짝 놀라 뛰어내렸어요.",
+        "wordByWordTranslation": {
+          "커다란": "big",
+          "나무": "tree",
+          "뒤": "behind",
+          "에": "at",
+          "숨어": "hiding",
+          "있던": "was",
+          "토끼": "rabbit",
+          "한 마리": "one",
+          "가": "subject marker",
+          "깜짝 놀라": "surprised",
+          "뛰어내렸어요": "jumped down"
+        },
+        "overallTranslation": "A rabbit that had been hiding behind a big tree jumped down in surprise."
+      }
+    ],
+    "id": 1911
+  },
+  {
+    "generator": "korean-gap-story-3-horror-gemini",
+    "input": "chicken",
+    "problem": "어두운 밤, 민수는 혼자 집으로 돌아가고 있었습니다.<br> 길가에는 가로등이 하나도 없어서 매우 어두웠습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 민수의 뒤에서 닭 울음소리가 들렸습니다.<br> 그 소리는 점점 커지더니, 민수의 발을 향해 달려오는 소리처럼 들렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 민수는 혼자 집으로 돌아가고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "민수는": "Min-su is",
+          "혼자": "alone",
+          "집으로": "to home",
+          "돌아가고": "returning",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a dark night, Min-su was walking home alone."
+      },
+      {
+        "korean": "길가에는 가로등이 하나도 없어서 매우 어두웠습니다.",
+        "wordByWordTranslation": {
+          "길가에는": "On the road side",
+          "가로등이": "streetlights",
+          "하나도": "not even one",
+          "없어서": "because there were not",
+          "매우": "very",
+          "어두웠습니다.": "it was dark"
+        },
+        "overallTranslation": "There were no streetlights on the road, so it was very dark."
+      },
+      {
+        "korean": "갑자기 민수의 뒤에서 닭 울음소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "민수의": "Min-su's",
+          "뒤에서": "from behind",
+          "닭": "chicken",
+          "울음소리가": "crying sound",
+          "들렸습니다.": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chicken's cry was heard from behind Min-su."
+      },
+      {
+        "korean": "그 소리는 점점 커지더니, 민수의 발을 향해 달려오는 소리처럼 들렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리는": "sound",
+          "점점": "gradually",
+          "커지더니": "became bigger",
+          "민수의": "Min-su's",
+          "발을": "feet",
+          "향해": "toward",
+          "달려오는": "running",
+          "소리처럼": "sound like",
+          "들렸습니다.": "was heard"
+        },
+        "overallTranslation": "The sound grew louder and louder, and it sounded like something was running towards Min-su's feet."
+      },
+      {
+        "korean": "민수는 무서워서 발이 굳어 버렸습니다.",
+        "wordByWordTranslation": {
+          "민수는": "Min-su",
+          "무서워서": "because he was scared",
+          "발이": "feet",
+          "굳어": "stiff",
+          "버렸습니다.": "became"
+        },
+        "overallTranslation": "Min-su was so scared that his feet froze."
+      }
+    ],
+    "id": 1912
   },
   {
     "generator": "korean-gap-story-3-medieval-fantasy-gemini",
@@ -16791,7 +20770,173 @@
         "hanjaro": "아서는 용기(勇氣)를 내어 소리 나는 쪽으로 걸어갔습니다.\n"
       }
     ],
-    "id": 1866
+    "id": 1913
+  },
+  {
+    "generator": "korean-gap-story-3-outlaw-gemini",
+    "input": "ozone",
+    "problem": "어두운 밤, 오존은 낡은 술집에 앉아 있었어요.<br> 그는 맥주를 마시며 옛날 이야기를 떠올리고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 문이 열리며 거대한 그림자가 들어왔어요.<br> 그림자는 오존을 향해 다가왔고, 그의 손에는 낡은 권총이 들려 있었어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 오존은 낡은 술집에 앉아 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "오존": "Ozone",
+          "은": "is",
+          "낡은": "old",
+          "술집": "bar",
+          "에": "at",
+          "앉아": "sitting",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Ozone sat in an old bar on a dark night."
+      },
+      {
+        "korean": "그는 맥주를 마시며 옛날 이야기를 떠올리고 있었어요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "맥주": "beer",
+          "를": "particle",
+          "마시며": "drinking",
+          "옛날": "old days",
+          "이야기": "story",
+          "떠올리고": "remembering",
+          "있었어요": "was"
+        },
+        "overallTranslation": "He was drinking beer and remembering old stories."
+      },
+      {
+        "korean": "갑자기 문이 열리며 거대한 그림자가 들어왔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "is",
+          "열리며": "opening",
+          "거대한": "huge",
+          "그림자": "shadow",
+          "가": "particle",
+          "들어왔어요": "came in"
+        },
+        "overallTranslation": "Suddenly, the door opened and a huge shadow entered."
+      },
+      {
+        "korean": "그림자는 오존을 향해 다가왔고, 그의 손에는 낡은 권총이 들려 있었어요.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "particle",
+          "오존": "Ozone",
+          "을": "particle",
+          "향해": "towards",
+          "다가왔고": "approached",
+          "그의": "his",
+          "손": "hand",
+          "에는": "on",
+          "낡은": "old",
+          "권총": "gun",
+          "이": "is",
+          "들려": "held",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The shadow approached Ozone, and in his hand was an old gun."
+      },
+      {
+        "korean": "오존은 긴장하며 손을 천천히 들어 올렸어요.",
+        "wordByWordTranslation": {
+          "오존": "Ozone",
+          "은": "is",
+          "긴장하며": "tensely",
+          "손": "hand",
+          "을": "particle",
+          "천천히": "slowly",
+          "들어": "lifting",
+          "올렸어요": "raised"
+        },
+        "overallTranslation": "Ozone raised his hand slowly, tense."
+      }
+    ],
+    "id": 1914
+  },
+  {
+    "generator": "korean-gap-story-3-paranormal-gemini",
+    "input": "theoretically",
+    "problem": "밤하늘에는 별이 반짝이고 있었어요.<br> 민수는 캠핑 의자에 앉아서 별을 바라보고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 갑자기 땅이 흔들리기 시작했어요.<br> 별들은 사라지고, 하늘에서 이상한 소리가 들렸어요.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘에는 별이 반짝이고 있었어요.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "에는": "in",
+          "별": "star",
+          "이": "is",
+          "반짝이고": "sparkling",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The stars were sparkling in the night sky."
+      },
+      {
+        "korean": "민수는 캠핑 의자에 앉아서 별을 바라보고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "캠핑": "camping",
+          "의자": "chair",
+          "에": "on",
+          "앉아서": "sitting",
+          "별": "star",
+          "을": "object marker",
+          "바라보고": "looking at",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was sitting on a camping chair, looking at the stars."
+      },
+      {
+        "korean": "그때, 갑자기 땅이 흔들리기 시작했어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "땅": "ground",
+          "이": "is",
+          "흔들리기": "shaking",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "Suddenly, the ground began to shake."
+      },
+      {
+        "korean": "별들은 사라지고, 하늘에서 이상한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "별": "star",
+          "들": "plural marker",
+          "은": "is",
+          "사라지고": "disappearing",
+          "하늘": "sky",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "The stars disappeared, and strange sounds were heard from the sky."
+      },
+      {
+        "korean": "민수는 이론적으로는 이해가 되었지만, 무서워서 꼼짝 못 했어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "이론적으로": "theoretically",
+          "이해": "understanding",
+          "가": "subject marker",
+          "되었지만": "but",
+          "무서워서": "because of fear",
+          "꼼짝": "move",
+          "못": "can't",
+          "했어요": "did"
+        },
+        "overallTranslation": "Theoretically, Minsu understood what was happening, but he was too scared to move."
+      }
+    ],
+    "id": 1915
   },
   {
     "generator": "korean-gap-story-3-psychological-horror-gemini",
@@ -16869,7 +21014,7 @@
         "hanjaro": "그림자는 천천히 다가와, 나를 공격(攻擊)하려는 듯했습니다.\n"
       }
     ],
-    "id": 1867
+    "id": 1916
   },
   {
     "generator": "korean-gap-story-3-romantic-gemini",
@@ -16962,7 +21107,96 @@
         "hanjaro": "지수는 그 남자(男子)를 보며 괜히 가슴이 두근거렸어요.\n"
       }
     ],
-    "id": 1868
+    "id": 1917
+  },
+  {
+    "generator": "korean-gap-story-3-romantic-gemini",
+    "input": "repulse",
+    "problem": "햇살 가득한 봄날, 민수는 벚꽃 아래에서 책을 읽고 있었어요.<br> 그때, 예쁜 여자아이가 민수 옆에 앉았어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 여자아이는 민수를 보고 얼굴을 붉히며 자리를 떴어요.<br> 민수는 여자아이가 자신을 싫어하는 것 같아 실망했어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 봄날, 민수는 벚꽃 아래에서 책을 읽고 있었어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "벚꽃": "cherry blossom",
+          "아래에서": "under",
+          "책": "book",
+          "을": "object marker",
+          "읽고": "reading",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a sunny spring day, Minsu was reading a book under the cherry blossoms."
+      },
+      {
+        "korean": "그때, 예쁜 여자아이가 민수 옆에 앉았어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "예쁜": "pretty",
+          "여자아이": "girl",
+          "가": "subject marker",
+          "민수": "Minsu",
+          "옆에": "next to",
+          "앉았어요": "sat down"
+        },
+        "overallTranslation": "At that moment, a pretty girl sat down next to Minsu."
+      },
+      {
+        "korean": "하지만 여자아이는 민수를 보고 얼굴을 붉히며 자리를 떴어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "여자아이": "girl",
+          "는": "is",
+          "민수": "Minsu",
+          "를": "object marker",
+          "보고": "seeing",
+          "얼굴": "face",
+          "을": "object marker",
+          "붉히며": "blushing",
+          "자리": "seat",
+          "떴어요": "left"
+        },
+        "overallTranslation": "But the girl saw Minsu, blushed, and left."
+      },
+      {
+        "korean": "민수는 여자아이가 자신을 싫어하는 것 같아 실망했어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "여자아이": "girl",
+          "가": "subject marker",
+          "자신": "himself",
+          "을": "object marker",
+          "싫어하는": "disliking",
+          "것": "thing",
+          "같아": "seems like",
+          "실망했어요": "was disappointed"
+        },
+        "overallTranslation": "Minsu was disappointed, thinking the girl disliked him."
+      },
+      {
+        "korean": "하지만 여자아이는 민수가 웃는 모습이 너무 멋있어서 부끄러웠던 거예요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "여자아이": "girl",
+          "는": "is",
+          "민수": "Minsu",
+          "가": "subject marker",
+          "웃는": "smiling",
+          "모습": "appearance",
+          "이": "subject marker",
+          "너무": "too",
+          "멋있어서": "cool",
+          "부끄러웠던": "embarrassed",
+          "거예요": "it was"
+        },
+        "overallTranslation": "But the girl was just embarrassed because she thought Minsu's smile was so cool."
+      }
+    ],
+    "id": 1918
   },
   {
     "generator": "korean-gap-story-3-social-gemini",
@@ -17049,7 +21283,7 @@
         "hanjaro": "아이들은 더 이상(以上) 추위를 느끼지 못했어요.\n"
       }
     ],
-    "id": 1869
+    "id": 1919
   },
   {
     "generator": "korean-gap-story-3-social-gemini",
@@ -17128,7 +21362,7 @@
         "hanjaro": "친구(親舊)를 달래주면서 웃긴 흉내를 내니까 친구(親舊)가 웃었어요.\n"
       }
     ],
-    "id": 1870
+    "id": 1920
   },
   {
     "generator": "korean-gap-story-3-survival-horror-gemini",
@@ -17189,7 +21423,7 @@
         "overallTranslation": "I was left alone and scared."
       }
     ],
-    "id": 1871
+    "id": 1921
   },
   {
     "generator": "korean-gap-story-3-time-travel-gemini",
@@ -17279,7 +21513,227 @@
         "hanjaro": "지수는 자신(自身)이 과거(過去)로 시간(時間) 여행(旅行)을 왔다는 것을 깨달았어요.\n"
       }
     ],
-    "id": 1872
+    "id": 1922
+  },
+  {
+    "generator": "korean-gap-story-3-victorian-gemini",
+    "input": "contention",
+    "problem": "햇살 가득한 정원에서, 엘리자베스는 차분하게 책을 읽고 있었습니다.<br> 그녀의 오빠, 윌리엄은 멀리서 걸어오며 엘리자베스에게 다가왔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 윌리엄의 얼굴은 화가 난 표정으로 일그러져 있었습니다.<br> 두 사람 사이에는 말다툼이 시작되었고, 공기는 싸늘하게 식어갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 정원에서, 엘리자베스는 차분하게 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "정원에서": "in the garden",
+          "엘리자베스는": "Elizabeth was",
+          "차분하게": "calmly",
+          "책을": "book",
+          "읽고": "reading",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the sun-drenched garden, Elizabeth was calmly reading a book."
+      },
+      {
+        "korean": "그녀의 오빠, 윌리엄은 멀리서 걸어오며 엘리자베스에게 다가왔습니다.",
+        "wordByWordTranslation": {
+          "그녀의": "her",
+          "오빠": "brother",
+          "윌리엄은": "William was",
+          "멀리서": "from afar",
+          "걸어오며": "walking",
+          "엘리자베스에게": "to Elizabeth",
+          "다가왔습니다.": "approached"
+        },
+        "overallTranslation": "Her brother, William, walked towards her from a distance."
+      },
+      {
+        "korean": "하지만 윌리엄의 얼굴은 화가 난 표정으로 일그러져 있었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "윌리엄의": "William's",
+          "얼굴은": "face was",
+          "화가": "anger",
+          "난": "filled",
+          "표정으로": "expression",
+          "일그러져": "distorted",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "But William's face was distorted with anger."
+      },
+      {
+        "korean": "두 사람 사이에는 말다툼이 시작되었고, 공기는 싸늘하게 식어갔습니다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "사람": "people",
+          "사이에는": "between",
+          "말다툼이": "argument",
+          "시작되었고": "began",
+          "공기는": "air was",
+          "싸늘하게": "coldly",
+          "식어갔습니다.": "cooled down"
+        },
+        "overallTranslation": "An argument started between them, and the air grew cold."
+      },
+      {
+        "korean": "평화로운 정원은 갑자기 긴장감으로 가득 차버렸습니다.",
+        "wordByWordTranslation": {
+          "평화로운": "peaceful",
+          "정원은": "garden was",
+          "갑자기": "suddenly",
+          "긴장감으로": "with tension",
+          "가득": "filled",
+          "차버렸습니다.": "became"
+        },
+        "overallTranslation": "The peaceful garden was suddenly filled with tension."
+      }
+    ],
+    "id": 1923
+  },
+  {
+    "generator": "korean-gap-story-4-ancient-gemini",
+    "input": "destination",
+    "problem": "해가 지기 시작했고, 산길은 점점 어두워졌습니다.<br> 길을 잃은 여행자는 불안한 마음으로 주위를 둘러보았습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 멀리서 은은한 불빛이 보였습니다.<br> 여행자는 희망을 되찾고, 그 불빛을 향해 걸어갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작했고, 산길은 점점 어두워졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "setting",
+          "시작했고": "started",
+          "산길은": "mountain path",
+          "점점": "gradually",
+          "어두워졌습니다": "became dark"
+        },
+        "overallTranslation": "The sun began to set, and the mountain path grew increasingly dark."
+      },
+      {
+        "korean": "길을 잃은 여행자는 불안한 마음으로 주위를 둘러보았습니다.",
+        "wordByWordTranslation": {
+          "길을": "path",
+          "잃은": "lost",
+          "여행자는": "traveler",
+          "불안한": "anxious",
+          "마음으로": "heart",
+          "주위를": "surroundings",
+          "둘러보았습니다": "looked around"
+        },
+        "overallTranslation": "The lost traveler looked around anxiously, his heart filled with worry."
+      },
+      {
+        "korean": "그때, 멀리서 은은한 불빛이 보였습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "멀리서": "from afar",
+          "은은한": "soft",
+          "불빛이": "light",
+          "보였습니다": "appeared"
+        },
+        "overallTranslation": "At that moment, a soft light appeared in the distance."
+      },
+      {
+        "korean": "여행자는 희망을 되찾고, 그 불빛을 향해 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "여행자는": "traveler",
+          "희망을": "hope",
+          "되찾고": "regained",
+          "그": "that",
+          "불빛을": "light",
+          "향해": "towards",
+          "걸어갔습니다": "walked"
+        },
+        "overallTranslation": "The traveler regained hope and walked towards the light."
+      },
+      {
+        "korean": "그곳에는 따뜻한 불을 피우고 있는 작은 오두막이 있었습니다.",
+        "wordByWordTranslation": {
+          "그곳에는": "there was",
+          "따뜻한": "warm",
+          "불을": "fire",
+          "피우고": "burning",
+          "있는": "existing",
+          "작은": "small",
+          "오두막이": "hut",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "There was a small hut with a warm fire burning inside."
+      }
+    ],
+    "id": 1924
+  },
+  {
+    "generator": "korean-gap-story-4-bounty-hunter-gemini",
+    "input": "anarchy",
+    "problem": "어두운 골목길에 비가 내리고 있었어요.<br> 현상금 사냥꾼 진우는 숨죽이고 누군가를 기다리고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 괴성이 울려 퍼지고 폭탄이 터졌어요!<br> 진우는 깜짝 놀라 몸을 숨겼고, 주변은 아수라장이 되었어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에 비가 내리고 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길에": "alleyway",
+          "비가": "rain",
+          "내리고": "falling",
+          "있었어요": "was"
+        },
+        "overallTranslation": "It was raining in a dark alleyway."
+      },
+      {
+        "korean": "현상금 사냥꾼 진우는 숨죽이고 누군가를 기다리고 있었어요.",
+        "wordByWordTranslation": {
+          "현상금": "bounty",
+          "사냥꾼": "hunter",
+          "진우는": "Jinwoo",
+          "숨죽이고": "holding his breath",
+          "누군가를": "someone",
+          "기다리고": "waiting",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Jinwoo, the bounty hunter, was waiting, holding his breath, for someone."
+      },
+      {
+        "korean": "갑자기, 괴성이 울려 퍼지고 폭탄이 터졌어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "괴성이": "scream",
+          "울려": "echo",
+          "퍼지고": "spreading",
+          "폭탄이": "bomb",
+          "터졌어요": "exploded"
+        },
+        "overallTranslation": "Suddenly, a scream echoed, and a bomb exploded!"
+      },
+      {
+        "korean": "진우는 깜짝 놀라 몸을 숨겼고, 주변은 아수라장이 되었어요.",
+        "wordByWordTranslation": {
+          "진우는": "Jinwoo",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "몸을": "body",
+          "숨겼고": "hid",
+          "주변은": "surroundings",
+          "아수라장이": "chaos",
+          "되었어요": "became"
+        },
+        "overallTranslation": "Jinwoo was startled and hid, and the surroundings became chaotic."
+      },
+      {
+        "korean": "이제 진우는 혼란 속에서 현상금 사냥 대신 무법자들을 막아야 했어요.",
+        "wordByWordTranslation": {
+          "이제": "now",
+          "진우는": "Jinwoo",
+          "혼란": "chaos",
+          "속에서": "in",
+          "현상금": "bounty",
+          "사냥": "hunting",
+          "대신": "instead",
+          "무법자들을": "lawbreakers",
+          "막아야": "had to stop",
+          "했어요": "did"
+        },
+        "overallTranslation": "Now, amidst the chaos, Jinwoo had to stop the lawbreakers instead of hunting bounties."
+      }
+    ],
+    "id": 1925
   },
   {
     "generator": "korean-gap-story-4-comedic-gemini",
@@ -17367,7 +21821,84 @@
         "hanjaro": "“태준아, 너 발이 땅에 붙었어!”\n"
       }
     ],
-    "id": 1873
+    "id": 1926
+  },
+  {
+    "generator": "korean-gap-story-4-comedy-gemini",
+    "input": "solo",
+    "problem": "민수는 친구들과 함께 영화를 보러 갔어요.<br> 팝콘을 먹으며 영화를 재미있게 보고 있었어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그런데 갑자기 친구들이 모두 사라졌어요!<br> 민수는 혼자 남아서 영화를 끝까지 봤어요.<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구들과 함께 영화를 보러 갔어요.",
+        "wordByWordTranslation": {
+          "민수": "Min-su",
+          "는": "is",
+          "친구들": "friends",
+          "과": "with",
+          "함께": "together",
+          "영화": "movie",
+          "를": "the",
+          "보러": "to see",
+          "갔어요": "went"
+        },
+        "overallTranslation": "Min-su went to see a movie with his friends."
+      },
+      {
+        "korean": "팝콘을 먹으며 영화를 재미있게 보고 있었어요.",
+        "wordByWordTranslation": {
+          "팝콘": "popcorn",
+          "을": "the",
+          "먹으며": "eating",
+          "영화": "movie",
+          "를": "the",
+          "재미있게": "fun",
+          "보고": "watching",
+          "있었어요": "was"
+        },
+        "overallTranslation": "He was enjoying the movie while eating popcorn."
+      },
+      {
+        "korean": "그런데 갑자기 친구들이 모두 사라졌어요!",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "갑자기": "suddenly",
+          "친구들": "friends",
+          "이": "they",
+          "모두": "all",
+          "사라졌어요": "disappeared"
+        },
+        "overallTranslation": "But suddenly, all of his friends disappeared!"
+      },
+      {
+        "korean": "민수는 혼자 남아서 영화를 끝까지 봤어요.",
+        "wordByWordTranslation": {
+          "민수": "Min-su",
+          "는": "is",
+          "혼자": "alone",
+          "남아서": "staying",
+          "영화": "movie",
+          "를": "the",
+          "끝까지": "until the end",
+          "봤어요": "watched"
+        },
+        "overallTranslation": "Min-su stayed alone and watched the movie until the end."
+      },
+      {
+        "korean": "영화가 끝나고 나니 친구들이 다시 나타났어요!",
+        "wordByWordTranslation": {
+          "영화": "movie",
+          "가": "it",
+          "끝나고": "ending",
+          "나니": "and",
+          "친구들": "friends",
+          "이": "they",
+          "다시": "again",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "When the movie finished, his friends reappeared!"
+      }
+    ],
+    "id": 1927
   },
   {
     "generator": "korean-gap-story-4-comic book-gemini",
@@ -17458,7 +21989,7 @@
         "koreanWithHanja": "민수는 뿌듯한 미소(微笑)를 지으며 더 열심히(熱心히) 훈련(訓鍊)했습니다.\n"
       }
     ],
-    "id": 1874
+    "id": 1928
   },
   {
     "generator": "korean-gap-story-4-cosmic-horror-gemini",
@@ -17532,7 +22063,7 @@
         "hanjaro": "그 소리는 영원히(永遠히) 멈추지 않을 것 같았습니다.\n"
       }
     ],
-    "id": 1875
+    "id": 1929
   },
   {
     "generator": "korean-gap-story-4-detective-gemini",
@@ -17622,7 +22153,7 @@
         "overallTranslation": "Minjun decided to investigate the documentary's secret with Eunsoo."
       }
     ],
-    "id": 1876
+    "id": 1930
   },
   {
     "generator": "korean-gap-story-4-drama-gemini",
@@ -17695,7 +22226,7 @@
         "hanjaro": "꽃들이 마치 하늘에 떠 있는 별처럼 정렬(整列)되어 있었거든요.\n"
       }
     ],
-    "id": 1877
+    "id": 1931
   },
   {
     "generator": "korean-gap-story-4-espionage-gemini",
@@ -17783,7 +22314,7 @@
         "hanjaro": "그는 깜짝 놀라 칩을 떨어뜨렸고, 칩은 땅에 떨어져 빛을 내며 사라졌습니다.\n"
       }
     ],
-    "id": 1878
+    "id": 1932
   },
   {
     "generator": "korean-gap-story-4-high-fantasy-gemini",
@@ -17860,7 +22391,7 @@
         "overallTranslation": "The brave wizard, Luna, jumped into the flames."
       }
     ],
-    "id": 1879
+    "id": 1933
   },
   {
     "generator": "korean-gap-story-4-military-gemini",
@@ -17946,7 +22477,105 @@
         "hanjaro": "그들은 숨을 헐떡이며 주위(周圍)를 살펴보았습니다.\n"
       }
     ],
-    "id": 1880
+    "id": 1934
+  },
+  {
+    "generator": "korean-gap-story-4-modern-gemini",
+    "input": "normal",
+    "problem": "민수는 매일 아침 일어나서 학교에 갔습니다.<br> 그는 항상 친구들과 함께 점심을 먹고, 수업을 듣고, 집에 돌아왔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 어느 날, 민수는 학교 가는 길에 이상한 일을 발견했습니다.<br> 하늘에서 핑크색 솜사탕이 떨어지고 있었고, 모든 사람들은 솜사탕을 먹으며 웃고 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "민수는 매일 아침 일어나서 학교에 갔습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "매일": "every day",
+          "아침": "morning",
+          "일어나서": "waking up",
+          "학교": "school",
+          "에": "to",
+          "갔습니다": "went"
+        },
+        "overallTranslation": "Minsu woke up every morning and went to school."
+      },
+      {
+        "korean": "그는 항상 친구들과 함께 점심을 먹고, 수업을 듣고, 집에 돌아왔습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "항상": "always",
+          "친구들": "friends",
+          "과": "with",
+          "함께": "together",
+          "점심": "lunch",
+          "을": "object marker",
+          "먹고": "ate",
+          "수업": "class",
+          "듣고": "listened to",
+          "집": "home",
+          "에": "to",
+          "돌아왔습니다": "returned"
+        },
+        "overallTranslation": "He always ate lunch with his friends, listened to classes, and returned home."
+      },
+      {
+        "korean": "어느 날, 민수는 학교 가는 길에 이상한 일을 발견했습니다.",
+        "wordByWordTranslation": {
+          "어느": "one",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "학교": "school",
+          "가는": "going",
+          "길": "way",
+          "에": "at",
+          "이상한": "strange",
+          "일": "thing",
+          "을": "object marker",
+          "발견했습니다": "found"
+        },
+        "overallTranslation": "One day, Minsu found something strange on his way to school."
+      },
+      {
+        "korean": "하늘에서 핑크색 솜사탕이 떨어지고 있었고, 모든 사람들은 솜사탕을 먹으며 웃고 있었습니다.",
+        "wordByWordTranslation": {
+          "하늘": "sky",
+          "에서": "from",
+          "핑크색": "pink",
+          "솜사탕": "cotton candy",
+          "이": "subject marker",
+          "떨어지고": "falling",
+          "있었고": "was",
+          "모든": "all",
+          "사람들": "people",
+          "은": "subject marker",
+          "을": "object marker",
+          "먹으며": "eating",
+          "웃고": "laughing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Pink cotton candy was falling from the sky, and everyone was laughing while eating it."
+      },
+      {
+        "korean": "민수는 이제 매일 아침 학교 가는 길에 솜사탕이 떨어지기를 기다립니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "이제": "now",
+          "매일": "every day",
+          "아침": "morning",
+          "학교": "school",
+          "가는": "going",
+          "길": "way",
+          "에": "at",
+          "솜사탕": "cotton candy",
+          "이": "subject marker",
+          "떨어지기를": "falling",
+          "기다립니다": "waits"
+        },
+        "overallTranslation": "Now, Minsu waits for the cotton candy to fall every morning on his way to school."
+      }
+    ],
+    "id": 1935
   },
   {
     "generator": "korean-gap-story-4-outlaw-gemini",
@@ -18022,7 +22651,7 @@
         "overallTranslation": "The townspeople watched his actions curiously."
       }
     ],
-    "id": 1881
+    "id": 1936
   },
   {
     "generator": "korean-gap-story-4-paranormal-gemini",
@@ -18096,7 +22725,7 @@
         "overallTranslation": "Minjun was startled and slammed the drawer shut."
       }
     ],
-    "id": 1882
+    "id": 1937
   },
   {
     "generator": "korean-gap-story-4-realistic-gemini",
@@ -18192,7 +22821,80 @@
         "koreanWithHanja": "아빠는 웃으며 “이제 우리 민수는 부자(富者)가 되었구나!”라고 말했습니다.\n"
       }
     ],
-    "id": 1883
+    "id": 1938
+  },
+  {
+    "generator": "korean-gap-story-4-realistic-gemini",
+    "input": "beverage",
+    "problem": "더운 여름날, 민수는 친구 태준이와 함께 공원 벤치에 앉아 있었습니다.<br> 둘은 시원한 음료수를 마시며 이야기를 나누고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 하늘에서 비가 쏟아지기 시작했습니다.<br> 민수와 태준이는 급하게 벤치에서 일어나 뛰어갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "더운 여름날, 민수는 친구 태준이와 함께 공원 벤치에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "더운": "hot",
+          "여름날": "summer day",
+          "민수는": "Min-su is",
+          "친구": "friend",
+          "태준이와": "Tae-jun and",
+          "함께": "together",
+          "공원": "park",
+          "벤치에": "on the bench",
+          "앉아": "sitting",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a hot summer day, Min-su was sitting on a park bench with his friend Tae-jun."
+      },
+      {
+        "korean": "둘은 시원한 음료수를 마시며 이야기를 나누고 있었습니다.",
+        "wordByWordTranslation": {
+          "둘은": "They two",
+          "시원한": "cool",
+          "음료수를": "beverage",
+          "마시며": "drinking",
+          "이야기를": "story",
+          "나누고": "sharing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "They were sharing stories while drinking cool beverages."
+      },
+      {
+        "korean": "갑자기 하늘에서 비가 쏟아지기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘에서": "from the sky",
+          "비가": "rain",
+          "쏟아지기": "pouring",
+          "시작했습니다.": "started"
+        },
+        "overallTranslation": "Suddenly, rain began pouring from the sky."
+      },
+      {
+        "korean": "민수와 태준이는 급하게 벤치에서 일어나 뛰어갔습니다.",
+        "wordByWordTranslation": {
+          "민수와": "Min-su and",
+          "태준이는": "Tae-jun",
+          "급하게": "hurriedly",
+          "벤치에서": "from the bench",
+          "일어나": "getting up",
+          "뛰어갔습니다.": "ran"
+        },
+        "overallTranslation": "Min-su and Tae-jun hurriedly got up from the bench and ran."
+      },
+      {
+        "korean": "그들은 비를 피해 근처의 버스 정류장으로 달려갔습니다.",
+        "wordByWordTranslation": {
+          "그들은": "They",
+          "비를": "rain",
+          "피해": "avoiding",
+          "근처의": "nearby",
+          "버스": "bus",
+          "정류장으로": "stop",
+          "달려갔습니다.": "ran"
+        },
+        "overallTranslation": "They ran to the nearby bus stop to avoid the rain."
+      }
+    ],
+    "id": 1939
   },
   {
     "generator": "korean-gap-story-4-renaissance-gemini",
@@ -18291,7 +22993,7 @@
         "hanjaro": "지수는 미소(微笑)를 지으며 그 손을 꽉 잡았습니다.\n"
       }
     ],
-    "id": 1884
+    "id": 1940
   },
   {
     "generator": "korean-gap-story-4-romantic-gemini",
@@ -18370,7 +23072,192 @@
         "koreanWithHanja": "민수는 노래 소리를 따라갔고, 아름다운 오아시스를 발견(發見)했어요.\n"
       }
     ],
-    "id": 1885
+    "id": 1941
+  },
+  {
+    "generator": "korean-gap-story-4-slice-of-life-gemini",
+    "input": "membrane",
+    "problem": "햇살 가득한 봄날, 민수는 학교 운동장에서 친구들과 축구를 하고 있었어요.<br> 신나게 뛰어다니던 민수는 갑자기 발이 땅에 붙은 듯 움직이지 않았어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 알고 보니 민수의 발은 얇은 비닐막에 붙어 있었어요.<br> 친구들이 웃으며 비닐막을 떼어주자 민수는 다시 신나게 뛰어다녔어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 봄날, 민수는 학교 운동장에서 친구들과 축구를 하고 있었어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "full",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "학교": "school",
+          "운동장": "playground",
+          "에서": "at",
+          "친구들": "friends",
+          "과": "with",
+          "축구": "soccer",
+          "를": "to",
+          "하고": "play",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a sunny spring day, Minsu was playing soccer with his friends at the school playground."
+      },
+      {
+        "korean": "신나게 뛰어다니던 민수는 갑자기 발이 땅에 붙은 듯 움직이지 않았어요.",
+        "wordByWordTranslation": {
+          "신나게": "happily",
+          "뛰어다니던": "running around",
+          "민수": "Minsu",
+          "는": "is",
+          "갑자기": "suddenly",
+          "발": "foot",
+          "이": "that",
+          "땅": "ground",
+          "에": "on",
+          "붙은": "stuck",
+          "듯": "like",
+          "움직이지": "not moving",
+          "않았어요": "was"
+        },
+        "overallTranslation": "While happily running around, Minsu suddenly felt like his foot was stuck to the ground and couldn't move."
+      },
+      {
+        "korean": "알고 보니 민수의 발은 얇은 비닐막에 붙어 있었어요.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as it turned out",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "은": "is",
+          "얇은": "thin",
+          "비닐막": "plastic membrane",
+          "에": "on",
+          "붙어": "stuck",
+          "있었어요": "was"
+        },
+        "overallTranslation": "It turned out that Minsu's foot was stuck to a thin plastic membrane."
+      },
+      {
+        "korean": "친구들이 웃으며 비닐막을 떼어주자 민수는 다시 신나게 뛰어다녔어요.",
+        "wordByWordTranslation": {
+          "친구들": "friends",
+          "이": "who",
+          "웃으며": "smiling",
+          "비닐막": "plastic membrane",
+          "을": "to",
+          "떼어주자": "removed",
+          "민수": "Minsu",
+          "는": "is",
+          "다시": "again",
+          "신나게": "happily",
+          "뛰어다녔어요": "ran around"
+        },
+        "overallTranslation": "His friends laughed and removed the plastic membrane, and Minsu happily ran around again."
+      },
+      {
+        "korean": "비닐막은 얇지만, 민수의 발을 꼼짝 못하게 붙잡았어요.",
+        "wordByWordTranslation": {
+          "비닐막": "plastic membrane",
+          "은": "is",
+          "얇지만": "thin but",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "을": "to",
+          "꼼짝": "move",
+          "못하게": "couldn't",
+          "붙잡았어요": "held"
+        },
+        "overallTranslation": "Although thin, the plastic membrane held Minsu's foot tight, preventing him from moving."
+      }
+    ],
+    "id": 1942
+  },
+  {
+    "generator": "korean-gap-story-4-slice-of-life-gemini",
+    "input": "amplify",
+    "problem": "은수는 친구 민수와 함께 공원에서 뛰어놀고 있었어요.<br> 갑자기 큰 소리가 나서 은수는 놀랐어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 민수가 손에 들고 있던 작은 앰프에서 음악이 흘러나왔어요.<br> 앰프 소리는 공원 전체에 울려 퍼졌어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 친구 민수와 함께 공원에서 뛰어놀고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "친구": "friend",
+          "민수": "Minsoo",
+          "와": "and",
+          "함께": "together",
+          "공원": "park",
+          "에서": "at",
+          "뛰어놀고": "playing",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was playing with her friend Minsoo at the park."
+      },
+      {
+        "korean": "갑자기 큰 소리가 나서 은수는 놀랐어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "나서": "so",
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀랐어요": "surprised"
+        },
+        "overallTranslation": "Suddenly, a loud sound startled Eunsoo."
+      },
+      {
+        "korean": "민수가 손에 들고 있던 작은 앰프에서 음악이 흘러나왔어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsoo",
+          "가": "that",
+          "손": "hand",
+          "에": "in",
+          "들고": "holding",
+          "있던": "was",
+          "작은": "small",
+          "앰프": "amplifier",
+          "에서": "from",
+          "음악": "music",
+          "이": "that",
+          "흘러나왔어요": "flowed out"
+        },
+        "overallTranslation": "Music was flowing out of the small amplifier that Minsoo was holding."
+      },
+      {
+        "korean": "앰프 소리는 공원 전체에 울려 퍼졌어요.",
+        "wordByWordTranslation": {
+          "앰프": "amplifier",
+          "소리": "sound",
+          "는": "is",
+          "공원": "park",
+          "전체": "entire",
+          "에": "in",
+          "울려": "echoed",
+          "퍼졌어요": "spread"
+        },
+        "overallTranslation": "The amplifier's sound echoed throughout the entire park."
+      },
+      {
+        "korean": "은수와 민수는 웃으며 신나는 음악에 맞춰 춤을 추었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "는": "is",
+          "웃으며": "smiling",
+          "신나는": "exciting",
+          "음악": "music",
+          "에": "to",
+          "맞춰": "following",
+          "춤": "dance",
+          "을": "to",
+          "추었어요": "danced"
+        },
+        "overallTranslation": "Eunsoo and Minsoo danced happily to the exciting music."
+      }
+    ],
+    "id": 1943
   },
   {
     "generator": "korean-gap-story-4-supernatural-mystery-gemini",
@@ -18444,7 +23331,89 @@
         "hanjaro": "그때, 방문(房門)이 쾅하고 열리면서 희미(稀微)한 빛이 들어왔어요.\n"
       }
     ],
-    "id": 1886
+    "id": 1944
+  },
+  {
+    "generator": "korean-gap-story-4-supernatural-mystery-gemini",
+    "input": "framework",
+    "problem": "어두운 밤, 낡은 나무집은 조용히 서 있었습니다.<br> 바람이 불어 창문이 덜컹거리며 소리를 냈습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 집 안에서 이상한 소리가 들렸습니다.<br> 소리는 마치 누군가가 나무 틀을 망치로 두드리는 소리 같았습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 나무집은 조용히 서 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "나무집": "wooden house",
+          "은": "is",
+          "조용히": "quietly",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On a dark night, an old wooden house stood silently."
+      },
+      {
+        "korean": "바람이 불어 창문이 덜컹거리며 소리를 냈습니다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "이": "is",
+          "불어": "blowing",
+          "창문": "window",
+          "덜컹거리며": "rattling",
+          "소리": "sound",
+          "를": "object",
+          "냈습니다": "made"
+        },
+        "overallTranslation": "The wind blew, causing the window to rattle and make a sound."
+      },
+      {
+        "korean": "갑자기, 집 안에서 이상한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "집": "house",
+          "안": "inside",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "that",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a strange sound came from inside the house."
+      },
+      {
+        "korean": "소리는 마치 누군가가 나무 틀을 망치로 두드리는 소리 같았습니다.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "마치": "as if",
+          "누군가": "someone",
+          "가": "is",
+          "나무": "wood",
+          "틀": "frame",
+          "를": "object",
+          "망치": "hammer",
+          "로": "with",
+          "두드리는": "hitting",
+          "같았습니다": "seemed"
+        },
+        "overallTranslation": "The sound seemed like someone was hitting a wooden frame with a hammer."
+      },
+      {
+        "korean": "지수는 겁에 질려 숨을 헐떡였습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "겁": "fear",
+          "에": "with",
+          "질려": "frightened",
+          "숨": "breath",
+          "을": "object",
+          "헐떡였습니다": "gasped"
+        },
+        "overallTranslation": "Jisoo gasped in fear."
+      }
+    ],
+    "id": 1945
   },
   {
     "generator": "korean-gap-story-4-thriller-gemini",
@@ -18527,7 +23496,7 @@
         "overallTranslation": "The donkey seemed injured, and Min-su, with a worried heart, helped the donkey."
       }
     ],
-    "id": 1887
+    "id": 1946
   },
   {
     "generator": "korean-gap-story-4-time-travel-gemini",
@@ -18617,7 +23586,81 @@
         "hanjaro": "주변(周邊)에는 이상(異常)한 소리와 냄새가 가득했고, 민준이는 자신(自身)이 과거(過去)로 시간(時間) 여행(旅行)을 왔다는 것을 깨달았습니다.\n"
       }
     ],
-    "id": 1888
+    "id": 1947
+  },
+  {
+    "generator": "korean-gap-story-4-urban-fantasy-gemini",
+    "input": "noise",
+    "problem": "밤늦도록 도시는 시끄러웠어요.<br> 민수는 잠 못 이루고 창밖을 바라봤어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 창문 밖에서 이상한 소리가 들렸어요.<br> 소리는 점점 커지더니, 창문이 흔들리기 시작했어요.<br>",
+    "solution": [
+      {
+        "korean": "밤늦도록 도시는 시끄러웠어요.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "늦도록": "late",
+          "도시": "city",
+          "는": "is",
+          "시끄러웠어요": "noisy"
+        },
+        "overallTranslation": "The city was noisy late into the night."
+      },
+      {
+        "korean": "민수는 잠 못 이루고 창밖을 바라봤어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "잠": "sleep",
+          "못": "can't",
+          "이루고": "sleep",
+          "창밖": "window outside",
+          "을": "object marker",
+          "바라봤어요": "looked"
+        },
+        "overallTranslation": "Minsu couldn't sleep and stared out the window."
+      },
+      {
+        "korean": "그때, 창문 밖에서 이상한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "창문": "window",
+          "밖": "outside",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Then, a strange sound came from outside the window."
+      },
+      {
+        "korean": "소리는 점점 커지더니, 창문이 흔들리기 시작했어요.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "점점": "gradually",
+          "커지더니": "grew louder",
+          "창문": "window",
+          "이": "subject marker",
+          "흔들리기": "shake",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "The sound grew louder and louder, and the window started to shake."
+      },
+      {
+        "korean": "민수는 무서워서 이불 속으로 숨었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "무서워서": "because of fear",
+          "이불": "blanket",
+          "속": "inside",
+          "으로": "towards",
+          "숨었어요": "hid"
+        },
+        "overallTranslation": "Minsu was scared and hid under the blanket."
+      }
+    ],
+    "id": 1948
   },
   {
     "generator": "korean-gap-story-4-western-gemini",
@@ -18723,7 +23766,7 @@
         "hanjaro": "그 남자(男子)는 살아 있었고, 그의 가슴에는 비밀(祕密) 지도(指導)가 숨겨져 있었습니다.\n"
       }
     ],
-    "id": 1889
+    "id": 1949
   },
   {
     "generator": "korean-gap-story-4-western-gemini",
@@ -18800,7 +23843,7 @@
         "hanjaro": "나는 땀을 닦으며, “이건 행운(幸運)이야!”라고 외쳤습니다.\n"
       }
     ],
-    "id": 1890
+    "id": 1950
   },
   {
     "generator": "korean-gap-story-4-western-gemini",
@@ -18881,7 +23924,104 @@
         "overallTranslation": "In the thick smoke, a man dropped his gun, his hand stained with blood."
       }
     ],
-    "id": 1891
+    "id": 1951
+  },
+  {
+    "generator": "korean-gap-story-5-alternate-reality-gemini",
+    "input": "premier",
+    "problem": "은수는 영화관에서 최신 영화 '프리미어'를 보기 위해 기다리고 있었습니다.<br> 옆자리에 앉은 남자는 갑자기 소리를 지르며 뛰쳐나갔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 순간, 영화관의 조명이 켜지고 모든 사람들이 혼란스러워했습니다.<br> 알고 보니, '프리미어'는 영화가 아니라 실제로 벌어지는 특별한 이벤트였습니다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 영화관에서 최신 영화 '프리미어'를 보기 위해 기다리고 있었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "영화관": "movie theater",
+          "에서": "at",
+          "최신": "latest",
+          "영화": "movie",
+          "'프리미어'": "'Premiere'",
+          "를": "to",
+          "보기": "watch",
+          "위해": "for",
+          "기다리고": "waiting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Eunsoo was waiting to watch the latest movie 'Premiere' at the movie theater."
+      },
+      {
+        "korean": "옆자리에 앉은 남자는 갑자기 소리를 지르며 뛰쳐나갔습니다.",
+        "wordByWordTranslation": {
+          "옆자리": "next seat",
+          "에": "at",
+          "앉은": "sitting",
+          "남자": "man",
+          "는": "is",
+          "갑자기": "suddenly",
+          "소리": "sound",
+          "를": "to",
+          "지르며": "shouting",
+          "뛰쳐나갔습니다": "ran out"
+        },
+        "overallTranslation": "The man sitting next to her suddenly shouted and ran out."
+      },
+      {
+        "korean": "그 순간, 영화관의 조명이 켜지고 모든 사람들이 혼란스러워했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "영화관": "movie theater",
+          "의": "of",
+          "조명": "lights",
+          "이": "are",
+          "켜지고": "turning on",
+          "모든": "all",
+          "사람들": "people",
+          "혼란스러워했습니다": "confused"
+        },
+        "overallTranslation": "At that moment, the movie theater lights turned on, and everyone was confused."
+      },
+      {
+        "korean": "알고 보니, '프리미어'는 영화가 아니라 실제로 벌어지는 특별한 이벤트였습니다.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as it turns out",
+          "'프리미어'": "'Premiere'",
+          "는": "is",
+          "영화": "movie",
+          "가": "be",
+          "아니라": "not",
+          "실제로": "actually",
+          "벌어지는": "happening",
+          "특별한": "special",
+          "이벤트": "event",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It turned out that 'Premiere' wasn't a movie, but a special event actually happening."
+      },
+      {
+        "korean": "은수는 흥분해서 이벤트에 참여하게 되었고, 영화 대신 짜릿한 경험을 하게 되었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "흥분": "excited",
+          "해서": "so",
+          "이벤트": "event",
+          "에": "to",
+          "참여": "participate",
+          "하게": "to",
+          "되었고": "became",
+          "영화": "movie",
+          "대신": "instead of",
+          "짜릿한": "thrilling",
+          "경험": "experience",
+          "을": "to",
+          "되었습니다": "became"
+        },
+        "overallTranslation": "Eunsoo was excited to participate in the event, and instead of a movie, she had a thrilling experience."
+      }
+    ],
+    "id": 1952
   },
   {
     "generator": "korean-gap-story-5-comedic-gemini",
@@ -18978,7 +24118,7 @@
         "koreanWithHanja": "민수는 친구(親舊)에게 “어서 깨어나! 우리는 시뮬레이션 속에 있었어!”라고 외쳤어요.\n"
       }
     ],
-    "id": 1892
+    "id": 1953
   },
   {
     "generator": "korean-gap-story-5-dark-fantasy-gemini",
@@ -19061,7 +24201,90 @@
         "koreanWithHanja": "숲은 순식간(瞬息間)에 어둠으로 가득 차버렸다.\n"
       }
     ],
-    "id": 1893
+    "id": 1954
+  },
+  {
+    "generator": "korean-gap-story-5-dark-fantasy-gemini",
+    "input": "drawl",
+    "problem": "어두운 숲 속에서, 한 소녀가 길을 잃고 헤매고 있었습니다.<br> 그녀는 희미한 달빛에 의지하여 앞으로 나아갔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 그녀의 발밑에서 섬뜩한 소리가 들렸습니다.<br> 소리는 점점 커지더니, 그녀의 발목을 잡아채는 듯한 느낌이 들었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 길을 잃고 헤매고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "한": "one",
+          "소녀": "girl",
+          "가": "subject marker",
+          "길을": "path",
+          "잃고": "lose",
+          "헤매고": "wander",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the dark forest, a girl was lost and wandering."
+      },
+      {
+        "korean": "그녀는 희미한 달빛에 의지하여 앞으로 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "희미한": "faint",
+          "달빛": "moonlight",
+          "에": "on",
+          "의지하여": "rely",
+          "앞으로": "forward",
+          "나아갔습니다": "went"
+        },
+        "overallTranslation": "She relied on the faint moonlight to move forward."
+      },
+      {
+        "korean": "갑자기, 그녀의 발밑에서 섬뜩한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그녀의": "her",
+          "발밑에서": "under her feet",
+          "섬뜩한": "creepy",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a creepy sound was heard under her feet."
+      },
+      {
+        "korean": "소리는 점점 커지더니, 그녀의 발목을 잡아채는 듯한 느낌이 들었습니다.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "subject marker",
+          "점점": "gradually",
+          "커지더니": "got bigger",
+          "그녀의": "her",
+          "발목을": "ankle",
+          "잡아채는": "grabbing",
+          "듯한": "like",
+          "느낌": "feeling",
+          "이": "subject marker",
+          "들었습니다": "was felt"
+        },
+        "overallTranslation": "The sound grew louder and louder, and she felt something grabbing her ankle."
+      },
+      {
+        "korean": "그녀는 비명을 지르며 뒤로 넘어졌고, 숲 속 어둠에 휩싸였습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "비명": "scream",
+          "을": "object marker",
+          "지르며": "screaming",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "숲": "forest",
+          "속": "inside",
+          "어둠에": "darkness",
+          "휩싸였습니다": "was enveloped"
+        },
+        "overallTranslation": "She screamed and fell backwards, enveloped in the darkness of the forest."
+      }
+    ],
+    "id": 1955
   },
   {
     "generator": "korean-gap-story-5-drama-gemini",
@@ -19141,7 +24364,7 @@
         "hanjaro": "민수는 놀란 표정(表情)을 지으며 할아버지의 손을 잡았습니다.\n"
       }
     ],
-    "id": 1894
+    "id": 1956
   },
   {
     "generator": "korean-gap-story-5-drama-gemini",
@@ -19221,7 +24444,7 @@
         "overallTranslation": "A voice from inside said, “Wait a moment!”"
       }
     ],
-    "id": 1895
+    "id": 1957
   },
   {
     "generator": "korean-gap-story-5-espionage-gemini",
@@ -19325,7 +24548,7 @@
         "hanjaro": "그는 즉시(卽時) 상황(狀況) 파악(把握)에 나섰고, 이 사건(事件)이 그의 임무(任務)와 관련(關聯)되었음을 알게 되었습니다.\n"
       }
     ],
-    "id": 1896
+    "id": 1958
   },
   {
     "generator": "korean-gap-story-5-gothic-horror-gemini",
@@ -19417,7 +24640,77 @@
         "hanjaro": "그 웃음소리는 점점(漸漸) 더 크게 들려왔고, 민수는 학교(學校)를 탈출(脫出)해야 한다는 생각에 사로잡혔습니다.\n"
       }
     ],
-    "id": 1897
+    "id": 1959
+  },
+  {
+    "generator": "korean-gap-story-5-high-fantasy-gemini",
+    "input": "smock",
+    "problem": "어두운 숲 속에서, 한 소녀가 길을 잃었습니다.<br> 그녀는 겁에 질려 숨을 헐떡였습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 갑자기 하늘에서 빛이 쏟아졌습니다.<br> 빛은 그녀의 앞에 희미한 빛을 내는 망토를 드리웠습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 길을 잃었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "한": "one",
+          "소녀": "girl",
+          "가": "who is",
+          "길을": "road",
+          "잃었습니다": "lost"
+        },
+        "overallTranslation": "In the dark forest, a girl was lost."
+      },
+      {
+        "korean": "그녀는 겁에 질려 숨을 헐떡였습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "겁에": "fear",
+          "질려": "filled",
+          "숨을": "breath",
+          "헐떡였습니다": "gasped"
+        },
+        "overallTranslation": "She gasped in fear."
+      },
+      {
+        "korean": "그때, 갑자기 하늘에서 빛이 쏟아졌습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "하늘에서": "from the sky",
+          "빛이": "light",
+          "쏟아졌습니다": "poured"
+        },
+        "overallTranslation": "Then, suddenly, light poured down from the sky."
+      },
+      {
+        "korean": "빛은 그녀의 앞에 희미한 빛을 내는 망토를 드리웠습니다.",
+        "wordByWordTranslation": {
+          "빛은": "light",
+          "그녀의": "her",
+          "앞에": "in front of",
+          "희미한": "dim",
+          "빛을": "light",
+          "내는": "giving off",
+          "망토를": "cloak",
+          "드리웠습니다": "spread"
+        },
+        "overallTranslation": "The light spread a cloak that gave off a dim glow in front of her."
+      },
+      {
+        "korean": "그녀는 망토를 덮어쓰고 용감하게 앞으로 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "망토를": "cloak",
+          "덮어쓰고": "wearing",
+          "용감하게": "bravely",
+          "앞으로": "forward",
+          "나아갔습니다": "went"
+        },
+        "overallTranslation": "She put on the cloak and bravely went forward."
+      }
+    ],
+    "id": 1960
   },
   {
     "generator": "korean-gap-story-5-horror-gemini",
@@ -19500,7 +24793,7 @@
         "hanjaro": "그 소리는 유진이의 마음속에서 들려오는 결론(結論)이었어요.\n"
       }
     ],
-    "id": 1898
+    "id": 1961
   },
   {
     "generator": "korean-gap-story-5-medieval-gemini",
@@ -19594,7 +24887,7 @@
         "koreanWithHanja": "소녀(少女)는 요정(妖精)의 선물(膳物)을 받고 기뻐하며 피리를 불었습니다.\n"
       }
     ],
-    "id": 1899
+    "id": 1962
   },
   {
     "generator": "korean-gap-story-5-medieval-gemini",
@@ -19703,7 +24996,7 @@
         "koreanWithHanja": "그 책(冊)에는 낯선 언어(言語)로 적힌 내용(內容)이 가득했고, 기사(技士)는 남자(男子)에게 통역(通譯)을 부탁(付託)했습니다.\n"
       }
     ],
-    "id": 1900
+    "id": 1963
   },
   {
     "generator": "korean-gap-story-5-medieval-gemini",
@@ -19795,7 +25088,7 @@
         "hanjaro": "기사(記事)는 깜짝 놀라서 말을 타고 다시 숲을 빠져나갔습니다.\n"
       }
     ],
-    "id": 1901
+    "id": 1964
   },
   {
     "generator": "korean-gap-story-5-mystery-gemini",
@@ -19872,7 +25165,160 @@
         "hanjaro": "책상(冊床) 위에 놓인 온도계(溫度計)는 10도(度)를 가리키고 있었습니다.\n"
       }
     ],
-    "id": 1902
+    "id": 1965
+  },
+  {
+    "generator": "korean-gap-story-5-outlaw-gemini",
+    "input": "writ",
+    "problem": "해가 지고 있었고, 황량한 서부의 들판은 붉게 물들었습니다.<br> 총잡이 잭은 말에 올라타 먼지 덮인 길을 따라 달렸습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 잭은 길 한가운데 쓰러진 남자를 발견했습니다.<br> 남자는 손에 핏빛으로 쓴 편지를 쥐고 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지고 있었고, 황량한 서부의 들판은 붉게 물들었습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "지고": "setting",
+          "있었고": "and",
+          "황량한": "desolate",
+          "서부의": "western",
+          "들판은": "fields are",
+          "붉게": "red",
+          "물들었습니다": "dyed"
+        },
+        "overallTranslation": "The sun was setting, and the desolate western fields were dyed red."
+      },
+      {
+        "korean": "총잡이 잭은 말에 올라타 먼지 덮인 길을 따라 달렸습니다.",
+        "wordByWordTranslation": {
+          "총잡이": "gunman",
+          "잭은": "Jack is",
+          "말에": "on the horse",
+          "올라타": "mounted",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길을": "road",
+          "따라": "along",
+          "달렸습니다": "ran"
+        },
+        "overallTranslation": "The gunman, Jack, mounted his horse and raced along the dusty road."
+      },
+      {
+        "korean": "갑자기, 잭은 길 한가운데 쓰러진 남자를 발견했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "잭은": "Jack is",
+          "길": "road",
+          "한가운데": "middle",
+          "쓰러진": "collapsed",
+          "남자를": "man",
+          "발견했습니다": "found"
+        },
+        "overallTranslation": "Suddenly, Jack found a man collapsed in the middle of the road."
+      },
+      {
+        "korean": "남자는 손에 핏빛으로 쓴 편지를 쥐고 있었습니다.",
+        "wordByWordTranslation": {
+          "남자는": "man is",
+          "손에": "in his hand",
+          "핏빛으로": "blood-stained",
+          "쓴": "written",
+          "편지를": "letter",
+          "쥐고": "holding",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The man was holding a letter written in blood in his hand."
+      },
+      {
+        "korean": "잭은 편지를 읽고 남자를 도와 병원으로 데려갔습니다.",
+        "wordByWordTranslation": {
+          "잭은": "Jack is",
+          "편지를": "letter",
+          "읽고": "read",
+          "남자를": "man",
+          "도와": "helped",
+          "병원으로": "to the hospital",
+          "데려갔습니다": "took"
+        },
+        "overallTranslation": "Jack read the letter and helped the man to the hospital."
+      }
+    ],
+    "id": 1966
+  },
+  {
+    "generator": "korean-gap-story-5-political-gemini",
+    "input": "muffle",
+    "problem": "어두운 밤, 민준이는 혼자 집에 있었습니다.<br> 갑자기 문이 쾅 소리를 내며 열렸습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 민준이는 놀라서 이불 속으로 숨었습니다.<br> 하지만 소리는 점점 작아졌고, 결국 아무 소리도 나지 않았습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 민준이는 혼자 집에 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "민준이": "Minjun",
+          "는": "is",
+          "혼자": "alone",
+          "집에": "at home",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "It was a dark night, and Minjun was home alone."
+      },
+      {
+        "korean": "갑자기 문이 쾅 소리를 내며 열렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문이": "the door",
+          "쾅": "bang",
+          "소리를": "sound",
+          "내며": "making",
+          "열렸습니다.": "opened"
+        },
+        "overallTranslation": "Suddenly, the door slammed open."
+      },
+      {
+        "korean": "민준이는 놀라서 이불 속으로 숨었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "놀라서": "surprised",
+          "이불": "blanket",
+          "속으로": "inside",
+          "숨었습니다.": "hid"
+        },
+        "overallTranslation": "Minjun was so startled that he hid under his blanket."
+      },
+      {
+        "korean": "하지만 소리는 점점 작아졌고, 결국 아무 소리도 나지 않았습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "소리": "sound",
+          "는": "is",
+          "점점": "gradually",
+          "작아졌고": "became smaller",
+          "결국": "finally",
+          "아무": "no",
+          "도": "also",
+          "나지": "not",
+          "않았습니다.": "was"
+        },
+        "overallTranslation": "But the sound gradually faded away, and eventually, there was no noise at all."
+      },
+      {
+        "korean": "민준이는 조심스럽게 이불을 걷어내고 밖을 살펴보았지만, 아무도 없었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "조심스럽게": "cautiously",
+          "이불": "blanket",
+          "을": "object marker",
+          "걷어내고": "lifted",
+          "밖을": "outside",
+          "살펴보았지만": "looked",
+          "아무도": "no one",
+          "없었습니다.": "was not"
+        },
+        "overallTranslation": "Minjun cautiously pulled back the blanket and looked outside, but there was no one there."
+      }
+    ],
+    "id": 1967
   },
   {
     "generator": "korean-gap-story-5-renaissance-gemini",
@@ -19967,7 +25413,298 @@
         "hanjaro": "그는 파도(波濤)의 위력(威力)에 몸서리쳤지만, 살아남았다는 사실(事實)에 감사(感謝)했습니다.\n"
       }
     ],
-    "id": 1903
+    "id": 1968
+  },
+  {
+    "generator": "korean-gap-story-5-social-gemini",
+    "input": "fellowship",
+    "problem": "민수는 친구들과 함께 학교 운동장에서 축구를 하고 있었습니다.<br> 갑자기 비가 내리기 시작해서 모두 급하게 학교 건물로 들어갔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 민수는 우산을 두고 와서 밖에서 비를 맞고 있었습니다.<br> 그때 친구들이 민수에게 우산을 건네주며 함께 비를 피했습니다.<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구들과 함께 학교 운동장에서 축구를 하고 있었습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "들": "plural marker",
+          "과": "with",
+          "함께": "together",
+          "학교": "school",
+          "운동장": "playground",
+          "에서": "at",
+          "축구": "soccer",
+          "를": "object marker",
+          "하고": "doing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "Minsu was playing soccer with his friends on the school playground."
+      },
+      {
+        "korean": "갑자기 비가 내리기 시작해서 모두 급하게 학교 건물로 들어갔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "비": "rain",
+          "가": "subject marker",
+          "내리": "fall",
+          "기": "start",
+          "시작": "start",
+          "해서": "so",
+          "모두": "everyone",
+          "급하게": "hurriedly",
+          "학교": "school",
+          "건물": "building",
+          "로": "to",
+          "들어갔습니다.": "entered"
+        },
+        "overallTranslation": "Suddenly, it started to rain, so everyone quickly went inside the school building."
+      },
+      {
+        "korean": "하지만 민수는 우산을 두고 와서 밖에서 비를 맞고 있었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "민수": "Minsu",
+          "는": "is",
+          "우산": "umbrella",
+          "을": "object marker",
+          "두고": "leaving behind",
+          "와서": "so",
+          "밖": "outside",
+          "에서": "at",
+          "비": "rain",
+          "를": "object marker",
+          "맞고": "getting wet",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "But Minsu had left his umbrella behind, so he was getting wet in the rain outside."
+      },
+      {
+        "korean": "그때 친구들이 민수에게 우산을 건네주며 함께 비를 피했습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "친구": "friend",
+          "들": "plural marker",
+          "이": "subject marker",
+          "민수": "Minsu",
+          "에게": "to",
+          "우산": "umbrella",
+          "을": "object marker",
+          "건네주": "hand over",
+          "며": "while",
+          "함께": "together",
+          "비": "rain",
+          "를": "object marker",
+          "피": "avoid",
+          "했습니다.": "did"
+        },
+        "overallTranslation": "Then, his friends handed Minsu an umbrella and they avoided the rain together."
+      },
+      {
+        "korean": "민수는 친구들의 따뜻한 마음에 감동했고, 비가 그칠 때까지 함께 즐거운 시간을 보냈습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "들": "plural marker",
+          "의": "possessive marker",
+          "따뜻한": "warm",
+          "마음": "heart",
+          "에": "at",
+          "감동": "touched",
+          "했고": "and",
+          "비": "rain",
+          "가": "subject marker",
+          "그칠": "stop",
+          "때": "time",
+          "까지": "until",
+          "함께": "together",
+          "즐거운": "joyful",
+          "시간": "time",
+          "을": "object marker",
+          "보냈습니다.": "spent"
+        },
+        "overallTranslation": "Minsu was touched by his friends' warm hearts and they spent a joyful time together until the rain stopped."
+      }
+    ],
+    "id": 1969
+  },
+  {
+    "generator": "korean-gap-story-5-steampunk-gemini",
+    "input": "palace",
+    "problem": "해가 지기 시작하자, 낡은 궁궐은 더욱 어두워졌습니다.<br> 바람은 낡은 벽돌 사이로 휘파람을 불었고, 먼지가 춤을 추었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 궁궐 지붕 위로 거대한 기계 새가 날아올랐습니다.<br> 기계 새는 금빛 날개를 펄럭이며 하늘을 가르고, 궁궐은 황금빛 빛으로 물들었습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 낡은 궁궐은 더욱 어두워졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작하자": "start",
+          "낡은": "old",
+          "궁궐": "palace",
+          "은": "is",
+          "더욱": "more",
+          "어두워졌습니다": "darkened"
+        },
+        "overallTranslation": "As the sun began to set, the old palace grew even darker."
+      },
+      {
+        "korean": "바람은 낡은 벽돌 사이로 휘파람을 불었고, 먼지가 춤을 추었습니다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "은": "is",
+          "낡은": "old",
+          "벽돌": "brick",
+          "사이로": "between",
+          "휘파람": "whistle",
+          "불었고": "blew",
+          "먼지": "dust",
+          "가": "is",
+          "춤을": "dance",
+          "추었습니다": "danced"
+        },
+        "overallTranslation": "The wind whistled through the gaps in the old bricks, and dust danced."
+      },
+      {
+        "korean": "갑자기, 궁궐 지붕 위로 거대한 기계 새가 날아올랐습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "궁궐": "palace",
+          "지붕": "roof",
+          "위로": "above",
+          "거대한": "huge",
+          "기계": "machine",
+          "새": "bird",
+          "가": "is",
+          "날아올랐습니다": "flew up"
+        },
+        "overallTranslation": "Suddenly, a huge mechanical bird soared up from the palace roof."
+      },
+      {
+        "korean": "기계 새는 금빛 날개를 펄럭이며 하늘을 가르고, 궁궐은 황금빛 빛으로 물들었습니다.",
+        "wordByWordTranslation": {
+          "기계": "machine",
+          "새": "bird",
+          "는": "is",
+          "금빛": "golden",
+          "날개": "wing",
+          "를": "to",
+          "펄럭이며": "fluttering",
+          "하늘": "sky",
+          "가르고": "split",
+          "궁궐": "palace",
+          "은": "is",
+          "황금빛": "golden",
+          "빛": "light",
+          "으로": "with",
+          "물들었습니다": "stained"
+        },
+        "overallTranslation": "The mechanical bird, with its golden wings, split the sky, and the palace was bathed in golden light."
+      },
+      {
+        "korean": "궁궐 정원의 잔디밭 위에서, 한 소녀가 놀란 눈으로 기계 새를 바라보았습니다.",
+        "wordByWordTranslation": {
+          "궁궐": "palace",
+          "정원": "garden",
+          "의": "of",
+          "잔디밭": "lawn",
+          "위에서": "on",
+          "한": "one",
+          "소녀": "girl",
+          "가": "is",
+          "놀란": "surprised",
+          "눈": "eyes",
+          "으로": "with",
+          "기계": "machine",
+          "새": "bird",
+          "를": "to",
+          "바라보았습니다": "looked"
+        },
+        "overallTranslation": "On the lawn in the palace garden, a girl stared at the mechanical bird with surprised eyes."
+      }
+    ],
+    "id": 1970
+  },
+  {
+    "generator": "korean-gap-story-5-supernatural-gemini",
+    "input": "course",
+    "problem": "어두운 밤, 은수는 낡은 고등학교 운동장을 혼자 걸어가고 있었습니다.<br> 그녀는 낡은 운동장 한가운데 있는 커다란 나무 아래로 걸어갔습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 나무에서 섬뜩한 소리가 들렸고, 바람이 세차게 불어왔습니다.<br> 나무 아래에는 희미한 빛이 번쩍이며, 이상한 그림자가 나타났습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 고등학교 운동장을 혼자 걸어가고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수는": "Eunsoo is",
+          "낡은": "old",
+          "고등학교": "high school",
+          "운동장을": "playground",
+          "혼자": "alone",
+          "걸어가고": "walking",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a dark night, Eunsoo was walking alone on the old high school playground."
+      },
+      {
+        "korean": "그녀는 낡은 운동장 한가운데 있는 커다란 나무 아래로 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "She is",
+          "낡은": "old",
+          "운동장": "playground",
+          "한가운데": "middle",
+          "있는": "being",
+          "커다란": "big",
+          "나무": "tree",
+          "아래로": "under",
+          "걸어갔습니다.": "walked"
+        },
+        "overallTranslation": "She walked under a big tree in the middle of the old playground."
+      },
+      {
+        "korean": "갑자기 나무에서 섬뜩한 소리가 들렸고, 바람이 세차게 불어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "나무에서": "from tree",
+          "섬뜩한": "chilling",
+          "소리가": "sound",
+          "들렸고": "was heard",
+          "바람이": "wind is",
+          "세차게": "strongly",
+          "불어왔습니다.": "blowing"
+        },
+        "overallTranslation": "Suddenly, a chilling sound came from the tree, and a strong wind blew."
+      },
+      {
+        "korean": "나무 아래에는 희미한 빛이 번쩍이며, 이상한 그림자가 나타났습니다.",
+        "wordByWordTranslation": {
+          "나무": "tree",
+          "아래에는": "under",
+          "희미한": "faint",
+          "빛이": "light",
+          "번쩍이며": "flashing",
+          "이상한": "strange",
+          "그림자가": "shadow",
+          "나타났습니다.": "appeared"
+        },
+        "overallTranslation": "Under the tree, a faint light flashed, and a strange shadow appeared."
+      },
+      {
+        "korean": "그 그림자는 은수에게 다가와 “너는 이제 우리의 코스에 합류하게 되었다.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "그림자는": "shadow is",
+          "은수에게": "to Eunsoo",
+          "다가와": "approaching",
+          "“너는": "“you are",
+          "이제": "now",
+          "우리의": "our",
+          "코스에": "course",
+          "합류하게": "join",
+          "되었다.”라고": "became.”",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "The shadow approached Eunsoo and said, “You have now joined our course.”"
+      }
+    ],
+    "id": 1971
   },
   {
     "generator": "korean-gap-story-5-survival-horror-gemini",
@@ -20053,7 +25790,7 @@
         "hanjaro": "그것은 민(閔)준이가 아니었다.\n"
       }
     ],
-    "id": 1904
+    "id": 1972
   },
   {
     "generator": "korean-gap-story-5-urban-gemini",
@@ -20150,7 +25887,165 @@
         "koreanWithHanja": "민수는 숨을 크게 들이쉬며, 이제부터 무슨 일이 벌어질지 궁금했습니다.\n"
       }
     ],
-    "id": 1905
+    "id": 1973
+  },
+  {
+    "generator": "korean-gap-story-5-western-gemini",
+    "input": "piece",
+    "problem": "햇살이 따스하게 내리쬐는 황량한 사막 한가운데, 낡은 짐마차가 멈춰 있었습니다.<br> 마차 안에는 늙은 탐험가, 잭이 땀을 뻘뻘 흘리며 지도를 펼쳐 들고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 땅이 흔들리고 먼지가 하늘을 뒤덮었습니다.<br> 잭은 놀란 눈으로 주변을 둘러보니, 거대한 모래 폭풍이 짐마차를 향해 몰려오고 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살이 따스하게 내리쬐는 황량한 사막 한가운데, 낡은 짐마차가 멈춰 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "따스하게": "warmly",
+          "내리쬐다": "shine",
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "old",
+          "짐마차": "wagon",
+          "멈추다": "stop",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the middle of a desolate desert, where the sunshine was warm, an old wagon stood still."
+      },
+      {
+        "korean": "마차 안에는 늙은 탐험가, 잭이 땀을 뻘뻘 흘리며 지도를 펼쳐 들고 있었습니다.",
+        "wordByWordTranslation": {
+          "마차": "wagon",
+          "안": "inside",
+          "늙은": "old",
+          "탐험가": "explorer",
+          "잭": "Jack",
+          "땀": "sweat",
+          "뻘뻘": "profusely",
+          "흘리다": "flow",
+          "지도": "map",
+          "펼쳐": "spread",
+          "들고": "holding",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Inside the wagon, an old explorer named Jack was holding a map, sweating profusely."
+      },
+      {
+        "korean": "갑자기, 땅이 흔들리고 먼지가 하늘을 뒤덮었습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "땅": "ground",
+          "흔들리다": "shake",
+          "먼지": "dust",
+          "하늘": "sky",
+          "뒤덮다": "cover",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Suddenly, the ground shook and dust covered the sky."
+      },
+      {
+        "korean": "잭은 놀란 눈으로 주변을 둘러보니, 거대한 모래 폭풍이 짐마차를 향해 몰려오고 있었습니다.",
+        "wordByWordTranslation": {
+          "잭": "Jack",
+          "놀란": "surprised",
+          "눈": "eyes",
+          "주변": "surroundings",
+          "둘러보다": "look around",
+          "거대한": "huge",
+          "모래": "sand",
+          "폭풍": "storm",
+          "짐마차": "wagon",
+          "향해": "towards",
+          "몰려오다": "approach",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Jack looked around with surprised eyes and saw a huge sandstorm approaching the wagon."
+      },
+      {
+        "korean": "그는 급하게 짐마차의 덮개를 닫고, 숨을 헐떡이며 기도를 했습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "급하게": "hurriedly",
+          "짐마차": "wagon",
+          "덮개": "cover",
+          "닫다": "close",
+          "숨": "breath",
+          "헐떡이며": "gasping",
+          "기도": "prayer",
+          "했습니다": "did"
+        },
+        "overallTranslation": "He hurriedly closed the wagon's cover, gasping for breath and praying."
+      }
+    ],
+    "id": 1974
+  },
+  {
+    "generator": "korean-gap-story-6-ancient-gemini",
+    "input": "honor",
+    "problem": "옛날 옛날 한 옛날에, 용감한 기사 민수가 살았습니다.<br> 그는 항상 정의를 위해 싸웠고, 사람들을 보호했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 어느 날, 악당이 마을을 습격했습니다.<br> 민수는 용감하게 싸웠고, 악당을 물리쳤습니다.<br>",
+    "solution": [
+      {
+        "korean": "옛날 옛날 한 옛날에, 용감한 기사 민수가 살았습니다.",
+        "wordByWordTranslation": {
+          "옛날": "long ago",
+          "한": "one",
+          "옛날에": "time ago",
+          "용감한": "brave",
+          "기사": "knight",
+          "민수": "Minsu",
+          "살았습니다": "lived"
+        },
+        "overallTranslation": "Once upon a time, long ago, there lived a brave knight named Minsu."
+      },
+      {
+        "korean": "그는 항상 정의를 위해 싸웠고, 사람들을 보호했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "항상": "always",
+          "정의": "justice",
+          "위해": "for",
+          "싸웠고": "fought",
+          "사람들": "people",
+          "보호했습니다": "protected"
+        },
+        "overallTranslation": "He always fought for justice and protected people."
+      },
+      {
+        "korean": "어느 날, 악당이 마을을 습격했습니다.",
+        "wordByWordTranslation": {
+          "어느": "certain",
+          "날": "day",
+          "악당": "villain",
+          "마을": "village",
+          "습격했습니다": "attacked"
+        },
+        "overallTranslation": "One day, a villain attacked the village."
+      },
+      {
+        "korean": "민수는 용감하게 싸웠고, 악당을 물리쳤습니다.",
+        "wordByWordTranslation": {
+          "민수는": "Minsu",
+          "용감하게": "bravely",
+          "싸웠고": "fought",
+          "악당": "villain",
+          "물리쳤습니다": "defeated"
+        },
+        "overallTranslation": "Minsu fought bravely and defeated the villain."
+      },
+      {
+        "korean": "마을 사람들은 민수의 용기를 칭찬하며, 그의 명예를 높였습니다.",
+        "wordByWordTranslation": {
+          "마을": "village",
+          "사람들": "people",
+          "민수": "Minsu",
+          "용기": "courage",
+          "칭찬하며": "praising",
+          "그의": "his",
+          "명예": "honor",
+          "높였습니다": "raised"
+        },
+        "overallTranslation": "The villagers praised Minsu's courage and raised his honor."
+      }
+    ],
+    "id": 1975
   },
   {
     "generator": "korean-gap-story-6-cyberpunk-gemini",
@@ -20234,7 +26129,410 @@
         "hanjaro": "그는 그곳에서 영원(永遠)을 찾았고, 영원(永遠)은 그를 기다리고 있었다.\n"
       }
     ],
-    "id": 1906
+    "id": 1976
+  },
+  {
+    "generator": "korean-gap-story-6-dystopian-gemini",
+    "input": "composer",
+    "problem": "2077년, 서울은 거대한 콘크리트 정글이 되었고, 사람들은 모두 음악을 듣지 못했습니다.<br> 정부는 음악을 금지했고, 모든 악기는 박물관에 전시되었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만, 낡은 피아노를 발견한 한 소녀, 지수는 용감하게 건반을 눌렀습니다.<br> 그 순간, 잊혀졌던 음악이 다시 울려 퍼지며, 지수는 감동적인 선율을 만들어냈습니다.<br>",
+    "solution": [
+      {
+        "korean": "2077년, 서울은 거대한 콘크리트 정글이 되었고, 사람들은 모두 음악을 듣지 못했습니다.",
+        "wordByWordTranslation": {
+          "2077년": "2077 year",
+          "서울은": "Seoul is",
+          "거대한": "huge",
+          "콘크리트": "concrete",
+          "정글이": "jungle",
+          "되었고": "became",
+          "사람들은": "people",
+          "모두": "all",
+          "음악을": "music",
+          "듣지": "listen",
+          "못했습니다.": "couldn't"
+        },
+        "overallTranslation": "In the year 2077, Seoul became a giant concrete jungle, and everyone was unable to listen to music."
+      },
+      {
+        "korean": "정부는 음악을 금지했고, 모든 악기는 박물관에 전시되었습니다.",
+        "wordByWordTranslation": {
+          "정부는": "the government",
+          "음악을": "music",
+          "금지했고": "banned",
+          "모든": "all",
+          "악기는": "instruments",
+          "박물관에": "museum",
+          "전시되었습니다.": "were displayed"
+        },
+        "overallTranslation": "The government banned music, and all instruments were displayed in museums."
+      },
+      {
+        "korean": "하지만, 낡은 피아노를 발견한 한 소녀, 지수는 용감하게 건반을 눌렀습니다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "낡은": "old",
+          "피아노를": "piano",
+          "발견한": "found",
+          "한": "one",
+          "소녀": "girl",
+          "지수는": "Jisoo",
+          "용감하게": "bravely",
+          "건반을": "keyboard",
+          "눌렀습니다.": "pressed"
+        },
+        "overallTranslation": "However, a girl named Jisoo, who found an old piano, bravely pressed the keys."
+      },
+      {
+        "korean": "그 순간, 잊혀졌던 음악이 다시 울려 퍼지며, 지수는 감동적인 선율을 만들어냈습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "잊혀졌던": "forgotten",
+          "음악이": "music",
+          "다시": "again",
+          "울려": "sounded",
+          "퍼지며": "spreading",
+          "지수는": "Jisoo",
+          "감동적인": "moving",
+          "선율을": "melody",
+          "만들어냈습니다.": "created"
+        },
+        "overallTranslation": "At that moment, the forgotten music echoed again, and Jisoo created a moving melody."
+      },
+      {
+        "korean": "지수의 음악은 도시 전체에 퍼져 나가, 사람들의 마음을 깨우고 희망을 불어넣었습니다.",
+        "wordByWordTranslation": {
+          "지수의": "Jisoo's",
+          "음악은": "music",
+          "도시": "city",
+          "전체에": "whole",
+          "퍼져": "spread",
+          "나가": "out",
+          "사람들의": "people's",
+          "마음을": "hearts",
+          "깨우고": "awakened",
+          "희망을": "hope",
+          "불어넣었습니다.": "filled"
+        },
+        "overallTranslation": "Jisoo's music spread throughout the entire city, awakening people's hearts and filling them with hope."
+      }
+    ],
+    "id": 1977
+  },
+  {
+    "generator": "korean-gap-story-6-espionage-gemini",
+    "input": "some",
+    "problem": "어두운 골목길에서, 스파이 김민수는 숨죽여 기다리고 있었습니다.<br> 그는 누군가가 다가오는 소리를 들었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 그것은 그의 동료가 아니라 적이었습니다.<br> 김민수는 깜짝 놀랐고, 빠르게 몸을 숨겼습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 스파이 김민수는 숨죽여 기다리고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alley",
+          "에서": "from",
+          "스파이": "spy",
+          "김민수": "Kim Min-su",
+          "는": "is",
+          "숨죽여": "holding breath",
+          "기다리고": "waiting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alley, spy Kim Min-su was waiting with bated breath."
+      },
+      {
+        "korean": "그는 누군가가 다가오는 소리를 들었습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "누군가가": "someone",
+          "다가오는": "approaching",
+          "소리": "sound",
+          "를": "to",
+          "들었습니다": "heard"
+        },
+        "overallTranslation": "He heard the sound of someone approaching."
+      },
+      {
+        "korean": "하지만 그것은 그의 동료가 아니라 적이었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그것은": "that was",
+          "그의": "his",
+          "동료": "colleague",
+          "가": "who",
+          "아니라": "not",
+          "적": "enemy",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "But it wasn't his colleague, it was his enemy."
+      },
+      {
+        "korean": "김민수는 깜짝 놀랐고, 빠르게 몸을 숨겼습니다.",
+        "wordByWordTranslation": {
+          "김민수는": "Kim Min-su",
+          "깜짝": "startled",
+          "놀랐고": "was surprised",
+          "빠르게": "quickly",
+          "몸": "body",
+          "를": "to",
+          "숨겼습니다": "hid"
+        },
+        "overallTranslation": "Kim Min-su was startled and quickly hid himself."
+      },
+      {
+        "korean": "그는 뭔가 잘못되었다는 것을 알았습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "뭔가": "something",
+          "잘못되었다는": "wrong",
+          "것": "thing",
+          "을": "to",
+          "알았습니다": "knew"
+        },
+        "overallTranslation": "He knew something was wrong."
+      }
+    ],
+    "id": 1978
+  },
+  {
+    "generator": "korean-gap-story-6-frontier-gemini",
+    "input": "demonstrate",
+    "problem": "해가 지고 있었고, 먼지 덮인 서부 마을은 조용했습니다.<br> 갑자기, 땅이 흔들리고, 창문이 깨졌습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 거대한 괴물이 마을로 뛰어들었습니다.<br> 마을 사람들은 공포에 질렸고, 숨을 곳을 찾았습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지고 있었고, 먼지 덮인 서부 마을은 조용했습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "지고": "setting",
+          "있었고": "and",
+          "먼지": "dust",
+          "덮인": "covered",
+          "서부": "western",
+          "마을은": "town is",
+          "조용했습니다": "quiet"
+        },
+        "overallTranslation": "The sun was setting, and the dusty western town was quiet."
+      },
+      {
+        "korean": "갑자기, 땅이 흔들리고, 창문이 깨졌습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "땅이": "ground is",
+          "흔들리고": "shaking",
+          "창문이": "windows are",
+          "깨졌습니다": "broken"
+        },
+        "overallTranslation": "Suddenly, the ground shook, and the windows shattered."
+      },
+      {
+        "korean": "거대한 괴물이 마을로 뛰어들었습니다.",
+        "wordByWordTranslation": {
+          "거대한": "huge",
+          "괴물이": "monster is",
+          "마을로": "town to",
+          "뛰어들었습니다": "jumped in"
+        },
+        "overallTranslation": "A huge monster leaped into the town."
+      },
+      {
+        "korean": "마을 사람들은 공포에 질렸고, 숨을 곳을 찾았습니다.",
+        "wordByWordTranslation": {
+          "마을": "town",
+          "사람들은": "people are",
+          "공포에": "fear of",
+          "질렸고": "terrified and",
+          "숨을": "to breathe",
+          "곳을": "place to",
+          "찾았습니다": "found"
+        },
+        "overallTranslation": "The townspeople were terrified and looked for places to hide."
+      },
+      {
+        "korean": "하지만 용감한 사냥꾼 잭은 괴물과 맞서 싸우기로 결심했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "용감한": "brave",
+          "사냥꾼": "hunter",
+          "잭은": "Jack is",
+          "괴물과": "monster and",
+          "맞서": "against",
+          "싸우기로": "to fight",
+          "결심했습니다": "decided"
+        },
+        "overallTranslation": "But the brave hunter Jack decided to face the monster."
+      }
+    ],
+    "id": 1979
+  },
+  {
+    "generator": "korean-gap-story-6-gritty-realism-gemini",
+    "input": "final",
+    "problem": "어두운 골목길에서, 낡은 가로등 불빛이 희미하게 흔들렸다.<br> 길을 걷던 남자는 갑자기 발소리를 멈추고 뒤를 돌아보았다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그의 눈앞에, 커다란 그림자가 나타났다.<br> 그림자는 웃으며 말했다. “마지막 기회야.”<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 낡은 가로등 불빛이 희미하게 흔들렸다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "낡은": "old",
+          "가로등": "streetlight",
+          "불빛": "light",
+          "이": "it",
+          "희미하게": "dimly",
+          "흔들렸다": "swayed"
+        },
+        "overallTranslation": "In a dark alleyway, the light from an old streetlamp swayed faintly."
+      },
+      {
+        "korean": "길을 걷던 남자는 갑자기 발소리를 멈추고 뒤를 돌아보았다.",
+        "wordByWordTranslation": {
+          "길": "road",
+          "을": "to",
+          "걷던": "walked",
+          "남자": "man",
+          "는": "is",
+          "갑자기": "suddenly",
+          "발소리": "footstep",
+          "를": "to",
+          "멈추고": "stop",
+          "뒤": "behind",
+          "돌아보았다": "look back"
+        },
+        "overallTranslation": "The man walking down the street suddenly stopped and looked back."
+      },
+      {
+        "korean": "그의 눈앞에, 커다란 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "그": "his",
+          "눈앞": "eyes",
+          "에": "at",
+          "커다란": "large",
+          "그림자": "shadow",
+          "가": "that",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Before his eyes, a large shadow appeared."
+      },
+      {
+        "korean": "그림자는 웃으며 말했다. “마지막 기회야.”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "웃으며": "smiling",
+          "말했다": "said",
+          "“마지막": "“final",
+          "기회야": "chance"
+        },
+        "overallTranslation": "The shadow smiled and said, “It’s your final chance.”"
+      },
+      {
+        "korean": "남자의 손에 든 낡은 사진이 바람에 날려갔다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "의": "of",
+          "손": "hand",
+          "에": "in",
+          "든": "held",
+          "낡은": "old",
+          "사진": "picture",
+          "이": "it",
+          "바람": "wind",
+          "날려갔다": "flew away"
+        },
+        "overallTranslation": "The old photograph the man was holding flew away in the wind."
+      }
+    ],
+    "id": 1980
+  },
+  {
+    "generator": "korean-gap-story-6-medieval-fantasy-gemini",
+    "input": "bruise",
+    "problem": "어두운 밤, 숲 속에서 길을 잃은 소녀, 아리아는 겁에 질려 몸을 떨고 있었다.<br> 아리아는 나뭇가지에 걸려 넘어지면서 손목에 멍이 들었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 숲 속에서 빛이 뿜어져 나왔다.<br> 빛은 아리아의 멍을 녹이고, 따뜻하게 감싸 안았다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 숲 속에서 길을 잃은 소녀, 아리아는 겁에 질려 몸을 떨고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "숲": "forest",
+          "속에서": "inside",
+          "길": "road",
+          "잃은": "lost",
+          "소녀": "girl",
+          "아리아": "Aria",
+          "는": "is",
+          "겁에": "fear",
+          "질려": "scared",
+          "몸을": "body",
+          "떨고": "shaking",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, Aria, a girl lost in the forest, was trembling with fear."
+      },
+      {
+        "korean": "아리아는 나뭇가지에 걸려 넘어지면서 손목에 멍이 들었다.",
+        "wordByWordTranslation": {
+          "아리아": "Aria",
+          "는": "is",
+          "나뭇가지": "branch",
+          "에": "on",
+          "걸려": "caught",
+          "넘어지면서": "falling",
+          "손목": "wrist",
+          "멍이": "bruise",
+          "들었다": "got"
+        },
+        "overallTranslation": "Aria tripped over a branch and got a bruise on her wrist."
+      },
+      {
+        "korean": "그때, 숲 속에서 빛이 뿜어져 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "숲": "forest",
+          "속에서": "inside",
+          "빛": "light",
+          "이": "is",
+          "뿜어져": "emitted",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "Then, light burst from within the forest."
+      },
+      {
+        "korean": "빛은 아리아의 멍을 녹이고, 따뜻하게 감싸 안았다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "은": "is",
+          "아리아": "Aria",
+          "의": "of",
+          "멍": "bruise",
+          "을": "object",
+          "녹이고": "melting",
+          "따뜻하게": "warmly",
+          "감싸": "hug",
+          "안았다": "embraced"
+        },
+        "overallTranslation": "The light melted Aria's bruise and warmly embraced it."
+      },
+      {
+        "korean": "아리아는 멍이 사라진 자리에 신비로운 빛이 흐르는 것을 보고 놀랐다.",
+        "wordByWordTranslation": {
+          "아리아": "Aria",
+          "는": "is",
+          "멍이": "bruise",
+          "사라진": "disappeared",
+          "자리에": "place",
+          "신비로운": "mysterious",
+          "빛": "light",
+          "이": "is",
+          "흐르는": "flowing",
+          "것을": "thing",
+          "보고": "seeing",
+          "놀랐다": "was surprised"
+        },
+        "overallTranslation": "Aria was surprised to see a mysterious light flowing where her bruise had been."
+      }
+    ],
+    "id": 1981
   },
   {
     "generator": "korean-gap-story-6-medieval-gemini",
@@ -20330,7 +26628,7 @@
         "hanjaro": "그는  그  소리의  근원(根源)을  알아내기  위해  밤새도록  성(城)  주변(周邊)을  헤맸습니다.\n"
       }
     ],
-    "id": 1907
+    "id": 1982
   },
   {
     "generator": "korean-gap-story-6-post-apocalyptic-gemini",
@@ -20443,7 +26741,7 @@
         "hanjaro": "옆에 있던 소녀(少女)는 미소(微笑)를 지으며 “아마도, 다시 시작(始作)하라는 뜻일 거야.”라고 대답(對答)했습니다.\n"
       }
     ],
-    "id": 1908
+    "id": 1983
   },
   {
     "generator": "korean-gap-story-6-psychological-horror-gemini",
@@ -20529,7 +26827,7 @@
         "hanjaro": "그는 '저게 누구 소리지?' 라고 생각하며 폐가(廢家)를 향(向)해 조심스럽게 다가갔다.\n"
       }
     ],
-    "id": 1909
+    "id": 1984
   },
   {
     "generator": "korean-gap-story-6-romantic-gemini",
@@ -20622,7 +26920,7 @@
         "hanjaro": "지훈이는 수현이의 노래 실력(實力)에 감탄(感歎)했고, 은수(隱修)는 수현이에게 고마워하며 둘은 더욱 친(親)해졌어요.\n"
       }
     ],
-    "id": 1910
+    "id": 1985
   },
   {
     "generator": "korean-gap-story-6-science-fiction-gemini",
@@ -20720,7 +27018,7 @@
         "koreanWithHanja": "지수(指數)(智秀)는 놀라움과 기쁨(喜悅)으로 눈을 크게 떴습니다.\n"
       }
     ],
-    "id": 1911
+    "id": 1986
   },
   {
     "generator": "korean-gap-story-6-slasher-gemini",
@@ -20803,7 +27101,284 @@
         "overallTranslation": "The man closed the warehouse door,  smiling a chilling smile."
       }
     ],
-    "id": 1912
+    "id": 1987
+  },
+  {
+    "generator": "korean-gap-story-6-slice-of-life-gemini",
+    "input": "lender",
+    "problem": "은수는 햇살 가득한 도서관에서 책을 읽고 있었어요.<br> 친구 민수가 다가와 은수에게 돈을 빌려달라고 부탁했어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 은수는 책을 덮고 민수를 바라봤어요.<br> 민수는 쑥스러운 듯 고개를 숙였어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 햇살 가득한 도서관에서 책을 읽고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "도서관": "library",
+          "에서": "at",
+          "책": "book",
+          "을": "object marker",
+          "읽고": "reading",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was reading a book in a library filled with sunshine."
+      },
+      {
+        "korean": "친구 민수가 다가와 은수에게 돈을 빌려달라고 부탁했어요.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "민수": "Minsoo",
+          "가": "subject marker",
+          "다가와": "approached",
+          "은수": "Eunsoo",
+          "에게": "to",
+          "돈": "money",
+          "을": "object marker",
+          "빌려달라고": "to borrow",
+          "부탁했어요": "asked"
+        },
+        "overallTranslation": "Her friend, Minsoo, approached Eunsoo and asked to borrow money."
+      },
+      {
+        "korean": "은수는 책을 덮고 민수를 바라봤어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "책": "book",
+          "을": "object marker",
+          "덮고": "closed",
+          "민수": "Minsoo",
+          "를": "object marker",
+          "바라봤어요": "looked at"
+        },
+        "overallTranslation": "Eunsoo closed her book and looked at Minsoo."
+      },
+      {
+        "korean": "민수는 쑥스러운 듯 고개를 숙였어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsoo",
+          "는": "is",
+          "쑥스러운": "embarrassed",
+          "듯": "like",
+          "고개": "head",
+          "를": "object marker",
+          "숙였어요": "lowered"
+        },
+        "overallTranslation": "Minsoo lowered his head, looking embarrassed."
+      },
+      {
+        "korean": "은수는 웃으며 돈을 빌려주기로 했어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "웃으며": "smiling",
+          "돈": "money",
+          "을": "object marker",
+          "빌려주기로": "decided to lend",
+          "했어요": "did"
+        },
+        "overallTranslation": "Eunsoo smiled and decided to lend him the money."
+      }
+    ],
+    "id": 1988
+  },
+  {
+    "generator": "korean-gap-story-6-steampunk-gemini",
+    "input": "ticket",
+    "problem": "낡은 기차역 플랫폼에는 증기 기관차가 웅장하게 서 있었고, 승객들은 탑승을 위해 줄을 서 있었습니다.<br> 손때 묻은 티켓 검사원은 탑승객들의 티켓을 일일이 확인하며 꼼꼼하게 검사했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 역사 안에서 굉음이 울려 퍼지며 기차역 전체가 흔들리기 시작했습니다.<br> 깜짝 놀란 승객들은 혼란스러워하며 서로 부딪히고, 티켓 검사원은 황급히 손에 들고 있던 티켓을 떨어뜨렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 기차역 플랫폼에는 증기 기관차가 웅장하게 서 있었고, 승객들은 탑승을 위해 줄을 서 있었습니다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "기차역": "train station",
+          "플랫폼": "platform",
+          "에는": "there was",
+          "증기": "steam",
+          "기관차": "locomotive",
+          "가": "subject marker",
+          "웅장하게": "majestically",
+          "서": "stand",
+          "있었고": "and",
+          "승객": "passenger",
+          "들은": "subject marker",
+          "탑승": "boarding",
+          "을": "object marker",
+          "위해": "for",
+          "줄": "line",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "An old train station platform was majestically occupied by a steam locomotive, and passengers lined up for boarding."
+      },
+      {
+        "korean": "손때 묻은 티켓 검사원은 탑승객들의 티켓을 일일이 확인하며 꼼꼼하게 검사했습니다.",
+        "wordByWordTranslation": {
+          "손때": "dirt",
+          "묻은": "covered",
+          "티켓": "ticket",
+          "검사원": "inspector",
+          "은": "subject marker",
+          "탑승객": "passenger",
+          "들의": "possessive marker",
+          "을": "object marker",
+          "일일이": "one by one",
+          "확인": "confirm",
+          "하며": "while",
+          "꼼꼼하게": "thoroughly",
+          "검사": "check",
+          "했습니다": "did"
+        },
+        "overallTranslation": "A grimy ticket inspector meticulously checked each passenger's ticket one by one."
+      },
+      {
+        "korean": "갑자기 역사 안에서 굉음이 울려 퍼지며 기차역 전체가 흔들리기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "역사": "station",
+          "안": "inside",
+          "에서": "from",
+          "굉음": "roar",
+          "이": "subject marker",
+          "울려": "sound",
+          "퍼지며": "spreading",
+          "기차역": "train station",
+          "전체": "whole",
+          "가": "subject marker",
+          "흔들리기": "shake",
+          "시작": "start",
+          "했습니다": "did"
+        },
+        "overallTranslation": "Suddenly, a deafening roar echoed from inside the station, causing the entire train station to shake."
+      },
+      {
+        "korean": "깜짝 놀란 승객들은 혼란스러워하며 서로 부딪히고, 티켓 검사원은 황급히 손에 들고 있던 티켓을 떨어뜨렸습니다.",
+        "wordByWordTranslation": {
+          "깜짝": "surprise",
+          "놀란": "surprised",
+          "승객": "passenger",
+          "들은": "subject marker",
+          "혼란스러워": "confused",
+          "하며": "while",
+          "서로": "each other",
+          "부딪히고": "bump",
+          "티켓": "ticket",
+          "검사원": "inspector",
+          "은": "subject marker",
+          "황급히": "hurriedly",
+          "손": "hand",
+          "에": "on",
+          "들고": "holding",
+          "있던": "was",
+          "을": "object marker",
+          "떨어뜨렸습니다": "dropped"
+        },
+        "overallTranslation": "The startled passengers were confused, bumping into each other, and the ticket inspector hurriedly dropped the ticket he was holding."
+      },
+      {
+        "korean": "떨어진 티켓은 바람에 날려 기차역 천장의 거대한 기어 톱니 사이로 사라졌습니다.",
+        "wordByWordTranslation": {
+          "떨어진": "fallen",
+          "티켓": "ticket",
+          "은": "subject marker",
+          "바람": "wind",
+          "에": "by",
+          "날려": "blown",
+          "기차역": "train station",
+          "천장": "ceiling",
+          "의": "possessive marker",
+          "거대한": "huge",
+          "기어": "gear",
+          "톱니": "teeth",
+          "사이": "between",
+          "로": "to",
+          "사라졌습니다": "disappeared"
+        },
+        "overallTranslation": "The fallen ticket was blown by the wind and disappeared into the space between the huge gear teeth on the train station ceiling."
+      }
+    ],
+    "id": 1989
+  },
+  {
+    "generator": "korean-gap-story-6-supernatural-gemini",
+    "input": "median",
+    "problem": "어두운 밤, 은수는 낡은 아파트의 중간층 복도를 걸어갔습니다.<br> 복도의 불빛은 희미했고, 벽에는 그림자가 춤을 추듯 움직였습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 은수의 발 아래에서 갑자기 섬뜩한 소리가 들렸습니다.<br> 바닥이 갈라지며 깊은 구멍이 생겼고, 그 속에서 섬뜩한 눈빛이 은수를 응시했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 아파트의 중간층 복도를 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수는": "Eunsoo is",
+          "낡은": "old",
+          "아파트의": "apartment's",
+          "중간층": "middle floor",
+          "복도를": "hallway",
+          "걸어갔습니다.": "walked"
+        },
+        "overallTranslation": "On a dark night, Eunsoo walked down the hallway of the middle floor of an old apartment."
+      },
+      {
+        "korean": "복도의 불빛은 희미했고, 벽에는 그림자가 춤을 추듯 움직였습니다.",
+        "wordByWordTranslation": {
+          "복도의": "hallway's",
+          "불빛은": "light is",
+          "희미했고": "dim",
+          "벽에는": "on the wall",
+          "그림자는": "shadow is",
+          "춤을": "dance",
+          "추듯": "like",
+          "움직였습니다.": "moved"
+        },
+        "overallTranslation": "The hallway's light was dim, and shadows moved on the wall like they were dancing."
+      },
+      {
+        "korean": "그때, 은수의 발 아래에서 갑자기 섬뜩한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "은수의": "Eunsoo's",
+          "발": "foot",
+          "아래에서": "under",
+          "갑자기": "suddenly",
+          "섬뜩한": "chilling",
+          "소리가": "sound",
+          "들렸습니다.": "heard"
+        },
+        "overallTranslation": "Then, a chilling sound suddenly came from under Eunsoo's feet."
+      },
+      {
+        "korean": "바닥이 갈라지며 깊은 구멍이 생겼고, 그 속에서 섬뜩한 눈빛이 은수를 응시했습니다.",
+        "wordByWordTranslation": {
+          "바닥이": "floor",
+          "갈라지며": "splitting",
+          "깊은": "deep",
+          "구멍이": "hole",
+          "생겼고": "was created",
+          "그": "that",
+          "속에서": "inside",
+          "섬뜩한": "chilling",
+          "눈빛이": "eyes",
+          "은수를": "Eunsoo",
+          "응시했습니다.": "stared at"
+        },
+        "overallTranslation": "The floor split open, creating a deep hole, and chilling eyes stared at Eunsoo from inside."
+      },
+      {
+        "korean": "은수는 소스라치게 놀라 뒤로 넘어졌고, 구멍은 갑자기 사라졌습니다.",
+        "wordByWordTranslation": {
+          "은수는": "Eunsoo is",
+          "소스라치게": "startled",
+          "놀라": "surprised",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "구멍은": "hole",
+          "갑자기": "suddenly",
+          "사라졌습니다.": "disappeared"
+        },
+        "overallTranslation": "Eunsoo was startled and fell backwards, and the hole suddenly disappeared."
+      }
+    ],
+    "id": 1990
   },
   {
     "generator": "korean-gap-story-6-supernatural-mystery-gemini",
@@ -20879,7 +27454,105 @@
         "koreanWithHanja": "민수는 놀라서 뒤로 넘어졌고, 로봇은 사라졌습니다.\n"
       }
     ],
-    "id": 1913
+    "id": 1991
+  },
+  {
+    "generator": "korean-gap-story-6-time-travel-gemini",
+    "input": "independent",
+    "problem": "2023년, 서울의 한 카페에서 민수는 친구와 커피를 마시며 미래에 대한 이야기를 나누고 있었습니다.<br> 민수는 꿈을 이루기 위해 독립적인 삶을 살고 싶다고 말했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 카페 문이 열리며 빛이 쏟아져 들어왔습니다.<br> 민수는 눈을 뜨니 낯선 곳에 있었고, 친구는 보이지 않았습니다.<br>",
+    "solution": [
+      {
+        "korean": "2023년, 서울의 한 카페에서 민수는 친구와 커피를 마시며 미래에 대한 이야기를 나누고 있었습니다.",
+        "wordByWordTranslation": {
+          "2023년": "2023 year",
+          "서울": "Seoul",
+          "한": "one",
+          "카페": "cafe",
+          "에서": "at",
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "와": "and",
+          "커피": "coffee",
+          "를": "to",
+          "마시며": "drinking",
+          "미래": "future",
+          "에": "at",
+          "대한": "about",
+          "이야기": "story",
+          "나누고": "sharing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In 2023, at a cafe in Seoul, Minsu was sharing stories about the future with his friend while drinking coffee."
+      },
+      {
+        "korean": "민수는 꿈을 이루기 위해 독립적인 삶을 살고 싶다고 말했습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "꿈": "dream",
+          "을": "to",
+          "이루기": "achieve",
+          "위해": "for",
+          "독립적": "independent",
+          "인": "being",
+          "삶": "life",
+          "살고": "live",
+          "싶다고": "wanting",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "Minsu said that he wanted to live an independent life to achieve his dreams."
+      },
+      {
+        "korean": "갑자기 카페 문이 열리며 빛이 쏟아져 들어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "카페": "cafe",
+          "문": "door",
+          "이": "that",
+          "열리며": "opening",
+          "빛": "light",
+          "쏟아져": "pouring",
+          "들어왔습니다.": "came"
+        },
+        "overallTranslation": "Suddenly, the cafe door opened and light poured in."
+      },
+      {
+        "korean": "민수는 눈을 뜨니 낯선 곳에 있었고, 친구는 보이지 않았습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "눈": "eye",
+          "을": "to",
+          "뜨니": "opening",
+          "낯선": "unfamiliar",
+          "곳": "place",
+          "에": "at",
+          "있었고": "was",
+          "친구": "friend",
+          "보이지": "not visible",
+          "않았습니다.": "was"
+        },
+        "overallTranslation": "Minsu opened his eyes and found himself in an unfamiliar place, his friend nowhere to be seen."
+      },
+      {
+        "korean": "그는 혼자였지만, 꿈을 향해 나아갈 용기가 생겼습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "혼자": "alone",
+          "였지만": "but",
+          "꿈": "dream",
+          "을": "to",
+          "향해": "toward",
+          "나아갈": "to go",
+          "용기": "courage",
+          "가": "has",
+          "생겼습니다.": "appeared"
+        },
+        "overallTranslation": "He was alone, but he found the courage to move forward towards his dream."
+      }
+    ],
+    "id": 1992
   },
   {
     "generator": "korean-gap-story-6-urban-gemini",
@@ -20971,7 +27644,7 @@
         "hanjaro": "이제 그는 아무것도 없이 빈손으로 밤거리를 헤매야만 했다.\n"
       }
     ],
-    "id": 1914
+    "id": 1993
   },
   {
     "generator": "korean-gap-story-6-urban-gemini",
@@ -21054,7 +27727,102 @@
         "overallTranslation": "But the spider didn't run towards Jisu, it ran towards the trash can next to her."
       }
     ],
-    "id": 1915
+    "id": 1994
+  },
+  {
+    "generator": "korean-gap-story-6-western-gemini",
+    "input": "impede",
+    "problem": "뜨거운 태양 아래, 먼지 덮인 길을 따라 서부 개척자 제이크가 말을 타고 달리고 있었습니다.<br> 그는 황량한 대지를 가로질러 빠르게 달렸고, 그의 목표는 저 멀리 보이는 마을이었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 커다란 바위가 길을 막아섰습니다.<br> 제이크는 말에서 내려 바위를 살펴보았습니다. 그것은 너무 커서 움직일 수 없었습니다.<br>",
+    "solution": [
+      {
+        "korean": "뜨거운 태양 아래, 먼지 덮인 길을 따라 서부 개척자 제이크가 말을 타고 달리고 있었습니다.",
+        "wordByWordTranslation": {
+          "뜨거운": "hot",
+          "태양": "sun",
+          "아래": "under",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길": "road",
+          "따라": "along",
+          "서부": "western",
+          "개척자": "pioneer",
+          "제이크": "Jake",
+          "말": "horse",
+          "타고": "riding",
+          "달리고": "running",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Under the hot sun, Jake, a western pioneer, was riding his horse along a dusty road."
+      },
+      {
+        "korean": "그는 황량한 대지를 가로질러 빠르게 달렸고, 그의 목표는 저 멀리 보이는 마을이었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "황량한": "barren",
+          "대지": "land",
+          "가로질러": "across",
+          "빠르게": "quickly",
+          "달렸고": "ran",
+          "그의": "his",
+          "목표": "goal",
+          "는": "is",
+          "저": "that",
+          "멀리": "far",
+          "보이는": "visible",
+          "마을": "town",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "He ran quickly across the barren land, his goal the town visible in the distance."
+      },
+      {
+        "korean": "갑자기, 커다란 바위가 길을 막아섰습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "커다란": "huge",
+          "바위": "rock",
+          "가": "the",
+          "길": "road",
+          "막아섰습니다": "blocked"
+        },
+        "overallTranslation": "Suddenly, a huge rock blocked the road."
+      },
+      {
+        "korean": "제이크는 말에서 내려 바위를 살펴보았습니다.  그것은 너무 커서 움직일 수 없었습니다.",
+        "wordByWordTranslation": {
+          "제이크": "Jake",
+          "는": "is",
+          "말": "horse",
+          "에서": "from",
+          "내려": "dismounted",
+          "바위": "rock",
+          "를": "to",
+          "살펴보았습니다": "examined",
+          "그것은": "it",
+          "너무": "too",
+          "커서": "big",
+          "움직일": "move",
+          "수": "can",
+          "없었습니다": "not"
+        },
+        "overallTranslation": "Jake dismounted and examined the rock.  It was too big to move."
+      },
+      {
+        "korean": "그는 좌절했지만, 다른 길을 찾아 마을로 향했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "좌절했지만": "was frustrated but",
+          "다른": "other",
+          "길": "road",
+          "를": "to",
+          "찾아": "found",
+          "마을": "town",
+          "로": "to",
+          "향했습니다": "headed"
+        },
+        "overallTranslation": "He was frustrated, but found another road and headed for the town."
+      }
+    ],
+    "id": 1995
   },
   {
     "generator": "korean-gap-story-6-whodunnit-gemini",
@@ -21136,7 +27904,93 @@
         "hanjaro": "김민수(金玟秀) 씨(氏)는 깜짝 놀라서 발을 떼어 보니, 껌이 밟혀 있었습니다.\n"
       }
     ],
-    "id": 1916
+    "id": 1996
+  },
+  {
+    "generator": "korean-gap-story-7-ancient-gemini",
+    "input": "detect",
+    "problem": "밤하늘은 별들이 반짝이는 아름다운 광경을 보여주었습니다.<br> 하지만 어둠 속에서 희미한 빛이 깜빡이는 것을 보았습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그것은 숲 속에서 나는 이상한 소리였습니다.<br> 나는 빛이 움직이는 것을 감지하고 조심스럽게 다가갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘은 별들이 반짝이는 아름다운 광경을 보여주었습니다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "은": "is",
+          "별": "star",
+          "들이": "plural marker",
+          "반짝이는": "twinkling",
+          "아름다운": "beautiful",
+          "광경": "sight",
+          "을": "object marker",
+          "보여주었습니다": "showed"
+        },
+        "overallTranslation": "The night sky displayed a beautiful sight of twinkling stars."
+      },
+      {
+        "korean": "하지만 어둠 속에서 희미한 빛이 깜빡이는 것을 보았습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어둠": "darkness",
+          "속에서": "in",
+          "희미한": "faint",
+          "빛": "light",
+          "이": "subject marker",
+          "깜빡이는": "blinking",
+          "것": "thing",
+          "을": "object marker",
+          "보았습니다": "saw"
+        },
+        "overallTranslation": "But I saw a faint light blinking in the darkness."
+      },
+      {
+        "korean": "그것은 숲 속에서 나는 이상한 소리였습니다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "은": "is",
+          "숲": "forest",
+          "속에서": "in",
+          "나는": "coming from",
+          "이상한": "strange",
+          "소리": "sound",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It was a strange sound coming from the forest."
+      },
+      {
+        "korean": "나는 빛이 움직이는 것을 감지하고 조심스럽게 다가갔습니다.",
+        "wordByWordTranslation": {
+          "나는": "I",
+          "빛": "light",
+          "이": "subject marker",
+          "움직이는": "moving",
+          "것": "thing",
+          "을": "object marker",
+          "감지": "detect",
+          "하고": "and",
+          "조심스럽게": "carefully",
+          "다가갔습니다": "approached"
+        },
+        "overallTranslation": "I detected the light moving and cautiously approached it."
+      },
+      {
+        "korean": "그것은 작은 여우였고, 발에 다친 것 같았습니다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "은": "is",
+          "작은": "small",
+          "여우": "fox",
+          "였고": "was",
+          "발": "foot",
+          "에": "on",
+          "다친": "injured",
+          "것": "thing",
+          "같았습니다": "seemed"
+        },
+        "overallTranslation": "It was a small fox, and it seemed to have injured its foot."
+      }
+    ],
+    "id": 1997
   },
   {
     "generator": "korean-gap-story-7-comic book-gemini",
@@ -21218,7 +28072,7 @@
         "hanjaro": "민지는 수현이의 말에 동의(同意)하며 웃었어요.\n"
       }
     ],
-    "id": 1917
+    "id": 1998
   },
   {
     "generator": "korean-gap-story-7-dark-fantasy-gemini",
@@ -21302,7 +28156,84 @@
         "hanjaro": "정령(精靈)은 소녀(少女)에게 다가와 그녀(그女)의 마음을 읽고, 자신(自身)의 의지(意志)대로 그녀(그女)를 조종(操縱)하려 했습니다.\n"
       }
     ],
-    "id": 1918
+    "id": 1999
+  },
+  {
+    "generator": "korean-gap-story-7-detective-gemini",
+    "input": "Easter",
+    "problem": "부활절 아침, 해가 밝게 떠오르고 있었지만, 김탐정의 얼굴은 어두웠습니다.<br> 그는 밤새도록 사건 현장을 조사했지만, 단서를 찾지 못했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 그의 휴대폰이 울렸고, 화면에는 '익명'이라는 이름이 떠올랐습니다.<br> 전화 너머로, 숨 막힐 듯 낮은 목소리가 들려왔습니다.<br>",
+    "solution": [
+      {
+        "korean": "부활절 아침, 해가 밝게 떠오르고 있었지만, 김탐정의 얼굴은 어두웠습니다.",
+        "wordByWordTranslation": {
+          "부활절": "Easter",
+          "아침": "morning",
+          "해": "sun",
+          "밝게": "brightly",
+          "떠오르고": "rising",
+          "있었지만": "but",
+          "김탐정": "Detective Kim",
+          "얼굴": "face",
+          "어두웠습니다": "was dark"
+        },
+        "overallTranslation": "It was Easter morning, the sun was rising brightly, but Detective Kim's face was dark."
+      },
+      {
+        "korean": "그는 밤새도록 사건 현장을 조사했지만, 단서를 찾지 못했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "밤새도록": "all night",
+          "사건": "case",
+          "현장": "scene",
+          "조사했지만": "investigated but",
+          "단서": "clue",
+          "찾지": "find",
+          "못했습니다": "couldn't"
+        },
+        "overallTranslation": "He had investigated the crime scene all night, but he couldn't find any clues."
+      },
+      {
+        "korean": "그때, 그의 휴대폰이 울렸고, 화면에는 '익명'이라는 이름이 떠올랐습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "그의": "his",
+          "휴대폰": "cell phone",
+          "울렸고": "rang and",
+          "화면": "screen",
+          "에는": "on",
+          "'익명'": "'anonymous'",
+          "이라는": "called",
+          "이름": "name",
+          "떠올랐습니다": "appeared"
+        },
+        "overallTranslation": "Then, his cell phone rang, and the name 'Anonymous' appeared on the screen."
+      },
+      {
+        "korean": "전화 너머로, 숨 막힐 듯 낮은 목소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "전화": "phone",
+          "너머로": "from the other side",
+          "숨": "breath",
+          "막힐": "choke",
+          "듯": "like",
+          "낮은": "low",
+          "목소리": "voice",
+          "들려왔습니다": "was heard"
+        },
+        "overallTranslation": "From the other side of the phone, a voice low enough to choke came through."
+      },
+      {
+        "korean": "“부활절 달걀을 찾았어요? 탐정님.”",
+        "wordByWordTranslation": {
+          "“부활절": "“Easter",
+          "달걀": "egg",
+          "찾았어요": "found?",
+          "탐정님": "detective"
+        },
+        "overallTranslation": "“Did you find the Easter egg, detective?”"
+      }
+    ],
+    "id": 2000
   },
   {
     "generator": "korean-gap-story-7-gritty-realism-gemini",
@@ -21380,7 +28311,7 @@
         "overallTranslation": "Hope and fear crossed Kim's face at the same time."
       }
     ],
-    "id": 1919
+    "id": 2001
   },
   {
     "generator": "korean-gap-story-7-noir-gemini",
@@ -21464,7 +28395,7 @@
         "hanjaro": "그는 험악(險惡)한 얼굴로 “정족수(定足數)가 모였나?”라고 물었다.\n"
       }
     ],
-    "id": 1920
+    "id": 2002
   },
   {
     "generator": "korean-gap-story-7-political-gemini",
@@ -21560,7 +28491,109 @@
         "hanjaro": "그들은 그 소리의 의미(意味)를 알 수 없었고, 밤은 더욱 깊어졌습니다.\n"
       }
     ],
-    "id": 1921
+    "id": 2003
+  },
+  {
+    "generator": "korean-gap-story-7-psychological-horror-gemini",
+    "input": "rite",
+    "problem": "어두운 밤, 낡은 절의 종각은 섬뜩한 기운을 내뿜고 있었다.<br> 민수는 친구 지훈과 함께, 그곳에 금지된 의식이 있다는 소문을 확인하러 왔다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 그들은 문을 열자마자, 섬뜩한 웃음소리와 함께 차가운 공기가 몰려왔다.<br> 절 안은 텅 비어 있었고, 그들의 발자국 소리만 공허하게 울려 퍼졌다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 절의 종각은 섬뜩한 기운을 내뿜고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "절": "temple",
+          "종각": "bell tower",
+          "은": "is",
+          "섬뜩한": "chilling",
+          "기운": "aura",
+          "을": "object marker",
+          "내뿜고": "emitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, the old temple's bell tower emitted a chilling aura."
+      },
+      {
+        "korean": "민수는 친구 지훈과 함께, 그곳에 금지된 의식이 있다는 소문을 확인하러 왔다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "subject marker",
+          "친구": "friend",
+          "지훈": "Jihoon",
+          "과": "and",
+          "함께": "together",
+          "그곳": "that place",
+          "에": "at",
+          "금지된": "forbidden",
+          "의식": "rite",
+          "이": "there is",
+          "있다는": "that there is",
+          "소문": "rumor",
+          "을": "object marker",
+          "확인하러": "to confirm",
+          "왔다": "came"
+        },
+        "overallTranslation": "Minsu, along with his friend Jihoon, came to confirm the rumor that a forbidden rite took place there."
+      },
+      {
+        "korean": "하지만 그들은 문을 열자마자, 섬뜩한 웃음소리와 함께 차가운 공기가 몰려왔다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그들은": "they",
+          "문": "door",
+          "을": "object marker",
+          "열자마자": "as soon as they opened",
+          "섬뜩한": "chilling",
+          "웃음소리": "laughter",
+          "와": "and",
+          "함께": "together",
+          "차가운": "cold",
+          "공기": "air",
+          "가": "subject marker",
+          "몰려왔다": "rushed in"
+        },
+        "overallTranslation": "But as soon as they opened the door, chilling laughter and cold air rushed in."
+      },
+      {
+        "korean": "절 안은 텅 비어 있었고, 그들의 발자국 소리만 공허하게 울려 퍼졌다.",
+        "wordByWordTranslation": {
+          "절": "temple",
+          "안": "inside",
+          "은": "is",
+          "텅": "empty",
+          "비어": "empty",
+          "있었고": "was",
+          "그들의": "their",
+          "발자국": "footsteps",
+          "소리": "sound",
+          "만": "only",
+          "공허하게": "emptily",
+          "울려": "echo",
+          "퍼졌다": "spread"
+        },
+        "overallTranslation": "The inside of the temple was empty, and only their footsteps echoed emptily."
+      },
+      {
+        "korean": "민수는 등골이 오싹해지며, 지훈의 손을 꽉 잡았다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "subject marker",
+          "등골": "spine",
+          "이": "subject marker",
+          "오싹해지며": "shivering",
+          "지훈": "Jihoon",
+          "의": "possessive marker",
+          "손": "hand",
+          "을": "object marker",
+          "꽉": "tightly",
+          "잡았다": "grabbed"
+        },
+        "overallTranslation": "Minsu, his spine chilling, tightly grabbed Jihoon's hand."
+      }
+    ],
+    "id": 2004
   },
   {
     "generator": "korean-gap-story-7-realistic-gemini",
@@ -21642,7 +28675,7 @@
         "overallTranslation": "Seeing her mom's smile, Eunsoo gathered her courage."
       }
     ],
-    "id": 1922
+    "id": 2005
   },
   {
     "generator": "korean-gap-story-7-romantic-gemini",
@@ -21727,7 +28760,90 @@
         "hanjaro": "그들은 서로를 보며 미소(微笑) 지었고, 그동안 못다 한 이야기들을 나누기 시작(始作)했다.\n"
       }
     ],
-    "id": 1923
+    "id": 2006
+  },
+  {
+    "generator": "korean-gap-story-7-steampunk-gemini",
+    "input": "hardship",
+    "problem": "낡은 기계들이 삐걱거리며 움직이는 거대한 공장 안, 엘리는 녹슨 톱니바퀴를 닦고 있었습니다.<br> 매캐한 연기와 기름 냄새가 가득했지만, 그녀는 묵묵히 일했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 공장 지붕이 쿵 하고 무너져 내렸습니다.<br> 엘리는 놀라서 몸을 움츠렸지만, 다행히도 큰 피해는 없었습니다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 기계들이 삐걱거리며 움직이는 거대한 공장 안, 엘리는 녹슨 톱니바퀴를 닦고 있었습니다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "기계들": "machines",
+          "삐걱거리며": "creaking",
+          "움직이는": "moving",
+          "거대한": "huge",
+          "공장": "factory",
+          "안": "inside",
+          "엘리": "Ellie",
+          "녹슨": "rusted",
+          "톱니바퀴": "cogwheel",
+          "닦고": "cleaning",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Inside a huge factory where old machines creaked and moved, Ellie was cleaning a rusty cogwheel."
+      },
+      {
+        "korean": "매캐한 연기와 기름 냄새가 가득했지만, 그녀는 묵묵히 일했습니다.",
+        "wordByWordTranslation": {
+          "매캐한": "sooty",
+          "연기": "smoke",
+          "기름": "oil",
+          "냄새": "smell",
+          "가득했지만": "was full but",
+          "그녀": "she",
+          "묵묵히": "silently",
+          "일했습니다": "worked"
+        },
+        "overallTranslation": "The air was thick with sooty smoke and the smell of oil, but she worked silently."
+      },
+      {
+        "korean": "갑자기, 공장 지붕이 쿵 하고 무너져 내렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "공장": "factory",
+          "지붕": "roof",
+          "쿵": "crash",
+          "하고": "and",
+          "무너져": "collapsed",
+          "내렸습니다": "down"
+        },
+        "overallTranslation": "Suddenly, the factory roof crashed down."
+      },
+      {
+        "korean": "엘리는 놀라서 몸을 움츠렸지만, 다행히도 큰 피해는 없었습니다.",
+        "wordByWordTranslation": {
+          "엘리": "Ellie",
+          "놀라서": "surprised",
+          "몸을": "body",
+          "움츠렸지만": "shrunk but",
+          "다행히도": "fortunately",
+          "큰": "big",
+          "피해": "damage",
+          "없었습니다": "was not"
+        },
+        "overallTranslation": "Ellie was surprised and shrank back, but fortunately there was no major damage."
+      },
+      {
+        "korean": "하지만, 그녀는 낡은 기계들이 더 이상 움직이지 않을까 봐 걱정했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그녀": "she",
+          "낡은": "old",
+          "기계들": "machines",
+          "더": "more",
+          "이상": "than",
+          "움직이지": "move",
+          "않을까": "not",
+          "봐": "see",
+          "걱정했습니다": "worried"
+        },
+        "overallTranslation": "But she worried that the old machines might no longer move."
+      }
+    ],
+    "id": 2007
   },
   {
     "generator": "korean-gap-story-7-supernatural-mystery-gemini",
@@ -21809,7 +28925,7 @@
         "hanjaro": "그곳에는 검은 그림자가 움직이고 있었다.\n"
       }
     ],
-    "id": 1924
+    "id": 2008
   },
   {
     "generator": "korean-gap-story-7-survival-horror-gemini",
@@ -21900,7 +29016,7 @@
         "hanjaro": "지수는 겁(怯)에 질려 꼼짝 못하고 풍선(風船)에 갇혔어요.\n"
       }
     ],
-    "id": 1925
+    "id": 2009
   },
   {
     "generator": "korean-gap-story-7-urban-fantasy-gemini",
@@ -21990,7 +29106,195 @@
         "overallTranslation": "The sea dragon's breath, with its cold chill, exhaled flames that engulfed the port."
       }
     ],
-    "id": 1926
+    "id": 2010
+  },
+  {
+    "generator": "korean-gap-story-7-urban-fantasy-gemini",
+    "input": "appetizer",
+    "problem": "어두운 골목길에서, 낡은 푸드트럭이 빛을 발하고 있었습니다.<br> 한 남자가 트럭 앞에 서서 메뉴판을 보고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그 순간, 트럭의 문이 열리며 요리사가 나왔습니다.<br> 요리사는 흡사 악마와 같은 붉은 눈을 가지고 있었고, 손에는 빛나는 칼이 들려 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 낡은 푸드트럭이 빛을 발하고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "낡은": "old",
+          "푸드트럭": "food truck",
+          "이": "it",
+          "빛": "light",
+          "을": "to",
+          "발하고": "emitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, an old food truck was shining."
+      },
+      {
+        "korean": "한 남자가 트럭 앞에 서서 메뉴판을 보고 있었습니다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자": "man",
+          "가": "who",
+          "트럭": "truck",
+          "앞에": "in front of",
+          "서서": "standing",
+          "메뉴판": "menu",
+          "을": "to",
+          "보고": "seeing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "A man stood in front of the truck, looking at the menu."
+      },
+      {
+        "korean": "그 순간, 트럭의 문이 열리며 요리사가 나왔습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "트럭": "truck",
+          "의": "of",
+          "문": "door",
+          "이": "it",
+          "열리며": "opening",
+          "요리사": "chef",
+          "가": "who",
+          "나왔습니다": "came out"
+        },
+        "overallTranslation": "At that moment, the truck's door opened and a chef came out."
+      },
+      {
+        "korean": "요리사는 흡사 악마와 같은 붉은 눈을 가지고 있었고, 손에는 빛나는 칼이 들려 있었습니다.",
+        "wordByWordTranslation": {
+          "요리사": "chef",
+          "는": "is",
+          "흡사": "similar",
+          "악마": "devil",
+          "와": "and",
+          "같은": "same",
+          "붉은": "red",
+          "눈": "eyes",
+          "을": "to",
+          "가지고": "having",
+          "있었고": "was",
+          "손": "hand",
+          "에는": "on",
+          "빛나는": "shining",
+          "칼": "knife",
+          "이": "it",
+          "들려": "held",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The chef had red eyes like a devil, and in his hand was a shining knife."
+      },
+      {
+        "korean": "남자는 겁에 질려 메뉴판을 떨어뜨리고 도망쳤습니다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "is",
+          "겁": "fear",
+          "에": "in",
+          "질려": "frightened",
+          "메뉴판": "menu",
+          "을": "to",
+          "떨어뜨리고": "dropping",
+          "도망쳤습니다": "ran away"
+        },
+        "overallTranslation": "The man dropped the menu in fear and ran away."
+      }
+    ],
+    "id": 2011
+  },
+  {
+    "generator": "korean-gap-story-7-urban-gemini",
+    "input": "busy",
+    "problem": "지수는 서울의 번잡한 거리를 걸으며 휴대폰을 봤어요.<br> 갑자기, 그녀는 택시를 잡으려고 했지만, 택시는 모두 지나갔어요.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 그녀는 친한 친구인 민준을 만났어요.<br> 민준은 그녀에게 차를 태워주겠다고 했고, 지수는 안도했어요.<br>",
+    "solution": [
+      {
+        "korean": "지수는 서울의 번잡한 거리를 걸으며 휴대폰을 봤어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "서울": "Seoul",
+          "의": "of",
+          "번잡한": "busy",
+          "거리": "street",
+          "를": "the",
+          "걸으며": "walking",
+          "휴대폰": "cell phone",
+          "을": "the",
+          "봤어요": "saw"
+        },
+        "overallTranslation": "Jisoo was walking through the busy streets of Seoul, looking at her phone."
+      },
+      {
+        "korean": "갑자기, 그녀는 택시를 잡으려고 했지만, 택시는 모두 지나갔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "Suddenly",
+          "그녀": "she",
+          "는": "is",
+          "택시": "taxi",
+          "를": "the",
+          "잡으려고": "try to catch",
+          "했지만": "but",
+          "모두": "all",
+          "지나갔어요": "passed"
+        },
+        "overallTranslation": "Suddenly, she tried to catch a taxi, but they all passed by."
+      },
+      {
+        "korean": "그때, 그녀는 친한 친구인 민준을 만났어요.",
+        "wordByWordTranslation": {
+          "그때": "At that time",
+          "그녀": "she",
+          "는": "is",
+          "친한": "close",
+          "친구": "friend",
+          "인": "be",
+          "민준": "Minjun",
+          "을": "the",
+          "만났어요": "met"
+        },
+        "overallTranslation": "At that time, she met Minjun, her close friend."
+      },
+      {
+        "korean": "민준은 그녀에게 차를 태워주겠다고 했고, 지수는 안도했어요.",
+        "wordByWordTranslation": {
+          "민준": "Minjun",
+          "은": "is",
+          "그녀": "her",
+          "에게": "to",
+          "차": "car",
+          "를": "the",
+          "태워주겠다고": "would give a ride",
+          "했고": "and",
+          "지수": "Jisoo",
+          "는": "is",
+          "안도": "relieved",
+          "했어요": "was"
+        },
+        "overallTranslation": "Minjun offered to give her a ride, and Jisoo was relieved."
+      },
+      {
+        "korean": "두 사람은 함께 집으로 가면서 오늘 있었던 일들을 이야기했어요.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "사람": "people",
+          "은": "is",
+          "함께": "together",
+          "집": "home",
+          "으로": "to",
+          "가면서": "while going",
+          "오늘": "today",
+          "있었던": "happened",
+          "일": "things",
+          "들": "the",
+          "을": "the",
+          "이야기": "story",
+          "했어요": "did"
+        },
+        "overallTranslation": "The two went home together, talking about the things that happened today."
+      }
+    ],
+    "id": 2012
   },
   {
     "generator": "korean-gap-story-7-whodunnit-gemini",
@@ -22088,7 +29392,99 @@
         "hanjaro": "윤활유(潤滑油)는 괴한(怪漢)의 발을 미끄럽게 만들었고, 민수는 안전(安全)한 곳으로 도착(到着)할 수 있었다.\n"
       }
     ],
-    "id": 1927
+    "id": 2013
+  },
+  {
+    "generator": "korean-gap-story-8-ancient-gemini",
+    "input": "clerical",
+    "problem": "어두운 서재에 낡은 책상이 놓여 있었고, 그 위에는 잉크병과 붓이 놓여 있었습니다.<br> 창문 밖으로는 폭풍우가 몰아치고 있었지만, 서재 안은 고요했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 문이 활짝 열리며 한 남자가 들어왔습니다.<br> 그는 흠뻑 젖은 옷을 털며, “죄송합니다, 늦었습니다.”라고 말했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 서재에 낡은 책상이 놓여 있었고, 그 위에는 잉크병과 붓이 놓여 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "서재": "study",
+          "에": "at",
+          "낡은": "old",
+          "책상": "desk",
+          "이": "is",
+          "놓여": "placed",
+          "있었고": "and",
+          "그": "that",
+          "위에": "on",
+          "는": "is",
+          "잉크병": "ink bottle",
+          "과": "and",
+          "붓": "brush",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "A dark study contained an old desk, on which an ink bottle and brush were placed."
+      },
+      {
+        "korean": "창문 밖으로는 폭풍우가 몰아치고 있었지만, 서재 안은 고요했습니다.",
+        "wordByWordTranslation": {
+          "창문": "window",
+          "밖으로": "outside",
+          "는": "is",
+          "폭풍우": "storm",
+          "가": "that",
+          "몰아치고": "raging",
+          "있었지만": "but",
+          "서재": "study",
+          "안": "inside",
+          "은": "was",
+          "고요했습니다.": "quiet"
+        },
+        "overallTranslation": "A storm raged outside the window, but the study remained quiet."
+      },
+      {
+        "korean": "갑자기, 문이 활짝 열리며 한 남자가 들어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "that",
+          "활짝": "wide",
+          "열리며": "opening",
+          "한": "one",
+          "남자": "man",
+          "가": "that",
+          "들어왔습니다.": "entered"
+        },
+        "overallTranslation": "Suddenly, the door swung open and a man entered."
+      },
+      {
+        "korean": "그는 흠뻑 젖은 옷을 털며, “죄송합니다, 늦었습니다.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "흠뻑": "completely",
+          "젖은": "wet",
+          "옷": "clothes",
+          "을": "to",
+          "털며": "shaking",
+          "“죄송합니다": "I'm sorry",
+          ",": ",",
+          "늦었습니다.": "I'm late"
+        },
+        "overallTranslation": "He shook his wet clothes and said, “I'm sorry, I'm late.”"
+      },
+      {
+        "korean": "서재 주인은 책상에 앉아 그를 가만히 바라보았습니다.",
+        "wordByWordTranslation": {
+          "서재": "study",
+          "주인": "owner",
+          "은": "is",
+          "책상": "desk",
+          "에": "on",
+          "앉아": "sitting",
+          "그": "him",
+          "를": "to",
+          "가만히": "quietly",
+          "바라보았습니다.": "looked"
+        },
+        "overallTranslation": "The study's owner sat at his desk and watched him quietly."
+      }
+    ],
+    "id": 2014
   },
   {
     "generator": "korean-gap-story-8-detective-gemini",
@@ -22164,7 +29560,7 @@
         "hanjaro": "그림자는 사라졌고, 민수는 더욱 불안(不安)해졌다.\n"
       }
     ],
-    "id": 1928
+    "id": 2015
   },
   {
     "generator": "korean-gap-story-8-drama-gemini",
@@ -22251,7 +29647,7 @@
         "hanjaro": "민수는 무사히(無事히) 집에 도착(到着)해서 안전(安全)을 확인(確認)하고 안도(安堵)의 한숨을 내쉬었다.\n"
       }
     ],
-    "id": 1929
+    "id": 2016
   },
   {
     "generator": "korean-gap-story-8-frontier-gemini",
@@ -22339,7 +29735,393 @@
         "hanjaro": "멀리서 말들이 달려오는 소리가 들렸고, 곧 말을 탄 사람들이 나타났습니다.\n"
       }
     ],
-    "id": 1930
+    "id": 2017
+  },
+  {
+    "generator": "korean-gap-story-8-gunslinger-gemini",
+    "input": "acutely",
+    "problem": "붉은 노을이 지는 황량한 사막 한가운데, 낡은 모자를 쓴 사내가 서 있었다.<br> 그는 땀으로 젖은 손으로 녹슨 권총을 꽉 움켜쥐고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 먼지구름이 일며 검은 그림자가 그에게 달려들었다.<br> 그림자는 날카로운 칼을 휘두르며 소리쳤다. “네놈의 운명은 이미 정해졌다!”<br>",
+    "solution": [
+      {
+        "korean": "붉은 노을이 지는 황량한 사막 한가운데, 낡은 모자를 쓴 사내가 서 있었다.",
+        "wordByWordTranslation": {
+          "붉은": "red",
+          "노을": "sunset",
+          "이": "is",
+          "지는": "setting",
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "worn",
+          "모자": "hat",
+          "를": "을",
+          "쓴": "wearing",
+          "사내": "man",
+          "가": "is",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the middle of a desolate desert, where the red sunset was setting, a man with a worn hat stood."
+      },
+      {
+        "korean": "그는 땀으로 젖은 손으로 녹슨 권총을 꽉 움켜쥐고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "땀": "sweat",
+          "으로": "with",
+          "젖은": "soaked",
+          "손": "hand",
+          "녹슨": "rusted",
+          "권총": "pistol",
+          "을": "을",
+          "꽉": "tightly",
+          "움켜쥐고": "grasping",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was tightly grasping a rusted pistol with his sweat-soaked hands."
+      },
+      {
+        "korean": "갑자기, 먼지구름이 일며 검은 그림자가 그에게 달려들었다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "먼지": "dust",
+          "구름": "cloud",
+          "이": "is",
+          "일며": "rising",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "is",
+          "그에게": "to him",
+          "달려들었다": "charged"
+        },
+        "overallTranslation": "Suddenly, a dust cloud rose and a black shadow charged towards him."
+      },
+      {
+        "korean": "그림자는 날카로운 칼을 휘두르며 소리쳤다. “네놈의 운명은 이미 정해졌다!”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "날카로운": "sharp",
+          "칼": "knife",
+          "을": "을",
+          "휘두르며": "waving",
+          "소리쳤다": "shouted",
+          "“": "“",
+          "네놈": "you",
+          "의": "of",
+          "운명": "fate",
+          "은": "is",
+          "이미": "already",
+          "정해졌다": "decided",
+          "!”": "!”"
+        },
+        "overallTranslation": "The shadow waved a sharp knife and shouted, “Your fate is already decided!”"
+      },
+      {
+        "korean": "사내는 침착하게 숨을 들이쉬고, 낡은 권총을 겨누었다. “내 운명은 내가 결정한다.”",
+        "wordByWordTranslation": {
+          "사내": "man",
+          "는": "is",
+          "침착하게": "calmly",
+          "숨": "breath",
+          "을": "을",
+          "들이쉬고": "inhaling",
+          "낡은": "worn",
+          "권총": "pistol",
+          "겨누었다": "aimed",
+          "“": "“",
+          "내": "my",
+          "운명": "fate",
+          "은": "is",
+          "내가": "I",
+          "결정한다": "decide",
+          ".”": ".”"
+        },
+        "overallTranslation": "The man calmly inhaled, aimed his worn pistol, and said, “I decide my own fate.”"
+      }
+    ],
+    "id": 2018
+  },
+  {
+    "generator": "korean-gap-story-8-historical-gemini",
+    "input": "jurisdiction",
+    "problem": "조선시대, 한양의 한 작은 마을에서 김 씨라는 사람이 살았습니다.<br> 그는 마을 사람들에게 존경받는 장로였지만, 그의 권위는 마을 경계를 넘지 못했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 어느 날, 인근 마을에서 큰 싸움이 일어났고, 김 씨는 그곳으로 불려갔습니다.<br> 그는 싸움을 중재하고 평화를 가져왔고, 사람들은 그의 지혜와 용기에 감탄했습니다.<br>",
+    "solution": [
+      {
+        "korean": "조선시대, 한양의 한 작은 마을에서 김 씨라는 사람이 살았습니다.",
+        "wordByWordTranslation": {
+          "조선시대": "Joseon Dynasty",
+          "한양": "Hanyang (old name for Seoul)",
+          "한": "one",
+          "작은": "small",
+          "마을": "village",
+          "에서": "from",
+          "김": "Kim",
+          "씨": "family name",
+          "라는": "called",
+          "사람": "person",
+          "이": "subject marker",
+          "살았습니다": "lived"
+        },
+        "overallTranslation": "During the Joseon Dynasty, a man named Kim lived in a small village in Hanyang."
+      },
+      {
+        "korean": "그는 마을 사람들에게 존경받는 장로였지만, 그의 권위는 마을 경계를 넘지 못했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "마을": "village",
+          "사람": "people",
+          "들에게": "to",
+          "존경": "respect",
+          "받는": "receiving",
+          "장로": "elder",
+          "였지만": "but",
+          "그의": "his",
+          "권위": "authority",
+          "는": "topic marker",
+          "경계": "boundary",
+          "를": "object marker",
+          "넘지": "not cross",
+          "못했습니다": "could not"
+        },
+        "overallTranslation": "He was a respected elder among the villagers, but his authority did not extend beyond the village borders."
+      },
+      {
+        "korean": "어느 날, 인근 마을에서 큰 싸움이 일어났고, 김 씨는 그곳으로 불려갔습니다.",
+        "wordByWordTranslation": {
+          "어느": "some",
+          "날": "day",
+          "인근": "nearby",
+          "마을": "village",
+          "에서": "from",
+          "큰": "big",
+          "싸움": "fight",
+          "이": "subject marker",
+          "일어났고": "happened and",
+          "김": "Kim",
+          "씨": "family name",
+          "는": "topic marker",
+          "그곳": "that place",
+          "으로": "to",
+          "불려갔습니다": "was called"
+        },
+        "overallTranslation": "One day, a big fight broke out in a neighboring village, and Kim was called there."
+      },
+      {
+        "korean": "그는 싸움을 중재하고 평화를 가져왔고, 사람들은 그의 지혜와 용기에 감탄했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "싸움": "fight",
+          "을": "object marker",
+          "중재": "mediate",
+          "하고": "and",
+          "평화": "peace",
+          "를": "object marker",
+          "가져왔고": "brought and",
+          "사람들": "people",
+          "은": "topic marker",
+          "그의": "his",
+          "지혜": "wisdom",
+          "와": "and",
+          "용기": "courage",
+          "에": "on",
+          "감탄": "admire",
+          "했습니다": "did"
+        },
+        "overallTranslation": "He mediated the fight and brought peace, and people were amazed by his wisdom and courage."
+      },
+      {
+        "korean": "이 일 이후, 김 씨의 권위는 마을 경계를 넘어 인근 지역까지 퍼져 나갔습니다.",
+        "wordByWordTranslation": {
+          "이": "this",
+          "일": "event",
+          "이후": "after",
+          "김": "Kim",
+          "씨": "family name",
+          "의": "possessive marker",
+          "권위": "authority",
+          "는": "topic marker",
+          "마을": "village",
+          "경계": "boundary",
+          "를": "object marker",
+          "넘어": "beyond",
+          "인근": "nearby",
+          "지역": "area",
+          "까지": "until",
+          "퍼져": "spread",
+          "나갔습니다": "went"
+        },
+        "overallTranslation": "After this event, Kim's authority spread beyond the village boundaries and into the nearby region."
+      }
+    ],
+    "id": 2019
+  },
+  {
+    "generator": "korean-gap-story-8-medieval-gemini",
+    "input": "gravitation",
+    "problem": "어두운 밤하늘 아래, 젊은 기사는 홀로 성벽 위에 서 있었다.<br> 그는 멀리 떨어진 별들을 바라보며 생각에 잠겼다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 그의 발 아래에서 강력한 힘이 느껴졌다.<br> 성벽이 흔들리고, 그는 땅으로 끌려 내려갔다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤하늘 아래, 젊은 기사는 홀로 성벽 위에 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤하늘": "night sky",
+          "아래": "under",
+          "젊은": "young",
+          "기사": "knight",
+          "는": "is",
+          "홀로": "alone",
+          "성벽": "castle wall",
+          "위에": "on",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "Under the dark night sky, a young knight stood alone on the castle wall."
+      },
+      {
+        "korean": "그는 멀리 떨어진 별들을 바라보며 생각에 잠겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "멀리": "far",
+          "떨어진": "away",
+          "별들을": "stars",
+          "바라보며": "looking at",
+          "생각에": "thoughts",
+          "잠겼다": "submerged"
+        },
+        "overallTranslation": "He was lost in thought, gazing at the distant stars."
+      },
+      {
+        "korean": "갑자기, 그의 발 아래에서 강력한 힘이 느껴졌다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그의": "his",
+          "발": "foot",
+          "아래에서": "under",
+          "강력한": "powerful",
+          "힘이": "force",
+          "느껴졌다": "was felt"
+        },
+        "overallTranslation": "Suddenly, a powerful force was felt under his feet."
+      },
+      {
+        "korean": "성벽이 흔들리고, 그는 땅으로 끌려 내려갔다.",
+        "wordByWordTranslation": {
+          "성벽이": "castle wall",
+          "흔들리고": "shaking",
+          "그는": "he",
+          "땅으로": "to the ground",
+          "끌려": "pulled",
+          "내려갔다": "went down"
+        },
+        "overallTranslation": "The castle wall shook, and he was pulled down towards the ground."
+      },
+      {
+        "korean": "그는 마치 거대한 손에 이끌려 하늘에서 떨어지는 듯한 기분이 들었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "마치": "as if",
+          "거대한": "huge",
+          "손에": "hand",
+          "이끌려": "led",
+          "하늘에서": "from the sky",
+          "떨어지는": "falling",
+          "듯한": "like",
+          "기분이": "feeling",
+          "들었다": "felt"
+        },
+        "overallTranslation": "He felt as if he was falling from the sky, pulled by a giant hand."
+      }
+    ],
+    "id": 2020
+  },
+  {
+    "generator": "korean-gap-story-8-noir-gemini",
+    "input": "retard",
+    "problem": "어두운 골목길에서, 남자는 숨을 죽이고 서 있었다.<br> 그는 긴 그림자를 드리우며, 움직이는 소리에 귀를 기울였다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만, 그 소리는 그의 발소리였고, 그는 혼자였다.<br> 그는 몸을 돌려, 텅 빈 골목길을 바라보았다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 남자는 숨을 죽이고 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "남자": "man",
+          "는": "is",
+          "숨을": "breath",
+          "죽이고": "stopping",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, a man stood with bated breath."
+      },
+      {
+        "korean": "그는 긴 그림자를 드리우며, 움직이는 소리에 귀를 기울였다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "긴": "long",
+          "그림자": "shadow",
+          "를": "을",
+          "드리우며": "casting",
+          "움직이는": "moving",
+          "소리": "sound",
+          "에": "to",
+          "귀를": "ear",
+          "기울였다": "inclined"
+        },
+        "overallTranslation": "He cast a long shadow, listening intently for any sound of movement."
+      },
+      {
+        "korean": "하지만, 그 소리는 그의 발소리였고, 그는 혼자였다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "그": "that",
+          "소리": "sound",
+          "는": "is",
+          "그의": "his",
+          "발소리": "footsteps",
+          "였고": "was",
+          "그는": "he",
+          "혼자": "alone",
+          "였다": "was"
+        },
+        "overallTranslation": "But the sound was his own footsteps, and he was alone."
+      },
+      {
+        "korean": "그는 몸을 돌려, 텅 빈 골목길을 바라보았다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "몸을": "body",
+          "돌려": "turning",
+          "텅": "empty",
+          "빈": "empty",
+          "골목길": "alleyway",
+          "을": "을",
+          "바라보았다": "looked"
+        },
+        "overallTranslation": "He turned around and looked at the empty alleyway."
+      },
+      {
+        "korean": "그의 심장은 쿵쾅거렸고, 그는 누군가가 자신을 지켜보고 있다는 것을 알았다.",
+        "wordByWordTranslation": {
+          "그의": "His",
+          "심장": "heart",
+          "은": "is",
+          "쿵쾅거렸고": "pounding",
+          "그는": "he",
+          "누군가": "someone",
+          "가": "who",
+          "자신": "himself",
+          "을": "을",
+          "지켜보고": "watching",
+          "있다는": "that",
+          "것을": "thing",
+          "알았다": "knew"
+        },
+        "overallTranslation": "His heart pounded, and he knew someone was watching him."
+      }
+    ],
+    "id": 2021
   },
   {
     "generator": "korean-gap-story-8-political-gemini",
@@ -22426,7 +30208,7 @@
         "overallTranslation": "The remaining man lifted a gun with his shaking hand."
       }
     ],
-    "id": 1931
+    "id": 2022
   },
   {
     "generator": "korean-gap-story-8-renaissance-gemini",
@@ -22503,7 +30285,7 @@
         "overallTranslation": "He defeated the monster with his shining sword and Arthur became a hero."
       }
     ],
-    "id": 1932
+    "id": 2023
   },
   {
     "generator": "korean-gap-story-8-slice-of-life-gemini",
@@ -22584,7 +30366,7 @@
         "overallTranslation": "Eunsoo gained courage from the teacher's warm touch."
       }
     ],
-    "id": 1933
+    "id": 2024
   },
   {
     "generator": "korean-gap-story-8-supernatural-gemini",
@@ -22668,7 +30450,7 @@
         "hanjaro": "진우(軫憂)는 신비(神祕)로운 요정(妖精)들의 세상(世上)에 들어온 것을 깨달았습니다.\n"
       }
     ],
-    "id": 1934
+    "id": 2025
   },
   {
     "generator": "korean-gap-story-8-victorian-gemini",
@@ -22768,7 +30550,284 @@
         "hanjaro": "에밀리는 숨을 크게 들이쉬고, 그 신비로운 소리에 홀려 밤의 어둠 속으로 걸어갔습니다.\n"
       }
     ],
-    "id": 1935
+    "id": 2026
+  },
+  {
+    "generator": "korean-gap-story-8-western-gemini",
+    "input": "hen",
+    "problem": "해가 지기 시작했고, 먼지 덮인 서부 마을의 거리는 조용했습니다.<br> 술집 앞에서 한 남자가 홀로 맥주를 마시고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 닭 울음소리가 들렸습니다.<br> 그 소리에 남자는 깜짝 놀라 술잔을 떨어뜨렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작했고, 먼지 덮인 서부 마을의 거리는 조용했습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작했고": "started",
+          "먼지": "dust",
+          "덮인": "covered",
+          "서부": "western",
+          "마을의": "town's",
+          "거리는": "streets",
+          "조용했습니다": "were quiet"
+        },
+        "overallTranslation": "The sun began to set, and the streets of the dusty western town were quiet."
+      },
+      {
+        "korean": "술집 앞에서 한 남자가 홀로 맥주를 마시고 있었습니다.",
+        "wordByWordTranslation": {
+          "술집": "saloon",
+          "앞에서": "in front of",
+          "한": "one",
+          "남자": "man",
+          "가": "was",
+          "홀로": "alone",
+          "맥주": "beer",
+          "를": "를",
+          "마시고": "drinking",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "A man was drinking beer alone in front of the saloon."
+      },
+      {
+        "korean": "갑자기, 닭 울음소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "닭": "chicken",
+          "울음소리": "cry",
+          "가": "that",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chicken cry was heard."
+      },
+      {
+        "korean": "그 소리에 남자는 깜짝 놀라 술잔을 떨어뜨렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리에": "sound",
+          "남자는": "man",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "술잔": "beer glass",
+          "를": "를",
+          "떨어뜨렸습니다": "dropped"
+        },
+        "overallTranslation": "Startled by the sound, the man dropped his beer glass."
+      },
+      {
+        "korean": "그리고, 닭은 술집 문을 열고 안으로 들어왔습니다.",
+        "wordByWordTranslation": {
+          "그리고": "and",
+          "닭은": "chicken",
+          "술집": "saloon",
+          "문": "door",
+          "를": "를",
+          "열고": "opened",
+          "안으로": "inside",
+          "들어왔습니다": "came"
+        },
+        "overallTranslation": "And, the chicken opened the saloon door and came inside."
+      }
+    ],
+    "id": 2027
+  },
+  {
+    "generator": "korean-gap-story-8-whodunnit-gemini",
+    "input": "obsessive",
+    "problem": "어두운 밤, 비바람이 몰아치는 낡은 저택에, 유명한 작가인 김민수 씨가 죽은 채로 발견되었습니다.<br> 경찰은 사건 현장을 조사했지만, 단서를 찾지 못했습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 김민수 씨의 오랜 팬이었던 박지수 씨가 경찰서에 찾아왔습니다.<br> 박지수 씨는 김민수 씨의 최근 작품에 등장하는 인물과 너무 닮았다는 것을 알게 되었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 비바람이 몰아치는 낡은 저택에, 유명한 작가인 김민수 씨가 죽은 채로 발견되었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "비바람": "rain and wind",
+          "몰아치는": "driving",
+          "낡은": "old",
+          "저택": "mansion",
+          "에": "at",
+          "유명한": "famous",
+          "작가": "author",
+          "인": "is",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "가": "who",
+          "죽은": "dead",
+          "채로": "as",
+          "발견되었습니다": "was found"
+        },
+        "overallTranslation": "On a dark night, with a raging storm, the famous author, Mr. Kim Minsoo, was found dead in an old mansion."
+      },
+      {
+        "korean": "경찰은 사건 현장을 조사했지만, 단서를 찾지 못했습니다.",
+        "wordByWordTranslation": {
+          "경찰": "police",
+          "은": "are",
+          "사건": "case",
+          "현장": "scene",
+          "을": "object",
+          "조사했지만": "investigated but",
+          "단서": "clue",
+          "를": "object",
+          "찾지": "couldn't find",
+          "못했습니다": "couldn't"
+        },
+        "overallTranslation": "The police investigated the crime scene, but they couldn't find any clues."
+      },
+      {
+        "korean": "그때, 김민수 씨의 오랜 팬이었던 박지수 씨가 경찰서에 찾아왔습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "의": "of",
+          "오랜": "long time",
+          "팬": "fan",
+          "이었던": "was",
+          "박지수": "Park Jisu",
+          "가": "who",
+          "경찰서": "police station",
+          "에": "at",
+          "찾아왔습니다": "came"
+        },
+        "overallTranslation": "Then, Mr. Park Jisu, a longtime fan of Mr. Kim Minsoo, came to the police station."
+      },
+      {
+        "korean": "박지수 씨는 김민수 씨의 최근 작품에 등장하는 인물과 너무 닮았다는 것을 알게 되었습니다.",
+        "wordByWordTranslation": {
+          "박지수": "Park Jisu",
+          "씨": "Mr.",
+          "는": "is",
+          "김민수": "Kim Minsoo",
+          "의": "of",
+          "최근": "recent",
+          "작품": "work",
+          "에": "in",
+          "등장하는": "appearing",
+          "인물": "character",
+          "과": "and",
+          "너무": "too",
+          "닮았다는": "similar",
+          "것을": "fact",
+          "알게": "realized",
+          "되었습니다": "became"
+        },
+        "overallTranslation": "Mr. Park Jisu realized that he looked too much like a character appearing in Mr. Kim Minsoo's recent work."
+      },
+      {
+        "korean": "그는 김민수 씨에게 집착했고, 그의 소설 속 인물이 되고 싶어 했던 것입니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "에게": "to",
+          "집착했고": "was obsessed",
+          "그의": "his",
+          "소설": "novel",
+          "속": "in",
+          "인물": "character",
+          "이": "to be",
+          "되고": "become",
+          "싶어": "wanted",
+          "했던": "was",
+          "것입니다": "it is"
+        },
+        "overallTranslation": "He was obsessed with Mr. Kim Minsoo and wanted to become a character in his novel."
+      }
+    ],
+    "id": 2028
+  },
+  {
+    "generator": "korean-gap-story-9-ancient-gemini",
+    "input": "alphabet",
+    "problem": "옛날 옛날 한 옛날에, 어느 작은 마을에 글을 모르는 사람들이 많이 살았습니다.<br> 그들은 그림과 상징으로 서로 이야기를 나누었지만, 그것은 매우 제한적이었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 어느 날, 한 여행자가 마을에 와서 신기한 알파벳을 가르쳐 주었습니다.<br> 마을 사람들은 알파벳을 배우고 책을 읽으며 세상에 대한 이해를 넓혔습니다.<br>",
+    "solution": [
+      {
+        "korean": "옛날 옛날 한 옛날에, 어느 작은 마을에 글을 모르는 사람들이 많이 살았습니다.",
+        "wordByWordTranslation": {
+          "옛날": "long ago",
+          "한": "one",
+          "옛날에": "long ago",
+          "어느": "a certain",
+          "작은": "small",
+          "마을에": "village",
+          "글을": "letters",
+          "모르는": "not knowing",
+          "사람들이": "people",
+          "많이": "many",
+          "살았습니다.": "lived"
+        },
+        "overallTranslation": "Once upon a time, in a small village, many people lived who did not know how to read."
+      },
+      {
+        "korean": "그들은 그림과 상징으로 서로 이야기를 나누었지만, 그것은 매우 제한적이었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "그림": "pictures",
+          "과": "and",
+          "상징으로": "symbols",
+          "서로": "each other",
+          "이야기를": "stories",
+          "나누었지만": "shared but",
+          "그것은": "it",
+          "매우": "very",
+          "제한적이었습니다.": "limited"
+        },
+        "overallTranslation": "They shared stories through pictures and symbols, but it was very limited."
+      },
+      {
+        "korean": "어느 날, 한 여행자가 마을에 와서 신기한 알파벳을 가르쳐 주었습니다.",
+        "wordByWordTranslation": {
+          "어느": "one",
+          "날": "day",
+          "한": "one",
+          "여행자가": "traveler",
+          "마을에": "village",
+          "와서": "came and",
+          "신기한": "amazing",
+          "알파벳을": "alphabet",
+          "가르쳐": "taught",
+          "주었습니다.": "gave"
+        },
+        "overallTranslation": "One day, a traveler came to the village and taught them an amazing alphabet."
+      },
+      {
+        "korean": "마을 사람들은 알파벳을 배우고 책을 읽으며 세상에 대한 이해를 넓혔습니다.",
+        "wordByWordTranslation": {
+          "마을": "village",
+          "사람들은": "people",
+          "알파벳을": "alphabet",
+          "배우고": "learned and",
+          "책을": "books",
+          "읽으며": "reading",
+          "세상에": "world",
+          "대한": "about",
+          "이해를": "understanding",
+          "넓혔습니다.": "expanded"
+        },
+        "overallTranslation": "The villagers learned the alphabet, read books, and broadened their understanding of the world."
+      },
+      {
+        "korean": "그 후, 그들은 더 이상 그림과 상징에 의존하지 않았고, 알파벳으로 풍부한 삶을 누렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "후": "after",
+          "그들은": "they",
+          "더": "more",
+          "이상": "than",
+          "그림": "pictures",
+          "과": "and",
+          "상징에": "symbols",
+          "의존하지": "relied",
+          "않았고": "not",
+          "알파벳으로": "alphabet",
+          "풍부한": "rich",
+          "삶을": "life",
+          "누렸습니다.": "enjoyed"
+        },
+        "overallTranslation": "After that, they no longer relied on pictures and symbols, and they enjoyed a rich life with the alphabet."
+      }
+    ],
+    "id": 2029
   },
   {
     "generator": "korean-gap-story-9-bounty-hunter-gemini",
@@ -22852,7 +30911,7 @@
         "overallTranslation": "The masked man, surprised, turned around but there was no one."
       }
     ],
-    "id": 1936
+    "id": 2030
   },
   {
     "generator": "korean-gap-story-9-comedic-gemini",
@@ -22947,7 +31006,105 @@
         "hanjaro": "민준이는 웃음을 참지 못하고 폭소(爆笑)했습니다.\n"
       }
     ],
-    "id": 1937
+    "id": 2031
+  },
+  {
+    "generator": "korean-gap-story-9-comedic-gemini",
+    "input": "rivet",
+    "problem": "태양이 쨍쨍 내리쬐는 어느 날, 민수는 친구 은수와 함께 공원 벤치에 앉아 있었습니다.<br> 둘은 시원한 아이스크림을 먹으며 즐거운 시간을 보내고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 하늘에서 엄청난 힘으로 망치가 떨어졌습니다!<br> 망치는 벤치에 박혔고, 민수와 은수는 망치에 꼼짝 못 하고 붙잡혀 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "태양이 쨍쨍 내리쬐는 어느 날, 민수는 친구 은수와 함께 공원 벤치에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "태양": "sun",
+          "이": "is",
+          "쨍쨍": "brightly",
+          "내리쬐는": "shining",
+          "어느": "some",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "은수": "Eunsoo",
+          "와": "and",
+          "함께": "together",
+          "공원": "park",
+          "벤치": "bench",
+          "에": "at",
+          "앉아": "sitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "One day, under a blazing sun, Minsu was sitting on a park bench with his friend Eunsoo."
+      },
+      {
+        "korean": "둘은 시원한 아이스크림을 먹으며 즐거운 시간을 보내고 있었습니다.",
+        "wordByWordTranslation": {
+          "둘": "two",
+          "은": "are",
+          "시원한": "cool",
+          "아이스크림": "icecream",
+          "을": "object marker",
+          "먹으며": "eating",
+          "즐거운": "enjoyable",
+          "시간": "time",
+          "보내고": "spending",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were enjoying their time, eating cool ice cream."
+      },
+      {
+        "korean": "갑자기 하늘에서 엄청난 힘으로 망치가 떨어졌습니다!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "엄청난": "tremendous",
+          "힘": "force",
+          "으로": "with",
+          "망치": "hammer",
+          "가": "subject marker",
+          "떨어졌습니다": "fell"
+        },
+        "overallTranslation": "Suddenly, a hammer fell from the sky with tremendous force!"
+      },
+      {
+        "korean": "망치는 벤치에 박혔고, 민수와 은수는 망치에 꼼짝 못 하고 붙잡혀 있었습니다.",
+        "wordByWordTranslation": {
+          "망치": "hammer",
+          "는": "are",
+          "벤치": "bench",
+          "에": "at",
+          "박혔고": "stuck",
+          "민수": "Minsu",
+          "와": "and",
+          "은수": "Eunsoo",
+          "꼼짝": "move",
+          "못": "can't",
+          "하고": "and",
+          "붙잡혀": "stuck",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The hammer was stuck in the bench, and Minsu and Eunsoo were stuck to the hammer, unable to move."
+      },
+      {
+        "korean": "결국 둘은 망치에 꼼짝 못 하고, 아이스크림은 녹아내리기 시작했습니다.",
+        "wordByWordTranslation": {
+          "결국": "eventually",
+          "둘": "two",
+          "은": "is",
+          "망치": "hammer",
+          "에": "at",
+          "꼼짝": "move",
+          "못": "can't",
+          "하고": "and",
+          "아이스크림": "icecream",
+          "녹아내리기": "melting",
+          "시작했습니다": "started"
+        },
+        "overallTranslation": "In the end, they were stuck to the hammer, unable to move, and their ice cream started to melt."
+      }
+    ],
+    "id": 2032
   },
   {
     "generator": "korean-gap-story-9-comedy-gemini",
@@ -23048,7 +31205,205 @@
         "overallTranslation": "In the end, Mina burst out laughing at her friend's prank."
       }
     ],
-    "id": 1938
+    "id": 2033
+  },
+  {
+    "generator": "korean-gap-story-9-cyberpunk-gemini",
+    "input": "tact",
+    "problem": "어두컴컴한 사이버펑크 도시의 뒷골목에서, 젊은 해커 '진'은 낡은 노트북을 붙잡고 있었다.<br> 그는 엄청난 양의 데이터 속에서 중요한 정보를 찾기 위해 밤낮으로 애썼다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 갑자기 컴퓨터 화면이 깜빡이며 이상한 메시지가 나타났다.<br> 메시지는 '너의 행동은 세상을 바꿀 수 있는 힘을 가지고 있다'라고 쓰여 있었다.<br>",
+    "solution": [
+      {
+        "korean": "어두컴컴한 사이버펑크 도시의 뒷골목에서, 젊은 해커 '진'은 낡은 노트북을 붙잡고 있었다.",
+        "wordByWordTranslation": {
+          "어두컴컴한": "dark",
+          "사이버펑크": "cyberpunk",
+          "도시": "city",
+          "뒷골목": "back alley",
+          "에서": "in",
+          "젊은": "young",
+          "해커": "hacker",
+          "진": "Jin",
+          "은": "is",
+          "낡은": "old",
+          "노트북": "laptop",
+          "을": "object marker",
+          "붙잡고": "holding",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark back alleys of a cyberpunk city, a young hacker named Jin was holding an old laptop."
+      },
+      {
+        "korean": "그는 엄청난 양의 데이터 속에서 중요한 정보를 찾기 위해 밤낮으로 애썼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "엄청난": "tremendous",
+          "양": "amount",
+          "데이터": "data",
+          "속에서": "within",
+          "중요한": "important",
+          "정보": "information",
+          "을": "object marker",
+          "찾기": "finding",
+          "위해": "for",
+          "밤낮으로": "day and night",
+          "애썼다": "struggled"
+        },
+        "overallTranslation": "He was working day and night to find important information within a massive amount of data."
+      },
+      {
+        "korean": "하지만 갑자기 컴퓨터 화면이 깜빡이며 이상한 메시지가 나타났다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "컴퓨터": "computer",
+          "화면": "screen",
+          "이": "subject marker",
+          "깜빡이며": "blinking",
+          "이상한": "strange",
+          "메시지": "message",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "But suddenly, the computer screen blinked and a strange message appeared."
+      },
+      {
+        "korean": "메시지는 '너의 행동은 세상을 바꿀 수 있는 힘을 가지고 있다'라고 쓰여 있었다.",
+        "wordByWordTranslation": {
+          "메시지": "message",
+          "는": "subject marker",
+          "'너의": "'your",
+          "행동": "actions",
+          "은": "subject marker",
+          "세상": "world",
+          "을": "object marker",
+          "바꿀": "change",
+          "수": "can",
+          "있는": "be",
+          "힘": "power",
+          "가지고": "having",
+          "있다": "is"
+        },
+        "overallTranslation": "The message read, 'Your actions have the power to change the world.'"
+      },
+      {
+        "korean": "진은 숨을 크게 들이쉬며, 자신이 택한 길이 얼마나 중요한지 깨달았다.",
+        "wordByWordTranslation": {
+          "진": "Jin",
+          "은": "subject marker",
+          "숨": "breath",
+          "을": "object marker",
+          "크게": "deeply",
+          "들이쉬며": "taking in",
+          "자신": "himself",
+          "이": "subject marker",
+          "택한": "chosen",
+          "길": "path",
+          "얼마나": "how much",
+          "중요한지": "important",
+          "깨달았다": "realized"
+        },
+        "overallTranslation": "Jin took a deep breath, realizing how important the path he had chosen was."
+      }
+    ],
+    "id": 2034
+  },
+  {
+    "generator": "korean-gap-story-9-dark-fantasy-gemini",
+    "input": "cutting",
+    "problem": "어두운 숲 속, 낡은 오두막이 서 있었습니다.<br> 문 앞에는 늙은 여인이 앉아 있었고, 손에는 날카로운 칼을 들고 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 여인의 눈이 붉게 변하며 칼이 빛나기 시작했습니다.<br> 그녀는 칼을 휘둘러 주변의 나무를 베어냈고, 숲은 피로 물들었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속, 낡은 오두막이 서 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속": "inside",
+          "낡은": "old",
+          "오두막": "hut",
+          "이": "it",
+          "서": "stand",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "An old hut stood in the dark forest."
+      },
+      {
+        "korean": "문 앞에는 늙은 여인이 앉아 있었고, 손에는 날카로운 칼을 들고 있었습니다.",
+        "wordByWordTranslation": {
+          "문": "door",
+          "앞": "front",
+          "에는": "there was",
+          "늙은": "old",
+          "여인": "woman",
+          "이": "who",
+          "앉아": "sit",
+          "있었고": "and",
+          "손": "hand",
+          "날카로운": "sharp",
+          "칼": "knife",
+          "을": "object marker",
+          "들고": "holding",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "An old woman sat in front of the door, holding a sharp knife in her hand."
+      },
+      {
+        "korean": "갑자기, 여인의 눈이 붉게 변하며 칼이 빛나기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "여인": "woman",
+          "의": "possessive particle",
+          "눈": "eye",
+          "이": "it",
+          "붉게": "red",
+          "변하며": "changing",
+          "칼": "knife",
+          "빛나기": "shine",
+          "시작했습니다.": "started"
+        },
+        "overallTranslation": "Suddenly, the woman's eyes turned red and the knife began to glow."
+      },
+      {
+        "korean": "그녀는 칼을 휘둘러 주변의 나무를 베어냈고, 숲은 피로 물들었습니다.",
+        "wordByWordTranslation": {
+          "그녀": "she",
+          "는": "topic marker",
+          "칼": "knife",
+          "을": "object marker",
+          "휘둘러": "swing",
+          "주변": "around",
+          "의": "possessive particle",
+          "나무": "tree",
+          "를": "object marker",
+          "베어냈고": "cut down",
+          "숲": "forest",
+          "은": "topic marker",
+          "피": "blood",
+          "로": "with",
+          "물들었습니다.": "stained"
+        },
+        "overallTranslation": "She swung the knife, cutting down the surrounding trees, and the forest was stained with blood."
+      },
+      {
+        "korean": "여인의 웃음소리가 숲에 울려 퍼지며, 오두막은 핏빛으로 물들었습니다.",
+        "wordByWordTranslation": {
+          "여인": "woman",
+          "의": "possessive particle",
+          "웃음소리": "laughter",
+          "가": "subject marker",
+          "숲": "forest",
+          "에": "at",
+          "울려": "echo",
+          "퍼지며": "spreading",
+          "오두막": "hut",
+          "은": "topic marker",
+          "핏빛": "blood red",
+          "으로": "with",
+          "물들었습니다.": "stained"
+        },
+        "overallTranslation": "The woman's laughter echoed through the forest, and the hut was stained blood red."
+      }
+    ],
+    "id": 2035
   },
   {
     "generator": "korean-gap-story-9-detective-gemini",
@@ -23140,7 +31495,7 @@
         "hanjaro": "그는 숨을 크게 들이쉬며, 그 비밀(祕密) 코드를 풀어낼 방법(方法)을 찾기 시작(始作)했습니다.\n"
       }
     ],
-    "id": 1939
+    "id": 2036
   },
   {
     "generator": "korean-gap-story-9-drama-gemini",
@@ -23219,7 +31574,109 @@
         "overallTranslation": "“It’s okay, your teeth are beautiful.”"
       }
     ],
-    "id": 1940
+    "id": 2037
+  },
+  {
+    "generator": "korean-gap-story-9-dramatic-gemini",
+    "input": "hypertension",
+    "problem": "김 선생님은 밤늦도록 책상에 앉아 시험 문제를 만들고 있었습니다.<br> 갑자기 머리가 아파와서 손으로 이마를 짚었지만, 열은 없었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 심장이 너무 빨리 뛰어서 김 선생님은 불안감에 휩싸였습니다.<br> 그는 혹시 고혈압이 아닐까 하는 생각에 급하게 병원으로 달려갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "김 선생님은 밤늦도록 책상에 앉아 시험 문제를 만들고 있었습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "선생님": "teacher",
+          "은": "is",
+          "밤늦도록": "late at night",
+          "책상": "desk",
+          "에": "at",
+          "앉아": "sitting",
+          "시험": "exam",
+          "문제": "problem",
+          "를": "object marker",
+          "만들고": "making",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "Mr. Kim was sitting at his desk late at night, making exam questions."
+      },
+      {
+        "korean": "갑자기 머리가 아파와서 손으로 이마를 짚었지만, 열은 없었습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "머리": "head",
+          "가": "subject marker",
+          "아파와서": "hurting, so",
+          "손": "hand",
+          "으로": "with",
+          "이마": "forehead",
+          "를": "object marker",
+          "짚었지만": "touched but",
+          "열": "fever",
+          "은": "is",
+          "없었습니다.": "not"
+        },
+        "overallTranslation": "Suddenly, his head started to ache, and he touched his forehead with his hand, but there was no fever."
+      },
+      {
+        "korean": "하지만 심장이 너무 빨리 뛰어서 김 선생님은 불안감에 휩싸였습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "심장": "heart",
+          "이": "subject marker",
+          "너무": "too",
+          "빨리": "fast",
+          "뛰어서": "beating, so",
+          "김": "Kim",
+          "선생님": "teacher",
+          "은": "is",
+          "불안감": "anxiety",
+          "에": "with",
+          "휩싸였습니다.": "overwhelmed"
+        },
+        "overallTranslation": "But his heart was beating so fast that Mr. Kim was overwhelmed with anxiety."
+      },
+      {
+        "korean": "그는 혹시 고혈압이 아닐까 하는 생각에 급하게 병원으로 달려갔습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "혹시": "maybe",
+          "고혈압": "hypertension",
+          "이": "subject marker",
+          "아닐까": "not",
+          "하는": "doing",
+          "생각": "thought",
+          "에": "with",
+          "급하게": "hurriedly",
+          "병원": "hospital",
+          "으로": "to",
+          "달려갔습니다.": "ran"
+        },
+        "overallTranslation": "He thought maybe he had hypertension and rushed to the hospital."
+      },
+      {
+        "korean": "의사 선생님은 김 선생님의 혈압을 재보고는 “스트레스를 너무 많이 받으셨네요.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "의사": "doctor",
+          "선생님": "teacher",
+          "은": "is",
+          "김": "Kim",
+          "의": "possessive marker",
+          "혈압": "blood pressure",
+          "를": "object marker",
+          "재보고는": "checked and",
+          "“": "quote mark",
+          "스트레스": "stress",
+          "너무": "too",
+          "많이": "much",
+          "받으셨네요.": "received",
+          "”": "quote mark",
+          "라고": "quote marker",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "The doctor checked Mr. Kim's blood pressure and said, “You're under too much stress.”"
+      }
+    ],
+    "id": 2038
   },
   {
     "generator": "korean-gap-story-9-dystopian-gemini",
@@ -23304,7 +31761,94 @@
         "hanjaro": "한 소녀(少女)는 햇살 아래 춤을 추며 외쳤다, “이제 우리는 자유(自由)야!”\n"
       }
     ],
-    "id": 1941
+    "id": 2039
+  },
+  {
+    "generator": "korean-gap-story-9-espionage-gemini",
+    "input": "persevere",
+    "problem": "어두운 골목길에서, 스파이는 정보를 빼내려고 노력하고 있었습니다.<br> 하지만 경비원들이 다가오자 그는 재빨리 몸을 숨겼습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 폭발음이 울려 퍼졌고, 건물이 무너지기 시작했습니다.<br> 스파이는 위험을 무릅쓰고 건물 잔해 속에서 빠져나왔습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 스파이는 정보를 빼내려고 노력하고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길에서": "alleyway",
+          "스파이": "spy",
+          "는": "is",
+          "정보": "information",
+          "를": "to",
+          "빼내려고": "extract",
+          "노력": "effort",
+          "하고": "doing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, a spy was trying to extract information."
+      },
+      {
+        "korean": "하지만 경비원들이 다가오자 그는 재빨리 몸을 숨겼습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "경비원": "guards",
+          "들이": "they",
+          "다가오자": "approached",
+          "그는": "he",
+          "재빨리": "quickly",
+          "몸": "body",
+          "을": "to",
+          "숨겼습니다": "hid"
+        },
+        "overallTranslation": "But when the guards approached, he quickly hid."
+      },
+      {
+        "korean": "갑자기, 폭발음이 울려 퍼졌고, 건물이 무너지기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "폭발음": "explosion sound",
+          "이": "which",
+          "울려": "resounded",
+          "퍼졌고": "and",
+          "건물": "building",
+          "무너지기": "collapse",
+          "시작": "start",
+          "했습니다": "did"
+        },
+        "overallTranslation": "Suddenly, an explosion resounded and the building started to collapse."
+      },
+      {
+        "korean": "스파이는 위험을 무릅쓰고 건물 잔해 속에서 빠져나왔습니다.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "는": "is",
+          "위험": "danger",
+          "을": "to",
+          "무릅쓰고": "facing",
+          "건물": "building",
+          "잔해": "debris",
+          "속에서": "from",
+          "빠져나왔습니다": "escaped"
+        },
+        "overallTranslation": "The spy, facing danger, escaped from the building debris."
+      },
+      {
+        "korean": "그는 포기하지 않고, 임무를 완수하기 위해 계속해서 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "포기": "give up",
+          "하지": "not",
+          "않고": "and",
+          "임무": "mission",
+          "를": "to",
+          "완수": "complete",
+          "하기": "in order to",
+          "위해": "for",
+          "계속": "continue",
+          "해서": "to",
+          "나아갔습니다": "advanced"
+        },
+        "overallTranslation": "He did not give up and continued to advance in order to complete his mission."
+      }
+    ],
+    "id": 2040
   },
   {
     "generator": "korean-gap-story-9-fantasy-gemini",
@@ -23386,7 +31930,93 @@
         "hanjaro": "나무의 뿌리는 그녀(그女)의 몸속으로 깊이 스며들어 그녀(그女)의 두려움을 녹여냈습니다.\n"
       }
     ],
-    "id": 1942
+    "id": 2041
+  },
+  {
+    "generator": "korean-gap-story-9-fantasy-gemini",
+    "input": "entitle",
+    "problem": "어두운 숲 속, 낡은 나무 집이 서 있었어요.<br> 그 안에는 늙은 마법사가 살고 있었답니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 하지만 어느 날, 숲 속에 이상한 소리가 울려 퍼졌어요.<br> 소리는 마법사의 낡은 지팡이에서 났고, 마법사는 놀랐어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속, 낡은 나무 집이 서 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속": "inside",
+          "낡은": "old",
+          "나무": "tree",
+          "집": "house",
+          "이": "this",
+          "서": "stand",
+          "있었어요": "was"
+        },
+        "overallTranslation": "An old wooden house stood in a dark forest."
+      },
+      {
+        "korean": "그 안에는 늙은 마법사가 살고 있었답니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "안": "inside",
+          "에는": "there",
+          "늙은": "old",
+          "마법사": "wizard",
+          "가": "who",
+          "살고": "live",
+          "있었답니다": "was"
+        },
+        "overallTranslation": "Inside it lived an old wizard."
+      },
+      {
+        "korean": "하지만 어느 날, 숲 속에 이상한 소리가 울려 퍼졌어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어느": "some",
+          "날": "day",
+          "숲": "forest",
+          "속": "inside",
+          "에": "at",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "that",
+          "울려": "resonate",
+          "퍼졌어요": "spread"
+        },
+        "overallTranslation": "But one day, a strange sound echoed through the forest."
+      },
+      {
+        "korean": "소리는 마법사의 낡은 지팡이에서 났고, 마법사는 놀랐어요.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "마법사": "wizard",
+          "의": "of",
+          "낡은": "old",
+          "지팡이": "wand",
+          "에서": "from",
+          "났고": "came",
+          "놀랐어요": "surprised"
+        },
+        "overallTranslation": "The sound came from the wizard's old wand, and the wizard was surprised."
+      },
+      {
+        "korean": "알고 보니, 지팡이는 마법사에게 새로운 힘을 부여하려고 했답니다.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as",
+          "지팡이": "wand",
+          "는": "is",
+          "마법사": "wizard",
+          "에게": "to",
+          "새로운": "new",
+          "힘": "power",
+          "을": "to",
+          "부여하려고": "give",
+          "했답니다": "was"
+        },
+        "overallTranslation": "It turned out the wand was trying to give the wizard new power."
+      }
+    ],
+    "id": 2042
   },
   {
     "generator": "korean-gap-story-9-gunslinger-gemini",
@@ -23484,7 +32114,185 @@
         "hanjaro": "총잡이(銃잡이)는 망설이지 않고 콜트를 뽑아들고, 괴물(怪物)의 심장(心臟)을 향(向)해 총알(銃알)을 발사(發射)했다.\n"
       }
     ],
-    "id": 1943
+    "id": 2043
+  },
+  {
+    "generator": "korean-gap-story-9-gunslinger-gemini",
+    "input": "flight",
+    "problem": "황량한 사막 한가운데, 뜨거운 태양 아래 땀에 젖은 채로 앉아 있는 사내가 있었다.<br> 그는 낡은 총을 손에 쥐고, 먼지 덮인 모자 아래로 가늘게 눈을 뜨고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기 하늘에서 날개를 펄럭이는 그림자가 나타났다.<br> 그림자는 빠르게 사내에게 다가왔고, 사내는 재빨리 총을 뽑아 들었다.<br>",
+    "solution": [
+      {
+        "korean": "황량한 사막 한가운데, 뜨거운 태양 아래 땀에 젖은 채로 앉아 있는 사내가 있었다.",
+        "wordByWordTranslation": {
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "뜨거운": "hot",
+          "태양": "sun",
+          "아래": "under",
+          "땀에": "with sweat",
+          "젖은": "soaked",
+          "채로": "with",
+          "앉아": "sitting",
+          "있는": "existing",
+          "사내": "man"
+        },
+        "overallTranslation": "In the middle of a desolate desert, under the hot sun, there was a man sitting, soaked with sweat."
+      },
+      {
+        "korean": "그는 낡은 총을 손에 쥐고, 먼지 덮인 모자 아래로 가늘게 눈을 뜨고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "낡은": "old",
+          "총": "gun",
+          "손에": "in hand",
+          "쥐고": "holding",
+          "먼지": "dust",
+          "덮인": "covered",
+          "모자": "hat",
+          "아래로": "below",
+          "가늘게": "narrowly",
+          "눈을": "eyes",
+          "뜨고": "opening",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was holding an old gun in his hand, his eyes narrowed under his dust-covered hat."
+      },
+      {
+        "korean": "갑자기 하늘에서 날개를 펄럭이는 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "날개를": "wings",
+          "펄럭이는": "flapping",
+          "그림자": "shadow",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a shadow with flapping wings appeared from the sky."
+      },
+      {
+        "korean": "그림자는 빠르게 사내에게 다가왔고, 사내는 재빨리 총을 뽑아 들었다.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "빠르게": "quickly",
+          "사내에게": "to the man",
+          "다가왔고": "approached",
+          "사내": "man",
+          "재빨리": "quickly",
+          "총을": "gun",
+          "뽑아": "drawing",
+          "들었다": "held"
+        },
+        "overallTranslation": "The shadow quickly approached the man, and the man quickly drew his gun."
+      },
+      {
+        "korean": "하지만 그림자는 사내가 아니라, 먼지 속에서 날아오른 한 마리의 매였다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그림자": "shadow",
+          "사내": "man",
+          "아니라": "not",
+          "먼지": "dust",
+          "속에서": "inside",
+          "날아오른": "flying up",
+          "한": "one",
+          "마리의": "of",
+          "매": "hawk"
+        },
+        "overallTranslation": "But the shadow was not a man, but a hawk that had flown up from the dust."
+      }
+    ],
+    "id": 2044
+  },
+  {
+    "generator": "korean-gap-story-9-horror-gemini",
+    "input": "derelict",
+    "problem": "낡은 폐차장은 밤이 되면 으스스한 기운이 감돌았다.<br> 지수는 폐차장 주변을 서성이며 낡은 자동차들을 살펴보았다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 그때, 갑자기 낡은 자동차 문이 쾅 소리를 내며 열렸다.<br> 지수는 놀라서 뒤로 넘어졌고, 차 안에서 희미한 웃음소리가 들려왔다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 폐차장은 밤이 되면 으스스한 기운이 감돌았다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "폐차장": "junkyard",
+          "은": "is",
+          "밤": "night",
+          "이": "it",
+          "되면": "become",
+          "으스스한": "creepy",
+          "기운": "aura",
+          "감돌았다": "surrounded"
+        },
+        "overallTranslation": "The old junkyard was enveloped in a creepy aura when night fell."
+      },
+      {
+        "korean": "지수는 폐차장 주변을 서성이며 낡은 자동차들을 살펴보았다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "폐차장": "junkyard",
+          "주변": "around",
+          "을": "object marker",
+          "서성이며": "wandered around",
+          "낡은": "old",
+          "자동차": "car",
+          "들을": "object marker",
+          "살펴보았다": "looked at"
+        },
+        "overallTranslation": "Jisoo wandered around the junkyard, examining the old cars."
+      },
+      {
+        "korean": "그때, 갑자기 낡은 자동차 문이 쾅 소리를 내며 열렸다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "낡은": "old",
+          "자동차": "car",
+          "문": "door",
+          "이": "it",
+          "쾅": "bang",
+          "소리": "sound",
+          "를": "object marker",
+          "내며": "making",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, an old car door slammed open."
+      },
+      {
+        "korean": "지수는 놀라서 뒤로 넘어졌고, 차 안에서 희미한 웃음소리가 들려왔다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "차": "car",
+          "안": "inside",
+          "에서": "from",
+          "희미한": "faint",
+          "웃음소리": "laughter",
+          "가": "it",
+          "들려왔다": "could be heard"
+        },
+        "overallTranslation": "Jisoo fell backward in surprise, and a faint laughter could be heard from inside the car."
+      },
+      {
+        "korean": "지수는 몸을 떨며 폐차장에서 황급히 도망쳤다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "몸": "body",
+          "을": "object marker",
+          "떨며": "trembling",
+          "폐차장": "junkyard",
+          "에서": "from",
+          "황급히": "hurriedly",
+          "도망쳤다": "ran away"
+        },
+        "overallTranslation": "Jisoo, trembling, ran away from the junkyard as fast as she could."
+      }
+    ],
+    "id": 2045
   },
   {
     "generator": "korean-gap-story-9-low-fantasy-gemini",
@@ -23566,7 +32374,85 @@
         "hanjaro": "그들은 우리에게 숲 속의 이야기를 들려주었고, 우리는 따뜻한 밤을 보냈습니다.\n"
       }
     ],
-    "id": 1944
+    "id": 2046
+  },
+  {
+    "generator": "korean-gap-story-9-military-gemini",
+    "input": "pseudo",
+    "problem": "어두운 밤, 낡은 군사 기지에 두 명의 군인이 서 있었다.<br> 그들은 적의 움직임을 감시하고 있었다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 하늘에서 낯선 비행기가 나타났다.<br> 그것은 적의 비행기가 아니었다. 그것은 아군의 비행기였지만, 적군의 위장을 한 ‘가짜’ 비행기였다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 군사 기지에 두 명의 군인이 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "군사": "military",
+          "기지": "base",
+          "두": "two",
+          "명": "people",
+          "군인": "soldier",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, two soldiers stood at an old military base."
+      },
+      {
+        "korean": "그들은 적의 움직임을 감시하고 있었다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "적": "enemy",
+          "움직임": "movement",
+          "감시": "monitoring",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "They were monitoring the enemy's movements."
+      },
+      {
+        "korean": "갑자기, 하늘에서 낯선 비행기가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "낯선": "strange",
+          "비행기": "airplane",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a strange airplane appeared in the sky."
+      },
+      {
+        "korean": "그것은 적의 비행기가 아니었다. 그것은 아군의 비행기였지만, 적군의 위장을 한 ‘가짜’ 비행기였다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "적": "enemy",
+          "비행기": "airplane",
+          "아니었다": "was not",
+          "아군": "ally",
+          "였지만": "but",
+          "적군": "enemy army",
+          "위장": "disguise",
+          "한": "done",
+          "가짜": "fake",
+          "였다": "was"
+        },
+        "overallTranslation": "It wasn't an enemy airplane. It was an allied airplane, but it was a 'fake' airplane disguised as an enemy."
+      },
+      {
+        "korean": "두 군인은 놀랐지만, 곧 적의 함정을 알아차렸다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "군인": "soldier",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "적": "enemy",
+          "함정": "trap",
+          "알아차렸다": "realized"
+        },
+        "overallTranslation": "The two soldiers were surprised, but they soon realized the enemy's trap."
+      }
+    ],
+    "id": 2047
   },
   {
     "generator": "korean-gap-story-9-mystery-gemini",
@@ -23639,7 +32525,7 @@
         "hanjaro": "그는 이제 더 이상(以上) 도망치지 않을 것이다.\n"
       }
     ],
-    "id": 1945
+    "id": 2048
   },
   {
     "generator": "korean-gap-story-9-noir-gemini",
@@ -23725,7 +32611,7 @@
         "hanjaro": "“야, 너 혹시(或是) 그 쪽팔린 일, 아직도 기억나냐?”\n"
       }
     ],
-    "id": 1946
+    "id": 2049
   },
   {
     "generator": "korean-gap-story-9-post-apocalyptic-gemini",
@@ -23794,7 +32680,7 @@
         "overallTranslation": "Yujin ran through the ruins with an anxious heart."
       }
     ],
-    "id": 1947
+    "id": 2050
   },
   {
     "generator": "korean-gap-story-9-renaissance-gemini",
@@ -23875,7 +32761,7 @@
         "hanjaro": "그때, 은수(隱修)는 떨어진 잎들을 이용(利用)해 음식(飮食)을 장식(裝飾)해야겠다는 생각이 들었습니다.\n"
       }
     ],
-    "id": 1948
+    "id": 2051
   },
   {
     "generator": "korean-gap-story-9-romantic-gemini",
@@ -23958,7 +32844,7 @@
         "overallTranslation": "Minjun hesitated. Her eyes were filled with deep sadness and desperation."
       }
     ],
-    "id": 1949
+    "id": 2052
   },
   {
     "generator": "korean-gap-story-9-science-fiction-gemini",
@@ -24037,7 +32923,7 @@
         "hanjaro": "지수는 신기한 멜로디에 몸을 맡기고 밤하늘을 바라보았어요.\n"
       }
     ],
-    "id": 1950
+    "id": 2053
   },
   {
     "generator": "korean-gap-story-9-urban-gemini",
@@ -24152,7 +33038,107 @@
         "hanjaro": "순간(瞬間), 지하철역(地下鐵驛)은 아수라장(阿修羅場)으로 변(變)했고,  deafening 소리는 모든 것을 삼켜 버렸다.\n"
       }
     ],
-    "id": 1951
+    "id": 2054
+  },
+  {
+    "generator": "korean-gap-story-9-western-gemini",
+    "input": "lineup",
+    "problem": "햇살 가득한 서부의 작은 마을에, 낡은 목조 건물 앞에 사람들이 줄을 서 있었습니다.<br> 그들은 땀 흘리며 먼지 덮인 모자를 쓰고 있었고, 긴 총을 든 채 서 있었습니다.<br> <ruled-line></ruled-line><br> <ruled-line></ruled-line><br> 갑자기, 건물 문이 쾅하고 열리며 거대한 곰이 뛰쳐나왔습니다.<br> 사람들은 놀라서 비명을 질렀고, 총을 쏘며 곰을 향해 달려갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 서부의 작은 마을에, 낡은 목조 건물 앞에 사람들이 줄을 서 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "서부": "western",
+          "작은": "small",
+          "마을": "town",
+          "에": "at",
+          "낡은": "old",
+          "목조": "wooden",
+          "건물": "building",
+          "앞에": "in front of",
+          "사람들": "people",
+          "줄": "line",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a small western town bathed in sunshine, people stood in line in front of an old wooden building."
+      },
+      {
+        "korean": "그들은 땀 흘리며 먼지 덮인 모자를 쓰고 있었고, 긴 총을 든 채 서 있었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "땀": "sweat",
+          "흘리며": "while sweating",
+          "먼지": "dust",
+          "덮인": "covered",
+          "모자": "hat",
+          "쓰고": "wearing",
+          "있었고": "and",
+          "긴": "long",
+          "총": "gun",
+          "든": "holding",
+          "채": "while",
+          "서": "standing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were sweating, wearing dust-covered hats and standing with long guns in their hands."
+      },
+      {
+        "korean": "갑자기, 건물 문이 쾅하고 열리며 거대한 곰이 뛰쳐나왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "건물": "building",
+          "문": "door",
+          "이": "that",
+          "쾅": "bang",
+          "하고": "and",
+          "열리며": "opening",
+          "거대한": "huge",
+          "곰": "bear",
+          "뛰쳐나왔습니다": "rushed out"
+        },
+        "overallTranslation": "Suddenly, the building door burst open and a huge bear rushed out."
+      },
+      {
+        "korean": "사람들은 놀라서 비명을 질렀고, 총을 쏘며 곰을 향해 달려갔습니다.",
+        "wordByWordTranslation": {
+          "사람들": "people",
+          "은": "are",
+          "놀라서": "surprised",
+          "비명": "scream",
+          "을": "object",
+          "질렀고": "shouted",
+          "총": "gun",
+          "쏘며": "shooting",
+          "곰": "bear",
+          "향해": "towards",
+          "달려갔습니다": "ran"
+        },
+        "overallTranslation": "The people screamed in surprise and ran towards the bear, firing their guns."
+      },
+      {
+        "korean": "하지만 곰은 아무렇지도 않게 총알을 피하고, 곧장 마을 사람들을 향해 돌진했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "곰": "bear",
+          "은": "is",
+          "아무렇지도": "not",
+          "않게": "at all",
+          "총알": "bullet",
+          "을": "object",
+          "피하고": "dodging",
+          "곧장": "straight",
+          "마을": "town",
+          "사람들": "people",
+          "향해": "towards",
+          "돌진했습니다": "charged"
+        },
+        "overallTranslation": "But the bear dodged the bullets without a care and charged straight at the townspeople."
+      }
+    ],
+    "id": 2055
   },
   {
     "generator": "korean-story-1-bounty-hunter-gemini",
@@ -24227,7 +33213,79 @@
         "hanjaro": "하지만, 문(門) 밖에는 아무도 없었어요.\n"
       }
     ],
-    "id": 1952
+    "id": 2056
+  },
+  {
+    "generator": "korean-story-1-dystopian-gemini",
+    "input": "surfing",
+    "problem": "햇살 가득한 해변에 서핑 보드를 든 사람들이 많았어요.<br> 파도가 넘실넘실 춤을 추며 해변으로 다가왔어요.<br> 그런데 갑자기 하늘이 검게 변하며 괴물이 나타났어요!<br> 괴물은 커다란 입을 벌리고 서핑 보드를 삼켜 버렸어요.<br> 사람들은 모두 겁에 질려 도망갔어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 해변에 서핑 보드를 든 사람들이 많았어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "full",
+          "해변에": "beach",
+          "서핑": "surfing",
+          "보드를": "board",
+          "든": "holding",
+          "사람들이": "people",
+          "많았어요": "were many"
+        },
+        "overallTranslation": "There were many people holding surfboards on the sunny beach."
+      },
+      {
+        "korean": "파도가 넘실넘실 춤을 추며 해변으로 다가왔어요.",
+        "wordByWordTranslation": {
+          "파도가": "waves",
+          "넘실넘실": "swaying",
+          "춤을": "dance",
+          "추며": "dancing",
+          "해변으로": "to the beach",
+          "다가왔어요": "came"
+        },
+        "overallTranslation": "The waves swayed and danced, approaching the beach."
+      },
+      {
+        "korean": "그런데 갑자기 하늘이 검게 변하며 괴물이 나타났어요!",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "갑자기": "suddenly",
+          "하늘이": "sky",
+          "검게": "black",
+          "변하며": "changing",
+          "괴물이": "monster",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "But suddenly, the sky turned black and a monster appeared!"
+      },
+      {
+        "korean": "괴물은 커다란 입을 벌리고 서핑 보드를 삼켜 버렸어요.",
+        "wordByWordTranslation": {
+          "괴물은": "monster",
+          "커다란": "huge",
+          "입을": "mouth",
+          "벌리고": "opening",
+          "서핑": "surfing",
+          "보드를": "board",
+          "삼켜": "swallowed",
+          "버렸어요": "it"
+        },
+        "overallTranslation": "The monster opened its huge mouth and swallowed the surfboards."
+      },
+      {
+        "korean": "사람들은 모두 겁에 질려 도망갔어요.",
+        "wordByWordTranslation": {
+          "사람들은": "people",
+          "모두": "all",
+          "겁에": "fear",
+          "질려": "scared",
+          "도망갔어요": "ran away"
+        },
+        "overallTranslation": "Everyone was scared and ran away."
+      }
+    ],
+    "id": 2057
   },
   {
     "generator": "korean-story-1-gunslinger-gemini",
@@ -24299,7 +33357,99 @@
         "hanjaro": "그는 반사적(反射的)으로 총(銃)을 뽑아 들었습니다.\n"
       }
     ],
-    "id": 1953
+    "id": 2058
+  },
+  {
+    "generator": "korean-story-1-high-fantasy-gemini",
+    "input": "instrumental",
+    "problem": "어두운 숲 속에서, 엘라는 작은 악기를 연주하고 있었어요.<br> 그녀의 음악은 아름다웠고, 숲속 동물들은 모두 엘라의 음악에 귀 기울였어요.<br> 갑자기, 숲은 환하게 빛났고, 엘라는 눈을 가늘게 뜨며 주위를 둘러보았어요.<br> 그녀의 악기가 빛나는 빛을 내뿜고 있었고, 엘라는 놀라서 악기를 떨어뜨렸어요.<br> 숲속 동물들은 모두 엘라를 신기하게 바라보았고, 엘라는 이제 자신이 특별한 힘을 가진 악기를 연주하고 있다는 것을 알았어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 엘라는 작은 악기를 연주하고 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "엘라": "Ella",
+          "작은": "small",
+          "악기": "instrument",
+          "연주": "play",
+          "하고": "do",
+          "있었어요": "was"
+        },
+        "overallTranslation": "In the dark forest, Ella was playing a small instrument."
+      },
+      {
+        "korean": "그녀의 음악은 아름다웠고, 숲속 동물들은 모두 엘라의 음악에 귀 기울였어요.",
+        "wordByWordTranslation": {
+          "그녀": "her",
+          "음악": "music",
+          "아름다웠고": "was beautiful",
+          "숲속": "forest",
+          "동물": "animals",
+          "모두": "all",
+          "엘라": "Ella",
+          "귀": "ear",
+          "기울였어요": "tilted"
+        },
+        "overallTranslation": "Her music was beautiful, and all the forest animals listened to Ella's music."
+      },
+      {
+        "korean": "갑자기, 숲은 환하게 빛났고, 엘라는 눈을 가늘게 뜨며 주위를 둘러보았어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "숲": "forest",
+          "환하게": "brightly",
+          "빛났고": "shone",
+          "엘라": "Ella",
+          "눈": "eye",
+          "가늘게": "narrowly",
+          "뜨며": "opening",
+          "주위": "surroundings",
+          "둘러보았어요": "looked around"
+        },
+        "overallTranslation": "Suddenly, the forest shone brightly, and Ella narrowed her eyes and looked around."
+      },
+      {
+        "korean": "그녀의 악기가 빛나는 빛을 내뿜고 있었고, 엘라는 놀라서 악기를 떨어뜨렸어요.",
+        "wordByWordTranslation": {
+          "그녀": "her",
+          "악기": "instrument",
+          "빛나는": "shining",
+          "빛": "light",
+          "내뿜고": "emitting",
+          "있었고": "was",
+          "엘라": "Ella",
+          "놀라서": "surprised",
+          "떨어뜨렸어요": "dropped"
+        },
+        "overallTranslation": "Her instrument was emitting a shining light, and Ella dropped it in surprise."
+      },
+      {
+        "korean": "숲속 동물들은 모두 엘라를 신기하게 바라보았고, 엘라는 이제 자신이 특별한 힘을 가진 악기를 연주하고 있다는 것을 알았어요.",
+        "wordByWordTranslation": {
+          "숲속": "forest",
+          "동물": "animals",
+          "모두": "all",
+          "엘라": "Ella",
+          "신기하게": "curiously",
+          "바라보았고": "looked",
+          "이제": "now",
+          "자신": "herself",
+          "특별한": "special",
+          "힘": "power",
+          "가진": "possessing",
+          "악기": "instrument",
+          "연주": "playing",
+          "하고": "doing",
+          "있다는": "that",
+          "것을": "thing",
+          "알았어요": "knew"
+        },
+        "overallTranslation": "All the forest animals looked at Ella curiously, and Ella now knew that she was playing an instrument with special powers."
+      }
+    ],
+    "id": 2059
   },
   {
     "generator": "korean-story-1-horror-gemini",
@@ -24365,7 +33515,7 @@
         "overallTranslation": "But there was no one there."
       }
     ],
-    "id": 1954
+    "id": 2060
   },
   {
     "generator": "korean-story-1-military-gemini",
@@ -24445,7 +33595,7 @@
         "hanjaro": "그는 칼 대신(代身) 망치를 들고 전쟁터(戰爭터)로 달려갔습니다.\n"
       }
     ],
-    "id": 1955
+    "id": 2061
   },
   {
     "generator": "korean-story-1-military-gemini",
@@ -24526,7 +33676,86 @@
         "hanjaro": "그들은 총(銃)을 들고, 적(敵)과 맞서 싸우기로 결심(決心)했습니다.\n"
       }
     ],
-    "id": 1956
+    "id": 2062
+  },
+  {
+    "generator": "korean-story-1-military-gemini",
+    "input": "reflective",
+    "problem": "밤하늘은 맑았고, 별들이 반짝였습니다.<br> 김 대위는 참호에 앉아서 먼 산을 바라보았습니다.<br> 갑자기 포탄이 터지면서 땅이 흔들렸습니다.<br> 김 대위는 놀랐지만, 곧 다시 침착해졌습니다.<br> 그는 먼 산을 바라보며, 오늘 밤도 무사히 지나가기를 바랐습니다.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘은 맑았고, 별들이 반짝였습니다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "은": "is",
+          "맑았고": "clear and",
+          "별": "stars",
+          "들이": "they",
+          "반짝였습니다": "twinkled"
+        },
+        "overallTranslation": "The night sky was clear, and the stars twinkled."
+      },
+      {
+        "korean": "김 대위는 참호에 앉아서 먼 산을 바라보았습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "참호": "trench",
+          "에": "in",
+          "앉아서": "sitting",
+          "먼": "distant",
+          "산": "mountain",
+          "을": "object marker",
+          "바라보았습니다": "looked at"
+        },
+        "overallTranslation": "Captain Kim sat in the trench and looked at the distant mountains."
+      },
+      {
+        "korean": "갑자기 포탄이 터지면서 땅이 흔들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "포탄": "shell",
+          "이": "subject marker",
+          "터지면서": "exploding",
+          "땅": "ground",
+          "흔들렸습니다": "shook"
+        },
+        "overallTranslation": "Suddenly, a shell exploded, making the ground shake."
+      },
+      {
+        "korean": "김 대위는 놀랐지만, 곧 다시 침착해졌습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "다시": "again",
+          "침착해졌습니다": "became calm"
+        },
+        "overallTranslation": "Captain Kim was surprised, but he soon regained his composure."
+      },
+      {
+        "korean": "그는 먼 산을 바라보며, 오늘 밤도 무사히 지나가기를 바랐습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "먼": "distant",
+          "산": "mountain",
+          "을": "object marker",
+          "바라보며": "looking at",
+          "오늘": "today",
+          "밤": "night",
+          "도": "also",
+          "무사히": "safely",
+          "지나가기를": "to pass",
+          "바랐습니다": "wished"
+        },
+        "overallTranslation": "He looked at the distant mountains and wished that this night would pass safely."
+      }
+    ],
+    "id": 2063
   },
   {
     "generator": "korean-story-1-paranormal-gemini",
@@ -24602,7 +33831,235 @@
         "hanjaro": "은수(隱修)는 점괘(占卦)의 힘에 놀랐고, 밤길이 더 이상(以上) 무섭지 않았어요.\n"
       }
     ],
-    "id": 1957
+    "id": 2064
+  },
+  {
+    "generator": "korean-story-1-paranormal-gemini",
+    "input": "classic",
+    "problem": "낡은 서점에 희미한 불빛이 비추고 있었어요.<br> 민수는 먼지 쌓인 책장 사이를 걷고 있었어요.<br> 갑자기 책장에서 섬뜩한 소리가 들렸어요.<br> 책장이 흔들리고 먼지가 솟아올랐어요.<br> 민수는 무서워서 뒤로 물러섰어요.<br>",
+    "solution": [
+      {
+        "korean": "낡은 서점에 희미한 불빛이 비추고 있었어요.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "서점": "bookstore",
+          "에": "at",
+          "희미한": "faint",
+          "불빛": "light",
+          "이": "it",
+          "비추고": "shining",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Faint light shone in the old bookstore."
+      },
+      {
+        "korean": "민수는 먼지 쌓인 책장 사이를 걷고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "먼지": "dust",
+          "쌓인": "covered",
+          "책장": "bookshelf",
+          "사이": "between",
+          "를": "the",
+          "걷고": "walking",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was walking between the dusty bookshelves."
+      },
+      {
+        "korean": "갑자기 책장에서 섬뜩한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "책장": "bookshelf",
+          "에서": "from",
+          "섬뜩한": "chilling",
+          "소리": "sound",
+          "가": "that",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chilling sound came from the bookshelf."
+      },
+      {
+        "korean": "책장이 흔들리고 먼지가 솟아올랐어요.",
+        "wordByWordTranslation": {
+          "책장": "bookshelf",
+          "이": "it",
+          "흔들리고": "shaking",
+          "먼지": "dust",
+          "가": "that",
+          "솟아올랐어요": "rose"
+        },
+        "overallTranslation": "The bookshelf shook and dust rose."
+      },
+      {
+        "korean": "민수는 무서워서 뒤로 물러섰어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "무서워서": "because of fear",
+          "뒤로": "backwards",
+          "물러섰어요": "stepped back"
+        },
+        "overallTranslation": "Minsu stepped back in fear."
+      }
+    ],
+    "id": 2065
+  },
+  {
+    "generator": "korean-story-1-political-gemini",
+    "input": "injunction",
+    "problem": "민준이는 법원 앞에서 긴장한 표정으로 서 있었습니다.<br> 그는 오늘 중요한 재판을 앞두고 있었거든요.<br> 갑자기 법원 문이 열리고 판사님이 나오셨습니다.<br> 판사님은 민준이에게 재판을 연기한다는 소식을 전했습니다.<br> 민준이는 안도의 한숨을 쉬었습니다.<br>",
+    "solution": [
+      {
+        "korean": "민준이는 법원 앞에서 긴장한 표정으로 서 있었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "법원": "court",
+          "앞에서": "in front of",
+          "긴장한": "tense",
+          "표정": "expression",
+          "으로": "with",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Minjun stood in front of the court with a tense expression."
+      },
+      {
+        "korean": "그는 오늘 중요한 재판을 앞두고 있었거든요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "오늘": "today",
+          "중요한": "important",
+          "재판": "trial",
+          "을": "to",
+          "앞두고": "be facing",
+          "있었거든요": "was"
+        },
+        "overallTranslation": "He was facing an important trial today."
+      },
+      {
+        "korean": "갑자기 법원 문이 열리고 판사님이 나오셨습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "법원": "court",
+          "문": "door",
+          "이": "that",
+          "열리고": "opened",
+          "판사님": "judge",
+          "나오셨습니다": "came out"
+        },
+        "overallTranslation": "Suddenly, the court door opened and the judge came out."
+      },
+      {
+        "korean": "판사님은 민준이에게 재판을 연기한다는 소식을 전했습니다.",
+        "wordByWordTranslation": {
+          "판사님": "judge",
+          "은": "is",
+          "민준이": "Minjun",
+          "에게": "to",
+          "재판": "trial",
+          "을": "to",
+          "연기한다": "postpone",
+          "는": "that",
+          "소식": "news",
+          "전했습니다": "told"
+        },
+        "overallTranslation": "The judge told Minjun that the trial would be postponed."
+      },
+      {
+        "korean": "민준이는 안도의 한숨을 쉬었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "안도": "relief",
+          "의": "of",
+          "한숨": "sigh",
+          "을": "to",
+          "쉬었습니다": "breathed"
+        },
+        "overallTranslation": "Minjun breathed a sigh of relief."
+      }
+    ],
+    "id": 2066
+  },
+  {
+    "generator": "korean-story-1-political-gemini",
+    "input": "hoax",
+    "problem": "민수는 친구와 함께 공원에서 놀고 있었어요.<br> 갑자기 뉴스에서 큰 소리가 들렸어요.<br> 외계인이 지구를 침공했다는 거짓말이었어요!<br> 사람들은 모두 놀랐지만, 곧 웃음을 터뜨렸어요.<br> 민수와 친구는 다시 신나게 놀았어요.<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구와 함께 공원에서 놀고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "공원": "park",
+          "에서": "at",
+          "놀고": "playing",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was playing with his friend at the park."
+      },
+      {
+        "korean": "갑자기 뉴스에서 큰 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "뉴스": "news",
+          "에서": "from",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a loud sound came from the news."
+      },
+      {
+        "korean": "외계인이 지구를 침공했다는 거짓말이었어요!",
+        "wordByWordTranslation": {
+          "외계인": "alien",
+          "이": "that",
+          "지구": "Earth",
+          "를": "to",
+          "침공": "invasion",
+          "했다는": "that",
+          "거짓말": "lie",
+          "이었어요": "was"
+        },
+        "overallTranslation": "It was a lie that aliens had invaded Earth!"
+      },
+      {
+        "korean": "사람들은 모두 놀랐지만, 곧 웃음을 터뜨렸어요.",
+        "wordByWordTranslation": {
+          "사람들": "people",
+          "은": "are",
+          "모두": "all",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "웃음": "laughter",
+          "을": "to",
+          "터뜨렸어요": "burst out"
+        },
+        "overallTranslation": "People were all surprised, but soon they burst out laughing."
+      },
+      {
+        "korean": "민수와 친구는 다시 신나게 놀았어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "와": "and",
+          "친구": "friend",
+          "는": "are",
+          "다시": "again",
+          "신나게": "happily",
+          "놀았어요": "played"
+        },
+        "overallTranslation": "Minsu and his friend played happily again."
+      }
+    ],
+    "id": 2067
   },
   {
     "generator": "korean-story-1-romantic-gemini",
@@ -24672,7 +34129,7 @@
         "hanjaro": "혜진이는 그 목소리에 반했어요.\n"
       }
     ],
-    "id": 1958
+    "id": 2068
   },
   {
     "generator": "korean-story-1-slasher-gemini",
@@ -24760,7 +34217,7 @@
         "overallTranslation": "The stranger said to Minsu, “All people are the same.”"
       }
     ],
-    "id": 1959
+    "id": 2069
   },
   {
     "generator": "korean-story-1-slice-of-life-gemini",
@@ -24839,7 +34296,7 @@
         "hanjaro": "지수는 숨바꼭질을 좀 더 재미있게 만들고 싶었던 거예요.\n"
       }
     ],
-    "id": 1960
+    "id": 2070
   },
   {
     "generator": "korean-story-1-supernatural-mystery-gemini",
@@ -24915,7 +34372,7 @@
         "hanjaro": "책(冊) 표지(表紙)에는 '능력자(能力者)'라고 쓰여 있었어요.\n"
       }
     ],
-    "id": 1961
+    "id": 2071
   },
   {
     "generator": "korean-story-1-thriller-gemini",
@@ -24984,7 +34441,7 @@
         "overallTranslation": "The hand said, “Help me!”"
       }
     ],
-    "id": 1962
+    "id": 2072
   },
   {
     "generator": "korean-story-10-alternate-reality-gemini",
@@ -25067,7 +34524,84 @@
         "hanjaro": "하지만 그림자는 사라졌고, 민수의 손에는 낡은 지도(地圖)만 남았다.\n"
       }
     ],
-    "id": 1963
+    "id": 2073
+  },
+  {
+    "generator": "korean-story-10-comic book-gemini",
+    "input": "discover",
+    "problem": "맑은 날, 민수는 산책을 하러 나갔습니다.<br> 그는 숲길을 따라 걸으며 아름다운 자연을 감상했습니다.<br> 갑자기, 민수는 땅에서 반짝이는 것을 발견했습니다.<br> 그것은 작은 금색 열쇠였습니다.<br> 민수는 신비로운 열쇠를 손에 쥐고 미소를 지었습니다.<br>",
+    "solution": [
+      {
+        "korean": "맑은 날, 민수는 산책을 하러 나갔습니다.",
+        "wordByWordTranslation": {
+          "맑은": "clear",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "산책": "walk",
+          "을": "object marker",
+          "하러": "to do",
+          "나갔습니다": "went out"
+        },
+        "overallTranslation": "On a clear day, Minsu went out for a walk."
+      },
+      {
+        "korean": "그는 숲길을 따라 걸으며 아름다운 자연을 감상했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "숲길": "forest path",
+          "을": "object marker",
+          "따라": "following",
+          "걸으며": "walking",
+          "아름다운": "beautiful",
+          "자연": "nature",
+          "감상했습니다": "enjoyed"
+        },
+        "overallTranslation": "He walked along the forest path, enjoying the beautiful nature."
+      },
+      {
+        "korean": "갑자기, 민수는 땅에서 반짝이는 것을 발견했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "민수": "Minsu",
+          "는": "is",
+          "땅": "ground",
+          "에서": "from",
+          "반짝이는": "sparkling",
+          "것": "thing",
+          "을": "object marker",
+          "발견했습니다": "discovered"
+        },
+        "overallTranslation": "Suddenly, Minsu discovered something sparkling on the ground."
+      },
+      {
+        "korean": "그것은 작은 금색 열쇠였습니다.",
+        "wordByWordTranslation": {
+          "그것은": "it was",
+          "작은": "small",
+          "금색": "gold",
+          "열쇠": "key",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It was a small gold key."
+      },
+      {
+        "korean": "민수는 신비로운 열쇠를 손에 쥐고 미소를 지었습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "신비로운": "mysterious",
+          "열쇠": "key",
+          "를": "object marker",
+          "손에": "in hand",
+          "쥐고": "holding",
+          "미소": "smile",
+          "지었습니다": "made"
+        },
+        "overallTranslation": "Minsu smiled, holding the mysterious key in his hand."
+      }
+    ],
+    "id": 2074
   },
   {
     "generator": "korean-story-10-cosmic-horror-gemini",
@@ -25164,7 +34698,111 @@
         "hanjaro": "의사(醫師)는 몸이 굳은 채, 진료실(診療室) 문(門)이 닫히는 소리만 들었다.\n"
       }
     ],
-    "id": 1964
+    "id": 2075
+  },
+  {
+    "generator": "korean-story-10-cyberpunk-gemini",
+    "input": "serum",
+    "problem": "어두운 골목길에서, 희미한 네온사인 불빛 아래, 젊은 해커 ‘진’은 숨죽인 채 움직였다.<br> 그는 손에 든 작은 주사기를 꽉 움켜쥐고, 낡은 건물 벽에 붙은 센서를 향해 조심스럽게 다가갔다.<br> 하지만 갑자기 어둠 속에서 거대한 그림자가 나타났다.<br> 그림자는 “멈춰! 그 혈청은 위험해!”라고 외쳤고, 진은 깜짝 놀라 주사기를 떨어뜨렸다.<br> 그림자는 다름 아닌 진의 오랜 친구이자 라이벌인 ‘엘리’였다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 희미한 네온사인 불빛 아래, 젊은 해커 ‘진’은 숨죽인 채 움직였다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "희미한": "dim",
+          "네온사인": "neon sign",
+          "불빛": "light",
+          "아래": "below",
+          "젊은": "young",
+          "해커": "hacker",
+          "‘진’": "'Jin'",
+          "은": "is",
+          "숨죽인": "holding his breath",
+          "채": "while",
+          "움직였다": "moved"
+        },
+        "overallTranslation": "In a dark alleyway, under the dim light of a neon sign, the young hacker 'Jin' moved with bated breath."
+      },
+      {
+        "korean": "그는 손에 든 작은 주사기를 꽉 움켜쥐고, 낡은 건물 벽에 붙은 센서를 향해 조심스럽게 다가갔다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "손에": "in his hand",
+          "든": "held",
+          "작은": "small",
+          "주사기": "syringe",
+          "를": "object marker",
+          "꽉": "tightly",
+          "움켜쥐고": "gripped",
+          "낡은": "old",
+          "건물": "building",
+          "벽": "wall",
+          "에": "on",
+          "붙은": "attached",
+          "센서": "sensor",
+          "향해": "toward",
+          "조심스럽게": "carefully",
+          "다가갔다": "approached"
+        },
+        "overallTranslation": "He held a small syringe tightly in his hand and cautiously approached the sensor attached to the wall of the old building."
+      },
+      {
+        "korean": "하지만 갑자기 어둠 속에서 거대한 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "갑자기": "suddenly",
+          "어둠": "darkness",
+          "속에서": "from",
+          "거대한": "huge",
+          "그림자": "shadow",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "But suddenly, a huge shadow emerged from the darkness."
+      },
+      {
+        "korean": "그림자는 “멈춰! 그 혈청은 위험해!”라고 외쳤고, 진은 깜짝 놀라 주사기를 떨어뜨렸다.",
+        "wordByWordTranslation": {
+          "그림자": "The shadow",
+          "는": "subject marker",
+          "“멈춰!”": "“Stop!”",
+          "그": "that",
+          "혈청": "serum",
+          "은": "is",
+          "위험해": "dangerous",
+          "라고": "said",
+          "외쳤고": "shouted",
+          "진": "Jin",
+          "깜짝": "surprised",
+          "놀라": "surprised",
+          "주사기": "syringe",
+          "를": "object marker",
+          "떨어뜨렸다": "dropped"
+        },
+        "overallTranslation": "The shadow yelled, “Stop! That serum is dangerous!”, and Jin, startled, dropped the syringe."
+      },
+      {
+        "korean": "그림자는 다름 아닌 진의 오랜 친구이자 라이벌인 ‘엘리’였다.",
+        "wordByWordTranslation": {
+          "그림자": "The shadow",
+          "는": "is",
+          "다름": "other",
+          "아닌": "than",
+          "진": "Jin",
+          "의": "possessive particle",
+          "오랜": "long-time",
+          "친구": "friend",
+          "이자": "and",
+          "라이벌": "rival",
+          "인": "is",
+          "‘엘리’": "'Eli'"
+        },
+        "overallTranslation": "The shadow was none other than 'Eli', Jin's long-time friend and rival."
+      }
+    ],
+    "id": 2076
   },
   {
     "generator": "korean-story-10-drama-gemini",
@@ -25259,7 +34897,7 @@
         "hanjaro": "문화(文化)는 때로는 불편(不便)함 속에서도 새로운 가치(價値)를 발견(發見)할 수 있다는 것을 깨달았습니다.\n"
       }
     ],
-    "id": 1965
+    "id": 2077
   },
   {
     "generator": "korean-story-10-fantasy-gemini",
@@ -25359,7 +34997,256 @@
         "hanjaro": "그 빛은 늑대의 강(剛)한 근육(筋肉)을 약(弱)하게 만들었고, 늑대는 땅에 쓰러졌다.\n"
       }
     ],
-    "id": 1966
+    "id": 2078
+  },
+  {
+    "generator": "korean-story-10-fantasy-gemini",
+    "input": "glance",
+    "problem": "어두운 숲 속에서, 한 소녀가 조심스럽게 발걸음을 옮기고 있었습니다.<br> 그녀는 숲의 정령이 나타날까 봐 두려웠지만, 아름다운 꽃들을 보며 용기를 내었습니다.<br> 그때, 숲의 가장자리에서 빛이 번쩍였습니다.<br> 빛은 한 남자의 눈빛이었고, 그는 소녀를 향해 미소를 지었습니다.<br> 소녀는 그 남자의 따뜻한 눈빛에 마음이 풀렸고, 두려움은 사라졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 조심스럽게 발걸음을 옮기고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "in",
+          "한": "one",
+          "소녀가": "girl",
+          "조심스럽게": "carefully",
+          "발걸음을": "footsteps",
+          "옮기고": "moving",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the dark forest, a girl was carefully moving her footsteps."
+      },
+      {
+        "korean": "그녀는 숲의 정령이 나타날까 봐 두려웠지만, 아름다운 꽃들을 보며 용기를 내었습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "숲의": "forest's",
+          "정령이": "spirit",
+          "나타날까": "appear",
+          "봐": "seeing",
+          "두려웠지만": "was afraid but",
+          "아름다운": "beautiful",
+          "꽃들을": "flowers",
+          "보며": "seeing",
+          "용기를": "courage",
+          "내었습니다.": "gathered"
+        },
+        "overallTranslation": "She was afraid that the forest spirit might appear, but she gathered courage seeing the beautiful flowers."
+      },
+      {
+        "korean": "그때, 숲의 가장자리에서 빛이 번쩍였습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "숲의": "forest's",
+          "가장자리에서": "edge",
+          "빛이": "light",
+          "번쩍였습니다.": "flashed"
+        },
+        "overallTranslation": "At that time, a light flashed from the edge of the forest."
+      },
+      {
+        "korean": "빛은 한 남자의 눈빛이었고, 그는 소녀를 향해 미소를 지었습니다.",
+        "wordByWordTranslation": {
+          "빛은": "light was",
+          "한": "one",
+          "남자의": "man's",
+          "눈빛이었고": "eyes",
+          "그는": "he",
+          "소녀를": "girl",
+          "향해": "towards",
+          "미소를": "smile",
+          "지었습니다.": "gave"
+        },
+        "overallTranslation": "The light was a man's eyes, and he gave a smile towards the girl."
+      },
+      {
+        "korean": "소녀는 그 남자의 따뜻한 눈빛에 마음이 풀렸고, 두려움은 사라졌습니다.",
+        "wordByWordTranslation": {
+          "소녀는": "girl",
+          "그": "that",
+          "남자의": "man's",
+          "따뜻한": "warm",
+          "눈빛에": "eyes",
+          "마음이": "heart",
+          "풀렸고": "relaxed",
+          "두려움은": "fear",
+          "사라졌습니다.": "disappeared"
+        },
+        "overallTranslation": "The girl's heart relaxed at the man's warm eyes, and her fear disappeared."
+      }
+    ],
+    "id": 2079
+  },
+  {
+    "generator": "korean-story-10-fantasy-gemini",
+    "input": "subscription",
+    "problem": "어두운 밤, 은수는 낡은 책방에 앉아 있었습니다.<br> 그는 오래된 책들을 탐독하며 시간을 보내고 있었습니다.<br> 갑자기, 책장에서 빛이 뿜어져 나왔습니다.<br> 빛이 사라지자, 은수는 책장 앞에 마법의 문이 생긴 것을 발견했습니다.<br> 그 문은 그를 새로운 세계로 데려가는 구독 서비스의 시작이었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 책방에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수": "Eunsoo",
+          "는": "is",
+          "낡은": "old",
+          "책방": "bookstore",
+          "에": "at",
+          "앉아": "sitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On a dark night, Eunsoo was sitting in an old bookstore."
+      },
+      {
+        "korean": "그는 오래된 책들을 탐독하며 시간을 보내고 있었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "오래된": "old",
+          "책들": "books",
+          "을": "object marker",
+          "탐독하며": "exploring",
+          "시간": "time",
+          "보내고": "spending",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "He was spending his time exploring old books."
+      },
+      {
+        "korean": "갑자기, 책장에서 빛이 뿜어져 나왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "책장": "bookshelf",
+          "에서": "from",
+          "빛": "light",
+          "이": "subject marker",
+          "뿜어져": "bursting",
+          "나왔습니다": "came out"
+        },
+        "overallTranslation": "Suddenly, light burst from the bookshelf."
+      },
+      {
+        "korean": "빛이 사라지자, 은수는 책장 앞에 마법의 문이 생긴 것을 발견했습니다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "이": "subject marker",
+          "사라지자": "disappeared",
+          "은수": "Eunsoo",
+          "는": "is",
+          "책장": "bookshelf",
+          "앞에": "in front of",
+          "마법": "magic",
+          "의": "possessive particle",
+          "문": "door",
+          "생긴": "appeared",
+          "것": "thing",
+          "을": "object marker",
+          "발견했습니다": "discovered"
+        },
+        "overallTranslation": "As the light disappeared, Eunsoo discovered a magical door had appeared in front of the bookshelf."
+      },
+      {
+        "korean": "그 문은 그를 새로운 세계로 데려가는 구독 서비스의 시작이었습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "문": "door",
+          "은": "is",
+          "그를": "him",
+          "새로운": "new",
+          "세계": "world",
+          "로": "to",
+          "데려가는": "taking",
+          "구독": "subscription",
+          "서비스": "service",
+          "의": "possessive particle",
+          "시작": "beginning",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "That door was the beginning of a subscription service that would take him to a new world."
+      }
+    ],
+    "id": 2080
+  },
+  {
+    "generator": "korean-story-10-historical-gemini",
+    "input": "absorbing",
+    "problem": "해가 지기 시작하자, 푸른 하늘은 주황색과 보라색으로 물들었다.<br> 산책로를 따라 걷던 민수는 벤치에 앉아 노을을 바라보았다.<br> 그때, 갑자기 땅이 흔들리기 시작했다.<br> 민수는 놀라서 벤치에서 뛰어내렸고, 주변의 나무들이 격렬하게 흔들렸다.<br> 땅이 갈라지며 깊은 구멍이 생겨났고, 민수는 그 구멍 속으로 빨려 들어갔다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 푸른 하늘은 주황색과 보라색으로 물들었다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작하자": "start",
+          "푸른": "blue",
+          "하늘은": "sky",
+          "주황색": "orange",
+          "과": "and",
+          "보라색": "purple",
+          "으로": "with",
+          "물들었다": "colored"
+        },
+        "overallTranslation": "As the sun began to set, the blue sky was painted with orange and purple."
+      },
+      {
+        "korean": "산책로를 따라 걷던 민수는 벤치에 앉아 노을을 바라보았다.",
+        "wordByWordTranslation": {
+          "산책로를": "path",
+          "따라": "along",
+          "걷던": "walk",
+          "민수는": "Minsu",
+          "벤치에": "bench",
+          "앉아": "sit",
+          "노을을": "sunset",
+          "바라보았다": "looked at"
+        },
+        "overallTranslation": "Minsu, walking along the path, sat on a bench and gazed at the sunset."
+      },
+      {
+        "korean": "그때, 갑자기 땅이 흔들리기 시작했다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "갑자기": "suddenly",
+          "땅이": "ground",
+          "흔들리기": "shake",
+          "시작했다": "started"
+        },
+        "overallTranslation": "Then, suddenly, the ground began to shake."
+      },
+      {
+        "korean": "민수는 놀라서 벤치에서 뛰어내렸고, 주변의 나무들이 격렬하게 흔들렸다.",
+        "wordByWordTranslation": {
+          "민수는": "Minsu",
+          "놀라서": "surprised",
+          "벤치에서": "from bench",
+          "뛰어내렸고": "jumped down",
+          "주변의": "surrounding",
+          "나무들이": "trees",
+          "격렬하게": "violently",
+          "흔들렸다": "shook"
+        },
+        "overallTranslation": "Minsu jumped off the bench in surprise, and the surrounding trees shook violently."
+      },
+      {
+        "korean": "땅이 갈라지며 깊은 구멍이 생겨났고, 민수는 그 구멍 속으로 빨려 들어갔다.",
+        "wordByWordTranslation": {
+          "땅이": "ground",
+          "갈라지며": "splitting",
+          "깊은": "deep",
+          "구멍이": "hole",
+          "생겨났고": "appeared",
+          "민수는": "Minsu",
+          "그": "that",
+          "구멍 속으로": "into hole",
+          "빨려": "sucked",
+          "들어갔다": "went"
+        },
+        "overallTranslation": "The ground split open, creating a deep hole, and Minsu was sucked into it."
+      }
+    ],
+    "id": 2081
   },
   {
     "generator": "korean-story-10-horror-gemini",
@@ -25435,7 +35322,7 @@
         "hanjaro": "공기(空氣)는 차가워지고, 웃음소리는 더욱 섬뜩하게 느껴졌습니다.\n"
       }
     ],
-    "id": 1967
+    "id": 2082
   },
   {
     "generator": "korean-story-10-low-fantasy-gemini",
@@ -25521,7 +35408,340 @@
         "hanjaro": "민수는 놀란 눈으로 문(門)을 바라보며, 숨을 크게 들이켰습니다.\n"
       }
     ],
-    "id": 1968
+    "id": 2083
+  },
+  {
+    "generator": "korean-story-10-medieval-gemini",
+    "input": "concave",
+    "problem": "어두운 밤, 낡은 성의 탑 꼭대기에 한 남자가 서 있었다.<br> 그는 멀리 떨어진 마을을 내려다보며 깊은 생각에 잠겼다.<br> 갑자기, 탑의 벽이 움푹 들어가기 시작했다.<br> 남자는 놀라서 뒤로 넘어졌고, 탑 안으로 빨려 들어갔다.<br> 그는 어둠 속에서 희미한 빛을 발견했고, 그 빛은 그를 끌어당겼다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 성의 탑 꼭대기에 한 남자가 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "성": "castle",
+          "탑": "tower",
+          "꼭대기": "top",
+          "에": "at",
+          "한": "one",
+          "남자": "man",
+          "가": "subject marker",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, a man stood at the top of the old castle tower."
+      },
+      {
+        "korean": "그는 멀리 떨어진 마을을 내려다보며 깊은 생각에 잠겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "멀리": "far",
+          "떨어진": "away",
+          "마을": "village",
+          "을": "object marker",
+          "내려다보며": "looking down",
+          "깊은": "deep",
+          "생각": "thought",
+          "에": "in",
+          "잠겼다": "became immersed"
+        },
+        "overallTranslation": "He looked down at the distant village, lost in deep thought."
+      },
+      {
+        "korean": "갑자기, 탑의 벽이 움푹 들어가기 시작했다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "탑": "tower",
+          "의": "possessive particle",
+          "벽": "wall",
+          "이": "subject marker",
+          "움푹": "concave",
+          "들어가기": "to go in",
+          "시작했다": "began"
+        },
+        "overallTranslation": "Suddenly, the tower wall began to cave in."
+      },
+      {
+        "korean": "남자는 놀라서 뒤로 넘어졌고, 탑 안으로 빨려 들어갔다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "subject marker",
+          "놀라서": "in surprise",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "탑": "tower",
+          "안으로": "inside",
+          "빨려": "sucked",
+          "들어갔다": "went in"
+        },
+        "overallTranslation": "The man fell backwards in surprise and was sucked into the tower."
+      },
+      {
+        "korean": "그는 어둠 속에서 희미한 빛을 발견했고, 그 빛은 그를 끌어당겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "어둠": "darkness",
+          "속에서": "inside",
+          "희미한": "faint",
+          "빛": "light",
+          "을": "object marker",
+          "발견했고": "found",
+          "그": "that",
+          "은": "subject marker",
+          "그를": "him",
+          "끌어당겼다": "pulled"
+        },
+        "overallTranslation": "He discovered a faint light in the darkness, and it pulled him towards it."
+      }
+    ],
+    "id": 2084
+  },
+  {
+    "generator": "korean-story-10-modern-gemini",
+    "input": "singing",
+    "problem": "은수는 버스 정류장에서 기다리며 노래를 흥얼거렸다.<br> 갑자기 옆에서 누군가 목소리가 들렸다.<br> 그 목소리는 은수가 부르던 노래를 따라 부르고 있었다.<br> 은수는 놀라서 고개를 돌렸고, 옆에 서 있던 남자가 미소를 지으며 노래를 마쳤다.<br> 은수는 그 남자의 노래 실력에 감탄하며 미소를 지었다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 버스 정류장에서 기다리며 노래를 흥얼거렸다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "버스": "bus",
+          "정류장": "stop",
+          "에서": "at",
+          "기다리며": "waiting",
+          "노래": "song",
+          "를": "를",
+          "흥얼거렸다": "hummed"
+        },
+        "overallTranslation": "Eunsoo hummed a song while waiting at the bus stop."
+      },
+      {
+        "korean": "갑자기 옆에서 누군가 목소리가 들렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "side",
+          "에서": "from",
+          "누군가": "someone",
+          "목소리": "voice",
+          "가": "가",
+          "들렸다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a voice was heard from beside her."
+      },
+      {
+        "korean": "그 목소리는 은수가 부르던 노래를 따라 부르고 있었다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "목소리": "voice",
+          "는": "is",
+          "은수": "Eunsoo",
+          "가": "가",
+          "부르던": "singing",
+          "노래": "song",
+          "를": "를",
+          "따라": "following",
+          "부르고": "singing",
+          "있었다": "was"
+        },
+        "overallTranslation": "The voice was singing along to the song Eunsoo was singing."
+      },
+      {
+        "korean": "은수는 놀라서 고개를 돌렸고, 옆에 서 있던 남자가 미소를 지으며 노래를 마쳤다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "고개": "head",
+          "를": "를",
+          "돌렸고": "turned",
+          "옆": "side",
+          "에": "at",
+          "서": "standing",
+          "있던": "was",
+          "남자": "man",
+          "가": "가",
+          "미소": "smile",
+          "지으며": "with",
+          "노래": "song",
+          "마쳤다": "finished"
+        },
+        "overallTranslation": "Surprised, Eunsoo turned her head, and the man standing beside her finished the song with a smile."
+      },
+      {
+        "korean": "은수는 그 남자의 노래 실력에 감탄하며 미소를 지었다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "그": "that",
+          "남자": "man",
+          "의": "의",
+          "노래": "song",
+          "실력": "skill",
+          "에": "at",
+          "감탄하며": "admiring",
+          "미소": "smile",
+          "를": "를",
+          "지었다": "made"
+        },
+        "overallTranslation": "Eunsoo smiled, admiring the man's singing ability."
+      }
+    ],
+    "id": 2085
+  },
+  {
+    "generator": "korean-story-10-modern-gemini",
+    "input": "bad",
+    "problem": "지수는 친구와 함께 카페에 앉아서 커피를 마시고 있었습니다.<br> 그들은 오랜만에 만나서 이야기꽃을 피우고 있었습니다.<br> 갑자기, 지수의 휴대폰이 울렸습니다.<br> 화면에는 '나쁜 소식'이라고 적혀 있었습니다.<br> 지수의 얼굴은 순간 창백해졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "지수는 친구와 함께 카페에 앉아서 커피를 마시고 있었습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "카페": "cafe",
+          "에": "at",
+          "앉아서": "sitting",
+          "커피": "coffee",
+          "를": "object marker",
+          "마시고": "drinking",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Jisoo was sitting at a cafe with her friend, drinking coffee."
+      },
+      {
+        "korean": "그들은 오랜만에 만나서 이야기꽃을 피우고 있었습니다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "은": "is",
+          "오랜만에": "after a long time",
+          "만나서": "meeting",
+          "이야기꽃": "conversation",
+          "을": "object marker",
+          "피우고": "blooming",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were catching up and having a lively conversation after a long time."
+      },
+      {
+        "korean": "갑자기, 지수의 휴대폰이 울렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "지수": "Jisoo",
+          "의": "possessive marker",
+          "휴대폰": "phone",
+          "이": "subject marker",
+          "울렸습니다": "rang"
+        },
+        "overallTranslation": "Suddenly, Jisoo's phone rang."
+      },
+      {
+        "korean": "화면에는 '나쁜 소식'이라고 적혀 있었습니다.",
+        "wordByWordTranslation": {
+          "화면": "screen",
+          "에는": "on",
+          "'나쁜 소식'": "'bad news'",
+          "이라고": "that",
+          "적혀": "written",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On the screen, it was written 'Bad news'."
+      },
+      {
+        "korean": "지수의 얼굴은 순간 창백해졌습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "의": "possessive marker",
+          "얼굴": "face",
+          "은": "is",
+          "순간": "moment",
+          "창백해졌습니다": "turned pale"
+        },
+        "overallTranslation": "Jisoo's face turned pale in an instant."
+      }
+    ],
+    "id": 2086
+  },
+  {
+    "generator": "korean-story-10-modern-gemini",
+    "input": "cut",
+    "problem": "은수는 낡은 가죽 가방을 들고 거리를 걸어갔다.<br> 그녀는 곧 친구를 만나 커피를 마시기로 했다.<br> 하지만 갑자기 가방이 찢어졌다.<br> 소중히 간직했던 사진들이 쏟아져 나왔다.<br> 은수는 놀라서 사진들을 주웠다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 낡은 가죽 가방을 들고 거리를 걸어갔다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "낡은": "old",
+          "가죽": "leather",
+          "가방": "bag",
+          "을": "object marker",
+          "들고": "holding",
+          "거리": "street",
+          "를": "object marker",
+          "걸어갔다": "walked"
+        },
+        "overallTranslation": "Eunsoo walked down the street carrying an old leather bag."
+      },
+      {
+        "korean": "그녀는 곧 친구를 만나 커피를 마시기로 했다.",
+        "wordByWordTranslation": {
+          "그녀": "she",
+          "는": "is",
+          "곧": "soon",
+          "친구": "friend",
+          "를": "object marker",
+          "만나": "meet",
+          "커피": "coffee",
+          "마시기로": "decided to drink",
+          "했다": "did"
+        },
+        "overallTranslation": "She soon decided to meet a friend for coffee."
+      },
+      {
+        "korean": "하지만 갑자기 가방이 찢어졌다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "가방": "bag",
+          "이": "subject marker",
+          "찢어졌다": "ripped"
+        },
+        "overallTranslation": "But suddenly, the bag ripped."
+      },
+      {
+        "korean": "소중히 간직했던 사진들이 쏟아져 나왔다.",
+        "wordByWordTranslation": {
+          "소중히": "preciously",
+          "간직했던": "kept",
+          "사진": "pictures",
+          "들": "plural marker",
+          "이": "subject marker",
+          "쏟아져": "poured out",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "The precious pictures she had kept poured out."
+      },
+      {
+        "korean": "은수는 놀라서 사진들을 주웠다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "사진": "pictures",
+          "들": "plural marker",
+          "을": "object marker",
+          "주웠다": "picked up"
+        },
+        "overallTranslation": "Eunsoo was surprised and picked up the pictures."
+      }
+    ],
+    "id": 2087
   },
   {
     "generator": "korean-story-10-noir-gemini",
@@ -25627,7 +35847,88 @@
         "hanjaro": "바 안의 웃음소리는 순식간(瞬息間)에 사라지고, 공기(空氣)는 차가운 긴장감(緊張感)으로 가득 찼다.\n"
       }
     ],
-    "id": 1969
+    "id": 2088
+  },
+  {
+    "generator": "korean-story-10-slice-of-life-gemini",
+    "input": "ninth",
+    "problem": "은수는 아침 일찍 일어나 학교에 가는 길이었습니다.<br> 오늘은 9월 9일, 은수의 생일이었습니다.<br> 갑자기 친구 지수가 나타나 생일 축하 노래를 불렀습니다.<br> 은수는 놀랐지만, 기뻤습니다.<br> 친구들과 함께 즐거운 생일 파티를 시작했습니다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 아침 일찍 일어나 학교에 가는 길이었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "아침": "morning",
+          "일찍": "early",
+          "일어나": "wake up",
+          "학교": "school",
+          "에": "to",
+          "가는": "going",
+          "길": "way",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "Eunsoo was on her way to school, having woken up early in the morning."
+      },
+      {
+        "korean": "오늘은 9월 9일, 은수의 생일이었습니다.",
+        "wordByWordTranslation": {
+          "오늘": "today",
+          "은": "is",
+          "9월": "September",
+          "9일": "9th",
+          "은수": "Eunsoo",
+          "의": "'s",
+          "생일": "birthday",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "Today was September 9th, Eunsoo's birthday."
+      },
+      {
+        "korean": "갑자기 친구 지수가 나타나 생일 축하 노래를 불렀습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "친구": "friend",
+          "지수": "Jisu",
+          "가": "who is",
+          "나타나": "appeared",
+          "생일": "birthday",
+          "축하": "celebration",
+          "노래": "song",
+          "를": "object marker",
+          "불렀습니다": "sang"
+        },
+        "overallTranslation": "Suddenly, her friend Jisu appeared and sang a happy birthday song."
+      },
+      {
+        "korean": "은수는 놀랐지만, 기뻤습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀랐": "surprised",
+          "지만": "but",
+          "기뻤": "happy",
+          "습니다": "is"
+        },
+        "overallTranslation": "Eunsoo was surprised, but happy."
+      },
+      {
+        "korean": "친구들과 함께 즐거운 생일 파티를 시작했습니다.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "들": "plural marker",
+          "과": "with",
+          "함께": "together",
+          "즐거운": "happy",
+          "생일": "birthday",
+          "파티": "party",
+          "를": "object marker",
+          "시작했습니다": "started"
+        },
+        "overallTranslation": "She started a fun birthday party with her friends."
+      }
+    ],
+    "id": 2089
   },
   {
     "generator": "korean-story-10-space-opera-gemini",
@@ -25709,7 +36010,79 @@
         "hanjaro": "붉은 빛은 사라졌고, 우주(宇宙)는 다시 침묵(沈默) 속에 잠겼다.\n"
       }
     ],
-    "id": 1970
+    "id": 2090
+  },
+  {
+    "generator": "korean-story-10-space-opera-gemini",
+    "input": "brilliant",
+    "problem": "어두운 우주 공간에 빛나는 별들이 흩어져 있었습니다.<br> 그 중 한 별에서 빛나는 푸른 빛이 뿜어져 나왔습니다.<br> 갑자기 거대한 우주선이 나타났습니다.<br> 우주선은 푸른 빛을 내뿜으며 빠르게 움직였습니다.<br> 그 빛은 우주를 밝히며 모든 별들을 압도했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 우주 공간에 빛나는 별들이 흩어져 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "우주": "universe",
+          "공간": "space",
+          "에": "in",
+          "빛나는": "shining",
+          "별들이": "stars",
+          "흩어져": "scattered",
+          "있었습니다.": "were"
+        },
+        "overallTranslation": "Scattered shining stars were in the dark space of the universe."
+      },
+      {
+        "korean": "그 중 한 별에서 빛나는 푸른 빛이 뿜어져 나왔습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "중": "among",
+          "한": "one",
+          "별에서": "from a star",
+          "빛나는": "shining",
+          "푸른": "blue",
+          "빛이": "light",
+          "뿜어져": "burst",
+          "나왔습니다.": "came out"
+        },
+        "overallTranslation": "From one of those stars, a brilliant blue light burst out."
+      },
+      {
+        "korean": "갑자기 거대한 우주선이 나타났습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "거대한": "huge",
+          "우주선이": "spaceship",
+          "나타났습니다.": "appeared"
+        },
+        "overallTranslation": "Suddenly, a huge spaceship appeared."
+      },
+      {
+        "korean": "우주선은 푸른 빛을 내뿜으며 빠르게 움직였습니다.",
+        "wordByWordTranslation": {
+          "우주선은": "the spaceship",
+          "푸른": "blue",
+          "빛을": "light",
+          "내뿜으며": "emitting",
+          "빠르게": "quickly",
+          "움직였습니다.": "moved"
+        },
+        "overallTranslation": "The spaceship moved quickly, emitting a brilliant blue light."
+      },
+      {
+        "korean": "그 빛은 우주를 밝히며 모든 별들을 압도했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "빛은": "light",
+          "우주를": "the universe",
+          "밝히며": "lighting up",
+          "모든": "all",
+          "별들을": "stars",
+          "압도했습니다.": "overwhelmed"
+        },
+        "overallTranslation": "The light lit up the universe, overwhelming all the stars."
+      }
+    ],
+    "id": 2091
   },
   {
     "generator": "korean-story-10-superhero-gemini",
@@ -25798,7 +36171,7 @@
         "hanjaro": "시퀀스의 손에서 빛이 뿜어져 나오며 그림자는 깜짝 놀랐습니다.\n"
       }
     ],
-    "id": 1971
+    "id": 2092
   },
   {
     "generator": "korean-story-11-ancient-gemini",
@@ -25890,7 +36263,90 @@
         "hanjaro": "\"이 꽃잎, 당신(當身)에게 드릴게요. 제 마음이에요.\" \n"
       }
     ],
-    "id": 1972
+    "id": 2093
+  },
+  {
+    "generator": "korean-story-11-cosmic-horror-gemini",
+    "input": "straightforward",
+    "problem": "어두운 밤, 희미한 가로등 불빛 아래에서 민수는 길을 잃었다.<br> 그는 혼란스러운 마음으로 주변을 둘러보았지만, 낯선 골목길만 보였다.<br> 그때, 민수의 발 아래에서 차가운 손이 뻗어 나왔다.<br> 손은 뼈만 남은 듯 앙상했고, 손가락은 길게 뻗어져 있었다.<br> 그 손은 민수를 향해, '똑바로 가'라고 속삭였다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 희미한 가로등 불빛 아래에서 민수는 길을 잃었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "희미한": "dim",
+          "가로등": "streetlight",
+          "불빛": "light",
+          "아래에서": "under",
+          "민수": "Minsu",
+          "는": "is",
+          "길을": "the way",
+          "잃었다": "lost"
+        },
+        "overallTranslation": "On a dark night, under the dim light of a streetlamp, Minsu was lost."
+      },
+      {
+        "korean": "그는 혼란스러운 마음으로 주변을 둘러보았지만, 낯선 골목길만 보였다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "혼란스러운": "confused",
+          "마음으로": "with heart",
+          "주변을": "surroundings",
+          "둘러보았지만": "looked around but",
+          "낯선": "unfamiliar",
+          "골목길만": "alleyway only",
+          "보였다": "was seen"
+        },
+        "overallTranslation": "With a confused heart, he looked around but only saw unfamiliar alleyways."
+      },
+      {
+        "korean": "그때, 민수의 발 아래에서 차가운 손이 뻗어 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "아래에서": "under",
+          "차가운": "cold",
+          "손이": "hand",
+          "뻗어": "reached out",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "At that moment, a cold hand reached out from under Minsu's foot."
+      },
+      {
+        "korean": "손은 뼈만 남은 듯 앙상했고, 손가락은 길게 뻗어져 있었다.",
+        "wordByWordTranslation": {
+          "손은": "hand was",
+          "뼈만": "only bones",
+          "남은": "left",
+          "듯": "like",
+          "앙상했고": "skinny and",
+          "손가락은": "fingers were",
+          "길게": "long",
+          "뻗어져": "stretched out",
+          "있었다": "was"
+        },
+        "overallTranslation": "The hand was bony and thin, with long fingers stretched out."
+      },
+      {
+        "korean": "그 손은 민수를 향해, '똑바로 가'라고 속삭였다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "손은": "hand was",
+          "민수": "Minsu",
+          "를": "to",
+          "향해": "toward",
+          "똑바로": "straight",
+          "가": "go",
+          "라고": "said",
+          "속삭였다": "whispered"
+        },
+        "overallTranslation": "The hand whispered to Minsu, 'Go straight.'"
+      }
+    ],
+    "id": 2094
   },
   {
     "generator": "korean-story-11-espionage-gemini",
@@ -25976,7 +36432,267 @@
         "hanjaro": "이제 그들은 임무(任務)를 수행(遂行)하기 위해, 위험(危險)한 여정(旅程)을 시작(始作)해야 했다.\n"
       }
     ],
-    "id": 1973
+    "id": 2095
+  },
+  {
+    "generator": "korean-story-11-espionage-gemini",
+    "input": "gum",
+    "problem": "어두운 골목길에서, 김 씨는 긴장한 채로 주변을 살폈습니다.<br> 그는 손에 든 작은 봉투를 꼭 쥐고 있었습니다.<br> 갑자기, 검은 그림자가 그의 뒤에서 나타났습니다.<br> 그림자는 김 씨의 손에서 봉투를 빼앗아 달아났습니다.<br> 김 씨는 깜짝 놀라 뒤를 돌아보았지만, 그림자는 이미 사라지고 없었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 김 씨는 긴장한 채로 주변을 살폈습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "김 씨": "Kim",
+          "는": "is",
+          "긴장한": "tense",
+          "채로": "with",
+          "주변": "surroundings",
+          "을": "을",
+          "살폈습니다": "looked"
+        },
+        "overallTranslation": "In a dark alleyway, Kim looked around tensely."
+      },
+      {
+        "korean": "그는 손에 든 작은 봉투를 꼭 쥐고 있었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "손에": "in hand",
+          "든": "held",
+          "작은": "small",
+          "봉투": "envelope",
+          "를": "를",
+          "꼭": "tightly",
+          "쥐고": "grasping",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "He was tightly grasping a small envelope in his hand."
+      },
+      {
+        "korean": "갑자기, 검은 그림자가 그의 뒤에서 나타났습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "가",
+          "그의": "his",
+          "뒤에서": "from behind",
+          "나타났습니다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a black shadow appeared from behind him."
+      },
+      {
+        "korean": "그림자는 김 씨의 손에서 봉투를 빼앗아 달아났습니다.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "김 씨": "Kim",
+          "의": "of",
+          "손에서": "from hand",
+          "봉투": "envelope",
+          "를": "를",
+          "빼앗아": "snatching",
+          "달아났습니다": "ran away"
+        },
+        "overallTranslation": "The shadow snatched the envelope from Kim's hand and ran away."
+      },
+      {
+        "korean": "김 씨는 깜짝 놀라 뒤를 돌아보았지만, 그림자는 이미 사라지고 없었습니다.",
+        "wordByWordTranslation": {
+          "김 씨": "Kim",
+          "는": "is",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "뒤를": "behind",
+          "돌아보았지만": "looked back but",
+          "그림자": "shadow",
+          "이미": "already",
+          "사라지고": "disappeared",
+          "없었습니다": "was not"
+        },
+        "overallTranslation": "Kim was startled and looked back, but the shadow was already gone."
+      }
+    ],
+    "id": 2096
+  },
+  {
+    "generator": "korean-story-11-fantasy-gemini",
+    "input": "columnist",
+    "problem": "어두운 밤, 낡은 탑의 꼭대기에서 한 남자가 앉아 있었다.<br> 그는 낡은 종이에 펜을 움직이며 무언가를 열심히 적고 있었다.<br> 갑자기, 그의 앞에 빛나는 글자가 나타났다.<br> 글자는 그의 펜을 따라 움직이며 새로운 이야기를 만들어냈다.<br> 그는 놀라움과 함께, 자신이 칼럼니스트가 아니라 이야기꾼이 되었다는 것을 깨달았다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 탑의 꼭대기에서 한 남자가 앉아 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "탑": "tower",
+          "꼭대기": "top",
+          "에서": "from",
+          "한": "one",
+          "남자": "man",
+          "가": "subject marker",
+          "앉아": "sit",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, a man sat at the top of an old tower."
+      },
+      {
+        "korean": "그는 낡은 종이에 펜을 움직이며 무언가를 열심히 적고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "낡은": "old",
+          "종이": "paper",
+          "에": "on",
+          "펜": "pen",
+          "을": "object marker",
+          "움직이며": "moving",
+          "무언가": "something",
+          "를": "object marker",
+          "열심히": "hard",
+          "적고": "write",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was diligently writing something on a piece of old paper with a pen."
+      },
+      {
+        "korean": "갑자기, 그의 앞에 빛나는 글자가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그의": "his",
+          "앞에": "in front of",
+          "빛나는": "shining",
+          "글자": "letters",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, shining letters appeared in front of him."
+      },
+      {
+        "korean": "글자는 그의 펜을 따라 움직이며 새로운 이야기를 만들어냈다.",
+        "wordByWordTranslation": {
+          "글자": "letters",
+          "는": "subject marker",
+          "그의": "his",
+          "펜": "pen",
+          "을": "object marker",
+          "따라": "following",
+          "움직이며": "moving",
+          "새로운": "new",
+          "이야기": "story",
+          "를": "object marker",
+          "만들어냈다": "created"
+        },
+        "overallTranslation": "The letters moved along with his pen, creating a new story."
+      },
+      {
+        "korean": "그는 놀라움과 함께, 자신이 칼럼니스트가 아니라 이야기꾼이 되었다는 것을 깨달았다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "놀라움": "surprise",
+          "과": "and",
+          "함께": "together",
+          "자신이": "himself",
+          "칼럼니스트": "columnist",
+          "가": "subject marker",
+          "아니라": "not",
+          "이야기꾼": "storyteller",
+          "이": "subject marker",
+          "되었다는": "became",
+          "것": "fact",
+          "을": "object marker",
+          "깨달았다": "realized"
+        },
+        "overallTranslation": "With surprise, he realized that he had become a storyteller, not a columnist."
+      }
+    ],
+    "id": 2097
+  },
+  {
+    "generator": "korean-story-11-frontier-gemini",
+    "input": "territorial",
+    "problem": "해가 져가는 서부의 황량한 벌판에서, 낡은 망토를 두른 노인이 말을 타고 있었다.<br> 그는 험준한 산맥을 넘어, 새로운 땅을 찾아 떠났다.<br> 하지만 그가 도착한 곳은 이미 다른 사람들이 자리를 잡고 있었다.<br> 노인은 낯선 얼굴들을 보며, 긴 한숨을 내쉬었다.<br> 그는 이제 새로운 땅을 찾아, 다시 길을 떠나야만 했다.<br>",
+    "solution": [
+      {
+        "korean": "해가 져가는 서부의 황량한 벌판에서, 낡은 망토를 두른 노인이 말을 타고 있었다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "져가는": "setting",
+          "서부의": "western",
+          "황량한": "desolate",
+          "벌판에서": "plains",
+          "낡은": "old",
+          "망토를": "cloak",
+          "두른": "wearing",
+          "노인이": "old man",
+          "말을": "horse",
+          "타고": "riding",
+          "있었다": "was"
+        },
+        "overallTranslation": "On the desolate plains of the west, as the sun was setting, an old man in a worn cloak was riding a horse."
+      },
+      {
+        "korean": "그는 험준한 산맥을 넘어, 새로운 땅을 찾아 떠났다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "험준한": "steep",
+          "산맥을": "mountain range",
+          "넘어": "over",
+          "새로운": "new",
+          "땅을": "land",
+          "찾아": "searching",
+          "떠났다": "left"
+        },
+        "overallTranslation": "He was leaving to find new land, crossing over the steep mountain range."
+      },
+      {
+        "korean": "하지만 그가 도착한 곳은 이미 다른 사람들이 자리를 잡고 있었다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그가": "he",
+          "도착한": "arrived",
+          "곳은": "place",
+          "이미": "already",
+          "다른": "other",
+          "사람들이": "people",
+          "자리를": "place",
+          "잡고": "taking",
+          "있었다": "was"
+        },
+        "overallTranslation": "But when he arrived, he found that other people had already claimed the land."
+      },
+      {
+        "korean": "노인은 낯선 얼굴들을 보며, 긴 한숨을 내쉬었다.",
+        "wordByWordTranslation": {
+          "노인은": "old man",
+          "낯선": "unfamiliar",
+          "얼굴들을": "faces",
+          "보며": "seeing",
+          "긴": "long",
+          "한숨을": "sigh",
+          "내쉬었다": "let out"
+        },
+        "overallTranslation": "Seeing the unfamiliar faces, the old man let out a long sigh."
+      },
+      {
+        "korean": "그는 이제 새로운 땅을 찾아, 다시 길을 떠나야만 했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "이제": "now",
+          "새로운": "new",
+          "땅을": "land",
+          "찾아": "searching",
+          "다시": "again",
+          "길을": "road",
+          "떠나야만": "must leave",
+          "했다": "did"
+        },
+        "overallTranslation": "He now had to leave again, searching for new land."
+      }
+    ],
+    "id": 2098
   },
   {
     "generator": "korean-story-11-gunslinger-gemini",
@@ -26063,7 +36779,198 @@
         "hanjaro": "그는 술집 안으로 뛰어들어가, 싸움을 멈추기로 결심(決心)했습니다.\n"
       }
     ],
-    "id": 1974
+    "id": 2099
+  },
+  {
+    "generator": "korean-story-11-low-fantasy-gemini",
+    "input": "division",
+    "problem": "어두운 숲 속에서, 두 명의 여행자는 서로의 등을 의지하며 길을 갔습니다.<br> 그들은 험난한 지형과 위험한 야수들을 극복하며 나아갔습니다.<br> 하지만 갑자기, 그들의 사이에 거대한 골짜기가 나타났습니다.<br> 두 여행자는 서로를 볼 수 없게 되었고, 그들의 끈끈했던 유대감은 깊은 골짜기로 인해 갈라졌습니다.<br> 그들은 서로 다른 길을 가게 되었고, 그들의 운명은 분리되었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 두 명의 여행자는 서로의 등을 의지하며 길을 갔습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "두": "two",
+          "명의": "people",
+          "여행자": "traveler",
+          "는": "are",
+          "서로": "each other",
+          "의": "of",
+          "등": "back",
+          "을": "object marker",
+          "의지하며": "relying on",
+          "길": "path",
+          "갔습니다": "went"
+        },
+        "overallTranslation": "In the dark forest, two travelers walked, relying on each other's backs."
+      },
+      {
+        "korean": "그들은 험난한 지형과 위험한 야수들을 극복하며 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "험난한": "rough",
+          "지형": "terrain",
+          "과": "and",
+          "위험한": "dangerous",
+          "야수": "beast",
+          "들을": "object marker",
+          "극복하며": "overcoming",
+          "나아갔습니다": "went forward"
+        },
+        "overallTranslation": "They pushed forward, overcoming the difficult terrain and dangerous beasts."
+      },
+      {
+        "korean": "하지만 갑자기, 그들의 사이에 거대한 골짜기가 나타났습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "그들의": "their",
+          "사이에": "between",
+          "거대한": "huge",
+          "골짜기": "valley",
+          "가": "subject marker",
+          "나타났습니다": "appeared"
+        },
+        "overallTranslation": "But suddenly, a huge valley appeared between them."
+      },
+      {
+        "korean": "두 여행자는 서로를 볼 수 없게 되었고, 그들의 끈끈했던 유대감은 깊은 골짜기로 인해 갈라졌습니다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "여행자": "traveler",
+          "는": "are",
+          "서로": "each other",
+          "를": "object marker",
+          "볼": "see",
+          "수": "can",
+          "없게": "not",
+          "되었고": "became",
+          "그들의": "their",
+          "끈끈했던": "strong",
+          "유대감": "bond",
+          "은": "subject marker",
+          "깊은": "deep",
+          "골짜기": "valley",
+          "로": "by",
+          "인해": "because of",
+          "갈라졌습니다": "split"
+        },
+        "overallTranslation": "The two travelers could no longer see each other, and their strong bond was split by the deep valley."
+      },
+      {
+        "korean": "그들은 서로 다른 길을 가게 되었고, 그들의 운명은 분리되었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "서로": "each other",
+          "다른": "different",
+          "길": "path",
+          "을": "object marker",
+          "가게": "to go",
+          "되었고": "became",
+          "그들의": "their",
+          "운명": "fate",
+          "은": "subject marker",
+          "분리되었습니다": "was separated"
+        },
+        "overallTranslation": "They ended up going on different paths, and their fates were separated."
+      }
+    ],
+    "id": 2100
+  },
+  {
+    "generator": "korean-story-11-modern-gemini",
+    "input": "gratuitous",
+    "problem": "지수는 친구와 함께 카페에 앉아 커피를 마시고 있었다.<br> 갑자기, 옆 테이블에서 큰 소리가 났다.<br> 한 남자가 갑자기 일어나서 커피잔을 던졌다.<br> 그 이유는 아무도 몰랐지만, 커피잔은 벽에 부딪히며 깨졌다.<br> 그 남자는 아무 말 없이 카페를 나갔고, 지수는 친구와 함께 어리둥절해했다.<br>",
+    "solution": [
+      {
+        "korean": "지수는 친구와 함께 카페에 앉아 커피를 마시고 있었다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "카페": "cafe",
+          "에": "at",
+          "앉아": "sitting",
+          "커피": "coffee",
+          "를": "to",
+          "마시고": "drinking",
+          "있었다": "was"
+        },
+        "overallTranslation": "Jisoo was sitting at a cafe with her friend, drinking coffee."
+      },
+      {
+        "korean": "갑자기, 옆 테이블에서 큰 소리가 났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "next",
+          "테이블": "table",
+          "에서": "from",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "났다": "happened"
+        },
+        "overallTranslation": "Suddenly, a loud noise came from the table next to them."
+      },
+      {
+        "korean": "한 남자가 갑자기 일어나서 커피잔을 던졌다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자": "man",
+          "가": "that",
+          "갑자기": "suddenly",
+          "일어나": "stood up",
+          "서": "and",
+          "커피잔": "coffee cup",
+          "을": "to",
+          "던졌다": "threw"
+        },
+        "overallTranslation": "A man suddenly stood up and threw his coffee cup."
+      },
+      {
+        "korean": "그 이유는 아무도 몰랐지만, 커피잔은 벽에 부딪히며 깨졌다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "이유": "reason",
+          "는": "is",
+          "아무도": "no one",
+          "몰랐지만": "didn't know",
+          "커피잔": "coffee cup",
+          "은": "is",
+          "벽": "wall",
+          "에": "on",
+          "부딪히며": "hitting",
+          "깨졌다": "broke"
+        },
+        "overallTranslation": "No one knew why, but the coffee cup broke against the wall."
+      },
+      {
+        "korean": "그 남자는 아무 말 없이 카페를 나갔고, 지수는 친구와 함께 어리둥절해했다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "남자": "man",
+          "는": "is",
+          "아무": "no",
+          "말": "word",
+          "없이": "without",
+          "카페": "cafe",
+          "를": "to",
+          "나갔고": "left",
+          "지수": "Jisoo",
+          "친구": "friend",
+          "와": "with",
+          "함께": "together",
+          "어리둥절": "puzzled",
+          "해했다": "was"
+        },
+        "overallTranslation": "The man left the cafe without a word, and Jisoo and her friend were left puzzled."
+      }
+    ],
+    "id": 2101
   },
   {
     "generator": "korean-story-11-mystery-gemini",
@@ -26159,7 +37066,7 @@
         "hanjaro": "그 웃음소리는 유리(琉璃)의 심장(心臟)을 무서운 공포(恐怖)로 채웠다.\n"
       }
     ],
-    "id": 1975
+    "id": 2102
   },
   {
     "generator": "korean-story-11-psychological-horror-gemini",
@@ -26255,7 +37162,184 @@
         "overallTranslation": "The doll's eyes stared at the cold night air, making a creepy smile."
       }
     ],
-    "id": 1976
+    "id": 2103
+  },
+  {
+    "generator": "korean-story-11-realistic-gemini",
+    "input": "teach",
+    "problem": "은수는 교실에서 학생들에게 한국어를 가르치고 있었다.<br> 그녀는 문법 규칙을 설명하고, 연습 문제를 내주고 있었다.<br> 갑자기, 교실 문이 활짝 열렸다.<br> 교장 선생님이 들어오셨고, 은수는 깜짝 놀랐다.<br> 교장 선생님은 은수의 수업을 칭찬하며, 학생들에게도 격려의 말씀을 전했다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 교실에서 학생들에게 한국어를 가르치고 있었다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "교실": "classroom",
+          "에서": "at",
+          "학생": "students",
+          "들": "to",
+          "에게": "them",
+          "한국어": "Korean",
+          "를": "to",
+          "가르치": "teach",
+          "고": "and",
+          "있었다": "was"
+        },
+        "overallTranslation": "Eunsoo was teaching Korean to the students in the classroom."
+      },
+      {
+        "korean": "그녀는 문법 규칙을 설명하고, 연습 문제를 내주고 있었다.",
+        "wordByWordTranslation": {
+          "그녀": "She",
+          "는": "is",
+          "문법": "grammar",
+          "규칙": "rules",
+          "을": "to",
+          "설명": "explain",
+          "하고": "and",
+          "연습": "practice",
+          "문제": "problems",
+          "를": "to",
+          "내주": "give",
+          "고": "and",
+          "있었다": "was"
+        },
+        "overallTranslation": "She was explaining grammar rules and giving them practice problems."
+      },
+      {
+        "korean": "갑자기, 교실 문이 활짝 열렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "Suddenly",
+          "교실": "classroom",
+          "문": "door",
+          "이": "the",
+          "활짝": "wide",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, the classroom door swung open."
+      },
+      {
+        "korean": "교장 선생님이 들어오셨고, 은수는 깜짝 놀랐다.",
+        "wordByWordTranslation": {
+          "교장": "principal",
+          "선생님": "teacher",
+          "이": "the",
+          "들어오셨다": "entered",
+          "고": "and",
+          "은수": "Eunsoo",
+          "는": "is",
+          "깜짝": "surprised",
+          "놀랐다": "was"
+        },
+        "overallTranslation": "The principal walked in, and Eunsoo was startled."
+      },
+      {
+        "korean": "교장 선생님은 은수의 수업을 칭찬하며, 학생들에게도 격려의 말씀을 전했다.",
+        "wordByWordTranslation": {
+          "교장": "principal",
+          "선생님": "teacher",
+          "은": "is",
+          "은수": "Eunsoo",
+          "의": "'s",
+          "수업": "class",
+          "을": "to",
+          "칭찬": "praise",
+          "하며": "while",
+          "학생": "students",
+          "들": "to",
+          "에게": "them",
+          "도": "also",
+          "격려": "encouragement",
+          "말씀": "words",
+          "전": "give",
+          "했다": "did"
+        },
+        "overallTranslation": "The principal praised Eunsoo's teaching and also gave words of encouragement to the students."
+      }
+    ],
+    "id": 2104
+  },
+  {
+    "generator": "korean-story-11-renaissance-gemini",
+    "input": "utterance",
+    "problem": "어두운 밤, 낡은 서재에 앉아 촛불을 켜고 책을 읽고 있었습니다.<br> 갑자기 문이 열리며 바람이 불어와 촛불이 꺼졌습니다.<br> 어둠 속에서 누군가의 목소리가 들렸습니다.<br> “두려워하지 마세요. 저는 당신을 해치려는 사람이 아닙니다.”<br> 그 목소리는 부드럽고 친절하게 말했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 서재에 앉아 촛불을 켜고 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "서재": "study",
+          "에": "in",
+          "앉아": "sitting",
+          "촛불": "candle",
+          "을": "object marker",
+          "켜고": "lighting",
+          "책": "book",
+          "읽고": "reading",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the dark night, I was sitting in an old study, lighting a candle and reading a book."
+      },
+      {
+        "korean": "갑자기 문이 열리며 바람이 불어와 촛불이 꺼졌습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "subject marker",
+          "열리며": "opening",
+          "바람": "wind",
+          "불어와": "blowing",
+          "촛불": "candle",
+          "꺼졌습니다": "went out"
+        },
+        "overallTranslation": "Suddenly, the door opened and the wind blew in, extinguishing the candle."
+      },
+      {
+        "korean": "어둠 속에서 누군가의 목소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "어둠": "darkness",
+          "속에서": "from inside",
+          "누군가": "someone",
+          "의": "possessive marker",
+          "목소리": "voice",
+          "가": "subject marker",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "From the darkness, someone’s voice was heard."
+      },
+      {
+        "korean": "“두려워하지 마세요. 저는 당신을 해치려는 사람이 아닙니다.”",
+        "wordByWordTranslation": {
+          "두려워": "fear",
+          "하지": "don’t",
+          "마세요": "please",
+          "저": "I",
+          "는": "subject marker",
+          "당신": "you",
+          "을": "object marker",
+          "해치려는": "trying to harm",
+          "사람": "person",
+          "이": "subject marker",
+          "아닙니다": "am not"
+        },
+        "overallTranslation": "“Don’t be afraid. I am not someone who wants to harm you.”"
+      },
+      {
+        "korean": "그 목소리는 부드럽고 친절하게 말했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "목소리": "voice",
+          "는": "subject marker",
+          "부드럽고": "gentle",
+          "친절하게": "kindly",
+          "말했습니다": "said"
+        },
+        "overallTranslation": "That voice spoke gently and kindly."
+      }
+    ],
+    "id": 2105
   },
   {
     "generator": "korean-story-11-science-fiction-gemini",
@@ -26345,7 +37429,7 @@
         "hanjaro": "요정(妖精)은 윙윙거리며 말했다, “이 항아리(缸아리)는 소원(所願)을 담는 곳이야.”\n"
       }
     ],
-    "id": 1977
+    "id": 2106
   },
   {
     "generator": "korean-story-11-slice-of-life-gemini",
@@ -26456,7 +37540,7 @@
         "hanjaro": "그는 커피숍 직원(職員)에게 큰 소리로 항의(抗議)하며, 뜨거운 커피를 바꿔 달라고 요구(要求)하고 있었다.\n"
       }
     ],
-    "id": 1978
+    "id": 2107
   },
   {
     "generator": "korean-story-11-social-gemini",
@@ -26531,7 +37615,7 @@
         "hanjaro": "그의 눈은 은수를 향(向)해 빛나고 있었다.\n"
       }
     ],
-    "id": 1979
+    "id": 2108
   },
   {
     "generator": "korean-story-11-social-gemini",
@@ -26611,7 +37695,7 @@
         "overallTranslation": "Forgetting about their political discussion, they paid attention to the new music."
       }
     ],
-    "id": 1980
+    "id": 2109
   },
   {
     "generator": "korean-story-11-space-opera-gemini",
@@ -26716,7 +37800,556 @@
         "hanjaro": "승무원(乘務員)들은 선장(船長)의 지시(指示)에 따라 협력(協力)하여 위기(危機)를 극복(克服)했다.\n"
       }
     ],
-    "id": 1981
+    "id": 2110
+  },
+  {
+    "generator": "korean-story-11-steampunk-gemini",
+    "input": "organic",
+    "problem": "어두운 기계 도시의 한가운데, 낡은 톱니바퀴가 끼어 멈춰버린 거대한 시계탑이 있었습니다.<br> 그 시계탑은 도시의 심장과도 같았고, 멈추면 모든 기계가 멈추는 것이나 다름없었습니다.<br> 하지만 어느 날, 시계탑의 톱니바퀴 사이에서 작은 싹이 돋아났습니다.<br> 그 싹은 톱니바퀴를 돌리고, 멈춰 있던 시계탑을 다시 작동시켰습니다.<br> 기계 도시는 다시 움직였고, 사람들은 희망을 되찾았습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 기계 도시의 한가운데, 낡은 톱니바퀴가 끼어 멈춰버린 거대한 시계탑이 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "기계": "machine",
+          "도시의": "city's",
+          "한가운데": "middle",
+          "낡은": "old",
+          "톱니바퀴가": "gear",
+          "끼어": "stuck",
+          "멈춰버린": "stopped",
+          "거대한": "huge",
+          "시계탑이": "clock tower",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the middle of a dark mechanical city, there was a huge clock tower with old gears stuck, stopping it."
+      },
+      {
+        "korean": "그 시계탑은 도시의 심장과도 같았고, 멈추면 모든 기계가 멈추는 것이나 다름없었습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "시계탑은": "clock tower",
+          "도시의": "city's",
+          "심장과도": "heart",
+          "같았고": "was",
+          "멈추면": "if stopped",
+          "모든": "all",
+          "기계가": "machine",
+          "멈추는": "stopping",
+          "것이": "thing",
+          "다름없었습니다.": "was no different"
+        },
+        "overallTranslation": "The clock tower was like the heart of the city, and if it stopped, it was no different from all the machines stopping."
+      },
+      {
+        "korean": "하지만 어느 날, 시계탑의 톱니바퀴 사이에서 작은 싹이 돋아났습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어느 날": "one day",
+          "시계탑의": "clock tower's",
+          "톱니바퀴": "gear",
+          "사이에서": "between",
+          "작은": "small",
+          "싹이": "sprout",
+          "돋아났습니다.": "sprouted"
+        },
+        "overallTranslation": "But one day, a small sprout sprouted between the gears of the clock tower."
+      },
+      {
+        "korean": "그 싹은 톱니바퀴를 돌리고, 멈춰 있던 시계탑을 다시 작동시켰습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "싹은": "sprout",
+          "톱니바퀴를": "gear",
+          "돌리고": "turning",
+          "멈춰": "stopped",
+          "있던": "existing",
+          "시계탑을": "clock tower",
+          "다시": "again",
+          "작동시켰습니다.": "operated"
+        },
+        "overallTranslation": "The sprout turned the gears, and the stopped clock tower started working again."
+      },
+      {
+        "korean": "기계 도시는 다시 움직였고, 사람들은 희망을 되찾았습니다.",
+        "wordByWordTranslation": {
+          "기계": "machine",
+          "도시는": "city",
+          "다시": "again",
+          "움직였고": "moved",
+          "사람들은": "people",
+          "희망을": "hope",
+          "되찾았습니다.": "regained"
+        },
+        "overallTranslation": "The mechanical city moved again, and people regained hope."
+      }
+    ],
+    "id": 2111
+  },
+  {
+    "generator": "korean-story-11-time-travel-gemini",
+    "input": "trolley",
+    "problem": "은수는 서울의 번잡한 거리를 걸으며 낡은 손수레를 봤어요.<br> 손수레에는 옛날 물건들이 놓여 있었고, 은수는 흥미롭게 살펴봤어요.<br> 갑자기 손수레가 빛을 내며 사라졌고, 은수는 이상한 곳에 있었어요.<br> 주변에는 옛날 한복을 입은 사람들이 있었고, 거리에는 말이 끄는 마차가 다녔어요.<br> 은수는 손수레가 자신을 과거로 데려온 것을 깨닫고 놀랐어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 서울의 번잡한 거리를 걸으며 낡은 손수레를 봤어요.",
+        "wordByWordTranslation": {
+          "은수는": "Eun-su is",
+          "서울의": "Seoul's",
+          "번잡한": "busy",
+          "거리를": "street",
+          "걸으며": "walking",
+          "낡은": "old",
+          "손수레를": "trolley",
+          "봤어요.": "saw"
+        },
+        "overallTranslation": "Eun-su saw an old trolley while walking through the busy streets of Seoul."
+      },
+      {
+        "korean": "손수레에는 옛날 물건들이 놓여 있었고, 은수는 흥미롭게 살펴봤어요.",
+        "wordByWordTranslation": {
+          "손수레에는": "on the trolley",
+          "옛날": "old",
+          "물건들이": "things",
+          "놓여": "were placed",
+          "있었고": "and",
+          "은수는": "Eun-su",
+          "흥미롭게": "interestingly",
+          "살펴봤어요.": "looked"
+        },
+        "overallTranslation": "The trolley was filled with old things, and Eun-su looked at them with interest."
+      },
+      {
+        "korean": "갑자기 손수레가 빛을 내며 사라졌고, 은수는 이상한 곳에 있었어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "손수레가": "the trolley",
+          "빛을": "light",
+          "내며": "emitting",
+          "사라졌고": "disappeared",
+          "은수는": "Eun-su",
+          "이상한": "strange",
+          "곳에": "place",
+          "있었어요.": "was"
+        },
+        "overallTranslation": "Suddenly, the trolley emitted light and disappeared, and Eun-su found herself in a strange place."
+      },
+      {
+        "korean": "주변에는 옛날 한복을 입은 사람들이 있었고, 거리에는 말이 끄는 마차가 다녔어요.",
+        "wordByWordTranslation": {
+          "주변에는": "around",
+          "옛날": "old",
+          "한복을": "hanbok (traditional Korean clothing)",
+          "입은": "wearing",
+          "사람들이": "people",
+          "있었고": "were",
+          "거리에는": "on the street",
+          "말이": "horse",
+          "끄는": "pulling",
+          "마차가": "carriage",
+          "다녔어요.": "went"
+        },
+        "overallTranslation": "People wearing old hanbok were all around her, and horse-drawn carriages were traveling on the street."
+      },
+      {
+        "korean": "은수는 손수레가 자신을 과거로 데려온 것을 깨닫고 놀랐어요.",
+        "wordByWordTranslation": {
+          "은수는": "Eun-su",
+          "손수레가": "the trolley",
+          "자신을": "herself",
+          "과거로": "to the past",
+          "데려온": "brought",
+          "것을": "that",
+          "깨닫고": "realizing",
+          "놀랐어요.": "was surprised"
+        },
+        "overallTranslation": "Eun-su was surprised to realize that the trolley had brought her to the past."
+      }
+    ],
+    "id": 2112
+  },
+  {
+    "generator": "korean-story-11-time-travel-gemini",
+    "input": "decisive",
+    "problem": "2023년 봄, 벚꽃이 만발한 서울의 한 카페에서 민준은 커피를 마시며 책을 읽고 있었습니다.<br> 갑자기, 옆 테이블에서 격렬한 말다툼 소리가 들려왔습니다.<br> 눈 깜짝할 사이에 민준은 1950년대의 서울 거리에 서 있었습니다.<br> 전쟁으로 황폐해진 도시, 찢어진 옷을 입은 사람들, 희망보다는 절망이 가득한 표정들이 민준을 둘러싸고 있었습니다.<br> 그 순간, 민준은 자신이 과거의 결정적인 순간에 놓였다는 것을 깨달았습니다.<br>",
+    "solution": [
+      {
+        "korean": "2023년 봄, 벚꽃이 만발한 서울의 한 카페에서 민준은 커피를 마시며 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "2023년": "2023 year",
+          "봄": "spring",
+          "벚꽃": "cherry blossom",
+          "만발한": "blooming",
+          "서울": "Seoul",
+          "한": "one",
+          "카페": "cafe",
+          "에서": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "커피": "coffee",
+          "를": "을/를 (object marker)",
+          "마시며": "drinking",
+          "책": "book",
+          "을": "을/를 (object marker)",
+          "읽고": "reading",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the spring of 2023, Minjun was reading a book while sipping coffee at a cafe in Seoul, where cherry blossoms were in full bloom."
+      },
+      {
+        "korean": "갑자기, 옆 테이블에서 격렬한 말다툼 소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "옆": "next",
+          "테이블": "table",
+          "에서": "from",
+          "격렬한": "intense",
+          "말다툼": "argument",
+          "소리": "sound",
+          "가": "subject marker",
+          "들려왔습니다.": "was heard"
+        },
+        "overallTranslation": "Suddenly, a heated argument could be heard from the table next to him."
+      },
+      {
+        "korean": "눈 깜짝할 사이에 민준은 1950년대의 서울 거리에 서 있었습니다.",
+        "wordByWordTranslation": {
+          "눈": "eye",
+          "깜짝": "blink",
+          "할": "to do",
+          "사이": "between",
+          "에": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "1950년대": "1950s",
+          "의": "of",
+          "서울": "Seoul",
+          "거리": "street",
+          "서": "stand",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the blink of an eye, Minjun found himself standing on the streets of Seoul in the 1950s."
+      },
+      {
+        "korean": "전쟁으로 황폐해진 도시, 찢어진 옷을 입은 사람들, 희망보다는 절망이 가득한 표정들이 민준을 둘러싸고 있었습니다.",
+        "wordByWordTranslation": {
+          "전쟁": "war",
+          "으로": "by",
+          "황폐해진": "devastated",
+          "도시": "city",
+          "찢어진": "torn",
+          "옷": "clothes",
+          "을": "을/를 (object marker)",
+          "입은": "wearing",
+          "사람들": "people",
+          "희망": "hope",
+          "보다는": "rather than",
+          "절망": "despair",
+          "이": "subject marker",
+          "가득한": "filled with",
+          "표정": "expression",
+          "들이": "plural marker",
+          "민준": "Minjun",
+          "둘러싸고": "surrounding",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "The city, devastated by war, was filled with people in torn clothes, their faces bearing more despair than hope, surrounding Minjun."
+      },
+      {
+        "korean": "그 순간, 민준은 자신이 과거의 결정적인 순간에 놓였다는 것을 깨달았습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "에": "at",
+          "민준": "Minjun",
+          "은": "is",
+          "자신": "himself",
+          "이": "subject marker",
+          "과거": "past",
+          "의": "of",
+          "결정적인": "decisive",
+          "놓였다는": "being placed",
+          "것": "fact",
+          "을": "을/를 (object marker)",
+          "깨달았습니다.": "realized"
+        },
+        "overallTranslation": "At that moment, Minjun realized that he was standing at a decisive moment in the past."
+      }
+    ],
+    "id": 2113
+  },
+  {
+    "generator": "korean-story-12-cyberpunk-gemini",
+    "input": "pervasive",
+    "problem": "어둠 속에서 빛나는 네온사인은 도시를 덮고 있었고, 그 사이로 낡은 건물들이 삐죽삐죽 솟아올라 있었다.<br> 지나가는 사람들의 얼굴에는 스크린이 붙어 있었고, 그들은 화면 속 정보에만 집중하고 있었다.<br> 갑자기 하늘에서 거대한 우주선이 나타났고, 도시 전체가 순간 정지했다.<br> 우주선에서 빛이 뿜어져 나와 모든 스크린을 덮었고, 사람들은 화면 속 정보 대신 우주선을 응시했다.<br> 그들의 눈은 마치 깨어난 듯, 빛나는 우주선의 모습에 매료되었다.<br>",
+    "solution": [
+      {
+        "korean": "어둠 속에서 빛나는 네온사인은 도시를 덮고 있었고, 그 사이로 낡은 건물들이 삐죽삐죽 솟아올라 있었다.",
+        "wordByWordTranslation": {
+          "어둠": "darkness",
+          "속에서": "inside",
+          "빛나는": "shining",
+          "네온사인": "neon signs",
+          "은": "are",
+          "도시": "city",
+          "를": "to",
+          "덮고": "covering",
+          "있었고": "was",
+          "그": "that",
+          "사이로": "between",
+          "낡은": "old",
+          "건물": "buildings",
+          "들이": "are",
+          "삐죽삐죽": "jagged",
+          "솟아올라": "rising up",
+          "있었다": "was"
+        },
+        "overallTranslation": "Neon signs shone brightly in the darkness, covering the city, while old buildings rose up jaggedly between them."
+      },
+      {
+        "korean": "지나가는 사람들의 얼굴에는 스크린이 붙어 있었고, 그들은 화면 속 정보에만 집중하고 있었다.",
+        "wordByWordTranslation": {
+          "지나가는": "passing",
+          "사람": "people",
+          "들의": "of",
+          "얼굴": "faces",
+          "에는": "on",
+          "스크린": "screens",
+          "이": "is",
+          "붙어": "attached",
+          "있었고": "was",
+          "그들": "they",
+          "은": "are",
+          "화면": "screen",
+          "속": "inside",
+          "정보": "information",
+          "에만": "only",
+          "집중": "concentrating",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "Screens were attached to the faces of the passersby, and they were only focused on the information on the screens."
+      },
+      {
+        "korean": "갑자기 하늘에서 거대한 우주선이 나타났고, 도시 전체가 순간 정지했다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "거대한": "huge",
+          "우주선": "spaceship",
+          "이": "is",
+          "나타났고": "appeared",
+          "도시": "city",
+          "전체": "entire",
+          "가": "is",
+          "순간": "moment",
+          "정지": "stopped",
+          "했다": "did"
+        },
+        "overallTranslation": "Suddenly, a huge spaceship appeared from the sky, and the entire city froze in that moment."
+      },
+      {
+        "korean": "우주선에서 빛이 뿜어져 나와 모든 스크린을 덮었고, 사람들은 화면 속 정보 대신 우주선을 응시했다.",
+        "wordByWordTranslation": {
+          "우주선": "spaceship",
+          "에서": "from",
+          "빛": "light",
+          "이": "is",
+          "뿜어져": "bursting",
+          "나와": "out",
+          "모든": "all",
+          "스크린": "screens",
+          "을": "to",
+          "덮었고": "covered",
+          "사람": "people",
+          "들은": "are",
+          "화면": "screen",
+          "속": "inside",
+          "정보": "information",
+          "대신": "instead",
+          "응시": "gazing",
+          "했다": "did"
+        },
+        "overallTranslation": "Light burst from the spaceship, covering all the screens, and people gazed at the spaceship instead of the information on the screens."
+      },
+      {
+        "korean": "그들의 눈은 마치 깨어난 듯, 빛나는 우주선의 모습에 매료되었다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "의": "of",
+          "눈": "eyes",
+          "은": "are",
+          "마치": "like",
+          "깨어난": "awakened",
+          "듯": "like",
+          "빛나는": "shining",
+          "우주선": "spaceship",
+          "모습": "appearance",
+          "에": "to",
+          "매료": "fascinated",
+          "되었다": "became"
+        },
+        "overallTranslation": "Their eyes, as if awakened, were fascinated by the appearance of the shining spaceship."
+      }
+    ],
+    "id": 2114
+  },
+  {
+    "generator": "korean-story-12-dark-fantasy-gemini",
+    "input": "kilo",
+    "problem": "어두운 밤, 낡은 킬로미터 표지판이 휘청거렸다.<br> 바람은 울부짖었고, 낡은 쇠붙이는 삐걱거렸다.<br> 그때, 땅에서 희미한 빛이 뿜어져 나왔다.<br> 빛은 점점 강해지며 킬로미터 표지판을 녹이기 시작했다.<br> 표지판은 녹아내리며 기괴한 형상의 괴물로 변했다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 킬로미터 표지판이 휘청거렸다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "킬로미터": "kilometer",
+          "표지판": "sign",
+          "휘청거렸다": "swayed"
+        },
+        "overallTranslation": "On a dark night, an old kilometer sign swayed."
+      },
+      {
+        "korean": "바람은 울부짖었고, 낡은 쇠붙이는 삐걱거렸다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "울부짖었고": "howled",
+          "낡은": "old",
+          "쇠붙이": "metal",
+          "삐걱거렸다": "creaked"
+        },
+        "overallTranslation": "The wind howled, and the old metal creaked."
+      },
+      {
+        "korean": "그때, 땅에서 희미한 빛이 뿜어져 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "땅": "ground",
+          "희미한": "faint",
+          "빛": "light",
+          "뿜어져": "emitted",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "At that moment, a faint light emanated from the ground."
+      },
+      {
+        "korean": "빛은 점점 강해지며 킬로미터 표지판을 녹이기 시작했다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "점점": "gradually",
+          "강해지며": "becoming stronger",
+          "킬로미터": "kilometer",
+          "표지판": "sign",
+          "녹이기": "melt",
+          "시작했다": "started"
+        },
+        "overallTranslation": "The light grew stronger, starting to melt the kilometer sign."
+      },
+      {
+        "korean": "표지판은 녹아내리며 기괴한 형상의 괴물로 변했다.",
+        "wordByWordTranslation": {
+          "표지판": "sign",
+          "녹아내리며": "melting",
+          "기괴한": "grotesque",
+          "형상": "form",
+          "괴물": "monster",
+          "변했다": "changed"
+        },
+        "overallTranslation": "The sign melted down, transforming into a grotesque monster."
+      }
+    ],
+    "id": 2115
+  },
+  {
+    "generator": "korean-story-12-dark-fantasy-gemini",
+    "input": "sleeve",
+    "problem": "어두운 밤, 낡은 옷가게의 창문에는 먼지가 쌓여 있었다.<br> 가게 주인인 할머니는 낡은 소파에 앉아 졸고 있었다.<br> 갑자기, 가게 문이 쾅 소리와 함께 열렸다.<br> 문틈 사이로 검은 그림자가 들어왔고, 할머니는 깜짝 놀랐다.<br> 그림자는 소매만 팔랑거리며 말했다, “낡은 옷, 하나 주세요.”<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 옷가게의 창문에는 먼지가 쌓여 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "옷가게": "clothes shop",
+          "창문": "window",
+          "에는": "there is",
+          "먼지": "dust",
+          "가": "that",
+          "쌓여": "piled up",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, dust had piled up on the windows of an old clothing store."
+      },
+      {
+        "korean": "가게 주인인 할머니는 낡은 소파에 앉아 졸고 있었다.",
+        "wordByWordTranslation": {
+          "가게": "store",
+          "주인": "owner",
+          "인": "be",
+          "할머니": "grandmother",
+          "는": "is",
+          "낡은": "old",
+          "소파": "sofa",
+          "에": "on",
+          "앉아": "sitting",
+          "졸고": "dozing",
+          "있었다": "was"
+        },
+        "overallTranslation": "The grandmother, the store owner, was dozing on an old sofa."
+      },
+      {
+        "korean": "갑자기, 가게 문이 쾅 소리와 함께 열렸다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "가게": "store",
+          "문": "door",
+          "이": "that",
+          "쾅": "bang",
+          "소리": "sound",
+          "와": "with",
+          "함께": "together",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, the store door swung open with a bang."
+      },
+      {
+        "korean": "문틈 사이로 검은 그림자가 들어왔고, 할머니는 깜짝 놀랐다.",
+        "wordByWordTranslation": {
+          "문틈": "crack in the door",
+          "사이로": "through",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "that",
+          "들어왔고": "came in",
+          "할머니": "grandmother",
+          "는": "is",
+          "깜짝": "startled",
+          "놀랐다": "surprised"
+        },
+        "overallTranslation": "A black shadow entered through the crack in the door, and the grandmother was startled."
+      },
+      {
+        "korean": "그림자는 소매만 팔랑거리며 말했다, “낡은 옷, 하나 주세요.”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "소매": "sleeve",
+          "만": "only",
+          "팔랑거리며": "fluttering",
+          "말했다": "said",
+          "낡은": "old",
+          "옷": "clothes",
+          "하나": "one",
+          "주세요": "give me"
+        },
+        "overallTranslation": "The shadow, with only its sleeves fluttering, said, “Give me an old piece of clothing.”"
+      }
+    ],
+    "id": 2116
   },
   {
     "generator": "korean-story-12-dramatic-gemini",
@@ -26802,7 +38435,179 @@
         "hanjaro": "따뜻한 커피 향기(香氣)가 나를 행복(幸福)하게 했다.\n"
       }
     ],
-    "id": 1982
+    "id": 2117
+  },
+  {
+    "generator": "korean-story-12-frontier-gemini",
+    "input": "on",
+    "problem": "해가 지기 시작하자, 먼지 덮인 길은 쓸쓸하게 펼쳐졌습니다.<br> 고요한 황야에서, 두 명의 여행자는 말을 타고 서둘러 달리고 있었습니다.<br> 갑자기, 먼지 구름이 하늘을 뒤덮으며 기이한 소리가 들려왔습니다.<br> 여행자들은 말에서 뛰어내려, 긴장한 눈빛으로 먼지 구름을 바라보았습니다.<br> 그 안에서, 거대한 짐승의 형체가 드러나며, 땅이 울리는 듯한 굉음이 울려 퍼졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 먼지 덮인 길은 쓸쓸하게 펼쳐졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "to set",
+          "시작하자": "started",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길은": "road",
+          "쓸쓸하게": "lonely",
+          "펼쳐졌습니다": "stretched out"
+        },
+        "overallTranslation": "As the sun began to set, the dusty road stretched out before them, lonely and desolate."
+      },
+      {
+        "korean": "고요한 황야에서, 두 명의 여행자는 말을 타고 서둘러 달리고 있었습니다.",
+        "wordByWordTranslation": {
+          "고요한": "quiet",
+          "황야에서": "wilderness",
+          "두": "two",
+          "명의": "people",
+          "여행자는": "traveler",
+          "말을": "horse",
+          "타고": "riding",
+          "서둘러": "hurriedly",
+          "달리고": "running",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Two travelers, riding their horses, hurried through the silent wilderness."
+      },
+      {
+        "korean": "갑자기, 먼지 구름이 하늘을 뒤덮으며 기이한 소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "먼지": "dust",
+          "구름이": "cloud",
+          "하늘을": "sky",
+          "뒤덮으며": "covering",
+          "기이한": "strange",
+          "소리가": "sound",
+          "들려왔습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a dust cloud covered the sky, and a strange sound echoed through the air."
+      },
+      {
+        "korean": "여행자들은 말에서 뛰어내려, 긴장한 눈빛으로 먼지 구름을 바라보았습니다.",
+        "wordByWordTranslation": {
+          "여행자들은": "travelers",
+          "말에서": "from horse",
+          "뛰어내려": "jumped down",
+          "긴장한": "tense",
+          "눈빛으로": "eyes",
+          "먼지": "dust",
+          "구름을": "cloud",
+          "바라보았습니다": "looked at"
+        },
+        "overallTranslation": "The travelers leaped off their horses, their eyes tense as they stared at the swirling dust cloud."
+      },
+      {
+        "korean": "그 안에서, 거대한 짐승의 형체가 드러나며, 땅이 울리는 듯한 굉음이 울려 퍼졌습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "안에서": "inside",
+          "거대한": "huge",
+          "짐승의": "beast",
+          "형체가": "shape",
+          "드러나며": "emerging",
+          "땅이": "ground",
+          "울리는": "shaking",
+          "듯한": "like",
+          "굉음이": "roar",
+          "울려": "resounded",
+          "퍼졌습니다": "spread"
+        },
+        "overallTranslation": "From within the cloud, the shape of a massive beast emerged, and a roar like the earth trembling echoed through the air."
+      }
+    ],
+    "id": 2118
+  },
+  {
+    "generator": "korean-story-12-gritty-realism-gemini",
+    "input": "untie",
+    "problem": "낡은 창고 안, 희미한 형광등 불빛 아래, 두 남자가 마주보고 앉아 있었다.<br> 한 남자는 손에 낡은 밧줄을 쥐고 있었고, 다른 남자는 굳은 표정으로 바닥을 응시하고 있었다.<br> 갑자기, 밧줄을 쥔 남자가 벌떡 일어섰다.<br> 그는 밧줄을 풀며, “네가 지금까지 했던 일, 모두 다 알고 있어.”라고 말했다.<br> 두 남자의 눈빛이 싸늘하게 마주쳤다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 창고 안, 희미한 형광등 불빛 아래, 두 남자가 마주보고 앉아 있었다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "창고": "warehouse",
+          "안": "inside",
+          "희미한": "dim",
+          "형광등": "fluorescent light",
+          "불빛": "light",
+          "아래": "below",
+          "두": "two",
+          "남자": "man",
+          "가": "subject marker",
+          "마주보고": "facing each other",
+          "앉아": "sitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "Inside the old warehouse, under the dim fluorescent light, two men sat facing each other."
+      },
+      {
+        "korean": "한 남자는 손에 낡은 밧줄을 쥐고 있었고, 다른 남자는 굳은 표정으로 바닥을 응시하고 있었다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자는": "man subject marker",
+          "손에": "in hand",
+          "낡은": "old",
+          "밧줄을": "rope object marker",
+          "쥐고": "holding",
+          "있었고": "was",
+          "다른": "other",
+          "굳은": "hardened",
+          "표정으로": "expression with",
+          "바닥을": "floor object marker",
+          "응시하고": "staring",
+          "있었다": "was"
+        },
+        "overallTranslation": "One man held an old rope in his hand, while the other man stared at the floor with a hardened expression."
+      },
+      {
+        "korean": "갑자기, 밧줄을 쥔 남자가 벌떡 일어섰다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "밧줄을": "rope object marker",
+          "쥔": "holding",
+          "남자가": "man subject marker",
+          "벌떡": "suddenly",
+          "일어섰다": "stood up"
+        },
+        "overallTranslation": "Suddenly, the man holding the rope stood up."
+      },
+      {
+        "korean": "그는 밧줄을 풀며, “네가 지금까지 했던 일, 모두 다 알고 있어.”라고 말했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "밧줄을": "rope object marker",
+          "풀며": "while untying",
+          "네가": "you",
+          "지금까지": "until now",
+          "했던": "did",
+          "일,": "work",
+          "모두": "all",
+          "다": "all",
+          "알고": "knowing",
+          "있어.": "am",
+          "라고": "quotation marker",
+          "말했다": "said"
+        },
+        "overallTranslation": "He untied the rope, saying, “I know everything you’ve done.”"
+      },
+      {
+        "korean": "두 남자의 눈빛이 싸늘하게 마주쳤다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "남자의": "man possessive marker",
+          "눈빛이": "eyes",
+          "싸늘하게": "coldly",
+          "마주쳤다": "met"
+        },
+        "overallTranslation": "The two men’s eyes met coldly."
+      }
+    ],
+    "id": 2119
   },
   {
     "generator": "korean-story-12-low-fantasy-gemini",
@@ -26900,7 +38705,283 @@
         "hanjaro": "그는 이제 이 낡은 성(城)을 다스릴 운명(運命)을 받아들였다.\n"
       }
     ],
-    "id": 1983
+    "id": 2120
+  },
+  {
+    "generator": "korean-story-12-military-gemini",
+    "input": "distortion",
+    "problem": "김 대위는 전쟁터에서 멀리 떨어진 작은 마을의 낡은 술집에 앉아 있었다.<br> 그는 술잔을 들고 창밖을 바라보며 싸움에 대한 생각에 잠겨 있었다.<br> 갑자기 술집 문이 쾅 하고 열리며 낯선 군인이 들어왔다.<br> 그의 얼굴은 피로 가득했고, 눈은 이상하게 왜곡되어 있었다.<br> 김 대위는 그 군인의 눈을 보며 전쟁의 잔혹함과 혼란을 느꼈다.<br>",
+    "solution": [
+      {
+        "korean": "김 대위는 전쟁터에서 멀리 떨어진 작은 마을의 낡은 술집에 앉아 있었다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "전쟁터": "battlefield",
+          "에서": "from",
+          "멀리": "far",
+          "떨어진": "away",
+          "작은": "small",
+          "마을": "village",
+          "의": "of",
+          "낡은": "old",
+          "술집": "bar",
+          "에": "at",
+          "앉아": "sitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "Captain Kim was sitting in an old bar in a small village far from the battlefield."
+      },
+      {
+        "korean": "그는 술잔을 들고 창밖을 바라보며 싸움에 대한 생각에 잠겨 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "술잔": "glass",
+          "을": "object marker",
+          "들고": "holding",
+          "창밖": "window",
+          "바라보며": "looking",
+          "싸움": "fight",
+          "에": "in",
+          "대한": "about",
+          "생각": "thought",
+          "잠겨": "lost",
+          "있었다": "was"
+        },
+        "overallTranslation": "He held a glass, looking out the window, lost in thought about the fight."
+      },
+      {
+        "korean": "갑자기 술집 문이 쾅 하고 열리며 낯선 군인이 들어왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "술집": "bar",
+          "문": "door",
+          "이": "subject marker",
+          "쾅": "bang",
+          "하고": "and",
+          "열리며": "opening",
+          "낯선": "strange",
+          "군인": "soldier",
+          "들어왔다": "came in"
+        },
+        "overallTranslation": "Suddenly, the bar door burst open and a strange soldier came in."
+      },
+      {
+        "korean": "그의 얼굴은 피로 가득했고, 눈은 이상하게 왜곡되어 있었다.",
+        "wordByWordTranslation": {
+          "그의": "his",
+          "얼굴": "face",
+          "은": "subject marker",
+          "피": "blood",
+          "로": "with",
+          "가득했고": "full",
+          "눈": "eyes",
+          "이상하게": "strangely",
+          "왜곡되어": "distorted",
+          "있었다": "was"
+        },
+        "overallTranslation": "His face was covered in blood, and his eyes were strangely distorted."
+      },
+      {
+        "korean": "김 대위는 그 군인의 눈을 보며 전쟁의 잔혹함과 혼란을 느꼈다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "대위": "captain",
+          "는": "is",
+          "그": "that",
+          "군인": "soldier",
+          "의": "of",
+          "눈": "eyes",
+          "을": "object marker",
+          "보며": "looking",
+          "전쟁": "war",
+          "잔혹함": "cruelty",
+          "과": "and",
+          "혼란": "confusion",
+          "느꼈다": "felt"
+        },
+        "overallTranslation": "Captain Kim looked into the soldier's eyes and felt the cruelty and confusion of war."
+      }
+    ],
+    "id": 2121
+  },
+  {
+    "generator": "korean-story-12-military-gemini",
+    "input": "impudent",
+    "problem": "어두운 밤, 험준한 산길을 따라 군인들이 조용히 행군하고 있었다.<br> 갑자기, 앞쪽에서 둔탁한 소리가 들려왔다.<br> 그 소리는 바로 젊은 병사의 뻔뻔한 외침이었다.<br> 그는 적군을 향해 큰 소리로 욕설을 퍼부었다.<br> 순간, 그의 용감함에 동료들은 놀랐지만, 곧 그의 용기와 패기에 감탄했다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 험준한 산길을 따라 군인들이 조용히 행군하고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "험준한": "steep",
+          "산길": "mountain path",
+          "따라": "along",
+          "군인": "soldier",
+          "들이": "plural marker",
+          "조용히": "quietly",
+          "행군": "march",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, soldiers were silently marching along a steep mountain path."
+      },
+      {
+        "korean": "갑자기, 앞쪽에서 둔탁한 소리가 들려왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "앞쪽": "front",
+          "에서": "from",
+          "둔탁한": "dull",
+          "소리": "sound",
+          "가": "subject marker",
+          "들려왔다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a dull sound was heard from the front."
+      },
+      {
+        "korean": "그 소리는 바로 젊은 병사의 뻔뻔한 외침이었다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리": "sound",
+          "는": "subject marker",
+          "바로": "right",
+          "젊은": "young",
+          "병사": "soldier",
+          "의": "possessive particle",
+          "뻔뻔한": "impudent",
+          "외침": "shout",
+          "이었다": "was"
+        },
+        "overallTranslation": "That sound was the impudent shout of a young soldier."
+      },
+      {
+        "korean": "그는 적군을 향해 큰 소리로 욕설을 퍼부었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "적군": "enemy",
+          "을": "object marker",
+          "향해": "toward",
+          "큰": "big",
+          "소리": "voice",
+          "로": "with",
+          "욕설": "abuse",
+          "퍼부었다": "poured"
+        },
+        "overallTranslation": "He poured out abuse at the enemy in a loud voice."
+      },
+      {
+        "korean": "순간, 그의 용감함에 동료들은 놀랐지만, 곧 그의 용기와 패기에 감탄했다.",
+        "wordByWordTranslation": {
+          "순간": "moment",
+          "그": "his",
+          "용감함": "bravery",
+          "에": "at",
+          "동료": "comrade",
+          "들은": "plural marker",
+          "놀랐지만": "were surprised but",
+          "곧": "soon",
+          "용기": "courage",
+          "와": "and",
+          "패기": "spirit",
+          "감탄": "admiration",
+          "했다": "did"
+        },
+        "overallTranslation": "At that moment, his comrades were surprised by his bravery, but soon admired his courage and spirit."
+      }
+    ],
+    "id": 2122
+  },
+  {
+    "generator": "korean-story-12-noir-gemini",
+    "input": "convincing",
+    "problem": "어두운 골목길에서, 남자는 땀을 뻘뻘 흘리며 서 있었다.<br> 그는 손에 든 낡은 사진을 떨리는 손으로 꽉 움켜쥐고 있었다.<br> 그때, 차가운 손이 그의 어깨를 잡았다.<br> 낮게 속삭이는 목소리가 들렸다. \"믿을 수 있겠어?\" <br> 남자는 숨을 크게 들이쉬고, 사진을 꽉 쥐었다. \"믿어야만 해.\" <br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 남자는 땀을 뻘뻘 흘리며 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alley",
+          "에서": "in",
+          "남자": "man",
+          "는": "is",
+          "땀": "sweat",
+          "을": "object marker",
+          "뻘뻘": "profusely",
+          "흘리며": "sweating",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In a dark alley, the man stood, sweating profusely."
+      },
+      {
+        "korean": "그는 손에 든 낡은 사진을 떨리는 손으로 꽉 움켜쥐고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "손": "hand",
+          "에": "on",
+          "든": "held",
+          "낡은": "old",
+          "사진": "picture",
+          "을": "object marker",
+          "떨리는": "trembling",
+          "으로": "with",
+          "꽉": "tightly",
+          "움켜쥐고": "clutching",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was clutching the old photograph in his trembling hand."
+      },
+      {
+        "korean": "그때, 차가운 손이 그의 어깨를 잡았다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "차가운": "cold",
+          "손": "hand",
+          "이": "subject marker",
+          "그의": "his",
+          "어깨": "shoulder",
+          "을": "object marker",
+          "잡았다": "grabbed"
+        },
+        "overallTranslation": "Then, a cold hand grabbed his shoulder."
+      },
+      {
+        "korean": "낮게 속삭이는 목소리가 들렸다. \"믿을 수 있겠어?\" ",
+        "wordByWordTranslation": {
+          "낮게": "lowly",
+          "속삭이는": "whispering",
+          "목소리": "voice",
+          "가": "subject marker",
+          "들렸다": "could be heard",
+          "믿을": "believe",
+          "수": "ability",
+          "있겠어": "will you",
+          "?": "question mark"
+        },
+        "overallTranslation": "A low whisper could be heard. \"Do you believe it?\" "
+      },
+      {
+        "korean": "남자는 숨을 크게 들이쉬고, 사진을 꽉 쥐었다. \"믿어야만 해.\" ",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "is",
+          "숨": "breath",
+          "을": "object marker",
+          "크게": "deeply",
+          "들이쉬고": "inhaling",
+          "사진": "picture",
+          "꽉": "tightly",
+          "쥐었다": "gripped",
+          "믿어야만": "must believe",
+          "해": "do"
+        },
+        "overallTranslation": "The man took a deep breath and gripped the photograph tightly. \"I have to believe it.\" "
+      }
+    ],
+    "id": 2123
   },
   {
     "generator": "korean-story-12-science-fiction-gemini",
@@ -26986,7 +39067,105 @@
         "hanjaro": "그 순간(瞬間), 은수(隱修)는 책(冊) 속으로 빨려 들어가는 자신(自身)을 발견(發見)했다.\n"
       }
     ],
-    "id": 1984
+    "id": 2124
+  },
+  {
+    "generator": "korean-story-12-slasher-gemini",
+    "input": "ship",
+    "problem": "밤늦도록 배 위에서 낚시를 즐기던 승현은 갑자기 섬뜩한 기분이 들었다.<br> 차가운 바람이 스치는 듯한 느낌과 함께, 어둠 속에서 희미한 그림자가 움직이는 것을 보았다.<br> 그림자는 점점 가까워지더니, 갑자기 승현의 팔을 잡아채며 소름 끼치는 비명을 질렀다.<br> 손에 잡힌 것은 차갑고 끈적끈적한 살점이었고, 희미한 달빛 아래에서 섬뜩한 미소를 짓는 얼굴이 보였다.<br> 승현은 공포에 질려 바다로 떨어졌고, 차가운 물 속에서 영원히 잠들었다.<br>",
+    "solution": [
+      {
+        "korean": "밤늦도록 배 위에서 낚시를 즐기던 승현은 갑자기 섬뜩한 기분이 들었다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "늦도록": "late",
+          "배": "ship",
+          "위에서": "on",
+          "낚시": "fishing",
+          "를": "to",
+          "즐기던": "enjoyed",
+          "승현은": "Seunghyun",
+          "갑자기": "suddenly",
+          "섬뜩한": "creepy",
+          "기분이": "feeling",
+          "들었다": "came"
+        },
+        "overallTranslation": "Seunghyun, who had been enjoying fishing on the ship late into the night, suddenly felt a creepy feeling."
+      },
+      {
+        "korean": "차가운 바람이 스치는 듯한 느낌과 함께, 어둠 속에서 희미한 그림자가 움직이는 것을 보았다.",
+        "wordByWordTranslation": {
+          "차가운": "cold",
+          "바람이": "wind",
+          "스치는": "passing",
+          "듯한": "like",
+          "느낌과": "feeling and",
+          "함께": "together",
+          "어둠": "darkness",
+          "속에서": "inside",
+          "희미한": "faint",
+          "그림자가": "shadow",
+          "움직이는": "moving",
+          "것을": "thing",
+          "보았다": "saw"
+        },
+        "overallTranslation": "Along with a feeling like a cold wind was passing, he saw a faint shadow moving in the darkness."
+      },
+      {
+        "korean": "그림자는 점점 가까워지더니, 갑자기 승현의 팔을 잡아채며 소름 끼치는 비명을 질렀다.",
+        "wordByWordTranslation": {
+          "그림자는": "The shadow",
+          "점점": "gradually",
+          "가까워지더니": "got closer",
+          "갑자기": "suddenly",
+          "승현의": "Seunghyun's",
+          "팔을": "arm",
+          "잡아채며": "grabbing",
+          "소름": "chills",
+          "끼치는": "giving",
+          "비명을": "scream",
+          "질렀다": "shouted"
+        },
+        "overallTranslation": "The shadow gradually got closer, suddenly grabbed Seunghyun's arm, and let out a chilling scream."
+      },
+      {
+        "korean": "손에 잡힌 것은 차갑고 끈적끈적한 살점이었고, 희미한 달빛 아래에서 섬뜩한 미소를 짓는 얼굴이 보였다.",
+        "wordByWordTranslation": {
+          "손에": "in hand",
+          "잡힌": "held",
+          "것은": "thing",
+          "차갑고": "cold and",
+          "끈적끈적한": "sticky",
+          "살점이었고": "flesh",
+          "희미한": "faint",
+          "달빛": "moonlight",
+          "아래에서": "under",
+          "섬뜩한": "creepy",
+          "미소를": "smile",
+          "짓는": "making",
+          "얼굴이": "face",
+          "보였다": "appeared"
+        },
+        "overallTranslation": "What he grabbed was cold and sticky flesh, and under the faint moonlight, a face with a creepy smile appeared."
+      },
+      {
+        "korean": "승현은 공포에 질려 바다로 떨어졌고, 차가운 물 속에서 영원히 잠들었다.",
+        "wordByWordTranslation": {
+          "승현은": "Seunghyun",
+          "공포에": "in fear",
+          "질려": "filled",
+          "바다로": "to sea",
+          "떨어졌고": "fell",
+          "차가운": "cold",
+          "물": "water",
+          "속에서": "inside",
+          "영원히": "forever",
+          "잠들었다": "slept"
+        },
+        "overallTranslation": "Seunghyun, filled with terror, fell into the sea and slept forever in the cold water."
+      }
+    ],
+    "id": 2125
   },
   {
     "generator": "korean-story-12-supernatural-mystery-gemini",
@@ -27097,7 +39276,7 @@
         "hanjaro": "그 책(冊)은 마치 그녀(그女)의 마음속 깊은 곳에서 끌어올린 듯한, 알 수 없는 힘을 지니고 있었다.\n"
       }
     ],
-    "id": 1985
+    "id": 2126
   },
   {
     "generator": "korean-story-12-thriller-gemini",
@@ -27178,7 +39357,7 @@
         "hanjaro": "그는 숨을 크게 들이쉬며, 14번째(番째) 시계(時計) 소리에 몸을 떨었다.\n"
       }
     ],
-    "id": 1986
+    "id": 2127
   },
   {
     "generator": "korean-story-12-time-travel-gemini",
@@ -27266,7 +39445,259 @@
         "overallTranslation": "Around her, people wearing old Korean traditional clothing moved busily."
       }
     ],
-    "id": 1987
+    "id": 2128
+  },
+  {
+    "generator": "korean-story-12-western-gemini",
+    "input": "manual",
+    "problem": "뜨거운 사막 한가운데, 낡은 캠핑카가 멈춰 서 있었다.<br> 캠핑카 옆에는 먼지투성이가 된, 오래된 수동식 펌프가 놓여 있었다.<br> 갑자기, 캠핑카 문이 열리고 한 남자가 뛰쳐나왔다.<br> 그는 펌프를 잡고, 필사적으로 물을 뽑아내려고 했다.<br> 하지만 펌프는 낡아서, 끽끽 소리만 내고 물 한 방울도 나오지 않았다.<br>",
+    "solution": [
+      {
+        "korean": "뜨거운 사막 한가운데, 낡은 캠핑카가 멈춰 서 있었다.",
+        "wordByWordTranslation": {
+          "뜨거운": "hot",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "old",
+          "캠핑카": "camping car",
+          "멈춰": "stopped",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the middle of the scorching desert, an old camping car stood still."
+      },
+      {
+        "korean": "캠핑카 옆에는 먼지투성이가 된, 오래된 수동식 펌프가 놓여 있었다.",
+        "wordByWordTranslation": {
+          "캠핑카": "camping car",
+          "옆에는": "next to",
+          "먼지투성이": "dusty",
+          "된": "become",
+          "오래된": "old",
+          "수동식": "manual",
+          "펌프": "pump",
+          "놓여": "placed",
+          "있었다": "was"
+        },
+        "overallTranslation": "Next to the camping car, an old manual pump, covered in dust, was placed."
+      },
+      {
+        "korean": "갑자기, 캠핑카 문이 열리고 한 남자가 뛰쳐나왔다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "캠핑카": "camping car",
+          "문": "door",
+          "열리고": "opening",
+          "한": "one",
+          "남자": "man",
+          "뛰쳐나왔다": "ran out"
+        },
+        "overallTranslation": "Suddenly, the camping car door opened and a man ran out."
+      },
+      {
+        "korean": "그는 펌프를 잡고, 필사적으로 물을 뽑아내려고 했다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "펌프": "pump",
+          "잡고": "grasping",
+          "필사적으로": "desperately",
+          "물": "water",
+          "뽑아내려고": "try to pull out",
+          "했다": "did"
+        },
+        "overallTranslation": "He grasped the pump and tried desperately to pull out water."
+      },
+      {
+        "korean": "하지만 펌프는 낡아서, 끽끽 소리만 내고 물 한 방울도 나오지 않았다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "펌프": "pump",
+          "낡아서": "old",
+          "끽끽": "creak",
+          "소리": "sound",
+          "내고": "making",
+          "물": "water",
+          "한": "one",
+          "방울": "drop",
+          "나오지": "not coming out",
+          "않았다": "did not"
+        },
+        "overallTranslation": "But the pump was old, and it only creaked, not a single drop of water came out."
+      }
+    ],
+    "id": 2129
+  },
+  {
+    "generator": "korean-story-2-bounty-hunter-gemini",
+    "input": "freezer",
+    "problem": "추운 겨울밤, 냉장고 앞에서 김 사장님은 걱정이 많았어요.<br> 내일 아침까지 돈을 갚지 못하면 냉동실에 들어갈 수도 있었거든요.<br> 갑자기 냉장고 문이 열리고 강력한 냉기가 뿜어져 나왔어요.<br> 냉장고 안에서 꽁꽁 얼어붙은 남자가 나타났어요.<br> 그는 김 사장님에게 돈을 갚아 달라고 부탁했어요.<br>",
+    "solution": [
+      {
+        "korean": "추운 겨울밤, 냉장고 앞에서 김 사장님은 걱정이 많았어요.",
+        "wordByWordTranslation": {
+          "추운": "cold",
+          "겨울밤": "winter night",
+          "냉장고": "refrigerator",
+          "앞에서": "in front of",
+          "김": "Kim",
+          "사장님": "boss",
+          "은": "is",
+          "걱정": "worry",
+          "이": "that",
+          "많았어요": "was a lot"
+        },
+        "overallTranslation": "On a cold winter night, Mr. Kim was worried in front of the refrigerator."
+      },
+      {
+        "korean": "내일 아침까지 돈을 갚지 못하면 냉동실에 들어갈 수도 있었거든요.",
+        "wordByWordTranslation": {
+          "내일": "tomorrow",
+          "아침": "morning",
+          "까지": "until",
+          "돈": "money",
+          "을": "to",
+          "갚지": "pay back",
+          "못하면": "if not",
+          "냉동실": "freezer",
+          "에": "to",
+          "들어갈": "enter",
+          "수도": "possibility",
+          "있었거든요": "it was"
+        },
+        "overallTranslation": "He could be put in the freezer if he couldn't repay the money by tomorrow morning."
+      },
+      {
+        "korean": "갑자기 냉장고 문이 열리고 강력한 냉기가 뿜어져 나왔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "냉장고": "refrigerator",
+          "문": "door",
+          "이": "that",
+          "열리고": "opened",
+          "강력한": "powerful",
+          "냉기": "cold air",
+          "가": "that",
+          "뿜어져": "sprayed",
+          "나왔어요": "came out"
+        },
+        "overallTranslation": "Suddenly, the refrigerator door opened and a powerful cold air burst out."
+      },
+      {
+        "korean": "냉장고 안에서 꽁꽁 얼어붙은 남자가 나타났어요.",
+        "wordByWordTranslation": {
+          "냉장고": "refrigerator",
+          "안에서": "inside",
+          "꽁꽁": "completely",
+          "얼어붙은": "frozen",
+          "남자": "man",
+          "가": "that",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "A man frozen solid appeared from inside the refrigerator."
+      },
+      {
+        "korean": "그는 김 사장님에게 돈을 갚아 달라고 부탁했어요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "김": "Kim",
+          "사장님": "boss",
+          "에게": "to",
+          "돈": "money",
+          "을": "to",
+          "갚아": "pay back",
+          "달라고": "to",
+          "부탁했어요": "asked"
+        },
+        "overallTranslation": "He asked Mr. Kim to pay back the money."
+      }
+    ],
+    "id": 2130
+  },
+  {
+    "generator": "korean-story-2-comedy-gemini",
+    "input": "trio",
+    "problem": "친구 세 명이 맛있는 아이스크림을 먹고 있었어요.<br> 그들은 웃고 떠들며 행복한 시간을 보내고 있었어요.<br> 갑자기 하늘에서 커다란 빵이 떨어졌어요!<br> 친구들은 빵을 보고 놀랐지만, 곧 빵을 나눠 먹기 시작했어요.<br> 세 친구는 빵과 아이스크림을 함께 맛있게 먹으며 행복한 시간을 보냈어요.<br>",
+    "solution": [
+      {
+        "korean": "친구 세 명이 맛있는 아이스크림을 먹고 있었어요.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "세": "three",
+          "명": "person",
+          "이": "subject marker",
+          "맛있는": "delicious",
+          "아이스크림": "ice cream",
+          "을": "object marker",
+          "먹고": "eat",
+          "있었어요": "past tense"
+        },
+        "overallTranslation": "Three friends were eating delicious ice cream."
+      },
+      {
+        "korean": "그들은 웃고 떠들며 행복한 시간을 보내고 있었어요.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "은": "subject marker",
+          "웃고": "laugh",
+          "떠들며": "talk",
+          "행복한": "happy",
+          "시간": "time",
+          "을": "object marker",
+          "보내고": "spend",
+          "있었어요": "past tense"
+        },
+        "overallTranslation": "They were having a happy time, laughing and talking."
+      },
+      {
+        "korean": "갑자기 하늘에서 커다란 빵이 떨어졌어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "커다란": "big",
+          "빵": "bread",
+          "이": "subject marker",
+          "떨어졌어요": "fell"
+        },
+        "overallTranslation": "Suddenly, a big loaf of bread fell from the sky!"
+      },
+      {
+        "korean": "친구들은 빵을 보고 놀랐지만, 곧 빵을 나눠 먹기 시작했어요.",
+        "wordByWordTranslation": {
+          "친구들": "friends",
+          "은": "subject marker",
+          "빵": "bread",
+          "을": "object marker",
+          "보고": "see",
+          "놀랐지만": "surprised, but",
+          "곧": "soon",
+          "나눠": "share",
+          "먹기": "eat",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "The friends were surprised when they saw the bread, but they soon started to share it."
+      },
+      {
+        "korean": "세 친구는 빵과 아이스크림을 함께 맛있게 먹으며 행복한 시간을 보냈어요.",
+        "wordByWordTranslation": {
+          "세": "three",
+          "친구": "friend",
+          "는": "subject marker",
+          "빵": "bread",
+          "과": "and",
+          "아이스크림": "ice cream",
+          "을": "object marker",
+          "함께": "together",
+          "맛있게": "deliciously",
+          "먹으며": "eat",
+          "행복한": "happy",
+          "시간": "time",
+          "보냈어요": "spent"
+        },
+        "overallTranslation": "The three friends spent a happy time eating the bread and ice cream together, enjoying them both."
+      }
+    ],
+    "id": 2131
   },
   {
     "generator": "korean-story-2-cosmic-horror-gemini",
@@ -27348,7 +39779,150 @@
         "hanjaro": "소녀(少女)는 겁(怯)에 질려 뒤로 물러섰어요.\n"
       }
     ],
-    "id": 1988
+    "id": 2132
+  },
+  {
+    "generator": "korean-story-2-dramatic-gemini",
+    "input": "immunity",
+    "problem": "겨울밤이었고 눈이 펑펑 내렸어요.<br> 민수는 감기에 걸려서 춥고 아팠어요.<br> 하지만 엄마가 따뜻한 차를 주니까 기분이 좋아졌어요.<br> 민수는 몸이 다시 건강해졌어요.<br> 이제 민수는 추위에도 끄떡없어요!<br>",
+    "solution": [
+      {
+        "korean": "겨울밤이었고 눈이 펑펑 내렸어요.",
+        "wordByWordTranslation": {
+          "겨울": "winter",
+          "밤": "night",
+          "이었고": "was",
+          "눈": "snow",
+          "이": "that",
+          "펑펑": "heavily",
+          "내렸어요": "fell"
+        },
+        "overallTranslation": "It was a winter night, and snow was falling heavily."
+      },
+      {
+        "korean": "민수는 감기에 걸려서 춥고 아팠어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "감기": "cold",
+          "에": "to",
+          "걸려서": "catch",
+          "춥": "cold",
+          "고": "and",
+          "아팠어요": "hurt"
+        },
+        "overallTranslation": "Minsu had a cold and was feeling cold and sick."
+      },
+      {
+        "korean": "하지만 엄마가 따뜻한 차를 주니까 기분이 좋아졌어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "엄마": "mom",
+          "가": "that",
+          "따뜻한": "warm",
+          "차": "tea",
+          "를": "object marker",
+          "주니까": "gave",
+          "기분": "mood",
+          "이": "that",
+          "좋아졌어요": "became good"
+        },
+        "overallTranslation": "But when his mom gave him warm tea, he felt better."
+      },
+      {
+        "korean": "민수는 몸이 다시 건강해졌어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "몸": "body",
+          "이": "that",
+          "다시": "again",
+          "건강해졌어요": "became healthy"
+        },
+        "overallTranslation": "Minsu's body became healthy again."
+      },
+      {
+        "korean": "이제 민수는 추위에도 끄떡없어요!",
+        "wordByWordTranslation": {
+          "이제": "now",
+          "민수": "Minsu",
+          "는": "is",
+          "추위": "cold",
+          "에도": "even",
+          "끄떡없어요": "not affected"
+        },
+        "overallTranslation": "Now Minsu is not afraid of the cold!"
+      }
+    ],
+    "id": 2133
+  },
+  {
+    "generator": "korean-story-2-espionage-gemini",
+    "input": "boulder",
+    "problem": "어두운 밤, 큰 바위 뒤에 스파이가 숨어 있었어요.<br> 스파이는 적군의 비밀 계획을 엿듣고 있었어요.<br> 갑자기, 큰 소리가 났어요!<br> 바위가 움직였고, 그 안에서 적군 병사가 나타났어요!<br> 스파이는 재빨리 숨어서 위기를 모면했어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 큰 바위 뒤에 스파이가 숨어 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "큰": "big",
+          "바위": "boulder",
+          "뒤에": "behind",
+          "스파이": "spy",
+          "숨어": "hide",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a dark night, a spy was hiding behind a big boulder."
+      },
+      {
+        "korean": "스파이는 적군의 비밀 계획을 엿듣고 있었어요.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "적군": "enemy",
+          "비밀": "secret",
+          "계획": "plan",
+          "엿듣고": "eavesdrop",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The spy was eavesdropping on the enemy's secret plan."
+      },
+      {
+        "korean": "갑자기, 큰 소리가 났어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "큰": "big",
+          "소리": "sound",
+          "났어요": "made"
+        },
+        "overallTranslation": "Suddenly, there was a loud noise!"
+      },
+      {
+        "korean": "바위가 움직였고, 그 안에서 적군 병사가 나타났어요!",
+        "wordByWordTranslation": {
+          "바위": "boulder",
+          "움직였고": "moved",
+          "그": "that",
+          "안에서": "inside",
+          "적군": "enemy",
+          "병사": "soldier",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "The boulder moved, and an enemy soldier appeared from inside!"
+      },
+      {
+        "korean": "스파이는 재빨리 숨어서 위기를 모면했어요.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "재빨리": "quickly",
+          "숨어": "hide",
+          "위기": "crisis",
+          "모면했어요": "avoided"
+        },
+        "overallTranslation": "The spy quickly hid and avoided the crisis."
+      }
+    ],
+    "id": 2134
   },
   {
     "generator": "korean-story-2-historical-gemini",
@@ -27450,7 +40024,72 @@
         "hanjaro": "그 보석(寶石)은 너무나 아름다워서 은수(隱修)는 그 보석(寶石)을 가지고 궁궐(宮闕)로 갔습니다.\n"
       }
     ],
-    "id": 1989
+    "id": 2135
+  },
+  {
+    "generator": "korean-story-2-low-fantasy-gemini",
+    "input": "envelop",
+    "problem": "어두운 밤, 별이 빛나는 하늘을 봤어요.<br> 갑자기, 밤하늘을 덮는 검은 그림자가 나타났어요.<br> 그림자는 커다란 날개를 펼치며 내려왔어요.<br> 날개는 밤하늘을 덮었고, 별빛은 사라졌어요.<br> 나는 깜짝 놀라서 숨을 헐떡였어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 별이 빛나는 하늘을 봤어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "별": "star",
+          "빛나는": "shining",
+          "하늘": "sky",
+          "봤어요": "saw"
+        },
+        "overallTranslation": "On a dark night, I saw the starry sky."
+      },
+      {
+        "korean": "갑자기, 밤하늘을 덮는 검은 그림자가 나타났어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "밤하늘": "night sky",
+          "덮는": "covering",
+          "검은": "black",
+          "그림자": "shadow",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "Suddenly, a black shadow appeared, covering the night sky."
+      },
+      {
+        "korean": "그림자는 커다란 날개를 펼치며 내려왔어요.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "커다란": "big",
+          "날개": "wings",
+          "펼치며": "spreading",
+          "내려왔어요": "came down"
+        },
+        "overallTranslation": "The shadow came down, spreading its large wings."
+      },
+      {
+        "korean": "날개는 밤하늘을 덮었고, 별빛은 사라졌어요.",
+        "wordByWordTranslation": {
+          "날개": "wings",
+          "밤하늘": "night sky",
+          "덮었고": "covered",
+          "별빛": "starlight",
+          "사라졌어요": "disappeared"
+        },
+        "overallTranslation": "The wings covered the night sky, and the starlight disappeared."
+      },
+      {
+        "korean": "나는 깜짝 놀라서 숨을 헐떡였어요.",
+        "wordByWordTranslation": {
+          "나는": "I",
+          "깜짝": "startled",
+          "놀라서": "surprised",
+          "숨": "breath",
+          "헐떡였어요": "gasped"
+        },
+        "overallTranslation": "I was startled and gasped for breath."
+      }
+    ],
+    "id": 2136
   },
   {
     "generator": "korean-story-2-modern-gemini",
@@ -27522,7 +40161,7 @@
         "hanjaro": "그들은 다시 이야기를 나누며 즐거운 시간(時間)을 보냈어요.\n"
       }
     ],
-    "id": 1990
+    "id": 2137
   },
   {
     "generator": "korean-story-2-science-fiction-gemini",
@@ -27597,7 +40236,7 @@
         "overallTranslation": "Minsu was startled and dropped his telescope."
       }
     ],
-    "id": 1991
+    "id": 2138
   },
   {
     "generator": "korean-story-2-superhero-gemini",
@@ -27682,7 +40321,7 @@
         "hanjaro": "괴물(怪物)은 베이컨 냄새에 꼼짝 못하고 웃음을 터뜨렸어요.\n"
       }
     ],
-    "id": 1992
+    "id": 2139
   },
   {
     "generator": "korean-story-2-time-travel-gemini",
@@ -27768,7 +40407,7 @@
         "hanjaro": "은수와 지수(指數)는 신기한 마을을 둘러보며 옛날 사람들의 생활(生活)을 상상(想像)했어요.\n"
       }
     ],
-    "id": 1993
+    "id": 2140
   },
   {
     "generator": "korean-story-2-time-travel-gemini",
@@ -27841,7 +40480,88 @@
         "overallTranslation": "He was surprised to see the amazing farming tools."
       }
     ],
-    "id": 1994
+    "id": 2141
+  },
+  {
+    "generator": "korean-story-2-urban-gemini",
+    "input": "raise",
+    "problem": "지수는 엄마랑 같이 슈퍼에 갔어요.<br> 지수는 엄마에게 장난감을 사달라고 했어요.<br> 그런데 엄마가 갑자기 아파서 슈퍼에서 나왔어요.<br> 지수는 엄마를 부축해서 집으로 데려갔어요.<br> 엄마는 지수가 자기를 걱정해주는 모습에 감동했어요.<br>",
+    "solution": [
+      {
+        "korean": "지수는 엄마랑 같이 슈퍼에 갔어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "랑": "with",
+          "같이": "together",
+          "슈퍼": "supermarket",
+          "에": "to",
+          "갔어요": "went"
+        },
+        "overallTranslation": "Jisoo went to the supermarket with her mom."
+      },
+      {
+        "korean": "지수는 엄마에게 장난감을 사달라고 했어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "에게": "to",
+          "장난감": "toy",
+          "을": "object marker",
+          "사달라고": "to buy",
+          "했어요": "said"
+        },
+        "overallTranslation": "Jisoo asked her mom to buy her a toy."
+      },
+      {
+        "korean": "그런데 엄마가 갑자기 아파서 슈퍼에서 나왔어요.",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "엄마": "mom",
+          "가": "subject marker",
+          "갑자기": "suddenly",
+          "아파서": "because of being sick",
+          "슈퍼": "supermarket",
+          "에서": "from",
+          "나왔어요": "came out"
+        },
+        "overallTranslation": "But her mom suddenly got sick and they came out of the supermarket."
+      },
+      {
+        "korean": "지수는 엄마를 부축해서 집으로 데려갔어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "엄마": "mom",
+          "를": "object marker",
+          "부축해서": "supporting",
+          "집": "house",
+          "으로": "to",
+          "데려갔어요": "took"
+        },
+        "overallTranslation": "Jisoo supported her mom and took her home."
+      },
+      {
+        "korean": "엄마는 지수가 자기를 걱정해주는 모습에 감동했어요.",
+        "wordByWordTranslation": {
+          "엄마": "mom",
+          "는": "is",
+          "지수": "Jisoo",
+          "가": "subject marker",
+          "자기": "herself",
+          "를": "object marker",
+          "걱정": "worry",
+          "해주는": "giving",
+          "모습": "appearance",
+          "에": "to",
+          "감동했어요": "was moved"
+        },
+        "overallTranslation": "Mom was touched by Jisoo's concern for her."
+      }
+    ],
+    "id": 2142
   },
   {
     "generator": "korean-story-3-comedic-gemini",
@@ -27910,7 +40630,7 @@
         "hanjaro": "학교(學校)는 이미 끝났고, 민수는 늦잠을 잤어요.\n"
       }
     ],
-    "id": 1995
+    "id": 2143
   },
   {
     "generator": "korean-story-3-comic book-gemini",
@@ -28011,7 +40731,7 @@
         "hanjaro": "민수는 친구(親舊)들의 도움으로 껌을 떼어내고 다시 신나게 축구(蹴球)를 할 수 있었답니다.\n"
       }
     ],
-    "id": 1996
+    "id": 2144
   },
   {
     "generator": "korean-story-3-cosmic-horror-gemini",
@@ -28089,7 +40809,7 @@
         "hanjaro": "우리는 텐트를 버리고 도망쳤습니다.\n"
       }
     ],
-    "id": 1997
+    "id": 2145
   },
   {
     "generator": "korean-story-3-drama-gemini",
@@ -28194,7 +40914,7 @@
         "hanjaro": "은수(隱修)는 “아기가 울고 있어요!”라고 말하며 울음소리가 나는 곳으로 손가락을 가리켰어요.\n"
       }
     ],
-    "id": 1998
+    "id": 2146
   },
   {
     "generator": "korean-story-3-drama-gemini",
@@ -28267,7 +40987,7 @@
         "overallTranslation": "The whistle sound didn't come back, but the children happily played hide and seek."
       }
     ],
-    "id": 1999
+    "id": 2147
   },
   {
     "generator": "korean-story-3-espionage-gemini",
@@ -28356,7 +41076,102 @@
         "hanjaro": "김민수는 재빨리 남자(男子)의 손을 뿌리치고, 미션을 계속(繼續) 수행(遂行)했습니다.\n"
       }
     ],
-    "id": 2000
+    "id": 2148
+  },
+  {
+    "generator": "korean-story-3-fantasy-gemini",
+    "input": "skier",
+    "problem": "하얀 눈이 펑펑 내리는 겨울날, 은수는 스키장에 왔어요.<br> 은수는 친구 민수와 함께 신나게 스키를 타고 있었어요.<br> 갑자기 눈보라가 몰아쳐서 앞이 보이지 않았어요.<br> 은수와 민수는 서로 손을 잡고 떨리는 목소리로 “어떡해!”라고 외쳤어요.<br> 그때, 신비로운 빛이 눈보라 속에서 빛나며 은수와 민수를 따뜻하게 감쌌어요.<br>",
+    "solution": [
+      {
+        "korean": "하얀 눈이 펑펑 내리는 겨울날, 은수는 스키장에 왔어요.",
+        "wordByWordTranslation": {
+          "하얀": "white",
+          "눈": "snow",
+          "이": "that",
+          "펑펑": "heavily",
+          "내리는": "falling",
+          "겨울날": "winter day",
+          "은수": "Eunsoo",
+          "는": "is",
+          "스키장": "ski resort",
+          "에": "at",
+          "왔어요": "came"
+        },
+        "overallTranslation": "On a winter day with heavy snowfall, Eunsoo came to the ski resort."
+      },
+      {
+        "korean": "은수는 친구 민수와 함께 신나게 스키를 타고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "친구": "friend",
+          "민수": "Minsoo",
+          "와": "and",
+          "함께": "together",
+          "신나게": "happily",
+          "스키": "ski",
+          "를": "to",
+          "타고": "riding",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was happily skiing with her friend Minsoo."
+      },
+      {
+        "korean": "갑자기 눈보라가 몰아쳐서 앞이 보이지 않았어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "눈보라": "snowstorm",
+          "가": "that",
+          "몰아쳐서": "swept",
+          "앞": "front",
+          "이": "that",
+          "보이지": "can't see",
+          "않았어요": "not"
+        },
+        "overallTranslation": "Suddenly, a snowstorm swept in and they couldn't see anything."
+      },
+      {
+        "korean": "은수와 민수는 서로 손을 잡고 떨리는 목소리로 “어떡해!”라고 외쳤어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "는": "is",
+          "서로": "each other",
+          "손": "hand",
+          "을": "to",
+          "잡고": "holding",
+          "떨리는": "trembling",
+          "목소리": "voice",
+          "로": "with",
+          "“어떡해!”": "“What do we do!”",
+          "라고": "said",
+          "외쳤어요": "shouted"
+        },
+        "overallTranslation": "Eunsoo and Minsoo held each other's hands and shouted in trembling voices, “What do we do!”"
+      },
+      {
+        "korean": "그때, 신비로운 빛이 눈보라 속에서 빛나며 은수와 민수를 따뜻하게 감쌌어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "신비로운": "magical",
+          "빛": "light",
+          "이": "that",
+          "눈보라": "snowstorm",
+          "속에서": "inside",
+          "빛나며": "shining",
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "를": "to",
+          "따뜻하게": "warmly",
+          "감쌌어요": "wrapped"
+        },
+        "overallTranslation": "At that moment, a magical light shone from the snowstorm and wrapped Eunsoo and Minsoo warmly."
+      }
+    ],
+    "id": 2149
   },
   {
     "generator": "korean-story-3-gunslinger-gemini",
@@ -28443,7 +41258,7 @@
         "hanjaro": "사내는 침착(沈着)하게 말했습니다. \"내가 당신(當身)을 위해 준비(準備)했소.\"\n"
       }
     ],
-    "id": 2001
+    "id": 2150
   },
   {
     "generator": "korean-story-3-high-fantasy-gemini",
@@ -28523,7 +41338,157 @@
         "hanjaro": "요정(妖精)은 다시 날 수 있게 되었고, 숲은 다시 활기차졌습니다.\n"
       }
     ],
-    "id": 2002
+    "id": 2151
+  },
+  {
+    "generator": "korean-story-3-historical-gemini",
+    "input": "surprised",
+    "problem": "햇살 따스한 봄날, 민수는 뒷산에 올라갔어요.<br> 산길을 걸으며 예쁜 꽃들을 구경했지요.<br> 그때, 갑자기 커다란 소리가 들렸어요!<br> 민수는 놀라서 숨을 헐떡였고, 주위를 둘러보았어요.<br> 커다란 나무 뒤에 숨어 있던 토끼 한 마리가 깜짝 놀라 뛰어내렸어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 따스한 봄날, 민수는 뒷산에 올라갔어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "따스한": "warm",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "뒷산": "back mountain",
+          "에": "to",
+          "올라갔어요": "went up"
+        },
+        "overallTranslation": "On a warm spring day, Minsu went up to the back mountain."
+      },
+      {
+        "korean": "산길을 걸으며 예쁜 꽃들을 구경했지요.",
+        "wordByWordTranslation": {
+          "산길": "mountain path",
+          "을": "object marker",
+          "걸으며": "walking",
+          "예쁜": "pretty",
+          "꽃들": "flowers",
+          "구경했지요": "looked at"
+        },
+        "overallTranslation": "He walked along the mountain path, admiring the pretty flowers."
+      },
+      {
+        "korean": "그때, 갑자기 커다란 소리가 들렸어요!",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "커다란": "big",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Suddenly, a loud sound was heard!"
+      },
+      {
+        "korean": "민수는 놀라서 숨을 헐떡였고, 주위를 둘러보았어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "놀라서": "surprised",
+          "숨": "breath",
+          "을": "object marker",
+          "헐떡였고": "gasped",
+          "주위": "surroundings",
+          "를": "object marker",
+          "둘러보았어요": "looked around"
+        },
+        "overallTranslation": "Surprised, Minsu gasped for breath and looked around."
+      },
+      {
+        "korean": "커다란 나무 뒤에 숨어 있던 토끼 한 마리가 깜짝 놀라 뛰어내렸어요.",
+        "wordByWordTranslation": {
+          "커다란": "big",
+          "나무": "tree",
+          "뒤": "behind",
+          "에": "at",
+          "숨어": "hiding",
+          "있던": "was",
+          "토끼": "rabbit",
+          "한 마리": "one",
+          "가": "subject marker",
+          "깜짝 놀라": "surprised",
+          "뛰어내렸어요": "jumped down"
+        },
+        "overallTranslation": "A rabbit that had been hiding behind a big tree jumped down in surprise."
+      }
+    ],
+    "id": 2152
+  },
+  {
+    "generator": "korean-story-3-horror-gemini",
+    "input": "chicken",
+    "problem": "어두운 밤, 민수는 혼자 집으로 돌아가고 있었습니다.<br> 길가에는 가로등이 하나도 없어서 매우 어두웠습니다.<br> 갑자기 민수의 뒤에서 닭 울음소리가 들렸습니다.<br> 그 소리는 점점 커지더니, 민수의 발을 향해 달려오는 소리처럼 들렸습니다.<br> 민수는 무서워서 발이 굳어 버렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 민수는 혼자 집으로 돌아가고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "민수는": "Min-su is",
+          "혼자": "alone",
+          "집으로": "to home",
+          "돌아가고": "returning",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a dark night, Min-su was walking home alone."
+      },
+      {
+        "korean": "길가에는 가로등이 하나도 없어서 매우 어두웠습니다.",
+        "wordByWordTranslation": {
+          "길가에는": "On the road side",
+          "가로등이": "streetlights",
+          "하나도": "not even one",
+          "없어서": "because there were not",
+          "매우": "very",
+          "어두웠습니다.": "it was dark"
+        },
+        "overallTranslation": "There were no streetlights on the road, so it was very dark."
+      },
+      {
+        "korean": "갑자기 민수의 뒤에서 닭 울음소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "민수의": "Min-su's",
+          "뒤에서": "from behind",
+          "닭": "chicken",
+          "울음소리가": "crying sound",
+          "들렸습니다.": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chicken's cry was heard from behind Min-su."
+      },
+      {
+        "korean": "그 소리는 점점 커지더니, 민수의 발을 향해 달려오는 소리처럼 들렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리는": "sound",
+          "점점": "gradually",
+          "커지더니": "became bigger",
+          "민수의": "Min-su's",
+          "발을": "feet",
+          "향해": "toward",
+          "달려오는": "running",
+          "소리처럼": "sound like",
+          "들렸습니다.": "was heard"
+        },
+        "overallTranslation": "The sound grew louder and louder, and it sounded like something was running towards Min-su's feet."
+      },
+      {
+        "korean": "민수는 무서워서 발이 굳어 버렸습니다.",
+        "wordByWordTranslation": {
+          "민수는": "Min-su",
+          "무서워서": "because he was scared",
+          "발이": "feet",
+          "굳어": "stiff",
+          "버렸습니다.": "became"
+        },
+        "overallTranslation": "Min-su was so scared that his feet froze."
+      }
+    ],
+    "id": 2153
   },
   {
     "generator": "korean-story-3-medieval-fantasy-gemini",
@@ -28598,7 +41563,173 @@
         "hanjaro": "아서는 용기(勇氣)를 내어 소리 나는 쪽으로 걸어갔습니다.\n"
       }
     ],
-    "id": 2003
+    "id": 2154
+  },
+  {
+    "generator": "korean-story-3-outlaw-gemini",
+    "input": "ozone",
+    "problem": "어두운 밤, 오존은 낡은 술집에 앉아 있었어요.<br> 그는 맥주를 마시며 옛날 이야기를 떠올리고 있었어요.<br> 갑자기 문이 열리며 거대한 그림자가 들어왔어요.<br> 그림자는 오존을 향해 다가왔고, 그의 손에는 낡은 권총이 들려 있었어요.<br> 오존은 긴장하며 손을 천천히 들어 올렸어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 오존은 낡은 술집에 앉아 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "오존": "Ozone",
+          "은": "is",
+          "낡은": "old",
+          "술집": "bar",
+          "에": "at",
+          "앉아": "sitting",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Ozone sat in an old bar on a dark night."
+      },
+      {
+        "korean": "그는 맥주를 마시며 옛날 이야기를 떠올리고 있었어요.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "맥주": "beer",
+          "를": "particle",
+          "마시며": "drinking",
+          "옛날": "old days",
+          "이야기": "story",
+          "떠올리고": "remembering",
+          "있었어요": "was"
+        },
+        "overallTranslation": "He was drinking beer and remembering old stories."
+      },
+      {
+        "korean": "갑자기 문이 열리며 거대한 그림자가 들어왔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "is",
+          "열리며": "opening",
+          "거대한": "huge",
+          "그림자": "shadow",
+          "가": "particle",
+          "들어왔어요": "came in"
+        },
+        "overallTranslation": "Suddenly, the door opened and a huge shadow entered."
+      },
+      {
+        "korean": "그림자는 오존을 향해 다가왔고, 그의 손에는 낡은 권총이 들려 있었어요.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "particle",
+          "오존": "Ozone",
+          "을": "particle",
+          "향해": "towards",
+          "다가왔고": "approached",
+          "그의": "his",
+          "손": "hand",
+          "에는": "on",
+          "낡은": "old",
+          "권총": "gun",
+          "이": "is",
+          "들려": "held",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The shadow approached Ozone, and in his hand was an old gun."
+      },
+      {
+        "korean": "오존은 긴장하며 손을 천천히 들어 올렸어요.",
+        "wordByWordTranslation": {
+          "오존": "Ozone",
+          "은": "is",
+          "긴장하며": "tensely",
+          "손": "hand",
+          "을": "particle",
+          "천천히": "slowly",
+          "들어": "lifting",
+          "올렸어요": "raised"
+        },
+        "overallTranslation": "Ozone raised his hand slowly, tense."
+      }
+    ],
+    "id": 2155
+  },
+  {
+    "generator": "korean-story-3-paranormal-gemini",
+    "input": "theoretically",
+    "problem": "밤하늘에는 별이 반짝이고 있었어요.<br> 민수는 캠핑 의자에 앉아서 별을 바라보고 있었어요.<br> 그때, 갑자기 땅이 흔들리기 시작했어요.<br> 별들은 사라지고, 하늘에서 이상한 소리가 들렸어요.<br> 민수는 이론적으로는 이해가 되었지만, 무서워서 꼼짝 못 했어요.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘에는 별이 반짝이고 있었어요.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "에는": "in",
+          "별": "star",
+          "이": "is",
+          "반짝이고": "sparkling",
+          "있었어요": "was"
+        },
+        "overallTranslation": "The stars were sparkling in the night sky."
+      },
+      {
+        "korean": "민수는 캠핑 의자에 앉아서 별을 바라보고 있었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "캠핑": "camping",
+          "의자": "chair",
+          "에": "on",
+          "앉아서": "sitting",
+          "별": "star",
+          "을": "object marker",
+          "바라보고": "looking at",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Minsu was sitting on a camping chair, looking at the stars."
+      },
+      {
+        "korean": "그때, 갑자기 땅이 흔들리기 시작했어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "땅": "ground",
+          "이": "is",
+          "흔들리기": "shaking",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "Suddenly, the ground began to shake."
+      },
+      {
+        "korean": "별들은 사라지고, 하늘에서 이상한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "별": "star",
+          "들": "plural marker",
+          "은": "is",
+          "사라지고": "disappearing",
+          "하늘": "sky",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "The stars disappeared, and strange sounds were heard from the sky."
+      },
+      {
+        "korean": "민수는 이론적으로는 이해가 되었지만, 무서워서 꼼짝 못 했어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "이론적으로": "theoretically",
+          "이해": "understanding",
+          "가": "subject marker",
+          "되었지만": "but",
+          "무서워서": "because of fear",
+          "꼼짝": "move",
+          "못": "can't",
+          "했어요": "did"
+        },
+        "overallTranslation": "Theoretically, Minsu understood what was happening, but he was too scared to move."
+      }
+    ],
+    "id": 2156
   },
   {
     "generator": "korean-story-3-psychological-horror-gemini",
@@ -28676,7 +41807,7 @@
         "hanjaro": "그림자는 천천히 다가와, 나를 공격(攻擊)하려는 듯했습니다.\n"
       }
     ],
-    "id": 2004
+    "id": 2157
   },
   {
     "generator": "korean-story-3-romantic-gemini",
@@ -28769,7 +41900,96 @@
         "hanjaro": "지수는 그 남자(男子)를 보며 괜히 가슴이 두근거렸어요.\n"
       }
     ],
-    "id": 2005
+    "id": 2158
+  },
+  {
+    "generator": "korean-story-3-romantic-gemini",
+    "input": "repulse",
+    "problem": "햇살 가득한 봄날, 민수는 벚꽃 아래에서 책을 읽고 있었어요.<br> 그때, 예쁜 여자아이가 민수 옆에 앉았어요.<br> 하지만 여자아이는 민수를 보고 얼굴을 붉히며 자리를 떴어요.<br> 민수는 여자아이가 자신을 싫어하는 것 같아 실망했어요.<br> 하지만 여자아이는 민수가 웃는 모습이 너무 멋있어서 부끄러웠던 거예요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 봄날, 민수는 벚꽃 아래에서 책을 읽고 있었어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "벚꽃": "cherry blossom",
+          "아래에서": "under",
+          "책": "book",
+          "을": "object marker",
+          "읽고": "reading",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a sunny spring day, Minsu was reading a book under the cherry blossoms."
+      },
+      {
+        "korean": "그때, 예쁜 여자아이가 민수 옆에 앉았어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "예쁜": "pretty",
+          "여자아이": "girl",
+          "가": "subject marker",
+          "민수": "Minsu",
+          "옆에": "next to",
+          "앉았어요": "sat down"
+        },
+        "overallTranslation": "At that moment, a pretty girl sat down next to Minsu."
+      },
+      {
+        "korean": "하지만 여자아이는 민수를 보고 얼굴을 붉히며 자리를 떴어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "여자아이": "girl",
+          "는": "is",
+          "민수": "Minsu",
+          "를": "object marker",
+          "보고": "seeing",
+          "얼굴": "face",
+          "을": "object marker",
+          "붉히며": "blushing",
+          "자리": "seat",
+          "떴어요": "left"
+        },
+        "overallTranslation": "But the girl saw Minsu, blushed, and left."
+      },
+      {
+        "korean": "민수는 여자아이가 자신을 싫어하는 것 같아 실망했어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "여자아이": "girl",
+          "가": "subject marker",
+          "자신": "himself",
+          "을": "object marker",
+          "싫어하는": "disliking",
+          "것": "thing",
+          "같아": "seems like",
+          "실망했어요": "was disappointed"
+        },
+        "overallTranslation": "Minsu was disappointed, thinking the girl disliked him."
+      },
+      {
+        "korean": "하지만 여자아이는 민수가 웃는 모습이 너무 멋있어서 부끄러웠던 거예요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "여자아이": "girl",
+          "는": "is",
+          "민수": "Minsu",
+          "가": "subject marker",
+          "웃는": "smiling",
+          "모습": "appearance",
+          "이": "subject marker",
+          "너무": "too",
+          "멋있어서": "cool",
+          "부끄러웠던": "embarrassed",
+          "거예요": "it was"
+        },
+        "overallTranslation": "But the girl was just embarrassed because she thought Minsu's smile was so cool."
+      }
+    ],
+    "id": 2159
   },
   {
     "generator": "korean-story-3-social-gemini",
@@ -28848,7 +42068,7 @@
         "hanjaro": "친구(親舊)를 달래주면서 웃긴 흉내를 내니까 친구(親舊)가 웃었어요.\n"
       }
     ],
-    "id": 2006
+    "id": 2160
   },
   {
     "generator": "korean-story-3-survival-horror-gemini",
@@ -28909,7 +42129,7 @@
         "overallTranslation": "I was left alone and scared."
       }
     ],
-    "id": 2007
+    "id": 2161
   },
   {
     "generator": "korean-story-3-time-travel-gemini",
@@ -28999,7 +42219,227 @@
         "hanjaro": "지수는 자신(自身)이 과거(過去)로 시간(時間) 여행(旅行)을 왔다는 것을 깨달았어요.\n"
       }
     ],
-    "id": 2008
+    "id": 2162
+  },
+  {
+    "generator": "korean-story-3-victorian-gemini",
+    "input": "contention",
+    "problem": "햇살 가득한 정원에서, 엘리자베스는 차분하게 책을 읽고 있었습니다.<br> 그녀의 오빠, 윌리엄은 멀리서 걸어오며 엘리자베스에게 다가왔습니다.<br> 하지만 윌리엄의 얼굴은 화가 난 표정으로 일그러져 있었습니다.<br> 두 사람 사이에는 말다툼이 시작되었고, 공기는 싸늘하게 식어갔습니다.<br> 평화로운 정원은 갑자기 긴장감으로 가득 차버렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 정원에서, 엘리자베스는 차분하게 책을 읽고 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "정원에서": "in the garden",
+          "엘리자베스는": "Elizabeth was",
+          "차분하게": "calmly",
+          "책을": "book",
+          "읽고": "reading",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In the sun-drenched garden, Elizabeth was calmly reading a book."
+      },
+      {
+        "korean": "그녀의 오빠, 윌리엄은 멀리서 걸어오며 엘리자베스에게 다가왔습니다.",
+        "wordByWordTranslation": {
+          "그녀의": "her",
+          "오빠": "brother",
+          "윌리엄은": "William was",
+          "멀리서": "from afar",
+          "걸어오며": "walking",
+          "엘리자베스에게": "to Elizabeth",
+          "다가왔습니다.": "approached"
+        },
+        "overallTranslation": "Her brother, William, walked towards her from a distance."
+      },
+      {
+        "korean": "하지만 윌리엄의 얼굴은 화가 난 표정으로 일그러져 있었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "윌리엄의": "William's",
+          "얼굴은": "face was",
+          "화가": "anger",
+          "난": "filled",
+          "표정으로": "expression",
+          "일그러져": "distorted",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "But William's face was distorted with anger."
+      },
+      {
+        "korean": "두 사람 사이에는 말다툼이 시작되었고, 공기는 싸늘하게 식어갔습니다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "사람": "people",
+          "사이에는": "between",
+          "말다툼이": "argument",
+          "시작되었고": "began",
+          "공기는": "air was",
+          "싸늘하게": "coldly",
+          "식어갔습니다.": "cooled down"
+        },
+        "overallTranslation": "An argument started between them, and the air grew cold."
+      },
+      {
+        "korean": "평화로운 정원은 갑자기 긴장감으로 가득 차버렸습니다.",
+        "wordByWordTranslation": {
+          "평화로운": "peaceful",
+          "정원은": "garden was",
+          "갑자기": "suddenly",
+          "긴장감으로": "with tension",
+          "가득": "filled",
+          "차버렸습니다.": "became"
+        },
+        "overallTranslation": "The peaceful garden was suddenly filled with tension."
+      }
+    ],
+    "id": 2163
+  },
+  {
+    "generator": "korean-story-4-ancient-gemini",
+    "input": "destination",
+    "problem": "해가 지기 시작했고, 산길은 점점 어두워졌습니다.<br> 길을 잃은 여행자는 불안한 마음으로 주위를 둘러보았습니다.<br> 그때, 멀리서 은은한 불빛이 보였습니다.<br> 여행자는 희망을 되찾고, 그 불빛을 향해 걸어갔습니다.<br> 그곳에는 따뜻한 불을 피우고 있는 작은 오두막이 있었습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작했고, 산길은 점점 어두워졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "setting",
+          "시작했고": "started",
+          "산길은": "mountain path",
+          "점점": "gradually",
+          "어두워졌습니다": "became dark"
+        },
+        "overallTranslation": "The sun began to set, and the mountain path grew increasingly dark."
+      },
+      {
+        "korean": "길을 잃은 여행자는 불안한 마음으로 주위를 둘러보았습니다.",
+        "wordByWordTranslation": {
+          "길을": "path",
+          "잃은": "lost",
+          "여행자는": "traveler",
+          "불안한": "anxious",
+          "마음으로": "heart",
+          "주위를": "surroundings",
+          "둘러보았습니다": "looked around"
+        },
+        "overallTranslation": "The lost traveler looked around anxiously, his heart filled with worry."
+      },
+      {
+        "korean": "그때, 멀리서 은은한 불빛이 보였습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "멀리서": "from afar",
+          "은은한": "soft",
+          "불빛이": "light",
+          "보였습니다": "appeared"
+        },
+        "overallTranslation": "At that moment, a soft light appeared in the distance."
+      },
+      {
+        "korean": "여행자는 희망을 되찾고, 그 불빛을 향해 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "여행자는": "traveler",
+          "희망을": "hope",
+          "되찾고": "regained",
+          "그": "that",
+          "불빛을": "light",
+          "향해": "towards",
+          "걸어갔습니다": "walked"
+        },
+        "overallTranslation": "The traveler regained hope and walked towards the light."
+      },
+      {
+        "korean": "그곳에는 따뜻한 불을 피우고 있는 작은 오두막이 있었습니다.",
+        "wordByWordTranslation": {
+          "그곳에는": "there was",
+          "따뜻한": "warm",
+          "불을": "fire",
+          "피우고": "burning",
+          "있는": "existing",
+          "작은": "small",
+          "오두막이": "hut",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "There was a small hut with a warm fire burning inside."
+      }
+    ],
+    "id": 2164
+  },
+  {
+    "generator": "korean-story-4-bounty-hunter-gemini",
+    "input": "anarchy",
+    "problem": "어두운 골목길에 비가 내리고 있었어요.<br> 현상금 사냥꾼 진우는 숨죽이고 누군가를 기다리고 있었어요.<br> 갑자기, 괴성이 울려 퍼지고 폭탄이 터졌어요!<br> 진우는 깜짝 놀라 몸을 숨겼고, 주변은 아수라장이 되었어요.<br> 이제 진우는 혼란 속에서 현상금 사냥 대신 무법자들을 막아야 했어요.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에 비가 내리고 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길에": "alleyway",
+          "비가": "rain",
+          "내리고": "falling",
+          "있었어요": "was"
+        },
+        "overallTranslation": "It was raining in a dark alleyway."
+      },
+      {
+        "korean": "현상금 사냥꾼 진우는 숨죽이고 누군가를 기다리고 있었어요.",
+        "wordByWordTranslation": {
+          "현상금": "bounty",
+          "사냥꾼": "hunter",
+          "진우는": "Jinwoo",
+          "숨죽이고": "holding his breath",
+          "누군가를": "someone",
+          "기다리고": "waiting",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Jinwoo, the bounty hunter, was waiting, holding his breath, for someone."
+      },
+      {
+        "korean": "갑자기, 괴성이 울려 퍼지고 폭탄이 터졌어요!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "괴성이": "scream",
+          "울려": "echo",
+          "퍼지고": "spreading",
+          "폭탄이": "bomb",
+          "터졌어요": "exploded"
+        },
+        "overallTranslation": "Suddenly, a scream echoed, and a bomb exploded!"
+      },
+      {
+        "korean": "진우는 깜짝 놀라 몸을 숨겼고, 주변은 아수라장이 되었어요.",
+        "wordByWordTranslation": {
+          "진우는": "Jinwoo",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "몸을": "body",
+          "숨겼고": "hid",
+          "주변은": "surroundings",
+          "아수라장이": "chaos",
+          "되었어요": "became"
+        },
+        "overallTranslation": "Jinwoo was startled and hid, and the surroundings became chaotic."
+      },
+      {
+        "korean": "이제 진우는 혼란 속에서 현상금 사냥 대신 무법자들을 막아야 했어요.",
+        "wordByWordTranslation": {
+          "이제": "now",
+          "진우는": "Jinwoo",
+          "혼란": "chaos",
+          "속에서": "in",
+          "현상금": "bounty",
+          "사냥": "hunting",
+          "대신": "instead",
+          "무법자들을": "lawbreakers",
+          "막아야": "had to stop",
+          "했어요": "did"
+        },
+        "overallTranslation": "Now, amidst the chaos, Jinwoo had to stop the lawbreakers instead of hunting bounties."
+      }
+    ],
+    "id": 2165
   },
   {
     "generator": "korean-story-4-comedic-gemini",
@@ -29087,7 +42527,84 @@
         "hanjaro": "“태준아, 너 발이 땅에 붙었어!”\n"
       }
     ],
-    "id": 2009
+    "id": 2166
+  },
+  {
+    "generator": "korean-story-4-comedy-gemini",
+    "input": "solo",
+    "problem": "민수는 친구들과 함께 영화를 보러 갔어요.<br> 팝콘을 먹으며 영화를 재미있게 보고 있었어요.<br> 그런데 갑자기 친구들이 모두 사라졌어요!<br> 민수는 혼자 남아서 영화를 끝까지 봤어요.<br> 영화가 끝나고 나니 친구들이 다시 나타났어요!<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구들과 함께 영화를 보러 갔어요.",
+        "wordByWordTranslation": {
+          "민수": "Min-su",
+          "는": "is",
+          "친구들": "friends",
+          "과": "with",
+          "함께": "together",
+          "영화": "movie",
+          "를": "the",
+          "보러": "to see",
+          "갔어요": "went"
+        },
+        "overallTranslation": "Min-su went to see a movie with his friends."
+      },
+      {
+        "korean": "팝콘을 먹으며 영화를 재미있게 보고 있었어요.",
+        "wordByWordTranslation": {
+          "팝콘": "popcorn",
+          "을": "the",
+          "먹으며": "eating",
+          "영화": "movie",
+          "를": "the",
+          "재미있게": "fun",
+          "보고": "watching",
+          "있었어요": "was"
+        },
+        "overallTranslation": "He was enjoying the movie while eating popcorn."
+      },
+      {
+        "korean": "그런데 갑자기 친구들이 모두 사라졌어요!",
+        "wordByWordTranslation": {
+          "그런데": "but",
+          "갑자기": "suddenly",
+          "친구들": "friends",
+          "이": "they",
+          "모두": "all",
+          "사라졌어요": "disappeared"
+        },
+        "overallTranslation": "But suddenly, all of his friends disappeared!"
+      },
+      {
+        "korean": "민수는 혼자 남아서 영화를 끝까지 봤어요.",
+        "wordByWordTranslation": {
+          "민수": "Min-su",
+          "는": "is",
+          "혼자": "alone",
+          "남아서": "staying",
+          "영화": "movie",
+          "를": "the",
+          "끝까지": "until the end",
+          "봤어요": "watched"
+        },
+        "overallTranslation": "Min-su stayed alone and watched the movie until the end."
+      },
+      {
+        "korean": "영화가 끝나고 나니 친구들이 다시 나타났어요!",
+        "wordByWordTranslation": {
+          "영화": "movie",
+          "가": "it",
+          "끝나고": "ending",
+          "나니": "and",
+          "친구들": "friends",
+          "이": "they",
+          "다시": "again",
+          "나타났어요": "appeared"
+        },
+        "overallTranslation": "When the movie finished, his friends reappeared!"
+      }
+    ],
+    "id": 2167
   },
   {
     "generator": "korean-story-4-cosmic-horror-gemini",
@@ -29161,7 +42678,7 @@
         "hanjaro": "그 소리는 영원히(永遠히) 멈추지 않을 것 같았습니다.\n"
       }
     ],
-    "id": 2010
+    "id": 2168
   },
   {
     "generator": "korean-story-4-detective-gemini",
@@ -29251,7 +42768,7 @@
         "overallTranslation": "Minjun decided to investigate the documentary's secret with Eunsoo."
       }
     ],
-    "id": 2011
+    "id": 2169
   },
   {
     "generator": "korean-story-4-drama-gemini",
@@ -29324,7 +42841,7 @@
         "hanjaro": "꽃들이 마치 하늘에 떠 있는 별처럼 정렬(整列)되어 있었거든요.\n"
       }
     ],
-    "id": 2012
+    "id": 2170
   },
   {
     "generator": "korean-story-4-espionage-gemini",
@@ -29412,7 +42929,7 @@
         "hanjaro": "그는 깜짝 놀라 칩을 떨어뜨렸고, 칩은 땅에 떨어져 빛을 내며 사라졌습니다.\n"
       }
     ],
-    "id": 2013
+    "id": 2171
   },
   {
     "generator": "korean-story-4-high-fantasy-gemini",
@@ -29489,7 +43006,105 @@
         "overallTranslation": "The brave wizard, Luna, jumped into the flames."
       }
     ],
-    "id": 2014
+    "id": 2172
+  },
+  {
+    "generator": "korean-story-4-modern-gemini",
+    "input": "normal",
+    "problem": "민수는 매일 아침 일어나서 학교에 갔습니다.<br> 그는 항상 친구들과 함께 점심을 먹고, 수업을 듣고, 집에 돌아왔습니다.<br> 어느 날, 민수는 학교 가는 길에 이상한 일을 발견했습니다.<br> 하늘에서 핑크색 솜사탕이 떨어지고 있었고, 모든 사람들은 솜사탕을 먹으며 웃고 있었습니다.<br> 민수는 이제 매일 아침 학교 가는 길에 솜사탕이 떨어지기를 기다립니다.<br>",
+    "solution": [
+      {
+        "korean": "민수는 매일 아침 일어나서 학교에 갔습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "매일": "every day",
+          "아침": "morning",
+          "일어나서": "waking up",
+          "학교": "school",
+          "에": "to",
+          "갔습니다": "went"
+        },
+        "overallTranslation": "Minsu woke up every morning and went to school."
+      },
+      {
+        "korean": "그는 항상 친구들과 함께 점심을 먹고, 수업을 듣고, 집에 돌아왔습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "항상": "always",
+          "친구들": "friends",
+          "과": "with",
+          "함께": "together",
+          "점심": "lunch",
+          "을": "object marker",
+          "먹고": "ate",
+          "수업": "class",
+          "듣고": "listened to",
+          "집": "home",
+          "에": "to",
+          "돌아왔습니다": "returned"
+        },
+        "overallTranslation": "He always ate lunch with his friends, listened to classes, and returned home."
+      },
+      {
+        "korean": "어느 날, 민수는 학교 가는 길에 이상한 일을 발견했습니다.",
+        "wordByWordTranslation": {
+          "어느": "one",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "학교": "school",
+          "가는": "going",
+          "길": "way",
+          "에": "at",
+          "이상한": "strange",
+          "일": "thing",
+          "을": "object marker",
+          "발견했습니다": "found"
+        },
+        "overallTranslation": "One day, Minsu found something strange on his way to school."
+      },
+      {
+        "korean": "하늘에서 핑크색 솜사탕이 떨어지고 있었고, 모든 사람들은 솜사탕을 먹으며 웃고 있었습니다.",
+        "wordByWordTranslation": {
+          "하늘": "sky",
+          "에서": "from",
+          "핑크색": "pink",
+          "솜사탕": "cotton candy",
+          "이": "subject marker",
+          "떨어지고": "falling",
+          "있었고": "was",
+          "모든": "all",
+          "사람들": "people",
+          "은": "subject marker",
+          "을": "object marker",
+          "먹으며": "eating",
+          "웃고": "laughing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Pink cotton candy was falling from the sky, and everyone was laughing while eating it."
+      },
+      {
+        "korean": "민수는 이제 매일 아침 학교 가는 길에 솜사탕이 떨어지기를 기다립니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "이제": "now",
+          "매일": "every day",
+          "아침": "morning",
+          "학교": "school",
+          "가는": "going",
+          "길": "way",
+          "에": "at",
+          "솜사탕": "cotton candy",
+          "이": "subject marker",
+          "떨어지기를": "falling",
+          "기다립니다": "waits"
+        },
+        "overallTranslation": "Now, Minsu waits for the cotton candy to fall every morning on his way to school."
+      }
+    ],
+    "id": 2173
   },
   {
     "generator": "korean-story-4-outlaw-gemini",
@@ -29565,7 +43180,7 @@
         "overallTranslation": "The townspeople watched his actions curiously."
       }
     ],
-    "id": 2015
+    "id": 2174
   },
   {
     "generator": "korean-story-4-paranormal-gemini",
@@ -29639,7 +43254,265 @@
         "overallTranslation": "Minjun was startled and slammed the drawer shut."
       }
     ],
-    "id": 2016
+    "id": 2175
+  },
+  {
+    "generator": "korean-story-4-realistic-gemini",
+    "input": "beverage",
+    "problem": "더운 여름날, 민수는 친구 태준이와 함께 공원 벤치에 앉아 있었습니다.<br> 둘은 시원한 음료수를 마시며 이야기를 나누고 있었습니다.<br> 갑자기 하늘에서 비가 쏟아지기 시작했습니다.<br> 민수와 태준이는 급하게 벤치에서 일어나 뛰어갔습니다.<br> 그들은 비를 피해 근처의 버스 정류장으로 달려갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "더운 여름날, 민수는 친구 태준이와 함께 공원 벤치에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "더운": "hot",
+          "여름날": "summer day",
+          "민수는": "Min-su is",
+          "친구": "friend",
+          "태준이와": "Tae-jun and",
+          "함께": "together",
+          "공원": "park",
+          "벤치에": "on the bench",
+          "앉아": "sitting",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a hot summer day, Min-su was sitting on a park bench with his friend Tae-jun."
+      },
+      {
+        "korean": "둘은 시원한 음료수를 마시며 이야기를 나누고 있었습니다.",
+        "wordByWordTranslation": {
+          "둘은": "They two",
+          "시원한": "cool",
+          "음료수를": "beverage",
+          "마시며": "drinking",
+          "이야기를": "story",
+          "나누고": "sharing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "They were sharing stories while drinking cool beverages."
+      },
+      {
+        "korean": "갑자기 하늘에서 비가 쏟아지기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘에서": "from the sky",
+          "비가": "rain",
+          "쏟아지기": "pouring",
+          "시작했습니다.": "started"
+        },
+        "overallTranslation": "Suddenly, rain began pouring from the sky."
+      },
+      {
+        "korean": "민수와 태준이는 급하게 벤치에서 일어나 뛰어갔습니다.",
+        "wordByWordTranslation": {
+          "민수와": "Min-su and",
+          "태준이는": "Tae-jun",
+          "급하게": "hurriedly",
+          "벤치에서": "from the bench",
+          "일어나": "getting up",
+          "뛰어갔습니다.": "ran"
+        },
+        "overallTranslation": "Min-su and Tae-jun hurriedly got up from the bench and ran."
+      },
+      {
+        "korean": "그들은 비를 피해 근처의 버스 정류장으로 달려갔습니다.",
+        "wordByWordTranslation": {
+          "그들은": "They",
+          "비를": "rain",
+          "피해": "avoiding",
+          "근처의": "nearby",
+          "버스": "bus",
+          "정류장으로": "stop",
+          "달려갔습니다.": "ran"
+        },
+        "overallTranslation": "They ran to the nearby bus stop to avoid the rain."
+      }
+    ],
+    "id": 2176
+  },
+  {
+    "generator": "korean-story-4-slice-of-life-gemini",
+    "input": "membrane",
+    "problem": "햇살 가득한 봄날, 민수는 학교 운동장에서 친구들과 축구를 하고 있었어요.<br> 신나게 뛰어다니던 민수는 갑자기 발이 땅에 붙은 듯 움직이지 않았어요.<br> 알고 보니 민수의 발은 얇은 비닐막에 붙어 있었어요.<br> 친구들이 웃으며 비닐막을 떼어주자 민수는 다시 신나게 뛰어다녔어요.<br> 비닐막은 얇지만, 민수의 발을 꼼짝 못하게 붙잡았어요.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 봄날, 민수는 학교 운동장에서 친구들과 축구를 하고 있었어요.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "full",
+          "봄날": "spring day",
+          "민수": "Minsu",
+          "는": "is",
+          "학교": "school",
+          "운동장": "playground",
+          "에서": "at",
+          "친구들": "friends",
+          "과": "with",
+          "축구": "soccer",
+          "를": "to",
+          "하고": "play",
+          "있었어요": "was"
+        },
+        "overallTranslation": "On a sunny spring day, Minsu was playing soccer with his friends at the school playground."
+      },
+      {
+        "korean": "신나게 뛰어다니던 민수는 갑자기 발이 땅에 붙은 듯 움직이지 않았어요.",
+        "wordByWordTranslation": {
+          "신나게": "happily",
+          "뛰어다니던": "running around",
+          "민수": "Minsu",
+          "는": "is",
+          "갑자기": "suddenly",
+          "발": "foot",
+          "이": "that",
+          "땅": "ground",
+          "에": "on",
+          "붙은": "stuck",
+          "듯": "like",
+          "움직이지": "not moving",
+          "않았어요": "was"
+        },
+        "overallTranslation": "While happily running around, Minsu suddenly felt like his foot was stuck to the ground and couldn't move."
+      },
+      {
+        "korean": "알고 보니 민수의 발은 얇은 비닐막에 붙어 있었어요.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as it turned out",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "은": "is",
+          "얇은": "thin",
+          "비닐막": "plastic membrane",
+          "에": "on",
+          "붙어": "stuck",
+          "있었어요": "was"
+        },
+        "overallTranslation": "It turned out that Minsu's foot was stuck to a thin plastic membrane."
+      },
+      {
+        "korean": "친구들이 웃으며 비닐막을 떼어주자 민수는 다시 신나게 뛰어다녔어요.",
+        "wordByWordTranslation": {
+          "친구들": "friends",
+          "이": "who",
+          "웃으며": "smiling",
+          "비닐막": "plastic membrane",
+          "을": "to",
+          "떼어주자": "removed",
+          "민수": "Minsu",
+          "는": "is",
+          "다시": "again",
+          "신나게": "happily",
+          "뛰어다녔어요": "ran around"
+        },
+        "overallTranslation": "His friends laughed and removed the plastic membrane, and Minsu happily ran around again."
+      },
+      {
+        "korean": "비닐막은 얇지만, 민수의 발을 꼼짝 못하게 붙잡았어요.",
+        "wordByWordTranslation": {
+          "비닐막": "plastic membrane",
+          "은": "is",
+          "얇지만": "thin but",
+          "민수": "Minsu",
+          "의": "'s",
+          "발": "foot",
+          "을": "to",
+          "꼼짝": "move",
+          "못하게": "couldn't",
+          "붙잡았어요": "held"
+        },
+        "overallTranslation": "Although thin, the plastic membrane held Minsu's foot tight, preventing him from moving."
+      }
+    ],
+    "id": 2177
+  },
+  {
+    "generator": "korean-story-4-slice-of-life-gemini",
+    "input": "amplify",
+    "problem": "은수는 친구 민수와 함께 공원에서 뛰어놀고 있었어요.<br> 갑자기 큰 소리가 나서 은수는 놀랐어요.<br> 민수가 손에 들고 있던 작은 앰프에서 음악이 흘러나왔어요.<br> 앰프 소리는 공원 전체에 울려 퍼졌어요.<br> 은수와 민수는 웃으며 신나는 음악에 맞춰 춤을 추었어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 친구 민수와 함께 공원에서 뛰어놀고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "친구": "friend",
+          "민수": "Minsoo",
+          "와": "and",
+          "함께": "together",
+          "공원": "park",
+          "에서": "at",
+          "뛰어놀고": "playing",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was playing with her friend Minsoo at the park."
+      },
+      {
+        "korean": "갑자기 큰 소리가 나서 은수는 놀랐어요.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "큰": "big",
+          "소리": "sound",
+          "가": "that",
+          "나서": "so",
+          "은수": "Eunsoo",
+          "는": "is",
+          "놀랐어요": "surprised"
+        },
+        "overallTranslation": "Suddenly, a loud sound startled Eunsoo."
+      },
+      {
+        "korean": "민수가 손에 들고 있던 작은 앰프에서 음악이 흘러나왔어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsoo",
+          "가": "that",
+          "손": "hand",
+          "에": "in",
+          "들고": "holding",
+          "있던": "was",
+          "작은": "small",
+          "앰프": "amplifier",
+          "에서": "from",
+          "음악": "music",
+          "이": "that",
+          "흘러나왔어요": "flowed out"
+        },
+        "overallTranslation": "Music was flowing out of the small amplifier that Minsoo was holding."
+      },
+      {
+        "korean": "앰프 소리는 공원 전체에 울려 퍼졌어요.",
+        "wordByWordTranslation": {
+          "앰프": "amplifier",
+          "소리": "sound",
+          "는": "is",
+          "공원": "park",
+          "전체": "entire",
+          "에": "in",
+          "울려": "echoed",
+          "퍼졌어요": "spread"
+        },
+        "overallTranslation": "The amplifier's sound echoed throughout the entire park."
+      },
+      {
+        "korean": "은수와 민수는 웃으며 신나는 음악에 맞춰 춤을 추었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "와": "and",
+          "민수": "Minsoo",
+          "는": "is",
+          "웃으며": "smiling",
+          "신나는": "exciting",
+          "음악": "music",
+          "에": "to",
+          "맞춰": "following",
+          "춤": "dance",
+          "을": "to",
+          "추었어요": "danced"
+        },
+        "overallTranslation": "Eunsoo and Minsoo danced happily to the exciting music."
+      }
+    ],
+    "id": 2178
   },
   {
     "generator": "korean-story-4-supernatural-mystery-gemini",
@@ -29713,7 +43586,89 @@
         "hanjaro": "그때, 방문(房門)이 쾅하고 열리면서 희미(稀微)한 빛이 들어왔어요.\n"
       }
     ],
-    "id": 2017
+    "id": 2179
+  },
+  {
+    "generator": "korean-story-4-supernatural-mystery-gemini",
+    "input": "framework",
+    "problem": "어두운 밤, 낡은 나무집은 조용히 서 있었습니다.<br> 바람이 불어 창문이 덜컹거리며 소리를 냈습니다.<br> 갑자기, 집 안에서 이상한 소리가 들렸습니다.<br> 소리는 마치 누군가가 나무 틀을 망치로 두드리는 소리 같았습니다.<br> 지수는 겁에 질려 숨을 헐떡였습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 나무집은 조용히 서 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "나무집": "wooden house",
+          "은": "is",
+          "조용히": "quietly",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "On a dark night, an old wooden house stood silently."
+      },
+      {
+        "korean": "바람이 불어 창문이 덜컹거리며 소리를 냈습니다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "이": "is",
+          "불어": "blowing",
+          "창문": "window",
+          "덜컹거리며": "rattling",
+          "소리": "sound",
+          "를": "object",
+          "냈습니다": "made"
+        },
+        "overallTranslation": "The wind blew, causing the window to rattle and make a sound."
+      },
+      {
+        "korean": "갑자기, 집 안에서 이상한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "집": "house",
+          "안": "inside",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "that",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a strange sound came from inside the house."
+      },
+      {
+        "korean": "소리는 마치 누군가가 나무 틀을 망치로 두드리는 소리 같았습니다.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "마치": "as if",
+          "누군가": "someone",
+          "가": "is",
+          "나무": "wood",
+          "틀": "frame",
+          "를": "object",
+          "망치": "hammer",
+          "로": "with",
+          "두드리는": "hitting",
+          "같았습니다": "seemed"
+        },
+        "overallTranslation": "The sound seemed like someone was hitting a wooden frame with a hammer."
+      },
+      {
+        "korean": "지수는 겁에 질려 숨을 헐떡였습니다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "겁": "fear",
+          "에": "with",
+          "질려": "frightened",
+          "숨": "breath",
+          "을": "object",
+          "헐떡였습니다": "gasped"
+        },
+        "overallTranslation": "Jisoo gasped in fear."
+      }
+    ],
+    "id": 2180
   },
   {
     "generator": "korean-story-4-thriller-gemini",
@@ -29796,7 +43751,7 @@
         "overallTranslation": "The donkey seemed injured, and Min-su, with a worried heart, helped the donkey."
       }
     ],
-    "id": 2018
+    "id": 2181
   },
   {
     "generator": "korean-story-4-time-travel-gemini",
@@ -29886,7 +43841,81 @@
         "hanjaro": "주변(周邊)에는 이상(異常)한 소리와 냄새가 가득했고, 민준이는 자신(自身)이 과거(過去)로 시간(時間) 여행(旅行)을 왔다는 것을 깨달았습니다.\n"
       }
     ],
-    "id": 2019
+    "id": 2182
+  },
+  {
+    "generator": "korean-story-4-urban-fantasy-gemini",
+    "input": "noise",
+    "problem": "밤늦도록 도시는 시끄러웠어요.<br> 민수는 잠 못 이루고 창밖을 바라봤어요.<br> 그때, 창문 밖에서 이상한 소리가 들렸어요.<br> 소리는 점점 커지더니, 창문이 흔들리기 시작했어요.<br> 민수는 무서워서 이불 속으로 숨었어요.<br>",
+    "solution": [
+      {
+        "korean": "밤늦도록 도시는 시끄러웠어요.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "늦도록": "late",
+          "도시": "city",
+          "는": "is",
+          "시끄러웠어요": "noisy"
+        },
+        "overallTranslation": "The city was noisy late into the night."
+      },
+      {
+        "korean": "민수는 잠 못 이루고 창밖을 바라봤어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "잠": "sleep",
+          "못": "can't",
+          "이루고": "sleep",
+          "창밖": "window outside",
+          "을": "object marker",
+          "바라봤어요": "looked"
+        },
+        "overallTranslation": "Minsu couldn't sleep and stared out the window."
+      },
+      {
+        "korean": "그때, 창문 밖에서 이상한 소리가 들렸어요.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "창문": "window",
+          "밖": "outside",
+          "에서": "from",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸어요": "was heard"
+        },
+        "overallTranslation": "Then, a strange sound came from outside the window."
+      },
+      {
+        "korean": "소리는 점점 커지더니, 창문이 흔들리기 시작했어요.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "점점": "gradually",
+          "커지더니": "grew louder",
+          "창문": "window",
+          "이": "subject marker",
+          "흔들리기": "shake",
+          "시작했어요": "started"
+        },
+        "overallTranslation": "The sound grew louder and louder, and the window started to shake."
+      },
+      {
+        "korean": "민수는 무서워서 이불 속으로 숨었어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "무서워서": "because of fear",
+          "이불": "blanket",
+          "속": "inside",
+          "으로": "towards",
+          "숨었어요": "hid"
+        },
+        "overallTranslation": "Minsu was scared and hid under the blanket."
+      }
+    ],
+    "id": 2183
   },
   {
     "generator": "korean-story-4-western-gemini",
@@ -29963,7 +43992,7 @@
         "hanjaro": "나는 땀을 닦으며, “이건 행운(幸運)이야!”라고 외쳤습니다.\n"
       }
     ],
-    "id": 2020
+    "id": 2184
   },
   {
     "generator": "korean-story-4-western-gemini",
@@ -30044,7 +44073,187 @@
         "overallTranslation": "In the thick smoke, a man dropped his gun, his hand stained with blood."
       }
     ],
-    "id": 2021
+    "id": 2185
+  },
+  {
+    "generator": "korean-story-5-alternate-reality-gemini",
+    "input": "premier",
+    "problem": "은수는 영화관에서 최신 영화 '프리미어'를 보기 위해 기다리고 있었습니다.<br> 옆자리에 앉은 남자는 갑자기 소리를 지르며 뛰쳐나갔습니다.<br> 그 순간, 영화관의 조명이 켜지고 모든 사람들이 혼란스러워했습니다.<br> 알고 보니, '프리미어'는 영화가 아니라 실제로 벌어지는 특별한 이벤트였습니다.<br> 은수는 흥분해서 이벤트에 참여하게 되었고, 영화 대신 짜릿한 경험을 하게 되었습니다.<br>",
+    "solution": [
+      {
+        "korean": "은수는 영화관에서 최신 영화 '프리미어'를 보기 위해 기다리고 있었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "영화관": "movie theater",
+          "에서": "at",
+          "최신": "latest",
+          "영화": "movie",
+          "'프리미어'": "'Premiere'",
+          "를": "to",
+          "보기": "watch",
+          "위해": "for",
+          "기다리고": "waiting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Eunsoo was waiting to watch the latest movie 'Premiere' at the movie theater."
+      },
+      {
+        "korean": "옆자리에 앉은 남자는 갑자기 소리를 지르며 뛰쳐나갔습니다.",
+        "wordByWordTranslation": {
+          "옆자리": "next seat",
+          "에": "at",
+          "앉은": "sitting",
+          "남자": "man",
+          "는": "is",
+          "갑자기": "suddenly",
+          "소리": "sound",
+          "를": "to",
+          "지르며": "shouting",
+          "뛰쳐나갔습니다": "ran out"
+        },
+        "overallTranslation": "The man sitting next to her suddenly shouted and ran out."
+      },
+      {
+        "korean": "그 순간, 영화관의 조명이 켜지고 모든 사람들이 혼란스러워했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "영화관": "movie theater",
+          "의": "of",
+          "조명": "lights",
+          "이": "are",
+          "켜지고": "turning on",
+          "모든": "all",
+          "사람들": "people",
+          "혼란스러워했습니다": "confused"
+        },
+        "overallTranslation": "At that moment, the movie theater lights turned on, and everyone was confused."
+      },
+      {
+        "korean": "알고 보니, '프리미어'는 영화가 아니라 실제로 벌어지는 특별한 이벤트였습니다.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as it turns out",
+          "'프리미어'": "'Premiere'",
+          "는": "is",
+          "영화": "movie",
+          "가": "be",
+          "아니라": "not",
+          "실제로": "actually",
+          "벌어지는": "happening",
+          "특별한": "special",
+          "이벤트": "event",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It turned out that 'Premiere' wasn't a movie, but a special event actually happening."
+      },
+      {
+        "korean": "은수는 흥분해서 이벤트에 참여하게 되었고, 영화 대신 짜릿한 경험을 하게 되었습니다.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "흥분": "excited",
+          "해서": "so",
+          "이벤트": "event",
+          "에": "to",
+          "참여": "participate",
+          "하게": "to",
+          "되었고": "became",
+          "영화": "movie",
+          "대신": "instead of",
+          "짜릿한": "thrilling",
+          "경험": "experience",
+          "을": "to",
+          "되었습니다": "became"
+        },
+        "overallTranslation": "Eunsoo was excited to participate in the event, and instead of a movie, she had a thrilling experience."
+      }
+    ],
+    "id": 2186
+  },
+  {
+    "generator": "korean-story-5-dark-fantasy-gemini",
+    "input": "drawl",
+    "problem": "어두운 숲 속에서, 한 소녀가 길을 잃고 헤매고 있었습니다.<br> 그녀는 희미한 달빛에 의지하여 앞으로 나아갔습니다.<br> 갑자기, 그녀의 발밑에서 섬뜩한 소리가 들렸습니다.<br> 소리는 점점 커지더니, 그녀의 발목을 잡아채는 듯한 느낌이 들었습니다.<br> 그녀는 비명을 지르며 뒤로 넘어졌고, 숲 속 어둠에 휩싸였습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 길을 잃고 헤매고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "한": "one",
+          "소녀": "girl",
+          "가": "subject marker",
+          "길을": "path",
+          "잃고": "lose",
+          "헤매고": "wander",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the dark forest, a girl was lost and wandering."
+      },
+      {
+        "korean": "그녀는 희미한 달빛에 의지하여 앞으로 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "희미한": "faint",
+          "달빛": "moonlight",
+          "에": "on",
+          "의지하여": "rely",
+          "앞으로": "forward",
+          "나아갔습니다": "went"
+        },
+        "overallTranslation": "She relied on the faint moonlight to move forward."
+      },
+      {
+        "korean": "갑자기, 그녀의 발밑에서 섬뜩한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그녀의": "her",
+          "발밑에서": "under her feet",
+          "섬뜩한": "creepy",
+          "소리": "sound",
+          "가": "subject marker",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a creepy sound was heard under her feet."
+      },
+      {
+        "korean": "소리는 점점 커지더니, 그녀의 발목을 잡아채는 듯한 느낌이 들었습니다.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "subject marker",
+          "점점": "gradually",
+          "커지더니": "got bigger",
+          "그녀의": "her",
+          "발목을": "ankle",
+          "잡아채는": "grabbing",
+          "듯한": "like",
+          "느낌": "feeling",
+          "이": "subject marker",
+          "들었습니다": "was felt"
+        },
+        "overallTranslation": "The sound grew louder and louder, and she felt something grabbing her ankle."
+      },
+      {
+        "korean": "그녀는 비명을 지르며 뒤로 넘어졌고, 숲 속 어둠에 휩싸였습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "비명": "scream",
+          "을": "object marker",
+          "지르며": "screaming",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "숲": "forest",
+          "속": "inside",
+          "어둠에": "darkness",
+          "휩싸였습니다": "was enveloped"
+        },
+        "overallTranslation": "She screamed and fell backwards, enveloped in the darkness of the forest."
+      }
+    ],
+    "id": 2187
   },
   {
     "generator": "korean-story-5-drama-gemini",
@@ -30124,7 +44333,7 @@
         "hanjaro": "민수는 놀란 표정(表情)을 지으며 할아버지의 손을 잡았습니다.\n"
       }
     ],
-    "id": 2022
+    "id": 2188
   },
   {
     "generator": "korean-story-5-drama-gemini",
@@ -30204,7 +44413,7 @@
         "overallTranslation": "A voice from inside said, “Wait a moment!”"
       }
     ],
-    "id": 2023
+    "id": 2189
   },
   {
     "generator": "korean-story-5-espionage-gemini",
@@ -30308,7 +44517,7 @@
         "hanjaro": "그는 즉시(卽時) 상황(狀況) 파악(把握)에 나섰고, 이 사건(事件)이 그의 임무(任務)와 관련(關聯)되었음을 알게 되었습니다.\n"
       }
     ],
-    "id": 2024
+    "id": 2190
   },
   {
     "generator": "korean-story-5-gothic-horror-gemini",
@@ -30400,7 +44609,77 @@
         "hanjaro": "그 웃음소리는 점점(漸漸) 더 크게 들려왔고, 민수는 학교(學校)를 탈출(脫出)해야 한다는 생각에 사로잡혔습니다.\n"
       }
     ],
-    "id": 2025
+    "id": 2191
+  },
+  {
+    "generator": "korean-story-5-high-fantasy-gemini",
+    "input": "smock",
+    "problem": "어두운 숲 속에서, 한 소녀가 길을 잃었습니다.<br> 그녀는 겁에 질려 숨을 헐떡였습니다.<br> 그때, 갑자기 하늘에서 빛이 쏟아졌습니다.<br> 빛은 그녀의 앞에 희미한 빛을 내는 망토를 드리웠습니다.<br> 그녀는 망토를 덮어쓰고 용감하게 앞으로 나아갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속에서, 한 소녀가 길을 잃었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속에서": "inside",
+          "한": "one",
+          "소녀": "girl",
+          "가": "who is",
+          "길을": "road",
+          "잃었습니다": "lost"
+        },
+        "overallTranslation": "In the dark forest, a girl was lost."
+      },
+      {
+        "korean": "그녀는 겁에 질려 숨을 헐떡였습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "겁에": "fear",
+          "질려": "filled",
+          "숨을": "breath",
+          "헐떡였습니다": "gasped"
+        },
+        "overallTranslation": "She gasped in fear."
+      },
+      {
+        "korean": "그때, 갑자기 하늘에서 빛이 쏟아졌습니다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "하늘에서": "from the sky",
+          "빛이": "light",
+          "쏟아졌습니다": "poured"
+        },
+        "overallTranslation": "Then, suddenly, light poured down from the sky."
+      },
+      {
+        "korean": "빛은 그녀의 앞에 희미한 빛을 내는 망토를 드리웠습니다.",
+        "wordByWordTranslation": {
+          "빛은": "light",
+          "그녀의": "her",
+          "앞에": "in front of",
+          "희미한": "dim",
+          "빛을": "light",
+          "내는": "giving off",
+          "망토를": "cloak",
+          "드리웠습니다": "spread"
+        },
+        "overallTranslation": "The light spread a cloak that gave off a dim glow in front of her."
+      },
+      {
+        "korean": "그녀는 망토를 덮어쓰고 용감하게 앞으로 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "she",
+          "망토를": "cloak",
+          "덮어쓰고": "wearing",
+          "용감하게": "bravely",
+          "앞으로": "forward",
+          "나아갔습니다": "went"
+        },
+        "overallTranslation": "She put on the cloak and bravely went forward."
+      }
+    ],
+    "id": 2192
   },
   {
     "generator": "korean-story-5-medieval-gemini",
@@ -30492,7 +44771,7 @@
         "hanjaro": "기사(記事)는 깜짝 놀라서 말을 타고 다시 숲을 빠져나갔습니다.\n"
       }
     ],
-    "id": 2026
+    "id": 2193
   },
   {
     "generator": "korean-story-5-mystery-gemini",
@@ -30569,7 +44848,160 @@
         "hanjaro": "책상(冊床) 위에 놓인 온도계(溫度計)는 10도(度)를 가리키고 있었습니다.\n"
       }
     ],
-    "id": 2027
+    "id": 2194
+  },
+  {
+    "generator": "korean-story-5-outlaw-gemini",
+    "input": "writ",
+    "problem": "해가 지고 있었고, 황량한 서부의 들판은 붉게 물들었습니다.<br> 총잡이 잭은 말에 올라타 먼지 덮인 길을 따라 달렸습니다.<br> 갑자기, 잭은 길 한가운데 쓰러진 남자를 발견했습니다.<br> 남자는 손에 핏빛으로 쓴 편지를 쥐고 있었습니다.<br> 잭은 편지를 읽고 남자를 도와 병원으로 데려갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지고 있었고, 황량한 서부의 들판은 붉게 물들었습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "지고": "setting",
+          "있었고": "and",
+          "황량한": "desolate",
+          "서부의": "western",
+          "들판은": "fields are",
+          "붉게": "red",
+          "물들었습니다": "dyed"
+        },
+        "overallTranslation": "The sun was setting, and the desolate western fields were dyed red."
+      },
+      {
+        "korean": "총잡이 잭은 말에 올라타 먼지 덮인 길을 따라 달렸습니다.",
+        "wordByWordTranslation": {
+          "총잡이": "gunman",
+          "잭은": "Jack is",
+          "말에": "on the horse",
+          "올라타": "mounted",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길을": "road",
+          "따라": "along",
+          "달렸습니다": "ran"
+        },
+        "overallTranslation": "The gunman, Jack, mounted his horse and raced along the dusty road."
+      },
+      {
+        "korean": "갑자기, 잭은 길 한가운데 쓰러진 남자를 발견했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "잭은": "Jack is",
+          "길": "road",
+          "한가운데": "middle",
+          "쓰러진": "collapsed",
+          "남자를": "man",
+          "발견했습니다": "found"
+        },
+        "overallTranslation": "Suddenly, Jack found a man collapsed in the middle of the road."
+      },
+      {
+        "korean": "남자는 손에 핏빛으로 쓴 편지를 쥐고 있었습니다.",
+        "wordByWordTranslation": {
+          "남자는": "man is",
+          "손에": "in his hand",
+          "핏빛으로": "blood-stained",
+          "쓴": "written",
+          "편지를": "letter",
+          "쥐고": "holding",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The man was holding a letter written in blood in his hand."
+      },
+      {
+        "korean": "잭은 편지를 읽고 남자를 도와 병원으로 데려갔습니다.",
+        "wordByWordTranslation": {
+          "잭은": "Jack is",
+          "편지를": "letter",
+          "읽고": "read",
+          "남자를": "man",
+          "도와": "helped",
+          "병원으로": "to the hospital",
+          "데려갔습니다": "took"
+        },
+        "overallTranslation": "Jack read the letter and helped the man to the hospital."
+      }
+    ],
+    "id": 2195
+  },
+  {
+    "generator": "korean-story-5-political-gemini",
+    "input": "muffle",
+    "problem": "어두운 밤, 민준이는 혼자 집에 있었습니다.<br> 갑자기 문이 쾅 소리를 내며 열렸습니다.<br> 민준이는 놀라서 이불 속으로 숨었습니다.<br> 하지만 소리는 점점 작아졌고, 결국 아무 소리도 나지 않았습니다.<br> 민준이는 조심스럽게 이불을 걷어내고 밖을 살펴보았지만, 아무도 없었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 민준이는 혼자 집에 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "민준이": "Minjun",
+          "는": "is",
+          "혼자": "alone",
+          "집에": "at home",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "It was a dark night, and Minjun was home alone."
+      },
+      {
+        "korean": "갑자기 문이 쾅 소리를 내며 열렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문이": "the door",
+          "쾅": "bang",
+          "소리를": "sound",
+          "내며": "making",
+          "열렸습니다.": "opened"
+        },
+        "overallTranslation": "Suddenly, the door slammed open."
+      },
+      {
+        "korean": "민준이는 놀라서 이불 속으로 숨었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "놀라서": "surprised",
+          "이불": "blanket",
+          "속으로": "inside",
+          "숨었습니다.": "hid"
+        },
+        "overallTranslation": "Minjun was so startled that he hid under his blanket."
+      },
+      {
+        "korean": "하지만 소리는 점점 작아졌고, 결국 아무 소리도 나지 않았습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "소리": "sound",
+          "는": "is",
+          "점점": "gradually",
+          "작아졌고": "became smaller",
+          "결국": "finally",
+          "아무": "no",
+          "도": "also",
+          "나지": "not",
+          "않았습니다.": "was"
+        },
+        "overallTranslation": "But the sound gradually faded away, and eventually, there was no noise at all."
+      },
+      {
+        "korean": "민준이는 조심스럽게 이불을 걷어내고 밖을 살펴보았지만, 아무도 없었습니다.",
+        "wordByWordTranslation": {
+          "민준이": "Minjun",
+          "는": "is",
+          "조심스럽게": "cautiously",
+          "이불": "blanket",
+          "을": "object marker",
+          "걷어내고": "lifted",
+          "밖을": "outside",
+          "살펴보았지만": "looked",
+          "아무도": "no one",
+          "없었습니다.": "was not"
+        },
+        "overallTranslation": "Minjun cautiously pulled back the blanket and looked outside, but there was no one there."
+      }
+    ],
+    "id": 2196
   },
   {
     "generator": "korean-story-5-renaissance-gemini",
@@ -30664,7 +45096,456 @@
         "hanjaro": "그는 파도(波濤)의 위력(威力)에 몸서리쳤지만, 살아남았다는 사실(事實)에 감사(感謝)했습니다.\n"
       }
     ],
-    "id": 2028
+    "id": 2197
+  },
+  {
+    "generator": "korean-story-5-social-gemini",
+    "input": "fellowship",
+    "problem": "민수는 친구들과 함께 학교 운동장에서 축구를 하고 있었습니다.<br> 갑자기 비가 내리기 시작해서 모두 급하게 학교 건물로 들어갔습니다.<br> 하지만 민수는 우산을 두고 와서 밖에서 비를 맞고 있었습니다.<br> 그때 친구들이 민수에게 우산을 건네주며 함께 비를 피했습니다.<br> 민수는 친구들의 따뜻한 마음에 감동했고, 비가 그칠 때까지 함께 즐거운 시간을 보냈습니다.<br>",
+    "solution": [
+      {
+        "korean": "민수는 친구들과 함께 학교 운동장에서 축구를 하고 있었습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "들": "plural marker",
+          "과": "with",
+          "함께": "together",
+          "학교": "school",
+          "운동장": "playground",
+          "에서": "at",
+          "축구": "soccer",
+          "를": "object marker",
+          "하고": "doing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "Minsu was playing soccer with his friends on the school playground."
+      },
+      {
+        "korean": "갑자기 비가 내리기 시작해서 모두 급하게 학교 건물로 들어갔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "비": "rain",
+          "가": "subject marker",
+          "내리": "fall",
+          "기": "start",
+          "시작": "start",
+          "해서": "so",
+          "모두": "everyone",
+          "급하게": "hurriedly",
+          "학교": "school",
+          "건물": "building",
+          "로": "to",
+          "들어갔습니다.": "entered"
+        },
+        "overallTranslation": "Suddenly, it started to rain, so everyone quickly went inside the school building."
+      },
+      {
+        "korean": "하지만 민수는 우산을 두고 와서 밖에서 비를 맞고 있었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "민수": "Minsu",
+          "는": "is",
+          "우산": "umbrella",
+          "을": "object marker",
+          "두고": "leaving behind",
+          "와서": "so",
+          "밖": "outside",
+          "에서": "at",
+          "비": "rain",
+          "를": "object marker",
+          "맞고": "getting wet",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "But Minsu had left his umbrella behind, so he was getting wet in the rain outside."
+      },
+      {
+        "korean": "그때 친구들이 민수에게 우산을 건네주며 함께 비를 피했습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "친구": "friend",
+          "들": "plural marker",
+          "이": "subject marker",
+          "민수": "Minsu",
+          "에게": "to",
+          "우산": "umbrella",
+          "을": "object marker",
+          "건네주": "hand over",
+          "며": "while",
+          "함께": "together",
+          "비": "rain",
+          "를": "object marker",
+          "피": "avoid",
+          "했습니다.": "did"
+        },
+        "overallTranslation": "Then, his friends handed Minsu an umbrella and they avoided the rain together."
+      },
+      {
+        "korean": "민수는 친구들의 따뜻한 마음에 감동했고, 비가 그칠 때까지 함께 즐거운 시간을 보냈습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "들": "plural marker",
+          "의": "possessive marker",
+          "따뜻한": "warm",
+          "마음": "heart",
+          "에": "at",
+          "감동": "touched",
+          "했고": "and",
+          "비": "rain",
+          "가": "subject marker",
+          "그칠": "stop",
+          "때": "time",
+          "까지": "until",
+          "함께": "together",
+          "즐거운": "joyful",
+          "시간": "time",
+          "을": "object marker",
+          "보냈습니다.": "spent"
+        },
+        "overallTranslation": "Minsu was touched by his friends' warm hearts and they spent a joyful time together until the rain stopped."
+      }
+    ],
+    "id": 2198
+  },
+  {
+    "generator": "korean-story-5-steampunk-gemini",
+    "input": "palace",
+    "problem": "해가 지기 시작하자, 낡은 궁궐은 더욱 어두워졌습니다.<br> 바람은 낡은 벽돌 사이로 휘파람을 불었고, 먼지가 춤을 추었습니다.<br> 갑자기, 궁궐 지붕 위로 거대한 기계 새가 날아올랐습니다.<br> 기계 새는 금빛 날개를 펄럭이며 하늘을 가르고, 궁궐은 황금빛 빛으로 물들었습니다.<br> 궁궐 정원의 잔디밭 위에서, 한 소녀가 놀란 눈으로 기계 새를 바라보았습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작하자, 낡은 궁궐은 더욱 어두워졌습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작하자": "start",
+          "낡은": "old",
+          "궁궐": "palace",
+          "은": "is",
+          "더욱": "more",
+          "어두워졌습니다": "darkened"
+        },
+        "overallTranslation": "As the sun began to set, the old palace grew even darker."
+      },
+      {
+        "korean": "바람은 낡은 벽돌 사이로 휘파람을 불었고, 먼지가 춤을 추었습니다.",
+        "wordByWordTranslation": {
+          "바람": "wind",
+          "은": "is",
+          "낡은": "old",
+          "벽돌": "brick",
+          "사이로": "between",
+          "휘파람": "whistle",
+          "불었고": "blew",
+          "먼지": "dust",
+          "가": "is",
+          "춤을": "dance",
+          "추었습니다": "danced"
+        },
+        "overallTranslation": "The wind whistled through the gaps in the old bricks, and dust danced."
+      },
+      {
+        "korean": "갑자기, 궁궐 지붕 위로 거대한 기계 새가 날아올랐습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "궁궐": "palace",
+          "지붕": "roof",
+          "위로": "above",
+          "거대한": "huge",
+          "기계": "machine",
+          "새": "bird",
+          "가": "is",
+          "날아올랐습니다": "flew up"
+        },
+        "overallTranslation": "Suddenly, a huge mechanical bird soared up from the palace roof."
+      },
+      {
+        "korean": "기계 새는 금빛 날개를 펄럭이며 하늘을 가르고, 궁궐은 황금빛 빛으로 물들었습니다.",
+        "wordByWordTranslation": {
+          "기계": "machine",
+          "새": "bird",
+          "는": "is",
+          "금빛": "golden",
+          "날개": "wing",
+          "를": "to",
+          "펄럭이며": "fluttering",
+          "하늘": "sky",
+          "가르고": "split",
+          "궁궐": "palace",
+          "은": "is",
+          "황금빛": "golden",
+          "빛": "light",
+          "으로": "with",
+          "물들었습니다": "stained"
+        },
+        "overallTranslation": "The mechanical bird, with its golden wings, split the sky, and the palace was bathed in golden light."
+      },
+      {
+        "korean": "궁궐 정원의 잔디밭 위에서, 한 소녀가 놀란 눈으로 기계 새를 바라보았습니다.",
+        "wordByWordTranslation": {
+          "궁궐": "palace",
+          "정원": "garden",
+          "의": "of",
+          "잔디밭": "lawn",
+          "위에서": "on",
+          "한": "one",
+          "소녀": "girl",
+          "가": "is",
+          "놀란": "surprised",
+          "눈": "eyes",
+          "으로": "with",
+          "기계": "machine",
+          "새": "bird",
+          "를": "to",
+          "바라보았습니다": "looked"
+        },
+        "overallTranslation": "On the lawn in the palace garden, a girl stared at the mechanical bird with surprised eyes."
+      }
+    ],
+    "id": 2199
+  },
+  {
+    "generator": "korean-story-5-supernatural-gemini",
+    "input": "course",
+    "problem": "어두운 밤, 은수는 낡은 고등학교 운동장을 혼자 걸어가고 있었습니다.<br> 그녀는 낡은 운동장 한가운데 있는 커다란 나무 아래로 걸어갔습니다.<br> 갑자기 나무에서 섬뜩한 소리가 들렸고, 바람이 세차게 불어왔습니다.<br> 나무 아래에는 희미한 빛이 번쩍이며, 이상한 그림자가 나타났습니다.<br> 그 그림자는 은수에게 다가와 “너는 이제 우리의 코스에 합류하게 되었다.”라고 말했습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 고등학교 운동장을 혼자 걸어가고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수는": "Eunsoo is",
+          "낡은": "old",
+          "고등학교": "high school",
+          "운동장을": "playground",
+          "혼자": "alone",
+          "걸어가고": "walking",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "On a dark night, Eunsoo was walking alone on the old high school playground."
+      },
+      {
+        "korean": "그녀는 낡은 운동장 한가운데 있는 커다란 나무 아래로 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "그녀는": "She is",
+          "낡은": "old",
+          "운동장": "playground",
+          "한가운데": "middle",
+          "있는": "being",
+          "커다란": "big",
+          "나무": "tree",
+          "아래로": "under",
+          "걸어갔습니다.": "walked"
+        },
+        "overallTranslation": "She walked under a big tree in the middle of the old playground."
+      },
+      {
+        "korean": "갑자기 나무에서 섬뜩한 소리가 들렸고, 바람이 세차게 불어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "나무에서": "from tree",
+          "섬뜩한": "chilling",
+          "소리가": "sound",
+          "들렸고": "was heard",
+          "바람이": "wind is",
+          "세차게": "strongly",
+          "불어왔습니다.": "blowing"
+        },
+        "overallTranslation": "Suddenly, a chilling sound came from the tree, and a strong wind blew."
+      },
+      {
+        "korean": "나무 아래에는 희미한 빛이 번쩍이며, 이상한 그림자가 나타났습니다.",
+        "wordByWordTranslation": {
+          "나무": "tree",
+          "아래에는": "under",
+          "희미한": "faint",
+          "빛이": "light",
+          "번쩍이며": "flashing",
+          "이상한": "strange",
+          "그림자가": "shadow",
+          "나타났습니다.": "appeared"
+        },
+        "overallTranslation": "Under the tree, a faint light flashed, and a strange shadow appeared."
+      },
+      {
+        "korean": "그 그림자는 은수에게 다가와 “너는 이제 우리의 코스에 합류하게 되었다.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "그림자는": "shadow is",
+          "은수에게": "to Eunsoo",
+          "다가와": "approaching",
+          "“너는": "“you are",
+          "이제": "now",
+          "우리의": "our",
+          "코스에": "course",
+          "합류하게": "join",
+          "되었다.”라고": "became.”",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "The shadow approached Eunsoo and said, “You have now joined our course.”"
+      }
+    ],
+    "id": 2200
+  },
+  {
+    "generator": "korean-story-5-western-gemini",
+    "input": "piece",
+    "problem": "햇살이 따스하게 내리쬐는 황량한 사막 한가운데, 낡은 짐마차가 멈춰 있었습니다.<br> 마차 안에는 늙은 탐험가, 잭이 땀을 뻘뻘 흘리며 지도를 펼쳐 들고 있었습니다.<br> 갑자기, 땅이 흔들리고 먼지가 하늘을 뒤덮었습니다.<br> 잭은 놀란 눈으로 주변을 둘러보니, 거대한 모래 폭풍이 짐마차를 향해 몰려오고 있었습니다.<br> 그는 급하게 짐마차의 덮개를 닫고, 숨을 헐떡이며 기도를 했습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살이 따스하게 내리쬐는 황량한 사막 한가운데, 낡은 짐마차가 멈춰 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "따스하게": "warmly",
+          "내리쬐다": "shine",
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "old",
+          "짐마차": "wagon",
+          "멈추다": "stop",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In the middle of a desolate desert, where the sunshine was warm, an old wagon stood still."
+      },
+      {
+        "korean": "마차 안에는 늙은 탐험가, 잭이 땀을 뻘뻘 흘리며 지도를 펼쳐 들고 있었습니다.",
+        "wordByWordTranslation": {
+          "마차": "wagon",
+          "안": "inside",
+          "늙은": "old",
+          "탐험가": "explorer",
+          "잭": "Jack",
+          "땀": "sweat",
+          "뻘뻘": "profusely",
+          "흘리다": "flow",
+          "지도": "map",
+          "펼쳐": "spread",
+          "들고": "holding",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Inside the wagon, an old explorer named Jack was holding a map, sweating profusely."
+      },
+      {
+        "korean": "갑자기, 땅이 흔들리고 먼지가 하늘을 뒤덮었습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "땅": "ground",
+          "흔들리다": "shake",
+          "먼지": "dust",
+          "하늘": "sky",
+          "뒤덮다": "cover",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Suddenly, the ground shook and dust covered the sky."
+      },
+      {
+        "korean": "잭은 놀란 눈으로 주변을 둘러보니, 거대한 모래 폭풍이 짐마차를 향해 몰려오고 있었습니다.",
+        "wordByWordTranslation": {
+          "잭": "Jack",
+          "놀란": "surprised",
+          "눈": "eyes",
+          "주변": "surroundings",
+          "둘러보다": "look around",
+          "거대한": "huge",
+          "모래": "sand",
+          "폭풍": "storm",
+          "짐마차": "wagon",
+          "향해": "towards",
+          "몰려오다": "approach",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Jack looked around with surprised eyes and saw a huge sandstorm approaching the wagon."
+      },
+      {
+        "korean": "그는 급하게 짐마차의 덮개를 닫고, 숨을 헐떡이며 기도를 했습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "급하게": "hurriedly",
+          "짐마차": "wagon",
+          "덮개": "cover",
+          "닫다": "close",
+          "숨": "breath",
+          "헐떡이며": "gasping",
+          "기도": "prayer",
+          "했습니다": "did"
+        },
+        "overallTranslation": "He hurriedly closed the wagon's cover, gasping for breath and praying."
+      }
+    ],
+    "id": 2201
+  },
+  {
+    "generator": "korean-story-6-ancient-gemini",
+    "input": "honor",
+    "problem": "옛날 옛날 한 옛날에, 용감한 기사 민수가 살았습니다.<br> 그는 항상 정의를 위해 싸웠고, 사람들을 보호했습니다.<br> 어느 날, 악당이 마을을 습격했습니다.<br> 민수는 용감하게 싸웠고, 악당을 물리쳤습니다.<br> 마을 사람들은 민수의 용기를 칭찬하며, 그의 명예를 높였습니다.<br>",
+    "solution": [
+      {
+        "korean": "옛날 옛날 한 옛날에, 용감한 기사 민수가 살았습니다.",
+        "wordByWordTranslation": {
+          "옛날": "long ago",
+          "한": "one",
+          "옛날에": "time ago",
+          "용감한": "brave",
+          "기사": "knight",
+          "민수": "Minsu",
+          "살았습니다": "lived"
+        },
+        "overallTranslation": "Once upon a time, long ago, there lived a brave knight named Minsu."
+      },
+      {
+        "korean": "그는 항상 정의를 위해 싸웠고, 사람들을 보호했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "항상": "always",
+          "정의": "justice",
+          "위해": "for",
+          "싸웠고": "fought",
+          "사람들": "people",
+          "보호했습니다": "protected"
+        },
+        "overallTranslation": "He always fought for justice and protected people."
+      },
+      {
+        "korean": "어느 날, 악당이 마을을 습격했습니다.",
+        "wordByWordTranslation": {
+          "어느": "certain",
+          "날": "day",
+          "악당": "villain",
+          "마을": "village",
+          "습격했습니다": "attacked"
+        },
+        "overallTranslation": "One day, a villain attacked the village."
+      },
+      {
+        "korean": "민수는 용감하게 싸웠고, 악당을 물리쳤습니다.",
+        "wordByWordTranslation": {
+          "민수는": "Minsu",
+          "용감하게": "bravely",
+          "싸웠고": "fought",
+          "악당": "villain",
+          "물리쳤습니다": "defeated"
+        },
+        "overallTranslation": "Minsu fought bravely and defeated the villain."
+      },
+      {
+        "korean": "마을 사람들은 민수의 용기를 칭찬하며, 그의 명예를 높였습니다.",
+        "wordByWordTranslation": {
+          "마을": "village",
+          "사람들": "people",
+          "민수": "Minsu",
+          "용기": "courage",
+          "칭찬하며": "praising",
+          "그의": "his",
+          "명예": "honor",
+          "높였습니다": "raised"
+        },
+        "overallTranslation": "The villagers praised Minsu's courage and raised his honor."
+      }
+    ],
+    "id": 2202
   },
   {
     "generator": "korean-story-6-cyberpunk-gemini",
@@ -30748,7 +45629,410 @@
         "hanjaro": "그는 그곳에서 영원(永遠)을 찾았고, 영원(永遠)은 그를 기다리고 있었다.\n"
       }
     ],
-    "id": 2029
+    "id": 2203
+  },
+  {
+    "generator": "korean-story-6-dystopian-gemini",
+    "input": "composer",
+    "problem": "2077년, 서울은 거대한 콘크리트 정글이 되었고, 사람들은 모두 음악을 듣지 못했습니다.<br> 정부는 음악을 금지했고, 모든 악기는 박물관에 전시되었습니다.<br> 하지만, 낡은 피아노를 발견한 한 소녀, 지수는 용감하게 건반을 눌렀습니다.<br> 그 순간, 잊혀졌던 음악이 다시 울려 퍼지며, 지수는 감동적인 선율을 만들어냈습니다.<br> 지수의 음악은 도시 전체에 퍼져 나가, 사람들의 마음을 깨우고 희망을 불어넣었습니다.<br>",
+    "solution": [
+      {
+        "korean": "2077년, 서울은 거대한 콘크리트 정글이 되었고, 사람들은 모두 음악을 듣지 못했습니다.",
+        "wordByWordTranslation": {
+          "2077년": "2077 year",
+          "서울은": "Seoul is",
+          "거대한": "huge",
+          "콘크리트": "concrete",
+          "정글이": "jungle",
+          "되었고": "became",
+          "사람들은": "people",
+          "모두": "all",
+          "음악을": "music",
+          "듣지": "listen",
+          "못했습니다.": "couldn't"
+        },
+        "overallTranslation": "In the year 2077, Seoul became a giant concrete jungle, and everyone was unable to listen to music."
+      },
+      {
+        "korean": "정부는 음악을 금지했고, 모든 악기는 박물관에 전시되었습니다.",
+        "wordByWordTranslation": {
+          "정부는": "the government",
+          "음악을": "music",
+          "금지했고": "banned",
+          "모든": "all",
+          "악기는": "instruments",
+          "박물관에": "museum",
+          "전시되었습니다.": "were displayed"
+        },
+        "overallTranslation": "The government banned music, and all instruments were displayed in museums."
+      },
+      {
+        "korean": "하지만, 낡은 피아노를 발견한 한 소녀, 지수는 용감하게 건반을 눌렀습니다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "낡은": "old",
+          "피아노를": "piano",
+          "발견한": "found",
+          "한": "one",
+          "소녀": "girl",
+          "지수는": "Jisoo",
+          "용감하게": "bravely",
+          "건반을": "keyboard",
+          "눌렀습니다.": "pressed"
+        },
+        "overallTranslation": "However, a girl named Jisoo, who found an old piano, bravely pressed the keys."
+      },
+      {
+        "korean": "그 순간, 잊혀졌던 음악이 다시 울려 퍼지며, 지수는 감동적인 선율을 만들어냈습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "잊혀졌던": "forgotten",
+          "음악이": "music",
+          "다시": "again",
+          "울려": "sounded",
+          "퍼지며": "spreading",
+          "지수는": "Jisoo",
+          "감동적인": "moving",
+          "선율을": "melody",
+          "만들어냈습니다.": "created"
+        },
+        "overallTranslation": "At that moment, the forgotten music echoed again, and Jisoo created a moving melody."
+      },
+      {
+        "korean": "지수의 음악은 도시 전체에 퍼져 나가, 사람들의 마음을 깨우고 희망을 불어넣었습니다.",
+        "wordByWordTranslation": {
+          "지수의": "Jisoo's",
+          "음악은": "music",
+          "도시": "city",
+          "전체에": "whole",
+          "퍼져": "spread",
+          "나가": "out",
+          "사람들의": "people's",
+          "마음을": "hearts",
+          "깨우고": "awakened",
+          "희망을": "hope",
+          "불어넣었습니다.": "filled"
+        },
+        "overallTranslation": "Jisoo's music spread throughout the entire city, awakening people's hearts and filling them with hope."
+      }
+    ],
+    "id": 2204
+  },
+  {
+    "generator": "korean-story-6-espionage-gemini",
+    "input": "some",
+    "problem": "어두운 골목길에서, 스파이 김민수는 숨죽여 기다리고 있었습니다.<br> 그는 누군가가 다가오는 소리를 들었습니다.<br> 하지만 그것은 그의 동료가 아니라 적이었습니다.<br> 김민수는 깜짝 놀랐고, 빠르게 몸을 숨겼습니다.<br> 그는 뭔가 잘못되었다는 것을 알았습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 스파이 김민수는 숨죽여 기다리고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alley",
+          "에서": "from",
+          "스파이": "spy",
+          "김민수": "Kim Min-su",
+          "는": "is",
+          "숨죽여": "holding breath",
+          "기다리고": "waiting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alley, spy Kim Min-su was waiting with bated breath."
+      },
+      {
+        "korean": "그는 누군가가 다가오는 소리를 들었습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "누군가가": "someone",
+          "다가오는": "approaching",
+          "소리": "sound",
+          "를": "to",
+          "들었습니다": "heard"
+        },
+        "overallTranslation": "He heard the sound of someone approaching."
+      },
+      {
+        "korean": "하지만 그것은 그의 동료가 아니라 적이었습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그것은": "that was",
+          "그의": "his",
+          "동료": "colleague",
+          "가": "who",
+          "아니라": "not",
+          "적": "enemy",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "But it wasn't his colleague, it was his enemy."
+      },
+      {
+        "korean": "김민수는 깜짝 놀랐고, 빠르게 몸을 숨겼습니다.",
+        "wordByWordTranslation": {
+          "김민수는": "Kim Min-su",
+          "깜짝": "startled",
+          "놀랐고": "was surprised",
+          "빠르게": "quickly",
+          "몸": "body",
+          "를": "to",
+          "숨겼습니다": "hid"
+        },
+        "overallTranslation": "Kim Min-su was startled and quickly hid himself."
+      },
+      {
+        "korean": "그는 뭔가 잘못되었다는 것을 알았습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "뭔가": "something",
+          "잘못되었다는": "wrong",
+          "것": "thing",
+          "을": "to",
+          "알았습니다": "knew"
+        },
+        "overallTranslation": "He knew something was wrong."
+      }
+    ],
+    "id": 2205
+  },
+  {
+    "generator": "korean-story-6-frontier-gemini",
+    "input": "demonstrate",
+    "problem": "해가 지고 있었고, 먼지 덮인 서부 마을은 조용했습니다.<br> 갑자기, 땅이 흔들리고, 창문이 깨졌습니다.<br> 거대한 괴물이 마을로 뛰어들었습니다.<br> 마을 사람들은 공포에 질렸고, 숨을 곳을 찾았습니다.<br> 하지만 용감한 사냥꾼 잭은 괴물과 맞서 싸우기로 결심했습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지고 있었고, 먼지 덮인 서부 마을은 조용했습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun is",
+          "지고": "setting",
+          "있었고": "and",
+          "먼지": "dust",
+          "덮인": "covered",
+          "서부": "western",
+          "마을은": "town is",
+          "조용했습니다": "quiet"
+        },
+        "overallTranslation": "The sun was setting, and the dusty western town was quiet."
+      },
+      {
+        "korean": "갑자기, 땅이 흔들리고, 창문이 깨졌습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "땅이": "ground is",
+          "흔들리고": "shaking",
+          "창문이": "windows are",
+          "깨졌습니다": "broken"
+        },
+        "overallTranslation": "Suddenly, the ground shook, and the windows shattered."
+      },
+      {
+        "korean": "거대한 괴물이 마을로 뛰어들었습니다.",
+        "wordByWordTranslation": {
+          "거대한": "huge",
+          "괴물이": "monster is",
+          "마을로": "town to",
+          "뛰어들었습니다": "jumped in"
+        },
+        "overallTranslation": "A huge monster leaped into the town."
+      },
+      {
+        "korean": "마을 사람들은 공포에 질렸고, 숨을 곳을 찾았습니다.",
+        "wordByWordTranslation": {
+          "마을": "town",
+          "사람들은": "people are",
+          "공포에": "fear of",
+          "질렸고": "terrified and",
+          "숨을": "to breathe",
+          "곳을": "place to",
+          "찾았습니다": "found"
+        },
+        "overallTranslation": "The townspeople were terrified and looked for places to hide."
+      },
+      {
+        "korean": "하지만 용감한 사냥꾼 잭은 괴물과 맞서 싸우기로 결심했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "용감한": "brave",
+          "사냥꾼": "hunter",
+          "잭은": "Jack is",
+          "괴물과": "monster and",
+          "맞서": "against",
+          "싸우기로": "to fight",
+          "결심했습니다": "decided"
+        },
+        "overallTranslation": "But the brave hunter Jack decided to face the monster."
+      }
+    ],
+    "id": 2206
+  },
+  {
+    "generator": "korean-story-6-gritty-realism-gemini",
+    "input": "final",
+    "problem": "어두운 골목길에서, 낡은 가로등 불빛이 희미하게 흔들렸다.<br> 길을 걷던 남자는 갑자기 발소리를 멈추고 뒤를 돌아보았다.<br> 그의 눈앞에, 커다란 그림자가 나타났다.<br> 그림자는 웃으며 말했다. “마지막 기회야.”<br> 남자의 손에 든 낡은 사진이 바람에 날려갔다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 낡은 가로등 불빛이 희미하게 흔들렸다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "낡은": "old",
+          "가로등": "streetlight",
+          "불빛": "light",
+          "이": "it",
+          "희미하게": "dimly",
+          "흔들렸다": "swayed"
+        },
+        "overallTranslation": "In a dark alleyway, the light from an old streetlamp swayed faintly."
+      },
+      {
+        "korean": "길을 걷던 남자는 갑자기 발소리를 멈추고 뒤를 돌아보았다.",
+        "wordByWordTranslation": {
+          "길": "road",
+          "을": "to",
+          "걷던": "walked",
+          "남자": "man",
+          "는": "is",
+          "갑자기": "suddenly",
+          "발소리": "footstep",
+          "를": "to",
+          "멈추고": "stop",
+          "뒤": "behind",
+          "돌아보았다": "look back"
+        },
+        "overallTranslation": "The man walking down the street suddenly stopped and looked back."
+      },
+      {
+        "korean": "그의 눈앞에, 커다란 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "그": "his",
+          "눈앞": "eyes",
+          "에": "at",
+          "커다란": "large",
+          "그림자": "shadow",
+          "가": "that",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Before his eyes, a large shadow appeared."
+      },
+      {
+        "korean": "그림자는 웃으며 말했다. “마지막 기회야.”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "웃으며": "smiling",
+          "말했다": "said",
+          "“마지막": "“final",
+          "기회야": "chance"
+        },
+        "overallTranslation": "The shadow smiled and said, “It’s your final chance.”"
+      },
+      {
+        "korean": "남자의 손에 든 낡은 사진이 바람에 날려갔다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "의": "of",
+          "손": "hand",
+          "에": "in",
+          "든": "held",
+          "낡은": "old",
+          "사진": "picture",
+          "이": "it",
+          "바람": "wind",
+          "날려갔다": "flew away"
+        },
+        "overallTranslation": "The old photograph the man was holding flew away in the wind."
+      }
+    ],
+    "id": 2207
+  },
+  {
+    "generator": "korean-story-6-medieval-fantasy-gemini",
+    "input": "bruise",
+    "problem": "어두운 밤, 숲 속에서 길을 잃은 소녀, 아리아는 겁에 질려 몸을 떨고 있었다.<br> 아리아는 나뭇가지에 걸려 넘어지면서 손목에 멍이 들었다.<br> 그때, 숲 속에서 빛이 뿜어져 나왔다.<br> 빛은 아리아의 멍을 녹이고, 따뜻하게 감싸 안았다.<br> 아리아는 멍이 사라진 자리에 신비로운 빛이 흐르는 것을 보고 놀랐다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 숲 속에서 길을 잃은 소녀, 아리아는 겁에 질려 몸을 떨고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "숲": "forest",
+          "속에서": "inside",
+          "길": "road",
+          "잃은": "lost",
+          "소녀": "girl",
+          "아리아": "Aria",
+          "는": "is",
+          "겁에": "fear",
+          "질려": "scared",
+          "몸을": "body",
+          "떨고": "shaking",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, Aria, a girl lost in the forest, was trembling with fear."
+      },
+      {
+        "korean": "아리아는 나뭇가지에 걸려 넘어지면서 손목에 멍이 들었다.",
+        "wordByWordTranslation": {
+          "아리아": "Aria",
+          "는": "is",
+          "나뭇가지": "branch",
+          "에": "on",
+          "걸려": "caught",
+          "넘어지면서": "falling",
+          "손목": "wrist",
+          "멍이": "bruise",
+          "들었다": "got"
+        },
+        "overallTranslation": "Aria tripped over a branch and got a bruise on her wrist."
+      },
+      {
+        "korean": "그때, 숲 속에서 빛이 뿜어져 나왔다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "숲": "forest",
+          "속에서": "inside",
+          "빛": "light",
+          "이": "is",
+          "뿜어져": "emitted",
+          "나왔다": "came out"
+        },
+        "overallTranslation": "Then, light burst from within the forest."
+      },
+      {
+        "korean": "빛은 아리아의 멍을 녹이고, 따뜻하게 감싸 안았다.",
+        "wordByWordTranslation": {
+          "빛": "light",
+          "은": "is",
+          "아리아": "Aria",
+          "의": "of",
+          "멍": "bruise",
+          "을": "object",
+          "녹이고": "melting",
+          "따뜻하게": "warmly",
+          "감싸": "hug",
+          "안았다": "embraced"
+        },
+        "overallTranslation": "The light melted Aria's bruise and warmly embraced it."
+      },
+      {
+        "korean": "아리아는 멍이 사라진 자리에 신비로운 빛이 흐르는 것을 보고 놀랐다.",
+        "wordByWordTranslation": {
+          "아리아": "Aria",
+          "는": "is",
+          "멍이": "bruise",
+          "사라진": "disappeared",
+          "자리에": "place",
+          "신비로운": "mysterious",
+          "빛": "light",
+          "이": "is",
+          "흐르는": "flowing",
+          "것을": "thing",
+          "보고": "seeing",
+          "놀랐다": "was surprised"
+        },
+        "overallTranslation": "Aria was surprised to see a mysterious light flowing where her bruise had been."
+      }
+    ],
+    "id": 2208
   },
   {
     "generator": "korean-story-6-medieval-gemini",
@@ -30844,7 +46128,7 @@
         "hanjaro": "그는  그  소리의  근원(根源)을  알아내기  위해  밤새도록  성(城)  주변(周邊)을  헤맸습니다.\n"
       }
     ],
-    "id": 2030
+    "id": 2209
   },
   {
     "generator": "korean-story-6-psychological-horror-gemini",
@@ -30930,7 +46214,7 @@
         "hanjaro": "그는 '저게 누구 소리지?' 라고 생각하며 폐가(廢家)를 향(向)해 조심스럽게 다가갔다.\n"
       }
     ],
-    "id": 2031
+    "id": 2210
   },
   {
     "generator": "korean-story-6-romantic-gemini",
@@ -31023,7 +46307,7 @@
         "hanjaro": "지훈이는 수현이의 노래 실력(實力)에 감탄(感歎)했고, 은수(隱修)는 수현이에게 고마워하며 둘은 더욱 친(親)해졌어요.\n"
       }
     ],
-    "id": 2032
+    "id": 2211
   },
   {
     "generator": "korean-story-6-slasher-gemini",
@@ -31106,7 +46390,382 @@
         "overallTranslation": "The man closed the warehouse door,  smiling a chilling smile."
       }
     ],
-    "id": 2033
+    "id": 2212
+  },
+  {
+    "generator": "korean-story-6-slice-of-life-gemini",
+    "input": "lender",
+    "problem": "은수는 햇살 가득한 도서관에서 책을 읽고 있었어요.<br> 친구 민수가 다가와 은수에게 돈을 빌려달라고 부탁했어요.<br> 은수는 책을 덮고 민수를 바라봤어요.<br> 민수는 쑥스러운 듯 고개를 숙였어요.<br> 은수는 웃으며 돈을 빌려주기로 했어요.<br>",
+    "solution": [
+      {
+        "korean": "은수는 햇살 가득한 도서관에서 책을 읽고 있었어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "도서관": "library",
+          "에서": "at",
+          "책": "book",
+          "을": "object marker",
+          "읽고": "reading",
+          "있었어요": "was"
+        },
+        "overallTranslation": "Eunsoo was reading a book in a library filled with sunshine."
+      },
+      {
+        "korean": "친구 민수가 다가와 은수에게 돈을 빌려달라고 부탁했어요.",
+        "wordByWordTranslation": {
+          "친구": "friend",
+          "민수": "Minsoo",
+          "가": "subject marker",
+          "다가와": "approached",
+          "은수": "Eunsoo",
+          "에게": "to",
+          "돈": "money",
+          "을": "object marker",
+          "빌려달라고": "to borrow",
+          "부탁했어요": "asked"
+        },
+        "overallTranslation": "Her friend, Minsoo, approached Eunsoo and asked to borrow money."
+      },
+      {
+        "korean": "은수는 책을 덮고 민수를 바라봤어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "책": "book",
+          "을": "object marker",
+          "덮고": "closed",
+          "민수": "Minsoo",
+          "를": "object marker",
+          "바라봤어요": "looked at"
+        },
+        "overallTranslation": "Eunsoo closed her book and looked at Minsoo."
+      },
+      {
+        "korean": "민수는 쑥스러운 듯 고개를 숙였어요.",
+        "wordByWordTranslation": {
+          "민수": "Minsoo",
+          "는": "is",
+          "쑥스러운": "embarrassed",
+          "듯": "like",
+          "고개": "head",
+          "를": "object marker",
+          "숙였어요": "lowered"
+        },
+        "overallTranslation": "Minsoo lowered his head, looking embarrassed."
+      },
+      {
+        "korean": "은수는 웃으며 돈을 빌려주기로 했어요.",
+        "wordByWordTranslation": {
+          "은수": "Eunsoo",
+          "는": "is",
+          "웃으며": "smiling",
+          "돈": "money",
+          "을": "object marker",
+          "빌려주기로": "decided to lend",
+          "했어요": "did"
+        },
+        "overallTranslation": "Eunsoo smiled and decided to lend him the money."
+      }
+    ],
+    "id": 2213
+  },
+  {
+    "generator": "korean-story-6-steampunk-gemini",
+    "input": "ticket",
+    "problem": "낡은 기차역 플랫폼에는 증기 기관차가 웅장하게 서 있었고, 승객들은 탑승을 위해 줄을 서 있었습니다.<br> 손때 묻은 티켓 검사원은 탑승객들의 티켓을 일일이 확인하며 꼼꼼하게 검사했습니다.<br> 갑자기 역사 안에서 굉음이 울려 퍼지며 기차역 전체가 흔들리기 시작했습니다.<br> 깜짝 놀란 승객들은 혼란스러워하며 서로 부딪히고, 티켓 검사원은 황급히 손에 들고 있던 티켓을 떨어뜨렸습니다.<br> 떨어진 티켓은 바람에 날려 기차역 천장의 거대한 기어 톱니 사이로 사라졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 기차역 플랫폼에는 증기 기관차가 웅장하게 서 있었고, 승객들은 탑승을 위해 줄을 서 있었습니다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "기차역": "train station",
+          "플랫폼": "platform",
+          "에는": "there was",
+          "증기": "steam",
+          "기관차": "locomotive",
+          "가": "subject marker",
+          "웅장하게": "majestically",
+          "서": "stand",
+          "있었고": "and",
+          "승객": "passenger",
+          "들은": "subject marker",
+          "탑승": "boarding",
+          "을": "object marker",
+          "위해": "for",
+          "줄": "line",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "An old train station platform was majestically occupied by a steam locomotive, and passengers lined up for boarding."
+      },
+      {
+        "korean": "손때 묻은 티켓 검사원은 탑승객들의 티켓을 일일이 확인하며 꼼꼼하게 검사했습니다.",
+        "wordByWordTranslation": {
+          "손때": "dirt",
+          "묻은": "covered",
+          "티켓": "ticket",
+          "검사원": "inspector",
+          "은": "subject marker",
+          "탑승객": "passenger",
+          "들의": "possessive marker",
+          "을": "object marker",
+          "일일이": "one by one",
+          "확인": "confirm",
+          "하며": "while",
+          "꼼꼼하게": "thoroughly",
+          "검사": "check",
+          "했습니다": "did"
+        },
+        "overallTranslation": "A grimy ticket inspector meticulously checked each passenger's ticket one by one."
+      },
+      {
+        "korean": "갑자기 역사 안에서 굉음이 울려 퍼지며 기차역 전체가 흔들리기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "역사": "station",
+          "안": "inside",
+          "에서": "from",
+          "굉음": "roar",
+          "이": "subject marker",
+          "울려": "sound",
+          "퍼지며": "spreading",
+          "기차역": "train station",
+          "전체": "whole",
+          "가": "subject marker",
+          "흔들리기": "shake",
+          "시작": "start",
+          "했습니다": "did"
+        },
+        "overallTranslation": "Suddenly, a deafening roar echoed from inside the station, causing the entire train station to shake."
+      },
+      {
+        "korean": "깜짝 놀란 승객들은 혼란스러워하며 서로 부딪히고, 티켓 검사원은 황급히 손에 들고 있던 티켓을 떨어뜨렸습니다.",
+        "wordByWordTranslation": {
+          "깜짝": "surprise",
+          "놀란": "surprised",
+          "승객": "passenger",
+          "들은": "subject marker",
+          "혼란스러워": "confused",
+          "하며": "while",
+          "서로": "each other",
+          "부딪히고": "bump",
+          "티켓": "ticket",
+          "검사원": "inspector",
+          "은": "subject marker",
+          "황급히": "hurriedly",
+          "손": "hand",
+          "에": "on",
+          "들고": "holding",
+          "있던": "was",
+          "을": "object marker",
+          "떨어뜨렸습니다": "dropped"
+        },
+        "overallTranslation": "The startled passengers were confused, bumping into each other, and the ticket inspector hurriedly dropped the ticket he was holding."
+      },
+      {
+        "korean": "떨어진 티켓은 바람에 날려 기차역 천장의 거대한 기어 톱니 사이로 사라졌습니다.",
+        "wordByWordTranslation": {
+          "떨어진": "fallen",
+          "티켓": "ticket",
+          "은": "subject marker",
+          "바람": "wind",
+          "에": "by",
+          "날려": "blown",
+          "기차역": "train station",
+          "천장": "ceiling",
+          "의": "possessive marker",
+          "거대한": "huge",
+          "기어": "gear",
+          "톱니": "teeth",
+          "사이": "between",
+          "로": "to",
+          "사라졌습니다": "disappeared"
+        },
+        "overallTranslation": "The fallen ticket was blown by the wind and disappeared into the space between the huge gear teeth on the train station ceiling."
+      }
+    ],
+    "id": 2214
+  },
+  {
+    "generator": "korean-story-6-supernatural-gemini",
+    "input": "median",
+    "problem": "어두운 밤, 은수는 낡은 아파트의 중간층 복도를 걸어갔습니다.<br> 복도의 불빛은 희미했고, 벽에는 그림자가 춤을 추듯 움직였습니다.<br> 그때, 은수의 발 아래에서 갑자기 섬뜩한 소리가 들렸습니다.<br> 바닥이 갈라지며 깊은 구멍이 생겼고, 그 속에서 섬뜩한 눈빛이 은수를 응시했습니다.<br> 은수는 소스라치게 놀라 뒤로 넘어졌고, 구멍은 갑자기 사라졌습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 은수는 낡은 아파트의 중간층 복도를 걸어갔습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "은수는": "Eunsoo is",
+          "낡은": "old",
+          "아파트의": "apartment's",
+          "중간층": "middle floor",
+          "복도를": "hallway",
+          "걸어갔습니다.": "walked"
+        },
+        "overallTranslation": "On a dark night, Eunsoo walked down the hallway of the middle floor of an old apartment."
+      },
+      {
+        "korean": "복도의 불빛은 희미했고, 벽에는 그림자가 춤을 추듯 움직였습니다.",
+        "wordByWordTranslation": {
+          "복도의": "hallway's",
+          "불빛은": "light is",
+          "희미했고": "dim",
+          "벽에는": "on the wall",
+          "그림자는": "shadow is",
+          "춤을": "dance",
+          "추듯": "like",
+          "움직였습니다.": "moved"
+        },
+        "overallTranslation": "The hallway's light was dim, and shadows moved on the wall like they were dancing."
+      },
+      {
+        "korean": "그때, 은수의 발 아래에서 갑자기 섬뜩한 소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "은수의": "Eunsoo's",
+          "발": "foot",
+          "아래에서": "under",
+          "갑자기": "suddenly",
+          "섬뜩한": "chilling",
+          "소리가": "sound",
+          "들렸습니다.": "heard"
+        },
+        "overallTranslation": "Then, a chilling sound suddenly came from under Eunsoo's feet."
+      },
+      {
+        "korean": "바닥이 갈라지며 깊은 구멍이 생겼고, 그 속에서 섬뜩한 눈빛이 은수를 응시했습니다.",
+        "wordByWordTranslation": {
+          "바닥이": "floor",
+          "갈라지며": "splitting",
+          "깊은": "deep",
+          "구멍이": "hole",
+          "생겼고": "was created",
+          "그": "that",
+          "속에서": "inside",
+          "섬뜩한": "chilling",
+          "눈빛이": "eyes",
+          "은수를": "Eunsoo",
+          "응시했습니다.": "stared at"
+        },
+        "overallTranslation": "The floor split open, creating a deep hole, and chilling eyes stared at Eunsoo from inside."
+      },
+      {
+        "korean": "은수는 소스라치게 놀라 뒤로 넘어졌고, 구멍은 갑자기 사라졌습니다.",
+        "wordByWordTranslation": {
+          "은수는": "Eunsoo is",
+          "소스라치게": "startled",
+          "놀라": "surprised",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "구멍은": "hole",
+          "갑자기": "suddenly",
+          "사라졌습니다.": "disappeared"
+        },
+        "overallTranslation": "Eunsoo was startled and fell backwards, and the hole suddenly disappeared."
+      }
+    ],
+    "id": 2215
+  },
+  {
+    "generator": "korean-story-6-time-travel-gemini",
+    "input": "independent",
+    "problem": "2023년, 서울의 한 카페에서 민수는 친구와 커피를 마시며 미래에 대한 이야기를 나누고 있었습니다.<br> 민수는 꿈을 이루기 위해 독립적인 삶을 살고 싶다고 말했습니다.<br> 갑자기 카페 문이 열리며 빛이 쏟아져 들어왔습니다.<br> 민수는 눈을 뜨니 낯선 곳에 있었고, 친구는 보이지 않았습니다.<br> 그는 혼자였지만, 꿈을 향해 나아갈 용기가 생겼습니다.<br>",
+    "solution": [
+      {
+        "korean": "2023년, 서울의 한 카페에서 민수는 친구와 커피를 마시며 미래에 대한 이야기를 나누고 있었습니다.",
+        "wordByWordTranslation": {
+          "2023년": "2023 year",
+          "서울": "Seoul",
+          "한": "one",
+          "카페": "cafe",
+          "에서": "at",
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "와": "and",
+          "커피": "coffee",
+          "를": "to",
+          "마시며": "drinking",
+          "미래": "future",
+          "에": "at",
+          "대한": "about",
+          "이야기": "story",
+          "나누고": "sharing",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "In 2023, at a cafe in Seoul, Minsu was sharing stories about the future with his friend while drinking coffee."
+      },
+      {
+        "korean": "민수는 꿈을 이루기 위해 독립적인 삶을 살고 싶다고 말했습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "꿈": "dream",
+          "을": "to",
+          "이루기": "achieve",
+          "위해": "for",
+          "독립적": "independent",
+          "인": "being",
+          "삶": "life",
+          "살고": "live",
+          "싶다고": "wanting",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "Minsu said that he wanted to live an independent life to achieve his dreams."
+      },
+      {
+        "korean": "갑자기 카페 문이 열리며 빛이 쏟아져 들어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "카페": "cafe",
+          "문": "door",
+          "이": "that",
+          "열리며": "opening",
+          "빛": "light",
+          "쏟아져": "pouring",
+          "들어왔습니다.": "came"
+        },
+        "overallTranslation": "Suddenly, the cafe door opened and light poured in."
+      },
+      {
+        "korean": "민수는 눈을 뜨니 낯선 곳에 있었고, 친구는 보이지 않았습니다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "is",
+          "눈": "eye",
+          "을": "to",
+          "뜨니": "opening",
+          "낯선": "unfamiliar",
+          "곳": "place",
+          "에": "at",
+          "있었고": "was",
+          "친구": "friend",
+          "보이지": "not visible",
+          "않았습니다.": "was"
+        },
+        "overallTranslation": "Minsu opened his eyes and found himself in an unfamiliar place, his friend nowhere to be seen."
+      },
+      {
+        "korean": "그는 혼자였지만, 꿈을 향해 나아갈 용기가 생겼습니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "혼자": "alone",
+          "였지만": "but",
+          "꿈": "dream",
+          "을": "to",
+          "향해": "toward",
+          "나아갈": "to go",
+          "용기": "courage",
+          "가": "has",
+          "생겼습니다.": "appeared"
+        },
+        "overallTranslation": "He was alone, but he found the courage to move forward towards his dream."
+      }
+    ],
+    "id": 2216
   },
   {
     "generator": "korean-story-6-urban-gemini",
@@ -31198,7 +46857,7 @@
         "hanjaro": "이제 그는 아무것도 없이 빈손으로 밤거리를 헤매야만 했다.\n"
       }
     ],
-    "id": 2034
+    "id": 2217
   },
   {
     "generator": "korean-story-6-urban-gemini",
@@ -31281,7 +46940,102 @@
         "overallTranslation": "But the spider didn't run towards Jisu, it ran towards the trash can next to her."
       }
     ],
-    "id": 2035
+    "id": 2218
+  },
+  {
+    "generator": "korean-story-6-western-gemini",
+    "input": "impede",
+    "problem": "뜨거운 태양 아래, 먼지 덮인 길을 따라 서부 개척자 제이크가 말을 타고 달리고 있었습니다.<br> 그는 황량한 대지를 가로질러 빠르게 달렸고, 그의 목표는 저 멀리 보이는 마을이었습니다.<br> 갑자기, 커다란 바위가 길을 막아섰습니다.<br> 제이크는 말에서 내려 바위를 살펴보았습니다. 그것은 너무 커서 움직일 수 없었습니다.<br> 그는 좌절했지만, 다른 길을 찾아 마을로 향했습니다.<br>",
+    "solution": [
+      {
+        "korean": "뜨거운 태양 아래, 먼지 덮인 길을 따라 서부 개척자 제이크가 말을 타고 달리고 있었습니다.",
+        "wordByWordTranslation": {
+          "뜨거운": "hot",
+          "태양": "sun",
+          "아래": "under",
+          "먼지": "dust",
+          "덮인": "covered",
+          "길": "road",
+          "따라": "along",
+          "서부": "western",
+          "개척자": "pioneer",
+          "제이크": "Jake",
+          "말": "horse",
+          "타고": "riding",
+          "달리고": "running",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Under the hot sun, Jake, a western pioneer, was riding his horse along a dusty road."
+      },
+      {
+        "korean": "그는 황량한 대지를 가로질러 빠르게 달렸고, 그의 목표는 저 멀리 보이는 마을이었습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "황량한": "barren",
+          "대지": "land",
+          "가로질러": "across",
+          "빠르게": "quickly",
+          "달렸고": "ran",
+          "그의": "his",
+          "목표": "goal",
+          "는": "is",
+          "저": "that",
+          "멀리": "far",
+          "보이는": "visible",
+          "마을": "town",
+          "이었습니다": "was"
+        },
+        "overallTranslation": "He ran quickly across the barren land, his goal the town visible in the distance."
+      },
+      {
+        "korean": "갑자기, 커다란 바위가 길을 막아섰습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "커다란": "huge",
+          "바위": "rock",
+          "가": "the",
+          "길": "road",
+          "막아섰습니다": "blocked"
+        },
+        "overallTranslation": "Suddenly, a huge rock blocked the road."
+      },
+      {
+        "korean": "제이크는 말에서 내려 바위를 살펴보았습니다.  그것은 너무 커서 움직일 수 없었습니다.",
+        "wordByWordTranslation": {
+          "제이크": "Jake",
+          "는": "is",
+          "말": "horse",
+          "에서": "from",
+          "내려": "dismounted",
+          "바위": "rock",
+          "를": "to",
+          "살펴보았습니다": "examined",
+          "그것은": "it",
+          "너무": "too",
+          "커서": "big",
+          "움직일": "move",
+          "수": "can",
+          "없었습니다": "not"
+        },
+        "overallTranslation": "Jake dismounted and examined the rock.  It was too big to move."
+      },
+      {
+        "korean": "그는 좌절했지만, 다른 길을 찾아 마을로 향했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "좌절했지만": "was frustrated but",
+          "다른": "other",
+          "길": "road",
+          "를": "to",
+          "찾아": "found",
+          "마을": "town",
+          "로": "to",
+          "향했습니다": "headed"
+        },
+        "overallTranslation": "He was frustrated, but found another road and headed for the town."
+      }
+    ],
+    "id": 2219
   },
   {
     "generator": "korean-story-6-whodunnit-gemini",
@@ -31363,7 +47117,93 @@
         "hanjaro": "김민수(金玟秀) 씨(氏)는 깜짝 놀라서 발을 떼어 보니, 껌이 밟혀 있었습니다.\n"
       }
     ],
-    "id": 2036
+    "id": 2220
+  },
+  {
+    "generator": "korean-story-7-ancient-gemini",
+    "input": "detect",
+    "problem": "밤하늘은 별들이 반짝이는 아름다운 광경을 보여주었습니다.<br> 하지만 어둠 속에서 희미한 빛이 깜빡이는 것을 보았습니다.<br> 그것은 숲 속에서 나는 이상한 소리였습니다.<br> 나는 빛이 움직이는 것을 감지하고 조심스럽게 다가갔습니다.<br> 그것은 작은 여우였고, 발에 다친 것 같았습니다.<br>",
+    "solution": [
+      {
+        "korean": "밤하늘은 별들이 반짝이는 아름다운 광경을 보여주었습니다.",
+        "wordByWordTranslation": {
+          "밤": "night",
+          "하늘": "sky",
+          "은": "is",
+          "별": "star",
+          "들이": "plural marker",
+          "반짝이는": "twinkling",
+          "아름다운": "beautiful",
+          "광경": "sight",
+          "을": "object marker",
+          "보여주었습니다": "showed"
+        },
+        "overallTranslation": "The night sky displayed a beautiful sight of twinkling stars."
+      },
+      {
+        "korean": "하지만 어둠 속에서 희미한 빛이 깜빡이는 것을 보았습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어둠": "darkness",
+          "속에서": "in",
+          "희미한": "faint",
+          "빛": "light",
+          "이": "subject marker",
+          "깜빡이는": "blinking",
+          "것": "thing",
+          "을": "object marker",
+          "보았습니다": "saw"
+        },
+        "overallTranslation": "But I saw a faint light blinking in the darkness."
+      },
+      {
+        "korean": "그것은 숲 속에서 나는 이상한 소리였습니다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "은": "is",
+          "숲": "forest",
+          "속에서": "in",
+          "나는": "coming from",
+          "이상한": "strange",
+          "소리": "sound",
+          "였습니다": "was"
+        },
+        "overallTranslation": "It was a strange sound coming from the forest."
+      },
+      {
+        "korean": "나는 빛이 움직이는 것을 감지하고 조심스럽게 다가갔습니다.",
+        "wordByWordTranslation": {
+          "나는": "I",
+          "빛": "light",
+          "이": "subject marker",
+          "움직이는": "moving",
+          "것": "thing",
+          "을": "object marker",
+          "감지": "detect",
+          "하고": "and",
+          "조심스럽게": "carefully",
+          "다가갔습니다": "approached"
+        },
+        "overallTranslation": "I detected the light moving and cautiously approached it."
+      },
+      {
+        "korean": "그것은 작은 여우였고, 발에 다친 것 같았습니다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "은": "is",
+          "작은": "small",
+          "여우": "fox",
+          "였고": "was",
+          "발": "foot",
+          "에": "on",
+          "다친": "injured",
+          "것": "thing",
+          "같았습니다": "seemed"
+        },
+        "overallTranslation": "It was a small fox, and it seemed to have injured its foot."
+      }
+    ],
+    "id": 2221
   },
   {
     "generator": "korean-story-7-comic book-gemini",
@@ -31445,7 +47285,7 @@
         "hanjaro": "민지는 수현이의 말에 동의(同意)하며 웃었어요.\n"
       }
     ],
-    "id": 2037
+    "id": 2222
   },
   {
     "generator": "korean-story-7-dark-fantasy-gemini",
@@ -31529,7 +47369,84 @@
         "hanjaro": "정령(精靈)은 소녀(少女)에게 다가와 그녀(그女)의 마음을 읽고, 자신(自身)의 의지(意志)대로 그녀(그女)를 조종(操縱)하려 했습니다.\n"
       }
     ],
-    "id": 2038
+    "id": 2223
+  },
+  {
+    "generator": "korean-story-7-detective-gemini",
+    "input": "Easter",
+    "problem": "부활절 아침, 해가 밝게 떠오르고 있었지만, 김탐정의 얼굴은 어두웠습니다.<br> 그는 밤새도록 사건 현장을 조사했지만, 단서를 찾지 못했습니다.<br> 그때, 그의 휴대폰이 울렸고, 화면에는 '익명'이라는 이름이 떠올랐습니다.<br> 전화 너머로, 숨 막힐 듯 낮은 목소리가 들려왔습니다.<br> “부활절 달걀을 찾았어요? 탐정님.”<br>",
+    "solution": [
+      {
+        "korean": "부활절 아침, 해가 밝게 떠오르고 있었지만, 김탐정의 얼굴은 어두웠습니다.",
+        "wordByWordTranslation": {
+          "부활절": "Easter",
+          "아침": "morning",
+          "해": "sun",
+          "밝게": "brightly",
+          "떠오르고": "rising",
+          "있었지만": "but",
+          "김탐정": "Detective Kim",
+          "얼굴": "face",
+          "어두웠습니다": "was dark"
+        },
+        "overallTranslation": "It was Easter morning, the sun was rising brightly, but Detective Kim's face was dark."
+      },
+      {
+        "korean": "그는 밤새도록 사건 현장을 조사했지만, 단서를 찾지 못했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "밤새도록": "all night",
+          "사건": "case",
+          "현장": "scene",
+          "조사했지만": "investigated but",
+          "단서": "clue",
+          "찾지": "find",
+          "못했습니다": "couldn't"
+        },
+        "overallTranslation": "He had investigated the crime scene all night, but he couldn't find any clues."
+      },
+      {
+        "korean": "그때, 그의 휴대폰이 울렸고, 화면에는 '익명'이라는 이름이 떠올랐습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "그의": "his",
+          "휴대폰": "cell phone",
+          "울렸고": "rang and",
+          "화면": "screen",
+          "에는": "on",
+          "'익명'": "'anonymous'",
+          "이라는": "called",
+          "이름": "name",
+          "떠올랐습니다": "appeared"
+        },
+        "overallTranslation": "Then, his cell phone rang, and the name 'Anonymous' appeared on the screen."
+      },
+      {
+        "korean": "전화 너머로, 숨 막힐 듯 낮은 목소리가 들려왔습니다.",
+        "wordByWordTranslation": {
+          "전화": "phone",
+          "너머로": "from the other side",
+          "숨": "breath",
+          "막힐": "choke",
+          "듯": "like",
+          "낮은": "low",
+          "목소리": "voice",
+          "들려왔습니다": "was heard"
+        },
+        "overallTranslation": "From the other side of the phone, a voice low enough to choke came through."
+      },
+      {
+        "korean": "“부활절 달걀을 찾았어요? 탐정님.”",
+        "wordByWordTranslation": {
+          "“부활절": "“Easter",
+          "달걀": "egg",
+          "찾았어요": "found?",
+          "탐정님": "detective"
+        },
+        "overallTranslation": "“Did you find the Easter egg, detective?”"
+      }
+    ],
+    "id": 2224
   },
   {
     "generator": "korean-story-7-gritty-realism-gemini",
@@ -31607,7 +47524,7 @@
         "overallTranslation": "Hope and fear crossed Kim's face at the same time."
       }
     ],
-    "id": 2039
+    "id": 2225
   },
   {
     "generator": "korean-story-7-noir-gemini",
@@ -31691,7 +47608,7 @@
         "hanjaro": "그는 험악(險惡)한 얼굴로 “정족수(定足數)가 모였나?”라고 물었다.\n"
       }
     ],
-    "id": 2040
+    "id": 2226
   },
   {
     "generator": "korean-story-7-political-gemini",
@@ -31787,7 +47704,109 @@
         "hanjaro": "그들은 그 소리의 의미(意味)를 알 수 없었고, 밤은 더욱 깊어졌습니다.\n"
       }
     ],
-    "id": 2041
+    "id": 2227
+  },
+  {
+    "generator": "korean-story-7-psychological-horror-gemini",
+    "input": "rite",
+    "problem": "어두운 밤, 낡은 절의 종각은 섬뜩한 기운을 내뿜고 있었다.<br> 민수는 친구 지훈과 함께, 그곳에 금지된 의식이 있다는 소문을 확인하러 왔다.<br> 하지만 그들은 문을 열자마자, 섬뜩한 웃음소리와 함께 차가운 공기가 몰려왔다.<br> 절 안은 텅 비어 있었고, 그들의 발자국 소리만 공허하게 울려 퍼졌다.<br> 민수는 등골이 오싹해지며, 지훈의 손을 꽉 잡았다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 절의 종각은 섬뜩한 기운을 내뿜고 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "절": "temple",
+          "종각": "bell tower",
+          "은": "is",
+          "섬뜩한": "chilling",
+          "기운": "aura",
+          "을": "object marker",
+          "내뿜고": "emitting",
+          "있었다": "was"
+        },
+        "overallTranslation": "On a dark night, the old temple's bell tower emitted a chilling aura."
+      },
+      {
+        "korean": "민수는 친구 지훈과 함께, 그곳에 금지된 의식이 있다는 소문을 확인하러 왔다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "subject marker",
+          "친구": "friend",
+          "지훈": "Jihoon",
+          "과": "and",
+          "함께": "together",
+          "그곳": "that place",
+          "에": "at",
+          "금지된": "forbidden",
+          "의식": "rite",
+          "이": "there is",
+          "있다는": "that there is",
+          "소문": "rumor",
+          "을": "object marker",
+          "확인하러": "to confirm",
+          "왔다": "came"
+        },
+        "overallTranslation": "Minsu, along with his friend Jihoon, came to confirm the rumor that a forbidden rite took place there."
+      },
+      {
+        "korean": "하지만 그들은 문을 열자마자, 섬뜩한 웃음소리와 함께 차가운 공기가 몰려왔다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그들은": "they",
+          "문": "door",
+          "을": "object marker",
+          "열자마자": "as soon as they opened",
+          "섬뜩한": "chilling",
+          "웃음소리": "laughter",
+          "와": "and",
+          "함께": "together",
+          "차가운": "cold",
+          "공기": "air",
+          "가": "subject marker",
+          "몰려왔다": "rushed in"
+        },
+        "overallTranslation": "But as soon as they opened the door, chilling laughter and cold air rushed in."
+      },
+      {
+        "korean": "절 안은 텅 비어 있었고, 그들의 발자국 소리만 공허하게 울려 퍼졌다.",
+        "wordByWordTranslation": {
+          "절": "temple",
+          "안": "inside",
+          "은": "is",
+          "텅": "empty",
+          "비어": "empty",
+          "있었고": "was",
+          "그들의": "their",
+          "발자국": "footsteps",
+          "소리": "sound",
+          "만": "only",
+          "공허하게": "emptily",
+          "울려": "echo",
+          "퍼졌다": "spread"
+        },
+        "overallTranslation": "The inside of the temple was empty, and only their footsteps echoed emptily."
+      },
+      {
+        "korean": "민수는 등골이 오싹해지며, 지훈의 손을 꽉 잡았다.",
+        "wordByWordTranslation": {
+          "민수": "Minsu",
+          "는": "subject marker",
+          "등골": "spine",
+          "이": "subject marker",
+          "오싹해지며": "shivering",
+          "지훈": "Jihoon",
+          "의": "possessive marker",
+          "손": "hand",
+          "을": "object marker",
+          "꽉": "tightly",
+          "잡았다": "grabbed"
+        },
+        "overallTranslation": "Minsu, his spine chilling, tightly grabbed Jihoon's hand."
+      }
+    ],
+    "id": 2228
   },
   {
     "generator": "korean-story-7-realistic-gemini",
@@ -31869,7 +47888,7 @@
         "overallTranslation": "Seeing her mom's smile, Eunsoo gathered her courage."
       }
     ],
-    "id": 2042
+    "id": 2229
   },
   {
     "generator": "korean-story-7-romantic-gemini",
@@ -31954,7 +47973,90 @@
         "hanjaro": "그들은 서로를 보며 미소(微笑) 지었고, 그동안 못다 한 이야기들을 나누기 시작(始作)했다.\n"
       }
     ],
-    "id": 2043
+    "id": 2230
+  },
+  {
+    "generator": "korean-story-7-steampunk-gemini",
+    "input": "hardship",
+    "problem": "낡은 기계들이 삐걱거리며 움직이는 거대한 공장 안, 엘리는 녹슨 톱니바퀴를 닦고 있었습니다.<br> 매캐한 연기와 기름 냄새가 가득했지만, 그녀는 묵묵히 일했습니다.<br> 갑자기, 공장 지붕이 쿵 하고 무너져 내렸습니다.<br> 엘리는 놀라서 몸을 움츠렸지만, 다행히도 큰 피해는 없었습니다.<br> 하지만, 그녀는 낡은 기계들이 더 이상 움직이지 않을까 봐 걱정했습니다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 기계들이 삐걱거리며 움직이는 거대한 공장 안, 엘리는 녹슨 톱니바퀴를 닦고 있었습니다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "기계들": "machines",
+          "삐걱거리며": "creaking",
+          "움직이는": "moving",
+          "거대한": "huge",
+          "공장": "factory",
+          "안": "inside",
+          "엘리": "Ellie",
+          "녹슨": "rusted",
+          "톱니바퀴": "cogwheel",
+          "닦고": "cleaning",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "Inside a huge factory where old machines creaked and moved, Ellie was cleaning a rusty cogwheel."
+      },
+      {
+        "korean": "매캐한 연기와 기름 냄새가 가득했지만, 그녀는 묵묵히 일했습니다.",
+        "wordByWordTranslation": {
+          "매캐한": "sooty",
+          "연기": "smoke",
+          "기름": "oil",
+          "냄새": "smell",
+          "가득했지만": "was full but",
+          "그녀": "she",
+          "묵묵히": "silently",
+          "일했습니다": "worked"
+        },
+        "overallTranslation": "The air was thick with sooty smoke and the smell of oil, but she worked silently."
+      },
+      {
+        "korean": "갑자기, 공장 지붕이 쿵 하고 무너져 내렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "공장": "factory",
+          "지붕": "roof",
+          "쿵": "crash",
+          "하고": "and",
+          "무너져": "collapsed",
+          "내렸습니다": "down"
+        },
+        "overallTranslation": "Suddenly, the factory roof crashed down."
+      },
+      {
+        "korean": "엘리는 놀라서 몸을 움츠렸지만, 다행히도 큰 피해는 없었습니다.",
+        "wordByWordTranslation": {
+          "엘리": "Ellie",
+          "놀라서": "surprised",
+          "몸을": "body",
+          "움츠렸지만": "shrunk but",
+          "다행히도": "fortunately",
+          "큰": "big",
+          "피해": "damage",
+          "없었습니다": "was not"
+        },
+        "overallTranslation": "Ellie was surprised and shrank back, but fortunately there was no major damage."
+      },
+      {
+        "korean": "하지만, 그녀는 낡은 기계들이 더 이상 움직이지 않을까 봐 걱정했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그녀": "she",
+          "낡은": "old",
+          "기계들": "machines",
+          "더": "more",
+          "이상": "than",
+          "움직이지": "move",
+          "않을까": "not",
+          "봐": "see",
+          "걱정했습니다": "worried"
+        },
+        "overallTranslation": "But she worried that the old machines might no longer move."
+      }
+    ],
+    "id": 2231
   },
   {
     "generator": "korean-story-7-urban-fantasy-gemini",
@@ -32044,7 +48146,195 @@
         "overallTranslation": "The sea dragon's breath, with its cold chill, exhaled flames that engulfed the port."
       }
     ],
-    "id": 2044
+    "id": 2232
+  },
+  {
+    "generator": "korean-story-7-urban-fantasy-gemini",
+    "input": "appetizer",
+    "problem": "어두운 골목길에서, 낡은 푸드트럭이 빛을 발하고 있었습니다.<br> 한 남자가 트럭 앞에 서서 메뉴판을 보고 있었습니다.<br> 그 순간, 트럭의 문이 열리며 요리사가 나왔습니다.<br> 요리사는 흡사 악마와 같은 붉은 눈을 가지고 있었고, 손에는 빛나는 칼이 들려 있었습니다.<br> 남자는 겁에 질려 메뉴판을 떨어뜨리고 도망쳤습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 낡은 푸드트럭이 빛을 발하고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "낡은": "old",
+          "푸드트럭": "food truck",
+          "이": "it",
+          "빛": "light",
+          "을": "to",
+          "발하고": "emitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, an old food truck was shining."
+      },
+      {
+        "korean": "한 남자가 트럭 앞에 서서 메뉴판을 보고 있었습니다.",
+        "wordByWordTranslation": {
+          "한": "one",
+          "남자": "man",
+          "가": "who",
+          "트럭": "truck",
+          "앞에": "in front of",
+          "서서": "standing",
+          "메뉴판": "menu",
+          "을": "to",
+          "보고": "seeing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "A man stood in front of the truck, looking at the menu."
+      },
+      {
+        "korean": "그 순간, 트럭의 문이 열리며 요리사가 나왔습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "순간": "moment",
+          "트럭": "truck",
+          "의": "of",
+          "문": "door",
+          "이": "it",
+          "열리며": "opening",
+          "요리사": "chef",
+          "가": "who",
+          "나왔습니다": "came out"
+        },
+        "overallTranslation": "At that moment, the truck's door opened and a chef came out."
+      },
+      {
+        "korean": "요리사는 흡사 악마와 같은 붉은 눈을 가지고 있었고, 손에는 빛나는 칼이 들려 있었습니다.",
+        "wordByWordTranslation": {
+          "요리사": "chef",
+          "는": "is",
+          "흡사": "similar",
+          "악마": "devil",
+          "와": "and",
+          "같은": "same",
+          "붉은": "red",
+          "눈": "eyes",
+          "을": "to",
+          "가지고": "having",
+          "있었고": "was",
+          "손": "hand",
+          "에는": "on",
+          "빛나는": "shining",
+          "칼": "knife",
+          "이": "it",
+          "들려": "held",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The chef had red eyes like a devil, and in his hand was a shining knife."
+      },
+      {
+        "korean": "남자는 겁에 질려 메뉴판을 떨어뜨리고 도망쳤습니다.",
+        "wordByWordTranslation": {
+          "남자": "man",
+          "는": "is",
+          "겁": "fear",
+          "에": "in",
+          "질려": "frightened",
+          "메뉴판": "menu",
+          "을": "to",
+          "떨어뜨리고": "dropping",
+          "도망쳤습니다": "ran away"
+        },
+        "overallTranslation": "The man dropped the menu in fear and ran away."
+      }
+    ],
+    "id": 2233
+  },
+  {
+    "generator": "korean-story-7-urban-gemini",
+    "input": "busy",
+    "problem": "지수는 서울의 번잡한 거리를 걸으며 휴대폰을 봤어요.<br> 갑자기, 그녀는 택시를 잡으려고 했지만, 택시는 모두 지나갔어요.<br> 그때, 그녀는 친한 친구인 민준을 만났어요.<br> 민준은 그녀에게 차를 태워주겠다고 했고, 지수는 안도했어요.<br> 두 사람은 함께 집으로 가면서 오늘 있었던 일들을 이야기했어요.<br>",
+    "solution": [
+      {
+        "korean": "지수는 서울의 번잡한 거리를 걸으며 휴대폰을 봤어요.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "서울": "Seoul",
+          "의": "of",
+          "번잡한": "busy",
+          "거리": "street",
+          "를": "the",
+          "걸으며": "walking",
+          "휴대폰": "cell phone",
+          "을": "the",
+          "봤어요": "saw"
+        },
+        "overallTranslation": "Jisoo was walking through the busy streets of Seoul, looking at her phone."
+      },
+      {
+        "korean": "갑자기, 그녀는 택시를 잡으려고 했지만, 택시는 모두 지나갔어요.",
+        "wordByWordTranslation": {
+          "갑자기": "Suddenly",
+          "그녀": "she",
+          "는": "is",
+          "택시": "taxi",
+          "를": "the",
+          "잡으려고": "try to catch",
+          "했지만": "but",
+          "모두": "all",
+          "지나갔어요": "passed"
+        },
+        "overallTranslation": "Suddenly, she tried to catch a taxi, but they all passed by."
+      },
+      {
+        "korean": "그때, 그녀는 친한 친구인 민준을 만났어요.",
+        "wordByWordTranslation": {
+          "그때": "At that time",
+          "그녀": "she",
+          "는": "is",
+          "친한": "close",
+          "친구": "friend",
+          "인": "be",
+          "민준": "Minjun",
+          "을": "the",
+          "만났어요": "met"
+        },
+        "overallTranslation": "At that time, she met Minjun, her close friend."
+      },
+      {
+        "korean": "민준은 그녀에게 차를 태워주겠다고 했고, 지수는 안도했어요.",
+        "wordByWordTranslation": {
+          "민준": "Minjun",
+          "은": "is",
+          "그녀": "her",
+          "에게": "to",
+          "차": "car",
+          "를": "the",
+          "태워주겠다고": "would give a ride",
+          "했고": "and",
+          "지수": "Jisoo",
+          "는": "is",
+          "안도": "relieved",
+          "했어요": "was"
+        },
+        "overallTranslation": "Minjun offered to give her a ride, and Jisoo was relieved."
+      },
+      {
+        "korean": "두 사람은 함께 집으로 가면서 오늘 있었던 일들을 이야기했어요.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "사람": "people",
+          "은": "is",
+          "함께": "together",
+          "집": "home",
+          "으로": "to",
+          "가면서": "while going",
+          "오늘": "today",
+          "있었던": "happened",
+          "일": "things",
+          "들": "the",
+          "을": "the",
+          "이야기": "story",
+          "했어요": "did"
+        },
+        "overallTranslation": "The two went home together, talking about the things that happened today."
+      }
+    ],
+    "id": 2234
   },
   {
     "generator": "korean-story-7-whodunnit-gemini",
@@ -32142,7 +48432,99 @@
         "hanjaro": "윤활유(潤滑油)는 괴한(怪漢)의 발을 미끄럽게 만들었고, 민수는 안전(安全)한 곳으로 도착(到着)할 수 있었다.\n"
       }
     ],
-    "id": 2045
+    "id": 2235
+  },
+  {
+    "generator": "korean-story-8-ancient-gemini",
+    "input": "clerical",
+    "problem": "어두운 서재에 낡은 책상이 놓여 있었고, 그 위에는 잉크병과 붓이 놓여 있었습니다.<br> 창문 밖으로는 폭풍우가 몰아치고 있었지만, 서재 안은 고요했습니다.<br> 갑자기, 문이 활짝 열리며 한 남자가 들어왔습니다.<br> 그는 흠뻑 젖은 옷을 털며, “죄송합니다, 늦었습니다.”라고 말했습니다.<br> 서재 주인은 책상에 앉아 그를 가만히 바라보았습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 서재에 낡은 책상이 놓여 있었고, 그 위에는 잉크병과 붓이 놓여 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "서재": "study",
+          "에": "at",
+          "낡은": "old",
+          "책상": "desk",
+          "이": "is",
+          "놓여": "placed",
+          "있었고": "and",
+          "그": "that",
+          "위에": "on",
+          "는": "is",
+          "잉크병": "ink bottle",
+          "과": "and",
+          "붓": "brush",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "A dark study contained an old desk, on which an ink bottle and brush were placed."
+      },
+      {
+        "korean": "창문 밖으로는 폭풍우가 몰아치고 있었지만, 서재 안은 고요했습니다.",
+        "wordByWordTranslation": {
+          "창문": "window",
+          "밖으로": "outside",
+          "는": "is",
+          "폭풍우": "storm",
+          "가": "that",
+          "몰아치고": "raging",
+          "있었지만": "but",
+          "서재": "study",
+          "안": "inside",
+          "은": "was",
+          "고요했습니다.": "quiet"
+        },
+        "overallTranslation": "A storm raged outside the window, but the study remained quiet."
+      },
+      {
+        "korean": "갑자기, 문이 활짝 열리며 한 남자가 들어왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "문": "door",
+          "이": "that",
+          "활짝": "wide",
+          "열리며": "opening",
+          "한": "one",
+          "남자": "man",
+          "가": "that",
+          "들어왔습니다.": "entered"
+        },
+        "overallTranslation": "Suddenly, the door swung open and a man entered."
+      },
+      {
+        "korean": "그는 흠뻑 젖은 옷을 털며, “죄송합니다, 늦었습니다.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "흠뻑": "completely",
+          "젖은": "wet",
+          "옷": "clothes",
+          "을": "to",
+          "털며": "shaking",
+          "“죄송합니다": "I'm sorry",
+          ",": ",",
+          "늦었습니다.": "I'm late"
+        },
+        "overallTranslation": "He shook his wet clothes and said, “I'm sorry, I'm late.”"
+      },
+      {
+        "korean": "서재 주인은 책상에 앉아 그를 가만히 바라보았습니다.",
+        "wordByWordTranslation": {
+          "서재": "study",
+          "주인": "owner",
+          "은": "is",
+          "책상": "desk",
+          "에": "on",
+          "앉아": "sitting",
+          "그": "him",
+          "를": "to",
+          "가만히": "quietly",
+          "바라보았습니다.": "looked"
+        },
+        "overallTranslation": "The study's owner sat at his desk and watched him quietly."
+      }
+    ],
+    "id": 2236
   },
   {
     "generator": "korean-story-8-detective-gemini",
@@ -32218,7 +48600,7 @@
         "hanjaro": "그림자는 사라졌고, 민수는 더욱 불안(不安)해졌다.\n"
       }
     ],
-    "id": 2046
+    "id": 2237
   },
   {
     "generator": "korean-story-8-drama-gemini",
@@ -32305,7 +48687,7 @@
         "hanjaro": "민수는 무사히(無事히) 집에 도착(到着)해서 안전(安全)을 확인(確認)하고 안도(安堵)의 한숨을 내쉬었다.\n"
       }
     ],
-    "id": 2047
+    "id": 2238
   },
   {
     "generator": "korean-story-8-frontier-gemini",
@@ -32393,7 +48775,393 @@
         "hanjaro": "멀리서 말들이 달려오는 소리가 들렸고, 곧 말을 탄 사람들이 나타났습니다.\n"
       }
     ],
-    "id": 2048
+    "id": 2239
+  },
+  {
+    "generator": "korean-story-8-gunslinger-gemini",
+    "input": "acutely",
+    "problem": "붉은 노을이 지는 황량한 사막 한가운데, 낡은 모자를 쓴 사내가 서 있었다.<br> 그는 땀으로 젖은 손으로 녹슨 권총을 꽉 움켜쥐고 있었다.<br> 갑자기, 먼지구름이 일며 검은 그림자가 그에게 달려들었다.<br> 그림자는 날카로운 칼을 휘두르며 소리쳤다. “네놈의 운명은 이미 정해졌다!”<br> 사내는 침착하게 숨을 들이쉬고, 낡은 권총을 겨누었다. “내 운명은 내가 결정한다.”<br>",
+    "solution": [
+      {
+        "korean": "붉은 노을이 지는 황량한 사막 한가운데, 낡은 모자를 쓴 사내가 서 있었다.",
+        "wordByWordTranslation": {
+          "붉은": "red",
+          "노을": "sunset",
+          "이": "is",
+          "지는": "setting",
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "낡은": "worn",
+          "모자": "hat",
+          "를": "을",
+          "쓴": "wearing",
+          "사내": "man",
+          "가": "is",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the middle of a desolate desert, where the red sunset was setting, a man with a worn hat stood."
+      },
+      {
+        "korean": "그는 땀으로 젖은 손으로 녹슨 권총을 꽉 움켜쥐고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "땀": "sweat",
+          "으로": "with",
+          "젖은": "soaked",
+          "손": "hand",
+          "녹슨": "rusted",
+          "권총": "pistol",
+          "을": "을",
+          "꽉": "tightly",
+          "움켜쥐고": "grasping",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was tightly grasping a rusted pistol with his sweat-soaked hands."
+      },
+      {
+        "korean": "갑자기, 먼지구름이 일며 검은 그림자가 그에게 달려들었다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "먼지": "dust",
+          "구름": "cloud",
+          "이": "is",
+          "일며": "rising",
+          "검은": "black",
+          "그림자": "shadow",
+          "가": "is",
+          "그에게": "to him",
+          "달려들었다": "charged"
+        },
+        "overallTranslation": "Suddenly, a dust cloud rose and a black shadow charged towards him."
+      },
+      {
+        "korean": "그림자는 날카로운 칼을 휘두르며 소리쳤다. “네놈의 운명은 이미 정해졌다!”",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "는": "is",
+          "날카로운": "sharp",
+          "칼": "knife",
+          "을": "을",
+          "휘두르며": "waving",
+          "소리쳤다": "shouted",
+          "“": "“",
+          "네놈": "you",
+          "의": "of",
+          "운명": "fate",
+          "은": "is",
+          "이미": "already",
+          "정해졌다": "decided",
+          "!”": "!”"
+        },
+        "overallTranslation": "The shadow waved a sharp knife and shouted, “Your fate is already decided!”"
+      },
+      {
+        "korean": "사내는 침착하게 숨을 들이쉬고, 낡은 권총을 겨누었다. “내 운명은 내가 결정한다.”",
+        "wordByWordTranslation": {
+          "사내": "man",
+          "는": "is",
+          "침착하게": "calmly",
+          "숨": "breath",
+          "을": "을",
+          "들이쉬고": "inhaling",
+          "낡은": "worn",
+          "권총": "pistol",
+          "겨누었다": "aimed",
+          "“": "“",
+          "내": "my",
+          "운명": "fate",
+          "은": "is",
+          "내가": "I",
+          "결정한다": "decide",
+          ".”": ".”"
+        },
+        "overallTranslation": "The man calmly inhaled, aimed his worn pistol, and said, “I decide my own fate.”"
+      }
+    ],
+    "id": 2240
+  },
+  {
+    "generator": "korean-story-8-historical-gemini",
+    "input": "jurisdiction",
+    "problem": "조선시대, 한양의 한 작은 마을에서 김 씨라는 사람이 살았습니다.<br> 그는 마을 사람들에게 존경받는 장로였지만, 그의 권위는 마을 경계를 넘지 못했습니다.<br> 어느 날, 인근 마을에서 큰 싸움이 일어났고, 김 씨는 그곳으로 불려갔습니다.<br> 그는 싸움을 중재하고 평화를 가져왔고, 사람들은 그의 지혜와 용기에 감탄했습니다.<br> 이 일 이후, 김 씨의 권위는 마을 경계를 넘어 인근 지역까지 퍼져 나갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "조선시대, 한양의 한 작은 마을에서 김 씨라는 사람이 살았습니다.",
+        "wordByWordTranslation": {
+          "조선시대": "Joseon Dynasty",
+          "한양": "Hanyang (old name for Seoul)",
+          "한": "one",
+          "작은": "small",
+          "마을": "village",
+          "에서": "from",
+          "김": "Kim",
+          "씨": "family name",
+          "라는": "called",
+          "사람": "person",
+          "이": "subject marker",
+          "살았습니다": "lived"
+        },
+        "overallTranslation": "During the Joseon Dynasty, a man named Kim lived in a small village in Hanyang."
+      },
+      {
+        "korean": "그는 마을 사람들에게 존경받는 장로였지만, 그의 권위는 마을 경계를 넘지 못했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "마을": "village",
+          "사람": "people",
+          "들에게": "to",
+          "존경": "respect",
+          "받는": "receiving",
+          "장로": "elder",
+          "였지만": "but",
+          "그의": "his",
+          "권위": "authority",
+          "는": "topic marker",
+          "경계": "boundary",
+          "를": "object marker",
+          "넘지": "not cross",
+          "못했습니다": "could not"
+        },
+        "overallTranslation": "He was a respected elder among the villagers, but his authority did not extend beyond the village borders."
+      },
+      {
+        "korean": "어느 날, 인근 마을에서 큰 싸움이 일어났고, 김 씨는 그곳으로 불려갔습니다.",
+        "wordByWordTranslation": {
+          "어느": "some",
+          "날": "day",
+          "인근": "nearby",
+          "마을": "village",
+          "에서": "from",
+          "큰": "big",
+          "싸움": "fight",
+          "이": "subject marker",
+          "일어났고": "happened and",
+          "김": "Kim",
+          "씨": "family name",
+          "는": "topic marker",
+          "그곳": "that place",
+          "으로": "to",
+          "불려갔습니다": "was called"
+        },
+        "overallTranslation": "One day, a big fight broke out in a neighboring village, and Kim was called there."
+      },
+      {
+        "korean": "그는 싸움을 중재하고 평화를 가져왔고, 사람들은 그의 지혜와 용기에 감탄했습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "싸움": "fight",
+          "을": "object marker",
+          "중재": "mediate",
+          "하고": "and",
+          "평화": "peace",
+          "를": "object marker",
+          "가져왔고": "brought and",
+          "사람들": "people",
+          "은": "topic marker",
+          "그의": "his",
+          "지혜": "wisdom",
+          "와": "and",
+          "용기": "courage",
+          "에": "on",
+          "감탄": "admire",
+          "했습니다": "did"
+        },
+        "overallTranslation": "He mediated the fight and brought peace, and people were amazed by his wisdom and courage."
+      },
+      {
+        "korean": "이 일 이후, 김 씨의 권위는 마을 경계를 넘어 인근 지역까지 퍼져 나갔습니다.",
+        "wordByWordTranslation": {
+          "이": "this",
+          "일": "event",
+          "이후": "after",
+          "김": "Kim",
+          "씨": "family name",
+          "의": "possessive marker",
+          "권위": "authority",
+          "는": "topic marker",
+          "마을": "village",
+          "경계": "boundary",
+          "를": "object marker",
+          "넘어": "beyond",
+          "인근": "nearby",
+          "지역": "area",
+          "까지": "until",
+          "퍼져": "spread",
+          "나갔습니다": "went"
+        },
+        "overallTranslation": "After this event, Kim's authority spread beyond the village boundaries and into the nearby region."
+      }
+    ],
+    "id": 2241
+  },
+  {
+    "generator": "korean-story-8-medieval-gemini",
+    "input": "gravitation",
+    "problem": "어두운 밤하늘 아래, 젊은 기사는 홀로 성벽 위에 서 있었다.<br> 그는 멀리 떨어진 별들을 바라보며 생각에 잠겼다.<br> 갑자기, 그의 발 아래에서 강력한 힘이 느껴졌다.<br> 성벽이 흔들리고, 그는 땅으로 끌려 내려갔다.<br> 그는 마치 거대한 손에 이끌려 하늘에서 떨어지는 듯한 기분이 들었다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤하늘 아래, 젊은 기사는 홀로 성벽 위에 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤하늘": "night sky",
+          "아래": "under",
+          "젊은": "young",
+          "기사": "knight",
+          "는": "is",
+          "홀로": "alone",
+          "성벽": "castle wall",
+          "위에": "on",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "Under the dark night sky, a young knight stood alone on the castle wall."
+      },
+      {
+        "korean": "그는 멀리 떨어진 별들을 바라보며 생각에 잠겼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "멀리": "far",
+          "떨어진": "away",
+          "별들을": "stars",
+          "바라보며": "looking at",
+          "생각에": "thoughts",
+          "잠겼다": "submerged"
+        },
+        "overallTranslation": "He was lost in thought, gazing at the distant stars."
+      },
+      {
+        "korean": "갑자기, 그의 발 아래에서 강력한 힘이 느껴졌다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "그의": "his",
+          "발": "foot",
+          "아래에서": "under",
+          "강력한": "powerful",
+          "힘이": "force",
+          "느껴졌다": "was felt"
+        },
+        "overallTranslation": "Suddenly, a powerful force was felt under his feet."
+      },
+      {
+        "korean": "성벽이 흔들리고, 그는 땅으로 끌려 내려갔다.",
+        "wordByWordTranslation": {
+          "성벽이": "castle wall",
+          "흔들리고": "shaking",
+          "그는": "he",
+          "땅으로": "to the ground",
+          "끌려": "pulled",
+          "내려갔다": "went down"
+        },
+        "overallTranslation": "The castle wall shook, and he was pulled down towards the ground."
+      },
+      {
+        "korean": "그는 마치 거대한 손에 이끌려 하늘에서 떨어지는 듯한 기분이 들었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "마치": "as if",
+          "거대한": "huge",
+          "손에": "hand",
+          "이끌려": "led",
+          "하늘에서": "from the sky",
+          "떨어지는": "falling",
+          "듯한": "like",
+          "기분이": "feeling",
+          "들었다": "felt"
+        },
+        "overallTranslation": "He felt as if he was falling from the sky, pulled by a giant hand."
+      }
+    ],
+    "id": 2242
+  },
+  {
+    "generator": "korean-story-8-noir-gemini",
+    "input": "retard",
+    "problem": "어두운 골목길에서, 남자는 숨을 죽이고 서 있었다.<br> 그는 긴 그림자를 드리우며, 움직이는 소리에 귀를 기울였다.<br> 하지만, 그 소리는 그의 발소리였고, 그는 혼자였다.<br> 그는 몸을 돌려, 텅 빈 골목길을 바라보았다.<br> 그의 심장은 쿵쾅거렸고, 그는 누군가가 자신을 지켜보고 있다는 것을 알았다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 남자는 숨을 죽이고 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길": "alleyway",
+          "에서": "from",
+          "남자": "man",
+          "는": "is",
+          "숨을": "breath",
+          "죽이고": "stopping",
+          "서": "standing",
+          "있었다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, a man stood with bated breath."
+      },
+      {
+        "korean": "그는 긴 그림자를 드리우며, 움직이는 소리에 귀를 기울였다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "긴": "long",
+          "그림자": "shadow",
+          "를": "을",
+          "드리우며": "casting",
+          "움직이는": "moving",
+          "소리": "sound",
+          "에": "to",
+          "귀를": "ear",
+          "기울였다": "inclined"
+        },
+        "overallTranslation": "He cast a long shadow, listening intently for any sound of movement."
+      },
+      {
+        "korean": "하지만, 그 소리는 그의 발소리였고, 그는 혼자였다.",
+        "wordByWordTranslation": {
+          "하지만": "But",
+          "그": "that",
+          "소리": "sound",
+          "는": "is",
+          "그의": "his",
+          "발소리": "footsteps",
+          "였고": "was",
+          "그는": "he",
+          "혼자": "alone",
+          "였다": "was"
+        },
+        "overallTranslation": "But the sound was his own footsteps, and he was alone."
+      },
+      {
+        "korean": "그는 몸을 돌려, 텅 빈 골목길을 바라보았다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "몸을": "body",
+          "돌려": "turning",
+          "텅": "empty",
+          "빈": "empty",
+          "골목길": "alleyway",
+          "을": "을",
+          "바라보았다": "looked"
+        },
+        "overallTranslation": "He turned around and looked at the empty alleyway."
+      },
+      {
+        "korean": "그의 심장은 쿵쾅거렸고, 그는 누군가가 자신을 지켜보고 있다는 것을 알았다.",
+        "wordByWordTranslation": {
+          "그의": "His",
+          "심장": "heart",
+          "은": "is",
+          "쿵쾅거렸고": "pounding",
+          "그는": "he",
+          "누군가": "someone",
+          "가": "who",
+          "자신": "himself",
+          "을": "을",
+          "지켜보고": "watching",
+          "있다는": "that",
+          "것을": "thing",
+          "알았다": "knew"
+        },
+        "overallTranslation": "His heart pounded, and he knew someone was watching him."
+      }
+    ],
+    "id": 2243
   },
   {
     "generator": "korean-story-8-political-gemini",
@@ -32480,7 +49248,7 @@
         "overallTranslation": "The remaining man lifted a gun with his shaking hand."
       }
     ],
-    "id": 2049
+    "id": 2244
   },
   {
     "generator": "korean-story-8-renaissance-gemini",
@@ -32557,7 +49325,7 @@
         "overallTranslation": "He defeated the monster with his shining sword and Arthur became a hero."
       }
     ],
-    "id": 2050
+    "id": 2245
   },
   {
     "generator": "korean-story-8-slice-of-life-gemini",
@@ -32638,7 +49406,7 @@
         "overallTranslation": "Eunsoo gained courage from the teacher's warm touch."
       }
     ],
-    "id": 2051
+    "id": 2246
   },
   {
     "generator": "korean-story-8-supernatural-gemini",
@@ -32722,7 +49490,7 @@
         "hanjaro": "진우(軫憂)는 신비(神祕)로운 요정(妖精)들의 세상(世上)에 들어온 것을 깨달았습니다.\n"
       }
     ],
-    "id": 2052
+    "id": 2247
   },
   {
     "generator": "korean-story-8-victorian-gemini",
@@ -32822,7 +49590,284 @@
         "hanjaro": "에밀리는 숨을 크게 들이쉬고, 그 신비로운 소리에 홀려 밤의 어둠 속으로 걸어갔습니다.\n"
       }
     ],
-    "id": 2053
+    "id": 2248
+  },
+  {
+    "generator": "korean-story-8-western-gemini",
+    "input": "hen",
+    "problem": "해가 지기 시작했고, 먼지 덮인 서부 마을의 거리는 조용했습니다.<br> 술집 앞에서 한 남자가 홀로 맥주를 마시고 있었습니다.<br> 갑자기, 닭 울음소리가 들렸습니다.<br> 그 소리에 남자는 깜짝 놀라 술잔을 떨어뜨렸습니다.<br> 그리고, 닭은 술집 문을 열고 안으로 들어왔습니다.<br>",
+    "solution": [
+      {
+        "korean": "해가 지기 시작했고, 먼지 덮인 서부 마을의 거리는 조용했습니다.",
+        "wordByWordTranslation": {
+          "해가": "sun",
+          "지기": "set",
+          "시작했고": "started",
+          "먼지": "dust",
+          "덮인": "covered",
+          "서부": "western",
+          "마을의": "town's",
+          "거리는": "streets",
+          "조용했습니다": "were quiet"
+        },
+        "overallTranslation": "The sun began to set, and the streets of the dusty western town were quiet."
+      },
+      {
+        "korean": "술집 앞에서 한 남자가 홀로 맥주를 마시고 있었습니다.",
+        "wordByWordTranslation": {
+          "술집": "saloon",
+          "앞에서": "in front of",
+          "한": "one",
+          "남자": "man",
+          "가": "was",
+          "홀로": "alone",
+          "맥주": "beer",
+          "를": "를",
+          "마시고": "drinking",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "A man was drinking beer alone in front of the saloon."
+      },
+      {
+        "korean": "갑자기, 닭 울음소리가 들렸습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "닭": "chicken",
+          "울음소리": "cry",
+          "가": "that",
+          "들렸습니다": "was heard"
+        },
+        "overallTranslation": "Suddenly, a chicken cry was heard."
+      },
+      {
+        "korean": "그 소리에 남자는 깜짝 놀라 술잔을 떨어뜨렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "소리에": "sound",
+          "남자는": "man",
+          "깜짝": "startled",
+          "놀라": "surprised",
+          "술잔": "beer glass",
+          "를": "를",
+          "떨어뜨렸습니다": "dropped"
+        },
+        "overallTranslation": "Startled by the sound, the man dropped his beer glass."
+      },
+      {
+        "korean": "그리고, 닭은 술집 문을 열고 안으로 들어왔습니다.",
+        "wordByWordTranslation": {
+          "그리고": "and",
+          "닭은": "chicken",
+          "술집": "saloon",
+          "문": "door",
+          "를": "를",
+          "열고": "opened",
+          "안으로": "inside",
+          "들어왔습니다": "came"
+        },
+        "overallTranslation": "And, the chicken opened the saloon door and came inside."
+      }
+    ],
+    "id": 2249
+  },
+  {
+    "generator": "korean-story-8-whodunnit-gemini",
+    "input": "obsessive",
+    "problem": "어두운 밤, 비바람이 몰아치는 낡은 저택에, 유명한 작가인 김민수 씨가 죽은 채로 발견되었습니다.<br> 경찰은 사건 현장을 조사했지만, 단서를 찾지 못했습니다.<br> 그때, 김민수 씨의 오랜 팬이었던 박지수 씨가 경찰서에 찾아왔습니다.<br> 박지수 씨는 김민수 씨의 최근 작품에 등장하는 인물과 너무 닮았다는 것을 알게 되었습니다.<br> 그는 김민수 씨에게 집착했고, 그의 소설 속 인물이 되고 싶어 했던 것입니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 비바람이 몰아치는 낡은 저택에, 유명한 작가인 김민수 씨가 죽은 채로 발견되었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "비바람": "rain and wind",
+          "몰아치는": "driving",
+          "낡은": "old",
+          "저택": "mansion",
+          "에": "at",
+          "유명한": "famous",
+          "작가": "author",
+          "인": "is",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "가": "who",
+          "죽은": "dead",
+          "채로": "as",
+          "발견되었습니다": "was found"
+        },
+        "overallTranslation": "On a dark night, with a raging storm, the famous author, Mr. Kim Minsoo, was found dead in an old mansion."
+      },
+      {
+        "korean": "경찰은 사건 현장을 조사했지만, 단서를 찾지 못했습니다.",
+        "wordByWordTranslation": {
+          "경찰": "police",
+          "은": "are",
+          "사건": "case",
+          "현장": "scene",
+          "을": "object",
+          "조사했지만": "investigated but",
+          "단서": "clue",
+          "를": "object",
+          "찾지": "couldn't find",
+          "못했습니다": "couldn't"
+        },
+        "overallTranslation": "The police investigated the crime scene, but they couldn't find any clues."
+      },
+      {
+        "korean": "그때, 김민수 씨의 오랜 팬이었던 박지수 씨가 경찰서에 찾아왔습니다.",
+        "wordByWordTranslation": {
+          "그때": "then",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "의": "of",
+          "오랜": "long time",
+          "팬": "fan",
+          "이었던": "was",
+          "박지수": "Park Jisu",
+          "가": "who",
+          "경찰서": "police station",
+          "에": "at",
+          "찾아왔습니다": "came"
+        },
+        "overallTranslation": "Then, Mr. Park Jisu, a longtime fan of Mr. Kim Minsoo, came to the police station."
+      },
+      {
+        "korean": "박지수 씨는 김민수 씨의 최근 작품에 등장하는 인물과 너무 닮았다는 것을 알게 되었습니다.",
+        "wordByWordTranslation": {
+          "박지수": "Park Jisu",
+          "씨": "Mr.",
+          "는": "is",
+          "김민수": "Kim Minsoo",
+          "의": "of",
+          "최근": "recent",
+          "작품": "work",
+          "에": "in",
+          "등장하는": "appearing",
+          "인물": "character",
+          "과": "and",
+          "너무": "too",
+          "닮았다는": "similar",
+          "것을": "fact",
+          "알게": "realized",
+          "되었습니다": "became"
+        },
+        "overallTranslation": "Mr. Park Jisu realized that he looked too much like a character appearing in Mr. Kim Minsoo's recent work."
+      },
+      {
+        "korean": "그는 김민수 씨에게 집착했고, 그의 소설 속 인물이 되고 싶어 했던 것입니다.",
+        "wordByWordTranslation": {
+          "그는": "He",
+          "김민수": "Kim Minsoo",
+          "씨": "Mr.",
+          "에게": "to",
+          "집착했고": "was obsessed",
+          "그의": "his",
+          "소설": "novel",
+          "속": "in",
+          "인물": "character",
+          "이": "to be",
+          "되고": "become",
+          "싶어": "wanted",
+          "했던": "was",
+          "것입니다": "it is"
+        },
+        "overallTranslation": "He was obsessed with Mr. Kim Minsoo and wanted to become a character in his novel."
+      }
+    ],
+    "id": 2250
+  },
+  {
+    "generator": "korean-story-9-ancient-gemini",
+    "input": "alphabet",
+    "problem": "옛날 옛날 한 옛날에, 어느 작은 마을에 글을 모르는 사람들이 많이 살았습니다.<br> 그들은 그림과 상징으로 서로 이야기를 나누었지만, 그것은 매우 제한적이었습니다.<br> 어느 날, 한 여행자가 마을에 와서 신기한 알파벳을 가르쳐 주었습니다.<br> 마을 사람들은 알파벳을 배우고 책을 읽으며 세상에 대한 이해를 넓혔습니다.<br> 그 후, 그들은 더 이상 그림과 상징에 의존하지 않았고, 알파벳으로 풍부한 삶을 누렸습니다.<br>",
+    "solution": [
+      {
+        "korean": "옛날 옛날 한 옛날에, 어느 작은 마을에 글을 모르는 사람들이 많이 살았습니다.",
+        "wordByWordTranslation": {
+          "옛날": "long ago",
+          "한": "one",
+          "옛날에": "long ago",
+          "어느": "a certain",
+          "작은": "small",
+          "마을에": "village",
+          "글을": "letters",
+          "모르는": "not knowing",
+          "사람들이": "people",
+          "많이": "many",
+          "살았습니다.": "lived"
+        },
+        "overallTranslation": "Once upon a time, in a small village, many people lived who did not know how to read."
+      },
+      {
+        "korean": "그들은 그림과 상징으로 서로 이야기를 나누었지만, 그것은 매우 제한적이었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "그림": "pictures",
+          "과": "and",
+          "상징으로": "symbols",
+          "서로": "each other",
+          "이야기를": "stories",
+          "나누었지만": "shared but",
+          "그것은": "it",
+          "매우": "very",
+          "제한적이었습니다.": "limited"
+        },
+        "overallTranslation": "They shared stories through pictures and symbols, but it was very limited."
+      },
+      {
+        "korean": "어느 날, 한 여행자가 마을에 와서 신기한 알파벳을 가르쳐 주었습니다.",
+        "wordByWordTranslation": {
+          "어느": "one",
+          "날": "day",
+          "한": "one",
+          "여행자가": "traveler",
+          "마을에": "village",
+          "와서": "came and",
+          "신기한": "amazing",
+          "알파벳을": "alphabet",
+          "가르쳐": "taught",
+          "주었습니다.": "gave"
+        },
+        "overallTranslation": "One day, a traveler came to the village and taught them an amazing alphabet."
+      },
+      {
+        "korean": "마을 사람들은 알파벳을 배우고 책을 읽으며 세상에 대한 이해를 넓혔습니다.",
+        "wordByWordTranslation": {
+          "마을": "village",
+          "사람들은": "people",
+          "알파벳을": "alphabet",
+          "배우고": "learned and",
+          "책을": "books",
+          "읽으며": "reading",
+          "세상에": "world",
+          "대한": "about",
+          "이해를": "understanding",
+          "넓혔습니다.": "expanded"
+        },
+        "overallTranslation": "The villagers learned the alphabet, read books, and broadened their understanding of the world."
+      },
+      {
+        "korean": "그 후, 그들은 더 이상 그림과 상징에 의존하지 않았고, 알파벳으로 풍부한 삶을 누렸습니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "후": "after",
+          "그들은": "they",
+          "더": "more",
+          "이상": "than",
+          "그림": "pictures",
+          "과": "and",
+          "상징에": "symbols",
+          "의존하지": "relied",
+          "않았고": "not",
+          "알파벳으로": "alphabet",
+          "풍부한": "rich",
+          "삶을": "life",
+          "누렸습니다.": "enjoyed"
+        },
+        "overallTranslation": "After that, they no longer relied on pictures and symbols, and they enjoyed a rich life with the alphabet."
+      }
+    ],
+    "id": 2251
   },
   {
     "generator": "korean-story-9-bounty-hunter-gemini",
@@ -32906,7 +49951,7 @@
         "overallTranslation": "The masked man, surprised, turned around but there was no one."
       }
     ],
-    "id": 2054
+    "id": 2252
   },
   {
     "generator": "korean-story-9-comedic-gemini",
@@ -33001,7 +50046,105 @@
         "hanjaro": "민준이는 웃음을 참지 못하고 폭소(爆笑)했습니다.\n"
       }
     ],
-    "id": 2055
+    "id": 2253
+  },
+  {
+    "generator": "korean-story-9-comedic-gemini",
+    "input": "rivet",
+    "problem": "태양이 쨍쨍 내리쬐는 어느 날, 민수는 친구 은수와 함께 공원 벤치에 앉아 있었습니다.<br> 둘은 시원한 아이스크림을 먹으며 즐거운 시간을 보내고 있었습니다.<br> 갑자기 하늘에서 엄청난 힘으로 망치가 떨어졌습니다!<br> 망치는 벤치에 박혔고, 민수와 은수는 망치에 꼼짝 못 하고 붙잡혀 있었습니다.<br> 결국 둘은 망치에 꼼짝 못 하고, 아이스크림은 녹아내리기 시작했습니다.<br>",
+    "solution": [
+      {
+        "korean": "태양이 쨍쨍 내리쬐는 어느 날, 민수는 친구 은수와 함께 공원 벤치에 앉아 있었습니다.",
+        "wordByWordTranslation": {
+          "태양": "sun",
+          "이": "is",
+          "쨍쨍": "brightly",
+          "내리쬐는": "shining",
+          "어느": "some",
+          "날": "day",
+          "민수": "Minsu",
+          "는": "is",
+          "친구": "friend",
+          "은수": "Eunsoo",
+          "와": "and",
+          "함께": "together",
+          "공원": "park",
+          "벤치": "bench",
+          "에": "at",
+          "앉아": "sitting",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "One day, under a blazing sun, Minsu was sitting on a park bench with his friend Eunsoo."
+      },
+      {
+        "korean": "둘은 시원한 아이스크림을 먹으며 즐거운 시간을 보내고 있었습니다.",
+        "wordByWordTranslation": {
+          "둘": "two",
+          "은": "are",
+          "시원한": "cool",
+          "아이스크림": "icecream",
+          "을": "object marker",
+          "먹으며": "eating",
+          "즐거운": "enjoyable",
+          "시간": "time",
+          "보내고": "spending",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were enjoying their time, eating cool ice cream."
+      },
+      {
+        "korean": "갑자기 하늘에서 엄청난 힘으로 망치가 떨어졌습니다!",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "엄청난": "tremendous",
+          "힘": "force",
+          "으로": "with",
+          "망치": "hammer",
+          "가": "subject marker",
+          "떨어졌습니다": "fell"
+        },
+        "overallTranslation": "Suddenly, a hammer fell from the sky with tremendous force!"
+      },
+      {
+        "korean": "망치는 벤치에 박혔고, 민수와 은수는 망치에 꼼짝 못 하고 붙잡혀 있었습니다.",
+        "wordByWordTranslation": {
+          "망치": "hammer",
+          "는": "are",
+          "벤치": "bench",
+          "에": "at",
+          "박혔고": "stuck",
+          "민수": "Minsu",
+          "와": "and",
+          "은수": "Eunsoo",
+          "꼼짝": "move",
+          "못": "can't",
+          "하고": "and",
+          "붙잡혀": "stuck",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "The hammer was stuck in the bench, and Minsu and Eunsoo were stuck to the hammer, unable to move."
+      },
+      {
+        "korean": "결국 둘은 망치에 꼼짝 못 하고, 아이스크림은 녹아내리기 시작했습니다.",
+        "wordByWordTranslation": {
+          "결국": "eventually",
+          "둘": "two",
+          "은": "is",
+          "망치": "hammer",
+          "에": "at",
+          "꼼짝": "move",
+          "못": "can't",
+          "하고": "and",
+          "아이스크림": "icecream",
+          "녹아내리기": "melting",
+          "시작했습니다": "started"
+        },
+        "overallTranslation": "In the end, they were stuck to the hammer, unable to move, and their ice cream started to melt."
+      }
+    ],
+    "id": 2254
   },
   {
     "generator": "korean-story-9-comedy-gemini",
@@ -33102,7 +50245,205 @@
         "overallTranslation": "In the end, Mina burst out laughing at her friend's prank."
       }
     ],
-    "id": 2056
+    "id": 2255
+  },
+  {
+    "generator": "korean-story-9-cyberpunk-gemini",
+    "input": "tact",
+    "problem": "어두컴컴한 사이버펑크 도시의 뒷골목에서, 젊은 해커 '진'은 낡은 노트북을 붙잡고 있었다.<br> 그는 엄청난 양의 데이터 속에서 중요한 정보를 찾기 위해 밤낮으로 애썼다.<br> 하지만 갑자기 컴퓨터 화면이 깜빡이며 이상한 메시지가 나타났다.<br> 메시지는 '너의 행동은 세상을 바꿀 수 있는 힘을 가지고 있다'라고 쓰여 있었다.<br> 진은 숨을 크게 들이쉬며, 자신이 택한 길이 얼마나 중요한지 깨달았다.<br>",
+    "solution": [
+      {
+        "korean": "어두컴컴한 사이버펑크 도시의 뒷골목에서, 젊은 해커 '진'은 낡은 노트북을 붙잡고 있었다.",
+        "wordByWordTranslation": {
+          "어두컴컴한": "dark",
+          "사이버펑크": "cyberpunk",
+          "도시": "city",
+          "뒷골목": "back alley",
+          "에서": "in",
+          "젊은": "young",
+          "해커": "hacker",
+          "진": "Jin",
+          "은": "is",
+          "낡은": "old",
+          "노트북": "laptop",
+          "을": "object marker",
+          "붙잡고": "holding",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark back alleys of a cyberpunk city, a young hacker named Jin was holding an old laptop."
+      },
+      {
+        "korean": "그는 엄청난 양의 데이터 속에서 중요한 정보를 찾기 위해 밤낮으로 애썼다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "엄청난": "tremendous",
+          "양": "amount",
+          "데이터": "data",
+          "속에서": "within",
+          "중요한": "important",
+          "정보": "information",
+          "을": "object marker",
+          "찾기": "finding",
+          "위해": "for",
+          "밤낮으로": "day and night",
+          "애썼다": "struggled"
+        },
+        "overallTranslation": "He was working day and night to find important information within a massive amount of data."
+      },
+      {
+        "korean": "하지만 갑자기 컴퓨터 화면이 깜빡이며 이상한 메시지가 나타났다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "갑자기": "suddenly",
+          "컴퓨터": "computer",
+          "화면": "screen",
+          "이": "subject marker",
+          "깜빡이며": "blinking",
+          "이상한": "strange",
+          "메시지": "message",
+          "가": "subject marker",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "But suddenly, the computer screen blinked and a strange message appeared."
+      },
+      {
+        "korean": "메시지는 '너의 행동은 세상을 바꿀 수 있는 힘을 가지고 있다'라고 쓰여 있었다.",
+        "wordByWordTranslation": {
+          "메시지": "message",
+          "는": "subject marker",
+          "'너의": "'your",
+          "행동": "actions",
+          "은": "subject marker",
+          "세상": "world",
+          "을": "object marker",
+          "바꿀": "change",
+          "수": "can",
+          "있는": "be",
+          "힘": "power",
+          "가지고": "having",
+          "있다": "is"
+        },
+        "overallTranslation": "The message read, 'Your actions have the power to change the world.'"
+      },
+      {
+        "korean": "진은 숨을 크게 들이쉬며, 자신이 택한 길이 얼마나 중요한지 깨달았다.",
+        "wordByWordTranslation": {
+          "진": "Jin",
+          "은": "subject marker",
+          "숨": "breath",
+          "을": "object marker",
+          "크게": "deeply",
+          "들이쉬며": "taking in",
+          "자신": "himself",
+          "이": "subject marker",
+          "택한": "chosen",
+          "길": "path",
+          "얼마나": "how much",
+          "중요한지": "important",
+          "깨달았다": "realized"
+        },
+        "overallTranslation": "Jin took a deep breath, realizing how important the path he had chosen was."
+      }
+    ],
+    "id": 2256
+  },
+  {
+    "generator": "korean-story-9-dark-fantasy-gemini",
+    "input": "cutting",
+    "problem": "어두운 숲 속, 낡은 오두막이 서 있었습니다.<br> 문 앞에는 늙은 여인이 앉아 있었고, 손에는 날카로운 칼을 들고 있었습니다.<br> 갑자기, 여인의 눈이 붉게 변하며 칼이 빛나기 시작했습니다.<br> 그녀는 칼을 휘둘러 주변의 나무를 베어냈고, 숲은 피로 물들었습니다.<br> 여인의 웃음소리가 숲에 울려 퍼지며, 오두막은 핏빛으로 물들었습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속, 낡은 오두막이 서 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속": "inside",
+          "낡은": "old",
+          "오두막": "hut",
+          "이": "it",
+          "서": "stand",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "An old hut stood in the dark forest."
+      },
+      {
+        "korean": "문 앞에는 늙은 여인이 앉아 있었고, 손에는 날카로운 칼을 들고 있었습니다.",
+        "wordByWordTranslation": {
+          "문": "door",
+          "앞": "front",
+          "에는": "there was",
+          "늙은": "old",
+          "여인": "woman",
+          "이": "who",
+          "앉아": "sit",
+          "있었고": "and",
+          "손": "hand",
+          "날카로운": "sharp",
+          "칼": "knife",
+          "을": "object marker",
+          "들고": "holding",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "An old woman sat in front of the door, holding a sharp knife in her hand."
+      },
+      {
+        "korean": "갑자기, 여인의 눈이 붉게 변하며 칼이 빛나기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "여인": "woman",
+          "의": "possessive particle",
+          "눈": "eye",
+          "이": "it",
+          "붉게": "red",
+          "변하며": "changing",
+          "칼": "knife",
+          "빛나기": "shine",
+          "시작했습니다.": "started"
+        },
+        "overallTranslation": "Suddenly, the woman's eyes turned red and the knife began to glow."
+      },
+      {
+        "korean": "그녀는 칼을 휘둘러 주변의 나무를 베어냈고, 숲은 피로 물들었습니다.",
+        "wordByWordTranslation": {
+          "그녀": "she",
+          "는": "topic marker",
+          "칼": "knife",
+          "을": "object marker",
+          "휘둘러": "swing",
+          "주변": "around",
+          "의": "possessive particle",
+          "나무": "tree",
+          "를": "object marker",
+          "베어냈고": "cut down",
+          "숲": "forest",
+          "은": "topic marker",
+          "피": "blood",
+          "로": "with",
+          "물들었습니다.": "stained"
+        },
+        "overallTranslation": "She swung the knife, cutting down the surrounding trees, and the forest was stained with blood."
+      },
+      {
+        "korean": "여인의 웃음소리가 숲에 울려 퍼지며, 오두막은 핏빛으로 물들었습니다.",
+        "wordByWordTranslation": {
+          "여인": "woman",
+          "의": "possessive particle",
+          "웃음소리": "laughter",
+          "가": "subject marker",
+          "숲": "forest",
+          "에": "at",
+          "울려": "echo",
+          "퍼지며": "spreading",
+          "오두막": "hut",
+          "은": "topic marker",
+          "핏빛": "blood red",
+          "으로": "with",
+          "물들었습니다.": "stained"
+        },
+        "overallTranslation": "The woman's laughter echoed through the forest, and the hut was stained blood red."
+      }
+    ],
+    "id": 2257
   },
   {
     "generator": "korean-story-9-detective-gemini",
@@ -33194,7 +50535,7 @@
         "hanjaro": "그는 숨을 크게 들이쉬며, 그 비밀(祕密) 코드를 풀어낼 방법(方法)을 찾기 시작(始作)했습니다.\n"
       }
     ],
-    "id": 2057
+    "id": 2258
   },
   {
     "generator": "korean-story-9-drama-gemini",
@@ -33273,7 +50614,109 @@
         "overallTranslation": "“It’s okay, your teeth are beautiful.”"
       }
     ],
-    "id": 2058
+    "id": 2259
+  },
+  {
+    "generator": "korean-story-9-dramatic-gemini",
+    "input": "hypertension",
+    "problem": "김 선생님은 밤늦도록 책상에 앉아 시험 문제를 만들고 있었습니다.<br> 갑자기 머리가 아파와서 손으로 이마를 짚었지만, 열은 없었습니다.<br> 하지만 심장이 너무 빨리 뛰어서 김 선생님은 불안감에 휩싸였습니다.<br> 그는 혹시 고혈압이 아닐까 하는 생각에 급하게 병원으로 달려갔습니다.<br> 의사 선생님은 김 선생님의 혈압을 재보고는 “스트레스를 너무 많이 받으셨네요.”라고 말했습니다.<br>",
+    "solution": [
+      {
+        "korean": "김 선생님은 밤늦도록 책상에 앉아 시험 문제를 만들고 있었습니다.",
+        "wordByWordTranslation": {
+          "김": "Kim",
+          "선생님": "teacher",
+          "은": "is",
+          "밤늦도록": "late at night",
+          "책상": "desk",
+          "에": "at",
+          "앉아": "sitting",
+          "시험": "exam",
+          "문제": "problem",
+          "를": "object marker",
+          "만들고": "making",
+          "있었습니다.": "was"
+        },
+        "overallTranslation": "Mr. Kim was sitting at his desk late at night, making exam questions."
+      },
+      {
+        "korean": "갑자기 머리가 아파와서 손으로 이마를 짚었지만, 열은 없었습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "머리": "head",
+          "가": "subject marker",
+          "아파와서": "hurting, so",
+          "손": "hand",
+          "으로": "with",
+          "이마": "forehead",
+          "를": "object marker",
+          "짚었지만": "touched but",
+          "열": "fever",
+          "은": "is",
+          "없었습니다.": "not"
+        },
+        "overallTranslation": "Suddenly, his head started to ache, and he touched his forehead with his hand, but there was no fever."
+      },
+      {
+        "korean": "하지만 심장이 너무 빨리 뛰어서 김 선생님은 불안감에 휩싸였습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "심장": "heart",
+          "이": "subject marker",
+          "너무": "too",
+          "빨리": "fast",
+          "뛰어서": "beating, so",
+          "김": "Kim",
+          "선생님": "teacher",
+          "은": "is",
+          "불안감": "anxiety",
+          "에": "with",
+          "휩싸였습니다.": "overwhelmed"
+        },
+        "overallTranslation": "But his heart was beating so fast that Mr. Kim was overwhelmed with anxiety."
+      },
+      {
+        "korean": "그는 혹시 고혈압이 아닐까 하는 생각에 급하게 병원으로 달려갔습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "혹시": "maybe",
+          "고혈압": "hypertension",
+          "이": "subject marker",
+          "아닐까": "not",
+          "하는": "doing",
+          "생각": "thought",
+          "에": "with",
+          "급하게": "hurriedly",
+          "병원": "hospital",
+          "으로": "to",
+          "달려갔습니다.": "ran"
+        },
+        "overallTranslation": "He thought maybe he had hypertension and rushed to the hospital."
+      },
+      {
+        "korean": "의사 선생님은 김 선생님의 혈압을 재보고는 “스트레스를 너무 많이 받으셨네요.”라고 말했습니다.",
+        "wordByWordTranslation": {
+          "의사": "doctor",
+          "선생님": "teacher",
+          "은": "is",
+          "김": "Kim",
+          "의": "possessive marker",
+          "혈압": "blood pressure",
+          "를": "object marker",
+          "재보고는": "checked and",
+          "“": "quote mark",
+          "스트레스": "stress",
+          "너무": "too",
+          "많이": "much",
+          "받으셨네요.": "received",
+          "”": "quote mark",
+          "라고": "quote marker",
+          "말했습니다.": "said"
+        },
+        "overallTranslation": "The doctor checked Mr. Kim's blood pressure and said, “You're under too much stress.”"
+      }
+    ],
+    "id": 2260
   },
   {
     "generator": "korean-story-9-dystopian-gemini",
@@ -33358,7 +50801,94 @@
         "hanjaro": "한 소녀(少女)는 햇살 아래 춤을 추며 외쳤다, “이제 우리는 자유(自由)야!”\n"
       }
     ],
-    "id": 2059
+    "id": 2261
+  },
+  {
+    "generator": "korean-story-9-espionage-gemini",
+    "input": "persevere",
+    "problem": "어두운 골목길에서, 스파이는 정보를 빼내려고 노력하고 있었습니다.<br> 하지만 경비원들이 다가오자 그는 재빨리 몸을 숨겼습니다.<br> 갑자기, 폭발음이 울려 퍼졌고, 건물이 무너지기 시작했습니다.<br> 스파이는 위험을 무릅쓰고 건물 잔해 속에서 빠져나왔습니다.<br> 그는 포기하지 않고, 임무를 완수하기 위해 계속해서 나아갔습니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 골목길에서, 스파이는 정보를 빼내려고 노력하고 있었습니다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "골목길에서": "alleyway",
+          "스파이": "spy",
+          "는": "is",
+          "정보": "information",
+          "를": "to",
+          "빼내려고": "extract",
+          "노력": "effort",
+          "하고": "doing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a dark alleyway, a spy was trying to extract information."
+      },
+      {
+        "korean": "하지만 경비원들이 다가오자 그는 재빨리 몸을 숨겼습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "경비원": "guards",
+          "들이": "they",
+          "다가오자": "approached",
+          "그는": "he",
+          "재빨리": "quickly",
+          "몸": "body",
+          "을": "to",
+          "숨겼습니다": "hid"
+        },
+        "overallTranslation": "But when the guards approached, he quickly hid."
+      },
+      {
+        "korean": "갑자기, 폭발음이 울려 퍼졌고, 건물이 무너지기 시작했습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "폭발음": "explosion sound",
+          "이": "which",
+          "울려": "resounded",
+          "퍼졌고": "and",
+          "건물": "building",
+          "무너지기": "collapse",
+          "시작": "start",
+          "했습니다": "did"
+        },
+        "overallTranslation": "Suddenly, an explosion resounded and the building started to collapse."
+      },
+      {
+        "korean": "스파이는 위험을 무릅쓰고 건물 잔해 속에서 빠져나왔습니다.",
+        "wordByWordTranslation": {
+          "스파이": "spy",
+          "는": "is",
+          "위험": "danger",
+          "을": "to",
+          "무릅쓰고": "facing",
+          "건물": "building",
+          "잔해": "debris",
+          "속에서": "from",
+          "빠져나왔습니다": "escaped"
+        },
+        "overallTranslation": "The spy, facing danger, escaped from the building debris."
+      },
+      {
+        "korean": "그는 포기하지 않고, 임무를 완수하기 위해 계속해서 나아갔습니다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "포기": "give up",
+          "하지": "not",
+          "않고": "and",
+          "임무": "mission",
+          "를": "to",
+          "완수": "complete",
+          "하기": "in order to",
+          "위해": "for",
+          "계속": "continue",
+          "해서": "to",
+          "나아갔습니다": "advanced"
+        },
+        "overallTranslation": "He did not give up and continued to advance in order to complete his mission."
+      }
+    ],
+    "id": 2262
   },
   {
     "generator": "korean-story-9-fantasy-gemini",
@@ -33440,7 +50970,93 @@
         "hanjaro": "나무의 뿌리는 그녀(그女)의 몸속으로 깊이 스며들어 그녀(그女)의 두려움을 녹여냈습니다.\n"
       }
     ],
-    "id": 2060
+    "id": 2263
+  },
+  {
+    "generator": "korean-story-9-fantasy-gemini",
+    "input": "entitle",
+    "problem": "어두운 숲 속, 낡은 나무 집이 서 있었어요.<br> 그 안에는 늙은 마법사가 살고 있었답니다.<br> 하지만 어느 날, 숲 속에 이상한 소리가 울려 퍼졌어요.<br> 소리는 마법사의 낡은 지팡이에서 났고, 마법사는 놀랐어요.<br> 알고 보니, 지팡이는 마법사에게 새로운 힘을 부여하려고 했답니다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 숲 속, 낡은 나무 집이 서 있었어요.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "숲": "forest",
+          "속": "inside",
+          "낡은": "old",
+          "나무": "tree",
+          "집": "house",
+          "이": "this",
+          "서": "stand",
+          "있었어요": "was"
+        },
+        "overallTranslation": "An old wooden house stood in a dark forest."
+      },
+      {
+        "korean": "그 안에는 늙은 마법사가 살고 있었답니다.",
+        "wordByWordTranslation": {
+          "그": "that",
+          "안": "inside",
+          "에는": "there",
+          "늙은": "old",
+          "마법사": "wizard",
+          "가": "who",
+          "살고": "live",
+          "있었답니다": "was"
+        },
+        "overallTranslation": "Inside it lived an old wizard."
+      },
+      {
+        "korean": "하지만 어느 날, 숲 속에 이상한 소리가 울려 퍼졌어요.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "어느": "some",
+          "날": "day",
+          "숲": "forest",
+          "속": "inside",
+          "에": "at",
+          "이상한": "strange",
+          "소리": "sound",
+          "가": "that",
+          "울려": "resonate",
+          "퍼졌어요": "spread"
+        },
+        "overallTranslation": "But one day, a strange sound echoed through the forest."
+      },
+      {
+        "korean": "소리는 마법사의 낡은 지팡이에서 났고, 마법사는 놀랐어요.",
+        "wordByWordTranslation": {
+          "소리": "sound",
+          "는": "is",
+          "마법사": "wizard",
+          "의": "of",
+          "낡은": "old",
+          "지팡이": "wand",
+          "에서": "from",
+          "났고": "came",
+          "놀랐어요": "surprised"
+        },
+        "overallTranslation": "The sound came from the wizard's old wand, and the wizard was surprised."
+      },
+      {
+        "korean": "알고 보니, 지팡이는 마법사에게 새로운 힘을 부여하려고 했답니다.",
+        "wordByWordTranslation": {
+          "알고": "knowing",
+          "보니": "as",
+          "지팡이": "wand",
+          "는": "is",
+          "마법사": "wizard",
+          "에게": "to",
+          "새로운": "new",
+          "힘": "power",
+          "을": "to",
+          "부여하려고": "give",
+          "했답니다": "was"
+        },
+        "overallTranslation": "It turned out the wand was trying to give the wizard new power."
+      }
+    ],
+    "id": 2264
   },
   {
     "generator": "korean-story-9-gunslinger-gemini",
@@ -33538,7 +51154,185 @@
         "hanjaro": "총잡이(銃잡이)는 망설이지 않고 콜트를 뽑아들고, 괴물(怪物)의 심장(心臟)을 향(向)해 총알(銃알)을 발사(發射)했다.\n"
       }
     ],
-    "id": 2061
+    "id": 2265
+  },
+  {
+    "generator": "korean-story-9-gunslinger-gemini",
+    "input": "flight",
+    "problem": "황량한 사막 한가운데, 뜨거운 태양 아래 땀에 젖은 채로 앉아 있는 사내가 있었다.<br> 그는 낡은 총을 손에 쥐고, 먼지 덮인 모자 아래로 가늘게 눈을 뜨고 있었다.<br> 갑자기 하늘에서 날개를 펄럭이는 그림자가 나타났다.<br> 그림자는 빠르게 사내에게 다가왔고, 사내는 재빨리 총을 뽑아 들었다.<br> 하지만 그림자는 사내가 아니라, 먼지 속에서 날아오른 한 마리의 매였다.<br>",
+    "solution": [
+      {
+        "korean": "황량한 사막 한가운데, 뜨거운 태양 아래 땀에 젖은 채로 앉아 있는 사내가 있었다.",
+        "wordByWordTranslation": {
+          "황량한": "desolate",
+          "사막": "desert",
+          "한가운데": "middle",
+          "뜨거운": "hot",
+          "태양": "sun",
+          "아래": "under",
+          "땀에": "with sweat",
+          "젖은": "soaked",
+          "채로": "with",
+          "앉아": "sitting",
+          "있는": "existing",
+          "사내": "man"
+        },
+        "overallTranslation": "In the middle of a desolate desert, under the hot sun, there was a man sitting, soaked with sweat."
+      },
+      {
+        "korean": "그는 낡은 총을 손에 쥐고, 먼지 덮인 모자 아래로 가늘게 눈을 뜨고 있었다.",
+        "wordByWordTranslation": {
+          "그는": "he",
+          "낡은": "old",
+          "총": "gun",
+          "손에": "in hand",
+          "쥐고": "holding",
+          "먼지": "dust",
+          "덮인": "covered",
+          "모자": "hat",
+          "아래로": "below",
+          "가늘게": "narrowly",
+          "눈을": "eyes",
+          "뜨고": "opening",
+          "있었다": "was"
+        },
+        "overallTranslation": "He was holding an old gun in his hand, his eyes narrowed under his dust-covered hat."
+      },
+      {
+        "korean": "갑자기 하늘에서 날개를 펄럭이는 그림자가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "날개를": "wings",
+          "펄럭이는": "flapping",
+          "그림자": "shadow",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a shadow with flapping wings appeared from the sky."
+      },
+      {
+        "korean": "그림자는 빠르게 사내에게 다가왔고, 사내는 재빨리 총을 뽑아 들었다.",
+        "wordByWordTranslation": {
+          "그림자": "shadow",
+          "빠르게": "quickly",
+          "사내에게": "to the man",
+          "다가왔고": "approached",
+          "사내": "man",
+          "재빨리": "quickly",
+          "총을": "gun",
+          "뽑아": "drawing",
+          "들었다": "held"
+        },
+        "overallTranslation": "The shadow quickly approached the man, and the man quickly drew his gun."
+      },
+      {
+        "korean": "하지만 그림자는 사내가 아니라, 먼지 속에서 날아오른 한 마리의 매였다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "그림자": "shadow",
+          "사내": "man",
+          "아니라": "not",
+          "먼지": "dust",
+          "속에서": "inside",
+          "날아오른": "flying up",
+          "한": "one",
+          "마리의": "of",
+          "매": "hawk"
+        },
+        "overallTranslation": "But the shadow was not a man, but a hawk that had flown up from the dust."
+      }
+    ],
+    "id": 2266
+  },
+  {
+    "generator": "korean-story-9-horror-gemini",
+    "input": "derelict",
+    "problem": "낡은 폐차장은 밤이 되면 으스스한 기운이 감돌았다.<br> 지수는 폐차장 주변을 서성이며 낡은 자동차들을 살펴보았다.<br> 그때, 갑자기 낡은 자동차 문이 쾅 소리를 내며 열렸다.<br> 지수는 놀라서 뒤로 넘어졌고, 차 안에서 희미한 웃음소리가 들려왔다.<br> 지수는 몸을 떨며 폐차장에서 황급히 도망쳤다.<br>",
+    "solution": [
+      {
+        "korean": "낡은 폐차장은 밤이 되면 으스스한 기운이 감돌았다.",
+        "wordByWordTranslation": {
+          "낡은": "old",
+          "폐차장": "junkyard",
+          "은": "is",
+          "밤": "night",
+          "이": "it",
+          "되면": "become",
+          "으스스한": "creepy",
+          "기운": "aura",
+          "감돌았다": "surrounded"
+        },
+        "overallTranslation": "The old junkyard was enveloped in a creepy aura when night fell."
+      },
+      {
+        "korean": "지수는 폐차장 주변을 서성이며 낡은 자동차들을 살펴보았다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "폐차장": "junkyard",
+          "주변": "around",
+          "을": "object marker",
+          "서성이며": "wandered around",
+          "낡은": "old",
+          "자동차": "car",
+          "들을": "object marker",
+          "살펴보았다": "looked at"
+        },
+        "overallTranslation": "Jisoo wandered around the junkyard, examining the old cars."
+      },
+      {
+        "korean": "그때, 갑자기 낡은 자동차 문이 쾅 소리를 내며 열렸다.",
+        "wordByWordTranslation": {
+          "그때": "at that time",
+          "갑자기": "suddenly",
+          "낡은": "old",
+          "자동차": "car",
+          "문": "door",
+          "이": "it",
+          "쾅": "bang",
+          "소리": "sound",
+          "를": "object marker",
+          "내며": "making",
+          "열렸다": "opened"
+        },
+        "overallTranslation": "Suddenly, an old car door slammed open."
+      },
+      {
+        "korean": "지수는 놀라서 뒤로 넘어졌고, 차 안에서 희미한 웃음소리가 들려왔다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "놀라서": "surprised",
+          "뒤로": "backwards",
+          "넘어졌고": "fell",
+          "차": "car",
+          "안": "inside",
+          "에서": "from",
+          "희미한": "faint",
+          "웃음소리": "laughter",
+          "가": "it",
+          "들려왔다": "could be heard"
+        },
+        "overallTranslation": "Jisoo fell backward in surprise, and a faint laughter could be heard from inside the car."
+      },
+      {
+        "korean": "지수는 몸을 떨며 폐차장에서 황급히 도망쳤다.",
+        "wordByWordTranslation": {
+          "지수": "Jisoo",
+          "는": "is",
+          "몸": "body",
+          "을": "object marker",
+          "떨며": "trembling",
+          "폐차장": "junkyard",
+          "에서": "from",
+          "황급히": "hurriedly",
+          "도망쳤다": "ran away"
+        },
+        "overallTranslation": "Jisoo, trembling, ran away from the junkyard as fast as she could."
+      }
+    ],
+    "id": 2267
   },
   {
     "generator": "korean-story-9-low-fantasy-gemini",
@@ -33620,7 +51414,85 @@
         "hanjaro": "그들은 우리에게 숲 속의 이야기를 들려주었고, 우리는 따뜻한 밤을 보냈습니다.\n"
       }
     ],
-    "id": 2062
+    "id": 2268
+  },
+  {
+    "generator": "korean-story-9-military-gemini",
+    "input": "pseudo",
+    "problem": "어두운 밤, 낡은 군사 기지에 두 명의 군인이 서 있었다.<br> 그들은 적의 움직임을 감시하고 있었다.<br> 갑자기, 하늘에서 낯선 비행기가 나타났다.<br> 그것은 적의 비행기가 아니었다. 그것은 아군의 비행기였지만, 적군의 위장을 한 ‘가짜’ 비행기였다.<br> 두 군인은 놀랐지만, 곧 적의 함정을 알아차렸다.<br>",
+    "solution": [
+      {
+        "korean": "어두운 밤, 낡은 군사 기지에 두 명의 군인이 서 있었다.",
+        "wordByWordTranslation": {
+          "어두운": "dark",
+          "밤": "night",
+          "낡은": "old",
+          "군사": "military",
+          "기지": "base",
+          "두": "two",
+          "명": "people",
+          "군인": "soldier",
+          "서": "stand",
+          "있었다": "was"
+        },
+        "overallTranslation": "In the dark of night, two soldiers stood at an old military base."
+      },
+      {
+        "korean": "그들은 적의 움직임을 감시하고 있었다.",
+        "wordByWordTranslation": {
+          "그들": "they",
+          "적": "enemy",
+          "움직임": "movement",
+          "감시": "monitoring",
+          "하고": "doing",
+          "있었다": "was"
+        },
+        "overallTranslation": "They were monitoring the enemy's movements."
+      },
+      {
+        "korean": "갑자기, 하늘에서 낯선 비행기가 나타났다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "하늘": "sky",
+          "에서": "from",
+          "낯선": "strange",
+          "비행기": "airplane",
+          "나타났다": "appeared"
+        },
+        "overallTranslation": "Suddenly, a strange airplane appeared in the sky."
+      },
+      {
+        "korean": "그것은 적의 비행기가 아니었다. 그것은 아군의 비행기였지만, 적군의 위장을 한 ‘가짜’ 비행기였다.",
+        "wordByWordTranslation": {
+          "그것": "it",
+          "적": "enemy",
+          "비행기": "airplane",
+          "아니었다": "was not",
+          "아군": "ally",
+          "였지만": "but",
+          "적군": "enemy army",
+          "위장": "disguise",
+          "한": "done",
+          "가짜": "fake",
+          "였다": "was"
+        },
+        "overallTranslation": "It wasn't an enemy airplane. It was an allied airplane, but it was a 'fake' airplane disguised as an enemy."
+      },
+      {
+        "korean": "두 군인은 놀랐지만, 곧 적의 함정을 알아차렸다.",
+        "wordByWordTranslation": {
+          "두": "two",
+          "군인": "soldier",
+          "놀랐지만": "surprised but",
+          "곧": "soon",
+          "적": "enemy",
+          "함정": "trap",
+          "알아차렸다": "realized"
+        },
+        "overallTranslation": "The two soldiers were surprised, but they soon realized the enemy's trap."
+      }
+    ],
+    "id": 2269
   },
   {
     "generator": "korean-story-9-mystery-gemini",
@@ -33693,7 +51565,7 @@
         "hanjaro": "그는 이제 더 이상(以上) 도망치지 않을 것이다.\n"
       }
     ],
-    "id": 2063
+    "id": 2270
   },
   {
     "generator": "korean-story-9-noir-gemini",
@@ -33779,7 +51651,7 @@
         "hanjaro": "“야, 너 혹시(或是) 그 쪽팔린 일, 아직도 기억나냐?”\n"
       }
     ],
-    "id": 2064
+    "id": 2271
   },
   {
     "generator": "korean-story-9-post-apocalyptic-gemini",
@@ -33848,7 +51720,7 @@
         "overallTranslation": "Yujin ran through the ruins with an anxious heart."
       }
     ],
-    "id": 2065
+    "id": 2272
   },
   {
     "generator": "korean-story-9-renaissance-gemini",
@@ -33929,7 +51801,7 @@
         "hanjaro": "그때, 은수(隱修)는 떨어진 잎들을 이용(利用)해 음식(飮食)을 장식(裝飾)해야겠다는 생각이 들었습니다.\n"
       }
     ],
-    "id": 2066
+    "id": 2273
   },
   {
     "generator": "korean-story-9-romantic-gemini",
@@ -34012,7 +51884,7 @@
         "overallTranslation": "Minjun hesitated. Her eyes were filled with deep sadness and desperation."
       }
     ],
-    "id": 2067
+    "id": 2274
   },
   {
     "generator": "korean-story-9-science-fiction-gemini",
@@ -34091,7 +51963,7 @@
         "hanjaro": "지수는 신기한 멜로디에 몸을 맡기고 밤하늘을 바라보았어요.\n"
       }
     ],
-    "id": 2068
+    "id": 2275
   },
   {
     "generator": "korean-story-9-urban-gemini",
@@ -34206,7 +52078,107 @@
         "hanjaro": "순간(瞬間), 지하철역(地下鐵驛)은 아수라장(阿修羅場)으로 변(變)했고,  deafening 소리는 모든 것을 삼켜 버렸다.\n"
       }
     ],
-    "id": 2069
+    "id": 2276
+  },
+  {
+    "generator": "korean-story-9-western-gemini",
+    "input": "lineup",
+    "problem": "햇살 가득한 서부의 작은 마을에, 낡은 목조 건물 앞에 사람들이 줄을 서 있었습니다.<br> 그들은 땀 흘리며 먼지 덮인 모자를 쓰고 있었고, 긴 총을 든 채 서 있었습니다.<br> 갑자기, 건물 문이 쾅하고 열리며 거대한 곰이 뛰쳐나왔습니다.<br> 사람들은 놀라서 비명을 질렀고, 총을 쏘며 곰을 향해 달려갔습니다.<br> 하지만 곰은 아무렇지도 않게 총알을 피하고, 곧장 마을 사람들을 향해 돌진했습니다.<br>",
+    "solution": [
+      {
+        "korean": "햇살 가득한 서부의 작은 마을에, 낡은 목조 건물 앞에 사람들이 줄을 서 있었습니다.",
+        "wordByWordTranslation": {
+          "햇살": "sunshine",
+          "가득한": "filled",
+          "서부": "western",
+          "작은": "small",
+          "마을": "town",
+          "에": "at",
+          "낡은": "old",
+          "목조": "wooden",
+          "건물": "building",
+          "앞에": "in front of",
+          "사람들": "people",
+          "줄": "line",
+          "서": "stand",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "In a small western town bathed in sunshine, people stood in line in front of an old wooden building."
+      },
+      {
+        "korean": "그들은 땀 흘리며 먼지 덮인 모자를 쓰고 있었고, 긴 총을 든 채 서 있었습니다.",
+        "wordByWordTranslation": {
+          "그들은": "they",
+          "땀": "sweat",
+          "흘리며": "while sweating",
+          "먼지": "dust",
+          "덮인": "covered",
+          "모자": "hat",
+          "쓰고": "wearing",
+          "있었고": "and",
+          "긴": "long",
+          "총": "gun",
+          "든": "holding",
+          "채": "while",
+          "서": "standing",
+          "있었습니다": "was"
+        },
+        "overallTranslation": "They were sweating, wearing dust-covered hats and standing with long guns in their hands."
+      },
+      {
+        "korean": "갑자기, 건물 문이 쾅하고 열리며 거대한 곰이 뛰쳐나왔습니다.",
+        "wordByWordTranslation": {
+          "갑자기": "suddenly",
+          "건물": "building",
+          "문": "door",
+          "이": "that",
+          "쾅": "bang",
+          "하고": "and",
+          "열리며": "opening",
+          "거대한": "huge",
+          "곰": "bear",
+          "뛰쳐나왔습니다": "rushed out"
+        },
+        "overallTranslation": "Suddenly, the building door burst open and a huge bear rushed out."
+      },
+      {
+        "korean": "사람들은 놀라서 비명을 질렀고, 총을 쏘며 곰을 향해 달려갔습니다.",
+        "wordByWordTranslation": {
+          "사람들": "people",
+          "은": "are",
+          "놀라서": "surprised",
+          "비명": "scream",
+          "을": "object",
+          "질렀고": "shouted",
+          "총": "gun",
+          "쏘며": "shooting",
+          "곰": "bear",
+          "향해": "towards",
+          "달려갔습니다": "ran"
+        },
+        "overallTranslation": "The people screamed in surprise and ran towards the bear, firing their guns."
+      },
+      {
+        "korean": "하지만 곰은 아무렇지도 않게 총알을 피하고, 곧장 마을 사람들을 향해 돌진했습니다.",
+        "wordByWordTranslation": {
+          "하지만": "but",
+          "곰": "bear",
+          "은": "is",
+          "아무렇지도": "not",
+          "않게": "at all",
+          "총알": "bullet",
+          "을": "object",
+          "피하고": "dodging",
+          "곧장": "straight",
+          "마을": "town",
+          "사람들": "people",
+          "향해": "towards",
+          "돌진했습니다": "charged"
+        },
+        "overallTranslation": "But the bear dodged the bullets without a care and charged straight at the townspeople."
+      }
+    ],
+    "id": 2277
   },
   {
     "generator": "math-symbolic-2-1-large-integer-subtraction",
@@ -34221,7 +52193,7 @@
       }
     },
     "time": 10,
-    "id": 2070
+    "id": 2278
   },
   {
     "generator": "math-symbolic-2-2-large-integer-multiplication",
@@ -34238,7 +52210,7 @@
       }
     },
     "time": 60,
-    "id": 2071
+    "id": 2279
   },
   {
     "generator": "math-symbolic-2-2-large-integer-multiplication",
@@ -34255,7 +52227,7 @@
       }
     },
     "time": 30,
-    "id": 2072
+    "id": 2280
   },
   {
     "generator": "math-symbolic-4-1-geometry",
@@ -34270,7 +52242,7 @@
       }
     },
     "time": 15,
-    "id": 2073
+    "id": 2281
   },
   {
     "generator": "math-symbolic-4-1-geometry",
@@ -34285,7 +52257,7 @@
       }
     },
     "time": 15,
-    "id": 2074
+    "id": 2282
   },
   {
     "generator": "math-symbolic-4-1-geometry",
@@ -34300,7 +52272,7 @@
       }
     },
     "time": 15,
-    "id": 2075
+    "id": 2283
   },
   {
     "generator": "math-symbolic-4-1-geometry",
@@ -34315,7 +52287,7 @@
       }
     },
     "time": 15,
-    "id": 2076
+    "id": 2284
   },
   {
     "generator": "math-symbolic-4-1-large-integer-addition",
@@ -34330,7 +52302,7 @@
       }
     },
     "time": 10,
-    "id": 2077
+    "id": 2285
   },
   {
     "generator": "math-symbolic-4-1-large-integer-division",
@@ -34345,7 +52317,7 @@
       }
     },
     "time": 15,
-    "id": 2078
+    "id": 2286
   },
   {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
@@ -34360,7 +52332,7 @@
       }
     },
     "time": 10,
-    "id": 2079
+    "id": 2287
   },
   {
     "generator": "math-symbolic-4-1-large-integer-multiplication",
@@ -34375,7 +52347,7 @@
       }
     },
     "time": 15,
-    "id": 2080
+    "id": 2288
   },
   {
     "generator": "math-symbolic-4-1-mass",
@@ -34390,7 +52362,7 @@
       }
     },
     "time": 15,
-    "id": 2081
+    "id": 2289
   },
   {
     "generator": "math-symbolic-4-1-proportion",
@@ -34405,7 +52377,7 @@
       }
     },
     "time": 20,
-    "id": 2082
+    "id": 2290
   },
   {
     "generator": "math-symbolic-4-1-reality",
@@ -34420,7 +52392,7 @@
       }
     },
     "time": 10,
-    "id": 2083
+    "id": 2291
   },
   {
     "generator": "math-symbolic-4-1-reality",
@@ -34435,7 +52407,7 @@
       }
     },
     "time": 15,
-    "id": 2084
+    "id": 2292
   },
   {
     "generator": "math-symbolic-4-1-science",
@@ -34450,7 +52422,7 @@
       }
     },
     "time": 15,
-    "id": 2085
+    "id": 2293
   },
   {
     "generator": "math-symbolic-4-1-science",
@@ -34465,7 +52437,7 @@
       }
     },
     "time": 15,
-    "id": 2086
+    "id": 2294
   },
   {
     "generator": "math-symbolic-4-1-slice-of-life",
@@ -34480,7 +52452,7 @@
       }
     },
     "time": 10,
-    "id": 2087
+    "id": 2295
   },
   {
     "generator": "math-symbolic-4-1-space",
@@ -34495,7 +52467,7 @@
       }
     },
     "time": 15,
-    "id": 2088
+    "id": 2296
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34510,7 +52482,7 @@
       }
     },
     "time": 15,
-    "id": 2089
+    "id": 2297
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34525,7 +52497,7 @@
       }
     },
     "time": 10,
-    "id": 2090
+    "id": 2298
   },
   {
     "generator": "math-symbolic-4-1-system-of-equations",
@@ -34540,7 +52512,7 @@
       }
     },
     "time": 15,
-    "id": 2091
+    "id": 2299
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34555,7 +52527,7 @@
       }
     },
     "time": 15,
-    "id": 2092
+    "id": 2300
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34570,7 +52542,7 @@
       }
     },
     "time": 15,
-    "id": 2093
+    "id": 2301
   },
   {
     "generator": "math-symbolic-4-1-travel",
@@ -34585,7 +52557,7 @@
       }
     },
     "time": 10,
-    "id": 2094
+    "id": 2302
   },
   {
     "generator": "math-symbolic-4-2-distance",
@@ -34602,7 +52574,7 @@
       }
     },
     "time": 60,
-    "id": 2095
+    "id": 2303
   },
   {
     "generator": "math-symbolic-4-2-fraction-subtraction",
@@ -34619,7 +52591,7 @@
       }
     },
     "time": 60,
-    "id": 2096
+    "id": 2304
   },
   {
     "generator": "math-symbolic-4-2-geometry",
@@ -34636,7 +52608,7 @@
       }
     },
     "time": 60,
-    "id": 2097
+    "id": 2305
   },
   {
     "generator": "math-symbolic-4-2-geometry",
@@ -34653,7 +52625,7 @@
       }
     },
     "time": 60,
-    "id": 2098
+    "id": 2306
   },
   {
     "generator": "math-symbolic-4-2-large-integer-addition",
@@ -34670,7 +52642,7 @@
       }
     },
     "time": 60,
-    "id": 2099
+    "id": 2307
   },
   {
     "generator": "math-symbolic-4-2-large-integer-division",
@@ -34687,7 +52659,7 @@
       }
     },
     "time": 60,
-    "id": 2100
+    "id": 2308
   },
   {
     "generator": "math-symbolic-4-2-large-integer-multiplication",
@@ -34704,7 +52676,7 @@
       }
     },
     "time": 60,
-    "id": 2101
+    "id": 2309
   },
   {
     "generator": "math-symbolic-4-2-probability",
@@ -34721,7 +52693,7 @@
       }
     },
     "time": 30,
-    "id": 2102
+    "id": 2310
   },
   {
     "generator": "math-symbolic-4-2-proportion",
@@ -34738,7 +52710,7 @@
       }
     },
     "time": 60,
-    "id": 2103
+    "id": 2311
   },
   {
     "generator": "math-symbolic-4-2-proportion",
@@ -34755,7 +52727,7 @@
       }
     },
     "time": 60,
-    "id": 2104
+    "id": 2312
   },
   {
     "generator": "math-symbolic-4-2-reality",
@@ -34772,7 +52744,7 @@
       }
     },
     "time": 30,
-    "id": 2105
+    "id": 2313
   },
   {
     "generator": "math-symbolic-4-2-reality",
@@ -34789,7 +52761,7 @@
       }
     },
     "time": 30,
-    "id": 2106
+    "id": 2314
   },
   {
     "generator": "math-symbolic-4-2-space",
@@ -34806,7 +52778,7 @@
       }
     },
     "time": 60,
-    "id": 2107
+    "id": 2315
   },
   {
     "generator": "math-symbolic-4-2-speed",
@@ -34823,7 +52795,7 @@
       }
     },
     "time": 45,
-    "id": 2108
+    "id": 2316
   },
   {
     "generator": "math-symbolic-4-2-work",
@@ -34840,7 +52812,7 @@
       }
     },
     "time": 60,
-    "id": 2109
+    "id": 2317
   },
   {
     "generator": "math-symbolic-5-1-distance",
@@ -34855,7 +52827,7 @@
       }
     },
     "time": 15,
-    "id": 2110
+    "id": 2318
   },
   {
     "generator": "math-symbolic-5-1-fraction-subtraction",
@@ -34870,7 +52842,7 @@
       }
     },
     "time": 15,
-    "id": 2111
+    "id": 2319
   },
   {
     "generator": "math-symbolic-5-1-geometry",
@@ -34885,7 +52857,7 @@
       }
     },
     "time": 15,
-    "id": 2112
+    "id": 2320
   },
   {
     "generator": "math-symbolic-5-1-geometry",
@@ -34900,7 +52872,7 @@
       }
     },
     "time": 10,
-    "id": 2113
+    "id": 2321
   },
   {
     "generator": "math-symbolic-5-1-large-integer-division",
@@ -34915,7 +52887,7 @@
       }
     },
     "time": 15,
-    "id": 2114
+    "id": 2322
   },
   {
     "generator": "math-symbolic-5-1-large-integer-division",
@@ -34930,7 +52902,7 @@
       }
     },
     "time": 10,
-    "id": 2115
+    "id": 2323
   },
   {
     "generator": "math-symbolic-5-1-large-integer-multiplication",
@@ -34945,7 +52917,7 @@
       }
     },
     "time": 15,
-    "id": 2116
+    "id": 2324
   },
   {
     "generator": "math-symbolic-5-1-probability",
@@ -34960,7 +52932,7 @@
       }
     },
     "time": 20,
-    "id": 2117
+    "id": 2325
   },
   {
     "generator": "math-symbolic-5-1-proportion",
@@ -34975,7 +52947,7 @@
       }
     },
     "time": 30,
-    "id": 2118
+    "id": 2326
   },
   {
     "generator": "math-symbolic-5-1-reality",
@@ -34990,7 +52962,7 @@
       }
     },
     "time": 30,
-    "id": 2119
+    "id": 2327
   },
   {
     "generator": "math-symbolic-5-1-slice-of-life",
@@ -35005,7 +52977,7 @@
       }
     },
     "time": 15,
-    "id": 2120
+    "id": 2328
   },
   {
     "generator": "math-symbolic-5-1-slice-of-life",
@@ -35020,7 +52992,7 @@
       }
     },
     "time": 15,
-    "id": 2121
+    "id": 2329
   },
   {
     "generator": "math-symbolic-5-1-space",
@@ -35035,7 +53007,7 @@
       }
     },
     "time": 15,
-    "id": 2122
+    "id": 2330
   },
   {
     "generator": "math-symbolic-5-1-space",
@@ -35050,7 +53022,7 @@
       }
     },
     "time": 15,
-    "id": 2123
+    "id": 2331
   },
   {
     "generator": "math-symbolic-5-1-space",
@@ -35065,7 +53037,7 @@
       }
     },
     "time": 15,
-    "id": 2124
+    "id": 2332
   },
   {
     "generator": "math-symbolic-5-1-speed",
@@ -35080,7 +53052,7 @@
       }
     },
     "time": 15,
-    "id": 2125
+    "id": 2333
   },
   {
     "generator": "math-symbolic-5-2-fraction-subtraction",
@@ -35097,7 +53069,7 @@
       }
     },
     "time": 60,
-    "id": 2126
+    "id": 2334
   },
   {
     "generator": "math-symbolic-5-2-geometry",
@@ -35114,7 +53086,7 @@
       }
     },
     "time": 60,
-    "id": 2127
+    "id": 2335
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
@@ -35131,7 +53103,7 @@
       }
     },
     "time": 60,
-    "id": 2128
+    "id": 2336
   },
   {
     "generator": "math-symbolic-5-2-large-integer-addition",
@@ -35148,7 +53120,7 @@
       }
     },
     "time": 60,
-    "id": 2129
+    "id": 2337
   },
   {
     "generator": "math-symbolic-5-2-large-integer-subtraction",
@@ -35165,7 +53137,7 @@
       }
     },
     "time": 60,
-    "id": 2130
+    "id": 2338
   },
   {
     "generator": "math-symbolic-5-2-large-integer-subtraction",
@@ -35182,7 +53154,7 @@
       }
     },
     "time": 30,
-    "id": 2131
+    "id": 2339
   },
   {
     "generator": "math-symbolic-5-2-lever-fulcrum-weight",
@@ -35199,7 +53171,7 @@
       }
     },
     "time": 60,
-    "id": 2132
+    "id": 2340
   },
   {
     "generator": "math-symbolic-5-2-probability",
@@ -35216,7 +53188,7 @@
       }
     },
     "time": 60,
-    "id": 2133
+    "id": 2341
   },
   {
     "generator": "math-symbolic-5-2-probability",
@@ -35233,7 +53205,7 @@
       }
     },
     "time": 60,
-    "id": 2134
+    "id": 2342
   },
   {
     "generator": "math-symbolic-5-2-probability",
@@ -35250,7 +53222,7 @@
       }
     },
     "time": 60,
-    "id": 2135
+    "id": 2343
   },
   {
     "generator": "math-symbolic-5-2-proportion",
@@ -35267,7 +53239,7 @@
       }
     },
     "time": 60,
-    "id": 2136
+    "id": 2344
   },
   {
     "generator": "math-symbolic-5-2-reality",
@@ -35284,7 +53256,7 @@
       }
     },
     "time": 30,
-    "id": 2137
+    "id": 2345
   },
   {
     "generator": "math-symbolic-5-2-reality",
@@ -35301,7 +53273,7 @@
       }
     },
     "time": 60,
-    "id": 2138
+    "id": 2346
   },
   {
     "generator": "math-symbolic-5-2-speed",
@@ -35318,7 +53290,7 @@
       }
     },
     "time": 30,
-    "id": 2139
+    "id": 2347
   },
   {
     "generator": "math-symbolic-5-2-travel",
@@ -35335,7 +53307,7 @@
       }
     },
     "time": 60,
-    "id": 2140
+    "id": 2348
   },
   {
     "generator": "math-symbolic-5-2-work",
@@ -35352,7 +53324,7 @@
       }
     },
     "time": 60,
-    "id": 2141
+    "id": 2349
   },
   {
     "generator": "math-symbolic-5-2-work",
@@ -35369,7 +53341,7 @@
       }
     },
     "time": 60,
-    "id": 2142
+    "id": 2350
   },
   {
     "generator": "math-symbolic-6-1-large-integer-addition",
@@ -35384,7 +53356,7 @@
       }
     },
     "time": 15,
-    "id": 2143
+    "id": 2351
   },
   {
     "generator": "math-symbolic-6-1-large-integer-addition",
@@ -35399,7 +53371,7 @@
       }
     },
     "time": 15,
-    "id": 2144
+    "id": 2352
   },
   {
     "generator": "math-symbolic-6-1-large-integer-subtraction",
@@ -35414,7 +53386,7 @@
       }
     },
     "time": 15,
-    "id": 2145
+    "id": 2353
   },
   {
     "generator": "math-symbolic-6-1-mass",
@@ -35429,7 +53401,7 @@
       }
     },
     "time": 10,
-    "id": 2146
+    "id": 2354
   },
   {
     "generator": "math-symbolic-6-1-mass",
@@ -35444,7 +53416,7 @@
       }
     },
     "time": 15,
-    "id": 2147
+    "id": 2355
   },
   {
     "generator": "math-symbolic-6-1-science",
@@ -35459,7 +53431,7 @@
       }
     },
     "time": 15,
-    "id": 2148
+    "id": 2356
   },
   {
     "generator": "math-symbolic-6-1-slice-of-life",
@@ -35474,7 +53446,7 @@
       }
     },
     "time": 10,
-    "id": 2149
+    "id": 2357
   },
   {
     "generator": "math-symbolic-6-1-slice-of-life",
@@ -35489,7 +53461,7 @@
       }
     },
     "time": 15,
-    "id": 2150
+    "id": 2358
   },
   {
     "generator": "math-symbolic-6-1-speed",
@@ -35504,7 +53476,7 @@
       }
     },
     "time": 15,
-    "id": 2151
+    "id": 2359
   },
   {
     "generator": "math-symbolic-6-1-travel",
@@ -35519,7 +53491,7 @@
       }
     },
     "time": 15,
-    "id": 2152
+    "id": 2360
   },
   {
     "generator": "math-symbolic-6-1-travel",
@@ -35534,7 +53506,7 @@
       }
     },
     "time": 10,
-    "id": 2153
+    "id": 2361
   },
   {
     "generator": "math-symbolic-6-1-work",
@@ -35549,7 +53521,7 @@
       }
     },
     "time": 15,
-    "id": 2154
+    "id": 2362
   },
   {
     "generator": "math-symbolic-6-1-work",
@@ -35564,7 +53536,7 @@
       }
     },
     "time": 15,
-    "id": 2155
+    "id": 2363
   },
   {
     "generator": "math-symbolic-6-2-distance",
@@ -35581,7 +53553,7 @@
       }
     },
     "time": 60,
-    "id": 2156
+    "id": 2364
   },
   {
     "generator": "math-symbolic-6-2-distance",
@@ -35598,7 +53570,7 @@
       }
     },
     "time": 60,
-    "id": 2157
+    "id": 2365
   },
   {
     "generator": "math-symbolic-6-2-fraction-subtraction",
@@ -35615,7 +53587,7 @@
       }
     },
     "time": 60,
-    "id": 2158
+    "id": 2366
   },
   {
     "generator": "math-symbolic-6-2-fraction-subtraction",
@@ -35632,7 +53604,7 @@
       }
     },
     "time": 60,
-    "id": 2159
+    "id": 2367
   },
   {
     "generator": "math-symbolic-6-2-geometry",
@@ -35649,7 +53621,7 @@
       }
     },
     "time": 60,
-    "id": 2160
+    "id": 2368
   },
   {
     "generator": "math-symbolic-6-2-large-integer-addition",
@@ -35666,7 +53638,7 @@
       }
     },
     "time": 60,
-    "id": 2161
+    "id": 2369
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
@@ -35683,7 +53655,7 @@
       }
     },
     "time": 60,
-    "id": 2162
+    "id": 2370
   },
   {
     "generator": "math-symbolic-6-2-large-integer-division",
@@ -35700,7 +53672,7 @@
       }
     },
     "time": 30,
-    "id": 2163
+    "id": 2371
   },
   {
     "generator": "math-symbolic-6-2-lever-fulcrum-weight",
@@ -35717,7 +53689,7 @@
       }
     },
     "time": 120,
-    "id": 2164
+    "id": 2372
   },
   {
     "generator": "math-symbolic-6-2-mass",
@@ -35734,7 +53706,7 @@
       }
     },
     "time": 60,
-    "id": 2165
+    "id": 2373
   },
   {
     "generator": "math-symbolic-6-2-probability",
@@ -35751,7 +53723,7 @@
       }
     },
     "time": 60,
-    "id": 2166
+    "id": 2374
   },
   {
     "generator": "math-symbolic-6-2-probability",
@@ -35768,7 +53740,7 @@
       }
     },
     "time": 60,
-    "id": 2167
+    "id": 2375
   },
   {
     "generator": "math-symbolic-6-2-proportion",
@@ -35785,7 +53757,7 @@
       }
     },
     "time": 60,
-    "id": 2168
+    "id": 2376
   },
   {
     "generator": "math-symbolic-6-2-reality",
@@ -35802,7 +53774,7 @@
       }
     },
     "time": 60,
-    "id": 2169
+    "id": 2377
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -35819,7 +53791,7 @@
       }
     },
     "time": 60,
-    "id": 2170
+    "id": 2378
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -35836,7 +53808,7 @@
       }
     },
     "time": 60,
-    "id": 2171
+    "id": 2379
   },
   {
     "generator": "math-symbolic-6-2-speed",
@@ -35853,7 +53825,7 @@
       }
     },
     "time": 30,
-    "id": 2172
+    "id": 2380
   },
   {
     "generator": "math-symbolic-6-2-system-of-equations",
@@ -35870,7 +53842,7 @@
       }
     },
     "time": 60,
-    "id": 2173
+    "id": 2381
   },
   {
     "generator": "math-symbolic-6-2-travel",
@@ -35887,7 +53859,7 @@
       }
     },
     "time": 30,
-    "id": 2174
+    "id": 2382
   },
   {
     "generator": "math-symbolic-7-1-fraction-subtraction",
@@ -35902,7 +53874,7 @@
       }
     },
     "time": 30,
-    "id": 2175
+    "id": 2383
   },
   {
     "generator": "math-symbolic-7-1-geometry",
@@ -35917,7 +53889,7 @@
       }
     },
     "time": 15,
-    "id": 2176
+    "id": 2384
   },
   {
     "generator": "math-symbolic-7-1-large-integer-multiplication",
@@ -35932,7 +53904,7 @@
       }
     },
     "time": 10,
-    "id": 2177
+    "id": 2385
   },
   {
     "generator": "math-symbolic-7-1-large-integer-multiplication",
@@ -35947,7 +53919,7 @@
       }
     },
     "time": 10,
-    "id": 2178
+    "id": 2386
   },
   {
     "generator": "math-symbolic-7-1-lever-fulcrum-weight",
@@ -35962,7 +53934,7 @@
       }
     },
     "time": 10,
-    "id": 2179
+    "id": 2387
   },
   {
     "generator": "math-symbolic-7-1-lever-fulcrum-weight",
@@ -35977,7 +53949,7 @@
       }
     },
     "time": 20,
-    "id": 2180
+    "id": 2388
   },
   {
     "generator": "math-symbolic-7-1-proportion",
@@ -35992,7 +53964,7 @@
       }
     },
     "time": 15,
-    "id": 2181
+    "id": 2389
   },
   {
     "generator": "math-symbolic-7-1-proportion",
@@ -36007,7 +53979,7 @@
       }
     },
     "time": "15",
-    "id": 2182
+    "id": 2390
   },
   {
     "generator": "math-symbolic-7-1-proportion",
@@ -36022,7 +53994,7 @@
       }
     },
     "time": 15,
-    "id": 2183
+    "id": 2391
   },
   {
     "generator": "math-symbolic-7-1-reality",
@@ -36037,7 +54009,7 @@
       }
     },
     "time": 15,
-    "id": 2184
+    "id": 2392
   },
   {
     "generator": "math-symbolic-7-1-reality",
@@ -36052,7 +54024,7 @@
       }
     },
     "time": 15,
-    "id": 2185
+    "id": 2393
   },
   {
     "generator": "math-symbolic-7-1-science",
@@ -36067,7 +54039,7 @@
       }
     },
     "time": 10,
-    "id": 2186
+    "id": 2394
   },
   {
     "generator": "math-symbolic-7-1-slice-of-life",
@@ -36082,7 +54054,7 @@
       }
     },
     "time": 15,
-    "id": 2187
+    "id": 2395
   },
   {
     "generator": "math-symbolic-7-1-speed",
@@ -36097,7 +54069,7 @@
       }
     },
     "time": 15,
-    "id": 2188
+    "id": 2396
   },
   {
     "generator": "math-symbolic-7-1-speed",
@@ -36112,7 +54084,7 @@
       }
     },
     "time": 15,
-    "id": 2189
+    "id": 2397
   },
   {
     "generator": "math-symbolic-7-1-travel",
@@ -36127,7 +54099,7 @@
       }
     },
     "time": 15,
-    "id": 2190
+    "id": 2398
   },
   {
     "generator": "math-symbolic-7-2-distance",
@@ -36144,7 +54116,7 @@
       }
     },
     "time": 60,
-    "id": 2191
+    "id": 2399
   },
   {
     "generator": "math-symbolic-7-2-fraction-subtraction",
@@ -36161,7 +54133,7 @@
       }
     },
     "time": 60,
-    "id": 2192
+    "id": 2400
   },
   {
     "generator": "math-symbolic-7-2-geometry",
@@ -36178,7 +54150,7 @@
       }
     },
     "time": 60,
-    "id": 2193
+    "id": 2401
   },
   {
     "generator": "math-symbolic-7-2-mass",
@@ -36195,7 +54167,7 @@
       }
     },
     "time": 60,
-    "id": 2194
+    "id": 2402
   },
   {
     "generator": "math-symbolic-7-2-mass",
@@ -36212,7 +54184,7 @@
       }
     },
     "time": 60,
-    "id": 2195
+    "id": 2403
   },
   {
     "generator": "math-symbolic-7-2-mass",
@@ -36229,7 +54201,7 @@
       }
     },
     "time": 60,
-    "id": 2196
+    "id": 2404
   },
   {
     "generator": "math-symbolic-7-2-probability",
@@ -36246,7 +54218,7 @@
       }
     },
     "time": 60,
-    "id": 2197
+    "id": 2405
   },
   {
     "generator": "math-symbolic-7-2-probability",
@@ -36263,7 +54235,7 @@
       }
     },
     "time": 60,
-    "id": 2198
+    "id": 2406
   },
   {
     "generator": "math-symbolic-7-2-science",
@@ -36280,7 +54252,7 @@
       }
     },
     "time": 30,
-    "id": 2199
+    "id": 2407
   },
   {
     "generator": "math-symbolic-7-2-space",
@@ -36297,7 +54269,7 @@
       }
     },
     "time": 60,
-    "id": 2200
+    "id": 2408
   },
   {
     "generator": "math-symbolic-7-2-space",
@@ -36314,7 +54286,7 @@
       }
     },
     "time": "60",
-    "id": 2201
+    "id": 2409
   },
   {
     "generator": "math-symbolic-7-2-speed",
@@ -36331,7 +54303,7 @@
       }
     },
     "time": 60,
-    "id": 2202
+    "id": 2410
   },
   {
     "generator": "math-symbolic-7-2-speed",
@@ -36348,7 +54320,7 @@
       }
     },
     "time": 60,
-    "id": 2203
+    "id": 2411
   },
   {
     "generator": "math-symbolic-8-1-distance",
@@ -36363,7 +54335,7 @@
       }
     },
     "time": 15,
-    "id": 2204
+    "id": 2412
   },
   {
     "generator": "math-symbolic-8-1-fraction-subtraction",
@@ -36378,7 +54350,7 @@
       }
     },
     "time": 30,
-    "id": 2205
+    "id": 2413
   },
   {
     "generator": "math-symbolic-8-1-geometry",
@@ -36393,7 +54365,7 @@
       }
     },
     "time": 15,
-    "id": 2206
+    "id": 2414
   },
   {
     "generator": "math-symbolic-8-1-geometry",
@@ -36408,7 +54380,7 @@
       }
     },
     "time": 10,
-    "id": 2207
+    "id": 2415
   },
   {
     "generator": "math-symbolic-8-1-geometry",
@@ -36423,7 +54395,7 @@
       }
     },
     "time": 15,
-    "id": 2208
+    "id": 2416
   },
   {
     "generator": "math-symbolic-8-1-large-integer-addition",
@@ -36438,7 +54410,7 @@
       }
     },
     "time": 10,
-    "id": 2209
+    "id": 2417
   },
   {
     "generator": "math-symbolic-8-1-large-integer-division",
@@ -36453,7 +54425,7 @@
       }
     },
     "time": 10,
-    "id": 2210
+    "id": 2418
   },
   {
     "generator": "math-symbolic-8-1-large-integer-multiplication",
@@ -36468,7 +54440,7 @@
       }
     },
     "time": 10,
-    "id": 2211
+    "id": 2419
   },
   {
     "generator": "math-symbolic-8-1-large-integer-multiplication",
@@ -36483,7 +54455,7 @@
       }
     },
     "time": 15,
-    "id": 2212
+    "id": 2420
   },
   {
     "generator": "math-symbolic-8-1-lever-fulcrum-weight",
@@ -36498,7 +54470,7 @@
       }
     },
     "time": 10,
-    "id": 2213
+    "id": 2421
   },
   {
     "generator": "math-symbolic-8-1-mass",
@@ -36513,7 +54485,7 @@
       }
     },
     "time": 15,
-    "id": 2214
+    "id": 2422
   },
   {
     "generator": "math-symbolic-8-1-probability",
@@ -36528,7 +54500,7 @@
       }
     },
     "time": 30,
-    "id": 2215
+    "id": 2423
   },
   {
     "generator": "math-symbolic-8-1-probability",
@@ -36543,7 +54515,7 @@
       }
     },
     "time": 15,
-    "id": 2216
+    "id": 2424
   },
   {
     "generator": "math-symbolic-8-1-reality",
@@ -36558,7 +54530,7 @@
       }
     },
     "time": 15,
-    "id": 2217
+    "id": 2425
   },
   {
     "generator": "math-symbolic-8-1-reality",
@@ -36573,7 +54545,7 @@
       }
     },
     "time": 15,
-    "id": 2218
+    "id": 2426
   },
   {
     "generator": "math-symbolic-8-1-science",
@@ -36588,7 +54560,7 @@
       }
     },
     "time": 10,
-    "id": 2219
+    "id": 2427
   },
   {
     "generator": "math-symbolic-8-1-slice-of-life",
@@ -36603,7 +54575,7 @@
       }
     },
     "time": 15,
-    "id": 2220
+    "id": 2428
   },
   {
     "generator": "math-symbolic-8-1-slice-of-life",
@@ -36618,7 +54590,7 @@
       }
     },
     "time": 10,
-    "id": 2221
+    "id": 2429
   },
   {
     "generator": "math-symbolic-8-1-speed",
@@ -36633,7 +54605,7 @@
       }
     },
     "time": 15,
-    "id": 2222
+    "id": 2430
   },
   {
     "generator": "math-symbolic-8-1-system-of-equations",
@@ -36648,7 +54620,7 @@
       }
     },
     "time": 15,
-    "id": 2223
+    "id": 2431
   },
   {
     "generator": "math-symbolic-8-1-work",
@@ -36663,7 +54635,7 @@
       }
     },
     "time": 15,
-    "id": 2224
+    "id": 2432
   },
   {
     "generator": "math-symbolic-8-1-work",
@@ -36678,7 +54650,7 @@
       }
     },
     "time": 15,
-    "id": 2225
+    "id": 2433
   },
   {
     "generator": "math-symbolic-8-2-fraction-subtraction",
@@ -36695,7 +54667,7 @@
       }
     },
     "time": 60,
-    "id": 2226
+    "id": 2434
   },
   {
     "generator": "math-symbolic-8-2-large-integer-division",
@@ -36712,7 +54684,7 @@
       }
     },
     "time": 60,
-    "id": 2227
+    "id": 2435
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
@@ -36729,7 +54701,7 @@
       }
     },
     "time": "60",
-    "id": 2228
+    "id": 2436
   },
   {
     "generator": "math-symbolic-8-2-lever-fulcrum-weight",
@@ -36746,7 +54718,7 @@
       }
     },
     "time": 60,
-    "id": 2229
+    "id": 2437
   },
   {
     "generator": "math-symbolic-8-2-mass",
@@ -36763,7 +54735,7 @@
       }
     },
     "time": 60,
-    "id": 2230
+    "id": 2438
   },
   {
     "generator": "math-symbolic-8-2-slice-of-life",
@@ -36780,7 +54752,7 @@
       }
     },
     "time": 60,
-    "id": 2231
+    "id": 2439
   },
   {
     "generator": "math-symbolic-8-2-speed",
@@ -36797,7 +54769,7 @@
       }
     },
     "time": 30,
-    "id": 2232
+    "id": 2440
   },
   {
     "generator": "math-symbolic-8-2-speed",
@@ -36814,7 +54786,7 @@
       }
     },
     "time": 30,
-    "id": 2233
+    "id": 2441
   },
   {
     "generator": "math-symbolic-8-2-speed",
@@ -36831,7 +54803,7 @@
       }
     },
     "time": 60,
-    "id": 2234
+    "id": 2442
   },
   {
     "generator": "math-symbolic-8-2-system-of-equations",
@@ -36848,7 +54820,7 @@
       }
     },
     "time": 15,
-    "id": 2235
+    "id": 2443
   },
   {
     "generator": "math-symbolic-8-2-work",
@@ -36865,7 +54837,7 @@
       }
     },
     "time": 60,
-    "id": 2236
+    "id": 2444
   },
   {
     "generator": "math-symbolic-8-2-work",
@@ -36882,7 +54854,7 @@
       }
     },
     "time": 60,
-    "id": 2237
+    "id": 2445
   },
   {
     "generator": "math-symbolic-9-1-fraction-subtraction",
@@ -36897,7 +54869,7 @@
       }
     },
     "time": 15,
-    "id": 2238
+    "id": 2446
   },
   {
     "generator": "math-symbolic-9-1-geometry",
@@ -36912,7 +54884,7 @@
       }
     },
     "time": 15,
-    "id": 2239
+    "id": 2447
   },
   {
     "generator": "math-symbolic-9-1-geometry",
@@ -36927,7 +54899,7 @@
       }
     },
     "time": 15,
-    "id": 2240
+    "id": 2448
   },
   {
     "generator": "math-symbolic-9-1-large-integer-addition",
@@ -36942,7 +54914,7 @@
       }
     },
     "time": 10,
-    "id": 2241
+    "id": 2449
   },
   {
     "generator": "math-symbolic-9-1-large-integer-subtraction",
@@ -36957,7 +54929,7 @@
       }
     },
     "time": 10,
-    "id": 2242
+    "id": 2450
   },
   {
     "generator": "math-symbolic-9-1-lever-fulcrum-weight",
@@ -36972,7 +54944,7 @@
       }
     },
     "time": 10,
-    "id": 2243
+    "id": 2451
   },
   {
     "generator": "math-symbolic-9-1-mass",
@@ -36987,7 +54959,7 @@
       }
     },
     "time": 15,
-    "id": 2244
+    "id": 2452
   },
   {
     "generator": "math-symbolic-9-1-science",
@@ -37002,7 +54974,7 @@
       }
     },
     "time": 15,
-    "id": 2245
+    "id": 2453
   },
   {
     "generator": "math-symbolic-9-1-slice-of-life",
@@ -37017,7 +54989,7 @@
       }
     },
     "time": 10,
-    "id": 2246
+    "id": 2454
   },
   {
     "generator": "math-symbolic-9-1-slice-of-life",
@@ -37032,7 +55004,7 @@
       }
     },
     "time": 15,
-    "id": 2247
+    "id": 2455
   },
   {
     "generator": "math-symbolic-9-1-slice-of-life",
@@ -37047,7 +55019,7 @@
       }
     },
     "time": 15,
-    "id": 2248
+    "id": 2456
   },
   {
     "generator": "math-symbolic-9-1-space",
@@ -37062,7 +55034,7 @@
       }
     },
     "time": 5,
-    "id": 2249
+    "id": 2457
   },
   {
     "generator": "math-symbolic-9-1-space",
@@ -37077,7 +55049,7 @@
       }
     },
     "time": 10,
-    "id": 2250
+    "id": 2458
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
@@ -37092,7 +55064,7 @@
       }
     },
     "time": 15,
-    "id": 2251
+    "id": 2459
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
@@ -37107,7 +55079,7 @@
       }
     },
     "time": 15,
-    "id": 2252
+    "id": 2460
   },
   {
     "generator": "math-symbolic-9-1-system-of-equations",
@@ -37122,7 +55094,7 @@
       }
     },
     "time": 10,
-    "id": 2253
+    "id": 2461
   },
   {
     "generator": "math-symbolic-9-1-travel",
@@ -37137,7 +55109,7 @@
       }
     },
     "time": 15,
-    "id": 2254
+    "id": 2462
   },
   {
     "generator": "math-symbolic-9-2-distance",
@@ -37154,7 +55126,7 @@
       }
     },
     "time": 60,
-    "id": 2255
+    "id": 2463
   },
   {
     "generator": "math-symbolic-9-2-fraction-subtraction",
@@ -37171,7 +55143,7 @@
       }
     },
     "time": 60,
-    "id": 2256
+    "id": 2464
   },
   {
     "generator": "math-symbolic-9-2-large-integer-addition",
@@ -37188,7 +55160,7 @@
       }
     },
     "time": 60,
-    "id": 2257
+    "id": 2465
   },
   {
     "generator": "math-symbolic-9-2-large-integer-multiplication",
@@ -37205,7 +55177,7 @@
       }
     },
     "time": "30-60 seconds",
-    "id": 2258
+    "id": 2466
   },
   {
     "generator": "math-symbolic-9-2-large-integer-subtraction",
@@ -37222,7 +55194,7 @@
       }
     },
     "time": "30",
-    "id": 2259
+    "id": 2467
   },
   {
     "generator": "math-symbolic-9-2-large-integer-subtraction",
@@ -37239,7 +55211,7 @@
       }
     },
     "time": 60,
-    "id": 2260
+    "id": 2468
   },
   {
     "generator": "math-symbolic-9-2-lever-fulcrum-weight",
@@ -37256,7 +55228,7 @@
       }
     },
     "time": 60,
-    "id": 2261
+    "id": 2469
   },
   {
     "generator": "math-symbolic-9-2-mass",
@@ -37273,7 +55245,7 @@
       }
     },
     "time": 30,
-    "id": 2262
+    "id": 2470
   },
   {
     "generator": "math-symbolic-9-2-probability",
@@ -37290,7 +55262,7 @@
       }
     },
     "time": 60,
-    "id": 2263
+    "id": 2471
   },
   {
     "generator": "math-symbolic-9-2-probability",
@@ -37307,7 +55279,7 @@
       }
     },
     "time": 60,
-    "id": 2264
+    "id": 2472
   },
   {
     "generator": "math-symbolic-9-2-probability",
@@ -37324,7 +55296,7 @@
       }
     },
     "time": 60,
-    "id": 2265
+    "id": 2473
   },
   {
     "generator": "math-symbolic-9-2-proportion",
@@ -37341,7 +55313,7 @@
       }
     },
     "time": 30,
-    "id": 2266
+    "id": 2474
   },
   {
     "generator": "math-symbolic-9-2-proportion",
@@ -37358,7 +55330,7 @@
       }
     },
     "time": 60,
-    "id": 2267
+    "id": 2475
   },
   {
     "generator": "math-symbolic-9-2-science",
@@ -37375,7 +55347,7 @@
       }
     },
     "time": 30,
-    "id": 2268
+    "id": 2476
   },
   {
     "generator": "math-symbolic-9-2-science",
@@ -37392,7 +55364,7 @@
       }
     },
     "time": 60,
-    "id": 2269
+    "id": 2477
   },
   {
     "generator": "math-symbolic-9-2-slice-of-life",
@@ -37409,7 +55381,7 @@
       }
     },
     "time": 30,
-    "id": 2270
+    "id": 2478
   },
   {
     "generator": "math-symbolic-9-2-slice-of-life",
@@ -37426,7 +55398,7 @@
       }
     },
     "time": 60,
-    "id": 2271
+    "id": 2479
   },
   {
     "generator": "math-symbolic-9-2-speed",
@@ -37443,7 +55415,7 @@
       }
     },
     "time": 60,
-    "id": 2272
+    "id": 2480
   },
   {
     "generator": "math-symbolic-9-2-speed",
@@ -37460,7 +55432,7 @@
       }
     },
     "time": 60,
-    "id": 2273
+    "id": 2481
   },
   {
     "generator": "math-symbolic-9-2-speed",
@@ -37477,7 +55449,7 @@
       }
     },
     "time": 60,
-    "id": 2274
+    "id": 2482
   },
   {
     "generator": "math-symbolic-9-2-travel",
@@ -37494,7 +55466,7 @@
       }
     },
     "time": 60,
-    "id": 2275
+    "id": 2483
   },
   {
     "generator": "math-symbolic-9-2-work",
@@ -37511,7 +55483,7 @@
       }
     },
     "time": 60,
-    "id": 2276
+    "id": 2484
   },
   {
     "generator": "math-word-2-1-large-integer-subtraction",
@@ -37526,7 +55498,7 @@
       }
     },
     "time": 10,
-    "id": 2277
+    "id": 2485
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
@@ -37543,7 +55515,7 @@
       }
     },
     "time": 60,
-    "id": 2278
+    "id": 2486
   },
   {
     "generator": "math-word-2-2-large-integer-multiplication",
@@ -37560,7 +55532,7 @@
       }
     },
     "time": 30,
-    "id": 2279
+    "id": 2487
   },
   {
     "generator": "math-word-4-1-geometry",
@@ -37575,7 +55547,7 @@
       }
     },
     "time": 15,
-    "id": 2280
+    "id": 2488
   },
   {
     "generator": "math-word-4-1-geometry",
@@ -37590,7 +55562,7 @@
       }
     },
     "time": 15,
-    "id": 2281
+    "id": 2489
   },
   {
     "generator": "math-word-4-1-geometry",
@@ -37605,7 +55577,7 @@
       }
     },
     "time": 15,
-    "id": 2282
+    "id": 2490
   },
   {
     "generator": "math-word-4-1-geometry",
@@ -37620,7 +55592,7 @@
       }
     },
     "time": 15,
-    "id": 2283
+    "id": 2491
   },
   {
     "generator": "math-word-4-1-large-integer-addition",
@@ -37635,7 +55607,7 @@
       }
     },
     "time": 10,
-    "id": 2284
+    "id": 2492
   },
   {
     "generator": "math-word-4-1-large-integer-division",
@@ -37650,7 +55622,7 @@
       }
     },
     "time": 15,
-    "id": 2285
+    "id": 2493
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
@@ -37665,7 +55637,7 @@
       }
     },
     "time": 10,
-    "id": 2286
+    "id": 2494
   },
   {
     "generator": "math-word-4-1-large-integer-multiplication",
@@ -37680,7 +55652,7 @@
       }
     },
     "time": 15,
-    "id": 2287
+    "id": 2495
   },
   {
     "generator": "math-word-4-1-mass",
@@ -37695,7 +55667,7 @@
       }
     },
     "time": 15,
-    "id": 2288
+    "id": 2496
   },
   {
     "generator": "math-word-4-1-proportion",
@@ -37710,7 +55682,7 @@
       }
     },
     "time": 20,
-    "id": 2289
+    "id": 2497
   },
   {
     "generator": "math-word-4-1-reality",
@@ -37725,7 +55697,7 @@
       }
     },
     "time": 10,
-    "id": 2290
+    "id": 2498
   },
   {
     "generator": "math-word-4-1-reality",
@@ -37740,7 +55712,7 @@
       }
     },
     "time": 15,
-    "id": 2291
+    "id": 2499
   },
   {
     "generator": "math-word-4-1-science",
@@ -37755,7 +55727,7 @@
       }
     },
     "time": 15,
-    "id": 2292
+    "id": 2500
   },
   {
     "generator": "math-word-4-1-science",
@@ -37770,7 +55742,7 @@
       }
     },
     "time": 15,
-    "id": 2293
+    "id": 2501
   },
   {
     "generator": "math-word-4-1-slice-of-life",
@@ -37785,7 +55757,7 @@
       }
     },
     "time": 10,
-    "id": 2294
+    "id": 2502
   },
   {
     "generator": "math-word-4-1-space",
@@ -37800,7 +55772,7 @@
       }
     },
     "time": 15,
-    "id": 2295
+    "id": 2503
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -37815,7 +55787,7 @@
       }
     },
     "time": 15,
-    "id": 2296
+    "id": 2504
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -37830,7 +55802,7 @@
       }
     },
     "time": 10,
-    "id": 2297
+    "id": 2505
   },
   {
     "generator": "math-word-4-1-system-of-equations",
@@ -37845,7 +55817,7 @@
       }
     },
     "time": 15,
-    "id": 2298
+    "id": 2506
   },
   {
     "generator": "math-word-4-1-travel",
@@ -37860,7 +55832,7 @@
       }
     },
     "time": 15,
-    "id": 2299
+    "id": 2507
   },
   {
     "generator": "math-word-4-1-travel",
@@ -37875,7 +55847,7 @@
       }
     },
     "time": 15,
-    "id": 2300
+    "id": 2508
   },
   {
     "generator": "math-word-4-1-travel",
@@ -37890,7 +55862,7 @@
       }
     },
     "time": 10,
-    "id": 2301
+    "id": 2509
   },
   {
     "generator": "math-word-4-2-distance",
@@ -37907,7 +55879,7 @@
       }
     },
     "time": 60,
-    "id": 2302
+    "id": 2510
   },
   {
     "generator": "math-word-4-2-fraction-subtraction",
@@ -37924,7 +55896,7 @@
       }
     },
     "time": 60,
-    "id": 2303
+    "id": 2511
   },
   {
     "generator": "math-word-4-2-geometry",
@@ -37941,7 +55913,7 @@
       }
     },
     "time": 60,
-    "id": 2304
+    "id": 2512
   },
   {
     "generator": "math-word-4-2-geometry",
@@ -37958,7 +55930,7 @@
       }
     },
     "time": 60,
-    "id": 2305
+    "id": 2513
   },
   {
     "generator": "math-word-4-2-large-integer-addition",
@@ -37975,7 +55947,7 @@
       }
     },
     "time": 60,
-    "id": 2306
+    "id": 2514
   },
   {
     "generator": "math-word-4-2-large-integer-division",
@@ -37992,7 +55964,7 @@
       }
     },
     "time": 60,
-    "id": 2307
+    "id": 2515
   },
   {
     "generator": "math-word-4-2-large-integer-multiplication",
@@ -38009,7 +55981,7 @@
       }
     },
     "time": 60,
-    "id": 2308
+    "id": 2516
   },
   {
     "generator": "math-word-4-2-probability",
@@ -38026,7 +55998,7 @@
       }
     },
     "time": 30,
-    "id": 2309
+    "id": 2517
   },
   {
     "generator": "math-word-4-2-proportion",
@@ -38043,7 +56015,7 @@
       }
     },
     "time": 60,
-    "id": 2310
+    "id": 2518
   },
   {
     "generator": "math-word-4-2-proportion",
@@ -38060,7 +56032,7 @@
       }
     },
     "time": 60,
-    "id": 2311
+    "id": 2519
   },
   {
     "generator": "math-word-4-2-reality",
@@ -38077,7 +56049,7 @@
       }
     },
     "time": 30,
-    "id": 2312
+    "id": 2520
   },
   {
     "generator": "math-word-4-2-reality",
@@ -38094,7 +56066,7 @@
       }
     },
     "time": 30,
-    "id": 2313
+    "id": 2521
   },
   {
     "generator": "math-word-4-2-space",
@@ -38111,7 +56083,7 @@
       }
     },
     "time": 60,
-    "id": 2314
+    "id": 2522
   },
   {
     "generator": "math-word-4-2-speed",
@@ -38128,7 +56100,7 @@
       }
     },
     "time": 45,
-    "id": 2315
+    "id": 2523
   },
   {
     "generator": "math-word-4-2-work",
@@ -38145,7 +56117,7 @@
       }
     },
     "time": 60,
-    "id": 2316
+    "id": 2524
   },
   {
     "generator": "math-word-5-1-distance",
@@ -38160,7 +56132,7 @@
       }
     },
     "time": 15,
-    "id": 2317
+    "id": 2525
   },
   {
     "generator": "math-word-5-1-fraction-subtraction",
@@ -38175,7 +56147,7 @@
       }
     },
     "time": 15,
-    "id": 2318
+    "id": 2526
   },
   {
     "generator": "math-word-5-1-geometry",
@@ -38190,7 +56162,7 @@
       }
     },
     "time": 15,
-    "id": 2319
+    "id": 2527
   },
   {
     "generator": "math-word-5-1-geometry",
@@ -38205,7 +56177,7 @@
       }
     },
     "time": 10,
-    "id": 2320
+    "id": 2528
   },
   {
     "generator": "math-word-5-1-large-integer-division",
@@ -38220,7 +56192,7 @@
       }
     },
     "time": 15,
-    "id": 2321
+    "id": 2529
   },
   {
     "generator": "math-word-5-1-large-integer-division",
@@ -38235,7 +56207,7 @@
       }
     },
     "time": 10,
-    "id": 2322
+    "id": 2530
   },
   {
     "generator": "math-word-5-1-large-integer-multiplication",
@@ -38250,7 +56222,7 @@
       }
     },
     "time": 15,
-    "id": 2323
+    "id": 2531
   },
   {
     "generator": "math-word-5-1-probability",
@@ -38265,7 +56237,7 @@
       }
     },
     "time": 20,
-    "id": 2324
+    "id": 2532
   },
   {
     "generator": "math-word-5-1-proportion",
@@ -38280,7 +56252,7 @@
       }
     },
     "time": 30,
-    "id": 2325
+    "id": 2533
   },
   {
     "generator": "math-word-5-1-reality",
@@ -38295,7 +56267,7 @@
       }
     },
     "time": 30,
-    "id": 2326
+    "id": 2534
   },
   {
     "generator": "math-word-5-1-slice-of-life",
@@ -38310,7 +56282,7 @@
       }
     },
     "time": 15,
-    "id": 2327
+    "id": 2535
   },
   {
     "generator": "math-word-5-1-slice-of-life",
@@ -38325,7 +56297,7 @@
       }
     },
     "time": 15,
-    "id": 2328
+    "id": 2536
   },
   {
     "generator": "math-word-5-1-space",
@@ -38340,7 +56312,7 @@
       }
     },
     "time": 15,
-    "id": 2329
+    "id": 2537
   },
   {
     "generator": "math-word-5-1-space",
@@ -38355,7 +56327,7 @@
       }
     },
     "time": 15,
-    "id": 2330
+    "id": 2538
   },
   {
     "generator": "math-word-5-1-space",
@@ -38370,7 +56342,7 @@
       }
     },
     "time": 15,
-    "id": 2331
+    "id": 2539
   },
   {
     "generator": "math-word-5-1-speed",
@@ -38385,7 +56357,7 @@
       }
     },
     "time": 15,
-    "id": 2332
+    "id": 2540
   },
   {
     "generator": "math-word-5-2-fraction-subtraction",
@@ -38402,7 +56374,7 @@
       }
     },
     "time": 60,
-    "id": 2333
+    "id": 2541
   },
   {
     "generator": "math-word-5-2-geometry",
@@ -38419,7 +56391,7 @@
       }
     },
     "time": 60,
-    "id": 2334
+    "id": 2542
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
@@ -38436,7 +56408,7 @@
       }
     },
     "time": 60,
-    "id": 2335
+    "id": 2543
   },
   {
     "generator": "math-word-5-2-large-integer-addition",
@@ -38453,7 +56425,7 @@
       }
     },
     "time": 60,
-    "id": 2336
+    "id": 2544
   },
   {
     "generator": "math-word-5-2-large-integer-subtraction",
@@ -38470,7 +56442,7 @@
       }
     },
     "time": 60,
-    "id": 2337
+    "id": 2545
   },
   {
     "generator": "math-word-5-2-large-integer-subtraction",
@@ -38487,7 +56459,7 @@
       }
     },
     "time": 30,
-    "id": 2338
+    "id": 2546
   },
   {
     "generator": "math-word-5-2-lever-fulcrum-weight",
@@ -38504,7 +56476,7 @@
       }
     },
     "time": 60,
-    "id": 2339
+    "id": 2547
   },
   {
     "generator": "math-word-5-2-probability",
@@ -38521,7 +56493,7 @@
       }
     },
     "time": 60,
-    "id": 2340
+    "id": 2548
   },
   {
     "generator": "math-word-5-2-probability",
@@ -38538,7 +56510,7 @@
       }
     },
     "time": 60,
-    "id": 2341
+    "id": 2549
   },
   {
     "generator": "math-word-5-2-probability",
@@ -38555,7 +56527,7 @@
       }
     },
     "time": 60,
-    "id": 2342
+    "id": 2550
   },
   {
     "generator": "math-word-5-2-proportion",
@@ -38572,7 +56544,7 @@
       }
     },
     "time": 60,
-    "id": 2343
+    "id": 2551
   },
   {
     "generator": "math-word-5-2-reality",
@@ -38589,7 +56561,7 @@
       }
     },
     "time": 30,
-    "id": 2344
+    "id": 2552
   },
   {
     "generator": "math-word-5-2-reality",
@@ -38606,7 +56578,7 @@
       }
     },
     "time": 60,
-    "id": 2345
+    "id": 2553
   },
   {
     "generator": "math-word-5-2-speed",
@@ -38623,7 +56595,7 @@
       }
     },
     "time": 30,
-    "id": 2346
+    "id": 2554
   },
   {
     "generator": "math-word-5-2-travel",
@@ -38640,7 +56612,7 @@
       }
     },
     "time": 60,
-    "id": 2347
+    "id": 2555
   },
   {
     "generator": "math-word-5-2-work",
@@ -38657,7 +56629,7 @@
       }
     },
     "time": 60,
-    "id": 2348
+    "id": 2556
   },
   {
     "generator": "math-word-5-2-work",
@@ -38674,7 +56646,7 @@
       }
     },
     "time": 60,
-    "id": 2349
+    "id": 2557
   },
   {
     "generator": "math-word-6-1-large-integer-addition",
@@ -38689,7 +56661,7 @@
       }
     },
     "time": 15,
-    "id": 2350
+    "id": 2558
   },
   {
     "generator": "math-word-6-1-large-integer-addition",
@@ -38704,7 +56676,7 @@
       }
     },
     "time": 15,
-    "id": 2351
+    "id": 2559
   },
   {
     "generator": "math-word-6-1-large-integer-subtraction",
@@ -38719,7 +56691,7 @@
       }
     },
     "time": 15,
-    "id": 2352
+    "id": 2560
   },
   {
     "generator": "math-word-6-1-mass",
@@ -38734,7 +56706,7 @@
       }
     },
     "time": 10,
-    "id": 2353
+    "id": 2561
   },
   {
     "generator": "math-word-6-1-mass",
@@ -38749,7 +56721,7 @@
       }
     },
     "time": 15,
-    "id": 2354
+    "id": 2562
   },
   {
     "generator": "math-word-6-1-science",
@@ -38764,7 +56736,7 @@
       }
     },
     "time": 15,
-    "id": 2355
+    "id": 2563
   },
   {
     "generator": "math-word-6-1-slice-of-life",
@@ -38779,7 +56751,7 @@
       }
     },
     "time": 10,
-    "id": 2356
+    "id": 2564
   },
   {
     "generator": "math-word-6-1-slice-of-life",
@@ -38794,7 +56766,7 @@
       }
     },
     "time": 15,
-    "id": 2357
+    "id": 2565
   },
   {
     "generator": "math-word-6-1-speed",
@@ -38809,7 +56781,7 @@
       }
     },
     "time": 15,
-    "id": 2358
+    "id": 2566
   },
   {
     "generator": "math-word-6-1-travel",
@@ -38824,7 +56796,7 @@
       }
     },
     "time": 15,
-    "id": 2359
+    "id": 2567
   },
   {
     "generator": "math-word-6-1-travel",
@@ -38839,7 +56811,7 @@
       }
     },
     "time": 10,
-    "id": 2360
+    "id": 2568
   },
   {
     "generator": "math-word-6-1-work",
@@ -38854,7 +56826,7 @@
       }
     },
     "time": 15,
-    "id": 2361
+    "id": 2569
   },
   {
     "generator": "math-word-6-1-work",
@@ -38869,7 +56841,7 @@
       }
     },
     "time": 15,
-    "id": 2362
+    "id": 2570
   },
   {
     "generator": "math-word-6-2-distance",
@@ -38886,7 +56858,7 @@
       }
     },
     "time": 60,
-    "id": 2363
+    "id": 2571
   },
   {
     "generator": "math-word-6-2-distance",
@@ -38903,7 +56875,7 @@
       }
     },
     "time": 60,
-    "id": 2364
+    "id": 2572
   },
   {
     "generator": "math-word-6-2-fraction-subtraction",
@@ -38920,7 +56892,7 @@
       }
     },
     "time": 60,
-    "id": 2365
+    "id": 2573
   },
   {
     "generator": "math-word-6-2-fraction-subtraction",
@@ -38937,7 +56909,7 @@
       }
     },
     "time": 60,
-    "id": 2366
+    "id": 2574
   },
   {
     "generator": "math-word-6-2-geometry",
@@ -38954,7 +56926,7 @@
       }
     },
     "time": 60,
-    "id": 2367
+    "id": 2575
   },
   {
     "generator": "math-word-6-2-large-integer-addition",
@@ -38971,7 +56943,7 @@
       }
     },
     "time": 60,
-    "id": 2368
+    "id": 2576
   },
   {
     "generator": "math-word-6-2-large-integer-division",
@@ -38988,7 +56960,7 @@
       }
     },
     "time": 60,
-    "id": 2369
+    "id": 2577
   },
   {
     "generator": "math-word-6-2-large-integer-division",
@@ -39005,7 +56977,7 @@
       }
     },
     "time": 30,
-    "id": 2370
+    "id": 2578
   },
   {
     "generator": "math-word-6-2-lever-fulcrum-weight",
@@ -39022,7 +56994,7 @@
       }
     },
     "time": 120,
-    "id": 2371
+    "id": 2579
   },
   {
     "generator": "math-word-6-2-mass",
@@ -39039,7 +57011,7 @@
       }
     },
     "time": 60,
-    "id": 2372
+    "id": 2580
   },
   {
     "generator": "math-word-6-2-probability",
@@ -39056,7 +57028,7 @@
       }
     },
     "time": 60,
-    "id": 2373
+    "id": 2581
   },
   {
     "generator": "math-word-6-2-probability",
@@ -39073,7 +57045,7 @@
       }
     },
     "time": 60,
-    "id": 2374
+    "id": 2582
   },
   {
     "generator": "math-word-6-2-proportion",
@@ -39090,7 +57062,7 @@
       }
     },
     "time": 60,
-    "id": 2375
+    "id": 2583
   },
   {
     "generator": "math-word-6-2-reality",
@@ -39107,7 +57079,7 @@
       }
     },
     "time": 60,
-    "id": 2376
+    "id": 2584
   },
   {
     "generator": "math-word-6-2-speed",
@@ -39124,7 +57096,7 @@
       }
     },
     "time": 60,
-    "id": 2377
+    "id": 2585
   },
   {
     "generator": "math-word-6-2-speed",
@@ -39141,7 +57113,7 @@
       }
     },
     "time": 60,
-    "id": 2378
+    "id": 2586
   },
   {
     "generator": "math-word-6-2-speed",
@@ -39158,7 +57130,7 @@
       }
     },
     "time": 30,
-    "id": 2379
+    "id": 2587
   },
   {
     "generator": "math-word-6-2-system-of-equations",
@@ -39175,7 +57147,7 @@
       }
     },
     "time": 60,
-    "id": 2380
+    "id": 2588
   },
   {
     "generator": "math-word-6-2-travel",
@@ -39192,7 +57164,7 @@
       }
     },
     "time": 30,
-    "id": 2381
+    "id": 2589
   },
   {
     "generator": "math-word-7-1-fraction-subtraction",
@@ -39207,7 +57179,7 @@
       }
     },
     "time": 30,
-    "id": 2382
+    "id": 2590
   },
   {
     "generator": "math-word-7-1-geometry",
@@ -39222,7 +57194,7 @@
       }
     },
     "time": 15,
-    "id": 2383
+    "id": 2591
   },
   {
     "generator": "math-word-7-1-large-integer-multiplication",
@@ -39237,7 +57209,7 @@
       }
     },
     "time": 10,
-    "id": 2384
+    "id": 2592
   },
   {
     "generator": "math-word-7-1-large-integer-multiplication",
@@ -39252,7 +57224,7 @@
       }
     },
     "time": 10,
-    "id": 2385
+    "id": 2593
   },
   {
     "generator": "math-word-7-1-lever-fulcrum-weight",
@@ -39267,7 +57239,7 @@
       }
     },
     "time": 10,
-    "id": 2386
+    "id": 2594
   },
   {
     "generator": "math-word-7-1-lever-fulcrum-weight",
@@ -39282,7 +57254,7 @@
       }
     },
     "time": 20,
-    "id": 2387
+    "id": 2595
   },
   {
     "generator": "math-word-7-1-proportion",
@@ -39297,7 +57269,7 @@
       }
     },
     "time": 15,
-    "id": 2388
+    "id": 2596
   },
   {
     "generator": "math-word-7-1-proportion",
@@ -39312,7 +57284,7 @@
       }
     },
     "time": "15",
-    "id": 2389
+    "id": 2597
   },
   {
     "generator": "math-word-7-1-proportion",
@@ -39327,7 +57299,7 @@
       }
     },
     "time": 15,
-    "id": 2390
+    "id": 2598
   },
   {
     "generator": "math-word-7-1-reality",
@@ -39342,7 +57314,7 @@
       }
     },
     "time": 15,
-    "id": 2391
+    "id": 2599
   },
   {
     "generator": "math-word-7-1-reality",
@@ -39357,7 +57329,7 @@
       }
     },
     "time": 15,
-    "id": 2392
+    "id": 2600
   },
   {
     "generator": "math-word-7-1-science",
@@ -39372,7 +57344,7 @@
       }
     },
     "time": 10,
-    "id": 2393
+    "id": 2601
   },
   {
     "generator": "math-word-7-1-slice-of-life",
@@ -39387,7 +57359,7 @@
       }
     },
     "time": 15,
-    "id": 2394
+    "id": 2602
   },
   {
     "generator": "math-word-7-1-speed",
@@ -39402,7 +57374,7 @@
       }
     },
     "time": 15,
-    "id": 2395
+    "id": 2603
   },
   {
     "generator": "math-word-7-1-speed",
@@ -39417,7 +57389,7 @@
       }
     },
     "time": 15,
-    "id": 2396
+    "id": 2604
   },
   {
     "generator": "math-word-7-1-travel",
@@ -39432,7 +57404,7 @@
       }
     },
     "time": 15,
-    "id": 2397
+    "id": 2605
   },
   {
     "generator": "math-word-7-2-distance",
@@ -39449,7 +57421,7 @@
       }
     },
     "time": 60,
-    "id": 2398
+    "id": 2606
   },
   {
     "generator": "math-word-7-2-fraction-subtraction",
@@ -39466,7 +57438,7 @@
       }
     },
     "time": 60,
-    "id": 2399
+    "id": 2607
   },
   {
     "generator": "math-word-7-2-geometry",
@@ -39483,7 +57455,7 @@
       }
     },
     "time": 60,
-    "id": 2400
+    "id": 2608
   },
   {
     "generator": "math-word-7-2-mass",
@@ -39500,7 +57472,7 @@
       }
     },
     "time": 60,
-    "id": 2401
+    "id": 2609
   },
   {
     "generator": "math-word-7-2-mass",
@@ -39517,7 +57489,7 @@
       }
     },
     "time": 60,
-    "id": 2402
+    "id": 2610
   },
   {
     "generator": "math-word-7-2-mass",
@@ -39534,7 +57506,7 @@
       }
     },
     "time": 60,
-    "id": 2403
+    "id": 2611
   },
   {
     "generator": "math-word-7-2-probability",
@@ -39551,7 +57523,7 @@
       }
     },
     "time": 60,
-    "id": 2404
+    "id": 2612
   },
   {
     "generator": "math-word-7-2-probability",
@@ -39568,7 +57540,7 @@
       }
     },
     "time": 60,
-    "id": 2405
+    "id": 2613
   },
   {
     "generator": "math-word-7-2-science",
@@ -39585,7 +57557,7 @@
       }
     },
     "time": 30,
-    "id": 2406
+    "id": 2614
   },
   {
     "generator": "math-word-7-2-space",
@@ -39602,7 +57574,7 @@
       }
     },
     "time": 60,
-    "id": 2407
+    "id": 2615
   },
   {
     "generator": "math-word-7-2-space",
@@ -39619,7 +57591,7 @@
       }
     },
     "time": "60",
-    "id": 2408
+    "id": 2616
   },
   {
     "generator": "math-word-7-2-speed",
@@ -39636,7 +57608,7 @@
       }
     },
     "time": 60,
-    "id": 2409
+    "id": 2617
   },
   {
     "generator": "math-word-7-2-speed",
@@ -39653,7 +57625,7 @@
       }
     },
     "time": 60,
-    "id": 2410
+    "id": 2618
   },
   {
     "generator": "math-word-8-1-distance",
@@ -39668,7 +57640,7 @@
       }
     },
     "time": 15,
-    "id": 2411
+    "id": 2619
   },
   {
     "generator": "math-word-8-1-fraction-subtraction",
@@ -39683,7 +57655,7 @@
       }
     },
     "time": 30,
-    "id": 2412
+    "id": 2620
   },
   {
     "generator": "math-word-8-1-geometry",
@@ -39698,7 +57670,7 @@
       }
     },
     "time": 15,
-    "id": 2413
+    "id": 2621
   },
   {
     "generator": "math-word-8-1-geometry",
@@ -39713,7 +57685,7 @@
       }
     },
     "time": 10,
-    "id": 2414
+    "id": 2622
   },
   {
     "generator": "math-word-8-1-geometry",
@@ -39728,7 +57700,7 @@
       }
     },
     "time": 15,
-    "id": 2415
+    "id": 2623
   },
   {
     "generator": "math-word-8-1-large-integer-addition",
@@ -39743,7 +57715,7 @@
       }
     },
     "time": 10,
-    "id": 2416
+    "id": 2624
   },
   {
     "generator": "math-word-8-1-large-integer-division",
@@ -39758,7 +57730,7 @@
       }
     },
     "time": 10,
-    "id": 2417
+    "id": 2625
   },
   {
     "generator": "math-word-8-1-large-integer-multiplication",
@@ -39773,7 +57745,7 @@
       }
     },
     "time": 10,
-    "id": 2418
+    "id": 2626
   },
   {
     "generator": "math-word-8-1-large-integer-multiplication",
@@ -39788,7 +57760,7 @@
       }
     },
     "time": 15,
-    "id": 2419
+    "id": 2627
   },
   {
     "generator": "math-word-8-1-lever-fulcrum-weight",
@@ -39803,7 +57775,7 @@
       }
     },
     "time": 10,
-    "id": 2420
+    "id": 2628
   },
   {
     "generator": "math-word-8-1-mass",
@@ -39818,7 +57790,7 @@
       }
     },
     "time": 15,
-    "id": 2421
+    "id": 2629
   },
   {
     "generator": "math-word-8-1-probability",
@@ -39833,7 +57805,7 @@
       }
     },
     "time": 30,
-    "id": 2422
+    "id": 2630
   },
   {
     "generator": "math-word-8-1-probability",
@@ -39848,7 +57820,7 @@
       }
     },
     "time": 15,
-    "id": 2423
+    "id": 2631
   },
   {
     "generator": "math-word-8-1-reality",
@@ -39863,7 +57835,7 @@
       }
     },
     "time": 15,
-    "id": 2424
+    "id": 2632
   },
   {
     "generator": "math-word-8-1-reality",
@@ -39878,7 +57850,7 @@
       }
     },
     "time": 15,
-    "id": 2425
+    "id": 2633
   },
   {
     "generator": "math-word-8-1-science",
@@ -39893,7 +57865,7 @@
       }
     },
     "time": 10,
-    "id": 2426
+    "id": 2634
   },
   {
     "generator": "math-word-8-1-slice-of-life",
@@ -39908,7 +57880,7 @@
       }
     },
     "time": 15,
-    "id": 2427
+    "id": 2635
   },
   {
     "generator": "math-word-8-1-slice-of-life",
@@ -39923,7 +57895,7 @@
       }
     },
     "time": 10,
-    "id": 2428
+    "id": 2636
   },
   {
     "generator": "math-word-8-1-speed",
@@ -39938,7 +57910,7 @@
       }
     },
     "time": 15,
-    "id": 2429
+    "id": 2637
   },
   {
     "generator": "math-word-8-1-system-of-equations",
@@ -39953,7 +57925,7 @@
       }
     },
     "time": 15,
-    "id": 2430
+    "id": 2638
   },
   {
     "generator": "math-word-8-1-work",
@@ -39968,7 +57940,7 @@
       }
     },
     "time": 15,
-    "id": 2431
+    "id": 2639
   },
   {
     "generator": "math-word-8-1-work",
@@ -39983,7 +57955,7 @@
       }
     },
     "time": 15,
-    "id": 2432
+    "id": 2640
   },
   {
     "generator": "math-word-8-2-fraction-subtraction",
@@ -40000,7 +57972,7 @@
       }
     },
     "time": 60,
-    "id": 2433
+    "id": 2641
   },
   {
     "generator": "math-word-8-2-large-integer-division",
@@ -40017,7 +57989,7 @@
       }
     },
     "time": 60,
-    "id": 2434
+    "id": 2642
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
@@ -40034,7 +58006,7 @@
       }
     },
     "time": "60",
-    "id": 2435
+    "id": 2643
   },
   {
     "generator": "math-word-8-2-lever-fulcrum-weight",
@@ -40051,7 +58023,7 @@
       }
     },
     "time": 60,
-    "id": 2436
+    "id": 2644
   },
   {
     "generator": "math-word-8-2-mass",
@@ -40068,7 +58040,7 @@
       }
     },
     "time": 60,
-    "id": 2437
+    "id": 2645
   },
   {
     "generator": "math-word-8-2-slice-of-life",
@@ -40085,7 +58057,7 @@
       }
     },
     "time": 60,
-    "id": 2438
+    "id": 2646
   },
   {
     "generator": "math-word-8-2-speed",
@@ -40102,7 +58074,7 @@
       }
     },
     "time": 30,
-    "id": 2439
+    "id": 2647
   },
   {
     "generator": "math-word-8-2-speed",
@@ -40119,7 +58091,7 @@
       }
     },
     "time": 30,
-    "id": 2440
+    "id": 2648
   },
   {
     "generator": "math-word-8-2-speed",
@@ -40136,7 +58108,7 @@
       }
     },
     "time": 60,
-    "id": 2441
+    "id": 2649
   },
   {
     "generator": "math-word-8-2-system-of-equations",
@@ -40153,7 +58125,7 @@
       }
     },
     "time": 15,
-    "id": 2442
+    "id": 2650
   },
   {
     "generator": "math-word-8-2-work",
@@ -40170,7 +58142,7 @@
       }
     },
     "time": 60,
-    "id": 2443
+    "id": 2651
   },
   {
     "generator": "math-word-8-2-work",
@@ -40187,7 +58159,7 @@
       }
     },
     "time": 60,
-    "id": 2444
+    "id": 2652
   },
   {
     "generator": "math-word-9-1-fraction-subtraction",
@@ -40202,7 +58174,7 @@
       }
     },
     "time": 15,
-    "id": 2445
+    "id": 2653
   },
   {
     "generator": "math-word-9-1-geometry",
@@ -40217,7 +58189,7 @@
       }
     },
     "time": 15,
-    "id": 2446
+    "id": 2654
   },
   {
     "generator": "math-word-9-1-geometry",
@@ -40232,7 +58204,7 @@
       }
     },
     "time": 15,
-    "id": 2447
+    "id": 2655
   },
   {
     "generator": "math-word-9-1-large-integer-addition",
@@ -40247,7 +58219,7 @@
       }
     },
     "time": 10,
-    "id": 2448
+    "id": 2656
   },
   {
     "generator": "math-word-9-1-large-integer-subtraction",
@@ -40262,7 +58234,7 @@
       }
     },
     "time": 10,
-    "id": 2449
+    "id": 2657
   },
   {
     "generator": "math-word-9-1-lever-fulcrum-weight",
@@ -40277,7 +58249,7 @@
       }
     },
     "time": 10,
-    "id": 2450
+    "id": 2658
   },
   {
     "generator": "math-word-9-1-mass",
@@ -40292,7 +58264,7 @@
       }
     },
     "time": 15,
-    "id": 2451
+    "id": 2659
   },
   {
     "generator": "math-word-9-1-science",
@@ -40307,7 +58279,7 @@
       }
     },
     "time": 15,
-    "id": 2452
+    "id": 2660
   },
   {
     "generator": "math-word-9-1-slice-of-life",
@@ -40322,7 +58294,7 @@
       }
     },
     "time": 10,
-    "id": 2453
+    "id": 2661
   },
   {
     "generator": "math-word-9-1-slice-of-life",
@@ -40337,7 +58309,7 @@
       }
     },
     "time": 15,
-    "id": 2454
+    "id": 2662
   },
   {
     "generator": "math-word-9-1-slice-of-life",
@@ -40352,7 +58324,7 @@
       }
     },
     "time": 15,
-    "id": 2455
+    "id": 2663
   },
   {
     "generator": "math-word-9-1-space",
@@ -40367,7 +58339,7 @@
       }
     },
     "time": 5,
-    "id": 2456
+    "id": 2664
   },
   {
     "generator": "math-word-9-1-space",
@@ -40382,7 +58354,7 @@
       }
     },
     "time": 10,
-    "id": 2457
+    "id": 2665
   },
   {
     "generator": "math-word-9-1-system-of-equations",
@@ -40397,7 +58369,7 @@
       }
     },
     "time": 15,
-    "id": 2458
+    "id": 2666
   },
   {
     "generator": "math-word-9-1-system-of-equations",
@@ -40412,7 +58384,7 @@
       }
     },
     "time": 15,
-    "id": 2459
+    "id": 2667
   },
   {
     "generator": "math-word-9-1-system-of-equations",
@@ -40427,7 +58399,7 @@
       }
     },
     "time": 10,
-    "id": 2460
+    "id": 2668
   },
   {
     "generator": "math-word-9-1-travel",
@@ -40442,7 +58414,7 @@
       }
     },
     "time": 15,
-    "id": 2461
+    "id": 2669
   },
   {
     "generator": "math-word-9-2-distance",
@@ -40459,7 +58431,7 @@
       }
     },
     "time": 60,
-    "id": 2462
+    "id": 2670
   },
   {
     "generator": "math-word-9-2-fraction-subtraction",
@@ -40476,7 +58448,7 @@
       }
     },
     "time": 60,
-    "id": 2463
+    "id": 2671
   },
   {
     "generator": "math-word-9-2-large-integer-addition",
@@ -40493,7 +58465,7 @@
       }
     },
     "time": 60,
-    "id": 2464
+    "id": 2672
   },
   {
     "generator": "math-word-9-2-large-integer-multiplication",
@@ -40510,7 +58482,7 @@
       }
     },
     "time": "30-60 seconds",
-    "id": 2465
+    "id": 2673
   },
   {
     "generator": "math-word-9-2-large-integer-subtraction",
@@ -40527,7 +58499,7 @@
       }
     },
     "time": "30",
-    "id": 2466
+    "id": 2674
   },
   {
     "generator": "math-word-9-2-large-integer-subtraction",
@@ -40544,7 +58516,7 @@
       }
     },
     "time": 60,
-    "id": 2467
+    "id": 2675
   },
   {
     "generator": "math-word-9-2-lever-fulcrum-weight",
@@ -40561,7 +58533,7 @@
       }
     },
     "time": 60,
-    "id": 2468
+    "id": 2676
   },
   {
     "generator": "math-word-9-2-mass",
@@ -40578,7 +58550,7 @@
       }
     },
     "time": 30,
-    "id": 2469
+    "id": 2677
   },
   {
     "generator": "math-word-9-2-probability",
@@ -40595,7 +58567,7 @@
       }
     },
     "time": 60,
-    "id": 2470
+    "id": 2678
   },
   {
     "generator": "math-word-9-2-probability",
@@ -40612,7 +58584,7 @@
       }
     },
     "time": 60,
-    "id": 2471
+    "id": 2679
   },
   {
     "generator": "math-word-9-2-probability",
@@ -40629,7 +58601,7 @@
       }
     },
     "time": 60,
-    "id": 2472
+    "id": 2680
   },
   {
     "generator": "math-word-9-2-proportion",
@@ -40646,7 +58618,7 @@
       }
     },
     "time": 30,
-    "id": 2473
+    "id": 2681
   },
   {
     "generator": "math-word-9-2-proportion",
@@ -40663,7 +58635,7 @@
       }
     },
     "time": 60,
-    "id": 2474
+    "id": 2682
   },
   {
     "generator": "math-word-9-2-science",
@@ -40680,7 +58652,7 @@
       }
     },
     "time": 30,
-    "id": 2475
+    "id": 2683
   },
   {
     "generator": "math-word-9-2-science",
@@ -40697,7 +58669,7 @@
       }
     },
     "time": 60,
-    "id": 2476
+    "id": 2684
   },
   {
     "generator": "math-word-9-2-slice-of-life",
@@ -40714,7 +58686,7 @@
       }
     },
     "time": 30,
-    "id": 2477
+    "id": 2685
   },
   {
     "generator": "math-word-9-2-slice-of-life",
@@ -40731,7 +58703,7 @@
       }
     },
     "time": 60,
-    "id": 2478
+    "id": 2686
   },
   {
     "generator": "math-word-9-2-speed",
@@ -40748,7 +58720,7 @@
       }
     },
     "time": 60,
-    "id": 2479
+    "id": 2687
   },
   {
     "generator": "math-word-9-2-speed",
@@ -40765,7 +58737,7 @@
       }
     },
     "time": 60,
-    "id": 2480
+    "id": 2688
   },
   {
     "generator": "math-word-9-2-speed",
@@ -40782,7 +58754,7 @@
       }
     },
     "time": 60,
-    "id": 2481
+    "id": 2689
   },
   {
     "generator": "math-word-9-2-travel",
@@ -40799,7 +58771,7 @@
       }
     },
     "time": 60,
-    "id": 2482
+    "id": 2690
   },
   {
     "generator": "math-word-9-2-work",
@@ -40816,7 +58788,7 @@
       }
     },
     "time": 60,
-    "id": 2483
+    "id": 2691
   }
 ];
   

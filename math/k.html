@@ -90,6 +90,8 @@
 
     const params = new URLSearchParams(document.location.search);
     const s = decodeSignature(params);
+    let level = 1;
+    const makeGeneratorPrefix = () => `korean-story-${level}-`;
 
     const generateProblemElement = ({ id = -1, generator, problem, solution, lines = 4, tags = [], note }) => {
       const e = document.createElement('div');
@@ -129,8 +131,9 @@
       }
       let seen = 0;
       let chosenProblem;
+      const generatorPrefix = makeGeneratorPrefix();
       for (const problem of problems) {
-        if (chosen.has(problem) || problem.decision === 'reject') {
+        if (chosen.has(problem) || problem.decision === 'reject' || !problem.generator.startsWith(generatorPrefix) || problem.problem.includes('(')) {
           continue;
         }
         if (isAtUseLimit(problem)) {
@@ -216,7 +219,7 @@
 
     const renderSheet = async (sheet) => {
       const collectedProblems = [];
-      for (let nth = 0; problemCount < 5 ; nth++) {
+      for (let nth = 1; level <= 12 ; nth++) {
         const problem = chooseProblem(chosen, generatorUses, problems);
         if (problem === undefined) {
           break;
@@ -230,6 +233,7 @@
         problemByRender.set(e, problem);
         addGeneratorUses(problem.generator);
         problemCount++;
+        level += 1;
       }
     };
 
