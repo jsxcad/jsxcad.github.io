@@ -159,21 +159,11 @@
     const chosen = new Set();
     const generatorUses = new Map();
     const generatorUseLimits = {
-      'javascript-1': 1,
-      'javascript-2': 0,
-      'javascript-3': 0,
-      'javascript-4': 0,
-      'javascript-5': 0,
-      'javascript-6': 0,
-      'javascript-7': 0,
-      'javascript-8': 0,
-      'javascript-9': 0,
+      'javascript': 1,
       'arithmetic': 2,
       'math': 5,
-      'math-symbolic-1': 1,
-      'math-symbolic-2': 1,
-      'math-word-1': 1,
-      'math-word-2': 1,
+      'math-symbolic': 2,
+      'math-word': 2,
       'english': 2,
       'hanja': 1,
       'korean': 0,
@@ -231,6 +221,12 @@
           break;
         }
         target = target.parentElement;
+      }
+      switch (key) {
+        case 'x':
+          problem.decision = 'reject';
+          target.style.display = 'none';
+          break;
       }
       await saveProblem(problem);
     }, true);

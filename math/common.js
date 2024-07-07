@@ -24,9 +24,9 @@ export const loadTags = async () => {
     
 export const loadProblems = async () => {
   for (const problem of problems) {
-    problem.note = await loadNote(problem.id);
-    if (problem.note.weight === undefined) {
-      problem.note.weight = 1;
+    const loaded = await loadNote(problem.id);
+    if (loaded) {
+      Object.assign(problem, loaded);
     }
   }
   return problems;
@@ -34,10 +34,7 @@ export const loadProblems = async () => {
 
 export const saveNote = async (key, value) => IDB.set(key, value);
 
-export const saveProblem = async (problem) => {
-  // console.log(`QQ/saveProblem: ${problem.id} ${problem.note}`);
-  // saveNote(problem.id, problem.note);
-}
+export const saveProblem = async (problem) => saveNote(problem.id, problem);
 
 export const renderRuledLine = () => {
   const div = document.createElement('div');
