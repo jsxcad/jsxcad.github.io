@@ -100,6 +100,11 @@
      display: block;
      opacity: 1;
    }
+
+   div.code {
+     font-size: 0.5em;
+     font-family: monospace;
+   }
   </style>
  </head>
  <body>
@@ -168,6 +173,11 @@
       'hanja': 1,
       'korean': 0,
     };
+    /*
+    const generatorUseLimits = {
+      'javascript': 100,
+    };
+    */
 
     const expandGeneratorUses = (generator) => {
       const parts = generator.split('-');
