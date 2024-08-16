@@ -163,22 +163,21 @@
 
     const chosen = new Set();
     const generatorUses = new Map();
-    const generatorUseLimits = {
+    const generatorUseLimits = (false) ? {
       'javascript': 1,
       'arithmetic': 2,
       'math': 0,
       'english': 2,
       'hanja': 1,
       'korean': 0,
-      'algebra-symbolic-2': 2,
-      'algebra-word-2': 2,
+      // 'algebra-symbolic-2': 2,
+      // 'algebra-word-2': 2,
+      'algebra-variant-symbolic': 2,
+      'algebra-variant-word': 2,
+    } : {
+      // 'algebra-variant-symbolic': 100,
+      'algebra-variant-word': 100,
     };
-    /*
-    const generatorUseLimits = {
-      'algebra-symbolic-2': 100,
-      'algebra-word-2': 100,
-    };
-    */
 
     const expandGeneratorUses = (generator) => {
       const parts = generator.split('-');
