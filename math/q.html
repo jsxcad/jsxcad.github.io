@@ -163,6 +163,10 @@
 
     const chosen = new Set();
     const generatorUses = new Map();
+    const generatorUseLimits = {
+      'arithmetic-integer': 10000,
+    };
+    /*
     const generatorUseLimits = (false) ? {
       'javascript': 1,
       'arithmetic': 2,
@@ -178,6 +182,7 @@
       // 'algebra-variant-symbolic': 100,
       'algebra-variant-word': 100,
     };
+    */
 
     const expandGeneratorUses = (generator) => {
       const parts = generator.split('-');
