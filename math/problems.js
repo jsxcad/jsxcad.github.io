@@ -549,13 +549,6 @@
     "id": 95
   },
   {
-    "generator": "algebra-variant-word-35",
-    "problem": "3 kilograms of bone meal and 5 kilograms of compost cost 22.50 euro. 7 kilograms of bone meal and 4 kilograms of compost cost 26 euro. (a) How much does one kilogram of compost cost? (b) How much more does one kilogram of bone meal cost than one kilogram of compost?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "Let 'x' be the cost of one kilogram of bone meal and 'y' be the cost of one kilogram of compost. <br> We have the following system of equations: <br> 3x + 5y = 22.50 <br> 7x + 4y = 26 <br> Multiplying the first equation by 4 and the second equation by -5, we get: <br> 12x + 20y = 90 <br> -35x - 20y = -130 <br> Adding the two equations together, we get: <br> -23x = -40 <br> Solving for 'x', we get: <br> x = ''40/23'' <br> Substituting this value of 'x' into the first equation, we get: <br> 3(''40/23'') + 5y = 22.50 <br> Simplifying, we get: <br> 120/23 + 5y = 22.50 <br> 5y = 22.50 - 120/23 <br> y = (22.50 - 120/23) / 5 <br> y = ''1.50'' <br> Therefore, one kilogram of compost costs ''1.50'' euro. <br> The difference in price between one kilogram of bone meal and one kilogram of compost is: <br> (''40/23'') - ''1.50'' = ''0.65'' euro. <br> Therefore, one kilogram of bone meal costs ''0.65'' euro more than one kilogram of compost.",
-    "decision": "accept",
-    "id": 96
-  },
-  {
     "generator": "algebra-variant-word-1",
     "problem": "A train travels at a speed of 120 kilometers per hour. A car travels at a speed of 80 kilometers per hour. In how many hours will the train have traveled twice the distance of the car?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
     "solution": "Let 't' be the number of hours. <br> Distance traveled by the train: '120t' kilometers. <br> Distance traveled by the car: '80t' kilometers. <br> We want to find 't' when '120t = 2(80t)'. <br> Simplifying, '120t = 160t'. <br> Subtracting '120t' from both sides, '0 = 40t'. <br> Dividing both sides by '40', 't = 0'. <br> Therefore, the train will never have traveled twice the distance of the car.",
@@ -645,6 +638,76 @@
     "solution": "Let 'x' represent the amount of flour the baker needs to buy. <br> ''x + 0.75 = 1.5'' <br> ''x = 1.5 - 0.75'' <br> ''x = 0.75''",
     "decision": "accept",
     "id": 114
+  },
+  {
+    "generator": "algebra-variant-word-8",
+    "problem": "A chef charges \\$15 per plate of 'dishwater' he serves. He also receives a bonus of \\$75 for every 5 plates of 'dishwater' he serves in a day. How many plates of 'dishwater' must he serve in a day to earn \\$420?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' represent the number of plates of 'dishwater' the chef must serve. <br> The chef earns \\$15 per plate, so he earns '15x' from serving 'x' plates. <br> He also earns a bonus of \\$75 for every 5 plates, so he earns '75(x/5)' from the bonus. <br> The total amount he earns is '15x + 75(x/5)'. <br> We know he wants to earn \\$420, so we can set up the equation: '15x + 75(x/5) = 420'. <br> Simplifying the equation: '15x + 15x = 420'. <br> Combining like terms: '30x = 420'. <br> Solving for 'x': 'x = 420/30'. <br> Therefore, the chef must serve '14' plates of 'dishwater' to earn \\$420.",
+    "decision": "accept",
+    "id": 117
+  },
+  {
+    "generator": "algebra-variant-word-18",
+    "problem": "There were ''20'' more grams of incense in Jar A than in Jar B. Ms. Jones burned ''50'' grams of incense from Jar B and added it to Jar A. There were ''3'' times as many grams of incense in Jar A as in Jar B. How many grams of incense were there altogether?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let ''x'' represent the original number of grams of incense in Jar B. Jar A originally had ''x + 20'' grams. After the transfer, Jar B had ''x - 50'' grams, and Jar A had ''x + 20 + 50 = x + 70'' grams. We know that Jar A now has ''3'' times as many grams as Jar B, so we can set up the equation: ''x + 70 = 3(x - 50)''. Solving for ''x'': ''x + 70 = 3x - 150''. ''220 = 2x''. ''x = 110''. Jar B originally had ''110'' grams, and Jar A originally had ''110 + 20 = 130'' grams. Therefore, there were a total of ''110 + 130 = 240'' grams of incense altogether.",
+    "decision": "accept",
+    "id": 118
+  },
+  {
+    "generator": "algebra-variant-word-17",
+    "problem": "A baker used some flour to make a batch of bread. She used ''1/3'' of the flour for white bread and ''1/5'' of the flour for rye bread. If she used 800 grams less rye flour than white flour, how many grams of white flour did she use?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' be the total amount of flour used.<br>The baker used ''x/3'' grams of white flour.<br>The baker used ''x/5'' grams of rye flour.<br>The baker used ''x/3 - x/5 = 800'' grams more white flour than rye flour.<br>Simplifying, ''(5x - 3x)/15 = 800''.<br>Simplifying, ''2x/15 = 800''.<br>Multiplying both sides by ''15/2'', ''x = 800 * 15 / 2 = 6000''.<br>The baker used ''x/3 = 6000 / 3 = 2000'' grams of white flour.",
+    "decision": "accept",
+    "id": 119
+  },
+  {
+    "generator": "algebra-variant-word-3",
+    "problem": "A group of 75 friends planned a camping trip. They decided to split into two parallel groups for hiking. ''2/5'' of the group were women, and each of them carried the same weight in their backpacks. Each man carried a weight three times heavier than each woman. If the total weight carried by the men was 270 kg, how much weight did each woman carry in her backpack?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let ''x'' be the weight each woman carried. <br> The number of women is ''(2/5) * 75 = 30''. <br> The number of men is ''75 - 30 = 45''. <br> Each man carried ''3x'' kg. <br> The total weight carried by the men is ''45 * 3x = 135x''. <br> We know ''135x = 270''. <br> Therefore, ''x = 270 / 135 = 2''. <br> Each woman carried ''2'' kg in her backpack.",
+    "decision": "accept",
+    "id": 120
+  },
+  {
+    "generator": "algebra-variant-word-21",
+    "problem": "After drinking ''3/4'' of a bottle of juice on Sunday, ''0.2'' of the remaining juice on Monday, and ''250'' milliliters on Tuesday, Sarah still had ''750'' milliliters of juice left. How many milliliters of juice did she drink on Sunday?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let ''x'' be the total amount of juice in the bottle.<br> Sarah drank ''3/4 * x'' milliliters of juice on Sunday.<br> The remaining juice after Sunday is ''x - 3/4 * x = 1/4 * x''.<br> Sarah drank ''0.2 * 1/4 * x = 1/20 * x'' milliliters of juice on Monday.<br> The remaining juice after Monday is ''1/4 * x - 1/20 * x = 1/5 * x''.<br> After drinking ''250'' milliliters on Tuesday, Sarah had ''750'' milliliters left, so ''1/5 * x - 250 = 750''.<br> Solving for ''x'', we get ''x = 5000''.<br> Therefore, Sarah drank ''3/4 * 5000 = 3750'' milliliters of juice on Sunday.",
+    "decision": "accept",
+    "id": 121
+  },
+  {
+    "generator": "algebra-variant-word-6",
+    "problem": "A recipe for apple pie calls for ''200'' grams of flour. The recipe is being scaled up to use ''1.5'' times as much flour. How many grams of flour will be used in the scaled-up recipe?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let ''x'' represent the amount of flour in the scaled-up recipe. We know ''x'' is ''1.5'' times the original amount of flour, ''200'' grams. So we have the equation ''x = 1.5 * 200''. <br> Solving for ''x'' we find ''x = 300''. Therefore, the scaled-up recipe will use ''300'' grams of flour.",
+    "decision": "accept",
+    "id": 124
+  },
+  {
+    "generator": "algebra-variant-word-36",
+    "problem": "A scientist measured a 'hormone' level of 120 micrograms per deciliter in a patient's blood sample. This level was 3 times the normal level. What is the normal level of the 'hormone' in the patient's blood?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' represent the normal level of the 'hormone'.<br> 3x = 120<br> x = 120 / 3<br> x = 40",
+    "decision": "accept",
+    "id": 125
+  },
+  {
+    "generator": "algebra-variant-word-7",
+    "problem": "Alia had 120 liters of water, and Ben had 150 liters. After both of them used an equal amount of water for their plants, Ben had 2 times as much water as Alia. How much water did each of them use?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' be the amount of water each of them used. <br>Alia has '120 - x' liters left. <br>Ben has '150 - x' liters left. <br>We know that Ben has 2 times as much water as Alia, so: '150 - x' = 2 * ('120 - x'). <br>Solving for 'x': <br>150 - x = 240 - 2x <br>x = 90. <br>Therefore, each of them used '90' liters of water.",
+    "decision": "accept",
+    "id": 126
+  },
+  {
+    "generator": "algebra-variant-word-10",
+    "problem": "A golfer bought a set of golf clubs and a bag for 1200 euros. The golf clubs cost 850 euros. Find the cost of 3 sets of golf clubs and 2 bags.<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' be the cost of a golf bag. <br> The cost of a bag is 1200 - 850 = 350 euros. <br> The cost of 3 sets of golf clubs is 3 * 850 = 2550 euros. <br> The cost of 2 bags is 2 * 350 = 700 euros. <br> The cost of 3 sets of golf clubs and 2 bags is 2550 + 700 = 3250 euros.",
+    "decision": "accept",
+    "id": 130
+  },
+  {
+    "generator": "algebra-variant-word-36",
+    "problem": "The adjoining rooms of a house have a total area of 35 square meters. The larger room is 3 times the area of the smaller room. What is the area of the larger room?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
+    "solution": "Let 'x' be the area of the smaller room. <br> The area of the larger room is '3x'. <br> The total area is 'x + 3x = 35'. <br> Combining like terms, '4x = 35'. <br> Dividing both sides by '4', 'x = 35 / 4'. <br> The area of the larger room is '3x = 3 * (35 / 4) = 105 / 4' square meters.",
+    "decision": "accept",
+    "id": 131
   }
 ];
   
