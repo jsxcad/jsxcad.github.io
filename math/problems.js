@@ -332,13 +332,6 @@
     "id": 56
   },
   {
-    "generator": "algebra-variant-word-19",
-    "problem": "A conceptual artist had 12 more paintings in their studio than a traditional artist. ''1/3'' of the traditional artist's paintings were equal to ''1/2'' of the conceptual artist's paintings.<br>(a) How many paintings did the conceptual artist have?<br>(b) After the conceptual artist sold some paintings, they had ''1/4'' as many paintings as the traditional artist. How many paintings did the conceptual artist sell?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
-    "solution": "Let ''x'' represent the number of paintings the traditional artist had.<br>Let ''y'' represent the number of paintings the conceptual artist had.<br>y = x + ''12''<br>''1/3''x = ''1/2''y<br>Solving for ''y'' in the second equation: y = ''2/3''x<br>Setting the two expressions for ''y'' equal to each other: x + ''12'' = ''2/3''x<br>Solving for ''x'': ''1/3''x = ''12'' => x = ''36''<br>Solving for ''y'': y = ''36'' + ''12'' => y = ''48''<br>After selling paintings, the conceptual artist had ''1/4'' as many paintings as the traditional artist: ''1/4''x = ''1/4''(''36'') = ''9''<br>The conceptual artist sold ''48'' - ''9'' = ''39'' paintings.",
-    "decision": "accept",
-    "id": 57
-  },
-  {
     "generator": "algebra-variant-word-26",
     "problem": "There were 1200 grams of confetti in Container A and 300 grams of confetti in Container B. When an equal amount of confetti was added to each container, the amount of confetti in Container A was 4 times as much as that in Container B. How many grams of confetti were added to each container?<ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line><ruled-line></ruled-line>",
     "solution": "Let 'x' be the amount of confetti added to each container. <br> Container A: 1200 + x <br> Container B: 300 + x <br> 1200 + x = 4(300 + x) <br> 1200 + x = 1200 + 4x <br> 3x = 0 <br> x = 0",
