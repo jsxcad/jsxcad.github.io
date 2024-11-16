@@ -1,6 +1,34 @@
 import * as IDB from 'https://cdnjs.cloudflare.com/ajax/libs/idb-keyval/6.2.1/compat.min.js';
 import { problems } from './problems.js';
 
+const fromTextToQrCode = (text) => {
+  const qr = qrcodegen.QrCode.encodeText(text, qrcodegen.QrCode.Ecc.MEDIUM);
+
+  const toSvgString = (qr, border, lightColor, darkColor) => {
+    let parts = [];
+    for (let y = 0; y < qr.size; y++) {
+        for (let x = 0; x < qr.size; x++) {
+            if (qr.getModule(x, y))
+                parts.push(`M${x + border},${y + border}h1v1h-1z`);
+        }
+    }
+    return `
+      <svg width="64" height="64" viewBox="0 0 ${qr.size + border * 2} ${qr.size + border * 2}" stroke="none">
+ <rect width="100%" height="100%" fill="${lightColor}"/>
+ <path d="${parts.join(" ")}" fill="${darkColor}"/>
+      </svg>`;
+  };
+  const svgText = toSvgString(qr, 5, 'white', 'black');
+  const div = document.createElement('div');
+  div.innerHTML = svgText;
+  const svg = div.firstChild.nextSibling;
+  svg.style.float = 'right';
+  svg.style.zIndex = 10;
+  svg.style.top = '0px';
+  svg.style.border = 'solid black 1px';
+  return svg;
+}
+
 export const loadNote = async (key) => {
   const value = await IDB.get(key);
   if (value === undefined) {
@@ -86,6 +114,8 @@ export const generateProblemElement = ({ id = -1, generator, problem, solution, 
       <div class="generator">${generator}</div>
       ${problem}
     `;
+  const qrCode = fromTextToQrCode(solution);
+  e.prepend(qrCode);
   return e;
 }
 

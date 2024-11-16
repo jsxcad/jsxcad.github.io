@@ -169,22 +169,10 @@
       'arithmetic-integer-multiplication': 10000,
     };
     */
-    const generatorUseLimits = (false) ? {
-      'javascript': 1,
-      'arithmetic': 2,
-      'math': 0,
-      'english': 2,
-      'hanja': 1,
-      'korean': 0,
-      // 'algebra-symbolic-2': 2,
-      // 'algebra-word-2': 2,
-      'algebra-variant-symbolic': 2,
-      'algebra-variant-word': 2,
-    } : {
-      // 'algebra-variant-symbolic': 100,
-      'algebra-variant-word': 10,
-      // 'arithmetic-integer': 2,
-      // 'word-definition': 6,
+    const generatorUseLimits = {
+      'algebra-variant-word': 1,
+      'algebra-variant-abstract': 1,
+      'word-definition': 6,
     };
 
     const expandGeneratorUses = (generator) => {
@@ -270,7 +258,7 @@
     const sheet = document.getElementById('sheet');
     await renderSheet(sheet);
 
-    {
+    if (false) {
       const payload = `https://jsxcad.js.org/math/q.html?s=${signature.join(',')}`;
       const qr = qrcodegen.QrCode.encodeText(payload, qrcodegen.QrCode.Ecc.MEDIUM);
 
